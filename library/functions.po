@@ -6,14 +6,13 @@
 # Translators:
 # Raphael Mendonça, 2017
 # Welington Carlos <wcarlos3@gmail.com>, 2017
-# Italo Penaforte <italo.penaforte@gmail.com>, 2017
 # (Douglas da Silva) <dementikovalev@yandex.ru>, 2017
 # Misael borges <misael@planosassessoria.com.br>, 2017
 # Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2017
-# Risaffi <erikrisaffi@gmail.com>, 2018
 # VERUSKA RODRIGUES DA SILVA <veruskasilva@gmail.com>, 2018
 # felipe caridade <caridade500@gmail.com>, 2019
 # Adorilson Bezerra <adorilson@gmail.com>, 2019
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2019
 #
 #, fuzzy
 msgid ""
@@ -22,7 +21,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-26 11:33+0000\n"
 "PO-Revision-Date: 2017-02-16 23:11+0000\n"
-"Last-Translator: Adorilson Bezerra <adorilson@gmail.com>, 2019\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2019\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -618,6 +617,10 @@ msgid ""
 "string, a byte string, or an AST object.  Refer to the :mod:`ast` module "
 "documentation for information on how to work with AST objects."
 msgstr ""
+"Compila o argumento *source* em código ou objeto AST.  Objetos código podem "
+"ser executados por :func:`exec` ou :func:`eval`.  *source* pode ser uma "
+"string normal, uma string byte, ou um objeto AST. Consulte a documentação do "
+"módulo :mod:`ast` para saber como trabalhar com objetos  AST."
 
 #: ../../library/functions.rst:237
 msgid ""
@@ -625,6 +628,9 @@ msgid ""
 "pass some recognizable value if it wasn't read from a file (``'<string>'`` "
 "is commonly used)."
 msgstr ""
+"O argumento *filename* deve ser o arquivo de onde o código será lido; passe "
+"algum valor reconhecível se isso não foi lido de um arquivo (``'<string>'`` "
+"é comumente usado)."
 
 #: ../../library/functions.rst:241
 msgid ""
@@ -634,6 +640,11 @@ msgid ""
 "single interactive statement (in the latter case, expression statements that "
 "evaluate to something other than ``None`` will be printed)."
 msgstr ""
+"O argumento *mode* especifica qual o tipo de código deve ser compilado; pode "
+"ser ``'exec'`` se *source* consiste de uma sequência de instruções, "
+"``'eval'`` se consiste de uma única expressão, ou ``'single'`` se consiste "
+"de uma única instrução interativa (neste último caso, instruções que são "
+"avaliadas para alguma coisa diferente de ``None`` serão exibidas)."
 
 #: ../../library/functions.rst:247
 msgid ""
@@ -647,6 +658,16 @@ msgid ""
 "then the *flags* argument is it -- the future statements in effect around "
 "the call to compile are ignored."
 msgstr ""
+"Os argumentos opcionais *flags* e *dont_inherit* controlam qual :ref:"
+"`instrução futura <future>` afeta a compilação de *source*. Se nenhum está "
+"presente (ou ambos são zero) o código é compilado com as instruções futuras "
+"que estão agindo no código que está chamando :func:`compile`. Se o argumento "
+"*flags* é fornecido, mas *dont_inherit* não é (ou é zero) então a instrução "
+"futura especificada por *flags* são usada em adição àquelas que seriam usada "
+"de qualquer forma. Se *dont_inherit* é um inteiro diferente de zero então o "
+"argumento *flags* define as instruções futuras que serão utilizadas -- as "
+"instruções futuras atuando sobre o código que chama :func:`compile` são "
+"ignoradas."
 
 #: ../../library/functions.rst:257
 msgid ""
@@ -656,6 +677,11 @@ msgid ""
 "attribute on the :class:`~__future__._Feature` instance in the :mod:"
 "`__future__` module."
 msgstr ""
+"Instruções futuras são especificadas por bits, assim pode ocorrer uma "
+"operação *OU* bit a bit para especificar múltiplas instruções.  O "
+"sinalizador necessário para especificar um dado recurso pode ser encontrada "
+"no atributo :attr:`~__future__._Feature.compiler_flag` na instância :class:"
+"`~__future__._Feature` do módulo :mod:`__future__`."
 
 #: ../../library/functions.rst:262
 msgid ""
@@ -665,6 +691,11 @@ msgid ""
 "object has ``CO_COROUTINE`` set in ``co_code``, and can be interactively "
 "executed via ``await eval(code_object)``."
 msgstr ""
+"O argumento opcional *flags* também controla se é o código para compilar "
+"pode conter em nível superior ``await``, ``async for`` e ``async with``. "
+"Quando o bit ``ast.PyCF_ALLOW_TOP_LEVEL_AWAIT`` é definido, o código-objeto "
+"devolvido tem ``CO_COROUTINE`` definido em ``co_code``, e pode ser "
+"interativamente executado via ``await eval(code_object)``."
 
 #: ../../library/functions.rst:268
 msgid ""
@@ -674,24 +705,36 @@ msgid ""
 "optimization; ``__debug__`` is true), ``1`` (asserts are removed, "
 "``__debug__`` is false) or ``2`` (docstrings are removed too)."
 msgstr ""
+"O argumento *optimize* especifica o nível de otimização do compilador; o "
+"valor padrão de ``-1`` seleciona o nível de otimização do interpretador dado "
+"pela opção :option:`-O`.  Níveis explícitos são ``0`` (nenhuma otimização; "
+"``__debug__`` é verdadeiro), ``1`` (instruções ``assert`` são removidas, "
+"``__debug__`` é falso) ou ``2`` (strings de documentação também são "
+"removidas)."
 
 #: ../../library/functions.rst:274
 msgid ""
 "This function raises :exc:`SyntaxError` if the compiled source is invalid, "
 "and :exc:`ValueError` if the source contains null bytes."
 msgstr ""
+"Essa função levanta :exc:`SyntaxError` se o código para compilar é inválido, "
+"e :exc:`ValueError` se o código contém bytes nulos."
 
 #: ../../library/functions.rst:277
 msgid ""
 "If you want to parse Python code into its AST representation, see :func:`ast."
 "parse`."
 msgstr ""
+"Se você quer analisar código Python em sua representação AST, veja :func:"
+"`ast.parse`."
 
 #: ../../library/functions.rstNone
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``compile`` with arguments "
 "``source``, ``filename``."
 msgstr ""
+"Levanta um :ref:`evento de auditoria <auditing>` ``compile`` com  argumentos "
+"``source``, ``filename``."
 
 #: ../../library/functions.rst:282
 msgid ""
@@ -699,6 +742,9 @@ msgid ""
 "``source`` and ``filename``. This event may also be raised by implicit "
 "compilation."
 msgstr ""
+"Levanta um :ref:`evento de auditoria 1` ``compile`` com argumentos "
+"``source``, ``filename``. Esse evento pode também ser levantando por uma "
+"compilação implícita."
 
 #: ../../library/functions.rst:288
 msgid ""
@@ -707,6 +753,10 @@ msgid ""
 "to facilitate detection of incomplete and complete statements in the :mod:"
 "`code` module."
 msgstr ""
+"Quando compilindo uma string com código multi-linhas em modo ``'single'`` ou "
+"``'eval'``, entrada deve ser terminada por ao menos um caractere de nova "
+"linhas. Isso é para facilitar a detecção de instruções completas e "
+"incompletas no módulo :mod:`code`."
 
 #: ../../library/functions.rst:295
 msgid ""
@@ -714,24 +764,35 @@ msgid ""
 "complex string when compiling to an AST object due to stack depth "
 "limitations in Python's AST compiler."
 msgstr ""
+"É possível quebrar o interpretador Python com uma string suficiente grande/"
+"complexa quando compilando para uma objeto AST, devido limitações do tamanho "
+"da pilha no compilador AST do Python."
 
 #: ../../library/functions.rst:299
 msgid ""
 "Allowed use of Windows and Mac newlines.  Also input in ``'exec'`` mode does "
 "not have to end in a newline anymore.  Added the *optimize* parameter."
 msgstr ""
+"Permitido uso de marcadores de novas linhas no estilo Windows e Mac.  Além "
+"disso, em modo ``'exec'`` a entrada não precisa mais terminar com uma nova "
+"linha. Também foi adicionado o parâmetro *optimize*."
 
 #: ../../library/functions.rst:303
 msgid ""
 "Previously, :exc:`TypeError` was raised when null bytes were encountered in "
 "*source*."
 msgstr ""
+"Anteriormente, :exc:`TypeError` era levantada quando havia bytes nulos em "
+"*source*."
 
 #: ../../library/functions.rst:307
 msgid ""
 "``ast.PyCF_ALLOW_TOP_LEVEL_AWAIT`` can now be passed in flags to enable "
 "support for top-level ``await``, ``async for``, and ``async with``."
 msgstr ""
+"``ast.PyCF_ALLOW_TOP_LEVEL_AWAIT`` agora pode ser passado em *flags* para "
+"habilitar o suporte em nível superior a ``await``, ``async for``, e ``async "
+"with``."
 
 #: ../../library/functions.rst:314
 msgid ""
@@ -1025,7 +1086,7 @@ msgstr ""
 msgid "Return a floating point number constructed from a number or string *x*."
 msgstr ""
 "Retorna um número de ponto flutuante construído a partir de um número ou "
-"string * x *."
+"string *x*."
 
 #: ../../library/functions.rst:576
 msgid ""
@@ -1375,8 +1436,8 @@ msgid ""
 "The contents of this dictionary should not be modified; changes may not "
 "affect the values of local and free variables used by the interpreter."
 msgstr ""
-"O conteúdo deste dicionário não deve ser modificado; As alterações podem não "
-"afetar os valores das variáveis ​​locais e livres usadas pelo intérprete."
+"O conteúdo deste dicionário não deve ser modificado; as alterações podem não "
+"afetar os valores das variáveis ​​locais e livres usadas pelo interpretador."
 
 #: ../../library/functions.rst:915
 msgid ""
@@ -1520,7 +1581,7 @@ msgstr ""
 
 #: ../../library/functions.rst:1063
 msgid "Character"
-msgstr "Character"
+msgstr "Caractere"
 
 #: ../../library/functions.rst:1063
 msgid "Meaning"
@@ -2123,7 +2184,7 @@ msgstr ""
 msgid ""
 "For sorting examples and a brief sorting tutorial, see :ref:`sortinghowto`."
 msgstr ""
-"Para selecionar exemplos e um breve tutorial de classificação, veja: ref: "
+"Para selecionar exemplos e um breve tutorial de classificação, veja :ref:"
 "`sortinghowto`."
 
 #: ../../library/functions.rst:1532
@@ -2155,7 +2216,7 @@ msgid ""
 "class constructors."
 msgstr ""
 "Métodos estáticos em Python são similares àqueles encontrados em Java ou C+"
-"+. Veja também :func:`classmethod` para uma variante útil na criação de "
+"+. Veja também :func:`classmethod` para uma variante útil na criação de "
 "construtores de classe alternativos."
 
 #: ../../library/functions.rst:1551
