@@ -6,14 +6,14 @@
 # Translators:
 # Raphael Mendonça, 2017
 # Welington Carlos <wcarlos3@gmail.com>, 2017
-# Italo Penaforte <italo.penaforte@gmail.com>, 2017
 # (Douglas da Silva) <dementikovalev@yandex.ru>, 2017
 # Misael borges <misael@planosassessoria.com.br>, 2017
 # Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2017
-# Risaffi <erikrisaffi@gmail.com>, 2018
 # VERUSKA RODRIGUES DA SILVA <veruskasilva@gmail.com>, 2018
 # felipe caridade <caridade500@gmail.com>, 2019
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2019
 # Adorilson Bezerra <adorilson@gmail.com>, 2019
+# Vinícius Gubiani Ferreira <vini.g.fer@gmail.com>, 2019
 #
 #, fuzzy
 msgid ""
@@ -22,7 +22,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-26 11:33+0000\n"
 "PO-Revision-Date: 2017-02-16 23:11+0000\n"
-"Last-Translator: Adorilson Bezerra <adorilson@gmail.com>, 2019\n"
+"Last-Translator: Vinícius Gubiani Ferreira <vini.g.fer@gmail.com>, 2019\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -393,8 +393,8 @@ msgid ""
 "``True`` (see :ref:`bltin-boolean-values`)."
 msgstr ""
 "Retorna um valor Booleano, isto é, ``True`` ou ``False``. *x* é convertida "
-"usando o  :ref:`procedimento de teste verdade padrão<truth>`. Se *x* é falso "
-"ou foi omitido, isso retorna ``False``; senão ele retorna ``True``. A "
+"usando o  :ref:`procedimento de teste de verdade <truth>` padrão. Se *x* é "
+"falso ou foi omitido, isso retorna ``False``; senão ele retorna ``True``. A "
 "classe :class:`bool` é uma subclasse de :class:`int` (veja :ref:"
 "`typesnumeric`). Ela não pode ser usada para criar outra subclasse. Suas "
 "únicas instâncias são ``False`` e ``True`` (veja :ref:`bltin-boolean-"
@@ -618,6 +618,10 @@ msgid ""
 "string, a byte string, or an AST object.  Refer to the :mod:`ast` module "
 "documentation for information on how to work with AST objects."
 msgstr ""
+"Compila o argumento *source* em código ou objeto AST.  Objetos código podem "
+"ser executados por :func:`exec` ou :func:`eval`.  *source* pode ser uma "
+"string normal, uma string byte, ou um objeto AST. Consulte a documentação do "
+"módulo :mod:`ast` para saber como trabalhar com objetos  AST."
 
 #: ../../library/functions.rst:237
 msgid ""
@@ -625,6 +629,9 @@ msgid ""
 "pass some recognizable value if it wasn't read from a file (``'<string>'`` "
 "is commonly used)."
 msgstr ""
+"O argumento *filename* deve ser o arquivo de onde o código será lido; passe "
+"algum valor reconhecível se isso não foi lido de um arquivo (``'<string>'`` "
+"é comumente usado)."
 
 #: ../../library/functions.rst:241
 msgid ""
@@ -634,6 +641,11 @@ msgid ""
 "single interactive statement (in the latter case, expression statements that "
 "evaluate to something other than ``None`` will be printed)."
 msgstr ""
+"O argumento *mode* especifica qual o tipo de código deve ser compilado; pode "
+"ser ``'exec'`` se *source* consiste em uma sequência de instruções, "
+"``'eval'`` se consiste de uma única expressão, ou ``'single'`` se consiste "
+"de uma única instrução interativa (neste último caso, instruções que são "
+"avaliadas para alguma coisa diferente de ``None`` serão exibidas)."
 
 #: ../../library/functions.rst:247
 msgid ""
@@ -647,6 +659,16 @@ msgid ""
 "then the *flags* argument is it -- the future statements in effect around "
 "the call to compile are ignored."
 msgstr ""
+"Os argumentos opcionais *flags* e *dont_inherit* controlam qual :ref:"
+"`instrução futura <future>` afeta a compilação de *source*. Se nenhum está "
+"presente (ou ambos são zero) o código é compilado com as instruções futuras "
+"que estão agindo no código que está chamando :func:`compile`. Se o argumento "
+"*flags* é fornecido, mas *dont_inherit* não é (ou é zero) então a instrução "
+"futura especificada por *flags* são usada em adição àquelas que seriam usada "
+"de qualquer forma. Se *dont_inherit* é um inteiro diferente de zero então o "
+"argumento *flags* define as instruções futuras que serão utilizadas -- as "
+"instruções futuras atuando sobre o código que chama :func:`compile` são "
+"ignoradas."
 
 #: ../../library/functions.rst:257
 msgid ""
@@ -656,6 +678,11 @@ msgid ""
 "attribute on the :class:`~__future__._Feature` instance in the :mod:"
 "`__future__` module."
 msgstr ""
+"Instruções futuras são especificadas por bits, assim pode ocorrer uma "
+"operação *OU* bit a bit para especificar múltiplas instruções.  O "
+"sinalizador necessário para especificar um dado recurso pode ser encontrada "
+"no atributo :attr:`~__future__._Feature.compiler_flag` na instância :class:"
+"`~__future__._Feature` do módulo :mod:`__future__`."
 
 #: ../../library/functions.rst:262
 msgid ""
@@ -665,6 +692,11 @@ msgid ""
 "object has ``CO_COROUTINE`` set in ``co_code``, and can be interactively "
 "executed via ``await eval(code_object)``."
 msgstr ""
+"O argumento opcional *flags* também controla se é o código para compilar "
+"pode conter em nível superior ``await``, ``async for`` e ``async with``. "
+"Quando o bit ``ast.PyCF_ALLOW_TOP_LEVEL_AWAIT`` é definido, o código-objeto "
+"devolvido tem ``CO_COROUTINE`` definido em ``co_code``, e pode ser "
+"interativamente executado via ``await eval(code_object)``."
 
 #: ../../library/functions.rst:268
 msgid ""
@@ -674,24 +706,36 @@ msgid ""
 "optimization; ``__debug__`` is true), ``1`` (asserts are removed, "
 "``__debug__`` is false) or ``2`` (docstrings are removed too)."
 msgstr ""
+"O argumento *optimize* especifica o nível de otimização do compilador; o "
+"valor padrão de ``-1`` seleciona o nível de otimização do interpretador dado "
+"pela opção :option:`-O`.  Níveis explícitos são ``0`` (nenhuma otimização; "
+"``__debug__`` é verdadeiro), ``1`` (instruções ``assert`` são removidas, "
+"``__debug__`` é falso) ou ``2`` (strings de documentação também são "
+"removidas)."
 
 #: ../../library/functions.rst:274
 msgid ""
 "This function raises :exc:`SyntaxError` if the compiled source is invalid, "
 "and :exc:`ValueError` if the source contains null bytes."
 msgstr ""
+"Essa função levanta :exc:`SyntaxError` se o código para compilar é inválido, "
+"e :exc:`ValueError` se o código contém bytes nulos."
 
 #: ../../library/functions.rst:277
 msgid ""
 "If you want to parse Python code into its AST representation, see :func:`ast."
 "parse`."
 msgstr ""
+"Se você quer analisar código Python em sua representação AST, veja :func:"
+"`ast.parse`."
 
 #: ../../library/functions.rstNone
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``compile`` with arguments "
 "``source``, ``filename``."
 msgstr ""
+"Levanta um :ref:`evento de auditoria <auditing>` ``compile`` com  argumentos "
+"``source``, ``filename``."
 
 #: ../../library/functions.rst:282
 msgid ""
@@ -699,6 +743,9 @@ msgid ""
 "``source`` and ``filename``. This event may also be raised by implicit "
 "compilation."
 msgstr ""
+"Levanta um :ref:`evento de auditoria <auditing>` ``compile`` com argumentos "
+"``source``, ``filename``. Esse evento pode também ser levantando por uma "
+"compilação implícita."
 
 #: ../../library/functions.rst:288
 msgid ""
@@ -707,6 +754,10 @@ msgid ""
 "to facilitate detection of incomplete and complete statements in the :mod:"
 "`code` module."
 msgstr ""
+"Quando compilindo uma string com código multi-linhas em modo ``'single'`` ou "
+"``'eval'``, entrada deve ser terminada por ao menos um caractere de nova "
+"linhas. Isso é para facilitar a detecção de instruções completas e "
+"incompletas no módulo :mod:`code`."
 
 #: ../../library/functions.rst:295
 msgid ""
@@ -714,24 +765,35 @@ msgid ""
 "complex string when compiling to an AST object due to stack depth "
 "limitations in Python's AST compiler."
 msgstr ""
+"É possível quebrar o interpretador Python com uma string suficiente grande/"
+"complexa quando compilando para uma objeto AST, devido limitações do tamanho "
+"da pilha no compilador AST do Python."
 
 #: ../../library/functions.rst:299
 msgid ""
 "Allowed use of Windows and Mac newlines.  Also input in ``'exec'`` mode does "
 "not have to end in a newline anymore.  Added the *optimize* parameter."
 msgstr ""
+"Permitido uso de marcadores de novas linhas no estilo Windows e Mac.  Além "
+"disso, em modo ``'exec'`` a entrada não precisa mais terminar com uma nova "
+"linha. Também foi adicionado o parâmetro *optimize*."
 
 #: ../../library/functions.rst:303
 msgid ""
 "Previously, :exc:`TypeError` was raised when null bytes were encountered in "
 "*source*."
 msgstr ""
+"Anteriormente, :exc:`TypeError` era levantada quando havia bytes nulos em "
+"*source*."
 
 #: ../../library/functions.rst:307
 msgid ""
 "``ast.PyCF_ALLOW_TOP_LEVEL_AWAIT`` can now be passed in flags to enable "
 "support for top-level ``await``, ``async for``, and ``async with``."
 msgstr ""
+"``ast.PyCF_ALLOW_TOP_LEVEL_AWAIT`` agora pode ser passado em *flags* para "
+"habilitar o suporte em nível superior a ``await``, ``async for``, e ``async "
+"with``."
 
 #: ../../library/functions.rst:314
 msgid ""
@@ -744,6 +806,14 @@ msgid ""
 "conversion like :class:`int` and :class:`float`.  If both arguments are "
 "omitted, returns ``0j``."
 msgstr ""
+"Retorna um número completo com o valor *real* + *imag*\\*1j ou converte uma "
+"string ou número para um número complexo.  Se o primeiro parâmetro é uma "
+"string, ele será interpretado como um número complexo e a função deve ser "
+"chamada sem um segundo parâmetro.  O segundo parâmetro nunca deve ser uma "
+"string. Cada argumento pode ser qualquer tipo numérico (incluindo "
+"complexo).  Se *imag* é omitido, seu valor padrão é zero e a construção "
+"funciona como uma conversão numérica, similar a  :class:`int` e :class:"
+"`float`.  Se os dois argumentos são omitidos, retorna ``0j``."
 
 #: ../../library/functions.rst:323
 msgid ""
@@ -752,6 +822,10 @@ msgid ""
 "meth:`__float__`.  If ``__float__()`` is not defined then it falls back to :"
 "meth:`__index__`."
 msgstr ""
+"Para um objeto Python ``x`` qualquer, ``complex(x)`` delega para ``x."
+"__complex__()``.  Se ``__complex__()`` não está definido então a chamada é "
+"repassada para :meth:`__float__`.  Se ``__float__()`` não está definido "
+"então a chamada é, novamente,  repassada para :meth:`__index__`."
 
 #: ../../library/functions.rst:330
 msgid ""
@@ -759,10 +833,14 @@ msgid ""
 "the central ``+`` or ``-`` operator.  For example, ``complex('1+2j')`` is "
 "fine, but ``complex('1 + 2j')`` raises :exc:`ValueError`."
 msgstr ""
+"Quando convertendo a partir de uma string, a string não pode conter espaços "
+"em branco em torno  ``+`` central ou do  operador ``-``.  Por exemplo, "
+"``complex('1+2j')`` funciona, mas ``complex('1 + 2j')`` levanta :exc:"
+"`ValueError`."
 
 #: ../../library/functions.rst:335
 msgid "The complex type is described in :ref:`typesnumeric`."
-msgstr ""
+msgstr "O tipo complexo está descrito em :ref:`typesnumeric`."
 
 #: ../../library/functions.rst:337 ../../library/functions.rst:622
 #: ../../library/functions.rst:829
@@ -775,6 +853,8 @@ msgid ""
 "Falls back to :meth:`__index__` if :meth:`__complex__` and :meth:`__float__` "
 "are not defined."
 msgstr ""
+"Chamadas para :meth:`__index__` se :meth:`__complex__` e :meth:`__float__` "
+"não estão definidas."
 
 #: ../../library/functions.rst:347
 msgid ""
@@ -783,18 +863,26 @@ msgid ""
 "function deletes the named attribute, provided the object allows it.  For "
 "example, ``delattr(x, 'foobar')`` is equivalent to ``del x.foobar``."
 msgstr ""
+"Essa função está relacionada com :func:`setattr`.  Os argumentos são um "
+"objeto e uma string. A string deve ser o nome de um dos atributos do objeto. "
+"A função remove o atributo indicado, desde que o objeto permita. Por "
+"exemplo, ``delattr(x, 'foobar')`` é equivalente a ``del x.foobar``."
 
 #: ../../library/functions.rst:359
 msgid ""
 "Create a new dictionary.  The :class:`dict` object is the dictionary class. "
 "See :class:`dict` and :ref:`typesmapping` for documentation about this class."
 msgstr ""
+"Cria um novo dicionário. O objeto :class:`dict` é a classe do dicionário. "
+"Veja :class:`dict` e :ref:`typesmapping` para documentação sobre esta classe."
 
 #: ../../library/functions.rst:362
 msgid ""
 "For other containers see the built-in :class:`list`, :class:`set`, and :"
 "class:`tuple` classes, as well as the :mod:`collections` module."
 msgstr ""
+"Para outros contêineres, consulte as classes internas :class:`list`, :class:"
+"`set` e :class:`tuple`, bem como o módulo :mod:`collections`."
 
 #: ../../library/functions.rst:368
 msgid ""
@@ -802,6 +890,8 @@ msgid ""
 "With an argument, attempt to return a list of valid attributes for that "
 "object."
 msgstr ""
+"Sem argumentos, devolve a lista de nomes no escopo local atual. Com um "
+"argumento, tentará devolver uma lista de atributos válidos para esse objeto."
 
 #: ../../library/functions.rst:371
 msgid ""
@@ -810,6 +900,11 @@ msgid ""
 "custom :func:`__getattr__` or :func:`__getattribute__` function to customize "
 "the way :func:`dir` reports their attributes."
 msgstr ""
+"Se o objeto tiver um método chamado :meth:`__dir__`, esse método será "
+"chamado e deve devolver a lista de atributos. Isso permite que objetos que "
+"implementam uma função personalizada :func:`__getattr__` ou :func:"
+"`__getattribute__` personalizem a maneira como :func:`dir` relata seus "
+"atributos."
 
 #: ../../library/functions.rst:376
 msgid ""
@@ -819,6 +914,11 @@ msgid ""
 "complete, and may be inaccurate when the object has a custom :func:"
 "`__getattr__`."
 msgstr ""
+"Se o objeto não fornecer :meth:`__dir__`, a função tentará o melhor possível "
+"para coletar informações do atributo :attr:`~object.__dict__` do objeto, se "
+"definido, e do seu objeto de tipo. A lista resultante não está "
+"necessariamente completa e pode ser imprecisa quando o objeto possui um :"
+"func:`__getattr__` personalizado."
 
 #: ../../library/functions.rst:381
 msgid ""
@@ -826,18 +926,25 @@ msgid ""
 "of objects, as it attempts to produce the most relevant, rather than "
 "complete, information:"
 msgstr ""
+"O mecanismo padrão :func:`dir` se comporta de maneira diferente com "
+"diferentes tipos de objetos, pois tenta produzir as informações mais "
+"relevantes e não completas:"
 
 #: ../../library/functions.rst:385
 msgid ""
 "If the object is a module object, the list contains the names of the "
 "module's attributes."
 msgstr ""
+"Se o objeto for um objeto de módulo, a lista conterá os nomes dos atributos "
+"do módulo."
 
 #: ../../library/functions.rst:388
 msgid ""
 "If the object is a type or class object, the list contains the names of its "
 "attributes, and recursively of the attributes of its bases."
 msgstr ""
+"Se o objeto for um objeto de tipo ou classe, a lista conterá os nomes de "
+"seus atributos e recursivamente os atributos de suas bases."
 
 #: ../../library/functions.rst:391
 msgid ""
@@ -845,6 +952,9 @@ msgid ""
 "its class's attributes, and recursively of the attributes of its class's "
 "base classes."
 msgstr ""
+"Caso contrário, a lista conterá os nomes dos atributos do objeto, os nomes "
+"dos atributos da classe e recursivamente os atributos das classes base da "
+"classe."
 
 #: ../../library/functions.rst:395
 msgid "The resulting list is sorted alphabetically.  For example:"
@@ -858,6 +968,12 @@ msgid ""
 "its detailed behavior may change across releases.  For example, metaclass "
 "attributes are not in the result list when the argument is a class."
 msgstr ""
+"Como :func:`dir` é fornecido principalmente como uma conveniência para uso "
+"em um prompt interativo, ele tenta fornecer um conjunto interessante de "
+"nomes mais do que tenta fornecer um conjunto de nomes definido de forma "
+"rigorosa ou consistente, e seu comportamento detalhado pode mudar nos "
+"lançamentos. Por exemplo, os atributos de metaclasse não estão na lista de "
+"resultados quando o argumento é uma classe."
 
 #: ../../library/functions.rst:424
 msgid ""
@@ -870,6 +986,15 @@ msgid ""
 "is very close to *a*, if ``a % b`` is non-zero it has the same sign as *b*, "
 "and ``0 <= abs(a % b) < abs(b)``."
 msgstr ""
+"Toma dois números (não complexos) como argumentos e devolve um par de "
+"números que consiste em seu quociente e restante ao usar a divisão inteira. "
+"Com tipos de operandos mistos, as regras para operadores aritméticos "
+"binários se aplicam. Para números inteiros, o resultado é o mesmo que "
+"``(a // b, a % b)``. Para números de ponto flutuante, o resultado é ``(q, a "
+"% b)``, onde *q* geralmente é ``math.floor(a / b)``, mas pode ser 1 a menos "
+"que isso. Em qualquer caso, ``q * b + a % b`` está muito próximo de *a*, se "
+"``a % b`` é diferente de zero, tem o mesmo sinal que *b* e ``0 <= abs(a % b) "
+"< abs(b)``."
 
 #: ../../library/functions.rst:436
 msgid ""
@@ -879,6 +1004,11 @@ msgid ""
 "returns a tuple containing a count (from *start* which defaults to 0) and "
 "the values obtained from iterating over *iterable*."
 msgstr ""
+"Devolve um objeto enumerado. *iterable* deve ser uma sequência, um :term:"
+"`iterador` ou algum outro objeto que suporte a iteração. O método :meth:"
+"`~iterator.__next__` do iterador retornado por :func:`enumerate` devolve uma "
+"tupla contendo uma contagem (a partir de *start*, cujo padrão é 0) e os "
+"valores obtidos na iteração sobre *iterable*."
 
 #: ../../library/functions.rst:448
 msgid "Equivalent to::"
@@ -890,6 +1020,9 @@ msgid ""
 "*globals* must be a dictionary.  If provided, *locals* can be any mapping "
 "object."
 msgstr ""
+"Os argumentos são uma sequência de caracteres e globais e locais opcionais. "
+"Se fornecido, *globals* deve ser um dicionário. Se fornecido, *locals* pode "
+"ser qualquer objeto de mapeamento."
 
 #: ../../library/functions.rst:463
 msgid ""
@@ -907,12 +1040,26 @@ msgid ""
 "access to the :term:`nested scope`\\s (non-locals) in the enclosing "
 "environment."
 msgstr ""
+"O argumento *expression* é analisado e avaliado como uma expressão Python "
+"(tecnicamente falando, uma lista de condições) usando os dicionários "
+"*globals* e *locals* como espaço de nome global e local. Se o dicionário "
+"*globals* estiver presente e não contiver um valor para a chave "
+"``__builtins__``, uma referência ao dicionário do módulo interno :mod:"
+"`builtins` será inserida sob essa chave antes de *expression* ser analisado. "
+"Isso significa que *expression* normalmente tem acesso total ao módulo "
+"padrão :mod:`builtins` e ambientes restritos são propagados. Se o dicionário "
+"*locals* for omitido, o padrão será o dicionário *globals*. Se os dois "
+"dicionários forem omitidos, a expressão será executada com os *globals* e "
+"*locals* no ambiente em que :func:`eval` é chamado. Observe que *eval()* não "
+"tem acesso a :term:`escopo aninhado`\\s (não locais) no ambiente anexo."
 
 #: ../../library/functions.rst:477
 msgid ""
 "The return value is the result of the evaluated expression. Syntax errors "
 "are reported as exceptions.  Example:"
 msgstr ""
+"O valor de retorno é o resultado da expressão avaliada. Erros de sintaxe são "
+"relatados como exceções. Exemplo:"
 
 #: ../../library/functions.rst:484
 msgid ""
@@ -921,6 +1068,11 @@ msgid ""
 "of a string.  If the code object has been compiled with ``'exec'`` as the "
 "*mode* argument, :func:`eval`\\'s return value will be ``None``."
 msgstr ""
+"Esta função também pode ser usada para executar objetos de código "
+"arbitrários (como os criados por :func:`compile`). Nesse caso, passe um "
+"objeto de código em vez de uma string. Se o objeto de código foi compilado "
+"com ``'exec'`` como o argumento *mode*, o valor de retorno de :func:`eval` "
+"será ``None``."
 
 #: ../../library/functions.rst:489
 msgid ""
@@ -929,24 +1081,35 @@ msgid ""
 "current global and local dictionary, respectively, which may be useful to "
 "pass around for use by :func:`eval` or :func:`exec`."
 msgstr ""
+"Dicas: a execução dinâmica de instruções é suportada pela função :func:"
+"`exec`. As funções :func:`globals` e :func:`locals` retornam o dicionário "
+"global e local atual, respectivamente, o que pode ser útil para ser usado "
+"por :func:`eval` ou :func:`exec`."
 
 #: ../../library/functions.rst:494
 msgid ""
 "See :func:`ast.literal_eval` for a function that can safely evaluate strings "
 "with expressions containing only literals."
 msgstr ""
+"Veja :func:`ast.literal_eval` para uma função que pode avaliar com segurança "
+"strings com expressões contendo apenas literais."
 
 #: ../../library/functions.rstNone
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``exec`` with argument "
 "``code_object``."
 msgstr ""
+"Levanta um :ref:`evento de auditoria <auditing>` ``exec`` com argumento "
+"``code_object``."
 
 #: ../../library/functions.rst:499 ../../library/functions.rst:534
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``exec`` with the code object as "
 "the argument. Code compilation events may also be raised."
 msgstr ""
+"Levanta um :ref:`evento de auditioria <auditing>` ``exec`` com o código "
+"objeto como argumento. Eventos de compilação de código também podem ser "
+"levantados."
 
 #: ../../library/functions.rst:506
 msgid ""
@@ -1025,7 +1188,7 @@ msgstr ""
 msgid "Return a floating point number constructed from a number or string *x*."
 msgstr ""
 "Retorna um número de ponto flutuante construído a partir de um número ou "
-"string * x *."
+"string *x*."
 
 #: ../../library/functions.rst:576
 msgid ""
@@ -1289,7 +1452,7 @@ msgstr ""
 
 #: ../../library/functions.rst:820
 msgid "The integer type is described in :ref:`typesnumeric`."
-msgstr ""
+msgstr "O tipo inteiro está descrito em :ref:`typesnumeric`."
 
 #: ../../library/functions.rst:822
 msgid ""
@@ -1340,7 +1503,7 @@ msgstr ""
 
 #: ../../library/functions.rst:875
 msgid "See also :ref:`typeiter`."
-msgstr ""
+msgstr "Veja também :ref:`typeiter`."
 
 #: ../../library/functions.rst:877
 msgid ""
@@ -1348,6 +1511,9 @@ msgid ""
 "block-reader. For example, reading fixed-width blocks from a binary database "
 "file until the end of file is reached::"
 msgstr ""
+"Uma aplicação útil da segunda forma de :func:`iter` é para construir um "
+"bloco de leitura. Por exemplo, ler blocos de comprimento fixo de um arquivo "
+"binário de banco de dados até que o final do arquivo seja atingido::"
 
 #: ../../library/functions.rst:889
 msgid ""
@@ -1375,8 +1541,8 @@ msgid ""
 "The contents of this dictionary should not be modified; changes may not "
 "affect the values of local and free variables used by the interpreter."
 msgstr ""
-"O conteúdo deste dicionário não deve ser modificado; As alterações podem não "
-"afetar os valores das variáveis ​​locais e livres usadas pelo intérprete."
+"O conteúdo deste dicionário não deve ser modificado; as alterações podem não "
+"afetar os valores das variáveis ​​locais e livres usadas pelo interpretador."
 
 #: ../../library/functions.rst:915
 msgid ""
@@ -1425,7 +1591,7 @@ msgstr ""
 
 #: ../../library/functions.rst:948 ../../library/functions.rst:985
 msgid "The *key* can be ``None``."
-msgstr ""
+msgstr "O valor de *key* pode ser ``None``."
 
 #: ../../library/functions.rst:956
 msgid ""
@@ -1520,7 +1686,7 @@ msgstr ""
 
 #: ../../library/functions.rst:1063
 msgid "Character"
-msgstr "Character"
+msgstr "Caractere"
 
 #: ../../library/functions.rst:1063
 msgid "Meaning"
@@ -2123,7 +2289,7 @@ msgstr ""
 msgid ""
 "For sorting examples and a brief sorting tutorial, see :ref:`sortinghowto`."
 msgstr ""
-"Para selecionar exemplos e um breve tutorial de classificação, veja: ref: "
+"Para selecionar exemplos e um breve tutorial de classificação, veja :ref:"
 "`sortinghowto`."
 
 #: ../../library/functions.rst:1532
@@ -2155,7 +2321,7 @@ msgid ""
 "class constructors."
 msgstr ""
 "Métodos estáticos em Python são similares àqueles encontrados em Java ou C+"
-"+. Veja também :func:`classmethod` para uma variante útil na criação de "
+"+. Veja também :func:`classmethod` para uma variante útil na criação de "
 "construtores de classe alternativos."
 
 #: ../../library/functions.rst:1551
