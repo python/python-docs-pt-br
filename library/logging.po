@@ -7,6 +7,7 @@
 # Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2017
 # Katyanna Moura <amelie.kn@gmail.com>, 2019
 # Hildeberto Abreu Magalhães <hildeberto@gmail.com>, 2019
+# Marco Rougeth <marco@rougeth.com>, 2019
 #
 #, fuzzy
 msgid ""
@@ -15,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-13 11:56+0000\n"
 "PO-Revision-Date: 2017-02-16 23:17+0000\n"
-"Last-Translator: Hildeberto Abreu Magalhães <hildeberto@gmail.com>, 2019\n"
+"Last-Translator: Marco Rougeth <marco@rougeth.com>, 2019\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +27,7 @@ msgstr ""
 
 #: ../../library/logging.rst:2
 msgid ":mod:`logging` --- Logging facility for Python"
-msgstr ":mod:`logging` --- Facilidade para registrar com Python"
+msgstr ":mod:`logging` --- Facilidade para registro de eventos com Python"
 
 #: ../../library/logging.rst:10
 msgid "**Source code:** :source:`Lib/logging/__init__.py`"
@@ -78,36 +79,46 @@ msgid ""
 "unfamiliar with logging, the best way to get to grips with it is to see the "
 "tutorials (see the links on the right)."
 msgstr ""
+"O módulo fornece muita funcionalidade e flexibilidade. Se não for familiar "
+"com registro de eventos, a melhor forma de lidar com isso é verificar os "
+"tutoriais (siga os links à direita)."
 
 #: ../../library/logging.rst:37
 msgid ""
 "The basic classes defined by the module, together with their functions, are "
 "listed below."
 msgstr ""
+"As classes básicas definidas no módulo, juntamente com suas funções, são "
+"listdas abaixo."
 
 #: ../../library/logging.rst:40
 msgid "Loggers expose the interface that application code directly uses."
-msgstr ""
+msgstr "Loggers expõem a interface que o código da aplicação usa diretamente."
 
 #: ../../library/logging.rst:41
 msgid ""
 "Handlers send the log records (created by loggers) to the appropriate "
 "destination."
 msgstr ""
+"Handlers enviam os registros do evento (criados por loggers) aos destinos "
+"apropriados."
 
 #: ../../library/logging.rst:43
 msgid ""
 "Filters provide a finer grained facility for determining which log records "
 "to output."
 msgstr ""
+"Filters fornecem uma facilidade granular para determinar quais registros de "
+"eventos enviar à saída."
 
 #: ../../library/logging.rst:45
 msgid "Formatters specify the layout of log records in the final output."
 msgstr ""
+"Formatters especificam o layout dos registros de eventos na saída final."
 
 #: ../../library/logging.rst:51
 msgid "Logger Objects"
-msgstr ""
+msgstr "Objetos Logger"
 
 #: ../../library/logging.rst:53
 msgid ""
@@ -116,6 +127,10 @@ msgid ""
 "function ``logging.getLogger(name)``.  Multiple calls to :func:`getLogger` "
 "with the same name will always return a reference to the same Logger object."
 msgstr ""
+"Loggers tem os atributos e métodos a seguir. Observem que Loggers *NUNCA* "
+"devem ser instanciados diretamete, mas sempre através da função ``logging."
+"getLogger(name)``. Múltiplas chamadas à função :func:`getLogger` com o mesmo "
+"nome sempre retornará uma referência para o mesmo objeto Logger."
 
 #: ../../library/logging.rst:58
 msgid ""
@@ -130,6 +145,16 @@ msgid ""
 "getLogger(__name__)``.  That's because in a module, ``__name__`` is the "
 "module's name in the Python package namespace."
 msgstr ""
+"O ``name`` é, potencialmente, um valor hierárquico separado por ponto, como "
+"``foo.bar.baz`` (embora também possa ser simplesmente ``foo``, por exemplo). "
+"Loggers que estão mais abaixo na lista hierárquica são filhos de loggers que "
+"estão acima na lista. Por exemplo, dado um logger  com nome ``foo``, loggers "
+"com nomes de ``foo.bar``, ``foo.bar.baz``, e ``foo.bam`` são todos "
+"descendentes de ``foo``.  A hierarquia do nome do logger é análoga à dos "
+"pacotes Python, e idêntica a esses, se você organizar seus loggers baseado "
+"nos módulos, usando a construção recomendada ``logging."
+"getLogger(__name__)``.  Isso porque num módulo, ``__name__`` é o nome do "
+"módulo no espaço de nomes do pacote Python."
 
 #: ../../library/logging.rst:74
 msgid ""
@@ -139,16 +164,21 @@ msgid ""
 "ancestor loggers' handlers - neither the level nor filters of the ancestor "
 "loggers in question are considered."
 msgstr ""
+"Se este atributo for avaliado como verdadeiro, os registros de eventos para "
+"esse logger serão repassados para loggers de níveis superiores (ancestrais), "
+"em adição a qualquer destino configurado para esse logger."
 
 #: ../../library/logging.rst:80
 msgid ""
 "If this evaluates to false, logging messages are not passed to the handlers "
 "of ancestor loggers."
 msgstr ""
+"Se o valor for falso, as mensagens de registro de eventos não são passadas "
+"para loggers ancestrais."
 
 #: ../../library/logging.rst:83
 msgid "The constructor sets this attribute to ``True``."
-msgstr ""
+msgstr "O construtor atribui este valor como  ``True``."
 
 #: ../../library/logging.rst:85
 msgid ""
@@ -161,6 +191,14 @@ msgid ""
 "handlers only to the root logger, and to let propagation take care of the "
 "rest."
 msgstr ""
+"Se você configurar um destino para o logger *e* um ou mais dos ancestrais, "
+"pode acontecer que a mesma mensagem seja registrada várias vezes. Em geral, "
+"você não precisa configurar saídas para mais que um logger - se você "
+"configurar apenas para o logger principal da hierarquia, então todos os "
+"eventos dos loggers descendentes serão visualizados ali, fornecido pela "
+"configuração de propagação, cujo padrão é  ``True``. Um cenário comum é "
+"configurar as saídas somente no logger raiz, e deixar a propagação tomar "
+"conta do resto."
 
 #: ../../library/logging.rst:96
 msgid ""
@@ -170,6 +208,11 @@ msgid ""
 "service this logger, unless a handler's level has been set to a higher "
 "severity level than *level*."
 msgstr ""
+"Ajuste o limite para este logger para *level*. Mensagens de registro de "
+"eventos que forem menos severas que este *level* serão ignoradas; mensagens "
+"que tenham nível de severidade igual ou maior que  *level* serão emitidas "
+"para os destinos de saída configurados para o logger, a menos que o nível da "
+"saída tenha sido configurado para uma severidade ainda maior."
 
 #: ../../library/logging.rst:101
 msgid ""
@@ -1885,11 +1928,11 @@ msgstr "Módulo :mod:`logging.config`"
 
 #: ../../library/logging.rst:1302
 msgid "Configuration API for the logging module."
-msgstr ""
+msgstr "API de configuração para o módulo logging."
 
 #: ../../library/logging.rst:1305
 msgid "Module :mod:`logging.handlers`"
-msgstr ""
+msgstr "Módulo :mod:`logging.handlers`"
 
 #: ../../library/logging.rst:1305
 msgid "Useful handlers included with the logging module."
