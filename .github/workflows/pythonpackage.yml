@@ -1,0 +1,44 @@
+name: Check python-docs-pt-br
+
+on:
+  push:
+    paths:
+      - '**.po'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.7]
+
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        ref: 3.8
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install gettext, hunspell and dictionary
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y hunspell hunspell-pt-br gettext
+
+    - name: Install Python modules (pip, pospell and powrap)
+      run: |
+        python3 -m pip install --upgrade pip
+        pip install powrap
+        powrap --version
+
+    - name: Run checks on po files
+      run: |
+        CHANGED_FILES="$(git log --name-only --pretty='format:' -1 $GITHUB_SHA | grep "\.po$")" ;:
+        printf "%s files changed.\n" "$(printf "%s" "$CHANGED_FILES" | grep -c "po$")" ;:
+        [ -n "$CHANGED_FILES" ] && printf -- "- %s\n" $CHANGED_FILES ;:
+        [ -n "$CHANGED_FILES" ] && powrap --check --quiet $CHANGED_FILES || :
+        [ -n "$CHANGED_FILES" ] && make build CPYTHON_PATH=/tmp/cpython/
