@@ -80,12 +80,13 @@ push:
 	fi
 
 
-# pull: Download translations files from Transifex. For downloading new
-#       translation files, first run "tx-config" target to update the
-#       translation file mapping.
+# pull: Download translations files from Transifex, and apply line wrapping.
+#       For downloading new translation files, first run "tx-config" target
+#       to update the translation file mapping.
 .PHONY: pull
 pull: venv
 	$(VENV)/bin/tx pull --force --language=$(LANGUAGE) --parallel
+	$(VENV)/bin/powrap --quiet *.po **/*.po
 
 
 # tx-config: After running "pot", create a new Transifex config file by
