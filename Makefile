@@ -70,7 +70,7 @@ push:
 		exit 0;                                                             \
 	else                                                                    \
 		git add *.po **/*.po .tx/config;                                    \
-		git commit -m 'Update translations';                                \
+		git commit -m 'Sync translations from Transifex to Git repository'; \
 		if [ $(GITHUB_TOKEN) != "" ]; then                                  \
 			header="$(echo -n token:"$(GITHUB_TOKEN)" | base64)";           \
 			git -c http.extraheader="AUTHORIZATION: basic $(header)" push;  \
