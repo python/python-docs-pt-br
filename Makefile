@@ -86,7 +86,7 @@ push:
 .PHONY: pull
 pull: venv
 	$(VENV)/bin/tx pull --force --language=$(LANGUAGE) --parallel
-	$(VENV)/bin/powrap --quiet *.po **/*.po
+	$(VENV)/bin/powrap --quiet *.po **/*.po || true
 
 
 # tx-config: After running "pot", create a new Transifex config file by
