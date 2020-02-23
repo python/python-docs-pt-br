@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-09 12:40+0000\n"
+"POT-Creation-Date: 2020-02-22 12:45+0000\n"
 "PO-Revision-Date: 2017-02-16 23:06+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2019\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/python-doc/"
@@ -1964,11 +1964,51 @@ msgid ""
 "A. Yes.  In the CPython and PyPy3 implementations, the C/CFFI versions of "
 "the decimal module integrate the high speed `libmpdec <https://www.bytereef."
 "org/mpdecimal/doc/libmpdec/index.html>`_ library for arbitrary precision "
-"correctly-rounded decimal floating point arithmetic. ``libmpdec`` uses "
+"correctly-rounded decimal floating point arithmetic [#]_. ``libmpdec`` uses "
 "`Karatsuba multiplication <https://en.wikipedia.org/wiki/"
 "Karatsuba_algorithm>`_ for medium-sized numbers and the `Number Theoretic "
 "Transform <https://en.wikipedia.org/wiki/"
 "Discrete_Fourier_transform_(general)#Number-theoretic_transform>`_ for very "
-"large numbers.  However, to realize this performance gain, the context needs "
-"to be set for unrounded calculations."
+"large numbers."
+msgstr ""
+
+#: ../../library/decimal.rst:2131
+msgid ""
+"The context must be adapted for exact arbitrary precision arithmetic. :attr:"
+"`Emin` and :attr:`Emax` should always be set to the maximum values, :attr:"
+"`clamp` should always be 0 (the default).  Setting :attr:`prec` requires "
+"some care."
+msgstr ""
+
+#: ../../library/decimal.rst:2135
+msgid ""
+"The easiest approach for trying out bignum arithmetic is to use the maximum "
+"value for :attr:`prec` as well [#]_::"
+msgstr ""
+
+#: ../../library/decimal.rst:2144
+msgid ""
+"For inexact results, :attr:`MAX_PREC` is far too large on 64-bit platforms "
+"and the available memory will be insufficient::"
+msgstr ""
+
+#: ../../library/decimal.rst:2152
+msgid ""
+"On systems with overallocation (e.g. Linux), a more sophisticated approach "
+"is to adjust :attr:`prec` to the amount of available RAM.  Suppose that you "
+"have 8GB of RAM and expect 10 simultaneous operands using a maximum of 500MB "
+"each::"
+msgstr ""
+
+#: ../../library/decimal.rst:2176
+msgid ""
+"In general (and especially on systems without overallocation), it is "
+"recommended to estimate even tighter bounds and set the :attr:`Inexact` trap "
+"if all calculations are expected to be exact."
+msgstr ""
+
+#: ../../library/decimal.rst:2185
+msgid ""
+"This approach now works for all exact results except for non-integer powers. "
+"Also backported to 3.7 and 3.8."
 msgstr ""
