@@ -27,7 +27,7 @@ msgstr ""
 
 #: ../../library/decimal.rst:2
 msgid ":mod:`decimal` --- Decimal fixed point and floating point arithmetic"
-msgstr ":mod:`decimal` --- Aritmética de ponto decimal fixo e ponto flutuante"
+msgstr ":mod:`decimal` --- Aritmética de ponto fixo decimal e ponto flutuante"
 
 #: ../../library/decimal.rst:15
 msgid "**Source code:** :source:`Lib/decimal.py`"
@@ -335,6 +335,11 @@ msgid ""
 "cleared, so it is best to clear the flags before each set of monitored "
 "computations by using the :meth:`clear_flags` method. ::"
 msgstr ""
+"Os contextos também possuem sinalizadores para monitorar condições "
+"excepcionais encontradas durante os cálculos. Os sinalizadores permanecem "
+"definidos até que sejam explicitamente limpos, portanto, é melhor limpar os "
+"sinalizadores antes de cada conjunto de cálculos monitorados usando o "
+"método :meth:`clear_flags`. ::"
 
 #: ../../library/decimal.rst:312
 msgid ""
@@ -342,12 +347,17 @@ msgid ""
 "rounded (digits beyond the context precision were thrown away) and that the "
 "result is inexact (some of the discarded digits were non-zero)."
 msgstr ""
+"A entrada *flags* mostra que a aproximação racional de :const:`Pi` foi "
+"arredondada (dígitos além da precisão do contexto foram descartados) e que o "
+"resultado é inexato (alguns dos dígitos descartados eram diferentes de zero)."
 
 #: ../../library/decimal.rst:316
 msgid ""
 "Individual traps are set using the dictionary in the :attr:`traps` field of "
 "a context:"
 msgstr ""
+"As armadilhas individuais são definidas usando o dicionário no campo :attr:"
+"`traps` de um contexto:"
 
 #: ../../library/decimal.rst:331
 msgid ""
@@ -357,14 +367,19 @@ msgid ""
 "the bulk of the program manipulates the data no differently than with other "
 "Python numeric types."
 msgstr ""
+"A maioria dos programas ajusta o contexto atual apenas uma vez, no início do "
+"programa. E, em muitas aplicações, os dados são convertidos para :class:"
+"`Decimal` com uma única conversão dentro de um loop. Com o conjunto de "
+"contextos e decimais criados, a maior parte do programa manipula os dados de "
+"maneira diferente do que com outros tipos numéricos do Python."
 
 #: ../../library/decimal.rst:343
 msgid "Decimal objects"
-msgstr ""
+msgstr "Objetos de Decimal"
 
 #: ../../library/decimal.rst:348
 msgid "Construct a new :class:`Decimal` object based from *value*."
-msgstr ""
+msgstr "Constrói um novo objeto de :class:`Decimal` com base em *value*."
 
 #: ../../library/decimal.rst:350
 msgid ""
@@ -374,6 +389,12 @@ msgid ""
 "after leading and trailing whitespace characters, as well as underscores "
 "throughout, are removed::"
 msgstr ""
+"*value* pode ser um inteiro, string, tupla, :class:`float` ou outro objeto "
+"de :class:`Decimal`. Se nenhum *value* for fornecido, retornará "
+"``Decimal('0')``. Se *value* for uma string, ele deverá estar em "
+"conformidade com a sintaxe da string numérica decimal após caracteres de "
+"espaço em branco à esquerda e à direita, bem como sublinhados em toda parte, "
+"serem removidos::"
 
 #: ../../library/decimal.rst:366
 msgid ""
@@ -382,6 +403,10 @@ msgid ""
 "example, Arabic-Indic and Devanāgarī digits) along with the fullwidth digits "
 "``'\\uff10'`` through ``'\\uff19'``."
 msgstr ""
+"Outros dígitos decimais Unicode também são permitidos onde ``digit`` aparece "
+"acima. Isso inclui dígitos decimais de vários outros alfabetos (por exemplo, "
+"dígitos em árabe-índico e devanāgarī), além dos dígitos de largura total "
+"``'\\uff10'`` a ``'\\uff19'``."
 
 #: ../../library/decimal.rst:371
 msgid ""
@@ -390,6 +415,10 @@ msgid ""
 "digits, and an integer exponent. For example, ``Decimal((0, (1, 4, 1, 4), "
 "-3))`` returns ``Decimal('1.414')``."
 msgstr ""
+"Se *value* for um :class:`tuple`, ele deverá ter três componentes, um sinal "
+"(:const:`0` para positivo ou :const:`1` para negativo), um :class:`tuple` de "
+"dígitos e um expoente inteiro. Por exemplo, ``Decimal((0, (1, 4, 1, 4), "
+"-3))`` returna ``Decimal('1.414')``."
 
 #: ../../library/decimal.rst:376
 msgid ""
@@ -399,6 +428,11 @@ msgid ""
 "``Decimal(float('1.1'))`` converts to "
 "``Decimal('1.100000000000000088817841970012523233890533447265625')``."
 msgstr ""
+"Se *value* é um :class:`float`, o valor do ponto flutuante binário é "
+"convertido sem perdas no seu equivalente decimal exato. Essa conversão "
+"geralmente requer 53 ou mais dígitos de precisão. Por exemplo, "
+"``Decimal(float('1.1'))`` converte para "
+"``Decimal('1.100000000000000088817841970012523233890533447265625')``."
 
 #: ../../library/decimal.rst:382
 msgid ""
@@ -407,6 +441,10 @@ msgid ""
 "``Decimal('3.00000')`` records all five zeros even if the context precision "
 "is only three."
 msgstr ""
+"A precisão *context* não afeta quantos dígitos estão armazenados. Isso é "
+"determinado exclusivamente pelo número de dígitos em *value*. Por exemplo, "
+"``Decimal('3.00000')`` registra todos os cinco zeros, mesmo que a precisão "
+"do contexto seja apenas três."
 
 #: ../../library/decimal.rst:387
 msgid ""
@@ -415,28 +453,37 @@ msgid ""
 "exception is raised; otherwise, the constructor returns a new Decimal with "
 "the value of :const:`NaN`."
 msgstr ""
+"O objetivo do argumento *context* é determinar o que fazer se *value* for "
+"uma string malformada. Se o contexto capturar :const:`InvalidOperation`, uma "
+"exceção será levantada; caso contrário, o construtor retornará um novo "
+"decimal com o valor de :const:`NaN`."
 
 #: ../../library/decimal.rst:392
 msgid "Once constructed, :class:`Decimal` objects are immutable."
-msgstr ""
+msgstr "Uma vez construídos, objetos de :class:`Decimal` são imutáveis."
 
 #: ../../library/decimal.rst:394
 msgid ""
 "The argument to the constructor is now permitted to be a :class:`float` "
 "instance."
 msgstr ""
+"O argumento para o construtor agora pode ser uma instância de :class:`float`."
 
 #: ../../library/decimal.rst:398
 msgid ""
 ":class:`float` arguments raise an exception if the :exc:`FloatOperation` "
 "trap is set. By default the trap is off."
 msgstr ""
+"Os argumentos de :class:`float` levantam uma exceção se a armadilha :exc:"
+"`FloatOperation` estiver definida. Por padrão, a armadilha está desativada."
 
 #: ../../library/decimal.rst:402
 msgid ""
 "Underscores are allowed for grouping, as with integral and floating-point "
 "literals in code."
 msgstr ""
+"Sublinhados são permitidos para agrupamento, como nos literais de ponto "
+"flutuante e integral no código."
 
 #: ../../library/decimal.rst:406
 msgid ""
@@ -447,6 +494,12 @@ msgid ""
 "compared, sorted, and coerced to another type (such as :class:`float` or :"
 "class:`int`)."
 msgstr ""
+"Objetos decimais de ponto flutuante compartilham muitas propriedades com "
+"outros tipos numéricos internos, como :class:`float` e :class:`int`. Todas "
+"as operações matemáticas usuais e métodos especiais se aplicam. Da mesma "
+"forma, objetos decimais podem ser copiados, separados, impressos, usados "
+"como chaves de dicionário, usados como elementos de conjunto, comparados, "
+"classificados e coagidos a outro tipo (como :class:`float` ou :class:`int`)."
 
 #: ../../library/decimal.rst:413
 msgid ""
@@ -455,6 +508,10 @@ msgid ""
 "applied to Decimal objects, the sign of the result is the sign of the "
 "*dividend* rather than the sign of the divisor::"
 msgstr ""
+"Existem algumas pequenas diferenças entre aritmética em objetos decimais e "
+"aritmética em números inteiros e flutuantes. Quando o operador restante ``"
+"%`` é aplicado a objetos decimais, o sinal do resultado é o sinal do "
+"*dividend* em vez do sinal do divisor::"
 
 #: ../../library/decimal.rst:423
 msgid ""
@@ -462,12 +519,18 @@ msgid ""
 "integer part of the true quotient (truncating towards zero) rather than its "
 "floor, so as to preserve the usual identity ``x == (x // y) * y + x % y``::"
 msgstr ""
+"O operador de divisão inteira ``//`` se comporta de maneira análoga, "
+"retornando a parte inteira do quociente verdadeiro (truncando em direção a "
+"zero) em vez de seu resto, de modo a preservar a identidade usual ``x == "
+"(x // y) * y + x % y``::"
 
 #: ../../library/decimal.rst:432
 msgid ""
 "The ``%`` and ``//`` operators implement the ``remainder`` and ``divide-"
 "integer`` operations (respectively) as described in the specification."
 msgstr ""
+"Os operadores ``%`` e ``//`` implementam as operações ``módulo`` e ``divisão "
+"inteira`` (respectivamente) como descrito na especificação."
 
 #: ../../library/decimal.rst:436
 msgid ""
@@ -479,18 +542,29 @@ msgid ""
 "This avoids confusing results when doing equality comparisons between "
 "numbers of different types."
 msgstr ""
+"Objetos decimais geralmente não podem ser combinados com pontos flutuantes "
+"ou instâncias de :class:`fractions.Fraction` em operações aritméticas: uma "
+"tentativa de adicionar um :class:`Decimal` a um :class:`float`, por exemplo, "
+"vai levantar um :exc:`TypeError`. No entanto, é possível usar os operadores "
+"de comparação do Python para comparar uma instância de :class:`Decimal` "
+"``x`` com outro número ``y``. Isso evita resultados confusos ao fazer "
+"comparações de igualdade entre números de tipos diferentes."
 
 #: ../../library/decimal.rst:444
 msgid ""
 "Mixed-type comparisons between :class:`Decimal` instances and other numeric "
 "types are now fully supported."
 msgstr ""
+"As comparações de tipos mistos entre instâncias de :class:`Decimal` e outros "
+"tipos numéricos agora são totalmente suportadas."
 
 #: ../../library/decimal.rst:448
 msgid ""
 "In addition to the standard numeric properties, decimal floating point "
 "objects also have a number of specialized methods:"
 msgstr ""
+"Além das propriedades numéricas padrão, os objetos de ponto flutuante "
+"decimal também possuem vários métodos especializados:"
 
 #: ../../library/decimal.rst:454
 msgid ""
@@ -499,6 +573,10 @@ msgid ""
 "returns seven.  Used for determining the position of the most significant "
 "digit with respect to the decimal point."
 msgstr ""
+"Retorna o expoente ajustado depois de deslocar os dígitos mais à direita do "
+"coeficiente até restar apenas o dígito principal: ``Decimal('321e+5')."
+"adjusted()`` retorna sete. Usado para determinar a posição do dígito mais "
+"significativo em relação ao ponto decimal."
 
 #: ../../library/decimal.rst:461
 msgid ""
@@ -506,6 +584,9 @@ msgid ""
 "`Decimal` instance as a fraction, in lowest terms and with a positive "
 "denominator::"
 msgstr ""
+"Retorna um par ``(n, d)`` de números inteiros que representam a instância "
+"dada :class:`Decimal` como uma fração, nos termos mais baixos e com um "
+"denominador positivo::"
 
 #: ../../library/decimal.rst:468
 msgid ""
