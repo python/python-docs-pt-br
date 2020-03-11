@@ -593,12 +593,15 @@ msgid ""
 "The conversion is exact.  Raise OverflowError on infinities and ValueError "
 "on NaNs."
 msgstr ""
+"A conversão é exata. Levanta OverflowError em infinitos e ValueError em NaNs."
 
 #: ../../library/decimal.rst:475
 msgid ""
 "Return a :term:`named tuple` representation of the number: "
 "``DecimalTuple(sign, digits, exponent)``."
 msgstr ""
+"Retorna uma representação de :term:`tupla nomeada <named tuple>` do número: "
+"``DecimalTuple(sign, digits, exponent)``."
 
 #: ../../library/decimal.rst:481
 msgid ""
@@ -606,12 +609,18 @@ msgid ""
 "a :class:`Decimal` instance is always canonical, so this operation returns "
 "its argument unchanged."
 msgstr ""
+"Retorna a codificação canônica do argumento. Atualmente, a codificação de "
+"uma instância de :class:`Decimal` é sempre canônica, portanto, esta operação "
+"retorna seu argumento inalterado."
 
 #: ../../library/decimal.rst:487
 msgid ""
 "Compare the values of two Decimal instances.  :meth:`compare` returns a "
 "Decimal instance, and if either operand is a NaN then the result is a NaN::"
 msgstr ""
+"Compara os valores de duas instâncias decimais. :meth:`compare` retorna uma "
+"instância decimal, e se qualquer operando for um NaN, o resultado será um "
+"NaN::"
 
 #: ../../library/decimal.rst:498
 msgid ""
@@ -619,6 +628,9 @@ msgid ""
 "NaNs signal.  That is, if neither operand is a signaling NaN then any quiet "
 "NaN operand is treated as though it were a signaling NaN."
 msgstr ""
+"Esta operação é idêntica ao método :meth:`compare`, exceto que todos os NaNs "
+"sinalizam. Ou seja, se nenhum operando for um NaN sinalizador, qualquer "
+"operando NaN silencioso será tratado como se fosse um NaN sinalizador."
 
 #: ../../library/decimal.rst:504
 msgid ""
@@ -628,6 +640,11 @@ msgid ""
 "instances with the same numeric value but different representations compare "
 "unequal in this ordering:"
 msgstr ""
+"Compara dois operandos usando sua representação abstrata em vez de seu valor "
+"numérico. Semelhante ao método :meth:`compare`, mas o resultado fornece uma "
+"ordem total nas instâncias de :class:`Decimal`. Duas instâncias de :class:"
+"`Decimal` com o mesmo valor numérico, mas diferentes representações, se "
+"comparam desiguais nesta ordem:"
 
 #: ../../library/decimal.rst:513
 msgid ""
@@ -638,6 +655,12 @@ msgid ""
 "in the total order than the second operand.  See the specification for "
 "details of the total order."
 msgstr ""
+"Os NaNs silenciosos e sinalizadores também estão incluídos no pedido total. "
+"O resultado dessa função é ``Decimal('0')`` se os dois operandos tiverem a "
+"mesma representação, ``Decimal('-1')`` se o primeiro operando for menor na "
+"ordem total que o segundo e ``Decimal('1')`` se o primeiro operando for "
+"maior na ordem total que o segundo operando. Veja a especificação para "
+"detalhes da ordem total."
 
 #: ../../library/decimal.rst:520 ../../library/decimal.rst:531
 #: ../../library/decimal.rst:559 ../../library/decimal.rst:834
@@ -646,6 +669,10 @@ msgid ""
 "and no rounding is performed.  As an exception, the C version may raise "
 "InvalidOperation if the second operand cannot be converted exactly."
 msgstr ""
+"Esta operação não é afetada pelo contexto e é silenciosa: nenhum sinalizador "
+"é alterado e nenhum arredondamento é executado. Como uma exceção, a versão C "
+"pode levantar InvalidOperation se o segundo operando não puder ser "
+"convertido exatamente."
 
 #: ../../library/decimal.rst:526
 msgid ""
@@ -654,30 +681,44 @@ msgid ""
 "``x.compare_total_mag(y)`` is equivalent to ``x.copy_abs().compare_total(y."
 "copy_abs())``."
 msgstr ""
+"Compara dois operandos usando sua representação abstrata em vez de seu "
+"valor, como em :meth:`compare_total`, mas ignorando o sinal de cada "
+"operando. ``x.compare_total_mag(y)`` é equivalente a ``x.copy_abs()."
+"compare_total(y.copy_abs())``."
 
 #: ../../library/decimal.rst:537
 msgid ""
 "Just returns self, this method is only to comply with the Decimal "
 "Specification."
 msgstr ""
+"Apenas retorna a si próprio, sendo esse método apenas para atender à "
+"Especificação de Decimal."
 
 #: ../../library/decimal.rst:542
 msgid ""
 "Return the absolute value of the argument.  This operation is unaffected by "
 "the context and is quiet: no flags are changed and no rounding is performed."
 msgstr ""
+"Retorna o valor absoluto do argumento. Esta operação não é afetada pelo "
+"contexto e é silenciosa: nenhum sinalizador é alterado e nenhum "
+"arredondamento é executado."
 
 #: ../../library/decimal.rst:548
 msgid ""
 "Return the negation of the argument.  This operation is unaffected by the "
 "context and is quiet: no flags are changed and no rounding is performed."
 msgstr ""
+"Retorna a negação do argumento. Esta operação não é afetada pelo contexto e "
+"é silenciosa: nenhum sinalizador é alterado e nenhum arredondamento é "
+"executado."
 
 #: ../../library/decimal.rst:553
 msgid ""
 "Return a copy of the first operand with the sign set to be the same as the "
 "sign of the second operand.  For example:"
 msgstr ""
+"Retorna uma cópia do primeiro operando com o sinal definido para ser o mesmo "
+"que o sinal do segundo operando. Por exemplo:"
 
 #: ../../library/decimal.rst:565
 msgid ""
@@ -685,10 +726,15 @@ msgid ""
 "number.  The result is correctly rounded using the :const:`ROUND_HALF_EVEN` "
 "rounding mode."
 msgstr ""
+"Retorna o valor da função exponencial (natural) ``e**x`` no número "
+"especificado. O resultado é arredondado corretamente usando o modo de "
+"arredondamento :const:`ROUND_HALF_EVEN`."
 
 #: ../../library/decimal.rst:576
 msgid "Classmethod that converts a float to a decimal number, exactly."
 msgstr ""
+"Método de classe que converte um ponto flutuante em um número decimal, "
+"exatamente."
 
 #: ../../library/decimal.rst:578
 msgid ""
@@ -698,18 +744,27 @@ msgid ""
 "That equivalent value in decimal is "
 "`0.1000000000000000055511151231257827021181583404541015625`."
 msgstr ""
+"Observe que `Decimal.from_float(0.1)` não é o mesmo que `Decimal('0.1')`. "
+"Como 0.1 não é exatamente representável no ponto flutuante binário, o valor "
+"é armazenado como o valor representável mais próximo que é "
+"`0x1.999999999999ap-4`. Esse valor equivalente em decimal é "
+"`0.1000000000000000055511151231257827021181583404541015625`."
 
 #: ../../library/decimal.rst:584
 msgid ""
 "From Python 3.2 onwards, a :class:`Decimal` instance can also be constructed "
 "directly from a :class:`float`."
 msgstr ""
+"A partir do Python 3.2 em diante, uma instância de :class:`Decimal` também "
+"pode ser construída diretamente a partir de um :class:`float`."
 
 #: ../../library/decimal.rst:602
 msgid ""
 "Fused multiply-add.  Return self*other+third with no rounding of the "
 "intermediate product self*other."
 msgstr ""
+"Multiplicação e adição fundidos. Retorna self*other+third sem arredondamento "
+"do produto intermediário self*other."
 
 #: ../../library/decimal.rst:610
 msgid ""
@@ -717,72 +772,97 @@ msgid ""
 "otherwise.  Currently, a :class:`Decimal` instance is always canonical, so "
 "this operation always returns :const:`True`."
 msgstr ""
+"Retorna :const:`True` se o argumento for canônico e :const:`False` caso "
+"contrário. Atualmente, uma instância de :class:`Decimal` é sempre canônica, "
+"portanto, esta operação sempre retorna :const:`True`."
 
 #: ../../library/decimal.rst:616
 msgid ""
 "Return :const:`True` if the argument is a finite number, and :const:`False` "
 "if the argument is an infinity or a NaN."
 msgstr ""
+"Retorna :const:`True` se o argumento for um número finito e :const:`False` "
+"se o argumento for um infinito ou um NaN."
 
 #: ../../library/decimal.rst:621
 msgid ""
 "Return :const:`True` if the argument is either positive or negative infinity "
 "and :const:`False` otherwise."
 msgstr ""
+"Retorna :const:`True` se o argumento for infinito positivo ou negativo e :"
+"const:`False` caso contrário."
 
 #: ../../library/decimal.rst:626
 msgid ""
 "Return :const:`True` if the argument is a (quiet or signaling) NaN and :"
 "const:`False` otherwise."
 msgstr ""
+"Retorna :const:`True` se o argumento for NaN (silencioso ou sinalizador) e :"
+"const:`False` caso contrário."
 
 #: ../../library/decimal.rst:631
 msgid ""
 "Return :const:`True` if the argument is a *normal* finite number.  Return :"
 "const:`False` if the argument is zero, subnormal, infinite or a NaN."
 msgstr ""
+"Retorna :const:`True` se o argumento for um número finito *normal*. Retorna :"
+"const:`False` se o argumento for zero, subnormal, infinito ou NaN."
 
 #: ../../library/decimal.rst:636
 msgid ""
 "Return :const:`True` if the argument is a quiet NaN, and :const:`False` "
 "otherwise."
 msgstr ""
+"Retorna :const:`True` se o argumento for um NaN silencioso, e :const:`False` "
+"caso contrário."
 
 #: ../../library/decimal.rst:641
 msgid ""
 "Return :const:`True` if the argument has a negative sign and :const:`False` "
 "otherwise.  Note that zeros and NaNs can both carry signs."
 msgstr ""
+"Retorna :const:`True` se o argumento tiver um sinal negativo e :const:"
+"`False` caso contrário. Observe que zeros e NaNs podem carregar sinais."
 
 #: ../../library/decimal.rst:646
 msgid ""
 "Return :const:`True` if the argument is a signaling NaN and :const:`False` "
 "otherwise."
 msgstr ""
+"Retorna :const:`True` se o argumento for um sinal NaN e :const:`False` caso "
+"contrário."
 
 #: ../../library/decimal.rst:651
 msgid ""
 "Return :const:`True` if the argument is subnormal, and :const:`False` "
 "otherwise."
 msgstr ""
+"Retorna :const:`True` se o argumento for subnormal e :const:`False` caso "
+"contrário."
 
 #: ../../library/decimal.rst:656
 msgid ""
 "Return :const:`True` if the argument is a (positive or negative) zero and :"
 "const:`False` otherwise."
 msgstr ""
+"Retorna :const:`True` se o argumento for um zero (positivo ou negativo) e :"
+"const:`False` caso contrário."
 
 #: ../../library/decimal.rst:661
 msgid ""
 "Return the natural (base e) logarithm of the operand.  The result is "
 "correctly rounded using the :const:`ROUND_HALF_EVEN` rounding mode."
 msgstr ""
+"Retorna o logaritmo (base e) natural do operando. O resultado é arredondado "
+"corretamente usando o modo de arredondamento :const:`ROUND_HALF_EVEN`."
 
 #: ../../library/decimal.rst:666
 msgid ""
 "Return the base ten logarithm of the operand.  The result is correctly "
 "rounded using the :const:`ROUND_HALF_EVEN` rounding mode."
 msgstr ""
+"Retorna o logaritmo da base dez do operando. O resultado é arredondado "
+"corretamente usando o modo de arredondamento :const:`ROUND_HALF_EVEN`."
 
 #: ../../library/decimal.rst:671
 msgid ""
