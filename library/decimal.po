@@ -1296,7 +1296,7 @@ msgid ""
 "You can also use the :keyword:`with` statement and the :func:`localcontext` "
 "function to temporarily change the active context."
 msgstr ""
-"Você também pode usar a instrução :keyword:`with` e a função  func:"
+"Você também pode usar a instrução :keyword:`with` e a função :func:"
 "`localcontext` para alterar temporariamente o contexto ativo."
 
 #: ../../library/decimal.rst:930
@@ -1495,12 +1495,24 @@ msgid ""
 "this preserves the value of the number but loses information about "
 "significant trailing zeros.  For example::"
 msgstr ""
+"O campo *clamp* é :const:`0` (o padrão) ou :const:`1`. Se definido como :"
+"const:`1`, o expoente ``e`` de uma instância de :class:`Decimal` "
+"representável nesse contexto é estritamente limitado ao intervalo ``Emin - "
+"prec + 1 <= e <= Emax - prec + 1``. Se *clamp* for :const:`0`, uma condição "
+"mais fraca será mantida: o expoente ajustado da instância de :class:"
+"`Decimal` é no máximo ``Emax``. Quando *clamp* é :const:`1`, um grande "
+"número normal terá, sempre que possível, seu expoente reduzido e um número "
+"correspondente de zeros adicionado ao seu coeficiente, para ajustar as "
+"restrições do expoente; isso preserva o valor do número, mas perde "
+"informações sobre zeros à direita significativos. Por exemplo::"
 
 #: ../../library/decimal.rst:1034
 msgid ""
 "A *clamp* value of :const:`1` allows compatibility with the fixed-width "
 "decimal interchange formats specified in IEEE 754."
 msgstr ""
+"Um valor de *clamp* de :const:`1` permite compatibilidade com os formatos de "
+"intercâmbio decimal de largura fixa especificados na IEEE 754."
 
 #: ../../library/decimal.rst:1037
 msgid ""
@@ -1514,22 +1526,31 @@ msgid ""
 "method accepts a Python integer (an instance of :class:`int`) anywhere that "
 "a Decimal instance is accepted."
 msgstr ""
+"A classe :class:`Context` define vários métodos de uso geral, bem como um "
+"grande número de métodos para fazer aritmética diretamente em um determinado "
+"contexto. Além disso, para cada um dos métodos de :class:`Decimal` descritos "
+"acima (com exceção dos métodos :meth:`adjusted` e :meth:`as_tuple`) existe "
+"um método correspondente em :class:`Context`. Por exemplo, para uma "
+"instância ``C`` de :class:`Context` e uma instância ``x`` de :class:"
+"`Decimal`, ``C.exp(x)`` é equivalente a ``x.exp(context=C)``. Cada método "
+"de :class:`Context` aceita um número inteiro do Python (uma instância de :"
+"class:`int`) em qualquer lugar em que uma instância de Decimal seja aceita."
 
 #: ../../library/decimal.rst:1050
 msgid "Resets all of the flags to :const:`0`."
-msgstr ""
+msgstr "Redefine todos os sinalizadores para :const:`0`."
 
 #: ../../library/decimal.rst:1054
 msgid "Resets all of the traps to :const:`0`."
-msgstr ""
+msgstr "Redefine todas as armadilhas para :const:`0`."
 
 #: ../../library/decimal.rst:1060
 msgid "Return a duplicate of the context."
-msgstr ""
+msgstr "Retorna uma duplicata do contexto."
 
 #: ../../library/decimal.rst:1064
 msgid "Return a copy of the Decimal instance num."
-msgstr ""
+msgstr "Retorna uma cópia da instância de Decimal *num*."
 
 #: ../../library/decimal.rst:1068
 msgid ""
@@ -1537,6 +1558,10 @@ msgid ""
 "Unlike the :class:`Decimal` constructor, the context precision, rounding "
 "method, flags, and traps are applied to the conversion."
 msgstr ""
+"Cria uma nova instância decimal a partir de *num*, mas usando *self* como "
+"contexto. Diferentemente do construtor de :class:`Decimal`, a precisão do "
+"contexto, o método de arredondamento, os sinalizadores e as armadilhas são "
+"aplicadas à conversão."
 
 #: ../../library/decimal.rst:1072
 msgid ""
@@ -1546,6 +1571,11 @@ msgid ""
 "the following example, using unrounded inputs means that adding zero to a "
 "sum can change the result:"
 msgstr ""
+"Isso é útil porque as constantes geralmente são fornecidas com uma precisão "
+"maior do que a necessária pela aplicação. Outro benefício é que o "
+"arredondamento elimina imediatamente os efeitos indesejados dos dígitos além "
+"da precisão atual. No exemplo a seguir, o uso de entradas não arredondadas "
+"significa que adicionar zero a uma soma pode alterar o resultado:"
 
 #: ../../library/decimal.rst:1086
 msgid ""
@@ -1553,6 +1583,9 @@ msgid ""
 "the argument is a string, no leading or trailing whitespace or underscores "
 "are permitted."
 msgstr ""
+"Este método implementa a operação \"to-number\" da especificação IBM. Se o "
+"argumento for uma string, nenhum espaço em branco à esquerda ou à direita ou "
+"sublinhado serão permitidos."
 
 #: ../../library/decimal.rst:1092
 msgid ""
@@ -1561,6 +1594,10 @@ msgid ""
 "context precision, rounding method, flags, and traps are applied to the "
 "conversion."
 msgstr ""
+"Cria uma nova instância de Decimal a partir de um ponto flutuante *f*, mas "
+"arredondando usando *self* como contexto. Diferentemente do método da "
+"classe :meth:`Decimal.from_float`, a precisão do contexto, o método de "
+"arredondamento, os sinalizadores e as armadilhas são aplicados à conversão."
 
 #: ../../library/decimal.rst:1112
 msgid ""
@@ -1568,10 +1605,13 @@ msgid ""
 "value for subnormal results.  When underflow occurs, the exponent is set to :"
 "const:`Etiny`."
 msgstr ""
+"Retorna um valor igual a ``Emin - prec + 1``, que é o valor mínimo do "
+"expoente para resultados subnormais. Quando ocorre o estouro negativo, o "
+"expoente é definido como :const:`Etiny`."
 
 #: ../../library/decimal.rst:1118
 msgid "Returns a value equal to ``Emax - prec + 1``."
-msgstr ""
+msgstr "Retorna um valor igual a ``Emax - prec + 1``."
 
 #: ../../library/decimal.rst:1120
 msgid ""
@@ -1582,177 +1622,195 @@ msgid ""
 "similar to those for the :class:`Decimal` class and are only briefly "
 "recounted here."
 msgstr ""
+"A abordagem usual para trabalhar com decimais é criar instâncias de :class:"
+"`Decimal` e depois aplicar operações aritméticas que ocorrem no contexto "
+"atual da thread ativa. Uma abordagem alternativa é usar métodos de contexto "
+"para calcular dentro de um contexto específico. Os métodos são semelhantes "
+"aos da classe :class:`Decimal` e são contados apenas brevemente aqui."
 
 #: ../../library/decimal.rst:1130
 msgid "Returns the absolute value of *x*."
-msgstr ""
+msgstr "Retorna o valor absoluto de *x*."
 
 #: ../../library/decimal.rst:1135
 msgid "Return the sum of *x* and *y*."
-msgstr ""
+msgstr "Retorna a soma de *x* e *y*."
 
 #: ../../library/decimal.rst:1140
 msgid "Returns the same Decimal object *x*."
-msgstr ""
+msgstr "Retorna o mesmo objeto de Decimal *x*."
 
 #: ../../library/decimal.rst:1145
 msgid "Compares *x* and *y* numerically."
-msgstr ""
+msgstr "Compara *x* e *y* numericamente."
 
 #: ../../library/decimal.rst:1150
 msgid "Compares the values of the two operands numerically."
-msgstr ""
+msgstr "Compara os valores dos dois operandos numericamente."
 
 #: ../../library/decimal.rst:1155
 msgid "Compares two operands using their abstract representation."
-msgstr ""
+msgstr "Compara dois operandos usando sua representação abstrata."
 
 #: ../../library/decimal.rst:1160
 msgid ""
 "Compares two operands using their abstract representation, ignoring sign."
 msgstr ""
+"Compara dois operandos usando sua representação abstrata, ignorando o sinal."
 
 #: ../../library/decimal.rst:1165
 msgid "Returns a copy of *x* with the sign set to 0."
-msgstr ""
+msgstr "Retorna uma cópia de *x* com o sinal definido para 0."
 
 #: ../../library/decimal.rst:1170
 msgid "Returns a copy of *x* with the sign inverted."
-msgstr ""
+msgstr "Retorna uma cópia de *x* com o sinal invertido."
 
 #: ../../library/decimal.rst:1175
 msgid "Copies the sign from *y* to *x*."
-msgstr ""
+msgstr "Copia o sinal de *y* para *x*."
 
 #: ../../library/decimal.rst:1180
 msgid "Return *x* divided by *y*."
-msgstr ""
+msgstr "Retorna *x* dividido por *y*."
 
 #: ../../library/decimal.rst:1185
 msgid "Return *x* divided by *y*, truncated to an integer."
-msgstr ""
+msgstr "Retorna *x* dividido por *y*, truncado para um inteiro."
 
 #: ../../library/decimal.rst:1190
 msgid "Divides two numbers and returns the integer part of the result."
-msgstr ""
+msgstr "Divide dois números e retorna a parte inteira do resultado."
 
 #: ../../library/decimal.rst:1195
 msgid "Returns `e ** x`."
-msgstr ""
+msgstr "Retorna `e ** x`."
 
 #: ../../library/decimal.rst:1200
 msgid "Returns *x* multiplied by *y*, plus *z*."
-msgstr ""
+msgstr "Retorna *x* multiplicado por *y*, mais *z*."
 
 #: ../../library/decimal.rst:1205
 msgid "Returns ``True`` if *x* is canonical; otherwise returns ``False``."
 msgstr ""
+"Retorna ``True`` se *x* for canonical; caso contrário, retorna ``False``."
 
 #: ../../library/decimal.rst:1210
 msgid "Returns ``True`` if *x* is finite; otherwise returns ``False``."
-msgstr ""
+msgstr "Retorna ``True`` se *x* for finito; caso contrário, retorna ``False``."
 
 #: ../../library/decimal.rst:1215
 msgid "Returns ``True`` if *x* is infinite; otherwise returns ``False``."
 msgstr ""
+"Retorna ``True`` se *x* for infinito; caso contrário, retorna ``False``."
 
 #: ../../library/decimal.rst:1220
 msgid "Returns ``True`` if *x* is a qNaN or sNaN; otherwise returns ``False``."
 msgstr ""
+"Retorna ``True`` se *x* for qNaN ou sNaN; caso contrário, retorna ``False``."
 
 #: ../../library/decimal.rst:1225
 msgid ""
 "Returns ``True`` if *x* is a normal number; otherwise returns ``False``."
 msgstr ""
+"Retorna ``True`` se *x* for um número normal; caso contrário, retorna "
+"``False``."
 
 #: ../../library/decimal.rst:1230
 msgid "Returns ``True`` if *x* is a quiet NaN; otherwise returns ``False``."
 msgstr ""
+"Retorna ``True`` se *x* for um NaN silencioso; caso contrário, retorna "
+"``False``."
 
 #: ../../library/decimal.rst:1235
 msgid "Returns ``True`` if *x* is negative; otherwise returns ``False``."
 msgstr ""
+"Retorna ``True`` se *x* for negativo; caso contrário, retorna ``False``."
 
 #: ../../library/decimal.rst:1240
 msgid ""
 "Returns ``True`` if *x* is a signaling NaN; otherwise returns ``False``."
 msgstr ""
+"Retorna ``True`` se *x* for um NaN sinalizador; caso contrário, retorna "
+"``False``."
 
 #: ../../library/decimal.rst:1245
 msgid "Returns ``True`` if *x* is subnormal; otherwise returns ``False``."
 msgstr ""
+"Retorna ``True`` se *x* for subnormal; caso contrário, retorna ``False``."
 
 #: ../../library/decimal.rst:1250
 msgid "Returns ``True`` if *x* is a zero; otherwise returns ``False``."
-msgstr ""
+msgstr "Retorna ``True`` se *x* for zero; caso contrário, retorna ``False``."
 
 #: ../../library/decimal.rst:1255
 msgid "Returns the natural (base e) logarithm of *x*."
-msgstr ""
+msgstr "Retorna o logaritmo natural (base e) de *x*."
 
 #: ../../library/decimal.rst:1260
 msgid "Returns the base 10 logarithm of *x*."
-msgstr ""
+msgstr "Retorna o logaritmo de base 10 de *x*."
 
 #: ../../library/decimal.rst:1265
 msgid "Returns the exponent of the magnitude of the operand's MSD."
-msgstr ""
+msgstr "Retorna o expoente da magnitude do MSD do operando."
 
 #: ../../library/decimal.rst:1270
 msgid "Applies the logical operation *and* between each operand's digits."
-msgstr ""
+msgstr "Aplica a operação lógica *e* entre cada dígito do operando."
 
 #: ../../library/decimal.rst:1275
 msgid "Invert all the digits in *x*."
-msgstr ""
+msgstr "Inverte todos os dígitos em *x*."
 
 #: ../../library/decimal.rst:1280
 msgid "Applies the logical operation *or* between each operand's digits."
-msgstr ""
+msgstr "Aplica a operação lógica *ou* entre cada dígito do operando."
 
 #: ../../library/decimal.rst:1285
 msgid "Applies the logical operation *xor* between each operand's digits."
-msgstr ""
+msgstr "Aplica a operação lógica *ou exclusivo* entre cada dígito do operando."
 
 #: ../../library/decimal.rst:1290
 msgid "Compares two values numerically and returns the maximum."
-msgstr ""
+msgstr "Compara dois valores numericamente e retorna o máximo."
 
 #: ../../library/decimal.rst:1295 ../../library/decimal.rst:1305
 msgid "Compares the values numerically with their sign ignored."
-msgstr ""
+msgstr "Compara dois valores numericamente com seu sinal ignorado."
 
 #: ../../library/decimal.rst:1300
 msgid "Compares two values numerically and returns the minimum."
-msgstr ""
+msgstr "Compara dois valores numericamente e retorna o mínimo."
 
 #: ../../library/decimal.rst:1310
 msgid "Minus corresponds to the unary prefix minus operator in Python."
 msgstr ""
+"Minus corresponde ao operador de subtração de prefixo unário no Python."
 
 #: ../../library/decimal.rst:1315
 msgid "Return the product of *x* and *y*."
-msgstr ""
+msgstr "Retorna o produto de *x* e *y*."
 
 #: ../../library/decimal.rst:1320
 msgid "Returns the largest representable number smaller than *x*."
-msgstr ""
+msgstr "Retorna o maior número representável menor que *x*."
 
 #: ../../library/decimal.rst:1325
 msgid "Returns the smallest representable number larger than *x*."
-msgstr ""
+msgstr "Retorna o menor número representável maior que *x*."
 
 #: ../../library/decimal.rst:1330
 msgid "Returns the number closest to *x*, in direction towards *y*."
-msgstr ""
+msgstr "Retorna o número mais próximo a *x*, em direção a *y*."
 
 #: ../../library/decimal.rst:1335
 msgid "Reduces *x* to its simplest form."
-msgstr ""
+msgstr "Reduz *x* para sua forma mais simples."
 
 #: ../../library/decimal.rst:1340
 msgid "Returns an indication of the class of *x*."
-msgstr ""
+msgstr "Retorna uma indicação da classe de *x*."
 
 #: ../../library/decimal.rst:1345
 msgid ""
@@ -1760,10 +1818,15 @@ msgid ""
 "operation applies the context precision and rounding, so it is *not* an "
 "identity operation."
 msgstr ""
+"Plus corresponde ao operador de soma de prefixo unário no Python. Esta "
+"operação aplica a precisão e o arredondamento do contexto, portanto *não* é "
+"uma operação de identidade."
 
 #: ../../library/decimal.rst:1352
 msgid "Return ``x`` to the power of ``y``, reduced modulo ``modulo`` if given."
 msgstr ""
+"Retorna ``x`` à potência de ``y``, com a redução de módulo ``modulo`` se "
+"fornecido."
 
 #: ../../library/decimal.rst:1354
 msgid ""
@@ -1773,6 +1836,11 @@ msgid ""
 "rounding mode of the context is used. Results are always correctly-rounded "
 "in the Python version."
 msgstr ""
+"Com dois argumentos, calcula ``x**y``. Se ``x`` for negativo, ``y`` deve ser "
+"inteiro. O resultado será inexato, a menos que ``y`` seja inteiro e o "
+"resultado seja finito e possa ser expresso exatamente em \"precisão\" "
+"dígitos. O modo de arredondamento do contexto é usado. Os resultados são "
+"sempre arredondados corretamente na versão Python."
 
 #: ../../library/decimal.rst:1360
 msgid ""
@@ -1780,28 +1848,34 @@ msgid ""
 "`exp` and :meth:`ln` functions. The result is well-defined but only \"almost "
 "always correctly-rounded\"."
 msgstr ""
+"O módulo C calcula :meth:`power` em termos das funções corretamente "
+"arredondadas :meth:`exp` e :meth:`ln`. O resultado é bem definido, mas "
+"apenas \"quase sempre corretamente arredondado\"."
 
 #: ../../library/decimal.rst:1365
 msgid ""
 "With three arguments, compute ``(x**y) % modulo``.  For the three argument "
 "form, the following restrictions on the arguments hold:"
 msgstr ""
+"Com três argumentos, calcula ``(x**y) % modulo``. Para o formulário de três "
+"argumentos, as seguintes restrições nos argumentos são válidas:"
 
 #: ../../library/decimal.rst:1368
 msgid "all three arguments must be integral"
-msgstr ""
+msgstr "todos os três argumentos devem ser inteiros"
 
 #: ../../library/decimal.rst:1369
 msgid "``y`` must be nonnegative"
-msgstr ""
+msgstr "``y`` não pode ser negativo"
 
 #: ../../library/decimal.rst:1370
 msgid "at least one of ``x`` or ``y`` must be nonzero"
-msgstr ""
+msgstr "pelo menos um de ``x`` ou ``y`` não pode ser negativo"
 
 #: ../../library/decimal.rst:1371
 msgid "``modulo`` must be nonzero and have at most 'precision' digits"
 msgstr ""
+"``modulo`` não pode ser zero e deve ter pelo menos \"precisão\" dígitos"
 
 #: ../../library/decimal.rst:1373
 msgid ""
@@ -1811,24 +1885,31 @@ msgid ""
 "zero, regardless of the exponents of ``x``, ``y`` and ``modulo``.  The "
 "result is always exact."
 msgstr ""
+"O valor resultante de ``Context.power(x, y, modulo)`` é igual ao valor que "
+"seria obtido ao computar ``(x**y) % modulo`` com precisão ilimitada, mas é "
+"calculado com mais eficiência . O expoente do resultado é zero, "
+"independentemente dos expoentes de ``x``, ``y`` e ``modulo``. O resultado é "
+"sempre exato."
 
 #: ../../library/decimal.rst:1383
 msgid "Returns a value equal to *x* (rounded), having the exponent of *y*."
-msgstr ""
+msgstr "Retorna um valor igual a *x* (arredondado), com o expoente de *y*."
 
 #: ../../library/decimal.rst:1388
 msgid "Just returns 10, as this is Decimal, :)"
-msgstr ""
+msgstr "Só retorna 10, já que isso é Decimal, :)"
 
 #: ../../library/decimal.rst:1393
 msgid "Returns the remainder from integer division."
-msgstr ""
+msgstr "Retorna o resto da divisão inteira."
 
 #: ../../library/decimal.rst:1395
 msgid ""
 "The sign of the result, if non-zero, is the same as that of the original "
 "dividend."
 msgstr ""
+"O sinal do resultado, se diferente de zero, é o mesmo que o do dividendo "
+"original."
 
 #: ../../library/decimal.rst:1401
 msgid ""
