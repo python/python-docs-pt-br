@@ -1,4 +1,4 @@
-name: Build and update Documentation
+name: Build and update documentation
 
 # Daily at 0 am
 on:
@@ -31,7 +31,9 @@ jobs:
     - name: Install dependencies via package manager
       run: |
         sudo apt update
-        sudo apt install -y gettext
+        sudo apt install -y gettext hunspell hunspell-pt-br
+        msgfmt -V
+        hunspell -v
 
     - name: Prepare virtual environment
       run: |
@@ -78,6 +80,18 @@ jobs:
         make push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Check spelling of translations
+      run: |
+        make spell
+        cd .pospell/
+        tar -czf ../pospell-out.tar.gz *.txt **/*.txt
+
+    - name: Make spellchecking output available
+      uses: actions/upload-artifact@v1
+      with:
+        name: spellchecking-output
+        path: pospell-out.tar.gz
 
     - name: Build documentation treating warnings as errors
       run: |
