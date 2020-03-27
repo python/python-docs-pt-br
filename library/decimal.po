@@ -2234,6 +2234,14 @@ msgid ""
 "conversions with :meth:`~decimal.Decimal.from_float` or :meth:`~decimal."
 "Context.create_decimal_from_float` do not set the flag."
 msgstr ""
+"Se o sinal não for capturado (padrão), a mistura de tipos float e Decimal "
+"será permitida no construtor class:`~decimal.Decimal`, :meth:`~decimal."
+"Context.create_decimal` e em todos os operadores de comparação. Tanto a "
+"conversão quanto as comparações são exatas. Qualquer ocorrência de uma "
+"operação mista é registrada silenciosamente pela configuração :exc:"
+"`FloatOperation` nos sinalizadores de contexto. Conversões explícitas com :"
+"meth:`~decimal.Decimal.from_float` or :meth:`~decimal.Context."
+"create_decimal_from_float` não definem o sinalizador."
 
 #: ../../library/decimal.rst:1646
 msgid ""
@@ -2241,18 +2249,21 @@ msgid ""
 "conversions are silent. All other mixed operations raise :exc:"
 "`FloatOperation`."
 msgstr ""
+"Caso contrário (o sinal é capturado), apenas comparações de igualdade e "
+"conversões explícitas são silenciosas. Todas as outras operações mistas "
+"levantam :exc:`FloatOperation`."
 
 #: ../../library/decimal.rst:1650
 msgid "The following table summarizes the hierarchy of signals::"
-msgstr ""
+msgstr "A tabela a seguir resume a hierarquia de sinais::"
 
 #: ../../library/decimal.rst:1671
 msgid "Floating Point Notes"
-msgstr ""
+msgstr "Observações sobre ponto flutuante"
 
 #: ../../library/decimal.rst:1675
 msgid "Mitigating round-off error with increased precision"
-msgstr ""
+msgstr "Atenuando o erro de arredondamento com maior precisão"
 
 #: ../../library/decimal.rst:1677
 msgid ""
@@ -2261,6 +2272,10 @@ msgid ""
 "operations can still incur round-off error when non-zero digits exceed the "
 "fixed precision."
 msgstr ""
+"O uso do ponto flutuante decimal elimina o erro de representação decimal "
+"(possibilitando representar :const:`0.1` de forma exata); no entanto, "
+"algumas operações ainda podem sofrer erros de arredondamento quando dígitos "
+"diferentes de zero excederem a precisão fixa."
 
 #: ../../library/decimal.rst:1681
 msgid ""
@@ -2270,16 +2285,23 @@ msgid ""
 "floating point arithmetic with insufficient precision causes the breakdown "
 "of the associative and distributive properties of addition:"
 msgstr ""
+"Os efeitos do erro de arredondamento podem ser amplificados pela adição ou "
+"subtração de quantidades quase compensadoras, resultando em perda de "
+"significância. Knuth fornece dois exemplos instrutivos em que a aritmética "
+"de ponto flutuante arredondado com precisão insuficiente causa a quebra das "
+"propriedades associativas e distributivas da adição:"
 
 #: ../../library/decimal.rst:1705
 msgid ""
 "The :mod:`decimal` module makes it possible to restore the identities by "
 "expanding the precision sufficiently to avoid loss of significance:"
 msgstr ""
+"O módulo :mod:`decimal` permite restaurar as identidades expandindo a "
+"precisão o suficiente para evitar perda de significância:"
 
 #: ../../library/decimal.rst:1725
 msgid "Special values"
-msgstr ""
+msgstr "Valores especiais"
 
 #: ../../library/decimal.rst:1727
 msgid ""
@@ -2287,6 +2309,9 @@ msgid ""
 "including :const:`NaN`, :const:`sNaN`, :const:`-Infinity`, :const:"
 "`Infinity`, and two zeros, :const:`+0` and :const:`-0`."
 msgstr ""
+"O sistema numérico para o módulo :mod:`decimal` fornece valores especiais, "
+"incluindo :const:`NaN`, :const:`sNaN`, :const:`-Infinity`, :const:`Infinity` "
+"e dois zeros, :const:`+0` e :const:`-0`."
 
 #: ../../library/decimal.rst:1731
 msgid ""
@@ -2296,6 +2321,11 @@ msgid ""
 "infinity can result from rounding beyond the limits of the largest "
 "representable number."
 msgstr ""
+"Os infinitos podem ser construídos diretamente com: ``Decimal('Infinity')``. "
+"Além disso, eles podem resultar da divisão por zero quando o sinal :exc:"
+"`DivisionByZero` não é capturado. Da mesma forma, quando o sinal :exc:"
+"`Overflow` não é capturado, o infinito pode resultar do arredondamento além "
+"dos limites do maior número representável."
 
 #: ../../library/decimal.rst:1736
 msgid ""
@@ -2303,6 +2333,10 @@ msgid ""
 "where they get treated as very large, indeterminate numbers.  For instance, "
 "adding a constant to infinity gives another infinite result."
 msgstr ""
+"Os infinitos contêm sinais (afins) e podem ser usados em operações "
+"aritméticas, onde são tratados como números muito grandes e indeterminados. "
+"Por exemplo, adicionar uma constante ao infinito fornece outro resultado "
+"infinito."
 
 #: ../../library/decimal.rst:1740
 msgid ""
@@ -2314,6 +2348,14 @@ msgid ""
 "series of computations that occasionally have missing inputs --- it allows "
 "the calculation to proceed while flagging specific results as invalid."
 msgstr ""
+"Algumas operações são indeterminadas e retornam :const:`NaN` ou, se o sinal :"
+"exc:`InvalidOperation` for capturado, levanta uma exceção. Por exemplo, "
+"``0/0`` retorna :const:`NaN`, que significa \"não é um número\" em inglês. "
+"Esta variação de :const:`NaN` é silenciosa e, uma vez criada, fluirá através "
+"de outros cálculos sempre resultando em outra :const:`NaN`. Esse "
+"comportamento pode ser útil para uma série de cálculos que ocasionalmente "
+"têm entradas ausentes --- ele permite que o cálculo continue enquanto "
+"sinaliza resultados específicos como inválidos."
 
 #: ../../library/decimal.rst:1748
 msgid ""
@@ -2321,6 +2363,9 @@ msgid ""
 "every operation.  This is a useful return value when an invalid result needs "
 "to interrupt a calculation for special handling."
 msgstr ""
+"Uma variante é :const:`sNaN`, que sinaliza em vez de permanecer em silêncio "
+"após cada operação. Esse é um valor de retorno útil quando um resultado "
+"inválido precisa interromper um cálculo para tratamento especial."
 
 #: ../../library/decimal.rst:1752
 msgid ""
@@ -2338,6 +2383,19 @@ msgid ""
 "standards-compliance, use the :meth:`compare` and :meth:`compare-signal` "
 "methods instead."
 msgstr ""
+"O comportamento dos operadores de comparação do Python pode ser um pouco "
+"surpreendente onde um :const:`NaN` está envolvido. Um teste de igualdade em "
+"que um dos operandos é um :const:`NaN` silencioso ou sinalizador sempre "
+"retorna :const:`False` (mesmo ao fazer ``Decimal('NaN')==Decimal('NaN')``), "
+"enquanto um teste de desigualdade sempre retorna :const:`True`. Uma "
+"tentativa de comparar dois decimais usando qualquer um dos operadores ``<``, "
+"``<=``, ``>`` ou ``>=`` levantará o sinal :exc:`InvalidOperation` se um dos "
+"operandos for um :const:`NaN` e retorna :const:`False` se esse sinal não for "
+"capturado. Observe que a especificação aritmética decimal geral não "
+"especifica o comportamento das comparações diretas; estas regras para "
+"comparações envolvendo a :const:`NaN` foram retiradas do padrão IEEE 854 "
+"(consulte a Tabela 3 na seção 5.7). Para garantir uma rígida conformidade "
+"com os padrões, use os métodos :meth:`compare` e :meth:`compare-signal`."
 
 #: ../../library/decimal.rst:1765
 msgid ""
@@ -2346,6 +2404,10 @@ msgid ""
 "greater precision.  Since their magnitude is zero, both positive and "
 "negative zeros are treated as equal and their sign is informational."
 msgstr ""
+"Os zeros com sinais podem resultar de cálculos insuficientes. Eles mantêm o "
+"sinal que teria resultado se o cálculo tivesse sido realizado com maior "
+"precisão. Como sua magnitude é zero, os zeros positivos e negativos são "
+"tratados como iguais e seu sinal é informacional."
 
 #: ../../library/decimal.rst:1770
 msgid ""
@@ -2355,10 +2417,15 @@ msgid ""
 "normalized floating point representations, it is not immediately obvious "
 "that the following calculation returns a value equal to zero:"
 msgstr ""
+"Além dos dois zeros com sinais que são distintos e iguais, existem várias "
+"representações de zero com diferentes precisões e ainda com valor "
+"equivalente. Isso leva um pouco de tempo para se acostumar. Para um olho "
+"acostumado a representações de ponto flutuante normalizadas, não é "
+"imediatamente óbvio que o seguinte cálculo retorne um valor igual a zero:"
 
 #: ../../library/decimal.rst:1785
 msgid "Working with threads"
-msgstr ""
+msgstr "Trabalhando com threads"
 
 #: ../../library/decimal.rst:1787
 msgid ""
@@ -2367,12 +2434,18 @@ msgid ""
 "make changes (such as ``getcontext().prec=10``) without interfering with "
 "other threads."
 msgstr ""
+"A função :func:`getcontext` acessa um objeto :class:`Context` diferente para "
+"cada thread. Ter contextos de threads separadas significa que as threads "
+"podem fazer alterações (como ``getcontext().prec=10``) sem interferir em "
+"outras threads."
 
 #: ../../library/decimal.rst:1791
 msgid ""
 "Likewise, the :func:`setcontext` function automatically assigns its target "
 "to the current thread."
 msgstr ""
+"Da mesma forma, a função :func:`setcontext` atribui automaticamente seu alvo "
+"à thread atual."
 
 #: ../../library/decimal.rst:1794
 msgid ""
@@ -2380,6 +2453,9 @@ msgid ""
 "func:`getcontext` will automatically create a new context for use in the "
 "current thread."
 msgstr ""
+"Se :func:`setcontext` não tiver sido chamado antes de :func:`getcontext`, "
+"então :func:`getcontext` criará automaticamente um novo contexto para uso na "
+"thread atual."
 
 #: ../../library/decimal.rst:1798
 msgid ""
@@ -2389,30 +2465,40 @@ msgid ""
 "This should be done *before* any threads are started so that there won't be "
 "a race condition between threads calling :func:`getcontext`. For example::"
 msgstr ""
+"O novo contexto é copiado de um contexto protótipo chamado *DefaultContext*. "
+"Para controlar os padrões para que cada thread, use os mesmos valores em "
+"todo o aplicativo, modifique diretamente o objeto *DefaultContext*. Isso "
+"deve ser feito *antes* de qualquer thread ser iniciada, para que não haja "
+"uma condição de corrida entre as threads chamando :func:`getcontext`. Por "
+"exemplo::"
 
 #: ../../library/decimal.rst:1823
 msgid "Recipes"
-msgstr ""
+msgstr "Receitas"
 
 #: ../../library/decimal.rst:1825
 msgid ""
 "Here are a few recipes that serve as utility functions and that demonstrate "
 "ways to work with the :class:`Decimal` class::"
 msgstr ""
+"Aqui estão algumas receitas que servem como funções utilitárias e que "
+"demonstram maneiras de trabalhar com a classe :class:`Decimal`::"
 
 #: ../../library/decimal.rst:1980
 msgid "Decimal FAQ"
-msgstr ""
+msgstr "Perguntas Frequentes sobre Decimal"
 
 #: ../../library/decimal.rst:1982
 msgid ""
 "Q. It is cumbersome to type ``decimal.Decimal('1234.5')``.  Is there a way "
 "to minimize typing when using the interactive interpreter?"
 msgstr ""
+"P. É complicado digitar ``decimal.Decimal('1234.5')``. Existe uma maneira de "
+"minimizar a digitação ao usar o interpretador interativo?"
 
 #: ../../library/decimal.rst:1985
 msgid "A. Some users abbreviate the constructor to just a single letter:"
-msgstr ""
+msgstr "R. Alguns usuários abreviam o construtor para apenas uma única letra:"
 
 #: ../../library/decimal.rst:1991
 msgid ""
@@ -2420,18 +2506,26 @@ msgid ""
 "many places and need to be rounded.  Others are not supposed to have excess "
 "digits and need to be validated.  What methods should be used?"
 msgstr ""
+"P. Em uma aplicação de ponto fixo com duas casas decimais, algumas entradas "
+"têm muitas casas e precisam ser arredondadas. Outros não devem ter dígitos "
+"em excesso e precisam ser validados. Quais métodos devem ser usados?"
 
 #: ../../library/decimal.rst:1995
 msgid ""
 "A. The :meth:`quantize` method rounds to a fixed number of decimal places. "
 "If the :const:`Inexact` trap is set, it is also useful for validation:"
 msgstr ""
+"R. O método :meth:`quantize` arredonda para um número fixo de casas "
+"decimais. Se a armadilha :const:`Inexact` estiver configurada, também será "
+"útil para validação:"
 
 #: ../../library/decimal.rst:2013
 msgid ""
 "Q. Once I have valid two place inputs, how do I maintain that invariant "
 "throughout an application?"
 msgstr ""
+"P. Depois de validar entradas de duas casas, como mantenho essa invariável "
+"em uma aplicação?"
 
 #: ../../library/decimal.rst:2016
 msgid ""
@@ -2440,12 +2534,18 @@ msgid ""
 "division and non-integer multiplication, will change the number of decimal "
 "places and need to be followed-up with a :meth:`quantize` step:"
 msgstr ""
+"R. Algumas operações como adição, subtração e multiplicação por um número "
+"inteiro preservam automaticamente o ponto fixo. Outras operações, como "
+"divisão e multiplicação não inteira, alteram o número de casas decimais e "
+"precisam ser seguidas com uma etapa :meth:`quantize`:"
 
 #: ../../library/decimal.rst:2034
 msgid ""
 "In developing fixed-point applications, it is convenient to define functions "
 "to handle the :meth:`quantize` step:"
 msgstr ""
+"No desenvolvimento de aplicativos de ponto fixo, é conveniente definir "
+"funções para lidar com a etapa :meth:`quantize`:"
 
 #: ../../library/decimal.rst:2047
 msgid ""
@@ -2454,18 +2554,26 @@ msgid ""
 "value at various precisions. Is there a way to transform them to a single "
 "recognizable canonical value?"
 msgstr ""
+"P. Existem várias maneiras de expressar o mesmo valor. Os números :const:"
+"`200`, :const:`200.000`,  const:`2E2` e :const:`.02E+4` têm todos o mesmo "
+"valor em várias precisões. Existe uma maneira de transformá-los em um único "
+"valor canônico reconhecível?"
 
 #: ../../library/decimal.rst:2052
 msgid ""
 "A. The :meth:`normalize` method maps all equivalent values to a single "
 "representative:"
 msgstr ""
+"R. O método :meth:`normalize` mapeia todos os valores equivalentes para um "
+"único representativo:"
 
 #: ../../library/decimal.rst:2059
 msgid ""
 "Q. Some decimal values always print with exponential notation.  Is there a "
 "way to get a non-exponential representation?"
 msgstr ""
+"P. Alguns valores decimais sempre são exibidas com notação exponencial. "
+"Existe uma maneira de obter uma representação não exponencial?"
 
 #: ../../library/decimal.rst:2062
 msgid ""
@@ -2474,6 +2582,10 @@ msgid ""
 "const:`5.0E+3` as :const:`5000` keeps the value constant but cannot show the "
 "original's two-place significance."
 msgstr ""
+"R. Para alguns valores, a notação exponencial é a única maneira de expressar "
+"o número de casas significativas no coeficiente. Por exemplo, expressar :"
+"const:`5.0E+3` como :const:`5000` mantém o valor constante, mas não pode "
+"mostrar a significância de duas casa do original."
 
 #: ../../library/decimal.rst:2067
 msgid ""
@@ -2481,10 +2593,14 @@ msgid ""
 "remove the exponent and trailing zeroes, losing significance, but keeping "
 "the value unchanged:"
 msgstr ""
+"Se uma aplicação não se importa com o rastreamento da significância, é fácil "
+"remover o expoente e os zeros à direita, perdendo a significância, mas "
+"mantendo o valor inalterado:"
 
 #: ../../library/decimal.rst:2077
 msgid "Q. Is there a way to convert a regular float to a :class:`Decimal`?"
 msgstr ""
+"P. Existe uma maneira de converter um float comum em um :class:`Decimal`?"
 
 #: ../../library/decimal.rst:2079
 msgid ""
@@ -2492,12 +2608,18 @@ msgid ""
 "Decimal though an exact conversion may take more precision than intuition "
 "would suggest:"
 msgstr ""
+"R. Sim, qualquer número de ponto flutuante binário pode ser expresso "
+"exatamente como um Decimal, embora uma conversão exata possa exigir mais "
+"precisão do que a intuição sugere:"
 
 #: ../../library/decimal.rst:2088
 msgid ""
 "Q. Within a complex calculation, how can I make sure that I haven't gotten a "
 "spurious result because of insufficient precision or rounding anomalies."
 msgstr ""
+"P. Em um cálculo complexo, como posso ter certeza de que não obtive um "
+"resultado falso devido à precisão insuficiente ou a anomalias de "
+"arredondamento."
 
 #: ../../library/decimal.rst:2091
 msgid ""
@@ -2506,6 +2628,11 @@ msgid ""
 "Widely differing results indicate insufficient precision, rounding mode "
 "issues, ill-conditioned inputs, or a numerically unstable algorithm."
 msgstr ""
+"R. O módulo decimal facilita o teste de resultados. Uma prática recomendada "
+"é executar novamente os cálculos usando maior precisão e com vários modos de "
+"arredondamento. Resultados amplamente diferentes indicam precisão "
+"insuficiente, problemas no modo de arredondamento, entradas mal "
+"condicionadas ou um algoritmo numericamente instável."
 
 #: ../../library/decimal.rst:2096
 msgid ""
@@ -2513,6 +2640,9 @@ msgid ""
 "but not to the inputs.  Is there anything to watch out for when mixing "
 "values of different precisions?"
 msgstr ""
+"P. Notei que a precisão do contexto é aplicada aos resultados das operações, "
+"mas não às entradas. Há algo a observar ao misturar valores de diferentes "
+"precisões?"
 
 #: ../../library/decimal.rst:2100
 msgid ""
@@ -2522,22 +2652,31 @@ msgid ""
 "disadvantage is that the results can look odd if you forget that the inputs "
 "haven't been rounded:"
 msgstr ""
+"R. Sim. O princípio é que todos os valores são considerados exatos, assim "
+"como a aritmética desses valores. Somente os resultados são arredondados. A "
+"vantagem das entradas é que \"o que você vê é o que você obtém\". Uma "
+"desvantagem é que os resultados podem parecer estranhos se você esquecer que "
+"as entradas não foram arredondadas:"
 
 #: ../../library/decimal.rst:2113
 msgid ""
 "The solution is either to increase precision or to force rounding of inputs "
 "using the unary plus operation:"
 msgstr ""
+"A solução é aumentar a precisão ou forçar o arredondamento das entradas "
+"usando a operação unária de mais:"
 
 #: ../../library/decimal.rst:2122
 msgid ""
 "Alternatively, inputs can be rounded upon creation using the :meth:`Context."
 "create_decimal` method:"
 msgstr ""
+"Como alternativa, as entradas podem ser arredondadas na criação usando o "
+"método :meth:`Context.create_decimal`:"
 
 #: ../../library/decimal.rst:2128
 msgid "Q. Is the CPython implementation fast for large numbers?"
-msgstr ""
+msgstr "P. A implementação do CPython é rápida para números grandes?"
 
 #: ../../library/decimal.rst:2130
 msgid ""
@@ -2551,6 +2690,15 @@ msgid ""
 "Discrete_Fourier_transform_(general)#Number-theoretic_transform>`_ for very "
 "large numbers."
 msgstr ""
+"A. Sim. Nas implementações CPython e PyPy3, as versões C/CFFI do módulo "
+"decimal integram a biblioteca de alta velocidade `libmpdec <https://www."
+"bytereef.org/mpdecimal/doc/libmpdec/index.html>`_ para precisão arbitrária "
+"de aritmética de ponto flutuante decimal corretamente arrendondado [#] _. "
+"``libmpdec`` usa a `multiplicação de Karatsuba <https://pt.wikipedia.org/"
+"wiki/Algoritmo_de_Karatsuba>`_ para números com tamanho médio e a "
+"`Transformada Numérica de Fourier <https://en.wikipedia.org/wiki/ "
+"Discrete_Fourier_transform_ (general)#Number-theoryetic_transform>`_ para "
+"números muito grandes."
 
 #: ../../library/decimal.rst:2140
 msgid ""
@@ -2559,18 +2707,26 @@ msgid ""
 "`clamp` should always be 0 (the default).  Setting :attr:`prec` requires "
 "some care."
 msgstr ""
+"O contexto deve ser adaptado para uma aritmética exata de precisão "
+"arbitrária. :attr:`Emin` e :attr:`Emax` devem sempre ser configurados com os "
+"valores máximos, :attr:`clamp` deve sempre ser 0 (o padrão). A configuração "
+"de :attr:`prec` requer alguns cuidados."
 
 #: ../../library/decimal.rst:2144
 msgid ""
 "The easiest approach for trying out bignum arithmetic is to use the maximum "
 "value for :attr:`prec` as well [#]_::"
 msgstr ""
+"A abordagem mais fácil para testar a aritmética do bignum é usar o valor "
+"máximo para :attr:`prec` também [#]_::"
 
 #: ../../library/decimal.rst:2153
 msgid ""
 "For inexact results, :attr:`MAX_PREC` is far too large on 64-bit platforms "
 "and the available memory will be insufficient::"
 msgstr ""
+"Para resultados inexatos, :attr:`MAX_PREC` é muito grande em plataformas de "
+"64 bits e a memória disponível será insuficiente::"
 
 #: ../../library/decimal.rst:2161
 msgid ""
@@ -2579,6 +2735,10 @@ msgid ""
 "have 8GB of RAM and expect 10 simultaneous operands using a maximum of 500MB "
 "each::"
 msgstr ""
+"Em sistemas com alocação excessiva (por exemplo, Linux), uma abordagem mais "
+"sofisticada é ajustar :attr:`prec` à quantidade de RAM disponível. Suponha "
+"que você tenha 8 GB de RAM e espere 10 operandos simultâneos usando no "
+"máximo 500 MB cada::"
 
 #: ../../library/decimal.rst:2185
 msgid ""
@@ -2586,9 +2746,14 @@ msgid ""
 "recommended to estimate even tighter bounds and set the :attr:`Inexact` trap "
 "if all calculations are expected to be exact."
 msgstr ""
+"Em geral (e especialmente em sistemas sem alocação excessiva), recomenda-se "
+"estimar limites ainda mais apertados e definir a armadilha :attr:`Inexact` "
+"se for esperado que todos os cálculos sejam mais precisos."
 
 #: ../../library/decimal.rst:2194
 msgid ""
 "This approach now works for all exact results except for non-integer powers. "
 "Also backported to 3.7 and 3.8."
 msgstr ""
+"Essa abordagem agora funciona para todos os resultados exatos, exceto para "
+"potências não inteiras. Também suportado para 3.7 e 3.8."
