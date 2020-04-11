@@ -23,6 +23,7 @@ LOCALE_DIR          := $(WORKDIRS)/locale
 JOBS                := auto
 SPHINXERRORHANDLING := "-W"
 TRANSIFEX_PROJECT   := python-newest
+POSPELL_TMP_DIR     := .pospell
 
 
 .PHONY: help
@@ -34,6 +35,7 @@ help:
 	@echo " tx-config    Recreate an up-to-date project .tx/config; calls 'pot'"
 	@echo " pot          Create/Update POT files from source files"
 	@echo " serve        Serve a built documentation on http://localhost:8000"
+	@echo " spell        Check spelling, storing output in $(POSPELL_TMP_DIR)"
 	@echo ""
 
 
@@ -177,9 +179,32 @@ serve:
 	$(MAKE) -C $(CPYTHON_WORKDIR)/Doc serve
 
 
+# list files for spellchecking
+SRCS := $(wildcard *.po **/*.po)
+DESTS = $(addprefix $(POSPELL_TMP_DIR)/out/,$(patsubst %.po,%.txt,$(SRCS)))
+
+
+# spell: run spell checking tool in all po files listed in SRCS variable,
+#        storing the output in text files DESTS for proofreading.  The
+#        DESTS target run the spellchecking, while the typos.txt target
+#        gather all reported issues in one file, sorted without redundancy
+.PHONY: spell
+spell: venv $(DESTS) $(POSPELL_TMP_DIR)/typos.txt
+
+$(POSPELL_TMP_DIR)/out/%.txt: %.po dict
+	@echo "Checking $< ..."
+	@mkdir -p $(@D)
+	@$(VENV)/bin/pospell -l $(LANGUAGE) -p dict $< > $@ || true
+
+$(POSPELL_TMP_DIR)/typos.txt:
+	@echo "Gathering all typos in $(POSPELL_TMP_DIR)/typos.txt ..."
+	@cut -d: -f3- $(DESTS) | sort -u > $@
+
+
 # clean: remove all .mo files and the venv directory that may exist and
 #        could have been created by the actions in other targets of this script
 .PHONY: clean
 clean:
 	rm -fr $(VENV)
+	rm -rf $(POSPELL_TMP_DIR)
 	find -name '*.mo' -delete
