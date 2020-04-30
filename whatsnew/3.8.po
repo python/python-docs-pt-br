@@ -2259,10 +2259,13 @@ msgid ""
 "multiplication operators ``@`` and ``@=`` in addition to the other numeric "
 "operators. (Contributed by Mark Dickinson in :issue:`36669`.)"
 msgstr ""
+"Os objetos proxy retornados por :func:`weakref.proxy` agora possuem suporte "
+"aos operadores de multiplicação de matrizes ``@`` e ``@=`` além dos outros "
+"operadores numéricos. (Contribuição de Mark Dickinson em :issue:`36669`.)"
 
 #: ../../whatsnew/3.8.rst:1407
 msgid "xml"
-msgstr ""
+msgstr "xml"
 
 #: ../../whatsnew/3.8.rst:1409
 msgid ""
@@ -2270,6 +2273,9 @@ msgid ""
 "minidom` and :mod:`xml.sax` modules no longer process external entities by "
 "default. (Contributed by Christian Heimes in :issue:`17239`.)"
 msgstr ""
+"Como atenuação a DTD e recuperação de entidade externa, os módulos :mod:`xml."
+"dom.minidom` e :mod:`xml.sax` não processam mais entidades externas por "
+"padrão. (Contribuição de Christian Heimes em :issue:`17239`.)"
 
 #: ../../whatsnew/3.8.rst:1414
 msgid ""
@@ -2278,6 +2284,10 @@ msgid ""
 "``{namespace}*`` which returns all tags in the given namespace. (Contributed "
 "by Stefan Behnel in :issue:`28238`.)"
 msgstr ""
+"Os métodos ``.find*()`` no módulo :mod:`xml.etree.ElementTree` possuem "
+"suporte a pesquisas curinga como ``{*}tag``, que ignora o espaço para nome e "
+"``{namespace}*``, que retorna todas as tags no espaço para nome "
+"especificado. (Contribuição de Stefan Behnel em :issue:`28238`.)"
 
 #: ../../whatsnew/3.8.rst:1419
 msgid ""
@@ -2285,6 +2295,9 @@ msgid ""
 "etree.ElementTree.canonicalize()` that implements C14N 2.0. (Contributed by "
 "Stefan Behnel in :issue:`13611`.)"
 msgstr ""
+"O módulo :mod:`xml.etree.ElementTree` fornece uma nova função :func:`–xml."
+"etree.ElementTree.canonicalize()` que implementa o C14N 2.0. (Contribuição "
+"de Stefan Behnel em :issue:`13611`.)"
 
 #: ../../whatsnew/3.8.rst:1423
 msgid ""
@@ -2295,10 +2308,17 @@ msgid ""
 "processing instructions to include them in the generated tree. (Contributed "
 "by Stefan Behnel in :issue:`36676` and :issue:`36673`.)"
 msgstr ""
+"O objeto de destino de :class:`xml.etree.ElementTree.XMLParser` pode receber "
+"eventos de declaração de espaço de nomes através dos novos métodos de "
+"retorno de chamada ``start_ns()`` e ``end_ns ()``. Além disso, o destino :"
+"class:`xml.etree.ElementTree.TreeBuilder` pode ser configurado para "
+"processar eventos sobre comentários e instruções de processamento para "
+"incluí-los na árvore gerada. (Contribuição de Stefan Behnel em :issue:"
+"`36676` e :issue:`36673`.)"
 
 #: ../../whatsnew/3.8.rst:1433
 msgid "xmlrpc"
-msgstr ""
+msgstr "xmlrpc"
 
 #: ../../whatsnew/3.8.rst:1435
 msgid ""
@@ -2308,6 +2328,11 @@ msgid ""
 "basic authentication to faster session authentication. (Contributed by "
 "Cédric Krier in :issue:`35153`.)"
 msgstr ""
+":class:`xmlrpc.client.ServerProxy` agora possui suporte a um argumento "
+"nomeado *headers* opcional para que uma sequência de cabeçalhos HTTP seja "
+"enviada a cada solicitação. Entre outras coisas, isso possibilita a "
+"atualização da autenticação básica padrão para uma autenticação de sessão "
+"mais rápida. (Contribuição de Cédric Krier em :issue:`35153`.)"
 
 #: ../../whatsnew/3.8.rst:1443
 msgid "Optimizations"
@@ -2319,24 +2344,30 @@ msgid ""
 "in some cases for better performance. Currently, it is only used on macOS "
 "and Linux (using glibc 2.24 or newer) if all these conditions are met:"
 msgstr ""
+"O módulo :mod:`subprocess` agora pode usar a função :func:`os.posix_spawn` "
+"em alguns casos para obter melhor desempenho. Atualmente, ele é usado apenas "
+"no macOS e Linux (usando glibc 2.24 ou mais recente) se todas essas "
+"condições forem atendidas:"
 
 #: ../../whatsnew/3.8.rst:1449
 msgid "*close_fds* is false;"
-msgstr ""
+msgstr "*close_fds* ser false;"
 
 #: ../../whatsnew/3.8.rst:1450
 msgid ""
 "*preexec_fn*, *pass_fds*, *cwd* and *start_new_session* parameters are not "
 "set;"
 msgstr ""
+"os parâmetros *preexec_fn*, *pass_fds*, *cwd* and *start_new_session* não "
+"estarem definidos;"
 
 #: ../../whatsnew/3.8.rst:1452
 msgid "the *executable* path contains a directory."
-msgstr ""
+msgstr "o caminho *executable* conter um diretório."
 
 #: ../../whatsnew/3.8.rst:1454
 msgid "(Contributed by Joannah Nanjekye and Victor Stinner in :issue:`35537`.)"
-msgstr ""
+msgstr "(Contribuição de Joannah Nanjekye e Victor Stinner em :issue:`35537`.)"
 
 #: ../../whatsnew/3.8.rst:1456
 msgid ""
@@ -2353,6 +2384,19 @@ msgid ""
 "dependent-efficient-copy-operations` section. (Contributed by Giampaolo "
 "Rodolà in :issue:`33671`.)"
 msgstr ""
+":func:`shutil.copyfile`, :func:`shutil.copy`, :func:`shutil.copy2`, :func:"
+"`shutil.copytree` e :func:`shutil.copytree` usam chamadas de sistema \"fast-"
+"copy\" específicas da plataforma no Linux e no macOS para copiar o arquivo "
+"com mais eficiência. \"fast-copy\" significa que a operação de cópia ocorre "
+"dentro do kernel, evitando o uso de buffers de espaço do usuário no Python "
+"como em \"``outfd.write(infd.read())``\". No Windows, :func:`shutil."
+"copyfile` usa um buffer padrão com tamanho maior (1 MiB em vez de 16 KiB) e "
+"é usada uma variante de :func:`shutil.copyfileobj` baseada em :func:"
+"`memoryview`. A velocidade de cópia de um arquivo 512 MiB na mesma partição "
+"é de aproximadamente +26% no Linux, +50% no macOS e +40% no Windows. Além "
+"disso, muito menos ciclos de CPU são consumidos. Veja a seção :ref:`shutil-"
+"platform-dependent-efficient-copy-operations`. (Contribuição de Giampaolo "
+"Rodolà em :issue:`33671`.)"
 
 #: ../../whatsnew/3.8.rst:1472
 msgid ""
@@ -2363,6 +2407,13 @@ msgid ""
 "syscalls is reduced by 38% making :func:`shutil.copytree` especially faster "
 "on network filesystems. (Contributed by Giampaolo Rodolà in :issue:`33695`.)"
 msgstr ""
+":func:`shutil.copytree` usa a função :func:`os.scandir` e todas as funções "
+"de cópia que dependem dela usam valores em cache de :func:`os.stat`. A "
+"velocidade para copiar um diretório com 8000 arquivos é de cerca de +9% no "
+"Linux, +20% no Windows e +30% em um compartilhamento SMB do Windows. Além "
+"disso, o número de chamadas de sistema :func:`os.stat` é reduzido em 38%, "
+"tornando :func:`shutil.copytree` especialmente mais rápida em sistemas de "
+"arquivos em rede. (Contribuição de Giampaolo Rodolà em :issue:`33695`.)"
 
 #: ../../whatsnew/3.8.rst:1479
 msgid ""
@@ -2370,6 +2421,9 @@ msgid ""
 "introduced in Python 3.4.  It offers better performance and smaller size "
 "compared to Protocol 3 available since Python 3.0."
 msgstr ""
+"O protocolo padrão no módulo :mod:`pickle` agora é o Protocolo 4, "
+"introduzido pela primeira vez no Python 3.4. Ele oferece melhor desempenho e "
+"tamanho menor em comparação com o Protocolo 3 disponível desde o Python 3.0."
 
 #: ../../whatsnew/3.8.rst:1483
 msgid ""
@@ -2377,12 +2431,17 @@ msgid ""
 "objects (e.g. tuple, list, dict) size is reduced 4 or 8 bytes. (Contributed "
 "by Inada Naoki in :issue:`33597`.)"
 msgstr ""
+"Removido um membro ``Py_ssize_t`` de ``PyGC_Head``. O tamanho de todos os "
+"objetos rastreados pelo coletor de lixo (por exemplo, tupla, lista, ditado) "
+"é reduzido em 4 ou 8 bytes. (Contribuição de Inada Naoki em :issue:`33597`.)"
 
 #: ../../whatsnew/3.8.rst:1487
 msgid ""
 ":class:`uuid.UUID` now uses ``__slots__`` to reduce its memory footprint. "
 "(Contributed by Wouter Bolsterlee and Tal Einat in :issue:`30977`)"
 msgstr ""
+":class:`uuid.UUID` agora usa ``__slots__`` para reduzir seu uso de espaço de "
+"memória. (Contribuição de Wouter Bolsterlee e Tal Einat em :issue:`30977`)"
 
 #: ../../whatsnew/3.8.rst:1490
 msgid ""
@@ -2391,6 +2450,10 @@ msgid ""
 "negative integer index into a tuple (which is the typical use case in the "
 "standard library).  (Contributed by Raymond Hettinger in :issue:`35664`.)"
 msgstr ""
+"Melhor desempenho de :func:`operator.itemgetter` em 33%. Manipulação de "
+"argumento otimizada e incluído um caminho rápido para o caso comum de um "
+"único índice inteiro não negativo em uma tupla (que é o caso de uso típico "
+"na biblioteca padrão). (Contribuição de Raymond Hettinger em :issue:`35664`.)"
 
 #: ../../whatsnew/3.8.rst:1496
 msgid ""
@@ -2399,6 +2462,10 @@ msgid ""
 "lookup in Python. (Contributed by Raymond Hettinger, Pablo Galindo, and Joe "
 "Jevnik, Serhiy Storchaka in :issue:`32492`.)"
 msgstr ""
+"Pesquisas de campo aceleradas em :func:`collections.namedtuple`. Agora elas "
+"são duas vezes mais rápidas, tornando-as a forma mais rápida de pesquisa de "
+"variáveis de instância no Python. (Contribuição de Raymond Hettinger, Pablo "
+"Galindo e Joe Jevnik, Serhiy Storchaka em :issue:`32492`.)"
 
 #: ../../whatsnew/3.8.rst:1501
 msgid ""
@@ -2407,6 +2474,10 @@ msgid ""
 "This makes the created list 12% smaller on average. (Contributed by Raymond "
 "Hettinger and Pablo Galindo in :issue:`33234`.)"
 msgstr ""
+"O construtor :class:`list` não atribui globalmente o buffer interno do item "
+"se a entrada iterável tiver um comprimento conhecido (a entrada implementa "
+"``__len__``). Isso torna a lista criada 12% menor em média. (Contribuição de "
+"Raymond Hettinger e Pablo Galindo em :issue:`33234`.)"
 
 #: ../../whatsnew/3.8.rst:1506
 msgid ""
@@ -2415,6 +2486,10 @@ msgid ""
 "Stefan Behnel, Pablo Galindo Salgado, Raymond Hettinger, Neil Schemenauer, "
 "and Serhiy Storchaka in :issue:`36012`.)"
 msgstr ""
+"Duplicada a velocidade de gravação de variável de classe. Quando um atributo "
+"não-dunder era atualizado, havia uma chamada desnecessária para atualizar os "
+"slots. (Contribuição de Stefan Behnel, Pablo Galindo Salgado, Raymond "
+"Hettinger, Neil Schemenauer e Serhiy Storchaka em :issue:`36012`.)"
 
 #: ../../whatsnew/3.8.rst:1511
 msgid ""
@@ -2423,6 +2498,10 @@ msgid ""
 "up to 20--50%.  (Contributed by Serhiy Storchaka in :issue:`23867`, :issue:"
 "`35582` and :issue:`36127`.)"
 msgstr ""
+"Reduzida a sobrecarga dos argumentos de conversão passados para muitas "
+"funções e métodos internos. Isso acelerou chamando algumas funções e métodos "
+"internos simples de 20--50%. (Contribuição de Serhiy Storchaka em :issue:"
+"`23867`, :issue:`35582` e :issue:`36127`.)"
 
 #: ../../whatsnew/3.8.rst:1516
 msgid ""
@@ -2430,6 +2509,9 @@ msgid ""
 "is about 40% faster now.  (Contributed by Yury Selivanov and Inada Naoki in :"
 "issue:`26219`.)"
 msgstr ""
+"A instrução ``LOAD_GLOBAL`` agora usa o novo mecanismo \"por cache de código "
+"de operação\". É cerca de 40% mais rápido agora. (Contribuição de Yury "
+"Selivanov e Inada Naoki em :issue: `26219`.)"
 
 #: ../../whatsnew/3.8.rst:1522
 msgid "Build and C API Changes"
