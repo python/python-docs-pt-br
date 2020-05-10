@@ -47,7 +47,8 @@ help:
 #        treated as errors, which is good to skip simple Sphinx syntax mistakes.
 .PHONY: build
 build: setup
-	$(MAKE) -C $(CPYTHON_WORKDIR)/Doc/              \
+	@echo "Building Python $(BRANCH) Documentation ..."
+	@$(MAKE) -C $(CPYTHON_WORKDIR)/Doc/              \
 		VENVDIR=$(CPYTHON_WORKDIR)/Doc/venv         \
 		PYTHON=$(PYTHON)                            \
 		SPHINXERRORHANDLING=$(SPHINXERRORHANDLING)  \
@@ -58,10 +59,10 @@ build: setup
 			-D latex_engine=xelatex                 \
 			-D latex_elements.inputenc=             \
 			-D latex_elements.fontenc='             \
-		html;
+		html
 		
-		@echo "Success! Open file://$(CPYTHON_WORKDIR)/Doc/build/html/index.html, " \
-		      "or run 'make serve' to see them in http://localhost:8000";
+	@echo "Success! Open file://$(CPYTHON_WORKDIR)/Doc/build/html/index.html, " \
+		  "or run 'make serve' to see them in http://localhost:8000";
 
 
 # push: push new translation files and Transifex config files to repository,
@@ -69,7 +70,7 @@ build: setup
 #       then assumes we are in GitHub Actions, requiring different push args
 .PHONY: push
 push:
-	if ! git status -s | egrep '\.po|\.tx/config'; then                     \
+	@if ! git status -s | egrep '\.po|\.tx/config'; then                    \
 		echo "Nothing to commit";                                           \
 		exit 0;                                                             \
 	else                                                                    \
@@ -89,8 +90,8 @@ push:
 #       to update the translation file mapping.
 .PHONY: pull
 pull: venv
-	$(VENV)/bin/tx pull --force --language=$(LANGUAGE) --parallel
-	$(VENV)/bin/powrap --quiet *.po **/*.po
+	@$(VENV)/bin/tx pull --force --language=$(LANGUAGE) --parallel
+	@$(VENV)/bin/powrap --quiet *.po **/*.po
 
 
 # tx-config: After running "pot", create a new Transifex config file by
@@ -98,7 +99,7 @@ pull: venv
 #            LANGUAGE.
 .PHONY: tx-config
 tx-config: pot
-	cd $(CPYTHON_WORKDIR)/Doc/locales;                  \
+	@cd $(CPYTHON_WORKDIR)/Doc/locales;                 \
 	rm -rf .tx;                                         \
 	$(VENV)/bin/sphinx-intl create-txconfig;            \
 	$(VENV)/bin/sphinx-intl update-txconfig-resources   \
@@ -106,8 +107,8 @@ tx-config: pot
 	    --locale-dir .                                  \
 	    --pot-dir pot;
 	
-	mkdir -p .tx
-	sed $(CPYTHON_WORKDIR)/Doc/locales/.tx/config     \
+	@mkdir -p .tx
+	@sed $(CPYTHON_WORKDIR)/Doc/locales/.tx/config    \
 	    -e '/^source_file/d'                          \
 	    -e 's|<lang>/LC_MESSAGES/||'                  \
 	    -e "s|^file_filter|trans.$(LANGUAGE)|"        \
@@ -118,7 +119,7 @@ tx-config: pot
 #      to generate .pot files under $(CPYTHON_WORKDIR)/Doc/locales/pot
 .PHONY: pot
 pot: setup
-	$(MAKE) -C $(CPYTHON_WORKDIR)/Doc/          \
+	@$(MAKE) -C $(CPYTHON_WORKDIR)/Doc/         \
 		VENVDIR=$(CPYTHON_WORKDIR)/Doc/venv     \
 		PYTHON=$(PYTHON)                        \
 		ALLSPHINXOPTS='-E -b gettext            \
@@ -134,42 +135,46 @@ pot: setup
 #        the translation files copy which could have new/updated files.
 .PHONY: setup
 setup: venv
-	# Setup the main clone
-	if ! [ -d $(CPYTHON_PATH) ]; then                                       \
+	@if ! [ -d $(CPYTHON_PATH) ]; then                                      \
+		echo "CPython repo not found; cloning ...";                         \
 		git clone --depth 1 --branch $(BRANCH) $(UPSTREAM) $(CPYTHON_PATH); \
 	else                                                                    \
+		echo "CPython repo found; updating ...";                            \
 		git -C $(CPYTHON_PATH) pull --rebase;                               \
 	fi
 	
-	# Setup the current work directory
-	if ! [ -d $(CPYTHON_WORKDIR) ]; then                                    \
+	@if ! [ -d $(CPYTHON_WORKDIR) ]; then                                   \
+		echo "Setting up CPython repo in workdir ...";                      \
 		rm -fr $(WORKDIRS);                                                 \
 		mkdir -p $(WORKDIRS);                                               \
 		git clone $(CPYTHON_PATH) $(CPYTHON_WORKDIR);                       \
 		$(MAKE) -C $(CPYTHON_WORKDIR)/Doc                                   \
 			VENVDIR=$(CPYTHON_WORKDIR)/Doc/venv                             \
 			PYTHON=$(PYTHON) venv;                                          \
+	else                                                                    \
+	    echo "CPython repo already ready in workdir";                       \
 	fi
 	
-	# Setup translation files
-	if ! [ -d $(LOCALE_DIR)/$(LANGUAGE)/LC_MESSAGES/ ]; then                \
+	@echo "Setting up translation files in workdir ..."
+	@if ! [ -d $(LOCALE_DIR)/$(LANGUAGE)/LC_MESSAGES/ ]; then               \
 		mkdir -p $(LOCALE_DIR)/$(LANGUAGE)/LC_MESSAGES/;                    \
-	fi;                                                                     \
-	cp --parents *.po **/*.po $(LOCALE_DIR)/$(LANGUAGE)/LC_MESSAGES/        \
+	fi
+	@cp --parents *.po **/*.po $(LOCALE_DIR)/$(LANGUAGE)/LC_MESSAGES/
 
 
 # venv: create a virtual environment which will be used by almost every
 #       other target of this script
 .PHONY: venv
 venv:
-	if [ ! -d $(VENV) ]; then                                            \
+	@echo "Setting up $(LANGUAGE_TEAM)'s virtual environment ...";
+	@if [ ! -d $(VENV) ]; then                                           \
 		$(PYTHON) -m venv --prompt $(LANGUAGE_TEAM) $(VENV);             \
 	fi
 	
-	$(VENV)/bin/python -m pip install -q -r requirements.txt 2> $(VENV)/pip-install.log
+	@$(VENV)/bin/python -m pip install -q -r requirements.txt 2> $(VENV)/pip-install.log
 	
-	if grep -q 'pip install --upgrade pip' $(VENV)/pip-install.log; then \
-		$(VENV)/bin/pip install -q --upgrade pip;                        \
+	@if grep -q 'pip install --upgrade pip' $(VENV)/pip-install.log; then \
+		$(VENV)/bin/pip install -q --upgrade pip;                         \
 	fi
 
 
@@ -177,7 +182,7 @@ venv:
 #        Makefile's "serve" target. Run "build" before using this target.
 .PHONY: serve
 serve:
-	$(MAKE) -C $(CPYTHON_WORKDIR)/Doc serve
+	@$(MAKE) -C $(CPYTHON_WORKDIR)/Doc serve
 
 
 # list files for spellchecking
