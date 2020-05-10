@@ -9,6 +9,7 @@
 
 CPYTHON_PATH        := ../cpython
 BRANCH              := 3.8
+MERGEBRANCHES       := 3.7 3.6 2.7
 LANGUAGE_TEAM       := python-docs-pt-br
 LANGUAGE            := pt_BR
 
@@ -36,6 +37,7 @@ help:
 	@echo " pot          Create/Update POT files from source files"
 	@echo " serve        Serve a built documentation on http://localhost:8000"
 	@echo " spell        Check spelling, storing output in $(POSPELL_TMP_DIR)"
+	@echo " merge        Merge $(BRANCH) branch's .po files into: $(MERGEBRANCHES)"
 	@echo ""
 
 
@@ -199,6 +201,28 @@ $(POSPELL_TMP_DIR)/out/%.txt: %.po dict
 $(POSPELL_TMP_DIR)/typos.txt:
 	@echo "Gathering all typos in $(POSPELL_TMP_DIR)/typos.txt ..."
 	@cut -d: -f3- $(DESTS) | sort -u > $@
+
+
+# merge: merge translations from BRANCH (Python version currently aim of
+#        translation) into each branch listed by MERGEBRANCHES (branches
+#        of older Python versions) so that older versions of the Python
+#        docs make at least some use the latest translations, if possible.
+#        After merging, git-push merged files (if any) to the target branch.
+.PHONY: merge
+merge: venv $(MERGEBRANCHES)
+
+$(MERGEBRANCHES):
+	@echo "Merging translations from $(BRANCH) branch into $@ ..."
+	@$(VENV)/bin/pomerge --from-files *.po **/*.po
+	@git checkout $@
+	@$(VENV)/bin/pomerge --no-overwrite --to-files *.po **/*.po
+	@$(VENV)/bin/powrap --modified *.po **/*.po
+	@if git status -s | egrep '\.po'; then                                  \
+		git add *.po **/*.po;                                               \
+		git commit -m "pomerge from $(BRANCH) branch into @";               \
+		git push;                                                           \
+	fi
+	@git checkout $(BRANCH)
 
 
 # clean: remove all .mo files and the venv directory that may exist and
