@@ -5,27 +5,41 @@
 #  based on: https://github.com/python/python-docs-fr/blob/3.8/Makefile
 #
 
+#################
 # Configuration
 
-CPYTHON_PATH        := ../cpython
-BRANCH              := 3.8
+# Main translation branch; please make sure it matches 'python-newest'
+# project's version in 'python-docs' organization in Transifex
+BRANCH              := $(shell git branch --show-current)
+
+# Branches representing docs for older Python versions, which current
+# translations should be merged into
 MERGEBRANCHES       := 3.7 3.6 2.7
+
+# Name of language team; should be python-docs-LANG, where LANG is the
+# IETF language tag for your language; see Language Tag section in PEP 545
 LANGUAGE_TEAM       := python-docs-pt-br
+
+# Language code in ISO 639; see Language Tag section in PEP 545, and
+# Sphinx configuration's supported languages
 LANGUAGE            := pt_BR
 
-# Internal variables
-
+# Paths and URLs
 UPSTREAM            := https://github.com/python/cpython
-VENV                := $(shell realpath ./venv)
 PYTHON              := $(shell which python3)
+CPYTHON_PATH        := $(shell realpath ../cpython)
+POSPELL_TMP_DIR     := .pospell
+VENV                := $(shell realpath ./venv)
 WORKDIRS            := $(VENV)/workdirs
 CPYTHON_WORKDIR     := $(WORKDIRS)/cpython
 LOCALE_DIR          := $(WORKDIRS)/locale
+
+# Settings for 'build' target
 JOBS                := auto
 SPHINXERRORHANDLING := "-W"
-TRANSIFEX_PROJECT   := python-newest
-POSPELL_TMP_DIR     := .pospell
 
+#
+#################
 
 .PHONY: help
 help:
@@ -98,6 +112,7 @@ pull: venv
 #            reading pot files generated, then tweak this config file to
 #            LANGUAGE.
 .PHONY: tx-config
+tx-config: TRANSIFEX_PROJECT := python-newest
 tx-config: pot
 	@cd $(CPYTHON_WORKDIR)/Doc/locales;                 \
 	rm -rf .tx;                                         \
@@ -181,16 +196,15 @@ serve:
 	@$(MAKE) -C $(CPYTHON_WORKDIR)/Doc serve
 
 
-# list files for spellchecking
-SRCS := $(wildcard *.po **/*.po)
-DESTS = $(addprefix $(POSPELL_TMP_DIR)/out/,$(patsubst %.po,%.txt,$(SRCS)))
-
-
 # spell: run spell checking tool in all po files listed in SRCS variable,
 #        storing the output in text files DESTS for proofreading.  The
 #        DESTS target run the spellchecking, while the typos.txt target
 #        gather all reported issues in one file, sorted without redundancy
 .PHONY: spell
+
+SRCS := $(wildcard *.po **/*.po)
+DESTS = $(addprefix $(POSPELL_TMP_DIR)/out/,$(patsubst %.po,%.txt,$(SRCS)))
+
 spell: venv $(DESTS) $(POSPELL_TMP_DIR)/typos.txt
 
 $(POSPELL_TMP_DIR)/out/%.txt: %.po dict
