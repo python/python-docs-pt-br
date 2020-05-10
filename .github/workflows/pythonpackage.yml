@@ -13,8 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
-      matrix:
-        python-version: [3.7]
 
     steps:
     - uses: actions/checkout@v2
@@ -24,9 +22,7 @@ jobs:
         git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
 
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v1
-      with:
-        python-version: ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
 
     - name: Install dependencies via package manager
       run: |
@@ -45,7 +41,7 @@ jobs:
 
     - name: If failed, make the log file an artifact
       if: failure()
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v2
       with:
         name: pip-install-log
         path: venv/pip-install.log
