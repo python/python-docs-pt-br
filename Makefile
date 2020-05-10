@@ -106,13 +106,12 @@ tx-config: pot
 	    --locale-dir .                                  \
 	    --pot-dir pot;
 	
-	cd $(OLDPWD)
-	mv $(CPYTHON_WORKDIR)/Doc/locales/.tx/config .tx/config
-	
-	sed -i .tx/config                                 \
+	mkdir -p .tx
+	sed $(CPYTHON_WORKDIR)/Doc/locales/.tx/config     \
 	    -e '/^source_file/d'                          \
 	    -e 's|<lang>/LC_MESSAGES/||'                  \
-	    -e "s|^file_filter|trans.$(LANGUAGE)|"
+	    -e "s|^file_filter|trans.$(LANGUAGE)|"        \
+	    > .tx/config
 
 
 # pot: After running "setup" target, run a cpython Makefile's target
