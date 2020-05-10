@@ -76,7 +76,7 @@ build: setup
 		html
 		
 	@echo "Success! Open file://$(CPYTHON_WORKDIR)/Doc/build/html/index.html, " \
-		  "or run 'make serve' to see them in http://localhost:8000";
+	      "or run 'make serve' to see them in http://localhost:8000";
 
 
 # push: push changed translation files and Transifex config file to repository.
@@ -151,9 +151,11 @@ pot: setup
 setup: venv
 	@if ! [ -d $(CPYTHON_PATH) ]; then                                      \
 		echo "CPython repo not found; cloning ...";                         \
-		git clone --depth 1 --branch $(BRANCH) $(UPSTREAM) $(CPYTHON_PATH); \
+		git clone --depth 1 --no-single-branch $(UPSTREAM) $(CPYTHON_PATH); \
+		git -C $(CPYTHON_PATH) checkout $(BRANCH);                          \
 	else                                                                    \
 		echo "CPython repo found; updating ...";                            \
+		git -C $(CPYTHON_PATH) checkout $(BRANCH);                          \
 		git -C $(CPYTHON_PATH) pull --rebase;                               \
 	fi
 	
@@ -166,7 +168,7 @@ setup: venv
 			VENVDIR=$(CPYTHON_WORKDIR)/Doc/venv                             \
 			PYTHON=$(PYTHON) venv;                                          \
 	else                                                                    \
-	    echo "CPython repo already ready in workdir";                       \
+		echo "CPython repo already ready in workdir";                       \
 	fi
 	
 	@echo "Setting up translation files in workdir ..."
