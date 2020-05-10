@@ -79,9 +79,9 @@ build: setup
 		  "or run 'make serve' to see them in http://localhost:8000";
 
 
-# push: push new translation files and Transifex config files to repository,
-#       if any. Do nothing if there is no file changes. If GITHUB_TOKEN is set,
-#       then assumes we are in GitHub Actions, requiring different push args
+# push: push changed translation files and Transifex config file to repository.
+#       Do nothing if there is no file changes. If GITHUB_TOKEN is set, then
+#       assumes we are in GitHub Actions, requiring different push args.
 .PHONY: push
 push:
 	@if ! git status -s | egrep '\.po|\.tx/config'; then                    \
@@ -109,8 +109,7 @@ pull: venv
 
 
 # tx-config: After running "pot", create a new Transifex config file by
-#            reading pot files generated, then tweak this config file to
-#            LANGUAGE.
+#            reading pot files generated, then tweak it to LANGUAGE.
 .PHONY: tx-config
 tx-config: TRANSIFEX_PROJECT := python-newest
 tx-config: pot
@@ -131,7 +130,7 @@ tx-config: pot
 
 
 # pot: After running "setup" target, run a cpython Makefile's target
-#      to generate .pot files under $(CPYTHON_WORKDIR)/Doc/locales/pot
+#      to generate .pot files under $(CPYTHON_WORKDIR)/Doc/locales/pot.
 .PHONY: pot
 pot: setup
 	@$(MAKE) -C $(CPYTHON_WORKDIR)/Doc/         \
@@ -178,7 +177,7 @@ setup: venv
 
 
 # venv: create a virtual environment which will be used by almost every
-#       other target of this script
+#       other target of this script.
 .PHONY: venv
 venv:
 	@if [ ! -d $(VENV) ]; then                                         \
@@ -199,7 +198,7 @@ serve:
 # spell: run spell checking tool in all po files listed in SRCS variable,
 #        storing the output in text files DESTS for proofreading.  The
 #        DESTS target run the spellchecking, while the typos.txt target
-#        gather all reported issues in one file, sorted without redundancy
+#        gather all reported issues in one file, sorted without redundancy.
 .PHONY: spell
 
 SRCS := $(wildcard *.po **/*.po)
@@ -239,8 +238,8 @@ $(MERGEBRANCHES):
 	@git checkout $(BRANCH)
 
 
-# clean: remove all .mo files and the venv directory that may exist and
-#        could have been created by the actions in other targets of this script
+# clean: remove all .mo files and the venv directory that may exist and could
+#        have been created by the actions in other targets of this script.
 .PHONY: clean
 clean:
 	rm -fr $(VENV)
