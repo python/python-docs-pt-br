@@ -166,16 +166,12 @@ setup: venv
 #       other target of this script
 .PHONY: venv
 venv:
-	@echo "Setting up $(LANGUAGE_TEAM)'s virtual environment ...";
-	@if [ ! -d $(VENV) ]; then                                           \
-		$(PYTHON) -m venv --prompt $(LANGUAGE_TEAM) $(VENV);             \
+	@if [ ! -d $(VENV) ]; then                                         \
+	    echo "Setting up $(LANGUAGE_TEAM)'s virtual environment ...";  \
+	    $(PYTHON) -m venv --prompt $(LANGUAGE_TEAM) $(VENV);           \
+	    $(VENV)/bin/python -m pip install --upgrade pip;               \
 	fi
-	
-	@$(VENV)/bin/python -m pip install -q -r requirements.txt 2> $(VENV)/pip-install.log
-	
-	@if grep -q 'pip install --upgrade pip' $(VENV)/pip-install.log; then \
-		$(VENV)/bin/pip install -q --upgrade pip;                         \
-	fi
+	@$(VENV)/bin/pip install --upgrade --requirement requirements.txt
 
 
 # serve: serve the documentation in a simple local web server, using cpython
