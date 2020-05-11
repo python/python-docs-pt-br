@@ -1,5 +1,7 @@
 # Brazilian Portuguese Translation of the Python Documentation
 
+![Build and update documentation](https://github.com/python/python-docs-pt-br/workflows/Build%20and%20update%20documentation/badge.svg)
+
 ## Documentation Contribution Agreement
 
 NOTE REGARDING THE LICENSE FOR TRANSLATIONS: Python's documentation is
