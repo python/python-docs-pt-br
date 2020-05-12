@@ -234,7 +234,7 @@ $(MERGEBRANCHES):
 	@$(VENV)/bin/powrap --modified *.po **/*.po
 	@if git status -s | egrep '\.po'; then                                  \
 		git add *.po **/*.po;                                               \
-		git commit -m "pomerge from $(BRANCH) branch into @";               \
+		git commit -m "pomerge from $(BRANCH) branch into $@";               \
 		git push;                                                           \
 	fi
 	@git checkout $(BRANCH)
