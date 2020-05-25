@@ -47,6 +47,17 @@ msgid ""
 "single module which can efficiently manipulate such data, hiding the details "
 "of reading and writing the data from the programmer."
 msgstr ""
+"O chamado formato CSV (Comma Separated Values) é o formato mais comum de "
+"importação e exportação de planilhas e bancos de dados. O formato CSV foi "
+"usado por muitos anos antes das tentativas de descrever o formato de maneira "
+"padronizada em :rfc:`4180`. A falta de um padrão bem definido significa que "
+"existem diferenças sutis nos dados produzidos e consumidos por diferentes "
+"aplicativos. Essas diferenças podem tornar irritante o processamento de "
+"arquivos CSV de várias fontes. Ainda assim, enquanto os delimitadores e os "
+"caracteres de citação variam, o formato geral é semelhante o suficiente para "
+"que seja possível escrever um único módulo que possa manipular "
+"eficientemente esses dados, ocultando os detalhes da leitura e gravação dos "
+"dados do programador."
 
 #: ../../library/csv.rst:28
 msgid ""
@@ -57,6 +68,12 @@ msgid ""
 "Excel.  Programmers can also describe the CSV formats understood by other "
 "applications or define their own special-purpose CSV formats."
 msgstr ""
+"O módulo :mod:`csv` implementa classes para ler e gravar dados tabulares no "
+"formato CSV. Ele permite que os programadores digam \"escreva esses dados no "
+"formato preferido pelo Excel\" ou \"leia os dados desse arquivo gerado pelo "
+"Excel\", sem conhecer os detalhes precisos do formato CSV usado pelo Excel. "
+"Os programadores também podem descrever os formatos CSV entendidos por "
+"outros aplicativos ou definir seus próprios formatos CSV para fins especiais."
 
 #: ../../library/csv.rst:35
 msgid ""
@@ -64,14 +81,18 @@ msgid ""
 "write sequences.  Programmers can also read and write data in dictionary "
 "form using the :class:`DictReader` and :class:`DictWriter` classes."
 msgstr ""
+"Os objetos de :class:`reader` e :class:`writer` do módulo :mod:`csv` leem e "
+"escrevem sequências. Os programadores também podem ler e gravar dados no "
+"formato de dicionário usando as classes :class:`DictReader` e :class:"
+"`DictWriter`."
 
 #: ../../library/csv.rst:41
 msgid ":pep:`305` - CSV File API"
-msgstr ""
+msgstr ":pep:`305` - API de arquivo CSV"
 
 #: ../../library/csv.rst:42
 msgid "The Python Enhancement Proposal which proposed this addition to Python."
-msgstr ""
+msgstr "A proposta de melhoria do Python que propôs essa adição ao Python."
 
 #: ../../library/csv.rst:48
 msgid "Module Contents"
@@ -79,7 +100,7 @@ msgstr "Conteúdo do Módulo"
 
 #: ../../library/csv.rst:50
 msgid "The :mod:`csv` module defines the following functions:"
-msgstr ""
+msgstr "O módulo :mod:`csv` define as seguintes funções:"
 
 #: ../../library/csv.rst:58
 msgid ""
@@ -96,6 +117,19 @@ msgid ""
 "in the current dialect.  For full details about the dialect and formatting "
 "parameters, see section :ref:`csv-fmt-params`."
 msgstr ""
+"Retorna um objeto leitor que irá iterar sobre as linhas no *csvfile* "
+"fornecido. *csvfile* pode ser qualquer objeto que possua suporte ao "
+"protocolo :term:`iterador <iterator>` e retorne uma string sempre que o "
+"método :meth:`!__next__` for chamado --- :term:`arquivos objeto <file "
+"object>` e objetos lista são ambos adequado. Se *csvfile* for um objeto de "
+"arquivo, ele deverá ser aberto com ``newline=''``. [1]_ Pode ser fornecido "
+"um parâmetro opcional *dialect*, usado para definir um conjunto de "
+"parâmetros específicos para um dialeto CSV específico. Pode ser uma "
+"instância de uma subclasse da classe :class:`Dialect` ou uma das strings "
+"retornadas pela função :func:`list_dialects`. Os outros argumentos nomeados "
+"opcionais *fmtparams* podem ser dados para substituir parâmetros de "
+"formatação individuais no dialeto atual. Para detalhes completos sobre os "
+"parâmetros de dialeto e formatação, consulte a seção :ref:`csv-fmt-params`."
 
 #: ../../library/csv.rst:71
 msgid ""
@@ -104,6 +138,10 @@ msgid ""
 "format option is specified (in which case unquoted fields are transformed "
 "into floats)."
 msgstr ""
+"Cada linha lida no arquivo csv é retornada como uma lista de cadeias. "
+"Nenhuma conversão automática de tipo de dados é executada, a menos que a "
+"opção de formato ``QUOTE_NONNUMERIC`` seja especificada (nesse caso, os "
+"campos não citados são transformados em flutuadores)."
 
 #: ../../library/csv.rst:75 ../../library/csv.rst:105 ../../library/csv.rst:173
 #: ../../library/csv.rst:209
@@ -129,6 +167,23 @@ msgid ""
 "returned from a ``cursor.fetch*`` call. All other non-string data are "
 "stringified with :func:`str` before being written."
 msgstr ""
+"Retorna um objeto de escrita responsável por converter os dados de usuário "
+"em strings delimitadas no objeto semelhante a um arquivo. *csvfile* pode ser "
+"qualquer objeto com um método :func:`write`. Se *csvfile* for um objeto de "
+"arquivo, ele deverá ser aberto com ``newline=''`` [1]_. Pode ser fornecido "
+"um parâmetro opcional *dialect*, usado para definir um conjunto de "
+"parâmetros específicos para um dialeto CSV específico. Pode ser uma "
+"instância de uma subclasse da classe :class:`Dialect` ou uma das strings "
+"retornadas pela função :func:`list_dialects`. Os outros argumentos nomeados "
+"opcionais *fmtparams* podem ser dados para substituir parâmetros de "
+"formatação individuais no dialeto atual. Para detalhes completos sobre os "
+"parâmetros de dialeto e formatação, consulte a seção :ref:`csv-fmt-params`. "
+"Para tornar o mais fácil possível a interface com os módulos que implementam "
+"a API do DB, o valor :const:`None` é escrito como uma string vazia. Embora "
+"isso não seja uma transformação reversível, torna mais fácil despejar "
+"valores de dados SQL NULL em arquivos CSV sem preprocessar os dados "
+"retornados de uma chamada ``cursor.fetch*``. Todos os outros dados que não "
+"são de strings são codificados com :func:`str` antes de serem escritos."
 
 #: ../../library/csv.rst:117
 msgid ""
@@ -138,12 +193,19 @@ msgid ""
 "parameters of the dialect. For full details about the dialect and formatting "
 "parameters, see section :ref:`csv-fmt-params`."
 msgstr ""
+"Associa *dialect* a *name*. *name* deve ser uma string. O dialeto pode ser "
+"especificado passando uma subclasse de :class:`Dialect` ou por *fmtparams* "
+"argumentos nomeados, ou ambos, com argumentos nomeados substituindo os "
+"parâmetros do dialeto. Para detalhes completos sobre os parâmetros de "
+"dialeto e formatação, consulte a seção :ref:`csv-fmt-params`."
 
 #: ../../library/csv.rst:126
 msgid ""
 "Delete the dialect associated with *name* from the dialect registry.  An :"
 "exc:`Error` is raised if *name* is not a registered dialect name."
 msgstr ""
+"Exclui o dialeto associado ao *name* do registro do dialeto. Um :exc:`Error` "
+"é levantado se *name* não for um nome de dialeto registrado."
 
 #: ../../library/csv.rst:132
 msgid ""
@@ -151,20 +213,25 @@ msgid ""
 "*name* is not a registered dialect name.  This function returns an "
 "immutable :class:`Dialect`."
 msgstr ""
+"Retorna o dialeto associado a *name*. Um :exc:`Error` é levantado se *name* "
+"não for um nome de dialeto registrado. Esta função retorna uma classe :class:"
+"`Dialect` imutável."
 
 #: ../../library/csv.rst:138
 msgid "Return the names of all registered dialects."
-msgstr ""
+msgstr "Retorna os nomes de todos os dialetos registrados"
 
 #: ../../library/csv.rst:143
 msgid ""
 "Returns the current maximum field size allowed by the parser. If *new_limit* "
 "is given, this becomes the new limit."
 msgstr ""
+"Retorna o tamanho máximo atual do campo permitido pelo analisador sintático. "
+"Se *new_limit* for fornecido, este se tornará o novo limite."
 
 #: ../../library/csv.rst:147
 msgid "The :mod:`csv` module defines the following classes:"
-msgstr ""
+msgstr "O módulo :mod:`csv` define as seguintes classes:"
 
 #: ../../library/csv.rst:152
 msgid ""
@@ -189,12 +256,19 @@ msgid ""
 "values are filled-in with the value of *restval* (which defaults to "
 "``None``)."
 msgstr ""
+"Se uma linha tiver mais campos que nomes de campo, os dados restantes serão "
+"colocados em uma lista e armazenados com o nome do campo especificado por "
+"*restkey* (o padrão é ``None``). Se uma linha que não estiver em branco "
+"tiver menos campos que nomes de campo, os valores ausentes serão preenchidos "
+"com o valor *restval* (o padrão é ``None``)."
 
 #: ../../library/csv.rst:167
 msgid ""
 "All other optional or keyword arguments are passed to the underlying :class:"
 "`reader` instance."
 msgstr ""
+"Todos os outros argumentos nomeados ou opcionais são passados para a "
+"instância subjacente de :class:`reader`."
 
 #: ../../library/csv.rst:170
 msgid "Returned rows are now of type :class:`OrderedDict`."
@@ -215,12 +289,26 @@ msgid ""
 "other optional or keyword arguments are passed to the underlying :class:"
 "`writer` instance."
 msgstr ""
+"Cria um objeto que funcione como um de escrita comum, mas mapeia dicionários "
+"nas linhas de saída. O parâmetro *fieldnames* é uma :mod:`sequência "
+"<collections.abc>` de chaves que identificam a ordem na qual os valores no "
+"dicionário transmitidos para o método :meth:`writerow` são escritos no "
+"arquivo *f*. O parâmetro opcional *restval* especifica o valor a ser escrito "
+"se o dicionário estiver com falta de uma chave em *fieldnames*. Se o "
+"dicionário transmitido para o método :meth:`writerow` contiver uma chave não "
+"encontrada em *fieldnames*, o parâmetro opcional *extrasaction* indica qual "
+"ação executar. Se estiver definido como ``'raise'``, o valor padrão, a :exc:"
+"`ValueError` é levantada. Se estiver definido como ``'ignore'``, valores "
+"extras no dicionário serão ignorados. Quaisquer outros argumentos nomeados "
+"ou opcionais são passados para a instância subjacente de :class:`writer`."
 
 #: ../../library/csv.rst:206
 msgid ""
 "Note that unlike the :class:`DictReader` class, the *fieldnames* parameter "
 "of the :class:`DictWriter` class is not optional."
 msgstr ""
+"Observe que, diferentemente da classe :class:`DictReader`, o parâmetro "
+"*fieldnames* da classe :class:`DictWriter` não é opcional."
 
 #: ../../library/csv.rst:225
 msgid ""
@@ -228,12 +316,17 @@ msgid ""
 "attributes, which are used to define the parameters for a specific :class:"
 "`reader` or :class:`writer` instance."
 msgstr ""
+"A classe :class:`Dialect` é uma classe de contêiner baseada principalmente "
+"em seus atributos, que são usados para definir os parâmetros para uma "
+"instância específica :class:`reader` ou :class:`writer`."
 
 #: ../../library/csv.rst:232
 msgid ""
 "The :class:`excel` class defines the usual properties of an Excel-generated "
 "CSV file.  It is registered with the dialect name ``'excel'``."
 msgstr ""
+"A classe :class:`excel` define as propriedades usuais de um arquivo CSV "
+"gerado pelo Excel. Ele é registrado com o nome do dialeto ``'excel'``."
 
 #: ../../library/csv.rst:238
 msgid ""
