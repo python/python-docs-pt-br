@@ -3515,7 +3515,7 @@ msgstr ""
 
 #: ../../whatsnew/3.8.rst:1968
 msgid ":class:`asyncio.BufferedProtocol` has graduated to the stable API."
-msgstr ""
+msgstr ":class:`asyncio.BufferedProtocol` foi promovida a API estável."
 
 #: ../../whatsnew/3.8.rst:1972
 msgid ""
@@ -3531,6 +3531,18 @@ msgid ""
 "ensure that Windows Update KB2533623 has been installed (this is also "
 "verified by the installer). (Contributed by Steve Dower in :issue:`36085`.)"
 msgstr ""
+"As dependências de DLL para módulos de extensão e DLLs carregadas com :mod:"
+"`ctypes` no Windows agora são resolvidas com mais segurança. Somente os "
+"caminhos do sistema, o diretório que contém o arquivo DLL ou PYD e os "
+"diretórios adicionados com :func:`~os.add_dll_directory` são pesquisados por "
+"dependências de tempo de carregamento. Especificamente, :envvar:`PATH` e o "
+"diretório de trabalho atual não são mais usados, e as modificações nelas não "
+"terão mais efeito na resolução normal da DLL. Se seu aplicativo conta com "
+"esses mecanismos, você deve verificar :func:`~os.add_dll_directory` e, se "
+"existir, use-o para adicionar seu diretório DLLs ao carregar sua biblioteca. "
+"Observe que os usuários do Windows 7 precisarão garantir que o Windows "
+"Update KB2533623 esteja instalado (isso também é verificado pelo "
+"instalador). (Contribuição de Steve Dower em :issue:`36085`.)"
 
 #: ../../whatsnew/3.8.rst:1985
 msgid ""
@@ -3538,6 +3550,9 @@ msgid ""
 "replacement by a pure Python implementation. (Contributed by Pablo Galindo "
 "in :issue:`36623`.)"
 msgstr ""
+"Os arquivos de cabeçalho e as funções relacionadas ao pgen foram removidos "
+"após sua substituição por uma implementação pura do Python. (Contribuição de "
+"Pablo Galindo em :issue:`36623`.)"
 
 #: ../../whatsnew/3.8.rst:1989
 msgid ""
@@ -3548,6 +3563,12 @@ msgid ""
 "new ``replace()`` method of :class:`types.CodeType` can be used to make the "
 "code future-proof."
 msgstr ""
+":class:`types.CodeType` possui um novo parâmetro na segunda posição do "
+"construtor (*posonlyargcount *) para suportar argumentos apenas de posição "
+"definidos em :pep:`570`. O primeiro argumento (*argcount*) agora representa "
+"o número total de argumentos posicionais (incluindo argumentos somente "
+"posicionais). O novo método ``replace()`` de :class:`types.CodeType` pode "
+"ser usado para tornar o código à prova de futuro."
 
 #: ../../whatsnew/3.8.rst:1998
 msgid "Changes in the C API"
@@ -3560,6 +3581,11 @@ msgid ""
 "ignored by default, and is used if and only if ``PyCF_ONLY_AST`` flag is set "
 "in *cf_flags*. (Contributed by Guido van Rossum in :issue:`35766`.)"
 msgstr ""
+"A estrutura :c:type:`PyCompilerFlags` recebeu um novo campo "
+"*cf_feature_version*. Ele deve ser inicializado para ``PY_MINOR_VERSION``. O "
+"campo é ignorado por padrão e é usado se e somente se o sinalizador "
+"``PyCF_ONLY_AST`` estiver definido em *cf_flags*. (Contribuição de Guido van "
+"Rossum em :issue:`35766`.)"
 
 #: ../../whatsnew/3.8.rst:2006
 msgid ""
@@ -3567,6 +3593,9 @@ msgid ""
 "It should not be called explicitly: use :c:func:`PyOS_AfterFork_Child` "
 "instead. (Contributed by Victor Stinner in :issue:`36728`.)"
 msgstr ""
+"A função :c:func:`PyEval_ReInitThreads` foi removida da API C. Não deve ser "
+"chamada explicitamente: use :c:func:`PyOS_AfterFork_Child`. (Contribuição de "
+"Victor Stinner em :issue:`36728`.)"
 
 #: ../../whatsnew/3.8.rst:2011
 msgid ""
@@ -3578,6 +3607,13 @@ msgid ""
 "by the ``*shared*`` section of ``Modules/Setup``. (Contributed by Victor "
 "Stinner in :issue:`21536`.)"
 msgstr ""
+"No Unix, as extensões C não estão mais vinculadas ao libpython, exceto no "
+"Android e Cygwin. Quando o Python é incorporado, ``libpython`` não deve ser "
+"carregado com ``RTLD_LOCAL``, mas ``RTLD_GLOBAL``. Anteriormente, usando "
+"``RTLD_LOCAL``, já não era possível carregar extensões C que não estavam "
+"vinculadas a ``libpython``, como extensões C da biblioteca padrão criada "
+"pela seção ``*shared*`` de ``Modules/Setup``. (Contribuição de Victor "
+"Stinner em :issue:`21536`.)"
 
 #: ../../whatsnew/3.8.rst:2019
 msgid ""
@@ -3587,6 +3623,11 @@ msgid ""
 "``DeprecationWarning`` now. It will be removed in 3.10 or 4.0.  Read :ref:"
 "`arg-parsing` for detail. (Contributed by Inada Naoki in :issue:`36381`.)"
 msgstr ""
+"O uso de variantes ``#`` de formatos na análise ou construção de valor (por "
+"exemplo, :c:func:`PyArg_ParseTuple`, :c:func:`Py_BuildValue`, :c:func:"
+"`PyObject_CallFunction`, etc.) sem ``PY_SSIZE_T_CLEAN`` definido agora "
+"levanta ``DeprecationWarning``. Será removido em 3.10 ou 4.0. Leia :ref:`arg-"
+"parsing` para detalhes. (Contribuição de Inada Naoki em :issue:`36381`.)"
 
 #: ../../whatsnew/3.8.rst:2025
 msgid ""
@@ -3597,10 +3638,17 @@ msgid ""
 "`PyObject_Init` and :c:func:`PyObject_INIT`. This makes types created "
 "through :c:func:`PyType_FromSpec` behave like other classes in managed code."
 msgstr ""
+"Instâncias de tipos alocados por heap (como aqueles criados com :c:func:"
+"`PyType_FromSpec`) mantêm uma referência ao seu objeto de tipo. O aumento da "
+"contagem de referências desses objetos de tipo foi movido de :c:func:"
+"`PyType_GenericAlloc` para as funções de nível mais baixo, :c:func:"
+"`PyObject_Init` e :c:func:`PyObject_INIT`. Isso faz com que os tipos criados "
+"através de :c:func:`PyType_FromSpec` se comportem como outras classes no "
+"código gerenciado."
 
 #: ../../whatsnew/3.8.rst:2033
 msgid "Statically allocated types are not affected."
-msgstr ""
+msgstr "Tipos alocados estaticamente não são afetados."
 
 #: ../../whatsnew/3.8.rst:2035
 msgid ""
@@ -3610,11 +3658,18 @@ msgid ""
 "this, these classes need to call Py_DECREF on the type object during "
 "instance deallocation."
 msgstr ""
+"Para a grande maioria dos casos, não deve haver efeito colateral. No "
+"entanto, tipos que aumentam manualmente a contagem de referência após alocar "
+"uma instância (talvez para solucionar o bug) agora podem se tornar imortais. "
+"Para evitar isso, essas classes precisam chamar Py_DECREF no objeto de tipo "
+"durante a desalocação da instância."
 
 #: ../../whatsnew/3.8.rst:2041
 msgid ""
 "To correctly port these types into 3.8, please apply the following changes:"
 msgstr ""
+"Para portar corretamente esses tipos para o 3.8, aplique as seguintes "
+"alterações:"
 
 #: ../../whatsnew/3.8.rst:2044
 msgid ""
@@ -3624,6 +3679,11 @@ msgid ""
 "or any other custom allocator that uses :c:func:`PyObject_Init` or :c:func:"
 "`PyObject_INIT`."
 msgstr ""
+"Remove :c:macro:`Py_INCREF` no objeto de tipo depois de alocar uma instância "
+"-- se houver. Isso pode acontecer após a chamada :c:func:`PyObject_New`, :c:"
+"func:`PyObject_NewVar`, :c:func:`PyObject_GC_New`, :c:func:"
+"`PyObject_GC_NewVar` ou qualquer outro alocador personalizado que use :c:"
+"func:`PyObject_Init` ou :c:func:`PyObject_INIT`."
 
 #: ../../whatsnew/3.8.rst:2051 ../../whatsnew/3.8.rst:2070
 #: ../../whatsnew/3.8.rst:2089
@@ -3635,20 +3695,24 @@ msgid ""
 "Ensure that all custom ``tp_dealloc`` functions of heap-allocated types "
 "decrease the type's reference count."
 msgstr ""
+"Certifica-se de que todas as funções ``tp_dealloc`` personalizadas de tipos "
+"alocados em heap diminuam a contagem de referências do tipo."
 
 #: ../../whatsnew/3.8.rst:2084
 msgid "(Contributed by Eddie Elizondo in :issue:`35810`.)"
-msgstr ""
+msgstr "(Contribuição de Eddie Elizondo em :issue:`35810`.)"
 
 #: ../../whatsnew/3.8.rst:2086
 msgid ""
 "The :c:macro:`Py_DEPRECATED()` macro has been implemented for MSVC. The "
 "macro now must be placed before the symbol name."
 msgstr ""
+"A macro :c:macro:`Py_DEPRECATED()` foi implementada para MSVC. A macro agora "
+"deve ser colocada antes do nome do símbolo."
 
 #: ../../whatsnew/3.8.rst:2095
 msgid "(Contributed by Zackery Spytz in :issue:`33407`.)"
-msgstr ""
+msgstr "(Contribuição de Zackery Spytz em :issue:`33407`.)"
 
 #: ../../whatsnew/3.8.rst:2097
 msgid ""
@@ -3659,10 +3723,16 @@ msgid ""
 "tp_finalize` (:const:`Py_TPFLAGS_HAVE_FINALIZE` is not checked anymore "
 "before reading :c:member:`~PyTypeObject.tp_finalize`)."
 msgstr ""
+"O interpretador não pretende mais dar suporte à compatibilidade binária de "
+"tipos de extensão nas liberações de recursos. O :c:type:`PyTypeObject` "
+"exportado por um módulo de extensão de terceiros deve ter todos os slots "
+"esperados na versão atual do Python, incluindo :c:member:`~PyTypeObject."
+"tp_finalize` (:const:`Py_TPFLAGS_HAVE_FINALIZE` não é mais verificado antes "
+"de ler :c:member:`~PyTypeObject.tp_finalize`)."
 
 #: ../../whatsnew/3.8.rst:2104
 msgid "(Contributed by Antoine Pitrou in :issue:`32388`.)"
-msgstr ""
+msgstr "(Contribuição de Antoine Pitrou em :issue:`32388`.)"
 
 #: ../../whatsnew/3.8.rst:2106
 msgid ""
@@ -3670,12 +3740,17 @@ msgid ""
 "(*posonlyargcount*) to support :pep:`570`, indicating the number of "
 "positional-only arguments."
 msgstr ""
+"A :c:func:`PyCode_New` possui um novo parâmetro na segunda posição "
+"(*posonlyargcount*) para suportar a :pep:`570`, indicando o número de "
+"argumentos somente de posição."
 
 #: ../../whatsnew/3.8.rst:2109
 msgid ""
 "The functions :c:func:`PyNode_AddChild` and :c:func:`PyParser_AddToken` now "
 "accept two additional ``int`` arguments *end_lineno* and *end_col_offset*."
 msgstr ""
+"As funções :c:func:`PyNode_AddChild` e :c:func:`PyParser_AddToken` agora "
+"aceitam dois argumentos adicionais ``int`` *end_lineno* e *end_col_offset*."
 
 #: ../../whatsnew/3.8.rst:2112
 msgid ""
@@ -3685,6 +3760,11 @@ msgid ""
 "``gendef`` and ``dlltool`` tools, which are part of the MinGW binutils "
 "package:"
 msgstr ""
+"O arquivo :file:`libpython38.a` para permitir que as ferramentas do MinGW se "
+"vinculem diretamente a :file:`python38.dll` não está mais incluído na "
+"distribuição regular do Windows. Se você precisar deste arquivo, ele poderá "
+"ser gerado com as ferramentas ``gendef`` e ``dlltool``, que fazem parte do "
+"pacote binutils do MinGW:"
 
 #: ../../whatsnew/3.8.rst:2122
 msgid ""
@@ -3694,14 +3774,19 @@ msgid ""
 "placed in the same directory as :file:`pythonXY.lib`, which is generally "
 "the :file:`libs` directory under your Python installation."
 msgstr ""
+"A localização de um arquivo :file:`pythonXY.dll` dependerá das opções de "
+"instalação e da versão e idioma do Windows. Consulte :ref:`using-on-windows` "
+"para mais informações. A biblioteca resultante deve ser colocada no mesmo "
+"diretório que :file:`pythonXY.lib`, que geralmente é o diretório :file:"
+"`libs` na sua instalação do Python."
 
 #: ../../whatsnew/3.8.rst:2128
 msgid "(Contributed by Steve Dower in :issue:`37351`.)"
-msgstr ""
+msgstr "(Contribuição de Steve Dower em :issue:`37351`.)"
 
 #: ../../whatsnew/3.8.rst:2132
 msgid "CPython bytecode changes"
-msgstr ""
+msgstr "Alterações de bytecode do CPython"
 
 #: ../../whatsnew/3.8.rst:2134
 msgid ""
@@ -3710,6 +3795,10 @@ msgid ""
 "instructions for adjusting the stack of values and calling the cleaning-up "
 "code for :keyword:`break`, :keyword:`continue` and :keyword:`return`."
 msgstr ""
+"O loop do interpretador foi simplificado movendo a lógica de desenrolar a "
+"pilha de blocos no compilador. O compilador agora emite instruções "
+"explícitas para ajustar a pilha de valores e chamar o código de limpeza "
+"para :keyword:`break`, :keyword:`continue` e :keyword:`return`."
 
 #: ../../whatsnew/3.8.rst:2140
 msgid ""
@@ -3719,12 +3808,19 @@ msgid ""
 "`POP_FINALLY`.  Changed the behavior of :opcode:`END_FINALLY` and :opcode:"
 "`WITH_CLEANUP_START`."
 msgstr ""
+"Removidos os códigos de operação :opcode:`BREAK_LOOP`, :opcode:"
+"`CONTINUE_LOOP`, :opcode:`SETUP_LOOP` e :opcode:`SETUP_EXCEPT`. Adicionados "
+"novos códigos de operação :opcode:`ROT_FOUR`, :opcode:`BEGIN_FINALLY`, :"
+"opcode:`CALL_FINALLY` e :opcode:`POP_FINALLY`.  Alterado o comportamento de :"
+"opcode:`END_FINALLY` e :opcode:`WITH_CLEANUP_START`."
 
 #: ../../whatsnew/3.8.rst:2146
 msgid ""
 "(Contributed by Mark Shannon, Antoine Pitrou and Serhiy Storchaka in :issue:"
 "`17611`.)"
 msgstr ""
+"(Contribuição de Mark Shannon, Antoine Pitrou e Serhiy Storchaka em :issue:"
+"`17611`.)"
 
 #: ../../whatsnew/3.8.rst:2149
 msgid ""
@@ -3732,6 +3828,9 @@ msgid ""
 "awaiting a next item in an :keyword:`async for` loop. (Contributed by Serhiy "
 "Storchaka in :issue:`33041`.)"
 msgstr ""
+"Adicionado novo código de operação :opcode:`END_ASYNC_FOR` para lidar com "
+"exceções geradas ao aguardar um próximo item em um loop :keyword:`async "
+"for`. (Contribuição de Serhiy Storchaka em :issue:`33041`.)"
 
 #: ../../whatsnew/3.8.rst:2153
 msgid ""
@@ -3740,10 +3839,14 @@ msgid ""
 "always evaluated before the value in dictionary comprehensions, as proposed "
 "by :pep:`572`. (Contributed by Jörn Heissler in :issue:`35224`.)"
 msgstr ""
+"O :opcode:`MAP_ADD` agora espera o valor como o primeiro elemento na pilha e "
+"a chave como o segundo elemento. Essa alteração foi feita para que a chave "
+"seja sempre avaliada antes do valor na compreensão do dicionário, conforme "
+"proposto em :pep:`572`. (Contribuição de Jörn Heissler em :issue:`35224`.)"
 
 #: ../../whatsnew/3.8.rst:2160
 msgid "Demos and Tools"
-msgstr ""
+msgstr "Ferramentas e daemons"
 
 #: ../../whatsnew/3.8.rst:2162
 msgid ""
@@ -3751,10 +3854,13 @@ msgid ""
 "``Tools/scripts/var_access_benchmark.py``. (Contributed by Raymond Hettinger "
 "in :issue:`35884`.)"
 msgstr ""
+"Adicionado um script de benchmark para cronometrar várias maneiras de "
+"acessar variáveis: ``Tools/scripts/var_access_benchmark.py``. (Contribuição "
+"de Raymond Hettinger em :issue:`35884`.)"
 
 #: ../../whatsnew/3.8.rst:2166
 msgid "Here's a summary of performance improvements since Python 3.3:"
-msgstr ""
+msgstr "Aqui está um resumo das melhorias de desempenho desde Python 3.3:"
 
 #: ../../whatsnew/3.8.rst:2213
 msgid ""
@@ -3764,10 +3870,15 @@ msgid ""
 "builds found at `python.org <https://www.python.org/downloads/mac-osx/>`_. "
 "The benchmark script displays timings in nanoseconds."
 msgstr ""
+"Os benchmarks foram medidos em um processador `Intel® Core™ i7-4960HQ "
+"<https://ark.intel.com/content/www/us/en/ark/products/76088/intel-core-"
+"i7-4960hq-processor-6m-cache-up-to-3-80-ghz.html>`_ nos sistemas macOS 64-"
+"bit encontrados em `python.org <https://www.python.org/downloads/mac-osx/"
+">`_. O script de benchmark exibe tempos em nanossegundos."
 
 #: ../../whatsnew/3.8.rst:2222
 msgid "Notable changes in Python 3.8.1"
-msgstr ""
+msgstr "Alterações notáveis no Python 3.8.1"
 
 #: ../../whatsnew/3.8.rst:2224
 msgid ""
@@ -3778,10 +3889,16 @@ msgid ""
 "(Contributed by Kyle Stanley, Antoine Pitrou, and Yury Selivanov in :issue:"
 "`37228`.)"
 msgstr ""
+"Devido a significativas preocupações de segurança, o parâmetro "
+"*reuse_address* de :meth:`asyncio.loop.create_datagram_endpoint` não é mais "
+"suportado. Isso ocorre devido ao comportamento da opção de soquete "
+"``SO_REUSEADDR`` no UDP. Para mais detalhes, consulte a documentação de "
+"``loop.create_datagram_endpoint()``. (Contribuição de Kyle Stanley, Antoine "
+"Pitrou e Yury Selivanov em :issue:`37228`.)"
 
 #: ../../whatsnew/3.8.rst:2232
 msgid "Notable changes in Python 3.8.2"
-msgstr ""
+msgstr "Alterações notáveis no Python 3.8.2"
 
 #: ../../whatsnew/3.8.rst:2234
 msgid ""
@@ -3789,10 +3906,13 @@ msgid ""
 "The argument types are now str and List[str] again. (Contributed by Manuel "
 "Barkhau and Giampaolo Rodola in :issue:`39390`.)"
 msgstr ""
+"Corrigida uma regressão com o retorno de chamada ``ignore`` de :func:`shutil."
+"copytree`. Os tipos de argumento agora são str e List[str] novamente. "
+"(Contribuição de Manuel Barkhau e Giampaolo Rodola em :issue:`39390`.)"
 
 #: ../../whatsnew/3.8.rst:2239
 msgid "Notable changes in Python 3.8.3"
-msgstr ""
+msgstr "Alterações notáveis no Python 3.8.3"
 
 #: ../../whatsnew/3.8.rst:2241
 msgid ""
@@ -3801,3 +3921,7 @@ msgid ""
 "``PyCF_ALLOW_TOP_LEVEL_AWAIT`` was clashing with ``CO_FUTURE_DIVISION``. "
 "(Contributed by Batuhan Taskaya in :issue:`39562`)"
 msgstr ""
+"Os valores constantes dos futuros sinalizadores no módulo :mod:`__future__` "
+"fpram atualizados para evitar colisão com os sinalizadores do compilador. "
+"Anteriormente, ``PyCF_ALLOW_TOP_LEVEL_AWAIT`` estava colidindo com "
+"``CO_FUTURE_DIVISION``. (Contribuição de Batuhan Taskaya em :issue:`39562`)"
