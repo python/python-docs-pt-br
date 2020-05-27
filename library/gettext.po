@@ -789,6 +789,13 @@ msgid ""
 "mo` files are used by the :mod:`gettext` module for the actual translation "
 "processing at run-time."
 msgstr ""
+"Cópias destes arquivos :file:`.po` são entregues aos tradutores humanos "
+"individuais que escrevem traduções para todos os idiomas naturais "
+"suportados. Eles enviam de volta as versões completas específicas do idioma "
+"como um arquivo :file:`<nome-do-idioma>.po` que é compilado em um arquivo de "
+"catálogo binário legível por máquina :file:`.mo` usando o programa :program:"
+"`msgfmt`. Os arquivos :file:`.mo` são usados pelo módulo :mod:`gettext` para "
+"o processamento de tradução real em tempo de execução."
 
 #: ../../library/gettext.rst:493
 msgid ""
@@ -796,10 +803,13 @@ msgid ""
 "are internationalizing a single module or your entire application. The next "
 "two sections will discuss each case."
 msgstr ""
+"Como você usa o módulo :mod:`gettext` no seu código depende se você está "
+"internacionalizando um único módulo ou sua aplicação inteira. As próximas "
+"duas seções discutirão cada caso."
 
 #: ../../library/gettext.rst:499
 msgid "Localizing your module"
-msgstr ""
+msgstr "Localizando seu módulo"
 
 #: ../../library/gettext.rst:501
 msgid ""
@@ -815,10 +825,14 @@ msgid ""
 "in GNU :program:`gettext` format.  Here's what you would put at the top of "
 "your module::"
 msgstr ""
+"Digamos que seu módulo seja chamado \"spam\" e as várias traduções do idioma "
+"natural do arquivo :file:`.mo` residam em :file:`/usr/share/locale` no "
+"formato GNU :program:`gettext`. Aqui está o que você colocaria sobre o seu "
+"módulo::"
 
 #: ../../library/gettext.rst:516
 msgid "Localizing your application"
-msgstr ""
+msgstr "Localizando sua aplicação"
 
 #: ../../library/gettext.rst:518
 msgid ""
@@ -827,22 +841,31 @@ msgid ""
 "file of your application.  This will let all your application-specific files "
 "just use ``_('...')`` without having to explicitly install it in each file."
 msgstr ""
+"Se você estiver localizando sua aplicação, poderá instalar a função :func:"
+"`_` globalmente no espaço de nomes embutidos, geralmente no arquivo "
+"principal do driver do sua aplicação. Isso permitirá que todos os arquivos "
+"específicos de sua aplicação usem ``_('...')`` sem precisar instalá-la "
+"explicitamente em cada arquivo."
 
 #: ../../library/gettext.rst:523
 msgid ""
 "In the simple case then, you need only add the following bit of code to the "
 "main driver file of your application::"
 msgstr ""
+"No caso simples, você precisa adicionar apenas o seguinte código ao arquivo "
+"do driver principal da sua aplicação::"
 
 #: ../../library/gettext.rst:529
 msgid ""
 "If you need to set the locale directory, you can pass it into the :func:"
 "`install` function::"
 msgstr ""
+"Se você precisar definir o diretório da localidade, poderá passá-lo para a "
+"função :func:`install`::"
 
 #: ../../library/gettext.rst:537
 msgid "Changing languages on the fly"
-msgstr ""
+msgstr "Alterando os idiomas durante o uso"
 
 #: ../../library/gettext.rst:539
 msgid ""
@@ -850,10 +873,13 @@ msgid ""
 "want to create multiple translation instances and then switch between them "
 "explicitly, like so::"
 msgstr ""
+"Se o seu programa precisar oferecer suporte a vários idiomas ao mesmo tempo, "
+"convém criar várias instâncias de tradução e alternar entre elas "
+"explicitamente, assim:"
 
 #: ../../library/gettext.rst:560
 msgid "Deferred translations"
-msgstr ""
+msgstr "Traduções adiadas"
 
 #: ../../library/gettext.rst:562
 msgid ""
@@ -861,6 +887,9 @@ msgid ""
 "Occasionally however, you need to mark strings for translation, but defer "
 "actual translation until later.  A classic example is::"
 msgstr ""
+"Na maioria das situações de codificação, as strings são traduzidas onde são "
+"codificadas. Ocasionalmente, no entanto, é necessário marcar strings para "
+"tradução, mas adiar a tradução real até mais tarde. Um exemplo clássico é::"
 
 #: ../../library/gettext.rst:575
 msgid ""
@@ -868,10 +897,12 @@ msgid ""
 "translatable, but you don't actually want to translate them until they are "
 "printed."
 msgstr ""
+"Aqui, você deseja marcar as strings na lista ``animals`` como traduzíveis, "
+"mas na verdade não deseja traduzi-las até que sejam impressas."
 
 #: ../../library/gettext.rst:579
 msgid "Here is one way you can handle this situation::"
-msgstr ""
+msgstr "Aqui está uma maneira de lidar com esta situação::"
 
 #: ../../library/gettext.rst:595
 msgid ""
@@ -881,6 +912,11 @@ msgid ""
 "command). Take care, though if you have a previous definition of :func:`_` "
 "in the local namespace."
 msgstr ""
+"Isso funciona porque a definição fictícia de :func:`_` simplesmente retorna "
+"a string inalterada. E essa definição fictícia va substituir temporariamente "
+"qualquer definição de :func:`_` no espaço de nomes embutido (até o comando :"
+"keyword:`del`). Tome cuidado, se você tiver uma definição anterior de :func:"
+"`_` no espaço de nomes local."
 
 #: ../../library/gettext.rst:601
 msgid ""
@@ -888,10 +924,13 @@ msgid ""
 "translatable to the :program:`gettext` program, because the parameter is not "
 "a string literal."
 msgstr ""
+"Observe que o segundo uso de :func:`_` não identificará \"a\" como "
+"traduzível para o programa :program:`gettext`, porque o parâmetro não é uma "
+"string literal."
 
 #: ../../library/gettext.rst:605
 msgid "Another way to handle this is with the following example::"
-msgstr ""
+msgstr "Outra maneira de lidar com isso é com o seguinte exemplo::"
 
 #: ../../library/gettext.rst:619
 msgid ""
@@ -904,6 +943,14 @@ msgid ""
 "totally arbitrary; it could have just as easily been :func:"
 "`MarkThisStringForTranslation`."
 msgstr ""
+"Nesse caso, você está marcando strings traduzíveis com a função :func:`N_`, "
+"que não entra em conflito com nenhuma definição de :func:`_`. No entanto, "
+"você precisará ensinar seu programa de extração de mensagens a procurar "
+"strings traduzíveis marcadas com :func:`N_`. :program:`xgettext`, :program:"
+"`pygettext`, ``pybabel extract`` e :program:`xpot` possuem suporte a isso "
+"através do uso da opção de linha de comando :option:`!-k`. A escolha de :"
+"func:`N_` aqui é totalmente arbitrária; poderia facilmente ter sido :func:"
+"`MarkThisStringForTranslation`."
 
 #: ../../library/gettext.rst:630
 msgid "Acknowledgements"
@@ -915,38 +962,40 @@ msgid ""
 "previous implementations, and valuable experience to the creation of this "
 "module:"
 msgstr ""
+"As seguintes pessoas contribuíram com código, feedback, sugestões de design, "
+"implementações anteriores e experiência valiosa para a criação deste módulo:"
 
 #: ../../library/gettext.rst:635
 msgid "Peter Funk"
-msgstr ""
+msgstr "Peter Funk"
 
 #: ../../library/gettext.rst:637
 msgid "James Henstridge"
-msgstr ""
+msgstr "James Henstridge"
 
 #: ../../library/gettext.rst:639
 msgid "Juan David Ibáñez Palomar"
-msgstr ""
+msgstr "Juan David Ibáñez Palomar"
 
 #: ../../library/gettext.rst:641
 msgid "Marc-André Lemburg"
-msgstr ""
+msgstr "Marc-André Lemburg"
 
 #: ../../library/gettext.rst:643
 msgid "Martin von Löwis"
-msgstr ""
+msgstr "Martin von Löwis"
 
 #: ../../library/gettext.rst:645
 msgid "François Pinard"
-msgstr ""
+msgstr "François Pinard"
 
 #: ../../library/gettext.rst:647
 msgid "Barry Warsaw"
-msgstr ""
+msgstr "Barry Warsaw"
 
 #: ../../library/gettext.rst:649
 msgid "Gustavo Niemeyer"
-msgstr ""
+msgstr "Gustavo Niemeyer"
 
 #: ../../library/gettext.rst:652
 msgid "Footnotes"
@@ -964,4 +1013,4 @@ msgstr ""
 
 #: ../../library/gettext.rst:660
 msgid "See the footnote for :func:`bindtextdomain` above."
-msgstr ""
+msgstr "Consulte a nota de rodapé para a :func:`bindtextdomain` acima."
