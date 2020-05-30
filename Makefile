@@ -13,8 +13,10 @@
 BRANCH              := $(shell git branch --show-current)
 
 # Branches representing docs for older Python versions, which current
-# translations should be merged into
-MERGEBRANCHES       := 3.7 3.6 2.7
+# translations should be merged into.
+# Check Python Docs versions still being built and published in:
+# https://github.com/python/docsbuild-scripts/blob/master/build_docs.py
+MERGEBRANCHES       := 3.8 3.7 3.6 2.7
 
 # Name of language team; should be python-docs-LANG, where LANG is the
 # IETF language tag for your language; see Language Tag section in PEP 545
