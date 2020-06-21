@@ -47,6 +47,13 @@ jobs:
         make push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - uses: appleboy/telegram-action@master
+      if: ${{ failure() }}
+      with:
+        to: ${{ secrets.TELEGRAM_TO }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
+        format: markdown
+        args: "❌ Falha na execução do workflow, job&nbsp;*${{ github.job }}* (ID&nbsp;*${{ github.run_id }}*). [Saiba mais sobre o erro...](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})"
 
   # Job to check spelling of translations
   spellcheck:
@@ -115,3 +122,10 @@ jobs:
       with:
         name: build-output
         path: build-log.txt
+    - uses: appleboy/telegram-action@master
+      if: ${{ failure() }}
+      with:
+        to: ${{ secrets.TELEGRAM_TO }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
+        format: markdown
+        args: "❌ Falha na execução do workflow, job&nbsp;*${{ github.job }}* (ID&nbsp;*${{ github.run_id }}*). [Saiba mais sobre o erro...](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})"
