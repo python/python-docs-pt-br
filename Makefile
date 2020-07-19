@@ -158,6 +158,11 @@ pot: setup
 #        the translation files copy which could have new/updated files.
 .PHONY: setup
 setup: venv
+	@if [ -z $(BRANCH) ]; then                                               \
+		echo "BRANCH is empty, should have git-branch. Unable to continue."; \
+		exit 1;                                                              \
+	fi
+	
 	@if ! [ -d $(CPYTHON_PATH) ]; then                                      \
 		echo "CPython repo not found; cloning ...";                         \
 		git clone --depth 1 --no-single-branch $(UPSTREAM) $(CPYTHON_PATH); \
