@@ -13,10 +13,16 @@
 BRANCH              := $(shell git branch --show-current)
 
 # Branches representing docs for older Python versions, which current
-# translations should be merged into.
-# Check Python Docs versions still being built and published in:
-# https://github.com/python/docsbuild-scripts/blob/master/build_docs.py
-MERGEBRANCHES       := 3.8 3.7 3.6 2.7
+# translations should be merged into. Here some details:
+#  - STABLEBRANCH and OLDSTABLEBRANCHES differ in that STABLEBRANCH
+#      still gets its translated strings overwritten.
+#  - Not-yet-translated strings will still be merged on both variables
+#  - Leave STABLEBRANCH empty if Python stable branch is same as BRANCH.
+#  - Never use same version as in BRANCH
+#  - Check Python Docs versions still being built and published in:
+#    https://github.com/python/docsbuild-scripts/blob/master/build_docs.py
+STABLEBRANCH        := 3.8
+OLDSTABLEBRANCHES   := 3.7 3.6 2.7
 
 # Name of language team; should be python-docs-LANG, where LANG is the
 # IETF language tag for your language; see Language Tag section in PEP 545
@@ -53,7 +59,8 @@ help:
 	@echo " pot          Create/Update POT files from source files"
 	@echo " serve        Serve a built documentation on http://localhost:8000"
 	@echo " spell        Check spelling, storing output in $(POSPELL_TMP_DIR)"
-	@echo " merge        Merge $(BRANCH) branch's .po files into: $(MERGEBRANCHES)"
+	@echo " merge        Merge $(BRANCH) branch's .po files into the following"
+	@echo "                older branches: $(STABLEBRANCH) $(OLDSTABLEBRANCHES)"
 	@echo ""
 
 
@@ -151,6 +158,11 @@ pot: setup
 #        the translation files copy which could have new/updated files.
 .PHONY: setup
 setup: venv
+	@if [ -z $(BRANCH) ]; then                                               \
+		echo "BRANCH is empty, should have git-branch. Unable to continue."; \
+		exit 1;                                                              \
+	fi
+	
 	@if ! [ -d $(CPYTHON_PATH) ]; then                                      \
 		echo "CPython repo not found; cloning ...";                         \
 		git clone --depth 1 --no-single-branch $(UPSTREAM) $(CPYTHON_PATH); \
@@ -221,25 +233,32 @@ $(POSPELL_TMP_DIR)/typos.txt:
 
 
 # merge: merge translations from BRANCH (Python version currently aim of
-#        translation) into each branch listed by MERGEBRANCHES (branches
-#        of older Python versions) so that older versions of the Python
-#        docs make at least some use the latest translations, if possible.
+#        translation) into each branch listed by STABLEBRANCH and
+#        OLDSTABLEBRANCHES (branches of older Python versions) so that older
+#        versions of the Python Docs make at least some use the latest
+#        translations, if possible. OLDSTABLEBRANCHES has '--no-overwrite'
+#        flag so it does not overwrite translated strings, preserving history.
 #        After merging, git-push merged files (if any) to the target branch.
 .PHONY: merge
-merge: venv $(MERGEBRANCHES)
+merge: venv $(STABLEBRANCH) $(OLDSTABLEBRANCHES)
 
-$(MERGEBRANCHES):
-	@echo "Merging translations from $(BRANCH) branch into $@ ..."
-	@$(VENV)/bin/pomerge --from-files *.po **/*.po
-	@git checkout $@
-	@$(VENV)/bin/pomerge --no-overwrite --to-files *.po **/*.po
-	@$(VENV)/bin/powrap --modified *.po **/*.po
-	@if git status -s | egrep '\.po'; then                                  \
-		git add *.po **/*.po;                                               \
-		git commit -m "pomerge from $(BRANCH) branch into $@";               \
-		git push;                                                           \
+$(OLDSTABLEBRANCHES):  OVERWRITEFLAG = --no-overwrite
+$(STABLEBRANCH) $(OLDSTABLEBRANCHES):
+	@if [ $@ == $(BRANCH) ]; then                                       \
+		echo "Ignoring attempt to pomerge '$(BRANCH)' into itself";     \
+	else                                                                \
+		echo "Merging translations from $(BRANCH) branch into $@ ...";  \
+		$(VENV)/bin/pomerge --from-files *.po **/*.po;                  \
+		git checkout $@;                                                \
+		$(VENV)/bin/pomerge $(OVERWRITEFLAG) --to-files *.po **/*.po;   \
+		$(VENV)/bin/powrap --modified *.po **/*.po;                     \
+		if git status -s | egrep '\.po'; then                           \
+			git add *.po **/*.po;                                       \
+			git commit -m "pomerge from $(BRANCH) branch into $@";      \
+			git push;                                                   \
+		fi;                                                             \
+		git checkout $(BRANCH);                                         \
 	fi
-	@git checkout $(BRANCH)
 
 
 # clean: remove all .mo files and the venv directory that may exist and could
