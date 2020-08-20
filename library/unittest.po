@@ -1073,10 +1073,14 @@ msgid ""
 "and report failures, and some inquiry methods allowing information about the "
 "test itself to be gathered."
 msgstr ""
+"Instâncias :class:`TestCase` possuem três grupos de métodos: um grupo "
+"utilizado para executar o teste, outro utilizado pela implementação do teste "
+"para checar as condições e reportar falhas, e alguns métodos de investigação "
+"para permitir coletar dados sobre o teste em si."
 
 #: ../../library/unittest.rst:710
 msgid "Methods in the first group (running the test) are:"
-msgstr ""
+msgstr "Os métodos do primeiro grupo (que executam os testes) são:"
 
 #: ../../library/unittest.rst:714
 msgid ""
@@ -1085,6 +1089,11 @@ msgid ""
 "`SkipTest`, any exception raised by this method will be considered an error "
 "rather than a test failure. The default implementation does nothing."
 msgstr ""
+"Método chamado para preparar a definição de contexto de teste. Chamado "
+"imediatamente após chamar o método de teste; exceto pelo :exc:"
+"`AssertionError` ou :exc:`SkipTest`, qualquer exceção levantada por este "
+"método será considerada um erro além de uma simples falha de teste. A "
+"implementação padrão não faz nada."
 
 #: ../../library/unittest.rst:722
 msgid ""
@@ -1098,6 +1107,16 @@ msgid ""
 "the :meth:`setUp` succeeds, regardless of the outcome of the test method. "
 "The default implementation does nothing."
 msgstr ""
+"Método chamado imediatamente após o método de teste ter sido chamado e o "
+"resultado registrado. Este método é chamado mesmo se o método de teste tiver "
+"levantado uma exceção, então a implementação em subclasses deve ser feita "
+"com cautela ao verificar o estado interno. Qualquer exceção além de :exc:"
+"`AssertionError` ou :exc:`SkipTest` levantada por este método será "
+"considerado um erro adicional, e não uma simples falha de teste (que "
+"incrementaria o número total de erros no relatório final de testes). Este "
+"método será executado apenas se o método :meth:`setUp` for bem sucedido, "
+"independente do resultado do método de teste. A implementação padrão não faz "
+"nada."
 
 #: ../../library/unittest.rst:735
 msgid ""
@@ -1105,10 +1124,13 @@ msgid ""
 "``setUpClass`` is called with the class as the only argument and must be "
 "decorated as a :func:`classmethod`::"
 msgstr ""
+"Um método de classe chamado antes da execução dos testes de uma classe "
+"específica. O método ``setUpClass`` é chamado com a classe sendo o único "
+"argumento e deve ser decorada como um :func:`classmethod`::"
 
 #: ../../library/unittest.rst:743 ../../library/unittest.rst:758
 msgid "See `Class and Module Fixtures`_ for more details."
-msgstr ""
+msgstr "Veja `Classes e Módulos de Definição de Contexto`_ para mais detalhes."
 
 #: ../../library/unittest.rst:750
 msgid ""
@@ -1116,6 +1138,9 @@ msgid ""
 "``tearDownClass`` is called with the class as the only argument and must be "
 "decorated as a :meth:`classmethod`::"
 msgstr ""
+"Um método de classe chamado depois da execução dos testes de uma classe "
+"específica. O método ``tearDownClass`` é chamado com a classe sendo o único "
+"argumento e deve ser decorada como um :func:`classmethod`::"
 
 #: ../../library/unittest.rst:765
 msgid ""
@@ -1124,23 +1149,34 @@ msgid ""
 "object is created (by calling the :meth:`defaultTestResult` method) and "
 "used. The result object is returned to :meth:`run`'s caller."
 msgstr ""
+"Executa o teste, registrando as informações no objeto resultado :class:"
+"`TestResult`, passado como *result*. Se *result* for omitido, ou definido "
+"como ``None``, um objeto resultado temporário é criado (chamando o método :"
+"meth:`defaultTestResult`) e utilizado. O objeto resultado é retornado para "
+"quem chamou o método :meth:`run`."
 
 #: ../../library/unittest.rst:771
 msgid ""
 "The same effect may be had by simply calling the :class:`TestCase` instance."
 msgstr ""
+"O mesmo efeito pode ser obtido ao chamar uma instância da classe :class:"
+"`TestCase`."
 
 #: ../../library/unittest.rst:774
 msgid ""
 "Previous versions of ``run`` did not return the result. Neither did calling "
 "an instance."
 msgstr ""
+"Versões anteriores de ``run`` não retornavam o resultado. Nem chamando por "
+"uma instância."
 
 #: ../../library/unittest.rst:780
 msgid ""
 "Calling this during a test method or :meth:`setUp` skips the current test.  "
 "See :ref:`unittest-skipping` for more information."
 msgstr ""
+"Ao se executar durante um método de teste ou :meth:`setUp`, pula o teste em "
+"execução. Veja :ref:`unittest-skipping` para mais informações."
 
 #: ../../library/unittest.rst:788
 msgid ""
@@ -1148,16 +1184,22 @@ msgid ""
 "subtest.  *msg* and *params* are optional, arbitrary values which are "
 "displayed whenever a subtest fails, allowing you to identify them clearly."
 msgstr ""
+"Retorna um gerenciador de contexto que executa, como subteste, o bloco de "
+"código englobado. *msg* e *params* são valores opcionais e arbitrários que "
+"são mostrados sempre quando um subteste falha, permitindo identificá-los "
+"claramente."
 
 #: ../../library/unittest.rst:793
 msgid ""
 "A test case can contain any number of subtest declarations, and they can be "
 "arbitrarily nested."
 msgstr ""
+"Um caso de teste pode conter inúmeras declarações de subteste e elas podem "
+"ser aninhadas de forma arbitrária."
 
 #: ../../library/unittest.rst:796
 msgid "See :ref:`subtests` for more information."
-msgstr ""
+msgstr "Veja :ref:`subtests` para mais informações."
 
 #: ../../library/unittest.rst:803
 msgid ""
@@ -1165,6 +1207,9 @@ msgid ""
 "by the test to be propagated to the caller, and can be used to support "
 "running tests under a debugger."
 msgstr ""
+"Executa o teste sem coletar o resultado. Permite propagar exceções "
+"levantadas pelo teste e pode ser utilizado para oferecer suporte aos testes "
+"sob um depurador."
 
 #: ../../library/unittest.rst:809
 msgid ""
@@ -1172,6 +1217,9 @@ msgid ""
 "report failures.  The following table lists the most commonly used methods "
 "(see the tables below for more assert methods):"
 msgstr ""
+"A classe :class:`TestCase` oferece diversos métodos de asserção para checar "
+"e reportar falhas. A tabela a seguir lista os métodos mais utilizados (veja "
+"as tabelas abaixo para mais métodos de asserção)."
 
 #: ../../library/unittest.rst:814 ../../library/unittest.rst:936
 #: ../../library/unittest.rst:1128 ../../library/unittest.rst:1255
@@ -1310,12 +1358,20 @@ msgid ""
 "`assertRaisesRegex`, :meth:`assertWarns`, :meth:`assertWarnsRegex` only when "
 "they are used as a context manager."
 msgstr ""
+"Todos os métodos de asserção aceitam um argumento *msg* que, se "
+"especificado, é utilizado como a mensagem de erro em caso de falha (veja "
+"também :data:`longMessage`). Note que o argumento nomeado *msg* pode ser "
+"passado para :meth:`assertRaises`, :meth:`assertRaisesRegex`, :meth:"
+"`assertWarns` e :meth:`assertWarnsRegex` apenas quando eles são utilizados "
+"como gerenciador de contexto."
 
 #: ../../library/unittest.rst:861
 msgid ""
 "Test that *first* and *second* are equal.  If the values do not compare "
 "equal, the test will fail."
 msgstr ""
+"Testa se *first* e *second* são iguais. Se o resultado da comparação não "
+"indicar igualdade, o teste irá falhar."
 
 #: ../../library/unittest.rst:864
 msgid ""
@@ -1326,26 +1382,36 @@ msgid ""
 "message (see also the :ref:`list of type-specific methods <type-specific-"
 "methods>`)."
 msgstr ""
+"Além disso, se *first* e *second* são exatamente do mesmo tipo e são uma "
+"lista, tupla, dict, set, frozenset, str, ou qualquer outro tipo que é "
+"registrado na subclasse com :meth:`addTypeEqualityFunc`, a função de "
+"igualdade específica do tipo é será chamada para gerar uma mensagem de erro "
+"mais útil (veja também :ref:`lista de métodos específicos por tipo <type-"
+"specific-methods>`)"
 
 #: ../../library/unittest.rst:871
 msgid "Added the automatic calling of type-specific equality function."
-msgstr ""
+msgstr "Adição da chamada automática da função específica por tipo."
 
 #: ../../library/unittest.rst:874
 msgid ""
 ":meth:`assertMultiLineEqual` added as the default type equality function for "
 "comparing strings."
 msgstr ""
+"método :meth:`assertMultiLineEqual` adicionado como função de igualdade "
+"padrão para o tipo string."
 
 #: ../../library/unittest.rst:881
 msgid ""
 "Test that *first* and *second* are not equal.  If the values do compare "
 "equal, the test will fail."
 msgstr ""
+"Testa se *first* e *second* não são iguais. Se o resultado da comparação "
+"indicar igualdade, o teste irá falhar."
 
 #: ../../library/unittest.rst:887
 msgid "Test that *expr* is true (or false)."
-msgstr ""
+msgstr "Testa se a expressão *expr* é verdadeira (ou falsa)."
 
 #: ../../library/unittest.rst:889
 msgid ""
@@ -1355,20 +1421,27 @@ msgid ""
 "``assertEqual(a, b)`` instead of ``assertTrue(a == b)``), because they "
 "provide a better error message in case of failure."
 msgstr ""
+"Note que isso é equivalente a ``bool(expr) is True`` e não a ``expr is "
+"True`` (use ``assertIs(expr, True)`` neste último caso). Este método também "
+"deve ser evitado quando outros métodos mais específicos estão disponíveis (e."
+"g. ``assertEqual(a, b)`` no lugar de ``assertTrue(a == b)``), já que estes "
+"podem ter uma melhor mensagem de erro em caso de falha."
 
 #: ../../library/unittest.rst:899
 msgid ""
 "Test that *first* and *second* evaluate (or don't evaluate) to the same "
 "object."
 msgstr ""
+"Testa se *first* e *second* são avaliados (ou não são avaliados) para o "
+"mesmo objeto."
 
 #: ../../library/unittest.rst:908
 msgid "Test that *expr* is (or is not) ``None``."
-msgstr ""
+msgstr "Testa se *expr* é (ou não é) ``None``."
 
 #: ../../library/unittest.rst:916
 msgid "Test that *member* is (or is not) in *container*."
-msgstr ""
+msgstr "Testa se *member* está (ou não está) em *container*."
 
 #: ../../library/unittest.rst:924
 msgid ""
@@ -1376,12 +1449,17 @@ msgid ""
 "a tuple of classes, as supported by :func:`isinstance`). To check for the "
 "exact type, use :func:`assertIs(type(obj), cls) <assertIs>`."
 msgstr ""
+"Testa se *obj* é (ou não é) uma instância de *cls* (que pode ser uma classe "
+"ou uma tupla de classes, como suportado pela função :func:`isinstance`). "
+"Para checar pelo tipo exato, use :func:`assertIs(type(obj), cls) <assertIs>`."
 
 #: ../../library/unittest.rst:932
 msgid ""
 "It is also possible to check the production of exceptions, warnings, and log "
 "messages using the following methods:"
 msgstr ""
+"Também é possível checar a produção de exceções, avisos e mensagens de log "
+"usando os seguintes métodos:"
 
 #: ../../library/unittest.rst:938
 msgid ":meth:`assertRaises(exc, fun, *args, **kwds) <TestCase.assertRaises>`"
@@ -1389,7 +1467,7 @@ msgstr ":meth:`assertRaises(exc, fun, *args, **kwds) <TestCase.assertRaises>`"
 
 #: ../../library/unittest.rst:938
 msgid "``fun(*args, **kwds)`` raises *exc*"
-msgstr ""
+msgstr "``fun(*args, **kwds)`` levanta *exc*"
 
 #: ../../library/unittest.rst:941
 msgid ""
@@ -1402,6 +1480,8 @@ msgstr ""
 #: ../../library/unittest.rst:941
 msgid "``fun(*args, **kwds)`` raises *exc* and the message matches regex *r*"
 msgstr ""
+"``fun(*args, **kwds)`` levanta *exc* e a mensagem casa com a expressão "
+"regular *r*"
 
 #: ../../library/unittest.rst:944
 msgid ":meth:`assertWarns(warn, fun, *args, **kwds) <TestCase.assertWarns>`"
@@ -1409,7 +1489,7 @@ msgstr ":meth:`assertWarns(warn, fun, *args, **kwds) <TestCase.assertWarns>`"
 
 #: ../../library/unittest.rst:944
 msgid "``fun(*args, **kwds)`` raises *warn*"
-msgstr ""
+msgstr "``fun(*args, **kwds)`` levanta *warn*"
 
 #: ../../library/unittest.rst:947
 msgid ""
@@ -1422,6 +1502,8 @@ msgstr ""
 #: ../../library/unittest.rst:947
 msgid "``fun(*args, **kwds)`` raises *warn* and the message matches regex *r*"
 msgstr ""
+"``fun(*args, **kwds)`` levanta *warn* e a mensagem casa com a expressão "
+"regular *r*"
 
 #: ../../library/unittest.rst:950
 msgid ":meth:`assertLogs(logger, level) <TestCase.assertLogs>`"
@@ -1430,6 +1512,7 @@ msgstr ":meth:`assertLogs(logger, level) <TestCase.assertLogs>`"
 #: ../../library/unittest.rst:950
 msgid "The ``with`` block logs on *logger* with minimum *level*"
 msgstr ""
+"O bloco ``with`` registra logs no *logger* com pelo menos um nível *level*"
 
 #: ../../library/unittest.rst:950
 msgid "3.4"
@@ -1444,6 +1527,10 @@ msgid ""
 "any of a group of exceptions, a tuple containing the exception classes may "
 "be passed as *exception*."
 msgstr ""
+"Testa se uma exceção é levantada quando *callable* é chamado com quaisquer "
+"argumentos nomeados ou posicionais que também são passados para :meth:"
+"`assertRaises`. O teste passa se *exception* for levantada e falha se outra "
+"exceção ou nenhuma exceção for levantada."
 
 #: ../../library/unittest.rst:964
 msgid ""
@@ -1451,12 +1538,17 @@ msgid ""
 "context manager so that the code under test can be written inline rather "
 "than as a function::"
 msgstr ""
+"Se somente os argumentos *exception* e, possivelmente, *msg* forem passados, "
+"retorna um gerenciador de contexto para que o código sob teste possa ser "
+"escrito de forma embutida ao invés de ser definido como uma função::"
 
 #: ../../library/unittest.rst:971
 msgid ""
 "When used as a context manager, :meth:`assertRaises` accepts the additional "
 "keyword argument *msg*."
 msgstr ""
+"Quando utilizado como gerenciador de contexto, :meth:`assertRaises` aceita o "
+"argumento nomeado adicional *msg*."
 
 #: ../../library/unittest.rst:974
 msgid ""
@@ -1464,19 +1556,26 @@ msgid ""
 "`exception` attribute.  This can be useful if the intention is to perform "
 "additional checks on the exception raised::"
 msgstr ""
+"O gerenciador de contexto irá armazenar o objeto exceção capturado no seu "
+"atributo :attr:`exception`. Isso pode ser útil se a intenção for realizar "
+"testes adicionais na exceção levantada::"
 
 #: ../../library/unittest.rst:984
 msgid "Added the ability to use :meth:`assertRaises` as a context manager."
 msgstr ""
+"Adicionada a possibilidade de se utilizar :meth:`assertRaises` como "
+"gerenciador de contexto."
 
 #: ../../library/unittest.rst:987
 msgid "Added the :attr:`exception` attribute."
-msgstr ""
+msgstr "Adicionado o atributo :attr:`exception`."
 
 #: ../../library/unittest.rst:990 ../../library/unittest.rst:1016
 #: ../../library/unittest.rst:1057 ../../library/unittest.rst:1080
 msgid "Added the *msg* keyword argument when used as a context manager."
 msgstr ""
+"Adicionado o argumento nomeado *msg* quando utilizado como gerenciador de "
+"contexto."
 
 #: ../../library/unittest.rst:997
 msgid ""
@@ -1485,6 +1584,10 @@ msgid ""
 "object or a string containing a regular expression suitable for use by :func:"
 "`re.search`.  Examples::"
 msgstr ""
+"Similar ao :meth:`assertRaises` mas também testa se *regex* casa com a "
+"representação em string da exceção levantada. *regex* pode ser um objeto "
+"expressão regular ou uma string contendo uma expressão regular compatível "
+"com o uso pela função :func:`re.search`. Exemplos::"
 
 #: ../../library/unittest.rst:1005 ../../library/unittest.rst:1073
 msgid "or::"
@@ -1492,11 +1595,11 @@ msgstr "or::"
 
 #: ../../library/unittest.rst:1010
 msgid "Added under the name ``assertRaisesRegexp``."
-msgstr ""
+msgstr "Adicionado com o nome ``assertRaisesRegexp``."
 
 #: ../../library/unittest.rst:1013
 msgid "Renamed to :meth:`assertRaisesRegex`."
-msgstr ""
+msgstr "Renomeado para :meth:`assertRaisesRegex`."
 
 #: ../../library/unittest.rst:1023
 msgid ""
@@ -1506,6 +1609,12 @@ msgid ""
 "isn't.  Any exception is an error. To catch any of a group of warnings, a "
 "tuple containing the warning classes may be passed as *warnings*."
 msgstr ""
+"Testa se o aviso *warning* é acionado quando *callable* é chamado com "
+"quaisquer argumentos nomeados ou posicionais que também são passados para :"
+"meth:`assertWarns`. O teste passa se *warning* for acionado e falha se não "
+"for. Qualquer exceção é considerada como falha. Para capturar qualquer aviso "
+"presente em um grupo de avisos, uma tupla contendo as classes de aviso podem "
+"ser passadas como *warning*."
 
 #: ../../library/unittest.rst:1030
 msgid ""
@@ -1513,12 +1622,17 @@ msgid ""
 "context manager so that the code under test can be written inline rather "
 "than as a function::"
 msgstr ""
+"Se apenas os argumentos *warning* e, possivelmente, *msg* forem passados, "
+"retorna um gerenciador de contexto para que o código sob teste possa ser "
+"escrito de forma embutida ao invés de ser definido como uma função::"
 
 #: ../../library/unittest.rst:1037
 msgid ""
 "When used as a context manager, :meth:`assertWarns` accepts the additional "
 "keyword argument *msg*."
 msgstr ""
+"Quando usado como gerenciador de contexto, :meth:`assertWarns` aceita o "
+"argumento nomeado adicional *msg*."
 
 #: ../../library/unittest.rst:1040
 msgid ""
@@ -1527,12 +1641,18 @@ msgid ""
 "the :attr:`filename` and :attr:`lineno` attributes. This can be useful if "
 "the intention is to perform additional checks on the warning caught::"
 msgstr ""
+"O gerenciador de contexto irá armazenar o objeto de aviso capturado no "
+"atributo :attr:`warning` e a linha de código fonte que acionou o aviso nos "
+"atributos :attr:`filename` e :attr:`lineno`. Isso pode ser útil se a "
+"intenção for executar verificações adicionais no aviso capturado::"
 
 #: ../../library/unittest.rst:1052
 msgid ""
 "This method works regardless of the warning filters in place when it is "
 "called."
 msgstr ""
+"Este método funciona independente dos filtros de aviso configurados no "
+"momento em que é chamado."
 
 #: ../../library/unittest.rst:1064
 msgid ""
@@ -1541,12 +1661,18 @@ msgid ""
 "string containing a regular expression suitable for use by :func:`re."
 "search`.  Example::"
 msgstr ""
+"Similar ao :meth:`assertWarns` mas também testa se *regex* casa com a "
+"mensagem do aviso acionado. *regex* pode ser um objeto expressão regular ou "
+"uma string contendo uma expressão regular compatível para uso pela função :"
+"func:`re.search`. Exemplo::"
 
 #: ../../library/unittest.rst:1085
 msgid ""
 "A context manager to test that at least one message is logged on the "
 "*logger* or one of its children, with at least the given *level*."
 msgstr ""
+"Um gerenciador de contexto para testar se pelo menos uma mensagem é inserida "
+"em *logger* ou em um de seus filhos, com pelo menos um nível *level*."
 
 #: ../../library/unittest.rst:1089
 msgid ""
@@ -1554,6 +1680,9 @@ msgid ""
 "`str` giving the name of a logger.  The default is the root logger, which "
 "will catch all messages."
 msgstr ""
+"Se passado, *logger* deve ser um objeto da classe :class:`logging.Logger` ou "
+"um objeto da classe :class:`str` com o nome do registrador de logs. O padrão "
+"é o registrador de log raíz, que irá capturar todas as mensagens."
 
 #: ../../library/unittest.rst:1093
 msgid ""
@@ -1561,29 +1690,42 @@ msgid ""
 "equivalent (for example either ``\"ERROR\"`` or :attr:`logging.ERROR`).  The "
 "default is :attr:`logging.INFO`."
 msgstr ""
+"Se passado, *level* deve ser um nível de log numérico ou a string "
+"equivalente (por exemplo, ``\"ERROR\"`` ou :attr:`logging.ERROR`). O padrão "
+"é :attr:`logging.INFO`."
 
 #: ../../library/unittest.rst:1097
 msgid ""
 "The test passes if at least one message emitted inside the ``with`` block "
 "matches the *logger* and *level* conditions, otherwise it fails."
 msgstr ""
+"O teste passa se pelo menos uma das mensagens emitidas dentro do bloco "
+"``with`` casa com as condições dadas por *logger* e *level*, falhando caso "
+"contrário."
 
 #: ../../library/unittest.rst:1100
 msgid ""
 "The object returned by the context manager is a recording helper which keeps "
 "tracks of the matching log messages.  It has two attributes:"
 msgstr ""
+"O objeto retornado pelo gerenciador de contexto é um registro auxiliar que "
+"mantém os rastros das mensagens de log capturadas de acordo com os critérios "
+"dados. Ele possui dois atributos::"
 
 #: ../../library/unittest.rst:1106
 msgid ""
 "A list of :class:`logging.LogRecord` objects of the matching log messages."
 msgstr ""
+"Uma lista de objetos de log da classe :class:`logging.LogRecord` que foram "
+"compatíveis com os critérios dados."
 
 #: ../../library/unittest.rst:1111
 msgid ""
 "A list of :class:`str` objects with the formatted output of matching "
 "messages."
 msgstr ""
+"Uma lista de objetos da classe :class:`str` com a saída formatada das "
+"mensagens de log compatíveis com os critérios dados."
 
 #: ../../library/unittest.rst:1114
 msgid "Example::"
@@ -1593,6 +1735,8 @@ msgstr "Exemplo::"
 msgid ""
 "There are also other methods used to perform more specific checks, such as:"
 msgstr ""
+"Existem também outros métodos usados para executar verificações mais "
+"específicas, como:"
 
 #: ../../library/unittest.rst:1130
 msgid ":meth:`assertAlmostEqual(a, b) <TestCase.assertAlmostEqual>`"
@@ -1667,6 +1811,8 @@ msgid ""
 "*a* and *b* have the same elements in the same number, regardless of their "
 "order."
 msgstr ""
+"*a* e *b* possuem os mesmos elementos na mesma quantidade, independente da "
+"sua ordem."
 
 #: ../../library/unittest.rst:1163
 msgid ""
@@ -1676,16 +1822,24 @@ msgid ""
 "the values to the given number of *decimal places* (i.e. like the :func:"
 "`round` function) and not *significant digits*."
 msgstr ""
+"Testa se *first* e *second* são (ou não são) aproximadamente iguais "
+"considerando a diferença entre eles, arredondando para o número de casas "
+"decimais dado (7 por padrão), e comparando a zero. Note que estes métodos "
+"arredondam os valores considerando o número de casas decimais (i.e. como a "
+"função :func:`round`) e não o número de algarismos significativos."
 
 #: ../../library/unittest.rst:1169
 msgid ""
 "If *delta* is supplied instead of *places* then the difference between "
 "*first* and *second* must be less or equal to (or greater than) *delta*."
 msgstr ""
+"Se *delta* é fornecido no lugar de *places*, a diferença entre *first* e "
+"*second* deve ser menor ou igual a (ou maior que) *delta*."
 
 #: ../../library/unittest.rst:1172
 msgid "Supplying both *delta* and *places* raises a :exc:`TypeError`."
 msgstr ""
+"Passar *delta* e *places* ao mesmo tempo levanta a exceção :exc:`TypeError`."
 
 #: ../../library/unittest.rst:1174
 msgid ""
@@ -1693,6 +1847,11 @@ msgid ""
 "compare equal.  :meth:`assertNotAlmostEqual` automatically fails if the "
 "objects compare equal.  Added the *delta* keyword argument."
 msgstr ""
+":meth:`assertAlmostEqual` considera, automaticamente, objetos quase iguais "
+"que possuem a comparação de igualdade dada como verdadeira. :meth:"
+"`assertNotAlmostEqual` falha automaticamente se os objetos possuem a "
+"comparação de igualdade dada como verdadeira. Adicionado o argumento nomeado "
+"*delta*."
 
 #: ../../library/unittest.rst:1185
 msgid ""
@@ -3072,7 +3231,7 @@ msgstr ""
 
 #: ../../library/unittest.rst:2309
 msgid "Class and Module Fixtures"
-msgstr ""
+msgstr "Classes e Módulos de Definição de Contexto"
 
 #: ../../library/unittest.rst:2311
 msgid ""
@@ -3081,6 +3240,11 @@ msgid ""
 "from the previous class (if there is one) is called, followed by :meth:"
 "`setUpClass` from the new class."
 msgstr ""
+"Definições de contexto em um nível de classe e módulo são implementadas na "
+"classe :class:`TestSuite`. Quando a suíte de testes encontrar um teste de "
+"uma nova classe, o método :meth:`tearDownClass` da classe anterior (se "
+"houver alguma) é chamado logo antes da chamada do método :meth:`setUpClass` "
+"da nova classe."
 
 #: ../../library/unittest.rst:2316
 msgid ""
@@ -3094,6 +3258,8 @@ msgid ""
 "After all the tests have run the final ``tearDownClass`` and "
 "``tearDownModule`` are run."
 msgstr ""
+"Após executar todos os testes, haverá a execução final do ``tearDownClass`` "
+"e do ``tearDownModule``."
 
 #: ../../library/unittest.rst:2323
 msgid ""
