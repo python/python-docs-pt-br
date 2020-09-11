@@ -25,7 +25,7 @@ msgstr ""
 
 #: ../../distutils/configfile.rst:5
 msgid "Writing the Setup Configuration File"
-msgstr ""
+msgstr "Escrevendo o arquivo de configuração de instalação"
 
 #: ../../distutils/_setuptools_disclaimer.rst:3
 msgid ""
@@ -50,6 +50,16 @@ msgid ""
 "option, which the installer can then override either on the command-line or "
 "by editing the config file."
 msgstr ""
+"Frequentemente, não é possível escrever tudo o que é necessário para "
+"construir uma distribuição *a priori*: você pode precisar obter algumas "
+"informações do usuário, ou do sistema do usuário, para prosseguir. Contanto "
+"que essa informação seja bastante simples -- uma lista de diretórios para "
+"pesquisar arquivos de cabeçalho C ou bibliotecas, por exemplo -- então "
+"fornecer um arquivo de configuração, :file:`setup.cfg`, para os usuários "
+"editarem é um maneira pouco custosa e fácil de solicitá-la. Os arquivos de "
+"configuração também permitem fornecer valores padrão para qualquer opção de "
+"comando, que o instalador pode então substituir na linha de comando ou "
+"editando o arquivo de configuração."
 
 #: ../../distutils/configfile.rst:18
 msgid ""
@@ -61,28 +71,42 @@ msgid ""
 "after the contents of the setup script, but before the command-line.  This "
 "has  several useful consequences:"
 msgstr ""
+"O arquivo de configuração de instalação é um meio-termo útil entre o script "
+"de instalação -- que, idealmente, deveria ser utilizado sem que os "
+"instaladores se preocupem com seu conteúdo [#]_ -- e a linha de comando para "
+"o script de instalação, que está fora do seu controle e inteiramente a cargo "
+"do instalador. Na verdade, :file:`setup.cfg` (e quaisquer outros arquivos de "
+"configuração Distutils presentes no sistema de destino) são processados após "
+"o conteúdo do script de instalação, mas antes da linha de comando. Isso tem "
+"várias consequências úteis:"
 
 #: ../../distutils/configfile.rst:32
 msgid ""
 "installers can override some of what you put in :file:`setup.py` by editing :"
 "file:`setup.cfg`"
 msgstr ""
+"os instaladores podem substituir parte do que você colocou em :file:`setup."
+"py` editando :file:`setup.cfg`"
 
 #: ../../distutils/configfile.rst:35
 msgid ""
 "you can provide non-standard defaults for options that are not easily set "
 "in :file:`setup.py`"
 msgstr ""
+"você pode fornecer valores iniciais fora do padrão para opções que não são "
+"facilmente definidas em :file:`setup.py`"
 
 #: ../../distutils/configfile.rst:38
 msgid ""
 "installers can override anything in :file:`setup.cfg` using the command-line "
 "options to :file:`setup.py`"
 msgstr ""
+"os instaladores podem substituir qualquer coisa em :file:`setup.cfg` usando "
+"as opções de linha de comando para :file:`setup.py`"
 
 #: ../../distutils/configfile.rst:41
 msgid "The basic syntax of the configuration file is simple:"
-msgstr ""
+msgstr "A sintaxe básica do arquivo de configuração é simples:"
 
 #: ../../distutils/configfile.rst:49
 msgid ""
@@ -94,18 +118,29 @@ msgid ""
 "of the line.  Long option values can be split across multiple lines simply "
 "by indenting the continuation lines."
 msgstr ""
+"sendo *command* um dos comandos Distutils (por exemplo :command:`build_py`, :"
+"command:`install`) e *option* uma das opções as quais o comando tem suporte. "
+"Qualquer número de opções pode ser fornecido para cada comando e qualquer "
+"número de seções de comando pode ser incluído no arquivo. As linhas em "
+"branco são ignoradas, assim como os comentários, que vão de um caractere "
+"``'#'`` até o final da linha. Valores de opção longas podem ser divididos em "
+"várias linhas simplesmente identando as linhas de continuação."
 
 #: ../../distutils/configfile.rst:57
 msgid ""
 "You can find out the list of options supported by a particular command with "
 "the universal :option:`!--help` option, e.g."
 msgstr ""
+"Você pode descobrir a lista de opções suportadas por um comando específico "
+"com a opção universal :option:`!--help`, por exemplo."
 
 #: ../../distutils/configfile.rst:75
 msgid ""
 "Note that an option spelled :option:`!--foo-bar` on the command-line  is "
 "spelled ``foo_bar`` in configuration files."
 msgstr ""
+"Note que uma opção escrita :option:`!--foo-bar` na linha de comando é "
+"escrita ``foo_bar`` nos arquivos de configuração."
 
 #: ../../distutils/configfile.rst:80
 msgid ""
@@ -116,6 +151,12 @@ msgid ""
 "You can always use the :option:`!--inplace` option on the command-line to "
 "ensure this:"
 msgstr ""
+"Por exemplo, digamos que você queira que suas extensões sejam construídas "
+"\"no local\" -- isto é, você tem uma extensão :mod:`pkg.ext`, e deseja o "
+"arquivo de extensão compilado (:file:`ext.so` no Unix, digamos) para serem "
+"colocados no mesmo diretório fonte de seus módulos Python puros :mod:`pkg."
+"mod1` e :mod:`pkg.mod2`. Você sempre pode usar a opção :option:`!--inplace` "
+"na linha de comando para garantir isso:"
 
 #: ../../distutils/configfile.rst:90
 msgid ""
@@ -124,6 +165,10 @@ msgid ""
 "to \"set and forget\" this option, by encoding it in :file:`setup.cfg`, the "
 "configuration file for this distribution:"
 msgstr ""
+"Mas isso requer que você sempre especifique o comando :command:`build_ext` "
+"explicitamente, e que lembre-se de fornecer :option:`!--inplace`. Uma "
+"maneira mais fácil é \"definir e esquecer\" esta opção, codificando-a em :"
+"file:`setup.cfg`, o arquivo de configuração para esta distribuição:"
 
 #: ../../distutils/configfile.rst:100
 msgid ""
@@ -137,6 +182,15 @@ msgid ""
 "extensions that expect to be built in their installation directory is almost "
 "always a bad idea, though.)"
 msgstr ""
+"Isso afetará todas as construções desta distribuição de módulo, quer você "
+"especifique explicitamente ou não :command:`build_ext`. Se você incluir um :"
+"file:`setup.cfg` em sua distribuição fonte, isso também afetará as "
+"construções do usuário final -- o que provavelmente é uma má ideia para esta "
+"opção, já que sempre construir extensões no local interromperia a instalação "
+"da distribuição de módulo. Em certos casos peculiares, porém, os módulos são "
+"construídos diretamente em seu diretório de instalação, portanto, esta é uma "
+"capacidade útil. (Distribuir extensões que esperam ser construídas em seu "
+"diretório de instalação é quase sempre uma má ideia, no entanto.)"
 
 #: ../../distutils/configfile.rst:109
 msgid ""
@@ -149,22 +203,35 @@ msgid ""
 "very tedious to do on the command-line for every run.  Hence, here is a "
 "snippet from the Distutils' own :file:`setup.cfg`:"
 msgstr ""
+"Outro exemplo: certos comandos aceitam muitas opções que não mudam de "
+"execução para execução; por exemplo, :command:`bdist_rpm` precisa saber tudo "
+"o que é necessário para gerar um arquivo \"spec\" para criar uma "
+"distribuição RPM. Algumas dessas informações vêm do script de configuração e "
+"outras são geradas automaticamente pelo Distutils (como a lista de arquivos "
+"instalados). Mas algumas delas devem ser fornecidas como opções para :"
+"command:`bdist_rpm`, o que seria muito tedioso de fazer na linha de comando "
+"para cada execução. Portanto, aqui está um trecho de código do :file:`setup."
+"cfg` do próprio Distutils:"
 
 #: ../../distutils/configfile.rst:129
 msgid ""
 "Note that the ``doc_files`` option is simply a whitespace-separated string "
 "split across multiple lines for readability."
 msgstr ""
+"Note que a opção ``doc_files`` é simplesmente uma string separada por "
+"espaços em branco dividida em várias linhas para facilitar a leitura."
 
 #: ../../distutils/configfile.rst:136
 msgid ":ref:`inst-config-syntax` in \"Installing Python Modules\""
-msgstr ""
+msgstr ":ref:`inst-config-syntax` em \"Instalando Módulos Python\""
 
 #: ../../distutils/configfile.rst:136
 msgid ""
 "More information on the configuration files is available in the manual for "
 "system administrators."
 msgstr ""
+"Mais informações sobre os arquivos de configuração estão disponíveis no "
+"manual para administradores de sistema."
 
 #: ../../distutils/configfile.rst:141
 msgid "Footnotes"
@@ -175,3 +242,5 @@ msgid ""
 "This ideal probably won't be achieved until auto-configuration is fully "
 "supported by the Distutils."
 msgstr ""
+"Este ideal provavelmente não será alcançado até que a configuração "
+"automática seja totalmente suportada pelo Distutils."
