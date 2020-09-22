@@ -1850,6 +1850,10 @@ msgid ""
 "``PyCF_ALLOW_TOP_LEVEL_AWAIT`` was clashing with ``CO_FUTURE_DIVISION``. "
 "(Contributed by Batuhan Taskaya in :issue:`39562`)"
 msgstr ""
+"Os valores constantes de futuras sinalizações no módulo :mod:`__future__` "
+"são atualizados para evitar colisão com sinalizações do compilador. "
+"Anteriormente, ``PyCF_ALLOW_TOP_LEVEL_AWAIT`` estava em conflito com "
+"``CO_FUTURE_DIVISION``. (Contribuição de Batuhan Taskaya em :issue:`39562`)"
 
 #: ../../whatsnew/3.9.rst:951
 msgid ""
@@ -1858,6 +1862,10 @@ msgid ""
 "of ``wchar_t`` since Python 3.3. (Contributed by Inada Naoki in :issue:"
 "`34538`.)"
 msgstr ""
+"``array('u')`` agora usa ``wchar_t`` como tipo C em vez de ``Py_UNICODE``. "
+"Esta mudança não afeta seu comportamento porque ``Py_UNICODE`` é um apelido "
+"de ``wchar_t`` desde Python 3.3. (Contribuição de Inada Naoki em :issue:"
+"`34538`.)"
 
 #: ../../whatsnew/3.9.rst:958
 msgid "Changes in the C API"
@@ -1873,6 +1881,14 @@ msgid ""
 "ensure that all custom ``tp_traverse`` functions of heap-allocated types "
 "visit the object's type."
 msgstr ""
+"Instâncias de tipos alocados por heap (como aquelas criadas com :c:func:"
+"`PyType_FromSpec` e APIs semelhantes) mantêm uma referência para seu objeto "
+"de tipo desde o Python 3.8. Conforme indicado nas \"Mudanças na API C\" do "
+"Python 3.8, para a grande maioria dos casos, não deve haver nenhum efeito "
+"colateral, mas para os tipos que têm uma função personalizada :c:member:"
+"`~PyTypeObject.tp_traverse`, certifique-se de que todas as funções "
+"``tp_traverse`` personalizadas de tipos alocados por heap visitam o tipo do "
+"objeto."
 
 #: ../../whatsnew/3.9.rst:981
 msgid ""
@@ -1880,18 +1896,22 @@ msgid ""
 "another type), ensure that ``Py_TYPE(self)`` is visited only once. Note that "
 "only heap types are expected to visit the type in ``tp_traverse``."
 msgstr ""
+"Se sua função transversal delega para ``tp_traverse`` de sua classe base (ou "
+"outro tipo), certifique-se de que ``Py_TYPE(self)`` seja visitado apenas uma "
+"vez. Observe que apenas os tipos de heap devem visitar o tipo em "
+"``tp_traverse``."
 
 #: ../../whatsnew/3.9.rst:985
 msgid "For example, if your ``tp_traverse`` function includes:"
-msgstr ""
+msgstr "Por exemplo, se sua função ``tp_traverse`` inclui:"
 
 #: ../../whatsnew/3.9.rst:991
 msgid "then add:"
-msgstr ""
+msgstr "adicione:"
 
 #: ../../whatsnew/3.9.rst:1004
 msgid "(See :issue:`35810` and :issue:`40217` for more information.)"
-msgstr ""
+msgstr "(Veja :issue:`35810` e :issue:`40217` para mais informações.)"
 
 #: ../../whatsnew/3.9.rst:1007
 msgid "CPython bytecode changes"
@@ -1904,6 +1924,10 @@ msgid ""
 "correctly if the :exc:`AssertionError` exception was being shadowed. "
 "(Contributed by Zackery Spytz in :issue:`34880`.)"
 msgstr ""
+"O opcode :opcode:`LOAD_ASSERTION_ERROR` foi adicionado para tratar a "
+"instrução :keyword:`assert`. Anteriormente, a instrução assert não "
+"funcionava corretamente se a exceção :exc:`AssertionError` estivesse sendo "
+"ocultada. (Contribuição de Zackery Spytz em :issue:`34880`.)"
 
 #: ../../whatsnew/3.9.rst:1016
 msgid "Build Changes"
@@ -1917,12 +1941,19 @@ msgid ""
 "information. (Contributed by Jan Matějek, Matěj Cepl, Charalampos Stratakis "
 "and Victor Stinner in :issue:`1294959`.)"
 msgstr ""
+"Adiciona a opção ``--with-platlibdir`` ao script ``configure``: nome do "
+"diretório de biblioteca específico da plataforma, armazenado no novo "
+"atributo :attr:`sys.platlibdir`. Veja o atributo :attr:`sys.platlibdir` para "
+"mais informações. (Contribuição de Jan Matějek, Matěj Cepl, Charalampos "
+"Stratakis e Victor Stinner em :issue:`1294959`.)"
 
 #: ../../whatsnew/3.9.rst:1024
 msgid ""
 "The ``COUNT_ALLOCS`` special build macro has been removed. (Contributed by "
 "Victor Stinner in :issue:`39489`.)"
 msgstr ""
+"A macro especial de construção ``COUNT_ALLOCS`` foi removida. (Contribuição "
+"de Victor Stinner em :issue:`39489`.)"
 
 #: ../../whatsnew/3.9.rst:1027
 msgid ""
@@ -1930,10 +1961,13 @@ msgid ""
 "functions are now required to build Python. (Contributed by Victor Stinner "
 "in :issue:`39395`.)"
 msgstr ""
+"Em plataformas não Windows, as funções :c:func:`setenv` e :c:func:`unsetenv` "
+"agora são necessárias para construir o Python. (Contribuição de Victor "
+"Stinner em :issue:`39395`.)"
 
 #: ../../whatsnew/3.9.rst:1033
 msgid "C API Changes"
-msgstr ""
+msgstr "Alterações na API C"
 
 #: ../../whatsnew/3.9.rst:1038
 msgid ""
@@ -1943,6 +1977,12 @@ msgid ""
 "`METH_METHOD` to allow a method to access the class it was defined in. "
 "(Contributed by Marcel Plch and Petr Viktorin in :issue:`38787`.)"
 msgstr ""
+":pep:`573`: Adiciona :c:func:`PyType_FromModuleAndSpec` para associar um "
+"módulo a uma classe; :c:func:`PyType_GetModule` e :c:func:"
+"`PyType_GetModuleState` para obter o módulo e seu estado; e :c:data:"
+"`PyCMethod` e :c:data:`METH_METHOD` para permitir que um método acesse a "
+"classe na qual ela foi definida. (Contributed by Marcel Plch and Petr "
+"Viktorin in :issue:`38787`.)"
 
 #: ../../whatsnew/3.9.rst:1045
 msgid ""
@@ -1950,12 +1990,17 @@ msgid ""
 "`PyFrame_GetBack` function: get the frame next outer frame. (Contributed by "
 "Victor Stinner in :issue:`40421`.)"
 msgstr ""
+"Adiciona a função :c:func:`PyFrame_GetCode`: obtém um código de quadro. "
+"Adiciona a função :c:func:`PyFrame_GetBack`: obtém o próximo quadro externo. "
+"(Contribuição de Victor Stinner em :issue:`40421`.)"
 
 #: ../../whatsnew/3.9.rst:1049
 msgid ""
 "Add :c:func:`PyFrame_GetLineNumber` to the limited C API. (Contributed by "
 "Victor Stinner in :issue:`40421`.)"
 msgstr ""
+"Adiciona :c:func:`PyFrame_GetLineNumber` à API C limitada. (Contribuição de "
+"Victor Stinner em :issue:`40421`.)"
 
 #: ../../whatsnew/3.9.rst:1052
 msgid ""
@@ -1966,6 +2011,12 @@ msgid ""
 "identifier of a Python thread state. (Contributed by Victor Stinner in :"
 "issue:`39947`.)"
 msgstr ""
+"Adiciona as funções :c:func:`PyThreadState_GetInterpreter` e :c:func:"
+"`PyInterpreterState_Get` para obter o interpretador. Adiciona a função :c:"
+"func:`PyThreadState_GetFrame` para obter o quadro atual de um estado de "
+"thread do Python. Adiciona a função :c:func:PyThreadState_GetID`: obtém o "
+"identificador único de um estado de thread do Python. (Contribuição de "
+"Victor Stinner em :issue:`39947`.)"
 
 #: ../../whatsnew/3.9.rst:1060
 msgid ""
@@ -1974,10 +2025,16 @@ msgid ""
 "efficient way to call a callable Python object without any argument. "
 "(Contributed by Victor Stinner in :issue:`37194`.)"
 msgstr ""
+"Adiciona uma nova função pública :c:func:`PyObject_CallNoArgs` à API C, que "
+"chama um objeto chamável Python sem nenhum argumento. É a maneira mais "
+"eficiente de chamar um objeto chamável Python sem nenhum argumento. "
+"(Contribuição de Victor Stinner em :issue:`37194`.)"
 
 #: ../../whatsnew/3.9.rst:1065 ../../whatsnew/3.9.rst:1145
 msgid "Changes in the limited C API (if ``Py_LIMITED_API`` macro is defined):"
 msgstr ""
+"Alterações na API C limitada (se a macro ``Py_LIMITED_API`` estiver "
+"definida):"
 
 #: ../../whatsnew/3.9.rst:1067
 msgid ""
@@ -1987,22 +2044,31 @@ msgid ""
 "access ``PyThreadState.recursion_depth`` field (the structure is opaque in "
 "the limited C API)."
 msgstr ""
+"Fornece :c:func:`Py_EnterRecursiveCall` e :c:func:`Py_LeaveRecursiveCall` "
+"como funções regulares para a API limitada. Anteriormente, eram definidas "
+"como macros, mas essas macros não compilavam com a API C limitada, que não "
+"pode acessar o campo ``PyThreadState.recursion_depth`` (a estrutura não é "
+"visível na API C limitada)."
 
 #: ../../whatsnew/3.9.rst:1073
 msgid ""
 "``PyObject_INIT()`` and ``PyObject_INIT_VAR()`` become regular \"opaque\" "
 "function to hide implementation details."
 msgstr ""
+"``PyObject_INIT()`` e ``PyObject_INIT_VAR()`` se uma função regular não "
+"visível para ocultar os detalhes da implementação."
 
 #: ../../whatsnew/3.9.rst:1076 ../../whatsnew/3.9.rst:1172
 msgid "(Contributed by Victor Stinner in :issue:`38644` and :issue:`39542`.)"
-msgstr ""
+msgstr "(Contribuição de Victor Stinner em :issue:`38644` e :issue:`39542`.)"
 
 #: ../../whatsnew/3.9.rst:1078
 msgid ""
 "The :c:func:`PyModule_AddType` function is added to help adding a type to a "
 "module. (Contributed by Dong-hee Na in :issue:`40024`.)"
 msgstr ""
+"A função :c:func:`PyModule_AddType` é adicionado para ajudar a adicionar um "
+"tipo a um módulo. (Contribuíram de Dong-hee Na em :issue:`40024`.)"
 
 #: ../../whatsnew/3.9.rst:1082
 msgid ""
@@ -2012,6 +2078,10 @@ msgid ""
 "garbage collector respectively. (Contributed by Pablo Galindo in :issue:"
 "`40241`.)"
 msgstr ""
+"Adiciona as funções :c:func:`PyObject_GC_IsTracked` e :c:func:"
+"`PyObject_GC_IsFinalized` para a API pública para permitir a consulta se os "
+"objetos Python estão sendo rastreados ou já foram finalizados pelo coletor "
+"de lixo, respectivamente. (Contribuição de Pablo Galindo em :issue:`40241`.)"
 
 #: ../../whatsnew/3.9.rst:1092
 msgid ""
@@ -2019,6 +2089,9 @@ msgid ""
 "*tstate* parameter (``PyThreadState*``). (Contributed by Victor Stinner in :"
 "issue:`38500`.)"
 msgstr ""
+"``PyInterpreterState.eval_frame`` (:pep:`523`) agora exige um novo parâmetro "
+"*tstate* obrigatório (``PyThreadState*``). (Contribuição de Victor Stinner "
+"em :issue:`38500`.)"
 
 #: ../../whatsnew/3.9.rst:1096
 msgid ""
@@ -2031,11 +2104,21 @@ msgid ""
 "m_size` is greater than 0 and the module state (as returned by :c:func:"
 "`PyModule_GetState`) is ``NULL``."
 msgstr ""
+"Módulos de extensão: As funções :c:member:`~PyModuleDef.m_traverse`, :c:"
+"member:`~PyModuleDef.m_clear` e :c:member:`~PyModuleDef.m_free` de :c:type:"
+"`PyModuleDef` não são mais chamados se o estado do módulo foi solicitado, "
+"mas ainda não está alocado. Este é o caso imediatamente após o módulo ser "
+"criado e antes de o módulo ser executado (função :c:data:`Py_mod_exec`). "
+"Mais precisamente, estas funções são são chamados se :c:member:`~PyModuleDef."
+"m_size` for maior que 0 e o estado do módulo (como retornado por :c:func:"
+"`PyModule_GetState`) for ``NULL``."
 
 #: ../../whatsnew/3.9.rst:1105
 msgid ""
 "Extension modules without module state (``m_size <= 0``) are not affected."
 msgstr ""
+"Módulos de extensão sem um estado de módulo (``m_size <= 0``) não são "
+"afetados."
 
 #: ../../whatsnew/3.9.rst:1107
 msgid ""
@@ -2044,6 +2127,11 @@ msgid ""
 "called from the main interpreter. Each subinterpreter now has its own list "
 "of scheduled calls. (Contributed by Victor Stinner in :issue:`39984`.)"
 msgstr ""
+"Se :c:func:`Py_AddPendingCall` for chamada em um subinterpretador, a função "
+"agora está programada para ser chamada a partir do subinterpretador, em vez "
+"de ser chamada a partir do interpretador principal. Cada subinterpretador "
+"agora tem sua própria lista de chamadas programadas. (Contribuição de Victor "
+"Stinner em :issue:`39984`.)"
 
 #: ../../whatsnew/3.9.rst:1113
 msgid ""
