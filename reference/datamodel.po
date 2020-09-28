@@ -68,6 +68,11 @@ msgid ""
 "implementation quality how garbage collection is implemented, as long as no "
 "objects are collected that are still reachable."
 msgstr ""
+"Os objetos nunca são destruídos explicitamente; no entanto, quando eles se "
+"tornam inacessíveis, eles podem ser coletados como lixo. Uma implementação "
+"tem permissão para adiar a coleta de lixo ou omiti-la completamente -- é uma "
+"questão de qualidade de implementação como a coleta de lixo é implementada, "
+"desde que nenhum objeto seja coletado que ainda esteja acessível."
 
 #: ../../reference/datamodel.rst:63
 msgid ""
@@ -88,6 +93,10 @@ msgid ""
 "catching an exception with a ':keyword:`try`...\\ :keyword:`except`' "
 "statement may keep objects alive."
 msgstr ""
+"Observe que o uso dos recursos de rastreamento ou depuração da implementação "
+"pode manter os objetos ativos que normalmente seriam coletáveis. Observe "
+"também que capturar uma exceção com uma instrução \":keyword:`try`...\\ :"
+"keyword:`except`\" pode manter os objetos vivos."
 
 #: ../../reference/datamodel.rst:77
 msgid ""
@@ -111,6 +120,15 @@ msgid ""
 "implied.  So, if an immutable container (like a tuple) contains a reference "
 "to a mutable object, its value changes if that mutable object is changed."
 msgstr ""
+"Alguns objetos contêm referências a outros objetos; eles são chamados de "
+"*contêineres*. Exemplos de contêineres são tuplas, listas e dicionários. As "
+"referências fazem parte do valor de um contêiner. Na maioria dos casos, "
+"quando falamos sobre o valor de um contêiner, nos referimos aos valores, não "
+"às identidades dos objetos contidos; entretanto, quando falamos sobre a "
+"mutabilidade de um contêiner, apenas as identidades dos objetos contidos "
+"imediatamente estão implícitas. Portanto, se um contêiner imutável (como uma "
+"tupla) contém uma referência a um objeto mutável, seu valor muda se esse "
+"objeto mutável for alterado."
 
 #: ../../reference/datamodel.rst:96
 msgid ""
@@ -124,6 +142,16 @@ msgid ""
 "different, unique, newly created empty lists. (Note that ``c = d = []`` "
 "assigns the same object to both ``c`` and ``d``.)"
 msgstr ""
+"Os tipos afetam quase todos os aspectos do comportamento do objeto. Até "
+"mesmo a importância da identidade do objeto é afetada em algum sentido: para "
+"tipos imutáveis, as operações que calculam novos valores podem realmente "
+"retornar uma referência a qualquer objeto existente com o mesmo tipo e "
+"valor, enquanto para objetos mutáveis isso não é permitido. Por exemplo, "
+"após ``a = 1; b = 1``, ``a`` e ``b`` podem ou não se referir ao mesmo objeto "
+"com o valor um, dependendo da implementação, mas após ``c = []; d = []``, "
+"``c`` e ``d`` têm a garantia de referir-se a duas listas vazias diferentes e "
+"únicas. (Observe que ``c = d = []`` atribui o mesmo objeto para ``c`` e "
+"``d``.)"
 
 #: ../../reference/datamodel.rst:110
 msgid "The standard type hierarchy"
@@ -145,6 +173,10 @@ msgid ""
 "and are not intended for general use.  Their definition may change in the "
 "future."
 msgstr ""
+"Algumas das descrições de tipo abaixo contêm um parágrafo listando "
+"\"atributos especiais\". Esses são atributos que fornecem acesso à "
+"implementação e não se destinam ao uso geral. Sua definição pode mudar no "
+"futuro."
 
 #: ../../reference/datamodel.rst:139
 msgid "None"
@@ -157,6 +189,10 @@ msgid ""
 "signify the absence of a value in many situations, e.g., it is returned from "
 "functions that don't explicitly return anything. Its truth value is false."
 msgstr ""
+"Este tipo possui um único valor. Existe um único objeto com este valor. Este "
+"objeto é acessado através do nome embutido ``None``. É usado para significar "
+"a ausência de um valor em muitas situações, por exemplo, ele é retornado de "
+"funções que não retornam nada explicitamente. Seu valor de verdade é falso."
 
 #: ../../reference/datamodel.rst:149
 msgid "NotImplemented"
@@ -196,12 +232,19 @@ msgid ""
 "strongly related to mathematical numbers, but subject to the limitations of "
 "numerical representation in computers."
 msgstr ""
+"Eles são criados por literais numéricos e retornados como resultados por "
+"operadores aritméticos e funções aritméticas integradas. Os objetos "
+"numéricos são imutáveis; uma vez criado, seu valor nunca muda. Os números do "
+"Python são, obviamente, fortemente relacionados aos números matemáticos, mas "
+"sujeitos às limitações da representação numérica em computadores."
 
 #: ../../reference/datamodel.rst:168
 msgid ""
 "Python distinguishes between integers, floating point numbers, and complex "
 "numbers:"
 msgstr ""
+"Python distingue entre inteiros, números de ponto flutuante e números "
+"complexos:"
 
 #: ../../reference/datamodel.rst:224
 msgid ":class:`numbers.Integral`"
@@ -212,6 +255,8 @@ msgid ""
 "These represent elements from the mathematical set of integers (positive and "
 "negative)."
 msgstr ""
+"Estes representam elementos do conjunto matemático de inteiros (positivos e "
+"negativos)."
 
 #: ../../reference/datamodel.rst:177
 msgid "There are three types of integers:"
@@ -245,6 +290,11 @@ msgid ""
 "variant of 2's complement which gives the illusion of an infinite string of "
 "sign bits extending to the left."
 msgstr ""
+"Eles representam números em um intervalo ilimitado, sujeito apenas à memória "
+"(virtual) disponível. Para o propósito de operações de deslocamento e "
+"máscara, uma representação binária é assumida e os números negativos são "
+"representados em uma variante do complemento de 2 que dá a ilusão de uma "
+"string infinita de bits de sinal estendendo-se para a esquerda."
 
 #: ../../reference/datamodel.rst:214
 msgid "Booleans"
@@ -284,6 +334,14 @@ msgid ""
 "dwarfed by the overhead of using objects in Python, so there is no reason to "
 "complicate the language with two kinds of floating point numbers."
 msgstr ""
+"Eles representam números de ponto flutuante de precisão dupla no nível da "
+"máquina. Você está à mercê da arquitetura da máquina subjacente (e "
+"implementação C ou Java) para o intervalo aceito e tratamento de estouro. "
+"Python não oferece suporte a números de ponto flutuante de precisão única; a "
+"economia no uso do processador e da memória, que normalmente é o motivo de "
+"usá-los, é ofuscada pela sobrecarga do uso de objetos em Python, portanto, "
+"não há razão para complicar a linguagem com dois tipos de números de ponto "
+"flutuante."
 
 #: ../../reference/datamodel.rst:249
 msgid ":class:`numbers.Complex`"
@@ -296,6 +354,11 @@ msgid ""
 "numbers. The real and imaginary parts of a complex number ``z`` can be "
 "retrieved through the read-only attributes ``z.real`` and ``z.imag``."
 msgstr ""
+"Eles representam números complexos como um par de números de ponto flutuante "
+"de precisão dupla no nível da máquina. As mesmas advertências se aplicam aos "
+"números de ponto flutuante. As partes reais e imaginárias de um número "
+"complexo ``z`` podem ser recuperadas através dos atributos somente leitura "
+"``z.real`` e ``z.imag``."
 
 #: ../../reference/datamodel.rst:386
 msgid "Sequences"
@@ -308,6 +371,11 @@ msgid ""
 "When the length of a sequence is *n*, the index set contains the numbers 0, "
 "1, ..., *n*-1.  Item *i* of sequence *a* is selected by ``a[i]``."
 msgstr ""
+"Eles representam conjuntos ordenados finitos indexados por números não "
+"negativos. A função embutida :func:`len` retorna o número de itens de uma "
+"sequência. Quando o comprimento de uma sequência é *n*, o conjunto de "
+"índices contém os números 0, 1, ..., *n*-1. O item *i* da sequência *a* é "
+"selecionado por ``a[i]``."
 
 #: ../../reference/datamodel.rst:266
 msgid ""
@@ -316,6 +384,10 @@ msgid ""
 "a sequence of the same type.  This implies that the index set is renumbered "
 "so that it starts at 0."
 msgstr ""
+"Sequências também suportam fatiamento: ``a[i:j]`` seleciona todos os itens "
+"com índice *k* de forma que *i* ``<=`` *k* ``<`` *j*. Quando usada como "
+"expressão, uma fatia é uma sequência do mesmo tipo. Isso implica que o "
+"conjunto de índices é renumerado para que comece em 0."
 
 #: ../../reference/datamodel.rst:273
 msgid ""
@@ -323,10 +395,13 @@ msgid ""
 "parameter: ``a[i:j:k]`` selects all items of *a* with index *x* where ``x = "
 "i + n*k``, *n* ``>=`` ``0`` and *i* ``<=`` *x* ``<`` *j*."
 msgstr ""
+"Algumas sequências também suportam \"fatiamento estendido\" com um terceiro "
+"parâmetro de \"etapa\": ``a[i:j:k]`` seleciona todos os itens de *a* com "
+"índice *x* onde ``x = i + n*k``, *n* ``>=`` ``0`` e *i* ``<=`` *x* ``<`` *j*."
 
 #: ../../reference/datamodel.rst:277
 msgid "Sequences are distinguished according to their mutability:"
-msgstr ""
+msgstr "As sequências são distinguidas de acordo com sua mutabilidade:"
 
 #: ../../reference/datamodel.rst:352
 msgid "Immutable sequences"
@@ -339,6 +414,11 @@ msgid ""
 "be mutable and may be changed; however, the collection of objects directly "
 "referenced by an immutable object cannot change.)"
 msgstr ""
+"Um objeto de um tipo de sequência imutável não pode ser alterado depois de "
+"criado. (Se o objeto contiver referências a outros objetos, esses outros "
+"objetos podem ser mutáveis e podem ser alterados; no entanto, a coleção de "
+"objetos diretamente referenciada por um objeto imutável não pode ser "
+"alterada.)"
 
 #: ../../reference/datamodel.rst:289
 msgid "The following types are immutable sequences:"
@@ -400,6 +480,12 @@ msgid ""
 "usable for grouping of expressions).  An empty tuple can be formed by an "
 "empty pair of parentheses."
 msgstr ""
+"Os itens de uma tupla são objetos Python arbitrários. Tuplas de dois ou mais "
+"itens são formadas por listas de expressões separadas por vírgulas. Uma "
+"tupla de um item (um \"singleton\") pode ser formada afixando uma vírgula a "
+"uma expressão (uma expressão por si só não cria uma tupla, já que os "
+"parênteses devem ser usados para agrupamento de expressões). Uma tupla vazia "
+"pode ser formada por um par vazio de parênteses."
 
 #: ../../reference/datamodel.rst:386
 msgid "Mutable sequences"
@@ -411,10 +497,13 @@ msgid ""
 "and slicing notations can be used as the target of assignment and :keyword:"
 "`del` (delete) statements."
 msgstr ""
+"As sequências mutáveis podem ser alteradas após serem criadas. As notações "
+"de assinatura e fatiamento podem ser usadas como o destino da atribuição e "
+"instruções :keyword:`del` (*delete*, exclusão)."
 
 #: ../../reference/datamodel.rst:366
 msgid "There are currently two intrinsic mutable sequence types:"
-msgstr ""
+msgstr "Atualmente, existem dois tipos de sequência mutável intrínseca:"
 
 #: ../../reference/datamodel.rst:373
 msgid "Lists"
@@ -426,6 +515,10 @@ msgid ""
 "placing a comma-separated list of expressions in square brackets. (Note that "
 "there are no special cases needed to form lists of length 0 or 1.)"
 msgstr ""
+"Os itens de uma lista são objetos Python arbitrários. As listas são formadas "
+"colocando uma lista separada por vírgulas de expressões entre colchetes. "
+"(Observe que não há casos especiais necessários para formar listas de "
+"comprimento 0 ou 1.)"
 
 #: ../../reference/datamodel.rst:381
 msgid "Byte Arrays"
@@ -458,6 +551,13 @@ msgid ""
 "from a sequence, and computing mathematical operations such as intersection, "
 "union, difference, and symmetric difference."
 msgstr ""
+"Eles representam conjuntos finitos e não ordenados de objetos únicos e "
+"imutáveis. Como tal, eles não podem ser indexados por nenhum subscrito. No "
+"entanto, eles podem ser iterados, e a função embutida :func:`len` retorna o "
+"número de itens em um conjunto. Os usos comuns para conjuntos são testes "
+"rápidos de associação, remoção de duplicatas de uma sequência e computação "
+"de operações matemáticas como interseção, união, diferença e diferença "
+"simétrica."
 
 #: ../../reference/datamodel.rst:400
 msgid ""
@@ -466,10 +566,14 @@ msgid ""
 "numbers compare equal (e.g., ``1`` and ``1.0``), only one of them can be "
 "contained in a set."
 msgstr ""
+"Para elementos de conjunto, as mesmas regras de imutabilidade se aplicam às "
+"chaves de dicionário. Observe que os tipos numéricos obedecem às regras "
+"normais para comparação numérica: se dois números forem iguais (por exemplo, "
+"``1`` e ``1.0``), apenas um deles pode estar contido em um conjunto."
 
 #: ../../reference/datamodel.rst:405
 msgid "There are currently two intrinsic set types:"
-msgstr ""
+msgstr "Atualmente, existem dois tipos de conjuntos intrínsecos:"
 
 #: ../../reference/datamodel.rst:412
 msgid "Sets"
@@ -481,6 +585,9 @@ msgid ""
 "constructor and can be modified afterwards by several methods, such as :meth:"
 "`~set.add`."
 msgstr ""
+"Eles representam um conjunto mutável. Eles são criados pelo construtor "
+"embutido :func:`set` e podem ser modificados posteriormente por vários "
+"métodos, como :meth:`~set.add`."
 
 #: ../../reference/datamodel.rst:420
 msgid "Frozen sets"
@@ -492,6 +599,10 @@ msgid ""
 "`frozenset` constructor.  As a frozenset is immutable and :term:`hashable`, "
 "it can be used again as an element of another set, or as a dictionary key."
 msgstr ""
+"Eles representam um conjunto imutável. Eles são criados pelo construtor "
+"embutido :func:`frozenset`. Como um frozenset é imutável e :term:`hasheável "
+"<hashable>`, ele pode ser usado novamente como um elemento de outro "
+"conjunto, ou como uma chave de dicionário."
 
 #: ../../reference/datamodel.rst:457
 msgid "Mappings"
@@ -505,10 +616,15 @@ msgid ""
 "assignments or :keyword:`del` statements. The built-in function :func:`len` "
 "returns the number of items in a mapping."
 msgstr ""
+"Eles representam conjuntos finitos de objetos indexados por conjuntos de "
+"índices arbitrários. A notação subscrito ``a[k]`` seleciona o item indexado "
+"por ``k`` do mapeamento ``a``; isso pode ser usado em expressões e como alvo "
+"de atribuições ou instruções :keyword:`del`. A função embutida :func:`len` "
+"retorna o número de itens em um mapeamento."
 
 #: ../../reference/datamodel.rst:434
 msgid "There is currently a single intrinsic mapping type:"
-msgstr ""
+msgstr "Atualmente, há um único tipo de mapeamento intrínseco:"
 
 #: ../../reference/datamodel.rst:457
 msgid "Dictionaries"
@@ -525,12 +641,23 @@ msgid ""
 "numbers compare equal (e.g., ``1`` and ``1.0``) then they can be used "
 "interchangeably to index the same dictionary entry."
 msgstr ""
+"Eles representam conjuntos finitos de objetos indexados por valores quase "
+"arbitrários. Os únicos tipos de valores não aceitáveis como chaves são os "
+"valores que contêm listas ou dicionários ou outros tipos mutáveis que são "
+"comparados por valor em vez de por identidade de objeto, o motivo é que a "
+"implementação eficiente de dicionários requer que o valor de hash de uma "
+"chave permaneça constante. Os tipos numéricos usados para chaves obedecem às "
+"regras normais para comparação numérica: se dois números forem iguais (por "
+"exemplo, ``1`` e ``1.0``), eles podem ser usados alternadamente para indexar "
+"a mesma entrada do dicionário."
 
 #: ../../reference/datamodel.rst:448
 msgid ""
 "Dictionaries are mutable; they can be created by the ``{...}`` notation (see "
 "section :ref:`dict`)."
 msgstr ""
+"Os dicionários são mutáveis; eles podem ser criados pela notação ``{...}`` "
+"(veja a seção :ref:`dict`)."
 
 #: ../../reference/datamodel.rst:456
 msgid ""
@@ -547,6 +674,8 @@ msgid ""
 "These are the types to which the function call operation (see section :ref:"
 "`calls`) can be applied:"
 msgstr ""
+"Estes são os tipos aos quais a operação de chamada de função (veja a seção :"
+"ref:`calls`) pode ser aplicada:"
 
 #: ../../reference/datamodel.rst:560
 msgid "User-defined functions"
@@ -606,6 +735,7 @@ msgid ""
 "The name of the module the function was defined in, or ``None`` if "
 "unavailable."
 msgstr ""
+"O nome do módulo em que a função foi definida ou ``None`` se indisponível."
 
 #: ../../reference/datamodel.rst:517
 msgid ":attr:`__defaults__` :attr:`func_defaults`"
@@ -616,6 +746,8 @@ msgid ""
 "A tuple containing default argument values for those arguments that have "
 "defaults, or ``None`` if no arguments have a default value."
 msgstr ""
+"Uma tupla contendo valores de argumento padrão para aqueles argumentos que "
+"possuem padrões, ou ``None`` se nenhum argumento tiver um valor padrão."
 
 #: ../../reference/datamodel.rst:523
 msgid ":attr:`__code__` :attr:`func_code`"
@@ -623,7 +755,7 @@ msgstr ""
 
 #: ../../reference/datamodel.rst:523
 msgid "The code object representing the compiled function body."
-msgstr ""
+msgstr "O objeto código que representa o corpo da função compilada."
 
 #: ../../reference/datamodel.rst:526
 msgid ":attr:`__globals__` :attr:`func_globals`"
@@ -634,6 +766,8 @@ msgid ""
 "A reference to the dictionary that holds the function's global variables --- "
 "the global namespace of the module in which the function was defined."
 msgstr ""
+"Uma referência ao dicionário que contém as variáveis globais da função --- o "
+"espaço de nomes global do módulo no qual a função foi definida."
 
 #: ../../reference/datamodel.rst:526 ../../reference/datamodel.rst:537
 msgid "Read-only"
@@ -646,6 +780,7 @@ msgstr ""
 #: ../../reference/datamodel.rst:533
 msgid "The namespace supporting arbitrary function attributes."
 msgstr ""
+"O espaço de nomes que oferece suporte a atributos de função arbitrários."
 
 #: ../../reference/datamodel.rst:537
 msgid ":attr:`__closure__` :attr:`func_closure`"
