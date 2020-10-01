@@ -981,6 +981,14 @@ msgid ""
 "``None`` (but see the next item); :attr:`__module__` is the name of the "
 "module the function was defined in or ``None`` if unavailable."
 msgstr ""
+"Um objeto função embutida é um wrapper em torno de uma função C. Exemplos de "
+"funções embutidas são :func:`len` e :func:`math.sin` (:mod:`math` é um "
+"módulo embutido padrão). O número e o tipo dos argumentos são determinados "
+"pela função C. Atributos especiais de somente leitura: :attr:`__doc__` é a "
+"string de documentação da função, ou ``None`` se indisponível; :attr:"
+"`~definition.__name__` é o nome da função; :attr:`__self__` é definido como "
+"``None`` (mas veja o próximo item); :attr:`__module__` é o nome do módulo no "
+"qual a função foi definida ou ``None`` se indisponível."
 
 #: ../../reference/datamodel.rst:701
 msgid "Built-in methods"
@@ -994,6 +1002,11 @@ msgid ""
 "*alist* is a list object. In this case, the special read-only attribute :"
 "attr:`__self__` is set to the object denoted by *alist*."
 msgstr ""
+"Este é realmente um disfarce diferente de uma função embutida, desta vez "
+"contendo um objeto passado para a função C como um argumento extra "
+"implícito. Um exemplo de método embutido é ``alist.append()``, presumindo "
+"que *alist* é um objeto de lista. Nesse caso, o atributo especial de somente "
+"leitura :attr:`__self__` é definido como o objeto denotado por *alist*."
 
 #: ../../reference/datamodel.rst:708
 msgid "Class Types"
@@ -1052,12 +1065,16 @@ msgid ""
 "Attribute assignment updates the module's namespace dictionary, e.g., ``m.x "
 "= 1`` is equivalent to ``m.__dict__[\"x\"] = 1``."
 msgstr ""
+"A atribuição de atributo atualiza o dicionário de espaço de nomes do módulo, "
+"por exemplo, ``m.x = 1`` é equivalente a ``m.__dict__[\"x\"] = 1``."
 
 #: ../../reference/datamodel.rst:748
 msgid ""
 "Special read-only attribute: :attr:`~object.__dict__` is the module's "
 "namespace as a dictionary object."
 msgstr ""
+"Atributo especial somente leitura: :attr:`~object.__dict__` é o espaço de "
+"nomes do módulo como um objeto de dicionário."
 
 #: ../../reference/datamodel.rst:753
 msgid ""
@@ -1066,6 +1083,11 @@ msgid ""
 "still has live references.  To avoid this, copy the dictionary or keep the "
 "module around while using its dictionary directly."
 msgstr ""
+"Por causa da maneira como o CPython limpa os dicionários do módulo, o "
+"dicionário do módulo será limpo quando o módulo sair do escopo, mesmo se o "
+"dicionário ainda tiver referências ativas. Para evitar isso, copie o "
+"dicionário ou mantenha o módulo por perto enquanto usa seu dicionário "
+"diretamente."
 
 #: ../../reference/datamodel.rst:764
 msgid ""
@@ -1121,12 +1143,16 @@ msgid ""
 "Class attribute assignments update the class's dictionary, never the "
 "dictionary of a base class."
 msgstr ""
+"As atribuições de atributos de classe atualizam o dicionário da classe, "
+"nunca o dicionário de uma classe base."
 
 #: ../../reference/datamodel.rst:819
 msgid ""
 "A class object can be called (see above) to yield a class instance (see "
 "below)."
 msgstr ""
+"Um objeto de classe pode ser chamado (veja acima) para produzir uma "
+"instância de classe (veja abaixo)."
 
 #: ../../reference/datamodel.rst:828
 msgid ""
@@ -1166,18 +1192,27 @@ msgid ""
 "`__delattr__` method, this is called instead of updating the instance "
 "dictionary directly."
 msgstr ""
+"As atribuições e exclusões de atributos atualizam o dicionário da instância, "
+"nunca o dicionário de uma classe. Se a classe tem um método :meth:"
+"`__setattr__` ou :meth:`__delattr__`, ele é chamado ao invés de atualizar o "
+"dicionário da instância diretamente."
 
 #: ../../reference/datamodel.rst:871
 msgid ""
 "Class instances can pretend to be numbers, sequences, or mappings if they "
 "have methods with certain special names.  See section :ref:`specialnames`."
 msgstr ""
+"As instâncias de classe podem fingir ser números, sequências ou mapeamentos "
+"se tiverem métodos com certos nomes especiais. Veja a seção :ref:"
+"`specialnames`."
 
 #: ../../reference/datamodel.rst:878
 msgid ""
 "Special attributes: :attr:`~object.__dict__` is the attribute dictionary; :"
 "attr:`~instance.__class__` is the instance's class."
 msgstr ""
+"Atributos especiais: :attr:`~object.__dict__` é o dicionário de atributos; :"
+"attr:`~instance.__class__` é a classe da instância."
 
 #: ../../reference/datamodel.rst:902
 msgid "Files"
@@ -1205,6 +1240,9 @@ msgid ""
 "Their definitions may change with future versions of the interpreter, but "
 "they are mentioned here for completeness."
 msgstr ""
+"Alguns tipos usados internamente pelo interpretador são expostos ao usuário. "
+"Suas definições podem mudar com versões futuras do interpretador, mas são "
+"mencionadas aqui para fins de integridade."
 
 #: ../../reference/datamodel.rst:977
 msgid "Code objects"
@@ -1221,6 +1259,15 @@ msgid ""
 "run-time).  Unlike function objects, code objects are immutable and contain "
 "no references (directly or indirectly) to mutable objects."
 msgstr ""
+"Objetos código representam código Python executável *compilados em bytes* "
+"ou :term:`bytecode`. A diferença entre um objeto código e um objeto função é "
+"que o objeto função contém uma referência explícita aos globais da função (o "
+"módulo no qual foi definida), enquanto um objeto código não contém nenhum "
+"contexto; também os valores de argumento padrão são armazenados no objeto "
+"função, não no objeto código (porque eles representam os valores calculados "
+"em tempo de execução). Ao contrário dos objetos função, os objetos código "
+"são imutáveis e não contêm referências (direta ou indiretamente) a objetos "
+"mutáveis."
 
 #: ../../reference/datamodel.rst:941
 msgid ""
@@ -1251,6 +1298,11 @@ msgid ""
 "``**keywords`` syntax to accept arbitrary keyword arguments; bit ``0x20`` is "
 "set if the function is a generator."
 msgstr ""
+"Os seguintes bits de sinalizador são definidos para :attr:`co_flags`: o bit "
+"``0x04`` é definido se a função usa a sintaxe ``*arguments`` para aceitar um "
+"número arbitrário de argumentos posicionais; o bit ``0x08`` é definido se a "
+"função usa a sintaxe ``**keywords`` para aceitar argumentos nomeados "
+"arbitrários; o bit ``0x20`` é definido se a função for um gerador."
 
 #: ../../reference/datamodel.rst:966
 msgid ""
@@ -1260,20 +1312,27 @@ msgid ""
 "compiled with future division enabled; bits ``0x10`` and ``0x1000`` were "
 "used in earlier versions of Python."
 msgstr ""
+"Declarações de recursos futuros (``from __future__ import division``) também "
+"usam bits em :attr:`co_flags` para indicar se um objeto código foi compilado "
+"com um recurso específico habilitado: o bit ``0x2000`` é definido se a "
+"função foi compilada com divisão futura habilitada; os bits ``0x10`` e "
+"``0x1000`` foram usados em versões anteriores do Python."
 
 #: ../../reference/datamodel.rst:972
 msgid "Other bits in :attr:`co_flags` are reserved for internal use."
-msgstr ""
+msgstr "Outros bits em :attr:`co_flags` são reservados para uso interno."
 
 #: ../../reference/datamodel.rst:976
 msgid ""
 "If a code object represents a function, the first item in :attr:`co_consts` "
 "is the documentation string of the function, or ``None`` if undefined."
 msgstr ""
+"Se um objeto código representa uma função, o primeiro item em :attr:"
+"`co_consts` é a string de documentação da função, ou ``None`` se indefinido."
 
 #: ../../reference/datamodel.rst:1019
 msgid "Frame objects"
-msgstr ""
+msgstr "Objetos quadro"
 
 #: ../../reference/datamodel.rst:984
 msgid ""
@@ -1308,7 +1367,7 @@ msgstr ""
 
 #: ../../reference/datamodel.rst:1061
 msgid "Traceback objects"
-msgstr ""
+msgstr "Objetos traceback"
 
 #: ../../reference/datamodel.rst:1034
 msgid ""
@@ -1340,7 +1399,7 @@ msgstr ""
 
 #: ../../reference/datamodel.rst:1092
 msgid "Slice objects"
-msgstr ""
+msgstr "Objetos slice"
 
 #: ../../reference/datamodel.rst:1066
 msgid ""
@@ -1356,10 +1415,14 @@ msgid ""
 "`~slice.stop` is the upper bound; :attr:`~slice.step` is the step value; "
 "each is ``None`` if omitted.  These attributes can have any type."
 msgstr ""
+"Atributos especiais de somente leitura: :attr:`~slice.start` é o limite "
+"inferior; :attr:`~slice.stop` é o limite superior; :attr:`~slice.step` é o "
+"valor intermediário; cada um é ``None`` se omitido. Esses atributos podem "
+"ter qualquer tipo."
 
 #: ../../reference/datamodel.rst:1080
 msgid "Slice objects support one method:"
-msgstr ""
+msgstr "Objetos slice têm suporte a um método:"
 
 #: ../../reference/datamodel.rst:1085
 msgid ""
@@ -1373,7 +1436,7 @@ msgstr ""
 
 #: ../../reference/datamodel.rst:1102
 msgid "Static method objects"
-msgstr ""
+msgstr "Objetos método estáticos"
 
 #: ../../reference/datamodel.rst:1095
 msgid ""
@@ -1386,6 +1449,15 @@ msgid ""
 "callable, although the objects they wrap usually are. Static method objects "
 "are created by the built-in :func:`staticmethod` constructor."
 msgstr ""
+"Objetos método estáticos fornecem uma maneira de derrotar a transformação de "
+"objetos função em objetos método descritos acima. Um objeto método estático "
+"é um wrapper em torno de qualquer outro objeto, geralmente um objeto método "
+"definido pelo usuário. Quando um objeto método estático é recuperado de uma "
+"classe ou instância de classe, o objeto realmente retornado é o objeto "
+"envolto, que não está sujeito a nenhuma transformação posterior. Os objetos "
+"método estáticos não são chamáveis, embora os objetos que envolvem "
+"geralmente o sejam. Objetos método estáticos são criados pelo construtor "
+"embutido :func:`staticmethod`."
 
 #: ../../reference/datamodel.rst:1110
 msgid "Class method objects"
