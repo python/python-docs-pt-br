@@ -1828,12 +1828,23 @@ msgid ""
 "`True` if access is allowed, :const:`False` if not. See the Unix man page :"
 "manpage:`access(2)` for more information."
 msgstr ""
+"Usa o uid/gid real para testar o acesso ao *path*. Observe que a maioria das "
+"operações usará o uid/gid efetivo, portanto, essa rotina pode ser usada em "
+"um ambiente suid/sgid para testar se o usuário de chamada tem o acesso "
+"especificado ao *path*. *mode* deve ser :const:`F_OK` para testar a "
+"existência de *path*, ou pode ser o OU inclusivo de um ou mais dos :const:"
+"`R_OK`, :const:`W_OK`, e :const:`X_OK` para testar as permissões. Retorna :"
+"const:`True` se o acesso for permitido, :const:`False` se não for. Veja a "
+"página man do Unix :manpage:`access(2)` para mais informações."
 
 #: ../../library/os.rst:1395
 msgid ""
 "This function can support specifying :ref:`paths relative to directory "
 "descriptors <dir_fd>` and :ref:`not following symlinks <follow_symlinks>`."
 msgstr ""
+"Esta função pode suportar a especificação de :ref:`caminhos relativos aos "
+"descritores de diretório <dir_fd>` e :ref:`não seguir os links simbólicos "
+"<follow_symlinks>`."
 
 #: ../../library/os.rst:1398
 msgid ""
@@ -1843,6 +1854,12 @@ msgid ""
 "or not it is available using :data:`os.supports_effective_ids`.  If it is "
 "unavailable, using it will raise a :exc:`NotImplementedError`."
 msgstr ""
+"Se *effective_ids* for ``True``, :func:`access` irá realizar suas "
+"verificações de acesso usando o uid/gid efetivo ao invés do uid/gid real. "
+"*effective_ids* pode não ser compatível com sua plataforma; você pode "
+"verificar se está ou não disponível usando :data:ʻos."
+"supports_effective_ids`. Se não estiver disponível, usá-lo levantará uma :"
+"exc:`NotImplementedError`."
 
 #: ../../library/os.rst:1406
 msgid ""
@@ -1852,6 +1869,11 @@ msgid ""
 "the file to manipulate it. It's preferable to use :term:`EAFP` techniques. "
 "For example::"
 msgstr ""
+"Usar :func:`access` para verificar se um usuário está autorizado a, por "
+"exemplo, abrir um arquivo antes de realmente fazer isso usando :func:`open` "
+"cria uma brecha de segurança, porque o usuário pode explorar o curto "
+"intervalo de tempo entre a verificação e a abertura do arquivo para manipulá-"
+"lo. É preferível usar as técnicas: term:`EAFP`. Por exemplo::"
 
 #: ../../library/os.rst:1417
 msgid "is better written as::"
@@ -1863,10 +1885,15 @@ msgid ""
 "succeed, particularly for operations on network filesystems which may have "
 "permissions semantics beyond the usual POSIX permission-bit model."
 msgstr ""
+"As operações de E/S podem falhar mesmo quando :func:`access` indica que elas "
+"teriam sucesso, particularmente para operações em sistemas de arquivos de "
+"rede que podem ter semântica de permissões além do modelo de bits de "
+"permissão POSIX usual."
 
 #: ../../library/os.rst:1433
 msgid "Added the *dir_fd*, *effective_ids*, and *follow_symlinks* parameters."
 msgstr ""
+"Adicionados os parâmetros *dir_fd*, *effective_ids* e *follow_symlinks*."
 
 #: ../../library/os.rst:1445
 msgid ""
@@ -1874,21 +1901,29 @@ msgid ""
 "existence, readability, writability and executability of *path*, "
 "respectively."
 msgstr ""
+"Valores a serem passados como o parâmetro *mode* de :func:`access` para "
+"testar a existência, legibilidade, capacidade de escrita e executabilidade "
+"de *path*, respectivamente."
 
 #: ../../library/os.rst:1454
 msgid "Change the current working directory to *path*."
-msgstr ""
+msgstr "Altera o diretório de trabalho atual para *path*."
 
 #: ../../library/os.rst:1456
 msgid ""
 "This function can support :ref:`specifying a file descriptor <path_fd>`.  "
 "The descriptor must refer to an opened directory, not an open file."
 msgstr ""
+"Esta função pode ter suporte a :ref:`especificar um descritor de arquivo "
+"<path_fd>`. O descritor deve fazer referência a um diretório aberto, não a "
+"um arquivo aberto."
 
 #: ../../library/os.rst:1459
 msgid ""
 "Added support for specifying *path* as a file descriptor on some platforms."
 msgstr ""
+"Adicionado suporte para especificar *path* como um descritor de arquivo em "
+"algumas plataformas."
 
 #: ../../library/os.rst:1469
 msgid ""
@@ -1896,6 +1931,9 @@ msgid ""
 "combination (bitwise OR) of the following values (as defined in the :mod:"
 "`stat` module):"
 msgstr ""
+"Define os sinalizadores de *path* para os *flags* numéricos. *flags* podem "
+"assumir uma combinação (OU bit a bit) dos seguintes valores (conforme "
+"definido no módulo :mod:`stat`):"
 
 #: ../../library/os.rst:1472
 msgid ":data:`stat.UF_NODUMP`"
@@ -1949,10 +1987,12 @@ msgstr ":data:`stat.SF_SNAPSHOT`"
 msgid ""
 "This function can support :ref:`not following symlinks <follow_symlinks>`."
 msgstr ""
+"Esta função pode ter suporte a :ref:`não seguir links simbólicos "
+"<follow_symlinks>`."
 
 #: ../../library/os.rst:1489
 msgid "The *follow_symlinks* argument."
-msgstr ""
+msgstr "O argumento *follow_symlinks*."
 
 #: ../../library/os.rst:1498
 msgid ""
@@ -1960,6 +2000,9 @@ msgid ""
 "following values (as defined in the :mod:`stat` module) or bitwise ORed "
 "combinations of them:"
 msgstr ""
+"Altera o modo de *path* para o *mode* numérico. *mode* pode assumir um dos "
+"seguintes valores (conforme definido no módulo :mod:`stat`) ou combinações "
+"de OU bit a bit deles:"
 
 #: ../../library/os.rst:1502
 msgid ":data:`stat.S_ISUID`"
@@ -2044,6 +2087,9 @@ msgid ""
 "ref:`paths relative to directory descriptors <dir_fd>` and :ref:`not "
 "following symlinks <follow_symlinks>`."
 msgstr ""
+"Esta função pode ter suporte a :ref:`especificar um descritor de arquivo "
+"<path_fd>`, :ref:`caminhos relativos aos descritores de diretório <dir_fd>` "
+"e :ref:`não seguir os links simbólicos <follow_symlinks>`."
 
 #: ../../library/os.rst:1528
 msgid ""
@@ -2051,24 +2097,34 @@ msgid ""
 "only flag with it (via the ``stat.S_IWRITE`` and ``stat.S_IREAD`` constants "
 "or a corresponding integer value).  All other bits are ignored."
 msgstr ""
+"Embora o Windows tenha suporte ao :func:`chmod`, você só pode definir o "
+"sinalizador de somente leitura do arquivo com ele (através das constantes "
+"``stat.S_IWRITE`` e ``stat.S_IREAD`` ou um valor inteiro correspondente). "
+"Todos os outros bits são ignorados."
 
 #: ../../library/os.rst:1532
 msgid ""
 "Added support for specifying *path* as an open file descriptor, and the "
 "*dir_fd* and *follow_symlinks* arguments."
 msgstr ""
+"Adicionado suporte para especificar *path* como um descritor de arquivo "
+"aberto e os argumentos *dir_fd* e *follow_symlinks*."
 
 #: ../../library/os.rst:1542
 msgid ""
 "Change the owner and group id of *path* to the numeric *uid* and *gid*.  To "
 "leave one of the ids unchanged, set it to -1."
 msgstr ""
+"Altera o proprietário e o id de grupo de *path* para *uid* e *gid* "
+"numéricos. Para deixar um dos ids inalterado, defina-o como -1."
 
 #: ../../library/os.rst:1549
 msgid ""
 "See :func:`shutil.chown` for a higher-level function that accepts names in "
 "addition to numeric ids."
 msgstr ""
+"Consulte :func:`shutil.chown` para uma função de alto nível que aceita nomes "
+"além de ids numéricos."
 
 #: ../../library/os.rst:1554
 msgid ""
