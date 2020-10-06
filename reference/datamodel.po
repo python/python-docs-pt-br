@@ -2373,6 +2373,10 @@ msgid ""
 "``x.__hash__()`` returns an appropriate value such that ``x == y`` implies "
 "both that ``x is y`` and ``hash(x) == hash(y)``."
 msgstr ""
+"As classes definidas pelo usuário têm os métodos :meth:`__eq__` e :meth:"
+"`__hash__` por padrão; com eles, todos os objetos se comparam desiguais "
+"(exceto com eles mesmos) e ``x.__hash__()`` retorna um valor apropriado tal "
+"que ``x == y`` implica que ``x is y`` e ``hash(x) == hash(y)``."
 
 #: ../../reference/datamodel.rst:1435
 msgid ""
@@ -2383,6 +2387,12 @@ msgid ""
 "hash value, and will also be correctly identified as unhashable when "
 "checking ``isinstance(obj, collections.abc.Hashable)``."
 msgstr ""
+"Uma classe que sobrescreve :meth:`__eq__` e não define :meth:`__hash__` terá "
+"seu :meth:`__hash__` implicitamente definido como ``None``. Quando o método :"
+"meth:`__hash__` de uma classe é ``None``, as instâncias da classe levantam "
+"uma :exc:`TypeError` apropriada quando um programa tenta recuperar seu valor "
+"hash, e também será identificado corretamente como inalterável ao verificar "
+"``isinstance(obj, collections.abc.Hashable)``."
 
 #: ../../reference/datamodel.rst:1442
 msgid ""
@@ -2390,6 +2400,9 @@ msgid ""
 "of :meth:`__hash__` from a parent class, the interpreter must be told this "
 "explicitly by setting ``__hash__ = <ParentClass>.__hash__``."
 msgstr ""
+"Se uma classe que sobrescreve :meth:`__eq__` precisa manter a implementação "
+"de :meth:`__hash__` de uma classe pai, o interpretador deve ser informado "
+"disso explicitamente pela configuração ``__hash__ = <ClassePai>.__hash__``."
 
 #: ../../reference/datamodel.rst:1446
 msgid ""
@@ -2399,6 +2412,11 @@ msgid ""
 "`TypeError` would be incorrectly identified as hashable by an "
 "``isinstance(obj, collections.abc.Hashable)`` call."
 msgstr ""
+"Se uma classe que não substitui :meth:`__eq__` deseja suprimir o suporte a "
+"hash, deve incluir ``__hash__ = None`` na definição de classe. Uma classe "
+"que define seu próprio :meth:`__hash__` que levanta explicitamente uma :exc:"
+"`TypeError` seria incorretamente identificada como hasheável por uma chamada "
+"``isinstance(obj, collections.abc.Hashable)``."
 
 #: ../../reference/datamodel.rst:1455
 msgid ""
@@ -2415,6 +2433,10 @@ msgid ""
 "insertion, O(n^2) complexity.  See http://www.ocert.org/advisories/"
 "ocert-2011-003.html for details."
 msgstr ""
+"Isso se destina a fornecer proteção contra uma negação de serviço causada "
+"por entradas cuidadosamente escolhidas que exploram o pior caso de "
+"desempenho de uma inserção de dicionário, complexidade O(n^2). Consulte "
+"http://www.ocert.org/advisories/ocert-2011-003.html para obter detalhes."
 
 #: ../../reference/datamodel.rst:1465
 msgid ""
@@ -2422,14 +2444,17 @@ msgid ""
 "made guarantees about this ordering (and it typically varies between 32-bit "
 "and 64-bit builds)."
 msgstr ""
+"Alterar os valores de hash afeta a ordem de iteração dos conjuntos. Python "
+"nunca deu garantias sobre essa ordem (e normalmente varia entre compilações "
+"de 32 e 64 bits)."
 
 #: ../../reference/datamodel.rst:1469
 msgid "See also :envvar:`PYTHONHASHSEED`."
-msgstr ""
+msgstr "Consulte também :envvar:`PYTHONHASHSEED`."
 
 #: ../../reference/datamodel.rst:1471
 msgid "Hash randomization is enabled by default."
-msgstr ""
+msgstr "Aleatorização de hash está habilitada por padrão."
 
 #: ../../reference/datamodel.rst:1479
 msgid ""
