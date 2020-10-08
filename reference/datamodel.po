@@ -2492,10 +2492,16 @@ msgid ""
 "considered true if its result is nonzero.  If a class defines neither :meth:"
 "`__len__` nor :meth:`__bool__`, all its instances are considered true."
 msgstr ""
+"Chamado para implementar o teste de valor de verdade e a operação embutida "
+"``bool()``; deve retornar ``False`` ou ``True``. Quando este método não é "
+"definido, :meth:`__len__` é chamado, se estiver definido, e o objeto é "
+"considerado verdadeiro se seu resultado for diferente de zero. Se uma classe "
+"não define :meth:`__len__` nem :meth:`__bool__`, todas as suas instâncias "
+"são consideradas verdadeiras."
 
 #: ../../reference/datamodel.rst:1493
 msgid "Customizing attribute access"
-msgstr ""
+msgstr "Personalizando o acesso aos atributos"
 
 #: ../../reference/datamodel.rst:1495
 msgid ""
@@ -2503,6 +2509,9 @@ msgid ""
 "access (use of, assignment to, or deletion of ``x.name``) for class "
 "instances."
 msgstr ""
+"Os seguintes métodos podem ser definidos para personalizar o significado do "
+"acesso aos atributos (uso, atribuição ou exclusão de ``x.name``) para "
+"instâncias de classe."
 
 #: ../../reference/datamodel.rst:1503
 msgid ""
@@ -2513,6 +2522,12 @@ msgid ""
 "`AttributeError`).  This method should either return the (computed) "
 "attribute value or raise an :exc:`AttributeError` exception."
 msgstr ""
+"Chamado quando o acesso padrão ao atributos falha com um :exc:"
+"`AttributeError` (ou :meth:`__getattribute__` levanta uma :exc:"
+"`AttributeError` porque *name* não é um atributo de instância ou um atributo "
+"na árvore de classes para ``self``; ou :meth:`__get__` de uma propriedade "
+"*name* levanta :exc:`AttributeError`). Este método deve retornar o valor do "
+"atributo (calculado) ou levantar uma exceção :exc:`AttributeError`."
 
 #: ../../reference/datamodel.rst:1510
 msgid ""
@@ -2526,6 +2541,15 @@ msgid ""
 "object).  See the :meth:`__getattribute__` method below for a way to "
 "actually get total control over attribute access."
 msgstr ""
+"Observe que se o atributo for encontrado através do mecanismo normal, :meth:"
+"`__getattr__` não é chamado. (Esta é uma assimetria intencional entre :meth:"
+"`__getattr__` e :meth:`__setattr__`.) Isso é feito tanto por razões de "
+"eficiência quanto porque :meth:`__getattr__` não teria como acessar outros "
+"atributos da instância. Observe que pelo menos para variáveis de instâncias, "
+"você pode fingir controle total não inserindo nenhum valor no dicionário de "
+"atributos de instância (mas, em vez disso, inserindo-os em outro objeto). "
+"Veja o método :meth:`__getattribute__` abaixo para uma maneira de realmente "
+"obter controle total sobre o acesso ao atributo."
 
 #: ../../reference/datamodel.rst:1523
 msgid ""
@@ -2538,6 +2562,15 @@ msgid ""
 "base class method with the same name to access any attributes it needs, for "
 "example, ``object.__getattribute__(self, name)``."
 msgstr ""
+"Chamado incondicionalmente para implementar acessos a atributo para "
+"instâncias da classe. Se a classe também define :meth:`__getattr__`, o "
+"último não será chamado a menos que :meth:`__getattribute__` o chame "
+"explicitamente ou levante um :exc:`AttributeError`. Este método deve "
+"retornar o valor do atributo (calculado) ou levantar uma exceção :exc:"
+"`AttributeError`. Para evitar recursão infinita neste método, sua "
+"implementação deve sempre chamar o método da classe base com o mesmo nome "
+"para acessar quaisquer atributos de que necessita, por exemplo, ``object."
+"__getattribute__(self, name)``."
 
 #: ../../reference/datamodel.rst:1534
 msgid ""
@@ -2545,6 +2578,9 @@ msgid ""
 "result of implicit invocation via language syntax or built-in functions. "
 "See :ref:`special-lookup`."
 msgstr ""
+"Este método ainda pode ser ignorado ao procurar métodos especiais como "
+"resultado de invocação implícita por meio da sintaxe da linguagem ou funções "
+"embutidas. Consulte :ref:`special-lookup`."
 
 #: ../../reference/datamodel.rst:1541
 msgid ""
@@ -2552,6 +2588,9 @@ msgid ""
 "the normal mechanism (i.e. store the value in the instance dictionary). "
 "*name* is the attribute name, *value* is the value to be assigned to it."
 msgstr ""
+"Chamado quando uma atribuição de atributo é tentada. Isso é chamado em vez "
+"do mecanismo normal (ou seja, armazena o valor no dicionário da instância). "
+"*name* é o nome do atributo, *value* é o valor a ser atribuído a ele."
 
 #: ../../reference/datamodel.rst:1545
 msgid ""
@@ -2559,6 +2598,9 @@ msgid ""
 "call the base class method with the same name, for example, ``object."
 "__setattr__(self, name, value)``."
 msgstr ""
+"Se :meth:`__setattr__` deseja atribuir a um atributo de instância, ele deve "
+"chamar o método da classe base com o mesmo nome, por exemplo, ``object."
+"__setattr__(self, name, value)``."
 
 #: ../../reference/datamodel.rst:1552
 msgid ""
@@ -2566,16 +2608,22 @@ msgid ""
 "This should only be implemented if ``del obj.name`` is meaningful for the "
 "object."
 msgstr ""
+"Como :meth:`__setattr__`, mas para exclusão de atributo em vez de "
+"atribuição. Isso só deve ser implementado se ``del obj.name`` for "
+"significativo para o objeto."
 
 #: ../../reference/datamodel.rst:1558
 msgid ""
 "Called when :func:`dir` is called on the object. A sequence must be "
 "returned. :func:`dir` converts the returned sequence to a list and sorts it."
 msgstr ""
+"Chamado quando :func:`dir` é chamado no objeto. Uma sequência deve ser "
+"retornada. :func:`dir` converte a sequência retornada em uma lista e a "
+"ordena."
 
 #: ../../reference/datamodel.rst:1563
 msgid "Customizing module attribute access"
-msgstr ""
+msgstr "Personalizando acesso a atributos de módulos"
 
 #: ../../reference/datamodel.rst:1570
 msgid ""
@@ -2588,6 +2636,15 @@ msgid ""
 "``__dict__`` before raising an :exc:`AttributeError`. If found, it is called "
 "with the attribute name and the result is returned."
 msgstr ""
+"Os nomes especiais ``__getattr__`` e ``__dir__`` também podem ser usados "
+"para personalizar o acesso aos atributos dos módulos. A função "
+"``__getattr__`` no nível do módulo deve aceitar um argumento que é o nome de "
+"um atributo e retornar o valor calculado ou levantar um :exc:"
+"`AttributeError`. Se um atributo não for encontrado em um objeto de módulo "
+"por meio da pesquisa normal, por exemplo :meth:`object.__getattribute__`, "
+"então ``__getattr__`` é pesquisado no módulo ``__dict__`` antes de levantar "
+"um :exc:`AttributeError` . Se encontrado, ele é chamado com o nome do "
+"atributo e o resultado é retornado."
 
 #: ../../reference/datamodel.rst:1579
 msgid ""
@@ -2595,6 +2652,9 @@ msgid ""
 "of strings that represents the names accessible on module. If present, this "
 "function overrides the standard :func:`dir` search on a module."
 msgstr ""
+"A função ``__dir__`` não deve aceitar nenhum argumento e retornar uma "
+"sequência de strings que representa os nomes acessíveis no módulo. Se "
+"presente, esta função substitui a pesquisa padrão :func:`dir` em um módulo."
 
 #: ../../reference/datamodel.rst:1583
 msgid ""
@@ -2602,6 +2662,10 @@ msgid ""
 "attributes, properties, etc.), one can set the ``__class__`` attribute of a "
 "module object to a subclass of :class:`types.ModuleType`. For example::"
 msgstr ""
+"Para uma personalização mais refinada do comportamento do módulo (definição "
+"de atributos, propriedades etc.), pode-se definir o atributo ``__class__`` "
+"de um objeto de módulo para uma subclasse de :class:`types.ModuleType`. Por "
+"exemplo::"
 
 #: ../../reference/datamodel.rst:1601
 msgid ""
@@ -2610,26 +2674,30 @@ msgid ""
 "module globals (whether by code within the module, or via a reference to the "
 "module's globals dictionary) is unaffected."
 msgstr ""
+"Definir o módulo ``__getattr__`` e configurar o módulo ``__class__`` só "
+"afeta as pesquisas feitas usando a sintaxe de acesso ao atributo -- acessar "
+"diretamente os globais do módulo (seja por código dentro do módulo, ou por "
+"meio de uma referência ao dicionário global do módulo) é não afetado."
 
 #: ../../reference/datamodel.rst:1606
 msgid "``__class__`` module attribute is now writable."
-msgstr ""
+msgstr "O atributo de módulo ``__class__`` pode agora ser escrito."
 
 #: ../../reference/datamodel.rst:1609
 msgid "``__getattr__`` and ``__dir__`` module attributes."
-msgstr ""
+msgstr "Atributos de módulo ``__getattr__`` e ``__dir__``."
 
 #: ../../reference/datamodel.rst:1614
 msgid ":pep:`562` - Module __getattr__ and __dir__"
-msgstr ""
+msgstr ":pep:`562` - __getattr__ e __dir__ de módulo"
 
 #: ../../reference/datamodel.rst:1615
 msgid "Describes the ``__getattr__`` and ``__dir__`` functions on modules."
-msgstr ""
+msgstr "Descreve as funções ``__getattr__`` e ``__dir__`` nos módulos."
 
 #: ../../reference/datamodel.rst:1621
 msgid "Implementing Descriptors"
-msgstr ""
+msgstr "Implementando descritores"
 
 #: ../../reference/datamodel.rst:1623
 msgid ""
@@ -2640,6 +2708,12 @@ msgid ""
 "\" refers to the attribute whose name is the key of the property in the "
 "owner class' :attr:`~object.__dict__`."
 msgstr ""
+"Os métodos a seguir se aplicam apenas quando uma instância da classe que "
+"contém o método (uma classe chamada *descritora*) aparece em uma classe "
+"proprietária *owner* (o descritor deve estar no dicionário de classe do "
+"proprietário ou no dicionário de classe para um dos seus pais). Nos exemplos "
+"abaixo, \"o atributo\" refere-se ao atributo cujo nome é a chave da "
+"propriedade no :attr:`~object.__dict__` da classe proprietária."
 
 #: ../../reference/datamodel.rst:1633
 msgid ""
@@ -2649,6 +2723,11 @@ msgid ""
 "the attribute was accessed through, or ``None`` when the attribute is "
 "accessed through the *owner*."
 msgstr ""
+"Chamado para obter o atributo da classe proprietária (acesso ao atributo da "
+"classe) ou de uma instância dessa classe (acesso ao atributo da instância). "
+"O argumento opcional *owner* é a classe proprietária, enquanto *instance* é "
+"a instância pela qual o atributo foi acessado, ou ``None`` quando o atributo "
+"é acessado por meio de *owner*."
 
 #: ../../reference/datamodel.rst:1639
 msgid ""
