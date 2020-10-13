@@ -35,6 +35,16 @@ msgid ""
 "c:func:`PyNumber_InPlaceSubtract`, :c:func:`PyNumber_InPlaceOr`, and :c:func:"
 "`PyNumber_InPlaceXor`)."
 msgstr ""
+"Esta seção detalha a API pública para os objetos :class:`set` e :class:"
+"`frozenset`. Qualquer funcionalidade não listada abaixo é melhor acessada "
+"usando o protocolo de objeto abstrato (incluindo :c:func:"
+"`PyObject_CallMethod`, :c:func:`PyObject_RichCompareBool`, :c:func:"
+"`PyObject_Hash`, :c:func:`PyObject_Repr`, :c:func:`PyObject_IsTrue`, :c:func:"
+"`PyObject_Print`, and :c:func:`PyObject_GetIter`) ou o protocolo abstrato de "
+"número (incluindo :c:func:`PyNumber_And`, :c:func:`PyNumber_Subtract`, :c:"
+"func:`PyNumber_Or`, :c:func:`PyNumber_Xor`, :c:func:`PyNumber_InPlaceAnd`, :"
+"c:func:`PyNumber_InPlaceSubtract`, :c:func:`PyNumber_InPlaceOr` e :c:func:"
+"`PyNumber_InPlaceXor`)."
 
 #: ../../c-api/set.rst:31
 msgid ""
@@ -47,6 +57,15 @@ msgid ""
 "access should be done through the documented API rather than by manipulating "
 "the values in the structure."
 msgstr ""
+"Este subtipo de :c:type:`PyObject` é usado para manter os dados internos "
+"para ambos os objetos :class:`set` e :class:`frozenset`. É como um :c:type:"
+"`PyDictObject` em que tem um tamanho fixo para conjuntos pequenos (muito "
+"parecido com o armazenamento de tupla) e apontará para um bloco de memória "
+"de tamanho variável separado para conjuntos de tamanho médio e grande (muito "
+"parecido com lista armazenamento). Nenhum dos campos desta estrutura deve "
+"ser considerado público e está sujeito a alterações. Todo o acesso deve ser "
+"feito por meio da API documentada, em vez de manipular os valores na "
+"estrutura."
 
 #: ../../c-api/set.rst:42
 msgid ""
@@ -61,41 +80,56 @@ msgid ""
 "This is an instance of :c:type:`PyTypeObject` representing the Python :class:"
 "`frozenset` type."
 msgstr ""
+"Esta é uma instância de :c:type:`PyTypeObject` representando o tipo Python :"
+"class:`frozenset`."
 
 #: ../../c-api/set.rst:51
 msgid ""
 "The following type check macros work on pointers to any Python object. "
 "Likewise, the constructor functions work with any iterable Python object."
 msgstr ""
+"As macros de verificação de tipo a seguir funcionam em ponteiros para "
+"qualquer objeto Python. Da mesma forma, as funções construtoras funcionam "
+"com qualquer objeto Python iterável."
 
 #: ../../c-api/set.rst:57
 msgid ""
 "Return true if *p* is a :class:`set` object or an instance of a subtype."
 msgstr ""
+"Retorna verdadeiro se *p* for um objeto :class:`set` ou uma instância de um "
+"subtipo."
 
 #: ../../c-api/set.rst:63
 msgid ""
 "Return true if *p* is a :class:`frozenset` object or an instance of a "
 "subtype."
 msgstr ""
+"Retorna verdadeiro se *p* for um objeto :class:`frozenset` ou uma instância "
+"de um subtipo."
 
 #: ../../c-api/set.rst:70
 msgid ""
 "Return true if *p* is a :class:`set` object, a :class:`frozenset` object, or "
 "an instance of a subtype."
 msgstr ""
+"Retorna verdadeiro se *p* for um objeto :class:`set`, um objeto :class:"
+"`frozenset` ou uma instância de um subtipo."
 
 #: ../../c-api/set.rst:76
 msgid ""
 "Return true if *p* is a :class:`set` object or a :class:`frozenset` object "
 "but not an instance of a subtype."
 msgstr ""
+"Retorna verdadeiro se *p* for um objeto :class:`set` ou um objeto :class:"
+"`frozenset`, mas não uma instância de um subtipo."
 
 #: ../../c-api/set.rst:82
 msgid ""
 "Return true if *p* is a :class:`frozenset` object but not an instance of a "
 "subtype."
 msgstr ""
+"Retorna verdadeiro se *p* for um objeto :class:`frozenset`, mas não uma "
+"instância de um subtipo."
 
 #: ../../c-api/set.rst:88
 msgid ""
@@ -126,6 +160,8 @@ msgid ""
 "The following functions and macros are available for instances of :class:"
 "`set` or :class:`frozenset` or instances of their subtypes."
 msgstr ""
+"As seguintes funções e macros estão disponíveis para instâncias de :class:"
+"`set` ou :class:`frozenset` ou instâncias de seus subtipos."
 
 #: ../../c-api/set.rst:115
 msgid ""
@@ -133,6 +169,10 @@ msgid ""
 "to ``len(anyset)``.  Raises a :exc:`PyExc_SystemError` if *anyset* is not a :"
 "class:`set`, :class:`frozenset`, or an instance of a subtype."
 msgstr ""
+"Retorna o comprimento de um objeto :class:`set` ou :class:`frozenset`. "
+"Equivalente a ``len(anyset)``. Levanta um :exc:`PyExc_SystemError` se "
+"*anyset* não for um :class:`set`, :class:`frozenset`, ou uma instância de um "
+"subtipo."
 
 #: ../../c-api/set.rst:119
 msgid ""
@@ -142,7 +182,7 @@ msgstr ""
 
 #: ../../c-api/set.rst:126
 msgid "Macro form of :c:func:`PySet_Size` without error checking."
-msgstr ""
+msgstr "Forma macro de :c:func:`PySet_Size` sem verificação de erros."
 
 #: ../../c-api/set.rst:131
 msgid ""
@@ -153,6 +193,12 @@ msgid ""
 "`PyExc_SystemError` if *anyset* is not a :class:`set`, :class:`frozenset`, "
 "or an instance of a subtype."
 msgstr ""
+"Retorna ``1`` se encontrado, ``0`` se não encontrado, e ``-1`` se um erro é "
+"encontrado. Ao contrário do método Python :meth:`__contains__`, esta função "
+"não converte automaticamente conjuntos não hasheáveis em frozensets "
+"temporários. Levanta um :exc:`TypeError` se a *key* não for hasheável. "
+"Levanta :exc:`PyExc_SystemError` se *anyset* não é um :class:`set`, :class:"
+"`frozenset`, ou uma instância de um subtipo."
 
 #: ../../c-api/set.rst:140
 msgid ""
@@ -175,6 +221,9 @@ msgid ""
 "The following functions are available for instances of :class:`set` or its "
 "subtypes but not for instances of :class:`frozenset` or its subtypes."
 msgstr ""
+"As seguintes funções estão disponíveis para instâncias de :class:`set` ou "
+"seus subtipos, mas não para instâncias de :class:`frozenset` ou seus "
+"subtipos."
 
 #: ../../c-api/set.rst:157
 msgid ""
@@ -186,6 +235,13 @@ msgid ""
 "`PyExc_SystemError` if *set* is not an instance of :class:`set` or its "
 "subtype."
 msgstr ""
+"Retorna ``1`` se encontrado e removido, ``0`` se não encontrado (nenhuma "
+"ação realizada) e ``-1`` se um erro for encontrado. Não levanta :exc:"
+"`KeyError` para chaves ausentes. Levanta uma :exc:`TypeError` se a *key* não "
+"for hasheável. Ao contrário do método Python :meth:`~set.discard`, esta "
+"função não converte automaticamente conjuntos não hasheáveis em frozensets "
+"temporários. Levanta :exc:`PyExc_SystemError` se *set* não é uma instância "
+"de :class:`set` ou seu subtipo."
 
 #: ../../c-api/set.rst:167
 msgid ""
