@@ -80,6 +80,28 @@ jobs:
         name: spellchecking-output
         path: pospell-out.tar.gz
 
+  # Job to create a compendium to ease searching translated strings
+  compendium:
+    if: (github.event_name == 'schedule' && github.repository == 'python/python-docs-pt-br') || (github.event_name != 'schedule')
+    needs: update
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ env.BRANCH }}
+    - uses: actions/setup-python@v2
+    - run: pip install translate-toolkit powrap
+    - run: sudo apt update
+    - run: sudo apt install -y gettext
+    - run: pocompendium --correct compendium.po *.po **/*.po
+    - run: powrap --no-wrap compendium.po
+    - run: tar -czf compendium.tar.gz compendium.po
+    - name: Update artifact spellchecking-output
+      uses: actions/upload-artifact@v2
+      with:
+        name: compendium
+        path: compendium.tar.gz
+
   # Job to merge translation from current BRANCH to older ones
   merge:
     if: (github.event_name == 'schedule' && github.repository == 'python/python-docs-pt-br') || (github.event_name != 'schedule')
