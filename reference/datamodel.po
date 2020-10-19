@@ -2811,10 +2811,17 @@ msgid ""
 "argument (for example, CPython sets this attribute for unbound methods that "
 "are implemented in C)."
 msgstr ""
+"O atributo :attr:`__objclass__` é interpretado pelo módulo :mod:`inspect` "
+"como especificando a classe onde este objeto foi definido (configurar isso "
+"apropriadamente pode ajudar na introspecção em tempo de execução dos "
+"atributos dinâmicos da classe). Para chamáveis, pode indicar que uma "
+"instância do tipo fornecido (ou uma subclasse) é esperada ou necessária como "
+"o primeiro argumento posicional (por exemplo, CPython define este atributo "
+"para métodos não acoplados que são implementados em C)."
 
 #: ../../reference/datamodel.rst:1696
 msgid "Invoking Descriptors"
-msgstr "Invoking Descriptors"
+msgstr "Invocando descritores"
 
 #: ../../reference/datamodel.rst:1698
 msgid ""
@@ -2823,6 +2830,11 @@ msgid ""
 "protocol:  :meth:`__get__`, :meth:`__set__`, and :meth:`__delete__`. If any "
 "of those methods are defined for an object, it is said to be a descriptor."
 msgstr ""
+"Em geral, um descritor é um atributo de objeto com \"comportamento de ligação"
+"\", cujo acesso ao atributo foi substituído por métodos no protocolo do "
+"descritor: :meth:`__get__`, :meth:`__set__` e :meth:`__delete__` . Se "
+"qualquer um desses métodos for definido para um objeto, é considerado um "
+"descritor."
 
 #: ../../reference/datamodel.rst:1703
 msgid ""
@@ -2831,6 +2843,10 @@ msgid ""
 "chain starting with ``a.__dict__['x']``, then ``type(a).__dict__['x']``, and "
 "continuing through the base classes of ``type(a)`` excluding metaclasses."
 msgstr ""
+"O comportamento padrão para acesso ao atributo é obter, definir ou excluir o "
+"atributo do dicionário de um objeto. Por exemplo, ``a.x`` tem uma cadeia de "
+"pesquisa começando com ``a.__dict__['x']``, então ``type(a).__dict__['x']``, "
+"e contando pelas classes base de ``type(a)`` excluindo metaclasses."
 
 #: ../../reference/datamodel.rst:1708
 msgid ""
@@ -2839,46 +2855,58 @@ msgid ""
 "descriptor method instead.  Where this occurs in the precedence chain "
 "depends on which descriptor methods were defined and how they were called."
 msgstr ""
+"No entanto, se o valor pesquisado for um objeto que define um dos métodos do "
+"descritor, o Python pode substituir o comportamento padrão e invocar o "
+"método do descritor. Onde isso ocorre na cadeia de precedência depende de "
+"quais métodos descritores foram definidos e como eles foram chamados."
 
 #: ../../reference/datamodel.rst:1713
 msgid ""
 "The starting point for descriptor invocation is a binding, ``a.x``. How the "
 "arguments are assembled depends on ``a``:"
 msgstr ""
+"O ponto de partida para a invocação do descritor é uma ligação, ``a.x``. "
+"Como os argumentos são montados depende de ``a``:"
 
 #: ../../reference/datamodel.rst:1718
 msgid "Direct Call"
-msgstr ""
+msgstr "Chamada direta"
 
 #: ../../reference/datamodel.rst:1717
 msgid ""
 "The simplest and least common call is when user code directly invokes a "
 "descriptor method:    ``x.__get__(a)``."
 msgstr ""
+"A chamada mais simples e menos comum é quando o código do usuário invoca "
+"diretamente um método descritor: ``x.__get__(a)``."
 
 #: ../../reference/datamodel.rst:1722
 msgid "Instance Binding"
-msgstr ""
+msgstr "Ligação de instâncias"
 
 #: ../../reference/datamodel.rst:1721
 msgid ""
 "If binding to an object instance, ``a.x`` is transformed into the call: "
 "``type(a).__dict__['x'].__get__(a, type(a))``."
 msgstr ""
+"Se estiver ligando a uma instância de objeto, ``a.x`` é transformado na "
+"chamada: ``type(a).__dict__['x'].__get__(a, type(a))``."
 
 #: ../../reference/datamodel.rst:1726
 msgid "Class Binding"
-msgstr ""
+msgstr "Ligação de classes"
 
 #: ../../reference/datamodel.rst:1725
 msgid ""
 "If binding to a class, ``A.x`` is transformed into the call: ``A."
 "__dict__['x'].__get__(None, A)``."
 msgstr ""
+"Se estiver ligando a uma classe, ``A.x`` é transformado na chamada: ``A."
+"__dict__['x'].__get__(None, A)``."
 
 #: ../../reference/datamodel.rst:1732
 msgid "Super Binding"
-msgstr ""
+msgstr "Ligação de super"
 
 #: ../../reference/datamodel.rst:1729
 msgid ""
@@ -2887,6 +2915,10 @@ msgid ""
 "immediately preceding ``B`` and then invokes the descriptor with the call: "
 "``A.__dict__['m'].__get__(obj, obj.__class__)``."
 msgstr ""
+"Se ``a`` é uma instância de :class:`super`, então a ligação ``super(B, obj)."
+"m()`` procura ``obj.__class__.__mro__`` para a classe base ``A`` precedendo "
+"imediatamente ``B`` e, em seguida, invoca o descritor com a chamada: ``A."
+"__dict__['m'].__get__(obj, obj.__class__)``."
 
 #: ../../reference/datamodel.rst:1734
 msgid ""
@@ -2911,12 +2943,19 @@ msgid ""
 "and override methods.  This allows individual instances to acquire behaviors "
 "that differ from other instances of the same class."
 msgstr ""
+"Os métodos Python (incluindo :func:`staticmethod` e :func:`classmethod`) são "
+"implementados como descritores sem dados. Assim, as instâncias podem "
+"redefinir e substituir métodos. Isso permite que instâncias individuais "
+"adquiram comportamentos que diferem de outras instâncias da mesma classe."
 
 #: ../../reference/datamodel.rst:1752
 msgid ""
 "The :func:`property` function is implemented as a data descriptor. "
 "Accordingly, instances cannot override the behavior of a property."
 msgstr ""
+"A função :func:`property` é implementada como um descritor de dados. Da "
+"mesma forma, as instâncias não podem substituir o comportamento de uma "
+"propriedade."
 
 #: ../../reference/datamodel.rst:1759
 msgid "__slots__"
@@ -2928,12 +2967,18 @@ msgid ""
 "and deny the creation of *__dict__* and *__weakref__* (unless explicitly "
 "declared in *__slots__* or available in a parent.)"
 msgstr ""
+"*__slots__* permite-nos declarar explicitamente membros de dados (como "
+"propriedades) e negar a criação de *__dict__* e *__weakref__* (a menos que "
+"explicitamente declarado em *__slots__* ou disponível em um pai.)"
 
 #: ../../reference/datamodel.rst:1765
 msgid ""
 "The space saved over using *__dict__* can be significant. Attribute lookup "
 "speed can be significantly improved as well."
 msgstr ""
+"O espaço economizado com o uso de *__dict__* pode ser significativo. A "
+"velocidade de pesquisa de atributos também pode ser significativamente "
+"melhorada."
 
 #: ../../reference/datamodel.rst:1770
 msgid ""
@@ -2942,16 +2987,22 @@ msgid ""
 "for the declared variables and prevents the automatic creation of *__dict__* "
 "and *__weakref__* for each instance."
 msgstr ""
+"Esta variável de classe pode ser atribuída a uma string, iterável ou "
+"sequência de strings com nomes de variáveis usados por instâncias. "
+"*__slots__* reserva espaço para as variáveis declaradas e evita a criação "
+"automática de *__dict__* e *__weakref__* para cada instância."
 
 #: ../../reference/datamodel.rst:1777
 msgid "Notes on using *__slots__*"
-msgstr ""
+msgstr "Observações ao uso de *__slots__*"
 
 #: ../../reference/datamodel.rst:1779
 msgid ""
 "When inheriting from a class without *__slots__*, the *__dict__* and "
 "*__weakref__* attribute of the instances will always be accessible."
 msgstr ""
+"Ao herdar de uma classe sem *__slots__*, os atributos *__dict__* e "
+"*__weakref__* das instâncias vão sempre ser acessíveis."
 
 #: ../../reference/datamodel.rst:1782
 msgid ""
@@ -2961,6 +3012,11 @@ msgid ""
 "variables is desired, then add ``'__dict__'`` to the sequence of strings in "
 "the *__slots__* declaration."
 msgstr ""
+"Sem uma variável *__dict__*, as instâncias não podem ser atribuídas a novas "
+"variáveis não listadas na definição *__slots__*. As tentativas de atribuir a "
+"um nome de variável não listado levantam :exc:`AttributeError`. Se a "
+"atribuição dinâmica de novas variáveis for desejada, então adicione "
+"``'__dict__'`` à sequência de strings na declaração *__slots__*."
 
 #: ../../reference/datamodel.rst:1788
 msgid ""
@@ -2969,6 +3025,10 @@ msgid ""
 "reference support is needed, then add ``'__weakref__'`` to the sequence of "
 "strings in the *__slots__* declaration."
 msgstr ""
+"Sem uma variável *__weakref__* para cada instância, as classes que definem "
+"*__slots__* não suportam referências fracas para suas instâncias. Se for "
+"necessário um suporte de referência fraca, adicione ``'__weakref__'`` à "
+"sequência de strings na declaração *__slots__*."
 
 #: ../../reference/datamodel.rst:1793
 msgid ""
