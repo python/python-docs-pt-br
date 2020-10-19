@@ -84,7 +84,7 @@ msgstr ""
 
 #: ../../library/email.utils.rst:40
 msgid "Added the *domain* keyword."
-msgstr "Adicionado a palavra-chave *domain*."
+msgstr "Adicionada a palavra-chave *domain*."
 
 #: ../../library/email.utils.rst:44
 msgid ""
@@ -154,7 +154,7 @@ msgstr ""
 
 #: ../../library/email.utils.rst:83
 msgid "Added the *charset* option."
-msgstr "Adicionado a opção *charset*."
+msgstr "Adicionada a opção *charset*."
 
 #: ../../library/email.utils.rst:89
 msgid ""
@@ -198,6 +198,13 @@ msgid ""
 "returned is ``0``, which represents UTC. Note that indexes 6, 7, and 8 of "
 "the result tuple are not usable."
 msgstr ""
+"Executa a mesma função que :func:`parsedate`, mas retorna ``None`` ou uma "
+"tupla de 10; os primeiros 9 elementos formam uma tupla que pode ser passada "
+"diretamente para :func:`time.mktime`, e o décimo é o deslocamento do fuso "
+"horário da data do UTC (que é o termo oficial para o horário de Greenwich) "
+"[#]_. Se a string de entrada não tem fuso horário, o último elemento da "
+"tupla retornado é ``0``, que representa UTC. Observe que os índices 6, 7 e 8 "
+"da tupla de resultado não podem ser usados."
 
 #: ../../library/email.utils.rst:126
 msgid ""
@@ -210,6 +217,15 @@ msgid ""
 "offset, the ``datetime`` will be an aware ``datetime`` with the "
 "corresponding a :class:`~datetime.timezone` :class:`~datetime.tzinfo`."
 msgstr ""
+"O inverso de :func:`format_datetime`. Desempenha a mesma função que :func:"
+"`parsedate`, mas em caso de sucesso retorna um :mod:`~datetime.datetime`. Se "
+"a data de entrada tem um fuso horário de ``-0000``, o ``datetime`` será um "
+"``datetime`` ingênuo, e se a data estiver em conformidade com os RFCs "
+"representará um horário em UTC, mas sem indicação do fuso horário de origem "
+"real da mensagem de onde vem a data. Se a data de entrada tiver qualquer "
+"outro deslocamento de fuso horário válido, o ``datetime`` será um "
+"``datetime`` consciente com o correspondente a :class:`~datetime.timezone` :"
+"class:`~datetime.tzinfo`."
 
 #: ../../library/email.utils.rst:140
 msgid ""
@@ -217,10 +233,13 @@ msgid ""
 "(seconds since the Epoch).  If the timezone item in the tuple is ``None``, "
 "assume local time."
 msgstr ""
+"Transforma uma tupla de 10 conforme retornado por :func:`parsedate_tz` em um "
+"timestamp UTC (segundos desde a Era Unix). Se o item de fuso horário na "
+"tupla for ``None``, considera a hora local."
 
 #: ../../library/email.utils.rst:147
 msgid "Returns a date string as per :rfc:`2822`, e.g.::"
-msgstr ""
+msgstr "Retorna uma string de data conforme :rfc:`2822`. Por exemplo::"
 
 #: ../../library/email.utils.rst:151
 msgid ""
@@ -228,6 +247,9 @@ msgid ""
 "func:`time.gmtime` and :func:`time.localtime`, otherwise the current time is "
 "used."
 msgstr ""
+"O *timeval* opcional, se fornecido, é um valor de tempo de ponto flutuante, "
+"conforme aceito por :func:`time.gmtime` e :func:`time.localtime`, caso "
+"contrário, o tempo atual é usado."
 
 #: ../../library/email.utils.rst:155
 msgid ""
@@ -248,6 +270,10 @@ msgid ""
 "This is needed for some protocols (such as HTTP). This only applies when "
 "*localtime* is ``False``.  The default is ``False``."
 msgstr ""
+"O *usegmt* opcional é um sinalizador que quando ``True``, produz uma string "
+"de data com o fuso horário como uma string ascii ``GMT``, ao invés de um "
+"numérico ``-0000``. Isso é necessário para alguns protocolos (como HTTP). "
+"Isso se aplica apenas quando *localtime* for ``False``. O padrão é ``False``."
 
 #: ../../library/email.utils.rst:168
 msgid ""
@@ -260,10 +286,18 @@ msgid ""
 "timezone offset.  This provides a way to generate standards conformant HTTP "
 "date headers."
 msgstr ""
+"Como ``formatdate``, mas a entrada é uma instância de :mod:`datetime`. Se "
+"for uma data e hora ingênua, será considerado \"UTC sem informações sobre o "
+"fuso horário de origem\" e o convencional ``-0000`` será usado para o fuso "
+"horário. Se for um ``datetime`` ciente, então o deslocamento de fuso horário "
+"numérico é usado. Se for um fuso horário ciente com deslocamento zero, então "
+"*usegmt* pode ser definido como ``True``, caso em que a string ``GMT`` é "
+"usada em vez do deslocamento numérico do fuso horário. Isso fornece uma "
+"maneira de gerar cabeçalhos de data HTTP em conformidade com os padrões."
 
 #: ../../library/email.utils.rst:182
 msgid "Decode the string *s* according to :rfc:`2231`."
-msgstr ""
+msgstr "Decodifica a string *s* de acordo com :rfc:`2231`."
 
 #: ../../library/email.utils.rst:187
 msgid ""
@@ -273,6 +307,11 @@ msgid ""
 "*language* is not, the string is encoded using the empty string for "
 "*language*."
 msgstr ""
+"Codifica a string *s* de acordo com :rfc:`2231`. *charset* e *language* "
+"opcionais, se fornecido, são o nome do conjunto de caracteres e o nome do "
+"idioma a ser usado. Se nenhum deles for fornecido, *s* é retornado como "
+"está. Se *charset* for fornecido, mas *language* não, a string será "
+"codificada usando a string vazia para *language*."
 
 #: ../../library/email.utils.rst:195
 msgid ""
@@ -285,18 +324,32 @@ msgid ""
 "to use if the one in the :rfc:`2231` header is not known by Python; it "
 "defaults to ``'us-ascii'``."
 msgstr ""
+"Quando um parâmetro de cabeçalho é codificado no formato :rfc:`2231`, :meth:"
+"`Message.get_param <email.message.Message.get_param>` pode retornar uma "
+"tupla de 3 contendo o conjunto de caracteres, idioma e valor. :func:"
+"`collapse_rfc2231_value` transforma isso em uma string Unicode. *errors* "
+"opcionais são passados para o argumento *errors* do método :func:`~str."
+"encode` de :class:`str`; o padrão é ``'replace'``. *fallback_charset* "
+"opcional especifica o conjunto de caracteres a ser usado se aquele no "
+"cabeçalho :rfc:`2231` não for conhecido pelo Python; o padrão é ``'us-"
+"ascii'``."
 
 #: ../../library/email.utils.rst:204
 msgid ""
 "For convenience, if the *value* passed to :func:`collapse_rfc2231_value` is "
 "not a tuple, it should be a string and it is returned unquoted."
 msgstr ""
+"Por conveniência, se *value* passado para :func:`collapse_rfc2231_value` não "
+"for uma tupla, deve ser uma string e é retornado sem aspas."
 
 #: ../../library/email.utils.rst:210
 msgid ""
 "Decode parameters list according to :rfc:`2231`.  *params* is a sequence of "
 "2-tuples containing elements of the form ``(content-type, string-value)``."
 msgstr ""
+"Decodifica a lista de parâmetros de acordo com :rfc:`2231`. *params* é uma "
+"sequência de 2 tuplas contendo elementos do formulário ``(content-type, "
+"string-value)``."
 
 #: ../../library/email.utils.rst:215
 msgid "Footnotes"
@@ -308,3 +361,6 @@ msgid ""
 "``time.timezone`` variable for the same timezone; the latter variable "
 "follows the POSIX standard while this module follows :rfc:`2822`."
 msgstr ""
+"Observa que o sinal do deslocamento de fuso horário é o oposto do sinal da "
+"variável ``time.timezone`` para o mesmo fuso horário; a última variável "
+"segue o padrão POSIX enquanto este módulo segue :rfc:`2822`."
