@@ -2971,6 +2971,11 @@ msgid ""
 "be used to set default values for instance variables defined by *__slots__*; "
 "otherwise, the class attribute would overwrite the descriptor assignment."
 msgstr ""
+"*__slots__* são implementados no nível de classe criando descritores (:ref:"
+"`descriptors`) para cada nome de variável. Como resultado, os atributos de "
+"classe não podem ser usados para definir valores padrão para variáveis de "
+"instância definidas por *__slots__*; caso contrário, o atributo de classe "
+"substituiria a atribuição do descritor."
 
 #: ../../reference/datamodel.rst:1785
 msgid ""
@@ -2980,6 +2985,11 @@ msgid ""
 "they also define *__slots__* (which should only contain names of any "
 "*additional* slots)."
 msgstr ""
+"A ação de uma declaração *__slots__ se limita à classe em que é definida. "
+"*__slots__* declarados nos pais estão disponíveis nas classes infantis. No "
+"entanto, as subclasses filhas receberão um *__dict__ * e *__weakref__* a "
+"menos que também definam *__slots__* (que deve conter apenas nomes de "
+"quaisquer slots *adicionais*)."
 
 #: ../../reference/datamodel.rst:1791
 msgid ""
@@ -2989,12 +2999,20 @@ msgid ""
 "meaning of the program undefined.  In the future, a check may be added to "
 "prevent this."
 msgstr ""
+"Se uma classe define um slot também definido em uma classe base, a variável "
+"de instância definida pelo slot da classe base fica inacessível (exceto por "
+"recuperar seu descritor diretamente da classe base). Isso torna o "
+"significado do programa indefinido. No futuro, uma verificação pode ser "
+"adicionada para evitar isso."
 
 #: ../../reference/datamodel.rst:1796
 msgid ""
 "Nonempty *__slots__* does not work for classes derived from \"variable-length"
 "\" built-in types such as :class:`int`, :class:`bytes` and :class:`tuple`."
 msgstr ""
+"Não vazio *__slots__* não funciona para classes derivadas de tipos embutidos "
+"de \"comprimento variável\", como :class:`int`, :class:`bytes` e :class:"
+"`tuple`."
 
 #: ../../reference/datamodel.rst:1799
 msgid ""
@@ -3002,11 +3020,16 @@ msgid ""
 "used; however, in the future, special meaning may be assigned to the values "
 "corresponding to each key."
 msgstr ""
+"Qualquer iterável não string pode ser atribuído a *__slots__*. Mapeamentos "
+"também podem ser usados; entretanto, no futuro, um significado especial pode "
+"ser atribuído aos valores correspondentes a cada chave."
 
 #: ../../reference/datamodel.rst:1803
 msgid ""
 "*__class__* assignment works only if both classes have the same *__slots__*."
 msgstr ""
+"Atribuição de *__class__* funciona apenas se ambas as classes têm o mesmo "
+"*__slots__*."
 
 #: ../../reference/datamodel.rst:1805
 msgid ""
@@ -3014,6 +3037,10 @@ msgid ""
 "only one parent is allowed to have attributes created by slots (the other "
 "bases must have empty slot layouts) - violations raise :exc:`TypeError`."
 msgstr ""
+"A herança múltipla com várias classes pai com slots pode ser usada, mas "
+"apenas um pai tem permissão para ter atributos criados por slots (as outras "
+"bases devem ter layouts de slots vazios) -- violações levantam :exc:"
+"`TypeError`."
 
 #: ../../reference/datamodel.rst:1810
 msgid ""
@@ -3021,10 +3048,13 @@ msgid ""
 "of the iterator's values. However, the *__slots__* attribute will be an "
 "empty iterator."
 msgstr ""
+"Se um iterador for usado para *__slots__*, um descritor é criado para cada "
+"um dos valores do iterador. No entanto, o atributo *__slots__* será um "
+"iterador vazio."
 
 #: ../../reference/datamodel.rst:1817
 msgid "Customizing class creation"
-msgstr ""
+msgstr "Personalizando a criação de classe"
 
 #: ../../reference/datamodel.rst:1819
 msgid ""
@@ -3035,6 +3065,12 @@ msgid ""
 "``__init_subclass__`` solely applies to future subclasses of the class "
 "defining the method."
 msgstr ""
+"Sempre que uma classe herda de outra classe, *__init_subclass__* é chamado "
+"nessa classe. Dessa forma, é possível escrever classes que alteram o "
+"comportamento das subclasses. Isso está intimamente relacionado aos "
+"decoradores de classe, mas onde decoradores de classe afetam apenas a classe "
+"específica à qual são aplicados, ``__init_subclass__`` aplica-se apenas a "
+"futuras subclasses da classe que define o método."
 
 #: ../../reference/datamodel.rst:1828
 msgid ""
@@ -3042,6 +3078,9 @@ msgid ""
 "then the new subclass. If defined as a normal instance method, this method "
 "is implicitly converted to a class method."
 msgstr ""
+"Este método é chamado sempre que a classe que contém é uma subclasse. *cls* "
+"é então a nova subclasse. Se definido como um método de instância normal, "
+"esse método é convertido implicitamente em um método de classe."
 
 #: ../../reference/datamodel.rst:1832
 msgid ""
@@ -3050,12 +3089,18 @@ msgid ""
 "``__init_subclass__``, one should take out the needed keyword arguments and "
 "pass the others over to the base class, as in::"
 msgstr ""
+"Argumentos nomeados dados a uma nova classe são passados para a classe pai "
+"``__init_subclass__``. Para compatibilidade com outras classes usando "
+"``__init_subclass__``, deve-se retirar os argumentos nomeados necessários e "
+"passar os outros para a classe base, como em::"
 
 #: ../../reference/datamodel.rst:1846
 msgid ""
 "The default implementation ``object.__init_subclass__`` does nothing, but "
 "raises an error if it is called with any arguments."
 msgstr ""
+"A implementação padrão ``object.__init_subclass__`` não faz nada, mas "
+"levanta um erro se for chamada com quaisquer argumentos."
 
 #: ../../reference/datamodel.rst:1851
 msgid ""
@@ -3064,6 +3109,10 @@ msgid ""
 "actual metaclass (rather than the explicit hint) can be accessed as "
 "``type(cls)``."
 msgstr ""
+"A dica da metaclasse ``metaclass`` é consumida pelo resto da maquinaria de "
+"tipo, e nunca é passada para implementações ``__init_subclass__``. A "
+"metaclasse real (em vez da dica explícita) pode ser acessada como "
+"``type(cls)``."
 
 #: ../../reference/datamodel.rst:1862
 msgid "Metaclasses"
@@ -3075,6 +3124,9 @@ msgid ""
 "executed in a new namespace and the class name is bound locally to the "
 "result of ``type(name, bases, namespace)``."
 msgstr ""
+"Por padrão, as classes são construídas usando :func:`type`. O corpo da "
+"classe é executado em um novo espaço de nomes e o nome da classe é vinculado "
+"localmente ao resultado de ``type(name, bases, namespace)``."
 
 #: ../../reference/datamodel.rst:1873
 msgid ""
@@ -3083,40 +3135,47 @@ msgid ""
 "existing class that included such an argument. In the following example, "
 "both ``MyClass`` and ``MySubclass`` are instances of ``Meta``::"
 msgstr ""
+"O processo de criação da classe pode ser personalizado passando o argumento "
+"nomeado ``metaclass`` na linha de definição da classe, ou herdando de uma "
+"classe existente que incluiu tal argumento. No exemplo a seguir, ``MyClass`` "
+"e ``MySubclass`` são instâncias de ``Meta``::"
 
 #: ../../reference/datamodel.rst:1887
 msgid ""
 "Any other keyword arguments that are specified in the class definition are "
 "passed through to all metaclass operations described below."
 msgstr ""
+"Quaisquer outros argumentos nomeados especificados na definição de classe "
+"são transmitidos para todas as operações de metaclasse descritas abaixo."
 
 #: ../../reference/datamodel.rst:1890
 msgid "When a class definition is executed, the following steps occur:"
 msgstr ""
+"Quando uma definição de classe é executada, as seguintes etapas ocorrem:"
 
 #: ../../reference/datamodel.rst:1892
 msgid "MRO entries are resolved;"
-msgstr ""
+msgstr "Entradas de MRO são resolvidas;"
 
 #: ../../reference/datamodel.rst:1893
 msgid "the appropriate metaclass is determined;"
-msgstr ""
+msgstr "a metaclasse apropriada é determinada;"
 
 #: ../../reference/datamodel.rst:1894
 msgid "the class namespace is prepared;"
-msgstr ""
+msgstr "o espaço de nomes da classe é preparada;"
 
 #: ../../reference/datamodel.rst:1895
 msgid "the class body is executed;"
-msgstr ""
+msgstr "o corpo da classe é executado;"
 
 #: ../../reference/datamodel.rst:1896
 msgid "the class object is created."
-msgstr ""
+msgstr "o objeto da classe é criado."
 
 #: ../../reference/datamodel.rst:1900
 msgid "Resolving MRO entries"
-msgstr ""
+msgstr "Resolvendo entradas de MRO"
 
 #: ../../reference/datamodel.rst:1902
 msgid ""
@@ -3126,6 +3185,11 @@ msgid ""
 "classes that will be used instead of this base. The tuple may be empty, in "
 "such case the original base is ignored."
 msgstr ""
+"Se uma base que aparece na definição de classe não é uma instância de :class:"
+"`type`, então um método ``__mro_entries__`` é pesquisado nela. Se "
+"encontrado, ele é chamado com a tupla de base original. Este método deve "
+"retornar uma tupla de classes que serão usadas no lugar desta base. A tupla "
+"pode estar vazia, neste caso a base original é ignorada."
 
 #: ../../reference/datamodel.rst:1910 ../../reference/datamodel.rst:2101
 msgid ":pep:`560` - Core support for typing module and generic types"
