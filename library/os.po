@@ -2679,6 +2679,15 @@ msgid ""
 "symbolic links; :func:`os.DirEntry.stat` always requires a system call on "
 "Unix but only requires one for symbolic links on Windows."
 msgstr ""
+"Usar :func:`scandir` em vez de :func:`listdir` pode aumentar "
+"significativamente o desempenho do código que também precisa de tipo de "
+"arquivo ou informações de atributo de arquivo, porque os objetos :class:`os."
+"DirEntry` expõem essas informações se o sistema operacional fornecer ao "
+"digitalizar um diretório. Todos os métodos de :class:`os.DirEntry` podem "
+"realizar uma chamada de sistema, mas :func:`~os.DirEntry.is_dir` e :func:"
+"`~os.DirEntry.is_file` normalmente requerem apenas uma chamada de sistema "
+"para links simbólicos; :func:`os.DirEntry.stat` sempre requer uma chamada de "
+"sistema no Unix, mas requer apenas uma para links simbólicos no Windows."
 
 #: ../../library/os.rst:2020
 msgid ""
@@ -2688,16 +2697,23 @@ msgid ""
 "each :class:`os.DirEntry` will be ``bytes``; in all other circumstances, "
 "they will be of type ``str``."
 msgstr ""
+"*path* pode ser um :term:`objeto caminho ou similar`. Se *path* for do tipo "
+"``bytes`` (direta ou indiretamente por meio da interface :class:`PathLike`), "
+"o tipo do atributo :attr:`~os.DirEntry.name` e :attr:`~os.DirEntry.path` de "
+"cada :class:`os.DirEntry` serão ``bytes``; em todas as outras "
+"circunstâncias, eles serão do tipo ``str``."
 
 #: ../../library/os.rst:2026
 msgid ""
 "The :func:`scandir` iterator supports the :term:`context manager` protocol "
 "and has the following method:"
 msgstr ""
+"O iterador :func:`scandir` suporta o protocolo :term:`gerenciador de "
+"contexto` e tem o seguinte método:"
 
 #: ../../library/os.rst:2031
 msgid "Close the iterator and free acquired resources."
-msgstr ""
+msgstr "Fecha o iterador e libera os recursos adquiridos."
 
 #: ../../library/os.rst:2033
 msgid ""
@@ -2705,6 +2721,9 @@ msgid ""
 "collected, or when an error happens during iterating.  However it is "
 "advisable to call it explicitly or use the :keyword:`with` statement."
 msgstr ""
+"Isso é chamado automaticamente quando o iterador se esgota ou é coletado "
+"como lixo, ou quando ocorre um erro durante a iteração. No entanto, é "
+"aconselhável chamá-lo explicitamente ou usar a instrução :keyword:`with`."
 
 #: ../../library/os.rst:2040
 msgid ""
@@ -2713,6 +2732,10 @@ msgid ""
 "``'.'``. The ``entry.is_file()`` call will generally not make an additional "
 "system call::"
 msgstr ""
+"O exemplo a seguir mostra um uso simples de :func:`scandir` para exibir "
+"todos os arquivos (excluindo diretórios) no *path* fornecido que não começa "
+"com ``'.'``. A chamada ``entry.is_file()`` geralmente não fará uma chamada "
+"de sistema adicional::"
 
 #: ../../library/os.rst:2052
 msgid ""
@@ -2739,16 +2762,22 @@ msgid ""
 "exhausted nor explicitly closed a :exc:`ResourceWarning` will be emitted in "
 "its destructor."
 msgstr ""
+"Adicionado suporte para o protocolo :term:`gerenciador de contexto` e o "
+"método :func:`~scandir.close()`. Se um iterador :func:`scandir` não estiver "
+"esgotado nem explicitamente fechado, uma :exc:`ResourceWarning` será emitida "
+"em seu destruidor."
 
 #: ../../library/os.rst:2070
 msgid "The function accepts a :term:`path-like object`."
-msgstr ""
+msgstr "A função aceita um :term:`objeto caminho ou similar`."
 
 #: ../../library/os.rst:2075
 msgid ""
 "Object yielded by :func:`scandir` to expose the file path and other file "
 "attributes of a directory entry."
 msgstr ""
+"Objeto produzido por :func:`scandir` para expor o caminho do arquivo e "
+"outros atributos de arquivo de uma entrada de diretório."
 
 #: ../../library/os.rst:2078
 msgid ""
@@ -2756,6 +2785,10 @@ msgid ""
 "making additional system calls. When a ``stat()`` or ``lstat()`` system call "
 "is made, the ``os.DirEntry`` object will cache the result."
 msgstr ""
+":func:`scandir` fornecerá o máximo possível dessas informações sem fazer "
+"chamadas de sistema adicionais. Quando uma chamada de sistema ``stat()`` ou "
+"``lstat()`` é feita, o objeto ``os.DirEntry`` irá armazenar o resultado em "
+"cache."
 
 #: ../../library/os.rst:2082
 msgid ""
@@ -2764,6 +2797,10 @@ msgid ""
 "elapsed since calling :func:`scandir`, call ``os.stat(entry.path)`` to fetch "
 "up-to-date information."
 msgstr ""
+"As instâncias de ``os.DirEntry`` não devem ser armazenadas em estruturas de "
+"dados de longa duração; se você sabe que os metadados do arquivo foram "
+"alterados ou se passou muito tempo desde a chamada de :func:`scandir`, chame "
+"``os.stat(entry.path)`` para obter informações atualizadas."
 
 #: ../../library/os.rst:2087
 msgid ""
@@ -2772,21 +2809,30 @@ msgid ""
 "errors, you can catch :exc:`OSError` when calling one of the ``os.DirEntry`` "
 "methods and handle as appropriate."
 msgstr ""
+"Como os métodos ``os.DirEntry`` podem fazer chamadas ao sistema operacional, "
+"eles também podem levantar :exc:`OSError`. Se você precisa de um controle "
+"muito refinado sobre os erros, você pode pegar :exc:`OSError` ao chamar um "
+"dos métodos ``os.DirEntry`` e manipular conforme apropriado."
 
 #: ../../library/os.rst:2092
 msgid ""
 "To be directly usable as a :term:`path-like object`, ``os.DirEntry`` "
 "implements the :class:`PathLike` interface."
 msgstr ""
+"Para ser diretamente utilizável como um :term:`objeto caminho ou similar`, "
+"``os.DirEntry`` implementa a interface :class:`PathLike`."
 
 #: ../../library/os.rst:2095
 msgid "Attributes and methods on a ``os.DirEntry`` instance are as follows:"
 msgstr ""
+"Atributos e métodos em uma instância de ``os.DirEntry`` são os seguintes:"
 
 #: ../../library/os.rst:2099
 msgid ""
 "The entry's base filename, relative to the :func:`scandir` *path* argument."
 msgstr ""
+"O nome do arquivo base da entrada, relativo ao argumento *path* de :func:"
+"`scandir`."
 
 #: ../../library/os.rst:2102
 msgid ""
@@ -2794,6 +2840,9 @@ msgid ""
 "argument is of type ``bytes`` and ``str`` otherwise.  Use :func:`~os."
 "fsdecode` to decode byte filenames."
 msgstr ""
+"O atributo :attr:`name` será ``bytes`` se o argumento *path* de :func:"
+"`scandir` for do tipo ``bytes`` e, caso contrário, ``str``. Usa :func:`~os."
+"fsdecode` para decodificar nomes de arquivos de bytes."
 
 #: ../../library/os.rst:2108
 msgid ""
@@ -2808,22 +2857,30 @@ msgid ""
 "argument is of type ``bytes`` and ``str`` otherwise.  Use :func:`~os."
 "fsdecode` to decode byte filenames."
 msgstr ""
+"O atributo :attr:`path` será ``bytes`` se o argumento *path* de :func:"
+"`scandir` for do tipo ``bytes`` e, caso contrário, ``str``. Usa :func:`~os."
+"fsdecode` para decodificar nomes de arquivos de bytes."
 
 #: ../../library/os.rst:2119
 msgid "Return the inode number of the entry."
-msgstr ""
+msgstr "Retorna o número de nó-i da entrada."
 
 #: ../../library/os.rst:2121
 msgid ""
 "The result is cached on the ``os.DirEntry`` object. Use ``os.stat(entry."
 "path, follow_symlinks=False).st_ino`` to fetch up-to-date information."
 msgstr ""
+"O resultado é armazenado em cache no objeto ``os.DirEntry``. Use ``os."
+"stat(entry.path, follow_symlinks=False).st_ino`` para obter informações "
+"atualizadas."
 
 #: ../../library/os.rst:2125
 msgid ""
 "On the first, uncached call, a system call is required on Windows but not on "
 "Unix."
 msgstr ""
+"Na primeira chamada sem cache, uma chamada de sistema é necessária no "
+"Windows, mas não no Unix."
 
 #: ../../library/os.rst:2130
 msgid ""
@@ -2831,6 +2888,9 @@ msgid ""
 "a directory; return ``False`` if the entry is or points to any other kind of "
 "file, or if it doesn't exist anymore."
 msgstr ""
+"Retorna ``True`` se esta entrada for um diretório ou um link simbólico "
+"apontando para um diretório; retorna ``False`` se a entrada é ou aponta para "
+"qualquer outro tipo de arquivo, ou se ele não existe mais."
 
 #: ../../library/os.rst:2134
 msgid ""
@@ -2838,6 +2898,9 @@ msgid ""
 "directory (without following symlinks); return ``False`` if the entry is any "
 "other kind of file or if it doesn't exist anymore."
 msgstr ""
+"Se *follow_symlinks* for ``False``, retorna ``True`` apenas se esta entrada "
+"for um diretório (sem seguir os links simbólicos); retorna ``False`` se a "
+"entrada for qualquer outro tipo de arquivo ou se ele não existe mais."
 
 #: ../../library/os.rst:2138
 msgid ""
@@ -2845,6 +2908,9 @@ msgid ""
 "for *follow_symlinks* ``True`` and ``False``. Call :func:`os.stat` along "
 "with :func:`stat.S_ISDIR` to fetch up-to-date information."
 msgstr ""
+"O resultado é armazenado em cache no objeto ``os.DirEntry``, com um cache "
+"separado para *follow_symlinks* ``True`` e ``False``. Chama :func:`os.stat` "
+"junto com :func:`stat.S_ISDIR` para buscar informações atualizadas."
 
 #: ../../library/os.rst:2142
 msgid ""
@@ -2855,12 +2921,21 @@ msgid ""
 "system call will be required to follow the symlink unless *follow_symlinks* "
 "is ``False``."
 msgstr ""
+"Na primeira chamada sem cache, nenhuma chamada do sistema é necessária na "
+"maioria dos casos. Especificamente, para links não simbólicos, nem o Windows "
+"nem o Unix requerem uma chamada de sistema, exceto em certos sistemas de "
+"arquivos Unix, como sistemas de arquivos de rede, que retornam ``dirent."
+"d_type == DT_UNKNOWN``. Se a entrada for um link simbólico, uma chamada de "
+"sistema será necessária para seguir o link simbólico, a menos que "
+"*follow_symlinks* seja ``False``."
 
 #: ../../library/os.rst:2149 ../../library/os.rst:2179
 msgid ""
 "This method can raise :exc:`OSError`, such as :exc:`PermissionError`, but :"
 "exc:`FileNotFoundError` is caught and not raised."
 msgstr ""
+"Este método pode levantar :exc:`OSError`, tal como :exc:`PermissionError`, "
+"mas :exc:`FileNotFoundError` é capturada e não levantada."
 
 #: ../../library/os.rst:2154
 msgid ""
@@ -2868,6 +2943,10 @@ msgid ""
 "file; return ``False`` if the entry is or points to a directory or other non-"
 "file entry, or if it doesn't exist anymore."
 msgstr ""
+"Retorna ``True`` se esta entrada for um arquivo ou um link simbólico "
+"apontando para um arquivo; retorna ``False`` se a entrada é ou aponta para "
+"um diretório ou outra entrada que não seja de arquivo, ou se ela não existe "
+"mais."
 
 #: ../../library/os.rst:2158
 msgid ""
@@ -2875,12 +2954,19 @@ msgid ""
 "file (without following symlinks); return ``False`` if the entry is a "
 "directory or other non-file entry, or if it doesn't exist anymore."
 msgstr ""
+"Se *follow_symlinks* for ``False``, retorna ``True`` apenas se esta entrada "
+"for um arquivo (sem seguir os links simbólicos); retorna ``False`` se a "
+"entrada for um diretório ou outra entrada que não seja um arquivo, ou se ela "
+"não existir mais."
 
 #: ../../library/os.rst:2162
 msgid ""
 "The result is cached on the ``os.DirEntry`` object. Caching, system calls "
 "made, and exceptions raised are as per :func:`~os.DirEntry.is_dir`."
 msgstr ""
+"O resultado é armazenado em cache no objeto ``os.DirEntry``. Chamadas de "
+"sistema em cache feitas e exceções levantadas são conforme :func:`~os."
+"DirEntry.is_dir`."
 
 #: ../../library/os.rst:2167
 msgid ""
@@ -2888,12 +2974,17 @@ msgid ""
 "``False`` if the entry points to a directory or any kind of file, or if it "
 "doesn't exist anymore."
 msgstr ""
+"Retorna ``True`` se esta entrada for um link simbólico (mesmo se quebrado); "
+"retorna ``False`` se a entrada apontar para um diretório ou qualquer tipo de "
+"arquivo, ou se ele não existir mais."
 
 #: ../../library/os.rst:2171
 msgid ""
 "The result is cached on the ``os.DirEntry`` object. Call :func:`os.path."
 "islink` to fetch up-to-date information."
 msgstr ""
+"O resultado é armazenado em cache no objeto ``os.DirEntry``. Chama :func:`os."
+"path.islink` para buscar informações atualizadas."
 
 #: ../../library/os.rst:2174
 msgid ""
@@ -2902,6 +2993,10 @@ msgid ""
 "certain Unix file systems, such as network file systems, that return "
 "``dirent.d_type == DT_UNKNOWN``."
 msgstr ""
+"Na primeira chamada sem cache, nenhuma chamada do sistema é necessária na "
+"maioria dos casos. Especificamente, nem o Windows nem o Unix exigem uma "
+"chamada de sistema, exceto em certos sistemas de arquivos Unix, como "
+"sistemas de arquivos de rede, que retornam ``dirent.d_type == DT_UNKNOWN``."
 
 #: ../../library/os.rst:2184
 msgid ""
@@ -2909,6 +3004,9 @@ msgid ""
 "symbolic links by default; to stat a symbolic link add the "
 "``follow_symlinks=False`` argument."
 msgstr ""
+"Retorna um objeto :class:`stat_result` para esta entrada. Este método segue "
+"links simbólicos por padrão; para estabelecer um link simbólico, adicione o "
+"argumento ``follow_symlinks=False``."
 
 #: ../../library/os.rst:2188
 msgid ""
@@ -2923,6 +3021,9 @@ msgid ""
 "class:`stat_result` are always set to zero. Call :func:`os.stat` to get "
 "these attributes."
 msgstr ""
+"No Windows, os atributos ``st_ino``, ``st_dev`` e ``st_nlink`` da :class:"
+"`stat_result` são sempre definidos como zero. Chame :func:`os.stat` para "
+"obter esses atributos."
 
 #: ../../library/os.rst:2196
 msgid ""
@@ -2930,6 +3031,9 @@ msgid ""
 "for *follow_symlinks* ``True`` and ``False``. Call :func:`os.stat` to fetch "
 "up-to-date information."
 msgstr ""
+"O resultado é armazenado em cache no objeto ``os.DirEntry``, com um cache "
+"separado para *follow_symlinks* ``True`` e ``False``. Chama :func:`os.stat` "
+"para buscar informações atualizadas."
 
 #: ../../library/os.rst:2200
 msgid ""
@@ -2938,12 +3042,18 @@ msgid ""
 "``name`` attribute has the same meaning, as do the ``is_dir()``, "
 "``is_file()``, ``is_symlink()`` and ``stat()`` methods."
 msgstr ""
+"Note que há uma boa correspondência entre vários atributos e métodos de ``os."
+"DirEntry`` e de :class:`pathlib.Path`. Em particular, o atributo ``name`` "
+"tem o mesmo significado, assim como os métodos ``is_dir()``, ``is_file()``, "
+"``is_symlink()`` e ``stat()``."
 
 #: ../../library/os.rst:2208
 msgid ""
 "Added support for the :class:`~os.PathLike` interface.  Added support for :"
 "class:`bytes` paths on Windows."
 msgstr ""
+"Adicionado suporte para a interface :class:`~os.PathLike`. Adicionado "
+"suporte para caminhos :class:`bytes` no Windows."
 
 #: ../../library/os.rst:2215
 msgid ""
@@ -2953,12 +3063,20 @@ msgid ""
 "`PathLike` interface -- or as an open file descriptor. Return a :class:"
 "`stat_result` object."
 msgstr ""
+"Obtém o status de um arquivo ou um descritor de arquivo. Executa o "
+"equivalente a uma chamada de sistema :c:func:`stat` no caminho fornecido. "
+"*path* pode ser especificado como uma string ou bytes -- direta ou "
+"indiretamente através da interface :class:`PathLike` -- ou como um descritor "
+"de arquivo aberto. Retorna um objeto :class:`stat_result`."
 
 #: ../../library/os.rst:2221
 msgid ""
 "This function normally follows symlinks; to stat a symlink add the argument "
 "``follow_symlinks=False``, or use :func:`lstat`."
 msgstr ""
+"Esta função normalmente segue links simbólicos; para efetuar stat em um link "
+"simbólico, adicione o argumento ``follow_symlinks=False``, ou use :func:"
+"`lstat`."
 
 #: ../../library/os.rst:2224 ../../library/os.rst:2869
 #: ../../library/os.rst:2883 ../../library/os.rst:2897
@@ -2967,6 +3085,8 @@ msgid ""
 "This function can support :ref:`specifying a file descriptor <path_fd>` and :"
 "ref:`not following symlinks <follow_symlinks>`."
 msgstr ""
+"Esta função tem suporte a :ref:`especificar um descritor de arquivo "
+"<path_fd>` e :ref:`não seguir links simbólicos <follow_symlinks>`."
 
 #: ../../library/os.rst:2229
 msgid "Example::"
@@ -2974,13 +3094,15 @@ msgstr "Exemplo::"
 
 #: ../../library/os.rst:2242
 msgid ":func:`fstat` and :func:`lstat` functions."
-msgstr ""
+msgstr "As funções :func:`fstat` e :func:`lstat`."
 
 #: ../../library/os.rst:2244
 msgid ""
 "Added the *dir_fd* and *follow_symlinks* arguments, specifying a file "
 "descriptor instead of a path."
 msgstr ""
+"Adicionados os argumentos *dir_fd* e *follow_symlinks*, especificando um "
+"descritor de arquivo em vez de um caminho."
 
 #: ../../library/os.rst:2254
 msgid ""
