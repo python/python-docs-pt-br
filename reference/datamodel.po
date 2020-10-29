@@ -2545,12 +2545,23 @@ msgid ""
 "negative values), :exc:`IndexError` should be raised. For mapping types, if "
 "*key* is missing (not in the container), :exc:`KeyError` should be raised."
 msgstr ""
+"Chamado para implementar a avaliação de ``self[key]``. Para tipos de "
+"sequência, as chaves aceitas devem ser inteiros e objetos fatia. Observe que "
+"a interpretação especial de índices negativos (se a classe deseja emular um "
+"tipo de sequência) depende do método :meth:`__getitem__`. Se *key* for de um "
+"tipo impróprio, :exc:`TypeError` pode ser levantada; se de um valor fora do "
+"conjunto de índices para a sequência (após qualquer interpretação especial "
+"de valores negativos), :exc:`IndexError` deve ser levantada. Para tipos de "
+"mapeamento, se *key* estiver faltando (não no contêiner), :exc:`KeyError` "
+"deve ser levantada."
 
 #: ../../reference/datamodel.rst:1918
 msgid ""
 ":keyword:`for` loops expect that an :exc:`IndexError` will be raised for "
 "illegal indexes to allow proper detection of the end of the sequence."
 msgstr ""
+"Os loops :keyword:`for` esperam que uma :exc:`IndexError` seja levantada "
+"para índices ilegais para permitir a detecção apropriada do fim da sequência."
 
 #: ../../reference/datamodel.rst:1924
 msgid ""
@@ -2560,6 +2571,12 @@ msgid ""
 "sequences if elements can be replaced.  The same exceptions should be raised "
 "for improper *key* values as for the :meth:`__getitem__` method."
 msgstr ""
+"Chamado para implementar a atribuição de ``self[key]``. Mesma nota que para :"
+"meth:`__getitem__`. Isso só deve ser implementado para mapeamentos se os "
+"objetos suportarem alterações nos valores das chaves, ou se novas chaves "
+"puderem ser adicionadas, ou para sequências se os elementos puderem ser "
+"substituídos. As mesmas exceções devem ser levantadas para valores *key* "
+"impróprios do método :meth:`__getitem__`."
 
 #: ../../reference/datamodel.rst:1933
 msgid ""
@@ -2569,12 +2586,20 @@ msgid ""
 "the sequence.  The same exceptions should be raised for improper *key* "
 "values as for the :meth:`__getitem__` method."
 msgstr ""
+"Chamado para implementar a exclusão de ``self[key]``. Mesma nota que para :"
+"meth:`__getitem__`. Isso só deve ser implementado para mapeamentos se os "
+"objetos suportarem remoções de chaves, ou para sequências se os elementos "
+"puderem ser removidos da sequência. As mesmas exceções devem ser levantadas "
+"para valores *key* impróprios do método :meth:`__getitem__`."
 
 #: ../../reference/datamodel.rst:1942
 msgid ""
 "Called by :class:`dict`\\ .\\ :meth:`__getitem__` to implement ``self[key]`` "
 "for dict subclasses when key is not in the dictionary."
 msgstr ""
+"Chamado por :class:`dict`\\ .\\ :meth:`__getitem__` para implementar "
+"``self[key]`` para subclasses de dicionário quando a chave não estiver no "
+"dicionário."
 
 #: ../../reference/datamodel.rst:1948
 msgid ""
@@ -2591,6 +2616,9 @@ msgid ""
 "return themselves.  For more information on iterator objects, see :ref:"
 "`typeiter`."
 msgstr ""
+"Os objetos iteradores também precisam implementar este método; eles são "
+"obrigados a retornar. Para obter mais informações sobre objetos iteradores, "
+"consulte :ref:`typeiter`."
 
 #: ../../reference/datamodel.rst:1959
 msgid ""
@@ -2598,6 +2626,9 @@ msgid ""
 "iteration.  It should return a new iterator object that iterates over all "
 "the objects in the container in reverse order."
 msgstr ""
+"Chamado (se presente) pelo :func:`reversed` embutido para implementar a "
+"iteração reversa. Ele deve retornar um novo objeto iterador que itera sobre "
+"todos os objetos no contêiner na ordem reversa."
 
 #: ../../reference/datamodel.rst:1963
 msgid ""
@@ -2607,6 +2638,11 @@ msgid ""
 "provide :meth:`__reversed__` if they can provide an implementation that is "
 "more efficient than the one provided by :func:`reversed`."
 msgstr ""
+"Se o método :meth:`__reversed__` não for fornecido, o :func:`reversed` "
+"embutido voltará a usar o protocolo de sequência (:meth:`__len__` e :meth:"
+"`__getitem__`). Objetos que suportam o protocolo de sequência só devem "
+"fornecer :meth:`__reversed__` se eles puderem fornecer uma implementação que "
+"seja mais eficiente do que aquela fornecida por :func:`reversed`."
 
 #: ../../reference/datamodel.rst:1972
 msgid ""
@@ -2622,6 +2658,10 @@ msgid ""
 "is in *self*, false otherwise.  For mapping objects, this should consider "
 "the keys of the mapping rather than the values or the key-item pairs."
 msgstr ""
+"Chamado para implementar operadores de teste de associação. Deve retornar "
+"verdadeiro se *item* estiver em *self*, falso caso contrário. Para objetos "
+"de mapeamento, isso deve considerar as chaves do mapeamento em vez dos "
+"valores ou pares de itens-chave."
 
 #: ../../reference/datamodel.rst:1983
 msgid ""
@@ -2630,6 +2670,10 @@ msgid ""
 "protocol via :meth:`__getitem__`, see :ref:`this section in the language "
 "reference <membership-test-details>`."
 msgstr ""
+"Para objetos que não definem :meth:`__contains__`, o teste de associação "
+"primeiro tenta a iteração via :meth:`__iter__`, depois o protocolo de "
+"iteração de sequência antigo via :meth:`__getitem__`, consulte :ref:`esta "
+"seção em a referência da linguagem <membership-test-details>`."
 
 #: ../../reference/datamodel.rst:1992
 msgid "Additional methods for emulation of sequence types"
@@ -2721,7 +2765,7 @@ msgstr ""
 
 #: ../../reference/datamodel.rst:2084
 msgid "Emulating numeric types"
-msgstr ""
+msgstr "Emulando tipos numéricos"
 
 #: ../../reference/datamodel.rst:2086
 msgid ""
@@ -2730,6 +2774,10 @@ msgid ""
 "number implemented (e.g., bitwise operations for non-integral numbers) "
 "should be left undefined."
 msgstr ""
+"Os métodos a seguir podem ser definidos para emular objetos numéricos. "
+"Métodos correspondentes a operações que não são suportadas pelo tipo "
+"particular de número implementado (por exemplo, operações bit a bit para "
+"números não inteiros) devem ser deixados indefinidos."
 
 #: ../../reference/datamodel.rst:2110
 msgid ""
@@ -2750,6 +2798,8 @@ msgid ""
 "If one of those methods does not support the operation with the supplied "
 "arguments, it should return ``NotImplemented``."
 msgstr ""
+"Se um desses métodos não suporta a operação com os argumentos fornecidos, "
+"ele deve retornar ``NotImplemented``."
 
 #: ../../reference/datamodel.rst:2127
 msgid ""
@@ -2777,6 +2827,8 @@ msgid ""
 "Note that ternary :func:`pow` will not try calling :meth:`__rpow__` (the "
 "coercion rules would become too complicated)."
 msgstr ""
+"Note que ternário :func:`pow` não tentará chamar :meth:`__rpow__` (as regras "
+"de coerção se tornariam muito complicadas)."
 
 #: ../../reference/datamodel.rst:2169
 msgid ""
@@ -2805,6 +2857,8 @@ msgid ""
 "Called to implement the unary arithmetic operations (``-``, ``+``, :func:"
 "`abs` and ``~``)."
 msgstr ""
+"Chamado para implementar as operações aritméticas unárias (``-``, ``+``, :"
+"func:`abs` e ``~``)."
 
 #: ../../reference/datamodel.rst:2223
 msgid ""
@@ -2965,7 +3019,7 @@ msgstr ""
 
 #: ../../reference/datamodel.rst:2367
 msgid "With Statement Context Managers"
-msgstr ""
+msgstr "Com gerenciadores de contexto de instruções"
 
 #: ../../reference/datamodel.rst:2371
 msgid ""
@@ -2982,11 +3036,16 @@ msgid ""
 "Typical uses of context managers include saving and restoring various kinds "
 "of global state, locking and unlocking resources, closing opened files, etc."
 msgstr ""
+"Os usos típicos de gerenciadores de contexto incluem salvar e restaurar "
+"vários tipos de estado global, bloquear e desbloquear recursos, fechar "
+"arquivos abertos, etc."
 
 #: ../../reference/datamodel.rst:2385
 msgid ""
 "For more information on context managers, see :ref:`typecontextmanager`."
 msgstr ""
+"Para obter mais informações sobre gerenciadores de contexto, consulte :ref:"
+"`typecontextmanager`."
 
 #: ../../reference/datamodel.rst:2390
 msgid ""
@@ -3001,6 +3060,10 @@ msgid ""
 "exception that caused the context to be exited. If the context was exited "
 "without an exception, all three arguments will be :const:`None`."
 msgstr ""
+"Sai do contexto de tempo de execução relacionado a este objeto. Os "
+"parâmetros descrevem a exceção que fez com que o contexto fosse encerrado. "
+"Se o contexto foi encerrado sem exceção, todos os três argumentos serão :"
+"const:`None`."
 
 #: ../../reference/datamodel.rst:2401
 msgid ""
@@ -3009,12 +3072,17 @@ msgid ""
 "Otherwise, the exception will be processed normally upon exit from this "
 "method."
 msgstr ""
+"Se uma exceção for fornecida e o método desejar suprimir a exceção (ou seja, "
+"evitar que ela seja propagada), ele deve retornar um valor verdadeiro. Caso "
+"contrário, a exceção será processada normalmente ao sair deste método."
 
 #: ../../reference/datamodel.rst:2405
 msgid ""
 "Note that :meth:`__exit__` methods should not reraise the passed-in "
 "exception; this is the caller's responsibility."
 msgstr ""
+"Observe que os métodos :meth:`__exit__` não devem relançar a exceção "
+"passada; esta é a responsabilidade do chamador."
 
 #: ../../reference/datamodel.rst:2412
 msgid ":pep:`343` - The \"with\" statement"
@@ -3025,6 +3093,8 @@ msgid ""
 "The specification, background, and examples for the Python :keyword:`with` "
 "statement."
 msgstr ""
+"A especificação, o histórico e os exemplos para a instrução Python :keyword:"
+"`with`."
 
 #: ../../reference/datamodel.rst:2419
 msgid "Special method lookup for old-style classes"
@@ -3066,6 +3136,11 @@ msgid ""
 "used the conventional lookup process, they would fail when invoked on the "
 "type object itself::"
 msgstr ""
+"A justificativa por trás desse comportamento está em uma série de métodos "
+"especiais como :meth:`__hash__` e :meth:`__repr__` que são implementados por "
+"todos os objetos, incluindo objetos de tipo. Se a pesquisa implícita desses "
+"métodos usasse o processo de pesquisa convencional, eles falhariam quando "
+"chamados no próprio objeto do tipo::"
 
 #: ../../reference/datamodel.rst:2476
 msgid ""
@@ -3073,6 +3148,9 @@ msgid ""
 "sometimes referred to as 'metaclass confusion', and is avoided by bypassing "
 "the instance when looking up special methods::"
 msgstr ""
+"A tentativa incorreta de invocar um método não vinculado de uma classe dessa "
+"maneira é às vezes referida como \"confusão de metaclasse\" e é evitada "
+"ignorando a instância ao pesquisar métodos especiais::"
 
 #: ../../reference/datamodel.rst:2485
 msgid ""
@@ -3080,6 +3158,9 @@ msgid ""
 "correctness, implicit special method lookup generally also bypasses the :"
 "meth:`__getattribute__` method even of the object's metaclass::"
 msgstr ""
+"Além de contornar quaisquer atributos de instância no interesse da correção, "
+"a pesquisa de método especial implícita geralmente também contorna o método :"
+"meth:`__getattribute__` mesmo da metaclasse do objeto::"
 
 #: ../../reference/datamodel.rst:2512
 msgid ""
@@ -3089,6 +3170,11 @@ msgid ""
 "method *must* be set on the class object itself in order to be consistently "
 "invoked by the interpreter)."
 msgstr ""
+"Ignorar a maquinaria de :meth:`__getattribute__` desta forma fornece um "
+"escopo significativo para otimizações de velocidade dentro do interpretador, "
+"ao custo de alguma flexibilidade no tratamento de métodos especiais (o "
+"método especial *deve* ser definido no próprio objeto classe em ordem ser "
+"invocado de forma consistente pelo interpretador)."
 
 #: ../../reference/datamodel.rst:2520
 msgid "Footnotes"
