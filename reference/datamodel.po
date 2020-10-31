@@ -43,8 +43,8 @@ msgid ""
 "sense, and in conformance to Von Neumann's model of a \"stored program "
 "computer\", code is also represented by objects.)"
 msgstr ""
-":dfn:`Objetos` são abstrações do Python para dados. Todo dados em um "
-"programa Python, é representados por objetos ou por relações entre objetos. "
+":dfn:`Objetos` são abstrações do Python para dados. Todos dados em um "
+"programa Python são representados por objetos ou por relações entre objetos. "
 "(De certo modo, e em conformidade com o modelo de Von Neumann em \"stored "
 "program computer\", código também é representado por objetos.)"
 
@@ -76,10 +76,10 @@ msgid ""
 "unchangeable. [#]_"
 msgstr ""
 "O tipo de um objeto determina as operações que o objeto suporta (por "
-"exemplo, \"ele tem um comprimento?\") e também define os valores possíveis "
-"para objetos desse tipo. A função :func:`type` retorna o tipo de um objeto "
-"(que é o próprio objeto). Como sua identidade, o :dfn:`tipo` do objeto "
-"também é imutável. [#]_"
+"exemplo, \"ele tem um *length*?\") e também define os valores possíveis para "
+"objetos desse tipo. A função :func:`type` retorna o tipo de um objeto (que é "
+"o próprio objeto). Como sua identidade, o :dfn:`tipo` do objeto também é "
+"imutável. [#]_"
 
 #: ../../reference/datamodel.rst:50
 msgid ""
@@ -130,14 +130,14 @@ msgid ""
 "on immediate finalization of objects when they become unreachable (so you "
 "should always close files explicitly)."
 msgstr ""
-"CPython atualmente usa um esquema de contagem de referência com detecção "
+"CPython atualmente usa um esquema de contagem de referências com detecção "
 "atrasada (opcional) de lixo ligado ciclicamente, que coleta a maioria dos "
 "objetos assim que eles se tornam inacessíveis, mas não é garantido que "
 "coletará lixo contendo referências circulares. Veja a documentação do "
 "módulo :mod:`gc` para informações sobre como controlar a coleta de lixo "
 "cíclico. Outras implementações agem de forma diferente e o CPython pode "
 "mudar. Não dependa da finalização imediata dos objetos quando eles se "
-"tornarem inacessíveis (portanto, você deve sempre fechar os arquivos "
+"tornarem inacessíveis (isto é, você deve sempre fechar os arquivos "
 "explicitamente)."
 
 #: ../../reference/datamodel.rst:82
@@ -483,8 +483,8 @@ msgstr ""
 "Eles representam números complexos como um par de números de ponto flutuante "
 "de precisão dupla no nível da máquina. As mesmas advertências se aplicam aos "
 "números de ponto flutuante. As partes reais e imaginárias de um número "
-"complexo ``z`` podem ser recuperadas através dos atributos somente leitura "
-"``z.real`` e ``z.imag``."
+"complexo ``z`` podem ser obtidas através dos atributos somente leitura ``z."
+"real`` e ``z.imag``."
 
 #: ../../reference/datamodel.rst:384
 msgid "Sequences"
@@ -574,7 +574,7 @@ msgstr ""
 "string com comprimento ``1``. A função embutida :func:`ord` converte um "
 "ponto de código de sua forma de string para um inteiro no intervalo ``0 - "
 "10FFFF``; :func:`chr` converte um inteiro no intervalo ``0 - 10FFFF`` para o "
-"comprimento correspondente do objeto de string ``1``. :meth:`str.encode` "
+"objeto de string correspondente de comprimento ``1``. :meth:`str.encode` "
 "pode ser usado para converter uma :class:`str` para :class:`bytes` usando a "
 "codificação de texto fornecida, e :meth:`bytes.decode` pode ser usado para "
 "conseguir o oposto."
@@ -611,9 +611,9 @@ msgid ""
 "create bytes objects.  Also, bytes objects can be decoded to strings via "
 "the :meth:`~bytes.decode` method."
 msgstr ""
-"Um objeto de bytes é um vetor imutável. Os itens são bytes de 8 bits, "
+"Um objeto bytes é um vetor imutável. Os itens são bytes de 8 bits, "
 "representados por inteiros no intervalo 0 <= x < 256. Literais de bytes "
-"(como ``b'abc'``) e o construtor embutido :func:`bytes()` podem ser usado "
+"(como ``b'abc'``) e o construtor embutido :func:`bytes()` podem ser usados "
 "para criar objetos bytes. Além disso, os objetos bytes podem ser "
 "decodificados em strings através do método :meth:`~bytes.decode`."
 
@@ -4499,85 +4499,112 @@ msgid ""
 "causing the coroutine to immediately clean itself up. Finally, the coroutine "
 "is marked as having finished executing, even if it was never started."
 msgstr ""
+"Faz com que a corrotina se limpe e saia. Se a corrotina for suspensa, este "
+"método primeiro delega para o método :meth:`~generator.close` do iterador "
+"que causou a suspensão da corrotina, se tiver tal método. Então ele levanta :"
+"exc:`GeneratorExit` no ponto de suspensão, fazendo com que a corrotina se "
+"limpe imediatamente. Por fim, a corrotina é marcada como tendo sua execução "
+"concluída, mesmo que nunca tenha sido iniciada."
 
 #: ../../reference/datamodel.rst:2722
 msgid ""
 "Coroutine objects are automatically closed using the above process when they "
 "are about to be destroyed."
 msgstr ""
+"Objetos corrotina são fechados automaticamente usando o processo acima "
+"quando estão prestes a ser destruídos."
 
 #: ../../reference/datamodel.rst:2728
 msgid "Asynchronous Iterators"
-msgstr "Iteradores Assíncronos"
+msgstr "Iteradores assíncronos"
 
 #: ../../reference/datamodel.rst:2730
 msgid ""
 "An *asynchronous iterator* can call asynchronous code in its ``__anext__`` "
 "method."
 msgstr ""
+"Um *iterador assíncrono* pode chamar código assíncrono em seu método "
+"``__anext__``."
 
 #: ../../reference/datamodel.rst:2733
 msgid ""
 "Asynchronous iterators can be used in an :keyword:`async for` statement."
 msgstr ""
+"Os iteradores assíncronos podem ser usados ​​em uma instrução :keyword:`async "
+"for`."
 
 #: ../../reference/datamodel.rst:2737
 msgid "Must return an *asynchronous iterator* object."
-msgstr ""
+msgstr "Deve retornar um objeto *iterador assíncrono*."
 
 #: ../../reference/datamodel.rst:2741
 msgid ""
 "Must return an *awaitable* resulting in a next value of the iterator.  "
 "Should raise a :exc:`StopAsyncIteration` error when the iteration is over."
 msgstr ""
+"Deve retornar um *aguardável* resultando em um próximo valor do iterador. "
+"Deve levantar um erro `exc:`StopAsyncIteration` quando a iteração terminar."
 
 #: ../../reference/datamodel.rst:2744
 msgid "An example of an asynchronous iterable object::"
-msgstr ""
+msgstr "Um exemplo de objeto iterável assíncrono::"
 
 #: ../../reference/datamodel.rst:2761
 msgid ""
 "Prior to Python 3.7, ``__aiter__`` could return an *awaitable* that would "
 "resolve to an :term:`asynchronous iterator <asynchronous iterator>`."
 msgstr ""
+"Antes do Python 3.7, ``__aiter__`` poderia retornar um *aguardável* que "
+"resolveria para um :term:`iterador assíncrono <asynchronous iterator>`."
 
 #: ../../reference/datamodel.rst:2766
 msgid ""
 "Starting with Python 3.7, ``__aiter__`` must return an asynchronous iterator "
 "object.  Returning anything else will result in a :exc:`TypeError` error."
 msgstr ""
+"A partir do Python 3.7, ``__aiter__`` deve retornar um objeto iterador "
+"assíncrono. Retornar qualquer outra coisa resultará em um erro :exc:"
+"`TypeError`."
 
 #: ../../reference/datamodel.rst:2774
 msgid "Asynchronous Context Managers"
-msgstr ""
+msgstr "Gerenciadores de contexto assíncronos"
 
 #: ../../reference/datamodel.rst:2776
 msgid ""
 "An *asynchronous context manager* is a *context manager* that is able to "
 "suspend execution in its ``__aenter__`` and ``__aexit__`` methods."
 msgstr ""
+"Um *gerenciador de contexto assíncrono* é um *gerenciador de contexto* que é "
+"capaz de suspender a execução em seus métodos ``__aenter__`` e ``__aexit__``."
 
 #: ../../reference/datamodel.rst:2779
 msgid ""
 "Asynchronous context managers can be used in an :keyword:`async with` "
 "statement."
 msgstr ""
+"Os gerenciadores de contexto assíncronos podem ser usados ​​em uma instrução :"
+"keyword:`async with`."
 
 #: ../../reference/datamodel.rst:2783
 msgid ""
 "Semantically similar to :meth:`__enter__`, the only difference being that it "
 "must return an *awaitable*."
 msgstr ""
+"Semanticamente semelhante a :meth:`__enter__`, a única diferença é que ele "
+"deve retornar um *aguardável*."
 
 #: ../../reference/datamodel.rst:2788
 msgid ""
 "Semantically similar to :meth:`__exit__`, the only difference being that it "
 "must return an *awaitable*."
 msgstr ""
+"Semanticamente semelhante a :meth:`__exit__`, a única diferença é que ele "
+"deve retornar um *aguardável*."
 
 #: ../../reference/datamodel.rst:2791
 msgid "An example of an asynchronous context manager class::"
-msgstr ""
+msgstr "Um exemplo de uma classe gerenciadora de contexto assíncrona::"
 
 #: ../../reference/datamodel.rst:2804
 msgid "Footnotes"
@@ -4589,6 +4616,9 @@ msgid ""
 "controlled conditions. It generally isn't a good idea though, since it can "
 "lead to some very strange behaviour if it is handled incorrectly."
 msgstr ""
+"Em alguns casos, *é* possível alterar o tipo de um objeto, sob certas "
+"condições controladas. No entanto, geralmente não é uma boa ideia, pois pode "
+"levar a um comportamento muito estranho se for tratado incorretamente."
 
 #: ../../reference/datamodel.rst:2809
 msgid ""
@@ -4597,6 +4627,10 @@ msgid ""
 "raise a :exc:`TypeError`, but may do so by relying on the behavior that "
 "``None`` is not callable."
 msgstr ""
+"Os métodos :meth:`__hash__`, :meth:`__iter__`, :meth:`__reversed__` e :meth:"
+"`__contains__` têm um tratamento especial para isso; outros ainda irão gerar "
+"um :exc:`TypeError`, mas podem fazer isso contando com o comportamento de "
+"que ``None`` não pode ser chamado."
 
 #: ../../reference/datamodel.rst:2814
 msgid ""
@@ -4605,6 +4639,10 @@ msgid ""
 "want to force fallback to the right operand's reflected method—that will "
 "instead have the opposite effect of explicitly *blocking* such fallback."
 msgstr ""
+"\"Não suportar\" aqui significa que a classe não possui tal método, ou o "
+"método retorna ``NotImplemented``. Não defina o método como ``None`` se "
+"quiser forçar o fallback para o método refletido do operando correto -- isso "
+"terá o efeito oposto de *bloquear* explicitamente esse fallback."
 
 #: ../../reference/datamodel.rst:2820
 msgid ""
@@ -4612,3 +4650,6 @@ msgid ""
 "method -- such as :meth:`__add__` -- fails then the overall operation is not "
 "supported, which is why the reflected method is not called."
 msgstr ""
+"Para operandos do mesmo tipo, presume-se que se o método não refletido -- "
+"como :meth:`__add__` -- falhar, a operação geral não será suportada, razão "
+"pela qual o método refletido não é chamado."
