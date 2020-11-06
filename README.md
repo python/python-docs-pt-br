@@ -2,6 +2,8 @@
 
 ![Build and update documentation](https://github.com/python/python-docs-pt-br/workflows/Build%20and%20update%20documentation/badge.svg)
 
+Check our [wiki](https://github.com/python/python-docs-pt-br/wiki) for more guidance on translating
+
 ## Documentation Contribution Agreement
 
 NOTE REGARDING THE LICENSE FOR TRANSLATIONS: Python's documentation is
