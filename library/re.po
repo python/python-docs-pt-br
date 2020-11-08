@@ -50,6 +50,12 @@ msgid ""
 "a newline.  Usually patterns will be expressed in Python code using this raw "
 "string notation."
 msgstr ""
+"A solução é usar a notação de string bruta do Python para padrões de "
+"expressão regular; as contrabarras não são tratadas de nenhuma maneira "
+"especial em uma string literal com o prefixo ``'r'``. Portanto, ``r\"\\n\"`` "
+"é uma string de dois caracteres contendo ``'\\'`` e ``'n'``, enquanto ``\"\\n"
+"\"`` é uma string de um caractere contendo um nova linha. Normalmente, os "
+"padrões serão expressos em código Python usando esta notação de string bruta."
 
 #: ../../library/re.rst:31
 msgid ""
@@ -65,10 +71,13 @@ msgid ""
 "an API compatible with the standard library :mod:`re` module, but offers "
 "additional functionality and a more thorough Unicode support."
 msgstr ""
+"O módulo `regex <https://pypi.org/project/regex/>`_ de terceiros, que possui "
+"uma API compatível com o módulo da biblioteca padrão :mod:`re`, mas oferece "
+"funcionalidades adicionais e um suporte mais completo a Unicode."
 
 #: ../../library/re.rst:46
 msgid "Regular Expression Syntax"
-msgstr ""
+msgstr "Sintaxe de expressão regular"
 
 #: ../../library/re.rst:48
 msgid ""
@@ -77,6 +86,11 @@ msgid ""
 "given regular expression (or if a given regular expression matches a "
 "particular string, which comes down to the same thing)."
 msgstr ""
+"Uma expressão regular (ou ER) especifica um conjunto de strings que "
+"corresponde a ela; as funções neste módulo permitem que você verifique se "
+"uma determinada string corresponde a uma determinada expressão regular (ou "
+"se uma determinada expressão regular corresponde a uma determinada string, o "
+"que resulta na mesma coisa)."
 
 #: ../../library/re.rst:53
 msgid ""
@@ -98,6 +112,8 @@ msgid ""
 "further information and a gentler presentation, consult the :ref:`regex-"
 "howto`."
 msgstr ""
+"Segue uma breve explicação do formato das expressões regulares. Para mais "
+"informações e uma apresentação mais suave, consulte o :ref:`regex-howto`."
 
 #: ../../library/re.rst:66
 msgid ""
@@ -108,6 +124,13 @@ msgid ""
 "rest of this section, we'll write RE's in ``this special style``, usually "
 "without quotes, and strings to be matched ``'in single quotes'``.)"
 msgstr ""
+"As expressões regulares podem conter caracteres especiais e comuns. A "
+"maioria dos caracteres comuns, como ``'A'``, ``'a'`` ou ``'0'``, são as "
+"expressões regulares mais simples; eles simplesmente se combinam. Você pode "
+"concatenar caracteres comuns, de forma que ``último`` corresponda à string "
+"``'último'``. (No restante desta seção, escreveremos ERs ``neste estilo "
+"especial``, geralmente sem aspas, e strings para serem correspondidas "
+"``'entre aspas simples'``.)"
 
 #: ../../library/re.rst:73
 msgid ""
@@ -126,6 +149,12 @@ msgid ""
 "repetition to an inner repetition, parentheses may be used. For example, the "
 "expression ``(?:a{6})*`` matches any multiple of six ``'a'`` characters."
 msgstr ""
+"Qualificadores de repetição (``*``, ``+``, ``?``, ``{m,n}`` etc) não podem "
+"ser aninhados diretamente. Isso evita ambiguidade com o sufixo modificador "
+"não guloso ``?``, E com outros modificadores em outras implementações. Para "
+"aplicar uma segunda repetição a uma repetição interna, podem ser usados "
+"parênteses. Por exemplo, a expressão ``(?:a{6})*`` corresponde a qualquer "
+"múltiplo de seis caracteres ``'a'``."
 
 #: ../../library/re.rst:86
 msgid "The special characters are:"
@@ -141,6 +170,9 @@ msgid ""
 "If the :const:`DOTALL` flag has been specified, this matches any character "
 "including a newline."
 msgstr ""
+"(Ponto.) No modo padrão, corresponde a qualquer caractere, exceto uma nova "
+"linha. Se o sinalizador :const:`DOTALL` foi especificado, ele corresponde a "
+"qualquer caractere, incluindo uma nova linha."
 
 #: ../../library/re.rst:95
 msgid "``'^'``"
@@ -151,6 +183,8 @@ msgid ""
 "(Caret.)  Matches the start of the string, and in :const:`MULTILINE` mode "
 "also matches immediately after each newline."
 msgstr ""
+"(Sinal de circunflexo.) Corresponde ao início da string, e no modo :const:"
+"`MULTILINE` também corresponde imediatamente após cada nova linha."
 
 #: ../../library/re.rst:104
 msgid "``'$'``"
@@ -167,6 +201,14 @@ msgid ""
 "(empty) matches: one just before the newline, and one at the end of the "
 "string."
 msgstr ""
+"Corresponde ao final da string ou logo antes da nova linha no final da "
+"string, e no modo :const:`MULTILINE` também corresponde antes de uma nova "
+"linha. ``foo`` corresponde a 'foo' e 'foobar', enquanto a expressão regular "
+"``foo$`` corresponde apenas a 'foo'. Mais interessante, pesquisar por ``foo."
+"$`` em ``'foo1\\nfoo2\\n'`` corresponde a 'foo2' normalmente, mas 'foo1' no "
+"modo :const:`MULTILINE`; procurando por um único ``$`` em ``'foo\\n'`` "
+"encontrará duas correspondências (vazias): uma logo antes da nova linha e "
+"uma no final da string."
 
 #: ../../library/re.rst:109
 msgid "``'*'``"
@@ -178,6 +220,9 @@ msgid ""
 "as many repetitions as are possible.  ``ab*`` will match 'a', 'ab', or 'a' "
 "followed by any number of 'b's."
 msgstr ""
+"Faz com que a ER resultante corresponda a 0 ou mais repetições da ER "
+"anterior, tantas repetições quantas forem possíveis. ``ab*`` corresponderá a "
+"'a', 'ab' ou 'a' seguido por qualquer número de 'b's."
 
 #: ../../library/re.rst:114
 msgid "``'+'``"
@@ -189,6 +234,9 @@ msgid ""
 "``ab+`` will match 'a' followed by any non-zero number of 'b's; it will not "
 "match just 'a'."
 msgstr ""
+"Faz com que a ER resultante corresponda a 1 ou mais repetições da ER "
+"anterior. ``ab+`` irá corresponder a 'a' seguido por qualquer número "
+"diferente de zero de 'b's; não corresponderá apenas a 'a'."
 
 #: ../../library/re.rst:118
 msgid "``'?'``"
@@ -199,10 +247,12 @@ msgid ""
 "Causes the resulting RE to match 0 or 1 repetitions of the preceding RE. "
 "``ab?`` will match either 'a' or 'ab'."
 msgstr ""
+"Faz com que a ER resultante corresponda a 0 ou 1 repetição da ER anterior. "
+"``ab?`` irá corresponder a 'a' ou 'ab'."
 
 #: ../../library/re.rst:127
 msgid "``*?``, ``+?``, ``??``"
-msgstr ""
+msgstr "``*?``, ``+?``, ``??``"
 
 #: ../../library/re.rst:121
 msgid ""
@@ -225,6 +275,10 @@ msgid ""
 "fewer matches cause the entire RE not to match.  For example, ``a{6}`` will "
 "match exactly six ``'a'`` characters, but not five."
 msgstr ""
+"Especifica que exatamente *m* cópias da ER anterior devem ser "
+"correspondidas; menos correspondências fazem com que toda a ER não seja "
+"correspondida. Por exemplo, ``a{6}`` irá corresponder exatamente a seis "
+"caracteres ``'a'``, mas não a cinco."
 
 #: ../../library/re.rst:141
 msgid "``{m,n}``"
@@ -254,6 +308,11 @@ msgid ""
 "character string ``'aaaaaa'``, ``a{3,5}`` will match 5 ``'a'`` characters, "
 "while ``a{3,5}?`` will only match 3 characters."
 msgstr ""
+"Faz com que a ER resultante corresponda de *m* a *n* repetições da ER "
+"precedente, tentando corresponder o mínimo de *poucas* repetições possível. "
+"Esta é a versão não gananciosa do qualificador anterior. Por exemplo, na "
+"string de 6 caracteres ``'aaaaaa'``, ``a{3,5}`` irá corresponder a 5 "
+"caracteres ``'a'``, enquanto ``a{3,5}?`` corresponderá apenas a 3 caracteres."
 
 #: ../../library/re.rst:161
 msgid "``'\\'``"
@@ -265,6 +324,9 @@ msgid ""
 "``'*'``, ``'?'``, and so forth), or signals a special sequence; special "
 "sequences are discussed below."
 msgstr ""
+"Ou escapa caracteres especiais (permitindo que você corresponde a caracteres "
+"como ``'*'``, ``'?'`` e assim por diante), ou sinaliza uma sequência "
+"especial; sequências especiais são discutidas abaixo."
 
 #: ../../library/re.rst:155
 msgid ""
@@ -276,6 +338,14 @@ msgid ""
 "repeated twice.  This is complicated and hard to understand, so it's highly "
 "recommended that you use raw strings for all but the simplest expressions."
 msgstr ""
+"Se você não estiver usando uma string raw para expressar o padrão, lembre-se "
+"de que o Python também usa a contrabarra como uma sequência de escape em "
+"literais de string; se a sequência de escape não for reconhecida pelo "
+"analisador sintático do Python, a contrabarra e o caractere subsequente "
+"serão incluídos na string resultante. No entanto, se o Python reconhecer a "
+"sequência resultante, a contrabarra deve ser repetida duas vezes. Isso é "
+"complicado e difícil de entender, portanto, é altamente recomendável que "
+"você use strings raw para todas as expressões, exceto as mais simples."
 
 #: ../../library/re.rst:193
 msgid "``[]``"
@@ -283,13 +353,15 @@ msgstr "``[]``"
 
 #: ../../library/re.rst:164
 msgid "Used to indicate a set of characters.  In a set:"
-msgstr ""
+msgstr "Usado para indicar um conjunto de caracteres. Em um conjunto:"
 
 #: ../../library/re.rst:166
 msgid ""
 "Characters can be listed individually, e.g. ``[amk]`` will match ``'a'``, "
 "``'m'``, or ``'k'``."
 msgstr ""
+"Caracteres podem ser listados individualmente, por exemplo, ``[amk]`` vai "
+"corresponder a ``'a'``, ``'m'`` ou ``'k'``."
 
 #: ../../library/re.rst:169
 msgid ""
@@ -307,6 +379,9 @@ msgid ""
 "``[(+*)]`` will match any of the literal characters ``'('``, ``'+'``, "
 "``'*'``, or ``')'``."
 msgstr ""
+"Os caracteres especiais perdem seu significado especial dentro dos "
+"conjuntos. Por exemplo, ``[(+*)]`` corresponderá a qualquer um dos "
+"caracteres literais ``'('``, ``'+'``, ``'*'`` ou ``')'``."
 
 #: ../../library/re.rst:180
 msgid ""
@@ -324,6 +399,13 @@ msgid ""
 "any character except ``'^'``.  ``^`` has no special meaning if it's not the "
 "first character in the set."
 msgstr ""
+"Os caracteres que não estão dentro de um intervalo podem ser correspondidos :"
+"dfn:`complementando` o conjunto. Se o primeiro caractere do conjunto for "
+"``'^'``, todos os caracteres que *não* estiverem no conjunto serão "
+"correspondidos. Por exemplo, ``[^5]`` irá corresponder a qualquer caractere "
+"exceto ``'5'``, e ``[^^]`` irá corresponder a qualquer caractere exceto "
+"``'^'``. ``^`` não tem nenhum significado especial se não for o primeiro "
+"caractere do conjunto."
 
 #: ../../library/re.rst:191
 msgid ""
@@ -331,6 +413,9 @@ msgid ""
 "place it at the beginning of the set.  For example, both ``[()[\\]{}]`` and "
 "``[]()[{}]`` will both match a parenthesis."
 msgstr ""
+"Para corresponder a um ``']'`` literal dentro de um conjunto, preceda-o com "
+"uma contrabarra ou coloque-o no início do conjunto. Por exemplo, ``[()[\\]"
+"{}]`` e ``[]()[{}]`` ambos corresponderão a um parêntese."
 
 #: ../../library/re.rst:204
 msgid "``'|'``"
@@ -375,6 +460,11 @@ msgid ""
 "do not create a new group; ``(?P<name>...)`` is the only exception to this "
 "rule. Following are the currently supported extensions."
 msgstr ""
+"Esta é uma notação de extensão (um ``'?'`` seguindo um ``'('`` não é "
+"significativo de outra forma). O primeiro caractere após o ``'?'`` determina "
+"qual o significado e sintaxe posterior do é. As extensões normalmente não "
+"criam um novo grupo; ``(?P<name>...)`` é a única exceção a esta regra. A "
+"seguir estão as extensões atualmente suportadas."
 
 #: ../../library/re.rst:235
 msgid "``(?iLmsux)``"
@@ -412,6 +502,10 @@ msgid ""
 "*cannot* be retrieved after performing a match or referenced later in the "
 "pattern."
 msgstr ""
+"Uma versão sem captura de parênteses regulares. Corresponde a qualquer "
+"expressão regular que esteja entre parênteses, mas a substring correspondida "
+"pelo grupo *não pode* ser recuperada após realizar uma correspondência ou "
+"referenciada posteriormente no padrão."
 
 #: ../../library/re.rst:266
 msgid "``(?P<name>...)``"
@@ -425,6 +519,11 @@ msgid ""
 "regular expression.  A symbolic group is also a numbered group, just as if "
 "the group were not named."
 msgstr ""
+"Semelhante aos parênteses regulares, mas a substring correspondida pelo "
+"grupo é acessível por meio do nome de grupo simbólico *name*. Os nomes de "
+"grupo devem ser identificadores Python válidos e cada nome de grupo deve ser "
+"definido apenas uma vez em uma expressão regular. Um grupo simbólico também "
+"é um grupo numerado, como se o grupo não tivesse um nome."
 
 #: ../../library/re.rst:250
 msgid ""
@@ -432,22 +531,25 @@ msgid ""
 "P<quote>['\"]).*?(?P=quote)`` (i.e. matching a string quoted with either "
 "single or double quotes):"
 msgstr ""
+"Grupos nomeados podem ser referenciados em três contextos. Se o padrão for "
+"``(?P<quote>['\"]).*?(?P=quote)`` (ou seja, corresponder a uma string entre "
+"aspas simples ou duplas):"
 
 #: ../../library/re.rst:255
 msgid "Context of reference to group \"quote\""
-msgstr ""
+msgstr "Contexto de referência ao grupo \"quote\""
 
 #: ../../library/re.rst:255
 msgid "Ways to reference it"
-msgstr ""
+msgstr "Formas de referenciá-lo"
 
 #: ../../library/re.rst:257
 msgid "in the same pattern itself"
-msgstr ""
+msgstr "no mesmo padrão"
 
 #: ../../library/re.rst:257
 msgid "``(?P=quote)`` (as shown)"
-msgstr ""
+msgstr "``(?P=quote)`` (como mostrado)"
 
 #: ../../library/re.rst:258 ../../library/re.rst:265
 msgid "``\\1``"
@@ -486,6 +588,8 @@ msgid ""
 "A backreference to a named group; it matches whatever text was matched by "
 "the earlier group named *name*."
 msgstr ""
+"Uma referência anterior a um grupo nomeado; corresponde a qualquer texto que "
+"corresponda ao grupo anterior denominado *name*."
 
 #: ../../library/re.rst:273
 msgid "``(?#...)``"
@@ -493,7 +597,7 @@ msgstr "``(?#...)``"
 
 #: ../../library/re.rst:273
 msgid "A comment; the contents of the parentheses are simply ignored."
-msgstr ""
+msgstr "Um comentário; o conteúdo dos parênteses é simplesmente ignorado."
 
 #: ../../library/re.rst:278
 msgid "``(?=...)``"
