@@ -45,16 +45,27 @@ msgid ""
 "of the unexpected complex number used as a parameter, so that the programmer "
 "can determine how and why it was generated in the first place."
 msgstr ""
+"Essas funções não podem ser usadas com números complexos; use as funções de "
+"mesmo nome do módulo :mod:`cmath` se você precisar de suporte para números "
+"complexos. A distinção entre funções que suportam números complexos e "
+"aquelas que não suportam é feita uma vez que a maioria dos usuários não quer "
+"aprender a matemática necessária para entender números complexos. Receber "
+"uma exceção em vez de um resultado complexo permite a detecção antecipada do "
+"número complexo inesperado usado como parâmetro, para que o programador "
+"possa determinar como e por que ele foi gerado em primeiro lugar."
 
 #: ../../library/math.rst:25
 msgid ""
 "The following functions are provided by this module.  Except when explicitly "
 "noted otherwise, all return values are floats."
 msgstr ""
+"As funções a seguir são fornecidas por este módulo. Exceto quando "
+"explicitamente indicado de outra forma, todos os valores de retorno são "
+"pontos flutuantes."
 
 #: ../../library/math.rst:30
 msgid "Number-theoretic and representation functions"
-msgstr ""
+msgstr "Funções teóricas dos números e de representação"
 
 #: ../../library/math.rst:34
 msgid ""
@@ -62,6 +73,9 @@ msgid ""
 "*x*. If *x* is not a float, delegates to ``x.__ceil__()``, which should "
 "return an :class:`~numbers.Integral` value."
 msgstr ""
+"Retorna o teto de *x*, o menor inteiro maior ou igual a *x*. Se *x* não for "
+"um ponto flutuante, delega para ``x.__ceil__()``, que deve retornar um valor "
+"de :class:`~numbers.Integral`."
 
 #: ../../library/math.rst:41
 msgid ""
@@ -69,10 +83,13 @@ msgid ""
 "*y*.  On platforms that support signed zeros, ``copysign(1.0, -0.0)`` "
 "returns *-1.0*."
 msgstr ""
+"Retorna um ponto flutuante com a magnitude (valor absoluto) de *x*, mas o "
+"sinal de *y*. Em plataformas que suportam zeros sem sinal, ``copysign(1.0, "
+"-0.0)`` retorna *-1.0*."
 
 #: ../../library/math.rst:47
 msgid "Return the absolute value of *x*."
-msgstr ""
+msgstr "Retorna o valor absoluto de *x*."
 
 #: ../../library/math.rst:51
 msgid ""
@@ -86,6 +103,9 @@ msgid ""
 "*x* is not a float, delegates to ``x.__floor__()``, which should return an :"
 "class:`~numbers.Integral` value."
 msgstr ""
+"Retorna o piso de *x*, o maior inteiro menor ou igual a *x*. Se *x* não for "
+"um ponto flutuante, delega para ``x.__floor__()``, que deve retornar um "
+"valor de :class:`~numbers.Integral`."
 
 #: ../../library/math.rst:63
 msgid ""
@@ -102,6 +122,19 @@ msgid ""
 "generally preferred when working with floats, while Python's ``x % y`` is "
 "preferred when working with integers."
 msgstr ""
+"Retorna ``fmod(x, y)``, conforme definido pela biblioteca C da plataforma. "
+"Observe que a expressão Python ``x % y`` pode não retornar o mesmo "
+"resultado. A intenção do padrão C é que ``fmod(x, y)`` seja exatamente "
+"(matematicamente; com precisão infinita) igual a ``x - n*y`` para algum "
+"inteiro *n* de modo que o resultado tenha o mesmo sinal que *x* e magnitude "
+"menor que ``abs(y)``. O ``x % y`` do Python retorna um resultado com o sinal "
+"de *y*, e pode não ser exatamente computável para argumentos de ponto "
+"flutuante. Por exemplo, ``fmod(-1e-100, 1e100)`` é ``-1e-100``, mas o "
+"resultado de ``-1e-100 % 1e100`` do Python é ``1e100-1e-100``, que não pode "
+"ser representado exatamente como um ponto flutuante, e é arredondado para o "
+"surpreendente ``1e100``. Por esta razão, a função :func:`fmod` é geralmente "
+"preferida ao trabalhar com pontos flutuantes, enquanto o ``x % y`` do Python "
+"é preferido ao trabalhar com inteiros."
 
 #: ../../library/math.rst:78
 msgid ""
@@ -110,12 +143,19 @@ msgid ""
 "zero, returns ``(0.0, 0)``, otherwise ``0.5 <= abs(m) < 1``.  This is used "
 "to \"pick apart\" the internal representation of a float in a portable way."
 msgstr ""
+"Retorna a mantissa e o expoente de *x* como o par ``(m, e)``. *m* é um ponto "
+"flutuante e *e* é um inteiro tal que ``x == m * 2**e`` exatamente. Se *x* "
+"for zero, retorna ``(0.0, 0)``, caso contrário, ``0.5 <= abs(m) < 1``. Isso "
+"é usado para \"separar\" a representação interna de um ponto flutuante de "
+"forma portátil."
 
 #: ../../library/math.rst:86
 msgid ""
 "Return an accurate floating point sum of values in the iterable.  Avoids "
 "loss of precision by tracking multiple intermediate partial sums::"
 msgstr ""
+"Retorna uma soma de valores de ponto flutuante precisa no iterável. Evita "
+"perda de precisão rastreando várias somas parciais intermediárias::"
 
 #: ../../library/math.rst:94
 msgid ""
@@ -125,6 +165,11 @@ msgid ""
 "occasionally double-round an intermediate sum causing it to be off in its "
 "least significant bit."
 msgstr ""
+"A precisão do algoritmo depende das garantias aritméticas IEEE-754 e do caso "
+"típico em que o modo de arredondamento é meio par. Em algumas compilações "
+"que não são do Windows, a biblioteca C subjacente usa adição de precisão "
+"estendida e pode ocasionalmente arredondar uma soma intermediária fazendo "
+"com que ela fique fora do bit menos significativo."
 
 #: ../../library/math.rst:100
 msgid ""
@@ -132,6 +177,9 @@ msgid ""
 "cookbook recipes for accurate floating point summation <https://code."
 "activestate.com/recipes/393090/>`_\\."
 msgstr ""
+"Para uma discussão mais aprofundada e duas abordagens alternativas, consulte "
+"as `receitas do livro de receitas ASPN para soma de ponto flutuante preciso "
+"<https://code.activestate.com/recipes/393090/>`_\\."
 
 #: ../../library/math.rst:107
 msgid ""
@@ -145,12 +193,16 @@ msgid ""
 "Return ``True`` if the values *a* and *b* are close to each other and "
 "``False`` otherwise."
 msgstr ""
+"Retorna ``True`` se os valores *a* e *b* estiverem próximos e ``False`` caso "
+"contrário."
 
 #: ../../library/math.rst:120
 msgid ""
 "Whether or not two values are considered close is determined according to "
 "given absolute and relative tolerances."
 msgstr ""
+"Se dois valores são ou não considerados próximos, é determinado de acordo "
+"com as tolerâncias absolutas e relativas fornecidas."
 
 #: ../../library/math.rst:123
 msgid ""
@@ -160,18 +212,27 @@ msgid ""
 "tolerance is ``1e-09``, which assures that the two values are the same "
 "within about 9 decimal digits.  *rel_tol* must be greater than zero."
 msgstr ""
+"*rel_tol* é a tolerância relativa -- é a diferença máxima permitida entre "
+"*a* e *b*, em relação ao maior valor absoluto de *a* e *b*. Por exemplo, "
+"para definir uma tolerância de 5%, passe ``rel_tol=0.05``. A tolerância "
+"padrão é ``1e-09``, o que garante que os dois valores sejam iguais em cerca "
+"de 9 dígitos decimais. *rel_tol* deve ser maior que zero."
 
 #: ../../library/math.rst:129
 msgid ""
 "*abs_tol* is the minimum absolute tolerance -- useful for comparisons near "
 "zero. *abs_tol* must be at least zero."
 msgstr ""
+"*abs_tol* é a tolerância absoluta mínima -- útil para comparações próximas a "
+"zero. *abs_tol* deve ser pelo menos zero."
 
 #: ../../library/math.rst:132
 msgid ""
 "If no errors occur, the result will be: ``abs(a-b) <= max(rel_tol * "
 "max(abs(a), abs(b)), abs_tol)``."
 msgstr ""
+"Se nenhum erro ocorrer, o resultado será: ``abs(a-b) <= max(rel_tol * "
+"max(abs(a), abs(b)), abs_tol)``."
 
 #: ../../library/math.rst:135
 msgid ""
@@ -180,10 +241,14 @@ msgid ""
 "close to any other value, including ``NaN``.  ``inf`` and ``-inf`` are only "
 "considered close to themselves."
 msgstr ""
+"Os valores especiais do IEEE 754 de ``NaN``, ``inf`` e ``-inf`` serão "
+"tratados de acordo com as regras do IEEE. Especificamente, ``NaN`` não é "
+"considerado próximo a qualquer outro valor, incluindo ``NaN``. ``inf`` e ``-"
+"inf`` são considerados apenas próximos a si mesmos."
 
 #: ../../library/math.rst:144
 msgid ":pep:`485` -- A function for testing approximate equality"
-msgstr ""
+msgstr ":pep:`485` -- Uma função para testar igualdade aproximada"
 
 #: ../../library/math.rst:149
 msgid ""
