@@ -8,7 +8,6 @@ on:
 # Branch where translation takes place
 env:
   BRANCH: 3.9
-  PYTHON_VERSION: 3.8
 
 jobs:
 
@@ -23,8 +22,6 @@ jobs:
       with:
         ref: ${{ env.BRANCH }}
     - uses: actions/setup-python@v2
-      with:
-        python-version: ${{ env.PYTHON_VERSION }}
     - run: sudo apt update
     - run: sudo apt install -y gettext
     - run: make tx-config
@@ -70,8 +67,6 @@ jobs:
       with:
         ref: ${{ env.BRANCH }}
     - uses: actions/setup-python@v2
-      with:
-        python-version: ${{ env.PYTHON_VERSION }}
     - run: sudo apt update
     - run: sudo apt install -y gettext hunspell hunspell-pt-br
     - name: Run make spell
@@ -95,8 +90,6 @@ jobs:
       with:
         ref: ${{ env.BRANCH }}
     - uses: actions/setup-python@v2
-      with:
-        python-version: ${{ env.PYTHON_VERSION }}
     - run: pip install translate-toolkit powrap
     - run: sudo apt update
     - run: sudo apt install -y gettext
@@ -122,8 +115,6 @@ jobs:
         ref: ${{ env.BRANCH }}
     - run: git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
     - uses: actions/setup-python@v2
-      with:
-        python-version: ${{ env.PYTHON_VERSION }}
     - run: sudo apt update
     - run: sudo apt install -y gettext
     - name: Run make push
@@ -146,8 +137,6 @@ jobs:
       with:
         ref: ${{ env.BRANCH }}
     - uses: actions/setup-python@v2
-      with:
-        python-version: ${{ env.PYTHON_VERSION }}
     - run: make build CPYTHON_PATH=/tmp/cpython/ 2> >(tee -a build-log.txt >&2)
     - name: Update artifact build-output
       if: ${{ failure() }}
