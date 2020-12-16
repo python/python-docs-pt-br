@@ -6,9 +6,9 @@
 # Translators:
 # Ruan Aragão <ruanaragao2@gmail.com>, 2017
 # Leticia Portella <leportella@gmail.com>, 2017
-# Raphael Mendonça, 2017
 # felipe caridade <caridade500@gmail.com>, 2019
 # Italo Penaforte <italo.penaforte@gmail.com>, 2019
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2020
 #
 #, fuzzy
 msgid ""
@@ -17,7 +17,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-08-20 03:54+0000\n"
 "PO-Revision-Date: 2017-02-16 17:36+0000\n"
-"Last-Translator: Italo Penaforte <italo.penaforte@gmail.com>, 2019\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2020\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -42,6 +42,15 @@ msgid ""
 "larger application; this technique is generally referred to as :dfn:"
 "`embedding` Python in an application."
 msgstr ""
+"A Interface de Programação de Aplicações (API) para Python fornece aos "
+"programadores C e C++ acesso ao interpretador Python em uma variedade de "
+"níveis. A API pode ser usada igualmente em C++, mas, para abreviar, "
+"geralmente é chamada de API Python/C. Existem dois motivos fundamentalmente "
+"diferentes para usar a API Python/C. A primeira razão é escrever *módulos de "
+"extensão* para propósitos específicos; esses são módulos C que estendem o "
+"interpretador Python. Este é provavelmente o uso mais comum. O segundo "
+"motivo é usar Python como um componente em uma aplicação maior; esta técnica "
+"é geralmente referida como :dfn:`incorporação` Python em uma aplicação."
 
 #: ../../c-api/intro.rst:20
 msgid ""
@@ -54,7 +63,7 @@ msgstr ""
 "Escrever um módulo de extensão é um processo relativamente bem compreendido, "
 "no qual uma abordagem de \"livro de receitas\" funciona bem. Existem várias "
 "ferramentas que automatizam o processo até certo ponto. Embora as pessoas "
-"tenham incorporado o Python em outros aplicativos desde sua existência "
+"tenham incorporado o Python em outras aplicações desde sua existência "
 "inicial, o processo de incorporação do Python é menos direto do que escrever "
 "uma extensão."
 
@@ -66,6 +75,11 @@ msgid ""
 "become familiar with writing an extension before  attempting to embed Python "
 "in a real application."
 msgstr ""
+"Muitas funções da API são úteis independentemente de você estar incorporando "
+"ou estendendo o Python; além disso, a maioria das aplicações que incorporam "
+"Python também precisará fornecer uma extensão customizada, portanto, é "
+"provavelmente uma boa ideia se familiarizar com a escrita de uma extensão "
+"antes de tentar incorporar Python em uma aplicação real."
 
 #: ../../c-api/intro.rst:34
 msgid "Coding standards"
@@ -79,16 +93,24 @@ msgid ""
 "these conventions is not necessary for your own third party extension "
 "modules, unless you eventually expect to contribute them to Python."
 msgstr ""
+"Se você estiver escrevendo código C para inclusão no CPython, **deve** "
+"seguir as diretrizes e padrões definidos na :PEP:`7`. Essas diretrizes se "
+"aplicam independentemente da versão do Python com a qual você está "
+"contribuindo. Seguir essas convenções não é necessário para seus próprios "
+"módulos de extensão de terceiros, a menos que você eventualmente espere "
+"contribuí-los para o Python."
 
 #: ../../c-api/intro.rst:46
 msgid "Include Files"
-msgstr "Incluir Arquivos"
+msgstr "Incluir arquivos"
 
 #: ../../c-api/intro.rst:48
 msgid ""
 "All function, type and macro definitions needed to use the Python/C API are "
 "included in your code by the following line::"
 msgstr ""
+"Todas as definições de função, tipo e macro necessárias para usar a API "
+"Python/C estão incluídas em seu código pela seguinte linha::"
 
 #: ../../c-api/intro.rst:54
 msgid ""
@@ -96,6 +118,9 @@ msgid ""
 "``<string.h>``, ``<errno.h>``, ``<limits.h>``, ``<assert.h>`` and ``<stdlib."
 "h>`` (if available)."
 msgstr ""
+"Isso implica a inclusão dos seguintes cabeçalhos padrão: ``<stdio.h>``, "
+"``<string.h>``, ``<errno.h>``, ``<limits.h>``, ``<assert.h>`` e ``<stdlib."
+"h>`` (se disponível)."
 
 #: ../../c-api/intro.rst:60
 msgid ""
@@ -103,12 +128,17 @@ msgid ""
 "standard headers on some systems, you *must* include :file:`Python.h` before "
 "any standard headers are included."
 msgstr ""
+"Uma vez que Python pode definir algumas definições de pré-processador que "
+"afetam os cabeçalhos padrão em alguns sistemas, você *deve* incluir :file:"
+"`Python.h` antes de quaisquer cabeçalhos padrão serem incluídos."
 
 #: ../../c-api/intro.rst:64
 msgid ""
 "It is recommended to always define ``PY_SSIZE_T_CLEAN`` before including "
 "``Python.h``.  See :ref:`arg-parsing` for a description of this macro."
 msgstr ""
+"É recomendável sempre definir ``PY_SSIZE_T_CLEAN`` antes de incluir ``Python."
+"h``. Veja :ref:`arg-parsing` para uma descrição desta macro."
 
 #: ../../c-api/intro.rst:67
 msgid ""
@@ -118,6 +148,11 @@ msgid ""
 "implementation and should not be used by extension writers. Structure member "
 "names do not have a reserved prefix."
 msgstr ""
+"Todos os nomes visíveis ao usuário definidos por Python.h (exceto aqueles "
+"definidos pelos cabeçalhos padrão incluídos) têm um dos prefixos ``Py`` ou "
+"``_Py``. Nomes começando com ``_Py`` são para uso interno pela implementação "
+"Python e não devem ser usados por escritores de extensão. Os nomes dos "
+"membros da estrutura não têm um prefixo reservado."
 
 #: ../../c-api/intro.rst:74
 msgid ""
@@ -126,6 +161,10 @@ msgid ""
 "future Python versions, which may define additional names beginning with one "
 "of these prefixes."
 msgstr ""
+"O código do usuário nunca deve definir nomes que começam com ``Py`` ou "
+"``_Py``. Isso confunde o leitor e coloca em risco a portabilidade do código "
+"do usuário para versões futuras do Python, que podem definir nomes "
+"adicionais começando com um desses prefixos."
 
 #: ../../c-api/intro.rst:79
 msgid ""
@@ -138,6 +177,14 @@ msgid ""
 "`{prefix}/include`, where :envvar:`prefix` is the installation directory "
 "specified to the installer."
 msgstr ""
+"Os arquivos de cabeçalho são normalmente instalados com Python. No Unix, "
+"eles estão localizados nos diretórios :file:`{prefix}/include/pythonversion/"
+"` e :file:`{exec_prefix}/include/pythonversion/`, onde :envvar:`prefix` e :"
+"envvar:`exec_prefix` são definidos pelos parâmetros correspondentes ao "
+"script :program:`configure` e *version* do Python é ``'%d.%d' % sys."
+"version_info[:2]``. No Windows, os cabeçalhos são instalados em :file:"
+"`{prefix}/include`, onde :envvar:`prefix` é o diretório de instalação "
+"especificado para o instalador."
 
 #: ../../c-api/intro.rst:88
 msgid ""
@@ -148,6 +195,12 @@ msgid ""
 "envvar:`prefix` include the platform specific headers from :envvar:"
 "`exec_prefix`."
 msgstr ""
+"Para incluir os cabeçalhos, coloque os dois diretórios (se diferentes) no "
+"caminho de pesquisa do compilador para as inclusões. *Não* coloque os "
+"diretórios pais no caminho de busca e então use ``#include <pythonX.Y/Python."
+"h>``; isto irá quebrar em compilações multiplataforma, uma vez que os "
+"cabeçalhos independentes da plataforma em :envvar:`prefix` incluem os "
+"cabeçalhos específicos da plataforma de :envvar:`exec_prefix`."
 
 #: ../../c-api/intro.rst:95
 msgid ""
@@ -155,6 +208,10 @@ msgid ""
 "header files properly declare the entry points to be ``extern \"C\"``. As a "
 "result, there is no need to do anything special to use the API from C++."
 msgstr ""
+"Os usuários de C++ devem notar que embora a API seja definida inteiramente "
+"usando C, os arquivos de cabeçalho declaram apropriadamente os pontos de "
+"entrada como ``extern \"C\"``. Como resultado, não há necessidade de fazer "
+"nada especial para usar a API do C++."
 
 #: ../../c-api/intro.rst:101
 msgid "Useful macros"
@@ -167,6 +224,10 @@ msgid ""
 "Others of a more general utility are defined here.  This is not necessarily "
 "a complete listing."
 msgstr ""
+"Diversas macros úteis são definidas nos arquivos de cabeçalho do Python. "
+"Muitas são definidas mais próximas de onde são úteis (por exemplo, :c:macro:"
+"`Py_RETURN_NONE`). Outras de utilidade mais geral são definidas aqui. Esta "
+"não é necessariamente uma lista completa."
 
 #: ../../c-api/intro.rst:110
 msgid ""
@@ -175,6 +236,11 @@ msgid ""
 "possible values are covered in ``case`` statements.  Use this in places "
 "where you might be tempted to put an ``assert(0)`` or ``abort()`` call."
 msgstr ""
+"Use isso quando você tiver um caminho de código que não pode ser alcançado "
+"por design. Por exemplo, na cláusula ``default:`` em uma instrução "
+"``switch`` para a qual todos os valores possíveis são incluídos nas "
+"instruções ``case``. Use isto em lugares onde você pode ficar tentado a "
+"colocar uma chamada ``assert(0)`` ou ``abort()``."
 
 #: ../../c-api/intro.rst:115
 msgid ""
@@ -182,12 +248,17 @@ msgid ""
 "avoids a warning about unreachable code.  For example, the macro is "
 "implemented with ``__builtin_unreachable()`` on GCC in release mode."
 msgstr ""
+"No modo de lançamento, a macro ajuda o compilador a otimizar o código e "
+"evita um aviso sobre código inacessível. Por exemplo, a macro é implementada "
+"com ``__builtin_unreachable()`` no GCC em modo de lançamento."
 
 #: ../../c-api/intro.rst:119
 msgid ""
 "A use for ``Py_UNREACHABLE()`` is following a call a function that never "
 "returns but that is not declared :c:macro:`_Py_NO_RETURN`."
 msgstr ""
+"Um uso para ``Py_UNREACHABLE()`` é seguir uma chamada de uma função que "
+"nunca retorna, mas que não é declarada com :c:macro:`_Py_NO_RETURN`."
 
 #: ../../c-api/intro.rst:122
 msgid ""
@@ -197,6 +268,12 @@ msgid ""
 "case, it's better to report the error to the caller.  If the error cannot be "
 "reported to caller, :c:func:`Py_FatalError` can be used."
 msgstr ""
+"Se um caminho de código for um código muito improvável, mas puder ser "
+"alcançado em casos excepcionais, esta macro não deve ser usada. Por exemplo, "
+"sob condição de pouca memória ou se uma chamada de sistema retornar um valor "
+"fora do intervalo esperado. Nesse caso, é melhor relatar o erro ao chamador. "
+"Se o erro não puder ser reportado ao chamador, :c:func:`Py_FatalError` pode "
+"ser usada."
 
 #: ../../c-api/intro.rst:132
 msgid "Return the absolute value of ``x``."
@@ -214,34 +291,46 @@ msgstr "Retorna o valor máximo entre ``x`` e ``y``."
 msgid ""
 "Convert ``x`` to a C string.  E.g. ``Py_STRINGIFY(123)`` returns ``\"123\"``."
 msgstr ""
+"Converte ``x`` para uma string C. Por exemplo, ``Py_STRINGIFY(123)`` retorna "
+"``\"123\"``."
 
 #: ../../c-api/intro.rst:157
 msgid "Return the size of a structure (``type``) ``member`` in bytes."
-msgstr ""
+msgstr "Retorna o tamanho do ``member`` de uma estrutura (``type``) em bytes."
 
 #: ../../c-api/intro.rst:163
 msgid ""
 "Argument must be a character or an integer in the range [-128, 127] or [0, "
 "255].  This macro returns ``c`` cast to an ``unsigned char``."
 msgstr ""
+"O argumento deve ser um caractere ou um número inteiro no intervalo [-128, "
+"127] ou [0, 255]. Esta macro retorna ``c`` convertido em um ``unsigned "
+"char``."
 
 #: ../../c-api/intro.rst:168
 msgid ""
 "Like ``getenv(s)``, but returns ``NULL`` if :option:`-E` was passed on the "
 "command line (i.e. if ``Py_IgnoreEnvironmentFlag`` is set)."
 msgstr ""
+"Como ``getenv(s)``, mas retorna ``NULL`` se :option:`-E` foi passada na "
+"linha de comando (isto é, se ``Py_IgnoreEnvironmentFlag`` estiver definida)."
 
 #: ../../c-api/intro.rst:173
 msgid ""
 "Use this for unused arguments in a function definition to silence compiler "
 "warnings. Example: ``int func(int a, int Py_UNUSED(b)) { return a; }``."
 msgstr ""
+"Use isso para argumentos não usados em uma definição de função para "
+"silenciar avisos do compilador. Exemplo: ``int func(int a, int Py_UNUSED(b)) "
+"{ return a; }``."
 
 #: ../../c-api/intro.rst:180
 msgid ""
 "Use this for deprecated declarations.  The macro must be placed before the "
 "symbol name."
 msgstr ""
+"Use isso para declarações descontinuadas. A macro deve ser colocada antes do "
+"nome do símbolo."
 
 #: ../../c-api/intro.rst:183 ../../c-api/intro.rst:198
 #: ../../c-api/intro.rst:216
@@ -250,35 +339,43 @@ msgstr "Exemplo::"
 
 #: ../../c-api/intro.rst:187
 msgid "MSVC support was added."
-msgstr ""
+msgstr "Suporte a MSVC foi adicionado."
 
 #: ../../c-api/intro.rst:192
 msgid ""
 "Creates a variable with name ``name`` that can be used in docstrings. If "
 "Python is built without docstrings, the value will be empty."
 msgstr ""
+"Cria uma variável com o nome ``name`` que pode ser usada em docstrings. Se o "
+"Python for compilado sem docstrings, o valor estará vazio."
 
 #: ../../c-api/intro.rst:195
 msgid ""
 "Use :c:macro:`PyDoc_STRVAR` for docstrings to support building Python "
 "without docstrings, as specified in :pep:`7`."
 msgstr ""
+"Use :c:macro:`PyDoc_STRVAR` para docstrings para ter suporte à compilação do "
+"Python sem docstrings, conforme especificado em :pep:`7`."
 
 #: ../../c-api/intro.rst:210
 msgid ""
 "Creates a docstring for the given input string or an empty string if "
 "docstrings are disabled."
 msgstr ""
+"Cria uma docstring para a string de entrada fornecida ou uma string vazia se "
+"docstrings estiverem desabilitadas."
 
 #: ../../c-api/intro.rst:213
 msgid ""
 "Use :c:macro:`PyDoc_STR` in specifying docstrings to support building Python "
 "without docstrings, as specified in :pep:`7`."
 msgstr ""
+"Use :c:macro:`PyDoc_STR` ao especificar docstrings para ter suporte à "
+"compilação do Python sem docstrings, conforme especificado em :pep:`7`."
 
 #: ../../c-api/intro.rst:227
 msgid "Objects, Types and Reference Counts"
-msgstr "Objetos, tipos e contagens de referência"
+msgstr "Objetos, tipos e contagens de referências"
 
 #: ../../c-api/intro.rst:231
 msgid ""
@@ -294,6 +391,18 @@ msgid ""
 "never be deallocated, they are typically static :c:type:`PyTypeObject` "
 "objects."
 msgstr ""
+"A maioria das funções da API Python/C tem um ou mais argumentos, bem como um "
+"valor de retorno do tipo :c:type:`PyObject*`. Este tipo é um ponteiro para "
+"um tipo de dados opaco que representa um objeto Python arbitrário. Como "
+"todos os tipos de objeto Python são tratados da mesma maneira pela linguagem "
+"Python na maioria das situações (por exemplo, atribuições, regras de escopo "
+"e passagem de argumento), é adequado que eles sejam representados por um "
+"único tipo C. Quase todos os objetos Python vivem na pilha: você nunca "
+"declara uma variável automática ou estática do tipo :c:type:`PyObject`, "
+"variáveis de apenas ponteiro do tipo :c:type:`PyObject*` podem ser "
+"declaradas. A única exceção são os objetos de tipo; uma vez que estes nunca "
+"devem ser desalocados, eles são normalmente objetos estáticos :c:type:"
+"`PyTypeObject`."
 
 #: ../../c-api/intro.rst:242
 msgid ""
@@ -305,10 +414,17 @@ msgid ""
 "``PyList_Check(a)`` is true if (and only if) the object pointed to by *a* is "
 "a Python list."
 msgstr ""
+"Todos os objetos Python (mesmo inteiros Python) têm um :dfn:`tipo` e uma :"
+"dfn:`contagem de referências`. O tipo de um objeto determina que tipo de "
+"objeto ele é (por exemplo, um número inteiro, uma lista ou uma função "
+"definida pelo usuário; existem muitos mais, conforme explicado em :ref:"
+"`types`). Para cada um dos tipos conhecidos, há uma macro para verificar se "
+"um objeto é desse tipo; por exemplo, ``PyList_Check(a)`` é verdadeiro se (e "
+"somente se) o objeto apontado por *a* for uma lista Python."
 
 #: ../../c-api/intro.rst:253
 msgid "Reference Counts"
-msgstr "Contagens de referência"
+msgstr "Contagens de referências"
 
 #: ../../c-api/intro.rst:255
 msgid ""
