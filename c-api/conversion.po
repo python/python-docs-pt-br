@@ -25,7 +25,7 @@ msgstr ""
 
 #: ../../c-api/conversion.rst:6
 msgid "String conversion and formatting"
-msgstr "Conversão  e formação de strings"
+msgstr "Conversão e formação de strings"
 
 #: ../../c-api/conversion.rst:8
 msgid "Functions for number conversion and formatted string output."
@@ -37,9 +37,9 @@ msgid ""
 "*format* and the extra arguments. See the Unix man page :manpage:"
 "`snprintf(2)`."
 msgstr ""
-"Saída não superior a *size* bytes para *str* de acordo com o formato string "
-"*format* e os argumentos extras. Veja a página de manual do Unix :manpage:"
-"`snprintf(2)`."
+"Saída não superior a *size* bytes para *str* de acordo com o string de "
+"formato *format* e os argumentos extras. Veja a página de manual do Unix :"
+"manpage:`snprintf(2)`."
 
 #: ../../c-api/conversion.rst:19
 msgid ""
@@ -47,9 +47,9 @@ msgid ""
 "*format* and the variable argument list *va*. Unix man page :manpage:"
 "`vsnprintf(2)`."
 msgstr ""
-"Saída não superior a *size* bytes para *str* de acordo com o formato string "
-"*format* e a variável argumento list *va*. Página man do Unix :manpage:"
-"`vsnprintf(2)`."
+"Saída não superior a *size* bytes para *str* de acordo com a string de "
+"formato *format* e a lista de argumentos variáveis *va*. Página man do Unix :"
+"manpage:`vsnprintf(2)`."
 
 #: ../../c-api/conversion.rst:23
 msgid ""
@@ -58,6 +58,10 @@ msgid ""
 "is to guarantee consistent behavior in corner cases, which the Standard C "
 "functions do not."
 msgstr ""
+":c:func:`PyOS_snprintf` e :c:func:`PyOS_vsnprintf` envolvem as funções :c:"
+"func:`snprintf` e :c:func:`vsnprintf` da biblioteca Standard C. Seu objetivo "
+"é garantir um comportamento consistente em casos extremos, o que as funções "
+"do Standard C não garantem."
 
 #: ../../c-api/conversion.rst:28
 msgid ""
@@ -66,6 +70,10 @@ msgid ""
 "into str. Both functions require that ``str != NULL``, ``size > 0`` and "
 "``format != NULL``."
 msgstr ""
+"Os invólucros garantem que *str*[*size*-1] seja sempre ``'\\0'`` no retorno. "
+"Eles nunca escrevem mais do que *size* bytes (incluindo o ``'\\0'`` ao "
+"final) em str. Ambas as funções exigem que ``str != NULL``, ``size > 0`` e "
+"``format != NULL``."
 
 #: ../../c-api/conversion.rst:33
 msgid ""
@@ -73,11 +81,16 @@ msgid ""
 "to avoid truncation exceeds *size* by more than 512 bytes, Python aborts "
 "with a :c:func:`Py_FatalError`."
 msgstr ""
+"Se a plataforma não tiver :c:func:`vsnprintf` e o tamanho do buffer "
+"necessário para evitar o truncamento exceder *size* em mais de 512 bytes, o "
+"Python aborta com um :c:func:`Py_FatalError`."
 
 #: ../../c-api/conversion.rst:37
 msgid ""
 "The return value (*rv*) for these functions should be interpreted as follows:"
 msgstr ""
+"O valor de retorno (*rv*) para essas funções deve ser interpretado da "
+"seguinte forma:"
 
 #: ../../c-api/conversion.rst:39
 msgid ""
@@ -85,6 +98,9 @@ msgid ""
 "characters were written to *str* (excluding the trailing ``'\\0'`` byte at "
 "*str*[*rv*])."
 msgstr ""
+"Quando``0 <= rv < size``, a conversão de saída foi bem-sucedida e os "
+"caracteres de *rv* foram escritos em *str* (excluindo o ``'\\0'`` byte em "
+"*str*[*rv*])."
 
 #: ../../c-api/conversion.rst:43
 msgid ""
@@ -92,6 +108,9 @@ msgid ""
 "``rv + 1`` bytes would have been needed to succeed. *str*[*size*-1] is "
 "``'\\0'`` in this case."
 msgstr ""
+"Quando ``rv >= size``, a conversão de saída foi truncada e um buffer com "
+"``rv + 1`` bytes teria sido necessário para ter sucesso. *str*[*size*-1] é "
+"``'\\0'`` neste caso."
 
 #: ../../c-api/conversion.rst:47
 msgid ""
@@ -99,12 +118,17 @@ msgid ""
 "this case too, but the rest of *str* is undefined. The exact cause of the "
 "error depends on the underlying platform."
 msgstr ""
+"Quando ``rv < 0``, \"aconteceu algo de errado.\" *str*[*size*-1] é ``'\\0'`` "
+"neste caso também, mas o resto de *str* é indefinido. A causa exata do erro "
+"depende da plataforma subjacente."
 
 #: ../../c-api/conversion.rst:51
 msgid ""
 "The following functions provide locale-independent string to number "
 "conversions."
 msgstr ""
+"As funções a seguir fornecem strings independentes de localidade para "
+"conversões de números."
 
 #: ../../c-api/conversion.rst:56
 msgid ""
@@ -114,6 +138,11 @@ msgid ""
 "have leading or trailing whitespace. The conversion is independent of the "
 "current locale."
 msgstr ""
+"Converte uma string ``s`` em :c:type:`double`, levantando uma exceção Python "
+"em caso de falha. O conjunto de strings aceitas corresponde ao conjunto de "
+"strings aceito pelo construtor :func:`float` do Python, exceto que ``s`` não "
+"deve ter espaços em branco à esquerda ou à direita. A conversão é "
+"independente da localidade atual."
 
 #: ../../c-api/conversion.rst:62
 msgid ""
@@ -121,6 +150,9 @@ msgid ""
 "`ValueError` and return ``-1.0`` if the string is not a valid representation "
 "of a floating-point number."
 msgstr ""
+"Se ``endptr`` for ``NULL``, converte a string inteira. Levanta :exc:"
+"`ValueError` e retorna ``-1.0`` se a string não for uma representação válida "
+"de um número de ponto flutuante."
 
 #: ../../c-api/conversion.rst:66
 msgid ""
@@ -130,6 +162,11 @@ msgid ""
 "number, set ``*endptr`` to point to the beginning of the string, raise "
 "ValueError, and return ``-1.0``."
 msgstr ""
+"Se endptr não for ``NULL``, converte o máximo possível da string e defina "
+"``*endptr`` para apontar para o primeiro caractere não convertido. Se nenhum "
+"segmento inicial da string for a representação válida de um número de ponto "
+"flutuante, define ``*endptr`` para apontar para o início da string, levanta "
+"ValueError e retorne ``-1.0``."
 
 #: ../../c-api/conversion.rst:73
 msgid ""
@@ -141,18 +178,29 @@ msgid ""
 "exception and return ``-1.0``.  In both cases, set ``*endptr`` to point to "
 "the first character after the converted value."
 msgstr ""
+"Se ``s`` representa um valor que é muito grande para armazenar em um ponto "
+"flutuante (por exemplo, ``\"1e500\"`` é uma string assim em muitas "
+"plataformas), então se ``overflow_exception`` for ``NULL`` retorna "
+"``Py_HUGE_VAL`` (com um sinal apropriado) e não define nenhuma exceção. Caso "
+"contrário, ``overflow_exception`` deve apontar para um objeto de exceção "
+"Python; levantar essa exceção e retornar ``-1.0``. Em ambos os casos, define "
+"``*endptr`` para apontar para o primeiro caractere após o valor convertido."
 
 #: ../../c-api/conversion.rst:81
 msgid ""
 "If any other error occurs during the conversion (for example an out-of-"
 "memory error), set the appropriate Python exception and return ``-1.0``."
 msgstr ""
+"Se qualquer outro erro ocorrer durante a conversão (por exemplo, um erro de "
+"falta de memória), define a exceção Python apropriada e retorna ``-1.0``."
 
 #: ../../c-api/conversion.rst:90
 msgid ""
 "Convert a :c:type:`double` *val* to a string using supplied *format_code*, "
 "*precision*, and *flags*."
 msgstr ""
+"Converte um :c:type:`double` *val* para uma string usando *format_code*, "
+"*precision* e *flags* fornecidos."
 
 #: ../../c-api/conversion.rst:93
 msgid ""
@@ -160,30 +208,43 @@ msgid ""
 "``'G'`` or ``'r'``.  For ``'r'``, the supplied *precision* must be 0 and is "
 "ignored.  The ``'r'`` format code specifies the standard :func:`repr` format."
 msgstr ""
+"*format_code* deve ser um entre ``'e'``, ``'E'``, ``'f'``, ``'F'``, ``'g'``, "
+"``'G'`` ou ``'r'``.  Para ``'r'``, a precisão *precision* fornecida deve ser "
+"0 e é ignorada. O código de formato ``'r'`` especifica o formato padrão de :"
+"func:`repr`."
 
 #: ../../c-api/conversion.rst:98
 msgid ""
 "*flags* can be zero or more of the values ``Py_DTSF_SIGN``, "
 "``Py_DTSF_ADD_DOT_0``, or ``Py_DTSF_ALT``, or-ed together:"
 msgstr ""
+"*flags* pode ser zero ou mais de valores ``Py_DTSF_SIGN``, "
+"``Py_DTSF_ADD_DOT_0`` ou ``Py_DTSF_ALT``, alternados por operador lógico OU:"
 
 #: ../../c-api/conversion.rst:101
 msgid ""
 "``Py_DTSF_SIGN`` means to always precede the returned string with a sign "
 "character, even if *val* is non-negative."
 msgstr ""
+"``Py_DTSF_SIGN`` significa sempre preceder a string retornada com um "
+"caractere de sinal, mesmo se *val* não for negativo."
 
 #: ../../c-api/conversion.rst:104
 msgid ""
 "``Py_DTSF_ADD_DOT_0`` means to ensure that the returned string will not look "
 "like an integer."
 msgstr ""
+"``Py_DTSF_ADD_DOT_0`` significa garantir que a string retornada não se "
+"pareça com um inteiro."
 
 #: ../../c-api/conversion.rst:107
 msgid ""
 "``Py_DTSF_ALT`` means to apply \"alternate\" formatting rules.  See the "
 "documentation for the :c:func:`PyOS_snprintf` ``'#'`` specifier for details."
 msgstr ""
+"``Py_DTSF_ALT`` significa aplicar regras de formatação \"alternativas\". "
+"Veja a documentação para o especificador ``'#'`` de :c:func:`PyOS_snprintf` "
+"para detalhes."
 
 #: ../../c-api/conversion.rst:111
 msgid ""
@@ -192,6 +253,10 @@ msgid ""
 "that *val* is a finite number, an infinite number, or not a number, "
 "respectively."
 msgstr ""
+"Se *type* não for ``NULL``, então o valor para o qual ele aponta será "
+"definido como um dos ``Py_DTST_FINITE``, ``Py_DTST_INFINITE`` ou "
+"``Py_DTST_NAN``, significando que *val* é um número finito, um número "
+"infinito ou não um número, respectivamente."
 
 #: ../../c-api/conversion.rst:115
 msgid ""
@@ -199,15 +264,23 @@ msgid ""
 "``NULL`` if the conversion failed. The caller is responsible for freeing the "
 "returned string by calling :c:func:`PyMem_Free`."
 msgstr ""
+"O valor de retorno é um ponteiro para *buffer* com a string convertida ou "
+"``NULL`` se a conversão falhou. O chamador é responsável por liberar a "
+"string retornada chamando :c:func:`PyMem_Free`."
 
 #: ../../c-api/conversion.rst:124
 msgid ""
 "Case insensitive comparison of strings. The function works almost "
 "identically to :c:func:`strcmp` except that it ignores the case."
 msgstr ""
+"Comparação de strings sem diferença entre maiúsculas e minúsculas. A função "
+"funciona quase de forma idêntica a :c:func:`strcmp` exceto que ignora o caso."
 
 #: ../../c-api/conversion.rst:130
 msgid ""
 "Case insensitive comparison of strings. The function works almost "
 "identically to :c:func:`strncmp` except that it ignores the case."
 msgstr ""
+"Comparação de strings sem diferença entre maiúsculas e minúsculas. A função "
+"funciona quase de forma idêntica a :c:func:`strncmp` exceto que ignora o "
+"caso."
