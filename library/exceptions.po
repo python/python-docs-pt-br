@@ -26,7 +26,7 @@ msgstr ""
 
 #: ../../library/exceptions.rst:4
 msgid "Built-in Exceptions"
-msgstr "Exceções Embutidas"
+msgstr "Exceções embutidas"
 
 #: ../../library/exceptions.rst:10
 msgid ""
@@ -470,6 +470,9 @@ msgid ""
 "errno` attribute is then an approximate translation, in POSIX terms, of that "
 "native error code."
 msgstr ""
+"No Windows, isso fornece o código de erro nativo do Windows. O atributo :"
+"attr:`.errno` é então uma tradução aproximada, em termos POSIX, desse código "
+"de erro nativo."
 
 #: ../../library/exceptions.rst:284
 msgid ""
@@ -478,6 +481,10 @@ msgid ""
 "*errno* argument is ignored.  On other platforms, the *winerror* argument is "
 "ignored, and the :attr:`winerror` attribute does not exist."
 msgstr ""
+"No Windows, se o argumento de construtor *winerror* for um inteiro, o "
+"atributo :attr:`.errno` é determinado a partir do código de erro do Windows "
+"e o argumento *errno* é ignorado. Em outras plataformas, o argumento "
+"*winerror* é ignorado e o atributo :attr:`winerror` não existe."
 
 #: ../../library/exceptions.rst:292
 msgid ""
@@ -485,6 +492,9 @@ msgid ""
 "formatted by the C functions :c:func:`perror` under POSIX, and :c:func:"
 "`FormatMessage` under Windows."
 msgstr ""
+"A mensagem de erro correspondente, conforme fornecida pelo sistema "
+"operacional. É formatada pelas funções C :c:func:`perror` no POSIX e :c:func:"
+"`FormatMessage` no Windows."
 
 #: ../../library/exceptions.rst:300
 msgid ""
@@ -494,6 +504,11 @@ msgid ""
 "rename`), :attr:`filename2` corresponds to the second file name passed to "
 "the function."
 msgstr ""
+"Para exceções que envolvem um caminho do sistema de arquivos (como :func:"
+"`open` ou :func:`os.unlink`), :attr:`filename` é o nome do arquivo passado "
+"para a função. Para funções que envolvem dois caminhos de sistema de "
+"arquivos (como: func: `os.rename`), :attr:`filename2` corresponde ao segundo "
+"nome de arquivo passado para a função."
 
 #: ../../library/exceptions.rst:307
 msgid ""
@@ -501,6 +516,9 @@ msgid ""
 "error`, :exc:`select.error` and :exc:`mmap.error` have been merged into :exc:"
 "`OSError`, and the constructor may return a subclass."
 msgstr ""
+":exc:`EnvironmentError`, :exc:`IOError`, :exc:`WindowsError`, :exc:`socket."
+"error`, :exc:`select.error` e :exc:`mmap.error` foram fundidos em :exc:"
+"`OSError`, e o construtor pode retornar uma subclasse."
 
 #: ../../library/exceptions.rst:313
 msgid ""
@@ -509,6 +527,10 @@ msgid ""
 "encoding.  Also, the *filename2* constructor argument and attribute was "
 "added."
 msgstr ""
+"O atributo :attr:`filename` agora é o nome do arquivo original passado para "
+"a função, ao invés do nome codificado ou decodificado da codificação do "
+"sistema de arquivos. Além disso, o argumento e o atributo de construtor "
+"*filename2* foi adicionado."
 
 #: ../../library/exceptions.rst:322
 msgid ""
@@ -519,6 +541,13 @@ msgid ""
 "Because of the lack of standardization of floating point exception handling "
 "in C, most floating point operations are not checked."
 msgstr ""
+"Levantada quando o resultado de uma operação aritmética é muito grande para "
+"ser representada. Isso não pode ocorrer para inteiros (que prefere levantar :"
+"exc:`MemoryError` a desistir). No entanto, por motivos históricos, "
+"OverflowError às vezes é levantada para inteiros que estão fora de um "
+"intervalo obrigatório. Devido à falta de padronização do tratamento de "
+"exceção de ponto flutuante em C, a maioria das operações de ponto flutuante "
+"não são verificadas."
 
 #: ../../library/exceptions.rst:332
 msgid ""
@@ -526,10 +555,13 @@ msgid ""
 "interpreter detects that the maximum recursion depth (see :func:`sys."
 "getrecursionlimit`) is exceeded."
 msgstr ""
+"Esta exceção é derivada de :exc:`RuntimeError`. É levantada quando o "
+"interpretador detecta que a profundidade máxima de recursão (veja :func:`sys."
+"getrecursionlimit`) foi excedida."
 
 #: ../../library/exceptions.rst:336
 msgid "Previously, a plain :exc:`RuntimeError` was raised."
-msgstr ""
+msgstr "Anteriormente, uma :exc:`RuntimeError` simples era levantada."
 
 #: ../../library/exceptions.rst:342
 msgid ""
@@ -538,6 +570,10 @@ msgid ""
 "after it has been garbage collected. For more information on weak "
 "references, see the :mod:`weakref` module."
 msgstr ""
+"Esta exceção é levantada quando um intermediário de referência fraca, criado "
+"pela função :func:`weakref.proxy`, é usado para acessar um atributo do "
+"referente após ter sido coletado como lixo. Para mais informações sobre "
+"referências fracas, veja o módulo :mod:`weakref`."
 
 #: ../../library/exceptions.rst:350
 msgid ""
@@ -555,12 +591,17 @@ msgid ""
 "`~iterator.__next__` method to signal that there are no further items "
 "produced by the iterator."
 msgstr ""
+"Levantada pela função embutida :func:`next` e o método :meth:`~iterator."
+"__next__` de um :term:`iterador` para sinalizar que não há mais itens "
+"produzidos pelo iterador."
 
 #: ../../library/exceptions.rst:361
 msgid ""
 "The exception object has a single attribute :attr:`value`, which is given as "
 "an argument when constructing the exception, and defaults to :const:`None`."
 msgstr ""
+"O objeto exceção tem um único atributo :attr:`value`, que é fornecido como "
+"um argumento ao construir a exceção, e o padrão é :const:`None`."
 
 #: ../../library/exceptions.rst:365
 msgid ""
@@ -568,6 +609,10 @@ msgid ""
 "`StopIteration` instance is raised, and the value returned by the function "
 "is used as the :attr:`value` parameter to the constructor of the exception."
 msgstr ""
+"Quando uma função :term:`geradora <gerador>` ou :term:`corrotina` retorna, "
+"uma nova instância :exc:`StopIteration` é levantada, e o valor retornado "
+"pela função é usado como o parâmetro :attr:`value` para o construtor da "
+"exceção."
 
 #: ../../library/exceptions.rst:370
 msgid ""
@@ -575,30 +620,42 @@ msgid ""
 "is converted into a :exc:`RuntimeError` (retaining the :exc:`StopIteration` "
 "as the new exception's cause)."
 msgstr ""
+"Se um código gerador direta ou indiretamente levantar :exc:`StopIteration`, "
+"ele é convertido em uma :exc:`RuntimeError` (mantendo o :exc:`StopIteration` "
+"como a nova causa da exceção)."
 
 #: ../../library/exceptions.rst:374
 msgid ""
 "Added ``value`` attribute and the ability for generator functions to use it "
 "to return a value."
 msgstr ""
+"Adicionado o atributo ``value`` e a capacidade das funções geradoras de usá-"
+"lo para retornar um valor."
 
 #: ../../library/exceptions.rst:378
 msgid ""
 "Introduced the RuntimeError transformation via ``from __future__ import "
 "generator_stop``, see :pep:`479`."
 msgstr ""
+"Introduzida a transformação RuntimeError via ``from __future__ import "
+"generator_stop``, consulte :pep:`479`."
 
 #: ../../library/exceptions.rst:382
 msgid ""
 "Enable :pep:`479` for all code by default: a :exc:`StopIteration` error "
 "raised in a generator is transformed into a :exc:`RuntimeError`."
 msgstr ""
+"Habilita :pep:`479` para todo o código por padrão: um erro :exc:"
+"`StopIteration` levantado em um gerador é transformado em uma :exc:"
+"`RuntimeError`."
 
 #: ../../library/exceptions.rst:388
 msgid ""
 "Must be raised by :meth:`__anext__` method of an :term:`asynchronous "
 "iterator` object to stop the iteration."
 msgstr ""
+"Deve ser levantada pelo método :meth:`__anext__` de um objeto :term:"
+"`iterador assíncrono` para parar a iteração."
 
 #: ../../library/exceptions.rst:395
 msgid ""
@@ -607,6 +664,10 @@ msgid ""
 "or :func:`eval`, or when reading the initial script or standard input (also "
 "interactively)."
 msgstr ""
+"Levatada quando o analisador encontra um erro de sintaxe. Isso pode ocorrer "
+"em uma instrução :keyword:`import`, em uma chamada às funções embutidas :"
+"func:`exec` ou :func:`eval`, ou ao ler o script inicial ou entrada padrão "
+"(também interativamente)."
 
 #: ../../library/exceptions.rst:400
 msgid ""
@@ -614,6 +675,9 @@ msgid ""
 "attr:`offset` and :attr:`text` for easier access to the details.  :func:"
 "`str` of the exception instance returns only the message."
 msgstr ""
+"Instâncias desta classe têm atributos :attr:`filename`, :attr:`lineno`, :"
+"attr:`offset` e :attr:`text` para facilitar o acesso aos detalhes. :func:"
+"`str` da instância de exceção retorna apenas a mensagem."
 
 #: ../../library/exceptions.rst:407
 msgid ""
@@ -628,6 +692,8 @@ msgid ""
 "Raised when indentation contains an inconsistent use of tabs and spaces. "
 "This is a subclass of :exc:`IndentationError`."
 msgstr ""
+"Levantada quando o indentação contém um uso inconsistente de tabulações e "
+"espaços. Esta é uma subclasse de :exc:`IndentationError`."
 
 #: ../../library/exceptions.rst:419
 msgid ""
@@ -635,6 +701,10 @@ msgid ""
 "not look so serious to cause it to abandon all hope. The associated value is "
 "a string indicating what went wrong (in low-level terms)."
 msgstr ""
+"Levantada quando o interpretador encontra um erro interno, mas a situação "
+"não parece tão grave para fazer com que perca todas as esperanças. O valor "
+"associado é uma string que indica o que deu errado (em termos de baixo "
+"nível)."
 
 #: ../../library/exceptions.rst:423
 msgid ""
@@ -644,6 +714,11 @@ msgid ""
 "session), the exact error message (the exception's associated value) and if "
 "possible the source of the program that triggered the error."
 msgstr ""
+"Você deve relatar isso ao autor ou mantenedor do seu interpretador Python. "
+"Certifique-se de relatar a versão do interpretador Python (``sys.version``; "
+"também é impresso no início de uma sessão Python interativa), a mensagem de "
+"erro exata (o valor associado da exceção) e se possível a fonte do programa "
+"que acionou o erro."
 
 #: ../../library/exceptions.rst:432
 msgid ""
