@@ -228,6 +228,11 @@ msgid ""
 "JSON and then back into a dictionary, the dictionary may not equal the "
 "original one. That is, ``loads(dumps(x)) != x`` if x has non-string keys."
 msgstr ""
+"Chaves nos pares chave/valor de JSON são sempre do tipo :class:`str`. Quando "
+"um dicionário é convertido para JSON, todas as chaves são convertidas para "
+"strings. Como resultado disso, se um dicionário é convertido para JSON e "
+"depois de volta para o dicionários, o dicionário pode não ser igual ao "
+"original. Isto é, ``loads(dumps(x)) != x`` se x tem chaves não-strings."
 
 #: ../../library/json.rst:215
 msgid ""
@@ -253,6 +258,11 @@ msgid ""
 "be used to implement custom decoders (e.g. `JSON-RPC <http://www.jsonrpc."
 "org>`_ class hinting)."
 msgstr ""
+"*object_hook* é uma função opcional que será chamada com o resultado de "
+"qualquer objeto literal decodificado (um :class:`dict`). O valor do retorno "
+"de *object_hook* será usado no lugar de :class:`dict`.  Esse recurso pode "
+"ser usado para implementar decodificadores personalizados (por exemplo, "
+"sugestão para classes `JSON-RPC <http://www.jsonrpc.org>`_)."
 
 #: ../../library/json.rst:231
 msgid ""
@@ -267,7 +277,7 @@ msgstr ""
 
 #: ../../library/json.rst:239 ../../library/json.rst:333
 msgid "Added support for *object_pairs_hook*."
-msgstr ""
+msgstr "Adicionado suporte para *object_pairs_hook*."
 
 #: ../../library/json.rst:242 ../../library/json.rst:336
 msgid ""
@@ -276,6 +286,10 @@ msgid ""
 "This can be used to use another datatype or parser for JSON floats (e.g. :"
 "class:`decimal.Decimal`)."
 msgstr ""
+"*parse_float*, se especificado, será chamada com a string de cada ponto "
+"flutuante JSON para ser decodificado. Por padrão, é equivalente a "
+"``float(num_str)``. Pode ser usado para qualquer outro tipo de dado ou  "
+"conversor para ponto flutuante JSON (ex. :class:`decimal.Decimal`)."
 
 #: ../../library/json.rst:247 ../../library/json.rst:341
 msgid ""
@@ -284,6 +298,10 @@ msgid ""
 "can be used to use another datatype or parser for JSON integers (e.g. :class:"
 "`float`)."
 msgstr ""
+"*parse_int*, se especificado, será chamada com a string de cada inteiro JSON "
+"para ser decodificado. Por padrão, é equivalente a ``int(num_str)``.  Pode "
+"ser usado para qualquer outro tipo de dado ou conversor para inteiro JSON "
+"(ex. :class:`float`)."
 
 #: ../../library/json.rst:252 ../../library/json.rst:346
 msgid ""
@@ -291,10 +309,13 @@ msgid ""
 "strings: ``'-Infinity'``, ``'Infinity'``, ``'NaN'``. This can be used to "
 "raise an exception if invalid JSON numbers are encountered."
 msgstr ""
+"*parse_constant*, se especificado, será chamada para cada um das seguintes "
+"strings: ``'-Infinity'``, ``'Infinity'``, ``'NaN'``. Isso pode ser usado "
+"para levantar uma exceção se forem encontrados números JSON inválidos."
 
 #: ../../library/json.rst:257
 msgid "*parse_constant* doesn't get called on 'null', 'true', 'false' anymore."
-msgstr ""
+msgstr "*parse_constant* não é mais chamada para 'null', 'true', 'false'."
 
 #: ../../library/json.rst:260
 msgid ""
@@ -302,6 +323,10 @@ msgid ""
 "kwarg; otherwise :class:`JSONDecoder` is used.  Additional keyword arguments "
 "will be passed to the constructor of the class."
 msgstr ""
+"Para usar uma subclasse de :class:`JSONDecoder` personalizada, especifique "
+"isto com o argumento nomeado ``cls``; caso contrário será usada :class:"
+"`JSONDecoder`. Argumentos nomeados adicionais poderão ser passados para o "
+"construtor da classe."
 
 #: ../../library/json.rst:267
 msgid ""
@@ -321,26 +346,27 @@ msgstr ""
 #: ../../library/json.rst:276
 msgid "The other arguments have the same meaning as in :func:`load`."
 msgstr ""
+"Os outros argumentos tem o mesmo significado que os da função :func:`load`."
 
 #: ../../library/json.rst:280
 msgid "Encoders and Decoders"
-msgstr ""
+msgstr "Codificadores e decodificadores"
 
 #: ../../library/json.rst:284
 msgid "Simple JSON decoder."
-msgstr ""
+msgstr "Decodificador JSON simples"
 
 #: ../../library/json.rst:286
 msgid "Performs the following translations in decoding by default:"
-msgstr ""
+msgstr "Executa as seguintes traduções na decodificação por padrão:"
 
 #: ../../library/json.rst:291 ../../library/json.rst:383
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 #: ../../library/json.rst:291 ../../library/json.rst:383
 msgid "Python"
-msgstr ""
+msgstr "Python"
 
 #: ../../library/json.rst:293 ../../library/json.rst:385
 msgid "object"
@@ -411,6 +437,8 @@ msgid ""
 "It also understands ``NaN``, ``Infinity``, and ``-Infinity`` as their "
 "corresponding ``float`` values, which is outside the JSON spec."
 msgstr ""
+"Ele também entende ``NaN``, ``Infinity`` e ``-Infinity`` como seus valores "
+"``float`` correspondentes, que estão fora da especificação JSON."
 
 #: ../../library/json.rst:313
 msgid ""
@@ -432,6 +460,11 @@ msgid ""
 "class:`dict`.  This can be used to provide custom deserializations (e.g. to "
 "support JSON-RPC class hinting)."
 msgstr ""
+"*object_hook*, se especificado, será chamada com o resultado de cada objeto "
+"JSON decodificado e seu valor de retorno será usado no lugar do  :class:"
+"`dict` dado. Isso pode ser usado para fornecer desserializações "
+"personalizadas (por exemplo, para oferecer suporte a sugestão para classes "
+"JSON-RPC)"
 
 #: ../../library/json.rst:325
 msgid ""
@@ -540,6 +573,11 @@ msgid ""
 "compliant, but is consistent with most JavaScript based encoders and "
 "decoders.  Otherwise, it will be a :exc:`ValueError` to encode such floats."
 msgstr ""
+"Se *allow_nan* for verdadeiro (o padrão), então ``NaN``, ``Ìnfinity``, and "
+"``-Infinity`` serão codificados como tal. Esse comportamento não é "
+"compatível com a especificação do JSON, mas é consistente com a maioria dos "
+"codificadores e decodificadores baseados em JavaScript. Caso contrário, será "
+"um :exc:`ValueError` para codificar tais pontos flutuantes."
 
 #: ../../library/json.rst:427
 msgid ""
