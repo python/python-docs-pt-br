@@ -4124,6 +4124,12 @@ msgid ""
 "underlying functionality Python uses to accept open file descriptors as "
 "*path* arguments is not available on all platforms Python supports."
 msgstr ""
+"Um objeto :class:`set` que indica quais funções no módulo :mod:`os` permitem "
+"especificar seu parâmetro *path* como um descritor de arquivo aberto na "
+"plataforma local. Plataformas diferentes fornecem recursos diferentes, e a "
+"funcionalidade subjacente que o Python usa para aceitar descritores de "
+"arquivos abertos como argumentos *path* não está disponível em todas as "
+"plataformas que o Python suporta."
 
 #: ../../library/os.rst:2809
 msgid ""
@@ -4133,6 +4139,11 @@ msgid ""
 "func:`os.chdir` accepts open file descriptors for *path* on your local "
 "platform::"
 msgstr ""
+"Para determinar se uma função particular permite especificar um descritor de "
+"arquivo aberto para seu parâmetro *path*, use o operador ``in`` em "
+"``supports_fd``. Como exemplo, esta expressão é avaliada como ``True`` se :"
+"func:`os.chdir` aceita descritores de arquivo abertos para *path* em sua "
+"plataforma local::"
 
 #: ../../library/os.rst:2822
 msgid ""
@@ -4146,6 +4157,16 @@ msgid ""
 "available.  (Specifying ``True`` for *follow_symlinks* is always supported "
 "on all platforms.)"
 msgstr ""
+"Um objeto :class:`set` que indica quais funções no módulo :mod:`os` aceitam "
+"``False`` para seu parâmetro *follow_symlinks* na plataforma local. "
+"Plataformas diferentes fornecem recursos diferentes, e a funcionalidade "
+"subjacente que o Python usa para implementar *follow_symlinks* não está "
+"disponível em todas as plataformas às quais o Python tem suporte. Para fins "
+"de consistência, as funções que podem ter suporte a *follow_symlinks* sempre "
+"permitem especificar o parâmetro, mas irão lançar uma exceção se a "
+"funcionalidade for usada quando não estiver disponível localmente. "
+"(Especificar ``True`` para *follow_symlinks* é sempre aceito em todas as "
+"plataformas.)"
 
 #: ../../library/os.rst:2832
 msgid ""
@@ -4155,10 +4176,15 @@ msgid ""
 "``True`` if you may specify ``follow_symlinks=False`` when calling :func:`os."
 "stat` on the local platform::"
 msgstr ""
+"Para verificar se uma função em particular aceita ``False`` para seu "
+"parâmetro *follow_symlinks*, use o operador ``in`` em "
+"``supports_follow_symlinks``. Como exemplo, esta expressão é avaliada como "
+"``True`` se você pode especificar ``follow_symlinks=False`` ao chamar :func:"
+"`os.stat` na plataforma local::"
 
 #: ../../library/os.rst:2845
 msgid "Create a symbolic link pointing to *src* named *dst*."
-msgstr ""
+msgstr "Cria um link simbólico apontando para *src* chamado *dst*."
 
 #: ../../library/os.rst:2847
 msgid ""
@@ -4169,6 +4195,12 @@ msgid ""
 "default) otherwise.  On non-Windows platforms, *target_is_directory* is "
 "ignored."
 msgstr ""
+"No Windows, um link simbólico representa um arquivo ou um diretório e não se "
+"transforma no destino dinamicamente. Se o alvo estiver presente, o tipo de "
+"link simbólico será criado para corresponder. Caso contrário, o link "
+"simbólico será criado como um diretório se *target_is_directory* for "
+"``True`` ou um link simbólico de arquivo (o padrão) caso contrário. Em "
+"plataformas não Windows, *target_is_directory* é ignorado."
 
 #: ../../library/os.rst:2858
 msgid ""
@@ -4177,43 +4209,60 @@ msgid ""
 "the *SeCreateSymbolicLinkPrivilege* privilege is required, or the process "
 "must be run as an administrator."
 msgstr ""
+"Em versões mais recentes do Windows 10, contas sem privilégios podem criar "
+"links simbólicos se o Modo de Desenvolvedor estiver habilitado. Quando o "
+"modo de desenvolvedor não está disponível/ativado, o privilégio "
+"*SeCreateSymbolicLinkPrivilege* é necessário ou o processo deve ser "
+"executado como um administrador."
 
 #: ../../library/os.rst:2864
 msgid ""
 ":exc:`OSError` is raised when the function is called by an unprivileged user."
 msgstr ""
+"A exceção :exc:`OSError` é levantada quando a função é chamada por um "
+"usuário sem privilégios."
 
 #: ../../library/os.rst:2868
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``os.symlink`` with arguments "
 "``src``, ``dst``, ``dir_fd``."
 msgstr ""
+"Levanta um :ref:`evento de auditoria <auditing>` ``os.symlink`` com "
+"argumentos ``src``, ``dst``, ``dir_fd``."
 
 #: ../../library/os.rst:2874
 msgid ""
 "Added the *dir_fd* argument, and now allow *target_is_directory* on non-"
 "Windows platforms."
 msgstr ""
+"Adicionado o argumento *dir_fd* e agora permite *target_is_directory* em "
+"plataformas não Windows."
 
 #: ../../library/os.rst:2881
 msgid "Added support for unelevated symlinks on Windows with Developer Mode."
 msgstr ""
+"Adicionado suporte para links simbólicos não elevados no Windows com Modo de "
+"Desenvolvedor."
 
 #: ../../library/os.rst:2887
 msgid "Force write of everything to disk."
-msgstr ""
+msgstr "Força a escrita de tudo para o disco."
 
 #: ../../library/os.rst:2896
 msgid ""
 "Truncate the file corresponding to *path*, so that it is at most *length* "
 "bytes in size."
 msgstr ""
+"Trunca o arquivo correspondente ao *path*, de modo que tenha no máximo "
+"*length* bytes."
 
 #: ../../library/os.rst:2902
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``os.truncate`` with arguments "
 "``path``, ``length``."
 msgstr ""
+"Levanta :ref:`evento de auditoria <auditing>` ``os.truncate`` com os "
+"argumentos ``path``, ``length``."
 
 #: ../../library/os.rst:2916
 msgid ""
@@ -4221,38 +4270,52 @@ msgid ""
 "to :func:`remove`; the ``unlink`` name is its traditional Unix name.  Please "
 "see the documentation for :func:`remove` for further information."
 msgstr ""
+"Remove (exclui) o arquivo *path*. Esta função é semanticamente idêntica à :"
+"func:`remove`; o nome ``unlink`` é seu nome Unix tradicional. Por favor, "
+"veja a documentação de :func:`remove` para mais informações."
 
 #: ../../library/os.rst:2932
 msgid "Set the access and modified times of the file specified by *path*."
 msgstr ""
+"Define os tempos de acesso e modificação do arquivo especificado por *path*."
 
 #: ../../library/os.rst:2934
 msgid ""
 ":func:`utime` takes two optional parameters, *times* and *ns*. These specify "
 "the times set on *path* and are used as follows:"
 msgstr ""
+":func:`utime` aceita dois parâmetros opcionais, *times* e *ns*. Eles "
+"especificam os horários definidos no *path* e são usados da seguinte forma:"
 
 #: ../../library/os.rst:2937
 msgid ""
 "If *ns* is specified, it must be a 2-tuple of the form ``(atime_ns, "
 "mtime_ns)`` where each member is an int expressing nanoseconds."
 msgstr ""
+"Se *ns* for especificado, deve ser uma tupla de 2 elementos na forma "
+"``(atime_ns, mtime_ns)`` onde cada membro é um int expressando nanossegundos."
 
 #: ../../library/os.rst:2940
 msgid ""
 "If *times* is not ``None``, it must be a 2-tuple of the form ``(atime, "
 "mtime)`` where each member is an int or float expressing seconds."
 msgstr ""
+"Se *times* não for ``None``, deve ser uma tupla de 2 elementos na forma "
+"``(atime, mtime)`` onde cada membro é um int ou ponto flutuante expressando "
+"segundos."
 
 #: ../../library/os.rst:2943
 msgid ""
 "If *times* is ``None`` and *ns* is unspecified, this is equivalent to "
 "specifying ``ns=(atime_ns, mtime_ns)`` where both times are the current time."
 msgstr ""
+"Se *times* for ``None`` e *ns* não for especificado, isso é equivalente a "
+"especificar ``ns=(atime_ns, mtime_ns)`` onde ambos os tempos são a hora "
+"atual."
 
 #: ../../library/os.rst:2947
 msgid "It is an error to specify tuples for both *times* and *ns*."
-msgstr ""
+msgstr "É um erro especificar tuplas para ambos *times* e *ns*."
 
 #: ../../library/os.rst:2949
 msgid ""
@@ -4263,18 +4326,28 @@ msgid ""
 "fields from the :func:`os.stat` result object with the *ns* parameter to "
 "`utime`."
 msgstr ""
+"Observe que os tempos exatos que você definiu aqui podem não ser retornados "
+"por uma chamada subsequente de :func:`~os.stat`, dependendo da resolução com "
+"a qual seu sistema operacional registra os tempos de acesso e modificação; "
+"veja :func:`~os.stat`. A melhor maneira de preservar os tempos exatos é usar "
+"os campos *st_atime_ns* e *st_mtime_ns* do objeto de resultado :func:`os."
+"stat` com o parâmetro *ns* para `utime`."
 
 #: ../../library/os.rst:2961
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``os.utime`` with arguments "
 "``path``, ``times``, ``ns``, ``dir_fd``."
 msgstr ""
+"Levanta um :ref:`evento de auditoria <auditing>` ``os.utime`` com os "
+"argumentos ``path``, ``times``, ``ns``, ``dir_fd``."
 
 #: ../../library/os.rst:2962
 msgid ""
 "Added support for specifying *path* as an open file descriptor, and the "
 "*dir_fd*, *follow_symlinks*, and *ns* parameters."
 msgstr ""
+"Adicionado suporte para especificar *path* como um descritor de arquivo "
+"aberto e os parâmetros *dir_fd*, *follow_symlinks* e *ns*."
 
 #: ../../library/os.rst:2976
 msgid ""
