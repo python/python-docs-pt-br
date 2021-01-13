@@ -1254,11 +1254,17 @@ msgid ""
 "interpreter is built. You can determine the path by importing the :mod:`sys` "
 "module and printing the value of ``sys.path``.   ::"
 msgstr ""
+"Quando o interpretador Python executa uma instrução :keyword:`import`, ele "
+"procura tanto o código Python quanto os módulos de extensão ao longo de um "
+"caminho de busca. Um valor padrão para o caminho é configurado no binário "
+"Python quando o interpretador é construído. Você pode determinar o caminho "
+"importando o módulo :mod:`sys` e imprimindo o valor de ``sys.path``. ::"
 
 #: ../../install/index.rst:701
 msgid ""
 "The null string in ``sys.path`` represents the current working directory."
 msgstr ""
+"A string nula em ``sys.path`` representa o diretório de trabalho atual."
 
 #: ../../install/index.rst:703
 msgid ""
@@ -1270,6 +1276,13 @@ msgid ""
 "and in order to import them, this directory must be added to ``sys.path``.  "
 "There are several different ways to add the directory."
 msgstr ""
+"A convenção esperada para pacotes instalados localmente é colocá-los no "
+"diretório :file:`{...}/site-packages/`, mas você pode querer instalar "
+"módulos Python em algum diretório arbitrário. Por exemplo, seu site pode ter "
+"uma convenção de manter todos os softwares relacionados ao servidor da web "
+"em :file:`/www`. Módulos add-on Python podem então pertencer a :file:`/www/"
+"python`, e para importá-los, este diretório deve ser adicionado a ``sys."
+"path``. Existem várias maneiras de adicionar o diretório."
 
 #: ../../install/index.rst:711
 msgid ""
@@ -1281,6 +1294,14 @@ msgid ""
 "directories will not override standard modules.  This means you can't use "
 "this mechanism for installing fixed versions of standard modules.)"
 msgstr ""
+"A maneira mais conveniente é adicionar um arquivo de configuração de caminho "
+"a um diretório que já está no caminho do Python, geralmente para o "
+"diretório :file:`.../site-packages/`. Os arquivos de configuração de caminho "
+"têm uma extensão de :file:`.pth`, e cada linha deve conter um único caminho "
+"que será anexado a ``sys.path``. (Como os novos caminhos são anexados a "
+"``sys.path``, os módulos nos diretórios adicionados não substituirão os "
+"módulos padrão. Isso significa que você não pode usar este mecanismo para "
+"instalar versões fixas de módulos padrão.)"
 
 #: ../../install/index.rst:719
 msgid ""
@@ -1288,6 +1309,9 @@ msgid ""
 "directory containing the :file:`.pth` file.  See the documentation of the :"
 "mod:`site` module for more information."
 msgstr ""
+"Os caminhos podem ser absolutos ou relativos, nesse caso eles são relativos "
+"ao diretório que contém o arquivo :file:`.pth`. Veja a documentação do "
+"módulo :mod:`site` para mais informações."
 
 #: ../../install/index.rst:723
 msgid ""
@@ -1297,6 +1321,12 @@ msgid ""
 "option:`-S` switch is supplied to suppress this behaviour.  So you could "
 "simply edit :file:`site.py` and add two lines to it:"
 msgstr ""
+"Uma maneira um pouco menos conveniente é editar o arquivo  :file:`site.py` "
+"na biblioteca padrão do Python e modificar ``sys.path``. :file:`site.py` é "
+"importado automaticamente quando o interpretador Python é executado, a menos "
+"que a opção :option:`-S` seja fornecida para suprimir este comportamento. "
+"Portanto, você pode simplesmente editar :file:`site.py` e adicionar duas "
+"linhas a ele:"
 
 #: ../../install/index.rst:734
 msgid ""
@@ -1305,6 +1335,10 @@ msgid ""
 "overwritten by the stock version.  You'd have to remember that it was "
 "modified and save a copy before doing the installation."
 msgstr ""
+"No entanto, se você reinstalar a mesma versão principal do Python (talvez ao "
+"atualizar de 2.2 para 2.2.2, por exemplo) :file:`site.py` será substituído "
+"pela versão padrão. Você teria que lembrar que ele foi modificado e salvar "
+"uma cópia antes de fazer a instalação."
 
 #: ../../install/index.rst:739
 msgid ""
@@ -1314,6 +1348,11 @@ msgid ""
 "python``, the search path will be set to ``['', '/www/python/lib/pythonX."
 "Y/', '/www/python/lib/pythonX.Y/plat-linux2', ...]``."
 msgstr ""
+"Existem duas variáveis de ambiente que podem modificar ``sys.path``. :envvar:"
+"`PYTHONHOME` define um valor alternativo para o prefixo da instalação do "
+"Python. Por exemplo, se :envvar:`PYTHONHOME` estiver definida como ``/www/"
+"python``, o caminho de pesquisa será definido como ``['', '/www/python/lib/"
+"pythonX.Y/', '/www/python/lib/pythonX.Y/plat-linux2', ...]``."
 
 #: ../../install/index.rst:745
 msgid ""
@@ -1324,16 +1363,24 @@ msgid ""
 "order to be added to ``sys.path``; the :mod:`site` module removes paths that "
 "don't exist.)"
 msgstr ""
+"A variável :envvar:`PYTHONPATH` pode ser definida como uma lista de caminhos "
+"que serão adicionados ao início de ``sys.path``. Por exemplo, se :envvar:"
+"`PYTHONPATH` estiver definida como ``/www/python:/opt/py``, o caminho de "
+"pesquisa começará com ``['/www/python', '/opt/py']``. (Observe que os "
+"diretórios devem existir para serem adicionados ao ``sys.path``; o módulo :"
+"mod:`site` remove caminhos que não existem.)"
 
 #: ../../install/index.rst:752
 msgid ""
 "Finally, ``sys.path`` is just a regular Python list, so any Python "
 "application can modify it by adding or removing entries."
 msgstr ""
+"Finalmente, ``sys.path`` é apenas uma lista Python regular, então qualquer "
+"aplicação Python pode modificá-la adicionando ou removendo entradas."
 
 #: ../../install/index.rst:759
 msgid "Distutils Configuration Files"
-msgstr ""
+msgstr "Arquivos de configuração do Distutils"
 
 #: ../../install/index.rst:761
 msgid ""
@@ -1346,10 +1393,20 @@ msgid ""
 "Furthermore, if multiple configuration files apply, values from \"earlier\" "
 "files are overridden by \"later\" files."
 msgstr ""
+"Conforme mencionado acima, você pode usar os arquivos de configuração do "
+"Distutils para registrar preferências pessoais ou do site para qualquer "
+"opção do Distutils. Ou seja, qualquer opção para qualquer comando pode ser "
+"armazenada em um de dois ou três (dependendo da sua plataforma) arquivos de "
+"configuração, que serão consultados antes que a linha de comando seja "
+"analisada. Isso significa que os arquivos de configuração sobrescreverão os "
+"valores padrão e a linha de comando, por sua vez, sobrescreverá os arquivos "
+"de configuração. Além disso, se vários arquivos de configuração se "
+"aplicarem, os valores dos arquivos \"anteriores\" serão substituídos pelos "
+"arquivos \"posteriores\"."
 
 #: ../../install/index.rst:774
 msgid "Location and names of config files"
-msgstr ""
+msgstr "Localização e nomes dos arquivos de configuração"
 
 #: ../../install/index.rst:776
 msgid ""
@@ -1357,14 +1414,17 @@ msgid ""
 "platforms.  On Unix and Mac OS X, the three configuration files (in the "
 "order they are processed) are:"
 msgstr ""
+"Os nomes e locais dos arquivos de configuração variam ligeiramente entre as "
+"plataformas. No Unix e no Mac OS X, os três arquivos de configuração (na "
+"ordem em que são processados) são:"
 
 #: ../../install/index.rst:781 ../../install/index.rst:793
 msgid "Location and filename"
-msgstr ""
+msgstr "Localização e nome de arquivo"
 
 #: ../../install/index.rst:783 ../../install/index.rst:795
 msgid "system"
-msgstr ""
+msgstr "sistema"
 
 #: ../../install/index.rst:783
 msgid ":file:`{prefix}/lib/python{ver}/distutils/distutils.cfg`"
@@ -1372,7 +1432,7 @@ msgstr ":file:`{prefix}/lib/python{ver}/distutils/distutils.cfg`"
 
 #: ../../install/index.rst:785 ../../install/index.rst:797
 msgid "personal"
-msgstr ""
+msgstr "pessoal"
 
 #: ../../install/index.rst:785
 msgid ":file:`$HOME/.pydistutils.cfg`"
@@ -1380,7 +1440,7 @@ msgstr ":file:`$HOME/.pydistutils.cfg`"
 
 #: ../../install/index.rst:787 ../../install/index.rst:799
 msgid "local"
-msgstr ""
+msgstr "local"
 
 #: ../../install/index.rst:787 ../../install/index.rst:799
 msgid ":file:`setup.cfg`"
@@ -1392,7 +1452,7 @@ msgstr "\\(3)"
 
 #: ../../install/index.rst:790
 msgid "And on Windows, the configuration files are:"
-msgstr ""
+msgstr "E no Windows, os arquivos de configuração são:"
 
 #: ../../install/index.rst:795
 msgid ":file:`{prefix}\\\\Lib\\\\distutils\\\\distutils.cfg`"
@@ -1415,6 +1475,8 @@ msgid ""
 "On all platforms, the \"personal\" file can be temporarily disabled by "
 "passing the `--no-user-cfg` option."
 msgstr ""
+"Em todas as plataformas, o arquivo \"pessoal\" pode ser desativado "
+"temporariamente passando a opção `--no-user-cfg`."
 
 #: ../../install/index.rst:808
 msgid ""
@@ -1424,6 +1486,11 @@ msgid ""
 "file:`{prefix}/lib/python1.5/site-packages/distutils`, so the system "
 "configuration file should be put there under Python 1.5.2."
 msgstr ""
+"Estritamente falando, o arquivo de configuração de todo o sistema reside no "
+"diretório onde os Distutils estão instalados; no Python 1.6 e posterior no "
+"Unix, isso é mostrado. Para Python 1.5.2, o Distutils normalmente será "
+"instalado em :file:`{prefix}/lib/python1.5/site-packages/distutils`, então o "
+"arquivo de configuração do sistema deve ser colocado lá em Python 1.5.2."
 
 #: ../../install/index.rst:815
 msgid ""
@@ -1432,11 +1499,17 @@ msgid ""
 "from the standard :mod:`pwd` module. This is done by the :func:`os.path."
 "expanduser` function used by Distutils."
 msgstr ""
+"No Unix, se a variável de ambiente :envvar:`HOME` não estiver definida, o "
+"diretório home do usuário será determinado com a função :func:`getpwuid` do "
+"módulo padrão :mod:`pwd`. Isso é feito pela função :func:`os.path."
+"expanduser` usada pelo Distutils."
 
 #: ../../install/index.rst:821
 msgid ""
 "I.e., in the current directory (usually the location of the setup script)."
 msgstr ""
+"Ou seja, no diretório atual (geralmente a localização do script de "
+"configuração)."
 
 #: ../../install/index.rst:824
 msgid ""
@@ -1449,6 +1522,14 @@ msgid ""
 "\\distutils\\\\distutils.cfg` in a standard Python 1.5.2 installation under "
 "Windows."
 msgstr ""
+"(Consulte também a nota (1).) No Python 1.6 e posterior, o \"prefixo de "
+"instalação\" padrão do Python é :file:`C:\\\\Python`, então o arquivo de "
+"configuração do sistema é normalmente :file:`C:\\\\Python\\\\Lib\\\\distutils"
+"\\\\distutils.cfg`. No Python 1.5.2, o prefixo padrão era :file:`C:\\"
+"\\Arquivos de programas\\\\Python`, e os Distutils não faziam parte da "
+"biblioteca padrão -- de forma que o arquivo de configuração do sistema "
+"seria :file:`C:\\\\Arquivos de programas\\\\Python\\\\distutils\\\\distutils."
+"cfg` em uma instalação padrão do Python 1.5.2 no Windows."
 
 #: ../../install/index.rst:833
 msgid ""
@@ -1457,10 +1538,14 @@ msgid ""
 "tried. This is done by the :func:`os.path.expanduser` function used by "
 "Distutils."
 msgstr ""
+"No Windows, Se a variável de ambiente :envvar:`HOME` não estiver definida, :"
+"envvar:`USERPROFILE`, então :envvar:`HOMEDRIVE` e, por fim, :envvar:"
+"`HOMEPATH` serão tentados. Isso é feito pela função :func:`os.path."
+"expanduser` usada pelo Distutils."
 
 #: ../../install/index.rst:842
 msgid "Syntax of config files"
-msgstr ""
+msgstr "Sintaxe dos arquivos de configuração"
 
 #: ../../install/index.rst:844
 msgid ""
