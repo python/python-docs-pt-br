@@ -4003,6 +4003,12 @@ msgid ""
 "the filename is available as the ``filename`` attribute of the exception "
 "object."
 msgstr ""
+"Por padrão, os erros da chamada de :func:`scandir` são ignorados. Se o "
+"argumento opcional *onerror* for especificado, deve ser uma função; ela será "
+"chamado com um argumento, uma instância da exceção :exc:`OSError`. Ele pode "
+"relatar o erro para continuar com a caminhada ou levantar a exceção para "
+"abortar a caminhada. Observe que o nome do arquivo está disponível como o "
+"atributo ``filename`` do objeto de exceção."
 
 #: ../../library/os.rst:2863
 msgid ""
@@ -4010,6 +4016,10 @@ msgid ""
 "to directories. Set *followlinks* to ``True`` to visit directories pointed "
 "to by symlinks, on systems that support them."
 msgstr ""
+"Por padrão, a função :func:`walk` não vai seguir links simbólicos que "
+"resolvem para diretórios. Defina *followlinks* como ``True`` para visitar "
+"diretórios apontados por links simbólicos, em sistemas que oferecem suporte "
+"a eles."
 
 #: ../../library/os.rst:2869
 msgid ""
@@ -4027,6 +4037,9 @@ msgid ""
 "between resumptions of :func:`walk`.  :func:`walk` never changes the current "
 "directory, and assumes that its caller doesn't either."
 msgstr ""
+"Se você passar um nome de caminho relativo, não mude o diretório de trabalho "
+"atual entre as continuações de :func:`walk`. : func: `walk` nunca muda o "
+"diretório atual, e presume que seu chamador também não."
 
 #: ../../library/os.rst:2879 ../../library/os.rst:2938
 msgid ""
@@ -4034,6 +4047,9 @@ msgid ""
 "each directory under the starting directory, except that it doesn't look "
 "under any CVS subdirectory::"
 msgstr ""
+"Este exemplo exibe o número de bytes obtidos por arquivos não pertencentes "
+"ao diretório em cada diretório no diretório inicial, exceto que ele não olha "
+"em nenhum subdiretório CVS::"
 
 #: ../../library/os.rst:2892
 msgid ""
@@ -4041,24 +4057,34 @@ msgid ""
 "walking the tree bottom-up is essential, :func:`rmdir` doesn't allow "
 "deleting a directory before the directory is empty::"
 msgstr ""
+"No próximo exemplo (implementação simples de :func:`shutil.rmtree`), andar "
+"na árvore de baixo para cima é essencial, :func:`rmdir` não permite excluir "
+"um diretório antes que o diretório esteja vazio::"
 
 #: ../../library/os.rst:2907
 msgid ""
 "This function now calls :func:`os.scandir` instead of :func:`os.listdir`, "
 "making it faster by reducing the number of calls to :func:`os.stat`."
 msgstr ""
+"Esta função agora chama :func:`os.scandir` em vez de :func:`os.listdir`, "
+"tornando-a mais rápida reduzindo o número de chamadas a :func:`os.stat`."
 
 #: ../../library/os.rst:2921
 msgid ""
 "This behaves exactly like :func:`walk`, except that it yields a 4-tuple "
 "``(dirpath, dirnames, filenames, dirfd)``, and it supports ``dir_fd``."
 msgstr ""
+"Se comporta exatamente como :func:`walk`, exceto que produz um tupla de 4 "
+"elementos ``(dirpath, dirnames, filenames, dirfd)``, e tem suporte a "
+"``dir_fd``."
 
 #: ../../library/os.rst:2924
 msgid ""
 "*dirpath*, *dirnames* and *filenames* are identical to :func:`walk` output, "
 "and *dirfd* is a file descriptor referring to the directory *dirpath*."
 msgstr ""
+"*dirpath*, *dirnames* e *filenames* são idênticos à saída de :func:`walk` e "
+"*dirfd* é um descritor de arquivo que faz referência ao diretório *dirpath*."
 
 #: ../../library/os.rst:2927
 msgid ""
@@ -4067,6 +4093,10 @@ msgid ""
 "that, unlike other functions, the :func:`fwalk` default value for "
 "*follow_symlinks* is ``False``."
 msgstr ""
+"Esta função sempre tem suporte a :ref:`caminhos relativos aos descritores de "
+"diretório <dir_fd>` e :ref:`não seguir links simbólicos <follow_symlinks>`. "
+"Observe, entretanto, que, ao contrário de outras funções, o valor padrão :"
+"func:`fwalk` para *follow_symlinks* é ``False``."
 
 #: ../../library/os.rst:2934
 msgid ""
@@ -4074,16 +4104,21 @@ msgid ""
 "next iteration step, so you should duplicate them (e.g. with :func:`dup`) if "
 "you want to keep them longer."
 msgstr ""
+"Uma vez que :func:`fwalk` produz descritores de arquivo, eles só são válidos "
+"até a próxima etapa de iteração, então você deve duplicá-los (por exemplo, "
+"com :func:`dup`) se quiser mantê-los por mais tempo."
 
 #: ../../library/os.rst:2951
 msgid ""
 "In the next example, walking the tree bottom-up is essential: :func:`rmdir` "
 "doesn't allow deleting a directory before the directory is empty::"
 msgstr ""
+"No próximo exemplo, percorrer a árvore de baixo para cima é essencial: :func:"
+"`rmdir` não permite excluir um diretório antes que o diretório esteja vazio::"
 
 #: ../../library/os.rst:2973
 msgid "Added support for :class:`bytes` paths."
-msgstr ""
+msgstr "Adicionado suporte para caminhos em :class:`bytes`."
 
 #: ../../library/os.rst:2978
 msgid "Linux extended attributes"
@@ -4091,7 +4126,7 @@ msgstr "Atributos estendidos do Linux"
 
 #: ../../library/os.rst:2982
 msgid "These functions are all available on Linux only."
-msgstr ""
+msgstr "Estas funções estão todas disponíveis apenas no Linux."
 
 #: ../../library/os.rst:2986
 msgid ""
@@ -4100,11 +4135,15 @@ msgid ""
 "class:`PathLike` interface). If it is str, it is encoded with the filesystem "
 "encoding."
 msgstr ""
+"Retorna o valor do atributo estendido do sistema de arquivos *attribute* "
+"para *path*. *attribute* pode ser bytes ou str (direta ou indiretamente por "
+"meio da interface :class:`PathLike`). Se for str, ele é codificado com a "
+"codificação do sistema de arquivos."
 
 #: ../../library/os.rst:2994 ../../library/os.rst:3022
 #: ../../library/os.rst:3045
 msgid "Accepts a :term:`path-like object` for *path* and *attribute*."
-msgstr ""
+msgstr "Aceita um :term:`objeto caminho ou similar` para *path* e *attribute*."
 
 #: ../../library/os.rst:3000
 msgid ""
@@ -4113,6 +4152,10 @@ msgid ""
 "filesystem encoding.  If *path* is ``None``, :func:`listxattr` will examine "
 "the current directory."
 msgstr ""
+"Retorna uma lista dos atributos estendidos do sistema de arquivos em *path*. "
+"Os atributos na lista são representados como strings decodificadas com a "
+"codificação do sistema de arquivos. Se *path* for ``None``, :func:"
+"`listxattr` irá examinar o diretório atual."
 
 #: ../../library/os.rst:3014
 msgid ""
@@ -4121,6 +4164,10 @@ msgid ""
 "class:`PathLike` interface). If it is a string, it is encoded with the "
 "filesystem encoding."
 msgstr ""
+"Remove o atributo estendido do sistema de arquivos *attribute* do *path*. "
+"*attribute* deve ser bytes ou str (direta ou indiretamente por meio da "
+"interface :class:`PathLike`). Se for uma string, ele é codificado com a "
+"codificação do sistema de arquivos."
 
 #: ../../library/os.rst:3028
 msgid ""
@@ -4133,38 +4180,54 @@ msgid ""
 "and the attribute already exists, the attribute will not be created and "
 "``ENODATA`` will be raised."
 msgstr ""
+"Define o atributo de sistema de arquivos estendido *attribute* em *path* "
+"como *value*. *attribute* deve ser um bytes ou str sem NULs embutidos "
+"(direta ou indiretamente por meio da interface :class:`PathLike`). Se for um "
+"str, ele é codificado com a codificação do sistema de arquivos. "
+"*sinalizadores* podem ser :data:`XATTR_REPLACE` ou :data:`XATTR_CREATE`. Se :"
+"data:`XATTR_REPLACE` é fornecido e o atributo não existe, ``EEXISTS`` será "
+"levantado. Se :data:`XATTR_CREATE` for fornecido e o atributo já existir, o "
+"atributo não será criado e ``ENODATA`` será levantado."
 
 #: ../../library/os.rst:3042
 msgid ""
 "A bug in Linux kernel versions less than 2.6.39 caused the flags argument to "
 "be ignored on some filesystems."
 msgstr ""
+"Um bug nas versões do kernel Linux inferiores a 2.6.39 fez com que o "
+"argumento *flags* fosse ignorado em alguns sistemas de arquivos."
 
 #: ../../library/os.rst:3051
 msgid ""
 "The maximum size the value of an extended attribute can be. Currently, this "
 "is 64 KiB on Linux."
 msgstr ""
+"O tamanho máximo que o valor de um atributo estendido pode ter. Atualmente, "
+"são 64 KiB no Linux."
 
 #: ../../library/os.rst:3057
 msgid ""
 "This is a possible value for the flags argument in :func:`setxattr`. It "
 "indicates the operation must create an attribute."
 msgstr ""
+"Este é um valor possível para o argumento *flags* em :func:`setxattr`. "
+"Indica que a operação deve criar um atributo."
 
 #: ../../library/os.rst:3063
 msgid ""
 "This is a possible value for the flags argument in :func:`setxattr`. It "
 "indicates the operation must replace an existing attribute."
 msgstr ""
+"Este é um valor possível para o argumento *flags* em :func:`setxattr`. "
+"Indica que a operação deve substituir um atributo existente."
 
 #: ../../library/os.rst:3070
 msgid "Process Management"
-msgstr ""
+msgstr "Gerenciamento de processo"
 
 #: ../../library/os.rst:3072
 msgid "These functions may be used to create and manage processes."
-msgstr ""
+msgstr "Estas funções podem ser usadas para criar e gerenciar processos."
 
 #: ../../library/os.rst:3074
 msgid ""
@@ -4176,6 +4239,13 @@ msgid ""
 "``os.execv('/bin/echo', ['foo', 'bar'])`` will only print ``bar`` on "
 "standard output; ``foo`` will seem to be ignored."
 msgstr ""
+"As várias funções :func:`exec\\* <execl>` pegam uma lista de argumentos para "
+"o novo programa carregado no processo. Em cada caso, o primeiro desses "
+"argumentos é passado para o novo programa como seu próprio nome, e não como "
+"um argumento que um usuário pode ter digitado em uma linha de comando. Para "
+"o programador C, este é o ``argv[0]`` passado para um programa :c:func:"
+"`main`. Por exemplo, ``os.execv('/bin/echo', ['foo', 'bar'])`` imprimirá "
+"apenas ``bar`` na saída padrão; ``foo`` parecerá ser ignorado."
 
 #: ../../library/os.rst:3085
 msgid ""
