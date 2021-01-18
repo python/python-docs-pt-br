@@ -581,11 +581,11 @@ msgid ""
 "is 0, the process group id of the current process is returned."
 msgstr ""
 "Retorna o ID do grupo de processo com *pid*. Se *pid* for 0, o ID do grupo "
-"do processo atual é retornado."
+"do processos do processo atual é retornado."
 
 #: ../../library/os.rst:342
 msgid "Return the id of the current process group."
-msgstr "Retorna o ID do grupo de processo atual."
+msgstr "Retorna o ID do grupo de processos atual."
 
 #: ../../library/os.rst:351
 msgid "Return the current process id."
@@ -711,7 +711,7 @@ msgstr "Define o ID de usuário efetivo do processo atual."
 
 #: ../../library/os.rst:476
 msgid "Set the current process' group id."
-msgstr "Define o ID do grupo do processo atual."
+msgstr "Define o ID de grupo do processo atual."
 
 #: ../../library/os.rst:483
 msgid ""
@@ -4953,6 +4953,15 @@ msgid ""
 "variable to locate the executable; *path* must contain an appropriate "
 "absolute or relative path."
 msgstr ""
+"As variantes que incluem um \"p\" próximo ao final (:func:`execlp`, :func:"
+"`execlpe`, :func:`execvp` e :func:`execvpe`) usarão a variável de ambiente :"
+"envvar:`PATH` para localizar o programa *file*. Quando o ambiente está sendo "
+"substituído (usando uma das variantes :func:`exec\\*e <execl>`, discutidas "
+"no próximo parágrafo), o novo ambiente é usado como fonte da variável :"
+"envvar:`PATH` As outras variantes, :func:`execl`, :func:`execle`, :func:"
+"`execv` e :func:`execve`, não usarão a variável :envvar:`PATH` para "
+"localizar o executável; *path* deve conter um caminho absoluto ou relativo "
+"apropriado."
 
 #: ../../library/os.rst:3384
 msgid ""
@@ -4963,6 +4972,12 @@ msgid ""
 "`execl`, :func:`execlp`, :func:`execv`, and :func:`execvp` all cause the new "
 "process to inherit the environment of the current process."
 msgstr ""
+"Para :func:`execle`, :func:`execlpe`, :func:`execve` e :func:`execvpe` "
+"(observe que todos eles terminam em \"e\"), o parâmetro *env* deve ser um "
+"mapeamento que é usado para definir as variáveis de ambiente para o novo "
+"processo (elas são usadas no lugar do ambiente do processo atual); as "
+"funções :func:`execl`, :func:`execlp`, :func:`execv` e :func:`execvp` fazem "
+"com que o novo processo herde o ambiente do processo atual."
 
 #: ../../library/os.rst:3391
 msgid ""
@@ -4972,30 +4987,43 @@ msgid ""
 "supports_fd`. If it is unavailable, using it will raise a :exc:"
 "`NotImplementedError`."
 msgstr ""
+"Para :func:`execve` em algumas plataformas, *path* também pode ser "
+"especificado como um descritor de arquivo aberto. Esta funcionalidade pode "
+"não ser compatível com sua plataforma; você pode verificar se está ou não "
+"disponível usando :data:`os.supports_fd`. Se não estiver disponível, usá-lo "
+"vai levantar uma :exc:`NotImplementedError`."
 
 #: ../../library/os.rst:3397
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``os.exec`` with arguments "
 "``path``, ``args``, ``env``."
 msgstr ""
+"Levanta um :ref:`evento de auditoria <auditing>` ``os.exec`` com argumentos "
+"``path``, ``args``, ``env``."
 
 #: ../../library/os.rst:3400
 msgid ""
 "Added support for specifying *path* as an open file descriptor for :func:"
 "`execve`."
 msgstr ""
+"Adicionado suporte para especificar *path* como um descritor de arquivo "
+"aberto para :func:`execve`."
 
 #: ../../library/os.rst:3409
 msgid ""
 "Exit the process with status *n*, without calling cleanup handlers, flushing "
 "stdio buffers, etc."
 msgstr ""
+"Sai do processo com status *n*, sem chamar manipuladores de limpeza, "
+"liberando buffers de stdio etc."
 
 #: ../../library/os.rst:3414
 msgid ""
 "The standard way to exit is ``sys.exit(n)``.  :func:`_exit` should normally "
 "only be used in the child process after a :func:`fork`."
 msgstr ""
+"A forma padrão de sair é ``sys.exit(n)``. :func:`_exit` normalmente só deve "
+"ser usado no processo filho após uma função :func:`fork`."
 
 #: ../../library/os.rst:3417
 msgid ""
@@ -5004,6 +5032,10 @@ msgid ""
 "programs written in Python, such as a mail server's external command "
 "delivery program."
 msgstr ""
+"Os seguintes códigos de saída são definidos e podem ser usados com :func:"
+"`_exit`, embora não sejam obrigatórios. Eles são normalmente usados para "
+"programas de sistema escritos em Python, como um programa de entrega de "
+"comando externo de servidor de e-mail."
 
 #: ../../library/os.rst:3423
 msgid ""
@@ -5011,61 +5043,79 @@ msgid ""
 "some variation.  These constants are defined where they are defined by the "
 "underlying platform."
 msgstr ""
+"Alguns deles podem não estar disponíveis em todas as plataformas Unix, pois "
+"há algumas variações. Essas constantes são definidas onde são definidas pela "
+"plataforma subjacente."
 
 #: ../../library/os.rst:3430
 msgid "Exit code that means no error occurred."
-msgstr ""
+msgstr "Código de saída que significa que ocorreu nenhum erro."
 
 #: ../../library/os.rst:3437
 msgid ""
 "Exit code that means the command was used incorrectly, such as when the "
 "wrong number of arguments are given."
 msgstr ""
+"Código de saída que significa que o comando foi usado incorretamente, como "
+"quando o número errado de argumentos é fornecido."
 
 #: ../../library/os.rst:3445
 msgid "Exit code that means the input data was incorrect."
 msgstr ""
+"Código de saída que significa que os dados inseridos estavam incorretos."
 
 #: ../../library/os.rst:3452
 msgid "Exit code that means an input file did not exist or was not readable."
 msgstr ""
+"Código de saída que significa que um arquivo de entrada não existe ou não "
+"pôde ser lido."
 
 #: ../../library/os.rst:3459
 msgid "Exit code that means a specified user did not exist."
-msgstr ""
+msgstr "Código de saída que significa que um usuário especificado não existe."
 
 #: ../../library/os.rst:3466
 msgid "Exit code that means a specified host did not exist."
-msgstr ""
+msgstr "Código de saída que significa que um host especificado não existe."
 
 #: ../../library/os.rst:3473
 msgid "Exit code that means that a required service is unavailable."
 msgstr ""
+"Código de saída que significa que um serviço necessário está indisponível."
 
 #: ../../library/os.rst:3480
 msgid "Exit code that means an internal software error was detected."
 msgstr ""
+"Código de saída que significa que um erro interno do software foi detectado."
 
 #: ../../library/os.rst:3487
 msgid ""
 "Exit code that means an operating system error was detected, such as the "
 "inability to fork or create a pipe."
 msgstr ""
+"Código de saída que significa que um erro do sistema operacional foi "
+"detectado, como a incapacidade de fazer fork ou criar um encadeamento."
 
 #: ../../library/os.rst:3495
 msgid ""
 "Exit code that means some system file did not exist, could not be opened, or "
 "had some other kind of error."
 msgstr ""
+"Código de saída que significa que algum arquivo do sistema não existia, não "
+"pôde ser aberto ou teve algum outro tipo de erro."
 
 #: ../../library/os.rst:3503
 msgid "Exit code that means a user specified output file could not be created."
 msgstr ""
+"Código de saída que significa que um arquivo de saída especificado pelo "
+"usuário não pôde ser criado."
 
 #: ../../library/os.rst:3510
 msgid ""
 "Exit code that means that an error occurred while doing I/O on some file."
 msgstr ""
+"Código de saída que significa que ocorreu um erro ao fazer E/S em algum "
+"arquivo."
 
 #: ../../library/os.rst:3517
 msgid ""
@@ -5073,53 +5123,71 @@ msgid ""
 "that may not really be an error, such as a network connection that couldn't "
 "be made during a retryable operation."
 msgstr ""
+"Código de saída que significa que ocorreu uma falha temporária. Isso indica "
+"algo que pode não ser realmente um erro, como uma conexão de rede que não "
+"pôde ser feita durante uma operação de nova tentativa."
 
 #: ../../library/os.rst:3526
 msgid ""
 "Exit code that means that a protocol exchange was illegal, invalid, or not "
 "understood."
 msgstr ""
+"Código de saída que significa que uma troca de protocolo foi ilegal, "
+"inválida ou não compreendida."
 
 #: ../../library/os.rst:3534
 msgid ""
 "Exit code that means that there were insufficient permissions to perform the "
 "operation (but not intended for file system problems)."
 msgstr ""
+"Código de saída que significa que não havia permissões suficientes para "
+"executar a operação (mas sem intenção de causar problemas do sistema de "
+"arquivos)."
 
 #: ../../library/os.rst:3542
 msgid "Exit code that means that some kind of configuration error occurred."
 msgstr ""
+"Código de saída que significa que ocorreu algum tipo de erro de configuração."
 
 #: ../../library/os.rst:3549
 msgid "Exit code that means something like \"an entry was not found\"."
 msgstr ""
+"Código de saída que significa algo como \"uma entrada não foi encontrada\"."
 
 #: ../../library/os.rst:3556
 msgid ""
 "Fork a child process.  Return ``0`` in the child and the child's process id "
 "in the parent.  If an error occurs :exc:`OSError` is raised."
 msgstr ""
+"Faz um fork de um processo filho. Retorna ``0`` no filho e o ID de processo "
+"do filho no pai. Se ocorrer um erro, uma :exc:`OSError` é levantada."
 
 #: ../../library/os.rst:3559
 msgid ""
 "Note that some platforms including FreeBSD <= 6.3 and Cygwin have known "
 "issues when using ``fork()`` from a thread."
 msgstr ""
+"Note que algumas plataformas incluindo FreeBSD <= 6.3 e Cygwin têm problemas "
+"conhecidos ao usar ``fork()`` a partir de um thread."
 
 #: ../../library/os.rst:3563
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``os.fork`` with no arguments."
 msgstr ""
+"Levanta um :ref:`evento de auditoria <auditing>` ``os.fork`` com nenhum "
+"argumento."
 
 #: ../../library/os.rst:3564
 msgid ""
 "Calling ``fork()`` in a subinterpreter is no longer supported (:exc:"
 "`RuntimeError` is raised)."
 msgstr ""
+"Chamar ``fork()`` em um subinterpretador não é mais suportado (:exc:"
+"`RuntimeError` é levantada)."
 
 #: ../../library/os.rst:3570
 msgid "See :mod:`ssl` for applications that use the SSL module with fork()."
-msgstr ""
+msgstr "Veja :mod:`ssl` para aplicações que usam o módulo SSL com fork()."
 
 #: ../../library/os.rst:3577
 msgid ""
@@ -5129,23 +5197,35 @@ msgid ""
 "the master end of the pseudo-terminal.  For a more portable approach, use "
 "the :mod:`pty` module.  If an error occurs :exc:`OSError` is raised."
 msgstr ""
+"Faz um fork de um processo filho, usando um novo pseudoterminal como o "
+"terminal de controle do filho. Retorna um par de ``(pid, fd)``, onde *pid* é "
+"``0`` no filho, o novo ID de processo do filho no pai e *fd* é o descritor "
+"de arquivo do lado mestre do pseudoterminal. Para uma abordagem mais "
+"portátil, use o módulo :mod:`pty`. Se ocorrer um erro, :exc:`OSError` é "
+"levantada."
 
 #: ../../library/os.rst:3584
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``os.forkpty`` with no arguments."
 msgstr ""
+"Levanta um :ref:`evento de auditoria <auditing>` ``os.forkpty`` com nenhum "
+"argumento."
 
 #: ../../library/os.rst:3585
 msgid ""
 "Calling ``forkpty()`` in a subinterpreter is no longer supported (:exc:"
 "`RuntimeError` is raised)."
 msgstr ""
+"Chamar ``forkpty()`` em um subinterpretador não é mais suportado (:exc:"
+"`RuntimeError` é levantada)."
 
 #: ../../library/os.rst:3598
 msgid ""
 "Send signal *sig* to the process *pid*.  Constants for the specific signals "
 "available on the host platform are defined in the :mod:`signal` module."
 msgstr ""
+"Envia o sinal *sig* para o processo *pid*. Constantes dos sinais específicos "
+"disponíveis na plataforma host são definidas no módulo :mod:`signal`."
 
 #: ../../library/os.rst:3601
 msgid ""
@@ -5156,35 +5236,48 @@ msgid ""
 "TerminateProcess API, and the exit code will be set to *sig*. The Windows "
 "version of :func:`kill` additionally takes process handles to be killed."
 msgstr ""
+"Windows: Os sinais :data:`signal.CTRL_C_EVENT` e :data:`signal."
+"CTRL_BREAK_EVENT` são sinais especiais que só podem ser enviados para "
+"processos de console que compartilham uma janela de console comum, por "
+"exemplo, alguns subprocessos. Qualquer outro valor para *sig* fará com que o "
+"processo seja encerrado incondicionalmente pela API TerminateProcess e o "
+"código de saída será definido como *sig*. A versão Windows de :func:`kill` "
+"adicionalmente leva identificadores de processo para ser morto."
 
 #: ../../library/os.rst:3609
 msgid "See also :func:`signal.pthread_kill`."
-msgstr ""
+msgstr "Veja também :func:`signal.pthread_kill`."
 
 #: ../../library/os.rst:3612
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``os.kill`` with arguments "
 "``pid``, ``sig``."
 msgstr ""
+"Levanta um :ref:`evento de auditoria <auditing>` ``os.kill`` com argumentos "
+"``pid``, ``sig``."
 
 #: ../../library/os.rst:3613
 msgid "Windows support."
-msgstr ""
+msgstr "Suporte ao Windows."
 
 #: ../../library/os.rst:3623
 msgid "Send the signal *sig* to the process group *pgid*."
-msgstr "Envia o sinal *sig* para o grupo de processo *pgid*."
+msgstr "Envia o sinal *sig* para o grupo de processos *pgid*."
 
 #: ../../library/os.rst:3626
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``os.killpg`` with arguments "
 "``pgid``, ``sig``."
 msgstr ""
+"Levanta um :ref:`evento de auditoria <auditing>` ``os.killpg`` com "
+"argumentos ``pgid``, ``sig``."
 
 #: ../../library/os.rst:3632
 msgid ""
 "Add *increment* to the process's \"niceness\".  Return the new niceness."
 msgstr ""
+"Adiciona *increment* ao nível de \"nice\" do processo. Retorna um novo nível "
+"de \"nice\"."
 
 #: ../../library/os.rst:3639
 msgid ""
@@ -5193,20 +5286,26 @@ msgid ""
 "*flags* argument is provided for future extensions; no flag values are "
 "currently defined."
 msgstr ""
+"Retorna um descritor de arquivo fazendo referência ao processo *pid*. Este "
+"descritor pode ser usado para realizar o gerenciamento de processos sem "
+"corridas e sinais. O argumento *flags* é fornecido para extensões futuras; "
+"nenhum valor de sinalizador está definido atualmente."
 
 #: ../../library/os.rst:3644
 msgid "See the :manpage:`pidfd_open(2)` man page for more details."
-msgstr ""
+msgstr "Veja a página man :manpage:`pidfd_open(2)` para mais detalhes."
 
 #: ../../library/os.rst:3646
 msgid ":ref:`Availability <availability>`: Linux 5.3+"
-msgstr ""
+msgstr ":ref:`Disponibilidade <availability>`: Linux 5.3+"
 
 #: ../../library/os.rst:3652
 msgid ""
 "Lock program segments into memory.  The value of *op* (defined in ``<sys/"
 "lock.h>``) determines which segments are locked."
 msgstr ""
+"Bloqueia os segmentos do programa na memória. O valor de *op* (definido em "
+"``<sys/lock.h>``) determina quais segmentos estão bloqueados."
 
 #: ../../library/os.rst:3660
 msgid ""
@@ -5217,6 +5316,12 @@ msgid ""
 "function. The returned file object reads or writes text strings rather than "
 "bytes."
 msgstr ""
+"Abre um encadeamento, também conhecido como \"pipe\", de ou para o comando "
+"*cmd*. O valor de retorno é um objeto arquivo aberto conectado ao "
+"encadeamento, que pode ser lido ou escrito dependendo se *mode* é ``'r'`` "
+"(padrão) ou ``'w'``. O argumento *buffering* tem o mesmo significado que o "
+"argumento correspondente para a função embutida :func:`open`. O objeto "
+"arquivo retornado lê ou escreve strings de texto em vez de bytes."
 
 #: ../../library/os.rst:3667
 msgid ""
@@ -5229,6 +5334,15 @@ msgid ""
 "if the subprocess was killed.)  On Windows systems, the return value "
 "contains the signed integer return code from the child process."
 msgstr ""
+"O método ``close`` retorna :const:`None` se o subprocesso foi encerrado com "
+"sucesso, ou o código de retorno do subprocesso se houve um erro. Em sistemas "
+"POSIX, se o código de retorno for positivo, ele representa o valor de "
+"retorno do processo deslocado para a esquerda em um byte. Se o código de "
+"retorno for negativo, o processo foi encerrado pelo sinal dado pelo valor "
+"negado do código de retorno. (Por exemplo, o valor de retorno pode ser ``- "
+"signal.SIGKILL`` se o subprocesso foi eliminado.) Em sistemas Windows, o "
+"valor de retorno contém o código de retorno inteiro com sinal do processo "
+"filho."
 
 #: ../../library/os.rst:3677
 msgid ""
@@ -5236,6 +5350,10 @@ msgid ""
 "method result (exit status) into an exit code if it is not ``None``. On "
 "Windows, the ``close`` method result is directly the exit code (or ``None``)."
 msgstr ""
+"No Unix, :func:`waitstatus_to_exitcode` pode ser usado para converter o "
+"resultado do método ``close`` (status de saída) em um código de saída se não "
+"for ``None``. No Windows, o resultado do método ``close`` é diretamente o "
+"código de saída (ou ``None``)."
 
 #: ../../library/os.rst:3682
 msgid ""
@@ -5243,21 +5361,29 @@ msgid ""
 "documentation for more powerful ways to manage and communicate with "
 "subprocesses."
 msgstr ""
+"Isso é implementado usando :class:`subprocess.Popen`; consulte a "
+"documentação desta classe para maneiras mais poderosas de gerenciar e se "
+"comunicar com subprocessos."
 
 #: ../../library/os.rst:3691
 msgid "Wraps the :c:func:`posix_spawn` C library API for use from Python."
 msgstr ""
+"Envolve a API da biblioteca C :c:func:`posix_spawn` para uso em Python."
 
 #: ../../library/os.rst:3693
 msgid ""
 "Most users should use :func:`subprocess.run` instead of :func:`posix_spawn`."
 msgstr ""
+"A maioria dos usuários deveria usar :func:`subprocess.run` em vez de :func:"
+"`posix_spawn`."
 
 #: ../../library/os.rst:3695
 msgid ""
 "The positional-only arguments *path*, *args*, and *env* are similar to :func:"
 "`execve`."
 msgstr ""
+"Os argumentos somente-posicional *path*, *args* e *env* são similares a :"
+"func:`execve`."
 
 #: ../../library/os.rst:3698
 msgid ""
@@ -5265,6 +5391,9 @@ msgid ""
 "contain a directory.  Use :func:`posix_spawnp` to pass an executable file "
 "without directory."
 msgstr ""
+"O parâmetro *path* é o caminho para o arquivo executável. O *path* deve "
+"conter um diretório. Use :func:`posix_spawnp` para passar um arquivo "
+"executável sem diretório."
 
 #: ../../library/os.rst:3702
 msgid ""
@@ -5274,30 +5403,35 @@ msgid ""
 "item in each tuple must be one of the three type indicator listed below "
 "describing the remaining tuple elements:"
 msgstr ""
+"O argumento *file_actions* pode ser uma sequência de tuplas descrevendo "
+"ações a serem tomadas em descritores de arquivo específicos no processo "
+"filho entre as etapas :c:func:`fork` e :c:func:`exec` de implementação da "
+"biblioteca C. O primeiro item em cada tupla deve ser um dos três indicadores "
+"de tipo listados abaixo, descrevendo os elementos restantes da tupla:"
 
 #: ../../library/os.rst:3710
 msgid "(``os.POSIX_SPAWN_OPEN``, *fd*, *path*, *flags*, *mode*)"
-msgstr ""
+msgstr "(``os.POSIX_SPAWN_OPEN``, *fd*, *path*, *flags*, *mode*)"
 
 #: ../../library/os.rst:3712
 msgid "Performs ``os.dup2(os.open(path, flags, mode), fd)``."
-msgstr ""
+msgstr "Efetua ``os.dup2(os.open(path, flags, mode), fd)``."
 
 #: ../../library/os.rst:3716
 msgid "(``os.POSIX_SPAWN_CLOSE``, *fd*)"
-msgstr ""
+msgstr "(``os.POSIX_SPAWN_CLOSE``, *fd*)"
 
 #: ../../library/os.rst:3718
 msgid "Performs ``os.close(fd)``."
-msgstr "Realiza ``os.close(fd)``."
+msgstr "Efetua ``os.close(fd)``."
 
 #: ../../library/os.rst:3722
 msgid "(``os.POSIX_SPAWN_DUP2``, *fd*, *new_fd*)"
-msgstr ""
+msgstr "(``os.POSIX_SPAWN_DUP2``, *fd*, *new_fd*)"
 
 #: ../../library/os.rst:3724
 msgid "Performs ``os.dup2(fd, new_fd)``."
-msgstr ""
+msgstr "Efetua ``os.dup2(fd, new_fd)``."
 
 #: ../../library/os.rst:3726
 msgid ""
@@ -5307,6 +5441,11 @@ msgid ""
 "`posix_spawn_file_actions_adddup2` API calls used to prepare for the :c:func:"
 "`posix_spawn` call itself."
 msgstr ""
+"Estas tuplas correspondem a chamadas de API da biblioteca C de :c:func:"
+"`posix_spawn_file_actions_addopen`, :c:func:"
+"`posix_spawn_file_actions_addclose` e :c:func:"
+"`posix_spawn_file_actions_adddup2` usadas para preparar para a chamada de :c:"
+"func:`posix_spawn` em si."
 
 #: ../../library/os.rst:3732
 msgid ""
@@ -5316,6 +5455,11 @@ msgid ""
 "set, the child will inherit the parent's process group ID. This argument "
 "corresponds to the C library :c:data:`POSIX_SPAWN_SETPGROUP` flag."
 msgstr ""
+"O argumento *setpgroup* definirá o grupo de processos do filho para o valor "
+"especificado. Se o valor especificado for 0, o ID do grupo de processo da "
+"criança será igual ao seu ID de processo. Se o valor de *setpgroup* não for "
+"definido, o filho herdará o ID do grupo de processos do pai. Este argumento "
+"corresponde ao sinalizador :c:data:`POSIX_SPAWN_SETPGROUP` da biblioteca C."
 
 #: ../../library/os.rst:3738
 msgid ""
@@ -5327,6 +5471,13 @@ msgid ""
 "setting of the effective UID and GID. This argument corresponds to the C "
 "library :c:data:`POSIX_SPAWN_RESETIDS` flag."
 msgstr ""
+"Se o argumento *resetids* for ``True``, ele irá reconfigurar o UID e GID "
+"efetivos do filho para o UID e GID reais do processo pai. Se o argumento for "
+"``False``, então o filho retém o UID e GID efetivos do pai. Em ambos os "
+"casos, se os bits de permissão set-user-ID e set-group-ID estiverem "
+"habilitados no arquivo executável, seu efeito vai substituir a configuração "
+"do UID e GID efetivos. Este argumento corresponde ao sinalizador :c:data:"
+"`POSIX_SPAWN_RESETIDS` da biblioteca C."
 
 #: ../../library/os.rst:3746
 msgid ""
@@ -5335,6 +5486,10 @@ msgid ""
 "`POSIX_SPAWN_SETSID_NP` flag. Otherwise, :exc:`NotImplementedError` is "
 "raised."
 msgstr ""
+"Se o argumento *setsid* for ``True``, ele criará um novo ID de sessão para "
+"`posix_spawn`. *setsid* requer :c:data:`POSIX_SPAWN_SETSID` ou :c:data:"
+"`POSIX_SPAWN_SETSID_NP`. Caso contrário, :exc:`NotImplementedError` é "
+"levantada."
 
 #: ../../library/os.rst:3751
 msgid ""
@@ -5343,6 +5498,10 @@ msgid ""
 "parent's signal mask. This argument corresponds to the C library :c:data:"
 "`POSIX_SPAWN_SETSIGMASK` flag."
 msgstr ""
+"O argumento *setsigmask* definirá a máscara de sinal para o conjunto de "
+"sinais especificado. Se o parâmetro não for usado, o filho herda a máscara "
+"de sinal do pai. Este argumento corresponde ao sinalizador :c:data:"
+"`POSIX_SPAWN_SETSIGMASK` da biblioteca C."
 
 #: ../../library/os.rst:3756
 msgid ""
@@ -5350,6 +5509,9 @@ msgid ""
 "specified. This argument corresponds to the C library :c:data:"
 "`POSIX_SPAWN_SETSIGDEF` flag."
 msgstr ""
+"O argumento *sigdef* redefinirá a disposição de todos os sinais no conjunto "
+"especificado. Este argumento corresponde ao sinalizador :c:data:"
+"`POSIX_SPAWN_SETSIGDEF` da biblioteca C."
 
 #: ../../library/os.rst:3760
 msgid ""
@@ -5360,16 +5522,25 @@ msgid ""
 "C library :c:data:`POSIX_SPAWN_SETSCHEDPARAM` and :c:data:"
 "`POSIX_SPAWN_SETSCHEDULER` flags."
 msgstr ""
+"O argumento *scheduler* deve ser uma tupla contendo a política do agendador "
+"(opcional) e uma instância de :class:`sched_param` com os parâmetros do "
+"agendador. Um valor ``None`` no lugar da política do planejador indica que "
+"não está sendo fornecido. Este argumento é uma combinação dos sinalizadores :"
+"c:data:`POSIX_SPAWN_SETSCHEDPARAM` e :c:data:`POSIX_SPAWN_SETSCHEDULER` da "
+"biblioteca C."
 
 #: ../../library/os.rst:3768 ../../library/os.rst:3784
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``os.posix_spawn`` with arguments "
 "``path``, ``argv``, ``env``."
 msgstr ""
+"Levanta um :ref:`evento de auditoria <auditing>` ``os.posix_spawn`` com "
+"argumentos ``path``, ``argv``, ``env``."
 
 #: ../../library/os.rst:3777
 msgid "Wraps the :c:func:`posix_spawnp` C library API for use from Python."
 msgstr ""
+"Envolve a API da biblioteca C :c:func:`posix_spawnp` para uso em Python."
 
 #: ../../library/os.rst:3779
 msgid ""
@@ -5377,11 +5548,16 @@ msgid ""
 "*executable* file in the list of directories specified by the :envvar:`PATH` "
 "environment variable (in the same way as for ``execvp(3)``)."
 msgstr ""
+"Semelhante a :func:`posix_spawn` exceto que o sistema procura o arquivo "
+"*executable* na lista de diretórios especificados pela variável de ambiente :"
+"envvar:`PATH` (da mesma forma que para ``execvp(3)``)."
 
 #: ../../library/os.rst:3787
 msgid ""
 ":ref:`Availability <availability>`: See :func:`posix_spawn` documentation."
 msgstr ""
+":ref:`Disponibilidade <availability>`: Veja a documentação do :func:"
+"`posix_spawn`."
 
 #: ../../library/os.rst:3793
 msgid ""
@@ -5389,20 +5565,27 @@ msgid ""
 "func:`os.fork` or similar process cloning APIs. The parameters are optional "
 "and keyword-only. Each specifies a different call point."
 msgstr ""
+"Registra chamáveis a serem executados quando um novo processo filho é criado "
+"usando :func:`os.fork` ou APIs de clonagem de processos semelhantes. Os "
+"parâmetros são opcionais e somente-nomeados. Cada um especifica um ponto de "
+"chamada diferente."
 
 #: ../../library/os.rst:3798
 msgid "*before* is a function called before forking a child process."
 msgstr ""
+"*before* é uma função chamada antes de fazer um fork para um processo filho."
 
 #: ../../library/os.rst:3799
 msgid ""
 "*after_in_parent* is a function called from the parent process after forking "
 "a child process."
 msgstr ""
+"*after_in_parent* é uma função chamada a partir do processo pai após fazer "
+"um fork para um processo filho."
 
 #: ../../library/os.rst:3801
 msgid "*after_in_child* is a function called from the child process."
-msgstr ""
+msgstr "*after_in_child* é uma função chamada a partir do processo filho."
 
 #: ../../library/os.rst:3803
 msgid ""
@@ -5410,6 +5593,9 @@ msgid ""
 "interpreter.  A typical :mod:`subprocess` launch will not trigger them as "
 "the child is not going to re-enter the interpreter."
 msgstr ""
+"Essas chamadas são feitas apenas se o controle deve retornar ao "
+"interpretador Python. Um lançamento típico de :mod:`subprocess` não irá "
+"acioná-los, pois o filho não entrará novamente no interpretador."
 
 #: ../../library/os.rst:3807
 msgid ""
@@ -5417,6 +5603,9 @@ msgid ""
 "registration order.  Functions registered for execution after forking "
 "(either in the parent or in the child) are called in registration order."
 msgstr ""
+"As funções registradas para execução antes de fazer o fork são chamadas na "
+"ordem de registro reversa. As funções registradas para execução após o fork "
+"ser feito (no pai ou no filho) são chamadas na ordem de registro."
 
 #: ../../library/os.rst:3812
 msgid ""
@@ -5424,14 +5613,18 @@ msgid ""
 "functions, unless it explicitly calls :c:func:`PyOS_BeforeFork`, :c:func:"
 "`PyOS_AfterFork_Parent` and :c:func:`PyOS_AfterFork_Child`."
 msgstr ""
+"Note que chamadas a :c:func:`fork` feitas por código C de terceiros pode não "
+"chamar estas funções, a menos que ele explicitamente chame :c:func:"
+"`PyOS_BeforeFork`, :c:func:`PyOS_AfterFork_Parent` e :c:func:"
+"`PyOS_AfterFork_Child`."
 
 #: ../../library/os.rst:3816
 msgid "There is no way to unregister a function."
-msgstr ""
+msgstr "Não há uma forma de desfazer o registro de uma função."
 
 #: ../../library/os.rst:3832
 msgid "Execute the program *path* in a new process."
-msgstr ""
+msgstr "Executa o programa *path* em um novo processo."
 
 #: ../../library/os.rst:3834
 msgid ""
@@ -5440,6 +5633,10 @@ msgid ""
 "is preferable to using these functions.  Check especially the :ref:"
 "`subprocess-replacements` section.)"
 msgstr ""
+"(Observe que o módulo :mod:`subprocess` fornece recursos mais poderosos para "
+"gerar novos processos e recuperar seus resultados; usar esse módulo é "
+"preferível a usar essas funções. Verifique especialmente a seção :ref:"
+"`subprocess-replacements`.)"
 
 #: ../../library/os.rst:3839
 msgid ""
@@ -5449,12 +5646,20 @@ msgid ""
 "killed the process.  On Windows, the process id will actually be the process "
 "handle, so can be used with the :func:`waitpid` function."
 msgstr ""
+"Se *mode* for :const:`P_NOWAIT`, esta função retorna o id do processo do "
+"novo processo; se *mode* for :const:`P_WAIT`, retorna o código de saída do "
+"processo se ele sair normalmente, ou ``-signal``, onde *signal* é o sinal "
+"que matou o processo. No Windows, o id de processo será na verdade o "
+"identificador do processo, portanto, pode ser usado com a função :func:"
+"`waitpid`."
 
 #: ../../library/os.rst:3845
 msgid ""
 "Note on VxWorks, this function doesn't return ``-signal`` when the new "
 "process is killed. Instead it raises OSError exception."
 msgstr ""
+"Nota sobre VxWorks: esta função não retorna ``-signal`` quando o novo "
+"processo é encerrado. Em vez disso, ele levanta a exceção OSError."
 
 #: ../../library/os.rst:3848
 msgid ""
@@ -5467,6 +5672,15 @@ msgid ""
 "in a list or tuple as the *args* parameter.  In either case, the arguments "
 "to the child process must start with the name of the command being run."
 msgstr ""
+"As variantes \"l\" e \"v\" das funções :func:`spawn\\* <spawnl>` diferem em "
+"como os argumentos de linha de comando são passados. As variantes \"l\" são "
+"talvez as mais fáceis de trabalhar se o número de parâmetros for fixo quando "
+"o código for escrito; os parâmetros individuais simplesmente se tornam "
+"parâmetros adicionais para as funções :func:`spawnl\\*`. As variantes \"v\" "
+"são boas quando o número de parâmetros é variável, com os argumentos sendo "
+"passados em uma lista ou tupla como o parâmetro *args*. Em ambos os casos, "
+"os argumentos para o processo filho devem começar com o nome do comando que "
+"está sendo executado."
 
 #: ../../library/os.rst:3857
 msgid ""
@@ -5480,6 +5694,15 @@ msgid ""
 "the :envvar:`PATH` variable to locate the executable; *path* must contain an "
 "appropriate absolute or relative path."
 msgstr ""
+"As variantes que incluem um segundo \"p\" próximo ao final (:func:"
+"`spawnlp`, :func:`spawnlpe`, :func:`spawnvp` e :func:`spawnvpe`) usarão a "
+"variável de ambiente :envvar:`PATH` para localizar o programa *file*. Quando "
+"o ambiente está sendo substituído (usando uma das variantes :func:`spawn\\*e "
+"<spawnl>`, discutidas no próximo parágrafo), o novo ambiente é usado como "
+"fonte da variável :envvar:`PATH` As outras variantes, :func:`spawnl`, :func:"
+"`spawnle`, :func:`spawnv` e :func:`spawnve`, não usarão a variável :envvar:"
+"`PATH` para localizar o executável; *path* deve conter um caminho absoluto "
+"ou relativo apropriado."
 
 #: ../../library/os.rst:3867
 msgid ""
@@ -5492,18 +5715,31 @@ msgid ""
 "keys and values in the *env* dictionary must be strings; invalid keys or "
 "values will cause the function to fail, with a return value of ``127``."
 msgstr ""
+"Para :func:`spawnle`, :func:`spawnlpe`, :func:`spawnve` e :func:`spawnvpe` "
+"(observe que todos eles terminam em \"e\"), o parâmetro *env* deve ser um "
+"mapeamento que é usado para definir as variáveis de ambiente para o novo "
+"processo (elas são usadas no lugar do ambiente do processo atual); as "
+"funções :func:`spawnl`, :func:`spawnlp`, :func:`spawnv` e :func:`spawnvp` "
+"fazem com que o novo processo herde o ambiente do processo atual. Note que "
+"as chaves e os valores no dicionário *env* devem ser strings; chaves ou "
+"valores inválidos farão com que a função falhe, com um valor de retorno de "
+"``127``."
 
 #: ../../library/os.rst:3876
 msgid ""
 "As an example, the following calls to :func:`spawnlp` and :func:`spawnvpe` "
 "are equivalent::"
 msgstr ""
+"Como exemplo, as seguintes chamadas a :func:`spawnlp` e :func:`spawnvpe` são "
+"equivalentes::"
 
 #: ../../library/os.rst:3886
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``os.spawn`` with arguments "
 "``mode``, ``path``, ``args``, ``env``."
 msgstr ""
+"Levanta um :ref:`evento de auditoria <auditing>` ``os.spawn`` com argumentos "
+"``mode``, ``path``, ``args``, ``env``."
 
 #: ../../library/os.rst:3891
 msgid ""
@@ -5512,6 +5748,10 @@ msgid ""
 "Windows.  :func:`spawnle` and :func:`spawnve` are not thread-safe on "
 "Windows; we advise you to use the :mod:`subprocess` module instead."
 msgstr ""
+":ref:`Disponibilidade <availability>`: Unix, Windows.  :func:`spawnlp`, :"
+"func:`spawnlpe`, :func:`spawnvp` e :func:`spawnvpe` não estão disponíveis no "
+"Windows. :func:`spawnle` e :func:`spawnve` não são seguros para thread no "
+"Windows; recomendamos que você use o módulo :mod:`subprocess`."
 
 #: ../../library/os.rst:3899
 msgid ""
@@ -5520,6 +5760,10 @@ msgid ""
 "\\*` functions will return as soon as the new process has been created, with "
 "the process id as the return value."
 msgstr ""
+"Valores possíveis para o parâmetro *mode* para a família de funções :func:"
+"`spawn\\* <spawnl>`. Se qualquer um desses valores for fornecido, as "
+"funções :func:`spawn\\*` retornarão assim que o novo processo for criado, "
+"com o id do processo como o valor de retorno."
 
 #: ../../library/os.rst:3909
 msgid ""
