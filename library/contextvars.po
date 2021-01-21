@@ -25,7 +25,7 @@ msgstr ""
 
 #: ../../library/contextvars.rst:2
 msgid ":mod:`contextvars` --- Context Variables"
-msgstr ""
+msgstr ":mod:`contextvars` --- Variáveis de contexto"
 
 #: ../../library/contextvars.rst:11
 msgid ""
@@ -35,6 +35,11 @@ msgid ""
 "the :class:`~contextvars.Context` class should be used to manage the current "
 "context in asynchronous frameworks."
 msgstr ""
+"Este módulo fornece APIs para gerenciar, armazenar e acessar o estado local "
+"do contexto. A classe :class:`~contextvars.ContextVar` é usada para declarar "
+"e trabalhar com *Variáveis de Contexto*. A função :func:`~contextvars."
+"copy_context` e a classe :class:`~contextvars.Context` devem ser usadas para "
+"gerenciar o contexto atual em frameworks assíncronos."
 
 #: ../../library/contextvars.rst:17
 msgid ""
@@ -42,23 +47,29 @@ msgid ""
 "func:`threading.local()` to prevent their state from bleeding to other code "
 "unexpectedly, when used in concurrent code."
 msgstr ""
+"Os gerenciadores de contexto que possuem estado devem usar Variáveis de "
+"Contexto ao invés de :func:`threading.local()` para evitar que seu estado "
+"vaze para outro código inesperadamente, quando usado em código concorrente."
 
 #: ../../library/contextvars.rst:21
 msgid "See also :pep:`567` for additional details."
-msgstr ""
+msgstr "Veja também a :pep:`567` para detalhes adicionais."
 
 #: ../../library/contextvars.rst:27
 msgid "Context Variables"
-msgstr ""
+msgstr "Variáveis de contexto"
 
 #: ../../library/contextvars.rst:31
 msgid "This class is used to declare a new Context Variable, e.g.::"
 msgstr ""
+"Esta classe é usada para declarar uma nova variável de contexto, como, por "
+"exemplo::"
 
 #: ../../library/contextvars.rst:35
 msgid ""
 "The required *name* parameter is used for introspection and debug purposes."
 msgstr ""
+"O parâmetro obrigatório *name* é usado para fins de introspecção e depuração."
 
 #: ../../library/contextvars.rst:38
 msgid ""
@@ -66,6 +77,9 @@ msgid ""
 "`ContextVar.get` when no value for the variable is found in the current "
 "context."
 msgstr ""
+"O parâmetro somente-nomeado opcional *default* é retornado por :meth:"
+"`ContextVar.get` quando nenhum valor para a variável é encontrado no "
+"contexto atual."
 
 #: ../../library/contextvars.rst:42
 msgid ""
@@ -74,57 +88,71 @@ msgid ""
 "context variables which prevents context variables from being properly "
 "garbage collected."
 msgstr ""
+"**Importante:** Variáveis de Contexto devem ser criadas no nível do módulo "
+"superior e nunca em fechamentos. Os objetos :class:`Context` contêm "
+"referências fortes a variáveis de contexto que evitam que as variáveis de "
+"contexto sejam coletadas como lixo corretamente."
 
 #: ../../library/contextvars.rst:49
 msgid "The name of the variable.  This is a read-only property."
-msgstr ""
+msgstr "O nome da variável. Esta é uma propriedade somente leitura."
 
 #: ../../library/contextvars.rst:55
 msgid "Return a value for the context variable for the current context."
-msgstr ""
+msgstr "Retorna um valor para a variável de contexto para o contexto atual."
 
 #: ../../library/contextvars.rst:57
 msgid ""
 "If there is no value for the variable in the current context, the method "
 "will:"
-msgstr ""
+msgstr "Se não houver valor para a variável no contexto atual, o método vai:"
 
 #: ../../library/contextvars.rst:60
 msgid ""
 "return the value of the *default* argument of the method, if provided; or"
-msgstr ""
+msgstr "retornar o valor do argumento *default* do método, se fornecido; ou"
 
 #: ../../library/contextvars.rst:63
 msgid ""
 "return the default value for the context variable, if it was created with "
 "one; or"
 msgstr ""
+"retornar o valor padrão para a variável de contexto, se ela foi criada com "
+"uma; ou"
 
 #: ../../library/contextvars.rst:66
 msgid "raise a :exc:`LookupError`."
-msgstr ""
+msgstr "levantar uma :exc:`LookupError`."
 
 #: ../../library/contextvars.rst:70
 msgid ""
 "Call to set a new value for the context variable in the current context."
 msgstr ""
+"Chame para definir um novo valor para a variável de contexto no contexto "
+"atual."
 
 #: ../../library/contextvars.rst:73
 msgid ""
 "The required *value* argument is the new value for the context variable."
 msgstr ""
+"O argumento *value* obrigatório é o novo valor para a variável de contexto."
 
 #: ../../library/contextvars.rst:76
 msgid ""
 "Returns a :class:`~contextvars.Token` object that can be used to restore the "
 "variable to its previous value via the :meth:`ContextVar.reset` method."
 msgstr ""
+"Retorna um objeto :class:`~contextvars.Token` que pode ser usado para "
+"restaurar a variável ao seu valor anterior através do método :meth:"
+"`ContextVar.reset`."
 
 #: ../../library/contextvars.rst:82
 msgid ""
 "Reset the context variable to the value it had before the :meth:`ContextVar."
 "set` that created the *token* was used."
 msgstr ""
+"Redefine a variável de contexto para o valor que tinha antes de :meth: "
+"`ContextVar.set`. que criou o *token*, ser usado."
 
 #: ../../library/contextvars.rst:85
 msgid "For example::"
@@ -136,12 +164,17 @@ msgid ""
 "be passed to the :meth:`ContextVar.reset` method to revert the value of the "
 "variable to what it was before the corresponding *set*."
 msgstr ""
+"Objetos *token* são retornados pelo método :meth:`ContextVar.set`. Eles "
+"podem ser passados para o método :meth:`ContextVar.reset` para reverter o "
+"valor da variável para o que era antes do *set* correspondente."
 
 #: ../../library/contextvars.rst:106
 msgid ""
 "A read-only property.  Points to the :class:`ContextVar` object that created "
 "the token."
 msgstr ""
+"Uma propriedade somente leitura. Aponta para o objeto :class:`ContextVar` "
+"que criou o token."
 
 #: ../../library/contextvars.rst:111
 msgid ""
@@ -149,10 +182,14 @@ msgid ""
 "`ContextVar.set` method call that created the token. It points to :attr:"
 "`Token.MISSING` is the variable was not set before the call."
 msgstr ""
+"Uma propriedade somente leitura. Defina com o valor que a variável tinha "
+"antes da chamada do método :meth:`ContextVar.set` que criou o token. Ele "
+"aponta para :attr:`Token.MISSING` é a variável não foi definida antes da "
+"chamada."
 
 #: ../../library/contextvars.rst:118
 msgid "A marker object used by :attr:`Token.old_value`."
-msgstr ""
+msgstr "Um objeto marcador usado por :attr:`Token.old_value`."
 
 #: ../../library/contextvars.rst:122
 msgid "Manual Context Management"
@@ -160,33 +197,40 @@ msgstr "Gerenciamento de Contexto Manual"
 
 #: ../../library/contextvars.rst:126
 msgid "Returns a copy of the current :class:`~contextvars.Context` object."
-msgstr ""
+msgstr "Retorna uma cópia do objeto :class:`~contextvars.Context` atual."
 
 #: ../../library/contextvars.rst:128
 msgid ""
 "The following snippet gets a copy of the current context and prints all "
 "variables and their values that are set in it::"
 msgstr ""
+"O trecho a seguir obtém uma cópia do contexto atual e imprime todas as "
+"variáveis e seus valores que são definidos nele::"
 
 #: ../../library/contextvars.rst:134
 msgid ""
 "The function has an O(1) complexity, i.e. works equally fast for contexts "
 "with a few context variables and for contexts that have a lot of them."
 msgstr ""
+"A função tem uma complexidade O(1), ou seja, funciona igualmente rápido para "
+"contextos com algumas variáveis de contexto e para contextos que têm muitas "
+"delas."
 
 #: ../../library/contextvars.rst:141
 msgid "A mapping of :class:`ContextVars <ContextVar>` to their values."
-msgstr ""
+msgstr "Um mapeamento de :class:`ContextVars <ContextVar>` para seus valores."
 
 #: ../../library/contextvars.rst:143
 msgid ""
 "``Context()`` creates an empty context with no values in it. To get a copy "
 "of the current context use the :func:`~contextvars.copy_context` function."
 msgstr ""
+"``Context()`` cria um contexto vazio sem valores nele. Para obter uma cópia "
+"do contexto atual, use a função :func:`~contextvars.copy_context`."
 
 #: ../../library/contextvars.rst:147
 msgid "Context implements the :class:`collections.abc.Mapping` interface."
-msgstr ""
+msgstr "Context implementa a interface :class:`collections.abc.Mapping`."
 
 #: ../../library/contextvars.rst:151
 msgid ""
@@ -194,62 +238,80 @@ msgid ""
 "method is called on.  Return the result of the execution or propagate an "
 "exception if one occurred."
 msgstr ""
+"Executa o código ``callable(*args, **kwargs)`` no objeto contexto em que o "
+"método *run* é chamado. Retorna o resultado da execução ou propaga uma "
+"exceção, se ocorrer."
 
 #: ../../library/contextvars.rst:155
 msgid ""
 "Any changes to any context variables that *callable* makes will be contained "
 "in the context object::"
 msgstr ""
+"Quaisquer mudanças em quaisquer variáveis de contexto que *callable* faça "
+"estarão contidas no objeto de contexto::"
 
 #: ../../library/contextvars.rst:184
 msgid ""
 "The method raises a :exc:`RuntimeError` when called on the same context "
 "object from more than one OS thread, or when called recursively."
 msgstr ""
+"O método levanta uma :exc:`RuntimeError` quando chamado no mesmo objeto de "
+"contexto de mais de uma thread do sistema operacional, ou quando chamado "
+"recursivamente."
 
 #: ../../library/contextvars.rst:190
 msgid "Return a shallow copy of the context object."
-msgstr ""
+msgstr "Retorna uma cópia rasa do objeto contexto."
 
 #: ../../library/contextvars.rst:194
 msgid ""
 "Return ``True`` if the *context* has a value for *var* set; return ``False`` "
 "otherwise."
 msgstr ""
+"Retorna ``True`` se *context* tem uma variável para *var* definida; do "
+"contrário, retorna ``False``."
 
 #: ../../library/contextvars.rst:199
 msgid ""
 "Return the value of the *var* :class:`ContextVar` variable. If the variable "
 "is not set in the context object, a :exc:`KeyError` is raised."
 msgstr ""
+"Retorna o valor da variável :class:`ContextVar` *var*. Se a variável não for "
+"definida no objeto contexto, uma :exc:`KeyError` é levantada."
 
 #: ../../library/contextvars.rst:205
 msgid ""
 "Return the value for *var* if *var* has the value in the context object.  "
 "Return *default* otherwise.  If *default* is not given, return ``None``."
 msgstr ""
+"Retorna o valor para *var* se *var* tiver o valor no objeto contexto. Caso "
+"contrário, retorna *default*. Se *default* não for fornecido, retorna "
+"``None``."
 
 #: ../../library/contextvars.rst:211
 msgid "Return an iterator over the variables stored in the context object."
-msgstr ""
+msgstr "Retorna um iterador sobre as variáveis armazenadas no objeto contexto."
 
 #: ../../library/contextvars.rst:216
 msgid "Return the number of variables set in the context object."
-msgstr ""
+msgstr "Retorna o número das variáveis definidas no objeto contexto."
 
 #: ../../library/contextvars.rst:220
 msgid "Return a list of all variables in the context object."
-msgstr ""
+msgstr "Retorna uma lista de todas as variáveis no objeto contexto."
 
 #: ../../library/contextvars.rst:224
 msgid "Return a list of all variables' values in the context object."
 msgstr ""
+"Retorna uma lista dos valores de todas as variáveis no objeto contexto."
 
 #: ../../library/contextvars.rst:229
 msgid ""
 "Return a list of 2-tuples containing all variables and their values in the "
 "context object."
 msgstr ""
+"Retorna uma lista de tuplas de 2 elementos contendo todas as variáveis e "
+"seus valores no objeto contexto."
 
 #: ../../library/contextvars.rst:234
 msgid "asyncio support"
@@ -262,3 +324,8 @@ msgid ""
 "server, that uses a context variable to make the address of a remote client "
 "available in the Task that handles that client::"
 msgstr ""
+"Variáveis de contexto encontram suporte nativo em :mod:`asyncio` e estão "
+"prontas para serem usadas sem qualquer configuração extra. Por exemplo, aqui "
+"está um servidor simples de eco, que usa uma variável de contexto para "
+"disponibilizar o endereço de um cliente remoto na Task que lida com esse "
+"cliente::"
