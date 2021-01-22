@@ -4572,6 +4572,11 @@ msgid ""
 "the file is opened with whatever application (if any) its extension is "
 "associated."
 msgstr ""
+"Quando *operation* não é especificado ou não está ``'open'``, isso atua como "
+"um clique duplo no arquivo no Windows Explorer, ou como fornecer o nome do "
+"arquivo como um argumento para o comando :program:`start` do console "
+"interativo de comandos: o arquivo é aberto com qualquer aplicação (se "
+"houver) com a extensão associada."
 
 #: ../../library/os.rst:3387
 msgid ""
@@ -4580,6 +4585,11 @@ msgid ""
 "Microsoft are ``'print'`` and  ``'edit'`` (to be used on files) as well as "
 "``'explore'`` and ``'find'`` (to be used on directories)."
 msgstr ""
+"Quando outra *operation* é fornecida, ela deve ser um \"verbo de comando\" "
+"que especifica o que deve ser feito com o arquivo. Verbos comuns "
+"documentados pela Microsoft são ``'print'`` e ``'edit'`` (para serem usados "
+"em arquivos), bem como ``'explore'`` e ``'find'`` (para serem usados em "
+"diretórios)."
 
 #: ../../library/os.rst:3392
 msgid ""
@@ -4591,6 +4601,14 @@ msgid ""
 "`ShellExecute` function doesn't work if it is.  Use the :func:`os.path."
 "normpath` function to ensure that the path is properly encoded for Win32."
 msgstr ""
+":func:`startfile` retorna assim que a aplicação associada é iniciada. Não há "
+"opção de aguardar o fechamento da aplicação e nenhuma maneira de recuperar o "
+"status de saída da aplicação. O parâmetro *path* é relativo ao diretório "
+"atual. Se você quiser usar um caminho absoluto, certifique-se de que o "
+"primeiro caractere não seja uma barra (``'/'``); a função Win32 :c:func:"
+"`ShellExecute` subjacente não funciona se for. Use a função :func:`os.path."
+"normpath` para garantir que o caminho esteja devidamente codificado para "
+"Win32."
 
 #: ../../library/os.rst:3400
 msgid ""
@@ -4598,6 +4616,10 @@ msgid ""
 "function is not resolved until this function is first called.  If the "
 "function cannot be resolved, :exc:`NotImplementedError` will be raised."
 msgstr ""
+"Para reduzir a sobrecarga de inicialização do interpretador, a função Win32 :"
+"c:func:`ShellExecute` não é resolvida até que esta função seja chamada pela "
+"primeira vez. Se a função não puder ser resolvida, :exc:"
+"`NotImplementedError` será levantada."
 
 #: ../../library/os.rst:3409
 msgid ""
@@ -4607,6 +4629,11 @@ msgid ""
 "environment of the executed command. If *command* generates any output, it "
 "will be sent to the interpreter standard output stream."
 msgstr ""
+"Executa o comando (uma string) em um subshell. Isso é implementado chamando "
+"a função C padrão :c:func:`system`, e tem as mesmas limitações. Alterações "
+"em :data:`sys.stdin` etc. não são refletidas no ambiente do comando "
+"executado. Se *command* gerar qualquer saída, ela será enviada ao fluxo de "
+"saída padrão do interpretador."
 
 #: ../../library/os.rst:3415
 msgid ""
@@ -4615,6 +4642,10 @@ msgid ""
 "meaning of the return value of the C :c:func:`system` function, so the "
 "return value of the Python function is system-dependent."
 msgstr ""
+"No Unix, o valor de retorno é o status de saída do processo codificado no "
+"formato especificado para :func:`wait`. Observe que POSIX não especifica o "
+"significado do valor de retorno da função C :c:func:`system`, então o valor "
+"de retorno da função Python é dependente do sistema."
 
 #: ../../library/os.rst:3420
 msgid ""
@@ -4624,6 +4655,11 @@ msgid ""
 "status of the command run; on systems using a non-native shell, consult your "
 "shell documentation."
 msgstr ""
+"No Windows, o valor de retorno é aquele retornado pelo shell do sistema após "
+"a execução de *command*. O shell é fornecido pela variável de ambiente "
+"Windows :envvar:`COMSPEC`: normalmente é :program:`cmd.exe`, que retorna o "
+"status de saída da execução do comando; em sistemas que usam um shell não "
+"nativo, consulte a documentação do shell."
 
 #: ../../library/os.rst:3426
 msgid ""
@@ -4632,32 +4668,38 @@ msgid ""
 "to using this function.  See the :ref:`subprocess-replacements` section in "
 "the :mod:`subprocess` documentation for some helpful recipes."
 msgstr ""
+"O módulo :mod:`subprocess` fornece recursos mais poderosos para gerar novos "
+"processos e recuperar seus resultados; usar esse módulo é preferível a usar "
+"esta função. Veja a seção :ref:`subprocess-replacements` na documentação do :"
+"mod:`subprocess` para algumas receitas úteis."
 
 #: ../../library/os.rst:3436
 msgid ""
 "Returns the current global process times. The return value is an object with "
 "five attributes:"
 msgstr ""
+"Retorna os tempos atuais de processo globais. O valor de retorno é um objeto "
+"com cinco atributos:"
 
 #: ../../library/os.rst:3439
 msgid ":attr:`user` - user time"
-msgstr ""
+msgstr ":attr:`user` - tempo do usuário"
 
 #: ../../library/os.rst:3440
 msgid ":attr:`system` - system time"
-msgstr ""
+msgstr ":attr:`system` - tempo do sistema"
 
 #: ../../library/os.rst:3441
 msgid ":attr:`children_user` - user time of all child processes"
-msgstr ""
+msgstr ":attr:`children_user` - tempo do usuário de todos os processo filhos"
 
 #: ../../library/os.rst:3442
 msgid ":attr:`children_system` - system time of all child processes"
-msgstr ""
+msgstr ":attr:`children_system` - tempo do sistema de todos os processo filhos"
 
 #: ../../library/os.rst:3443
 msgid ":attr:`elapsed` - elapsed real time since a fixed point in the past"
-msgstr ""
+msgstr ":attr:`elapsed` - tempo real decorrido desde um ponto fixo no passado"
 
 #: ../../library/os.rst:3445
 msgid ""
@@ -4665,6 +4707,9 @@ msgid ""
 "containing :attr:`user`, :attr:`system`, :attr:`children_user`, :attr:"
 "`children_system`, and :attr:`elapsed` in that order."
 msgstr ""
+"Para compatibilidade com versões anteriores, esse objeto também se comporta "
+"como uma tupla de 5 elementos contendo :attr:`user`, :attr:`system`, :attr:"
+"`children_user`, :attr:`children_system` e :attr:`elapsed`` nessa ordem."
 
 #: ../../library/os.rst:3449
 msgid ""
