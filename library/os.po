@@ -5994,18 +5994,27 @@ msgid ""
 "status (if the signal number is zero); the high bit of the low byte is set "
 "if a core file was produced."
 msgstr ""
+"Aguarda a conclusão de um processo filho e retorna uma tupla contendo seu "
+"pid e indicação de status de saída: um número de 16 bits, cujo byte baixo é "
+"o número do sinal que matou o processo e cujo byte alto é o status de saída "
+"(se o sinal número é zero); o bit alto do byte baixo é definido se um "
+"arquivo principal foi produzido."
 
 #: ../../library/os.rst:4029 ../../library/os.rst:4134
 msgid ""
 ":func:`waitstatus_to_exitcode` can be used to convert the exit status into "
 "an exit code."
 msgstr ""
+":func:`waitstatus_to_exitcode` pode ser usado para converter o status de "
+"saída em um código de saída."
 
 #: ../../library/os.rst:4036
 msgid ""
 ":func:`waitpid` can be used to wait for the completion of a specific child "
 "process and has more options."
 msgstr ""
+":func:`waitpid` pode ser usado para aguardar a conclusão de um processo "
+"filho específico e tem mais opções."
 
 #: ../../library/os.rst:4041
 msgid ""
@@ -6019,42 +6028,60 @@ msgid ""
 "`si_signo`, :attr:`si_status`, :attr:`si_code` or ``None`` if :data:"
 "`WNOHANG` is specified and there are no children in a waitable state."
 msgstr ""
+"Aguarda a conclusão de um ou mais processos filhos. *idtype* pode ser :data:"
+"`P_PID`, :data:`P_PGID`, :data:`P_ALL` ou :data:`P_PIDFD` no Linux. *id* "
+"especifica o pid a ser aguardado. *options* é construído a partir da "
+"aplicação lógica de OU em um ou mais dos seguintes :data:`WEXITED`, :data:"
+"`WSTOPPED` ou :data:`WCONTINUED` e, adicionalmente, pode ser aplicado OU "
+"com :data:`WNOHANG` ou :data:`WNOWAIT`. O valor de retorno é um objeto que "
+"representa os dados contidos na estrutura :c:type:`siginfo_t`, a saber: :"
+"attr:`si_pid`, :attr:`si_uid`, :attr:`si_signo`, :attr:`si_status`, :attr:"
+"`si_code` ou ``None`` se :data:`WNOHANG` for especificado e não houver "
+"filhos em um estado de espera."
 
 #: ../../library/os.rst:4061
 msgid ""
 "These are the possible values for *idtype* in :func:`waitid`. They affect "
 "how *id* is interpreted."
 msgstr ""
+"Estes são os valores possíveis para *idtype* em :func:`waitid`. Eles afetam "
+"como *id* é interpretado."
 
 #: ../../library/os.rst:4070
 msgid ""
 "This is a Linux-specific *idtype* that indicates that *id* is a file "
 "descriptor that refers to a process."
 msgstr ""
+"Este é um *idtype* específico do Linux que indica que *id* é um descritor de "
+"arquivo que se refere a um processo."
 
 #: ../../library/os.rst:4074
 msgid ":ref:`Availability <availability>`: Linux 5.4+"
-msgstr ""
+msgstr ":ref:`Disponibilidade <availability>`: Linux 5.4+"
 
 #: ../../library/os.rst:4081
 msgid ""
 "Flags that can be used in *options* in :func:`waitid` that specify what "
 "child signal to wait for."
 msgstr ""
+"Sinalizadores que podem ser usados em *options* em :func:`waitid` que "
+"especificam por qual sinal filho esperar."
 
 #: ../../library/os.rst:4096
 msgid ""
 "These are the possible values for :attr:`si_code` in the result returned by :"
 "func:`waitid`."
 msgstr ""
+"Estes são os valores possíveis para :attr:`si_code` no resultado retornado "
+"por :func:`waitid`."
 
 #: ../../library/os.rst:4103
 msgid "Added :data:`CLD_KILLED` and :data:`CLD_STOPPED` values."
-msgstr ""
+msgstr "Adicionados os valores :data:`CLD_KILLED` e :data:`CLD_STOPPED`."
 
 #: ../../library/os.rst:4109
 msgid "The details of this function differ on Unix and Windows."
-msgstr ""
+msgstr "Os detalhes desta função diferem no Unix e no Windows."
 
 #: ../../library/os.rst:4111
 msgid ""
@@ -6064,6 +6091,11 @@ msgid ""
 "the value of the integer *options*, which should be ``0`` for normal "
 "operation."
 msgstr ""
+"No Unix: Aguarda a conclusão de um processo filho dado pelo id de processo "
+"*pid* e retorna uma tupla contendo seu id de processo e indicação de status "
+"de saída (codificado como para :func:`wait`). A semântica da chamada é "
+"afetada pelo valor do inteiro *options*, que deve ser ``0`` para operação "
+"normal."
 
 #: ../../library/os.rst:4116
 msgid ""
@@ -6074,12 +6106,20 @@ msgid ""
 "is less than ``-1``, status is requested for any process in the process "
 "group ``-pid`` (the absolute value of *pid*)."
 msgstr ""
+"Se *pid  for maior que ``0``, :func:`waitpid` solicita informações de status "
+"para aquele processo específico. Se *pid* for ``0``, a solicitação é para o "
+"status de qualquer filho no grupo de processos do processo atual. Se *pid* "
+"for ``-1``, a solicitação pertence a qualquer filho do processo atual. Se "
+"*pid* for menor que ``-1``, o status é solicitado para qualquer processo no "
+"grupo de processos ``-pid`` (o valor absoluto de *pid*)."
 
 #: ../../library/os.rst:4123
 msgid ""
 "An :exc:`OSError` is raised with the value of errno when the syscall returns "
 "-1."
 msgstr ""
+"Uma :exc:`OSError` é levantada com o valor de errno quando a chamada de "
+"sistema retorna -1."
 
 #: ../../library/os.rst:4126
 msgid ""
@@ -6092,6 +6132,15 @@ msgid ""
 "`spawn\\* <spawnl>` functions called with :const:`P_NOWAIT` return suitable "
 "process handles."
 msgstr ""
+"No Windows: Aguarda a conclusão de um processo fornecido pelo identificador "
+"de processo *pid* e retorna uma tupla contendo *pid*, e seu status de saída "
+"deslocado 8 bits para a esquerda (o deslocamento torna o uso da função em "
+"várias plataformas mais fácil). Um *pid* menor ou igual a ``0`` não tem "
+"nenhum significado especial no Windows e levanta uma exceção. O valor de "
+"inteiros *options* não tem efeito. *pid* pode se referir a qualquer processo "
+"cujo id é conhecido, não necessariamente um processo filho. As funções :func:"
+"`spawn\\* <spawnl>` chamadas com :const:`P_NOWAIT` retornam manipuladores de "
+"processo adequados."
 
 #: ../../library/os.rst:4145
 msgid ""
@@ -6101,12 +6150,20 @@ msgid ""
 "`~resource.getrusage` for details on resource usage information.  The option "
 "argument is the same as that provided to :func:`waitpid` and :func:`wait4`."
 msgstr ""
+"Semelhante a :func:`waitpid`, exceto que nenhum argumento de id de processo "
+"é fornecido e uma tupla de 3 elementos contendo a id do processo da criança, "
+"indicação de status de saída e informações de uso de recursos é retornada. "
+"Consulte :mod:`resource`.\\ :func:`~resource.getrusage` para obter detalhes "
+"sobre as informações de uso de recursos. O argumento da opção é o mesmo "
+"fornecido para :func:`waitpid` e :func:`wait4`."
 
 #: ../../library/os.rst:4152 ../../library/os.rst:4166
 msgid ""
 ":func:`waitstatus_to_exitcode` can be used to convert the exit status into "
 "an exitcode."
 msgstr ""
+":func:`waitstatus_to_exitcode` pode ser usado para converter o status de "
+"saída em um código de saída."
 
 #: ../../library/os.rst:4160
 msgid ""
@@ -6116,14 +6173,20 @@ msgid ""
 "details on resource usage information.  The arguments to :func:`wait4` are "
 "the same as those provided to :func:`waitpid`."
 msgstr ""
+"Semelhante a :func:`waitpid`, exceto uma tupla de 3 elementos, contendo a id "
+"do processo da filho, indicação de status de saída e informações de uso de "
+"recursos é retornada. Consulte :mod:`resource`.\\ :func:`~resource."
+"getrusage` para obter detalhes sobre as informações de uso de recursos. Os "
+"argumentos para :func:`wait4` são os mesmos que aqueles fornecidos a :func:"
+"`waitpid`."
 
 #: ../../library/os.rst:4174
 msgid "Convert a wait status to an exit code."
-msgstr ""
+msgstr "Converte um status de espera em um código de saída."
 
 #: ../../library/os.rst:4176
 msgid "On Unix:"
-msgstr ""
+msgstr "No Unix:"
 
 #: ../../library/os.rst:4178
 msgid ""
@@ -6131,6 +6194,9 @@ msgid ""
 "the process exit status (return ``WEXITSTATUS(status)``): result greater "
 "than or equal to 0."
 msgstr ""
+"Se o processo saiu normalmente (se ``WIFEXITED(status)`` for verdadeiro), "
+"retorna o status de saída do processo (retorna ``WEXITSTATUS(status)``): "
+"resultado maior ou igual a 0."
 
 #: ../../library/os.rst:4181
 msgid ""
@@ -6139,14 +6205,18 @@ msgid ""
 "caused the process to terminate (return ``-WTERMSIG(status)``): result less "
 "than 0."
 msgstr ""
+"Se o processo foi encerrado por um sinal (se ``WIFSIGNALED(status)`` for "
+"verdadeiro), retorna ``-signum`` onde *signum* é o número do sinal que "
+"causou o encerramento do processo (retorna ``-WTERMSIG(status)``): resultado "
+"menor que 0."
 
 #: ../../library/os.rst:4185
 msgid "Otherwise, raise a :exc:`ValueError`."
-msgstr ""
+msgstr "Do contrário, levanta uma :exc:`ValueError`."
 
 #: ../../library/os.rst:4187
 msgid "On Windows, return *status* shifted right by 8 bits."
-msgstr ""
+msgstr "No Windows, retorna *status* deslocado para a direita em 8 bits."
 
 #: ../../library/os.rst:4189
 msgid ""
@@ -6155,12 +6225,18 @@ msgid ""
 "``WIFSTOPPED(status)`` is true. This function must not be called if "
 "``WIFSTOPPED(status)`` is true."
 msgstr ""
+"No Unix, se o processo está sendo rastreado ou se :func:`waitpid` foi "
+"chamado com a opção :data:`WUNTRACED`, o chamador deve primeiro verificar se "
+"``WIFSTOPPED(status)`` é verdadeiro. Esta função não deve ser chamada se "
+"``WIFSTOPPED(status)`` for verdadeiro."
 
 #: ../../library/os.rst:4196
 msgid ""
 ":func:`WIFEXITED`, :func:`WEXITSTATUS`, :func:`WIFSIGNALED`, :func:"
 "`WTERMSIG`, :func:`WIFSTOPPED`, :func:`WSTOPSIG` functions."
 msgstr ""
+"As funções :func:`WIFEXITED`, :func:`WEXITSTATUS`, :func:`WIFSIGNALED`, :"
+"func:`WTERMSIG`, :func:`WIFSTOPPED`, :func:`WSTOPSIG`."
 
 #: ../../library/os.rst:4204
 msgid ""
