@@ -44,6 +44,15 @@ msgid ""
 "\"serialization\", \"marshalling,\" [#]_ or \"flattening\"; however, to "
 "avoid confusion, the terms used here are \"pickling\" and \"unpickling\"."
 msgstr ""
+"O módulo :mod:`pickle` implementa protocolos binários para serializar e "
+"desserializar uma estrutura de objeto Python. *\"Pickling\"* é o processo "
+"pelo qual uma hierarquia de objetos Python é convertida em um fluxo de "
+"bytes, e *\"unpickling\"* é a operação inversa, em que um fluxo de bytes (de "
+"um :term:`arquivo binário` ou :term:`objeto byte ou similar`) é convertido "
+"de volta em uma hierarquia de objetos. Pickling (e unpickling) é "
+"alternativamente conhecido como \"serialização\", \"marshalling\" [#]_ ou "
+"\"flattening\"; no entanto, para evitar confusão, os termos usados ​​aqui são "
+"\"pickling\" e \"unpickling\"."
 
 #: ../../library/pickle.rst:33
 msgid ""
@@ -54,11 +63,11 @@ msgstr ""
 
 #: ../../library/pickle.rst:39
 msgid "Relationship to other Python modules"
-msgstr ""
+msgstr "Relacionamento com outros módulos Python"
 
 #: ../../library/pickle.rst:42
 msgid "Comparison with ``marshal``"
-msgstr ""
+msgstr "Comparação com ``marshal``"
 
 #: ../../library/pickle.rst:44
 msgid ""
@@ -67,12 +76,18 @@ msgid ""
 "Python objects.  :mod:`marshal` exists primarily to support Python's :file:`."
 "pyc` files."
 msgstr ""
+"Python tem um módulo de serialização mais primitivo chamado :mod:`marshal`, "
+"mas em geral :mod:`pickle` deve ser sempre a forma preferida de serializar "
+"objetos Python. :mod:`marshal` existe principalmente para oferecer suporte a "
+"arquivos :file:`.pyc` do Python."
 
 #: ../../library/pickle.rst:49
 msgid ""
 "The :mod:`pickle` module differs from :mod:`marshal` in several significant "
 "ways:"
 msgstr ""
+"O módulo :mod:`pickle` difere do :mod:`marshal` de várias maneiras "
+"significativas:"
 
 #: ../../library/pickle.rst:51
 msgid ""
@@ -80,6 +95,9 @@ msgid ""
 "serialized, so that later references to the same object won't be serialized "
 "again. :mod:`marshal` doesn't do this."
 msgstr ""
+"O módulo :mod:`pickle` mantém o controle dos objetos que já serializou, para "
+"que referências posteriores ao mesmo objeto não sejam serializadas "
+"novamente. :mod:`marshal` não faz isso."
 
 #: ../../library/pickle.rst:55
 msgid ""
@@ -93,6 +111,16 @@ msgid ""
 "Shared objects remain shared, which can be very important for mutable "
 "objects."
 msgstr ""
+"Isso tem implicações tanto para objetos recursivos quanto para "
+"compartilhamento de objetos. Objetos recursivos são objetos que contêm "
+"referências a si mesmos. Eles não são tratados pelo marshal e, de fato, "
+"tentar usar marshal em objetos recursivos irá travar seu interpretador "
+"Python. O compartilhamento de objetos ocorre quando há várias referências ao "
+"mesmo objeto em locais diferentes na hierarquia de objetos sendo "
+"serializados. :mod:`pickle` armazena tais objetos apenas uma vez, e garante "
+"que todas as outras referências apontem para a cópia mestre. Os objetos "
+"compartilhados permanecem compartilhados, o que pode ser muito importante "
+"para objetos mutáveis."
 
 #: ../../library/pickle.rst:64
 msgid ""
@@ -101,6 +129,10 @@ msgid ""
 "transparently, however the class definition must be importable and live in "
 "the same module as when the object was stored."
 msgstr ""
+":mod:`marshal` não pode ser usado para serializar classes definidas pelo "
+"usuário e suas instâncias. :mod:`pickle` pode salvar e restaurar instâncias "
+"de classe de forma transparente, no entanto, a definição de classe deve ser "
+"importável e viver no mesmo módulo de quando o objeto foi armazenado."
 
 #: ../../library/pickle.rst:69
 msgid ""
@@ -114,13 +146,15 @@ msgstr ""
 
 #: ../../library/pickle.rst:77
 msgid "Comparison with ``json``"
-msgstr ""
+msgstr "Comparação com ``json``"
 
 #: ../../library/pickle.rst:79
 msgid ""
 "There are fundamental differences between the pickle protocols and `JSON "
 "(JavaScript Object Notation) <http://json.org>`_:"
 msgstr ""
+"Existem diferenças fundamentais entre os protocolos pickle e `JSON "
+"(JavaScript Object Notation) <http://json.org>`_:"
 
 #: ../../library/pickle.rst:82
 msgid ""
@@ -128,16 +162,21 @@ msgid ""
 "of the time it is then encoded to ``utf-8``), while pickle is a binary "
 "serialization format;"
 msgstr ""
+"JSON é um formato de serialização de texto (ele produz texto unicode, embora "
+"na maioria das vezes seja codificado para ``utf-8``), enquanto pickle é um "
+"formato de serialização binário;"
 
 #: ../../library/pickle.rst:86
 msgid "JSON is human-readable, while pickle is not;"
-msgstr ""
+msgstr "JSON é legível por humanos, enquanto pickle não é;"
 
 #: ../../library/pickle.rst:88
 msgid ""
 "JSON is interoperable and widely used outside of the Python ecosystem, while "
 "pickle is Python-specific;"
 msgstr ""
+"JSON é interoperável e amplamente usado fora do ecossistema Python, enquanto "
+"pickle é específico para Python;"
 
 #: ../../library/pickle.rst:91
 msgid ""
@@ -153,10 +192,12 @@ msgid ""
 "The :mod:`json` module: a standard library module allowing JSON "
 "serialization and deserialization."
 msgstr ""
+"O módulo :mod:`json`: um módulo de biblioteca padrão que permite a "
+"serialização e desserialização JSON."
 
 #: ../../library/pickle.rst:105
 msgid "Data stream format"
-msgstr ""
+msgstr "Formato de fluxo de dados"
 
 #: ../../library/pickle.rst:110
 msgid ""
@@ -166,6 +207,11 @@ msgid ""
 "that non-Python programs may not be able to reconstruct pickled Python "
 "objects."
 msgstr ""
+"O formato de dados usado por :mod:`pickle` é específico do Python. Isso tem "
+"a vantagem de não haver restrições impostas por padrões externos, como JSON "
+"ou XDR (que não podem representar o compartilhamento de ponteiro); no "
+"entanto, isso significa que programas não Python podem não ser capazes de "
+"reconstruir objetos Python conservados."
 
 #: ../../library/pickle.rst:115
 msgid ""
@@ -173,6 +219,10 @@ msgid ""
 "representation.  If you need optimal size characteristics, you can "
 "efficiently :doc:`compress <archiving>` pickled data."
 msgstr ""
+"Por padrão, o formato de dados do :mod:`pickle` usa uma representação "
+"binária relativamente compacta. Se você precisa de características de "
+"tamanho ideal, pode com eficiência :doc:`comprimir <archiving>` dados "
+"processados com pickle."
 
 #: ../../library/pickle.rst:119
 msgid ""
@@ -180,6 +230,9 @@ msgid ""
 "generated by :mod:`pickle`.  :mod:`pickletools` source code has extensive "
 "comments about opcodes used by pickle protocols."
 msgstr ""
+"O módulo :mod:`pickletools` contém ferramentas para analisar fluxos de dados "
+"gerados por :mod:`pickle`. O código-fonte do :mod:`pickletools` tem extensos "
+"comentários sobre códigos de operações usados ​​por protocolos de pickle."
 
 #: ../../library/pickle.rst:123
 msgid ""
@@ -193,12 +246,16 @@ msgid ""
 "Protocol version 0 is the original \"human-readable\" protocol and is "
 "backwards compatible with earlier versions of Python."
 msgstr ""
+"A versão 0 do protocolo é o protocolo original \"legível por humanos\" e é "
+"compatível com versões anteriores do Python."
 
 #: ../../library/pickle.rst:130
 msgid ""
 "Protocol version 1 is an old binary format which is also compatible with "
 "earlier versions of Python."
 msgstr ""
+"A versão 1 do protocolo é um formato binário antigo que também é compatível "
+"com versões anteriores do Python."
 
 #: ../../library/pickle.rst:133
 msgid ""
@@ -206,6 +263,10 @@ msgid ""
 "efficient pickling of :term:`new-style class`\\es.  Refer to :pep:`307` for "
 "information about improvements brought by protocol 2."
 msgstr ""
+"A versão 2 do protocolo foi introduzida no Python 2.3. Ela fornece uma "
+"separação muito mais eficiente de :term:`classes estilo novo <new-style "
+"class>`. Consulte :pep:`307` para obter informações sobre as melhorias "
+"trazidas pelo protocolo 2."
 
 #: ../../library/pickle.rst:137
 msgid ""
@@ -236,10 +297,21 @@ msgid ""
 "database.  The :mod:`shelve` module provides a simple interface to pickle "
 "and unpickle objects on DBM-style database files."
 msgstr ""
+"A serialização é uma noção mais primitiva do que a persistência; embora o :"
+"mod:`pickle` leia e escreva objetos de arquivo, ele não lida com a questão "
+"de nomear objetos persistentes, nem a questão (ainda mais complicada) de "
+"acesso simultâneo a objetos persistentes. O módulo :mod:`pickle` pode "
+"transformar um objeto complexo em um fluxo de bytes e pode transformar o "
+"fluxo de bytes em um objeto com a mesma estrutura interna. Talvez a coisa "
+"mais óbvia a fazer com esses fluxos de bytes seja escrevê-los em um arquivo, "
+"mas também é concebível enviá-los através de uma rede ou armazená-los em um "
+"banco de dados. O módulo :mod:`shelve` fornece uma interface simples para "
+"fazer pickle e unpickle de objetos em arquivos de banco de dados no estilo "
+"DBM."
 
 #: ../../library/pickle.rst:161
 msgid "Module Interface"
-msgstr ""
+msgstr "Interface do módulo"
 
 #: ../../library/pickle.rst:163
 msgid ""
@@ -249,10 +321,15 @@ msgid ""
 "de-serialization, you can create a :class:`Pickler` or an :class:`Unpickler` "
 "object, respectively."
 msgstr ""
+"Para serializar uma hierarquia de objeto, você simplesmente chama a função :"
+"func:`dumps`. Da mesma forma, para desserializar um fluxo de dados, você "
+"chama a função :func:`loads`. No entanto, se você quiser mais controle sobre "
+"a serialização e desserialização, pode criar um objeto :class:`Pickler` ou :"
+"class:`Unpickler`, respectivamente."
 
 #: ../../library/pickle.rst:168
 msgid "The :mod:`pickle` module provides the following constants:"
-msgstr ""
+msgstr "O módulo :mod:`pickle` fornece as seguintes constantes:"
 
 #: ../../library/pickle.rst:173
 msgid ""
