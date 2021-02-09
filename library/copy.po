@@ -25,7 +25,7 @@ msgstr ""
 
 #: ../../library/copy.rst:2
 msgid ":mod:`copy` --- Shallow and deep copy operations"
-msgstr ":mod:`copy` --- Operações de cópia profunda e cópia sombra"
+msgstr ":mod:`copy` --- Operações de cópia profunda e cópia rasa"
 
 #: ../../library/copy.rst:7
 msgid "**Source code:** :source:`Lib/copy.py`"
@@ -39,14 +39,19 @@ msgid ""
 "changing the other. This module provides generic shallow and deep copy "
 "operations (explained below)."
 msgstr ""
+"As instruções de atribuição no Python não copiam objetos, elas criam "
+"ligações entre um destino e um objeto. Para coleções que são mutáveis ​​ou "
+"contêm itens mutáveis, às vezes é necessária uma cópia para que seja "
+"possível alterar uma cópia sem alterar a outra. Este módulo fornece "
+"operações genéricas de cópia profunda e rasa (explicadas abaixo)."
 
 #: ../../library/copy.rst:18
 msgid "Interface summary:"
-msgstr "Sumário da Interface:"
+msgstr "Resumo da interface:"
 
 #: ../../library/copy.rst:22
 msgid "Return a shallow copy of *x*."
-msgstr "Devolve uma cópia rasa de *x*."
+msgstr "Retorna uma cópia rasa de *x*."
 
 #: ../../library/copy.rst:27
 msgid "Return a deep copy of *x*."
@@ -54,7 +59,7 @@ msgstr "Retorna uma cópia profunda  de *x*."
 
 #: ../../library/copy.rst:32
 msgid "Raised for module specific errors."
-msgstr ""
+msgstr "Levantada para erros específicos do módulo."
 
 #: ../../library/copy.rst:36
 msgid ""
@@ -62,52 +67,69 @@ msgid ""
 "compound objects (objects that contain other objects, like lists or class "
 "instances):"
 msgstr ""
+"A diferença entre cópia profunda e rasa é relevante apenas para objetos "
+"compostos (objetos que contêm outros objetos, como listas ou instâncias de "
+"classe):"
 
 #: ../../library/copy.rst:39
 msgid ""
 "A *shallow copy* constructs a new compound object and then (to the extent "
 "possible) inserts *references* into it to the objects found in the original."
 msgstr ""
+"Uma *cópia rasa* constrói um novo objeto composto e então (na medida do "
+"possível) insere nele *referências* aos objetos encontrados no original."
 
 #: ../../library/copy.rst:42
 msgid ""
 "A *deep copy* constructs a new compound object and then, recursively, "
 "inserts *copies* into it of the objects found in the original."
 msgstr ""
+"Uma *cópia profunda* constrói um novo objeto composto e então, "
+"recursivamente, insere nele *cópias* dos objetos encontrados no original."
 
 #: ../../library/copy.rst:45
 msgid ""
 "Two problems often exist with deep copy operations that don't exist with "
 "shallow copy operations:"
 msgstr ""
+"Frequentemente, existem dois problemas com operações de cópia profunda que "
+"não existem com operações de cópia rasa:"
 
 #: ../../library/copy.rst:48
 msgid ""
 "Recursive objects (compound objects that, directly or indirectly, contain a "
 "reference to themselves) may cause a recursive loop."
 msgstr ""
+"Objetos recursivos (objetos compostos que, direta ou indiretamente, contêm "
+"uma referência a si mesmos) podem causar um laço recursivo."
 
 #: ../../library/copy.rst:51
 msgid ""
 "Because deep copy copies everything it may copy too much, such as data which "
 "is intended to be shared between copies."
 msgstr ""
+"Como a cópia profunda copia tudo, ela pode copiar muito, como dados que "
+"devem ser compartilhados entre as cópias."
 
 #: ../../library/copy.rst:54
 msgid "The :func:`deepcopy` function avoids these problems by:"
-msgstr ""
+msgstr "A função :func:`deepcopy` evita esses problemas:"
 
 #: ../../library/copy.rst:56
 msgid ""
 "keeping a ``memo`` dictionary of objects already copied during the current "
 "copying pass; and"
 msgstr ""
+"mantendo um dicionário ``memo`` de objetos já copiados durante a passagem de "
+"cópia atual; e"
 
 #: ../../library/copy.rst:59
 msgid ""
 "letting user-defined classes override the copying operation or the set of "
 "components copied."
 msgstr ""
+"permitindo que as classes definidas pelo usuário substituam a operação de "
+"cópia ou o conjunto de componentes copiados."
 
 #: ../../library/copy.rst:62
 msgid ""
@@ -120,8 +142,8 @@ msgstr ""
 "Este módulo não copia tipos como módulo, método, stack trace (situação da "
 "pilha de execução), quadro de empilhamento, arquivo, soquete, janela, vetor "
 "ou outros tipos semelhantes. Ele \"copia\" funções e classes (rasas e "
-"profundas), devolvendo o objeto original inalterado; isso é compatível com a "
-"maneira que estes itens são tratados pelo módulo :mod:`pickle`."
+"profundamente), devolvendo o objeto original inalterado; isso é compatível "
+"com a maneira que estes itens são tratados pelo módulo :mod:`pickle`."
 
 #: ../../library/copy.rst:67
 msgid ""
@@ -129,6 +151,9 @@ msgid ""
 "lists by assigning a slice of the entire list, for example, ``copied_list = "
 "original_list[:]``."
 msgstr ""
+"Cópias rasas de dicionários podem ser feitas usando :meth:`dict.copy`, e de "
+"listas atribuindo uma fatia de toda a lista, por exemplo, ``lista_copiada = "
+"lista_original[:]``."
 
 #: ../../library/copy.rst:73
 msgid ""
@@ -137,6 +162,10 @@ msgid ""
 "information on these methods.  In fact, the :mod:`copy` module uses the "
 "registered pickle functions from the :mod:`copyreg` module."
 msgstr ""
+"As classes podem usar as mesmas interfaces para controlar a cópia que usam "
+"para controlar o *pickling*. Veja a descrição do módulo :mod:`pickle` para "
+"informações sobre esses métodos. Na verdade, o módulo :mod:`copy` usa as "
+"funções pickle registradas do módulo :mod:`copyreg`."
 
 #: ../../library/copy.rst:82
 msgid ""
@@ -149,6 +178,14 @@ msgid ""
 "func:`deepcopy` function with the component as first argument and the memo "
 "dictionary as second argument."
 msgstr ""
+"Para que uma classe defina sua própria implementação de cópia, ela pode "
+"definir métodos especiais :meth:`__copy__` e :meth:`__deepcopy__`. O "
+"primeiro é chamado para implementar a operação de cópia rasa; nenhum "
+"argumento adicional é passado. O último é chamado para implementar a "
+"operação de cópia profunda; é passado um argumento, o dicionário ``memo``. "
+"Se a implementação de :meth:`__deepcopy__` precisa fazer uma cópia profunda "
+"de um componente, ela deve chamar a função :func:`deepcopy` com o componente "
+"como primeiro argumento e o dicionário de memorando como segundo argumento."
 
 #: ../../library/copy.rst:94
 msgid "Module :mod:`pickle`"
@@ -159,3 +196,5 @@ msgid ""
 "Discussion of the special methods used to support object state retrieval and "
 "restoration."
 msgstr ""
+"Discussão dos métodos especiais usados ​​para dar suporte à recuperação e "
+"restauração do estado do objeto."
