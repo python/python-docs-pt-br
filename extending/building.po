@@ -24,13 +24,16 @@ msgstr ""
 
 #: ../../extending/building.rst:7
 msgid "Building C and C++ Extensions"
-msgstr "Construindo Extensões C e C++"
+msgstr "Construindo extensões C e C++"
 
 #: ../../extending/building.rst:9
 msgid ""
 "A C extension for CPython is a shared library (e.g. a ``.so`` file on Linux, "
 "``.pyd`` on Windows), which exports an *initialization function*."
 msgstr ""
+"Uma extensão C para CPython é uma biblioteca compartilhada (por exemplo, um "
+"arquivo ``.so`` no Linux, ``.pyd`` no Windows), que exporta uma *função de "
+"inicialização*."
 
 #: ../../extending/building.rst:12
 msgid ""
@@ -39,16 +42,22 @@ msgid ""
 "extension. When using distutils, the correct filename is generated "
 "automatically."
 msgstr ""
+"Para ser importável, a biblioteca compartilhada deve estar disponível em :"
+"envvar:`PYTHONPATH`, e deve ser nomeada após o nome do módulo, com uma "
+"extensão apropriada. Ao usar distutils, o nome do arquivo correto é gerado "
+"automaticamente."
 
 #: ../../extending/building.rst:16
 msgid "The initialization function has the signature:"
-msgstr ""
+msgstr "A função de inicialização tem a assinatura:"
 
 #: ../../extending/building.rst:20
 msgid ""
 "It returns either a fully-initialized module, or a :c:type:`PyModuleDef` "
 "instance. See :ref:`initializing-modules` for details."
 msgstr ""
+"Ela retorna um módulo totalmente inicializado ou uma instância de :c:type:"
+"`PyModuleDef`. Veja :ref:`initializing-modules` para detalhes."
 
 #: ../../extending/building.rst:25
 msgid ""
@@ -59,6 +68,13 @@ msgid ""
 "``PyInitU_<modulename>``, with ``<modulename>`` encoded using Python's "
 "*punycode* encoding with hyphens replaced by underscores. In Python::"
 msgstr ""
+"Para módulos com nomes somente ASCII, a função deve ser nomeada "
+"``PyInit_<nomemódulo>``, com ``<nomemódulo>`` substituído pelo nome do "
+"módulo. Ao usar :ref:`multi-phase-initialization`, nomes de módulos não "
+"ASCII são permitidos. Neste caso, o nome da função de inicialização é "
+"``PyInitU_<nomemódulo>``, com ``<nomemódulo>`` codificado usando a "
+"codificação *punycode* do Python com hifenes substituídos por sublinhados. "
+"Em Python::"
 
 #: ../../extending/building.rst:39
 msgid ""
@@ -68,10 +84,15 @@ msgid ""
 "function corresponding to the filename is found. See the *\"Multiple modules "
 "in one library\"* section in :pep:`489` for details."
 msgstr ""
+"É possível exportar vários módulos de uma única biblioteca compartilhada, "
+"definindo várias funções de inicialização. No entanto, importá-los requer o "
+"uso de links simbólicos ou um importador personalizado, porque por padrão "
+"apenas a função correspondente ao nome do arquivo é encontrada. Veja a "
+"seção  *\"Multiple modules in one library\"* na :pep:`489` para detalhes."
 
 #: ../../extending/building.rst:49
 msgid "Building C and C++ Extensions with distutils"
-msgstr ""
+msgstr "Construindo extensões C e C ++ com distutils"
 
 #: ../../extending/building.rst:53
 msgid ""
@@ -79,16 +100,23 @@ msgid ""
 "Python. Since distutils also supports creation of binary packages, users "
 "don't necessarily need a compiler and distutils to install the extension."
 msgstr ""
+"Módulos de extensão podem ser construídos usando distutils, que está "
+"incluído no Python. Visto que distutils também suporta a criação de pacotes "
+"binários, os usuários não precisam necessariamente de um compilador e "
+"distutils para instalar a extensão."
 
 #: ../../extending/building.rst:57
 msgid ""
 "A distutils package contains a driver script, :file:`setup.py`. This is a "
 "plain Python file, which, in the most simple case, could look like this:"
 msgstr ""
+"Um pacote distutils contém um script guia :file:`setup.py`. Este é um "
+"arquivo Python simples, que, no caso mais simples, pode ter a seguinte "
+"aparência:"
 
 #: ../../extending/building.rst:73
 msgid "With this :file:`setup.py`, and a file :file:`demo.c`, running ::"
-msgstr ""
+msgstr "Com este:file:`setup.py` e um arquivo :file:`demo.c`, executando ::"
 
 #: ../../extending/building.rst:77
 msgid ""
@@ -97,6 +125,10 @@ msgid ""
 "will end up in a subdirectory :file:`build/lib.system`, and may have a name "
 "like :file:`demo.so` or :file:`demo.pyd`."
 msgstr ""
+"vai compilar :file:`demo.c`, e produzir um módulo de extensão chamado "
+"``demo`` no diretório :file:`build`. Dependendo do sistema, o arquivo do "
+"módulo vai terminar em um subdiretório :file:`build/lib.system`, e pode ter "
+"um nome como :file:`demo.so` ou :file:`demo.pyd`."
 
 #: ../../extending/building.rst:82
 msgid ""
@@ -109,6 +141,14 @@ msgid ""
 "distutils documentation in :ref:`distutils-index` to learn more about the "
 "features of distutils; this section explains building extension modules only."
 msgstr ""
+"No :file:`setup.py`, toda a execução é realizada chamando a função "
+"``setup``. Isso leva um número variável de argumentos nomeados, dos quais o "
+"exemplo acima usa apenas um subconjunto. Especificamente, o exemplo "
+"especifica meta-informação para construir pacotes e especifica o conteúdo do "
+"pacote. Normalmente, um pacote conterá módulos adicionais, como módulos-"
+"fonte Python, documentação, subpacotes etc. Consulte a documentação do "
+"distutils em :ref:`distutils-index` para aprender mais sobre os recursos do "
+"distutils; esta seção explica apenas a construção de módulos de extensão."
 
 #: ../../extending/building.rst:91
 msgid ""
@@ -119,6 +159,12 @@ msgid ""
 "example, the instance defines an extension named ``demo`` which is build by "
 "compiling a single source file, :file:`demo.c`."
 msgstr ""
+"É comum pré-computar argumentos para :func:`setup`, para melhor estruturar o "
+"script guia. No exemplo acima, o argumento ``ext_modules`` para :func:"
+"`~distutils.core.setup` é uma lista de módulos de extensão, cada um dos "
+"quais é uma instância de :class:`~distutils.extension.Extension`. No "
+"exemplo, a instância define uma extensão chamada ``demo`` que é construída "
+"compilando um único arquivo fonte, :file:`demo.c`."
 
 #: ../../extending/building.rst:99
 msgid ""
@@ -126,6 +172,9 @@ msgid ""
 "preprocessor defines and libraries may be needed. This is demonstrated in "
 "the example below."
 msgstr ""
+"Em muitos casos, construir uma extensão é mais complexo, uma vez que "
+"definições de pré-processador adicionais e bibliotecas podem ser "
+"necessárias. Isso é demonstrado no exemplo abaixo."
 
 #: ../../extending/building.rst:127
 msgid ""
@@ -136,32 +185,46 @@ msgid ""
 "distutils passes this information in different ways to the compiler. For "
 "example, on Unix, this may result in the compilation commands ::"
 msgstr ""
+"Neste exemplo, :func:`~distutils.core.setup` é chamado com meta-informação "
+"adicional, o que é recomendado quando os pacotes de distribuição precisam "
+"ser construídos. Para a extensão em si, especifica definições de pré-"
+"processador, diretórios de inclusão, diretórios de biblioteca e bibliotecas. "
+"Dependendo do compilador, distutils passa essas informações de maneiras "
+"diferentes para o compilador. Por exemplo, no Unix, isso pode resultar nos "
+"comandos de compilação ::"
 
 #: ../../extending/building.rst:139
 msgid ""
 "These lines are for demonstration purposes only; distutils users should "
 "trust that distutils gets the invocations right."
 msgstr ""
+"Essas linhas são apenas para fins de demonstração; Os usuários de distutils "
+"devem confiar que distutils acertará as invocações."
 
 #: ../../extending/building.rst:146
 msgid "Distributing your extension modules"
-msgstr ""
+msgstr "Distribuindo seus módulos de extensão"
 
 #: ../../extending/building.rst:148
 msgid ""
 "When an extension has been successfully built, there are three ways to use "
 "it."
 msgstr ""
+"Quando uma extensão é construída com sucesso, há três maneiras de usá-la."
 
 #: ../../extending/building.rst:150
 msgid ""
 "End-users will typically want to install the module, they do so by running ::"
 msgstr ""
+"Os usuários finais normalmente desejam instalar o módulo, eles fazem isso "
+"executando ::"
 
 #: ../../extending/building.rst:154
 msgid ""
 "Module maintainers should produce source packages; to do so, they run ::"
 msgstr ""
+"Os mantenedores do módulo devem produzir pacotes fonte; para fazer isso, "
+"eles executam::"
 
 #: ../../extending/building.rst:158
 msgid ""
@@ -169,6 +232,9 @@ msgid ""
 "distribution; this is done through a :file:`MANIFEST.in` file; see :ref:"
 "`manifest` for details."
 msgstr ""
+"Em alguns casos, arquivos adicionais precisam ser incluídos em uma "
+"distribuição fonte; isso é feito através de um arquivo :file:`MANIFEST.in`; "
+"veja :ref:`manifest` para detalhes."
 
 #: ../../extending/building.rst:161
 msgid ""
@@ -176,3 +242,6 @@ msgid ""
 "create binary distributions. Depending on the platform, one of the following "
 "commands can be used to do so. ::"
 msgstr ""
+"Se a distribuição fonte foi construída com sucesso, os mantenedores também "
+"podem criar distribuições binárias. Dependendo da plataforma, um dos "
+"seguintes comandos pode ser usado para fazer isso. ::"
