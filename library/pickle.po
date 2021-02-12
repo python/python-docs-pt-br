@@ -385,6 +385,11 @@ msgid ""
 "not specified, the default is :data:`DEFAULT_PROTOCOL`.  If a negative "
 "number is specified, :data:`HIGHEST_PROTOCOL` is selected."
 msgstr ""
+"O argumento opcional *protocol*, um inteiro, diz ao pickler para usar o "
+"protocolo fornecido; os protocolos suportados são de 0 a :data:"
+"`HIGHEST_PROTOCOL`. Se não for especificado, o padrão é :data:"
+"`DEFAULT_PROTOCOL`. Se um número negativo for especificado, :data:"
+"`HIGHEST_PROTOCOL` é selecionado."
 
 #: ../../library/pickle.rst:201 ../../library/pickle.rst:303
 msgid ""
@@ -393,6 +398,10 @@ msgid ""
 "class:`io.BytesIO` instance, or any other custom object that meets this "
 "interface."
 msgstr ""
+"O argumento *file* deve ter um método write() que aceite um argumento de um "
+"único byte. Portanto, pode ser um arquivo em disco aberto para escrita "
+"binária, uma instância :class:`io.BytesIO` ou qualquer outro objeto "
+"personalizado que atenda a esta interface."
 
 #: ../../library/pickle.rst:206 ../../library/pickle.rst:308
 msgid ""
@@ -400,6 +409,10 @@ msgid ""
 "map the new Python 3 names to the old module names used in Python 2, so that "
 "the pickle data stream is readable with Python 2."
 msgstr ""
+"Se *fix_imports* for verdadeiro e *protocolo* for menor que 3, pickle "
+"tentará mapear os novos nomes do Python 3 para os nomes dos módulos antigos "
+"usados no Python 2, de modo que o fluxo de dados pickle seja legível com o "
+"Python 2."
 
 #: ../../library/pickle.rst:212
 msgid ""
@@ -421,6 +434,10 @@ msgid ""
 "object` *file* and return the reconstituted object hierarchy specified "
 "therein. This is equivalent to ``Unpickler(file).load()``."
 msgstr ""
+"Lê a representação serializada com pickle de um objeto a partir de :term:"
+"`objeto arquivo` aberto *file* e retorna a hierarquia de objeto "
+"reconstituído especificada nele. Isso é equivalente a ``Unpickler(file)."
+"load()``."
 
 #: ../../library/pickle.rst:224 ../../library/pickle.rst:250
 msgid ""
@@ -428,6 +445,9 @@ msgid ""
 "argument is needed.  Bytes past the pickled representation of the object are "
 "ignored."
 msgstr ""
+"A versão do protocolo pickle é detectada automaticamente, portanto, nenhum "
+"argumento de protocolo é necessário. Bytes após a representação serializada "
+"com pickle do objeto são ignorados."
 
 #: ../../library/pickle.rst:228
 msgid ""
@@ -457,34 +477,45 @@ msgid ""
 "Return the reconstituted object hierarchy of the pickled representation "
 "*data* of an object. *data* must be a :term:`bytes-like object`."
 msgstr ""
+"Retorna a hierarquia de objeto reconstituído da representação serializada "
+"com pickle *data* de um objeto. *data* deve ser um :term:`objeto byte ou "
+"similar`."
 
 #: ../../library/pickle.rst:266
 msgid "The :mod:`pickle` module defines three exceptions:"
-msgstr ""
+msgstr "O módulo :mod:`pickle` define três exceções:"
 
 #: ../../library/pickle.rst:270
 msgid ""
 "Common base class for the other pickling exceptions.  It inherits :exc:"
 "`Exception`."
 msgstr ""
+"Classe base comum para as outras exceções de serialização com pickle. Herda :"
+"exc:`Exception`."
 
 #: ../../library/pickle.rst:275
 msgid ""
 "Error raised when an unpicklable object is encountered by :class:`Pickler`. "
 "It inherits :exc:`PickleError`."
 msgstr ""
+"Erro levantado quando um objeto não serializável com pickle é encontrado "
+"por :class:`Pickler`. Herda :exc:`PickleError`."
 
 #: ../../library/pickle.rst:278
 msgid ""
 "Refer to :ref:`pickle-picklable` to learn what kinds of objects can be "
 "pickled."
 msgstr ""
+"Consulte :ref:`pickle-picklable` para saber quais tipos de objetos podem ser "
+"serializados com pickle."
 
 #: ../../library/pickle.rst:283
 msgid ""
 "Error raised when there is a problem unpickling an object, such as a data "
 "corruption or a security violation.  It inherits :exc:`PickleError`."
 msgstr ""
+"Erro levantado quando há um problema ao desserializar com pickle um objeto, "
+"como dados corrompidos ou violação de segurança. Herda :exc:`PickleError`."
 
 #: ../../library/pickle.rst:286
 msgid ""
@@ -492,6 +523,9 @@ msgid ""
 "(but not necessarily limited to) AttributeError, EOFError, ImportError, and "
 "IndexError."
 msgstr ""
+"Observe que outras exceções também podem ser levantadas durante a "
+"desserialização com pickle, incluindo (mas não necessariamente limitado a) "
+"AttributeError, EOFError, ImportError e IndexError."
 
 #: ../../library/pickle.rst:291
 msgid ""
@@ -501,7 +535,7 @@ msgstr ""
 
 #: ../../library/pickle.rst:296
 msgid "This takes a binary file for writing a pickle data stream."
-msgstr ""
+msgstr "Isso leva um arquivo binário a escrever um fluxo de dados pickle."
 
 #: ../../library/pickle.rst:314
 msgid ""
@@ -545,6 +579,13 @@ msgid ""
 "`dispatch_table` attribute then this will be used as the default dispatch "
 "table for instances of that class."
 msgstr ""
+"Por padrão, um objeto pickler não terá um atributo :attr:`dispatch_table`, e "
+"em vez disso usará a tabela de despacho global gerenciada pelo módulo :mod:"
+"`copyreg`. No entanto, para personalizar a serialização com pickle de um "
+"objeto pickler específico, pode-se definir o atributo :attr:`dispatch_table` "
+"para um objeto do tipo dict. Alternativamente, se uma subclasse de :class:"
+"`Pickler` tem um atributo :attr:`dispatch_table` então ele será usado como a "
+"tabela de despacho padrão para instâncias daquela classe."
 
 #: ../../library/pickle.rst:348
 msgid "See :ref:`pickle-dispatch` for usage examples."
@@ -557,6 +598,11 @@ msgid ""
 "superfluous PUT opcodes.  It should not be used with self-referential "
 "objects, doing otherwise will cause :class:`Pickler` to recurse infinitely."
 msgstr ""
+"Descontinuado. Ative o modo rápido se definido como um valor verdadeiro. O "
+"modo rápido desabilita o uso de memo, portanto, agilizando o processo de "
+"serialização com pickle por não gerar códigos de operação PUT supérfluos. "
+"Ele não deve ser usado com objetos autorreferenciais, fazer o contrário fará "
+"com que :class:`Pickler` recorra infinitamente."
 
 #: ../../library/pickle.rst:360
 msgid "Use :func:`pickletools.optimize` if you need more compact pickles."
@@ -601,7 +647,7 @@ msgstr ""
 
 #: ../../library/pickle.rst:393
 msgid "Raise an :exc:`UnpicklingError` by default."
-msgstr ""
+msgstr "Levanta um :exc:`UnpicklingError` por padrão."
 
 #: ../../library/pickle.rst:395
 msgid ""
@@ -609,6 +655,9 @@ msgid ""
 "the persistent ID *pid*.  If an invalid persistent ID is encountered, an :"
 "exc:`UnpicklingError` should be raised."
 msgstr ""
+"Se definido, :meth:`persistent_load` deve retornar o objeto especificado "
+"pelo ID persistente *pid*. Se um ID persistente inválido for encontrado, "
+"uma :exc:`UnpicklingError` deve ser levantada."
 
 #: ../../library/pickle.rst:403
 msgid ""
@@ -679,6 +728,13 @@ msgid ""
 "`RecursionError` will be raised in this case.  You can carefully raise this "
 "limit with :func:`sys.setrecursionlimit`."
 msgstr ""
+"As tentativas de serializar objetos não serializáveis com pickle vão "
+"levantar a exceção :exc:`PicklingError`; quando isso acontece, um número não "
+"especificado de bytes pode já ter sido escrito no arquivo subjacente. Tentar "
+"serializar com pickle uma estrutura de dados altamente recursiva pode "
+"exceder a profundidade máxima de recursão, a :exc:`RecursionError` será "
+"levantada neste caso. Você pode aumentar este limite cuidadosamente com :"
+"func:`sys.setrecursionlimit`."
 
 #: ../../library/pickle.rst:446
 msgid ""
@@ -690,6 +746,14 @@ msgid ""
 "environment, and the module must contain the named object, otherwise an "
 "exception will be raised. [#]_"
 msgstr ""
+"Observe que as funções (embutidas e definidas pelo usuário) são serializadas "
+"com pickle por referência de nome \"totalmente qualificado\", não por valor. "
+"[#]_ Isso significa que apenas o nome da função é serializado com pickle, "
+"junto com o nome do módulo no qual a função está definida. Nem o código da "
+"função, nem qualquer um de seus atributos de função são serializados com "
+"pickle. Assim, o módulo de definição deve ser importável no ambiente de "
+"desserialização com pickle, e o módulo deve conter o objeto nomeado, caso "
+"contrário, uma exceção será levantada. [#]_"
 
 #: ../../library/pickle.rst:453
 msgid ""
@@ -698,12 +762,19 @@ msgid ""
 "data is pickled, so in the following example the class attribute ``attr`` is "
 "not restored in the unpickling environment::"
 msgstr ""
+"Da mesma forma, as classes são serializadas com pickle por referência "
+"nomeada, portanto, aplicam-se as mesmas restrições no ambiente de "
+"desserialização com pickle. Observe que nenhum código ou dado da classe é "
+"coletado, portanto, no exemplo a seguir, o atributo de classe ``attr`` não é "
+"restaurado no ambiente de desserialização com pickle::"
 
 #: ../../library/pickle.rst:463
 msgid ""
 "These restrictions are why picklable functions and classes must be defined "
 "in the top level of a module."
 msgstr ""
+"Essas restrições são a razão pela qual as funções e classes serializáveis "
+"com pickle devem ser definidas no nível superior de um módulo."
 
 #: ../../library/pickle.rst:466
 msgid ""
@@ -716,10 +787,19 @@ msgid ""
 "that suitable conversions can be made by the class's :meth:`__setstate__` "
 "method."
 msgstr ""
+"Da mesma forma, quando as instâncias da classe são serializadas com pickle, "
+"o código e os dados de sua classe não são serializados junto com elas. "
+"Apenas os dados da instância são serializados com pickle. Isso é feito "
+"propositalmente, para que você possa corrigir bugs em uma classe ou "
+"adicionar métodos à classe e ainda carregar objetos que foram criados com "
+"uma versão anterior da classe. Se você planeja ter objetos de longa duração "
+"que verão muitas versões de uma classe, pode valer a pena colocar um número "
+"de versão nos objetos para que as conversões adequadas possam ser feitas "
+"pelo método :meth:`__setstate__` da classe."
 
 #: ../../library/pickle.rst:478
 msgid "Pickling Class Instances"
-msgstr ""
+msgstr "Serializando com pickle instâncias de classes"
 
 #: ../../library/pickle.rst:482
 msgid ""
