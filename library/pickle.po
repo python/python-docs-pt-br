@@ -58,8 +58,8 @@ msgstr ""
 #: ../../library/pickle.rst:33
 msgid "The ``pickle`` module **is not secure**. Only unpickle data you trust."
 msgstr ""
-"O módulo ``pickle`` **não é seguro**. Efetue unpickle apenas dados em que "
-"você confia."
+"O módulo ``pickle`` **não é seguro**. Desserialize com pickle apenas os "
+"dados em que você confia."
 
 #: ../../library/pickle.rst:35
 msgid ""
@@ -637,22 +637,33 @@ msgid ""
 "the given buffer is :ref:`out-of-band <pickle-oob>`; otherwise the buffer is "
 "serialized in-band, i.e. inside the pickle stream."
 msgstr ""
+"Se *buffer_callback* não for None, ele pode ser chamado qualquer número de "
+"vezes com uma visualização de buffer. Se o retorno de chamada retornar um "
+"valor falso (tal como None), o buffer fornecido é :ref:`fora da banda "
+"<pickle-oob>`; caso contrário, o buffer é serializado dentro da banda, ou "
+"seja, dentro do fluxo pickle."
 
 #: ../../library/pickle.rst:325
 msgid ""
 "It is an error if *buffer_callback* is not None and *protocol* is None or "
 "smaller than 5."
 msgstr ""
+"É um erro se *buffer_callback* não for None e *protocol* for None ou menor "
+"que 5."
 
 #: ../../library/pickle.rst:333
 msgid ""
 "Write the pickled representation of *obj* to the open file object given in "
 "the constructor."
 msgstr ""
+"Escreve a representação serializada em pickle de *obj* no objeto arquivo "
+"aberto fornecido no construtor."
 
 #: ../../library/pickle.rst:338
 msgid "Do nothing by default.  This exists so a subclass can override it."
 msgstr ""
+"Não faz nada por padrão. Isso existe para que uma subclasse possa substituí-"
+"lo."
 
 #: ../../library/pickle.rst:340
 msgid ""
@@ -662,10 +673,16 @@ msgid ""
 "defined by :meth:`Unpickler.persistent_load`.  Note that the value returned "
 "by :meth:`persistent_id` cannot itself have a persistent ID."
 msgstr ""
+"Se :meth:`persistent_id` retornar ``None``, *obj* é serializado com pickle "
+"como de costume. Qualquer outro valor faz com que :class:`Pickler` emita o "
+"valor retornado como um ID persistente para *obj*. O significado deste ID "
+"persistente deve ser definido por :meth:`Unpickler.persistent_load`. Observe "
+"que o valor retornado por :meth:`persistent_id` não pode ter um ID "
+"persistente."
 
 #: ../../library/pickle.rst:346 ../../library/pickle.rst:447
 msgid "See :ref:`pickle-persistent` for details and examples of uses."
-msgstr ""
+msgstr "Consulte :ref:`pickle-persistent` para detalhes e exemplos de usos."
 
 #: ../../library/pickle.rst:350
 msgid ""
@@ -675,6 +692,11 @@ msgid ""
 "reduction function takes a single argument of the associated class and "
 "should conform to the same interface as a :meth:`__reduce__` method."
 msgstr ""
+"A tabela de despacho de um objeto pickler é um registro de *funções de "
+"redução* do tipo que pode ser declarado usando :func:`copyreg.pickle`. É um "
+"mapeamento cujas chaves são classes e cujos valores são funções de redução. "
+"Uma função de redução leva um único argumento da classe associada e deve "
+"estar de acordo com a mesma interface de um método :meth:`__reduce__`."
 
 #: ../../library/pickle.rst:358
 msgid ""
@@ -696,7 +718,7 @@ msgstr ""
 
 #: ../../library/pickle.rst:367
 msgid "See :ref:`pickle-dispatch` for usage examples."
-msgstr ""
+msgstr "Consulte :ref:`pickle-dispatch` para exemplos de uso."
 
 #: ../../library/pickle.rst:373
 msgid ""
@@ -706,10 +728,16 @@ msgid ""
 "optionally return ``NotImplemented`` to fallback on :attr:`dispatch_table`-"
 "registered reducers to pickle ``obj``."
 msgstr ""
+"Redutor especial que pode ser definido em subclasses de :class:`Pickler`. "
+"Este método tem prioridade sobre qualquer redutor em :attr:`dispatch_table`. "
+"Ele deve estar de acordo com a mesma interface que um método :meth:"
+"`__reduce__` e pode opcionalmente retornar ``NotImplemented`` como "
+"alternativa em redutores registrados em :attr:`dispatch_table` para "
+"serializar com pickle ``obj``."
 
 #: ../../library/pickle.rst:379
 msgid "For a detailed example, see :ref:`reducer_override`."
-msgstr ""
+msgstr "Para exemplo detalhado, consulte :ref:`reducer_override`."
 
 #: ../../library/pickle.rst:385
 msgid ""
@@ -727,16 +755,20 @@ msgstr ""
 #: ../../library/pickle.rst:391
 msgid "Use :func:`pickletools.optimize` if you need more compact pickles."
 msgstr ""
+"Use :func:`pickletools.optimize` se você precisar de serializações com "
+"pickle mais compactas."
 
 #: ../../library/pickle.rst:396
 msgid "This takes a binary file for reading a pickle data stream."
-msgstr ""
+msgstr "Recebe um arquivo binário para ler um fluxo de dados pickle."
 
 #: ../../library/pickle.rst:398
 msgid ""
 "The protocol version of the pickle is detected automatically, so no protocol "
 "argument is needed."
 msgstr ""
+"A versão do protocolo do pickle é detectada automaticamente, portanto, "
+"nenhum argumento de protocolo é necessário."
 
 #: ../../library/pickle.rst:401
 msgid ""
@@ -747,6 +779,12 @@ msgid ""
 "binary reading, an :class:`io.BytesIO` object, or any other custom object "
 "that meets this interface."
 msgstr ""
+"O argumento *file* deve ter três métodos: um método read() que recebe um "
+"argumento inteiro, um método readinto() que recebe um argumento buffer e um "
+"método readline() que não requer argumentos, como na interface :class:`io."
+"BufferedIOBase`. Assim, *file* pode ser um arquivo em disco aberto para "
+"leitura binária, um objeto :class:`io.BytesIO` ou qualquer outro objeto "
+"personalizado que atenda a esta interface."
 
 #: ../../library/pickle.rst:408
 msgid ""
@@ -780,6 +818,10 @@ msgid ""
 "*buffer_callback* argument was None when a :class:`Pickler` was instantiated "
 "(or when :func:`dump` or :func:`dumps` was called)."
 msgstr ""
+"Se *buffers* for None (o padrão), todos os dados necessários para "
+"desserialização devem estar contidos no fluxo pickle. Isso significa que o "
+"argumento *buffer_callback* era None quando um :class:`Pickler` foi "
+"instanciado (ou quando :func:`dump` ou :func:`dumps` foi chamado)."
 
 #: ../../library/pickle.rst:424
 msgid ""
