@@ -663,6 +663,10 @@ msgid ""
 "in the constructor, and return the reconstituted object hierarchy specified "
 "therein.  Bytes past the pickled representation of the object are ignored."
 msgstr ""
+"Lê a representação serializada com pickle de um objeto a partir do objeto "
+"arquivo aberto fornecido no construtor e retorna a hierarquia de objeto "
+"reconstituído especificada nele. Os bytes após a representação serializada "
+"com pickle do objeto são ignorados."
 
 #: ../../library/pickle.rst:393
 msgid "Raise an :exc:`UnpicklingError` by default."
@@ -685,6 +689,10 @@ msgid ""
 "unlike its name suggests, :meth:`find_class` is also used for finding "
 "functions."
 msgstr ""
+"Importa *module* se necessário e retorna o objeto chamado *name* dele, onde "
+"os argumentos *module* e *name* são objetos :classe:`str`. Observe, ao "
+"contrário do que seu nome sugere, :meth:`find_class` também é usado para "
+"encontrar funções."
 
 #: ../../library/pickle.rst:408
 msgid ""
@@ -692,14 +700,17 @@ msgid ""
 "how they can be loaded, potentially reducing security risks. Refer to :ref:"
 "`pickle-restrict` for details."
 msgstr ""
+"As subclasses podem substituir isso para obter controle sobre quais tipos de "
+"objetos e como eles podem ser carregados, reduzindo potencialmente os riscos "
+"de segurança. Confira :ref:`pickle-restrict` para detalhes."
 
 #: ../../library/pickle.rst:416
 msgid "What can be pickled and unpickled?"
-msgstr ""
+msgstr "O que pode ser serializado e desserializado com pickle?"
 
 #: ../../library/pickle.rst:418
 msgid "The following types can be pickled:"
-msgstr ""
+msgstr "Os seguintes tipos podem ser serializados com pickle:"
 
 #: ../../library/pickle.rst:420
 msgid "``None``, ``True``, and ``False``"
@@ -707,7 +718,7 @@ msgstr "``None``, ``True``, e ``False``"
 
 #: ../../library/pickle.rst:422
 msgid "integers, floating point numbers, complex numbers"
-msgstr ""
+msgstr "inteiros, números de ponto flutuante, números complexos"
 
 #: ../../library/pickle.rst:424
 msgid "strings, bytes, bytearrays"
@@ -716,20 +727,24 @@ msgstr "strings, bytes, bytearrays"
 #: ../../library/pickle.rst:426
 msgid "tuples, lists, sets, and dictionaries containing only picklable objects"
 msgstr ""
+"tuplas, listas, conjuntos e dicionários contendo apenas objetos "
+"serializáveis com pickle"
 
 #: ../../library/pickle.rst:428
 msgid ""
 "functions defined at the top level of a module (using :keyword:`def`, not :"
 "keyword:`lambda`)"
 msgstr ""
+"funções definidas no nível superior de um módulo (usando :keyword:`def`, "
+"não :keyword:`lambda`)"
 
 #: ../../library/pickle.rst:431
 msgid "built-in functions defined at the top level of a module"
-msgstr ""
+msgstr "funções embutidas definidas no nível superior de um módulo"
 
 #: ../../library/pickle.rst:433
 msgid "classes that are defined at the top level of a module"
-msgstr ""
+msgstr "classes que são definidas no nível superior de um módulo"
 
 #: ../../library/pickle.rst:435
 msgid ""
@@ -737,6 +752,9 @@ msgid ""
 "calling :meth:`__getstate__` is picklable  (see section :ref:`pickle-inst` "
 "for details)."
 msgstr ""
+"instâncias de classes cujo :attr:`~object.__dict__` ou o resultado da "
+"chamada de :meth:`__getstate__` seja serializável com pickle  (veja a seção :"
+"ref:`pickle-inst` para detalhes)."
 
 #: ../../library/pickle.rst:439
 msgid ""
@@ -825,6 +843,9 @@ msgid ""
 "In this section, we describe the general mechanisms available to you to "
 "define, customize, and control how class instances are pickled and unpickled."
 msgstr ""
+"Nesta seção, descrevemos os mecanismos gerais disponíveis para você definir, "
+"personalizar e controlar como as instâncias de classe são serializadas e "
+"desserializadas com pickle."
 
 #: ../../library/pickle.rst:485
 msgid ""
@@ -835,12 +856,21 @@ msgid ""
 "uninitialized instance and then restores the saved attributes.  The "
 "following code shows an implementation of this behaviour::"
 msgstr ""
+"Na maioria dos casos, nenhum código adicional é necessário para tornar as "
+"instâncias serializáveis com pickle. Por padrão, o pickle recuperará a "
+"classe e os atributos de uma instância por meio de introspecção. Quando uma "
+"instância de classe não está serializada com pickle, seu método :meth:"
+"`__init__` geralmente *não* é invocado. O comportamento padrão primeiro cria "
+"uma instância não inicializada e, em seguida, restaura os atributos salvos. "
+"O código a seguir mostra uma implementação desse comportamento::"
 
 #: ../../library/pickle.rst:500
 msgid ""
 "Classes can alter the default behaviour by providing one or several special "
 "methods:"
 msgstr ""
+"As classes podem alterar o comportamento padrão, fornecendo um ou vários "
+"métodos especiais:"
 
 #: ../../library/pickle.rst:505
 msgid ""
@@ -851,6 +881,13 @@ msgid ""
 "dictionary of named arguments for constructing the object.  Those will be "
 "passed to the :meth:`__new__` method upon unpickling."
 msgstr ""
+"Nos protocolos 2 e mais recentes, as classes que implementam o método :meth:"
+"`__getnewargs_ex__` podem ditar os valores passados para o método :meth:"
+"`__new__` após a desserialização com pickle. O método deve retornar um par "
+"``(args, kwargs)`` onde *args* é uma tupla de argumentos posicionais e "
+"*kwargs* um dicionário de argumentos nomeados para construir o objeto. Esses "
+"serão passados para o método :meth:`__new__` após a desserialização com "
+"pickle."
 
 #: ../../library/pickle.rst:513
 msgid ""
@@ -858,10 +895,13 @@ msgid ""
 "requires keyword-only arguments.  Otherwise, it is recommended for "
 "compatibility to implement :meth:`__getnewargs__`."
 msgstr ""
+"Você deve implementar este método se o método :meth:`__new__` de sua classe "
+"requer argumentos somente-nomeados. Caso contrário, é recomendado para "
+"compatibilidade implementar :meth:`__getnewargs__`."
 
 #: ../../library/pickle.rst:517
 msgid ":meth:`__getnewargs_ex__` is now used in protocols 2 and 3."
-msgstr ""
+msgstr ":meth:`__getnewargs_ex__` é agora usado em protocolos 2 e 3."
 
 #: ../../library/pickle.rst:523
 msgid ""
@@ -869,18 +909,26 @@ msgid ""
 "supports only positional arguments.  It must return a tuple of arguments "
 "``args`` which will be passed to the :meth:`__new__` method upon unpickling."
 msgstr ""
+"Este método serve a um propósito semelhante ao de :meth:`__getnewargs_ex__`, "
+"mas tem suporte apenas a argumentos posicionais. Ele deve retornar uma tupla "
+"de argumentos ``args`` que serão passados para o método :meth:`__new__` após "
+"a desserialização com pickle."
 
 #: ../../library/pickle.rst:527
 msgid ""
 ":meth:`__getnewargs__` will not be called if :meth:`__getnewargs_ex__` is "
 "defined."
 msgstr ""
+":meth:`__getnewargs__` não será chamado se :meth:`__getnewargs_ex__` estiver "
+"definido."
 
 #: ../../library/pickle.rst:530
 msgid ""
 "Before Python 3.6, :meth:`__getnewargs__` was called instead of :meth:"
 "`__getnewargs_ex__` in protocols 2 and 3."
 msgstr ""
+"Antes do Python 3.6, :meth:`__getnewargs__` era chamado em vez de :meth:"
+"`__getnewargs_ex__` nos protocolos 2 e 3."
 
 #: ../../library/pickle.rst:537
 msgid ""
@@ -890,6 +938,12 @@ msgid ""
 "of the instance's dictionary.  If the :meth:`__getstate__` method is absent, "
 "the instance's :attr:`~object.__dict__` is pickled as usual."
 msgstr ""
+"As classes podem influenciar ainda mais como suas instâncias são "
+"serializadas com pickle; se a classe define o método :meth:`__getstate__`, "
+"ele é chamado e o objeto retornado é serializado com pickle como o conteúdo "
+"da instância, ao invés do conteúdo do dicionário da instância. Se o método :"
+"meth:`__getstate__` estiver ausente, o :attr:`~object.__dict__` da instância "
+"é serializado com pickle como de costume."
 
 #: ../../library/pickle.rst:546
 msgid ""
@@ -898,6 +952,11 @@ msgid ""
 "state object to be a dictionary.  Otherwise, the pickled state must be a "
 "dictionary and its items are assigned to the new instance's dictionary."
 msgstr ""
+"Ao desserializar com pickle, se a classe define :meth:`__setstate__`, ela é "
+"chamada com o estado não desserializado. Nesse caso, não há nenhum requisito "
+"para que o objeto de estado seja um dicionário. Caso contrário, o estado "
+"serializado com pickle deve ser um dicionário e seus itens são atribuídos ao "
+"dicionário da nova instância."
 
 #: ../../library/pickle.rst:553
 msgid ""
