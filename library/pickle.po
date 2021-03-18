@@ -1448,7 +1448,7 @@ msgstr ""
 
 #: ../../library/pickle.rst:763
 msgid "Dispatch Tables"
-msgstr ""
+msgstr "Tabelas de despacho"
 
 #: ../../library/pickle.rst:765
 msgid ""
@@ -1456,6 +1456,9 @@ msgid ""
 "other code which depends on pickling, then one can create a pickler with a "
 "private dispatch table."
 msgstr ""
+"Se alguém quiser personalizar a serialização com pickle de algumas classes "
+"sem perturbar nenhum outro código que dependa da serialização, pode-se criar "
+"um pickler com uma tabela de despacho privada."
 
 #: ../../library/pickle.rst:769
 msgid ""
@@ -1463,16 +1466,23 @@ msgid ""
 "as :data:`copyreg.dispatch_table`.  Therefore, one may choose to use a "
 "modified copy of :data:`copyreg.dispatch_table` as a private dispatch table."
 msgstr ""
+"A tabela de despacho global gerenciada pelo módulo :mod:`copyreg` está "
+"disponível como :data:`copyreg.dispatch_table`. Portanto, pode-se escolher "
+"usar uma cópia modificada de :data:`copyreg.dispatch_table` como uma tabela "
+"de despacho privada."
 
 #: ../../library/pickle.rst:774
 msgid "For example ::"
-msgstr ""
+msgstr "Por exemplo ::"
 
 #: ../../library/pickle.rst:781
 msgid ""
 "creates an instance of :class:`pickle.Pickler` with a private dispatch table "
 "which handles the ``SomeClass`` class specially.  Alternatively, the code ::"
 msgstr ""
+"cria uma instância de :class:`pickle.Pickler` com uma tabela de despacho "
+"privada que trata a classe ``SomeClass`` especialmente. Alternativamente, o "
+"código ::"
 
 #: ../../library/pickle.rst:791
 msgid ""
@@ -1480,10 +1490,13 @@ msgid ""
 "same dispatch table.  The equivalent code using the :mod:`copyreg` module "
 "is ::"
 msgstr ""
+"faz o mesmo, mas todas as instâncias de ``MyPickler`` irão por padrão "
+"compartilhar a mesma tabela de despacho. O código equivalente usando o "
+"módulo :mod:`copyreg` é ::"
 
 #: ../../library/pickle.rst:802
 msgid "Handling Stateful Objects"
-msgstr ""
+msgstr "Manipulação de objetos com estado"
 
 #: ../../library/pickle.rst:808
 msgid ""
@@ -1496,14 +1509,22 @@ msgid ""
 "`__setstate__` and :meth:`__getstate__` methods are used to implement this "
 "behavior. ::"
 msgstr ""
+"Aqui está um exemplo que mostra como modificar o comportamento de "
+"serialização com pickle de uma classe. A classe :class:`TextReader` abre um "
+"arquivo texto e retorna o número da linha e o conteúdo da linha cada vez que "
+"seu método :meth:`!readline` é chamado. Se uma instância de :class:"
+"`TextReader` for selecionada, todos os atributos *exceto* o membro do objeto "
+"arquivo são salvos. Quando a instância é removida, o arquivo é reaberto e a "
+"leitura continua a partir do último local. Os métodos :meth:`__setstate__` "
+"e :meth:`__getstate__` são usados para implementar este comportamento. ::"
 
 #: ../../library/pickle.rst:854
 msgid "A sample usage might be something like this::"
-msgstr ""
+msgstr "Um exemplo de uso pode ser algo assim:: "
 
 #: ../../library/pickle.rst:868
 msgid "Custom Reduction for Types, Functions, and Other Objects"
-msgstr ""
+msgstr "Redução personalizada para tipos, funções e outros objetos"
 
 #: ../../library/pickle.rst:872
 msgid ""
@@ -1512,6 +1533,10 @@ msgid ""
 "the object's type, or we may want to customize the pickling of functions and "
 "classes."
 msgstr ""
+"Às vezes, :attr:`~Pickler.dispatch_table` pode não ser flexível o "
+"suficiente. Em particular, podemos querer personalizar a serialização com "
+"pickle com base em outro critério que não o tipo do objeto, ou podemos "
+"personalizar a serialização com pickle de funções e classes."
 
 #: ../../library/pickle.rst:877
 msgid ""
@@ -1521,6 +1546,11 @@ msgid ""
 "alternatively return ``NotImplemented`` to fallback to the traditional "
 "behavior."
 msgstr ""
+"Para esses casos, é possível criar uma subclasse da classe :class:`Pickler` "
+"e implementar um método :meth:`~Pickler.reducer_override`. Este método pode "
+"retornar uma tupla de redução arbitrária (veja :meth:`__reduce__`). Ele "
+"pode, alternativamente, retornar ``NotImplemented`` para retornar ao "
+"comportamento tradicional."
 
 #: ../../library/pickle.rst:882
 msgid ""
@@ -1528,6 +1558,8 @@ msgid ""
 "reducer_override` are defined, then :meth:`~Pickler.reducer_override` method "
 "takes priority."
 msgstr ""
+"Se :attr:`~Pickler.dispatch_table` e :meth:`~Pickler.reducer_override` forem "
+"definidos, o método :meth:`~Pickler.reducer_override` tem prioridade."
 
 #: ../../library/pickle.rst:887
 msgid ""
@@ -1537,16 +1569,23 @@ msgid ""
 "class:`dict`, :class:`set`, :class:`frozenset`, :class:`list` and :class:"
 "`tuple`."
 msgstr ""
+"Por motivos de desempenho, :meth:`~Pickler.reducer_override` não pode ser "
+"chamado para os seguintes objetos: ``None``, ``True``, ``False``, e as "
+"instâncias exatas de :class:`int`, :class:`float`, :class:`bytes`, :class:"
+"`str`, :class:`dict`, :class:`set`, :class:`frozenset`, :class:`list` e :"
+"class:`tuple`."
 
 #: ../../library/pickle.rst:893
 msgid ""
 "Here is a simple example where we allow pickling and reconstructing a given "
 "class::"
 msgstr ""
+"Aqui está um exemplo simples onde permitimos serialização com pickle e "
+"reconstrução de uma determinada classe:"
 
 #: ../../library/pickle.rst:928
 msgid "Out-of-band Buffers"
-msgstr ""
+msgstr "Buffers fora da banda"
 
 #: ../../library/pickle.rst:932
 msgid ""
@@ -1557,6 +1596,12 @@ msgid ""
 "structure of objects into a sequential stream of bytes, intrinsically "
 "involves copying data to and from the pickle stream."
 msgstr ""
+"Em alguns contextos, o módulo :mod:`pickle` é usado para transferir grandes "
+"quantidades de dados. Portanto, pode ser importante minimizar o número de "
+"cópias de memória para preservar o desempenho e o consumo de recursos. No "
+"entanto, a operação normal do módulo :mod:`pickle`, à medida que transforma "
+"uma estrutura semelhante a um gráfico de objetos em um fluxo sequencial de "
+"bytes, envolve intrinsecamente a cópia de dados de e para o fluxo pickle."
 
 #: ../../library/pickle.rst:939
 msgid ""
@@ -1565,10 +1610,14 @@ msgid ""
 "implementation of the communications system) support the out-of-band "
 "transfer facilities provided by pickle protocol 5 and higher."
 msgstr ""
+"Esta restrição pode ser evitada se tanto o *provider* (a implementação dos "
+"tipos de objetos a serem transferidos) e o *consumer* (a implementação do "
+"sistema de comunicações) tiverem suporte aos recursos de transferência fora "
+"de banda fornecidos pelo protocolo pickle 5 e superior."
 
 #: ../../library/pickle.rst:945
 msgid "Provider API"
-msgstr ""
+msgstr "API de provedor"
 
 #: ../../library/pickle.rst:947
 msgid ""
@@ -1577,6 +1626,10 @@ msgid ""
 "`PickleBuffer` instance (instead of e.g. a :class:`bytes` object) for any "
 "large data."
 msgstr ""
+"Os grandes objetos de dados a serem serializados com pickle devem "
+"implementar um método :meth:`__reduce_ex__` especializado para o protocolo 5 "
+"e superior, que retorna uma instância :class:`PickleBuffer` (em vez de, por "
+"exemplo, um objeto :class:`bytes`) para quaisquer dados grandes."
 
 #: ../../library/pickle.rst:952
 msgid ""
@@ -1586,16 +1639,23 @@ msgid ""
 "opt-in to tell :mod:`pickle` that they will handle those buffers by "
 "themselves."
 msgstr ""
+"Um objeto :class:`PickleBuffer` *sinaliza* que o buffer subjacente é "
+"elegível para transferência de dados fora de banda. Esses objetos permanecem "
+"compatíveis com o uso normal do módulo :mod:`pickle`. No entanto, os "
+"consumidores também podem optar por dizer :mod:`pickle` que eles irão lidar "
+"com esses buffers sozinhos."
 
 #: ../../library/pickle.rst:959
 msgid "Consumer API"
-msgstr ""
+msgstr "API de consumidor"
 
 #: ../../library/pickle.rst:961
 msgid ""
 "A communications system can enable custom handling of the :class:"
 "`PickleBuffer` objects generated when serializing an object graph."
 msgstr ""
+"Um sistema de comunicação pode permitir o manuseio personalizado dos "
+"objetos :class:`PickleBuffer` gerados ao serializar um grafo de objeto."
 
 #: ../../library/pickle.rst:964
 msgid ""
@@ -1605,6 +1665,12 @@ msgid ""
 "graph.  Buffers accumulated by the *buffer_callback* will not see their data "
 "copied into the pickle stream, only a cheap marker will be inserted."
 msgstr ""
+"No lado emissor, é necessário passar um argumento *buffer_callback* para :"
+"class:`Pickler` (ou para a função :func:`dump` ou :func:`dumps`), que será "
+"chamada com cada :class:`PickleBuffer` gerado durante a serialização com "
+"pickle do grafo do objeto. Os buffers acumulados pelo *buffer_callback* não "
+"verão seus dados copiados no fluxo pickle, apenas um marcador barato será "
+"inserido."
 
 #: ../../library/pickle.rst:971
 msgid ""
@@ -1616,6 +1682,13 @@ msgid ""
 "reconstructors of the objects whose pickling produced the original :class:"
 "`PickleBuffer` objects."
 msgstr ""
+"No lado receptor, é necessário passar um argumento *buffers* para :class:"
+"`Unpickler` (ou para a função :func:`load` ou :func:`load`), que é um "
+"iterável dos buffers que foram passado para *buffer_callback*. Esse iterável "
+"deve produzir buffers na mesma ordem em que foram passados para "
+"*buffer_callback*. Esses buffers fornecerão os dados esperados pelos "
+"reconstrutores dos objetos cuja serialização com pickle produziu os objetos :"
+"class:`PickleBuffer` originais."
 
 #: ../../library/pickle.rst:979
 msgid ""
@@ -1624,6 +1697,10 @@ msgid ""
 "Potential optimizations include the use of shared memory or datatype-"
 "dependent compression."
 msgstr ""
+"Entre o lado emissor e o lado receptor, o sistema de comunicações está livre "
+"para implementar seu próprio mecanismo de transferência para buffers fora de "
+"banda. As otimizações potenciais incluem o uso de memória compartilhada ou "
+"compactação dependente do tipo de dados."
 
 #: ../../library/pickle.rst:985
 msgid "Example"
