@@ -1711,6 +1711,9 @@ msgid ""
 "Here is a trivial example where we implement a :class:`bytearray` subclass "
 "able to participate in out-of-band buffer pickling::"
 msgstr ""
+"Aqui está um exemplo trivial onde implementamos uma subclasse de :class:"
+"`bytearray` capaz de participar de serialização com pickle de buffer fora de "
+"banda::"
 
 #: ../../library/pickle.rst:1011
 msgid ""
@@ -1718,18 +1721,25 @@ msgid ""
 "providing object if it has the right type.  This is an easy way to simulate "
 "zero-copy behaviour on this toy example."
 msgstr ""
+"O reconstrutor (o método de classe ``_reconstruct``) retorna o objeto de "
+"fornecimento do buffer se ele tiver o tipo correto. Esta é uma maneira fácil "
+"de simular o comportamento de cópia zero neste exemplo de brinquedo."
 
 #: ../../library/pickle.rst:1015
 msgid ""
 "On the consumer side, we can pickle those objects the usual way, which when "
 "unserialized will give us a copy of the original object::"
 msgstr ""
+"Do lado consumidor, podemos serializar com pickle esses objetos da maneira "
+"usual, que quando não serializados nos dará uma cópia do objeto original::"
 
 #: ../../library/pickle.rst:1024
 msgid ""
 "But if we pass a *buffer_callback* and then give back the accumulated "
 "buffers when unserializing, we are able to get back the original object::"
 msgstr ""
+"Mas se passarmos um *buffer_callback* e, em seguida, retornarmos os buffers "
+"acumulados ao desserializar, seremos capazes de recuperar o objeto original::"
 
 #: ../../library/pickle.rst:1034
 msgid ""
@@ -1740,14 +1750,20 @@ msgid ""
 "making as few copies as possible) when transferring between distinct "
 "processes or systems."
 msgstr ""
+"Este exemplo é limitado pelo fato de que :class:`bytearray` aloca sua "
+"própria memória: você não pode criar uma instância de :class:`bytearray` que "
+"é apoiada pela memória de outro objeto. No entanto, tipos de dados de "
+"terceiros, como arrays de NumPy, não têm essa limitação e permitem o uso de "
+"serialização com pickle de cópia zero (ou fazer o mínimo de cópias possível) "
+"ao transferir entre processos ou sistemas distintos."
 
 #: ../../library/pickle.rst:1041
 msgid ":pep:`574` -- Pickle protocol 5 with out-of-band data"
-msgstr ""
+msgstr ":pep:`574` -- Protocolo de Pickle 5 com buffers de dados fora da banda"
 
 #: ../../library/pickle.rst:1047
 msgid "Restricting Globals"
-msgstr ""
+msgstr "Restringindo globais"
 
 #: ../../library/pickle.rst:1052
 msgid ""
@@ -1756,6 +1772,11 @@ msgid ""
 "it permits the unpickler to import and invoke arbitrary code.  Just consider "
 "what this hand-crafted pickle data stream does when loaded::"
 msgstr ""
+"Por padrão, a desserialização com pickle importará qualquer classe ou função "
+"que encontrar nos dados pickle. Para muitos aplicativos, esse comportamento "
+"é inaceitável, pois permite que o unpickler importe e invoque código "
+"arbitrário. Basta considerar o que este fluxo de dados pickle feito à mão "
+"faz quando carregado::"
 
 #: ../../library/pickle.rst:1062
 msgid ""
@@ -1764,6 +1785,9 @@ msgid ""
 "is inoffensive, it is not difficult to imagine one that could damage your "
 "system."
 msgstr ""
+"Neste exemplo, o unpickler importa a função :func:`os.system` e então aplica "
+"o argumento string \"echo hello world\". Embora este exemplo seja "
+"inofensivo, não é difícil imaginar um que possa danificar seu sistema."
 
 #: ../../library/pickle.rst:1066
 msgid ""
@@ -1773,16 +1797,23 @@ msgid ""
 "requested.  Thus it is possible to either completely forbid globals or "
 "restrict them to a safe subset."
 msgstr ""
+"Por esta razão, você pode querer controlar o que é desserializado com pickle "
+"personalizando :meth:`Unpickler.find_class`. Ao contrário do que seu nome "
+"sugere, :meth:`Unpickler.find_class` é chamado sempre que um global (ou "
+"seja, uma classe ou uma função) é solicitado. Assim, é possível proibir "
+"completamente os globais ou restringi-los a um subconjunto seguro."
 
 #: ../../library/pickle.rst:1072
 msgid ""
 "Here is an example of an unpickler allowing only few safe classes from the :"
 "mod:`builtins` module to be loaded::"
 msgstr ""
+"Aqui está um exemplo de um unpickler que permite que apenas algumas classes "
+"seguras do módulo :mod:`builtins` sejam carregadas::"
 
 #: ../../library/pickle.rst:1101
 msgid "A sample usage of our unpickler working has intended::"
-msgstr ""
+msgstr "Um exemplo de uso do nosso unpickler funcionando como esperado::"
 
 #: ../../library/pickle.rst:1120
 msgid ""
