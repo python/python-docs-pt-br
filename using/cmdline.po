@@ -1256,10 +1256,13 @@ msgid ""
 "the :c:func:`PyMem_SetupDebugHooks` function (install debug hooks on Python "
 "memory allocators)."
 msgstr ""
+"Veja os :ref:`alocadores de memória padrão <default-memory-allocators>` e a "
+"função :c:func:`PyMem_SetupDebugHooks` (instala ganchos de depuração em "
+"alocadores de memória Python)."
 
 #: ../../using/cmdline.rst:755
 msgid "Added the ``\"default\"`` allocator."
-msgstr ""
+msgstr "Adicionado o alocador ``\"default\"``."
 
 #: ../../using/cmdline.rst:763
 msgid ""
@@ -1267,6 +1270,9 @@ msgid ""
 "`pymalloc memory allocator <pymalloc>` every time a new pymalloc object "
 "arena is created, and on shutdown."
 msgstr ""
+"Se definido como uma string não vazia, o Python exibe estatísticas do :ref:"
+"`alocador de memória pymalloc <pymalloc>` toda vez que uma nova arena de "
+"objeto pymalloc for criada e ao no desligamento."
 
 #: ../../using/cmdline.rst:767
 msgid ""
@@ -1274,12 +1280,17 @@ msgid ""
 "is used to force the :c:func:`malloc` allocator of the C library, or if "
 "Python is configured without ``pymalloc`` support."
 msgstr ""
+"Esta variável é ignorada se a variável de ambiente :envvar:`PYTHONMALLOC` é "
+"usada para forçar o alocador :c:func:`malloc` da biblioteca C, ou se Python "
+"está configurado sem suporte a ``pymalloc``."
 
 #: ../../using/cmdline.rst:771
 msgid ""
 "This variable can now also be used on Python compiled in release mode. It "
 "now has no effect if set to an empty string."
 msgstr ""
+"Esta variável agora também pode ser usada em Python compilado no modo de "
+"lançamento. Agora não tem efeito se definido como uma string vazia."
 
 #: ../../using/cmdline.rst:778
 msgid ""
@@ -1288,12 +1299,18 @@ msgid ""
 "respectively. Otherwise, the new defaults 'utf-8' and 'surrogatepass' are "
 "used."
 msgstr ""
+"Se definido como uma string não vazia, a codificação do sistema de arquivos "
+"padrão e o modo de erros serão revertidos para seus valores pré-3.6 de \"mbcs"
+"\" e \"replace\", respectivamente. Caso contrário, os novos padrões "
+"\"utf-8\" e \"surrogatepass\" serão usados."
 
 #: ../../using/cmdline.rst:782
 msgid ""
 "This may also be enabled at runtime with :func:`sys."
 "_enablelegacywindowsfsencoding()`."
 msgstr ""
+"Isso também pode ser habilitado em tempo de execução com :func:`sys."
+"_enablelegacywindowsfsencoding()`."
 
 #: ../../using/cmdline.rst:786 ../../using/cmdline.rst:800
 msgid ":ref:`Availability <availability>`: Windows."
@@ -1309,12 +1326,17 @@ msgid ""
 "writer. This means that Unicode characters will be encoded according to the "
 "active console code page, rather than using utf-8."
 msgstr ""
+"Se definido como uma string não vazia, não usa o novo leitor e escritor de "
+"console. Isso significa que os caracteres Unicode serão codificados de "
+"acordo com a página de código do console ativo, em vez de usar utf-8."
 
 #: ../../using/cmdline.rst:796
 msgid ""
 "This variable is ignored if the standard streams are redirected (to files or "
 "pipes) rather than referring to console buffers."
 msgstr ""
+"Esta variável é ignorada se os fluxos padrão forem redirecionados (para "
+"arquivos ou canais) em vez de se referir aos buffers do console."
 
 #: ../../using/cmdline.rst:806
 msgid ""
@@ -1322,6 +1344,9 @@ msgid ""
 "to skip coercing the legacy ASCII-based C and POSIX locales to a more "
 "capable UTF-8 based alternative."
 msgstr ""
+"Se definido com o valor ``0``, faz com que a aplicação principal de linha de "
+"comando Python ignore a coerção dos códigos de idioma legados C e POSIX "
+"baseados em ASCII para uma alternativa baseada em UTF-8 mais capaz."
 
 #: ../../using/cmdline.rst:810
 msgid ""
@@ -1333,6 +1358,13 @@ msgid ""
 "``LC_CTYPE`` category in the order listed before loading the interpreter "
 "runtime:"
 msgstr ""
+"Se esta variável *não* estiver definida (ou estiver definida para um valor "
+"diferente de ``0``), a variável de ambiente de substituição de localidade "
+"``LC_ALL`` também não será definida, e a localidade atual relatada para a "
+"categoria ``LC_CTYPE`` é a localidade ``C`` padrão, ou então a localidade "
+"``POSIX`` explicitamente baseada em ASCII, então a CLI do Python tentará "
+"configurar as seguintes localidades para a categoria ``LC_CTYPE`` na ordem "
+"listada antes de carregar o tempo de execução do interpretador:"
 
 #: ../../using/cmdline.rst:818
 msgid "``C.UTF-8``"
@@ -1358,6 +1390,16 @@ msgid ""
 "in operations that query the environment rather than the current C locale "
 "(such as Python's own :func:`locale.getdefaultlocale`)."
 msgstr ""
+"Se a configuração de uma dessas categorias de local for bem-sucedida, a "
+"variável de ambiente ``LC_CTYPE`` também será configurada de acordo no "
+"ambiente de processo atual antes que o tempo de execução do Python seja "
+"inicializado. Isso garante que, além de ser visto pelo próprio interpretador "
+"e outros componentes com reconhecimento de localidade em execução no mesmo "
+"processo (como a biblioteca GNU ``readline``), a configuração atualizada "
+"também é vista em subprocessos (independentemente de ou não esses processos "
+"estão executando um interpretador Python), bem como em operações que "
+"consultam o ambiente em vez da localidade C atual (como o :func:`locale."
+"getdefaultlocale` do próprio Python)."
 
 #: ../../using/cmdline.rst:832
 msgid ""
@@ -1368,6 +1410,12 @@ msgid ""
 "in any other locale). This stream handling behavior can be overridden using :"
 "envvar:`PYTHONIOENCODING` as usual."
 msgstr ""
+"Configurar uma dessas localidades (explicitamente ou por meio da coerção de "
+"localidade implícita acima) habilita automaticamente o :ref:`tratador de "
+"erros <error-handlers>` ``surrogateescape`` para :data:`sys.stdin` e :data:"
+"`sys.stdout` (:data:`sys.stderr` continua a usar ``backslashreplace`` como "
+"faz em qualquer outra localidade). Este comportamento de tratamento de fluxo "
+"pode ser substituído usando :envvar:`PYTHONIOENCODING` como de costume."
 
 #: ../../using/cmdline.rst:839
 msgid ""
@@ -1376,6 +1424,10 @@ msgid ""
 "activates, or else if a locale that *would* have triggered coercion is still "
 "active when the Python runtime is initialized."
 msgstr ""
+"Para fins de depuração, definir ``PYTHONCOERCECLOCALE=warn`` fará com que o "
+"Python emita mensagens de aviso em ``stderr`` se a coerção de localidade for "
+"ativada ou se uma localidade que *teria* acionado a coerção ainda estiver "
+"ativa quando o Python o tempo de execução é inicializado."
 
 #: ../../using/cmdline.rst:844
 msgid ""
@@ -1385,14 +1437,20 @@ msgid ""
 "order to force the interpreter to use ``ASCII`` instead of ``UTF-8`` for "
 "system interfaces."
 msgstr ""
+"Observe também que mesmo quando a coerção de localidade está desabilitada, "
+"ou quando não consegue encontrar uma localidade de destino adequada, :envvar:"
+"`PYTHONUTF8` ainda será ativado por padrão em localidades baseadas em ASCII "
+"legadas. Ambos os recursos devem ser desabilitados para forçar o "
+"interpretador a usar ``ASCII`` ao invés de ``UTF-8`` para interfaces de "
+"sistema."
 
 #: ../../using/cmdline.rst:851
 msgid ":ref:`Availability <availability>`: \\*nix."
-msgstr ""
+msgstr ":ref:`Disponível <availability>`: \\*nix."
 
 #: ../../using/cmdline.rst:852
 msgid "See :pep:`538` for more details."
-msgstr ""
+msgstr "Veja :pep:`538` para mais detalhes."
 
 #: ../../using/cmdline.rst:858
 msgid ""
