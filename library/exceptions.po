@@ -721,6 +721,16 @@ msgid ""
 "is zero; if it has another type (such as a string), the object's value is "
 "printed and the exit status is one."
 msgstr ""
+"Esta exceção é levantada pela função :func:`sys.exit`. Ele herda de :exc:"
+"`BaseException` em vez de  exc:`Exception` para que não seja acidentalmente "
+"capturado pelo código que captura :exc:`Exception`. Isso permite que a "
+"exceção se propague corretamente e faça com que o interpretador saia. Quando "
+"não é tratado, o interpretador Python sai; nenhum traceback (situação da "
+"pilha de execução) é impresso. O construtor aceita o mesmo argumento "
+"opcional passado para :func:`sys.exit`. Se o valor for um inteiro, ele "
+"especifica o status de saída do sistema (passado para a função C :c:func:"
+"`exit`); se for ``None``, o status de saída é zero; se tiver outro tipo "
+"(como uma string), o valor do objeto é exibido e o status de saída é um."
 
 #: ../../library/exceptions.rst:442
 msgid ""
@@ -731,12 +741,20 @@ msgid ""
 "absolutely positively necessary to exit immediately (for example, in the "
 "child process after a call to :func:`os.fork`)."
 msgstr ""
+"Uma chamada para :func:`sys.exit` é traduzida em uma exceção para que os "
+"tratadores de limpeza (cláusulas :keyword:finally` das instruções :keyword:"
+"`try`) possam ser executados, e para que um depurador possa executar um "
+"script sem correr o risco de perder o controle. A função :func:`os._exit` "
+"pode ser usada se for absolutamente necessário sair imediatamente (por "
+"exemplo, no processo filho após uma chamada para :func:`os.fork`)."
 
 #: ../../library/exceptions.rst:451
 msgid ""
 "The exit status or error message that is passed to the constructor. "
 "(Defaults to ``None``.)"
 msgstr ""
+"O status de saída ou mensagem de erro transmitida ao construtor. (O padrão é "
+"``None``.)"
 
 #: ../../library/exceptions.rst:457
 msgid ""
@@ -744,6 +762,9 @@ msgid ""
 "inappropriate type.  The associated value is a string giving details about "
 "the type mismatch."
 msgstr ""
+"Levantada quando uma operação ou função é aplicada a um objeto de tipo "
+"inadequado. O valor associado é uma string que fornece detalhes sobre a "
+"incompatibilidade de tipo."
 
 #: ../../library/exceptions.rst:460
 msgid ""
@@ -752,6 +773,11 @@ msgid ""
 "object is meant to support a given operation but has not yet provided an "
 "implementation, :exc:`NotImplementedError` is the proper exception to raise."
 msgstr ""
+"Essa exceção pode ser levantada pelo código do usuário para indicar que uma "
+"tentativa de operação em um objeto não é suportada e não deveria ser. Se um "
+"objeto deve ter suporte a uma dada operação, mas ainda não forneceu uma "
+"implementação, :exc:`NotImplementedError` é a exceção apropriada a ser "
+"levantada."
 
 #: ../../library/exceptions.rst:465
 msgid ""
@@ -760,6 +786,10 @@ msgid ""
 "arguments with the wrong value (e.g. a number outside expected boundaries) "
 "should result in a :exc:`ValueError`."
 msgstr ""
+"Passar argumentos do tipo errado (por exemplo, passar uma :class:`list` "
+"quando um :class:`int` é esperado) deve resultar em uma :exc:`TypeError`, "
+"mas passar argumentos com o valor errado (por exemplo, um número fora "
+"limites esperados) deve resultar em uma :exc:`ValueError`."
 
 #: ../../library/exceptions.rst:472
 msgid ""
@@ -767,12 +797,17 @@ msgid ""
 "but no value has been bound to that variable.  This is a subclass of :exc:"
 "`NameError`."
 msgstr ""
+"Levantada quando uma referência é feita a uma variável local em uma função "
+"ou método, mas nenhum valor foi vinculado a essa variável. Esta é uma "
+"subclasse de :exc:`NameError`."
 
 #: ../../library/exceptions.rst:479
 msgid ""
 "Raised when a Unicode-related encoding or decoding error occurs.  It is a "
 "subclass of :exc:`ValueError`."
 msgstr ""
+"Levantada quando ocorre um erro de codificação ou decodificação relacionado "
+"ao Unicode. É uma subclasse de :exc:`ValueError`."
 
 #: ../../library/exceptions.rst:482
 msgid ""
@@ -780,44 +815,53 @@ msgid ""
 "error.  For example, ``err.object[err.start:err.end]`` gives the particular "
 "invalid input that the codec failed on."
 msgstr ""
+":exc:`UnicodeError` possui atributos que descrevem o erro de codificação ou "
+"decodificação. Por exemplo, ``err.object[err.start:err.end]`` fornece a "
+"entrada inválida específica na qual o codec falhou."
 
 #: ../../library/exceptions.rst:488
 msgid "The name of the encoding that raised the error."
-msgstr ""
+msgstr "O nome da codificação que levantou o erro."
 
 #: ../../library/exceptions.rst:492
 msgid "A string describing the specific codec error."
-msgstr ""
+msgstr "Uma string que descreve o erro de codec específico."
 
 #: ../../library/exceptions.rst:496
 msgid "The object the codec was attempting to encode or decode."
-msgstr ""
+msgstr "O objeto que o codec estava tentando codificar ou decodificar."
 
 #: ../../library/exceptions.rst:500
 msgid "The first index of invalid data in :attr:`object`."
-msgstr ""
+msgstr "O primeiro índice de dados inválidos em :attr:`object`."
 
 #: ../../library/exceptions.rst:504
 msgid "The index after the last invalid data in :attr:`object`."
-msgstr ""
+msgstr "O índice após os últimos dados inválidos em :attr:`object`."
 
 #: ../../library/exceptions.rst:509
 msgid ""
 "Raised when a Unicode-related error occurs during encoding.  It is a "
 "subclass of :exc:`UnicodeError`."
 msgstr ""
+"Levantada quando ocorre um erro relacionado ao Unicode durante a "
+"codificação. É uma subclasse de :exc:`UnicodeError`."
 
 #: ../../library/exceptions.rst:515
 msgid ""
 "Raised when a Unicode-related error occurs during decoding.  It is a "
 "subclass of :exc:`UnicodeError`."
 msgstr ""
+"Levantada quando ocorre um erro relacionado ao Unicode durante a "
+"decodificação. É uma subclasse de :exc:`UnicodeError`."
 
 #: ../../library/exceptions.rst:521
 msgid ""
 "Raised when a Unicode-related error occurs during translating.  It is a "
 "subclass of :exc:`UnicodeError`."
 msgstr ""
+"Levantada quando ocorre um erro relacionado ao Unicode durante a tradução. É "
+"uma subclasse de :exc:`UnicodeError`."
 
 #: ../../library/exceptions.rst:527
 msgid ""
@@ -825,6 +869,9 @@ msgid ""
 "type but an inappropriate value, and the situation is not described by a "
 "more precise exception such as :exc:`IndexError`."
 msgstr ""
+"Levantada quando uma operação ou função recebe um argumento que tem o tipo "
+"certo, mas um valor inadequado, e a situação não é descrita por uma exceção "
+"mais precisa, como :exc:`IndexError`."
 
 #: ../../library/exceptions.rst:534
 msgid ""
@@ -832,26 +879,33 @@ msgid ""
 "The associated value is a string indicating the type of the operands and the "
 "operation."
 msgstr ""
+"Levantada quando o segundo argumento de uma divisão ou operação de módulo é "
+"zero. O valor associado é uma string que indica o tipo dos operandos e a "
+"operação."
 
 #: ../../library/exceptions.rst:539
 msgid ""
 "The following exceptions are kept for compatibility with previous versions; "
 "starting from Python 3.3, they are aliases of :exc:`OSError`."
 msgstr ""
+"As seguintes exceções são mantidas para compatibilidade com versões "
+"anteriores; a partir do Python 3.3, eles são apelidos de :exc:`OSError`."
 
 #: ../../library/exceptions.rst:548
 msgid "Only available on Windows."
-msgstr ""
+msgstr "Disponível apenas no Windows."
 
 #: ../../library/exceptions.rst:552
 msgid "OS exceptions"
-msgstr ""
+msgstr "Exceções de sistema operacional"
 
 #: ../../library/exceptions.rst:554
 msgid ""
 "The following exceptions are subclasses of :exc:`OSError`, they get raised "
 "depending on the system error code."
 msgstr ""
+"As seguintes exceções são subclasses de :exc:`OSError`, elas são levantadas "
+"dependendo do código de erro do sistema."
 
 #: ../../library/exceptions.rst:559
 msgid ""
@@ -859,12 +913,17 @@ msgid ""
 "blocking operation. Corresponds to :c:data:`errno` ``EAGAIN``, ``EALREADY``, "
 "``EWOULDBLOCK`` and ``EINPROGRESS``."
 msgstr ""
+"Levantada quando uma operação bloquearia em um objeto (por exemplo, soquete) "
+"definido para operação sem bloqueio. Corresponde a :c:data:`errno` "
+"``EAGAIN``, ``EALREADY``, ``EWOULDBLOCK`` e ``EINPROGRESS``."
 
 #: ../../library/exceptions.rst:564
 msgid ""
 "In addition to those of :exc:`OSError`, :exc:`BlockingIOError` can have one "
 "more attribute:"
 msgstr ""
+"Além daquelas de :exc:`OSError`, :exc:`BlockingIOError` pode ter mais um "
+"atributo:"
 
 #: ../../library/exceptions.rst:569
 msgid ""
@@ -872,22 +931,29 @@ msgid ""
 "it blocked.  This attribute is available when using the buffered I/O classes "
 "from the :mod:`io` module."
 msgstr ""
+"Um inteiro contendo o número de caracteres gravados no fluxo antes de ser "
+"bloqueado. Este atributo está disponível ao usar as classes de E/S em buffer "
+"do módulo :mod:`io`."
 
 #: ../../library/exceptions.rst:575
 msgid ""
 "Raised when an operation on a child process failed. Corresponds to :c:data:"
 "`errno` ``ECHILD``."
 msgstr ""
+"Levantada quando uma operação em um processo filho falha. Corresponde a :c:"
+"data:`errno` ``ECHILD``."
 
 #: ../../library/exceptions.rst:580
 msgid "A base class for connection-related issues."
-msgstr ""
+msgstr "Uma classe base para problemas relacionados à conexão."
 
 #: ../../library/exceptions.rst:582
 msgid ""
 "Subclasses are :exc:`BrokenPipeError`, :exc:`ConnectionAbortedError`, :exc:"
 "`ConnectionRefusedError` and :exc:`ConnectionResetError`."
 msgstr ""
+"Suas subclasses são :exc:`BrokenPipeError`, :exc:`ConnectionAbortedError`, :"
+"exc:`ConnectionRefusedError` e :exc:`ConnectionResetError`."
 
 #: ../../library/exceptions.rst:587
 msgid ""
@@ -896,42 +962,58 @@ msgid ""
 "has been shutdown for writing. Corresponds to :c:data:`errno` ``EPIPE`` and "
 "``ESHUTDOWN``."
 msgstr ""
+"Uma subclasse de :exc:`ConnectionError`, levantada ao tentar escrever em um "
+"encadeamento enquanto a outra extremidade foi fechada, ou tentar escrever em "
+"um soquete que foi desligado para escrita. Corresponde a :c:data:`errno` "
+"``EPIPE`` e ``ESHUTDOWN``."
 
 #: ../../library/exceptions.rst:594
 msgid ""
 "A subclass of :exc:`ConnectionError`, raised when a connection attempt is "
 "aborted by the peer. Corresponds to :c:data:`errno` ``ECONNABORTED``."
 msgstr ""
+"Uma subclasse de :exc:`ConnectionError`, levantada quando uma tentativa de "
+"conexão é cancelada pelo par. Corresponde a :c:data:`errno` ``ECONNABORTED``."
 
 #: ../../library/exceptions.rst:600
 msgid ""
 "A subclass of :exc:`ConnectionError`, raised when a connection attempt is "
 "refused by the peer. Corresponds to :c:data:`errno` ``ECONNREFUSED``."
 msgstr ""
+"Uma subclasse de :exc:`ConnectionError`, levantada quando uma tentativa de "
+"conexão é recusada pelo par. Corresponde a :c:data:`errno` ``ECONNREFUSED``."
 
 #: ../../library/exceptions.rst:606
 msgid ""
 "A subclass of :exc:`ConnectionError`, raised when a connection is reset by "
 "the peer. Corresponds to :c:data:`errno` ``ECONNRESET``."
 msgstr ""
+"Uma subclasse de :exc:`ConnectionError`, levantada quando a conexão é "
+"reiniciada pelo par. Corresponde a :c:data:`errno` ``ECONNRESET``."
 
 #: ../../library/exceptions.rst:612
 msgid ""
 "Raised when trying to create a file or directory which already exists. "
 "Corresponds to :c:data:`errno` ``EEXIST``."
 msgstr ""
+"Levantada ao tentar criar um arquivo ou diretório que já existe. Corresponde "
+"a :c:data:`errno` ``EEXIST``."
 
 #: ../../library/exceptions.rst:617
 msgid ""
 "Raised when a file or directory is requested but doesn't exist. Corresponds "
 "to :c:data:`errno` ``ENOENT``."
 msgstr ""
+"Levantada quando um arquivo ou diretório é solicitado, mas não existe. "
+"Corresponde a :c:data:`errno` ``ENOENT``."
 
 #: ../../library/exceptions.rst:622
 msgid ""
 "Raised when a system call is interrupted by an incoming signal. Corresponds "
 "to :c:data:`errno` :py:data:`~errno.EINTR`."
 msgstr ""
+"Levantada quando uma chamada do sistema é interrompida por um sinal de "
+"entrada. Corresponde a :c:data:`errno` :py:data:`~errno.EINTR`."
 
 #: ../../library/exceptions.rst:625
 msgid ""
@@ -939,12 +1021,18 @@ msgid ""
 "except if the signal handler raises an exception (see :pep:`475` for the "
 "rationale), instead of raising :exc:`InterruptedError`."
 msgstr ""
+"Python agora tenta novamente chamadas de sistema quando uma *syscall* é "
+"interrompida por um sinal, exceto se o tratador de sinal levanta uma exceção "
+"(veja :pep:`475` para a justificativa), em vez de levantar :exc:"
+"`InterruptedError`."
 
 #: ../../library/exceptions.rst:632
 msgid ""
 "Raised when a file operation (such as :func:`os.remove`) is requested on a "
 "directory. Corresponds to :c:data:`errno` ``EISDIR``."
 msgstr ""
+"Levantada quando uma operação de arquivo (como :func:`os.remove`) é "
+"solicitada em um diretório. Corresponde a :c:data:`errno` ``EISDIR``."
 
 #: ../../library/exceptions.rst:638
 msgid ""
@@ -952,6 +1040,9 @@ msgid ""
 "on something which is not a directory. Corresponds to :c:data:`errno` "
 "``ENOTDIR``."
 msgstr ""
+"Levantada quando uma operação de diretório (como :func:`os.listdir`) é "
+"solicitada em algo que não é um diretório. Corresponde a :c:data:`errno` "
+"``ENOTDIR``."
 
 #: ../../library/exceptions.rst:644
 msgid ""
@@ -959,30 +1050,37 @@ msgid ""
 "for example filesystem permissions. Corresponds to :c:data:`errno` "
 "``EACCES`` and ``EPERM``."
 msgstr ""
+"Levantada ao tentar executar uma operação sem os direitos de acesso "
+"adequados -- por exemplo, permissões do sistema de arquivos. Corresponde a :"
+"c:data:`errno` ``EACCES`` e ``EPERM``."
 
 #: ../../library/exceptions.rst:650
 msgid ""
 "Raised when a given process doesn't exist. Corresponds to :c:data:`errno` "
 "``ESRCH``."
 msgstr ""
+"Levantada quando um determinado processo não existe. Corresponde a :c:data:"
+"`errno` ``ESRCH``."
 
 #: ../../library/exceptions.rst:655
 msgid ""
 "Raised when a system function timed out at the system level. Corresponds to :"
 "c:data:`errno` ``ETIMEDOUT``."
 msgstr ""
+"Levantada quando uma função do sistema expirou no nível do sistema. "
+"Corresponde a :c:data:`errno` ``ETIMEDOUT``."
 
 #: ../../library/exceptions.rst:658
 msgid "All the above :exc:`OSError` subclasses were added."
-msgstr ""
+msgstr "Todas as subclasses de :exc:`OSError` acima foram adicionadas."
 
 #: ../../library/exceptions.rst:664
 msgid ":pep:`3151` - Reworking the OS and IO exception hierarchy"
-msgstr ""
+msgstr ":pep:`3151` - Reworking the OS and IO exception hierarchy"
 
 #: ../../library/exceptions.rst:668
 msgid "Warnings"
-msgstr ""
+msgstr "Avisos"
 
 #: ../../library/exceptions.rst:670
 msgid ""
@@ -992,11 +1090,11 @@ msgstr ""
 
 #: ../../library/exceptions.rst:675
 msgid "Base class for warning categories."
-msgstr ""
+msgstr "Classe base para categorias de aviso."
 
 #: ../../library/exceptions.rst:680
 msgid "Base class for warnings generated by user code."
-msgstr ""
+msgstr "Classe base para avisos gerados pelo código do usuário."
 
 #: ../../library/exceptions.rst:685
 msgid "Base class for warnings about deprecated features."
@@ -1010,11 +1108,12 @@ msgstr ""
 
 #: ../../library/exceptions.rst:695
 msgid "Base class for warnings about dubious syntax."
-msgstr ""
+msgstr "Classe base para avisos sobre sintaxe duvidosa."
 
 #: ../../library/exceptions.rst:700
 msgid "Base class for warnings about dubious runtime behavior."
 msgstr ""
+"Classe base para avisos sobre comportamento duvidoso de tempo de execução."
 
 #: ../../library/exceptions.rst:705
 msgid ""
@@ -1025,24 +1124,26 @@ msgstr ""
 #: ../../library/exceptions.rst:711
 msgid "Base class for warnings about probable mistakes in module imports."
 msgstr ""
+"Classe base para avisos sobre prováveis erros na importação de módulos."
 
 #: ../../library/exceptions.rst:716
 msgid "Base class for warnings related to Unicode."
-msgstr ""
+msgstr "Classe base para avisos relacionados a Unicode."
 
 #: ../../library/exceptions.rst:721
 msgid ""
 "Base class for warnings related to :class:`bytes` and :class:`bytearray`."
 msgstr ""
+"Classe base para avisos relacionados a :class:`bytes` e :class:`bytearray`."
 
 #: ../../library/exceptions.rst:726
 msgid "Base class for warnings related to resource usage."
-msgstr ""
+msgstr "Classe base para avisos relacionados a uso de recursos."
 
 #: ../../library/exceptions.rst:733
 msgid "Exception hierarchy"
-msgstr ""
+msgstr "Hierarquia das exceções"
 
 #: ../../library/exceptions.rst:735
 msgid "The class hierarchy for built-in exceptions is:"
-msgstr ""
+msgstr "A hierarquia de classes para exceções embutidas é:"
