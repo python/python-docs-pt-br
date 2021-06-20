@@ -111,6 +111,9 @@ msgid ""
 "`TimeoutExpired` exception will be re-raised after the child process has "
 "terminated."
 msgstr ""
+"O argumento *timeout* é passado para :meth:`Popen.communicate`. Se o tempo "
+"limite expirar, o processo filho será encerrado e aguardado. A exceção :exc:"
+"`TimeoutExpired` será levantada novamente após o término do processo filho."
 
 #: ../../library/subprocess.rst:62
 msgid ""
@@ -128,6 +131,10 @@ msgid ""
 "hold the arguments, the exit code, and stdout and stderr if they were "
 "captured."
 msgstr ""
+"Se *check* for verdadeiro, e o processo sair com um código de saída "
+"diferente de zero, uma exceção :exc:`CalledProcessError` será levantada. Os "
+"atributos dessa exceção contêm os argumentos, o código de saída e stdout e "
+"stderr se eles foram capturados."
 
 #: ../../library/subprocess.rst:73
 msgid ""
@@ -144,6 +151,10 @@ msgid ""
 "behavior of inheriting the current process' environment. It is passed "
 "directly to :class:`Popen`."
 msgstr ""
+"Se *env* não for ``None``, deve ser um mapeamento que define as variáveis de "
+"ambiente para o novo processo; eles são usados em vez do comportamento "
+"padrão de herdar o ambiente do processo atual. É passado diretamente para :"
+"class:`Popen`."
 
 #: ../../library/subprocess.rst:83
 msgid "Examples::"
@@ -157,6 +168,8 @@ msgstr "Adicionado os parâmetros *encoding* e *errors*."
 msgid ""
 "The return value from :func:`run`, representing a process that has finished."
 msgstr ""
+"O valor de retorno de :func:`run`, representando um processo que foi "
+"concluído."
 
 #: ../../library/subprocess.rst:109
 msgid ""
@@ -235,6 +248,9 @@ msgid ""
 "and indicates that standard error should go into the same handle as standard "
 "output."
 msgstr ""
+"Valor especial que pode ser usado como o argumento *stderr* para :class:"
+"`Popen` e indica que o erro padrão deve ir para o mesmo manipulador que a "
+"saída padrão."
 
 #: ../../library/subprocess.rst:166
 msgid "Base class for all other exceptions from this module."
@@ -250,7 +266,7 @@ msgstr ""
 
 #: ../../library/subprocess.rst:178 ../../library/subprocess.rst:215
 msgid "Command that was used to spawn the child process."
-msgstr ""
+msgstr "Comando que foi usado para gerar o processo filho."
 
 #: ../../library/subprocess.rst:182
 msgid "Timeout in seconds."
@@ -266,7 +282,7 @@ msgstr ""
 
 #: ../../library/subprocess.rst:191 ../../library/subprocess.rst:224
 msgid "Alias for output, for symmetry with :attr:`stderr`."
-msgstr ""
+msgstr "Apelido para a saída, para simetria com :attr:`stderr`."
 
 #: ../../library/subprocess.rst:195 ../../library/subprocess.rst:228
 msgid ""
@@ -294,6 +310,8 @@ msgid ""
 "Exit status of the child process.  If the process exited due to a signal, "
 "this will be the negative signal number."
 msgstr ""
+"Status de saída do processo filho. Se o processo foi encerrado devido a um "
+"sinal, este será o número do sinal negativo."
 
 #: ../../library/subprocess.rst:238
 msgid "Frequently Used Arguments"
@@ -342,6 +360,17 @@ msgid ""
 "data:`STDOUT`, which indicates that the stderr data from the child process "
 "should be captured into the same file handle as for *stdout*."
 msgstr ""
+"*stdin*, *stdout* e *stderr* especificam o manipulador de arquivo de entrada "
+"padrão, a saída padrão e de erro padrão do programa executado, "
+"respectivamente. Os valores válidos são :data:`PIPE`, :data:`DEVNULL`, um "
+"descritor de arquivo existente (um inteiro positivo), um objeto arquivo "
+"existente e ``None``. :data:`PIPE` indica que um novo encadeamento para o "
+"filho deve ser criado. :data:`DEVNULL` indica que o arquivo especial :data:"
+"`os.devnull` será usado. Com as configurações padrão de ``None``, nenhum "
+"redirecionamento ocorrerá; os manipuladores de arquivo do filho serão "
+"herdados do pai. Além disso, *stderr* pode ser :data:`STDOUT`, o que indica "
+"que os dados stderr do processo filho devem ser capturados no mesmo "
+"manipulador de arquivo que para *stdout*."
 
 #: ../../library/subprocess.rst:267
 msgid ""
@@ -359,12 +388,21 @@ msgid ""
 "information see the documentation of the :class:`io.TextIOWrapper` class "
 "when the *newline* argument to its constructor is ``None``."
 msgstr ""
+"Para *stdin*, os caracteres de fim de linha ``'\\n'`` na entrada serão "
+"convertidos para o separador de linha padrão :data:`os.linesep`. Para "
+"*stdout* e *stderr*, todas as terminações de linha na saída serão "
+"convertidas para ``'\\n'``. Para obter mais informações, consulte a "
+"documentação da classe :class:`io.TextIOWrapper` quando o argumento "
+"*newline* para seu construtor é ``None``."
 
 #: ../../library/subprocess.rst:278
 msgid ""
 "If text mode is not used, *stdin*, *stdout* and *stderr* will be opened as "
 "binary streams. No encoding or line ending conversion is performed."
 msgstr ""
+"Se o modo de texto não for usado, *stdin*, *stdout* e *stderr* serão abertos "
+"como fluxos binários. Nenhuma codificação ou conversão de final de linha é "
+"executada."
 
 #: ../../library/subprocess.rst:281
 msgid "Added *encoding* and *errors* parameters."
@@ -376,6 +414,9 @@ msgid ""
 "stdout` and :attr:`Popen.stderr` are not updated by the :meth:`Popen."
 "communicate` method."
 msgstr ""
+"O atributo newlines dos objetos arquivo :attr:`Popen.stdin`, :attr:`Popen."
+"stdout` e :attr:`Popen.stderr` não são atualizados pelo método :meth:`Popen."
+"communicate`."
 
 #: ../../library/subprocess.rst:290
 msgid ""
@@ -389,6 +430,16 @@ msgid ""
 "mod:`fnmatch`, :func:`os.walk`, :func:`os.path.expandvars`, :func:`os.path."
 "expanduser`, and :mod:`shutil`)."
 msgstr ""
+"Se *shell* for ``True``, o comando especificado será executado através do "
+"shell. Isso pode ser útil se você estiver usando Python principalmente para "
+"o fluxo de controle aprimorado que ele oferece sobre a maioria dos shells do "
+"sistema e ainda deseja acesso conveniente a outros recursos do shell, como "
+"canais de shell, caracteres curinga de nome de arquivo, expansão de variável "
+"de ambiente e expansão de ``~`` para o diretório inicial de um usuário. No "
+"entanto, observe que o próprio Python oferece implementações de muitos "
+"recursos semelhantes a shell (em particular, :mod:`glob`, :mod:`fnmatch`, :"
+"func:`os.walk`, :func:`os.path.expandvars`, :func:`os.path.expanduser` e :"
+"mod:`shutil`)."
 
 #: ../../library/subprocess.rst:300
 msgid ""
@@ -397,6 +448,10 @@ msgid ""
 "of ``locale.getpreferredencoding()``.  See the :class:`io.TextIOWrapper` "
 "class for more information on this change."
 msgstr ""
+"Quando *universal_newlines* é ``True``, a classe usa a codificação :func:"
+"`locale.getpreferredencoding(False) <locale.getpreferredencoding>` em vez "
+"de``locale.getpreferredencoding()``.  Veja a classe :class:`io."
+"TextIOWrapper` para mais informações sobre esta alteração."
 
 #: ../../library/subprocess.rst:308 ../../library/subprocess.rst:392
 msgid ""
@@ -422,6 +477,10 @@ msgid ""
 "are able to handle the less common cases not covered by the convenience "
 "functions."
 msgstr ""
+"A criação e gerenciamento do processo subjacente neste módulo é manipulado "
+"pela classe :class:`Popen`. Ela oferece muita flexibilidade para que os "
+"desenvolvedores sejam capazes de lidar com os casos menos comuns não "
+"cobertos pelas funções de conveniência."
 
 #: ../../library/subprocess.rst:330
 msgid ""
@@ -430,6 +489,10 @@ msgid ""
 "class uses the Windows ``CreateProcess()`` function.  The arguments to :"
 "class:`Popen` are as follows."
 msgstr ""
+"Executa um programa filho em um novo processo. No POSIX, a classe usa o "
+"comportamento de :meth:`os.execvp` para executar o programa filho. No "
+"Windows, a classe usa a função Windows ``CreateProcess()``. Os argumentos "
+"para :class:`Popen` são os seguintes."
 
 #: ../../library/subprocess.rst:335
 msgid ""
