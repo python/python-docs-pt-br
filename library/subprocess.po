@@ -114,6 +114,12 @@ msgid ""
 "capture and combine both streams into one, use ``stdout=PIPE`` and "
 "``stderr=STDOUT`` instead of *capture_output*."
 msgstr ""
+"Se *capture_output* for verdadeiro, stdout e stderr serão capturados. Quando "
+"usado, o objeto interno :class:`Popen` é automaticamente criado com "
+"``stdout=PIPE`` e ``stderr=PIPE``. Os argumentos *stdout * e *stderr* não "
+"podem ser fornecidos ao mesmo tempo que *capture_output*. Se você deseja "
+"capturar e combinar os dois fluxos em um, use ``stdout=PIPE`` e "
+"``stderr=STDOUT`` ao invés de *capture_output*."
 
 #: ../../library/subprocess.rst:62
 msgid ""
@@ -122,6 +128,9 @@ msgid ""
 "`TimeoutExpired` exception will be re-raised after the child process has "
 "terminated."
 msgstr ""
+"O argumento *timeout* é passado para :meth:`Popen.communicate`. Se o tempo "
+"limite expirar, o processo filho será encerrado e aguardado. A exceção :exc:"
+"`TimeoutExpired` será levantada novamente após o término do processo filho."
 
 #: ../../library/subprocess.rst:67
 msgid ""
@@ -131,6 +140,11 @@ msgid ""
 "internal :class:`Popen` object is automatically created with ``stdin=PIPE``, "
 "and the *stdin* argument may not be used as well."
 msgstr ""
+"O argumento *input* é passado para :meth:`Popen.communicate` e, portanto, "
+"para o stdin do subprocesso. Se usado, deve ser uma sequência de bytes ou "
+"uma string se *encoding* ou *errors* forem especificados ou *text* for "
+"verdadeiro. Quando usado, o objeto internal :class:`Popen` é automaticamente "
+"criado com ``stdin=PIPE``, e o argumento *stdin* também não pode ser usado."
 
 #: ../../library/subprocess.rst:73
 msgid ""
@@ -139,6 +153,10 @@ msgid ""
 "hold the arguments, the exit code, and stdout and stderr if they were "
 "captured."
 msgstr ""
+"Se *check* for verdadeiro, e o processo sair com um código de saída "
+"diferente de zero, uma exceção :exc:`CalledProcessError` será levantada. Os "
+"atributos dessa exceção contêm os argumentos, o código de saída e stdout e "
+"stderr se eles foram capturados."
 
 #: ../../library/subprocess.rst:78
 msgid ""
@@ -148,6 +166,12 @@ msgid ""
 "*universal_newlines* argument is equivalent  to *text* and is provided for "
 "backwards compatibility. By default, file objects are opened in binary mode."
 msgstr ""
+"Se *encoding* ou *errors* forem especificados, ou *text* for verdadeiro, os "
+"objetos de arquivo para stdin, stdout e stderr são abertos em modo de texto "
+"usando a *encoding* e *errors* especificados ou o :class:`io.TextIOWrapper` "
+"padrão. O argumento *universal_newlines* é equivalente a *text* e é "
+"fornecido para compatibilidade com versões anteriores. Por padrão, os "
+"objetos arquivo são abertos no modo binário."
 
 #: ../../library/subprocess.rst:84
 msgid ""
@@ -156,6 +180,10 @@ msgid ""
 "behavior of inheriting the current process' environment. It is passed "
 "directly to :class:`Popen`."
 msgstr ""
+"Se *env* não for ``None``, deve ser um mapeamento que define as variáveis de "
+"ambiente para o novo processo; eles são usados em vez do comportamento "
+"padrão de herdar o ambiente do processo atual. É passado diretamente para :"
+"class:`Popen`."
 
 #: ../../library/subprocess.rst:89
 msgid "Examples::"
@@ -170,11 +198,15 @@ msgid ""
 "Added the *text* parameter, as a more understandable alias of "
 "*universal_newlines*. Added the *capture_output* parameter."
 msgstr ""
+"Adicionado o parâmetro *text*, como um apelido mais compreensível que "
+"*universal_newlines*. Adicionado o parâmetro *capture_output*."
 
 #: ../../library/subprocess.rst:116
 msgid ""
 "The return value from :func:`run`, representing a process that has finished."
 msgstr ""
+"O valor de retorno de :func:`run`, representando um processo que foi "
+"concluído."
 
 #: ../../library/subprocess.rst:120
 msgid ""
@@ -259,6 +291,9 @@ msgid ""
 "and indicates that standard error should go into the same handle as standard "
 "output."
 msgstr ""
+"Valor especial que pode ser usado como o argumento *stderr* para :class:"
+"`Popen` e indica que o erro padrão deve ir para o mesmo manipulador que a "
+"saída padrão."
 
 #: ../../library/subprocess.rst:177
 msgid "Base class for all other exceptions from this module."
@@ -274,7 +309,7 @@ msgstr ""
 
 #: ../../library/subprocess.rst:189 ../../library/subprocess.rst:226
 msgid "Command that was used to spawn the child process."
-msgstr ""
+msgstr "Comando que foi usado para gerar o processo filho."
 
 #: ../../library/subprocess.rst:193
 msgid "Timeout in seconds."
@@ -290,14 +325,14 @@ msgstr ""
 
 #: ../../library/subprocess.rst:202 ../../library/subprocess.rst:235
 msgid "Alias for output, for symmetry with :attr:`stderr`."
-msgstr ""
+msgstr "Apelido para a saída, para simetria com :attr:`stderr`."
 
 #: ../../library/subprocess.rst:206 ../../library/subprocess.rst:239
 msgid ""
 "Stderr output of the child process if it was captured by :func:`run`. "
 "Otherwise, ``None``."
 msgstr ""
-"Saída Stderr do processo filho se ele foi capturado por :func:`run`. Caso "
+"Saída stderr do processo filho se ele foi capturado por :func:`run`. Caso "
 "contrário, ``None``."
 
 #: ../../library/subprocess.rst:211 ../../library/subprocess.rst:242
@@ -318,6 +353,8 @@ msgid ""
 "Exit status of the child process.  If the process exited due to a signal, "
 "this will be the negative signal number."
 msgstr ""
+"Status de saída do processo filho. Se o processo foi encerrado devido a um "
+"sinal, este será o número do sinal negativo."
 
 #: ../../library/subprocess.rst:249
 msgid "Frequently Used Arguments"
@@ -366,6 +403,17 @@ msgid ""
 "data:`STDOUT`, which indicates that the stderr data from the child process "
 "should be captured into the same file handle as for *stdout*."
 msgstr ""
+"*stdin*, *stdout* e *stderr* especificam o manipulador de arquivo de entrada "
+"padrão, a saída padrão e de erro padrão do programa executado, "
+"respectivamente. Os valores válidos são :data:`PIPE`, :data:`DEVNULL`, um "
+"descritor de arquivo existente (um inteiro positivo), um objeto arquivo "
+"existente e ``None``. :data:`PIPE` indica que um novo encadeamento para o "
+"filho deve ser criado. :data:`DEVNULL` indica que o arquivo especial :data:"
+"`os.devnull` será usado. Com as configurações padrão de ``None``, nenhum "
+"redirecionamento ocorrerá; os manipuladores de arquivo do filho serão "
+"herdados do pai. Além disso, *stderr* pode ser :data:`STDOUT`, o que indica "
+"que os dados stderr do processo filho devem ser capturados no mesmo "
+"manipulador de arquivo que para *stdout*."
 
 #: ../../library/subprocess.rst:278
 msgid ""
@@ -374,6 +422,11 @@ msgid ""
 "*stderr* will be opened in text mode using the *encoding* and *errors* "
 "specified in the call or the defaults for :class:`io.TextIOWrapper`."
 msgstr ""
+"Se *encoding* ou *errors* forem especificados, ou *text* (também conhecido "
+"como *universal_newlines*) for verdadeiro, os objetos de arquivo *stdin*, "
+"*stdout* e *stderr* serão abertos em modo de texto usando a *encoding* e "
+"*errors* especificados na chamada ou os valores padrão para :class:`io."
+"TextIOWrapper`."
 
 #: ../../library/subprocess.rst:284
 msgid ""
@@ -383,21 +436,30 @@ msgid ""
 "information see the documentation of the :class:`io.TextIOWrapper` class "
 "when the *newline* argument to its constructor is ``None``."
 msgstr ""
+"Para *stdin*, os caracteres de fim de linha ``'\\n'`` na entrada serão "
+"convertidos para o separador de linha padrão :data:`os.linesep`. Para "
+"*stdout* e *stderr*, todas as terminações de linha na saída serão "
+"convertidas para ``'\\n'``. Para obter mais informações, consulte a "
+"documentação da classe :class:`io.TextIOWrapper` quando o argumento "
+"*newline* para seu construtor é ``None``."
 
 #: ../../library/subprocess.rst:290
 msgid ""
 "If text mode is not used, *stdin*, *stdout* and *stderr* will be opened as "
 "binary streams. No encoding or line ending conversion is performed."
 msgstr ""
+"Se o modo de texto não for usado, *stdin*, *stdout* e *stderr* serão abertos "
+"como fluxos binários. Nenhuma codificação ou conversão de final de linha é "
+"executada."
 
 #: ../../library/subprocess.rst:293
 msgid "Added *encoding* and *errors* parameters."
-msgstr "Adicionado os parâmetros *encoding* e *errors*."
+msgstr "Adicionados os parâmetros *encoding* e *errors*."
 
 #: ../../library/subprocess.rst:296
 msgid "Added the *text* parameter as an alias for *universal_newlines*."
 msgstr ""
-"Adicionado o parâmetro *text* como um atalho para *universal_newlines*."
+"Adicionado o parâmetro *text* como um apelido para *universal_newlines*."
 
 #: ../../library/subprocess.rst:301
 msgid ""
@@ -405,6 +467,9 @@ msgid ""
 "stdout` and :attr:`Popen.stderr` are not updated by the :meth:`Popen."
 "communicate` method."
 msgstr ""
+"O atributo newlines dos objetos arquivo :attr:`Popen.stdin`, :attr:`Popen."
+"stdout` e :attr:`Popen.stderr` não são atualizados pelo método :meth:`Popen."
+"communicate`."
 
 #: ../../library/subprocess.rst:305
 msgid ""
@@ -418,6 +483,16 @@ msgid ""
 "mod:`fnmatch`, :func:`os.walk`, :func:`os.path.expandvars`, :func:`os.path."
 "expanduser`, and :mod:`shutil`)."
 msgstr ""
+"Se *shell* for ``True``, o comando especificado será executado através do "
+"shell. Isso pode ser útil se você estiver usando Python principalmente para "
+"o fluxo de controle aprimorado que ele oferece sobre a maioria dos shells do "
+"sistema e ainda deseja acesso conveniente a outros recursos do shell, como "
+"canais de shell, caracteres curinga de nome de arquivo, expansão de variável "
+"de ambiente e expansão de ``~`` para o diretório inicial de um usuário. No "
+"entanto, observe que o próprio Python oferece implementações de muitos "
+"recursos semelhantes a shell (em particular, :mod:`glob`, :mod:`fnmatch`, :"
+"func:`os.walk`, :func:`os.path.expandvars`, :func:`os.path.expanduser` e :"
+"mod:`shutil`)."
 
 #: ../../library/subprocess.rst:315
 msgid ""
@@ -426,6 +501,10 @@ msgid ""
 "of ``locale.getpreferredencoding()``.  See the :class:`io.TextIOWrapper` "
 "class for more information on this change."
 msgstr ""
+"Quando *universal_newlines* é ``True``, a classe usa a codificação :func:"
+"`locale.getpreferredencoding(False) <locale.getpreferredencoding>` em vez "
+"de``locale.getpreferredencoding()``.  Veja a classe :class:`io."
+"TextIOWrapper` para mais informações sobre esta alteração."
 
 #: ../../library/subprocess.rst:323 ../../library/subprocess.rst:423
 msgid ""
@@ -451,6 +530,10 @@ msgid ""
 "are able to handle the less common cases not covered by the convenience "
 "functions."
 msgstr ""
+"A criação e gerenciamento do processo subjacente neste módulo é manipulado "
+"pela classe :class:`Popen`. Ela oferece muita flexibilidade para que os "
+"desenvolvedores sejam capazes de lidar com os casos menos comuns não "
+"cobertos pelas funções de conveniência."
 
 #: ../../library/subprocess.rst:345
 msgid ""
@@ -459,6 +542,10 @@ msgid ""
 "class uses the Windows ``CreateProcess()`` function.  The arguments to :"
 "class:`Popen` are as follows."
 msgstr ""
+"Executa um programa filho em um novo processo. No POSIX, a classe usa o "
+"comportamento de :meth:`os.execvp` para executar o programa filho. No "
+"Windows, a classe usa a função Windows ``CreateProcess()``. Os argumentos "
+"para :class:`Popen` são os seguintes."
 
 #: ../../library/subprocess.rst:350
 msgid ""
@@ -470,12 +557,21 @@ msgid ""
 "behavior.  Unless otherwise stated, it is recommended to pass *args* as a "
 "sequence."
 msgstr ""
+"*args* deve ser uma sequência de argumentos do programa ou então uma única "
+"string ou :term:`objeto caminho ou similar <path-like object>`. Por padrão, "
+"o programa a ser executado é o primeiro item em *args* se *args* for uma "
+"sequência. Se *args* for uma string, a interpretação depende da plataforma e "
+"é descrita abaixo. Consulte os argumentos *shell* e *executable* para obter "
+"diferenças adicionais em relação ao comportamento padrão. Salvo indicação em "
+"contrário, é recomendado passar *args* como uma sequência."
 
 #: ../../library/subprocess.rst:358
 msgid ""
 "An example of passing some arguments to an external program as a sequence "
 "is::"
 msgstr ""
+"Um exemplo de passagem de alguns argumentos para um programa externo como "
+"uma sequência é::"
 
 #: ../../library/subprocess.rst:363
 msgid ""
@@ -526,8 +622,9 @@ msgid ""
 "*args* parameter accepts a :term:`path-like object` if *shell* is ``False`` "
 "and a sequence containing path-like objects on POSIX."
 msgstr ""
-"O parâmetro *args* aceita um :term:`path-like object` se *shell* é ``False`` "
-"e uma sequência contendo objetos caminho ou similar no POSIX."
+"O parâmetro *args* aceita um :term:`objeto caminho ou similar <path-like "
+"object>` se *shell* é ``False`` e uma sequência contendo objetos caminho ou "
+"similar no POSIX."
 
 #: ../../library/subprocess.rst:395
 msgid ""
