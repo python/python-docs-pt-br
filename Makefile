@@ -21,8 +21,8 @@ BRANCH              := $(shell git branch --show-current)
 #  - Never use same version as in BRANCH
 #  - Check Python Docs versions still being built and published in:
 #    https://github.com/python/docsbuild-scripts/blob/master/build_docs.py
-STABLEBRANCH        := 3.8
-OLDSTABLEBRANCHES   := 3.7 3.6 2.7
+STABLEBRANCH        := 3.9
+OLDSTABLEBRANCHES   := 3.8 3.7 3.6 2.7
 
 # Name of language team; should be python-docs-LANG, where LANG is the
 # IETF language tag for your language; see Language Tag section in PEP 545
