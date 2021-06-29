@@ -265,6 +265,6 @@ $(STABLEBRANCH) $(OLDSTABLEBRANCHES):
 #        have been created by the actions in other targets of this script.
 .PHONY: clean
 clean:
-	rm -fr $(VENV)
+	rm -rf $(VENV)
 	rm -rf $(POSPELL_TMP_DIR)
 	find -name '*.mo' -delete
