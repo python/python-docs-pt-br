@@ -8,12 +8,9 @@
 #################
 # Configuration
 
-# Main translation branch; this will be used to match the project in
-# 'python-docs' organization in Transifex to use
+# Main translation branch; please make sure it matches 'python-newest'
+# project's version in 'python-docs' organization in Transifex
 BRANCH              := $(shell git branch --show-current)
-
-# Set the project name. e.g. BRANCH=3.9 results in "python-39"
-TRANSIFEX_PROJECT   := python-$(patsubst \.,,$(BRANCH))
 
 # Branches representing docs for older Python versions, which current
 # translations should be merged into. Here some details:
@@ -123,6 +120,7 @@ pull: venv
 # tx-config: After running "pot", create a new Transifex config file by
 #            reading pot files generated, then tweak it to LANGUAGE.
 .PHONY: tx-config
+tx-config: TRANSIFEX_PROJECT := python-newest
 tx-config: pot
 	@cd $(CPYTHON_WORKDIR)/Doc/locales;                 \
 	rm -rf .tx;                                         \
@@ -267,6 +265,6 @@ $(STABLEBRANCH) $(OLDSTABLEBRANCHES):
 #        have been created by the actions in other targets of this script.
 .PHONY: clean
 clean:
-	rm -rf $(VENV)
+	rm -fr $(VENV)
 	rm -rf $(POSPELL_TMP_DIR)
 	find -name '*.mo' -delete
