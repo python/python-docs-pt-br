@@ -8,12 +8,9 @@
 #################
 # Configuration
 
-# Main translation branch; this will be used to match the project in
-# 'python-docs' organization in Transifex to use
+# Main translation branch; please make sure it matches 'python-newest'
+# project's version in 'python-docs' organization in Transifex
 BRANCH              := $(shell git branch --show-current)
-
-# Set the project name. e.g. BRANCH=3.9 results in "python-39"
-TRANSIFEX_PROJECT   := python-$(patsubst \.,,$(BRANCH))
 
 # Branches representing docs for older Python versions, which current
 # translations should be merged into. Here some details:
@@ -24,8 +21,8 @@ TRANSIFEX_PROJECT   := python-$(patsubst \.,,$(BRANCH))
 #  - Never use same version as in BRANCH
 #  - Check Python Docs versions still being built and published in:
 #    https://github.com/python/docsbuild-scripts/blob/master/build_docs.py
-STABLEBRANCH        := 3.8
-OLDSTABLEBRANCHES   := 3.7 3.6 2.7
+STABLEBRANCH        := 3.9
+OLDSTABLEBRANCHES   := 3.8 3.7 3.6 2.7
 
 # Name of language team; should be python-docs-LANG, where LANG is the
 # IETF language tag for your language; see Language Tag section in PEP 545
@@ -123,6 +120,7 @@ pull: venv
 # tx-config: After running "pot", create a new Transifex config file by
 #            reading pot files generated, then tweak it to LANGUAGE.
 .PHONY: tx-config
+tx-config: TRANSIFEX_PROJECT := python-newest
 tx-config: pot
 	@cd $(CPYTHON_WORKDIR)/Doc/locales;                 \
 	rm -rf .tx;                                         \
