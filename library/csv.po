@@ -4,9 +4,9 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2021
 # Raphael Mendonça, 2021
 # i17obot <i17obot@rougeth.com>, 2021
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2021
 #
 #, fuzzy
 msgid ""
@@ -15,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-08-07 13:13+0000\n"
 "PO-Revision-Date: 2021-06-28 01:03+0000\n"
-"Last-Translator: i17obot <i17obot@rougeth.com>, 2021\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2021\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -165,6 +165,23 @@ msgid ""
 "returned from a ``cursor.fetch*`` call. All other non-string data are "
 "stringified with :func:`str` before being written."
 msgstr ""
+"Retorna um objeto de escrita responsável por converter os dados de usuário "
+"em strings delimitadas no objeto arquivo ou similar. *csvfile* pode ser "
+"qualquer objeto com um método :func:`write`. Se *csvfile* for um objeto "
+"arquivo, ele deverá ser aberto com ``newline=''`` [1]_. Pode ser fornecido "
+"um parâmetro opcional *dialect*, usado para definir um conjunto de "
+"parâmetros específicos para um dialeto CSV específico. Pode ser uma "
+"instância de uma subclasse da classe :class:`Dialect` ou uma das strings "
+"retornadas pela função :func:`list_dialects`. Os outros argumentos nomeados "
+"opcionais *fmtparams* podem ser dados para substituir parâmetros de "
+"formatação individuais no dialeto atual. Para detalhes completos sobre os "
+"parâmetros de dialeto e formatação, consulte a seção :ref:`csv-fmt-params`. "
+"Para tornar o mais fácil possível a interface com os módulos que implementam "
+"a API do DB, o valor :const:`None` é escrito como uma string vazia. Embora "
+"isso não seja uma transformação reversível, torna mais fácil despejar "
+"valores de dados SQL NULL em arquivos CSV sem preprocessar os dados "
+"retornados de uma chamada ``cursor.fetch*``. Todos os outros dados que não "
+"são de strings são codificados com :func:`str` antes de serem escritos."
 
 #: ../../library/csv.rst:117
 msgid ""
@@ -174,6 +191,11 @@ msgid ""
 "parameters of the dialect. For full details about dialects and formatting "
 "parameters, see section :ref:`csv-fmt-params`."
 msgstr ""
+"Associa *dialect* a *name*. *name* deve ser uma string. O dialeto pode ser "
+"especificado passando uma subclasse de :class:`Dialect` ou por *fmtparams* "
+"argumentos nomeados, ou ambos, com argumentos nomeados substituindo os "
+"parâmetros do dialeto. Para detalhes completos sobre os parâmetros de "
+"dialeto e formatação, consulte a seção :ref:`csv-fmt-params`."
 
 #: ../../library/csv.rst:126
 msgid ""
@@ -305,6 +327,12 @@ msgid ""
 "subtly different CSV data.  :class:`Dialect` instances define how :class:"
 "`reader` and :class:`writer` instances behave."
 msgstr ""
+"A classe :class:`Dialect` é uma classe de contêiner cujos atributos contêm "
+"informações sobre como lidar com aspas duplas, espaços em branco, "
+"delimitadores, etc. Devido à falta de uma especificação CSV estrita, "
+"diferentes aplicativos produzem dados CSV sutilmente diferentes. As "
+"instâncias de :class:`Dialect` definem como as instâncias :class:`reader` e :"
+"class:`writer` se comportam."
 
 #: ../../library/csv.rst:234
 msgid ""
@@ -312,6 +340,10 @@ msgid ""
 "and they can be registered with specific :class:`reader` and :class:`writer` "
 "classes through their initializer (``__init__``) functions like this::"
 msgstr ""
+"Todos os nomes de :class:`Dialect` disponíveis são retornados por :func:"
+"`list_dialects`, e eles podem ser registrados com classes :class:`reader` e :"
+"class:`writer` específicas através de suas funções inicializadoras "
+"(``__init__``) como esta::"
 
 #: ../../library/csv.rst:247
 msgid ""
@@ -369,28 +401,38 @@ msgid ""
 "each column, one of two key criteria will be considered to estimate if the "
 "sample contains a header:"
 msgstr ""
+"Analisa o texto de amostra (presume-se que esteja no formato CSV) e retorne :"
+"const:`True` se a primeira linha parecer uma série de cabeçalhos de coluna. "
+"Inspecionando cada coluna, um dos dois critérios principais será considerado "
+"para estimar se a amostra contém um cabeçalho:"
 
 #: ../../library/csv.rst:287
 msgid "the second through n-th rows contain numeric values"
-msgstr ""
+msgstr "da segunda até a enésima linha contém valores numéricos"
 
 #: ../../library/csv.rst:288
 msgid ""
 "the second through n-th rows contain strings where at least one value's "
 "length differs from that of the putative header of that column."
 msgstr ""
+"da segunda até a enésima linha contém strings em que pelo menos o "
+"comprimento de um valor difere daquele do cabeçalho putativo dessa coluna."
 
 #: ../../library/csv.rst:291
 msgid ""
 "Twenty rows after the first row are sampled; if more than half of columns + "
 "rows meet the criteria, :const:`True` is returned."
 msgstr ""
+"Vinte linhas após a primeira linha são amostradas; se mais da metade das "
+"colunas + linhas atenderem aos critérios, :const:`True` será retornado."
 
 #: ../../library/csv.rst:296
 msgid ""
 "This method is a rough heuristic and may produce both false positives and "
 "negatives."
 msgstr ""
+"Este método é uma heurística aproximada e pode produzir falsos positivos e "
+"negativos."
 
 #: ../../library/csv.rst:299
 msgid "An example for :class:`Sniffer` use::"
@@ -597,6 +639,10 @@ msgid ""
 "instance), parsed according to the current :class:`Dialect`.  Usually you "
 "should call this as ``next(reader)``."
 msgstr ""
+"Retorna a próxima linha do objeto iterável do leitor como uma lista (se o "
+"objeto foi retornado de :func:`leitor`) ou um dict (se for uma instância de :"
+"class:`DictReader`), analisado de acordo com a :class:`Dialect` atual. "
+"Normalmente, você deve chamar isso de ``next(reader)``."
 
 #: ../../library/csv.rst:438
 msgid "Reader objects have the following public attributes:"
@@ -658,6 +704,9 @@ msgid ""
 "to the current :class:`Dialect`. Return the return value of the call to the "
 "*write* method of the underlying file object."
 msgstr ""
+"Escreve o parâmetro *row* no objeto arquivo do escritor, formatado de acordo "
+"com a :class:`Dialect` atual. Retorna o valor de retorno da chamada ao "
+"método *write* do objeto arquivo subjacente."
 
 #: ../../library/csv.rst:479
 msgid "Added support of arbitrary iterables."
