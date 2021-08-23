@@ -776,6 +776,11 @@ msgid ""
 "*host*, *port*, *family*, *proto*, *flags*, *happy_eyeballs_delay*, "
 "*interleave* and *local_addr* should be specified."
 msgstr ""
+"*sock*, se fornecido, deve ser um objeto :class:`socket.socket` já "
+"existente, já conectado, para ser usado por transporte. Se *sock* é "
+"fornecido, *host*, *port*, *family*, *proto*, *flags*, "
+"*happy_eyeballs_delay*, *interleave* e *local_addr* não devem ser "
+"especificados."
 
 #: ../../library/asyncio-eventloop.rst:442
 msgid ""
@@ -783,6 +788,10 @@ msgid ""
 "the socket locally.  The *local_host* and *local_port* are looked up using "
 "``getaddrinfo()``, similarly to *host* and *port*."
 msgstr ""
+"*local_addr*, se fornecido, é uma tupla de ``(local_host, local_port)`` "
+"usada para se ligar ao soquete localmente. O *local_host* e a *local_port* "
+"são procurados usando ``getaddrinfo()``, de forma similar para *host* e "
+"*port*."
 
 #: ../../library/asyncio-eventloop.rst:446
 #: ../../library/asyncio-eventloop.rst:799
@@ -791,10 +800,13 @@ msgid ""
 "wait for the TLS handshake to complete before aborting the connection. "
 "``60.0`` seconds if ``None`` (default)."
 msgstr ""
+"*ssl_handshake_timeout* é (para uma conexão TLS) o tempo em segundos para "
+"aguardar pelo encerramento do aperto de mão TLS, antes de abortar a conexão. "
+"``60.0`` segundos se for``None`` (valor padrão)."
 
 #: ../../library/asyncio-eventloop.rst:452
 msgid "Added the *happy_eyeballs_delay* and *interleave* parameters."
-msgstr ""
+msgstr "Adicionado os parâmetros *happy_eyeballs_delay* e *interleave*."
 
 #: ../../library/asyncio-eventloop.rst:454
 msgid ""
@@ -806,10 +818,18 @@ msgid ""
 "This document specifies requirements for algorithms that reduce this user-"
 "visible delay and provides an algorithm."
 msgstr ""
+"Algoritmo Happy Eyeballs: Sucesso com servidores de pilha dupla. Quando o "
+"endereço e protocolo de um servidor IPv4 estão funcionando, mas o endereço e "
+"protocolo de um servidor IPv6 não estão, uma aplicação cliente de pilha "
+"dupla experiência atraso de conexão significativo comparado com um cliente "
+"puramente IPv4. Isso é indesejável porque causa o cliente de pilha dupla a "
+"ter uma experiência de usuário pior. Este documento espeifica requisitos "
+"para algoritmos, que reduzem esse atraso visível pelo usuário e fornece um "
+"algoritmo."
 
 #: ../../library/asyncio-eventloop.rst:463
 msgid "For more information: https://tools.ietf.org/html/rfc6555"
-msgstr ""
+msgstr "Para mais informações: https://tools.ietf.org/html/rfc6555"
 
 #: ../../library/asyncio-eventloop.rst:467
 #: ../../library/asyncio-eventloop.rst:584
@@ -823,11 +843,13 @@ msgid ""
 "The socket option :py:data:`~socket.TCP_NODELAY` is set by default for all "
 "TCP connections."
 msgstr ""
+"A opção de soquete :py:data:`~socket.TCP_NODELAY` é definida por padrão para "
+"todas as conexões TCP."
 
 #: ../../library/asyncio-eventloop.rst:476
 #: ../../library/asyncio-eventloop.rst:672
 msgid "Added support for SSL/TLS in :class:`ProactorEventLoop`."
-msgstr ""
+msgstr "Adicionado suporte para SSL/TLS na :class:`ProactorEventLoop`."
 
 #: ../../library/asyncio-eventloop.rst:480
 msgid ""
@@ -835,6 +857,9 @@ msgid ""
 "returns a pair of (:class:`StreamReader`, :class:`StreamWriter`) that can be "
 "used directly in async/await code."
 msgstr ""
+"A função :func:`open_connection` é uma API alternativa de alto nível. Ela "
+"retorna um par de (:class:`StreamReader`, :class:`StreamWriter`) que pode "
+"ser usado diretamente em código async/await."
 
 #: ../../library/asyncio-eventloop.rst:491
 msgid ""
@@ -842,6 +867,10 @@ msgid ""
 "`~sockets.SO_REUSEADDR` poses a significant security concern for UDP. "
 "Explicitly passing ``reuse_address=True`` will raise an exception."
 msgstr ""
+"O parâmetro *reuse_address* não é mais suportado, assim como usar :py:data:"
+"`~sockets.SO_REUSEADDR` representa uma preocupação de segurança "
+"significativa para UDP. Passar ``reuse_address=True`` explicitamente irá "
+"levantar uma exceção."
 
 #: ../../library/asyncio-eventloop.rst:495
 msgid ""
@@ -849,6 +878,9 @@ msgid ""
 "UDP socket address with ``SO_REUSEADDR``, incoming packets can become "
 "randomly distributed among the sockets."
 msgstr ""
+"Quando múltiplos processos com diferentes UIDs atribuem soquetes para um "
+"endereço de soquete UDP idêntico com ``SO_REUSEADDR``, pacotes recebidos "
+"podem ser distribuídos aleatoriamente entre os soquetes."
 
 #: ../../library/asyncio-eventloop.rst:499
 msgid ""
@@ -857,10 +889,14 @@ msgid ""
 "is used instead, which specifically prevents processes with differing UIDs "
 "from assigning sockets to the same socket address."
 msgstr ""
+"Para plataformas suportadas, *reuse_port* pode ser usado como um substituto "
+"para funcionalidades similares. Com *reuse_port*, :py:data:`~sockets."
+"SO_REUSEPORT` é usado ao invés, o qual especificamente previne processos com "
+"diferentes UIDs de atribuir soquetes para o mesmo endereço do soquete."
 
 #: ../../library/asyncio-eventloop.rst:505
 msgid "Create a datagram connection."
-msgstr ""
+msgstr "Cria uma conexão de datagrama."
 
 #: ../../library/asyncio-eventloop.rst:507
 msgid ""
@@ -868,10 +904,13 @@ msgid ""
 "`~socket.AF_INET6`, or :py:data:`~socket.AF_UNIX`, depending on *host* (or "
 "the *family* argument, if provided)."
 msgstr ""
+"A família de soquetes pode ser :py:data:`~socket.AF_INET`, :py:data:`~socket."
+"AF_INET6`, ou :py:data:`~socket.AF_UNIX`, dependendo do *host* (ou do "
+"argumento *family*, se fornecido)."
 
 #: ../../library/asyncio-eventloop.rst:511
 msgid "The socket type will be :py:data:`~socket.SOCK_DGRAM`."
-msgstr ""
+msgstr "O tipo de soquete será :py:data:`~socket.SOCK_DGRAM`."
 
 #: ../../library/asyncio-eventloop.rst:513
 #: ../../library/asyncio-eventloop.rst:609
@@ -880,11 +919,13 @@ msgid ""
 "*protocol_factory* must be a callable returning a :ref:`protocol <asyncio-"
 "protocol>` implementation."
 msgstr ""
+"*protocol_factory* deve ser algo chamável, retornando uma implementação de :"
+"ref:`protocolo <asyncio-protocol>`."
 
 #: ../../library/asyncio-eventloop.rst:516
 #: ../../library/asyncio-eventloop.rst:570
 msgid "A tuple of ``(transport, protocol)`` is returned on success."
-msgstr ""
+msgstr "Uma tupla de ``(transport, protocol)`` é retornada em caso de sucesso."
 
 #: ../../library/asyncio-eventloop.rst:520
 msgid ""
@@ -892,6 +933,9 @@ msgid ""
 "the socket locally.  The *local_host* and *local_port* are looked up using :"
 "meth:`getaddrinfo`."
 msgstr ""
+"*local_addr*, se fornecido, é uma tupla de ``(local_host, local_port)`` "
+"usada para ligar o soquete localmente. O *local_host* e a *local_port* são "
+"procurados usando :meth:`getaddrinfo`."
 
 #: ../../library/asyncio-eventloop.rst:524
 msgid ""
@@ -899,6 +943,9 @@ msgid ""
 "connect the socket to a remote address.  The *remote_host* and *remote_port* "
 "are looked up using :meth:`getaddrinfo`."
 msgstr ""
+"*remote_addr*, se fornecido, é uma tupla de ``(remote_host, remote_port)`` "
+"usada para conectar o soquete a um endereço remoto. O *remote_host* e a "
+"*remote_port* são procurados usando :meth:`getaddrinfo`."
 
 #: ../../library/asyncio-eventloop.rst:528
 msgid ""
@@ -907,6 +954,10 @@ msgid ""
 "given, these should all be integers from the corresponding :mod:`socket` "
 "module constants."
 msgstr ""
+"*family*, *proto*, *flags* são os endereços familiares, protocolo e flags "
+"opcionais a serem passados para :meth:`getaddrinfo` para resolução do "
+"*host*. Se fornecido, esses devem ser todos inteiros do módulo de "
+"constantes :mod:`socket` correspondente."
 
 #: ../../library/asyncio-eventloop.rst:533
 msgid ""
@@ -916,12 +967,20 @@ msgid ""
 "Unixes. If the :py:data:`~socket.SO_REUSEPORT` constant is not defined then "
 "this capability is unsupported."
 msgstr ""
+"*reuse_port* avisa o kernel para permitir este endpoint para ser ligado a "
+"mesma porta da mesma forma que outros endpoints existentes estão ligados a, "
+"contanto que todos eles definam este flag quando forem criados. Esta opção "
+"não é suportada no Windows e em alguns sistemas Unix. Se a constante :py:"
+"data:`~socket.SO_REUSEPORT` não estiver definida, então esta capacidade não "
+"é suportada."
 
 #: ../../library/asyncio-eventloop.rst:539
 msgid ""
 "*allow_broadcast* tells the kernel to allow this endpoint to send messages "
 "to the broadcast address."
 msgstr ""
+"*allow_broadcast* avisa o kernel para permitir que este endpoint envie "
+"mensagens para o endereço de broadcast."
 
 #: ../../library/asyncio-eventloop.rst:542
 msgid ""
@@ -930,24 +989,35 @@ msgid ""
 "specified, *local_addr* and *remote_addr* should be omitted (must be :const:"
 "`None`)."
 msgstr ""
+"*sock* pode opcionalmente ser especificado em ordem para usar um objeto :"
+"class:`socket.socket` pre-existente, já conectado, para ser usado pelo "
+"transporte. Se especificado, *local_addr* e *remote_addr* devem ser omitidos "
+"(devem ser :const:`None`)."
 
 #: ../../library/asyncio-eventloop.rst:547
 msgid ""
 "See :ref:`UDP echo client protocol <asyncio-udp-echo-client-protocol>` and :"
 "ref:`UDP echo server protocol <asyncio-udp-echo-server-protocol>` examples."
 msgstr ""
+"Veja :ref:`protocolo UDP eco cliente <asyncio-udp-echo-client-protocol>` e :"
+"ref:`protocolo UDP eco servidor <asyncio-udp-echo-server-protocol>` para "
+"exemplos."
 
 #: ../../library/asyncio-eventloop.rst:550
 msgid ""
 "The *family*, *proto*, *flags*, *reuse_address*, *reuse_port, "
 "*allow_broadcast*, and *sock* parameters were added."
 msgstr ""
+"Os parâmetros *family*, *proto*, *flags*, *reuse_address*, *reuse_port, "
+"*allow_broadcast*, e *sock* foram adicionados."
 
 #: ../../library/asyncio-eventloop.rst:554
 msgid ""
 "The *reuse_address* parameter is no longer supported due to security "
 "concerns."
 msgstr ""
+"O parâmetro *reuse_address* não é mais suportado devido a preocupações de "
+"segurança."
 
 #: ../../library/asyncio-eventloop.rst:558
 msgid "Added support for Windows."
@@ -955,7 +1025,7 @@ msgstr "Adicionado suporte para Windows."
 
 #: ../../library/asyncio-eventloop.rst:565
 msgid "Create a Unix connection."
-msgstr ""
+msgstr "Cria uma conexão Unix."
 
 #: ../../library/asyncio-eventloop.rst:567
 msgid ""
