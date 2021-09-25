@@ -148,6 +148,11 @@ msgid ""
 "`Py_ssize_t` if the :c:macro:`PY_SSIZE_T_CLEAN` macro is defined, or int "
 "otherwise."
 msgstr ""
+"Para todas as variantes ``#`` de formatos (``s#``, ``y#``, etc.), a macro :c:"
+"macro:`PY_SSIZE_T_CLEAN` deve ser definida antes de incluir :file:`Python."
+"h`. No Python 3.9 e mais antigo, o tipo do argumento de comprimento é :c:"
+"type:`Py_ssize_t` se a macro :c:macro:`PY_SSIZE_T_CLEAN` é definida, ou int "
+"caso contrário."
 
 #: ../../c-api/arg.rst:83
 msgid "``s`` (:class:`str`) [const char \\*]"
@@ -213,6 +218,8 @@ msgid ""
 "``s#`` (:class:`str`, read-only :term:`bytes-like object`) [const char \\*, :"
 "c:type:`Py_ssize_t`]"
 msgstr ""
+"``s#`` (:class:`str`, :term:`objeto byte ou similar <bytes-like object>` "
+"somente leitura) [const char \\*, :c:type:`Py_ssize_t`]"
 
 #: ../../c-api/arg.rst:92
 msgid ""
@@ -259,6 +266,8 @@ msgid ""
 "``z#`` (:class:`str`, read-only :term:`bytes-like object` or ``None``) "
 "[const char \\*, :c:type:`Py_ssize_t`]"
 msgstr ""
+"``z#`` (:class:`str`, :term:`objeto byte ou similar <bytes-like object> "
+"somente leitura` ou ``None``) [const char \\*, :c:type:`Py_ssize_t`]"
 
 #: ../../c-api/arg.rst:107
 msgid ""
@@ -312,6 +321,8 @@ msgid ""
 "``y#`` (read-only :term:`bytes-like object`) [const char \\*, :c:type:"
 "`Py_ssize_t`]"
 msgstr ""
+"``y#`` (:term:`objeto byte ou similar <bytes-like object>` somente leitura) "
+"[const char \\*, :c:type:`Py_ssize_t`]"
 
 #: ../../c-api/arg.rst:126
 msgid ""
@@ -384,7 +395,7 @@ msgstr ""
 
 #: ../../c-api/arg.rst:163
 msgid "``u#`` (:class:`str`) [const Py_UNICODE \\*, :c:type:`Py_ssize_t`]"
-msgstr ""
+msgstr "``u#`` (:class:`str`) [const Py_UNICODE \\*, :c:type:`Py_ssize_t`]"
 
 #: ../../c-api/arg.rst:157
 msgid ""
@@ -413,6 +424,8 @@ msgid ""
 "``Z#`` (:class:`str` or ``None``) [const Py_UNICODE \\*, :c:type:"
 "`Py_ssize_t`]"
 msgstr ""
+"``Z#`` (:class:`str` ou ``None``) [const Py_UNICODE \\*, :c:type:"
+"`Py_ssize_t`]"
 
 #: ../../c-api/arg.rst:174
 msgid ""
@@ -521,6 +534,8 @@ msgid ""
 "``es#`` (:class:`str`) [const char \\*encoding, char \\*\\*buffer, :c:type:"
 "`Py_ssize_t` \\*buffer_length]"
 msgstr ""
+"``es#`` (:class:`str`) [const char \\*encoding, char \\*\\*buffer, :c:type:"
+"`Py_ssize_t` \\*buffer_length]"
 
 #: ../../c-api/arg.rst:215
 msgid ""
@@ -601,6 +616,8 @@ msgid ""
 "``et#`` (:class:`str`, :class:`bytes` or :class:`bytearray`) [const char "
 "\\*encoding, char \\*\\*buffer, :c:type:`Py_ssize_t` \\*buffer_length]"
 msgstr ""
+"``et#`` (:class:`str`, :class:`bytes` ou :class:`bytearray`) [const char "
+"\\*encoding, char \\*\\*buffer, :c:type:`Py_ssize_t` \\*buffer_length]"
 
 #: ../../c-api/arg.rst:246
 msgid ""
@@ -1128,6 +1145,21 @@ msgid ""
 "a tuple or contains the wrong number of elements; an exception will be set "
 "if there was a failure."
 msgstr ""
+"Uma forma mais simples de recuperação de parâmetro que não usa uma string de "
+"formato para especificar os tipos de argumentos. Funções que usam este "
+"método para recuperar seus parâmetros devem ser declaradas como :const:"
+"`METH_VARARGS` em tabelas de função ou método. A tupla contendo os "
+"parâmetros reais deve ser passada como *args*; deve realmente ser uma tupla. "
+"O comprimento da tupla deve ser de pelo menos *min* e não mais do que *max*; "
+"*min* e *max* podem ser iguais. Argumentos adicionais devem ser passados "
+"para a função, cada um dos quais deve ser um ponteiro para uma variável :c:"
+"type:`PyObject*`; eles serão preenchidos com os valores de *args*; eles "
+"conterão :term:`referências emprestadas <borrowed reference>`. As variáveis "
+"que correspondem a parâmetros opcionais não fornecidos por *args* não serão "
+"preenchidas; estes devem ser inicializados pelo chamador. Esta função "
+"retorna verdadeiro em caso de sucesso e falso se *args* não for uma tupla ou "
+"contiver o número incorreto de elementos; uma exceção será definida se "
+"houver uma falha."
 
 #: ../../c-api/arg.rst:492
 msgid ""
@@ -1236,6 +1268,7 @@ msgstr ""
 msgid ""
 "``s#`` (:class:`str` or ``None``) [const char \\*, :c:type:`Py_ssize_t`]"
 msgstr ""
+"``s#`` (:class:`str` ou ``None``) [const char \\*, :c:type:`Py_ssize_t`]"
 
 #: ../../c-api/arg.rst:552
 msgid ""
@@ -1261,7 +1294,7 @@ msgstr ""
 
 #: ../../c-api/arg.rst:562
 msgid "``y#`` (:class:`bytes`) [const char \\*, :c:type:`Py_ssize_t`]"
-msgstr ""
+msgstr "``y#`` (:class:`bytes`) [const char \\*, :c:type:`Py_ssize_t`]"
 
 #: ../../c-api/arg.rst:561
 msgid ""
@@ -1279,6 +1312,7 @@ msgstr "O mesmo de ``s``."
 msgid ""
 "``z#`` (:class:`str` or ``None``) [const char \\*, :c:type:`Py_ssize_t`]"
 msgstr ""
+"``z#`` (:class:`str` ou ``None``) [const char \\*, :c:type:`Py_ssize_t`]"
 
 #: ../../c-api/arg.rst:568 ../../c-api/arg.rst:584
 msgid "Same as ``s#``."
@@ -1300,7 +1334,7 @@ msgstr ""
 
 #: ../../c-api/arg.rst:578
 msgid "``u#`` (:class:`str`) [const wchar_t \\*, :c:type:`Py_ssize_t`]"
-msgstr ""
+msgstr "``u#`` (:class:`str`) [const wchar_t \\*, :c:type:`Py_ssize_t`]"
 
 #: ../../c-api/arg.rst:576
 msgid ""
@@ -1320,6 +1354,7 @@ msgstr "``U`` (:class:`str` ou ``None``) [const char \\*]"
 msgid ""
 "``U#`` (:class:`str` or ``None``) [const char \\*, :c:type:`Py_ssize_t`]"
 msgstr ""
+"``U#`` (:class:`str` ou ``None``) [const char \\*, :c:type:`Py_ssize_t`]"
 
 #: ../../c-api/arg.rst:587
 msgid "Convert a plain C :c:type:`int` to a Python integer object."
