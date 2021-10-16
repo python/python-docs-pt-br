@@ -777,6 +777,8 @@ msgid ""
 "The master of an object is implicit in the new name given to it at creation "
 "time.  In Tkinter, masters are specified explicitly. ::"
 msgstr ""
+"O mestre de um objeto está implícito no novo nome dado a ele no momento da "
+"criação. No Tkinter, os masters são especificados explicitamente. ::"
 
 #: ../../library/tkinter.rst:373
 msgid ""
@@ -905,13 +907,16 @@ msgstr "a biblioteca Xlib para desenhar gráficos na tela."
 
 #: ../../library/tkinter.rst:435
 msgid "Threading model"
-msgstr ""
+msgstr "Modelo de threading"
 
 #: ../../library/tkinter.rst:437
 msgid ""
 "Python and Tcl/Tk have very different threading models, which :mod:`tkinter` "
 "tries to bridge. If you use threads, you may need to be aware of this."
 msgstr ""
+"Python e Tcl/Tk têm modelos de threading muito diferentes, que :mod:"
+"`tkinter` tenta fazer a ponte. Se você usa threads, pode precisar estar "
+"ciente disso."
 
 #: ../../library/tkinter.rst:440
 msgid ""
@@ -921,6 +926,11 @@ msgid ""
 "one interpreter instance, though each interpreter instance can be used only "
 "by the one thread that created it."
 msgstr ""
+"Um interpretador Python pode ter muitas threads associados a ele. Em Tcl, "
+"várias threads podem ser criados, mas cada thread tem uma instância de "
+"interpretador Tcl separada associada a ele. Threads também podem criar mais "
+"de uma instância do interpretador, embora cada instância do interpretador "
+"possa ser usada apenas pela thread que a criou."
 
 #: ../../library/tkinter.rst:445
 msgid ""
@@ -931,6 +941,12 @@ msgid ""
 "object, an event is posted to the interpreter's event queue, and when "
 "executed, the result is returned to the calling Python thread."
 msgstr ""
+"Cada objeto :class:`Tk` criado por :mod:`tkinter` contém um interpretador "
+"Tcl. Ele também controla qual thread criou aquele interpretador. Chamadas "
+"para :mod:`tkinter` podem ser feitas a partir de qualquer thread do Python. "
+"Internamente, se uma chamada vier de um thread diferente daquele que criou o "
+"objeto :class:`Tk`, um evento é postado na fila de eventos do interpretador "
+"e, quando executado, o resultado é retornado ao thread de chamada do Python."
 
 #: ../../library/tkinter.rst:452
 msgid ""
@@ -944,6 +960,16 @@ msgid ""
 "GUI runs in a completely separate thread from all application code including "
 "event handlers."
 msgstr ""
+"As aplicações Tcl/Tk são normalmente orientados a eventos, o que significa "
+"que após a inicialização, o interpretador executa um laço de eventos (ou "
+"seja: func: `Tk.mainloop`) e responde aos eventos. Por ser de thread único, "
+"os manipuladores de eventos devem responder rapidamente, caso contrário, "
+"bloquearão o processamento de outros eventos. Para evitar isso, quaisquer "
+"cálculos de longa execução não devem ser executados em um manipulador de "
+"eventos, mas são divididos em pedaços menores usando temporizadores ou "
+"executados em outra thread. Isso é diferente de muitos kits de ferramentas "
+"de GUI em que a GUI é executada em um thread completamente separado de todo "
+"o código do aplicação, incluindo manipuladores de eventos."
 
 #: ../../library/tkinter.rst:461
 msgid ""
@@ -951,10 +977,13 @@ msgid ""
 "any :mod:`tkinter` calls made from threads other than the one running the "
 "Tcl interpreter will fail."
 msgstr ""
+"Se o interpretador Tcl não estiver executando o laço de eventos e "
+"processando eventos, qualquer chamada :mod:`tkinter` feita de threads "
+"diferentes daquela que está executando o interpretador do Tcl irá falhar."
 
 #: ../../library/tkinter.rst:465
 msgid "A number of special cases exist:"
-msgstr ""
+msgstr "Existem vários casos especiais:"
 
 #: ../../library/tkinter.rst:467
 msgid ""
@@ -963,6 +992,10 @@ msgid ""
 "this is different than the thread that created the Tcl interpreter. A global "
 "lock ensures only one call occurs at a time."
 msgstr ""
+"Bibliotecas Tcl/Tk podem ser construídas de forma que não reconheçam thread. "
+"Neste caso, :mod:`tkinter` chama a biblioteca do thread Python de origem, "
+"mesmo que seja diferente do thread que criou o interpretador Tcl. Um "
+"bloqueio global garante que apenas uma chamada ocorra por vez."
 
 #: ../../library/tkinter.rst:472
 msgid ""
@@ -973,6 +1006,13 @@ msgid ""
 "Otherwise, it's best to create them in separate threads and ensure you're "
 "running a thread-aware Tcl/Tk build."
 msgstr ""
+"Enquanto :mod:`tkinter` permite que você crie mais de uma instância de um "
+"objeto :class:`Tk` (com seu próprio interpretador), todos os interpretadores "
+"que fazem parte do mesmo thread compartilham uma fila de eventos comum, o "
+"que fica muito rápido. Na prática, não crie mais de uma instância de :class:"
+"`Tk` por vez. Caso contrário, é melhor criá-los em threads separados e "
+"garantir que você esteja executando uma construção Tcl/Tk com reconhecimento "
+"de thread."
 
 #: ../../library/tkinter.rst:478
 msgid ""
@@ -981,12 +1021,20 @@ msgid ""
 "event loops or abandon the event loop entirely. If you're doing anything "
 "tricky when it comes to events or threads, be aware of these possibilities."
 msgstr ""
+"Bloquear manipuladores de eventos não é a única maneira de evitar que o "
+"interpretador Tcl entre novamente no laço de eventos. É ainda possível "
+"executar vários laços de eventos aninhados ou abandonar totalmente o laço de "
+"eventos. Se você estiver fazendo algo complicado quando se trata de eventos "
+"ou threads, esteja ciente dessas possibilidades."
 
 #: ../../library/tkinter.rst:483
 msgid ""
 "There are a few select :mod:`tkinter` functions that presently work only "
 "when called from the thread that created the Tcl interpreter."
 msgstr ""
+"Existem algumas funções de seleção do :mod:`tkinter` que atualmente "
+"funcionam apenas quando chamadas a partir da thread que criou o "
+"interpretador Tcl."
 
 #: ../../library/tkinter.rst:488
 msgid "Handy Reference"
@@ -1197,6 +1245,13 @@ msgid ""
 "you desire. Additionally, the arrangement is dynamically adjusted to "
 "accommodate incremental changes to the configuration, once it is packed."
 msgstr ""
+"O tamanho de qualquer widget *mestre* é determinado pelo tamanho dos "
+"\"widgets escravos\" internos. O empacotador é usado para controlar onde os "
+"widgets escravos aparecem dentro do mestre no qual são empacotados. Você "
+"pode empacotar widgets em quadros e quadros em outros quadros, a fim de "
+"obter o tipo de layout que deseja. Além disso, o arranjo é ajustado "
+"dinamicamente para acomodar alterações incrementais na configuração, uma vez "
+"que é empacotado."
 
 #: ../../library/tkinter.rst:584
 msgid ""
@@ -1373,6 +1428,13 @@ msgid ""
 "fact that this function is part of the implementation, and not an interface "
 "to Tk functionality."
 msgstr ""
+"Para chegar à janela de nível superior que contém um determinado widget, "
+"geralmente você pode apenas consultar o mestre do widget. Claro, se o widget "
+"foi compactado dentro de um quadro, o mestre não representará uma janela de "
+"nível superior. Para chegar à janela de nível superior que contém um widget "
+"arbitrário, você pode chamar o método :meth:`_root`. Este método começa com "
+"um sublinhado para denotar o fato de que esta função é parte da "
+"implementação, e não uma interface para a funcionalidade Tk."
 
 #: ../../library/tkinter.rst:697
 msgid "Here are some examples of typical usage::"
@@ -1428,7 +1490,7 @@ msgstr "Esta é uma função Python que não aceita argumentos. Por exemplo::"
 
 #: ../../library/tkinter.rst:748
 msgid "color"
-msgstr ""
+msgstr "cor"
 
 #: ../../library/tkinter.rst:745
 msgid ""
@@ -1438,6 +1500,12 @@ msgid ""
 "where R,G,B here represent any legal hex digit.  See page 160 of "
 "Ousterhout's book for details."
 msgstr ""
+"As cores podem ser fornecidas como nomes de cores X no arquivo rgb.txt ou "
+"como strings que representam valores RGB nos intervalos 4 bits: ``\"#RGB"
+"\"``, 8 bits: ``\"#RRGGBB\"``, 12 bits:``\"#RRRGGGBBB\"`` ou 16 bits: ``"
+"\"#RRRRGGGGBBBB\"`` onde R, G, B aqui representam qualquer dígito "
+"hexadecimal legal. Consulte a página 160 do livro de Ousterhout para "
+"detalhes."
 
 #: ../../library/tkinter.rst:754
 msgid "cursor"
