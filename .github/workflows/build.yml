@@ -1,0 +1,93 @@
+# Build translated docs and notify in case of errors
+
+name: Build
+
+on:
+  workflow_dispatch:
+  workflow_call:
+    inputs:
+      was-called:
+        required: true
+        type: string
+        default: 'no'
+    secrets:
+      TELEGRAM_TO:
+        required: true
+      TELEGRAM_TOKEN:
+        required: true
+  push:
+    paths:
+      - '.github/workflows/build.yml'
+      - 'scripts/build.sh'
+      - 'scripts/prepmsg.sh'
+      - '*.po'
+      - '**/*.po'
+
+env:
+  CPYTHON_BRANCH: '3.10'
+  LANGUAGE: 'pt_BR'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out ${{ github.repository }}
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - run: echo ${{ inputs.was-called }}
+      - if: ${{ inputs.was-called }} == 'yes'
+        run: |
+          git pull --rebase
+      - name: Check out CPython
+        uses: actions/checkout@v2
+        with:
+          repository: python/cpython
+          persist-credentials: false
+          ref: ${{ env.CPYTHON_BRANCH }}
+          path: cpython
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - name: Install dependencies
+        run: |
+          sudo apt update -y && sudo apt install gettext -y
+          pip3 install --upgrade pip
+          pip3 install -r requirements.txt -r cpython/Doc/requirements.txt
+      - name: Build docs
+        run: |
+          mkdir logs
+          echo "::add-matcher::.github/problem-matchers/sphinx.json"
+          sh scripts/build.sh 2> >(tee -a logs/error.log >&2)
+        env:
+          LANGUAGE: ${{ env.LANGUAGE }}
+      - name: Prepare notification on error
+        if: failure()
+        run: |
+          sh scripts/prepmsg.sh logs/error.log logs/notify.log
+        env:
+          GITHUB_JOB: ${{ github.job }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+      - name: Notify via Telegram on build errors if any
+        if: failure()
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          format: markdown
+          disable_web_page_preview: true
+          message_file: logs/notify.log
+      - name: Upload artifact - docs
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: docs
+          path: cpython/Doc/build/html
+      - name: Upload artifact - logs
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-logs
+          path: logs/
