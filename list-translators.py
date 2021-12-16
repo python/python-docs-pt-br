@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 # Extract translation credits from the PO files within the directory
 
 from pathlib import Path
