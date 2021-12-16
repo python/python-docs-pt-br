@@ -7,7 +7,7 @@ from pathlib import Path
 p = Path(r'.').glob('**/*.po')
 pofiles = list(p)
 
-translators_credits_list = []
+translators_credits_set = set()
 
 # Exclude bot account, duplicated entry and hashes for deleted accounts
 ignore_entries = [
@@ -37,7 +37,7 @@ for po in pofiles:
             # if true, we are in the translator credits block; extract info
             if is_translator_credits:
                 # remove leading sharp sign, and trailing comma and year
-                line = line.strip('# ')    
+                line = line.strip('# ')
                 line = line[:-7]
                 
                 # Skip entries we do not want to add
@@ -45,11 +45,10 @@ for po in pofiles:
                     continue
                 
                 # Add entry to the set
-                if line not in translators_credits_list:
-                    translators_credits_list.append(line)
+                translators_credits_set.add(line)
             
             # if true, this is the start of the translation credits block;
-            # flag is_translator_credits and go to the next line 
+            # flag is_translator_credits and go to the next line
             if line == '# Translators:\n':
                 is_translator_credits = True
                 continue
@@ -61,13 +60,10 @@ for po in pofiles:
             if line == 'msgid "':
                 break
 
-# Remove parentheses that messes the reorder of the list.
-edit_index = translators_credits_list.index('(Douglas da Silva) <dementikovalev@yandex.ru>')
-translators_credits_list[edit_index] = 'Douglas da Silva <dementikovalev@yandex.ru>'
-
-# Reordered in a case-insensitive way as some names were set lowercase
-translators_credits_list_reordered = sorted(translators_credits_list, key=str.casefold)
+# Remove parentheses that messes the alphabeticall order.
+translators_credits_set.remove('(Douglas da Silva) <dementikovalev@yandex.ru>')
+translators_credits_set.add('Douglas da Silva <dementikovalev@yandex.ru>')
 
 # Print the resulting list to the standard output
-for t in translators_credits_list_reordered:
+for t in sorted(translators_credits_set):
     print(t)
