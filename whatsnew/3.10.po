@@ -1743,7 +1743,7 @@ msgid ""
 "stringize stringized annotations. (Contributed by Larry Hastings in :issue:"
 "`43817`.)"
 msgstr ""
-"Adiciona :func: `inspect.get_annotations`, que calcula com segurança as "
+"Adiciona :func:`inspect.get_annotations`, que calcula com segurança as "
 "anotações definidas em um objeto. Ele contorna as peculiaridades de acessar "
 "as anotações em vários tipos de objetos e faz poucas suposições sobre o "
 "objeto que examina. :func:`inspect.get_annotations` também pode desfazer a "
@@ -2199,8 +2199,8 @@ msgstr "typing"
 #: ../../whatsnew/3.10.rst:1356
 msgid "For major changes, see `New Features Related to Type Hints`_."
 msgstr ""
-"Para alterações principais, veja `Novos recurso relacionados a dicas de tipo "
-"<#new-features-related-to-type-hints>`_."
+"Para alterações principais, veja `New Features Related to Type Hints`_ "
+"(Novos recurso relacionados a dicas de tipo)."
 
 #: ../../whatsnew/3.10.rst:1358
 msgid ""
@@ -2456,6 +2456,12 @@ msgid ""
 "define an annotated function by half. (Contributed by Yurii Karabas and "
 "Inada Naoki in :issue:`42202`)"
 msgstr ""
+"Ao usar anotações em strings, dicts de anotações para funções não são mais "
+"criados quando a função é criada. Em vez disso, eles são armazenados como "
+"uma tupla de strings, e o objeto função converte lentamente isso no dict de "
+"anotações sob demanda. Essa otimização reduz pela metade o tempo de CPU "
+"necessário para definir uma função anotada. (Contribuição de Yurii Karabas e "
+"Inada Naoki em :issue:`42202`)"
 
 #: ../../whatsnew/3.10.rst:1478
 msgid ""
@@ -2464,6 +2470,10 @@ msgid ""
 "algorithm to avoid quadratic behavior on long strings.  (Contributed by "
 "Dennis Sweeney in :issue:`41972`)"
 msgstr ""
+"Funções de pesquisa de substring como ``str1 in str2`` e ``str2.find(str1)`` "
+"agora às vezes usam o algoritmo de pesquisa de string \"Two-Way\" de "
+"Crochemore & Perrin para evitar comportamento quadrático em strings longas. "
+"(Contribuição de Dennis Sweeney em :issue:`41972`)"
 
 #: ../../whatsnew/3.10.rst:1483
 msgid ""
@@ -2472,6 +2482,10 @@ msgid ""
 "interpreter 1.04 times faster on average. (Contributed by Dino Viehland in :"
 "issue:`43452`)"
 msgstr ""
+"Adiciona micro-otimizações a ` _PyType_Lookup()`` para melhorar o desempenho "
+"de pesquisa de cache de atributo de tipo no caso comum de acessos de cache. "
+"Isso torna o intérprete 1,04 vezes mais rápido, em média. (Contribuição de "
+"Dino Viehland em :issue:`43452`)"
 
 #: ../../whatsnew/3.10.rst:1487
 msgid ""
@@ -2481,6 +2495,11 @@ msgid ""
 "Jeroen Demeyer in :issue:`43575`, :issue:`43287`, :issue:`41922`, :issue:"
 "`41873` and :issue:`41870`)"
 msgstr ""
+"As seguintes funções embutidas agora oferecem suporte a uma convenção de "
+"chamada de vectorcalls mais rápidos da :pep:`590`: :func:`map`, :func:"
+"`filter`, :func:`reversed`, :func:`bool` e :func:`float`. (Contribuição de "
+"Dong-hee Na e Jeroen Demeyer em :issue:`43575`, :issue:`43287`, :issue:"
+"`41922`, :issue:`41873` e :issue:`41870`)"
 
 #: ../../whatsnew/3.10.rst:1491
 msgid ""
@@ -2490,6 +2509,11 @@ msgid ""
 "`gzip` and :mod:`lzma` have always been.  (Contributed by Inada Naoki in :"
 "issue:`43785`)."
 msgstr ""
+"O desempenho de :class:`BZ2File` foi melhorado removendo o ``RLock`` "
+"interno. Isso torna :class:`BZ2File` inseguro para threads em face a vários "
+"leitores ou gravadores simultâneos, da mesma forma que suas classes "
+"equivalentes em :mod:`gzip` e :mod:`lzma` têm sido. (Contribuição de Inada "
+"Naoki em :issue:`43785`)."
 
 #: ../../whatsnew/3.10.rst:1499 ../../whatsnew/3.10.rst:2107
 msgid "Deprecated"
@@ -2507,6 +2531,16 @@ msgid ""
 "will be changed to syntax warning, and finally to syntax error. (Contributed "
 "by Serhiy Storchaka in :issue:`43833`)."
 msgstr ""
+"Atualmente Python aceita literais numéricos imediatamente seguidos por "
+"palavras-chave, por exemplo ``0in x``, ``1or x``, ``0if 1else 2``. Permite "
+"expressões confusas e ambíguas como ``[0x1for x in y]`` (que pode ser "
+"interpretada como ``[0x1 for x in y]`` ou ``[0x1f or x in y]``). A partir "
+"desta versão, um aviso de descontinuidade é levantado se o literal numérico "
+"for seguido imediatamente por uma das palavras-chave :keyword:`and`, :"
+"keyword:`else`, :keyword:`for`, :keyword:`if`, :keyword:`in`, :keyword:`is` "
+"e :keyword:`or`. Em versões futuras, ele será alterado para aviso de sintaxe "
+"e, finalmente, para erro de sintaxe. (Contribuição de Serhiy Storchaka em :"
+"issue:`43833`)."
 
 #: ../../whatsnew/3.10.rst:1512
 msgid ""
@@ -2525,6 +2559,20 @@ msgid ""
 "appropriate to help identify code which needs updating during this "
 "transition."
 msgstr ""
+"A partir desta versão, haverá um esforço concentrado para começar a limpar a "
+"semântica de importação antiga que foi mantida para compatibilidade com "
+"Python 2.7. Especificamente, :meth:`~importlib.abc.PathEntryFinder."
+"find_loader`/:meth:`~importlib.abc.Finder.find_module` (substituídos por :"
+"meth:`~importlib.abc.Finder.find_spec`), :meth:`~importlib.abc.Loader."
+"load_module` (substituído por :meth:`~importlib.abc.Loader.exec_module`), :"
+"meth:`~importlib.abc.Loader.module_repr` (que o sistema de importação cuida "
+"para você), o atributo ``__package__`` (substituído por ``__spec__."
+"parent``), o atributo ``__loader__`` (substituído por ``__spec__.loader``), "
+"e o atributo ``__cached__`` ( substituído por ``__spec__.cached``) será "
+"removido lentamente (assim como outras classes e métodos em :mod:"
+"`importlib`). :exc:`ImportWarning` e/ou :exc:`DeprecationWarning` será "
+"levantada conforme apropriado para ajudar a identificar o código que precisa "
+"ser atualizado durante esta transição."
 
 #: ../../whatsnew/3.10.rst:1529
 msgid ""
@@ -2532,6 +2580,9 @@ msgid ""
 "3.12. Refer to the :ref:`module changes <distutils-deprecated>` section for "
 "more information."
 msgstr ""
+"Todo o espaço de nomes de ``distutils`` foi descontinuado, para ser removido "
+"no Python 3.12. Consulte a seção de :ref:`alterações do módulo <distutils-"
+"deprecated>` para mais informações."
 
 #: ../../whatsnew/3.10.rst:1533
 msgid ""
@@ -2539,6 +2590,10 @@ msgid ""
 "`ValueError` is deprecated in favor of a :exc:`TypeError`. (Contributed by "
 "Serhiy Storchaka and Raymond Hettinger in :issue:`37319`.)"
 msgstr ""
+"Argumentos não inteiros para :func:`random.randrange` foram descontinuados. "
+"A exceção :exc:`ValueError` foi descontinuada em favor de uma exceção :exc:"
+"`TypeError`. (Contribuição de Serhiy Storchaka e Raymond Hettinger em :issue:"
+"`37319`.)"
 
 #: ../../whatsnew/3.10.rst:1537
 msgid ""
@@ -2547,6 +2602,10 @@ msgid ""
 "`DeprecationWarning`. Use :meth:`~importlib.abc.Loader.exec_module` instead. "
 "(Contributed by Brett Cannon in :issue:`26131`.)"
 msgstr ""
+"Os vários métodos de ``load_module()`` de :mod:`importlib` foram "
+"documentados como descontinuados desde Python 3.6, mas agora também irão "
+"disparar um :exc:`DeprecationWarning`. Use :meth:`~importlib.abc.Loader."
+"exec_module` em vez disso. (Contribuição de Brett Cannon em :issue:`26131`.)"
 
 #: ../../whatsnew/3.10.rst:1543
 msgid ""
@@ -2554,6 +2613,9 @@ msgid ""
 "for :meth:`~zipimport.zipimporter.exec_module`. (Contributed by Brett Cannon "
 "in :issue:`26131`.)"
 msgstr ""
+":meth:`zimport.zipimporter.load_module` foi descontinuado em preferência a :"
+"meth:`~zipimport.zipimporter.exec_module`. (Contribuição de Brett Cannon em :"
+"issue:`26131`.)"
 
 #: ../../whatsnew/3.10.rst:1547
 msgid ""
@@ -2561,6 +2623,10 @@ msgid ""
 "now triggers an :exc:`ImportWarning` as :meth:`~importlib.abc.Loader."
 "exec_module` is preferred. (Contributed by Brett Cannon in :issue:`26131`.)"
 msgstr ""
+"O uso de :meth:`~importlib.abc.Loader.load_module` pelo sistema de "
+"importação agora dispara uma exceção :exc:`ImportWarning`, pois :meth:"
+"`~importlib.abc.Loader.exec_module` é preferível. (Contribuição de Brett "
+"Cannon em :issue:`26131`.)"
 
 #: ../../whatsnew/3.10.rst:1552
 msgid ""
@@ -2571,6 +2637,12 @@ msgid ""
 "respectively. You can use :func:`importlib.util.spec_from_loader` to help in "
 "porting. (Contributed by Brett Cannon in :issue:`42134`.)"
 msgstr ""
+"O uso de :meth:`importlib.abc.MetaPathFinder.find_module` e :meth:`importlib."
+"abc.PathEntryFinder.find_module` pelo sistema de importação agora dispara "
+"uma exceção :exc:`ImportWarning`, pois :meth:`importlib.abc.MetaPathFinder."
+"find_spec` e :meth:`importlib.abc.PathEntryFinder.find_spec` são preferidos, "
+"respectivamente. Você pode usar :func:`importlib.util.spec_from_loader` para "
+"ajudar no port. (Contribuição de Brett Cannon em :issue:`42134`.)"
 
 #: ../../whatsnew/3.10.rst:1561
 msgid ""
@@ -2580,6 +2652,11 @@ msgid ""
 "spec_from_loader` to help in porting. (Contributed by Brett Cannon in :issue:"
 "`43672`.)"
 msgstr ""
+"O uso de :meth:`importlib.abc.PathEntryFinder.find_loader` pelo sistema de "
+"importação agora dispara uma exceção :exc:`ImportWarning`, pois :meth:"
+"`importlib.abc.PathEntryFinder.find_spec` é preferido. Você pode usar :func:"
+"`importlib.util.spec_from_loader` para ajudar no port. (Contribuição de "
+"Brett Cannon em :issue:`43672`.)"
 
 #: ../../whatsnew/3.10.rst:1567
 msgid ""
@@ -2595,6 +2672,17 @@ msgid ""
 "removal in Python 3.12 (previously they were documented as deprecated in "
 "Python 3.4). (Contributed by Brett Cannon in :issue:`42135`.)"
 msgstr ""
+"As várias implementações de :meth:`importlib.abc.MetaPathFinder.find_module` "
+"( :meth:`importlib.machinery.BuiltinImporter.find_module`, :meth:`importlib."
+"machinery.FrozenImporter.find_module`, :meth:`importlib.machinery."
+"WindowsRegistryFinder.find_module`, :meth:`importlib.machinery.PathFinder."
+"find_module`, :meth:`importlib.abc.MetaPathFinder.find_module` ), :meth:"
+"`importlib.abc.PathEntryFinder.find_module` ( :meth:`importlib.machinery."
+"FileFinder.find_module` ) e :meth:`importlib.abc.PathEntryFinder."
+"find_loader` ( :meth:`importlib.machinery.FileFinder.find_loader` ) agora "
+"levantam :exc:`DeprecationWarning` e estão programados para remoção no "
+"Python 3.12 (anteriormente, eles foram documentados como descontinuados no "
+"Python 3.4). (Contribuição de Brett Cannon em :issue:`42135`.)"
 
 #: ../../whatsnew/3.10.rst:1583
 msgid ""
@@ -2604,6 +2692,11 @@ msgid ""
 "from the class. Users should inherit from one of these two classes as "
 "appropriate instead. (Contributed by Brett Cannon in :issue:`42135`.)"
 msgstr ""
+":class:`importlib.abc.Finder` foi descontinuada (incluindo seu único "
+"método, :meth:`~importlib.abc.Finder.find_module`). :class:`importlib.abc."
+"MetaPathFinder` e :class:`importlib.abc.PathEntryFinder` não mais herdam da "
+"classe. Usuários devem herdar de uma dessas duas classes conforme "
+"apropriado. (Contribuição de Brett Cannon em :issue:`42135`.)"
 
 #: ../../whatsnew/3.10.rst:1590
 msgid ""
@@ -2615,6 +2708,13 @@ msgid ""
 "exc:`DeprecationWarning` in previous versions of Python). (Contributed by "
 "Brett Cannon in :issue:`43720`.)"
 msgstr ""
+"As descontinuações de :mod:`imp`, :func:`importlib.find_loader`, :func:"
+"`importlib.util.set_package_wrapper`, :func:`importlib.util."
+"set_loader_wrapper`, :func:`importlib.util.module_for_loader`, :class:"
+"`pkgutil.ImpImporter` e :class:`pkgutil.ImpLoader` foram todas atualizadas "
+"para listar Python 3.12 como a versão programada para remoção (elas "
+"começaram a levantar :exc:`DeprecationWarning` em versões anteriores do "
+"Python). (Contribuição de Brett Cannon em :issue:`43720`.)"
 
 #: ../../whatsnew/3.10.rst:1600
 msgid ""
@@ -2623,6 +2723,11 @@ msgid ""
 "``__repr__()`` method. Removal of the use of ``module_repr()`` is scheduled "
 "for Python 3.12. (Contributed by Brett Cannon in :issue:`42137`.)"
 msgstr ""
+"O sistema de importação agora usa o atributo ``__spec__`` em módulos antes "
+"de recorrer a :meth:`~importlib.abc.Loader.module_repr` para um método "
+"``__repr__()`` do módulo. A remoção do uso de ``module_repr()`` está "
+"programado para Python 3.12. (Contribuição de Brett Cannon em :issue:"
+"`42137`.)"
 
 #: ../../whatsnew/3.10.rst:1606
 msgid ""
@@ -2631,6 +2736,10 @@ msgid ""
 "module_repr` are deprecated and slated for removal in Python 3.12. "
 "(Contributed by Brett Cannon in :issue:`42136`.)"
 msgstr ""
+":meth:`importlib.abc.Loader.module_repr`, :meth:`importlib.machinery."
+"FrozenLoader.module_repr` e :meth:`importlib.machinery.BuiltinLoader."
+"module_repr` foram descontinuadas e progamadas para remoção no Python 3.12. "
+"(Contribuição de Brett Cannon em :issue:`42136`.)"
 
 #: ../../whatsnew/3.10.rst:1612
 msgid ""
@@ -2639,6 +2748,10 @@ msgid ""
 "scheduled for removal in Python 3.12. (Contributed by Erlend E. Aasland in :"
 "issue:`42264`.)"
 msgstr ""
+"``sqlite3.OptimizedUnicode`` teve a documentação removida e foi "
+"descontinuado desde o Python 3.3, quando foi tornado um apelido para :class:"
+"`str`. Foi agora descontinuado, programado para remoção no Python 3.12. "
+"(Contribuição de Erlend E. Aasland em :issue:`42264`.)"
 
 #: ../../whatsnew/3.10.rst:1617
 msgid ""
@@ -2653,6 +2766,17 @@ msgid ""
 "`~asyncio.StreamReader`, :class:`~asyncio.StreamReaderProtocol`. "
 "(Contributed by Serhiy Storchaka in :issue:`39529`.)"
 msgstr ""
+":func:`asyncio.get_event_loop` agora emite um aviso de descontinuidade se "
+"não houver um laço de eventos em execução. No futuro haverá um apelido de :"
+"func:`~asyncio.get_running_loop`. Funções de :mod:`asyncio` que "
+"implicitamente criam objetos :class:`~asyncio.Future` ou :class:`~asyncio."
+"Task` agora emitem um aviso de descontinuidade se não houver um laço de "
+"eventos e nenhum argumento *loop* for passado: :func:`~asyncio."
+"ensure_future`, :func:`~asyncio.wrap_future`, :func:`~asyncio.gather`, :func:"
+"`~asyncio.shield`, :func:`~asyncio.as_completed` e construtores de :class:"
+"`~asyncio.Future`, :class:`~asyncio.Task`, :class:`~asyncio.StreamReader`, :"
+"class:`~asyncio.StreamReaderProtocol`. (Contribuição de Serhiy Storchaka em :"
+"issue:`39529`.)"
 
 #: ../../whatsnew/3.10.rst:1630
 msgid ""
@@ -2663,47 +2787,55 @@ msgid ""
 "cache must be used, open the database in URI mode using the ``cache=shared`` "
 "query parameter. (Contributed by Erlend E. Aasland in :issue:`24464`.)"
 msgstr ""
+"A função embutida não documentada ``sqlite3.enable_shared_cache`` foi agora "
+"descontinuada, agendada para remoção no Python 3.12. Seu uso é fortemente "
+"desencorajado pela documentação do SQLite3. Veja `a documentação do SQLite3 "
+"<https://sqlite.org/c3ref/enable_shared_cache.html>`_ para mais detalhes. Se "
+"um cache compartilhado deve ser usado, abra o banco de dados no modo URI "
+"usando o parâmetro de consulta ``cache=shared``. (Contribuição de Erlend E. "
+"Aasland em :issue:`24464`.)"
 
 #: ../../whatsnew/3.10.rst:1638
 msgid "The following ``threading`` methods are now deprecated:"
-msgstr ""
+msgstr "Os seguintes métodos de ``threading`` foram agora descontinuados:"
 
 #: ../../whatsnew/3.10.rst:1640
 msgid "``threading.currentThread`` => :func:`threading.current_thread`"
-msgstr ""
+msgstr "``threading.currentThread`` => :func:`threading.current_thread`"
 
 #: ../../whatsnew/3.10.rst:1642
 msgid "``threading.activeCount`` => :func:`threading.active_count`"
-msgstr ""
+msgstr "``threading.activeCount`` => :func:`threading.active_count`"
 
 #: ../../whatsnew/3.10.rst:1644
 msgid ""
 "``threading.Condition.notifyAll`` => :meth:`threading.Condition.notify_all`"
 msgstr ""
+"``threading.Condition.notifyAll`` => :meth:`threading.Condition.notify_all`"
 
 #: ../../whatsnew/3.10.rst:1647
 msgid "``threading.Event.isSet`` => :meth:`threading.Event.is_set`"
-msgstr ""
+msgstr "``threading.Event.isSet`` => :meth:`threading.Event.is_set`"
 
 #: ../../whatsnew/3.10.rst:1649
 msgid "``threading.Thread.setName`` => :attr:`threading.Thread.name`"
-msgstr ""
+msgstr "``threading.Thread.setName`` => :attr:`threading.Thread.name`"
 
 #: ../../whatsnew/3.10.rst:1651
 msgid "``threading.thread.getName`` => :attr:`threading.Thread.name`"
-msgstr ""
+msgstr "``threading.thread.getName`` => :attr:`threading.Thread.name`"
 
 #: ../../whatsnew/3.10.rst:1653
 msgid "``threading.Thread.isDaemon`` => :attr:`threading.Thread.daemon`"
-msgstr ""
+msgstr "``threading.Thread.isDaemon`` => :attr:`threading.Thread.daemon`"
 
 #: ../../whatsnew/3.10.rst:1655
 msgid "``threading.Thread.setDaemon`` => :attr:`threading.Thread.daemon`"
-msgstr ""
+msgstr "``threading.Thread.setDaemon`` => :attr:`threading.Thread.daemon`"
 
 #: ../../whatsnew/3.10.rst:1657
 msgid "(Contributed by Jelle Zijlstra in :issue:`21574`.)"
-msgstr ""
+msgstr "(Contribuição de Jelle Zijlstra em :issue:`21574`.)"
 
 #: ../../whatsnew/3.10.rst:1659
 msgid ""
@@ -2711,18 +2843,25 @@ msgid ""
 "3.12. Use :meth:`pathlib.Path.hardlink_to` instead. (Contributed by Barney "
 "Gale in :issue:`39950`.)"
 msgstr ""
+":meth:`pathlib.Path.link_to` foi descontinuado e programado para remoção no "
+"Python 3.12. Use :meth:`pathlib.Path.hardlink_to` em vez disso. "
+"(Contribuição de Barney Gale em :issue:`39950`.)"
 
 #: ../../whatsnew/3.10.rst:1663
 msgid ""
 "``cgi.log()`` is deprecated and slated for removal in Python 3.12. "
 "(Contributed by Inada Naoki in :issue:`41139`.)"
 msgstr ""
+"``cgi.log()`` foi descontinuado e programado para remoção no Python 3.12. "
+"(Contribuição de Inada Naoki em :issue:`41139`.)"
 
 #: ../../whatsnew/3.10.rst:1666
 msgid ""
 "The following :mod:`ssl` features have been deprecated since Python 3.6, "
 "Python 3.7, or OpenSSL 1.1.0 and will be removed in 3.11:"
 msgstr ""
+"Os recurso a seguir do :mod:`ssl` foram descontinuados desde o Python 3.6, "
+"Python 3.7 ou OpenSSL 1.1.0, e serão removidos no 3.11:"
 
 #: ../../whatsnew/3.10.rst:1669
 msgid ""
@@ -2731,6 +2870,10 @@ msgid ""
 "data:`~ssl.OP_NO_TLSv1_3` are replaced by :attr:`sslSSLContext."
 "minimum_version` and :attr:`sslSSLContext.maximum_version`."
 msgstr ""
+":data:`~ssl.OP_NO_SSLv2`, :data:`~ssl.OP_NO_SSLv3`, :data:`~ssl."
+"OP_NO_TLSv1`, :data:`~ssl.OP_NO_TLSv1_1`, :data:`~ssl.OP_NO_TLSv1_2` e :data:"
+"`~ssl.OP_NO_TLSv1_3` foram substituídos por :attr:`sslSSLContext."
+"minimum_version` e :attr:`sslSSLContext.maximum_version`."
 
 #: ../../whatsnew/3.10.rst:1675
 msgid ""
@@ -2740,25 +2883,34 @@ msgid ""
 "PROTOCOL_TLS` are deprecated in favor of :data:`~ssl.PROTOCOL_TLS_CLIENT` "
 "and :data:`~ssl.PROTOCOL_TLS_SERVER`"
 msgstr ""
+":data:`~ssl.PROTOCOL_SSLv2`, :data:`~ssl.PROTOCOL_SSLv3`, :data:`~ssl."
+"PROTOCOL_SSLv23`, :data:`~ssl.PROTOCOL_TLSv1`, :data:`~ssl."
+"PROTOCOL_TLSv1_1`, :data:`~ssl.PROTOCOL_TLSv1_2` e :data:`~ssl.PROTOCOL_TLS` "
+"foram descontinuados em favor de :data:`~ssl.PROTOCOL_TLS_CLIENT` e :data:"
+"`~ssl.PROTOCOL_TLS_SERVER`"
 
 #: ../../whatsnew/3.10.rst:1681
 msgid ""
 ":func:`~ssl.wrap_socket` is replaced by :meth:`ssl.SSLContext.wrap_socket`"
 msgstr ""
+":func:`~ssl.wrap_socket` foi substituída por :meth:`ssl.SSLContext."
+"wrap_socket`"
 
 #: ../../whatsnew/3.10.rst:1683
 msgid ":func:`~ssl.match_hostname`"
-msgstr ""
+msgstr ":func:`~ssl.match_hostname`"
 
 #: ../../whatsnew/3.10.rst:1685
 msgid ":func:`~ssl.RAND_pseudo_bytes`, :func:`~ssl.RAND_egd`"
-msgstr ""
+msgstr ":func:`~ssl.RAND_pseudo_bytes`, :func:`~ssl.RAND_egd`"
 
 #: ../../whatsnew/3.10.rst:1687
 msgid ""
 "NPN features like :meth:`ssl.SSLSocket.selected_npn_protocol` and :meth:`ssl."
 "SSLContext.set_npn_protocols` are replaced by ALPN."
 msgstr ""
+"Recurso de NPN como :meth:`ssl.SSLSocket.selected_npn_protocol` e :meth:`ssl."
+"SSLContext.set_npn_protocols` foram substituídos por ALPN."
 
 #: ../../whatsnew/3.10.rst:1690
 msgid ""
@@ -2767,6 +2919,10 @@ msgid ""
 "requires a :ref:`debug build of Python <debug-build>`. (Contributed by "
 "Victor Stinner in :issue:`44584`.)"
 msgstr ""
+"A depuração de threads (variável de ambiente :envvar:`PYTHONTHREADDEBUG`) "
+"foi descontinuada no Python 3.10 e será removida no Python 3.12. Este "
+"recurso exige uma :ref:`construção de depuração de Python <debug-build>`. "
+"(Contribuição de Victor Stinner em :issue:`44584`.)"
 
 #: ../../whatsnew/3.10.rst:1698 ../../whatsnew/3.10.rst:2115
 msgid "Removed"
@@ -2779,6 +2935,11 @@ msgid ""
 "``__rdivmod__`` of the :class:`complex` class.  They always raised a :exc:"
 "`TypeError`. (Contributed by Serhiy Storchaka in :issue:`41974`.)"
 msgstr ""
+"Removidos os métodos especiais ``__int__``, ``__float__``, ``__floordiv__``, "
+"``__mod__``, ``__divmod__``, ``__rfloordiv__``, ``__rmod__`` e "
+"``__rdivmod__`` da classe :class:`complex`. Eles sempre levantavam uma "
+"exceção :exc:`TypeError`. (Contribuição de Serhiy Storchaka em :issue:"
+"`41974`.)"
 
 #: ../../whatsnew/3.10.rst:1706
 msgid ""
@@ -2788,6 +2949,10 @@ msgid ""
 "already removed in Python 3.5. (Contributed by Berker Peksag in :issue:"
 "`31844`.)"
 msgstr ""
+"O método ``ParserBase.error()`` do módulo privado e não documentado "
+"``_markupbase`` foi removido. :class:`html.parser.HTMLParser` é a única "
+"subclasse de ``ParserBase`` e sua implementação de ``error()`` já tinha sido "
+"removida no Python 3.5. (Contribuição de Berker Peksag em :issue:`31844`.)"
 
 #: ../../whatsnew/3.10.rst:1712
 msgid ""
@@ -2796,6 +2961,10 @@ msgid ""
 "moved to the internal C API. (Contributed by Victor Stinner in :issue:"
 "`42157`.)"
 msgstr ""
+"Removido o atributo ``unicodedata.ucnhash_CAPI`` que foi um objeto interno "
+"PyCapsule. A estrutura privada relacionada ``_PyUnicode_Name_CAPI`` foi "
+"movida para uma API C interna. (Contribuição de Victor Stinner em :issue:"
+"`42157`.)"
 
 #: ../../whatsnew/3.10.rst:1717
 msgid ""
@@ -2804,6 +2973,11 @@ msgid ""
 "were only being used by the old parser, including ``node.h``, ``parser.h``, "
 "``graminit.h`` and ``grammar.h``."
 msgstr ""
+"Removido o módulo ``parser``, que foi descontinuado em 3.9 em razão da "
+"mudança para o novo analisador sintático GASE, bem como todo os arquivos "
+"código-fonte e cabeçalhos C que estavam sendo usados pelo analisador "
+"sintático antigo, incluindo ``node.h``, ``parser.h``, ``graminit.h`` e "
+"``grammar.h``."
 
 #: ../../whatsnew/3.10.rst:1722
 msgid ""
@@ -2812,6 +2986,11 @@ msgid ""
 "``PyParser_SimpleParseFileFlags`` and ``PyNode_Compile`` that were "
 "deprecated in 3.9 due to the switch to the new PEG parser."
 msgstr ""
+"Removidas as funções de API C pública ``PyParser_SimpleParseStringFlags``, "
+"``PyParser_SimpleParseStringFlagsFilename``, "
+"``PyParser_SimpleParseFileFlags`` e ``PyNode_Compile`` que foram "
+"descontinuadas no 3.9 em razão da mudança para o novo analisador sintático "
+"GASE."
 
 #: ../../whatsnew/3.10.rst:1727
 msgid ""
@@ -2822,6 +3001,12 @@ msgid ""
 "their code. (Contributed by Dong-hee Na and Terry J. Reedy in :issue:"
 "`42299`.)"
 msgstr ""
+"Removido o módulo ``formatter``, que foi descontinuado no Python 3.4. É um "
+"tanto obsoleto, pouco usado e não testado. Ele foi originalmente programado "
+"para ser removido no Python 3.6, mas tais remoções foram adiadas até depois "
+"do fim de vida do Python 2.7. Os usuários existentes devem copiar quaisquer "
+"classes que usam em seu código. (Contribuição de Dong-hee Na e Terry J. "
+"Reedy em :issue:`42299`.)"
 
 #: ../../whatsnew/3.10.rst:1734
 msgid ""
@@ -2829,6 +3014,9 @@ msgid ""
 "now due to the _warnings module was converted to a builtin module in 2.6. "
 "(Contributed by Hai Shi in :issue:`42599`.)"
 msgstr ""
+"Removida a função :c:func:`PyModule_GetWarningsModule` que era inútil agora "
+"em razão do módulo _warnings ser convertido a um módulo embutido no 2.6. "
+"(Contribuição de Hai Shi em :issue:`42599`.)"
 
 #: ../../whatsnew/3.10.rst:1738
 msgid ""
@@ -2836,6 +3024,9 @@ msgid ""
 "the :mod:`collections` module. (Contributed by Victor Stinner in :issue:"
 "`37324`.)"
 msgstr ""
+"Remove apelidos descontinuados para :ref:`collections-abstract-base-classes` "
+"do módulo :mod:`collections`. (Contribuição de Victor Stinner em :issue:"
+"`37324`.)"
 
 #: ../../whatsnew/3.10.rst:1742
 msgid ""
@@ -2843,10 +3034,13 @@ msgid ""
 "doc:`high-level API <../library/asyncio-api-index>` following deprecation in "
 "Python 3.8.  The motivation behind this change is multifold:"
 msgstr ""
+"O parâmetro ``loop`` foi removido da maioria da `API de alto nível <../"
+"library/asyncio-api-index>` do :mod:`asyncio` seguindo a descontinuidade no "
+"Python 3.8. A motivação por trás desta alteração é multifacetada:"
 
 #: ../../whatsnew/3.10.rst:1746
 msgid "This simplifies the high-level API."
-msgstr ""
+msgstr "Isso simplifica a API de alto nível."
 
 #: ../../whatsnew/3.10.rst:1747
 msgid ""
@@ -2854,28 +3048,38 @@ msgid ""
 "thread's running event loop since Python 3.7.  There isn't a need to pass "
 "the event loop to the API in most normal use cases."
 msgstr ""
+"As funções na API de alto nível obtêm implicitamente o laço de eventos em "
+"execução do thread atual desde o Python 3.7. Não há necessidade de passar o "
+"laço de eventos para a API na maioria dos casos de uso normais."
 
 #: ../../whatsnew/3.10.rst:1750
 msgid ""
 "Event loop passing is error-prone especially when dealing with loops running "
 "in different threads."
 msgstr ""
+"A passagem de laço de eventos está sujeita a erros, especialmente ao lidar "
+"com laços em execução em diferentes threads."
 
 #: ../../whatsnew/3.10.rst:1753
 msgid ""
 "Note that the low-level API will still accept ``loop``. See `Changes in the "
 "Python API`_ for examples of how to replace existing code."
 msgstr ""
+"Observe que a API de baixo nível ainda aceitará ``loop``. Veja `Changes in "
+"the Python API`_ (Alterações na API Python) para exemplos de como substituir "
+"o código existente."
 
 #: ../../whatsnew/3.10.rst:1756 ../../whatsnew/3.10.rst:1827
 msgid ""
 "(Contributed by Yurii Karabas, Andrew Svetlov, Yury Selivanov and Kyle "
 "Stanley in :issue:`42392`.)"
 msgstr ""
+"(Contribuição de Yurii Karabas, Andrew Svetlov, Yury Selivanov e Kyle "
+"Stanley em :issue:`42392`.)"
 
 #: ../../whatsnew/3.10.rst:1761 ../../whatsnew/3.10.rst:2040
 msgid "Porting to Python 3.10"
-msgstr ""
+msgstr "Portando para Python 3.10"
 
 #: ../../whatsnew/3.10.rst:1763
 msgid ""
@@ -2887,7 +3091,7 @@ msgstr ""
 
 #: ../../whatsnew/3.10.rst:1768
 msgid "Changes in the Python syntax"
-msgstr ""
+msgstr "Alterações na sintaxe Python"
 
 #: ../../whatsnew/3.10.rst:1770
 msgid ""
@@ -2898,6 +3102,13 @@ msgid ""
 "with future releases just add a space between the numeric literal and the "
 "following keyword. (Contributed by Serhiy Storchaka in :issue:`43833`)."
 msgstr ""
+"O aviso de descontinuação agora é emitido ao compilar a sintaxe "
+"anteriormente válida se o literal numérico for seguido imediatamente por uma "
+"palavra-chave (como em ``0in x``). Em versões futuras, ele será alterado "
+"para aviso de sintaxe e, finalmente, para um erro de sintaxe. Para se livrar "
+"do aviso e tornar o código compatível com versões futuras, basta adicionar "
+"um espaço entre o literal numérico e a palavra-chave seguinte. (Contribuição "
+"de Serhiy Storchaka em :issue:`43833`)."
 
 #: ../../whatsnew/3.10.rst:1780
 msgid "Changes in the Python API"
@@ -2910,6 +3121,10 @@ msgid ""
 "functions in the :mod:`traceback` module have been renamed to *exc*. "
 "(Contributed by Zackery Spytz and Matthias Bussonnier in :issue:`26389`.)"
 msgstr ""
+"Os parâmetros *etype* das funções :func:`~traceback.format_exception`, :func:"
+"`~traceback.format_exception_only` e :func:`~traceback.print_exception` no "
+"módulo :mod:`traceback` foram renomeadas para *exc*. (Contribuição de "
+"Zackery Spytz e Matthias Bussonnier em :issue:`26389`.)"
 
 #: ../../whatsnew/3.10.rst:1788
 msgid ""
@@ -2918,6 +3133,11 @@ msgid ""
 "exceptions were logged, and the last exception was always silently ignored. "
 "(Contributed by Victor Stinner in :issue:`42639`.)"
 msgstr ""
+":mod:`atexit`: Ao sair do Python, se uma função de retorno registrada com :"
+"func:`atexit.register` falhar, sua exceção agora é registrada nos logs. "
+"Anteriormente, apenas algumas exceções eram registradas nos logs e a última "
+"exceção era sempre ignorada silenciosamente. (Contribuição de Victor Stinner "
+"em :issue:`42639`.)"
 
 #: ../../whatsnew/3.10.rst:1794
 msgid ""
@@ -2931,6 +3151,15 @@ msgid ""
 "have passed silently in Python 3.9. (Contributed by Ken Jin in :issue:"
 "`42195`.)"
 msgstr ""
+"A classe genérica :class:`Collections.abc.Callable` agora nivela os "
+"parâmetros de tipo, similar ao que :data:`typing.Callable` faz atualmente. "
+"Isso significa que ``collections.abc.Callable[[int, str], str]`` terá "
+"``__args__`` de ``(int, str, str)``; anteriormente era ``([int, str], "
+"str)``. O código que acessa os argumentos via :func:`typing.get_args` ou "
+"``__args__`` precisa levar em conta esta mudança. Além disso, :exc:"
+"`TypeError` pode ser levantada para formas inválidas de parametrização :"
+"class:`Collections.abc.Callable` que pode ter passada silenciosamente no "
+"Python 3.9. (Contribuição de Ken Jin em :issue:`42195`.)"
 
 #: ../../whatsnew/3.10.rst:1804
 msgid ""
@@ -2939,6 +3168,10 @@ msgid ""
 "a 16-bit unsigned integer. (Contributed by Erlend E. Aasland in :issue:"
 "`42393`.)"
 msgstr ""
+":meth:`socket.htons` e :meth:`socket.ntohs` agora levantam :exc:"
+"`OverflowError` em vez de :exc:`DeprecationWarning` se o parâmetro dado não "
+"couber em um inteiro sem sinal de 16 bits. (Contribuição de Erlend E. "
+"Aasland em :issue:`42393`.)"
 
 #: ../../whatsnew/3.10.rst:1809
 msgid ""
@@ -2946,14 +3179,17 @@ msgid ""
 "doc:`high-level API <../library/asyncio-api-index>` following deprecation in "
 "Python 3.8."
 msgstr ""
+"O parâmetro ``loop`` foi removido da maioria da `API de alto nível <../"
+"library/asyncio-api-index>` do :mod:`asyncio` seguindo a descontinuidade no "
+"Python 3.8."
 
 #: ../../whatsnew/3.10.rst:1813
 msgid "A coroutine that currently looks like this::"
-msgstr ""
+msgstr "A corrotina que atualmente se parece com isso::"
 
 #: ../../whatsnew/3.10.rst:1818
 msgid "Should be replaced with this::"
-msgstr ""
+msgstr "Deve ser substituída por isso::"
 
 #: ../../whatsnew/3.10.rst:1823
 msgid ""
@@ -2961,6 +3197,10 @@ msgid ""
 "running event loop (e.g. running in another thread's event loop), consider "
 "using :func:`asyncio.run_coroutine_threadsafe` instead."
 msgstr ""
+"Se ``foo()`` for especificamente projetado para *não* executar no laço de "
+"eventos em execução da thread atual (por exemplo, executar no laço de "
+"eventos de outra thread), considere usar :func:`asyncio."
+"run_coroutine_threadsafe`."
 
 #: ../../whatsnew/3.10.rst:1830
 msgid ""
@@ -2972,6 +3212,13 @@ msgid ""
 "also inherits the current builtins. (Contributed by Victor Stinner in :issue:"
 "`42990`.)"
 msgstr ""
+"O construtor :data:`types.FunctionType` agora herda os embutidos atuais se o "
+"dicionário *globals* tiver nenhuma chave ``\"__builtins__\"``, em vez de "
+"usar ``{\"None\": None}`` como embutidos: o mesmo comportamento que as "
+"funções :func:`eval` e :func:`exec`. Definir uma função com ``def "
+"function(...): ...`` no Python não é afetado, globais não podem ser "
+"substituídos com esta sintaxe: também herda os embutidos atuais. "
+"(Contribuição de Victor Stinner em :issue:`42990`.)"
 
 #: ../../whatsnew/3.10.rst:1839
 msgid "Changes in the C API"
@@ -2985,6 +3232,11 @@ msgid ""
 "these functions, ``struct _node``, were removed due to the switch to the new "
 "PEG parser."
 msgstr ""
+"As funções de API C ``PyParser_SimpleParseStringFlags``, "
+"``PyParser_SimpleParseStringFlagsFilename``, "
+"``PyParser_SimpleParseFileFlags``, ``PyNode_Compile`` e o tipo usado por "
+"essas funções, ``struct _node``, foram removidos em razão da mudança para o "
+"novo analisador sintático GASE."
 
 #: ../../whatsnew/3.10.rst:1847
 msgid ""
@@ -2992,16 +3244,22 @@ msgid ""
 "example, :c:func:`Py_CompileString`. The resulting code object can then be "
 "evaluated using, for example, :c:func:`PyEval_EvalCode`."
 msgstr ""
+"O código-fonte deveria agora ser compilado diretamente para um objeto código "
+"usando, por exemplo, :c:func:`Py_CompileString`. O objeto código resultante "
+"pode ser então avaliado usando, por exemplo, :c:func:`PyEval_EvalCode`."
 
 #: ../../whatsnew/3.10.rst:1851
 msgid "Specifically:"
-msgstr ""
+msgstr "Especificamente:"
 
 #: ../../whatsnew/3.10.rst:1853
 msgid ""
 "A call to ``PyParser_SimpleParseStringFlags`` followed by ``PyNode_Compile`` "
 "can be replaced by calling :c:func:`Py_CompileString`."
 msgstr ""
+"Uma chamada para ``PyParser_SimpleParseStringFlags`` seguida por "
+"``PyNode_Compile`` pode ser substituída por chamar :c:func:"
+"`Py_CompileString`."
 
 #: ../../whatsnew/3.10.rst:1856
 msgid ""
@@ -3009,6 +3267,9 @@ msgid ""
 "compile code from a ``FILE *`` argument, you will need to read the file in C "
 "and pass the resulting buffer to :c:func:`Py_CompileString`."
 msgstr ""
+"Não há substituição direta para ``PyParser_SimpleParseFileFlags``. Para "
+"compilar código de um argumento ``FILE *``, você vai precisar ler o arquivo "
+"em C e passar o buffer resultante para :c:func:`Py_CompileString`."
 
 #: ../../whatsnew/3.10.rst:1860
 msgid ""
@@ -3018,6 +3279,12 @@ msgid ""
 "c:func:`PyBytes_AsString` and :c:func:`Py_CompileString`, as sketched below. "
 "(Declarations and error handling are omitted.) ::"
 msgstr ""
+"Para compilar um arquivo de um nome de arquivo ``char *`` dado, abra "
+"explicitamente o arquivo, leia-o e compile o resultado. Uma forma de fazer "
+"isso é usando o módulo :py:mod:`io` com :c:func:`PyImport_ImportModule`, :c:"
+"func:`PyObject_CallMethod`, :c:func:`PyBytes_AsString` e :c:func:"
+"`Py_CompileString`, como esboçado abaixo. (Declarações e tratamento de erro "
+"foram omitidos.) ::"
 
 #: ../../whatsnew/3.10.rst:1874
 msgid "CPython bytecode changes"
@@ -3029,6 +3296,9 @@ msgid ""
 "strings as the function's annotations. (Contributed by Yurii Karabas and "
 "Inada Naoki in :issue:`42202`)"
 msgstr ""
+"A instrução ``MAKE_FUNCTION`` agora aceita um dicionário ou uma tupla de "
+"strings como as anotações da função. (Contribuição de Yurii Karabas e Inada "
+"Naoki em :issue:`42202`)"
 
 #: ../../whatsnew/3.10.rst:1881
 msgid "Build Changes"
