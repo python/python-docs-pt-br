@@ -113,7 +113,7 @@ push:
 #       to update the translation file mapping.
 .PHONY: pull
 pull: venv
-	@$(VENV)/bin/tx pull --language=$(LANGUAGE) --parallel --use-git-timestamps
+	@$(VENV)/bin/tx pull --force --language=$(LANGUAGE) --parallel
 	@$(VENV)/bin/powrap --quiet *.po **/*.po
 
 
