@@ -31,4 +31,4 @@ sed cpython/Doc/locales/.tx/config \
   -e "s|^file_filter|trans.${LANGUAGE}|" \
   > .tx/config
 
-tx pull -l ${LANGUAGE} --use-git-timestamps --parallel
+tx pull --languages ${LANGUAGE} --translations --use-git-timestamps --parallel
