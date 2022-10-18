@@ -32,6 +32,10 @@ msgid ""
 "line switch that allows scripts to be located using the Python module "
 "namespace rather than the filesystem."
 msgstr ""
+"O módulo :mod:`runpy` é usado para localizar e executar módulos Python sem "
+"importá-los primeiro. Seu principal uso é implementar a opção de linha de "
+"comando :option:`-m` que permite que os scripts sejam localizados usando o "
+"espaço de nomes do módulo Python em vez do sistema de arquivos."
 
 #: ../../library/runpy.rst:20
 msgid "The :mod:`runpy` module provides two functions:"
@@ -44,6 +48,10 @@ msgid ""
 "import mechanism (refer to :pep:`302` for details) and then executed in a "
 "fresh module namespace."
 msgstr ""
+"Execute o código do módulo especificado e retorne o dicionário global do "
+"módulo resultante. O código do módulo é localizado primeiro usando o "
+"mecanismo de importação padrão (consulte :pep:`302` para detalhes) e então "
+"executado em um novo espaço de nomes de módulo."
 
 #: ../../library/runpy.rst:33
 msgid ""
@@ -81,6 +89,9 @@ msgid ""
 ":const:`None`, to ``mod_name + '.__main__'`` if the named module is a "
 "package and to the *mod_name* argument otherwise."
 msgstr ""
+"``__name__`` é definido como *run_name* se este argumento opcional não for "
+":const:`None`, para ``mod_name + '.__main__'`` se o módulo nomeado for um "
+"pacote e para o argumento *mod_name* caso contrário ."
 
 #: ../../library/runpy.rst:53
 msgid ""
@@ -110,6 +121,12 @@ msgid ""
 "module being executed. Both ``sys.argv[0]`` and ``sys.modules[__name__]`` "
 "are restored to their original values before the function returns."
 msgstr ""
+"Se o argumento *alter_sys* for fornecido e for avaliado como :const:`True`, "
+"então ``sys.argv[0]`` será atualizado com o valor de ``__file__`` e "
+"``sys.modules[__name__]`` é atualizado com um objeto de módulo temporário "
+"para o módulo que está sendo executado. Ambos ``sys.argv[0]`` e "
+"``sys.modules[__name__]`` são restaurados para seus valores originais antes "
+"que a função retorne."
 
 #: ../../library/runpy.rst:70
 msgid ""
@@ -118,6 +135,10 @@ msgid ""
 "arguments. It is recommended that the :mod:`sys` module be left alone when "
 "invoking this function from threaded code."
 msgstr ""
+"Note que esta manipulação de :mod:`sys` não é segura para thread. Outras "
+"threads podem ver o módulo parcialmente inicializado, bem como a lista "
+"alterada de argumentos. É recomendado que o módulo :mod:`sys` seja deixado "
+"sozinho ao invocar esta função a partir do código encadeado."
 
 #: ../../library/runpy.rst:76
 msgid ""
@@ -139,6 +160,12 @@ msgid ""
 "compiled bytecode file or a valid sys.path entry containing a ``__main__`` "
 "module (e.g. a zipfile containing a top-level ``__main__.py`` file)."
 msgstr ""
+"Executa o código no local do sistema de arquivos nomeado e retorna o "
+"dicionário global do módulo resultante. Assim como um nome de script "
+"fornecido à linha de comando CPython, o caminho fornecido pode se referir a "
+"um arquivo de origem Python, um arquivo de bytecode compilado ou uma entrada"
+" sys.path válida contendo um módulo ``__main__`` (por exemplo, um arquivo "
+"zip contendo um arquivo de topo de nível ``__main__.py``)."
 
 #: ../../library/runpy.rst:95
 msgid ""
@@ -150,6 +177,13 @@ msgid ""
 ":mod:`__main__` entry located elsewhere on ``sys.path`` if there is no such "
 "module at the specified location."
 msgstr ""
+"Para um script simples, o código especificado é simplesmente executado em um"
+" novo espaço de nomes de módulo. Para uma entrada sys.path válida "
+"(normalmente um arquivo zip ou diretório), a entrada é primeiro adicionada "
+"ao início de ``sys.path``. A função então procura e executa um módulo "
+":mod:`__main__` usando o caminho atualizado. Observe que não há proteção "
+"especial contra invocar uma entrada :mod:`__main__` existente localizada em "
+"outro lugar em ``sys.path`` se não houver tal módulo no local especificado."
 
 #: ../../library/runpy.rst:103
 msgid ""
@@ -159,12 +193,19 @@ msgid ""
 "below are defined in the supplied dictionary, those definitions are "
 "overridden by :func:`run_path`."
 msgstr ""
+"O argumento opcional de dicionário *init_globals* pode ser usado para "
+"preencher previamente o dicionário global do módulo antes do código ser "
+"executado. O dicionário fornecido não será alterado. Se qualquer uma das "
+"variáveis globais especiais abaixo for definida no dicionário fornecido, "
+"estas definições serão substituídas por :func:`run_path`."
 
 #: ../../library/runpy.rst:114
 msgid ""
 "``__name__`` is set to *run_name* if this optional argument is not "
 ":const:`None` and to ``'<run_path>'`` otherwise."
 msgstr ""
+"``__name__`` é definido como *run_name* se este argumento opcional não for "
+":const:`None` e como ``'<run_path>'`` caso contrário."
 
 #: ../../library/runpy.rst:117
 msgid ""
@@ -202,12 +243,20 @@ msgid ""
 " still apply, use of this function in threaded code should be either "
 "serialised with the import lock or delegated to a separate process."
 msgstr ""
+"Note que, diferentemente de :func:`run_module`, as alterações feitas em "
+":mod:`sys` não são opcionais nesta função, pois esses ajustes são essenciais"
+" para permitir a execução das entradas do sys.path. Como as limitações de "
+"segurança de encadeamento ainda se aplicam, o uso dessa função no código "
+"encadeado deve ser serializado com o bloqueio de importação ou delegado a um"
+" processo separado."
 
 #: ../../library/runpy.rst:141
 msgid ""
 ":ref:`using-on-interface-options` for equivalent functionality on the "
 "command line (``python path/to/script``)."
 msgstr ""
+":ref:`using-on-interface-options` para funcionalidade equivalente na linha "
+"de comando (``python path/to/script``)."
 
 #: ../../library/runpy.rst:149
 msgid ":pep:`338` -- Executing modules as scripts"
@@ -219,7 +268,7 @@ msgstr "PEP escrita e implementada por Nick Coghlan."
 
 #: ../../library/runpy.rst:152
 msgid ":pep:`366` -- Main module explicit relative imports"
-msgstr ""
+msgstr ":pep:`366` -- Importações relativas explícitas do módulo principal"
 
 #: ../../library/runpy.rst:154
 msgid ":ref:`using-on-general` - CPython command line details"
