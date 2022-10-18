@@ -3783,12 +3783,19 @@ msgid ""
 "functions allow to activate, deactivate and query the state of the garbage "
 "collector from C code without having to import the :mod:`gc` module."
 msgstr ""
+"Adiciona novas funções para controlar o coletor de lixo do código C: :c:func:"
+"`PyGC_Enable()`, :c:func:`PyGC_Disable()`, :c:func:`PyGC_IsEnabled()`. Estas "
+"funções permitem ativar, desativar e consultar o estado do coletor de lixo "
+"do código C sem precisar importar o módulo :mod:`gc`."
 
 #: ../../whatsnew/3.10.rst:2133
 msgid ""
 "Add a new :c:data:`Py_TPFLAGS_DISALLOW_INSTANTIATION` type flag to disallow "
 "creating type instances. (Contributed by Victor Stinner in :issue:`43916`.)"
 msgstr ""
+"Adiciona um novo sinalizador de tipo :c:data:"
+"`Py_TPFLAGS_DISALLOW_INSTANTIATION` para impedir a criação de instâncias de "
+"tipo. (Contribuição de Victor Stinner em :issue:`43916`.)"
 
 #: ../../whatsnew/3.10.rst:2137
 msgid ""
@@ -3796,6 +3803,10 @@ msgid ""
 "immutable type objects: type attributes cannot be set nor deleted. "
 "(Contributed by Victor Stinner and Erlend E. Aasland in :issue:`43908`.)"
 msgstr ""
+"Adiciona um novo sinalizador de tipo :c:data:`Py_TPFLAGS_IMMUTABLETYPE` para "
+"criar objetos de tipo imutável: atributos de tipo não podem ser definidos "
+"nem excluídos. (Contribuição de Victor Stinner e Erlend E. Aasland em :issue:"
+"`43908`.)"
 
 #: ../../whatsnew/3.10.rst:2144
 msgid ""
@@ -3805,6 +3816,11 @@ msgid ""
 "ref:`Parsing arguments and building values <arg-parsing>` and the :pep:"
 "`353`. (Contributed by Victor Stinner in :issue:`40943`.)"
 msgstr ""
+"A macro ``PY_SSIZE_T_CLEAN`` deve agora ser definida para usar os formatos :"
+"c:func:`PyArg_ParseTuple` e :c:func:`Py_BuildValue` que usam ``#``: ``es#``, "
+"``et# ``, ``s#``, ``u#``, ``y#``, ``z#``, ``U#`` e ``Z#``. Veja :ref:"
+"`Análise de argumentos e construção de valores <arg-parsing>` e o :pep:"
+"`353`. (Contribuição de Victor Stinner em :issue:`40943`.)"
 
 #: ../../whatsnew/3.10.rst:2151
 msgid ""
@@ -3813,10 +3829,15 @@ msgid ""
 "new_refcnt)``: see :c:func:`Py_SET_REFCNT()` (available since Python 3.9). "
 "For backward compatibility, this macro can be used::"
 msgstr ""
+"Como :c:func:`Py_REFCNT()` é alterado para a função estática em linha, "
+"``Py_REFCNT(obj) = new_refcnt`` deve ser substituído por "
+"``Py_SET_REFCNT(obj, new_refcnt)``: veja :c:func: `Py_SET_REFCNT()` "
+"(disponível desde o Python 3.9). Para compatibilidade com versões "
+"anteriores, esta macro pode ser usada::"
 
 #: ../../whatsnew/3.10.rst:2160
 msgid "(Contributed by Victor Stinner in :issue:`39573`.)"
-msgstr ""
+msgstr "(Contribuição de Victor Stinner em :issue:`39573`.)"
 
 #: ../../whatsnew/3.10.rst:2162
 msgid ""
@@ -3824,6 +3845,9 @@ msgid ""
 "for historical reason. It is no longer allowed. (Contributed by Victor "
 "Stinner in :issue:`40839`.)"
 msgstr ""
+"A chamada de :c:func:`PyDict_GetItem` sem :term:`GIL` retido era permitido "
+"por razões históricas. Isso não é mais permitido. (Contribuição de Victor "
+"Stinner em :issue:`40839`.)"
 
 #: ../../whatsnew/3.10.rst:2166
 msgid ""
@@ -3832,6 +3856,10 @@ msgid ""
 "now.  Use :c:func:`PyUnicode_New` to allocate Unicode object without initial "
 "data. (Contributed by Inada Naoki in :issue:`36346`.)"
 msgstr ""
+"``PyUnicode_FromUnicode(NULL, size)`` e ``PyUnicode_FromStringAndSize(NULL, "
+"size)`` levantam ``DeprecationWarning`` agora. Use :c:func:`PyUnicode_New` "
+"para alocar objeto Unicode sem dados iniciais. (Contribuição de Inada Naoki "
+"em :issue:`36346`.)"
 
 #: ../../whatsnew/3.10.rst:2171
 msgid ""
@@ -3839,6 +3867,9 @@ msgid ""
 "``unicodedata.ucnhash_CAPI`` has been moved to the internal C API. "
 "(Contributed by Victor Stinner in :issue:`42157`.)"
 msgstr ""
+"A estrutura privada ``_PyUnicode_Name_CAPI`` da API PyCapsule ``unicodedata."
+"ucnhash_CAPI`` foi movida para a API C interna. (Contribuição de Victor "
+"Stinner em :issue:`42157`.)"
 
 #: ../../whatsnew/3.10.rst:2175
 msgid ""
@@ -3850,6 +3881,13 @@ msgid ""
 "Configuration.  <init-path-config>`. (Contributed by Victor Stinner in :"
 "issue:`42260`.)"
 msgstr ""
+"As funções :c:func:`Py_GetPath`, :c:func:`Py_GetPrefix`, :c:func:"
+"`Py_GetExecPrefix`, :c:func:`Py_GetProgramFullPath`, :c:func:"
+"`Py_GetPythonHome` e :c:func:`Py_GetProgramName` agora retornam ``NULL`` se "
+"chamadas antes de :c:func:`Py_Initialize` (antes do Python ser "
+"inicializado). Use a nova :ref:`API de configuração de inicialização do "
+"Python <init-config>` para obter a :ref:`Configuração de caminho do Python "
+"<init-path-config>`. (Contribuição de Victor Stinner em :issue:`42260`.)"
 
 #: ../../whatsnew/3.10.rst:2183
 msgid ""
@@ -3860,6 +3898,12 @@ msgid ""
 "(PyList_SET_ITEM (a, b, c) < 0) ...`` test. (Contributed by Zackery Spytz "
 "and Victor Stinner in :issue:`30459`.)"
 msgstr ""
+"As macros :c:func:`PyList_SET_ITEM`, :c:func:`PyTuple_SET_ITEM` e :c:func:"
+"`PyCell_SET` não podem mais ser usadas como valor-l ou valor-r. Por exemplo, "
+"``x = PyList_SET_ITEM(a, b, c)`` e ``PyList_SET_ITEM(a, b, c) = x`` agora "
+"falham com um erro do compilador. Isso previne bugs como o teste ``if "
+"(PyList_SET_ITEM (a, b, c) < 0) ...``. (Contribuição de Zackery Spytz e "
+"Victor Stinner em :issue:`30459`.)"
 
 #: ../../whatsnew/3.10.rst:2190
 msgid ""
@@ -3871,6 +3915,13 @@ msgid ""
 "included directly, consider including ``Python.h`` instead. (Contributed by "
 "Nicholas Sim in :issue:`35134`)"
 msgstr ""
+"Os arquivos de API não limitada ``odictobject.h``, ``parser_interface.h``, "
+"``piclebufobject.h``, ``pyarena.h``, ``pyctype.h``, ``pydebug. h``, ``pyfpe."
+"h`` e ``pytime.h`` foram movidos para o diretório ``Include/cpython``. Esses "
+"arquivos não devem ser incluídos diretamente, pois já estão incluídos em "
+"``Python.h``: :ref:`Arquivos de inclusão <api-includes>`. Se eles foram "
+"incluídos diretamente, considere incluir ``Python.h`` em vez disso. "
+"(Contribuição de Nicholas Sim em :issue:`35134`)"
 
 #: ../../whatsnew/3.10.rst:2198
 msgid ""
@@ -3880,6 +3931,11 @@ msgid ""
 "is set instead. (Contributed by Victor Stinner and Erlend E. Aasland in :"
 "issue:`43908`.)"
 msgstr ""
+"Use o sinalizador de tipo :c:data:`Py_TPFLAGS_IMMUTABLETYPE` para criar "
+"objetos de tipo imutável. Não confie em :c:data:`Py_TPFLAGS_HEAPTYPE` para "
+"decidir se um objeto de tipo é mutável ou não; verifique se :c:data:"
+"`Py_TPFLAGS_IMMUTABLETYPE` está definido. (Contribuição de Victor Stinner e "
+"Erlend E. Aasland em :issue:`43908`.)"
 
 #: ../../whatsnew/3.10.rst:2204
 msgid ""
@@ -3887,6 +3943,9 @@ msgid ""
 "limited API. The function is mainly useful for custom builds of Python. "
 "(Contributed by Petr Viktorin in :issue:`26241`)"
 msgstr ""
+"A função não documentada ``Py_FrozenMain`` foi removida da API limitada. A "
+"função é útil principalmente para compilações personalizadas do Python. "
+"(Contribuição de Petr Viktorin em :issue:`26241`)"
 
 #: ../../whatsnew/3.10.rst:2211
 msgid ""
@@ -3894,56 +3953,73 @@ msgid ""
 "removed in Python 3.12: use :c:func:`PyUnicode_InternInPlace` instead. "
 "(Contributed by Victor Stinner in :issue:`41692`.)"
 msgstr ""
+"A função ``PyUnicode_InternImmortal()`` agora foi descontinuada e será "
+"removida no Python 3.12: use :c:func:`PyUnicode_InternInPlace` em vez disso. "
+"(Contribuição de Victor Stinner em :issue:`41692`.)"
 
 #: ../../whatsnew/3.10.rst:2219
 msgid ""
 "Removed ``Py_UNICODE_str*`` functions manipulating ``Py_UNICODE*`` strings. "
 "(Contributed by Inada Naoki in :issue:`41123`.)"
 msgstr ""
+"Removidas as funções ``Py_UNICODE_str*`` que manipulam strings "
+"``Py_UNICODE*``. (Contribuição de Inada Naoki em :issue:`41123`.)"
 
 #: ../../whatsnew/3.10.rst:2222
 msgid ""
 "``Py_UNICODE_strlen``: use :c:func:`PyUnicode_GetLength` or :c:macro:"
 "`PyUnicode_GET_LENGTH`"
 msgstr ""
+"``Py_UNICODE_strlen``: use :c:func:`PyUnicode_GetLength` ou :c:macro:"
+"`PyUnicode_GET_LENGTH`"
 
 #: ../../whatsnew/3.10.rst:2224
 msgid ""
 "``Py_UNICODE_strcat``: use :c:func:`PyUnicode_CopyCharacters` or :c:func:"
 "`PyUnicode_FromFormat`"
 msgstr ""
+"``Py_UNICODE_strcat``: use :c:func:`PyUnicode_CopyCharacters` ou :c:func:"
+"`PyUnicode_FromFormat`"
 
 #: ../../whatsnew/3.10.rst:2226
 msgid ""
 "``Py_UNICODE_strcpy``, ``Py_UNICODE_strncpy``: use :c:func:"
 "`PyUnicode_CopyCharacters` or :c:func:`PyUnicode_Substring`"
 msgstr ""
+"``Py_UNICODE_strcpy``, ``Py_UNICODE_strncpy``: use :c:func:"
+"`PyUnicode_CopyCharacters` ou :c:func:`PyUnicode_Substring`"
 
 #: ../../whatsnew/3.10.rst:2228
 msgid "``Py_UNICODE_strcmp``: use :c:func:`PyUnicode_Compare`"
-msgstr ""
+msgstr "``Py_UNICODE_strcmp``: use :c:func:`PyUnicode_Compare`"
 
 #: ../../whatsnew/3.10.rst:2229
 msgid "``Py_UNICODE_strncmp``: use :c:func:`PyUnicode_Tailmatch`"
-msgstr ""
+msgstr "``Py_UNICODE_strncmp``: use :c:func:`PyUnicode_Tailmatch`"
 
 #: ../../whatsnew/3.10.rst:2230
 msgid ""
 "``Py_UNICODE_strchr``, ``Py_UNICODE_strrchr``: use :c:func:"
 "`PyUnicode_FindChar`"
 msgstr ""
+"``Py_UNICODE_strchr``, ``Py_UNICODE_strrchr``: use :c:func:"
+"`PyUnicode_FindChar`"
 
 #: ../../whatsnew/3.10.rst:2233
 msgid ""
 "Removed ``PyUnicode_GetMax()``. Please migrate to new (:pep:`393`) APIs. "
 "(Contributed by Inada Naoki in :issue:`41103`.)"
 msgstr ""
+"Removida ``PyUnicode_GetMax()``. Migre para as novas APIs (:pep:`393`). "
+"(Contribuição de Inada Naoki em :issue:`41103`.)"
 
 #: ../../whatsnew/3.10.rst:2236
 msgid ""
 "Removed ``PyLong_FromUnicode()``. Please migrate to :c:func:"
 "`PyLong_FromUnicodeObject`. (Contributed by Inada Naoki in :issue:`41103`.)"
 msgstr ""
+"Removida ``PyLong_FromUnicode()``. Migre para :c:func:"
+"`PyLong_FromUnicodeObject`. (Contribuição de Inada Naoki em :issue:`41103`.)"
 
 #: ../../whatsnew/3.10.rst:2239
 msgid ""
@@ -3951,6 +4027,9 @@ msgid ""
 "`PyUnicode_AsUCS4Copy` or :c:func:`PyUnicode_AsWideCharString` (Contributed "
 "by Inada Naoki in :issue:`41103`.)"
 msgstr ""
+"Removida ``PyUnicode_AsUnicodeCopy()``. Use :c:func:`PyUnicode_AsUCS4Copy` "
+"ou :c:func:`PyUnicode_AsWideCharString` (Contribuição de Inada Naoki em :"
+"issue:`41103`.)"
 
 #: ../../whatsnew/3.10.rst:2243
 msgid ""
