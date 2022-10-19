@@ -3831,7 +3831,7 @@ msgid ""
 msgstr ""
 "Como :c:func:`Py_REFCNT()` é alterado para a função estática em linha, "
 "``Py_REFCNT(obj) = new_refcnt`` deve ser substituído por "
-"``Py_SET_REFCNT(obj, new_refcnt)``: veja :c:func: `Py_SET_REFCNT()` "
+"``Py_SET_REFCNT(obj, new_refcnt)``: veja :c:func:`Py_SET_REFCNT()` "
 "(disponível desde o Python 3.9). Para compatibilidade com versões "
 "anteriores, esta macro pode ser usada::"
 
@@ -4037,6 +4037,9 @@ msgid ""
 "``ceval.recursion_limit`` of the :c:type:`PyInterpreterState` structure. "
 "(Contributed by Victor Stinner in :issue:`41834`.)"
 msgstr ""
+"Removida a variável ``_Py_CheckRecursionLimit``: foi substituída por ``ceval."
+"recursion_limit`` da estrutura :c:type:`PyInterpreterState`. (Contribuição "
+"de Victor Stinner em :issue:`41834`.)"
 
 #: ../../whatsnew/3.10.rst:2247
 msgid ""
@@ -4045,6 +4048,10 @@ msgid ""
 "type:`PyInterpreterState` structure. (Contributed by Serhiy Storchaka in :"
 "issue:`41936`.)"
 msgstr ""
+"Removidas as macros não documentadas ``Py_ALLOW_RECURSION`` e "
+"``Py_END_ALLOW_RECURSION`` e o campo ``recursion_critical`` da estrutura :c:"
+"type:`PyInterpreterState`. (Contribuição de Serhiy Storchaka em :issue:"
+"`41936`.)"
 
 #: ../../whatsnew/3.10.rst:2252
 msgid ""
@@ -4052,6 +4059,10 @@ msgid ""
 "Python already implicitly installs signal handlers: see :c:member:`PyConfig."
 "install_signal_handlers`. (Contributed by Victor Stinner in :issue:`41713`.)"
 msgstr ""
+"Removida a função ``PyOS_InitInterrupts()`` não documentada. Inicializar o "
+"Python já instala implicitamente manipuladores de sinal: veja :c:member:"
+"`PyConfig.install_signal_handlers`. (Contribuição de Victor Stinner em :"
+"issue:`41713`.)"
 
 #: ../../whatsnew/3.10.rst:2257
 msgid ""
@@ -4060,34 +4071,39 @@ msgid ""
 "already excluded from the limited C API (:pep:`384`). (Contributed by Victor "
 "Stinner in :issue:`43244`.)"
 msgstr ""
+"Remova a função ``PyAST_Validate()``. Não é mais possível construir um "
+"objeto AST (tipo ``mod_ty``) com a API C pública. A função já foi excluída "
+"da API C limitada (:pep:`384`). (Contribuição de Victor Stinner em :issue:"
+"`43244`.)"
 
 #: ../../whatsnew/3.10.rst:2262
 msgid "Remove the ``symtable.h`` header file and the undocumented functions:"
 msgstr ""
+"Remove o arquivo de cabeçalho ``symtable.h`` e as funções não documentadas:"
 
 #: ../../whatsnew/3.10.rst:2264
 msgid "``PyST_GetScope()``"
-msgstr ""
+msgstr "``PyST_GetScope()``"
 
 #: ../../whatsnew/3.10.rst:2265
 msgid "``PySymtable_Build()``"
-msgstr ""
+msgstr "``PySymtable_Build()``"
 
 #: ../../whatsnew/3.10.rst:2266
 msgid "``PySymtable_BuildObject()``"
-msgstr ""
+msgstr "``PySymtable_BuildObject()``"
 
 #: ../../whatsnew/3.10.rst:2267
 msgid "``PySymtable_Free()``"
-msgstr ""
+msgstr "``PySymtable_Free()``"
 
 #: ../../whatsnew/3.10.rst:2268
 msgid "``Py_SymtableString()``"
-msgstr ""
+msgstr "``Py_SymtableString()``"
 
 #: ../../whatsnew/3.10.rst:2269
 msgid "``Py_SymtableStringObject()``"
-msgstr ""
+msgstr "``Py_SymtableStringObject()``"
 
 #: ../../whatsnew/3.10.rst:2271
 msgid ""
@@ -4095,12 +4111,17 @@ msgid ""
 "it could not be used, because the ``symtable.h`` header file was excluded "
 "from the limited C API."
 msgstr ""
+"A função ``Py_SymtableString()`` fazia parte da ABI estável por engano, mas "
+"não pôde ser usada, porque o arquivo de cabeçalho ``symtable.h`` foi "
+"excluído da API C limitada."
 
 #: ../../whatsnew/3.10.rst:2275
 msgid ""
 "Use Python :mod:`symtable` module instead. (Contributed by Victor Stinner "
 "in :issue:`43244`.)"
 msgstr ""
+"Use o módulo Python :mod:`symtable` em vez disso. (Contribuição de Victor "
+"Stinner em :issue:`43244`.)"
 
 #: ../../whatsnew/3.10.rst:2278
 msgid ""
@@ -4109,6 +4130,10 @@ msgid ""
 "Windows. Since the function takes a ``FILE*`` argument, its ABI stability "
 "cannot be guaranteed. (Contributed by Petr Viktorin in :issue:`43868`.)"
 msgstr ""
+"Remove :c:func:`PyOS_ReadlineFunctionPointer` dos cabeçalhos limitados da "
+"API C e de ``python3.dll``, a biblioteca que fornece a ABI estável no "
+"Windows. Como a função recebe um argumento ``FILE*``, sua estabilidade ABI "
+"não pode ser garantida. (Contribuição de Petr Viktorin em :issue:`43868`.)"
 
 #: ../../whatsnew/3.10.rst:2284
 msgid ""
@@ -4120,78 +4145,90 @@ msgid ""
 "``<winbase.h>`` header. Use the Python :mod:`ast` module instead. "
 "(Contributed by Victor Stinner in :issue:`43244`.)"
 msgstr ""
+"Remove os arquivos de cabeçalho ``ast.h``, ``asdl.h`` e ``Python-ast.h``. "
+"Essas funções não estavam documentadas e excluídas da API C limitada. A "
+"maioria dos nomes definidos por esses arquivos de cabeçalho não foram "
+"prefixados por ``Py`` e, portanto, podem criar conflitos de nomes. Por "
+"exemplo, ``Python-ast.h`` definiu uma macro ``Yield`` que estava em conflito "
+"com o nome ``Yield`` usado pelo cabeçalho ``<winbase.h>`` do Windows. Use o "
+"módulo Python :mod:`ast` em vez disso. (Contribuição de Victor Stinner em :"
+"issue:`43244`.)"
 
 #: ../../whatsnew/3.10.rst:2292
 msgid ""
 "Remove the compiler and parser functions using ``struct _mod`` type, because "
 "the public AST C API was removed:"
 msgstr ""
+"Remove as funções do compilador e do analisador usando o tipo ``struct "
+"_mod``, porque a API AST C pública foi removida:"
 
 #: ../../whatsnew/3.10.rst:2295
 msgid "``PyAST_Compile()``"
-msgstr ""
+msgstr "``PyAST_Compile()``"
 
 #: ../../whatsnew/3.10.rst:2296
 msgid "``PyAST_CompileEx()``"
-msgstr ""
+msgstr "``PyAST_CompileEx()``"
 
 #: ../../whatsnew/3.10.rst:2297
 msgid "``PyAST_CompileObject()``"
-msgstr ""
+msgstr "``PyAST_CompileObject()``"
 
 #: ../../whatsnew/3.10.rst:2298
 msgid "``PyFuture_FromAST()``"
-msgstr ""
+msgstr "``PyFuture_FromAST()``"
 
 #: ../../whatsnew/3.10.rst:2299
 msgid "``PyFuture_FromASTObject()``"
-msgstr ""
+msgstr "``PyFuture_FromASTObject()``"
 
 #: ../../whatsnew/3.10.rst:2300
 msgid "``PyParser_ASTFromFile()``"
-msgstr ""
+msgstr "``PyParser_ASTFromFile()``"
 
 #: ../../whatsnew/3.10.rst:2301
 msgid "``PyParser_ASTFromFileObject()``"
-msgstr ""
+msgstr "``PyParser_ASTFromFileObject()``"
 
 #: ../../whatsnew/3.10.rst:2302
 msgid "``PyParser_ASTFromFilename()``"
-msgstr ""
+msgstr "``PyParser_ASTFromFilename()``"
 
 #: ../../whatsnew/3.10.rst:2303
 msgid "``PyParser_ASTFromString()``"
-msgstr ""
+msgstr "``PyParser_ASTFromString()``"
 
 #: ../../whatsnew/3.10.rst:2304
 msgid "``PyParser_ASTFromStringObject()``"
-msgstr ""
+msgstr "``PyParser_ASTFromStringObject()``"
 
 #: ../../whatsnew/3.10.rst:2306
 msgid ""
 "These functions were undocumented and excluded from the limited C API. "
 "(Contributed by Victor Stinner in :issue:`43244`.)"
 msgstr ""
+"Essas funções não estavam documentadas e excluídas da API C limitada. "
+"(Contribuição de Victor Stinner em :issue:`43244`.)"
 
 #: ../../whatsnew/3.10.rst:2309
 msgid "Remove the ``pyarena.h`` header file with functions:"
-msgstr ""
+msgstr "Remove o arquivo de cabeçalho ``pyarena.h`` com funções:"
 
 #: ../../whatsnew/3.10.rst:2311
 msgid "``PyArena_New()``"
-msgstr ""
+msgstr "``PyArena_New()``"
 
 #: ../../whatsnew/3.10.rst:2312
 msgid "``PyArena_Free()``"
-msgstr ""
+msgstr "``PyArena_Free()``"
 
 #: ../../whatsnew/3.10.rst:2313
 msgid "``PyArena_Malloc()``"
-msgstr ""
+msgstr "``PyArena_Malloc()``"
 
 #: ../../whatsnew/3.10.rst:2314
 msgid "``PyArena_AddPyObject()``"
-msgstr ""
+msgstr "``PyArena_AddPyObject()``"
 
 #: ../../whatsnew/3.10.rst:2316
 msgid ""
@@ -4199,9 +4236,14 @@ msgid ""
 "only used internally by the compiler. (Contributed by Victor Stinner in :"
 "issue:`43244`.)"
 msgstr ""
+"Essas funções não estavam documentadas, excluídas da API C limitada e eram "
+"usadas apenas internamente pelo compilador. (Contribuição de Victor Stinner "
+"em :issue:`43244`.)"
 
 #: ../../whatsnew/3.10.rst:2320
 msgid ""
 "The ``PyThreadState.use_tracing`` member has been removed to optimize "
 "Python. (Contributed by Mark Shannon in :issue:`43760`.)"
 msgstr ""
+"O membro ``PyThreadState.use_tracing`` foi removido para otimizar o Python. "
+"(Contribuição de Mark Shannon em :issue:`43760`.)"
