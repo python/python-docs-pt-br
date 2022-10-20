@@ -237,7 +237,7 @@ msgstr ""
 
 #: ../../library/__main__.rst:165
 msgid "Packaging Considerations"
-msgstr ""
+msgstr "Considerações sobre pacotes"
 
 #: ../../library/__main__.rst:167
 msgid ""
@@ -246,6 +246,11 @@ msgid ""
 "pip.pypa.io/>`_ inserts the function call into a template script, where the "
 "return value of ``main`` is passed into :func:`sys.exit`. For example::"
 msgstr ""
+"``main`` são funções frequentemente usados ​​para criar ferramentas de linha "
+"de comando especificando-as como pontos de entrada para scripts de console. "
+"Quando isto é feito, `pip <https://pip.pypa.io/>`_ insere a chamada da "
+"função em um script template, onde o retorno de ``main`` é passado para :"
+"func:`sys.exit`. Por exemplo::"
 
 #: ../../library/__main__.rst:175
 msgid ""
@@ -254,6 +259,10 @@ msgid ""
 "`sys.exit`; typically, an integer or ``None`` (which is implicitly returned "
 "if your function does not have a return statement)."
 msgstr ""
+"Uma vez que a chamada à ``main``está embutida dentro de  :func:`sys.exit`, a "
+"expectativa é que a sua função retorne somente valores aceitável para :func:"
+"`sys.exit`; normalmente um inteiro ou ``None`` (retornado de forma "
+"implícita, caso a sua função não tenha uma instrução de retorno). "
 
 #: ../../library/__main__.rst:180
 msgid ""
@@ -262,6 +271,10 @@ msgid ""
 "if we later package it as a console script entry-point in a pip-installable "
 "package."
 msgstr ""
+"Seguindo proativamente essa convenção, nosso módulo terá o mesmo "
+"comportamento quando executado diretamente (ou seja, ``python3 echo.py``) "
+"como terá também se posteriormente criarmos um pacote como um ponto de "
+"entrada de script de console em um pacote instalável via pip."
 
 #: ../../library/__main__.rst:185
 msgid ""
@@ -272,6 +285,11 @@ msgid ""
 "py`` example from earlier exemplifies using the ``sys.exit(main())`` "
 "convention."
 msgstr ""
+"Em particular, tenha cuidado ao retornar strings de sua função``main``. :"
+"func:`sys.exit` interpretará um argumento de string como uma mensagem de "
+"falha, então seu programa terá um código de saída ``1``, indicando falha, e "
+"a string será escrita em :data:`sys.stderr`. O exemplo anterior ``echo."
+"py``exemplifica o uso da convenção ``sys.exit(main())``."
 
 #: ../../library/__main__.rst:193
 msgid ""
@@ -279,10 +297,13 @@ msgid ""
 "collection of tutorials and references on how to distribute and install "
 "Python packages with modern tools."
 msgstr ""
+"O `Guia de uso de pacotes Python <https://packaging.python.org/>`_ contém "
+"uma coleção de tutoriais e referências sobre como distribuir e instalar "
+"pacotes Python com ferramentas modernas."
 
 #: ../../library/__main__.rst:199
 msgid "``__main__.py`` in Python Packages"
-msgstr ""
+msgstr "``__main__.py``em pacotes Python"
 
 #: ../../library/__main__.rst:201
 msgid ""
@@ -291,12 +312,19 @@ msgid ""
 "to provide a command-line interface for a package. Consider the following "
 "hypothetical package, \"bandclass\":"
 msgstr ""
+"Se você não estiver familiarizado com pacotes Python, veja a seção :ref:`tut-"
+"packages` do tutorial. Mais comumente, o arquivo ``__main__.py`` é usado "
+"para fornecer uma interface de linha de comando para um pacote. Considere o "
+"seguinte pacote hipotético, \"bandclass\":"
 
 #: ../../library/__main__.rst:213
 msgid ""
 "``__main__.py`` will be executed when the package itself is invoked directly "
 "from the command line using the :option:`-m` flag. For example:"
 msgstr ""
+"``__main__.py``será executado quando o próprio pacote for invocado "
+"diretamente da linha de comando usando o sinalizador :option:`-m`. Por "
+"exemplo:"
 
 #: ../../library/__main__.rst:220
 msgid ""
@@ -305,6 +333,10 @@ msgid ""
 "this hypothetical case, it might make sense to allow the teacher to search "
 "for students::"
 msgstr ""
+"Este comando fará com que ``__main__.py``seja executado. Como você utiliza "
+"esse mecanismo dependerá da natureza do pacote que você está escrevendo, mas "
+"neste caso hipotético, pode fazer sentido permitir que o professor procure "
+"alunos::"
 
 #: ../../library/__main__.rst:233
 msgid ""
@@ -313,6 +345,10 @@ msgid ""
 "within a package.  For more details, see :ref:`intra-package-references` in "
 "the :ref:`tut-modules` section of the tutorial."
 msgstr ""
+"Observe que ``from .student import search_students`` é um exemplo de "
+"importação relativa. Esse estilo de importação pode ser usado ao fazer "
+"referência a módulos em um pacote. Para mais detalhes, veja :ref:`intra-"
+"package-references` na seção :ref:`tut-modules` do tutorial."
 
 #: ../../library/__main__.rst:241
 msgid ""
@@ -321,6 +357,11 @@ msgid ""
 "execute from other modules.  Those other modules can then be easily unit-"
 "tested and are properly reusable."
 msgstr ""
+"O conteúdo de ``__main__.py``normalmente não contém o bloco condicional``if "
+"__name__ == '__main__'``. Em vez disso, esses arquivos são curtos, apenas "
+"com funções a serem executadas a partir de outros módulos. Esses outros "
+"módulos podem ser facilmente testados com testes unitários e também são "
+"passíveis de reutilização​."
 
 #: ../../library/__main__.rst:246
 msgid ""
@@ -328,6 +369,9 @@ msgid ""
 "for a ``__main__.py`` file within a package, because its ``__name__`` "
 "attribute will include the package's path if imported::"
 msgstr ""
+"Se usado, o bloco condicional ``if __name__ == '__main__'`` ainda funcionará "
+"como esperado para o arquivo ``__main__.py``dentro de um pacote, pois seu "
+"atributo ``__name__`` incluirá o caminho do pacote se importado::"
 
 #: ../../library/__main__.rst:254
 msgid ""
@@ -335,6 +379,9 @@ msgid ""
 "file though.  Hence, for consistency, minimal ``__main__.py`` like the :mod:"
 "`venv` one mentioned below are preferred."
 msgstr ""
+"Isso não funcionará para arquivos ``__main__.py`` no diretório raiz de um "
+"arquivo .zip. Portanto, para consistência, dê preferência para ``__main__."
+"py`` minimalistas, como o :mod:`venv` mencionado abaixo."
 
 #: ../../library/__main__.rst:260
 msgid ""
@@ -342,12 +389,18 @@ msgid ""
 "in the standard library. It doesn't contain a ``if __name__ == '__main__'`` "
 "block. You can invoke it with ``python3 -m venv [directory]``."
 msgstr ""
+"Veja :mod:`venv`, da biblioteca padrão,  para um exemplo de pacote com "
+"``__main__.py`` minimalista. Ele não contém um bloco condicional ``if "
+"__name__ == '__main__'``. Você pode invocá-lo com ``python3 -m venv "
+"[directory]``."
 
 #: ../../library/__main__.rst:264
 msgid ""
 "See :mod:`runpy` for more details on the :option:`-m` flag to the "
 "interpreter executable."
 msgstr ""
+"Veja :mod:`runpy` para mais detalhes sobre o sinalizador :option:`-m` para o "
+"executável do interpretador."
 
 #: ../../library/__main__.rst:267
 msgid ""
@@ -355,10 +408,13 @@ msgid ""
 "this case Python looks for a ``__main__.py`` file in the root directory of "
 "the archive."
 msgstr ""
+"Veja :mod:`zipapp` para saber como executar aplicativos compactados como "
+"arquivos *.zip*. Nesse caso, o Python procura um arquivo ``__main__.py`` no "
+"diretório raiz do arquivo."
 
 #: ../../library/__main__.rst:274
 msgid "``import __main__``"
-msgstr ""
+msgstr "``import __main__``"
 
 #: ../../library/__main__.rst:276
 msgid ""
@@ -368,18 +424,24 @@ msgid ""
 "doesn't import a ``__main__.py`` file but rather whichever module that "
 "received the special name ``'__main__'``."
 msgstr ""
+"Independentemente do módulo com o qual um programa Python foi iniciado, "
+"outros módulos executados no mesmo programa podem importar o escopo do "
+"ambiente principal (:term:`namespace`) importando o módulo ``__main__``. "
+"Isso não faz a importação de um arquivo ``__main__.py``, mas sim qualquer "
+"módulo que recebeu o nome especial ``'__main__'``."
 
 #: ../../library/__main__.rst:282
 msgid "Here is an example module that consumes the ``__main__`` namespace::"
 msgstr ""
+"Aqui está um módulo de exemplo que consome a variável especial``__main__``::"
 
 #: ../../library/__main__.rst:300
 msgid "Example usage of this module could be as follows::"
-msgstr ""
+msgstr "Exemplo de uso deste módulo pode ser como abaixo::"
 
 #: ../../library/__main__.rst:319
 msgid "Now, if we started our program, the result would look like this:"
-msgstr ""
+msgstr "Agora, se iniciarmos nosso programa, o resultado seria assim:"
 
 #: ../../library/__main__.rst:326
 msgid ""
@@ -387,6 +449,9 @@ msgid ""
 "the line with ``my_name = \"Dinsdale\"`` fixes the program and now it exits "
 "with status code 0, indicating success:"
 msgstr ""
+"O código de saída do programa seria 1, indicando um erro. Descomentar a "
+"linha com ``my_name = \"Dinsdale\"`` corrige o programa e agora ele sai com "
+"o código de status 0, indicando sucesso:"
 
 #: ../../library/__main__.rst:335
 msgid ""
@@ -395,6 +460,10 @@ msgid ""
 "the ``if __name__ == \"__main__\"`` block of the ``start`` module. Why does "
 "this work?"
 msgstr ""
+"Observe que a importação ``__main__`` não causa nenhum problema com a "
+"execução involuntária de código principal destinado ao uso de script que é "
+"colocado no bloco ``if __name__ == \"__main__\"``do módulo ``start``. Por "
+"que isso funciona?"
 
 #: ../../library/__main__.rst:339
 msgid ""
@@ -408,21 +477,36 @@ msgid ""
 "<import-dunder-main>` in the import system's reference for details on how "
 "this works."
 msgstr ""
+"O Python insere um módulo ``__main__`` vazio em :attr:`sys.modules` na "
+"inicialização do interpretador e o preenche executando o código principal. "
+"Em nosso exemplo, este é o módulo ``start`` que executa linha por linha e "
+"importa ``namely``. Por sua vez, ``namely`` importa ``__main__`` (que é "
+"realmente ``start``). Isso é um ciclo de importação! Felizmente, como o "
+"módulo parcialmente preenchido está presente em :attr:`sys.modules`, o "
+"Python o passa para ``namely``. Veja :ref:`Considerações especiais sobre "
+"__main__ ` na referência do sistema de importação para detalhes sobre como "
+"isso funciona."
 
 #: ../../library/__main__.rst:348
 msgid ""
 "The Python REPL is another example of a \"top-level environment\", so "
 "anything defined in the REPL becomes part of the ``__main__`` scope::"
 msgstr ""
+"O Python REPL é outro exemplo de um \"ambiente principal\", então qualquer "
+"coisa definida no REPL se torna parte do escopo do ``__main__``::"
 
 #: ../../library/__main__.rst:364
 msgid ""
 "Note that in this case the ``__main__`` scope doesn't contain a ``__file__`` "
 "attribute as it's interactive."
 msgstr ""
+"Note que neste caso o escopo ``__main__`` não contém um atributo "
+"``__file__`` pois é interativo."
 
 #: ../../library/__main__.rst:367
 msgid ""
 "The ``__main__`` scope is used in the implementation of :mod:`pdb` and :mod:"
 "`rlcompleter`."
 msgstr ""
+"O escopo ``__main__``é usado na implementação de :mod:`pdb` e :mod:"
+"`rlcompleter`."
