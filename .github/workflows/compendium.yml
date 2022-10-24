@@ -1,0 +1,39 @@
+name: Generate compendium
+
+on:
+  workflow_dispatch:
+  workflow_call:
+  push:
+    paths:
+      - '.github/workflows/compendium.yml'
+      - '*.po'
+      - '**/*.po'
+
+jobs:
+  compendium:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out ${{ github.repository }}
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - if: github.event_name == 'workflow_call'
+        run: |
+          git pull --rebase
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - name: Install dependencies
+        run: |
+          sudo apt update -y && sudo apt install gettext -y
+          pip3 install --upgrade pip
+          pip3 install translate-toolkit
+      - name: Generate compendium from PO files
+        run: |
+          pocompendium --correct compendium.po *.po **/*.po
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: compendium
+          path: compendium.po
