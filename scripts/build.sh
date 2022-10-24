@@ -20,7 +20,7 @@ for po in $(find . -type f -name '*.po' | sort | sed 's|^\./||'); do
   install -Dm644 ${po} "cpython/Doc/locales/${LANGUAGE}/LC_MESSAGES/${po}"
 done
 
-sphinx-build -b html -d build/doctrees -n -a --keep-going -jauto -D locale_dirs=locales -D language=pt_BR -D gettext_compact=0 -D latex_engine=xelatex -D latex_elements.inputenc= -D latex_elements.fontenc= -W cpython/Doc cpython/Doc/build/html
+sphinx-build -b html -d build/doctrees -a --keep-going -jauto -D locale_dirs=locales -D language=pt_BR -D gettext_compact=0 -D latex_engine=xelatex -D latex_elements.inputenc= -D latex_elements.fontenc= -W cpython/Doc cpython/Doc/build/html
 
 if [ -z "$GITHUB_ACTIONS" ]; then
   echo 'See the built documentation by running the following command:'
