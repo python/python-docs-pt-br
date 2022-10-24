@@ -16,9 +16,7 @@ if ! test -f cpython/Doc/conf.py; then
   exit 1
 fi
 
-pofiles=$(find . -maxdepth 2 -name '*.po' | sort -u | sed -i 's|\./||')
-
-for po in ${pofiles}; do
+for po in $(find . -type f -name '*.po' | sort | sed 's|^\./||'); do
   install -Dm644 ${po} "cpython/Doc/locales/${LANGUAGE}/LC_MESSAGES/${po}"
 done
 
