@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out ${{ github.repository }}
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           persist-credentials: false
       - run: echo ${{ inputs.was-called }}
@@ -40,16 +40,18 @@ jobs:
         run: |
           git pull --rebase
       - name: Check out CPython
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: python/cpython
           persist-credentials: false
           ref: ${{ env.CPYTHON_BRANCH }}
           path: cpython
-      - name: Set up Python 3.9
-        uses: actions/setup-python@v2
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
+          python-version: '3.10'
+          cache: 'pip'
+          cache-dependency-path: '**/requirements*.txt'
       - name: Install dependencies
         run: |
           sudo apt update -y && sudo apt install gettext -y
@@ -87,7 +89,7 @@ jobs:
           path: cpython/Doc/build/html
       - name: Upload artifact - logs
         if: always()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: build-logs
           path: logs/

@@ -25,22 +25,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out ${{ github.repository }}
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Check out CPython
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: python/cpython
           persist-credentials: false
           ref: ${{ env.CPYTHON_BRANCH }}
           path: cpython
-      - name: Set up Python 3.9
-        uses: actions/setup-python@v2
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
+          python-version: '3.10'
+          cache: 'pip'
+          cache-dependency-path: '**/requirements*.txt'
       - name: Install Transifex CLI
         run: |
           curl -o- https://raw.githubusercontent.com/transifex/cli/master/install.sh | bash
-          mv tx /usr/local/bin/tx
+        working-directory: /usr/local/bin
       - name: Install dependencies
         run: |
           sudo apt update -y && sudo apt install gettext -y
@@ -85,15 +87,19 @@ jobs:
         run:
           echo "CURRENT_BRANCH=$(echo ${GITHUB_REF#refs/heads/} | tr / -)" >> $GITHUB_ENV
       - name: Check out source branch (${{ env.CURRENT_BRANCH }})
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           path: ${{ env.CURRENT_BRANCH }}
           persist-credentials: false
       - name: Check out target branch (${{ matrix.branch }})
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           ref: ${{ matrix.branch }}
           path: ${{ matrix.branch }}
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
       - name: Install dependencies
         run: |
           sudo apt update -y && sudo apt install gettext -y
@@ -123,7 +129,7 @@ jobs:
     # Call the build workflow after updating
     name: call
     needs: [update]
-    uses: python/python-docs-pt-br/.github/workflows/build.yml@3.10
+    uses: ./.github/workflows/build.yml
     with:
       was-called: yes
     secrets:
@@ -134,4 +140,4 @@ jobs:
     # Call the compendium workflow after updating
     name: call
     needs: [update]
-    uses: python/python-docs-pt-br/.github/workflows/compendium.yml@3.10
+    uses: ./.github/workflows/compendium.yml
