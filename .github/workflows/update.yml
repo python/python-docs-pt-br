@@ -58,7 +58,9 @@ jobs:
         run: |
           powrap --modified
       - name: Commit and push changes
-        if: github.repository == 'python/python-docs-pt-br'
+        if: |
+          github.repository == 'python/python-docs-pt-br' &&
+          ! github.event_name == 'pull_request'
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
@@ -116,7 +118,9 @@ jobs:
         run: |
           powrap --modified -C ${{ matrix.branch }}
       - name: Commit and push changes
-        if: github.repository == 'python/python-docs-pt-br'
+        if: |
+          github.repository == 'python/python-docs-pt-br' &&
+          ! github.event_name == 'pull_request'
         run: |
           cd ${{ matrix.branch }}
           git config user.name github-actions
