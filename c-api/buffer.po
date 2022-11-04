@@ -13,15 +13,16 @@
 # Julia Rizza <contato@juliarizza.com>, 2021
 # Nícolas Prado <nfraprado@protonmail.com>, 2021
 # Leandro Braga <leandrobbraga@gmail.com>, 2021
+# Ana Carolina Dias, 2022
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-16 06:28+0000\n"
+"POT-Creation-Date: 2022-11-04 16:29+0000\n"
 "PO-Revision-Date: 2021-06-28 00:47+0000\n"
-"Last-Translator: Leandro Braga <leandrobbraga@gmail.com>, 2021\n"
+"Last-Translator: Ana Carolina Dias, 2022\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -568,7 +569,7 @@ msgstr "Avanços"
 #: ../../c-api/buffer.rst:272 ../../c-api/buffer.rst:296
 #: ../../c-api/buffer.rst:321
 msgid "suboffsets"
-msgstr ""
+msgstr "subconjuntos"
 
 #: ../../c-api/buffer.rst:274 ../../c-api/buffer.rst:276
 #: ../../c-api/buffer.rst:278 ../../c-api/buffer.rst:298
@@ -612,7 +613,7 @@ msgstr ""
 
 #: ../../c-api/buffer.rst:296 ../../c-api/buffer.rst:321
 msgid "contig"
-msgstr ""
+msgstr "contig"
 
 #: ../../c-api/buffer.rst:298 ../../c-api/buffer.rst:304
 #: ../../c-api/buffer.rst:335 ../../c-api/buffer.rst:337
@@ -757,10 +758,13 @@ msgid ""
 "pointed to by an N-dimensional index when there are both non-``NULL`` "
 "strides and suboffsets::"
 msgstr ""
+"Esta é uma função que retorna um ponteiro para o elemento em uma matriz N-D "
+"apontada por um índice N-dimensional onde existem ambos passos e "
+"subconjuntos não-``NULL``::"
 
 #: ../../c-api/buffer.rst:428
 msgid "Buffer-related functions"
-msgstr ""
+msgstr "Funções relacionadas ao Buffer"
 
 #: ../../c-api/buffer.rst:432
 msgid ""
@@ -768,6 +772,9 @@ msgid ""
 "``1`` is returned, it doesn't guarantee that :c:func:`PyObject_GetBuffer` "
 "will succeed.  This function always succeeds."
 msgstr ""
+"Retorne ``1`` se *obj* suporta a interface de buffer, se não, ``0``. Quando "
+"``1`` é retornado, isso não garante que :c:func:`PyObject_GetBuffer` será "
+"bem sucedida. Esta função é sempre bem sucedida."
 
 #: ../../c-api/buffer.rst:439
 msgid ""
@@ -775,6 +782,10 @@ msgid ""
 "the exporter cannot provide a buffer of the exact type, it MUST raise :c:"
 "data:`PyExc_BufferError`, set ``view->obj`` to ``NULL`` and return ``-1``."
 msgstr ""
+"Envia uma requisição para o *exporter* para preencher *view* como "
+"especificado por *flags*. Se o exportador não consegue prover um buffer do "
+"mesmo tipo, ele DEVE levantar  :c:data:`PyExc_BufferError`, definir ``view-"
+">obj`` para ``NULL`` e retornar ``-1``."
 
 #: ../../c-api/buffer.rst:444
 msgid ""
@@ -783,6 +794,11 @@ msgid ""
 "redirect requests to a single object, ``view->obj`` MAY refer to this object "
 "instead of *exporter* (See :ref:`Buffer Object Structures <buffer-structs>`)."
 msgstr ""
+"Em caso de sucesso, preencha *view*, defina ``view->obj`` para uma nova "
+"referência para *exporter* e retorne 0. No caso de provedores de buffer "
+"encadeados que redirecionam requisições para um único objeto, ``view->obj`` "
+"DEVE se referir a este objeto em vez de *exporter* (Ver :ref:`Buffer Object "
+"Structures <buffer-structs>`)."
 
 #: ../../c-api/buffer.rst:449
 msgid ""
@@ -791,6 +807,10 @@ msgid ""
 "`free`. Thus, after the consumer is done with the buffer, :c:func:"
 "`PyBuffer_Release` must be called exactly once."
 msgstr ""
+"Chamadas bem sucedidas para :c:func:`PyObject_GetBuffer` devem ser "
+"emparelhadas a chamadas para  :c:func:`PyBuffer_Release`, similar para :c:"
+"func:`malloc` e :c:func:`free`. Assim, após o consumidor terminar com o "
+"buffer, :c:func:`PyBuffer_Release` deve ser chamado exatamente uma vez."
 
 #: ../../c-api/buffer.rst:457
 msgid ""
@@ -798,18 +818,25 @@ msgid ""
 ">obj``. This function MUST be called when the buffer is no longer being "
 "used, otherwise reference leaks may occur."
 msgstr ""
+"Lança o buffer *view* e decrementa a contagem de referências para ``view-"
+">obj``. Esta função DEVE ser chamada quando o buffer não está mais sendo "
+"usado, senão podem ocorrer vazamentos de referência."
 
 #: ../../c-api/buffer.rst:461
 msgid ""
 "It is an error to call this function on a buffer that was not obtained via :"
 "c:func:`PyObject_GetBuffer`."
 msgstr ""
+"É um erro chamar essa função em um buffer que não foi obtido via :c:func:"
+"`PyObject_GetBuffer`."
 
 #: ../../c-api/buffer.rst:467
 msgid ""
 "Return the implied :c:data:`~Py_buffer.itemsize` from :c:data:`~Py_buffer."
 "format`. On error, raise an exception and return -1."
 msgstr ""
+"Retorna o implícito :c:data:`~Py_buffer.itemsize` de :c:data:`~Py_buffer."
+"format`. Se houver erro, levanta uma exceção e retorna -1."
 
 #: ../../c-api/buffer.rst:475
 msgid ""
@@ -818,12 +845,18 @@ msgid ""
 "one (*order* is ``'A'``).  Return ``0`` otherwise.  This function always "
 "succeeds."
 msgstr ""
+"Retorna ``1`` se a memória definida pela *view* é no estilo C (*order* é "
+"``'C'``) ou no estilo Fortran (*order* é ``'F'``) :term:`contiguous` ou "
+"qualquer outra (*order* é ``'A'``). Retorna ``0`` caso contrário. Essa "
+"função é sempre bem sucedida."
 
 #: ../../c-api/buffer.rst:482
 msgid ""
 "Get the memory area pointed to by the *indices* inside the given *view*. "
 "*indices* must point to an array of ``view->ndim`` indices."
 msgstr ""
+"Recebe a área de memória apontada pelos *indices* dentro da *view* dada. "
+"*indices* deve apontar para uma matriz de ``view->ndim`` índices."
 
 #: ../../c-api/buffer.rst:488
 msgid ""
@@ -831,6 +864,9 @@ msgid ""
 "``'F'`` (for C-style or Fortran-style ordering). ``0`` is returned on "
 "success, ``-1`` on error."
 msgstr ""
+"Copia bytes *len* contíguos de *buf* para *view*. *fort* pode ser ``'C'`` ou "
+"``'F'`` (para ordenação estilo C ou estilo Fortran). Retorna ``0`` caso haja "
+"sucesso e ``-1`` caso haja erro."
 
 #: ../../c-api/buffer.rst:495
 msgid ""
@@ -838,10 +874,14 @@ msgid ""
 "*order* can be ``'C'`` or ``'F'`` or ``'A'`` (for C-style or Fortran-style "
 "ordering or either one). ``0`` is returned on success, ``-1`` on error."
 msgstr ""
+"Copia bytes *len* de *src* para sua representação contígua em *buf*. *order* "
+"pode ser ``'C'`` ou ``'F'`` ou ``'A'`` (para ordenação estilo C, Fortran ou "
+"qualquer uma). O retorno é ``0`` em caso de sucesso e ``-1`` em caso de "
+"falha."
 
 #: ../../c-api/buffer.rst:499
 msgid "This function fails if *len* != *src->len*."
-msgstr ""
+msgstr "Esta função falha se *len* != *src->len*."
 
 #: ../../c-api/buffer.rst:504
 msgid ""
@@ -849,6 +889,9 @@ msgid ""
 "if *order* is ``'C'`` or Fortran-style if *order* is ``'F'``) array of the "
 "given shape with the given number of bytes per element."
 msgstr ""
+"Preenche a matriz *strides* com byte-strides de uma matriz :term:"
+"`contiguous` (estilo C se *order* é ``'C'`` ou estilo Fortran se *order* for "
+"``'F'``) da forma dada com o número dado de bytes por elemento."
 
 #: ../../c-api/buffer.rst:511
 msgid ""
@@ -856,6 +899,9 @@ msgid ""
 "*len* with writability set according to *readonly*. *buf* is interpreted as "
 "a sequence of unsigned bytes."
 msgstr ""
+"Manipula requisições de buffer para um exportador que quer expor *buf* de "
+"tamanho *len* com capacidade de escrita definida de acordo com *readonly*. "
+"*buf* é interpretada como uma sequência de bytes sem sinal."
 
 #: ../../c-api/buffer.rst:515
 msgid ""
@@ -863,6 +909,9 @@ msgid ""
 "in *view* as specified by flags, unless *buf* has been designated as read-"
 "only and :c:macro:`PyBUF_WRITABLE` is set in *flags*."
 msgstr ""
+"O argumento *flags* indica o tipo de requisição. Esta função sempre preenche "
+"*view* como especificado por *flags*, a não ser que *buf* seja designado "
+"como apenas-leitura e :c:macro:`PyBUF_WRITABLE` esteja definido em *flags*."
 
 #: ../../c-api/buffer.rst:519
 msgid ""
@@ -870,6 +919,9 @@ msgid ""
 "Otherwise, raise :c:data:`PyExc_BufferError`, set ``view->obj`` to ``NULL`` "
 "and return ``-1``;"
 msgstr ""
+"Em caso de sucesso, defina ``view->obj`` para uma nova referência para "
+"*exporter* e retorne 0. Caso contrário, levante :c:data:`PyExc_BufferError`, "
+"defina ``view->obj`` para ``NULL`` e retorne ``-1``;"
 
 #: ../../c-api/buffer.rst:523
 msgid ""
@@ -877,3 +929,7 @@ msgid ""
 "*exporter* MUST be set to the exporting object and *flags* must be passed "
 "unmodified. Otherwise, *exporter* MUST be ``NULL``."
 msgstr ""
+"Se esta função é usada como parte de um :ref:`getbufferproc<buffer-"
+"structs>`, *exporter* DEVE ser definida para o objeto de exportação e "
+"*flags* deve ser passado sem modificações. Caso contrário, *exporter* DEVE "
+"ser ``NULL``."
