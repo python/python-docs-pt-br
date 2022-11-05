@@ -12,9 +12,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.10\n"
+"Project-Id-Version: Python 3.11\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-04 16:29+0000\n"
+"POT-Creation-Date: 2022-11-05 19:46+0000\n"
 "PO-Revision-Date: 2021-06-28 01:50+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2022\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/python-doc/"
@@ -241,28 +241,53 @@ msgstr ""
 
 #: ../../tutorial/errors.rst:150
 msgid ""
-"All exceptions inherit from :exc:`BaseException`, and so it can be used to "
-"serve as a wildcard. Use this with extreme caution, since it is easy to mask "
-"a real programming error in this way!  It can also be used to print an error "
-"message and then re-raise the exception (allowing a caller to handle the "
-"exception as well)::"
+"When an exception occurs, it may have associated values, also known as the "
+"exception's *arguments*. The presence and types of the arguments depend on "
+"the exception type."
 msgstr ""
-"Todas as exceções herdam de :exc:`BaseException`, e por isso pode ser usado "
-"para servir como um curinga. Utilize esse recurso com extrema cautela, uma "
-"vez que isso pode esconder erros do programador e do usuário! Também pode "
-"ser utilizado para exibir uma mensagem de erro e então levantar novamente a "
-"exceção (permitindo que o invocador da função atual também possa tratá-la)::"
 
-#: ../../tutorial/errors.rst:169
+#: ../../tutorial/errors.rst:154
 msgid ""
-"Alternatively the last except clause may omit the exception name(s), however "
-"the exception value must then be retrieved from ``sys.exc_info()[1]``."
+"The *except clause* may specify a variable after the exception name.  The "
+"variable is bound to the exception instance which typically has an ``args`` "
+"attribute that stores the arguments. For convenience, builtin exception "
+"types define :meth:`__str__` to print all the arguments without explicitly "
+"accessing ``.args``.  ::"
 msgstr ""
-"Alternativamente, a última cláusula except pode omitir o(s) nome(s) de "
-"exceção, no entanto, o valor da exceção deve ser obtido de ``sys.exc_info()"
-"[1]``."
 
-#: ../../tutorial/errors.rst:172
+#: ../../tutorial/errors.rst:177
+msgid ""
+"The exception's :meth:`__str__` output is printed as the last part "
+"('detail') of the message for unhandled exceptions."
+msgstr ""
+
+#: ../../tutorial/errors.rst:180
+msgid ""
+":exc:`BaseException` is the common base class of all exceptions. One of its "
+"subclasses, :exc:`Exception`, is the base class of all the non-fatal "
+"exceptions. Exceptions which are not subclasses of :exc:`Exception` are not "
+"typically handled, because they are used to indicate that the program should "
+"terminate. They include :exc:`SystemExit` which is raised by :meth:`sys."
+"exit` and :exc:`KeyboardInterrupt` which is raised when a user wishes to "
+"interrupt the program."
+msgstr ""
+
+#: ../../tutorial/errors.rst:188
+msgid ""
+":exc:`Exception` can be used as a wildcard that catches (almost) everything. "
+"However, it is good practice to be as specific as possible with the types of "
+"exceptions that we intend to handle, and to allow any unexpected exceptions "
+"to propagate on."
+msgstr ""
+
+#: ../../tutorial/errors.rst:193
+msgid ""
+"The most common pattern for handling :exc:`Exception` is to print or log the "
+"exception and then re-raise it (allowing a caller to handle the exception as "
+"well)::"
+msgstr ""
+
+#: ../../tutorial/errors.rst:211
 msgid ""
 "The :keyword:`try` ... :keyword:`except` statement has an optional *else "
 "clause*, which, when present, must follow all *except clauses*.  It is "
@@ -274,7 +299,7 @@ msgstr ""
 "cláusulas. É útil para um código que precisa ser executado se nenhuma "
 "exceção foi levantada. Por exemplo::"
 
-#: ../../tutorial/errors.rst:186
+#: ../../tutorial/errors.rst:225
 msgid ""
 "The use of the :keyword:`!else` clause is better than adding additional code "
 "to the :keyword:`try` clause because it avoids accidentally catching an "
@@ -286,56 +311,18 @@ msgstr ""
 "uma exceção que não foi levantada pelo código protegido pela construção com "
 "as instruções :keyword:`!try` ... :keyword:`!except`."
 
-#: ../../tutorial/errors.rst:191
+#: ../../tutorial/errors.rst:230
 msgid ""
-"When an exception occurs, it may have an associated value, also known as the "
-"exception's *argument*. The presence and type of the argument depend on the "
-"exception type."
-msgstr ""
-"Quando uma exceção ocorre, ela pode estar associada a um valor chamado "
-"*argumento* da exceção. A presença e o tipo do argumento dependem do tipo da "
-"exceção."
-
-#: ../../tutorial/errors.rst:195
-msgid ""
-"The *except clause* may specify a variable after the exception name.  The "
-"variable is bound to an exception instance with the arguments stored in "
-"``instance.args``.  For convenience, the exception instance defines :meth:"
-"`__str__` so the arguments can be printed directly without having to "
-"reference ``.args``.  One may also instantiate an exception first before "
-"raising it and add any attributes to it as desired. ::"
-msgstr ""
-"A *cláusula de exceção* pode especificar uma variável depois do nome da "
-"exceção. A variável é associada à instância de exceção capturada, com os "
-"argumentos armazenados em ``instance.args``.  Por conveniência, a instância "
-"define o método :meth:`__str__` para que os argumentos possam ser exibidos "
-"diretamente sem necessidade de acessar ``.args``.  Pode-se também instanciar "
-"uma exceção antes de levantá-la e adicionar qualquer atributo a ela, "
-"conforme desejado. ::"
-
-#: ../../tutorial/errors.rst:219
-msgid ""
-"If an exception has arguments, they are printed as the last part ('detail') "
-"of the message for unhandled exceptions."
-msgstr ""
-"Caso uma exceção tenha argumentos, os mesmos serão impressos como a última "
-"parte ('detalhe') da mensagem para as exceções não tratadas."
-
-#: ../../tutorial/errors.rst:222
-msgid ""
-"Exception handlers don't just handle exceptions if they occur immediately in "
-"the *try clause*, but also if they occur inside functions that are called "
+"Exception handlers do not handle only exceptions that occur immediately in "
+"the *try clause*, but also those that occur inside functions that are called "
 "(even indirectly) in the *try clause*. For example::"
 msgstr ""
-"Além disso, tratadores de exceção são capazes de capturar exceções que "
-"tenham sido levantadas no interior de funções invocadas (mesmo que "
-"indiretamente) na *cláusula try*. Por exemplo::"
 
-#: ../../tutorial/errors.rst:240
+#: ../../tutorial/errors.rst:248
 msgid "Raising Exceptions"
 msgstr "Levantando exceções"
 
-#: ../../tutorial/errors.rst:242
+#: ../../tutorial/errors.rst:250
 msgid ""
 "The :keyword:`raise` statement allows the programmer to force a specified "
 "exception to occur. For example::"
@@ -343,21 +330,16 @@ msgstr ""
 "A instrução :keyword:`raise` permite ao programador forçar a ocorrência de "
 "um determinado tipo de exceção. Por exemplo::"
 
-#: ../../tutorial/errors.rst:250
+#: ../../tutorial/errors.rst:258
 msgid ""
 "The sole argument to :keyword:`raise` indicates the exception to be raised. "
 "This must be either an exception instance or an exception class (a class "
-"that derives from :class:`Exception`).  If an exception class is passed, it "
-"will be implicitly instantiated by calling its constructor with no "
-"arguments::"
+"that derives from :class:`BaseException`, such as :exc:`Exception` or one of "
+"its subclasses).  If an exception class is passed, it will be implicitly "
+"instantiated by calling its constructor with no arguments::"
 msgstr ""
-"O argumento de :keyword:`raise` indica a exceção a ser levantada. Esse "
-"argumento deve ser uma instância de exceção ou uma classe de exceção (uma "
-"classe que deriva de :class:`Exception`). Se uma classe de exceção for "
-"passada, será implicitamente instanciada invocando o seu construtor sem "
-"argumentos::"
 
-#: ../../tutorial/errors.rst:257
+#: ../../tutorial/errors.rst:266
 msgid ""
 "If you need to determine whether an exception was raised but don't intend to "
 "handle it, a simpler form of the :keyword:`raise` statement allows you to re-"
@@ -367,46 +349,46 @@ msgstr ""
 "quer manipular o erro, uma forma simples de instrução :keyword:`raise` "
 "permite que você levante-a novamente::"
 
-#: ../../tutorial/errors.rst:276
+#: ../../tutorial/errors.rst:285
 msgid "Exception Chaining"
 msgstr "Encadeamento de exceções"
 
-#: ../../tutorial/errors.rst:278
+#: ../../tutorial/errors.rst:287
 msgid ""
 "If an unhandled exception occurs inside an :keyword:`except` section, it "
 "will have the exception being handled attached to it and included in the "
 "error message::"
 msgstr ""
 
-#: ../../tutorial/errors.rst:297
+#: ../../tutorial/errors.rst:306
 msgid ""
 "To indicate that an exception is a direct consequence of another, the :"
 "keyword:`raise` statement allows an optional :keyword:`from<raise>` clause::"
 msgstr ""
 
-#: ../../tutorial/errors.rst:303
+#: ../../tutorial/errors.rst:312
 msgid "This can be useful when you are transforming exceptions. For example::"
 msgstr ""
 "Isso pode ser útil quando você está transformando exceções. Por exemplo::"
 
-#: ../../tutorial/errors.rst:324
+#: ../../tutorial/errors.rst:333
 msgid ""
 "It also allows disabling automatic exception chaining using the ``from "
 "None`` idiom::"
 msgstr ""
 
-#: ../../tutorial/errors.rst:336
+#: ../../tutorial/errors.rst:345
 msgid ""
 "For more information about chaining mechanics, see :ref:`bltin-exceptions`."
 msgstr ""
 "Para mais informações sobre os mecanismos de encadeamento, veja :ref:`bltin-"
 "exceptions`."
 
-#: ../../tutorial/errors.rst:342
+#: ../../tutorial/errors.rst:351
 msgid "User-defined Exceptions"
 msgstr "Exceções definidas pelo usuário"
 
-#: ../../tutorial/errors.rst:344
+#: ../../tutorial/errors.rst:353
 msgid ""
 "Programs may name their own exceptions by creating a new exception class "
 "(see :ref:`tut-classes` for more about Python classes).  Exceptions should "
@@ -418,7 +400,7 @@ msgstr ""
 "Python). Exceções devem ser derivadas da classe :exc:`Exception`, direta ou "
 "indiretamente."
 
-#: ../../tutorial/errors.rst:348
+#: ../../tutorial/errors.rst:357
 msgid ""
 "Exception classes can be defined which do anything any other class can do, "
 "but are usually kept simple, often only offering a number of attributes that "
@@ -430,7 +412,7 @@ msgstr ""
 "geralmente oferecendo apenas um número de atributos que permitem que "
 "informações sobre o erro sejam extraídas por manipuladores para a exceção."
 
-#: ../../tutorial/errors.rst:352
+#: ../../tutorial/errors.rst:361
 msgid ""
 "Most exceptions are defined with names that end in \"Error\", similar to the "
 "naming of the standard exceptions."
@@ -438,21 +420,17 @@ msgstr ""
 "É comum que novas exceções sejam definidas com nomes terminando em \"Error"
 "\", semelhante a muitas exceções embutidas."
 
-#: ../../tutorial/errors.rst:355
+#: ../../tutorial/errors.rst:364
 msgid ""
 "Many standard modules define their own exceptions to report errors that may "
-"occur in functions they define.  More information on classes is presented in "
-"chapter :ref:`tut-classes`."
+"occur in functions they define."
 msgstr ""
-"Muitos módulos padrão definem novas exceções para reportar erros que ocorrem "
-"no interior das funções que definem. Mais informações sobre classes aparecem "
-"no capítulo :ref:`tut-classes`."
 
-#: ../../tutorial/errors.rst:363
+#: ../../tutorial/errors.rst:371
 msgid "Defining Clean-up Actions"
 msgstr "Definindo ações de limpeza"
 
-#: ../../tutorial/errors.rst:365
+#: ../../tutorial/errors.rst:373
 msgid ""
 "The :keyword:`try` statement has another optional clause which is intended "
 "to define clean-up actions that must be executed under all circumstances.  "
@@ -462,7 +440,7 @@ msgstr ""
 "permitir a implementação de ações de limpeza, que sempre devem ser "
 "executadas independentemente da ocorrência de exceções. Como no exemplo::"
 
-#: ../../tutorial/errors.rst:379
+#: ../../tutorial/errors.rst:387
 msgid ""
 "If a :keyword:`finally` clause is present, the :keyword:`!finally` clause "
 "will execute as the last task before the :keyword:`try` statement completes. "
@@ -476,7 +454,7 @@ msgstr ""
 "instrução :keyword:`!try` produz uma exceção. Os pontos a seguir discutem "
 "casos mais complexos quando ocorre uma exceção:"
 
-#: ../../tutorial/errors.rst:385
+#: ../../tutorial/errors.rst:393
 msgid ""
 "If an exception occurs during execution of the :keyword:`!try` clause, the "
 "exception may be handled by an :keyword:`except` clause. If the exception is "
@@ -488,7 +466,7 @@ msgstr ""
 "não for tratada por uma cláusula :keyword:`!except`, a exceção será gerada "
 "novamente após a execução da cláusula: keyword:`!finally`."
 
-#: ../../tutorial/errors.rst:391
+#: ../../tutorial/errors.rst:399
 msgid ""
 "An exception could occur during execution of an :keyword:`!except` or :"
 "keyword:`!else` clause. Again, the exception is re-raised after the :keyword:"
@@ -498,7 +476,7 @@ msgstr ""
 "except` ou :keyword:`!else`. Novamente, a exceção é re-levantada depois que :"
 "keyword:`!finally` é executada."
 
-#: ../../tutorial/errors.rst:395
+#: ../../tutorial/errors.rst:403
 msgid ""
 "If the :keyword:`!finally` clause executes a :keyword:`break`, :keyword:"
 "`continue` or :keyword:`return` statement, exceptions are not re-raised."
@@ -507,7 +485,7 @@ msgstr ""
 "keyword:`continue` ou :keyword:`return`, as exceções não são levantadas "
 "novamente."
 
-#: ../../tutorial/errors.rst:399
+#: ../../tutorial/errors.rst:407
 msgid ""
 "If the :keyword:`!try` statement reaches a :keyword:`break`, :keyword:"
 "`continue` or :keyword:`return` statement, the :keyword:`!finally` clause "
@@ -519,7 +497,7 @@ msgstr ""
 "executada imediatamente antes da execução da instrução :keyword:`!break`, :"
 "keyword:`!continue` ou :keyword:`!return`."
 
-#: ../../tutorial/errors.rst:405
+#: ../../tutorial/errors.rst:413
 msgid ""
 "If a :keyword:`!finally` clause includes a :keyword:`!return` statement, the "
 "returned value will be the one from the :keyword:`!finally` clause's :"
@@ -531,15 +509,15 @@ msgstr ""
 "cláusula :keyword:`!finally`, não o valor da instrução :keyword:`!return` da "
 "cláusula :keyword:`!try`."
 
-#: ../../tutorial/errors.rst:411
+#: ../../tutorial/errors.rst:419
 msgid "For example::"
 msgstr "Por exemplo::"
 
-#: ../../tutorial/errors.rst:422
+#: ../../tutorial/errors.rst:430
 msgid "A more complicated example::"
 msgstr "Um exemplo mais complicado::"
 
-#: ../../tutorial/errors.rst:447
+#: ../../tutorial/errors.rst:455
 msgid ""
 "As you can see, the :keyword:`finally` clause is executed in any event.  "
 "The :exc:`TypeError` raised by dividing two strings is not handled by the :"
@@ -551,7 +529,7 @@ msgstr ""
 "é tratada pela cláusula :keyword:`except` e portanto é re-levantada depois "
 "que a cláusula :keyword:`!finally` é executada."
 
-#: ../../tutorial/errors.rst:452
+#: ../../tutorial/errors.rst:460
 msgid ""
 "In real world applications, the :keyword:`finally` clause is useful for "
 "releasing external resources (such as files or network connections), "
@@ -561,11 +539,11 @@ msgstr ""
 "liberar recursos externos (como arquivos ou conexões de rede), "
 "independentemente do uso do recurso ter sido bem sucedido ou não."
 
-#: ../../tutorial/errors.rst:460
+#: ../../tutorial/errors.rst:468
 msgid "Predefined Clean-up Actions"
 msgstr "Ações de limpeza predefinidas"
 
-#: ../../tutorial/errors.rst:462
+#: ../../tutorial/errors.rst:470
 msgid ""
 "Some objects define standard clean-up actions to be undertaken when the "
 "object is no longer needed, regardless of whether or not the operation using "
@@ -577,7 +555,7 @@ msgstr ""
 "usando o objeto ter sido ou não bem sucedida. Veja o exemplo a seguir, que "
 "tenta abrir um arquivo e exibir seu conteúdo na tela. ::"
 
-#: ../../tutorial/errors.rst:470
+#: ../../tutorial/errors.rst:478
 msgid ""
 "The problem with this code is that it leaves the file open for an "
 "indeterminate amount of time after this part of the code has finished "
@@ -593,7 +571,7 @@ msgstr ""
 "utilizados com a certeza de que sempre serão prontamente e corretamente "
 "finalizados. ::"
 
-#: ../../tutorial/errors.rst:480
+#: ../../tutorial/errors.rst:488
 msgid ""
 "After the statement is executed, the file *f* is always closed, even if a "
 "problem was encountered while processing the lines. Objects which, like "
@@ -604,3 +582,62 @@ msgstr ""
 "ocorrer um problema durante o processamento das linhas. Outros objetos que, "
 "como arquivos, fornecem ações de limpeza predefinidas as indicarão em suas "
 "documentações."
+
+#: ../../tutorial/errors.rst:496
+msgid "Raising and Handling Multiple Unrelated Exceptions"
+msgstr ""
+
+#: ../../tutorial/errors.rst:498
+msgid ""
+"There are situations where it is necessary to report several exceptions that "
+"have occurred. This it often the case in concurrency frameworks, when "
+"several tasks may have failed in parallel, but there are also other use "
+"cases where it is desirable to continue execution and collect multiple "
+"errors rather than raise the first exception."
+msgstr ""
+
+#: ../../tutorial/errors.rst:504
+msgid ""
+"The builtin :exc:`ExceptionGroup` wraps a list of exception instances so "
+"that they can be raised together. It is an exception itself, so it can be "
+"caught like any other exception. ::"
+msgstr ""
+
+#: ../../tutorial/errors.rst:530
+msgid ""
+"By using ``except*`` instead of ``except``, we can selectively handle only "
+"the exceptions in the group that match a certain type. In the following "
+"example, which shows a nested exception group, each ``except*`` clause "
+"extracts from the group exceptions of a certain type while letting all other "
+"exceptions propagate to other clauses and eventually to be reraised. ::"
+msgstr ""
+
+#: ../../tutorial/errors.rst:564
+msgid ""
+"Note that the exceptions nested in an exception group must be instances, not "
+"types. This is because in practice the exceptions would typically be ones "
+"that have already been raised and caught by the program, along the following "
+"pattern::"
+msgstr ""
+
+#: ../../tutorial/errors.rst:582
+msgid "Enriching Exceptions with Notes"
+msgstr ""
+
+#: ../../tutorial/errors.rst:584
+msgid ""
+"When an exception is created in order to be raised, it is usually "
+"initialized with information that describes the error that has occurred. "
+"There are cases where it is useful to add information after the exception "
+"was caught. For this purpose, exceptions have a method ``add_note(note)`` "
+"that accepts a string and adds it to the exception's notes list. The "
+"standard traceback rendering includes all notes, in the order they were "
+"added, after the exception. ::"
+msgstr ""
+
+#: ../../tutorial/errors.rst:605
+msgid ""
+"For example, when collecting exceptions into an exception group, we may want "
+"to add context information for the individual errors. In the following each "
+"exception in the group has a note indicating when this error has occurred. ::"
+msgstr ""
