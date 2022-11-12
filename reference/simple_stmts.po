@@ -1080,6 +1080,9 @@ msgid ""
 "defined in the module are bound in the local namespace for the scope where "
 "the :keyword:`import` statement occurs."
 msgstr ""
+"Se a lista de identificadores for substituída por uma estrela (``'*'``), "
+"todos os nomes públicos definidos no módulo serão vinculados ao espaço de "
+"nomes local para o escopo onde ocorre a instrução :keyword:`import`."
 
 #: ../../reference/simple_stmts.rst:811
 msgid ""
@@ -1093,6 +1096,16 @@ msgid ""
 "is intended to avoid accidentally exporting items that are not part of the "
 "API (such as library modules which were imported and used within the module)."
 msgstr ""
+"Os *nomes públicos* definidos por um módulo são determinados verificando o "
+"espaço de nomes do módulo para uma variável chamada ``__all__``; se "
+"definido, deve ser uma sequência de strings que são nomes definidos ou "
+"importados por esse módulo. Os nomes dados em ``__all__`` são todos "
+"considerados públicos e devem existir. Se ``__all__`` não estiver definido, "
+"o conjunto de nomes públicos inclui todos os nomes encontrados no espaço de "
+"nomes do módulo que não começam com um caractere sublinhado (``'_'``). "
+"``__all__`` deve conter toda a API pública. Destina-se a evitar a exportação "
+"acidental de itens que não fazem parte da API (como módulos de biblioteca "
+"que foram importados e usados no módulo)."
 
 #: ../../reference/simple_stmts.rst:821
 msgid ""
@@ -1100,6 +1113,9 @@ msgid ""
 "allowed at the module level.  Attempting to use it in class or function "
 "definitions will raise a :exc:`SyntaxError`."
 msgstr ""
+"A forma curinga de importação --- ``from module import *`` --- só é "
+"permitida no nível do módulo. Tentar usá-lo em definições de classe ou "
+"função irá levantar uma :exc:`SyntaxError`."
 
 #: ../../reference/simple_stmts.rst:828
 msgid ""
@@ -1117,12 +1133,27 @@ msgid ""
 "``pkg.subpkg2.mod``. The specification for relative imports is contained in "
 "the :ref:`relativeimports` section."
 msgstr ""
+"Ao especificar qual módulo importar, você não precisa especificar o nome "
+"absoluto do módulo. Quando um módulo ou pacote está contido em outro pacote, "
+"é possível fazer uma importação relativa dentro do mesmo pacote superior sem "
+"precisar mencionar o nome do pacote. Usando pontos iniciais no módulo ou "
+"pacote especificado após :keyword:`from` você pode especificar quão alto "
+"percorrer a hierarquia de pacotes atual sem especificar nomes exatos. Um "
+"ponto inicial significa o pacote atual onde o módulo que faz a importação "
+"existe. Dois pontos significam um nível de pacote acima. Três pontos são "
+"dois níveis acima, etc. Então, se você executar ``from . import mod`` de um "
+"módulo no pacote ``pkg`` então você acabará importando o ``pkg.mod``. Se "
+"você executar ``from ..subpkg2 import mod`` de dentro de ``pkg.subpkg1`` "
+"você irá importar ``pkg.subpkg2.mod``. A especificação para importações "
+"relativas está contida na seção :ref:`relativeimports`."
 
 #: ../../reference/simple_stmts.rst:842
 msgid ""
 ":func:`importlib.import_module` is provided to support applications that "
 "determine dynamically the modules to be loaded."
 msgstr ""
+":func:`importlib.import_module` é fornecida para dar suporte a aplicações "
+"que determinam dinamicamente os módulos a serem carregados."
 
 #: ../../reference/simple_stmts.rst:845
 msgid ""
@@ -1130,10 +1161,13 @@ msgid ""
 "``module``, ``filename``, ``sys.path``, ``sys.meta_path``, ``sys."
 "path_hooks``."
 msgstr ""
+"Levanta um :ref:`evento de auditoria <auditing>` ``import`` com argumentos "
+"``module``, ``filename``, ``sys.path``, ``sys.meta_path``, ``sys."
+"path_hooks``."
 
 #: ../../reference/simple_stmts.rst:850
 msgid "Future statements"
-msgstr ""
+msgstr "Instruções future"
 
 #: ../../reference/simple_stmts.rst:856
 msgid ""
@@ -1141,6 +1175,10 @@ msgid ""
 "module should be compiled using syntax or semantics that will be available "
 "in a specified future release of Python where the feature becomes standard."
 msgstr ""
+"Uma :dfn:`instrução future` é uma diretiva para o compilador de que um "
+"determinado módulo deve ser compilado usando sintaxe ou semântica que estará "
+"disponível em uma versão futura especificada do Python, onde o recurso se "
+"tornará padrão."
 
 #: ../../reference/simple_stmts.rst:860
 msgid ""
@@ -1149,34 +1187,42 @@ msgid ""
 "of the new features on a per-module basis before the release in which the "
 "feature becomes standard."
 msgstr ""
+"A instrução future destina-se a facilitar a migração para versões futuras do "
+"Python que introduzem alterações incompatíveis na linguagem. Ele permite o "
+"uso dos novos recursos por módulo antes do lançamento em que o recurso se "
+"torna padrão."
 
 #: ../../reference/simple_stmts.rst:872
 msgid ""
 "A future statement must appear near the top of the module.  The only lines "
 "that can appear before a future statement are:"
 msgstr ""
+"Uma instrução future deve aparecer perto do topo do módulo. As únicas linhas "
+"que podem aparecer antes de uma instrução future são:"
 
 #: ../../reference/simple_stmts.rst:875
 msgid "the module docstring (if any),"
-msgstr ""
+msgstr "o módulo docstring (se houver),"
 
 #: ../../reference/simple_stmts.rst:876
 msgid "comments,"
-msgstr ""
+msgstr "omentários,"
 
 #: ../../reference/simple_stmts.rst:877
 msgid "blank lines, and"
-msgstr ""
+msgstr "linhas vazias e"
 
 #: ../../reference/simple_stmts.rst:878
 msgid "other future statements."
-msgstr ""
+msgstr "outras instruções future."
 
 #: ../../reference/simple_stmts.rst:880
 msgid ""
 "The only feature that requires using the future statement is ``annotations`` "
 "(see :pep:`563`)."
 msgstr ""
+"O único recurso que requer o uso da instrução future é ``annotations`` "
+"(veja :pep:`563`)."
 
 #: ../../reference/simple_stmts.rst:883
 msgid ""
@@ -1187,6 +1233,12 @@ msgid ""
 "redundant because they are always enabled, and only kept for backwards "
 "compatibility."
 msgstr ""
+"Todos os recursos históricos habilitados pela instrução future ainda são "
+"reconhecidos pelo Python 3. A lista inclui ``absolute_import``, "
+"``division``, ``generators``, ``generator_stop``, ``unicode_literals``, "
+"``print_function``, ``nested_scopes`` e ``with_statement``. Eles são todos "
+"redundantes porque estão sempre habilitados e mantidos apenas para "
+"compatibilidade com versões anteriores."
 
 #: ../../reference/simple_stmts.rst:890
 msgid ""
@@ -1197,6 +1249,13 @@ msgid ""
 "case the compiler may need to parse the module differently.  Such decisions "
 "cannot be pushed off until runtime."
 msgstr ""
+"Uma instrução future é reconhecida e tratada especialmente em tempo de "
+"compilação: as alterações na semântica das construções principais são "
+"frequentemente implementadas gerando código diferente. Pode até ser o caso "
+"de um novo recurso introduzir uma nova sintaxe incompatível (como uma nova "
+"palavra reservada), caso em que o compilador pode precisar analisar o módulo "
+"de maneira diferente. Tais decisões não podem ser adiadas até o tempo de "
+"execução."
 
 #: ../../reference/simple_stmts.rst:897
 msgid ""
@@ -1204,6 +1263,9 @@ msgid ""
 "defined, and raises a compile-time error if a future statement contains a "
 "feature not known to it."
 msgstr ""
+"Para qualquer versão, o compilador sabe quais nomes de recursos foram "
+"definidos e levanta um erro em tempo de compilação se uma instrução future "
+"contiver um recurso desconhecido."
 
 #: ../../reference/simple_stmts.rst:901
 msgid ""
@@ -1211,22 +1273,30 @@ msgid ""
 "is a standard module :mod:`__future__`, described later, and it will be "
 "imported in the usual way at the time the future statement is executed."
 msgstr ""
+"A semântica do tempo de execução direto é a mesma de qualquer instrução de "
+"importação: existe um módulo padrão :mod:`__future__`, descrito "
+"posteriormente, e será importado da maneira usual no momento em que a "
+"instrução future for executada."
 
 #: ../../reference/simple_stmts.rst:905
 msgid ""
 "The interesting runtime semantics depend on the specific feature enabled by "
 "the future statement."
 msgstr ""
+"A semântica interessante do tempo de execução depende do recurso específico "
+"ativado pela instrução future."
 
 #: ../../reference/simple_stmts.rst:908
 msgid "Note that there is nothing special about the statement::"
-msgstr ""
+msgstr "Observe que não há nada de especial sobre a instrução::"
 
 #: ../../reference/simple_stmts.rst:912
 msgid ""
 "That is not a future statement; it's an ordinary import statement with no "
 "special semantics or syntax restrictions."
 msgstr ""
+"Essa não é uma instrução future; é uma instrução de importação comum sem "
+"nenhuma semântica especial ou restrições de sintaxe."
 
 #: ../../reference/simple_stmts.rst:915
 msgid ""
@@ -1236,6 +1306,11 @@ msgid ""
 "statement.  This can be controlled by optional arguments to :func:`compile` "
 "--- see the documentation of that function for details."
 msgstr ""
+"O código compilado por chamadas para as funções embutidas :func:`exec` e :"
+"func:`compile` que ocorrem em um módulo :mod:`M` contendo uma instrução "
+"future usará, por padrão, a nova sintaxe ou semântica associada com a "
+"instrução future. Isso pode ser controlado por argumentos opcionais para :"
+"func:`compile` -- veja a documentação dessa função para detalhes."
 
 #: ../../reference/simple_stmts.rst:921
 msgid ""
@@ -1245,18 +1320,23 @@ msgid ""
 "and the script includes a future statement, it will be in effect in the "
 "interactive session started after the script is executed."
 msgstr ""
+"Uma instrução future tipada digitada em um prompt do interpretador "
+"interativo terá efeito no restante da sessão do interpretador. Se um "
+"interpretador for iniciado com a opção :option:`-i`, for passado um nome de "
+"script para ser executado e o script incluir uma instrução future, ela "
+"entrará em vigor na sessão interativa iniciada após a execução do script."
 
 #: ../../reference/simple_stmts.rst:929
 msgid ":pep:`236` - Back to the __future__"
-msgstr ""
+msgstr ":pep:`236` - De volta ao __future__"
 
 #: ../../reference/simple_stmts.rst:930
 msgid "The original proposal for the __future__ mechanism."
-msgstr ""
+msgstr "A proposta original para o mecanismo do __future__."
 
 #: ../../reference/simple_stmts.rst:936
 msgid "The :keyword:`!global` statement"
-msgstr ""
+msgstr "A instrução :keyword:`!global`"
 
 #: ../../reference/simple_stmts.rst:946
 msgid ""
@@ -1266,12 +1346,20 @@ msgid ""
 "variable without :keyword:`!global`, although free variables may refer to "
 "globals without being declared global."
 msgstr ""
+"A instrução :keyword:`global` é uma declaração que vale para todo o bloco de "
+"código atual. Isso significa que os identificadores listados devem ser "
+"interpretados como globais. Seria impossível atribuir a uma variável global "
+"sem :keyword:`!global`, embora variáveis livres possam se referir a globais "
+"sem serem declaradas globais."
 
 #: ../../reference/simple_stmts.rst:952
 msgid ""
 "Names listed in a :keyword:`global` statement must not be used in the same "
 "code block textually preceding that :keyword:`!global` statement."
 msgstr ""
+"Nomes listados em uma instrução :keyword:`global` não devem ser usados no "
+"mesmo bloco de código que precede textualmente a instrução :keyword:`!"
+"global`."
 
 #: ../../reference/simple_stmts.rst:955
 msgid ""
@@ -1287,6 +1375,9 @@ msgid ""
 "programs should not abuse this freedom, as future implementations may "
 "enforce them or silently change the meaning of the program."
 msgstr ""
+"A implementação atual não impõe algumas dessas restrições, mas os programas "
+"não devem abusar dessa liberdade, pois implementações future podem aplicá-"
+"las ou alterar silenciosamente o significado do programa."
 
 #: ../../reference/simple_stmts.rst:971
 msgid ""
@@ -1299,10 +1390,18 @@ msgid ""
 "containing the function call.  The same applies to the :func:`eval` and :"
 "func:`compile` functions."
 msgstr ""
+"**Nota do programador:** :keyword:`global` é uma diretiva para o analisador "
+"sintático. Aplica-se apenas ao código analisado ao mesmo tempo que a "
+"instrução :keyword:`!global`. Em particular, uma instrução :keyword:`!"
+"global` contida em uma string ou objeto código fornecido à função embutida :"
+"func:`exec` não afeta o bloco de código *contendo* a chamada da função e o "
+"código contido em tal uma string não é afetada por instruções :keyword:`!"
+"global` no código que contém a chamada da função. O mesmo se aplica às "
+"funções :func:`eval` e :func:`compile`."
 
 #: ../../reference/simple_stmts.rst:983
 msgid "The :keyword:`!nonlocal` statement"
-msgstr ""
+msgstr "A instrução :keyword:`!nonlocal`"
 
 #: ../../reference/simple_stmts.rst:995
 msgid ""
@@ -1312,6 +1411,12 @@ msgid ""
 "local namespace first.  The statement allows encapsulated code to rebind "
 "variables outside of the local scope besides the global (module) scope."
 msgstr ""
+"A instrução :keyword:`nonlocal` faz com que os identificadores listados se "
+"refiram a variáveis vinculadas anteriormente no escopo mais próximo, "
+"excluindo globais. Isso é importante porque o comportamento padrão para "
+"ligação é pesquisar primeiro o espaço de nomes local. A instrução permite "
+"que o código encapsulado ligue novamente variáveis fora do escopo local além "
+"do escopo global (módulo)."
 
 #: ../../reference/simple_stmts.rst:1005
 msgid ""
@@ -1320,17 +1425,23 @@ msgid ""
 "enclosing scope (the scope in which a new binding should be created cannot "
 "be determined unambiguously)."
 msgstr ""
+"Os nomes listados em uma instrução :keyword:`nonlocal`, diferentemente "
+"daqueles listados em uma instrução :keyword:`global`, devem se referir a "
+"associações preexistentes em um escopo delimitador (o escopo no qual uma "
+"nova associação deve ser criada não pode ser determinado inequivocamente)."
 
 #: ../../reference/simple_stmts.rst:1010
 msgid ""
 "Names listed in a :keyword:`nonlocal` statement must not collide with pre-"
 "existing bindings in the local scope."
 msgstr ""
+"Os nomes listados em uma instrução :keyword:`nonlocal` não devem colidir com "
+"ligações preexistentes no escopo local."
 
 #: ../../reference/simple_stmts.rst:1015
 msgid ":pep:`3104` - Access to Names in Outer Scopes"
-msgstr ""
+msgstr ":pep:`3104` - Acesso a nomes em escopos externos"
 
 #: ../../reference/simple_stmts.rst:1016
 msgid "The specification for the :keyword:`nonlocal` statement."
-msgstr ""
+msgstr "A especificação para a instrução :keyword:`nonlocal`."
