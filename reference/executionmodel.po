@@ -88,33 +88,35 @@ msgstr ""
 
 #: ../../reference/executionmodel.rst:59
 msgid "The following constructs bind names:"
-msgstr ""
+msgstr "As seguintes construções ligam nomes:"
 
 #: ../../reference/executionmodel.rst:61
 msgid "formal parameters to functions,"
-msgstr ""
+msgstr "parâmetros formais para funções,"
 
 #: ../../reference/executionmodel.rst:62
 msgid "class definitions,"
-msgstr ""
+msgstr "definições de classe,"
 
 #: ../../reference/executionmodel.rst:63
 msgid "function definitions,"
-msgstr ""
+msgstr "definições de função,"
 
 #: ../../reference/executionmodel.rst:64
 msgid "assignment expressions,"
-msgstr ""
+msgstr "expressões de atribuição,"
 
 #: ../../reference/executionmodel.rst:65
 msgid ""
 ":ref:`targets <assignment>` that are identifiers if occurring in an "
 "assignment:"
 msgstr ""
+":ref:`alvos <assignment>` que são identificadores se ocorrerem em uma "
+"atribuição:"
 
 #: ../../reference/executionmodel.rst:68
 msgid ":keyword:`for` loop header,"
-msgstr ""
+msgstr "cabeçalho de laço :keyword:`for`,"
 
 #: ../../reference/executionmodel.rst:69
 msgid ""
@@ -124,11 +126,11 @@ msgstr ""
 
 #: ../../reference/executionmodel.rst:71
 msgid "in a capture pattern in structural pattern matching"
-msgstr ""
+msgstr "em um padrão de captura na correspondência de padrões estruturais"
 
 #: ../../reference/executionmodel.rst:73
 msgid ":keyword:`import` statements."
-msgstr ""
+msgstr "instruções :keyword:`import`."
 
 #: ../../reference/executionmodel.rst:75
 msgid ""
@@ -136,6 +138,9 @@ msgid ""
 "names defined in the imported module, except those beginning with an "
 "underscore. This form may only be used at the module level."
 msgstr ""
+"A instrução :keyword:`!import` no formato ``from ... import *`` liga todos "
+"os nomes definidos no módulo importado, exceto aqueles que começam com um "
+"sublinhado. Este formulário só pode ser usado no nível do módulo."
 
 #: ../../reference/executionmodel.rst:79
 msgid ""
@@ -228,6 +233,14 @@ msgid ""
 "variables of a code block can be determined by scanning the entire text of "
 "the block for name binding operations."
 msgstr ""
+"Se uma operação de ligação de nome ocorrer em qualquer lugar dentro de um "
+"bloco de código, todos os usos do nome dentro do bloco serão tratados como "
+"referências ao bloco atual. Isso pode levar a erros quando um nome é usado "
+"em um bloco antes de ser ligado. Essa regra é sutil. O Python não possui "
+"declarações e permite que as operações de ligação de nomes ocorram em "
+"qualquer lugar dentro de um bloco de código. As variáveis locais de um bloco "
+"de código podem ser determinadas varrendo todo o texto do bloco para "
+"operações de ligação de nomes."
 
 #: ../../reference/executionmodel.rst:132
 msgid ""
@@ -240,6 +253,15 @@ msgid ""
 "found there, the builtins namespace is searched.  The :keyword:`!global` "
 "statement must precede all uses of the listed names."
 msgstr ""
+"Se a instrução :keyword:`global` ocorrer dentro de um bloco, todos os usos "
+"dos nomes especificados na instrução referem-se às ligações desses nomes no "
+"espaço de nomes de nível superior. Os nomes são resolvidos no espaço de "
+"nomes de nível superior pesquisando o espaço de nomes global, ou seja, o "
+"espaço de nomes do módulo que contém o bloco de código, e o espaço de nomes "
+"interno, o espaço de nomes do módulo :mod:`builtins`. O espaço de nomes "
+"global é pesquisado primeiro. Se os nomes não forem encontrados lá, o espaço "
+"de nomes interno será pesquisado. A instrução :keyword:`!global` deve "
+"preceder todos os usos dos nomes listados."
 
 #: ../../reference/executionmodel.rst:141
 msgid ""
@@ -248,6 +270,9 @@ msgid ""
 "variable contains a global statement, the free variable is treated as a "
 "global."
 msgstr ""
+"A instrução :keyword:`global` tem o mesmo escopo que uma operação de ligação "
+"de nome no mesmo bloco. Se o escopo mais próximo de uma variável livre "
+"contiver uma instrução global, a variável livre será tratada como global."
 
 #: ../../reference/executionmodel.rst:147
 msgid ""
@@ -256,12 +281,20 @@ msgid ""
 "`SyntaxError` is raised at compile time if the given name does not exist in "
 "any enclosing function scope."
 msgstr ""
+"A instrução :keyword:`nonlocal` faz com que os nomes correspondentes se "
+"refiram a variáveis previamente vinculadas no escopo da função delimitadora "
+"mais próxima. A exceção :exc:`SyntaxError` é levantada em tempo de "
+"compilação se o nome fornecido não existir em nenhum escopo de função "
+"delimitador."
 
 #: ../../reference/executionmodel.rst:154
 msgid ""
 "The namespace for a module is automatically created the first time a module "
 "is imported.  The main module for a script is always called :mod:`__main__`."
 msgstr ""
+"O espaço de nomes de um módulo é criado automaticamente na primeira vez que "
+"um módulo é importado. O módulo principal de um script é sempre chamado de :"
+"mod:`__main__`."
 
 #: ../../reference/executionmodel.rst:157
 msgid ""
@@ -276,10 +309,21 @@ msgid ""
 "expressions since they are implemented using a function scope.  This means "
 "that the following will fail::"
 msgstr ""
+"Blocos de definição de classe e argumentos para :func:`exec` e :func:`eval` "
+"são especiais no contexto de resolução de nome. Uma definição de classe é "
+"uma instrução executável que pode usar e definir nomes. Essas referências "
+"seguem as regras normais para resolução de nome, com exceção de que "
+"variáveis locais não vinculadas são pesquisadas no espaço de nomes global "
+"global. O espaço de nomes global da definição de classe se torna o "
+"dicionário de atributos da classe. O escopo dos nomes definidos em um bloco "
+"de classe é limitado ao bloco de classe; ele não se estende aos blocos de "
+"código de métodos -- isso inclui compreensões e expressões geradoras, uma "
+"vez que são implementadas usando um escopo de função. Isso significa que o "
+"seguinte falhará::"
 
 #: ../../reference/executionmodel.rst:175
 msgid "Builtins and restricted execution"
-msgstr ""
+msgstr "Builtins e execução restrita"
 
 #: ../../reference/executionmodel.rst:181
 msgid ""
@@ -288,6 +332,10 @@ msgid ""
 "keyword:`import` the :mod:`builtins` module and modify its attributes "
 "appropriately."
 msgstr ""
+"Os usuários não devem tocar em ``__builtins__``; é estritamente um detalhe "
+"de implementação. Usuários que desejam substituir valores no espaço de nomes "
+"interno devem :keyword:`import` o módulo :mod:`builtins` e modificar seus "
+"atributos apropriadamente."
 
 #: ../../reference/executionmodel.rst:186
 msgid ""
@@ -299,16 +347,25 @@ msgid ""
 "other module, ``__builtins__`` is an alias for the dictionary of the :mod:"
 "`builtins` module itself."
 msgstr ""
+"O espaço de nomes interno associado com a execução de um bloco de código é "
+"encontrado procurando o nome ``__builtins__`` em seu espaço de nomes global; "
+"este deve ser um dicionário ou um módulo (no último caso, o dicionário do "
+"módulo é usado). Por padrão, quando no módulo :mod:`__main__`, "
+"``__builtins__`` é o módulo embutido :mod:`builtins`; quando em qualquer "
+"outro módulo, ``__builtins__`` é um apelido para o dicionário do próprio "
+"módulo :mod:`builtins`."
 
 #: ../../reference/executionmodel.rst:198
 msgid "Interaction with dynamic features"
-msgstr ""
+msgstr "Interação com recursos dinâmicos"
 
 #: ../../reference/executionmodel.rst:200
 msgid ""
 "Name resolution of free variables occurs at runtime, not at compile time. "
 "This means that the following code will print 42::"
 msgstr ""
+"A resolução de nome de variáveis livres ocorre em tempo de execução, não em "
+"tempo de compilação. Isso significa que o código a seguir imprimirá 42::"
 
 #: ../../reference/executionmodel.rst:211
 msgid ""
@@ -320,6 +377,13 @@ msgid ""
 "global and local namespace.  If only one namespace is specified, it is used "
 "for both."
 msgstr ""
+"As funções :func:`eval` e :func:`exec` não têm acesso ao ambiente completo "
+"para resolução de nome. Os nomes podem ser resolvidos nos espaços de nomes "
+"locais e globais do chamador. Variáveis livres não são resolvidas no espaço "
+"de nomes mais próximo, mas no espaço de nomes global. [#]_ As funções :func:"
+"`exec` e :func:`eval` possuem argumentos opcionais para substituir o espaço "
+"de nomes global e local. Se apenas um espaço de nomes for especificado, ele "
+"será usado para ambos."
 
 #: ../../reference/executionmodel.rst:222
 msgid "Exceptions"
@@ -333,6 +397,11 @@ msgid ""
 "*handled* by the surrounding code block or by any code block that directly "
 "or indirectly invoked the code block where the error occurred."
 msgstr ""
+"As exceções são um meio de romper o fluxo normal de controle de um bloco de "
+"código para tratar erros ou outras condições excepcionais. Uma exceção é "
+"*levantada* no ponto em que o erro é detectado; ele pode ser *tratado* pelo "
+"bloco de código circundante ou por qualquer bloco de código que invocou "
+"direta ou indiretamente o bloco de código onde ocorreu o erro."
 
 #: ../../reference/executionmodel.rst:239
 msgid ""
@@ -344,6 +413,13 @@ msgid ""
 "code which does not handle the exception, but is executed whether an "
 "exception occurred or not in the preceding code."
 msgstr ""
+"O interpretador Python levanta uma exceção quando detecta um erro em tempo "
+"de execução (como divisão por zero). Um programa Python também pode levantar "
+"explicitamente uma exceção com a instrução :keyword:`raise`. Os tratadores "
+"de exceção são especificados com a instrução :keyword:`try` ... :keyword:"
+"`except`. A cláusula :keyword:`finally` de tal declaração pode ser usada "
+"para especificar o código de limpeza que não trata a exceção, mas é "
+"executado se uma exceção ocorreu ou não no código anterior."
 
 #: ../../reference/executionmodel.rst:249
 msgid ""
@@ -352,6 +428,11 @@ msgid ""
 "but it cannot repair the cause of the error and retry the failing operation "
 "(except by re-entering the offending piece of code from the top)."
 msgstr ""
+"Python usa o modelo de \"terminação\" da manipulação de erros: um "
+"manipulador de exceção pode descobrir o que aconteceu e continuar a execução "
+"em um nível externo, mas não pode reparar a causa do erro e tentar novamente "
+"a operação com falha (exceto reinserindo a parte incorreta de código de "
+"cima)."
 
 #: ../../reference/executionmodel.rst:256
 msgid ""
@@ -360,6 +441,10 @@ msgid ""
 "either case, it prints a stack traceback, except when the exception is :exc:"
 "`SystemExit`."
 msgstr ""
+"Quando uma exceção não é manipulada, o interpretador encerra a execução do "
+"programa ou retorna ao seu laço principal interativo. Em ambos os casos, ele "
+"exeibe um traceback (situação da pilha de execução), exceto quando a exceção "
+"é :exc:`SystemExit`."
 
 #: ../../reference/executionmodel.rst:260
 msgid ""
@@ -369,6 +454,11 @@ msgid ""
 "class>` thereof. The instance can be received by the handler and can carry "
 "additional information about the exceptional condition."
 msgstr ""
+"As exceções são identificadas por instâncias de classe. A cláusula :keyword:"
+"`except` é selecionada dependendo da classe da instância: ela deve "
+"referenciar a classe da instância ou uma :term:`classe base não-virtual "
+"<classe base abstrata>` dela. A instância pode ser recebida pelo manipulador "
+"e pode conter informações adicionais sobre a condição excepcional."
 
 #: ../../reference/executionmodel.rst:268
 msgid ""
@@ -377,12 +467,17 @@ msgid ""
 "be relied on by code which will run under multiple versions of the "
 "interpreter."
 msgstr ""
+"As mensagens de exceção não fazem parte da API do Python. Seu conteúdo pode "
+"mudar de uma versão do Python para outra sem aviso e não deve ser invocado "
+"pelo código que será executado em várias versões do interpretador."
 
 #: ../../reference/executionmodel.rst:272
 msgid ""
 "See also the description of the :keyword:`try` statement in section :ref:"
 "`try` and :keyword:`raise` statement in section :ref:`raise`."
 msgstr ""
+"Veja também a descrição da declaração :keyword:`try` na seção :ref:`try` e a "
+"instrução :keyword:`raise` na seção :ref:`raise`."
 
 #: ../../reference/executionmodel.rst:277
 msgid "Footnotes"
@@ -393,3 +488,5 @@ msgid ""
 "This limitation occurs because the code that is executed by these operations "
 "is not available at the time the module is compiled."
 msgstr ""
+"Essa limitação ocorre porque o código executado por essas operações não está "
+"disponível no momento em que o módulo é compilado."
