@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.11\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-05 19:46+0000\n"
+"POT-Creation-Date: 2022-11-17 16:28+0000\n"
 "PO-Revision-Date: 2021-06-28 01:12+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2022\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/python-doc/"
@@ -38,7 +38,7 @@ msgstr ":mod:`re` --- Operações com expressões regulares"
 
 #: ../../library/re.rst:10
 msgid "**Source code:** :source:`Lib/re/`"
-msgstr ""
+msgstr "**Código-fonte:** :source:`Lib/re/`"
 
 #: ../../library/re.rst:14
 msgid ""
@@ -219,6 +219,12 @@ msgid ""
 "For example, the expression ``(?:a{6})*`` matches any multiple of six "
 "``'a'`` characters."
 msgstr ""
+"Operadores de repetição ou quantificadores (``*``, ``+``, ``?``, ``{m,n}`` "
+"etc) não podem ser aninhados diretamente. Isso evita ambiguidade com o "
+"sufixo modificador não guloso ``?``, e com outros modificadores em outras "
+"implementações. Para aplicar uma segunda repetição a uma repetição interna, "
+"podem ser usados parênteses. Por exemplo, a expressão ``(?:a{6})*`` "
+"corresponde a qualquer múltiplo de seis caracteres ``'a'``."
 
 #: ../../library/re.rst:97
 msgid "The special characters are:"
@@ -328,10 +334,17 @@ msgid ""
 "characters as possible will be matched.  Using the RE ``<.*?>`` will match "
 "only ``'<a>'``."
 msgstr ""
+"Os quantificadores ``'*'``, ``'+'`` e ``'?'`` são todos :dfn:`gulosos`; eles "
+"correspondem ao máximo de texto possível. Às vezes, esse comportamento não é "
+"desejado; se a ER ``<.*>`` for correspondida com ``'<a> b <c>'``, ela irá "
+"corresponder a toda a string, e não apenas ``'<a>'``. Adicionar ``?`` após o "
+"quantificador faz com que ele execute a correspondência da maneira :dfn:`não "
+"gulosa` ou :dfn:`minimalista`; tão *poucos* caracteres quanto possível serão "
+"correspondidos. Usando a ER ``<.*?>`` irá corresponder apenas ``'<a>'``."
 
 #: ../../library/re.rst:179
 msgid "``*+``, ``++``, ``?+``"
-msgstr ""
+msgstr "``*+``, ``++``, ``?+``"
 
 #: ../../library/re.rst:163
 msgid ""
@@ -349,6 +362,20 @@ msgid ""
 "``x*+``, ``x++`` and ``x?+`` are equivalent to ``(?>x*)``, ``(?>x+)`` and "
 "``(?>x?)`` correspondingly."
 msgstr ""
+"Como os quantificadores ``'*'``, ``'+'`` e ``'?'``, aqueles em que ``'+'`` é "
+"anexado também correspondem tantas vezes quanto possível. No entanto, ao "
+"contrário dos quantificadores realmente gulosos, eles não permitem "
+"retrocesso quando a expressão que o segue não corresponde. Estes são "
+"conhecidos como quantificadores :dfn:`possessivos`. Por exemplo, ``a*a`` "
+"corresponderá a ``'aaaa'`` porque o ``a*`` corresponderá a todos os 4 ``'a'``"
+"\\s, mas, quando o final ``'a'`` for encontrado, a expressão é retrocedida "
+"para que no final o ``a*`` acabe correspondendo a 3 ``'a'``\\ s no total, e "
+"o quarto ``'a'`` seja correspondido por o final ``'a'``. No entanto, quando "
+"``a*+a`` é usado para corresponder a ``'aaaa'``, o ``a*+`` corresponderá a "
+"todos os 4 ``'a'``, mas quando o ``'a'`` final não encontrar mais caracteres "
+"para corresponder, a expressão não pode ser retrocedida e, portanto, não "
+"corresponderá. ``x*+``, ``x++`` e ``x?+`` são equivalentes a ``(?>x*)``, ``(?"
+">x+)`` e ``(?>x?)`` correspondentemente."
 
 #: ../../library/re.rst:187
 msgid "``{m}``"
@@ -401,10 +428,15 @@ msgid ""
 "character string ``'aaaaaa'``, ``a{3,5}`` will match 5 ``'a'`` characters, "
 "while ``a{3,5}?`` will only match 3 characters."
 msgstr ""
+"Faz com que a ER resultante corresponda de *m* a *n* repetições da ER "
+"precedente, tentando corresponder o mínimo de *poucas* repetições possível. "
+"Esta é a versão não gulosa do quantificador anterior. Por exemplo, na string "
+"de 6 caracteres ``'aaaaaa'``, ``a{3,5}`` irá corresponder a 5 caracteres "
+"``'a'``, enquanto ``a{3,5}?`` corresponderá apenas a 3 caracteres."
 
 #: ../../library/re.rst:218
 msgid "``{m,n}+``"
-msgstr ""
+msgstr "``{m,n}+``"
 
 #: ../../library/re.rst:206
 msgid ""
@@ -418,6 +450,16 @@ msgid ""
 "backtracking and then the final 2 ``'a'``\\ s are matched by the final "
 "``aa`` in the pattern. ``x{m,n}+`` is equivalent to ``(?>x{m,n})``."
 msgstr ""
+"Faz com que a ER resultante corresponda de *m* a *n* repetições da ER "
+"anterior, tentando corresponder o maior número possível de repetições *sem* "
+"estabelecer nenhum ponto de retrocesso. Esta é a versão possessiva do "
+"quantificador acima. Por exemplo, na string de 6 caracteres ``'aaaaaa'``, "
+"``a{3,5}+aa`` tenta corresponder 5 caracteres ``'a'``, então, requerer mais "
+"2 ``'a'``\\s, precisará de mais caracteres do que os disponíveis e, "
+"portanto, falhará, enquanto ``a{3,5}aa`` corresponderá a ``a{3,5}`` "
+"capturando 5, depois 4 ``'a'``\\s por retrocesso e então os 2 ``'a'``\\s "
+"finais são combinados com o ``aa`` final no padrão. ``x{m,n}+`` é "
+"equivalente a ``(?>x{m,n})``."
 
 #: ../../library/re.rst:233
 msgid "``\\``"
@@ -654,7 +696,7 @@ msgstr ""
 
 #: ../../library/re.rst:341
 msgid "This construction can only be used at the start of the expression."
-msgstr ""
+msgstr "Esta construção só pode ser usada no início da expressão."
 
 #: ../../library/re.rst:350
 msgid "``(?:...)``"
@@ -727,7 +769,7 @@ msgstr ""
 
 #: ../../library/re.rst:391
 msgid "``(?>...)``"
-msgstr ""
+msgstr "``(?>...)``"
 
 #: ../../library/re.rst:379
 msgid ""
@@ -742,6 +784,16 @@ msgid ""
 "Group, and there is no stack point before it, the entire expression would "
 "thus fail to match."
 msgstr ""
+"Tenta corresponder ``...`` como se fosse uma expressão regular separada e, "
+"se for bem-sucedida, continua correspondendo ao restante do padrão que a "
+"segue. Se o padrão subsequente não corresponder, a pilha só pode ser "
+"desenrolada até um ponto *antes* do ``(?>...)`` porque, uma vez encerrada, a "
+"expressão, conhecida como :dfn:`grupo atômico`, jogou fora todos os pontos "
+"de pilha dentro de si. Assim, ``(?>.*).`` nunca corresponderia a nada porque "
+"primeiro o ``.*`` corresponderia a todos os caracteres possíveis, então, não "
+"tendo mais nada para corresponder, o ``.`` final falharia em corresponder. "
+"Como não há pontos de pilha salvos no Grupo Atômico e não há ponto de pilha "
+"antes dele, a expressão inteira não corresponderia."
 
 #: ../../library/re.rst:421
 msgid "``(?P<name>...)``"
@@ -817,7 +869,7 @@ msgstr "``\\g<1>``"
 
 #: ../../library/re.rst:420
 msgid "Group names containing non-ASCII characters in bytes patterns."
-msgstr ""
+msgstr "Nomes de grupos contendo caracteres não ASCII em padrões de bytes."
 
 #: ../../library/re.rst:427
 msgid "``(?P=name)``"
@@ -946,7 +998,7 @@ msgstr ""
 
 #: ../../library/re.rst:495
 msgid "Group *id* containing anything except ASCII digits."
-msgstr ""
+msgstr "Grupo *id* contendo qualquer coisa, exceto dígitos ASCII."
 
 #: ../../library/re.rst:499
 msgid ""
@@ -1276,10 +1328,11 @@ msgstr ""
 msgid ""
 "An :class:`enum.IntFlag` class containing the regex options listed below."
 msgstr ""
+"Uma classe :class:`enum.IntFlag` contendo as opções de regex listadas abaixo."
 
 #: ../../library/re.rst:684
 msgid "- added to ``__all__``"
-msgstr ""
+msgstr "- adicionada a ``__all__``"
 
 #: ../../library/re.rst:689
 msgid ""
@@ -1411,6 +1464,10 @@ msgid ""
 "will be conditionally ORed with other flags.  Example of use as a default "
 "value::"
 msgstr ""
+"Indica que nenhum sinalizador está sendo aplicado, o valor é ``0``. Este "
+"sinalizador pode ser usado como um valor padrão para um argumento nomeado de "
+"função ou como um valor base que será condicionalmente OU com outros "
+"sinalizadores. Exemplo de uso como valor padrão::"
 
 #: ../../library/re.rst:773
 msgid ""
@@ -1774,6 +1831,8 @@ msgid ""
 "Group *id* containing anything except ASCII digits. Group names containing "
 "non-ASCII characters in bytes replacement strings."
 msgstr ""
+"Grupo *id* contendo qualquer coisa, exceto dígitos ASCII. Nomes de grupos "
+"contendo caracteres não ASCII em strings de substituição de bytes."
 
 #: ../../library/re.rst:1024
 msgid ""
@@ -2129,7 +2188,7 @@ msgstr ""
 
 #: ../../library/re.rst:1331
 msgid "Named groups are supported as well::"
-msgstr ""
+msgstr "Grupos nomeados também são suportados::"
 
 #: ../../library/re.rst:1344
 msgid ""
