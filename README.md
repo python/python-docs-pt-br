@@ -4,6 +4,30 @@
 
 Check our [wiki](https://github.com/python/python-docs-pt-br/wiki) for more guidance on translating
 
+## Translation priorities
+
+The following modules we consider as priority targets, hence should
+receive more attention than other modules/pages (0 has higher priority
+than 2). Please helps assure they are a 100% translated.
+
+### Priority 0
+ - bugs
+ - glossary
+ - library/functions
+ - library/index
+ - library/introduction
+ - library/constants
+ - library/stdtypes
+ - library/exceptions
+ - sphinx
+ - tutorial/ (all!)
+
+### Priority 1
+ - reference/ (all)
+
+### Priority 2
+ - library/ (except the ones mentioned above)
+
 ## Documentation Contribution Agreement
 
 NOTE REGARDING THE LICENSE FOR TRANSLATIONS: Python's documentation is
