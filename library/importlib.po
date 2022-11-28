@@ -667,6 +667,8 @@ msgstr ""
 msgid ""
 "An :term:`abstract base class` to provide the ability to read *resources*."
 msgstr ""
+"Uma :term:`classe base abstrata` para fornecer a capacidade de ler "
+"*recursos*."
 
 #: ../../library/importlib.rst:486
 msgid ""
@@ -677,6 +679,12 @@ msgid ""
 "does not matter if the package and its data file(s) are stored in a e.g. zip "
 "file versus on the file system."
 msgstr ""
+"Da perspectiva deste ABC, um *recurso* é um artefato binário que é enviado "
+"dentro de um pacote. Normalmente isso é algo como um arquivo de dados que "
+"fica próximo ao arquivo ``__init__.py`` do pacote. O objetivo desta classe é "
+"ajudar a abstrair o acesso a tais arquivos de dados para que não importe se "
+"o pacote e seu(s) arquivo(s) de dados estão armazenados em um arquivo, por "
+"exemplo, zip versus no sistema de arquivos."
 
 #: ../../library/importlib.rst:494
 msgid ""
@@ -689,6 +697,15 @@ msgid ""
 "class are expected to directly correlate to a specific package (instead of "
 "potentially representing multiple packages or a module)."
 msgstr ""
+"Para qualquer um dos métodos desta classe, espera-se que um argumento "
+"*rescurso* seja um :term:`objeto tipo arquivo` que representa "
+"conceitualmente apenas um nome de arquivo. Isso significa que nenhum caminho "
+"de subdiretório deve ser incluído no argumento *resource*. Isso ocorre "
+"porque a localização do pacote para o qual o leitor se destina, atua como o "
+"\"diretório\". Portanto, a metáfora para diretórios e nomes de arquivos são "
+"pacotes e recursos, respectivamente. É também por isso que se espera que as "
+"instâncias dessa classe se correlacionem diretamente a um pacote específico "
+"(em vez de representar potencialmente vários pacotes ou um módulo)."
 
 #: ../../library/importlib.rst:505
 msgid ""
@@ -698,32 +715,45 @@ msgid ""
 "not a package, this method should return :const:`None`. An object compatible "
 "with this ABC should only be returned when the specified module is a package."
 msgstr ""
+"Carregadores que desejam oferecer suporte à leitura de recursos devem "
+"fornecer um método chamado ``get_resource_reader(nomecompleto)`` que retorna "
+"um objeto implementando esta interface ABC. Se o módulo especificado por "
+"nomecompleto não for um pacote, este método deve retornar :const:`None`. Um "
+"objeto compatível com este ABC só deve ser retornado quando o módulo "
+"especificado for um pacote."
 
 #: ../../library/importlib.rst:516
 msgid ""
 "Returns an opened, :term:`file-like object` for binary reading of the "
 "*resource*."
 msgstr ""
+"Retorna um :term:`objeto tipo arquivo` aberto para leitura binária de "
+"*resource*."
 
 #: ../../library/importlib.rst:519
 msgid "If the resource cannot be found, :exc:`FileNotFoundError` is raised."
 msgstr ""
+"Se o recurso não puder ser encontrado, :exc:`FileNotFoundError` é levantada."
 
 #: ../../library/importlib.rst:524
 msgid "Returns the file system path to the *resource*."
-msgstr ""
+msgstr "Retorna o caminho do sistema de arquivos para *resource*."
 
 #: ../../library/importlib.rst:526
 msgid ""
 "If the resource does not concretely exist on the file system, raise :exc:"
 "`FileNotFoundError`."
 msgstr ""
+"Se o recurso não existir concretamente no sistema de arquivos, levanta :exc:"
+"`FileNotFoundError`."
 
 #: ../../library/importlib.rst:531
 msgid ""
 "Returns ``True`` if the named *name* is considered a resource. :exc:"
 "`FileNotFoundError` is raised if *name* does not exist."
 msgstr ""
+"Retorna ``True`` se o *name* nomeado for considerado um recurso. :exc:"
+"`FileNotFoundError` é levantada se *name* não existir."
 
 #: ../../library/importlib.rst:536
 msgid ""
@@ -732,6 +762,10 @@ msgid ""
 "actual resources, e.g. it is acceptable to return names for which :meth:"
 "`is_resource` would be false."
 msgstr ""
+"Retorna um :term:`iterável` de strings sobre o conteúdo do pacote. Observe "
+"que não é necessário que todos os nomes retornados pelo iterador sejam "
+"recursos reais, por exemplo, é aceitável retornar nomes para os quais :meth:"
+"`is_resource` seria falso."
 
 #: ../../library/importlib.rst:542
 msgid ""
@@ -741,10 +775,16 @@ msgid ""
 "is allowed so that when it is known that the package and resources are "
 "stored on the file system then those subdirectory names can be used directly."
 msgstr ""
+"Permitir que nomes que não são recursos sejam retornados é permitir "
+"situações em que a forma como um pacote e seus recursos são armazenados é "
+"conhecida a priori e os nomes que não são recursos seriam úteis. Por "
+"exemplo, o retorno de nomes de subdiretórios é permitido para que, quando se "
+"souber que o pacote e os recursos estão armazenados no sistema de arquivos, "
+"esses nomes de subdiretórios possam ser usados diretamente."
 
 #: ../../library/importlib.rst:550
 msgid "The abstract method returns an iterable of no items."
-msgstr ""
+msgstr "O método abstrato retorna um iterável sem itens."
 
 #: ../../library/importlib.rst:555
 msgid ""
