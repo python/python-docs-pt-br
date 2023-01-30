@@ -194,6 +194,11 @@ msgid ""
 "subpackage called :mod:`email.mime` and a module within that subpackage "
 "called :mod:`email.mime.text`."
 msgstr ""
+"Todo módulo tem um nome.  Nomes de subpacotes são separados do nome do "
+"pacote por um ponto, semelhante à sintaxe de acesso aos atributos padrão do "
+"Python.  Assim pode ter um pacote chamado :mod:`email`, que por sua vez tem "
+"um subpacote chamado :mod:`email.mime` e um módulo dentro dele chamado :mod:"
+"`email.mime.text`."
 
 #: ../../reference/import.rst:93
 msgid "Regular packages"
@@ -302,7 +307,7 @@ msgstr ""
 
 #: ../../reference/import.rst:158
 msgid "Searching"
-msgstr ""
+msgstr "Caminho de busca"
 
 #: ../../reference/import.rst:160
 msgid ""
@@ -313,6 +318,11 @@ msgid ""
 "parameters to the :func:`importlib.import_module` or :func:`__import__` "
 "functions."
 msgstr ""
+"Para iniciar a busca, Python precisa do nome :term:`completo <qualified "
+"name>` do módulo (ou pacote, mas para o propósito dessa exposição, não há "
+"diferença) que se quer importar.  Esse nome vem de vários argumentos "
+"passados para o comando  :keyword:`import` , ou dos parâmetros  das "
+"funções  :func:`importlib.import_module` ou :func:`__import__` ."
 
 #: ../../reference/import.rst:166
 msgid ""
@@ -322,10 +332,15 @@ msgid ""
 "baz``. If any of the intermediate imports fail, a :exc:`ModuleNotFoundError` "
 "is raised."
 msgstr ""
+"Esse nome será usado em várias fases da busca do import, e pode ser um nome "
+"com pontos, para um submódulo, ex. ``foo.bar.baz``.  Nesse caso, Python "
+"primeiro tenta importar  ``foo``, depois ``foo.bar``, e finalmente ``foo.bar."
+"baz``. Se algum dos imports intermediários falhar, uma exceção :exc:"
+"`ModuleNotFoundError` é levantada."
 
 #: ../../reference/import.rst:173
 msgid "The module cache"
-msgstr ""
+msgstr "Caches de módulos"
 
 #: ../../reference/import.rst:178
 msgid ""
@@ -336,6 +351,12 @@ msgid ""
 "and ``foo.bar.baz``.  Each key will have as its value the corresponding "
 "module object."
 msgstr ""
+"A primeira checagem durante a busca do import é feita num dicionário "
+"chamado :data:`sys.modules`.  Esse mapeamento serve como um cache de todos "
+"os módulos que já foram importados previamente, incluindo os caminhos "
+"intermediários.  Se ``foo.bar.baz`` foi previamente importado, :data:`sys."
+"modules` conterá entradas para  ``foo``, ``foo.bar``, and ``foo.bar.baz``.  "
+"Cada chave terá como valor um objeto módulo correspondente."
 
 #: ../../reference/import.rst:185
 msgid ""
@@ -345,6 +366,11 @@ msgid ""
 "`ModuleNotFoundError` is raised.  If the module name is missing, Python will "
 "continue searching for the module."
 msgstr ""
+"Durante o import, o nome do módulo é procurado em  :data:`sys.modules` e, se "
+"estiver presente, o valor associado é o módulo que satisfaz o import, e o "
+"processo termina.  Entretanto, se o valor é ``None``, uma exceção :exc:"
+"`ModuleNotFoundError` é levantada.  Se o nome do módulo não foi encontrado, "
+"Python continuará a busca."
 
 #: ../../reference/import.rst:191
 msgid ""
@@ -355,6 +381,12 @@ msgid ""
 "to ``None``, forcing the next import of the module to result in a :exc:"
 "`ModuleNotFoundError`."
 msgstr ""
+"É possível alterar :data:`sys.modules`.  Apagar uma chave pode não destruir "
+"o objeto módulo associado (outros módulos podem manter referências para "
+"ele), mas a entrada do cache será invalidada para o nome daquele módulo,  "
+"fazendo Python executar nova busca no próximo import. Pode ser atribuído "
+"``None`` para a chave, forçãndo que o próximo importe do módulo resulte numa "
+"exceção :exc:`ModuleNotFoundError`."
 
 #: ../../reference/import.rst:198
 msgid ""
