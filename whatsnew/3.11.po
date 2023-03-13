@@ -2217,6 +2217,11 @@ msgid ""
 "when compiled with GCC on Ubuntu Linux. Depending on your workload, the "
 "overall speedup could be 10-60%."
 msgstr ""
+"O CPython 3.11 é em média `25% mais rápido <https://github.com/faster-"
+"cpython/ideas#published-results>`_ que o CPython 3.10 medido com o conjunto "
+"de ferramentas de benchmarks `pyperformance <https://github.com/python/"
+"pyperformance>`_, quando compilado com GCC no Ubuntu Linux. Dependendo da "
+"sua carga de trabalho, a aceleração geral pode ser de 10 a 60%."
 
 #: ../../whatsnew/3.11.rst:1329
 msgid ""
@@ -2224,6 +2229,10 @@ msgid ""
 "startup` and :ref:`whatsnew311-faster-runtime`. Optimizations not covered by "
 "this project are listed separately under :ref:`whatsnew311-optimizations`."
 msgstr ""
+"Este projeto se concentra em duas áreas principais em Python: :ref:"
+"`whatsnew311-faster-startup` e :ref:`whatsnew311-faster-runtime`. "
+"Otimizações que não são abordadas neste projeto estão listadas em :ref:"
+"`whatsnew311-optimizations`."
 
 #: ../../whatsnew/3.11.rst:1338
 msgid "Faster Startup"
@@ -2238,6 +2247,8 @@ msgid ""
 "Python caches :term:`bytecode` in the :ref:`__pycache__ <tut-pycache>` "
 "directory to speed up module loading."
 msgstr ""
+"O Python armazena o :term:`bytecode` no diretório :ref:`__pycache__ <tut-"
+"pycache>` para acelerar o carregamento do módulo."
 
 #: ../../whatsnew/3.11.rst:1348
 msgid "Previously in 3.10, Python module execution looked like this:"
@@ -2250,6 +2261,10 @@ msgid ""
 "statically allocated by the interpreter. This reduces the steps in module "
 "execution process to:"
 msgstr ""
+"No Python 3.11, os principais módulos essenciais para a inicialização do "
+"Python são \"congelados\". Isso significa que seus :ref:`codeobjects` (e "
+"bytecode) são alocados estaticamente pelo interpretador. Isso reduz as "
+"etapas no processo de execução do módulo para isso:"
 
 #: ../../whatsnew/3.11.rst:1363
 msgid ""
@@ -2263,6 +2278,8 @@ msgstr ""
 msgid ""
 "(Contributed by Eric Snow, Guido van Rossum and Kumar Aditya in many issues.)"
 msgstr ""
+"(Contribuição de Eric Snow, Guido van Rossum e Kumar Aditya em vários "
+"issues.)"
 
 #: ../../whatsnew/3.11.rst:1372
 msgid "Faster Runtime"
@@ -2270,28 +2287,36 @@ msgstr "Tempo de execução mais rápido"
 
 #: ../../whatsnew/3.11.rst:1377
 msgid "Cheaper, lazy Python frames"
-msgstr ""
+msgstr "Quadros Python menos custosos e mais preguiçosos"
 
 #: ../../whatsnew/3.11.rst:1379
 msgid ""
 "Python frames, holding execution information, are created whenever Python "
 "calls a Python function. The following are new frame optimizations:"
 msgstr ""
+"Os quadros do Python, contendo informações de execução, são criados sempre "
+"que o Python chama uma função do Python. A seguir estão as novas otimizações "
+"de quadro:"
 
 #: ../../whatsnew/3.11.rst:1383
 msgid "Streamlined the frame creation process."
-msgstr ""
+msgstr "Simplificado o processo de criação do quadro."
 
 #: ../../whatsnew/3.11.rst:1384
 msgid ""
 "Avoided memory allocation by generously re-using frame space on the C stack."
 msgstr ""
+"Alocação de memória evitada reutilizando generosamente o espaço do quadro na "
+"pilha C."
 
 #: ../../whatsnew/3.11.rst:1385
 msgid ""
 "Streamlined the internal frame struct to contain only essential information. "
 "Frames previously held extra debugging and memory management information."
 msgstr ""
+"Simplificada a estrutura interna do quadro para conter apenas as informações "
+"essenciais. Os quadros anteriormente continham informações extras de "
+"depuração e gerenciamento de memória."
 
 #: ../../whatsnew/3.11.rst:1388
 msgid ""
@@ -2302,6 +2327,12 @@ msgid ""
 "calls have sped up significantly. We measured a 3-7% speedup in "
 "pyperformance."
 msgstr ""
+"Os antigos :ref:`objetos quadros <frame-objects>` agora são criados apenas "
+"quando solicitados por depuradores ou por funções de introspecção do Python, "
+"como :func:`sys._getframe` e :func:`inspect.currentframe`. Para a maioria "
+"dos códigos de usuário, nenhum objeto quadro é criado. Como resultado, quase "
+"todas as chamadas de funções do Python aceleraram significativamente. "
+"Medimos uma aceleração de 3 a 7% no desempenho do py."
 
 #: ../../whatsnew/3.11.rst:1395
 msgid "(Contributed by Mark Shannon in :issue:`44590`.)"
@@ -2309,7 +2340,7 @@ msgstr "(Contribuição de Mark Shannon em :issue:`44590`.)"
 
 #: ../../whatsnew/3.11.rst:1402
 msgid "Inlined Python function calls"
-msgstr ""
+msgstr "Chamadas de função Python em linha"
 
 #: ../../whatsnew/3.11.rst:1404
 msgid ""
@@ -2317,6 +2348,9 @@ msgid ""
 "interpret that function's code. This effectively limits pure Python "
 "recursion to what's safe for the C stack."
 msgstr ""
+"Durante a chamada de uma função Python, o Python chamará uma função C de "
+"avaliação para interpretar o código dessa função. Isso efetivamente limita a "
+"recursão Python pura ao que é seguro para a pilha C."
 
 #: ../../whatsnew/3.11.rst:1408
 msgid ""
@@ -2324,6 +2358,9 @@ msgid ""
 "it sets up a new frame, and \"jumps\" to the new code inside the new frame. "
 "This avoids calling the C interpreting function altogether."
 msgstr ""
+"No 3.11, quando o CPython detecta o código Python chamando outra função "
+"Python, ele configura um novo quadro e \"pula\" para o novo código dentro do "
+"novo quadro. Isso evita chamar a função de interpretação C completamente."
 
 #: ../../whatsnew/3.11.rst:1412
 msgid ""
@@ -2333,10 +2370,16 @@ msgid ""
 "deeper (if the user increases the recursion limit with :func:`sys."
 "setrecursionlimit`). We measured a 1-3% improvement in pyperformance."
 msgstr ""
+"A maioria das chamadas de função do Python agora não consome espaço de pilha "
+"C, acelerando-as. Em funções recursivas simples como fibonacci ou fatorial, "
+"observamos um aumento de velocidade de 1,7x. Isso também significa que as "
+"funções recursivas podem recursar significativamente mais profundamente (se "
+"o usuário aumentar o limite de recursão com :func:`sys.setrecursionlimit`). "
+"Medimos uma melhoria de 1 a 3% no desempenho do py."
 
 #: ../../whatsnew/3.11.rst:1419
 msgid "(Contributed by Pablo Galindo and Mark Shannon in :issue:`45256`.)"
-msgstr ""
+msgstr "(Contribuição de Pablo Galindo e Mark Shannon em :issue:`45256`.)"
 
 #: ../../whatsnew/3.11.rst:1425
 msgid "PEP 659: Specializing Adaptive Interpreter"
@@ -2349,6 +2392,10 @@ msgid ""
 "regions where objects and types rarely change. This concept is known as "
 "*type stability*."
 msgstr ""
+":pep:`659` é uma das partes principais do projeto Faster CPython. A ideia "
+"geral é que, embora o Python seja uma linguagem dinâmica, a maior parte do "
+"código possui regiões onde objetos e tipos raramente mudam. Este conceito é "
+"conhecido como *estabilidade de tipo*."
 
 #: ../../whatsnew/3.11.rst:1431
 msgid ""
@@ -2360,12 +2407,21 @@ msgid ""
 "where Python caches the results of expensive operations directly in the :"
 "term:`bytecode`."
 msgstr ""
+"Em tempo de execução, o Python tentará procurar padrões comuns e "
+"estabilidade de tipo no código em execução. O Python substituirá a operação "
+"atual por uma mais especializada. Essa operação especializada usa caminhos "
+"rápidos disponíveis apenas para esses casos/tipos de uso, que geralmente "
+"superam suas contrapartes genéricas. Isso também traz outro conceito chamado "
+"*cache inline*, onde o Python armazena em cache os resultados de operações "
+"caras diretamente no :term:`bytecode`."
 
 #: ../../whatsnew/3.11.rst:1439
 msgid ""
 "The specializer will also combine certain common instruction pairs into one "
 "superinstruction, reducing the overhead during execution."
 msgstr ""
+"O especializador também combinará certos pares de instruções comuns em uma "
+"superinstrução, reduzindo a sobrecarga durante a execução."
 
 #: ../../whatsnew/3.11.rst:1442
 msgid ""
@@ -2376,6 +2432,12 @@ msgid ""
 "attempts are not too expensive, allowing specialization to adapt to new "
 "circumstances."
 msgstr ""
+"O Python só se especializará quando vir um código \"quente\" (executado "
+"várias vezes). Isso evita que o Python perca tempo com código de execução "
+"única. O Python também pode se especializar quando o código é muito dinâmico "
+"ou quando o uso muda. A especialização é tentada periodicamente e as "
+"tentativas de especialização não são muito caras, permitindo que a "
+"especialização se adapte às novas circunstâncias."
 
 #: ../../whatsnew/3.11.rst:1449
 msgid ""
@@ -2413,15 +2475,15 @@ msgstr "Operações binárias"
 
 #: ../../whatsnew/3.11.rst:1460
 msgid "``x + x``"
-msgstr ""
+msgstr "``x + x``"
 
 #: ../../whatsnew/3.11.rst:1462
 msgid "``x - x``"
-msgstr ""
+msgstr "``x - x``"
 
 #: ../../whatsnew/3.11.rst:1464
 msgid "``x * x``"
-msgstr ""
+msgstr "``x * x``"
 
 #: ../../whatsnew/3.11.rst:1460
 msgid ""
@@ -2429,6 +2491,9 @@ msgid ""
 "class:`float` and :class:`str` take custom fast paths for their underlying "
 "types."
 msgstr ""
+"Adicionar, multiplicar e subtrair binários para tipos comuns como :class:"
+"`int`, :class:`float` e :class:`str` usam caminhos rápidos personalizados "
+"para seus tipos subjacentes."
 
 #: ../../whatsnew/3.11.rst:1460
 msgid "10%"
@@ -2451,12 +2516,16 @@ msgid ""
 "Subscripting container types such as :class:`list`, :class:`tuple` and :"
 "class:`dict` directly index the underlying data structures."
 msgstr ""
+"Subscrever tipos contêineres como :class:`list`, :class:`tuple` e :class:"
+"`dict` indexam diretamente as estruturas de dados subjacentes."
 
 #: ../../whatsnew/3.11.rst:1470
 msgid ""
 "Subscripting custom :meth:`~object.__getitem__` is also inlined similar to :"
 "ref:`inline-calls`."
 msgstr ""
+"Subscrever :meth:`~object.__getitem__` personalizado também é inserido em "
+"linha de forma similar a :ref:`inline-calls`."
 
 #: ../../whatsnew/3.11.rst:1466 ../../whatsnew/3.11.rst:1473
 msgid "10-25%"
@@ -2488,11 +2557,11 @@ msgstr "Chamadas"
 
 #: ../../whatsnew/3.11.rst:1476
 msgid "``f(arg)``"
-msgstr ""
+msgstr "``f(arg)``"
 
 #: ../../whatsnew/3.11.rst:1478
 msgid "``C(arg)``"
-msgstr ""
+msgstr "``C(arg)``"
 
 #: ../../whatsnew/3.11.rst:1476
 msgid ""
@@ -2500,6 +2569,9 @@ msgid ""
 "class:`str` directly call their underlying C version. This avoids going "
 "through the internal calling convention."
 msgstr ""
+"Chamadas para funções e tipos (C) embutidos comuns como :func:`len` e :class:"
+"`str` chamam diretamente sua versão C subjacente. Isso evita passar pela "
+"convenção de chamada interna."
 
 #: ../../whatsnew/3.11.rst:1476
 msgid "20%"
@@ -2515,11 +2587,11 @@ msgstr "Carregar variável global"
 
 #: ../../whatsnew/3.11.rst:1481
 msgid "``print``"
-msgstr ""
+msgstr "``print``"
 
 #: ../../whatsnew/3.11.rst:1483
 msgid "``len``"
-msgstr ""
+msgstr "``len``"
 
 #: ../../whatsnew/3.11.rst:1481
 msgid ""
@@ -2531,7 +2603,7 @@ msgstr ""
 
 #: ../../whatsnew/3.11.rst:1481
 msgid "[#load-global]_"
-msgstr ""
+msgstr "[#load-global]_"
 
 #: ../../whatsnew/3.11.rst:1481 ../../whatsnew/3.11.rst:1485
 #: ../../whatsnew/3.11.rst:1494
@@ -2558,7 +2630,7 @@ msgstr ""
 
 #: ../../whatsnew/3.11.rst:1485
 msgid "[#load-attr]_"
-msgstr ""
+msgstr "[#load-attr]_"
 
 #: ../../whatsnew/3.11.rst:1490
 msgid "Load methods for call"
@@ -2614,6 +2686,8 @@ msgid ""
 "Specialized for common containers such as :class:`list` and :class:`tuple`. "
 "Avoids internal calling convention."
 msgstr ""
+"Especializado para contêineres comuns como :class:`list` e :class:`tuple`. "
+"Evita convenção de chamada interna."
 
 #: ../../whatsnew/3.11.rst:1497
 msgid "8%"
@@ -2628,6 +2702,8 @@ msgid ""
 "A similar optimization already existed since Python 3.8. 3.11 specializes "
 "for more forms and reduces some overhead."
 msgstr ""
+"Uma otimização semelhante já existia desde o Python 3.8. O 3.11 é "
+"especializado em mais formas e reduz algumas despesas gerais."
 
 #: ../../whatsnew/3.11.rst:1505
 msgid ""
@@ -2641,7 +2717,7 @@ msgstr ""
 
 #: ../../whatsnew/3.11.rst:1513
 msgid "Misc"
-msgstr ""
+msgstr "Diversos"
 
 #: ../../whatsnew/3.11.rst:1515
 msgid ""
@@ -2649,6 +2725,10 @@ msgid ""
 "Their namespace dictionaries now also share keys more freely. (Contributed "
 "Mark Shannon in :issue:`45340` and :issue:`40116`.)"
 msgstr ""
+"Os objetos agora requerem menos memória devido aos espaços de nomes de "
+"objetos criados lentamente. Seus dicionários de espaços de nomes agora "
+"também compartilham chaves mais livremente. (Contribuição de Mark Shannon "
+"em :issue:`45340` e :issue:`40116`.)"
 
 #: ../../whatsnew/3.11.rst:1519
 msgid ""
@@ -2656,6 +2736,9 @@ msgid ""
 "`try` statements when no exception is raised. (Contributed by Mark Shannon "
 "in :issue:`40222`.)"
 msgstr ""
+"Exceções de \"custo zero\" estão implementadas, eliminando o custo das "
+"instruções :keyword:`try` quando nenhuma exceção é gerada. (Contribuição de "
+"Mark Shannon em :issue:`40222`.)"
 
 #: ../../whatsnew/3.11.rst:1523
 msgid ""
@@ -2663,6 +2746,9 @@ msgid ""
 "time required for catching an exception by about 10%. (Contributed by Irit "
 "Katriel in :issue:`45711`.)"
 msgstr ""
+"Uma representação mais concisa de exceções no interpretador reduziu o tempo "
+"necessário para capturar uma exceção em cerca de 10%. (Contribuição de Irit "
+"Katriel em :issue:`45711`.)"
 
 #: ../../whatsnew/3.11.rst:1527
 msgid ""
@@ -2673,6 +2759,12 @@ msgid ""
 "html#regex-dna>`_ up to 10% faster than Python 3.10. (Contributed by Brandt "
 "Bucher in :gh:`91404`.)"
 msgstr ""
+"O mecanismo de correspondência de expressão regular do :mod:`re` foi "
+"parcialmente refatorado e agora usa *gotos* computados (ou \"código "
+"encadeado\") em plataformas suportadas. Como resultado, o Python 3.11 "
+"executa os `benchmarks de expressão regular do pyperformance <https://"
+"pyperformance.readthedocs.io/benchmarks.html#regex-dna>`_ até 10% mais "
+"rápido que o Python 3.10. (Contribuição de Brandt Bucher em :gh:`91404`.)"
 
 #: ../../whatsnew/3.11.rst:1538
 msgid "FAQ"
@@ -2680,7 +2772,7 @@ msgstr "FAQ"
 
 #: ../../whatsnew/3.11.rst:1543
 msgid "How should I write my code to utilize these speedups?"
-msgstr ""
+msgstr "Como devo escrever meu código para utilizar esses aceleradores?"
 
 #: ../../whatsnew/3.11.rst:1545
 msgid ""
@@ -2688,10 +2780,13 @@ msgid ""
 "change your code. The Faster CPython project optimizes for common code "
 "patterns we observe."
 msgstr ""
+"Escrever código pythônico que segue as melhores práticas comuns; você não "
+"precisa alterar seu código. O projeto Faster CPython otimiza para padrões de "
+"código comuns que observamos."
 
 #: ../../whatsnew/3.11.rst:1553
 msgid "Will CPython 3.11 use more memory?"
-msgstr ""
+msgstr "O CPython 3.11 usará mais memória?"
 
 #: ../../whatsnew/3.11.rst:1555
 msgid ""
@@ -2699,10 +2794,13 @@ msgid ""
 "is offset by memory optimizations for frame objects and object dictionaries "
 "as mentioned above."
 msgstr ""
+"Talvez não; não esperamos que o uso de memória exceda 20% a mais que 3.10. "
+"Isso é compensado por otimizações de memória para objetos quadro e "
+"dicionários de objetos, conforme mencionado acima."
 
 #: ../../whatsnew/3.11.rst:1563
 msgid "I don't see any speedups in my workload. Why?"
-msgstr ""
+msgstr "Não vejo nenhuma aceleração em minha carga de trabalho. Por que?"
 
 #: ../../whatsnew/3.11.rst:1565
 msgid ""
@@ -2711,6 +2809,11 @@ msgid ""
 "extension library like NumPy, there won't be significant speedups. This "
 "project currently benefits pure-Python workloads the most."
 msgstr ""
+"Certos códigos não terão benefícios perceptíveis. Se seu código passa a "
+"maior parte do tempo em operações de E/S ou já faz a maior parte de sua "
+"computação em uma biblioteca de extensão C como NumPy, não haverá "
+"acelerações significativas. Atualmente, esse projeto é o que mais beneficia "
+"as cargas de trabalho Python puro."
 
 #: ../../whatsnew/3.11.rst:1570
 msgid ""
@@ -2718,18 +2821,21 @@ msgid ""
 "pyperformance benchmarks, certain benchmarks have slowed down slightly, "
 "while others have sped up by nearly 2x!"
 msgstr ""
+"Além disso, os valores de desempenho py são uma média geométrica. Mesmo "
+"dentro dos benchmarks de pyperformance, alguns benchmarks desaceleraram um "
+"pouco, enquanto outros aceleraram quase 2x!"
 
 #: ../../whatsnew/3.11.rst:1578
 msgid "Is there a JIT compiler?"
-msgstr ""
+msgstr "Existe um compilador JIT?"
 
 #: ../../whatsnew/3.11.rst:1580
 msgid "No. We're still exploring other optimizations."
-msgstr ""
+msgstr "Não. Ainda estamos explorando outras otimizações."
 
 #: ../../whatsnew/3.11.rst:1586
 msgid "About"
-msgstr ""
+msgstr "Sobre"
 
 #: ../../whatsnew/3.11.rst:1588
 msgid ""
@@ -2738,6 +2844,11 @@ msgid ""
 "funded by Bloomberg LP to work on the project part-time. Finally, many "
 "contributors are volunteers from the community."
 msgstr ""
+"O Faster CPython explora otimizações para o :term:`CPython`. A equipe "
+"principal é financiada pela Microsoft para trabalhar nisso em tempo "
+"integral. Pablo Galindo Salgado também é financiado pela Bloomberg LP para "
+"trabalhar no projeto em tempo parcial. Finalmente, muitos colaboradores são "
+"voluntários da comunidade."
 
 #: ../../whatsnew/3.11.rst:1597
 msgid "CPython bytecode changes"
@@ -2752,6 +2863,13 @@ msgid ""
 "care should be taken when reading or modifying raw, adaptive bytecode "
 "containing quickened data."
 msgstr ""
+"O bytecode agora contém entradas de cache inline, que assumem a forma das "
+"instruções recém-adicionadas :opcode:`CACHE`. Muitos códigos de operações, "
+"ou *opcodes*,  esperam ser seguidos por um número exato de caches e instruem "
+"o interpretador a ignorá-los em tempo de execução. Os caches preenchidos "
+"podem parecer instruções arbitrárias, portanto, muito cuidado deve ser "
+"tomado ao ler ou modificar o bytecode adaptativo bruto que contém dados "
+"acelerados."
 
 #: ../../whatsnew/3.11.rst:1611
 msgid "New opcodes"
@@ -2762,22 +2880,28 @@ msgid ""
 ":opcode:`ASYNC_GEN_WRAP`, :opcode:`RETURN_GENERATOR` and :opcode:`SEND`, "
 "used in generators and co-routines."
 msgstr ""
+":opcode:`ASYNC_GEN_WRAP`, :opcode:`RETURN_GENERATOR` e :opcode:`SEND`, "
+"usados em geradores e corrotinas."
 
 #: ../../whatsnew/3.11.rst:1616
 msgid ""
 ":opcode:`COPY_FREE_VARS`, which avoids needing special caller-side code for "
 "closures."
 msgstr ""
+":opcode:`COPY_FREE_VARS`, que evita precisar de código especial no lado do "
+"chamado para fechamentos."
 
 #: ../../whatsnew/3.11.rst:1619
 msgid ""
 ":opcode:`JUMP_BACKWARD_NO_INTERRUPT`, for use in certain loops where "
 "handling interrupts is undesirable."
 msgstr ""
+":opcode:`JUMP_BACKWARD_NO_INTERRUPT`, para usasr em certos loops nos quais o "
+"tratamento de interrupções é indesejável."
 
 #: ../../whatsnew/3.11.rst:1622
 msgid ":opcode:`MAKE_CELL`, to create :ref:`cell-objects`."
-msgstr ""
+msgstr ":opcode:`MAKE_CELL`, para criar :ref:`cell-objects`."
 
 #: ../../whatsnew/3.11.rst:1624
 msgid ""
@@ -2785,28 +2909,33 @@ msgid ""
 "ref:`new exception groups and except* <whatsnew311-pep654>` added in :pep:"
 "`654`."
 msgstr ""
+":opcode:`CHECK_EG_MATCH`  e:opcode:`PREP_RERAISE_STAR`, para manipular :ref:"
+"`novos grupos de exceção e except* <whatsnew311-pep654>` adicionados na :pep:"
+"`654`."
 
 #: ../../whatsnew/3.11.rst:1628
 msgid ":opcode:`PUSH_EXC_INFO`, for use in exception handlers."
-msgstr ""
+msgstr ":opcode:`PUSH_EXC_INFO`, para uso em manipuladores de exceção."
 
 #: ../../whatsnew/3.11.rst:1630
 msgid ""
 ":opcode:`RESUME`, a no-op, for internal tracing, debugging and optimization "
 "checks."
 msgstr ""
+":opcode:`RESUME`, um *no-op*, para rastreamento interno, depuração e "
+"verificações de otimização."
 
 #: ../../whatsnew/3.11.rst:1637
 msgid "Replaced opcodes"
-msgstr ""
+msgstr "Opcodes substituídos"
 
 #: ../../whatsnew/3.11.rst:1640
 msgid "Replaced Opcode(s)"
-msgstr ""
+msgstr "Opcode(s) substituído(s)"
 
 #: ../../whatsnew/3.11.rst:1640
 msgid "New Opcode(s)"
-msgstr ""
+msgstr "Novo(s) opcode(s)"
 
 #: ../../whatsnew/3.11.rst:1640
 msgid "Notes"
@@ -2814,147 +2943,152 @@ msgstr "Notas"
 
 #: ../../whatsnew/3.11.rst:0
 msgid ":opcode:`!BINARY_*`"
-msgstr ""
+msgstr ":opcode:`!BINARY_*`"
 
 #: ../../whatsnew/3.11.rst:0
 msgid ":opcode:`!INPLACE_*`"
-msgstr ""
+msgstr ":opcode:`!INPLACE_*`"
 
 #: ../../whatsnew/3.11.rst:1642
 msgid ":opcode:`BINARY_OP`"
-msgstr ""
+msgstr ":opcode:`BINARY_OP`"
 
 #: ../../whatsnew/3.11.rst:1642
 msgid "Replaced all numeric binary/in-place opcodes with a single opcode"
 msgstr ""
+"Substituiu todos os opcodes numéricos binários/no local por um único opcode"
 
 #: ../../whatsnew/3.11.rst:0
 msgid ":opcode:`!CALL_FUNCTION`"
-msgstr ""
+msgstr ":opcode:`!CALL_FUNCTION`"
 
 #: ../../whatsnew/3.11.rst:0
 msgid ":opcode:`!CALL_FUNCTION_KW`"
-msgstr ""
+msgstr ":opcode:`!CALL_FUNCTION_KW`"
 
 #: ../../whatsnew/3.11.rst:0
 msgid ":opcode:`!CALL_METHOD`"
-msgstr ""
+msgstr ":opcode:`!CALL_METHOD`"
 
 #: ../../whatsnew/3.11.rst:0
 msgid ":opcode:`CALL`"
-msgstr ""
+msgstr ":opcode:`CALL`"
 
 #: ../../whatsnew/3.11.rst:0
 msgid ":opcode:`KW_NAMES`"
-msgstr ""
+msgstr ":opcode:`KW_NAMES`"
 
 #: ../../whatsnew/3.11.rst:0
 msgid ":opcode:`PRECALL`"
-msgstr ""
+msgstr ":opcode:`PRECALL`"
 
 #: ../../whatsnew/3.11.rst:0
 msgid ":opcode:`PUSH_NULL`"
-msgstr ""
+msgstr ":opcode:`PUSH_NULL`"
 
 #: ../../whatsnew/3.11.rst:1645
 msgid ""
 "Decouples argument shifting for methods from handling of keyword arguments; "
 "allows better specialization of calls"
 msgstr ""
+"Separa a mudança de argumento para métodos da manipulação de argumentos "
+"nomeados; permite uma melhor especialização dos atendimentos"
 
 #: ../../whatsnew/3.11.rst:0
 msgid ":opcode:`!DUP_TOP`"
-msgstr ""
+msgstr ":opcode:`!DUP_TOP`"
 
 #: ../../whatsnew/3.11.rst:0
 msgid ":opcode:`!DUP_TOP_TWO`"
-msgstr ""
+msgstr ":opcode:`!DUP_TOP_TWO`"
 
 #: ../../whatsnew/3.11.rst:0
 msgid ":opcode:`!ROT_TWO`"
-msgstr ""
+msgstr ":opcode:`!ROT_TWO`"
 
 #: ../../whatsnew/3.11.rst:0
 msgid ":opcode:`!ROT_THREE`"
-msgstr ""
+msgstr ":opcode:`!ROT_THREE`"
 
 #: ../../whatsnew/3.11.rst:0
 msgid ":opcode:`!ROT_FOUR`"
-msgstr ""
+msgstr ":opcode:`!ROT_FOUR`"
 
 #: ../../whatsnew/3.11.rst:0
 msgid ":opcode:`!ROT_N`"
-msgstr ""
+msgstr ":opcode:`!ROT_N`"
 
 #: ../../whatsnew/3.11.rst:0
 msgid ":opcode:`COPY`"
-msgstr ""
+msgstr ":opcode:`COPY`"
 
 #: ../../whatsnew/3.11.rst:0
 msgid ":opcode:`SWAP`"
-msgstr ""
+msgstr ":opcode:`SWAP`"
 
 #: ../../whatsnew/3.11.rst:1650
 msgid "Stack manipulation instructions"
-msgstr ""
+msgstr "Instruções de manipulação de pilha"
 
 #: ../../whatsnew/3.11.rst:0
 msgid ":opcode:`!JUMP_IF_NOT_EXC_MATCH`"
-msgstr ""
+msgstr ":opcode:`!JUMP_IF_NOT_EXC_MATCH`"
 
 #: ../../whatsnew/3.11.rst:0
 msgid ":opcode:`CHECK_EXC_MATCH`"
-msgstr ""
+msgstr ":opcode:`CHECK_EXC_MATCH`"
 
 #: ../../whatsnew/3.11.rst:1657
 msgid "Now performs check but doesn't jump"
-msgstr ""
+msgstr "Agora efetua verificações, mas não pula"
 
 #: ../../whatsnew/3.11.rst:0
 msgid ":opcode:`!JUMP_ABSOLUTE`"
-msgstr ""
+msgstr ":opcode:`!JUMP_ABSOLUTE`"
 
 #: ../../whatsnew/3.11.rst:0
 msgid ":opcode:`!POP_JUMP_IF_FALSE`"
-msgstr ""
+msgstr ":opcode:`!POP_JUMP_IF_FALSE`"
 
 #: ../../whatsnew/3.11.rst:0
 msgid ":opcode:`!POP_JUMP_IF_TRUE`"
-msgstr ""
+msgstr ":opcode:`!POP_JUMP_IF_TRUE`"
 
 #: ../../whatsnew/3.11.rst:0
 msgid ":opcode:`JUMP_BACKWARD`"
-msgstr ""
+msgstr ":opcode:`JUMP_BACKWARD`"
 
 #: ../../whatsnew/3.11.rst:0
 msgid ":opcode:`POP_JUMP_BACKWARD_IF_* <POP_JUMP_BACKWARD_IF_TRUE>`"
-msgstr ""
+msgstr ":opcode:`POP_JUMP_BACKWARD_IF_* <POP_JUMP_BACKWARD_IF_TRUE>`"
 
 #: ../../whatsnew/3.11.rst:0
 msgid ":opcode:`POP_JUMP_FORWARD_IF_* <POP_JUMP_FORWARD_IF_TRUE>`"
-msgstr ""
+msgstr ":opcode:`POP_JUMP_FORWARD_IF_* <POP_JUMP_FORWARD_IF_TRUE>`"
 
 #: ../../whatsnew/3.11.rst:1659
 msgid ""
 "See [#bytecode-jump]_; ``TRUE``, ``FALSE``, ``NONE`` and ``NOT_NONE`` "
 "variants for each direction"
 msgstr ""
+"Veja [#bytecode-jump]_. Variantes ``TRUE``, ``FALSE``, ``NONE`` e "
+"``NOT_NONE`` para cada direção"
 
 #: ../../whatsnew/3.11.rst:0
 msgid ":opcode:`!SETUP_WITH`"
-msgstr ""
+msgstr ":opcode:`!SETUP_WITH`"
 
 #: ../../whatsnew/3.11.rst:0
 msgid ":opcode:`!SETUP_ASYNC_WITH`"
-msgstr ""
+msgstr ":opcode:`!SETUP_ASYNC_WITH`"
 
 #: ../../whatsnew/3.11.rst:1665
 msgid ":opcode:`BEFORE_WITH`"
-msgstr ""
+msgstr ":opcode:`BEFORE_WITH`"
 
 #: ../../whatsnew/3.11.rst:1665
 msgid ":keyword:`with` block setup"
-msgstr ""
+msgstr "Configuração de bloco :keyword:`with`"
 
 #: ../../whatsnew/3.11.rst:1669
 msgid ""
@@ -2962,10 +3096,13 @@ msgid ""
 "`JUMP_IF_TRUE_OR_POP` and :opcode:`JUMP_IF_FALSE_OR_POP`. The argument is "
 "now an offset from the current instruction rather than an absolute location."
 msgstr ""
+"Todos os opcodes de salto agora são relativos, incluindo os existentes :"
+"opcode:`JUMP_IF_TRUE_OR_POP` e :opcode:`JUMP_IF_FALSE_OR_POP`. O argumento "
+"agora é um deslocamento da instrução atual em vez de um local absoluto."
 
 #: ../../whatsnew/3.11.rst:1680
 msgid "Changed/removed opcodes"
-msgstr ""
+msgstr "Opcodes alterados/removidos"
 
 #: ../../whatsnew/3.11.rst:1682
 msgid ""
@@ -2973,18 +3110,25 @@ msgid ""
 "additional boolean value to indicate success/failure. Instead, ``None`` is "
 "pushed on failure in place of the tuple of extracted values."
 msgstr ""
+"Alterados :opcode:`MATCH_CLASS` e :opcode:`MATCH_KEYS` para não enviar mais "
+"um valor booleano adicional para indicar sucesso/falha. Em vez disso, "
+"``None`` é enviado em caso de falha no lugar da tupla de valores extraídos."
 
 #: ../../whatsnew/3.11.rst:1687
 msgid ""
 "Changed opcodes that work with exceptions to reflect them now being "
 "represented as one item on the stack instead of three (see :gh:`89874`)."
 msgstr ""
+"Alterados opcodes que funcionam com exceções para refleti-los agora sendo "
+"representados como um item na pilha em vez de três (consulte :gh:`89874`)."
 
 #: ../../whatsnew/3.11.rst:1691
 msgid ""
 "Removed :opcode:`!COPY_DICT_WITHOUT_KEYS`, :opcode:`!GEN_START`, :opcode:`!"
 "POP_BLOCK`, :opcode:`!SETUP_FINALLY` and :opcode:`!YIELD_FROM`."
 msgstr ""
+"Removidos :opcode:`!COPY_DICT_WITHOUT_KEYS`, :opcode:`!GEN_START`, :opcode:`!"
+"POP_BLOCK`, :opcode:`!SETUP_FINALLY` e :opcode:`!YIELD_FROM`."
 
 #: ../../whatsnew/3.11.rst:1699 ../../whatsnew/3.11.rst:2575
 msgid "Deprecated"
@@ -2994,16 +3138,19 @@ msgstr "Descontinuados"
 msgid ""
 "This section lists Python APIs that have been deprecated in Python 3.11."
 msgstr ""
+"Esta seção lista as APIs do Python que foram descontinuadas no Python 3.11."
 
 #: ../../whatsnew/3.11.rst:1703
 msgid ""
 "Deprecated C APIs are :ref:`listed separately <whatsnew311-c-api-"
 "deprecated>`."
 msgstr ""
+"As APIs C descontinuadas são :ref:`listadas separadamente <whatsnew311-c-api-"
+"deprecated>`."
 
 #: ../../whatsnew/3.11.rst:1710
 msgid "Language/Builtins"
-msgstr ""
+msgstr "Linguagem/Embutidos"
 
 #: ../../whatsnew/3.11.rst:1712
 msgid ""
@@ -3014,6 +3161,13 @@ msgid ""
 "consider using the :attr:`!__wrapped__` attribute that was added in Python "
 "3.10. (Contributed by Raymond Hettinger in :gh:`89519`.)"
 msgstr ""
+"O encadeamento de descritores :class:`classmethod` (introduzido em :issue:"
+"`19072`) agora foi descontinuado. Ele não pode mais ser usado para agrupar "
+"outros descritores como :class:`property`. O design principal desse recurso "
+"era falho e causava vários problemas posteriores. Para \"passar\" um :class:"
+"`classmethod`, considere usar o atributo :attr:`!__wrapped__` que foi "
+"adicionado no Python 3.10. (Contribuição de Raymond Hettinger em :gh:"
+"`89519`.)"
 
 #: ../../whatsnew/3.11.rst:1720
 msgid ""
@@ -3022,6 +3176,10 @@ msgid ""
 "version, they will raise a :exc:`SyntaxWarning` and eventually a :exc:"
 "`SyntaxError`. (Contributed by Serhiy Storchaka in :gh:`81548`.)"
 msgstr ""
+"Escapes octais em strings e bytes literais com valores maiores que ``0o377`` "
+"(255 em decimal) agora produzem um :exc:`DeprecationWarning`. Em uma versão "
+"futura do Python, eles levantarão um :exc:`SyntaxWarning` e eventualmente "
+"um :exc:`SyntaxError`. (Contribuição de Serhiy Storchaka em :gh:`81548`.)"
 
 #: ../../whatsnew/3.11.rst:1726
 msgid ""
@@ -3046,88 +3204,92 @@ msgid ""
 ":pep:`594` led to the deprecations of the following modules slated for "
 "removal in Python 3.13:"
 msgstr ""
+":pep:`594` levou à descontinuação dos seguintes módulos programados para "
+"remoção no Python 3.13:"
 
 #: ../../whatsnew/3.11.rst:1744
 msgid ":mod:`aifc`"
-msgstr ""
+msgstr ":mod:`aifc`"
 
 #: ../../whatsnew/3.11.rst:1744
 msgid ":mod:`chunk`"
-msgstr ""
+msgstr ":mod:`chunk`"
 
 #: ../../whatsnew/3.11.rst:1744
 msgid ":mod:`msilib`"
-msgstr ""
+msgstr ":mod:`msilib`"
 
 #: ../../whatsnew/3.11.rst:1744
 msgid ":mod:`pipes`"
-msgstr ""
+msgstr ":mod:`pipes`"
 
 #: ../../whatsnew/3.11.rst:1744
 msgid ":mod:`telnetlib`"
-msgstr ""
+msgstr ":mod:`telnetlib`"
 
 #: ../../whatsnew/3.11.rst:1746
 msgid ":mod:`audioop`"
-msgstr ""
+msgstr ":mod:`audioop`"
 
 #: ../../whatsnew/3.11.rst:1746
 msgid ":mod:`crypt`"
-msgstr ""
+msgstr ":mod:`crypt`"
 
 #: ../../whatsnew/3.11.rst:1746
 msgid ":mod:`nis`"
-msgstr ""
+msgstr ":mod:`nis`"
 
 #: ../../whatsnew/3.11.rst:1746
 msgid ":mod:`sndhdr`"
-msgstr ""
+msgstr ":mod:`sndhdr`"
 
 #: ../../whatsnew/3.11.rst:1746
 msgid ":mod:`uu`"
-msgstr ""
+msgstr ":mod:`uu`"
 
 #: ../../whatsnew/3.11.rst:1748
 msgid ":mod:`cgi`"
-msgstr ""
+msgstr ":mod:`cgi`"
 
 #: ../../whatsnew/3.11.rst:1748
 msgid ":mod:`imghdr`"
-msgstr ""
+msgstr ":mod:`imghdr`"
 
 #: ../../whatsnew/3.11.rst:1748
 msgid ":mod:`nntplib`"
-msgstr ""
+msgstr ":mod:`nntplib`"
 
 #: ../../whatsnew/3.11.rst:1748
 msgid ":mod:`spwd`"
-msgstr ""
+msgstr ":mod:`spwd`"
 
 #: ../../whatsnew/3.11.rst:1748
 msgid ":mod:`xdrlib`"
-msgstr ""
+msgstr ":mod:`xdrlib`"
 
 #: ../../whatsnew/3.11.rst:1750
 msgid ":mod:`cgitb`"
-msgstr ""
+msgstr ":mod:`cgitb`"
 
 #: ../../whatsnew/3.11.rst:1750
 msgid ":mod:`mailcap`"
-msgstr ""
+msgstr ":mod:`mailcap`"
 
 #: ../../whatsnew/3.11.rst:1750
 msgid ":mod:`ossaudiodev`"
-msgstr ""
+msgstr ":mod:`ossaudiodev`"
 
 #: ../../whatsnew/3.11.rst:1750
 msgid ":mod:`sunau`"
-msgstr ""
+msgstr ":mod:`sunau`"
 
 #: ../../whatsnew/3.11.rst:1753
 msgid ""
 "(Contributed by Brett Cannon in :issue:`47061` and Victor Stinner in :gh:"
 "`68966`.)"
 msgstr ""
+"(Contribuição de Brett Cannon em :issue:`47061` e Victor Stinner em :gh:"
+"`68966`.)"
 
 #: ../../whatsnew/3.11.rst:1756
 msgid ""
