@@ -4765,6 +4765,14 @@ msgid ""
 "If they have been included directly, consider including ``Python.h`` "
 "instead. (Contributed by Victor Stinner in :issue:`35134`.)"
 msgstr ""
+"Os arquivos API não limitados ``cellobject.h``, ``classobject.h``, ``code."
+"h``, ``context.h``, ``funcobject.h``, ``genobject.h`` e ``longintrepr.h`` "
+"foram movidos para o diretório ``Include/cpython``. Além disso, o arquivo de "
+"cabeçalho ``eval.h`` foi removido. Esses arquivos não devem ser incluídos "
+"diretamente, pois já estão incluídos aos :ref:`arquivos de inclusão <api-"
+"includes>` do ``Python.h``. Se eles foram incluídos diretamente, considere "
+"incluir ``Python.h`` em seu lugar. (Contribuição de Victor Stinner em :issue:"
+"`35134`.)"
 
 #: ../../whatsnew/3.11.rst:2407
 msgid ""
@@ -4773,6 +4781,10 @@ msgid ""
 "structures which are not available in the limited C API. (Contributed by "
 "Victor Stinner in :issue:`46007`.)"
 msgstr ""
+"A macro :c:func:`PyUnicode_CHECK_INTERNED` foi excluída da API C limitada. "
+"Nunca foi utilizável lá, porque usava estruturas internas que não estão "
+"disponíveis na API C limitada. (Contribuição de Victor Stinner em :issue:"
+"`46007`.)"
 
 #: ../../whatsnew/3.11.rst:2412
 msgid ""
@@ -4780,6 +4792,9 @@ msgid ""
 "``#include <Python.h>``, it's no longer needed to add ``#include "
 "<frameobject.h>``:"
 msgstr ""
+"As seguintes funções e tipo de quadro agora estão disponíveis diretamente "
+"com ``#include <Python.h>``, não é mais necessário adicionar ``#include "
+"<frameobject.h>``:"
 
 #: ../../whatsnew/3.11.rst:2416
 msgid ":c:func:`PyFrame_Check`"
@@ -4815,13 +4830,15 @@ msgstr ":c:type:`PyFrame_Type`"
 
 #: ../../whatsnew/3.11.rst:2425
 msgid "(Contributed by Victor Stinner in :gh:`93937`.)"
-msgstr ""
+msgstr "(Contribuição de Victor Stinner em :gh:`93937`.)"
 
 #: ../../whatsnew/3.11.rst:2429
 msgid ""
 "The :c:type:`PyFrameObject` structure members have been removed from the "
 "public C API."
 msgstr ""
+"Os membros da estrutura :c:type:`PyFrameObject` foram removidos da API C "
+"pública."
 
 #: ../../whatsnew/3.11.rst:2432
 msgid ""
@@ -4829,6 +4846,9 @@ msgid ""
 "subject to change at any time, they have been stable for a long time and "
 "were used in several popular extensions."
 msgstr ""
+"Embora a documentação observe que os campos :c:type:`PyFrameObject` estão "
+"sujeitos a alterações a qualquer momento, eles permaneceram estáveis por um "
+"longo tempo e foram usados em várias extensões populares."
 
 #: ../../whatsnew/3.11.rst:2436
 msgid ""
@@ -4836,10 +4856,13 @@ msgid ""
 "optimizations. Some fields were removed entirely, as they were details of "
 "the old implementation."
 msgstr ""
+"No Python 3.11, a estrutura do quadro foi reorganizada para permitir "
+"otimizações de desempenho. Alguns campos foram totalmente removidos, pois "
+"eram detalhes da antiga implementação."
 
 #: ../../whatsnew/3.11.rst:2440
 msgid ":c:type:`PyFrameObject` fields:"
-msgstr ""
+msgstr "Campos do :c:type:`PyFrameObject`:"
 
 #: ../../whatsnew/3.11.rst:2442
 msgid "``f_back``: use :c:func:`PyFrame_GetBack`."
@@ -4847,7 +4870,7 @@ msgstr "``f_back``: use :c:func:`PyFrame_GetBack`."
 
 #: ../../whatsnew/3.11.rst:2443
 msgid "``f_blockstack``: removed."
-msgstr ""
+msgstr "``f_blockstack``: removido."
 
 #: ../../whatsnew/3.11.rst:2444
 msgid "``f_builtins``: use :c:func:`PyFrame_GetBuiltins`."
@@ -4867,7 +4890,7 @@ msgstr "``f_globals``: use :c:func:`PyFrame_GetGlobals`."
 
 #: ../../whatsnew/3.11.rst:2448
 msgid "``f_iblock``: removed."
-msgstr ""
+msgstr "``f_iblock``: removido."
 
 #: ../../whatsnew/3.11.rst:2449
 msgid ""
@@ -4875,6 +4898,9 @@ msgid ""
 "``PyCode_Addr2Line()`` should use :c:func:`PyFrame_GetLineNumber` instead; "
 "it may be faster."
 msgstr ""
+"``f_lasti``: use :c:func:`PyFrame_GetLasti`. Código usando ``f_lasti`` com "
+"``PyCode_Addr2Line()`` deve usar :c:func:`PyFrame_GetLineNumber`, pois deve "
+"ser mais rápido."
 
 #: ../../whatsnew/3.11.rst:2452
 msgid "``f_lineno``: use :c:func:`PyFrame_GetLineNumber`"
@@ -4886,15 +4912,15 @@ msgstr "``f_locals``: use :c:func:`PyFrame_GetLocals`."
 
 #: ../../whatsnew/3.11.rst:2454
 msgid "``f_stackdepth``: removed."
-msgstr ""
+msgstr "``f_stackdepth``: removido."
 
 #: ../../whatsnew/3.11.rst:2455
 msgid "``f_state``: no public API (renamed to ``f_frame.f_state``)."
-msgstr ""
+msgstr "``f_state``: nenhuma API pública (renomeado para ``f_frame.f_state``)."
 
 #: ../../whatsnew/3.11.rst:2456
 msgid "``f_trace``: no public API."
-msgstr ""
+msgstr "``f_trace``: nenhuma API pública."
 
 #: ../../whatsnew/3.11.rst:2457
 msgid ""
@@ -4915,10 +4941,12 @@ msgstr ""
 #: ../../whatsnew/3.11.rst:2459
 msgid "``f_localsplus``: no public API (renamed to ``f_frame.localsplus``)."
 msgstr ""
+"``f_localsplus``: nenhuma API pública (renomeado para ``f_frame."
+"localsplus``)."
 
 #: ../../whatsnew/3.11.rst:2460
 msgid "``f_valuestack``: removed."
-msgstr ""
+msgstr "``f_valuestack``: removido."
 
 #: ../../whatsnew/3.11.rst:2462
 msgid ""
@@ -4927,6 +4955,11 @@ msgid ""
 "computed lazily. The :c:func:`PyFrame_GetBack` function must be called "
 "instead."
 msgstr ""
+"O objeto quadro do Python agora é criado de forma \"preguiçosa\" (*lazy*). "
+"Um efeito colateral é que o membro ``f_back`` não deve ser acessado "
+"diretamente, já que seu valor agora também é calculado de forma "
+"\"preguiçosa\". A função :c:func:`PyFrame_GetBack` deve ser chamada em seu "
+"lugar."
 
 #: ../../whatsnew/3.11.rst:2467
 msgid ""
@@ -4936,24 +4969,32 @@ msgid ""
 "they should not call those functions. The necessary updating of the frame is "
 "now managed by the virtual machine."
 msgstr ""
+"Depuradores que acessam ``f_locals`` diretamente *devem* chamar :c:func:"
+"`PyFrame_GetLocals`. Eles não precisam mais chamar :c:func:"
+"`PyFrame_FastToLocalsWithError` ou :c:func:`PyFrame_LocalsToFast`; na "
+"verdade, eles não devem chamar essas funções. A atualização necessária do "
+"quadro agora é gerenciada pela máquina virtual."
 
 #: ../../whatsnew/3.11.rst:2473
 msgid "Code defining ``PyFrame_GetCode()`` on Python 3.8 and older::"
-msgstr ""
+msgstr "Código definindo ``PyFrame_GetCode()`` no Python 3.8 e anteriores::"
 
 #: ../../whatsnew/3.11.rst:2483
 msgid "Code defining ``PyFrame_GetBack()`` on Python 3.8 and older::"
-msgstr ""
+msgstr "Código definindo ``PyFrame_GetBack()`` no Python 3.8 e anteriores::"
 
 #: ../../whatsnew/3.11.rst:2493
 msgid ""
 "Or use the `pythoncapi_compat project <https://github.com/python/"
 "pythoncapi_compat>`__ to get these two functions on older Python versions."
 msgstr ""
+"Ou use o projeto `pythoncapi_compat <https://github.com/python/"
+"pythoncapi_compat>`__ para obter essas duas funções em versões mais antigas "
+"do Python."
 
 #: ../../whatsnew/3.11.rst:2497
 msgid "Changes of the :c:type:`PyThreadState` structure members:"
-msgstr ""
+msgstr "Mudanças nos membros da estrutura :c:type:`PyThreadState`:"
 
 #: ../../whatsnew/3.11.rst:2499
 msgid ""
@@ -4961,6 +5002,9 @@ msgid ""
 "Python 3.9 by :issue:`40429`). Warning: the function returns a :term:`strong "
 "reference`, need to call :c:func:`Py_XDECREF`."
 msgstr ""
+"``frame``: removido, use :c:func:`PyThreadState_GetFrame` (função adicionada "
+"ao Python 3.9 por :issue:`40429`). Aviso: a função retorna um :term:"
+"`referência forte`, precisa chamar :c:func:`Py_XDECREF`."
 
 #: ../../whatsnew/3.11.rst:2503
 msgid ""
@@ -4968,38 +5012,50 @@ msgid ""
 "`PyThreadState_LeaveTracing` (functions added to Python 3.11 by :issue:"
 "`43760`)."
 msgstr ""
+"``tracing``: alterado, use :c:func:`PyThreadState_EnterTracing` e :c:func:"
+"`PyThreadState_LeaveTracing` (funções adicionadas ao Python 3.11 por :issue:"
+"`43760`)."
 
 #: ../../whatsnew/3.11.rst:2506
 msgid ""
 "``recursion_depth``: removed, use ``(tstate->recursion_limit - tstate-"
 ">recursion_remaining)`` instead."
 msgstr ""
+"``recursion_depth``: removido, use ``(tstate->recursion_limit - tstate-"
+">recursion_remaining)``."
 
 #: ../../whatsnew/3.11.rst:2508
 msgid "``stackcheck_counter``: removed."
-msgstr ""
+msgstr "``stackcheck_counter``: removido."
 
 #: ../../whatsnew/3.11.rst:2510
 msgid "Code defining ``PyThreadState_GetFrame()`` on Python 3.8 and older::"
 msgstr ""
+"Código definindo ``PyThreadState_GetFrame()`` no Python 3.8 e anteriores::"
 
 #: ../../whatsnew/3.11.rst:2520
 msgid ""
 "Code defining ``PyThreadState_EnterTracing()`` and "
 "``PyThreadState_LeaveTracing()`` on Python 3.10 and older::"
 msgstr ""
+"Código definindo ``PyThreadState_EnterTracing()`` e "
+"``PyThreadState_LeaveTracing()`` no Python 3.10 e anteriores::"
 
 #: ../../whatsnew/3.11.rst:2546
 msgid ""
 "Or use `the pythoncapi_compat project <https://github.com/python/"
 "pythoncapi_compat>`__ to get these functions on old Python functions."
 msgstr ""
+"Ou use `o projeto pythoncapi_compat <https://github.com/python/"
+"pythoncapi_compat>`__ para obter essas funções em funções antigas do Python."
 
 #: ../../whatsnew/3.11.rst:2550
 msgid ""
 "Distributors are encouraged to build Python with the optimized Blake2 "
 "library `libb2`_."
 msgstr ""
+"Os distribuidores são encorajados a compilar o Python com a biblioteca "
+"Blake2 otimizada `libb2`_."
 
 #: ../../whatsnew/3.11.rst:2553
 msgid ""
@@ -5008,6 +5064,11 @@ msgid ""
 "initialize :data:`sys.path`. Otherwise, initialization will recalculate the "
 "path and replace any values added to ``module_search_paths``."
 msgstr ""
+"O campo :c:member:`PyConfig.module_search_paths_set` agora deve ser definido "
+"como 1 para inicialização para usar :c:member:`PyConfig.module_search_paths` "
+"para inicializar :data:`sys.path`. Caso contrário, a inicialização "
+"recalculará o caminho e substituirá quaisquer valores adicionados a "
+"``module_search_paths``."
 
 #: ../../whatsnew/3.11.rst:2558
 msgid ""
@@ -5017,11 +5078,17 @@ msgid ""
 "c:func:`PySys_GetObject` to retrieve :data:`sys.path` as a Python list "
 "object and modify it directly."
 msgstr ""
+":c:func:`PyConfig_Read` não calcula mais o caminho de pesquisa inicial e não "
+"preencherá nenhum valor em :c:member:`PyConfig.module_search_paths`. Para "
+"calcular caminhos padrão e modificá-los, termine a inicialização e use :c:"
+"func:`PySys_GetObject` para recuperar :data:`sys.path` como um objeto lista "
+"do Python e modifique-o diretamente."
 
 #: ../../whatsnew/3.11.rst:2569
 msgid ""
 "Deprecate the following functions to configure the Python initialization:"
 msgstr ""
+"Descontinua as seguintes funções para configurar a inicialização do Python:"
 
 #: ../../whatsnew/3.11.rst:2571
 msgid ":c:func:`PySys_AddWarnOptionUnicode`"
@@ -5077,112 +5144,122 @@ msgid ""
 "Configuration <init-config>` instead (:pep:`587`). (Contributed by Victor "
 "Stinner in :gh:`88279`.)"
 msgstr ""
+"Em vez disso, use a nova API :c:type:`PyConfig` da :ref:`Configuração de "
+"Inicialização do Python <init-config>` (:pep:`587`). (Contribuição de Victor "
+"Stinner em :gh:`88279`.)"
 
 #: ../../whatsnew/3.11.rst:2588
 msgid ""
 "Deprecate the ``ob_shash`` member of the :c:type:`PyBytesObject`. Use :c:"
 "func:`PyObject_Hash` instead. (Contributed by Inada Naoki in :issue:`46864`.)"
 msgstr ""
+"Descontinua o membro ``ob_shash`` do :c:type:`PyBytesObject`. Use :c:func:"
+"`PyObject_Hash` em vez disso. (Contribuição de Inada Naoki em :issue:"
+"`46864`.)"
 
 #: ../../whatsnew/3.11.rst:2597
 msgid ""
 "The following C APIs have been deprecated in earlier Python releases, and "
 "will be removed in Python 3.12."
 msgstr ""
+"As seguintes APIs C foram descontinuadas em versões anteriores do Python e "
+"serão removidas no Python 3.12."
 
 #: ../../whatsnew/3.11.rst:2600
 msgid ":c:func:`PyUnicode_AS_DATA`"
-msgstr ""
+msgstr ":c:func:`PyUnicode_AS_DATA`"
 
 #: ../../whatsnew/3.11.rst:2601
 msgid ":c:func:`PyUnicode_AS_UNICODE`"
-msgstr ""
+msgstr ":c:func:`PyUnicode_AS_UNICODE`"
 
 #: ../../whatsnew/3.11.rst:2602
 msgid ":c:func:`PyUnicode_AsUnicodeAndSize`"
-msgstr ""
+msgstr ":c:func:`PyUnicode_AsUnicodeAndSize`"
 
 #: ../../whatsnew/3.11.rst:2603
 msgid ":c:func:`PyUnicode_AsUnicode`"
-msgstr ""
+msgstr ":c:func:`PyUnicode_AsUnicode`"
 
 #: ../../whatsnew/3.11.rst:2604
 msgid ":c:func:`PyUnicode_FromUnicode`"
-msgstr ""
+msgstr ":c:func:`PyUnicode_FromUnicode`"
 
 #: ../../whatsnew/3.11.rst:2605
 msgid ":c:func:`PyUnicode_GET_DATA_SIZE`"
-msgstr ""
+msgstr ":c:func:`PyUnicode_GET_DATA_SIZE`"
 
 #: ../../whatsnew/3.11.rst:2606
 msgid ":c:func:`PyUnicode_GET_SIZE`"
-msgstr ""
+msgstr ":c:func:`PyUnicode_GET_SIZE`"
 
 #: ../../whatsnew/3.11.rst:2607
 msgid ":c:func:`PyUnicode_GetSize`"
-msgstr ""
+msgstr ":c:func:`PyUnicode_GetSize`"
 
 #: ../../whatsnew/3.11.rst:2608
 msgid ":c:func:`PyUnicode_IS_COMPACT`"
-msgstr ""
+msgstr ":c:func:`PyUnicode_IS_COMPACT`"
 
 #: ../../whatsnew/3.11.rst:2609
 msgid ":c:func:`PyUnicode_IS_READY`"
-msgstr ""
+msgstr ":c:func:`PyUnicode_IS_READY`"
 
 #: ../../whatsnew/3.11.rst:2610
 msgid ":c:func:`PyUnicode_READY`"
-msgstr ""
+msgstr ":c:func:`PyUnicode_READY`"
 
 #: ../../whatsnew/3.11.rst:2611
 msgid ":c:func:`Py_UNICODE_WSTR_LENGTH`"
-msgstr ""
+msgstr ":c:func:`Py_UNICODE_WSTR_LENGTH`"
 
 #: ../../whatsnew/3.11.rst:2612
 msgid ":c:func:`_PyUnicode_AsUnicode`"
-msgstr ""
+msgstr ":c:func:`_PyUnicode_AsUnicode`"
 
 #: ../../whatsnew/3.11.rst:2613
 msgid ":c:macro:`PyUnicode_WCHAR_KIND`"
-msgstr ""
+msgstr ":c:macro:`PyUnicode_WCHAR_KIND`"
 
 #: ../../whatsnew/3.11.rst:2614
 msgid ":c:type:`PyUnicodeObject`"
-msgstr ""
+msgstr ":c:type:`PyUnicodeObject`"
 
 #: ../../whatsnew/3.11.rst:2615
 msgid ":c:func:`PyUnicode_InternImmortal()`"
-msgstr ""
+msgstr ":c:func:`PyUnicode_InternImmortal()`"
 
 #: ../../whatsnew/3.11.rst:2623
 msgid ""
 ":c:func:`PyFrame_BlockSetup` and :c:func:`PyFrame_BlockPop` have been "
 "removed. (Contributed by Mark Shannon in :issue:`40222`.)"
 msgstr ""
+":c:func:`PyFrame_BlockSetup` e :c:func:`PyFrame_BlockPop` foram removidas. "
+"(Contribuição de Mark Shannon em :issue:`40222`.)"
 
 #: ../../whatsnew/3.11.rst:2627
 msgid "Remove the following math macros using the ``errno`` variable:"
-msgstr ""
+msgstr "Remove as seguintes macros matemáticas usando a variável ``errno``:"
 
 #: ../../whatsnew/3.11.rst:2629
 msgid "``Py_ADJUST_ERANGE1()``"
-msgstr ""
+msgstr "``Py_ADJUST_ERANGE1()``"
 
 #: ../../whatsnew/3.11.rst:2630
 msgid "``Py_ADJUST_ERANGE2()``"
-msgstr ""
+msgstr "``Py_ADJUST_ERANGE2()``"
 
 #: ../../whatsnew/3.11.rst:2631
 msgid "``Py_OVERFLOWED()``"
-msgstr ""
+msgstr "``Py_OVERFLOWED()``"
 
 #: ../../whatsnew/3.11.rst:2632
 msgid "``Py_SET_ERANGE_IF_OVERFLOW()``"
-msgstr ""
+msgstr "``Py_SET_ERANGE_IF_OVERFLOW()``"
 
 #: ../../whatsnew/3.11.rst:2633
 msgid "``Py_SET_ERRNO_ON_MATH_ERROR()``"
-msgstr ""
+msgstr "``Py_SET_ERRNO_ON_MATH_ERROR()``"
 
 #: ../../whatsnew/3.11.rst:2635
 msgid "(Contributed by Victor Stinner in :issue:`45412`.)"
@@ -5195,6 +5272,10 @@ msgid ""
 "(``wchar_t*`` string), and ``PyUnicode_Fill()`` functions instead. "
 "(Contributed by Victor Stinner in :issue:`41123`.)"
 msgstr ""
+"Remove as macros ``Py_UNICODE_COPY()`` e ``Py_UNICODE_FILL()``, "
+"descontinuadas desde o Python 3.3. Use ``PyUnicode_CopyCharacters()`` ou "
+"``memcpy()`` (string ``wchar_t*``) e as funções ``PyUnicode_Fill()``. "
+"(Contribuição de Victor Stinner em :issue:`41123`.)"
 
 #: ../../whatsnew/3.11.rst:2642
 msgid ""
@@ -5202,6 +5283,9 @@ msgid ""
 "extensions should only include the main ``<Python.h>`` header file. "
 "(Contributed by Victor Stinner in :issue:`45434`.)"
 msgstr ""
+"Remove o arquivo de cabeçalho ``pystrhex.h``. Ele contém apenas funções "
+"privadas. As extensões C devem incluir apenas o arquivo principal ``<Python."
+"h>``. (Contribuição de Victor Stinner em :issue:`45434`.)"
 
 #: ../../whatsnew/3.11.rst:2646
 msgid ""
@@ -5209,40 +5293,44 @@ msgid ""
 "``Py_IS_INFINITY()`` macro. (Contributed by Victor Stinner in :issue:"
 "`45440`.)"
 msgstr ""
+"Remove a macro ``Py_FORCE_DOUBLE()``. Era usada pela macro "
+"``Py_IS_INFINITY()``. (Contribuição de Victor Stinner em :issue:`45440`.)"
 
 #: ../../whatsnew/3.11.rst:2650
 msgid ""
 "The following items are no longer available when :c:macro:`Py_LIMITED_API` "
 "is defined:"
 msgstr ""
+"Os seguintes itens não estão mais disponíveis quando :c:macro:"
+"`Py_LIMITED_API` é definida:"
 
 #: ../../whatsnew/3.11.rst:2653
 msgid ":c:func:`PyMarshal_WriteLongToFile`"
-msgstr ""
+msgstr ":c:func:`PyMarshal_WriteLongToFile`"
 
 #: ../../whatsnew/3.11.rst:2654
 msgid ":c:func:`PyMarshal_WriteObjectToFile`"
-msgstr ""
+msgstr ":c:func:`PyMarshal_WriteObjectToFile`"
 
 #: ../../whatsnew/3.11.rst:2655
 msgid ":c:func:`PyMarshal_ReadObjectFromString`"
-msgstr ""
+msgstr ":c:func:`PyMarshal_ReadObjectFromString`"
 
 #: ../../whatsnew/3.11.rst:2656
 msgid ":c:func:`PyMarshal_WriteObjectToString`"
-msgstr ""
+msgstr ":c:func:`PyMarshal_WriteObjectToString`"
 
 #: ../../whatsnew/3.11.rst:2657
 msgid "the ``Py_MARSHAL_VERSION`` macro"
-msgstr ""
+msgstr "a macro ``Py_MARSHAL_VERSION``"
 
 #: ../../whatsnew/3.11.rst:2659
 msgid "These are not part of the :ref:`limited API <stable-abi-list>`."
-msgstr ""
+msgstr "Eles não fazem parte da :ref:`API limitada <stable-abi-list>`."
 
 #: ../../whatsnew/3.11.rst:2661
 msgid "(Contributed by Victor Stinner in :issue:`45474`.)"
-msgstr ""
+msgstr "(Contribuição de Victor Stinner em :issue:`45474`.)"
 
 #: ../../whatsnew/3.11.rst:2663
 msgid ""
@@ -5250,6 +5338,9 @@ msgid ""
 "worked since the :c:type:`PyWeakReference` structure is opaque in the "
 "limited C API. (Contributed by Victor Stinner in :issue:`35134`.)"
 msgstr ""
+"Exclui :c:func:`PyWeakref_GET_OBJECT` da API C limitada. Nunca funcionou "
+"porque a estrutura :c:type:`PyWeakReference` é opaca na API C limitada. "
+"(Contribuição de Victor Stinner em :issue:`35134`.)"
 
 #: ../../whatsnew/3.11.rst:2668
 msgid ""
@@ -5258,12 +5349,18 @@ msgid ""
 "``PyTypeObject.tp_members`` member instead. (Contributed by Victor Stinner "
 "in :issue:`40170`.)"
 msgstr ""
+"Remove a macro ``PyHeapType_GET_MEMBERS()``. Estava exposta na API C pública "
+"por engano, deve ser usada apenas pelo Python internamente. Em vez disso, "
+"use o membro ``PyTypeObject.tp_members``. (Contribuição de Victor Stinner "
+"em :issue:`40170`.)"
 
 #: ../../whatsnew/3.11.rst:2673
 msgid ""
 "Remove the ``HAVE_PY_SET_53BIT_PRECISION`` macro (moved to the internal C "
 "API). (Contributed by Victor Stinner in :issue:`45412`.)"
 msgstr ""
+"Remove a macro ``HAVE_PY_SET_53BIT_PRECISION`` (movida para a API C "
+"interna). (Contribuição de Victor Stinner em :issue:`45412`.)"
 
 #: ../../whatsnew/3.11.rst:2679
 msgid ""
@@ -5271,65 +5368,70 @@ msgid ""
 "since Python 3.3, are little used and are inefficient relative to the "
 "recommended alternatives."
 msgstr ""
+"Remove as APIs de codificação :c:type:`Py_UNICODE`, pois foram "
+"descontinuadas desde o Python 3.3, são pouco usadas e ineficientes em "
+"relação às alternativas recomendadas."
 
 #: ../../whatsnew/3.11.rst:2684
 msgid "The removed functions are:"
-msgstr ""
+msgstr "As funções removidas são:"
 
 #: ../../whatsnew/3.11.rst:2686
 msgid ":func:`!PyUnicode_Encode`"
-msgstr ""
+msgstr ":func:`!PyUnicode_Encode`"
 
 #: ../../whatsnew/3.11.rst:2687
 msgid ":func:`!PyUnicode_EncodeASCII`"
-msgstr ""
+msgstr ":func:`!PyUnicode_EncodeASCII`"
 
 #: ../../whatsnew/3.11.rst:2688
 msgid ":func:`!PyUnicode_EncodeLatin1`"
-msgstr ""
+msgstr ":func:`!PyUnicode_EncodeLatin1`"
 
 #: ../../whatsnew/3.11.rst:2689
 msgid ":func:`!PyUnicode_EncodeUTF7`"
-msgstr ""
+msgstr ":func:`!PyUnicode_EncodeUTF7`"
 
 #: ../../whatsnew/3.11.rst:2690
 msgid ":func:`!PyUnicode_EncodeUTF8`"
-msgstr ""
+msgstr ":func:`!PyUnicode_EncodeUTF8`"
 
 #: ../../whatsnew/3.11.rst:2691
 msgid ":func:`!PyUnicode_EncodeUTF16`"
-msgstr ""
+msgstr ":func:`!PyUnicode_EncodeUTF16`"
 
 #: ../../whatsnew/3.11.rst:2692
 msgid ":func:`!PyUnicode_EncodeUTF32`"
-msgstr ""
+msgstr ":func:`!PyUnicode_EncodeUTF32`"
 
 #: ../../whatsnew/3.11.rst:2693
 msgid ":func:`!PyUnicode_EncodeUnicodeEscape`"
-msgstr ""
+msgstr ":func:`!PyUnicode_EncodeUnicodeEscape`"
 
 #: ../../whatsnew/3.11.rst:2694
 msgid ":func:`!PyUnicode_EncodeRawUnicodeEscape`"
-msgstr ""
+msgstr ":func:`!PyUnicode_EncodeRawUnicodeEscape`"
 
 #: ../../whatsnew/3.11.rst:2695
 msgid ":func:`!PyUnicode_EncodeCharmap`"
-msgstr ""
+msgstr ":func:`!PyUnicode_EncodeCharmap`"
 
 #: ../../whatsnew/3.11.rst:2696
 msgid ":func:`!PyUnicode_TranslateCharmap`"
-msgstr ""
+msgstr ":func:`!PyUnicode_TranslateCharmap`"
 
 #: ../../whatsnew/3.11.rst:2697
 msgid ":func:`!PyUnicode_EncodeDecimal`"
-msgstr ""
+msgstr ":func:`!PyUnicode_EncodeDecimal`"
 
 #: ../../whatsnew/3.11.rst:2698
 msgid ":func:`!PyUnicode_TransformDecimalToASCII`"
-msgstr ""
+msgstr ":func:`!PyUnicode_TransformDecimalToASCII`"
 
 #: ../../whatsnew/3.11.rst:2700
 msgid ""
 "See :pep:`624` for details and :pep:`migration guidance <624#alternative-"
 "apis>`. (Contributed by Inada Naoki in :issue:`44029`.)"
 msgstr ""
+"Veja a :pep:`624` para detalhes e :pep:`orientação sobre migração "
+"<624#alternative-apis>`. (Contribuição de Inada Naoki em :issue:`44029`.)"

@@ -12,16 +12,16 @@
 # Italo Penaforte <italo.penaforte@gmail.com>, 2021
 # Victor Matheus Castro <victormatheuscastro@gmail.com>, 2021
 # Vinícius Muniz de Melo <viniciusdesk@icloud.com>, 2021
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2022
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2023
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.11\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-17 14:14+0000\n"
+"POT-Creation-Date: 2023-03-24 14:14+0000\n"
 "PO-Revision-Date: 2021-06-29 13:04+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2022\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2023\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -85,11 +85,13 @@ msgstr "Novos módulos de biblioteca:"
 msgid ""
 ":mod:`contextvars`: :ref:`PEP 567 -- Context Variables <whatsnew37-pep567>`"
 msgstr ""
-":mod:`contextvars`: :ref:`PEP 567 -- Context Variables <whatsnew37-pep567>`"
+":mod:`contextvars`: :ref:`PEP 567 -- Variáveis de Contexto <whatsnew37-"
+"pep567>`"
 
 #: ../../whatsnew/3.7.rst:69
 msgid ":mod:`dataclasses`: :ref:`PEP 557 -- Data Classes <whatsnew37-pep557>`"
-msgstr ":mod:`dataclasses`: :ref:`PEP 557 -- Data Classes <whatsnew37-pep557>`"
+msgstr ""
+":mod:`dataclasses`: :ref:`PEP 557 -- Classes de Dados <whatsnew37-pep557>`"
 
 #: ../../whatsnew/3.7.rst:70
 msgid ":ref:`whatsnew37_importlib_resources`"
@@ -195,7 +197,7 @@ msgstr "Melhorias na API C:"
 msgid ":ref:`PEP 539 <whatsnew37-pep539>`, new C API for thread-local storage"
 msgstr ""
 ":ref:`PEP 539 <whatsnew37-pep539>`, nova API C para armazenamento local de "
-"threads"
+"thread"
 
 #: ../../whatsnew/3.7.rst:113
 msgid "Documentation improvements:"
@@ -342,7 +344,7 @@ msgid ""
 "`readline`) will assume the use of UTF-8 as the default text encoding, "
 "rather than ASCII."
 msgstr ""
-"O :pep:`538` atualiza a interface de linha de comando do interpretador "
+"A :pep:`538` atualiza a interface de linha de comando do interpretador "
 "padrão para forçar automaticamente essa localidade para uma localidade "
 "baseada em UTF-8 disponível conforme descrito na documentação da nova "
 "variável de ambiente :envvar:`PYTHONCOERCECLOCALE`. Configurar "
@@ -464,7 +466,7 @@ msgid ""
 "of Python. To reduce the risk of corrupting text data when communicating "
 "with such components, Python 3.7 also implements :ref:`whatsnew37-pep540`)."
 msgstr ""
-"Embora o modo UTF-8 do :pep:`540` tenha a vantagem de funcionar "
+"Embora o modo UTF-8 da :pep:`540` tenha a vantagem de funcionar "
 "independentemente de quais localidades estão disponíveis no sistema em "
 "execução, ele tem a desvantagem de não ter efeito sobre os módulos de "
 "extensão (como GNU ``readline``) , processos filho executando aplicativos "
@@ -542,6 +544,12 @@ msgid ""
 "not generally been a problem for officially support platforms, but that is "
 "neither POSIX-compliant, nor portable in any practical sense."
 msgstr ""
+"Enquanto Python fornece uma API C para suporte de armazenamento local de "
+"thread; a existente :ref:`API da armazenamento local de thread (TLS) <thread-"
+"local-storage-api>` usou :c:expr:`int` para representar as chaves TLS em "
+"todas as plataformas. Isso geralmente não tem sido um problema para "
+"plataformas oficialmente suportadas, mas isso não é compatível com POSIX, "
+"nem portátil em qualquer sentido prático."
 
 #: ../../whatsnew/3.7.rst:297
 msgid ""
@@ -554,6 +562,15 @@ msgid ""
 "build CPython on platforms where the native TLS key is defined in a way that "
 "cannot be safely cast to :c:expr:`int`."
 msgstr ""
+"A :pep:`539` muda isso fornecendo uma nova :ref:`API de armazenamento "
+"específico de thread (TSS) <thread-specific-storage-api>` para CPython que "
+"substitui o uso da API de TLS existente dentro do interpretador CPython, "
+"enquanto descontinua a API existente. A API de TSS usa um novo tipo :c:type:"
+"`Py_tss_t` em vez de :c:expr:`int` para representar as chaves de TSS -- um "
+"tipo não visível cuja definição pode depender da implementação TLS "
+"subjacente. Portanto, isso permitirá construir CPython em plataformas onde a "
+"chave nativa de TLS é definida de uma forma que não pode ser convertida com "
+"segurança para :c:expr:`int`."
 
 #: ../../whatsnew/3.7.rst:306
 msgid ""
@@ -563,6 +580,12 @@ msgid ""
 "that the old API is not supported on platforms where it cannot be used "
 "reliably, and that no effort will be made to add such support."
 msgstr ""
+"Observe que em plataformas onde a chave TLS nativa é definida de uma forma "
+"que não pode ser convertida com segurança para :c:expr:`int`, todas as "
+"funções da API TLS existente serão no-op e retornarão falha imediatamente. "
+"Isso indica claramente que a API antiga não é suportada em plataformas onde "
+"não pode ser usada de forma confiável e que nenhum esforço será feito para "
+"adicionar tal suporte."
 
 #: ../../whatsnew/3.7.rst:314
 msgid ":pep:`539` -- A New C-API for Thread-Local Storage in CPython"
@@ -597,7 +620,7 @@ msgstr ""
 
 #: ../../whatsnew/3.7.rst:332
 msgid ":pep:`562` -- Module ``__getattr__`` and ``__dir__``"
-msgstr ":pep:`562` -- Module ``__getattr__`` and ``__dir__``"
+msgstr ":pep:`562` -- Módulo ``__getattr__`` e ``__dir__``"
 
 #: ../../whatsnew/3.7.rst:333 ../../whatsnew/3.7.rst:422
 msgid "PEP written and implemented by Ivan Levkivskyi"
@@ -656,6 +679,9 @@ msgid ""
 "python>`_ show that on Linux and Windows the resolution of :func:`time."
 "time_ns` is approximately 3 times better than that of :func:`time.time`."
 msgstr ""
+"`Medições <https://peps.python.org/pep-0564/#annex-clocks-resolution-in-"
+"python>`_ mostram que no Linux e no Windows a resolução de :func:`time."
+"time_ns` é aproximadamente 3 vezes melhor do que :func:`time.time`."
 
 #: ../../whatsnew/3.7.rst:362
 msgid ":pep:`564` -- Add new time functions with nanosecond resolution"
@@ -779,7 +805,7 @@ msgstr ":pep:`560` -- Suporte básico para módulo typing e tipos genéricos"
 
 #: ../../whatsnew/3.7.rst:428
 msgid "PEP 552: Hash-based .pyc Files"
-msgstr ""
+msgstr "PEP 552: Arquivos .pyc baseados em hash"
 
 #: ../../whatsnew/3.7.rst:430
 msgid ""
@@ -792,6 +818,16 @@ msgid ""
 "in the cache file is problematic for `build reproducibility <https://"
 "reproducible-builds.org/>`_ and content-based build systems."
 msgstr ""
+"O Python tradicionalmente verifica a atualização dos arquivos de cache em "
+"bytecode (ou seja, arquivos ``.pyc``) comparando os metadados da fonte "
+"(registro de data e hora e tamanho da última modificação) com os metadados "
+"da fonte salvos no cabeçalho do arquivo de cache quando foi gerado. Embora "
+"eficaz, esse método de invalidação tem suas desvantagens. Quando os "
+"registros de data e hora do sistema de arquivos são muito grosseiros, o "
+"Python pode perder as atualizações de origem, levando à confusão do usuário. "
+"Além disso, ter um registro de data e hora no arquivo de cache é "
+"problemático para `reprodutibilidade de compilação <https://reproducible-"
+"builds.org/>`_ e sistemas de compilação baseados em conteúdo."
 
 #: ../../whatsnew/3.7.rst:439
 msgid ""
@@ -802,6 +838,13 @@ msgid ""
 "Hash-based ``.pyc`` files may be generated with :mod:`py_compile` or :mod:"
 "`compileall`."
 msgstr ""
+":pep:`552` estende o formato pyc para permitir que o hash do arquivo de "
+"origem seja usado para invalidação em vez do registro de data e hora  da "
+"fonte. Esses arquivos ``.pyc`` são chamados de \"baseados em hash\". Por "
+"padrão, Python ainda usa invalidação baseada em registro de data e hora e "
+"não gera arquivos ``.pyc`` baseados em hash em tempo de execução. Arquivos "
+"``.pyc`` baseados em hash podem ser gerados com :mod:`py_compile` ou :mod:"
+"`compileall`."
 
 #: ../../whatsnew/3.7.rst:445
 msgid ""
