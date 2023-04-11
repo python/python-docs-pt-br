@@ -1,0 +1,42 @@
+# Run sphinx's linkcheck to pop up
+# broken and redirected links.
+
+Name: Linkcheck
+
+on:
+  workflow_dispatch:
+
+permissions:
+  content: read
+
+jobs:
+  linkcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out CPython
+        uses: actions/checkout@v3
+        with:
+          repository: python/cpython
+          persist-credentials: false
+
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          cache: 'pip'
+          cache-dependency-path: 'Doc/requirements.txt'
+
+      - name: Make virtual environment
+        run: |
+          make -C Doc venv
+
+      - name: Run linkcheck
+        run: |
+          make -C Doc linkcheck \
+            SPHINXOPTS="--keep-going"
+
+      - name: Upload output as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: linkcheck-output
+          path: Doc/build/linkcheck/output.txt
