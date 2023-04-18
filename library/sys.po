@@ -702,6 +702,15 @@ msgid ""
 "installed in :file:`{exec_prefix}/lib/python{X.Y}/lib-dynload`, where *X.Y* "
 "is the version number of Python, for example ``3.2``."
 msgstr ""
+"Uma string que fornece o prefixo do diretório específico do site onde os "
+"arquivos Python dependentes da plataforma são instalados; por padrão, também "
+"é ``'/usr/local'``. Isso pode ser definido em tempo de compilação com o "
+"argumento ``--exec-prefix`` para o script :program:`configure`. "
+"Especificamente, todos os arquivos de configuração (por exemplo, o arquivo "
+"de cabeçalho :file:`pyconfig.h`) são instalados no diretório :file:"
+"`{exec_prefix}/lib/python{X.Y}/config`, e os módulos da biblioteca "
+"compartilhada são instalados em :file:`{exec_prefix}/lib/python{X.Y}/lib-"
+"dynload`, onde *X.Y* é o número da versão do Python, por exemplo ``3.2``."
 
 #: ../../library/sys.rst:416
 msgid ""
@@ -710,6 +719,9 @@ msgid ""
 "the Python installation will still be available, via :data:"
 "`base_exec_prefix`."
 msgstr ""
+"Se um :ref:`ambiente virtual <venv-def>` estiver em vigor, este valor será "
+"alterado em ``site.py`` para apontar para o ambiente virtual. O valor para a "
+"instalação do Python ainda estará disponível, via :data:`base_exec_prefix`."
 
 #: ../../library/sys.rst:424
 msgid ""
@@ -718,12 +730,18 @@ msgid ""
 "retrieve the real path to its executable, :data:`sys.executable` will be an "
 "empty string or ``None``."
 msgstr ""
+"Uma string que fornece o caminho absoluto do binário executável para o "
+"interpretador Python, em sistemas onde isso faz sentido. Se o Python não "
+"conseguir recuperar o caminho real para seu executável, :data:`sys."
+"executable` será uma string vazia ou ``None``."
 
 #: ../../library/sys.rst:432
 msgid ""
 "Raise a :exc:`SystemExit` exception, signaling an intention to exit the "
 "interpreter."
 msgstr ""
+"Levanta uma exceção :exc:`SystemExit`, sinalizando a intenção de sair do "
+"interpretador."
 
 #: ../../library/sys.rst:434
 msgid ""
@@ -740,6 +758,19 @@ msgid ""
 "code of 1.  In particular, ``sys.exit(\"some error message\")`` is a quick "
 "way to exit a program when an error occurs."
 msgstr ""
+"O argumento opcional *arg* pode ser um número inteiro dando o status de "
+"saída (o padrão é zero) ou outro tipo de objeto. Se for um número inteiro, "
+"zero é considerado \"terminação bem-sucedida\" e qualquer valor diferente de "
+"zero é considerado \"terminação anormal\" por shells e similares. A maioria "
+"dos sistemas exige que ele esteja no intervalo de 0 a 127 e, caso contrário, "
+"produz resultados indefinidos. Alguns sistemas têm uma convenção para "
+"atribuir significados específicos a códigos de saída específicos, mas estes "
+"são geralmente subdesenvolvidos; Programas Unix geralmente usam 2 para erros "
+"de sintaxe de linha de comando e 1 para todos os outros tipos de erros. Se "
+"outro tipo de objeto for passado, ``None`` é equivalente a passar zero, e "
+"qualquer outro objeto é impresso em :data:`stderr` e resulta em um código de "
+"saída de 1. Em particular, ``sys.exit( \"alguma mensagem de erro\")`` é uma "
+"maneira rápida de sair de um programa quando ocorre um erro."
 
 #: ../../library/sys.rst:447
 msgid ""
@@ -749,6 +780,11 @@ msgid ""
 "statements are honored, and it is possible to intercept the exit attempt at "
 "an outer level."
 msgstr ""
+"Uma vez que :func:`exit` em última análise, \"apenas\" gera uma exceção, ele "
+"só sairá do processo quando chamado do thread principal e a exceção não é "
+"interceptada. As ações de limpeza especificadas pelas cláusulas finally de "
+"instruções :keyword:`try` são honradas e é possível interceptar a tentativa "
+"de saída em um nível externo."
 
 #: ../../library/sys.rst:452
 msgid ""
@@ -756,12 +792,17 @@ msgid ""
 "exc:`SystemExit` (such as an error flushing buffered data in the standard "
 "streams), the exit status is changed to 120."
 msgstr ""
+"Se ocorrer um erro na limpeza após o interpretador Python ter capturado :exc:"
+"`SystemExit` (como um erro ao liberar dados em buffer nos fluxos padrão), o "
+"status de saída é alterado para 120."
 
 #: ../../library/sys.rst:460
 msgid ""
 "The :term:`named tuple` *flags* exposes the status of command line flags. "
 "The attributes are read only."
 msgstr ""
+"A :term:`tupla nomeada` *flags* expõe o status dos sinalizadores de linha de "
+"comando. Os atributos são somente leitura."
 
 #: ../../library/sys.rst:464 ../../library/sys.rst:517
 #: ../../library/sys.rst:864
@@ -770,7 +811,7 @@ msgstr "atributo"
 
 #: ../../library/sys.rst:464
 msgid "flag"
-msgstr ""
+msgstr "sinalizador"
 
 #: ../../library/sys.rst:466
 msgid ":const:`debug`"
@@ -879,6 +920,7 @@ msgstr ":const:`dev_mode`"
 #: ../../library/sys.rst:479
 msgid ":option:`-X dev <-X>` (:ref:`Python Development Mode <devmode>`)"
 msgstr ""
+":option:`-X dev <-X>` (:ref:`Modo de Desenvolvimento do Python <devmode>`)"
 
 #: ../../library/sys.rst:480
 msgid ":const:`utf8_mode`"
@@ -886,33 +928,37 @@ msgstr ":const:`utf8_mode`"
 
 #: ../../library/sys.rst:480
 msgid ":option:`-X utf8 <-X>`"
-msgstr ""
+msgstr ":option:`-X utf8 <-X>`"
 
 #: ../../library/sys.rst:481
 msgid ":const:`int_max_str_digits`"
-msgstr ""
+msgstr ":const:`int_max_str_digits`"
 
 #: ../../library/sys.rst:481
 msgid ""
 ":option:`-X int_max_str_digits <-X>` (:ref:`integer string conversion length "
 "limitation <int_max_str_digits>`)"
 msgstr ""
+":option:`-X int_max_str_digits <-X>` (:ref:`limitação de comprimento de "
+"string na conversão para inteiro <int_max_str_digits>`)"
 
 #: ../../library/sys.rst:484
 msgid "Added ``quiet`` attribute for the new :option:`-q` flag."
-msgstr ""
+msgstr "Adicionado o atributo ``quiet`` para o novo sinalizador :option:`-q`."
 
 #: ../../library/sys.rst:487
 msgid "The ``hash_randomization`` attribute."
-msgstr ""
+msgstr "O atributo ``hash_randomization``."
 
 #: ../../library/sys.rst:490
 msgid "Removed obsolete ``division_warning`` attribute."
-msgstr ""
+msgstr "Removido o atributo obsoleto ``division_warning``."
 
 #: ../../library/sys.rst:493
 msgid "Added ``isolated`` attribute for :option:`-I` ``isolated`` flag."
 msgstr ""
+"Adicionado o atributo ``isolated`` para o sinalizador:option:`-I` "
+"``isolated``."
 
 #: ../../library/sys.rst:496
 msgid ""
@@ -920,10 +966,13 @@ msgid ""
 "<devmode>` and the ``utf8_mode`` attribute for the new  :option:`-X` "
 "``utf8`` flag."
 msgstr ""
+"Adicionado o atributo ``dev_mode`` para o novo :ref:`Modo de Desenvolvimento "
+"do Python <devmode>` e o atributo ``utf8_mode`` para o novo sinalizador :"
+"option:`-X` ``utf8``."
 
 #: ../../library/sys.rst:501
 msgid "Added the ``int_max_str_digits`` attribute."
-msgstr ""
+msgstr "Adicionado o atributo ``int_max_str_digits``."
 
 #: ../../library/sys.rst:507
 msgid ""
@@ -934,14 +983,20 @@ msgid ""
 "section 5.2.4.2.2 of the 1999 ISO/IEC C standard [C99]_, 'Characteristics of "
 "floating types', for details."
 msgstr ""
+"Uma :term:`tupla nomeada` contendo informações sobre o tipo float, ponto "
+"flutuante. Ele contém informações de baixo nível sobre a precisão e a "
+"representação interna. Os valores correspondem às várias constantes de ponto "
+"flutuante definidas no arquivo de cabeçalho padrão :file:`float.h` para a "
+"linguagem de programação 'C'; consulte a seção 5.2.4.2.2 do padrão ISO/IEC C "
+"de 1999 [C99]_, 'Características dos tipos flutuantes', para obter detalhes."
 
 #: ../../library/sys.rst:517
 msgid "float.h macro"
-msgstr ""
+msgstr "macro em float.h"
 
 #: ../../library/sys.rst:517 ../../library/sys.rst:864
 msgid "explanation"
-msgstr ""
+msgstr "explicação"
 
 #: ../../library/sys.rst:519
 msgid ":const:`epsilon`"
@@ -956,6 +1011,8 @@ msgid ""
 "difference between 1.0 and the least value greater than 1.0 that is "
 "representable as a float"
 msgstr ""
+"diferença entre 1,0 e o menor valor maior que 1,0 que pode ser representado "
+"como ponto flutuante"
 
 #: ../../library/sys.rst:522
 msgid "See also :func:`math.ulp`."
@@ -974,6 +1031,8 @@ msgid ""
 "maximum number of decimal digits that can be faithfully represented in a "
 "float;  see below"
 msgstr ""
+"número máximo de dígitos decimais que podem ser fielmente representados em "
+"um ponto flutuante; Veja abaixo"
 
 #: ../../library/sys.rst:527
 msgid ":const:`mant_dig`"
@@ -988,6 +1047,8 @@ msgid ""
 "float precision: the number of base-``radix`` digits in the significand of a "
 "float"
 msgstr ""
+"precisão do ponto flutuante: o número de dígitos de base ``radix`` no "
+"significando de um ponto flutuante"
 
 #: ../../library/sys.rst:530
 msgid ":const:`max`"
@@ -999,7 +1060,7 @@ msgstr "DBL_MAX"
 
 #: ../../library/sys.rst:530
 msgid "maximum representable positive finite float"
-msgstr ""
+msgstr "ponto flutuante finito positivo máximo representável"
 
 #: ../../library/sys.rst:532
 msgid ":const:`max_exp`"
@@ -1014,6 +1075,8 @@ msgid ""
 "maximum integer *e* such that ``radix**(e-1)`` is a representable finite "
 "float"
 msgstr ""
+"inteiro máximo *e* de tal modo que``radix**(e-1)`` é um ponto flutuante "
+"finito representável"
 
 #: ../../library/sys.rst:535
 msgid ":const:`max_10_exp`"
@@ -1028,6 +1091,8 @@ msgid ""
 "maximum integer *e* such that ``10**e`` is in the range of representable "
 "finite floats"
 msgstr ""
+"inteiro máximo *e* de tal modo que``10**e`` é um intervalo de pontos "
+"flutuantes finitos representáveis"
 
 #: ../../library/sys.rst:538
 msgid ":const:`min`"
@@ -1039,13 +1104,15 @@ msgstr ""
 
 #: ../../library/sys.rst:538
 msgid "minimum representable positive *normalized* float"
-msgstr ""
+msgstr "ponto flutuante *normalizado* positivo mínimo representável"
 
 #: ../../library/sys.rst:540
 msgid ""
 "Use :func:`math.ulp(0.0) <math.ulp>` to get the smallest positive "
 "*denormalized* representable float."
 msgstr ""
+"Use :func:`math.ulp(0.0) <math.ulp>` para obter o menor ponto flutuante "
+"representável positivo *desnormalizado*."
 
 #: ../../library/sys.rst:544
 msgid ":const:`min_exp`"
@@ -1058,6 +1125,8 @@ msgstr ""
 #: ../../library/sys.rst:544
 msgid "minimum integer *e* such that ``radix**(e-1)`` is a normalized float"
 msgstr ""
+"inteiro mínimo *e* de tal modo que ``radix**(e-1)`` é um ponto flutuante "
+"normalizado"
 
 #: ../../library/sys.rst:547
 msgid ":const:`min_10_exp`"
@@ -1070,6 +1139,7 @@ msgstr "DBL_MIN_10_EXP"
 #: ../../library/sys.rst:547
 msgid "minimum integer *e* such that ``10**e`` is a normalized float"
 msgstr ""
+"inteiro mínimo *e* de tal modo que ``10**e`` é um ponto flutuante normalizado"
 
 #: ../../library/sys.rst:550
 msgid ":const:`radix`"
@@ -1081,7 +1151,7 @@ msgstr ""
 
 #: ../../library/sys.rst:550
 msgid "radix of exponent representation"
-msgstr ""
+msgstr "raiz da representação do expoente"
 
 #: ../../library/sys.rst:552
 msgid ":const:`rounds`"
@@ -1106,12 +1176,19 @@ msgid ""
 "float_info.dig` significant digits, then converting ``s`` to a float and "
 "back again will recover a string representing the same decimal value::"
 msgstr ""
+"O atributo :attr:`sys.float_info.dig` precisa de mais explicações. Se ``s`` "
+"for qualquer string representando um número decimal com no máximo :attr:`sys."
+"float_info.dig` dígitos significativos, então converter ``s`` para ponto "
+"flutuante e vice-versa recuperará uma string representando o mesmo decimal "
+"valor::"
 
 #: ../../library/sys.rst:573
 msgid ""
 "But for strings with more than :attr:`sys.float_info.dig` significant "
 "digits, this isn't always true::"
 msgstr ""
+"Mas para strings com mais de :attr:`sys.float_info.dig` dígitos "
+"significativos, isso nem sempre é verdade::"
 
 #: ../../library/sys.rst:582
 msgid ""
@@ -1122,6 +1199,13 @@ msgid ""
 "``float_repr_style`` has value ``'legacy'`` and ``repr(x)`` behaves in the "
 "same way as it did in versions of Python prior to 3.1."
 msgstr ""
+"Uma string indicando como a função :func:`repr` se comporta para floats. Se "
+"a string tem valor ``'short'`` então para um ponto flutuante finito ``x``, "
+"``repr(x)`` visa produzir uma string curta com a propriedade que "
+"``float(repr(x)) == x``. Este é o comportamento usual no Python 3.1 e "
+"posterior. Caso contrário, ``float_repr_style`` tem valor ``'legacy'`` e "
+"``repr(x)`` se comporta da mesma forma que nas versões do Python anteriores "
+"a 3.1."
 
 #: ../../library/sys.rst:595
 msgid ""
@@ -1132,16 +1216,27 @@ msgid ""
 "`_clear_type_cache()` and :func:`gc.collect()` to get more predictable "
 "results."
 msgstr ""
+"Retorna o número de blocos de memória atualmente alocados pelo "
+"interpretador, independentemente de seu tamanho. Esta função é útil "
+"principalmente para rastrear e depurar vazamentos de memória. Devido aos "
+"caches internos do interpretador, o resultado pode variar de chamada para "
+"chamada; você pode ter que chamar :func:`_clear_type_cache()` e :func:`gc."
+"collect()` para obter resultados mais previsíveis."
 
 #: ../../library/sys.rst:602
 msgid ""
 "If a Python build or implementation cannot reasonably compute this "
 "information, :func:`getallocatedblocks()` is allowed to return 0 instead."
 msgstr ""
+"Se uma construção ou implementação do Python não puder computar "
+"razoavelmente essas informações, :func:`getallocatedblocks()` poderá "
+"retornar 0 em seu lugar."
 
 #: ../../library/sys.rst:610
 msgid "Return the build time API version of Android as an integer."
 msgstr ""
+"Retorna a versão da API de tempo de compilação do Android como um número "
+"inteiro."
 
 #: ../../library/sys.rst:613
 msgid ":ref:`Availability <availability>`: Android."
@@ -1152,6 +1247,8 @@ msgid ""
 "Return the name of the current default string encoding used by the Unicode "
 "implementation."
 msgstr ""
+"Retorna o nome da codificação de string padrão atual usada pela "
+"implementação Unicode."
 
 #: ../../library/sys.rst:625
 msgid ""
@@ -1159,6 +1256,10 @@ msgid ""
 "calls.  Symbolic names for the flag values can be found in the :mod:`os` "
 "module (``RTLD_xxx`` constants, e.g. :data:`os.RTLD_LAZY`)."
 msgstr ""
+"Retorna o valor atual dos sinalizadores que são usados para chamadas :c:func:"
+"`dlopen`. Nomes simbólicos para os valores dos sinalizadores podem ser "
+"encontrados no módulo :mod:`os` (constantes ``RTLD_xxx``, por exemplo :data:"
+"`os.RTLD_LAZY`)."
 
 #: ../../library/sys.rst:630 ../../library/sys.rst:1279
 msgid ":ref:`Availability <availability>`: Unix."
@@ -1180,12 +1281,19 @@ msgid ""
 "accepting or returning filenames should support either str or bytes and "
 "internally convert to the system's preferred representation."
 msgstr ""
+"Para melhor compatibilidade, str deve ser usado para nomes de arquivos em "
+"todos os casos, embora a representação de nomes de arquivos como bytes "
+"também seja suportada. As funções que aceitam ou retornam nomes de arquivo "
+"devem suportar str ou bytes e converter internamente para a representação "
+"preferencial do sistema."
 
 #: ../../library/sys.rst:646 ../../library/sys.rst:674
 msgid ""
 ":func:`os.fsencode` and :func:`os.fsdecode` should be used to ensure that "
 "the correct encoding and errors mode are used."
 msgstr ""
+":func:`os.fsencode` e :func:`os.fsdecode` devem ser usados para garantir que "
+"a codificação correta e o modo de erros sejam usados."
 
 #: ../../library/sys.rst:649 ../../library/sys.rst:677
 msgid ""
@@ -1202,17 +1310,22 @@ msgstr ""
 #: ../../library/sys.rst:654
 msgid ":func:`getfilesystemencoding` result cannot be ``None`` anymore."
 msgstr ""
+"O resultado de :func:`getfilesystemencoding` não pode mais ser ``None``."
 
 #: ../../library/sys.rst:657
 msgid ""
 "Windows is no longer guaranteed to return ``'mbcs'``. See :pep:`529` and :"
 "func:`_enablelegacywindowsfsencoding` for more information."
 msgstr ""
+"O Windows não tem mais garantia de retornar ``'mbcs'``. Veja :pep:`529` e :"
+"func:`_enablelegacywindowsfsencoding` para mais informações."
 
 #: ../../library/sys.rst:661
 msgid ""
 "Return ``'utf-8'`` if the :ref:`Python UTF-8 Mode <utf8-mode>` is enabled."
 msgstr ""
+"Retorna ``'utf-8'`` se o :ref:`Modo UTF-8 do Python <utf8-mode>` estiver "
+"ativado."
 
 #: ../../library/sys.rst:668
 msgid ""
@@ -1222,12 +1335,21 @@ msgid ""
 "filenames and bytes filenames. The filesystem encoding is returned from :"
 "func:`getfilesystemencoding`."
 msgstr ""
+"Obtém o :term:`manipulador de erros do sistema de arquivos <filesystem "
+"encoding and error handler>`: o manipulador de erros usado com a :term:"
+"`codificação do sistema de arquivos <filesystem encoding and error handler>` "
+"para converter entre nomes de arquivos Unicode e nomes de arquivos de bytes. "
+"A codificação do sistema de arquivos é retornado de :func:"
+"`getfilesystemencoding`."
 
 #: ../../library/sys.rst:686
 msgid ""
 "Returns the current value for the :ref:`integer string conversion length "
 "limitation <int_max_str_digits>`. See also :func:`set_int_max_str_digits`."
 msgstr ""
+"Retorna o valor atual para a :ref:`limitação de comprimento de string na "
+"conversão para inteiro <int_max_str_digits>`. Veja também :func:"
+"`set_int_max_str_digits`."
 
 #: ../../library/sys.rst:693
 msgid ""
@@ -2024,6 +2146,9 @@ msgid ""
 "<int_max_str_digits>` used by this interpreter. See also :func:"
 "`get_int_max_str_digits`."
 msgstr ""
+"Define a :ref:`limitação de comprimento de string na conversão para inteiro "
+"<int_max_str_digits>` usada por este interpretador. Veja também :func:"
+"`get_int_max_str_digits`."
 
 #: ../../library/sys.rst:1295
 msgid ""
