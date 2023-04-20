@@ -74,6 +74,10 @@ msgid ""
 "0 to 2).  A :exc:`ValueError` is raised if the generation number  is "
 "invalid. The number of unreachable objects found is returned."
 msgstr ""
+"Sem argumentos, execute uma coleta completa. O argumento opcional "
+"*generation* pode ser um inteiro especificando qual geração coletar (de 0 a "
+"2). Uma exceção :exc:`ValueError` é levantada se o número de geração for "
+"inválido. O número de objetos inacessíveis encontrados é retornado."
 
 #: ../../library/gc.rst:48
 msgid ""
@@ -82,6 +86,10 @@ msgid ""
 "run.  Not all items in some free lists may be freed due to the particular "
 "implementation, in particular :class:`float`."
 msgstr ""
+"As listas livres mantidas para vários tipos embutidos são limpas sempre que "
+"uma coleta completa ou coleta da geração mais alta (2) é executada. Nem "
+"todos os itens em algumas listas livres podem ser liberados devido à "
+"implementação particular, em particular :class:`float`."
 
 #: ../../library/gc.rst:56
 msgid ""
@@ -89,6 +97,10 @@ msgid ""
 "written to ``sys.stderr``.  See below for a list of debugging flags which "
 "can be combined using bit operations to control debugging."
 msgstr ""
+"Define os sinalizadores de depuração da coleta de lixo. As informações de "
+"depuração serão gravadas em ``sys.stderr``. Veja abaixo uma lista de "
+"sinalizadores de depuração que podem ser combinados usando operações de bit "
+"para controlar a depuração."
 
 #: ../../library/gc.rst:63
 msgid "Return the debugging flags currently set."
@@ -100,6 +112,9 @@ msgid ""
 "returned. If *generation* is not None, return only the objects tracked by "
 "the collector that are in that generation."
 msgstr ""
+"Retorna uma lista de todos os objetos rastreados pelo coletor, excluindo a "
+"lista retornada. Se *generation* não for None, retorna apenas os objetos "
+"rastreados pelo coletor que estão nessa geração."
 
 #: ../../library/gc.rst:72
 msgid "New *generation* parameter."
@@ -111,16 +126,19 @@ msgid ""
 "statistics since interpreter start.  The number of keys may change in the "
 "future, but currently each dictionary will contain the following items:"
 msgstr ""
+"Retorna uma lista de três dicionários por geração contendo estatísticas de "
+"coleta desde o início do interpretador. O número de chaves pode mudar no "
+"futuro, mas atualmente cada dicionário conterá os seguintes itens:"
 
 #: ../../library/gc.rst:82
 msgid "``collections`` is the number of times this generation was collected;"
-msgstr ""
+msgstr "``collections``é o número de vezes que esta geração foi coletada;"
 
 #: ../../library/gc.rst:84
 msgid ""
 "``collected`` is the total number of objects collected inside this "
 "generation;"
-msgstr ""
+msgstr "``collected`` é o número total de objetos coletados nesta geração; "
 
 #: ../../library/gc.rst:87
 msgid ""
@@ -128,12 +146,17 @@ msgid ""
 "uncollectable (and were therefore moved to the :data:`garbage` list) inside "
 "this generation."
 msgstr ""
+"``uncollectable`` é o número total de objetos que foram considerados "
+"incobráveis (e, portanto, movidos para a lista :data:`garbage`) dentro desta "
+"geração."
 
 #: ../../library/gc.rst:96
 msgid ""
 "Set the garbage collection thresholds (the collection frequency). Setting "
 "*threshold0* to zero disables collection."
 msgstr ""
+"Define os limites de coleta de lixo (a frequência de coleta). Definir "
+"*threshold0* como zero desativa a coleta."
 
 #: ../../library/gc.rst:99
 msgid ""
@@ -157,6 +180,8 @@ msgid ""
 "Return the current collection  counts as a tuple of ``(count0, count1, "
 "count2)``."
 msgstr ""
+"Retorna as contagens da coleta atual como uma tupla de ``(count0, count1, "
+"count2)``."
 
 #: ../../library/gc.rst:122
 msgid ""
@@ -173,6 +198,10 @@ msgid ""
 "extension types which do refer to other objects but do not support garbage "
 "collection will not be found."
 msgstr ""
+"Retorna a lista de objetos que se referem diretamente a qualquer um dos "
+"objs. Esta função localizará apenas os contêineres que suportam coleta de "
+"lixo; tipos de extensão que se referem a outros objetos, mas não suportam "
+"coleta de lixo, não serão encontrados."
 
 #: ../../library/gc.rst:133
 msgid ""
@@ -181,6 +210,11 @@ msgid ""
 "listed among the resulting referrers.  To get only currently live objects, "
 "call :func:`collect` before calling :func:`get_referrers`."
 msgstr ""
+"Observe que os objetos que já foram desreferenciados, mas que vivem em "
+"ciclos e ainda não foram coletados pelo coletor de lixo podem ser listados "
+"entre os referenciadores resultantes. Para obter apenas os objetos "
+"atualmente ativos, chame :func:`collect` antes de chamar :func:"
+"`get_referrers`."
 
 #: ../../library/gc.rst:138
 msgid ""
@@ -189,6 +223,10 @@ msgid ""
 "temporarily invalid state. Avoid using :func:`get_referrers` for any purpose "
 "other than debugging."
 msgstr ""
+"Deve-se tomar cuidado ao usar objetos retornados por :func:`get_referrers` "
+"porque alguns deles ainda podem estar em construção e, portanto, em um "
+"estado temporariamente inválido. Evite usar :func:`get_referrers` para "
+"qualquer finalidade que não seja depuração."
 
 #: ../../library/gc.rst:146
 msgid ""
@@ -201,6 +239,15 @@ msgid ""
 "example, if an integer is directly reachable from an argument, that integer "
 "object may or may not appear in the result list."
 msgstr ""
+"Retorna uma lista de objetos diretamente referenciados por qualquer um dos "
+"argumentos. Os referentes retornados são aqueles objetos visitados pelos "
+"métodos a nível do C :c:member:`~PyTypeObject.tp_traverse` dos argumentos "
+"(se houver), e podem não ser todos os objetos diretamente alcançáveis. Os "
+"métodos :c:member:`~PyTypeObject.tp_traverse` são suportados apenas por "
+"objetos que suportam coleta de lixo e são necessários apenas para visitar "
+"objetos que possam estar envolvidos em um ciclo. Assim, por exemplo, se um "
+"número inteiro pode ser acessado diretamente de um argumento, esse objeto "
+"inteiro pode ou não aparecer na lista de resultados."
 
 #: ../../library/gc.rst:157
 msgid ""
@@ -211,6 +258,13 @@ msgid ""
 "present in order to suppress the garbage collector footprint of simple "
 "instances (e.g. dicts containing only atomic keys and values)::"
 msgstr ""
+"Retorna ``True`` se o objeto está atualmente rastreado pelo coletor de lixo, "
+"``False`` caso contrário. Como regra geral, as instâncias de tipos atômicos "
+"não são rastreadas e as instâncias de tipos não atômicos (contêineres, "
+"objetos definidos pelo usuário...) são. No entanto, algumas otimizações "
+"específicas do tipo podem estar presentes para suprimir a pegada do coletor "
+"de lixo de instâncias simples (por exemplo, dicts contendo apenas chaves e "
+"valores atômicos)::"
 
 #: ../../library/gc.rst:182
 msgid ""
@@ -227,16 +281,20 @@ msgid ""
 "Unfreeze the objects in the permanent generation, put them back into the "
 "oldest generation."
 msgstr ""
+"Descongela os objetos na geração permanente, coloca-os de volta na geração "
+"mais antiga."
 
 #: ../../library/gc.rst:202
 msgid "Return the number of objects in the permanent generation."
-msgstr ""
+msgstr "Retorna o número de objetos na geração permanente."
 
 #: ../../library/gc.rst:207
 msgid ""
 "The following variables are provided for read-only access (you can mutate "
 "the values but should not rebind them):"
 msgstr ""
+"As seguintes variáveis são fornecidas para acesso somente leitura (você pode "
+"alterar os valores, mas não deve revinculá-los):"
 
 #: ../../library/gc.rst:212
 msgid ""
@@ -245,12 +303,18 @@ msgid ""
 "should be empty most of the time, except when using instances of C extension "
 "types with a non-``NULL`` ``tp_del`` slot."
 msgstr ""
+"Uma lista de objetos que o coletor considerou inacessíveis, mas não puderam "
+"ser liberados (objetos não coletáveis). A partir do Python 3.4, esta lista "
+"deve estar vazia na maioria das vezes, exceto ao usar instâncias de tipos de "
+"extensão C com um slot ``tp_del`` não-``NULL``."
 
 #: ../../library/gc.rst:217
 msgid ""
 "If :const:`DEBUG_SAVEALL` is set, then all unreachable objects will be added "
 "to this list rather than freed."
 msgstr ""
+"Se :const:`DEBUG_SAVEALL` for definido, todos os objetos inacessíveis serão "
+"adicionados a esta lista ao invés de liberados."
 
 #: ../../library/gc.rst:220
 msgid ""
@@ -259,12 +323,18 @@ msgid ""
 "`DEBUG_UNCOLLECTABLE` is set, in addition all uncollectable objects are "
 "printed."
 msgstr ""
+"Se esta lista não estiver vazia no :term:`desligamento do interpretador`, "
+"um :exc:`ResourceWarning` é emitido, que é silencioso por padrão. Se :const:"
+"`DEBUG_UNCOLLECTABLE` for definido, além disso, todos os objetos não "
+"coletáveis serão impressos."
 
 #: ../../library/gc.rst:226
 msgid ""
 "Following :pep:`442`, objects with a :meth:`__del__` method don't end up in :"
 "attr:`gc.garbage` anymore."
 msgstr ""
+"Seguindo a :pep:`442`, objetos com um método :meth:`__del__` não vão mais "
+"para :attr:`gc.garbage`."
 
 #: ../../library/gc.rst:232
 msgid ""
@@ -272,72 +342,89 @@ msgid ""
 "after collection.  The callbacks will be called with two arguments, *phase* "
 "and *info*."
 msgstr ""
+"Uma lista de retornos de chamada que serão invocados pelo coletor de lixo "
+"antes e depois da coleta. As funções de retorno serão chamadas com dois "
+"argumentos, *phase* e *info*."
 
 #: ../../library/gc.rst:236
 msgid "*phase* can be one of two values:"
-msgstr ""
+msgstr "*phase* pode ser um dos dois valores:"
 
 #: ../../library/gc.rst:238
 msgid "\"start\": The garbage collection is about to start."
-msgstr ""
+msgstr "\"start\": A coleta de lixo está prestes a começar."
 
 #: ../../library/gc.rst:240
 msgid "\"stop\": The garbage collection has finished."
-msgstr ""
+msgstr "\"stop\": A coleta de lixo terminou."
 
 #: ../../library/gc.rst:242
 msgid ""
 "*info* is a dict providing more information for the callback.  The following "
 "keys are currently defined:"
 msgstr ""
+"*info* é um ditado que fornece mais informações para a função de retorno. As "
+"seguintes chaves estão atualmente definidas:"
 
 #: ../../library/gc.rst:245
 msgid "\"generation\": The oldest generation being collected."
-msgstr ""
+msgstr "\"generation\": A geração mais antiga sendo coletada."
 
 #: ../../library/gc.rst:247
 msgid ""
 "\"collected\": When *phase* is \"stop\", the number of objects successfully "
 "collected."
 msgstr ""
+"\"collected\": Quando *phase* é \"stop\", o número de objetos coletados com "
+"sucesso."
 
 #: ../../library/gc.rst:250
 msgid ""
 "\"uncollectable\": When *phase* is \"stop\", the number of objects that "
 "could not be collected and were put in :data:`garbage`."
 msgstr ""
+"\"uncollectable\": Quando *phase* é \"stop\", o número de objetos que não "
+"puderam ser coletados e foram colocados em :data:`garbage`."
 
 #: ../../library/gc.rst:253
 msgid ""
 "Applications can add their own callbacks to this list.  The primary use "
 "cases are:"
 msgstr ""
+"As aplicações podem adicionar suas próprias funções de retorno a essa lista. "
+"Os principais casos de uso são:"
 
 #: ../../library/gc.rst:256
 msgid ""
 "Gathering statistics about garbage collection, such as how often various "
 "generations are collected, and how long the collection takes."
 msgstr ""
+"Reunir estatísticas sobre coleta de lixo, como com que frequência várias "
+"gerações são coletadas e quanto tempo leva a coleta."
 
 #: ../../library/gc.rst:260
 msgid ""
 "Allowing applications to identify and clear their own uncollectable types "
 "when they appear in :data:`garbage`."
 msgstr ""
+"Permitindo que os aplicativos identifiquem e limpem seus próprios tipos não "
+"colecionáveis quando eles aparecem em :data:`garbage`."
 
 #: ../../library/gc.rst:266
 msgid "The following constants are provided for use with :func:`set_debug`:"
-msgstr ""
+msgstr "As seguintes constantes são fornecidas para uso com :func:`set_debug`:"
 
 #: ../../library/gc.rst:271
 msgid ""
 "Print statistics during collection.  This information can be useful when "
 "tuning the collection frequency."
 msgstr ""
+"Imprimir estatísticas durante a coleta. Esta informação pode ser útil ao "
+"sintonizar a frequência de coleta."
 
 #: ../../library/gc.rst:277
 msgid "Print information on collectable objects found."
-msgstr ""
+msgstr "Imprimir informações sobre objetos colecionáveis encontrados."
 
 #: ../../library/gc.rst:282
 msgid ""
@@ -345,18 +432,26 @@ msgid ""
 "reachable but cannot be freed by the collector).  These objects will be "
 "added to the ``garbage`` list."
 msgstr ""
+"Imprime informações de objetos não colecionáveis encontrados (objetos que "
+"não são alcançáveis, mas não podem ser liberados pelo coletor). Esses "
+"objetos serão adicionados à lista ``garbage``."
 
 #: ../../library/gc.rst:286
 msgid ""
 "Also print the contents of the :data:`garbage` list at :term:`interpreter "
 "shutdown`, if it isn't empty."
 msgstr ""
+"Imprime também o conteúdo da lista :data:`garbage` em :term:`desligamento do "
+"interpretador`, se não estiver vazia."
 
 #: ../../library/gc.rst:292
 msgid ""
 "When set, all unreachable objects found will be appended to *garbage* rather "
 "than being freed.  This can be useful for debugging a leaking program."
 msgstr ""
+"Quando definido, todos os objetos inacessíveis encontrados serão anexados ao "
+"*lixo* em vez de serem liberados. Isso pode ser útil para depurar um "
+"programa com vazamento."
 
 #: ../../library/gc.rst:298
 msgid ""
@@ -364,3 +459,6 @@ msgid ""
 "leaking program (equal to ``DEBUG_COLLECTABLE | DEBUG_UNCOLLECTABLE | "
 "DEBUG_SAVEALL``)."
 msgstr ""
+"Os sinalizadores de depuração necessários para o coletor imprimir "
+"informações sobre um programa com vazamento (igual a ``DEBUG_COLLECTABLE | "
+"DEBUG_UNCOLLECTABLE | DEBUG_SAVEALL``)."
