@@ -556,6 +556,8 @@ msgid ""
 "The parentheses can be omitted on calls with only one argument.  See "
 "section :ref:`calls` for details."
 msgstr ""
+"Os parênteses podem ser omitidos em chamadas com apenas um argumento. Veja a "
+"seção :ref:`calls` para detalhes."
 
 #: ../../reference/expressions.rst:385
 msgid ""
@@ -563,6 +565,9 @@ msgid ""
 "itself, ``yield`` and ``yield from`` expressions are prohibited in the "
 "implicitly defined generator."
 msgstr ""
+"Para evitar interferir com a operação esperada da própria expressão "
+"geradora, as expressões ``yield`` e ``yield from`` são proibidas no gerador "
+"definido implicitamente."
 
 #: ../../reference/expressions.rst:389
 msgid ""
@@ -572,10 +577,15 @@ msgid ""
 "asynchronous generator object, which is an asynchronous iterator (see :ref:"
 "`async-iterators`)."
 msgstr ""
+"Se uma expressão geradora contém cláusulas :keyword:`!async for` ou "
+"expressões :keyword:`await`, ela é chamada de :dfn:`expressão geradora "
+"assíncrona`. Uma expressão geradora assíncrona retorna um novo objeto "
+"gerador assíncrono, que é um iterador assíncrono (consulte :ref:`async-"
+"iterators`)."
 
 #: ../../reference/expressions.rst:395
 msgid "Asynchronous generator expressions were introduced."
-msgstr ""
+msgstr "Expressões geradoras assíncronas foram introduzidas."
 
 #: ../../reference/expressions.rst:398
 msgid ""
@@ -583,10 +593,13 @@ msgid ""
 "in :keyword:`async def` coroutines.  Starting with 3.7, any function can use "
 "asynchronous generator expressions."
 msgstr ""
+"Antes do Python 3.7, as expressões geradoras assíncronas só podiam aparecer "
+"em corrotinas :keyword:`async def`. A partir da versão 3.7, qualquer função "
+"pode usar expressões geradoras assíncronas."
 
 #: ../../reference/expressions.rst:410
 msgid "Yield expressions"
-msgstr ""
+msgstr "Expressões yield"
 
 #: ../../reference/expressions.rst:422
 msgid ""
@@ -597,6 +610,12 @@ msgid ""
 "keyword:`async def` function's body causes that coroutine function to be an "
 "asynchronous generator function. For example::"
 msgstr ""
+"A expressão yield é usada ao definir uma função :term:`generadora <gerador>` "
+"ou uma função :term:`geradora assíncrona <gerador assíncrono>` e, portanto, "
+"só pode ser usada no corpo de uma definição de função. Usar uma expressão "
+"yield no corpo de uma função faz com que essa função seja uma função "
+"geradora, e usá-la no corpo de uma função :keyword:`async def` faz com que "
+"essa função de corrotina seja uma função geradora assíncrona. Por exemplo::"
 
 #: ../../reference/expressions.rst:435
 msgid ""
@@ -604,12 +623,17 @@ msgid ""
 "not permitted as part of the implicitly defined scopes used to implement "
 "comprehensions and generator expressions."
 msgstr ""
+"Devido a seus efeitos colaterais no escopo recipiente, as expressões "
+"``yield`` não são permitidas como parte dos escopos definidos implicitamente "
+"usados para implementar compreensões e expressões geradoras."
 
 #: ../../reference/expressions.rst:439
 msgid ""
 "Yield expressions prohibited in the implicitly nested scopes used to "
 "implement comprehensions and generator expressions."
 msgstr ""
+"Expressões yield proibidas nos escopos aninhados implicitamente usados para "
+"implementar compreensões e expressões geradoras."
 
 #: ../../reference/expressions.rst:443
 msgid ""
@@ -617,6 +641,9 @@ msgid ""
 "functions are described separately in section :ref:`asynchronous-generator-"
 "functions`."
 msgstr ""
+"As funções geradoras são descritas abaixo, enquanto as funções geradoras "
+"assíncronas são descritas separadamente na seção :ref:`asynchronous-"
+"generator-functions`"
 
 #: ../../reference/expressions.rst:447
 msgid ""
@@ -646,6 +673,11 @@ msgid ""
 "function cannot control where the execution should continue after it yields; "
 "the control is always transferred to the generator's caller."
 msgstr ""
+"Tudo isso torna as funções geradoras bastante semelhantes às corrotinas; "
+"cedem múltiplas vezes, possuem mais de um ponto de entrada e sua execução "
+"pode ser suspensa. A única diferença é que uma função geradora não pode "
+"controlar onde a execução deve continuar após o seu rendimento; o controle é "
+"sempre transferido para o chamador do gerador."
 
 #: ../../reference/expressions.rst:471
 msgid ""
@@ -655,6 +687,11 @@ msgid ""
 "meth:`~generator.close` method will be called, allowing any pending :keyword:"
 "`finally` clauses to execute."
 msgstr ""
+"Expressões yield são permitidas em qualquer lugar em uma construção :keyword:"
+"`try`. Se o gerador não for retomado antes de ser finalizado (ao atingir uma "
+"contagem de referências zero ou ao ser coletado como lixo), o método :meth:"
+"`~generator.close` do iterador de gerador será chamado, permitindo que "
+"quaisquer cláusulas :keyword:`finally` pendentes sejam executadas."
 
 #: ../../reference/expressions.rst:480
 msgid ""
@@ -667,6 +704,14 @@ msgid ""
 "exc:`AttributeError` or :exc:`TypeError`, while :meth:`~generator.throw` "
 "will just raise the passed in exception immediately."
 msgstr ""
+"Quando ``yield from <expr>`` é usado, a expressão fornecida deve ser "
+"iterável. Os valores produzidos pela iteração desse iterável são passados "
+"diretamente para o chamador dos métodos do gerador atual. Quaisquer valores "
+"passados com :meth:`~generator.send` e quaisquer exceções passadas com :meth:"
+"`~generator.throw` são passados para o iterador subjacente se ele tiver os "
+"métodos apropriados. Se este não for o caso, então :meth:`~generator.send` "
+"irá levantar :exc:`AttributeError` ou :exc:`TypeError`, enquanto :meth:"
+"`~generator.throw` irá apenas levantar a exceção passada imediatamente."
 
 #: ../../reference/expressions.rst:489
 msgid ""
@@ -676,16 +721,25 @@ msgid ""
 "`StopIteration`, or automatically when the subiterator is a generator (by "
 "returning a value from the subgenerator)."
 msgstr ""
+"Quando o iterador subjacente estiver completo, o atributo :attr:"
+"`~StopIteration.value` da instância :exc:`StopIteration` gerada torna-se o "
+"valor da expressão yield. Ele pode ser definido explicitamente ao levantar :"
+"exc:`StopIteration` ou automaticamente quando o subiterador é um gerador "
+"(retornando um valor do subgerador)."
 
 #: ../../reference/expressions.rst:495
 msgid "Added ``yield from <expr>`` to delegate control flow to a subiterator."
 msgstr ""
+"Adicionado ``yield from <expr>`` para delegar o fluxo de controle a um "
+"subiterador."
 
 #: ../../reference/expressions.rst:498
 msgid ""
 "The parentheses may be omitted when the yield expression is the sole "
 "expression on the right hand side of an assignment statement."
 msgstr ""
+"Os parênteses podem ser omitidos quando a expressão yield é a única "
+"expressão no lado direito de uma instrução de atribuição."
 
 #: ../../reference/expressions.rst:504
 msgid ":pep:`255` - Simple Generators"
@@ -696,6 +750,7 @@ msgid ""
 "The proposal for adding generators and the :keyword:`yield` statement to "
 "Python."
 msgstr ""
+"A proposta para adicionar geradores e a instrução :keyword:`yield` ao Python."
 
 #: ../../reference/expressions.rst:508
 msgid ":pep:`342` - Coroutines via Enhanced Generators"
@@ -706,6 +761,8 @@ msgid ""
 "The proposal to enhance the API and syntax of generators, making them usable "
 "as simple coroutines."
 msgstr ""
+"A proposta de aprimorar a API e a sintaxe dos geradores, tornando-os "
+"utilizáveis como simples corrotinas."
 
 #: ../../reference/expressions.rst:512
 msgid ":pep:`380` - Syntax for Delegating to a Subgenerator"
@@ -716,32 +773,40 @@ msgid ""
 "The proposal to introduce the :token:`~python-grammar:yield_from` syntax, "
 "making delegation to subgenerators easy."
 msgstr ""
+"A proposta de introduzir a sintaxe :token:`~python-grammar:yield_from`, "
+"facilitando a delegação a subgeradores."
 
 #: ../../reference/expressions.rst:515
 msgid ":pep:`525` - Asynchronous Generators"
-msgstr ""
+msgstr ":pep:`525` - Geradores assíncronos"
 
 #: ../../reference/expressions.rst:515
 msgid ""
 "The proposal that expanded on :pep:`492` by adding generator capabilities to "
 "coroutine functions."
 msgstr ""
+"A proposta que se expandiu em :pep:`492` adicionando recursos de gerador a "
+"funções de corrotina."
 
 #: ../../reference/expressions.rst:522
 msgid "Generator-iterator methods"
-msgstr ""
+msgstr "Métodos de iterador gerador"
 
 #: ../../reference/expressions.rst:524
 msgid ""
 "This subsection describes the methods of a generator iterator.  They can be "
 "used to control the execution of a generator function."
 msgstr ""
+"Esta subseção descreve os métodos de um iterador gerador. Eles podem ser "
+"usados para controlar a execução de uma função geradora."
 
 #: ../../reference/expressions.rst:527
 msgid ""
 "Note that calling any of the generator methods below when the generator is "
 "already executing raises a :exc:`ValueError` exception."
 msgstr ""
+"Observe que chamar qualquer um dos métodos do gerador abaixo quando o "
+"gerador já estiver em execução levanta uma exceção :exc:`ValueError`."
 
 #: ../../reference/expressions.rst:535
 msgid ""
@@ -754,12 +819,22 @@ msgid ""
 "caller.  If the generator exits without yielding another value, a :exc:"
 "`StopIteration` exception is raised."
 msgstr ""
+"Inicia a execução de uma função geradora ou a retoma na última expressão "
+"yield executada. Quando uma função geradora é retomada com um método :meth:"
+"`~generator.__next__`, a expressão yield atual sempre é avaliada como :const:"
+"`None`. A execução então continua para a próxima expressão yield, onde o "
+"gerador é suspenso novamente, e o valor de :token:`~python-grammar:"
+"expression_list` é retornado para o chamador de :meth:`__next__`. Se o "
+"gerador sair sem produzir outro valor, uma exceção :exc:`StopIteration` será "
+"levantada."
 
 #: ../../reference/expressions.rst:544
 msgid ""
 "This method is normally called implicitly, e.g. by a :keyword:`for` loop, or "
 "by the built-in :func:`next` function."
 msgstr ""
+"Este método é normalmente chamado implicitamente, por exemplo por um laço :"
+"keyword:`for`, ou pela função embutida :func:`next`."
 
 #: ../../reference/expressions.rst:550
 msgid ""
@@ -771,6 +846,12 @@ msgid ""
 "called with :const:`None` as the argument, because there is no yield "
 "expression that could receive the value."
 msgstr ""
+"Retoma a execução e \"envia\" um valor para a função geradora. O argumento "
+"*value* torna-se o resultado da expressão yield atual. O método :meth:`send` "
+"retorna o próximo valor gerado pelo gerador, ou levanta :exc:`StopIteration` "
+"se o gerador sair sem produzir outro valor. Quando :meth:`send` é chamado "
+"para iniciar o gerador, ele deve ser chamado com :const:`None` como "
+"argumento, porque não há nenhuma expressão yield que possa receber o valor."
 
 #: ../../reference/expressions.rst:562
 msgid ""
@@ -780,12 +861,19 @@ msgid ""
 "If the generator function does not catch the passed-in exception, or raises "
 "a different exception, then that exception propagates to the caller."
 msgstr ""
+"Levanta uma exceção no ponto em que o gerador foi pausado e retorna o "
+"próximo valor gerado pela função geradora. Se o gerador sair sem gerar outro "
+"valor, uma exceção :exc:`StopIteration` será levantada. Se a função geradora "
+"não detectar a exceção passada ou levanta uma exceção diferente, essa "
+"exceção se propagará para o chamador."
 
 #: ../../reference/expressions.rst:568
 msgid ""
 "In typical use, this is called with a single exception instance similar to "
 "the way the :keyword:`raise` keyword is used."
 msgstr ""
+"Em uso típico, isso é chamado com uma única instância de exceção semelhante "
+"à forma como a palavra reservada :keyword:`raise` é usada."
 
 #: ../../reference/expressions.rst:571
 msgid ""
@@ -797,6 +885,14 @@ msgid ""
 "any existing :attr:`~BaseException.__traceback__` attribute stored in "
 "*value* may be cleared."
 msgstr ""
+"Para compatibilidade com versões anteriores, no entanto, a segunda "
+"assinatura é suportada, seguindo uma convenção de versões mais antigas do "
+"Python. O argumento *type* deve ser uma classe de exceção e *value* deve ser "
+"uma instância de exceção. Se o *valor* não for fornecido, o construtor "
+"*tipo* será chamado para obter uma instância. Se *traceback* for fornecido, "
+"ele será definido na exceção, caso contrário, qualquer atributo :attr:"
+"`~BaseException.__traceback__` existente armazenado em *value* poderá ser "
+"limpo."
 
 #: ../../reference/expressions.rst:585
 msgid ""
@@ -808,6 +904,13 @@ msgid ""
 "is propagated to the caller.  :meth:`close` does nothing if the generator "
 "has already exited due to an exception or normal exit."
 msgstr ""
+"Levanta :exc:`GeneratorExit` no ponto onde a função geradora foi pausada. Se "
+"a função geradora sair normalmente, já estiver fechada ou levantar :exc:"
+"`GeneratorExit` (por não capturar a exceção), \"close\" retornará ao seu "
+"chamador. Se o gerador produzir um valor, um :exc:`RuntimeError` é "
+"levantado. Se o gerador levantar qualquer outra exceção, ela será propagada "
+"para o chamador. :meth:`close` não faz nada se o gerador já saiu devido a "
+"uma exceção ou saída normal."
 
 #: ../../reference/expressions.rst:596
 msgid "Examples"
@@ -818,12 +921,16 @@ msgid ""
 "Here is a simple example that demonstrates the behavior of generators and "
 "generator functions::"
 msgstr ""
+"Aqui está um exemplo simples que demonstra o comportamento de geradores e "
+"funções geradoras::"
 
 #: ../../reference/expressions.rst:625
 msgid ""
 "For examples using ``yield from``, see :ref:`pep-380` in \"What's New in "
 "Python.\""
 msgstr ""
+"Para exemplos usando ``yield from``, consulte a :ref:`pep-380` em \"O que há "
+"de novo no Python.\""
 
 #: ../../reference/expressions.rst:631
 msgid "Asynchronous generator functions"
