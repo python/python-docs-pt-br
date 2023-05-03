@@ -175,12 +175,15 @@ jobs:
         run: |
           powrap --modified -C ${{ matrix.branch }}
       
+      #TODO:  Solve make push to work with merge scenario
       - name: Commit and push changes
         if: github.repository == 'python/python-docs-pt-br'
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          make push MSG="Merge ${{ env.CURRENT_BRANCH }} into ${{ matrix.branch }}"
+          git diff -I'^"POT-Creation-Date: ' --numstat *.po **/*.po | cut -f3 | xargs -r git add
+          git add $(git ls-files -o --exclude-standard *.po **/*.po) .tx/config
+          git commit --allow-empty -m "Merge ${{ env.CURRENT_BRANCH }} into ${{ matrix.branch }}"
         working-directory: ${{ matrix.branch }}
 
 
@@ -190,4 +193,3 @@ jobs:
     needs: pull
     uses: ./.github/workflows/check.yml
     secrets: inherit
-
