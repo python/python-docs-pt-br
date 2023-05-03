@@ -1,0 +1,206 @@
+# Run some tests in the Python Doc translations
+
+name: Check
+
+on:
+  workflow_dispatch:
+  workflow_call:
+    inputs:
+      called:
+        description: This tells it was called
+        required: false
+        type: boolean
+        default: true
+  push:
+    paths:
+      - '.github/workflows/check.yml'
+      - '.github/prepmsg.sh'
+      - 'Makefile'
+      - '*.po'
+      - '**/*.po'
+
+permissions:
+  contents: read
+
+jobs:
+  # Build documentation handling warnings as errors. Always store logs.
+  # If success, make built docs artifact. If failure, notify telegram.
+  build:
+    name: Build translated docs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+      
+      - name: Download PO files (if called)
+        if: github.event.inputs.called == true
+        uses: actions/download-artifact@v3
+        with:
+          name: translations
+      
+      - name: Set up Python 3
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3'
+          
+      - name: Build docs
+        continue-on-error: true
+        id: build
+        run: |
+          echo "::add-matcher::.github/problem-matchers/sphinx.json"
+          make build
+          
+      - name: Upload artifact - docs
+        if: steps.build.outcome == 'success'
+        uses: actions/upload-artifact@v3
+        with:
+          name: docs
+          path: cpython/Doc/build/html
+          
+      - name: Upload artifact - log files
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-logs
+          path: logs/*
+          
+      - name: Prepare notification (only on error)
+        if: steps.build.outcome == 'failure'
+        id: prepare
+        run: .github/prepmsg.sh logs/build/err*.txt logs/notify.txt
+        env:
+          GITHUB_JOB: ${{ github.job }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          
+      - name: Notify via Telegram
+        if: steps.prepare.outcome == 'success'
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          format: markdown
+          disable_web_page_preview: true
+          message_file: logs/notify.txt
+
+
+  # Run sphinx-lint to find wrong reST syntax in PO files. Always store logs.
+  lint:
+    name: Lint translations
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+      
+      - name: Download PO files (if called)
+        if: github.event.inputs.called == true
+        uses: actions/download-artifact@v3
+        with:
+          name: translations
+      
+      - name: Set up Python 3
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3'
+          
+      - name: Run sphinx-lint
+        continue-on-error: true
+        id: lint
+        run: |
+          make lint
+          
+      - name: Upload artifact - log files
+        uses: actions/upload-artifact@v3
+        with:
+          name: lint-logs
+          path: logs/*
+          
+      #- name: Prepare notification (only on error)
+      #  if: step.lint.outcome == 'failure'
+      #  id: prepare
+      #  run: scripts/prepmsg.sh logs/build/err*.txt logs/notify.txt
+      #  env:
+      #    GITHUB_JOB: ${{ github.job }}
+      #    GITHUB_RUN_ID: ${{ github.run_id }}
+      #    GITHUB_REPOSITORY: ${{ github.repository }}
+      #    
+      #- name: Notify via Telegram
+      #  if: step.prepare.outcome == 'success'
+      #  uses: appleboy/telegram-action@master
+      #  with:
+      #    to: ${{ secrets.TELEGRAM_TO }}
+      #    token: ${{ secrets.TELEGRAM_TOKEN }}
+      #    format: markdown
+      #    disable_web_page_preview: true
+      #    message_file: logs/notify.txt
+
+
+  # Spell check the PO files, and store them in logs/ directory
+  pospell:
+    name: Spell check translations
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+      
+      - name: Download PO files (if called)
+        if: github.event.inputs.called == true
+        uses: actions/download-artifact@v3
+        with:
+          name: translations
+      
+      - name: Set up Python 3
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3'
+      
+      - name: Run pospell
+        continue-on-error: true
+        id: pospell
+        run: make spell
+        
+      - name: Upload artifact - log files
+        uses: actions/upload-artifact@v3
+        with:
+          name: pospell-logs
+          path: logs/*
+
+
+  # Gather all strings in a single PO file, useful for Translation Memory
+  compendium:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out ${{ github.repository }}
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+          
+      - name: Download PO files (if called)
+        if: github.event.inputs.called == true
+        uses: actions/download-artifact@v3
+        with:
+          name: translations
+      
+      - name: Set up Python 3
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3'
+          
+      - name: Install dependencies
+        run: |
+          sudo apt update -y && sudo apt install gettext -y
+          pip3 install --upgrade pip
+          pip3 install translate-toolkit
+          
+      - name: Generate compendium from PO files
+        run: |
+          pocompendium --correct compendium.po *.po **/*.po
+          
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: compendium
+          path: compendium.po
