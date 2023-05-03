@@ -8,59 +8,44 @@
 #################
 # Configuration
 
-# Main translation branch; please make sure it matches 'python-newest'
-# project's version in 'python-docs' organization in Transifex
-BRANCH              := $(shell git branch --show-current)
+# Read environment variables from file to keep this clean move version
+# changes elsewhere
+include .env
 
-# Branches representing docs for older Python versions, which current
-# translations should be merged into. Here some details:
-#  - STABLEBRANCH and OLDSTABLEBRANCHES differ in that STABLEBRANCH
-#      still gets its translated strings overwritten.
-#  - Not-yet-translated strings will still be merged on both variables
-#  - Leave STABLEBRANCH empty if Python stable branch is same as BRANCH.
-#  - Never use same version as in BRANCH
-#  - Check Python Docs versions still being built and published in:
-#    https://github.com/python/docsbuild-scripts/blob/master/build_docs.py
-STABLEBRANCH        := 3.9
-OLDSTABLEBRANCHES   := 3.8 3.7 3.6 2.7
+# Force the use of Bash
+SHELL=/bin/bash
 
-# Name of language team; should be python-docs-LANG, where LANG is the
-# IETF language tag for your language; see Language Tag section in PEP 545
-LANGUAGE_TEAM       := python-docs-pt-br
+# Time of starting this run
+NOW                    := $(shell date +'%Y%m%-d-%H%M%Z')
 
-# Language code in ISO 639; see Language Tag section in PEP 545, and
-# Sphinx configuration's supported languages
-LANGUAGE            := pt_BR
+# Force realpath, not relative one
+override CPYTHON_DIR   := $(shell realpath $(CPYTHON_DIR))
 
-# Paths and URLs
-UPSTREAM            := https://github.com/python/cpython
-PYTHON              := $(shell which python3)
-CPYTHON_PATH        := $(shell realpath ../cpython)
-POSPELL_TMP_DIR     := .pospell
-VENV                := $(shell realpath ./venv)
-WORKDIRS            := $(VENV)/workdirs
-CPYTHON_WORKDIR     := $(WORKDIRS)/cpython
-LOCALE_DIR          := $(WORKDIRS)/locale
+override LOCALE_DIR    := "$(CPYTHON_DIR)/$(LOCALE_DIR)"
 
-# Settings for 'build' target
-JOBS                := auto
-SPHINXERRORHANDLING := "-W"
+override LOGS_DIR      := $(shell realpath $(LOGS_DIR))
 
+override VENV_DIR      := $(shell realpath $(VENV_DIR))
 #
 #################
 
-.PHONY: help
+.PHONY: build clean help htmlview lint merge po-install pot pull push setup spell tx-config tx-install venv
+
 help:
 	@echo "Please use 'make <target>' where <target> is one of:"
-	@echo " build        Build an local version in html, with warnings as errors"
-	@echo " push         Update translations and Transifex config in the repository"
-	@echo " pull         Download translations from Transifex; calls 'venv'"
-	@echo " tx-config    Recreate an up-to-date project .tx/config; calls 'pot'"
-	@echo " pot          Create/Update POT files from source files"
-	@echo " serve        Serve a built documentation on http://localhost:8000"
+	@echo " build        Build an local version in html; deps: 'setup' and 'po-install'"
+	@echo " push         Commit and push translations; no deps"
+	@echo " pull         Download translations from Transifex; deps: 'tx-config'"
+	@echo " tx-config    Regenerate Transifex config; deps: 'pot' and 'tx-install'"
+	@echo " tx-install   Install Transifex CLI client; deps: no deps"
+	@echo " pot          Regenerate POT files from sources; deps: 'setup' and 'po-install'"
+	@echo " htmlview     View docs in a web browser; deps: build"
 	@echo " spell        Check spelling, storing output in $(POSPELL_TMP_DIR)"
-	@echo " merge        Merge $(BRANCH) branch's .po files into the following"
-	@echo "                older branches: $(STABLEBRANCH) $(OLDSTABLEBRANCHES)"
+	@echo " lint         Do some linting in PO file's Sphinx syntax. deps: 'venv'"
+	@echo " merge        Merge $(BRANCH) branch's .po files into older branches"
+	@echo "                Defaults overwrite in: $(BUGFIXBRANCH)"
+	@echo "                and NOT overwrite in: $(OLDERBRANCHES)"
+	@echo " clean        Do some house cleaning"
 	@echo ""
 
 
@@ -68,203 +53,210 @@ help:
 #        at the moment. For most up-to-date docs, run "tx-config" and "pull"
 #        before this. If passing SPHINXERRORHANDLING='', warnings will not be
 #        treated as errors, which is good to skip simple Sphinx syntax mistakes.
-.PHONY: build
-build: setup
-	@echo "Building Python $(BRANCH) Documentation ..."
-	@$(MAKE) -C $(CPYTHON_WORKDIR)/Doc/              \
-		VENVDIR=$(CPYTHON_WORKDIR)/Doc/venv         \
-		PYTHON=$(PYTHON)                            \
-		SPHINXERRORHANDLING=$(SPHINXERRORHANDLING)  \
-		SPHINXOPTS='-q --keep-going -j$(JOBS)       \
-			-D locale_dirs=$(LOCALE_DIR)            \
-			-D language=$(LANGUAGE)                 \
-			-D gettext_compact=0                    \
-			-D latex_engine=xelatex                 \
-			-D latex_elements.inputenc=             \
-			-D latex_elements.fontenc='             \
-		html
-		
-	@echo "Success! Open file://$(CPYTHON_WORKDIR)/Doc/build/html/index.html, " \
-	      "or run 'make serve' to see them in http://localhost:8000";
+build: setup po-install
+	@echo "Building Python $(BRANCH) Documentation in $(LANGUAGE) ..."
+	@mkdir -p "$(LOGS_DIR)/build"
+	@$(MAKE) -C $(CPYTHON_DIR)/Doc/ \
+		PYTHON=$(PYTHON) \
+		SPHINXERRORHANDLING=$(SPHINXERRORHANDLING) \
+		SPHINXOPTS="--keep-going \
+			-D language=$(LANGUAGE) \
+			-D latex_engine=xelatex \
+			-D latex_elements.inputenc= \
+			-D latex_elements.fontenc=" \
+		html \
+		2> >(tee -a $(LOGS_DIR)/build/err-$(NOW).txt >&2)
 
 
-# push: push changed translation files and Transifex config file to repository.
-#       Do nothing if there is no file changes. If GITHUB_TOKEN is set, then
-#       assumes we are in GitHub Actions, requiring different push args.
-.PHONY: push
+# push: Push changed translation files and Transifex config file to repository.
+#       First it git-adds tracked file whose changes are not limited to the
+#       POT-Creation-Date header field. Then it git-adds untracked PO files
+#       that might have been created in the update process, and the Transifex
+#       configuration. If no file changed, it does nothing.
+#       The MSG variable has a default commit message, but one can overrride it
+#       e.g. make push MSG='my message'
+push: MSG := 'Update translations from Transifex'
 push:
-	@if ! git status -s | egrep '\.po|\.tx/config'; then                    \
-		echo "Nothing to commit";                                           \
-		exit 0;                                                             \
-	else                                                                    \
-		git add *.po **/*.po .tx/config;                                    \
-		git commit -m 'Update translations from Transifex';                 \
-		if [ $(GITHUB_TOKEN) != "" ]; then                                  \
-			header="$(echo -n token:"$(GITHUB_TOKEN)" | base64)";           \
-			git -c http.extraheader="AUTHORIZATION: basic $(header)" push;  \
-		else                                                                \
-			git push;                                                       \
-		fi;                                                                 \
-	fi
+	@git diff -I'^"POT-Creation-Date: ' --numstat *.po **/*.po \
+	    | cut -f3 | xargs -r git add
+	@git add $(git ls-files -o --exclude-standard *.po **/*.po) .tx/config
+	@git commit --allow-empty -m $(MSG)
+	@git push
 
 
 # pull: Download translations files from Transifex, and apply line wrapping.
 #       For downloading new translation files, first run "tx-config" target
 #       to update the translation file mapping.
-.PHONY: pull
-pull: venv
-	@$(VENV)/bin/tx pull --force --language=$(LANGUAGE) --parallel
-	@$(VENV)/bin/powrap --quiet *.po **/*.po
+pull: tx-config
+	@"$(TX_CLI_DIR)/tx" pull -l pt_BR -t -f --use-git-timestamps
+	@"$(VENV_DIR)/bin/powrap" --quiet *.po **/*.po
 
 
-# tx-config: After running "pot", create a new Transifex config file by
-#            reading pot files generated, then tweak it to LANGUAGE.
-.PHONY: tx-config
+# tx-config: Generate a new Transifex configuration file by reading
+#            the pot files generated by 'pot' target. The file is
+#            created in $(LOCALE_DIR)/.tx/config, and then is tweaked
+#            to fit the language's needs and then placed in .tx/config
+#            at the project's root directory.
 tx-config: TRANSIFEX_PROJECT := python-newest
-tx-config: pot
-	@cd $(CPYTHON_WORKDIR)/Doc/locales;                 \
-	rm -rf .tx;                                         \
-	$(VENV)/bin/sphinx-intl create-txconfig;            \
-	$(VENV)/bin/sphinx-intl update-txconfig-resources   \
-	    --transifex-project-name=$(TRANSIFEX_PROJECT)   \
-	    --locale-dir .                                  \
-	    --pot-dir pot;
-	
+tx-config: LOCALE_RELATIVE := $(shell realpath --relative-to=. $(LOCALE_DIR))
+tx-config: pot tx-install
+	@cd $(LOCALE_DIR); \
+	rm -rf .tx; \
+	"$(VENV_DIR)/bin/sphinx-intl" create-txconfig; \
+	"$(VENV_DIR)/bin/sphinx-intl" update-txconfig-resources \
+	    --transifex-organization-name python-doc \
+	    --transifex-project-name=$(TRANSIFEX_PROJECT) \
+	    --locale-dir . \
+	    --pot-dir pot
 	@mkdir -p .tx
-	@sed $(CPYTHON_WORKDIR)/Doc/locales/.tx/config    \
-	    -e '/^source_file/d'                          \
-	    -e 's|<lang>/LC_MESSAGES/||'                  \
-	    -e "s|^file_filter|trans.$(LANGUAGE)|"        \
+	@sed $(LOCALE_DIR)/.tx/config \
+	    -e "s|^file_filter  = .*|&\nx&|;" \
+	    -e "s|^source_file  = pot/|source_file  = $(LOCALE_RELATIVE)/pot/|" \
 	    > .tx/config
+	@sed -i .tx/config \
+	    -e "s|^xfile_filter  = ./<lang>/LC_MESSAGES/|trans.$(LANGUAGE)  = |;"
 
 
-# pot: After running "setup" target, run a cpython Makefile's target
-#      to generate .pot files under $(CPYTHON_WORKDIR)/Doc/locales/pot.
-.PHONY: pot
-pot: setup
-	@$(MAKE) -C $(CPYTHON_WORKDIR)/Doc/         \
-		VENVDIR=$(CPYTHON_WORKDIR)/Doc/venv     \
-		PYTHON=$(PYTHON)                        \
-		ALLSPHINXOPTS='-E -b gettext            \
-			-D gettext_compact=0                \
-			-d build/.doctrees .                \
-			locales/pot'                        \
-		build
+# tx-install: Install Transifex CLI client if not installed yet. Installs
+#             the TX_CLI_VERSION version into TX_CLI_DIR directory. If
+#             TX_CLI_VERSION not provided, uses the latest one.
+tx-install: URL := https://raw.githubusercontent.com/transifex/cli/master/install.sh
+tx-install:
+	@if [ ! -x "$(TX_CLI_DIR)/tx" ]; then \
+	    echo "Transifex TX Client not found, installing ..."; \
+	    cd "$(TX_CLI_DIR)"; \
+	    if [ -n "v$(TX_CLI_VERSION)" ]; then \
+	        curl -s -o- $(URL) | bash -s -- v$(TX_CLI_VERSION); \
+	    else \
+	        curl -s -o- $(URL) | bash; \
+	    fi; \
+	fi
+
+
+# pot: After running "setup" target, run sphinx-build's gettext target
+#      to generate .pot files under $(CPYTHON_DIR)/Doc/locales/pot.
+pot: setup po-install
+	@$(MAKE) -C $(CPYTHON_DIR)/Doc/ \
+	    VENVDIR=./venv \
+	    PYTHON=$(PYTHON) \
+	    ALLSPHINXOPTS='-E \
+	        -b gettext \
+	        -D gettext_compact=0 \
+	        -d build/.doctrees \
+	        . $(LOCALE_DIR)/pot' \
+	    build
 
 
 # setup: After running "venv" target, prepare that virtual environment with
 #        a local clone of cpython repository and the translation files.
 #        If the directories exists, only update the cpython repository and
 #        the translation files copy which could have new/updated files.
-.PHONY: setup
+setup: CPYTHON_URL := https://github.com/python/cpython
 setup: venv
-	@if [ -z $(BRANCH) ]; then                                               \
+	@if [ -z "$(BRANCH)" ]; then \
 		echo "BRANCH is empty, should have git-branch. Unable to continue."; \
-		exit 1;                                                              \
+		exit 1; \
 	fi
 	
-	@if ! [ -d $(CPYTHON_PATH) ]; then                                      \
-		echo "CPython repo not found; cloning ...";                         \
-		git clone --depth 1 --no-single-branch $(UPSTREAM) $(CPYTHON_PATH); \
-		git -C $(CPYTHON_PATH) checkout $(BRANCH);                          \
-	else                                                                    \
-		echo "CPython repo found; updating ...";                            \
-		git -C $(CPYTHON_PATH) checkout $(BRANCH);                          \
-		git -C $(CPYTHON_PATH) pull --rebase;                               \
+	@if ! [ -d "$(CPYTHON_DIR)" ]; then \
+		echo "CPython repo not found; cloning ..."; \
+		git clone --depth 1 --no-single-branch $(CPYTHON_URL) $(CPYTHON_DIR); \
+		git -C "$(CPYTHON_DIR)" checkout $(BRANCH); \
+	else \
+		echo "CPython repo found; updating ..."; \
+		git -C "$(CPYTHON_DIR)" checkout $(BRANCH); \
+		git -C "$(CPYTHON_DIR)" pull --rebase; \
 	fi
 	
-	@if ! [ -d $(CPYTHON_WORKDIR) ]; then                                   \
-		echo "Setting up CPython repo in workdir ...";                      \
-		rm -fr $(WORKDIRS);                                                 \
-		mkdir -p $(WORKDIRS);                                               \
-		git clone $(CPYTHON_PATH) $(CPYTHON_WORKDIR);                       \
-		$(MAKE) -C $(CPYTHON_WORKDIR)/Doc                                   \
-			VENVDIR=$(CPYTHON_WORKDIR)/Doc/venv                             \
-			PYTHON=$(PYTHON) venv;                                          \
-	else                                                                    \
-		echo "CPython repo already ready in workdir";                       \
+	@echo "Creating CPython's documentation virtual environment ..."
+	@if [ ! -d "$(CPYTHON_DIR)/Doc/venv" ]; then \
+	    $(MAKE) -C "$(CPYTHON_DIR)/Doc" PYTHON=$(PYTHON) venv; \
 	fi
-	
-	@echo "Setting up translation files in workdir ..."
-	@if ! [ -d $(LOCALE_DIR)/$(LANGUAGE)/LC_MESSAGES/ ]; then               \
-		mkdir -p $(LOCALE_DIR)/$(LANGUAGE)/LC_MESSAGES/;                    \
-	fi
-	@cp --parents *.po **/*.po $(LOCALE_DIR)/$(LANGUAGE)/LC_MESSAGES/
+
+
+# po-install: Copy the project's PO files into CPython locales directory,
+#             to make it easier to run targets like build and gettext
+po-install:
+	@echo "Setting up translation files in cpython's Doc ..."
+	@mkdir -p "$(LOCALE_DIR)/$(LANGUAGE)/LC_MESSAGES/"
+	@cp --parents *.po **/*.po "$(LOCALE_DIR)/$(LANGUAGE)/LC_MESSAGES/"
 
 
 # venv: create a virtual environment which will be used by almost every
-#       other target of this script.
-.PHONY: venv
+#       other target of this script. CPython specific packages are installed
+#       in there specific venv (see 'setup' target).
 venv:
-	@if [ ! -d $(VENV) ]; then                                         \
-	    echo "Setting up $(LANGUAGE_TEAM)'s virtual environment ...";  \
-	    $(PYTHON) -m venv --prompt $(LANGUAGE_TEAM) $(VENV);           \
-	    $(VENV)/bin/python -m pip install --upgrade pip;               \
+	@if [ ! -d "$(VENV_DIR)" ]; then \
+	    echo "Setting up language team's virtual environment ..."; \
+	    "$(PYTHON)" -m venv "$(VENV_DIR)"; \
+	    "$(VENV_DIR)/bin/python" -m pip install --upgrade pip; \
+	    mkdir -p "$(LOGS_DIR)"; \
+	    "$(VENV_DIR)/bin/pip" install --requirement requirements.txt \
+	      --log "$(LOGS_DIR)/venv-$(NOW).txt"; \
 	fi
-	@$(VENV)/bin/pip install --upgrade --requirement requirements.txt
 
 
-# serve: serve the documentation in a simple local web server, using cpython
-#        Makefile's "serve" target. Run "build" before using this target.
-.PHONY: serve
-serve:
-	@$(MAKE) -C $(CPYTHON_WORKDIR)/Doc serve
+# htmlview: View the documentation locally, using Makefile's "htmlview" target.
+#           Run "build" before using this target.
+htmlview: build
+	@INDEX="$(CPYTHON_DIR)/Doc/build/html/index.html"; \
+	"$(PYTHON)" -c "import os, webbrowser; \
+	webbrowser.open('file://' + os.path.realpath('$$INDEX'))"
 
 
 # spell: run spell checking tool in all po files listed in SRCS variable,
 #        storing the output in text files DESTS for proofreading.  The
 #        DESTS target run the spellchecking, while the typos.txt target
 #        gather all reported issues in one file, sorted without redundancy.
-.PHONY: spell
-
 SRCS := $(wildcard *.po **/*.po)
-DESTS = $(addprefix $(POSPELL_TMP_DIR)/out/,$(patsubst %.po,%.txt,$(SRCS)))
+DESTS := $(addprefix $(LOGS_DIR)/pospell-$(NOW)/out/,$(patsubst %.po,%.txt,$(SRCS)))
+spell: venv $(DESTS) $(LOGS_DIR)/pospell-$(NOW)/all.txt
 
-spell: venv $(DESTS) $(POSPELL_TMP_DIR)/typos.txt
-
-$(POSPELL_TMP_DIR)/out/%.txt: %.po dict
+$(LOGS_DIR)/pospell-$(NOW)/out/%.txt: %.po dict
 	@echo "Checking $< ..."
 	@mkdir -p $(@D)
-	@$(VENV)/bin/pospell -l $(LANGUAGE) -p dict $< > $@ || true
+	@$(VENV_DIR)/bin/pospell -l "$(LANGUAGE)" -p dict $< > $@ || true
 
-$(POSPELL_TMP_DIR)/typos.txt:
-	@echo "Gathering all typos in $(POSPELL_TMP_DIR)/typos.txt ..."
+$(LOGS_DIR)/pospell-$(NOW)/all.txt:
+	@echo "Gathering all typos in $(LOGS_DIR)/pospell-$(NOW)/all.txt ..."
 	@cut -d: -f3- $(DESTS) | sort -u > $@
 
 
 # merge: merge translations from BRANCH (Python version currently aim of
-#        translation) into each branch listed by STABLEBRANCH and
-#        OLDSTABLEBRANCHES (branches of older Python versions) so that older
+#        translation) into each branch listed by BUGFIXBRANCH and
+#        OLDERBRANCHES (branches of older Python versions) so that older
 #        versions of the Python Docs make at least some use the latest
-#        translations, if possible. OLDSTABLEBRANCHES has '--no-overwrite'
+#        translations, if possible. OLDERBRANCHES has '--no-overwrite'
 #        flag so it does not overwrite translated strings, preserving history.
 #        After merging, git-push merged files (if any) to the target branch.
-.PHONY: merge
-merge: venv $(STABLEBRANCH) $(OLDSTABLEBRANCHES)
+merge: venv $(BUGFIXBRANCH) $(OLDERBRANCHES)
 
-$(OLDSTABLEBRANCHES):  OVERWRITEFLAG = --no-overwrite
-$(STABLEBRANCH) $(OLDSTABLEBRANCHES):
-	@if [ $@ == $(BRANCH) ]; then                                       \
-		echo "Ignoring attempt to pomerge '$(BRANCH)' into itself";     \
-	else                                                                \
-		echo "Merging translations from $(BRANCH) branch into $@ ...";  \
-		$(VENV)/bin/pomerge --from-files *.po **/*.po;                  \
-		git checkout $@;                                                \
-		$(VENV)/bin/pomerge $(OVERWRITEFLAG) --to-files *.po **/*.po;   \
-		$(VENV)/bin/powrap --modified *.po **/*.po;                     \
-		if git status -s | egrep '\.po'; then                           \
-			git add *.po **/*.po;                                       \
-			git commit -m "pomerge from $(BRANCH) branch into $@";      \
-			git push;                                                   \
-		fi;                                                             \
-		git checkout $(BRANCH);                                         \
+$(OLDERBRANCHES):  OVERWRITEFLAG = --no-overwrite
+$(BUGFIXBRANCH) $(OLDERBRANCHES):
+	@if [[ $@ == $(BRANCH) ]]; then \
+	    echo "Ignoring attempt to pomerge '$(BRANCH)' into itself."; \
+	else \
+	    echo "Merging translations from $(BRANCH) branch into $@ ..."; \
+	    $(VENV_DIR)/bin/pomerge --from-files *.po **/*.po; \
+	    git checkout $@; \
+	    $(VENV_DIR)/bin/pomerge $(OVERWRITEFLAG) --to-files *.po **/*.po; \
+	    $(VENV_DIR)/bin/powrap --modified *.po **/*.po; \
+	    $(MAKE) push MSG="Merge $(BRANCH) branch into $@"; \
+	    git checkout $(BRANCH); \
 	fi
+
+
+# lint: Report reStrutcturedText syntax errors in the translation files
+lint: venv
+	@mkdir -p "$(LOGS_DIR)"
+	@$(VENV_DIR)/bin/sphinx-lint *.po **/*.po |& \
+	    tee -a $(LOGS_DIR)/lint-$(NOW).txt || true
+	@echo "Lint output stored in $(LOGS_DIR)/lint-$(NOW).txt"
 
 
 # clean: remove all .mo files and the venv directory that may exist and could
 #        have been created by the actions in other targets of this script.
-.PHONY: clean
 clean:
-	rm -rf $(VENV)
-	rm -rf $(POSPELL_TMP_DIR)
-	find -name '*.mo' -delete
+	rm -rf "$(VENV_DIR)"
+	rm -rf "$(LOCALE_DIR)"
+	[ -d "$(CPYTHON_DIR)" ] && $(MAKE) -C "$(CPYTHON_DIR)/Doc" clean-venv

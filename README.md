@@ -1,6 +1,7 @@
 # Brazilian Portuguese Translation of the Python Documentation
 
-![Build and update documentation](https://github.com/python/python-docs-pt-br/workflows/Build%20and%20update%20documentation/badge.svg)
+[![Update](https://github.com/python/python-docs-pt-br/actions/workflows/update.yml/badge.svg)](https://github.com/python/python-docs-pt-br/actions/workflows/update.yml)  
+[![Check](https://github.com/python/python-docs-pt-br/actions/workflows/check.yml/badge.svg)](https://github.com/python/python-docs-pt-br/actions/workflows/check.yml)
 
 Check our [wiki](https://github.com/python/python-docs-pt-br/wiki) for more guidance on translating
 
