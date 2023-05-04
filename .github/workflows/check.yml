@@ -171,6 +171,7 @@ jobs:
 
 
   # Gather all strings in a single PO file, useful for Translation Memory
+  # Also run powrap, useful only for pull_request testing for dependabot
   compendium:
     runs-on: ubuntu-latest
     steps:
@@ -194,11 +195,12 @@ jobs:
         run: |
           sudo apt update -y && sudo apt install gettext -y
           pip3 install --upgrade pip
-          pip3 install translate-toolkit
+          pip3 install translate-toolkit powrap
           
       - name: Generate compendium from PO files
         run: |
           pocompendium --correct compendium.po *.po **/*.po
+          powrap pocompendium.po
           
       - name: Upload artifact
         uses: actions/upload-artifact@v3
