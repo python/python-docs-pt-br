@@ -45,16 +45,16 @@ jobs:
           
       - name: Get branch name on push or schedule
         if: |
-          github.event == 'push' ||
-          github.event == 'schedule'
+          github.event_name == 'push' ||
+          github.event_name == 'schedule'
         run: echo "BRANCH=${GITHUB_REF_NAME}" >>$GITHUB_ENV
       
       - name: Get branch name on pull
-        if: github.event == 'pull_request'
+        if: github.event_name == 'pull_request'
         run: echo "BRANCH=${GITHUB_BASE_REF}" >>$GITHUB_ENV
       
       - name: Get branch name on manual run
-        if: github.event == 'workflow_dispatch'
+        if: github.event_name == 'workflow_dispatch'
         run: echo "BRANCH=${{ github.event.inputs.BRANCH }}" >> $GITHUB_ENV
       
       - name: Check out CPython
@@ -124,7 +124,7 @@ jobs:
       - name: Commit and push changes
         if: |
           github.repository == 'python/python-docs-pt-br' && 
-          github.event != 'pull_request'
+          github.event_name != 'pull_request'
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
@@ -153,16 +153,16 @@ jobs:
     steps:
       - name: Get branch name on push or schedule
         if: |
-          github.event == 'push' ||
+          github.event_name == 'push' ||
           github.event == 'schedule'
         run: echo "CURRENT_BRANCH=${GITHUB_REF_NAME}" >>$GITHUB_ENV
       
       - name: Get branch name on pull
-        if: github.event == 'pull_request'
+        if: github.event_name == 'pull_request'
         run: echo "CURRENT_BRANCH=${GITHUB_BASE_REF}" >>$GITHUB_ENV
       
       - name: Get branch name on manual run
-        if: github.event == 'workflow_dispatch'
+        if: github.event_name == 'workflow_dispatch'
         run: echo "CURRENT_BRANCH=${{ github.event.inputs.BRANCH }}" >> $GITHUB_ENV
       
       - name: Check out source branch (${{ env.CURRENT_BRANCH }})
@@ -207,7 +207,7 @@ jobs:
       - name: Commit and push changes
         if: |
           github.repository == 'python/python-docs-pt-br' && 
-          github.event != 'pull_request'
+          github.event_name != 'pull_request'
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
@@ -221,6 +221,6 @@ jobs:
   call-build:
     name: call
     needs: pull
-    if: github.event != 'pull_request'
+    if: github.event_name != 'pull_request'
     uses: ./.github/workflows/check.yml
     secrets: inherit
