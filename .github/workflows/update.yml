@@ -8,10 +8,18 @@ on:
         required: false
         type: string
         default: '3.11'
+  pull_request:
+    paths:
+      - '.github/workflows/update.yml'
+      - 'Makefile'
+      - 'requirements.txt'
+    branches:
+      - '3.11'
   push:
     paths:
       - '.github/workflows/update.yml'
       - 'Makefile'
+      - 'requirements.txt'
     branches:
       - '3.11'
       - '3.10'
@@ -35,12 +43,17 @@ jobs:
         with:
           persist-credentials: false
           
-      - name: Extract branch name
-        if: github.event != 'workflow_dispatch'
-        shell: bash
-        run: echo "BRANCH=$(echo ${GITHUB_REF#refs/heads/})" >>$GITHUB_ENV
+      - name: Get branch name on push or schedule
+        if: |
+          github.event == 'push' ||
+          github.event == 'schedule'
+        run: echo "BRANCH=${GITHUB_REF_NAME}" >>$GITHUB_ENV
       
-      - name: ... or set branch name if manually run
+      - name: Get branch name on pull
+        if: github.event == 'pull_request'
+        run: echo "BRANCH=${GITHUB_BASE_REF}" >>$GITHUB_ENV
+      
+      - name: Get branch name on manual run
         if: github.event == 'workflow_dispatch'
         run: echo "BRANCH=${{ github.event.inputs.BRANCH }}" >> $GITHUB_ENV
       
@@ -58,7 +71,7 @@ jobs:
           cache: 'pip'
           cache-dependency-path: |
             'requirements.txt'
-            '${{ env.CPYTHON_DIR }}/requirements.txt'
+            'cpython/requirements.txt'
         
       - name: Install dependencies
         run: sudo apt update -y && sudo apt install gettext tree -y
@@ -87,7 +100,6 @@ jobs:
 
   # Job for getting po files downloaded and storing this repository
   push:
-    if: github.repository == 'python/python-docs-pt-br'
     name: Push to repo
     needs: [pull]
     runs-on: ubuntu-latest
@@ -102,10 +114,17 @@ jobs:
         with:
           name: translations
     
+      # Exclude file with only changes in POT-Creation-Date
       - name: Changed files
-        run: git status
-        
+        shell: bash
+        run: |
+          git diff -I'^"POT-Creation-Date: ' --numstat *.po **/*.po | cut -f3
+          git ls-files -o --exclude-standard *.po **/*.po
+
       - name: Commit and push changes
+        if: |
+          github.repository == 'python/python-docs-pt-br' && 
+          github.event != 'pull_request
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
@@ -132,10 +151,19 @@ jobs:
           - branch: 3.10
             overwrite: true
     steps:
-      - name: Get current branch name
-        shell: bash
-        run:
-          echo "CURRENT_BRANCH=$(echo ${GITHUB_REF#refs/heads/} | tr / -)" >> $GITHUB_ENV
+      - name: Get branch name on push or schedule
+        if: |
+          github.event == 'push' ||
+          github.event == 'schedule'
+        run: echo "CURRENT_BRANCH=${GITHUB_REF_NAME}" >>$GITHUB_ENV
+      
+      - name: Get branch name on pull
+        if: github.event == 'pull_request'
+        run: echo "CURRENT_BRANCH=${GITHUB_BASE_REF}" >>$GITHUB_ENV
+      
+      - name: Get branch name on manual run
+        if: github.event == 'workflow_dispatch'
+        run: echo "CURRENT_BRANCH=${{ github.event.inputs.BRANCH }}" >> $GITHUB_ENV
       
       - name: Check out source branch (${{ env.CURRENT_BRANCH }})
         uses: actions/checkout@v3
@@ -177,7 +205,9 @@ jobs:
       
       #TODO:  Solve make push to work with merge scenario
       - name: Commit and push changes
-        if: github.repository == 'python/python-docs-pt-br'
+        if: |
+          github.repository == 'python/python-docs-pt-br' && 
+          github.event != 'pull_request
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
@@ -191,5 +221,6 @@ jobs:
   call-build:
     name: call
     needs: pull
+    if: github.event != 'pull_request'
     uses: ./.github/workflows/check.yml
     secrets: inherit
