@@ -38,7 +38,7 @@ help:
 	@echo " pull         Download translations from Transifex; deps: 'tx-config'"
 	@echo " tx-config    Regenerate Transifex config; deps: 'pot' and 'tx-install'"
 	@echo " tx-install   Install Transifex CLI client; deps: no deps"
-	@echo " pot          Regenerate POT files from sources; deps: 'setup' and 'po-install'"
+	@echo " pot          Regenerate POT files from sources; deps: 'setup'"
 	@echo " htmlview     View docs in a web browser; deps: build"
 	@echo " spell        Check spelling, storing output in $(POSPELL_TMP_DIR)"
 	@echo " lint         Do some linting in PO file's Sphinx syntax. deps: 'venv'"
@@ -135,7 +135,7 @@ tx-install:
 
 # pot: After running "setup" target, run sphinx-build's gettext target
 #      to generate .pot files under $(CPYTHON_DIR)/Doc/locales/pot.
-pot: setup po-install
+pot: setup
 	@$(MAKE) -C $(CPYTHON_DIR)/Doc/ \
 	    VENVDIR=./venv \
 	    PYTHON=$(PYTHON) \
