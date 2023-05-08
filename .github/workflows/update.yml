@@ -75,7 +75,11 @@ jobs:
         run: sudo apt update -y && sudo apt install gettext tree -y
       
       - name: Pull translations
-        run: make pull TX_CLI_DIR=/usr/local/bin
+        run: |
+          make tx-config
+          if [ "${{ github.event_name }}" != 'pull_request' ]; then
+            make pull -o tx-config TX_CLI_DIR=/usr/local/bin
+          fi
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
         
