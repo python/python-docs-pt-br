@@ -60,6 +60,7 @@ build: setup po-install
 	    PYTHON=$(PYTHON) \
 	    SPHINXERRORHANDLING=$(SPHINXERRORHANDLING) \
 	    SPHINXOPTS="--keep-going \
+	        -D gettext_compact=0 \
 	        -D language=$(LANGUAGE) \
 	        -D latex_engine=xelatex \
 	        -D latex_elements.inputenc= \
