@@ -57,15 +57,15 @@ build: setup po-install
 	@echo "Building Python $(BRANCH) Documentation in $(LANGUAGE) ..."
 	@mkdir -p "$(LOGS_DIR)/build"
 	@$(MAKE) -C $(CPYTHON_DIR)/Doc/ \
-		PYTHON=$(PYTHON) \
-		SPHINXERRORHANDLING=$(SPHINXERRORHANDLING) \
-		SPHINXOPTS="--keep-going \
-			-D language=$(LANGUAGE) \
-			-D latex_engine=xelatex \
-			-D latex_elements.inputenc= \
-			-D latex_elements.fontenc=" \
-		html \
-		2> >(tee -a $(LOGS_DIR)/build/err-$(NOW).txt >&2)
+	    PYTHON=$(PYTHON) \
+	    SPHINXERRORHANDLING=$(SPHINXERRORHANDLING) \
+	    SPHINXOPTS="--keep-going \
+	        -D language=$(LANGUAGE) \
+	        -D latex_engine=xelatex \
+	        -D latex_elements.inputenc= \
+	        -D latex_elements.fontenc=" \
+	    html \
+	    2> >(tee -a $(LOGS_DIR)/build/err-$(NOW).txt >&2)
 
 
 # push: Push changed translation files and Transifex config file to repository.
@@ -154,18 +154,18 @@ pot: setup
 setup: CPYTHON_URL := https://github.com/python/cpython
 setup: venv
 	@if [ -z "$(BRANCH)" ]; then \
-		echo "BRANCH is empty, should have git-branch. Unable to continue."; \
-		exit 1; \
+	    echo "BRANCH is empty, should have git-branch. Unable to continue."; \
+	    exit 1; \
 	fi
 	
 	@if ! [ -d "$(CPYTHON_DIR)" ]; then \
-		echo "CPython repo not found; cloning ..."; \
-		git clone --depth 1 --no-single-branch $(CPYTHON_URL) $(CPYTHON_DIR); \
-		git -C "$(CPYTHON_DIR)" checkout $(BRANCH); \
+	    echo "CPython repo not found; cloning ..."; \
+	    git clone --depth 1 --no-single-branch $(CPYTHON_URL) $(CPYTHON_DIR); \
+	    git -C "$(CPYTHON_DIR)" checkout $(BRANCH); \
 	else \
-		echo "CPython repo found; updating ..."; \
-		git -C "$(CPYTHON_DIR)" checkout $(BRANCH); \
-		git -C "$(CPYTHON_DIR)" pull --rebase; \
+	    echo "CPython repo found; updating ..."; \
+	    git -C "$(CPYTHON_DIR)" checkout $(BRANCH); \
+	    git -C "$(CPYTHON_DIR)" pull --rebase; \
 	fi
 	
 	@echo "Creating CPython's documentation virtual environment ..."
@@ -192,7 +192,7 @@ venv:
 	    "$(VENV_DIR)/bin/python" -m pip install --upgrade pip; \
 	    mkdir -p "$(LOGS_DIR)"; \
 	    "$(VENV_DIR)/bin/pip" install --requirement requirements.txt \
-	      --log "$(LOGS_DIR)/venv-$(NOW).txt"; \
+	        --log "$(LOGS_DIR)/venv-$(NOW).txt"; \
 	fi
 
 
