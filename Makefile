@@ -81,7 +81,7 @@ push:
 	@git diff -I'^"POT-Creation-Date: ' --numstat *.po **/*.po \
 	    | cut -f3 | xargs -r git add
 	@git add $(git ls-files -o --exclude-standard *.po **/*.po) .tx/config
-	@git commit --allow-empty -m $(MSG)
+	@git diff-index --quiet HEAD || git commit --allow-empty -m $(MSG)
 	@git push
 
 
