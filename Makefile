@@ -69,20 +69,25 @@ build: setup po-install
 	    2> >(tee -a $(LOGS_DIR)/build/err-$(NOW).txt >&2)
 
 
-# push: Push changed translation files and Transifex config file to repository.
-#       First it git-adds tracked file whose changes are not limited to the
-#       POT-Creation-Date header field. Then it git-adds untracked PO files
+# push: Commit and push translation files and Transifex config file to repo.
+#       First it git-adds tracked file that doesn't exclusively match changes
+#       in POT-Creation-Date header field. Then it git-adds untracked PO files
 #       that might have been created in the update process, and the Transifex
-#       configuration. If no file changed, it does nothing.
-#       The MSG variable has a default commit message, but one can overrride it
+#       configuration. Finally, only commit and push only if any file was
+#       git-added (staged); otherwise, it does nothing.
+#       The MSG variable has a default commit message, but one can override it
 #       e.g. make push MSG='my message'
 push: MSG := 'Update translations from Transifex'
 push:
 	@git diff -I'^"POT-Creation-Date: ' --numstat *.po **/*.po \
 	    | cut -f3 | xargs -r git add
 	@git add $(git ls-files -o --exclude-standard *.po **/*.po) .tx/config
-	@git diff-index --quiet HEAD || git commit --allow-empty -m $(MSG)
-	@git push
+	@if [[ $(git diff --name-only --cached) != "" ]]; then
+	    git commit -m $(MSG)
+	    git push
+	else
+	    echo 'Nothing to commit'
+	fi
 
 
 # pull: Download translations files from Transifex, and apply line wrapping.
@@ -223,13 +228,14 @@ $(LOGS_DIR)/pospell-$(NOW)/all.txt:
 	@cut -d: -f3- $(DESTS) | sort -u > $@
 
 
-# merge: merge translations from BRANCH (Python version currently aim of
+# merge: Merge translations from BRANCH (Python version currently aim of
 #        translation) into each branch listed by BUGFIXBRANCH and
 #        OLDERBRANCHES (branches of older Python versions) so that older
-#        versions of the Python Docs make at least some use the latest
-#        translations, if possible. OLDERBRANCHES has '--no-overwrite'
-#        flag so it does not overwrite translated strings, preserving history.
-#        After merging, git-push merged files (if any) to the target branch.
+#        versions of the Python Docs try make at least some use of the latest
+#        translations. OLDERBRANCHES has '--no-overwrite' flag so it does not
+#        overwrite translated strings, preserving history.
+#        After merging, only commit and push only if any file was git-added
+#        (staged) to the target branch; otherwise, it does nothing.
 merge: venv $(BUGFIXBRANCH) $(OLDERBRANCHES)
 
 $(OLDERBRANCHES):  OVERWRITEFLAG = --no-overwrite
@@ -242,12 +248,18 @@ $(BUGFIXBRANCH) $(OLDERBRANCHES):
 	    git checkout $@; \
 	    $(VENV_DIR)/bin/pomerge $(OVERWRITEFLAG) --to-files *.po **/*.po; \
 	    $(VENV_DIR)/bin/powrap --modified *.po **/*.po; \
-	    $(MAKE) push MSG="Merge $(BRANCH) branch into $@"; \
+	    git add -u; \
+	    if [[ $(git diff --name-only --cached) != "" ]]; then \
+	        git commit -m $(MSG); \
+	        git push; \
+	    else \
+	        echo 'Nothing to commit'; \
+	    fi; \
 	    git checkout $(BRANCH); \
 	fi
 
 
-# lint: Report reStrutcturedText syntax errors in the translation files
+# lint: Report reStructuredText syntax errors in the translation files
 lint: venv
 	@mkdir -p "$(LOGS_DIR)"
 	@$(VENV_DIR)/bin/sphinx-lint *.po **/*.po |& \
