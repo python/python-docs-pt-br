@@ -82,7 +82,7 @@ push:
 	@git diff -I'^"POT-Creation-Date: ' --numstat *.po **/*.po \
 	    | cut -f3 | xargs -r git add
 	@git add $(git ls-files -o --exclude-standard *.po **/*.po) .tx/config
-	@if [[ $(git diff --name-only --cached) != "" ]]; then
+	@if [ -n "$(git diff --name-only --cached)" ]; then
 	    git commit -m $(MSG)
 	    git push
 	else
@@ -249,7 +249,7 @@ $(BUGFIXBRANCH) $(OLDERBRANCHES):
 	    $(VENV_DIR)/bin/pomerge $(OVERWRITEFLAG) --to-files *.po **/*.po; \
 	    $(VENV_DIR)/bin/powrap --modified *.po **/*.po; \
 	    git add -u; \
-	    if [[ $(git diff --name-only --cached) != "" ]]; then \
+	    if [ -n "$(git diff --name-only --cached)" ]; then \
 	        git commit -m $(MSG); \
 	        git push; \
 	    else \
