@@ -86,7 +86,7 @@ push:
 	    git commit -m $(MSG); \
 	    git push; \
 	else \
-	    echo 'Nothing to commit'; \ 
+	    echo 'Nothing to commit'; \
 	fi
 
 
