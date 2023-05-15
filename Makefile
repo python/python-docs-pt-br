@@ -82,11 +82,11 @@ push:
 	@git diff -I'^"POT-Creation-Date: ' --numstat *.po **/*.po \
 	    | cut -f3 | xargs -r git add
 	@git add $(git ls-files -o --exclude-standard *.po **/*.po) .tx/config
-	@if [ -n "$(git diff --name-only --cached)" ]; then
-	    git commit -m $(MSG)
-	    git push
-	else
-	    echo 'Nothing to commit'
+	@if [ -n "$(git diff --name-only --cached)" ]; then \
+	    git commit -m $(MSG); \
+	    git push; \
+	else \
+	    echo 'Nothing to commit'; \ 
 	fi
 
 
