@@ -77,13 +77,12 @@ build: setup po-install
 #       git-added (staged); otherwise, it does nothing.
 #       The MSG variable has a default commit message, but one can override it
 #       e.g. make push MSG='my message'
-push: MSG := 'Update translations from Transifex'
+push: MSG := Update translations from Transifex
 push:
-	@git diff -I'^"POT-Creation-Date: ' --numstat *.po **/*.po \
-	    | cut -f3 | xargs -r git add
-	@git add $(git ls-files -o --exclude-standard *.po **/*.po) .tx/config
-	@if [ -n "$(git diff --name-only --cached)" ]; then \
-	    git commit -m $(MSG); \
+	@CHANGED=$(shell git diff -I'^"POT-Creation-Date: ' --numstat *.po **/*.po | cut -f3); \
+	NEW=$(shell git ls-files -o *.po **/*.po); \
+	if [[ "$$CHANGED$$NEW" != "" ]]; then \
+	    git commit -m '$(MSG)' $$CHANGED $$NEW .tx/config; \
 	    git push; \
 	else \
 	    echo 'Nothing to commit'; \
