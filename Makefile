@@ -86,7 +86,7 @@ push:
 #       For downloading new translation files, first run "tx-config" target
 #       to update the translation file mapping.
 pull: tx-config
-	@"$(TX_CLI_DIR)/tx" pull -l pt_BR -t -f --use-git-timestamps
+	@"$(TX_CLI_DIR)/tx" pull -l $(LANGUAGE) -t -f --use-git-timestamps
 	@"$(VENV_DIR)/bin/powrap" --quiet *.po **/*.po
 
 
