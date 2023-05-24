@@ -21,8 +21,6 @@ NOW                    := $(shell date +'%Y%m%-d-%H%M%Z')
 # Force realpath, not relative one
 override CPYTHON_DIR   := $(shell realpath $(CPYTHON_DIR))
 
-override LOCALE_DIR    := "$(CPYTHON_DIR)/$(LOCALE_DIR)"
-
 override LOGS_DIR      := $(shell realpath $(LOGS_DIR))
 
 override VENV_DIR      := $(shell realpath $(VENV_DIR))
@@ -78,9 +76,9 @@ build: setup po-install
 #       The MSG variable has a default commit message, but one can override it
 #       e.g. make push MSG='my message'
 push:
-	git diff -I'^"POT-Creation-Date: ' --numstat *.po **/*.po | cut -f3 | xargs -r git add
-	git add $(shell git ls-files -o *.po **/*.po) .tx/config
-	git diff-index --cached --quiet HEAD || \
+	@git diff -I'^"POT-Creation-Date: ' --numstat *.po **/*.po | cut -f3 | xargs -r git add
+	@git add $(shell git ls-files -o *.po **/*.po) .tx/config
+	@git diff-index --cached --quiet HEAD || \
 	{ git commit -m "Update translations from Transifex" && git push; }
 
 
@@ -98,9 +96,8 @@ pull: tx-config
 #            to fit the language's needs and then placed in .tx/config
 #            at the project's root directory.
 tx-config: TRANSIFEX_PROJECT := python-newest
-tx-config: LOCALE_RELATIVE := $(shell realpath --relative-to=. $(LOCALE_DIR))
 tx-config: pot tx-install
-	@cd $(LOCALE_DIR); \
+	@cd $(CPYTHON_DIR)/$(LOCALE_DIR); \
 	rm -rf .tx; \
 	"$(VENV_DIR)/bin/sphinx-intl" create-txconfig; \
 	"$(VENV_DIR)/bin/sphinx-intl" update-txconfig-resources \
@@ -109,7 +106,7 @@ tx-config: pot tx-install
 	    --locale-dir . \
 	    --pot-dir pot
 	@mkdir -p .tx
-	@sed $(LOCALE_DIR)/.tx/config \
+	@sed $(CPYTHON_DIR)/$(LOCALE_DIR)/.tx/config \
 	    -e "s|^file_filter  = .*|&\nx&|;" \
 	    -e "s|^source_file  = pot/|source_file  = $(LOCALE_RELATIVE)/pot/|" \
 	    > .tx/config
@@ -143,7 +140,7 @@ pot: setup
 	        -b gettext \
 	        -D gettext_compact=0 \
 	        -d build/.doctrees \
-	        . $(LOCALE_DIR)/pot' \
+	        . $(CPYTHON_DIR)/$(LOCALE_DIR)/pot' \
 	    build
 
 
@@ -178,8 +175,8 @@ setup: venv
 #             to make it easier to run targets like build and gettext
 po-install:
 	@echo "Setting up translation files in cpython's Doc ..."
-	@mkdir -p "$(LOCALE_DIR)/$(LANGUAGE)/LC_MESSAGES/"
-	@cp --parents *.po **/*.po "$(LOCALE_DIR)/$(LANGUAGE)/LC_MESSAGES/"
+	@mkdir -p "$(CPYTHON_DIR)/$(LOCALE_DIR)/$(LANGUAGE)/LC_MESSAGES/"
+	@cp --parents *.po **/*.po "$(CPYTHON_DIR)/$(LOCALE_DIR)/$(LANGUAGE)/LC_MESSAGES/"
 
 
 # venv: create a virtual environment which will be used by almost every
@@ -265,5 +262,5 @@ lint: venv
 #        have been created by the actions in other targets of this script.
 clean:
 	rm -rf "$(VENV_DIR)"
-	rm -rf "$(LOCALE_DIR)"
+	rm -rf "$(CPYTHON_DIR)/$(LOCALE_DIR)"
 	[ -d "$(CPYTHON_DIR)" ] && $(MAKE) -C "$(CPYTHON_DIR)/Doc" clean-venv
