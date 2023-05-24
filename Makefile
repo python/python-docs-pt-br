@@ -77,16 +77,11 @@ build: setup po-install
 #       git-added (staged); otherwise, it does nothing.
 #       The MSG variable has a default commit message, but one can override it
 #       e.g. make push MSG='my message'
-push: MSG := Update translations from Transifex
 push:
-	@CHANGED=$(shell git diff -I'^"POT-Creation-Date: ' --numstat *.po **/*.po | cut -f3); \
-	NEW=$(shell git ls-files -o *.po **/*.po); \
-	if [[ "$$CHANGED$$NEW" != "" ]]; then \
-	    git commit -m '$(MSG)' $$CHANGED $$NEW .tx/config; \
-	    git push; \
-	else \
-	    echo 'Nothing to commit'; \
-	fi
+	git diff -I'^"POT-Creation-Date: ' --numstat *.po **/*.po | cut -f3 | xargs -r git add
+	git add $(shell git ls-files -o *.po **/*.po) .tx/config
+	git diff-index --cached --quiet HEAD || \
+	{ git commit -m "Update translations from Transifex" && git push; }
 
 
 # pull: Download translations files from Transifex, and apply line wrapping.
