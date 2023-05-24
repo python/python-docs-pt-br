@@ -13,7 +13,7 @@ on:
         default: true
   pull_request:
     branches:
-      - '3.11'
+      - '3.12'
     paths:
       - '.github/workflows/check.yml'
       - '.github/prepmsg.sh'
@@ -40,18 +40,18 @@ jobs:
     name: Build translated docs
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v3.5.2
         with:
           persist-credentials: false
       
       - name: Download PO files (if called)
         if: github.event.inputs.called == true
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v3.0.2
         with:
           name: translations
       
       - name: Set up Python 3
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v4.6.1
         with:
           python-version: '3'
           
@@ -64,14 +64,14 @@ jobs:
           
       - name: Upload artifact - docs
         if: steps.build.outcome == 'success'
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.2
         with:
           name: docs
           path: cpython/Doc/build/html
           
       - name: Upload artifact - log files
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.2
         with:
           name: build-logs
           path: logs/*
@@ -87,7 +87,7 @@ jobs:
           
       - name: Notify via Telegram
         if: steps.prepare.outcome == 'success'
-        uses: appleboy/telegram-action@master
+        uses: appleboy/telegram-action@0.1.1
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
@@ -101,18 +101,18 @@ jobs:
     name: Lint translations
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v3.5.2
         with:
           persist-credentials: false
       
       - name: Download PO files (if called)
         if: github.event.inputs.called == true
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v3.0.2
         with:
           name: translations
       
       - name: Set up Python 3
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v4.6.1
         with:
           python-version: '3'
           
@@ -123,7 +123,7 @@ jobs:
           make lint
           
       - name: Upload artifact - log files
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.2
         with:
           name: lint-logs
           path: logs/*
@@ -139,7 +139,7 @@ jobs:
       #    
       #- name: Notify via Telegram
       #  if: step.prepare.outcome == 'success'
-      #  uses: appleboy/telegram-action@master
+      #  uses: appleboy/telegram-action@0.1.1
       #  with:
       #    to: ${{ secrets.TELEGRAM_TO }}
       #    token: ${{ secrets.TELEGRAM_TOKEN }}
@@ -153,18 +153,18 @@ jobs:
     name: Spell check translations
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v3.5.2
         with:
           persist-credentials: false
       
       - name: Download PO files (if called)
         if: github.event.inputs.called == true
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v3.0.2
         with:
           name: translations
       
       - name: Set up Python 3
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v4.6.1
         with:
           python-version: '3'
       
@@ -174,7 +174,7 @@ jobs:
         run: make spell
         
       - name: Upload artifact - log files
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.2
         with:
           name: pospell-logs
           path: logs/*
@@ -186,18 +186,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out ${{ github.repository }}
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3.5.2
         with:
           persist-credentials: false
           
       - name: Download PO files (if called)
         if: github.event.inputs.called == true
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v3.0.2
         with:
           name: translations
       
       - name: Set up Python 3
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v4.6.1
         with:
           python-version: '3'
           
@@ -213,7 +213,7 @@ jobs:
           powrap compendium.po
           
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.2
         with:
           name: compendium
           path: compendium.po
