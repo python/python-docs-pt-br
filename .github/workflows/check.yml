@@ -36,24 +36,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3.5.2
         with:
-          persist-credentials: false
-      
-      - uses: xSAVIKx/artifact-exists-action@v0
-        id: "check_workflow_exists"
-        with:
-          name: 'translations'
-      
-      - name: Download PO files (if called)
-        if: "${{ steps.check_workflow_exists.outputs.exists }}"
-        uses: actions/download-artifact@v3.0.2
-        with:
-          name: translations
+          fetch-depth: 5
       
       - name: Set up Python 3
         uses: actions/setup-python@v4.6.1
         with:
           python-version: '3'
-          
+      
+      - name: Make sure the repository is up to date
+        if: github.event_name != 'pull_request'
+        run: git pull --rebase
+      
       - name: Build docs
         continue-on-error: true
         id: build
@@ -102,24 +95,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3.5.2
         with:
-          persist-credentials: false
-      
-      - uses: xSAVIKx/artifact-exists-action@v0
-        id: "check_workflow_exists"
-        with:
-          name: 'translations'
-      
-      - name: Download PO files (if called)
-        if: "${{ steps.check_workflow_exists.outputs.exists }}"
-        uses: actions/download-artifact@v3.0.2
-        with:
-          name: translations
+          fetch-depth: 5
       
       - name: Set up Python 3
         uses: actions/setup-python@v4.6.1
         with:
           python-version: '3'
-          
+      
+      - name: Make sure the repository is up to date
+        if: github.event_name != 'pull_request'
+        run: git pull --rebase
+      
       - name: Run sphinx-lint
         continue-on-error: true
         id: lint
@@ -159,23 +145,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3.5.2
         with:
-          persist-credentials: false
-      
-      - uses: xSAVIKx/artifact-exists-action@v0
-        id: "check_workflow_exists"
-        with:
-          name: 'translations'
-      
-      - name: Download PO files (if called)
-        if: "${{ steps.check_workflow_exists.outputs.exists }}"
-        uses: actions/download-artifact@v3.0.2
-        with:
-          name: translations
+          fetch-depth: 5
       
       - name: Set up Python 3
         uses: actions/setup-python@v4.6.1
         with:
           python-version: '3'
+      
+      - name: Make sure the repository is up to date
+        if: github.event_name != 'pull_request'
+        run: git pull --rebase
       
       - name: Run pospell
         continue-on-error: true
@@ -197,24 +176,17 @@ jobs:
       - name: Check out ${{ github.repository }}
         uses: actions/checkout@v3.5.2
         with:
-          persist-credentials: false
-          
-      - uses: xSAVIKx/artifact-exists-action@v0
-        id: "check_workflow_exists"
-        with:
-          name: 'translations'
-      
-      - name: Download PO files (if called)
-        if: "${{ steps.check_workflow_exists.outputs.exists }}"
-        uses: actions/download-artifact@v3.0.2
-        with:
-          name: translations
+          fetch-depth: 5
       
       - name: Set up Python 3
         uses: actions/setup-python@v4.6.1
         with:
           python-version: '3'
-          
+      
+      - name: Make sure the repository is up to date
+        if: github.event_name != 'pull_request'
+        run: git pull --rebase
+      
       - name: Install dependencies
         run: |
           sudo apt update -y && sudo apt install gettext -y
