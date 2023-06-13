@@ -27,11 +27,11 @@ override VENV_DIR      := $(shell realpath $(VENV_DIR))
 #
 #################
 
-.PHONY: build clean help htmlview lint merge po-install pot pull push setup spell tx-config tx-install venv
+.PHONY: build clean help htmlview lint merge pot pull push setup spell tx-config tx-install venv
 
 help:
 	@echo "Please use 'make <target>' where <target> is one of:"
-	@echo " build        Build an local version in html; deps: 'setup' and 'po-install'"
+	@echo " build        Build an local version in html; deps: 'setup'"
 	@echo " push         Commit and push translations; no deps"
 	@echo " pull         Download translations from Transifex; deps: 'tx-config'"
 	@echo " tx-config    Regenerate Transifex config; deps: 'pot' and 'tx-install'"
@@ -51,7 +51,9 @@ help:
 #        at the moment. For most up-to-date docs, run "tx-config" and "pull"
 #        before this. If passing SPHINXERRORHANDLING='', warnings will not be
 #        treated as errors, which is good to skip simple Sphinx syntax mistakes.
-build: setup po-install
+build: setup
+	@mkdir -p "$(CPYTHON_DIR)/$(LOCALE_DIR)/$(LANGUAGE)/LC_MESSAGES/"
+	@cp --parents *.po **/*.po "$(CPYTHON_DIR)/$(LOCALE_DIR)/$(LANGUAGE)/LC_MESSAGES/"
 	@echo "Building Python $(BRANCH) Documentation in $(LANGUAGE) ..."
 	@mkdir -p "$(LOGS_DIR)/build"
 	@$(MAKE) -C $(CPYTHON_DIR)/Doc/ \
@@ -169,14 +171,6 @@ setup: venv
 	@if [ ! -d "$(CPYTHON_DIR)/Doc/venv" ]; then \
 	    $(MAKE) -C "$(CPYTHON_DIR)/Doc" PYTHON=$(PYTHON) venv; \
 	fi
-
-
-# po-install: Copy the project's PO files into CPython locales directory,
-#             to make it easier to run targets like build and gettext
-po-install:
-	@echo "Setting up translation files in cpython's Doc ..."
-	@mkdir -p "$(CPYTHON_DIR)/$(LOCALE_DIR)/$(LANGUAGE)/LC_MESSAGES/"
-	@cp --parents *.po **/*.po "$(CPYTHON_DIR)/$(LOCALE_DIR)/$(LANGUAGE)/LC_MESSAGES/"
 
 
 # venv: create a virtual environment which will be used by almost every
