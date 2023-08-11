@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-28 14:13+0000\n"
+"POT-Creation-Date: 2023-08-11 14:13+0000\n"
 "PO-Revision-Date: 2021-06-28 00:47+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2023\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -215,16 +215,12 @@ msgstr ""
 #: ../../c-api/buffer.rst:104
 msgid ""
 "A new reference to the exporting object. The reference is owned by the "
-"consumer and automatically decremented and set to ``NULL`` by :c:func:"
-"`PyBuffer_Release`. The field is the equivalent of the return value of any "
-"standard C-API function."
+"consumer and automatically released (i.e. reference count decremented) and "
+"set to ``NULL`` by :c:func:`PyBuffer_Release`. The field is the equivalent "
+"of the return value of any standard C-API function."
 msgstr ""
-"Uma nova referência ao objeto exportador. A referência é possuída pelo "
-"consumidor e automaticamente decrementada e definida para ``NULL`` por :c:"
-"func:`PyBuffer_Release`. O campo é o equivalente ao valor de retorno de "
-"qualquer função padrão C-API."
 
-#: ../../c-api/buffer.rst:109
+#: ../../c-api/buffer.rst:111
 msgid ""
 "As a special case, for *temporary* buffers that are wrapped by :c:func:"
 "`PyMemoryView_FromBuffer` or :c:func:`PyBuffer_FillInfo` this field is "
@@ -234,7 +230,7 @@ msgstr ""
 "c:func:`PyMemoryView_FromBuffer` ou :c:func:`PyBuffer_FillInfo` esse campo é "
 "``NULL``. Em geral, objetos exportadores NÃO DEVEM usar esse esquema."
 
-#: ../../c-api/buffer.rst:116
+#: ../../c-api/buffer.rst:118
 msgid ""
 "``product(shape) * itemsize``. For contiguous arrays, this is the length of "
 "the underlying memory block. For non-contiguous arrays, it is the length "
@@ -246,7 +242,7 @@ msgstr ""
 "que a estrutura lógica teria se fosse copiado para uma representação "
 "contígua."
 
-#: ../../c-api/buffer.rst:121
+#: ../../c-api/buffer.rst:123
 msgid ""
 "Accessing ``((char *)buf)[0] up to ((char *)buf)[len-1]`` is only valid if "
 "the buffer has been obtained by a request that guarantees contiguity. In "
@@ -258,7 +254,7 @@ msgstr ""
 "maioria dos casos, esse pedido será :c:macro:`PyBUF_SIMPLE` ou :c:macro:"
 "`PyBUF_WRITABLE`."
 
-#: ../../c-api/buffer.rst:127
+#: ../../c-api/buffer.rst:129
 msgid ""
 "An indicator of whether the buffer is read-only. This field is controlled by "
 "the :c:macro:`PyBUF_WRITABLE` flag."
@@ -266,7 +262,7 @@ msgstr ""
 "Um indicador de se o buffer é somente leitura. Este campo é controlado pelo "
 "sinalizador :c:macro:`PyBUF_WRITABLE`."
 
-#: ../../c-api/buffer.rst:132
+#: ../../c-api/buffer.rst:134
 msgid ""
 "Item size in bytes of a single element. Same as the value of :func:`struct."
 "calcsize` called on non-``NULL`` :c:member:`~Py_buffer.format` values."
@@ -275,7 +271,7 @@ msgstr ""
 "func:`struct.calcsize` chamado em valores não ``NULL`` de :c:member:"
 "`~Py_buffer.format`."
 
-#: ../../c-api/buffer.rst:135
+#: ../../c-api/buffer.rst:137
 msgid ""
 "Important exception: If a consumer requests a buffer without the :c:macro:"
 "`PyBUF_FORMAT` flag, :c:member:`~Py_buffer.format` will be set to  "
@@ -287,7 +283,7 @@ msgstr ""
 "``NULL``, mas :c:member:`~Py_buffer.itemsize` ainda terá seu valor para o "
 "formato original."
 
-#: ../../c-api/buffer.rst:140
+#: ../../c-api/buffer.rst:142
 msgid ""
 "If :c:member:`~Py_buffer.shape` is present, the equality ``product(shape) * "
 "itemsize == len`` still holds and the consumer can use :c:member:`~Py_buffer."
@@ -297,7 +293,7 @@ msgstr ""
 "* itemsize == len`` ainda é válida e o usuário pode usar :c:member:"
 "`~Py_buffer.itemsize` para navegar o buffer."
 
-#: ../../c-api/buffer.rst:144
+#: ../../c-api/buffer.rst:146
 msgid ""
 "If :c:member:`~Py_buffer.shape` is ``NULL`` as a result of a :c:macro:"
 "`PyBUF_SIMPLE` or a :c:macro:`PyBUF_WRITABLE` request, the consumer must "
@@ -307,7 +303,7 @@ msgstr ""
 "`PyBUF_SIMPLE` ou uma requisição :c:macro:`PyBUF_WRITABLE`, o consumidor "
 "deve ignorar :c:member:`~Py_buffer.itemsize` e assumir ``itemsize == 1``."
 
-#: ../../c-api/buffer.rst:150
+#: ../../c-api/buffer.rst:152
 msgid ""
 "A *NUL* terminated string in :mod:`struct` module style syntax describing "
 "the contents of a single item. If this is ``NULL``, ``\"B\"`` (unsigned "
@@ -317,11 +313,11 @@ msgstr ""
 "descrevendo os conteúdos de um único item. Se isso é ``NULL``, ``\"B\"`` "
 "(unsigned bytes) é assumido."
 
-#: ../../c-api/buffer.rst:154
+#: ../../c-api/buffer.rst:156
 msgid "This field is controlled by the :c:macro:`PyBUF_FORMAT` flag."
 msgstr "Este campo é controlado pelo sinalizador :c:macro:`PyBUF_FORMAT`."
 
-#: ../../c-api/buffer.rst:158
+#: ../../c-api/buffer.rst:160
 msgid ""
 "The number of dimensions the memory represents as an n-dimensional array. If "
 "it is ``0``, :c:member:`~Py_buffer.buf` points to a single item representing "
@@ -334,7 +330,7 @@ msgstr ""
 "member:`~Py_buffer.strides` e :c:member:`~Py_buffer.suboffsets` DEVEM ser "
 "``NULL``."
 
-#: ../../c-api/buffer.rst:163
+#: ../../c-api/buffer.rst:165
 msgid ""
 "The macro :c:macro:`PyBUF_MAX_NDIM` limits the maximum number of dimensions "
 "to 64. Exporters MUST respect this limit, consumers of multi-dimensional "
@@ -345,7 +341,7 @@ msgstr ""
 "multidimensionais DEVEM ser capazes de lidar com dimensões :c:macro:"
 "`PyBUF_MAX_NDIM`."
 
-#: ../../c-api/buffer.rst:169
+#: ../../c-api/buffer.rst:171
 msgid ""
 "An array of :c:type:`Py_ssize_t` of length :c:member:`~Py_buffer.ndim` "
 "indicating the shape of the memory as an n-dimensional array. Note that "
@@ -357,7 +353,7 @@ msgstr ""
 "que a forma ``shape[0] * ... * shape[ndim-1] * itemsize`` DEVE ser igual a :"
 "c:member:`~Py_buffer.len`."
 
-#: ../../c-api/buffer.rst:174
+#: ../../c-api/buffer.rst:176
 msgid ""
 "Shape values are restricted to ``shape[n] >= 0``. The case ``shape[n] == 0`` "
 "requires special attention. See `complex arrays`_ for further information."
@@ -365,11 +361,11 @@ msgstr ""
 "Os valores da forma são restritos a ``shape[n] >= 0``. The case ``shape[n] "
 "== 0`` requer atenção especial. Veja `complex arrays`_ para mais informações."
 
-#: ../../c-api/buffer.rst:178
+#: ../../c-api/buffer.rst:180
 msgid "The shape array is read-only for the consumer."
 msgstr "A forma de acesso a matriz é de somente leitura para o usuário."
 
-#: ../../c-api/buffer.rst:182
+#: ../../c-api/buffer.rst:184
 msgid ""
 "An array of :c:type:`Py_ssize_t` of length :c:member:`~Py_buffer.ndim` "
 "giving the number of bytes to skip to get to a new element in each dimension."
@@ -378,7 +374,7 @@ msgstr ""
 "dando o número de bytes para saltar para obter um novo elemento em cada "
 "dimensão."
 
-#: ../../c-api/buffer.rst:186
+#: ../../c-api/buffer.rst:188
 msgid ""
 "Stride values can be any integer. For regular arrays, strides are usually "
 "positive, but a consumer MUST be able to handle the case ``strides[n] <= "
@@ -389,11 +385,11 @@ msgstr ""
 "capaz de lidar com o caso ``strides[n] <= 0``. Veja `complex arrays`_ para "
 "mais informações."
 
-#: ../../c-api/buffer.rst:190
+#: ../../c-api/buffer.rst:192
 msgid "The strides array is read-only for the consumer."
 msgstr "A matriz de passos é somente leitura para o consumidor."
 
-#: ../../c-api/buffer.rst:194
+#: ../../c-api/buffer.rst:196
 msgid ""
 "An array of :c:type:`Py_ssize_t` of length :c:member:`~Py_buffer.ndim`. If "
 "``suboffsets[n] >= 0``, the values stored along the nth dimension are "
@@ -408,7 +404,7 @@ msgstr ""
 "negativo indica que não deve ocorrer desreferenciação (caminhando em um "
 "bloco de memória contíguo)."
 
-#: ../../c-api/buffer.rst:201
+#: ../../c-api/buffer.rst:203
 msgid ""
 "If all suboffsets are negative (i.e. no de-referencing is needed), then this "
 "field must be ``NULL`` (the default value)."
@@ -416,7 +412,7 @@ msgstr ""
 "Se todos os subconjuntos forem negativos (ou seja, não é necessário fazer "
 "referência), então este campo deve ser ``NULL`` (o valor padrão)."
 
-#: ../../c-api/buffer.rst:204
+#: ../../c-api/buffer.rst:206
 msgid ""
 "This type of array representation is used by the Python Imaging Library "
 "(PIL). See `complex arrays`_ for further information how to access elements "
@@ -426,11 +422,11 @@ msgstr ""
 "(PIL). Veja `complex arrays`_ para obter mais informações sobre como acessar "
 "elementos dessa matriz.a matriz."
 
-#: ../../c-api/buffer.rst:208
+#: ../../c-api/buffer.rst:210
 msgid "The suboffsets array is read-only for the consumer."
 msgstr "A matriz de subconjuntos é somente leitura para o consumidor."
 
-#: ../../c-api/buffer.rst:212
+#: ../../c-api/buffer.rst:214
 msgid ""
 "This is for use internally by the exporting object. For example, this might "
 "be re-cast as an integer by the exporter and used to store flags about "
@@ -443,11 +439,11 @@ msgstr ""
 "ser liberados quando o buffer é liberado. O consumidor NÃO DEVE alterar esse "
 "valor."
 
-#: ../../c-api/buffer.rst:221
+#: ../../c-api/buffer.rst:223
 msgid "Buffer request types"
 msgstr "Tipos de solicitação do buffer"
 
-#: ../../c-api/buffer.rst:223
+#: ../../c-api/buffer.rst:225
 msgid ""
 "Buffers are usually obtained by sending a buffer request to an exporting "
 "object via :c:func:`PyObject_GetBuffer`. Since the complexity of the logical "
@@ -460,16 +456,16 @@ msgstr ""
 "consumidor usa o argumento *flags* para especificar o tipo de buffer exato "
 "que pode manipular."
 
-#: ../../c-api/buffer.rst:228
+#: ../../c-api/buffer.rst:230
 msgid ""
 "All :c:type:`Py_buffer` fields are unambiguously defined by the request type."
 msgstr ""
 
-#: ../../c-api/buffer.rst:232
+#: ../../c-api/buffer.rst:234
 msgid "request-independent fields"
 msgstr "campos independentes do pedido"
 
-#: ../../c-api/buffer.rst:233
+#: ../../c-api/buffer.rst:235
 msgid ""
 "The following fields are not influenced by *flags* and must always be filled "
 "in with the correct values: :c:member:`~Py_buffer.obj`, :c:member:"
@@ -481,11 +477,11 @@ msgstr ""
 "`~Py_buffer.buf`, :c:member:`~Py_buffer.len`, :c:member:`~Py_buffer."
 "itemsize`, :c:member:`~Py_buffer.ndim`."
 
-#: ../../c-api/buffer.rst:239
+#: ../../c-api/buffer.rst:241
 msgid "readonly, format"
 msgstr "apenas em formato"
 
-#: ../../c-api/buffer.rst:243
+#: ../../c-api/buffer.rst:245
 msgid ""
 "Controls the :c:member:`~Py_buffer.readonly` field. If set, the exporter "
 "MUST provide a writable buffer or else report failure. Otherwise, the "
@@ -497,7 +493,7 @@ msgstr ""
 "contrário, o exportador pode fornecer um buffer de somente leitura ou "
 "gravável, mas a escolha DEVE ser consistente para todos os consumidores."
 
-#: ../../c-api/buffer.rst:250
+#: ../../c-api/buffer.rst:252
 msgid ""
 "Controls the :c:member:`~Py_buffer.format` field. If set, this field MUST be "
 "filled in correctly. Otherwise, this field MUST be ``NULL``."
@@ -506,7 +502,7 @@ msgstr ""
 "DEVE ser preenchido corretamente. Caso contrário, este campo DEVE ser "
 "``NULL``."
 
-#: ../../c-api/buffer.rst:254
+#: ../../c-api/buffer.rst:256
 msgid ""
 ":c:macro:`PyBUF_WRITABLE` can be \\|'d to any of the flags in the next "
 "section. Since :c:macro:`PyBUF_SIMPLE` is defined as 0, :c:macro:"
@@ -518,7 +514,7 @@ msgstr ""
 "c:macro:`PyBUF_WRITABLE` pode ser usado como uma bandeira autônoma para "
 "solicitar um buffer simples gravável."
 
-#: ../../c-api/buffer.rst:258
+#: ../../c-api/buffer.rst:260
 msgid ""
 ":c:macro:`PyBUF_FORMAT` can be \\|'d to any of the flags except :c:macro:"
 "`PyBUF_SIMPLE`. The latter already implies format ``B`` (unsigned bytes)."
@@ -527,11 +523,11 @@ msgstr ""
 "exceto :c:macro:`PyBUF_SIMPLE`. O último já implica o formato ``B`` (bytes "
 "não assinados)."
 
-#: ../../c-api/buffer.rst:263
+#: ../../c-api/buffer.rst:265
 msgid "shape, strides, suboffsets"
 msgstr "forma, avanços, suboffsets"
 
-#: ../../c-api/buffer.rst:265
+#: ../../c-api/buffer.rst:267
 msgid ""
 "The flags that control the logical structure of the memory are listed in "
 "decreasing order of complexity. Note that each flag contains all bits of the "
@@ -541,57 +537,57 @@ msgstr ""
 "ordem decrescente de complexidade. Observe que cada bandeira contém todos os "
 "bits das bandeiras abaixo."
 
-#: ../../c-api/buffer.rst:272 ../../c-api/buffer.rst:296
-#: ../../c-api/buffer.rst:321
+#: ../../c-api/buffer.rst:274 ../../c-api/buffer.rst:298
+#: ../../c-api/buffer.rst:323
 msgid "Request"
 msgstr "Solicitação"
 
-#: ../../c-api/buffer.rst:272 ../../c-api/buffer.rst:296
-#: ../../c-api/buffer.rst:321
+#: ../../c-api/buffer.rst:274 ../../c-api/buffer.rst:298
+#: ../../c-api/buffer.rst:323
 msgid "shape"
 msgstr "Forma"
 
-#: ../../c-api/buffer.rst:272 ../../c-api/buffer.rst:296
-#: ../../c-api/buffer.rst:321
+#: ../../c-api/buffer.rst:274 ../../c-api/buffer.rst:298
+#: ../../c-api/buffer.rst:323
 msgid "strides"
 msgstr "Avanços"
 
-#: ../../c-api/buffer.rst:272 ../../c-api/buffer.rst:296
-#: ../../c-api/buffer.rst:321
+#: ../../c-api/buffer.rst:274 ../../c-api/buffer.rst:298
+#: ../../c-api/buffer.rst:323
 msgid "suboffsets"
 msgstr "subconjuntos"
 
-#: ../../c-api/buffer.rst:274 ../../c-api/buffer.rst:276
-#: ../../c-api/buffer.rst:278 ../../c-api/buffer.rst:298
-#: ../../c-api/buffer.rst:300 ../../c-api/buffer.rst:302
-#: ../../c-api/buffer.rst:304 ../../c-api/buffer.rst:323
-#: ../../c-api/buffer.rst:325 ../../c-api/buffer.rst:327
-#: ../../c-api/buffer.rst:329 ../../c-api/buffer.rst:331
-#: ../../c-api/buffer.rst:333 ../../c-api/buffer.rst:335
-#: ../../c-api/buffer.rst:337
+#: ../../c-api/buffer.rst:276 ../../c-api/buffer.rst:278
+#: ../../c-api/buffer.rst:280 ../../c-api/buffer.rst:300
+#: ../../c-api/buffer.rst:302 ../../c-api/buffer.rst:304
+#: ../../c-api/buffer.rst:306 ../../c-api/buffer.rst:325
+#: ../../c-api/buffer.rst:327 ../../c-api/buffer.rst:329
+#: ../../c-api/buffer.rst:331 ../../c-api/buffer.rst:333
+#: ../../c-api/buffer.rst:335 ../../c-api/buffer.rst:337
+#: ../../c-api/buffer.rst:339
 msgid "yes"
 msgstr "sim"
 
-#: ../../c-api/buffer.rst:274 ../../c-api/buffer.rst:323
-#: ../../c-api/buffer.rst:325
+#: ../../c-api/buffer.rst:276 ../../c-api/buffer.rst:325
+#: ../../c-api/buffer.rst:327
 msgid "if needed"
 msgstr "se necessário"
 
-#: ../../c-api/buffer.rst:276 ../../c-api/buffer.rst:278
-#: ../../c-api/buffer.rst:280 ../../c-api/buffer.rst:298
-#: ../../c-api/buffer.rst:300 ../../c-api/buffer.rst:302
-#: ../../c-api/buffer.rst:304 ../../c-api/buffer.rst:327
-#: ../../c-api/buffer.rst:329 ../../c-api/buffer.rst:331
-#: ../../c-api/buffer.rst:333 ../../c-api/buffer.rst:335
-#: ../../c-api/buffer.rst:337
+#: ../../c-api/buffer.rst:278 ../../c-api/buffer.rst:280
+#: ../../c-api/buffer.rst:282 ../../c-api/buffer.rst:300
+#: ../../c-api/buffer.rst:302 ../../c-api/buffer.rst:304
+#: ../../c-api/buffer.rst:306 ../../c-api/buffer.rst:329
+#: ../../c-api/buffer.rst:331 ../../c-api/buffer.rst:333
+#: ../../c-api/buffer.rst:335 ../../c-api/buffer.rst:337
+#: ../../c-api/buffer.rst:339
 msgid "NULL"
 msgstr "NULL"
 
-#: ../../c-api/buffer.rst:287
+#: ../../c-api/buffer.rst:289
 msgid "contiguity requests"
 msgstr "requisições contíguas"
 
-#: ../../c-api/buffer.rst:289
+#: ../../c-api/buffer.rst:291
 msgid ""
 "C or Fortran :term:`contiguity <contiguous>` can be explicitly requested, "
 "with and without stride information. Without stride information, the buffer "
@@ -601,32 +597,32 @@ msgstr ""
 "solicitadas, com ou sem informação de avanço. Sem informação de avanço, o "
 "buffer deve ser C-contíguo."
 
-#: ../../c-api/buffer.rst:296 ../../c-api/buffer.rst:321
+#: ../../c-api/buffer.rst:298 ../../c-api/buffer.rst:323
 msgid "contig"
 msgstr "contig"
 
-#: ../../c-api/buffer.rst:298 ../../c-api/buffer.rst:304
-#: ../../c-api/buffer.rst:335 ../../c-api/buffer.rst:337
+#: ../../c-api/buffer.rst:300 ../../c-api/buffer.rst:306
+#: ../../c-api/buffer.rst:337 ../../c-api/buffer.rst:339
 msgid "C"
 msgstr "C"
 
-#: ../../c-api/buffer.rst:300
+#: ../../c-api/buffer.rst:302
 msgid "F"
 msgstr "F"
 
-#: ../../c-api/buffer.rst:302
+#: ../../c-api/buffer.rst:304
 msgid "C or F"
 msgstr "C ou F"
 
-#: ../../c-api/buffer.rst:304
+#: ../../c-api/buffer.rst:306
 msgid ":c:macro:`PyBUF_ND`"
 msgstr ":c:macro:`PyBUF_ND`"
 
-#: ../../c-api/buffer.rst:309
+#: ../../c-api/buffer.rst:311
 msgid "compound requests"
 msgstr "requisições compostas"
 
-#: ../../c-api/buffer.rst:311
+#: ../../c-api/buffer.rst:313
 msgid ""
 "All possible requests are fully defined by some combination of the flags in "
 "the previous section. For convenience, the buffer protocol provides "
@@ -637,7 +633,7 @@ msgstr ""
 "protocolo do buffer fornece combinações frequentemente utilizadas como "
 "sinalizadores únicos."
 
-#: ../../c-api/buffer.rst:315
+#: ../../c-api/buffer.rst:317
 msgid ""
 "In the following table *U* stands for undefined contiguity. The consumer "
 "would have to call :c:func:`PyBuffer_IsContiguous` to determine contiguity."
@@ -645,39 +641,39 @@ msgstr ""
 "Na seguinte tabela *U* significa contiguidade indefinida. O consumidor deve "
 "chamar :c:func:`PyBuffer_IsContiguous` para determinar a contiguidade."
 
-#: ../../c-api/buffer.rst:321
+#: ../../c-api/buffer.rst:323
 msgid "readonly"
 msgstr "readonly"
 
-#: ../../c-api/buffer.rst:321
+#: ../../c-api/buffer.rst:323
 msgid "format"
 msgstr "formato"
 
-#: ../../c-api/buffer.rst:323 ../../c-api/buffer.rst:325
-#: ../../c-api/buffer.rst:327 ../../c-api/buffer.rst:329
-#: ../../c-api/buffer.rst:331 ../../c-api/buffer.rst:333
+#: ../../c-api/buffer.rst:325 ../../c-api/buffer.rst:327
+#: ../../c-api/buffer.rst:329 ../../c-api/buffer.rst:331
+#: ../../c-api/buffer.rst:333 ../../c-api/buffer.rst:335
 msgid "U"
 msgstr "U"
 
-#: ../../c-api/buffer.rst:323 ../../c-api/buffer.rst:327
-#: ../../c-api/buffer.rst:331 ../../c-api/buffer.rst:335
+#: ../../c-api/buffer.rst:325 ../../c-api/buffer.rst:329
+#: ../../c-api/buffer.rst:333 ../../c-api/buffer.rst:337
 msgid "0"
 msgstr "0"
 
-#: ../../c-api/buffer.rst:325 ../../c-api/buffer.rst:329
-#: ../../c-api/buffer.rst:333 ../../c-api/buffer.rst:337
+#: ../../c-api/buffer.rst:327 ../../c-api/buffer.rst:331
+#: ../../c-api/buffer.rst:335 ../../c-api/buffer.rst:339
 msgid "1 or 0"
 msgstr "1 ou 0"
 
-#: ../../c-api/buffer.rst:342
+#: ../../c-api/buffer.rst:344
 msgid "Complex arrays"
 msgstr "Vetores Complexos"
 
-#: ../../c-api/buffer.rst:345
+#: ../../c-api/buffer.rst:347
 msgid "NumPy-style: shape and strides"
 msgstr "Estilo NumPy: forma e avanços"
 
-#: ../../c-api/buffer.rst:347
+#: ../../c-api/buffer.rst:349
 msgid ""
 "The logical structure of NumPy-style arrays is defined by :c:member:"
 "`~Py_buffer.itemsize`, :c:member:`~Py_buffer.ndim`, :c:member:`~Py_buffer."
@@ -687,7 +683,7 @@ msgstr ""
 "`~Py_buffer.itemsize`, :c:member:`~Py_buffer.ndim`, :c:member:`~Py_buffer."
 "shape` e :c:member:`~Py_buffer.strides`."
 
-#: ../../c-api/buffer.rst:350
+#: ../../c-api/buffer.rst:352
 msgid ""
 "If ``ndim == 0``, the memory location pointed to by :c:member:`~Py_buffer."
 "buf` is interpreted as a scalar of size :c:member:`~Py_buffer.itemsize`. In "
@@ -699,7 +695,7 @@ msgstr ""
 "`~Py_buffer.itemsize`. Nesse caso, ambos :c:member:`~Py_buffer.shape` e :c:"
 "member:`~Py_buffer.strides` são ``NULL``."
 
-#: ../../c-api/buffer.rst:354
+#: ../../c-api/buffer.rst:356
 msgid ""
 "If :c:member:`~Py_buffer.strides` is ``NULL``, the array is interpreted as a "
 "standard n-dimensional C-array. Otherwise, the consumer must access an n-"
@@ -709,7 +705,7 @@ msgstr ""
 "vetor C n-dimensional padrão. Caso contrário, o consumidor deve acessar um "
 "vetor n-dimensional como a seguir:"
 
-#: ../../c-api/buffer.rst:364
+#: ../../c-api/buffer.rst:366
 msgid ""
 "As noted above, :c:member:`~Py_buffer.buf` can point to any location within "
 "the actual memory block. An exporter can check the validity of a buffer with "
@@ -719,11 +715,11 @@ msgstr ""
 "localização dentro do bloco de memória em si. Um exportador pode verificar a "
 "validade de um buffer com essa função:"
 
-#: ../../c-api/buffer.rst:398
+#: ../../c-api/buffer.rst:400
 msgid "PIL-style: shape, strides and suboffsets"
 msgstr "Estilo-PIL: forma, avanços e suboffsets"
 
-#: ../../c-api/buffer.rst:400
+#: ../../c-api/buffer.rst:402
 msgid ""
 "In addition to the regular items, PIL-style arrays can contain pointers that "
 "must be followed in order to get to the next element in a dimension. For "
@@ -742,7 +738,7 @@ msgstr ""
 "matrizes ``char x[2][3]`` que podem estar localizadas em qualquer lugar na "
 "memória."
 
-#: ../../c-api/buffer.rst:409
+#: ../../c-api/buffer.rst:411
 msgid ""
 "Here is a function that returns a pointer to the element in an N-D array "
 "pointed to by an N-dimensional index when there are both non-``NULL`` "
@@ -752,11 +748,11 @@ msgstr ""
 "apontada por um índice N-dimensional onde existem ambos passos e "
 "subconjuntos não-``NULL``::"
 
-#: ../../c-api/buffer.rst:428
+#: ../../c-api/buffer.rst:430
 msgid "Buffer-related functions"
 msgstr "Funções relacionadas ao Buffer"
 
-#: ../../c-api/buffer.rst:432
+#: ../../c-api/buffer.rst:434
 msgid ""
 "Return ``1`` if *obj* supports the buffer interface otherwise ``0``.  When "
 "``1`` is returned, it doesn't guarantee that :c:func:`PyObject_GetBuffer` "
@@ -766,7 +762,7 @@ msgstr ""
 "Quando ``1`` é retornado, isso não garante que :c:func:`PyObject_GetBuffer` "
 "será bem sucedida. Esta função é sempre bem sucedida."
 
-#: ../../c-api/buffer.rst:439
+#: ../../c-api/buffer.rst:441
 msgid ""
 "Send a request to *exporter* to fill in *view* as specified by  *flags*. If "
 "the exporter cannot provide a buffer of the exact type, it MUST raise :c:"
@@ -777,7 +773,7 @@ msgstr ""
 "mesmo tipo, ele DEVE levantar :c:data:`PyExc_BufferError`, definir ``view-"
 ">obj`` para ``NULL`` e retornar ``-1``."
 
-#: ../../c-api/buffer.rst:444
+#: ../../c-api/buffer.rst:446
 msgid ""
 "On success, fill in *view*, set ``view->obj`` to a new reference to "
 "*exporter* and return 0. In the case of chained buffer providers that "
@@ -790,7 +786,7 @@ msgstr ""
 "DEVE se referir a este objeto em vez de *exporter* (Veja :ref:`Buffer Object "
 "Structures <buffer-structs>`)."
 
-#: ../../c-api/buffer.rst:449
+#: ../../c-api/buffer.rst:451
 msgid ""
 "Successful calls to :c:func:`PyObject_GetBuffer` must be paired with calls "
 "to :c:func:`PyBuffer_Release`, similar to :c:func:`malloc` and :c:func:"
@@ -802,17 +798,15 @@ msgstr ""
 "func:`malloc` e :c:func:`free`. Assim, após o consumidor terminar com o "
 "buffer, :c:func:`PyBuffer_Release` deve ser chamado exatamente uma vez."
 
-#: ../../c-api/buffer.rst:457
+#: ../../c-api/buffer.rst:459
 msgid ""
-"Release the buffer *view* and decrement the reference count for ``view-"
+"Release the buffer *view* and release the :term:`strong reference` (i.e. "
+"decrement the reference count) to the view's supporting object, ``view-"
 ">obj``. This function MUST be called when the buffer is no longer being "
 "used, otherwise reference leaks may occur."
 msgstr ""
-"Lança o buffer *view* e decrementa a contagem de referências para ``view-"
-">obj``. Esta função DEVE ser chamada quando o buffer não está mais sendo "
-"usado, senão podem ocorrer vazamentos de referência."
 
-#: ../../c-api/buffer.rst:461
+#: ../../c-api/buffer.rst:464
 msgid ""
 "It is an error to call this function on a buffer that was not obtained via :"
 "c:func:`PyObject_GetBuffer`."
@@ -820,13 +814,13 @@ msgstr ""
 "É um erro chamar essa função em um buffer que não foi obtido via :c:func:"
 "`PyObject_GetBuffer`."
 
-#: ../../c-api/buffer.rst:467
+#: ../../c-api/buffer.rst:470
 msgid ""
 "Return the implied :c:member:`~Py_buffer.itemsize` from :c:member:"
 "`~Py_buffer.format`. On error, raise an exception and return -1."
 msgstr ""
 
-#: ../../c-api/buffer.rst:475
+#: ../../c-api/buffer.rst:478
 msgid ""
 "Return ``1`` if the memory defined by the *view* is C-style (*order* is "
 "``'C'``) or Fortran-style (*order* is ``'F'``) :term:`contiguous` or either "
@@ -838,7 +832,7 @@ msgstr ""
 "``'F'``) ou qualquer outra (*order* é ``'A'``). Retorna ``0`` caso "
 "contrário. Essa função é sempre bem sucedida."
 
-#: ../../c-api/buffer.rst:482
+#: ../../c-api/buffer.rst:485
 msgid ""
 "Get the memory area pointed to by the *indices* inside the given *view*. "
 "*indices* must point to an array of ``view->ndim`` indices."
@@ -846,7 +840,7 @@ msgstr ""
 "Recebe a área de memória apontada pelos *indices* dentro da *view* dada. "
 "*indices* deve apontar para um array de ``view->ndim`` índices."
 
-#: ../../c-api/buffer.rst:488
+#: ../../c-api/buffer.rst:491
 msgid ""
 "Copy contiguous *len* bytes from *buf* to *view*. *fort* can be ``'C'`` or "
 "``'F'`` (for C-style or Fortran-style ordering). ``0`` is returned on "
@@ -856,7 +850,7 @@ msgstr ""
 "``'F'`` (para ordenação estilo C ou estilo Fortran). Retorna ``0`` em caso "
 "de sucesso e ``-1`` em caso de erro."
 
-#: ../../c-api/buffer.rst:495
+#: ../../c-api/buffer.rst:498
 msgid ""
 "Copy *len* bytes from *src* to its contiguous representation in *buf*. "
 "*order* can be ``'C'`` or ``'F'`` or ``'A'`` (for C-style or Fortran-style "
@@ -867,11 +861,11 @@ msgstr ""
 "qualquer uma). O retorno é ``0`` em caso de sucesso e ``-1`` em caso de "
 "falha."
 
-#: ../../c-api/buffer.rst:499
+#: ../../c-api/buffer.rst:502
 msgid "This function fails if *len* != *src->len*."
 msgstr "Esta função falha se *len* != *src->len*."
 
-#: ../../c-api/buffer.rst:504
+#: ../../c-api/buffer.rst:507
 msgid ""
 "Copy data from *src* to *dest* buffer. Can convert between C-style and or "
 "Fortran-style buffers."
@@ -879,11 +873,11 @@ msgstr ""
 "Copia os dados do buffer *src* para o buffer *dest*. Pode converter entre "
 "buffers de estilo C e/ou estilo Fortran."
 
-#: ../../c-api/buffer.rst:507
+#: ../../c-api/buffer.rst:510
 msgid "``0`` is returned on success, ``-1`` on error."
 msgstr "``0`` é retornado em caso de sucesso, ``-1`` em caso de erro."
 
-#: ../../c-api/buffer.rst:511
+#: ../../c-api/buffer.rst:514
 msgid ""
 "Fill the *strides* array with byte-strides of a :term:`contiguous` (C-style "
 "if *order* is ``'C'`` or Fortran-style if *order* is ``'F'``) array of the "
@@ -893,7 +887,7 @@ msgstr ""
 "(estilo C se *order* é ``'C'`` ou estilo Fortran se *order* for ``'F'``) da "
 "forma dada com o número dado de bytes por elemento."
 
-#: ../../c-api/buffer.rst:518
+#: ../../c-api/buffer.rst:521
 msgid ""
 "Handle buffer requests for an exporter that wants to expose *buf* of size "
 "*len* with writability set according to *readonly*. *buf* is interpreted as "
@@ -903,7 +897,7 @@ msgstr ""
 "tamanho *len* com capacidade de escrita definida de acordo com *readonly*. "
 "*buf* é interpretada como uma sequência de bytes sem sinal."
 
-#: ../../c-api/buffer.rst:522
+#: ../../c-api/buffer.rst:525
 msgid ""
 "The *flags* argument indicates the request type. This function always fills "
 "in *view* as specified by flags, unless *buf* has been designated as read-"
@@ -913,7 +907,7 @@ msgstr ""
 "*view* como especificado por *flags*, a não ser que *buf* seja designado "
 "como somente leitura e :c:macro:`PyBUF_WRITABLE` esteja definido em *flags*."
 
-#: ../../c-api/buffer.rst:526
+#: ../../c-api/buffer.rst:529
 msgid ""
 "On success, set ``view->obj`` to a new reference to *exporter* and return 0. "
 "Otherwise, raise :c:data:`PyExc_BufferError`, set ``view->obj`` to ``NULL`` "
@@ -923,7 +917,7 @@ msgstr ""
 "*exporter* e retorna 0. Caso contrário, levanta :c:data:`PyExc_BufferError`, "
 "define ``view->obj`` para ``NULL`` e retorna ``-1``;"
 
-#: ../../c-api/buffer.rst:530
+#: ../../c-api/buffer.rst:533
 msgid ""
 "If this function is used as part of a :ref:`getbufferproc <buffer-structs>`, "
 "*exporter* MUST be set to the exporting object and *flags* must be passed "
@@ -954,14 +948,14 @@ msgstr ""
 msgid "PyBufferProcs"
 msgstr ""
 
-#: ../../c-api/buffer.rst:284
+#: ../../c-api/buffer.rst:286
 msgid "contiguous"
 msgstr "contíguo"
 
-#: ../../c-api/buffer.rst:284
+#: ../../c-api/buffer.rst:286
 msgid "C-contiguous"
 msgstr "contíguo C"
 
-#: ../../c-api/buffer.rst:284
+#: ../../c-api/buffer.rst:286
 msgid "Fortran contiguous"
 msgstr "contíguo Fortran"
