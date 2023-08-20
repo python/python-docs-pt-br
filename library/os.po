@@ -19,8 +19,8 @@
 # Marco Rougeth <marco@rougeth.com>, 2023
 # Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2023
 # Ana Carolina Gomes, 2023
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2023
 # Adorilson Bezerra <adorilson@gmail.com>, 2023
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2023
 #
 #, fuzzy
 msgid ""
@@ -29,7 +29,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-18 14:13+0000\n"
 "PO-Revision-Date: 2021-06-28 01:10+0000\n"
-"Last-Translator: Adorilson Bezerra <adorilson@gmail.com>, 2023\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2023\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -154,6 +154,8 @@ msgid ""
 ":data:`sys.platform` has a finer granularity.  :func:`os.uname` gives system-"
 "dependent version information."
 msgstr ""
+":data:`sys.platform` tem uma granularidade mais fina. :func:`os.uname` "
+"fornece informações de versão específicas do sistema."
 
 #: ../../library/os.rst:66
 msgid ""
@@ -553,6 +555,8 @@ msgid ""
 ":data:`environb` is only available if :const:`supports_bytes_environ` is "
 "``True``."
 msgstr ""
+":data:`environb` está disponível somente se :const:`supports_bytes_environ` "
+"for ``True``."
 
 #: ../../library/os.rst:250
 msgid "These functions are described in :ref:`os-file-dir`."
@@ -682,6 +686,8 @@ msgid ""
 ":func:`getenvb` is only available if :const:`supports_bytes_environ` is "
 "``True``."
 msgstr ""
+":func:`getenvb` está disponível somente se :const:`supports_bytes_environ` "
+"for ``True``."
 
 #: ../../library/os.rst:337 ../../library/os.rst:376 ../../library/os.rst:533
 #: ../../library/os.rst:787 ../../library/os.rst:1004 ../../library/os.rst:1019
@@ -772,6 +778,19 @@ msgid ""
 "`MACOSX_DEPLOYMENT_TARGET`, can be obtained with :func:`sysconfig."
 "get_config_var`."
 msgstr ""
+"No Mac OS, o comportamento da função :func:`getgroups` difere um pouco de "
+"outras plataformas Unix. Se o interpretador Python foi compilado para "
+"distribuição na versão ``10.5``, ou anterior, :func:`getgroups` retorna a "
+"lista de IDs de grupos efetivos, associados ao processo do usuário atual; "
+"esta lista é limitada a um número de entradas definido pelo sistema, "
+"tipicamente 16, e pode ser modificada por chamadas para :func:`setgroups` se "
+"tiver o privilégio adequado. Se foi compilado para distribuição na versão "
+"maior que ``10.5``, :func:`getgroups` retorna a lista de acesso de grupo "
+"atual para o usuário associado ao ID de usuário efetivo do processo; a lista "
+"de acesso de grupo pode mudar durante a vida útil do processo, e ela não é "
+"afetada por chamadas para :func:`setgroups`, e seu comprimento não é "
+"limitado a 16. O valor da constante :const:`MACOSX_DEPLOYMENT_TARGET`, pode "
+"ser obtido com :func:`sysconfig.get_config_var`."
 
 #: ../../library/os.rst:419
 msgid ""
@@ -984,6 +1003,10 @@ msgid ""
 "clone-flags>` to impose constraints on the operation (``0`` means no "
 "constraints)."
 msgstr ""
+"Se *fd* se refere a um link :file:`/proc/{pid}/ns/`, ``setns()`` reassocia a "
+"thread de chamada com o espaço de nomes associado a esse link, e *nstype* "
+"pode ser definido como uma das :ref:`constantes CLONE_NEW* <os-unshare-clone-"
+"flags>` para impor restrições na operação (``0`` significa sem restrições)."
 
 #: ../../library/os.rst:622
 msgid ""
@@ -995,18 +1018,30 @@ msgid ""
 "flags>`, e.g. ``setns(fd, os.CLONE_NEWUTS | os.CLONE_NEWPID)``. The caller's "
 "memberships in unspecified namespaces are left unchanged."
 msgstr ""
+"Desde o Linux 5.8, *fd* pode se referir a um descritor de arquivo PID obtido "
+"de :func:`~os.pidfd_open`. Neste caso, ``setns()`` reassocia a thread "
+"chamadora em um ou mais dos mesmos espaços de nomes que o thread "
+"referenciado por *fd*. Isso está sujeito a quaisquer restrições impostas por "
+"*nstype*, que é uma máscara de bits que combina uma ou mais das :ref:"
+"`constantes CLONE_NEW* <os-unshare-clone-flags>`, por exemplo ``setns(fd, os."
+"CLONE_NEWUTS | os.CLONE_NEWPID)``. As associações do chamador em espaços de "
+"nomes não especificados permanecem inalteradas."
 
 #: ../../library/os.rst:631
 msgid ""
 "*fd* can be any object with a :meth:`~io.IOBase.fileno` method, or a raw "
 "file descriptor."
 msgstr ""
+"*fd* pode ser qualquer objeto com um método :meth:`~io.IOBase.fileno` ou um "
+"descritor de arquivo bruto."
 
 #: ../../library/os.rst:633
 msgid ""
 "This example reassociates the thread with the ``init`` process's network "
 "namespace::"
 msgstr ""
+"Este exemplo reassocia a thread com o espaço de nomes de rede do processo "
+"``init``::"
 
 #: ../../library/os.rst:639
 msgid ":ref:`Availability <availability>`: Linux >= 3.0 with glibc >= 2.14."
@@ -1079,12 +1114,16 @@ msgid ""
 "Call the system call :c:func:`!getsid`.  See the Unix manual for the "
 "semantics."
 msgstr ""
+"Executa a chamada de sistema :c:func:`!getsid`. Veja o manual do Unix para "
+"semântica."
 
 #: ../../library/os.rst:724
 msgid ""
 "Call the system call :c:func:`!setsid`.  See the Unix manual for the "
 "semantics."
 msgstr ""
+"Executa a chamada de sistema :c:func:`!setsid`. Veja o manual do Unix para "
+"semântica."
 
 #: ../../library/os.rst:733
 msgid "Set the current process's user id."
@@ -1096,6 +1135,9 @@ msgid ""
 "platforms where :c:func:`!strerror` returns ``NULL`` when given an unknown "
 "error number, :exc:`ValueError` is raised."
 msgstr ""
+"Retorna a mensagem de erro correspondente ao código de erro em *code*. Nas "
+"plataformas em que :c:func:`!strerror` retorna ``NULL`` quando recebe um "
+"número de erro desconhecido, :exc:`ValueError` é levantada."
 
 #: ../../library/os.rst:748
 msgid ""
@@ -1212,6 +1254,14 @@ msgid ""
 "and moved to a new namespace. If the *flags* argument is ``0``, no changes "
 "are made to the calling process's execution context."
 msgstr ""
+"Desassocia partes do contexto de execução do processo e move-as para um "
+"espaço de nomes recém-criado. Veja a página man :manpage:`unshare(2)` para "
+"mais detalhes. O argumento *flags* é uma máscara de bits, combinando zero ou "
+"mais das :ref:`constantes CLONE_* <os-unshare-clone-flags>`, que especifica "
+"quais partes do contexto de execução devem ser descompartilhadas de suas "
+"associações existentes e movidas para um novo espaço de nomes. Se o "
+"argumento *flags* for ``0``, nenhuma alteração será feita no contexto de "
+"execução do processo de chamada."
 
 #: ../../library/os.rst:826
 msgid ":ref:`Availability <availability>`: Linux >= 2.6.16."
@@ -1219,7 +1269,7 @@ msgstr ":ref:`Disponibilidade <availability>`: Linux >= 2.6.16."
 
 #: ../../library/os.rst:832
 msgid "The :func:`~os.setns` function."
-msgstr ""
+msgstr "A função :func:`~os.setns`."
 
 #: ../../library/os.rst:836
 msgid ""
@@ -1227,6 +1277,9 @@ msgid ""
 "See :manpage:`unshare(2)` in the Linux manual for their exact effect and "
 "availability."
 msgstr ""
+"Sinalizações para a função :func:`unshare`, se a implementação as suportar. "
+"Veja :manpage:`unshare(2)` no manual do Linux para seu exato efeito e "
+"disponibilidade."
 
 #: ../../library/os.rst:859
 msgid "File Object Creation"
@@ -1323,6 +1376,10 @@ msgid ""
 "If *offset_src* is None, then *src* is read from the current position; "
 "respectively for *offset_dst*."
 msgstr ""
+"Copia *count* bytes do descritor de arquivo *src*, começando no deslocamento "
+"*offset_src*, para o descritor de arquivo *dst*, começando no deslocamento "
+"*offset_dst*. Se *offset_src* for None, *src* será lido a partir da posição "
+"atual; respectivamente para *offset_dst*."
 
 #: ../../library/os.rst:924
 msgid ""
@@ -1330,6 +1387,10 @@ msgid ""
 "reside in the same filesystem, otherwise an :exc:`OSError` is raised with :"
 "attr:`~OSError.errno` set to :const:`errno.EXDEV`."
 msgstr ""
+"No kernel Linux anterior a 5.3, os arquivos apontados por *src* e *dst* "
+"devem residir no mesmo sistema de arquivos, caso contrário, uma exceção :exc:"
+"`OSError` é levantada com :attr:`~OSError.errno` definido como :const:`errno."
+"EXDEV`."
 
 #: ../../library/os.rst:928
 msgid ""
