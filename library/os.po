@@ -1401,12 +1401,20 @@ msgid ""
 "blocks; supported file systems include btrfs and XFS) and server-side copy "
 "(in the case of NFS)."
 msgstr ""
+"Essa cópia é feita sem o custo adicional de transferência de dados do kernel "
+"para o espaço do usuário e depois de volta para o kernel. Além disso, alguns "
+"sistemas de arquivos podem implementar otimizações extras, como o uso de "
+"reflinks (ou seja, dois ou mais nós-i que compartilham ponteiros para os "
+"mesmos blocos de disco copy-on-write; os sistemas de arquivos suportados "
+"incluem btrfs e XFS) e cópia do lado do servidor (no caso de NFS)."
 
 #: ../../library/os.rst:935
 msgid ""
 "The function copies bytes between two file descriptors. Text options, like "
 "the encoding and the line ending, are ignored."
 msgstr ""
+"A função copia bytes entre dois descritores de arquivo. As opções de texto, "
+"como a codificação e o final da linha, são ignoradas."
 
 #: ../../library/os.rst:938
 msgid ""
@@ -1423,6 +1431,10 @@ msgid ""
 "always copy no bytes and return 0 as if the file was empty because of a "
 "known Linux kernel issue."
 msgstr ""
+"No Linux, :func:`os.copy_file_range` não deve ser usada para copiar um "
+"intervalo de um pseudo arquivo de um sistema de arquivos especial como "
+"procfs e sysfs. Ele sempre não copiará nenhum byte e retornará 0 como se o "
+"arquivo estivesse vazio devido a um problema conhecido do kernel do Linux."
 
 #: ../../library/os.rst:948
 msgid ":ref:`Availability <availability>`: Linux >= 4.5 with glibc >= 2.27."
@@ -1674,11 +1686,11 @@ msgstr "Veja também :func:`set_blocking` e :meth:`socket.socket.setblocking`."
 
 #: ../../library/os.rst:1115 ../../library/os.rst:1628
 msgid "On Windows, this function is limited to pipes."
-msgstr ""
+msgstr "No Windows, esta função é limitada a encadeamentos."
 
 #: ../../library/os.rst:1119 ../../library/os.rst:1632
 msgid "Added support for pipes on Windows."
-msgstr ""
+msgstr "Adicionado suporte a encadeamentos no Windows."
 
 #: ../../library/os.rst:1124
 msgid ""
@@ -1740,7 +1752,7 @@ msgstr ""
 
 #: ../../library/os.rst:1176
 msgid "Add support for :const:`SEEK_HOLE` and :const:`SEEK_DATA`."
-msgstr ""
+msgstr "Adiciona suporte a :const:`SEEK_HOLE` a :const:`SEEK_DATA`."
 
 #: ../../library/os.rst:1183
 msgid ""
@@ -1748,34 +1760,37 @@ msgid ""
 "method on :term:`file-like objects <file object>`, for whence to adjust the "
 "file position indicator."
 msgstr ""
+"Parâmetros para a função :func:`lseek` e o método :meth:`~io.IOBase.seek` "
+"em :term:`objetos arquivo ou similar <file object>`, para onde ajustar o "
+"indicador de posição do arquivo."
 
 #: ../../library/os.rst:1187
 msgid ":const:`SEEK_SET`"
-msgstr ""
+msgstr ":const:`SEEK_SET`"
 
 #: ../../library/os.rst:1188
 msgid "Adjust the file position relative to the beginning of the file."
-msgstr ""
+msgstr "Ajusta a posição do arquivo em relação ao início do arquivo."
 
 #: ../../library/os.rst:1189
 msgid ":const:`SEEK_CUR`"
-msgstr ""
+msgstr ":const:`SEEK_CUR`"
 
 #: ../../library/os.rst:1190
 msgid "Adjust the file position relative to the current file position."
-msgstr ""
+msgstr "Ajusta a posição do arquivo em relação a sua posição atual."
 
 #: ../../library/os.rst:1192
 msgid ":const:`SEEK_END`"
-msgstr ""
+msgstr ":const:`SEEK_END`"
 
 #: ../../library/os.rst:1192
 msgid "Adjust the file position relative to the end of the file."
-msgstr ""
+msgstr "Ajusta a posição do arquivo em relação ao fim do arquivo."
 
 #: ../../library/os.rst:1194
 msgid "Their values are 0, 1, and 2, respectively."
-msgstr ""
+msgstr "Seus valores são 0, 1 e 2, respectivamente."
 
 #: ../../library/os.rst:1200
 msgid ""
@@ -1783,34 +1798,42 @@ msgid ""
 "method on :term:`file-like objects <file object>`, for seeking file data and "
 "holes on sparsely allocated files."
 msgstr ""
+"Parâmetros para a função :func:`lseek` e o método :meth:`~io.IOBase.seek` "
+"em :term:`objetos arquivo ou similar <file object>`, para para buscar dados "
+"de arquivos e buracos em arquivos alocados de forma esparsa."
 
 #: ../../library/os.rst:1206
 msgid ":data:`!SEEK_DATA`"
-msgstr ""
+msgstr ":data:`!SEEK_DATA`"
 
 #: ../../library/os.rst:1205
 msgid ""
 "Adjust the file offset to the next location containing data, relative to the "
 "seek position."
 msgstr ""
+"Ajusta o deslocamento do arquivo para o próximo local contendo dados, em "
+"relação à posição de busca."
 
 #: ../../library/os.rst:1211
 msgid ":data:`!SEEK_HOLE`"
-msgstr ""
+msgstr ":data:`!SEEK_HOLE`"
 
 #: ../../library/os.rst:1209
 msgid ""
 "Adjust the file offset to the next location containing a hole, relative to "
 "the seek position. A hole is defined as a sequence of zeros."
 msgstr ""
+"Ajusta o deslocamento do arquivo para o próximo local contendo um buraco, em "
+"relação à posição de busca. Um buraco é definido como uma sequência de zeros."
 
 #: ../../library/os.rst:1215
 msgid "These operations only make sense for filesystems that support them."
 msgstr ""
+"Essas operações só fazem sentido para sistemas de arquivos que as suportam."
 
 #: ../../library/os.rst:1217
 msgid ":ref:`Availability <availability>`: Linux >= 3.1, macOS, Unix"
-msgstr ""
+msgstr ":ref:`Disponibilidade <availability>`: Linux >= 3.1, macOS, Unix"
 
 #: ../../library/os.rst:1224
 msgid ""
@@ -2134,6 +2157,9 @@ msgid ""
 "If no bytes were read, it will return ``-1`` and set errno to :const:`errno."
 "EAGAIN`."
 msgstr ""
+"Se alguns dados foram lidos com sucesso, ele retorna o número de bytes "
+"lidos. Se nenhum bytes foi lido, ele retornará ``-1`` e definirá errno como :"
+"const:`errno.EAGAIN`."
 
 #: ../../library/os.rst:1462
 msgid ":ref:`Availability <availability>`: Linux >= 4.14."
@@ -2383,6 +2409,15 @@ msgid ""
 "the same filesystem, otherwise an :exc:`OSError` is raised with :attr:"
 "`~OSError.errno` set to :const:`errno.EXDEV`."
 msgstr ""
+"Transfere *count* bytes do descritor de arquivo *src*, começando do "
+"*offset_src*, para o descritor de arquivo *dst*, começando do *offset_dst*. "
+"Pelo menos um dos descritores de arquivo deve se referir a um encadeamento. "
+"Se *offset_src* é None, então *src* é lido a partir da posição atual; o "
+"mesmo para *offset_dst*. O deslocamento associado a um descritor de arquivo "
+"que se refere a um encadeamento deve ser ``None``. Os arquivos apontados por "
+"*src* e *dst* devem residir no mesmo sistema de arquivos, de outra forma "
+"uma :exc:`OSError` é levantada com :attr:`~OSError.errno` definido para :"
+"const:`errno.EXDEV`."
 
 #: ../../library/os.rst:1667
 msgid ""
@@ -2858,51 +2893,51 @@ msgstr ""
 
 #: ../../library/os.rst:1998
 msgid ":const:`stat.UF_NODUMP`"
-msgstr ""
+msgstr ":const:`stat.UF_NODUMP`"
 
 #: ../../library/os.rst:1999
 msgid ":const:`stat.UF_IMMUTABLE`"
-msgstr ""
+msgstr ":const:`stat.UF_IMMUTABLE`"
 
 #: ../../library/os.rst:2000
 msgid ":const:`stat.UF_APPEND`"
-msgstr ""
+msgstr ":const:`stat.UF_APPEND`"
 
 #: ../../library/os.rst:2001
 msgid ":const:`stat.UF_OPAQUE`"
-msgstr ""
+msgstr ":const:`stat.UF_OPAQUE`"
 
 #: ../../library/os.rst:2002
 msgid ":const:`stat.UF_NOUNLINK`"
-msgstr ""
+msgstr ":const:`stat.UF_NOUNLINK`"
 
 #: ../../library/os.rst:2003
 msgid ":const:`stat.UF_COMPRESSED`"
-msgstr ""
+msgstr ":const:`stat.UF_COMPRESSED`"
 
 #: ../../library/os.rst:2004
 msgid ":const:`stat.UF_HIDDEN`"
-msgstr ""
+msgstr ":const:`stat.UF_HIDDEN`"
 
 #: ../../library/os.rst:2005
 msgid ":const:`stat.SF_ARCHIVED`"
-msgstr ""
+msgstr ":const:`stat.SF_ARCHIVED`"
 
 #: ../../library/os.rst:2006
 msgid ":const:`stat.SF_IMMUTABLE`"
-msgstr ""
+msgstr ":const:`stat.SF_IMMUTABLE`"
 
 #: ../../library/os.rst:2007
 msgid ":const:`stat.SF_APPEND`"
-msgstr ""
+msgstr ":const:`stat.SF_APPEND`"
 
 #: ../../library/os.rst:2008
 msgid ":const:`stat.SF_NOUNLINK`"
-msgstr ""
+msgstr ":const:`stat.SF_NOUNLINK`"
 
 #: ../../library/os.rst:2009
 msgid ":const:`stat.SF_SNAPSHOT`"
-msgstr ""
+msgstr ":const:`stat.SF_SNAPSHOT`"
 
 #: ../../library/os.rst:2011
 msgid ""
@@ -2935,79 +2970,79 @@ msgstr ""
 
 #: ../../library/os.rst:2030
 msgid ":const:`stat.S_ISUID`"
-msgstr ""
+msgstr ":const:`stat.S_ISUID`"
 
 #: ../../library/os.rst:2031
 msgid ":const:`stat.S_ISGID`"
-msgstr ""
+msgstr ":const:`stat.S_ISGID`"
 
 #: ../../library/os.rst:2032
 msgid ":const:`stat.S_ENFMT`"
-msgstr ""
+msgstr ":const:`stat.S_ENFMT`"
 
 #: ../../library/os.rst:2033
 msgid ":const:`stat.S_ISVTX`"
-msgstr ""
+msgstr ":const:`stat.S_ISVTX`"
 
 #: ../../library/os.rst:2034
 msgid ":const:`stat.S_IREAD`"
-msgstr ""
+msgstr ":const:`stat.S_IREAD`"
 
 #: ../../library/os.rst:2035
 msgid ":const:`stat.S_IWRITE`"
-msgstr ""
+msgstr ":const:`stat.S_IWRITE`"
 
 #: ../../library/os.rst:2036
 msgid ":const:`stat.S_IEXEC`"
-msgstr ""
+msgstr ":const:`stat.S_IEXEC`"
 
 #: ../../library/os.rst:2037
 msgid ":const:`stat.S_IRWXU`"
-msgstr ""
+msgstr ":const:`stat.S_IRWXU`"
 
 #: ../../library/os.rst:2038
 msgid ":const:`stat.S_IRUSR`"
-msgstr ""
+msgstr ":const:`stat.S_IRUSR`"
 
 #: ../../library/os.rst:2039
 msgid ":const:`stat.S_IWUSR`"
-msgstr ""
+msgstr ":const:`stat.S_IWUSR`"
 
 #: ../../library/os.rst:2040
 msgid ":const:`stat.S_IXUSR`"
-msgstr ""
+msgstr ":const:`stat.S_IXUSR`"
 
 #: ../../library/os.rst:2041
 msgid ":const:`stat.S_IRWXG`"
-msgstr ""
+msgstr ":const:`stat.S_IRWXG`"
 
 #: ../../library/os.rst:2042
 msgid ":const:`stat.S_IRGRP`"
-msgstr ""
+msgstr ":const:`stat.S_IRGRP`"
 
 #: ../../library/os.rst:2043
 msgid ":const:`stat.S_IWGRP`"
-msgstr ""
+msgstr ":const:`stat.S_IWGRP`"
 
 #: ../../library/os.rst:2044
 msgid ":const:`stat.S_IXGRP`"
-msgstr ""
+msgstr ":const:`stat.S_IXGRP`"
 
 #: ../../library/os.rst:2045
 msgid ":const:`stat.S_IRWXO`"
-msgstr ""
+msgstr ":const:`stat.S_IRWXO`"
 
 #: ../../library/os.rst:2046
 msgid ":const:`stat.S_IROTH`"
-msgstr ""
+msgstr ":const:`stat.S_IROTH`"
 
 #: ../../library/os.rst:2047
 msgid ":const:`stat.S_IWOTH`"
-msgstr ""
+msgstr ":const:`stat.S_IWOTH`"
 
 #: ../../library/os.rst:2048
 msgid ":const:`stat.S_IXOTH`"
-msgstr ""
+msgstr ":const:`stat.S_IXOTH`"
 
 #: ../../library/os.rst:2050 ../../library/os.rst:2078
 #: ../../library/os.rst:3457
@@ -3148,7 +3183,7 @@ msgstr ""
 
 #: ../../library/os.rst:2188
 msgid ":ref:`Availability <availability>`: Unix, Windows, not Emscripten."
-msgstr ""
+msgstr ":ref:`Disponibilidade <availability>`: Unix, Windows, não Emscripten."
 
 #: ../../library/os.rst:2190
 msgid "Added Windows support."
@@ -3234,6 +3269,7 @@ msgstr ""
 #: ../../library/os.rst:2239
 msgid "Return a list containing the names of drives on a Windows system."
 msgstr ""
+"Retorna uma lista contendo os nomes das unidades em um sistema Windows."
 
 #: ../../library/os.rst:2241
 msgid ""
@@ -3242,26 +3278,36 @@ msgid ""
 "reasons, including permissions, network connectivity or missing media. This "
 "function does not test for access."
 msgstr ""
+"Um nome de unidade geralmente se parece com ``'C:\\\\'``. Nem todo nome de "
+"unidade estará associado a um volume e alguns podem estar inacessíveis por "
+"vários motivos, incluindo permissões, conectividade de rede ou mídia "
+"ausente. Esta função não testa o acesso."
 
 #: ../../library/os.rst:2246
 msgid "May raise :exc:`OSError` if an error occurs collecting the drive names."
 msgstr ""
+"Pode levantar :exc:`OSError` se ocorrer um erro ao coletar os nomes das "
+"unidades."
 
 #: ../../library/os.rst:2249
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``os.listdrives`` with no "
 "arguments."
 msgstr ""
+"Levanta um :ref:`evento de auditoria <auditing>` ``os.listdrives`` com "
+"nenhum argumento."
 
 #: ../../library/os.rst:2251 ../../library/os.rst:2275
 #: ../../library/os.rst:2295
 msgid ":ref:`Availability <availability>`: Windows"
-msgstr ""
+msgstr ":ref:`Disponibilidade <availability>`: Windows"
 
 #: ../../library/os.rst:2258
 msgid ""
 "Return a list containing the mount points for a volume on a Windows system."
 msgstr ""
+"Retorna uma lista contendo os pontos de montagem para um volume em um "
+"sistema Windows."
 
 #: ../../library/os.rst:2261
 msgid ""
@@ -3270,28 +3316,38 @@ msgid ""
 "all. In the latter case, the list will be empty. Mount points that are not "
 "associated with a volume will not be returned by this function."
 msgstr ""
+"*volume* deve ser representado como um caminho GUID, como aqueles retornados "
+"por :func:`os.listvolumes`. Os volumes podem ser montados em vários locais "
+"ou não. No último caso, a lista estará vazia. Os pontos de montagem que não "
+"estão associados a um volume não serão retornados por esta função."
 
 #: ../../library/os.rst:2267
 msgid ""
 "The mount points return by this function will be absolute paths, and may be "
 "longer than the drive name."
 msgstr ""
+"Os pontos de montagem retornados por esta função serão caminhos absolutos e "
+"podem ser mais longos que o nome da unidade."
 
 #: ../../library/os.rst:2270
 msgid ""
 "Raises :exc:`OSError` if the volume is not recognized or if an error occurs "
 "collecting the paths."
 msgstr ""
+"Levanta :exc:`OSError` se o volume não for reconhecido ou se ocorrer um erro "
+"ao coletar os caminhos."
 
 #: ../../library/os.rst:2273
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``os.listmounts`` with argument "
 "``volume``."
 msgstr ""
+"Levanta an :ref:`evento de auditoria <auditing>` ``os.listmounts`` com o "
+"argumento ``volume``."
 
 #: ../../library/os.rst:2282
 msgid "Return a list containing the volumes in the system."
-msgstr ""
+msgstr "Retorna uma lista contendo os volumes no sistema."
 
 #: ../../library/os.rst:2284
 msgid ""
@@ -3301,16 +3357,24 @@ msgid ""
 "generally not familiar with them, and so the recommended use of this "
 "function is to retrieve mount points using :func:`os.listmounts`."
 msgstr ""
+"Volumes são normalmente representados como um caminho GUID que se parece com "
+"``\\\\?\\Volume{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}\\``. Os arquivos "
+"geralmente podem ser acessados por meio de um caminho GUID, permitindo "
+"permissões. No entanto, os usuários geralmente não estão familiarizados com "
+"eles e, portanto, o uso recomendado desta função é recuperar pontos de "
+"montagem usando :func:`os.listmounts`."
 
 #: ../../library/os.rst:2291
 msgid "May raise :exc:`OSError` if an error occurs collecting the volumes."
-msgstr ""
+msgstr "Pode levantar :exc:`OSError` se ocorrer um erro ao coletar os volumes."
 
 #: ../../library/os.rst:2293
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``os.listvolumes`` with no "
 "arguments."
 msgstr ""
+"Levanta um :ref:`evento de auditoria <auditing>` ``os.listvolumes`` com "
+"nenhum argumento."
 
 #: ../../library/os.rst:2302
 msgid ""
@@ -3529,12 +3593,16 @@ msgid ""
 "Extract the device major number from a raw device number (usually the :attr:"
 "`st_dev` or :attr:`st_rdev` field from :c:struct:`stat`)."
 msgstr ""
+"Extrai o número principal de dispositivo de um número bruto de dispositivo "
+"(normalmente o campo :attr:`st_dev` ou :attr:`st_rdev` de :c:struct:`stat`)."
 
 #: ../../library/os.rst:2463
 msgid ""
 "Extract the device minor number from a raw device number (usually the :attr:"
 "`st_dev` or :attr:`st_rdev` field from :c:struct:`stat`)."
 msgstr ""
+"Extrai o número menor de dispositivo de um número bruto de dispositivo "
+"(normalmente o campo :attr:`st_dev` ou :attr:`st_rdev` de :c:struct:`stat`)."
 
 #: ../../library/os.rst:2469
 msgid "Compose a raw device number from the major and minor device numbers."
@@ -4203,12 +4271,17 @@ msgid ""
 "``False`` if the entry points to a regular directory, any kind of file, a "
 "symlink, or if it doesn't exist anymore."
 msgstr ""
+"Retorna ``True`` se esta entrada for uma junção (mesmo se quebrado); retorna "
+"``False`` se a entrada apontar para um diretório regular, ou qualquer tipo "
+"de arquivo, um link simbólico ou se ele não existir mais."
 
 #: ../../library/os.rst:2871
 msgid ""
 "The result is cached on the ``os.DirEntry`` object. Call :func:`os.path."
 "isjunction` to fetch up-to-date information."
 msgstr ""
+"O resultado é armazenado em cache no objeto ``os.DirEntry``. Chama :func:`os."
+"path.isjunction` para buscar informações atualizadas."
 
 #: ../../library/os.rst:2878
 msgid ""
@@ -4258,6 +4331,10 @@ msgid ""
 "``name`` attribute has the same meaning, as do the ``is_dir()``, "
 "``is_file()``, ``is_symlink()``, ``is_junction()``, and ``stat()`` methods."
 msgstr ""
+"Note que há uma boa correspondência entre vários atributos e métodos de ``os."
+"DirEntry`` e de :class:`pathlib.Path`. Em particular, o atributo ``name`` "
+"tem o mesmo significado, assim como os métodos ``is_dir()``, ``is_file()``, "
+"``is_junction()`` e ``stat()``."
 
 #: ../../library/os.rst:2903
 msgid ""
@@ -4274,6 +4351,10 @@ msgid ""
 "future ``st_ctime`` may be changed to return zero or the metadata change "
 "time, if available."
 msgstr ""
+"O atributo ``st_ctime`` de um resultado estatístico foi descontinuado no "
+"Windows. A hora de criação do arquivo está devidamente disponível como "
+"``st_birthtime``, e no futuro ``st_ctime`` pode ser alterada para retornar "
+"zero ou a hora de alteração dos metadados, se disponível."
 
 #: ../../library/os.rst:2916
 msgid ""
@@ -4372,6 +4453,9 @@ msgid ""
 "`stat` structure. It is used for the result of :func:`os.stat`, :func:`os."
 "fstat` and :func:`os.lstat`."
 msgstr ""
+"Objeto cujos atributos correspondem aproximadamente aos membros da "
+"estrutura :c:struct:`stat`. É usado para o resultado de :func:`os.stat`, :"
+"func:`os.fstat` e :func:`os.lstat`."
 
 #: ../../library/os.rst:2978
 msgid "Attributes:"
@@ -4443,7 +4527,7 @@ msgstr "Tempo da modificação de conteúdo mais recente expresso em segundos."
 
 #: ../../library/os.rst:3028
 msgid "Time of most recent metadata change expressed in seconds."
-msgstr ""
+msgstr "Tempo da alteração de metadados mais recente expresso em segundos."
 
 #: ../../library/os.rst:3030
 msgid ""
@@ -4451,6 +4535,9 @@ msgid ""
 "creation time. In the future, ``st_ctime`` will contain the time of the most "
 "recent metadata change, as for other platforms."
 msgstr ""
+"``st_ctime`` foi descontinuado no Windows. Use ``st_birthtime`` para o tempo "
+"de criação do arquivo. No futuro, ``st_ctime`` conterá a hora da alteração "
+"de metadados mais recente, como em outras plataformas."
 
 #: ../../library/os.rst:3037
 msgid "Time of most recent access expressed in nanoseconds as an integer."
@@ -4469,6 +4556,8 @@ msgstr ""
 msgid ""
 "Time of most recent metadata change expressed in nanoseconds as an integer."
 msgstr ""
+"Hora do alteração de metadados mais recente expresso em nanossegundos como "
+"um número inteiro."
 
 #: ../../library/os.rst:3049
 msgid ""
@@ -4476,22 +4565,29 @@ msgid ""
 "file creation time. In the future, ``st_ctime`` will contain the time of the "
 "most recent metadata change, as for other platforms."
 msgstr ""
+"``st_ctime_ns`` foi descontinuado no Windows. Use ``st_birthtime_ns`` para o "
+"tempo de criação do arquivo. No futuro, ``st_ctime`` conterá a hora da "
+"alteração de metadados mais recente, como em outras plataformas."
 
 #: ../../library/os.rst:3056
 msgid ""
 "Time of file creation expressed in seconds. This attribute is not always "
 "available, and may raise :exc:`AttributeError`."
 msgstr ""
+"Tempo de criação do arquivo expresso em segundos. Este atributo nem sempre "
+"está disponível e pode levantar :exc:`AttributeError`."
 
 #: ../../library/os.rst:3059
 msgid "``st_birthtime`` is now available on Windows."
-msgstr ""
+msgstr "``st_birthtime`` está agora disponível no Windows."
 
 #: ../../library/os.rst:3064
 msgid ""
 "Time of file creation expressed in nanoseconds as an integer. This attribute "
 "is not always available, and may raise :exc:`AttributeError`."
 msgstr ""
+"Tempo de criação do arquivo expresso em nanossegundos em um inteiro. Este "
+"atributo nem sempre está disponível e pode levantar :exc:`AttributeError`."
 
 #: ../../library/os.rst:3072
 msgid ""
@@ -4502,6 +4598,12 @@ msgid ""
 "has only 1-day resolution. See your operating system documentation for "
 "details."
 msgstr ""
+"O significado e resolução exatos dos atributos :attr:`st_atime`, :attr:"
+"`st_mtime`, :attr:`st_ctime` e :attr:`st_birthtime` dependem do sistema "
+"operacional e do sistema de arquivos. Por exemplo, em sistemas Windows que "
+"usam os sistemas de arquivos FAT32, :attr:`st_mtime` tem resolução de 2 "
+"segundos, e :attr:`st_atime` tem resolução de apenas 1 dia. Consulte a "
+"documentação do sistema operacional para obter detalhes."
 
 #: ../../library/os.rst:3079
 msgid ""
