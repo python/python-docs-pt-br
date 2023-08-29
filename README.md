@@ -16,7 +16,7 @@ than 2). Please helps assure they are a 100% translated.
  - glossary
  - library/functions
  - library/index
- - library/introduction
+ - library/intro
  - library/constants
  - library/stdtypes
  - library/exceptions
