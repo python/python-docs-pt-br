@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-29 02:08+0000\n"
+"POT-Creation-Date: 2023-08-25 22:29+0000\n"
 "PO-Revision-Date: 2021-06-28 01:19+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2023\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -140,11 +140,11 @@ msgstr "instruções :keyword:`import`."
 
 #: ../../reference/executionmodel.rst:74
 msgid ":keyword:`type` statements."
-msgstr ""
+msgstr "instruções :keyword:`type`."
 
 #: ../../reference/executionmodel.rst:75
 msgid ":ref:`type parameter lists <type-params>`."
-msgstr ""
+msgstr ":ref:`listas de parâmetros de tipo <type-params>`."
 
 #: ../../reference/executionmodel.rst:77
 msgid ""
@@ -298,6 +298,12 @@ msgid ""
 "any enclosing function scope. :ref:`Type parameters <type-params>` cannot be "
 "rebound with the :keyword:`!nonlocal` statement."
 msgstr ""
+"A instrução :keyword:`nonlocal` faz com que os nomes correspondentes se "
+"refiram a variáveis previamente vinculadas no escopo da função delimitadora "
+"mais próxima. A exceção :exc:`SyntaxError` é levantada em tempo de "
+"compilação se o nome fornecido não existir em nenhum escopo de função "
+"delimitador. :ref:`Parâmetros de tipo <type-params>` não podem ser "
+"vinculadas novamente com a instrução :keyword:`!nonlocal`."
 
 #: ../../reference/executionmodel.rst:159
 msgid ""
@@ -322,14 +328,25 @@ msgid ""
 "scopes>`, which have access to their enclosing class scopes. This means that "
 "the following will fail::"
 msgstr ""
+"Blocos de definição de classe e argumentos para :func:`exec` e :func:`eval` "
+"são especiais no contexto de resolução de nome. Uma definição de classe é "
+"uma instrução executável que pode usar e definir nomes. Essas referências "
+"seguem as regras normais para resolução de nome, com exceção de que "
+"variáveis locais não vinculadas são pesquisadas no espaço de nomes global "
+"global. O espaço de nomes global da definição de classe se torna o "
+"dicionário de atributos da classe. O escopo dos nomes definidos em um bloco "
+"de classe é limitado ao bloco de classe; ele não se estende aos blocos de "
+"código de métodos. Isso inclui compreensões e expressões geradoras, mas não "
+"inclui :ref:`escopos de anotação <annotation-scopes>`, que têm acesso a seus "
+"escopos de classe delimitadores. Isso significa que o seguinte falhará::"
 
 #: ../../reference/executionmodel.rst:179
 msgid "However, the following will succeed::"
-msgstr ""
+msgstr "Porém, o seguinte vai funcionar::"
 
 #: ../../reference/executionmodel.rst:190
 msgid "Annotation scopes"
-msgstr ""
+msgstr "Escopos de anotação"
 
 #: ../../reference/executionmodel.rst:192
 msgid ""
@@ -339,15 +356,23 @@ msgid ""
 "currently do not use annotation scopes, but they are expected to use "
 "annotation scopes in Python 3.13 when :pep:`649` is implemented."
 msgstr ""
+"As instruções :keyword:`type` e :ref:`listas de parâmetros de tipo <type-"
+"params>` introduzem *escopos de anotação*, que se comportam principalmente "
+"como escopos de função, mas com algumas exceções discutidas abaixo. :term:"
+"`Anotações <annotation>` atualmente não usam escopos de anotação, mas espera-"
+"se que elas usem escopos de anotação no Python 3.13 quando :pep:`649` for "
+"implementada."
 
 #: ../../reference/executionmodel.rst:198
 msgid "Annotation scopes are used in the following contexts:"
-msgstr ""
+msgstr "Os escopos de anotação são usados nos seguintes contextos:"
 
 #: ../../reference/executionmodel.rst:200
 msgid ""
 "Type parameter lists for :ref:`generic type aliases <generic-type-aliases>`."
 msgstr ""
+"Listas de parâmetros de tipo para :ref:`apelidos de tipo genérico <generic-"
+"type-aliases>`."
 
 #: ../../reference/executionmodel.rst:201
 msgid ""
@@ -355,6 +380,9 @@ msgid ""
 "generic function's annotations are executed within the annotation scope, but "
 "its defaults and decorators are not."
 msgstr ""
+"Listas de parâmetros de tipo para :ref:`funções genéricas <generic-"
+"functions>`. As anotações de uma função genérica são executadas dentro do "
+"escopo de anotação, mas seus padrões e decoradores não."
 
 #: ../../reference/executionmodel.rst:204
 msgid ""
@@ -362,20 +390,28 @@ msgid ""
 "class's base classes and keyword arguments are executed within the "
 "annotation scope, but its decorators are not."
 msgstr ""
+"Listas de parâmetros de tipo para :ref:`classes genéricas <generic-"
+"functions>`. As classes base e argumentos nomeados de uma classe genérica "
+"são executadas dentro do escopo de anotação, mas seus decoradores não."
 
 #: ../../reference/executionmodel.rst:207
 msgid ""
 "The bounds and constraints for type variables (:ref:`lazily evaluated <lazy-"
 "evaluation>`)."
 msgstr ""
+"Os limites e restrições para variáveis de tipo (:ref:`avaliadas de forma "
+"preguiçosa <lazy-evaluation>`)."
 
 #: ../../reference/executionmodel.rst:209
 msgid "The value of type aliases (:ref:`lazily evaluated <lazy-evaluation>`)."
 msgstr ""
+"O valor dos apelidos de tipo (:ref:`avaliado de forma preguiçosa <lazy-"
+"evaluation>`)."
 
 #: ../../reference/executionmodel.rst:211
 msgid "Annotation scopes differ from function scopes in the following ways:"
 msgstr ""
+"Escopos de anotação diferenciam-se de escopos de função nas seguintes formas:"
 
 #: ../../reference/executionmodel.rst:213
 msgid ""
@@ -387,6 +423,13 @@ msgid ""
 "functions defined within classes, which cannot access names defined in the "
 "class scope."
 msgstr ""
+"Os escopos de anotação têm acesso ao espaço de nomes da classe delimitadora. "
+"Se um escopo de anotação estiver imediatamente dentro de um escopo de classe "
+"ou dentro de outro escopo de anotação que esteja imediatamente dentro de um "
+"escopo de classe, o código no escopo de anotação poderá usar nomes definidos "
+"no escopo de classe como se fosse executado diretamente no corpo da classe. "
+"Isto contrasta com funções regulares definidas dentro de classes, que não "
+"podem acessar nomes definidos no escopo da classe."
 
 #: ../../reference/executionmodel.rst:219
 msgid ""
@@ -395,6 +438,9 @@ msgid ""
 "assignment_expression>` expressions. (These expressions are allowed in other "
 "scopes contained within the annotation scope.)"
 msgstr ""
+"Expressões em escopos de anotação não podem conter expressões :keyword:"
+"`yield`, ``yield from``, :keyword:`await` ou :token:`:= 1`. (Essas "
+"expressões são permitidas em outros escopos contidos no escopo de anotação.)"
 
 #: ../../reference/executionmodel.rst:223
 msgid ""
@@ -403,6 +449,10 @@ msgid ""
 "as no other syntactic elements that can appear within annotation scopes can "
 "introduce new names."
 msgstr ""
+"Nomes definidos em escopos de anotação não podem ser vinculados novamente "
+"com instruções :keyword:`nonlocal` em escopos internos. Isso inclui apenas "
+"parâmetros de tipo, pois nenhum outro elemento sintático que pode aparecer "
+"nos escopos de anotação pode introduzir novos nomes."
 
 #: ../../reference/executionmodel.rst:226
 msgid ""
@@ -411,14 +461,20 @@ msgid ""
 "scope. Instead, the :attr:`!__qualname__` of such objects is as if the "
 "object were defined in the enclosing scope."
 msgstr ""
+"Embora os escopos de anotação tenham um nome interno, esse nome não é "
+"refletido no :term:`__qualname__ <qualified name>` dos objetos definidos "
+"dentro do escopo. Em vez disso, o :attr:`!__qualname__` de tais objetos é "
+"como se o objeto fosse definido no escopo delimitador."
 
 #: ../../reference/executionmodel.rst:231
 msgid "Annotation scopes were introduced in Python 3.12 as part of :pep:`695`."
 msgstr ""
+"Escopos de anotação foram introduzidos no Python 3.12 como parte da :pep:"
+"`695`."
 
 #: ../../reference/executionmodel.rst:237
 msgid "Lazy evaluation"
-msgstr ""
+msgstr "Avaliação preguiçosa"
 
 #: ../../reference/executionmodel.rst:239
 msgid ""
@@ -429,6 +485,12 @@ msgid ""
 "is created. Instead, they are only evaluated when doing so is necessary to "
 "resolve an attribute access."
 msgstr ""
+"Os valores dos apelidos de tipo criados através da instrução :keyword:`type` "
+"são *avaliados preguiçosamente*. O mesmo se aplica aos limites e restrições "
+"das variáveis de tipo criadas através da :ref:`sintaxe do parâmetros de tipo "
+"<type-params>`. Isso significa que eles não são avaliados quando o apelido "
+"de tipo ou a variável de tipo é criado. Em vez disso, eles são avaliados "
+"apenas quando isso é necessário para resolver um acesso de atributo."
 
 #: ../../reference/executionmodel.rst:246
 msgid "Example:"
@@ -439,6 +501,8 @@ msgid ""
 "Here the exception is raised only when the ``__value__`` attribute of the "
 "type alias or the ``__bound__`` attribute of the type variable is accessed."
 msgstr ""
+"Aqui a exceção é levantada apenas quando o atributo ``__value__`` do apelido "
+"de tipo ou o atributo ``__bound__`` da variável de tipo é acessado."
 
 #: ../../reference/executionmodel.rst:266
 msgid ""
@@ -446,6 +510,10 @@ msgid ""
 "been defined when the type alias or type variable is created. For example, "
 "lazy evaluation enables creation of mutually recursive type aliases::"
 msgstr ""
+"Esse comportamento é útil principalmente para referências a tipos que ainda "
+"não foram definidos quando o alias de tipo ou variável de tipo é criado. Por "
+"exemplo, a avaliação lenta permite a criação de apelidos de tipo mutuamente "
+"recursivos::"
 
 #: ../../reference/executionmodel.rst:276
 msgid ""
@@ -453,6 +521,10 @@ msgid ""
 "scopes>`, which means that names that appear inside the lazily evaluated "
 "value are looked up as if they were used in the immediately enclosing scope."
 msgstr ""
+"Valores avaliados preguiçosamente são avaliados em :ref:`escopo de anotação "
+"<annotation-scopes>`, o que significa que os nomes que aparecem dentro do "
+"valor avaliado lentamente são pesquisados como se fossem usados no escopo "
+"imediatamente envolvente."
 
 #: ../../reference/executionmodel.rst:285
 msgid "Builtins and restricted execution"
@@ -480,7 +552,7 @@ msgid ""
 "other module, ``__builtins__`` is an alias for the dictionary of the :mod:"
 "`builtins` module itself."
 msgstr ""
-"O espaço de nomes interno associado com a execução de um bloco de código é "
+"O espaço de nomes builtins associado com a execução de um bloco de código é "
 "encontrado procurando o nome ``__builtins__`` em seu espaço de nomes global; "
 "este deve ser um dicionário ou um módulo (no último caso, o dicionário do "
 "módulo é usado). Por padrão, quando no módulo :mod:`__main__`, "
@@ -626,7 +698,7 @@ msgstr ""
 
 #: ../../reference/executionmodel.rst:8
 msgid "execution model"
-msgstr ""
+msgstr "execução, modelo"
 
 #: ../../reference/executionmodel.rst:8
 msgid "code"
@@ -634,15 +706,15 @@ msgstr "código"
 
 #: ../../reference/executionmodel.rst:8 ../../reference/executionmodel.rst:17
 msgid "block"
-msgstr ""
+msgstr "bloco"
 
 #: ../../reference/executionmodel.rst:31 ../../reference/executionmodel.rst:287
 msgid "execution"
-msgstr ""
+msgstr "execução"
 
 #: ../../reference/executionmodel.rst:31
 msgid "frame"
-msgstr ""
+msgstr "quadro"
 
 #: ../../reference/executionmodel.rst:42
 msgid "namespace"
@@ -650,7 +722,7 @@ msgstr "espaço de nomes"
 
 #: ../../reference/executionmodel.rst:42 ../../reference/executionmodel.rst:103
 msgid "scope"
-msgstr ""
+msgstr "escopo"
 
 #: ../../reference/executionmodel.rst:51
 msgid "name"
@@ -658,7 +730,7 @@ msgstr "nome"
 
 #: ../../reference/executionmodel.rst:51
 msgid "binding"
-msgstr ""
+msgstr "vinculação"
 
 #: ../../reference/executionmodel.rst:57
 msgid "from"
