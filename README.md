@@ -27,6 +27,7 @@ than 2). Please helps assure they are a 100% translated.
  - reference/ (all)
 
 ### Priority 2
+ - library/turtle
  - library/ (except the ones mentioned above)
 
 ## Documentation Contribution Agreement
