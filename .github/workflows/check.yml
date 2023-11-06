@@ -205,3 +205,21 @@ jobs:
         with:
           name: compendium
           path: compendium.po
+
+  # List PO files that no longer have a corresponding page in Python docs
+  list-obsolete:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out ${{ github.repository }}
+        uses: actions/checkout@v4.1.1
+      
+      - name: Set up Python 3
+        uses: actions/setup-python@v4.7.1
+        with:
+          python-version: '3'
+
+      - name: Generate POT files
+        run: make pot
+
+      - name: List obsolete PO files, if any
+        run: python3 .github/scripts/list-obsolete.py
