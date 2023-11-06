@@ -10,7 +10,8 @@ on:
       - '3.12'
     paths:
       - '.github/workflows/check.yml'
-      - '.github/prepmsg.sh'
+      - '.github/scripts/prepmsg.sh'
+      - '.github/scripts/list-obsolete.py'
       - 'Makefile'
       - 'requirements.txt'
       - '*.po'
@@ -20,7 +21,8 @@ on:
       - '3.12'
     paths:
       - '.github/workflows/check.yml'
-      - '.github/prepmsg.sh'
+      - '.github/scripts/prepmsg.sh'      
+      - '.github/scripts/list-obsolete.py'
       - 'Makefile'
       - 'requirements.txt'
       - '*.po'
@@ -73,7 +75,7 @@ jobs:
       - name: Prepare notification (only on error)
         if: steps.build.outcome == 'failure'
         id: prepare
-        run: .github/prepmsg.sh logs/build/err*.txt logs/notify.txt
+        run: .github/scripts/prepmsg.sh logs/build/err*.txt logs/notify.txt
         env:
           GITHUB_JOB: ${{ github.job }}
           GITHUB_RUN_ID: ${{ github.run_id }}
@@ -205,3 +207,21 @@ jobs:
         with:
           name: compendium
           path: compendium.po
+
+  # List PO files that no longer have a corresponding page in Python docs
+  list-obsolete:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out ${{ github.repository }}
+        uses: actions/checkout@v4.1.1
+      
+      - name: Set up Python 3
+        uses: actions/setup-python@v4.7.1
+        with:
+          python-version: '3'
+
+      - name: Generate POT files
+        run: make pot
+
+      - name: List obsolete PO files, if any
+        run: python3 .github/scripts/list-obsolete.py
