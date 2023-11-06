@@ -41,3 +41,4 @@ else:
   for file in to_remove:
     print(f'{matcher}  ' + file)
   print("")
+  exit(1)
