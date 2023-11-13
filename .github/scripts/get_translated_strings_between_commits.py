@@ -7,21 +7,21 @@ absolute_path = Path(__file__).resolve().parents[2]
 pattern_translated_strings = r'Translated:\s+(\d+)'
 
 
-def run_git_command(command):
+def run_os_command(command):
     try:
         return os.popen(command).read()
     except Exception as e:
-        print(f"Error executing Git command: {e}")
+        print(f"Error executing OS command: {e}")
         return ""
 
 
 def get_translated_commit_strings(commit_hash):
     try:
-        run_git_command(f"git switch {commit_hash} --detach")
-        output = os.popen(f"pocount {absolute_path}/*.po {absolute_path}/**/*.po").read()
-        all_translated_results = re.findall(pattern_translated_strings, output, re.DOTALL)
-        translated_commit_strings = int(all_translated_results[-1])
-        return translated_commit_strings
+        run_os_command(f"git switch --force {commit_hash} --detach")
+        pocount_of_commit = run_os_command(f"pocount {absolute_path}/*.po {absolute_path}/**/*.po")
+        all_translated_results = re.findall(pattern_translated_strings, pocount_of_commit, re.DOTALL)
+        total_of_translated_commit_strings = int(all_translated_results[-1])
+        return total_of_translated_commit_strings
     except Exception as e:
         print(f"Error getting translated strings count: {e}")
         return 0
@@ -35,9 +35,3 @@ def get_difference_between_translated_commits_strings(commit_hash1, commit_hash2
     except Exception as e:
         print(f"Error calculating the difference between translated strings counts: {e}")
         return 0
-
-
-hash1 = "69ff2f8a3141f5aad0f968e76675830a158660c6"
-hash2 = "fa5d1cea27abe701398ee8fe7ee5ba285fafeee2"
-
-print(get_difference_between_translated_commits_strings(hash1, hash2))
