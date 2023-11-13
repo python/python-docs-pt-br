@@ -17,10 +17,9 @@ def run_git_command(command):
 
 def get_translated_commit_strings(commit_hash):
     try:
-        commit_files = run_git_command(f"git switch {commit_hash} --detach")
-        with commit_files as cf:
-            output = os.popen(f"pocount *.po **/*.po").read()
-            print(output)
+        run_git_command(f"git switch {commit_hash} --detach")
+        output = os.popen(f"pocount *.po **/*.po").read()
+        print(output)
         # changed_files = run_git_command(f"git diff-tree --no-commit-id --name-only {commit_hash} -r").split("\n")
         # changed_files.remove("")
         # changed_count = 0
