@@ -1,7 +1,6 @@
 import os
 from pathlib import Path
 import re
-from git import Repo
 
 absolute_path = Path(__file__).resolve().parents[2]
 pattern_translated_strings = r'Translated:\s+(\d+)'
