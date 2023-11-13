@@ -18,18 +18,10 @@ def run_git_command(command):
 def get_translated_commit_strings(commit_hash):
     try:
         run_git_command(f"git switch {commit_hash} --detach")
-        output = os.popen(f"pocount *.po **/*.po").read()
-        print(output)
-        # changed_files = run_git_command(f"git diff-tree --no-commit-id --name-only {commit_hash} -r").split("\n")
-        # changed_files.remove("")
-        # changed_count = 0
-        # for file in changed_files:
-        #     file_path = absolute_path / file
-        #     output = os.popen(f"pocount {file_path}").read()
-        #     strings_match = re.search(pattern_translated_strings, output)
-        #     matched_strings = int(strings_match.group(1)) if strings_match else 0
-        #     changed_count += matched_strings
-        # return changed_count
+        output = os.popen(f"pocount {absolute_path}/*.po {absolute_path}/**/*.po").read()
+        all_translated_results = re.findall(pattern_translated_strings, output, re.DOTALL)
+        translated_commit_strings = int(all_translated_results[-1])
+        return translated_commit_strings
     except Exception as e:
         print(f"Error getting translated strings count: {e}")
         return 0
