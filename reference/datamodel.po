@@ -3380,11 +3380,12 @@ msgid ""
 "future subclasses of the class defining the method."
 msgstr ""
 "Sempre que uma classe herda de outra classe, :meth:`~object."
-"__init_subclass__` é chamado na classe pai. Dessa forma, é possível escrever "
-"classes que alteram o comportamento das subclasses. Isso está intimamente "
-"relacionado aos decoradores de classe, mas onde decoradores de classe afetam "
-"apenas a classe específica à qual são aplicados, ``__init_subclass__`` "
-"aplica-se apenas a futuras subclasses da classe que define o método."
+"__init_subclass__` é chamado na classe base. Dessa forma, é possível "
+"escrever classes que alteram o comportamento das subclasses. Isso está "
+"intimamente relacionado aos decoradores de classe, mas onde decoradores de "
+"classe afetam apenas a classe específica à qual são aplicados, "
+"``__init_subclass__`` aplica-se apenas a futuras subclasses da classe que "
+"define o método."
 
 #: ../../reference/datamodel.rst:2266
 msgid ""
@@ -3403,7 +3404,7 @@ msgid ""
 "``__init_subclass__``, one should take out the needed keyword arguments and "
 "pass the others over to the base class, as in::"
 msgstr ""
-"Argumentos nomeados dados a uma nova classe são passados para a classe pai "
+"Argumentos nomeados dados a uma nova classe são passados para a classe base "
 "``__init_subclass__``. Para compatibilidade com outras classes usando "
 "``__init_subclass__``, deve-se retirar os argumentos nomeados necessários e "
 "passar os outros para a classe base, como em::"
@@ -3413,7 +3414,7 @@ msgid ""
 "The default implementation ``object.__init_subclass__`` does nothing, but "
 "raises an error if it is called with any arguments."
 msgstr ""
-"A implementação padrão ``object.__init_subclass__`` não faz nada, mas "
+"A implementação padrão de ``object.__init_subclass__`` não faz nada, mas "
 "levanta um erro se for chamada com quaisquer argumentos."
 
 #: ../../reference/datamodel.rst:2289
@@ -3434,8 +3435,8 @@ msgid ""
 "makes callbacks to those with a :meth:`~object.__set_name__` hook."
 msgstr ""
 "Quando uma classe é criada, :meth:`type.__new__` verifica as variáveis de "
-"classe e faz callbacks para aqueles com um gancho :meth:`~object."
-"__set_name__`."
+"classe e faz chamadas a funções de retorno (callback) para aqueles com um "
+"gancho :meth:`~object.__set_name__`."
 
 #: ../../reference/datamodel.rst:2302
 msgid ""
@@ -3500,7 +3501,7 @@ msgstr ""
 
 #: ../../reference/datamodel.rst:2357
 msgid "MRO entries are resolved;"
-msgstr "Entradas de MRO são resolvidas;"
+msgstr "entradas de MRO são resolvidas;"
 
 #: ../../reference/datamodel.rst:2358
 msgid "the appropriate metaclass is determined;"
@@ -3533,32 +3534,42 @@ msgid ""
 "the base. The returned tuple may be empty: in these cases, the original base "
 "is ignored."
 msgstr ""
+"Se uma classe base que aparece em uma definição de classe não é uma "
+"instância de :class:`type`, então um método :meth:`!__mro_entries__` é "
+"procurado na base. Se um método :meth:`!__mro_entries__` é encontrado, a "
+"base é substituída pelo resultado de uma chamada para :meth:`!"
+"__mro_entries__` ao criar a classe. O método é chamado com a tupla de bases "
+"original passada como parâmetro *bases*, e deve retornar uma tupla de "
+"classes que serão usadas no lugar da base. A tupla retornada pode estar "
+"vazia: nesses casos, a base original é ignorada."
 
 #: ../../reference/datamodel.rst:2381
 msgid ":func:`types.resolve_bases`"
-msgstr ""
+msgstr ":func:`types.resolve_bases`"
 
 #: ../../reference/datamodel.rst:2381
 msgid "Dynamically resolve bases that are not instances of :class:`type`."
-msgstr ""
+msgstr "Dinamicamente resolve bases que não são instâncias de :class:`type`."
 
 #: ../../reference/datamodel.rst:2385
 msgid ":func:`types.get_original_bases`"
-msgstr ""
+msgstr ":func:`types.get_original_bases`"
 
 #: ../../reference/datamodel.rst:2384
 msgid ""
 "Retrieve a class's \"original bases\" prior to modifications by :meth:"
 "`~object.__mro_entries__`."
 msgstr ""
+"Recupera as \"bases originais\" de uma classe antes das modificações feitas "
+"por :meth:`~object.__mro_entries__`."
 
 #: ../../reference/datamodel.rst:2387
 msgid ":pep:`560`"
-msgstr ""
+msgstr ":pep:`560`"
 
 #: ../../reference/datamodel.rst:2388
 msgid "Core support for typing module and generic types."
-msgstr ""
+msgstr "Suporte básico para módulo typing e tipos genéricos."
 
 #: ../../reference/datamodel.rst:2392
 msgid "Determining the appropriate metaclass"
@@ -3575,8 +3586,8 @@ msgstr ""
 msgid ""
 "if no bases and no explicit metaclass are given, then :func:`type` is used;"
 msgstr ""
-"se nenhuma base e nenhuma metaclasse explícita forem fornecidas, então :func:"
-"`type` é usada;"
+"se nenhuma classe base e nenhuma metaclasse explícita forem fornecidas, "
+"então :func:`type` é usada;"
 
 #: ../../reference/datamodel.rst:2399
 msgid ""
@@ -3592,7 +3603,7 @@ msgid ""
 "are defined, then the most derived metaclass is used."
 msgstr ""
 "se uma instância de :func:`type` é fornecida como a metaclasse explícita, ou "
-"bases são definidas, então a metaclasse mais derivada é usada."
+"classes bases são definidas, então a metaclasse mais derivada é usada."
 
 #: ../../reference/datamodel.rst:2404
 msgid ""
@@ -3604,7 +3615,7 @@ msgid ""
 msgstr ""
 "A metaclasse mais derivada é selecionada a partir da metaclasse "
 "explicitamente especificada (se houver) e das metaclasses (ou seja, "
-"``type(cls)``) de todas as classes básicas especificadas. A metaclasse mais "
+"``type(cls)``) de todas as classes bases especificadas. A metaclasse mais "
 "derivada é aquela que é um subtipo de *todas* essas metaclasses candidatas. "
 "Se nenhuma das metaclasses candidatas atender a esse critério, a definição "
 "de classe falhará com ``TypeError``."
@@ -3628,7 +3639,7 @@ msgstr ""
 "preparado. Se a metaclasse tiver um atributo ``__prepare__``, ela será "
 "chamada como ``namespace = metaclass.__prepare__(name, bases, **kwds)`` "
 "(onde os argumentos nomeados adicionais, se houver, vêm da definição de "
-"classe) . O método ``__prepare__`` deve ser implementado como um :func:"
+"classe). O método ``__prepare__`` deve ser implementado como um :func:"
 "`classmethod <classmethod>`. O espaço de nomes retornado por ``__prepare__`` "
 "é passado para ``__new__``, mas quando o objeto classe final é criado, o "
 "espaço de nomes é copiado para um novo ``dict``."
@@ -3709,13 +3720,13 @@ msgid ""
 "is identified based on the first argument passed to the method."
 msgstr ""
 "Este objeto classe é aquele que será referenciado pela chamada a  :func:"
-"`super` sem argumentos. ``__class__`` é uma referência de fechamento "
-"implícita criada pelo compilador se algum método no corpo da classe se "
-"referir a ``__class__`` ou ``super``. Isso permite que a forma de argumento "
-"zero de :func:`super` identifique corretamente a classe sendo definida com "
-"base no escopo léxico, enquanto a classe ou instância que foi usada para "
-"fazer a chamada atual é identificada com base no primeiro argumento passado "
-"para o método."
+"`super` sem argumentos. ``__class__`` é uma referência de clausura implícita "
+"criada pelo compilador se algum método no corpo da classe se referir a "
+"``__class__`` ou ``super``. Isso permite que a forma de argumento zero de :"
+"func:`super` identifique corretamente a classe sendo definida com base no "
+"escopo léxico, enquanto a classe ou instância que foi usada para fazer a "
+"chamada atual é identificada com base no primeiro argumento passado para o "
+"método."
 
 #: ../../reference/datamodel.rst:2480
 msgid ""
@@ -3762,8 +3773,8 @@ msgid ""
 "The :meth:`~object.__init_subclass__` hook is called on the immediate parent "
 "of the new class in its method resolution order."
 msgstr ""
-"O gancho :meth:`~object.__init_subclass__` é chamado no pai imediato da nova "
-"classe em sua ordem de resolução de método."
+"O gancho :meth:`~object.__init_subclass__` é chamado na classe base imediata "
+"da nova classe em sua ordem de resolução de método."
 
 #: ../../reference/datamodel.rst:2497
 msgid ""
@@ -3794,7 +3805,7 @@ msgstr ":pep:`3135` - Novo super"
 
 #: ../../reference/datamodel.rst:2509
 msgid "Describes the implicit ``__class__`` closure reference"
-msgstr "Descreve a referência de fechamento implícita de  ``__class__``"
+msgstr "Descreve a referência de clausura implícita de  ``__class__``"
 
 #: ../../reference/datamodel.rst:2513
 msgid "Uses for metaclasses"
@@ -5284,7 +5295,7 @@ msgstr "função definida por usuário"
 
 #: ../../reference/datamodel.rst:540
 msgid "__closure__ (function attribute)"
-msgstr ""
+msgstr "__closure__ (atributo de função)"
 
 #: ../../reference/datamodel.rst:540
 msgid "__globals__ (function attribute)"
