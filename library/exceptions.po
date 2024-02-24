@@ -10,16 +10,16 @@
 # Marco Rougeth <marco@rougeth.com>, 2023
 # Patricia Mortada, 2023
 # Adorilson Bezerra <adorilson@gmail.com>, 2023
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2023
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-09 14:13+0000\n"
+"POT-Creation-Date: 2024-02-23 14:13+0000\n"
 "PO-Revision-Date: 2021-06-28 01:05+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2023\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -59,6 +59,12 @@ msgid ""
 "and a string explaining the code).  The associated value is usually passed "
 "as arguments to the exception class's constructor."
 msgstr ""
+"As exceções embutidas listadas neste capítulo podem ser geradas pelo "
+"interpretador ou pelas funções embutidas. Exceto onde mencionado, eles têm "
+"um \"valor associado\" indicando a causa detalhada do erro. Pode ser uma "
+"string ou uma tupla de vários itens de informação (por exemplo, um código de "
+"erro e uma string que explica o código). O valor associado geralmente é "
+"passado como argumentos para o construtor da classe de exceção."
 
 #: ../../library/exceptions.rst:26
 msgid ""
@@ -97,6 +103,8 @@ msgid ""
 "Three attributes on exception objects provide information about the context "
 "in which the exception was raised:"
 msgstr ""
+"Três atributos em objetos exceções fornecem informações sobre o contexto em "
+"que a exceção foi levantada."
 
 #: ../../library/exceptions.rst:53
 msgid ""
@@ -106,6 +114,11 @@ msgid ""
 "`except` or :keyword:`finally` clause, or a :keyword:`with` statement, is "
 "used."
 msgstr ""
+"Ao levantar uma nova exceção enquanto outra exceção já está sendo tratada, o "
+"atributo :attr:`!__context__` da nova exceção é automaticamente definido "
+"para a exceção tratada. Uma exceção pode ser tratada quando uma cláusula :"
+"keyword:`except` ou :keyword:`finally`, ou uma instrução :keyword:`with`, é "
+"usada."
 
 #: ../../library/exceptions.rst:59
 msgid ""
@@ -126,6 +139,14 @@ msgid ""
 "while leaving the old exception available in :attr:`!__context__` for "
 "introspection when debugging."
 msgstr ""
+"A expressão a seguir :keyword:`from<raise>` deve ser uma exceção ou "
+"``None``. Ela será definida como :attr:`!__cause__` na exceção levantada. A "
+"definição de :attr:`!__cause__` também define implicitamente o atributo :"
+"attr:`!__suppress_context__` como ``True``, de modo que o uso de ``raise "
+"new_exc from None`` substitui efetivamente a exceção antiga pela nova para "
+"fins de exibição (por exemplo, convertendo :exc:`KeyError` para :exc:"
+"`AttributeError`), deixando a exceção antiga disponível em :attr:`!"
+"__context__` para introspecção durante a depuração."
 
 #: ../../library/exceptions.rst:74
 msgid ""
@@ -135,6 +156,11 @@ msgid ""
 "chained exception in :attr:`!__context__` is shown only if :attr:`!"
 "__cause__` is :const:`None` and :attr:`!__suppress_context__` is false."
 msgstr ""
+"O código de exibição padrão do traceback mostra essas exceções encadeadas, "
+"além do traceback da própria exceção. Uma exceção explicitamente encadeada "
+"em :attr:`!__cause__` sempre é mostrada quando presente. Uma exceção "
+"implicitamente encadeada em :attr:`!__context__` é mostrada apenas se :attr:"
+"`!__cause__` for :const:`None` e :attr:`!__suppress_context__` for falso."
 
 #: ../../library/exceptions.rst:80
 msgid ""
@@ -244,6 +270,8 @@ msgid ""
 "A writable field that holds the :ref:`traceback object <traceback-objects>` "
 "associated with this exception. See also: :ref:`raise`."
 msgstr ""
+"Um campo gravável que contém o :ref:`objeto traceback <traceback-objects>` "
+"associado a esta exceção. Veja também: :ref:`raise`."
 
 #: ../../library/exceptions.rst:149
 msgid ""
@@ -707,6 +735,8 @@ msgid ""
 "as an argument when constructing the exception, and defaults to :const:"
 "`None`."
 msgstr ""
+"O objeto exceção tem um único atributo :attr:`!value`, que é fornecido como "
+"um argumento ao construir a exceção, e o padrão é :const:`None`."
 
 #: ../../library/exceptions.rst:456
 msgid ""
@@ -1480,6 +1510,11 @@ msgid ""
 "__context__` and :attr:`~BaseException.__notes__` fields. Empty nested "
 "groups are omitted from the result."
 msgstr ""
+"A estrutura de aninhamento da exceção atual é preservada no resultado, assim "
+"como os valores de seus campos :attr:`message`, :attr:`~BaseException."
+"__traceback__`, :attr:`~BaseException.__cause__`, :attr:`~BaseException."
+"__context__` e :attr:`~BaseException.__notes__`. Grupos aninhados vazios são "
+"omitidos do resultado."
 
 #: ../../library/exceptions.rst:955
 msgid ""
@@ -1527,6 +1562,11 @@ msgid ""
 "exception group to the one returned by :meth:`derive`, so these fields do "
 "not need to be updated by :meth:`derive`."
 msgstr ""
+":meth:`subgroup` e :meth:`split` copiam os campos :attr:`~BaseException."
+"__traceback__`, :attr:`~BaseException.__cause__`, :attr:`~BaseException."
+"__context__` e :attr:`~BaseException.__notes__` do grupo de exceções "
+"original para o retornado por :meth:`derive`, então esses campos não "
+"precisam ser atualizados por :meth:`derive`. ::"
 
 #: ../../library/exceptions.rst:1008
 msgid ""
@@ -1536,6 +1576,11 @@ msgid ""
 "exception group subclass which accepts an exit_code and and constructs the "
 "group's message from it. ::"
 msgstr ""
+"Observe que :exc:`BaseExceptionGroup` define :meth:`~object.__new__`, então "
+"subclasses que precisam de uma assinatura de construtor diferente precisam "
+"substituir isso ao invés de :meth:`~object.__init__`. Por exemplo, o "
+"seguinte define uma subclasse de grupo de exceções que aceita um exit_code e "
+"constrói a mensagem do grupo a partir dele. ::"
 
 #: ../../library/exceptions.rst:1023
 msgid ""
@@ -1590,7 +1635,7 @@ msgstr "__context__ (atributo de exceção)"
 
 #: ../../library/exceptions.rst:41
 msgid "__suppress_context__ (exception attribute)"
-msgstr ""
+msgstr "__suppress_context__ (atributo de exceção)"
 
 #: ../../library/exceptions.rst:196
 msgid "assert"
