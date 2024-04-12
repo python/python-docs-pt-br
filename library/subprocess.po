@@ -12,8 +12,8 @@
 # i17obot <i17obot@rougeth.com>, 2021
 # Augusta Carla Klug <augustaklug@gmail.com>, 2021
 # Hildeberto Abreu Magalhães <hildeberto@gmail.com>, 2022
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2023
 # Adorilson Bezerra <adorilson@gmail.com>, 2023
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
@@ -22,7 +22,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-05 14:16+0000\n"
 "PO-Revision-Date: 2021-06-28 01:14+0000\n"
-"Last-Translator: Adorilson Bezerra <adorilson@gmail.com>, 2023\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -125,6 +125,13 @@ msgid ""
 "`~subprocess.PIPE` and *stderr* to :data:`~subprocess.STDOUT`, instead of "
 "using *capture_output*."
 msgstr ""
+"Se *capture_output* for verdadeiro, stdout e stderr serão capturados. Quando "
+"usado, o objeto interno :class:`Popen` é automaticamente criado com *stdout* "
+"and *stdin* definidos como :data:`~subprocess.PIPE`. Os argumentos *stdout * "
+"e *stderr* não podem ser fornecidos ao mesmo tempo que *capture_output*. Se "
+"você deseja capturar e combinar os dois fluxos em um, defina *stdout* para :"
+"data:`~subprocess.PIPE` e *stderr* para :data:`~subprocess.STDOUT`, ao invés "
+"de usar *capture_output*."
 
 #: ../../library/subprocess.rst:62
 msgid ""
@@ -135,6 +142,13 @@ msgid ""
 "cannot be interrupted on many platform APIs so you are not guaranteed to see "
 "a timeout exception until at least after however long process creation takes."
 msgstr ""
+"Um *timeout* pode ser especificado em segundos, ele é passado internamente "
+"para :meth:`Popen.communicate`. Se o tempo limite expirar, o processo filho "
+"será eliminado e aguardado. A exceção :exc:`TimeoutExpired` será levantada "
+"novamente após o término do processo filho. A criação inicial do processo em "
+"si não pode ser interrompida em muitas APIs de plataforma, portanto, não há "
+"garantia de que você verá uma exceção de tempo limite até, pelo menos, o "
+"tempo que a criação do processo demorar."
 
 #: ../../library/subprocess.rst:70
 msgid ""
@@ -144,6 +158,12 @@ msgid ""
 "internal :class:`Popen` object is automatically created with *stdin* set to :"
 "data:`~subprocess.PIPE`, and the *stdin* argument may not be used as well."
 msgstr ""
+"O argumento *input* é passado para :meth:`Popen.communicate` e, portanto, "
+"para o stdin do subprocesso. Se usado, deve ser uma sequência de bytes ou "
+"uma string se *encoding* ou *errors* forem especificados ou *text* for "
+"verdadeiro. Quando usado, o objeto internal :class:`Popen` é automaticamente "
+"criado com :data:`~subprocess.PIPE`, e o argumento *stdin* também não pode "
+"ser usado."
 
 #: ../../library/subprocess.rst:77
 msgid ""
@@ -194,7 +214,7 @@ msgstr "Exemplos::"
 
 #: ../../library/subprocess.rst:113
 msgid "Added *encoding* and *errors* parameters"
-msgstr "Adicionado os parâmetros *encoding* e *errors*."
+msgstr "Adicionados os parâmetros *encoding* e *errors*."
 
 #: ../../library/subprocess.rst:117
 msgid ""
@@ -213,6 +233,10 @@ msgid ""
 "\\System32\\cmd.exe``. As a result, dropping a malicious program named ``cmd."
 "exe`` into a current directory no longer works."
 msgstr ""
+"Ordem de pesquisa do shell do Windows alterada para ``shell=True``. O "
+"diretório atual e ``%PATH%`` são substituídos por ``%COMSPEC%`` e "
+"``%SystemRoot%\\System32\\cmd.exe``. Como resultado, colocar um programa "
+"malicioso chamado ``cmd.exe`` em um diretório atual não funciona mais."
 
 #: ../../library/subprocess.rst:130
 msgid ""
@@ -335,6 +359,11 @@ msgid ""
 "any output was captured regardless of the ``text=True`` setting.  It may "
 "remain ``None`` instead of ``b''`` when no output was observed."
 msgstr ""
+"Saída do processo filho se ele foi capturado por :func:`run` ou :func:"
+"`check_output`. Caso contrário, ``None``. Isto é sempre :class:`bytes` "
+"quando qualquer saída foi capturada independente da configuração "
+"``text=True``. Pode permanecer ``None`` em vez de ``b''`` quando nenhuma "
+"saída foi observada."
 
 #: ../../library/subprocess.rst:219 ../../library/subprocess.rst:256
 msgid "Alias for output, for symmetry with :attr:`stderr`."
@@ -347,10 +376,14 @@ msgid ""
 "captured regardless of the ``text=True`` setting.  It may remain ``None`` "
 "instead of ``b''`` when no stderr output was observed."
 msgstr ""
+"Saída de stderr do processo filho se ele foi capturado por :func:`run`. Caso "
+"contrário, ``None``. Isto é sempre :class:`bytes` quando a saída de stderr "
+"foi capturada independente da configuração ``text=True``. Pode permanecer "
+"``None`` em vez de ``b''`` quando nenhuma saída de stderr foi observada."
 
 #: ../../library/subprocess.rst:230 ../../library/subprocess.rst:263
 msgid "*stdout* and *stderr* attributes added"
-msgstr "Atributos *stdout* e *stderr* adicionados"
+msgstr "Adicionados os atributos *stdout* e *stderr*"
 
 #: ../../library/subprocess.rst:235
 msgid ""
@@ -358,6 +391,9 @@ msgid ""
 "`check_call`, :func:`check_output`, or :func:`run` (with ``check=True``) "
 "returns a non-zero exit status."
 msgstr ""
+"Subclasse de :exc:`SubprocessError`, levantada quando um processo executado "
+"por :func:`check_call`, :func:`check_output` ou :func:`run` (com "
+"``check=True``) retorna um status de saída diferente de zero."
 
 #: ../../library/subprocess.rst:242
 msgid ""
@@ -430,6 +466,16 @@ msgid ""
 "which indicates that the stderr data from the child process should be "
 "captured into the same file handle as for *stdout*."
 msgstr ""
+"*stdin*, *stdout* e *stderr* especificam a entrada padrão, a saída padrão e "
+"a saída de erro do programa executado, respectivamente. Os valores válidos "
+"são ``None``, :data:`PIPE`, :data:`DEVNULL`, um descritor de arquivo "
+"existente (um número inteiro positivo) e um :term:`objeto arquivo` existente "
+"com um descritor de arquivo válido. Com as configurações padrão de ``None``, "
+"nenhum redirecionamento ocorrerá. :data:`PIPE` indica que um novo canal para "
+"o filho deve ser criado. :data:`DEVNULL` indica que o arquivo especial :data:"
+"`os.devnull` será usado. Além disso, *stderr* pode ser :data:`STDOUT`, o que "
+"indica que os dados de stderr do processo filho devem ser capturados no "
+"mesmo identificador de arquivo que para *stdout*."
 
 #: ../../library/subprocess.rst:299
 msgid ""
