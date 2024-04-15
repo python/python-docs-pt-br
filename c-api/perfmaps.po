@@ -3,13 +3,17 @@
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# Translators:
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-19 14:14+0000\n"
+"POT-Creation-Date: 2024-04-14 22:56+0000\n"
 "PO-Revision-Date: 2023-05-24 13:07+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +25,7 @@ msgstr ""
 
 #: ../../c-api/perfmaps.rst:6
 msgid "Support for Perf Maps"
-msgstr ""
+msgstr "Suporte a Mapas do Perf"
 
 #: ../../c-api/perfmaps.rst:8
 msgid ""
@@ -34,18 +38,31 @@ msgid ""
 "Perf tool <https://git.kernel.org/pub/scm/linux/ kernel/git/torvalds/linux."
 "git/tree/tools/perf/Documentation/jit-interface.txt>`_."
 msgstr ""
+"Em plataformas suportadas (no momento em que este livro foi escrito, apenas "
+"Linux), o tempo de execução pode tirar vantagem dos *arquivos de mapa perf* "
+"para tornar as funções Python visíveis para uma ferramenta de perfilação "
+"externa (como `perf <https://perf.wiki.kernel.org/index.php/Main_Page>`_). "
+"Um processo em execução pode criar um arquivo no diretório ``/tmp``, que "
+"contém entradas que podem mapear uma seção de código executável para um "
+"nome. Esta interface é descrita na `documentação da ferramenta Linux Perf "
+"<https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/"
+"tools/perf/Documentation/jit-interface.txt>`_."
 
 #: ../../c-api/perfmaps.rst:16
 msgid ""
 "In Python, these helper APIs can be used by libraries and features that rely "
 "on generating machine code on the fly."
 msgstr ""
+"Em Python, essas APIs auxiliares podem ser usadas por bibliotecas e recursos "
+"que dependem da geração de código de máquina dinamicamente."
 
 #: ../../c-api/perfmaps.rst:19
 msgid ""
 "Note that holding the Global Interpreter Lock (GIL) is not required for "
 "these APIs."
 msgstr ""
+"Observe que manter o bloqueio global do interpretador, ou Global Interpreter "
+"Lock (GIL), não é necessário para essas APIs."
 
 #: ../../c-api/perfmaps.rst:23
 msgid ""
@@ -56,6 +73,12 @@ msgid ""
 "`PyUnstable_WritePerfMapEntry` and it will initialize the state on first "
 "call."
 msgstr ""
+"Abre o arquivo ``/tmp/perf-$pid.map``, a menos que já esteja aberto, e cria "
+"um bloqueio para garantir escritas seguras para thread no arquivo (desde que "
+"as escritas sejam feitas através de :c:func:"
+"`PyUnstable_WritePerfMapEntry` ). Normalmente, não há necessidade de chamar "
+"isso explicitamente; basta usar :c:func:`PyUnstable_WritePerfMapEntry` e ele "
+"inicializará o estado na primeira chamada."
 
 #: ../../c-api/perfmaps.rst:29
 msgid ""
@@ -63,12 +86,18 @@ msgid ""
 "file, or ``-2`` on failure to create a lock. Check ``errno`` for more "
 "information about the cause of a failure."
 msgstr ""
+"Retorna ``0`` em caso de sucesso, ``-1`` em caso de falha ao criar/abrir o "
+"arquivo de mapa de desempenho ou ``-2`` em caso de falha na criação de um "
+"bloqueio. Verifique ``errno`` para mais informações sobre a causa de uma "
+"falha."
 
 #: ../../c-api/perfmaps.rst:35
 msgid ""
 "Write one single entry to the ``/tmp/perf-$pid.map`` file. This function is "
 "thread safe. Here is what an example entry looks like::"
 msgstr ""
+"Escreve uma única entrada no arquivo ``/tmp/perf-$pid.map``. Esta função é "
+"segura para thread. Aqui está a aparência de um exemplo de entrada::"
 
 #: ../../c-api/perfmaps.rst:41
 msgid ""
@@ -76,6 +105,10 @@ msgid ""
 "if the perf map file is not already opened. Returns ``0`` on success, or the "
 "same error codes as :c:func:`PyUnstable_PerfMapState_Init` on failure."
 msgstr ""
+"Chamará :c:func:`PyUnstable_PerfMapState_Init` antes de escrever a entrada, "
+"se o arquivo de mapa de desempenho ainda não estiver aberto. Retorna ``0`` "
+"em caso de sucesso ou os mesmos códigos de erro que :c:func:"
+"`PyUnstable_PerfMapState_Init` em caso de falha."
 
 #: ../../c-api/perfmaps.rst:47
 msgid ""
@@ -84,3 +117,8 @@ msgid ""
 "general, there shouldn't be a reason to explicitly call this, except to "
 "handle specific scenarios such as forking."
 msgstr ""
+"Fecha o arquivo de mapa do perf aberto por :c:func:"
+"`PyUnstable_PerfMapState_Init`. Isso é chamado pelo próprio tempo de "
+"execução durante o desligamento do interpretador. Em geral, não deve haver "
+"motivo para chamar isso explicitamente, exceto para lidar com cenários "
+"específicos, como bifurcação."
