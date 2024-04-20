@@ -11,7 +11,7 @@ The following modules we consider as priority targets, hence should
 receive more attention than other modules/pages (0 has higher priority
 than 2). Please helps assure they are a 100% translated.
 
-### Priority 0
+### Priority 0 (probably they are completed)
  - bugs
  - glossary
  - library/functions
@@ -25,9 +25,25 @@ than 2). Please helps assure they are a 100% translated.
 
 ### Priority 1
  - reference/ (all)
+ - faq/ (all)
 
 ### Priority 2
  - library/turtle
+ - library/sys
+ - library/argparse
+ - library/random
+ - library/statistics
+ - library/urllib.request
+ - library/smtplib
+ - library/datetime
+ - library/zlib
+ - library/gzip
+ - library/lzma
+ - library/tarfile
+ - library/timeit
+ - library/profile
+ - library/doctest
+ - library/unittest
  - library/ (except the ones mentioned above)
 
 ## Documentation Contribution Agreement
