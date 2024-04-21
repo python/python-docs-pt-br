@@ -2691,7 +2691,7 @@ msgstr "Encadeamento do descritor de :class:`classmethod` (:gh:`89519`)"
 
 #: ../../whatsnew/3.12.rst:1377
 msgid ":mod:`importlib.resources` deprecated methods:"
-msgstr "Métodos de :mod:`importlib.resources` descontinuados:"
+msgstr "Métodos descontinuados de :mod:`importlib.resources`:"
 
 #: ../../whatsnew/3.12.rst:1379
 msgid "``contents()``"
@@ -3381,6 +3381,9 @@ msgid ""
 "Python 3.6: use :func:`os.urandom` or :func:`ssl.RAND_bytes` instead. "
 "(Contributed by Victor Stinner in :gh:`94199`.)"
 msgstr ""
+"Remove a função :func:`!ssl.RAND_pseudo_bytes` do :mod:`ssl`, descontinuada "
+"no Python 3.6: use :func:`os.urandom` ou :func:`ssl.RAND_bytes` em seu "
+"lugar. (Contribuição de Victor Stinner em :gh:`94199`.)"
 
 #: ../../whatsnew/3.12.rst:1692
 msgid ""
@@ -3389,6 +3392,10 @@ msgid ""
 "uses the :func:`!ssl.match_hostname` function. (Contributed by Victor "
 "Stinner in :gh:`94199`.)"
 msgstr ""
+"Remove a função :func:`!ssl.match_hostname`. Foi descontinuada no Python "
+"3.7. OpenSSL realiza correspondência de nome de host desde Python 3.7, "
+"Python não usa mais a função :func:`!ssl.match_hostname`. (Contribuição de "
+"Victor Stinner em :gh:`94199`.)"
 
 #: ../../whatsnew/3.12.rst:1698
 msgid ""
@@ -3789,6 +3796,15 @@ msgid ""
 "process-global resources, which are best managed from the main interpreter. "
 "(Contributed by Donghee Na in :gh:`99127`.)"
 msgstr ""
+":func:`syslog.openlog` e :func:`syslog.closelog` agora falham se usadas ​​em "
+"subinterpretadores. :func:`syslog.syslog` ainda pode ser usada em "
+"subinterpretadores, mas agora somente se :func:`syslog.openlog` já tiver "
+"sido chamada no interpretador principal. Estas novas restrições não se "
+"aplicam ao interpretador principal, então apenas um pequeno grupo de "
+"usuários poderá ser afetado. Essa mudança ajuda no isolamento do "
+"interpretador. Além disso, :mod:`syslog` é um wrapper em torno de recursos "
+"globais de processo, que são melhor gerenciados a partir do interpretador "
+"principal. (Contribuição de Donghee Na em :gh:`99127`.)"
 
 #: ../../whatsnew/3.12.rst:1853
 msgid ""
@@ -3801,6 +3817,16 @@ msgid ""
 "fine.  If synchronization is needed, implement locking within the cached "
 "property getter function or around multi-threaded access points."
 msgstr ""
+"O comportamento não documentado de bloqueio de :func:`~functools."
+"cached_property` foi removido, porque bloqueava todas as instâncias da "
+"classe, levando a uma alta contenção de bloqueio. Isso significa que uma "
+"função getter de propriedade em cache agora pode ser executada mais de uma "
+"vez para uma única instância, se duas threads competirem. Para a maioria das "
+"propriedades simples em cache (por exemplo, aquelas que são idempotentes e "
+"simplesmente calculam um valor com base em outros atributos da instância), "
+"isso será suficiente. Se a sincronização for necessária, implemente o "
+"bloqueio na função getter de propriedade em cache ou em torno de pontos de "
+"acesso multithread."
 
 #: ../../whatsnew/3.12.rst:1866
 msgid ""
@@ -3808,6 +3834,10 @@ msgid ""
 "unpack_archive`, pass the *filter* argument to limit features that may be "
 "surprising or dangerous. See :ref:`tarfile-extraction-filter` for details."
 msgstr ""
+"Ao extrair arquivos tar usando :mod:`tarfile` ou :func:`shutil."
+"unpack_archive`, passe o argumento *filter* para limitar recursos que podem "
+"surpreender ou ser perigosos. Veja :ref:`tarfile-extraction-filter` para "
+"detalhes."
 
 #: ../../whatsnew/3.12.rst:1871
 msgid ""
@@ -3820,22 +3850,35 @@ msgid ""
 "tokenization in the expression components. For example for the f-string "
 "``f\"start {1+1} end\"`` the old version of the tokenizer emitted::"
 msgstr ""
+"A saída das funções :func:`tokenize.tokenize` e :func:`tokenize."
+"generate_tokens` agora foi alterada devido às mudanças introduzidas na :pep:"
+"`701`. Isso significa que os tokens ``STRING`` não são mais emitidos para f-"
+"strings e os tokens descritos em :pep:`701` agora são produzidos: "
+"``FSTRING_START``, ``FSTRING_MIDDLE`` e ``FSTRING_END`` agora são emitidos "
+"para partes \"string\" de f-strings, além dos tokens apropriados para a "
+"tokenização nos componentes da expressão. Por exemplo, para a f-string "
+"``f\"start {1+1} end\"`` a versão antiga do tokenizer emitida::"
 
 #: ../../whatsnew/3.12.rst:1882
 msgid "while the new version emits::"
-msgstr ""
+msgstr "enquanto a nova versão emite::"
 
 #: ../../whatsnew/3.12.rst:1894
 msgid ""
 "Additionally, there may be some minor behavioral changes as a consequence of "
 "the changes required to support :pep:`701`. Some of these changes include:"
 msgstr ""
+"Além disso, pode haver algumas pequenas alterações comportamentais como "
+"consequência das alterações necessárias para oferecer suporte à :pep:`701`. "
+"Algumas dessas mudanças incluem:"
 
 #: ../../whatsnew/3.12.rst:1897
 msgid ""
 "The ``type`` attribute of the tokens emitted when tokenizing some invalid "
 "Python characters such as ``!`` has changed from ``ERRORTOKEN`` to ``OP``."
 msgstr ""
+"O atributo ``type`` dos tokens emitidos ao tokenizar alguns caracteres "
+"Python inválidos, como ``!``, mudou de ``ERRORTOKEN`` para ``OP``."
 
 #: ../../whatsnew/3.12.rst:1900
 msgid ""
