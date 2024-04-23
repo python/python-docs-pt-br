@@ -548,7 +548,7 @@ msgstr ""
 "Como um efeito colateral positivo de como esse recurso foi implementado "
 "(analisando f-strings com o :pep:`analisador GASE ou PEG <617>`), agora as "
 "mensagens de erro para f-strings são mais precisas e incluem o local exato "
-"do erro. Por exemplo, no Python 3.11, a seguinte string f gera um :exc:"
+"do erro. Por exemplo, no Python 3.11, a seguinte f-string levanta um :exc:"
 "`SyntaxError`:"
 
 #: ../../whatsnew/3.12.rst:318
@@ -885,7 +885,7 @@ msgid ""
 "`SyntaxWarning`. (Contributed by Victor Stinner in :gh:`98401`.)"
 msgstr ""
 "Um par de caracteres de barra invertida que não seja uma sequência de escape "
-"válida agora gera um :exc:`SyntaxWarning`, em vez de :exc:"
+"válida agora levanta uma exceção :exc:`SyntaxWarning`, em vez de :exc:"
 "`DeprecationWarning`. Por exemplo, ``re.compile(\"\\d+\\.\\d+\")`` agora "
 "emite um :exc:`SyntaxWarning` (``\"\\d\"`` é uma sequência de escape "
 "inválida, use strings brutas para expressão regular: ``re.compile(r\"\\d+\\."
@@ -3885,18 +3885,25 @@ msgid ""
 "Incomplete single-line strings now also raise :exc:`tokenize.TokenError` as "
 "incomplete multiline strings do."
 msgstr ""
+"Strings incompletas de linha única agora também levantam :exc:`tokenize."
+"TokenError` como fazem strings multilinhas incompletas."
 
 #: ../../whatsnew/3.12.rst:1903
 msgid ""
 "Some incomplete or invalid Python code now raises :exc:`tokenize.TokenError` "
 "instead of returning arbitrary ``ERRORTOKEN`` tokens when tokenizing it."
 msgstr ""
+"Algum código Python incompleto ou inválido agora levanta :exc:`tokenize."
+"TokenError` em vez de retornar tokens ``ERRORTOKEN`` arbitrários ao tokenizá-"
+"lo."
 
 #: ../../whatsnew/3.12.rst:1906
 msgid ""
 "Mixing tabs and spaces as indentation in the same file is not supported "
 "anymore and will raise a :exc:`TabError`."
 msgstr ""
+"Misturar tabulações e espaços como indentação no mesmo arquivo não é mais "
+"suportado e vai levantar uma :exc:`TabError`."
 
 #: ../../whatsnew/3.12.rst:1909
 msgid ""
@@ -3904,16 +3911,21 @@ msgid ""
 "an ``_is_main_interpreter`` attribute.  It is a function with no arguments "
 "that returns ``True`` if the current interpreter is the main interpreter."
 msgstr ""
+"O módulo :mod:`threading` agora espera que o módulo :mod:`!_thread` tenha um "
+"atributo ``_is_main_interpreter``. É uma função sem argumentos que retorna "
+"``True`` se o interpretador atual for o interpretador principal."
 
 #: ../../whatsnew/3.12.rst:1914
 msgid ""
 "Any library or application that provides a custom ``_thread`` module should "
 "provide ``_is_main_interpreter()``. (See :gh:`112826`.)"
 msgstr ""
+"Qualquer biblioteca ou aplicação que forneça um módulo ``_thread`` "
+"personalizado deve fornecer ``_is_main_interpreter()``. (Veja :gh:`112826`.)"
 
 #: ../../whatsnew/3.12.rst:1919
 msgid "Build Changes"
-msgstr "Alterações de compilação"
+msgstr "Alterações de construção"
 
 #: ../../whatsnew/3.12.rst:1921
 msgid ""
@@ -3923,6 +3935,11 @@ msgid ""
 "config`` and fall back to manual detection. (Contributed by Christian Heimes "
 "in :gh:`93939`.)"
 msgstr ""
+"Python não usa mais :file:`setup.py` para construir módulos de extensão C "
+"compartilhados. Parâmetros de construção como cabeçalhos e bibliotecas são "
+"detectados no script ``configure``. As extensões são construídas por :file:"
+"`Makefile`. A maioria das extensões usa ``pkg-config`` e recorre à detecção "
+"manual. (Contribuição de Christian Heimes em :gh:`93939`.)"
 
 #: ../../whatsnew/3.12.rst:1927
 msgid ""
@@ -3930,6 +3947,9 @@ msgid ""
 "required to build Python. ``va_start()`` is no longer called with a single "
 "parameter. (Contributed by Kumar Aditya in :gh:`93207`.)"
 msgstr ""
+"``va_start()`` com dois parâmetros, como ``va_start(args, format)``, agora é "
+"necessário para construir Python. ``va_start()`` não é mais chamado com um "
+"único parâmetro. (Contribuição de Kumar Aditya em :gh:`93207`.)"
 
 #: ../../whatsnew/3.12.rst:1932
 msgid ""
@@ -3937,6 +3957,9 @@ msgid ""
 "policy if the Clang compiler accepts the flag. (Contributed by Donghee Na "
 "in :gh:`89536`.)"
 msgstr ""
+"CPython agora usa a opção ThinLTO como política de otimização de tempo de "
+"vincualção padrão se o compilador Clang aceitar o sinalizador. (Contribuição "
+"de Donghee Na em :gh:`89536`.)"
 
 #: ../../whatsnew/3.12.rst:1936
 msgid ""
@@ -3946,10 +3969,15 @@ msgid ""
 "optimization levels (0, 1, 2) at once. (Contributed by Victor Stinner in :gh:"
 "`99289`.)"
 msgstr ""
+"Adiciona a variável ``COMPILEALL_OPTS`` em :file:`Makefile` para substituir "
+"as opções :mod:`compileall` (padrão: ``-j0``) em ``make install``. Também "
+"fundiu os 3 comandos ``compileall`` em um único comando para construir "
+"arquivos .pyc para todos os níveis de otimização (0, 1, 2) de uma só vez. "
+"(Contribuição de Victor Stinner em :gh:`99289`.)"
 
 #: ../../whatsnew/3.12.rst:1942
 msgid "Add platform triplets for 64-bit LoongArch:"
-msgstr ""
+msgstr "Adiciona trios de plataforma para LoongArch de 64 bits:"
 
 #: ../../whatsnew/3.12.rst:1944
 msgid "loongarch64-linux-gnusf"
@@ -3969,13 +3997,15 @@ msgstr "(Contribuição de Zhang Na em :gh:`90656`.)"
 
 #: ../../whatsnew/3.12.rst:1950
 msgid "``PYTHON_FOR_REGEN`` now require Python 3.10 or newer."
-msgstr ""
+msgstr "``PYTHON_FOR_REGEN`` agora requer Python 3.10 ou mais novo."
 
 #: ../../whatsnew/3.12.rst:1952
 msgid ""
 "Autoconf 2.71 and aclocal 1.16.4 is now required to regenerate :file:`!"
 "configure`. (Contributed by Christian Heimes in :gh:`89886`.)"
 msgstr ""
+"Autoconf 2.71 e aclocal 1.16.4 agora são necessários para regerar :file:`!"
+"configure`. (Contribuição de Christian Heimes em :gh:`89886`.)"
 
 #: ../../whatsnew/3.12.rst:1956
 msgid ""
@@ -3995,66 +4025,84 @@ msgid ""
 "change in each minor release of CPython without deprecation warnings. Its "
 "contents are marked by the ``PyUnstable_`` prefix in names."
 msgstr ""
+":pep:`697`: Introduz o :ref:`tier de API C Instável <unstable-c-api>`, "
+"destinada a ferramentas de baixo nível como depuradores e compiladores JIT. "
+"Esta API pode mudar em cada versão secundária do CPython sem avisos de "
+"descontinuação. Seu conteúdo é marcado pelo prefixo ``PyUnstable_`` nos "
+"nomes."
 
 #: ../../whatsnew/3.12.rst:1973
 msgid "Code object constructors:"
-msgstr ""
+msgstr "Construtores de objeto código:"
 
 #: ../../whatsnew/3.12.rst:1975
 msgid "``PyUnstable_Code_New()`` (renamed from ``PyCode_New``)"
-msgstr ""
+msgstr "``PyUnstable_Code_New()`` (renomeado de ``PyCode_New``)"
 
 #: ../../whatsnew/3.12.rst:1976
 msgid ""
 "``PyUnstable_Code_NewWithPosOnlyArgs()`` (renamed from "
 "``PyCode_NewWithPosOnlyArgs``)"
 msgstr ""
+"``PyUnstable_Code_NewWithPosOnlyArgs()`` (renomeado de "
+"``PyCode_NewWithPosOnlyArgs``)"
 
 #: ../../whatsnew/3.12.rst:1978
 msgid "Extra storage for code objects (:pep:`523`):"
-msgstr ""
+msgstr "Armazenamento extra para objetos código (:pep:`523`):"
 
 #: ../../whatsnew/3.12.rst:1980
 msgid ""
 "``PyUnstable_Eval_RequestCodeExtraIndex()`` (renamed from "
 "``_PyEval_RequestCodeExtraIndex``)"
 msgstr ""
+"``PyUnstable_Eval_RequestCodeExtraIndex()`` (renomeado de "
+"``_PyEval_RequestCodeExtraIndex``)"
 
 #: ../../whatsnew/3.12.rst:1981
 msgid "``PyUnstable_Code_GetExtra()`` (renamed from ``_PyCode_GetExtra``)"
-msgstr ""
+msgstr "``PyUnstable_Code_GetExtra()`` (renomeado de ``_PyCode_GetExtra``)"
 
 #: ../../whatsnew/3.12.rst:1982
 msgid "``PyUnstable_Code_SetExtra()`` (renamed from ``_PyCode_SetExtra``)"
-msgstr ""
+msgstr "``PyUnstable_Code_SetExtra()`` (renomeado de ``_PyCode_SetExtra``)"
 
 #: ../../whatsnew/3.12.rst:1984
 msgid ""
 "The original names will continue to be available until the respective API "
 "changes."
 msgstr ""
+"Os nomes originais continuarão disponíveis até que a respectiva API seja "
+"alterada."
 
 #: ../../whatsnew/3.12.rst:1987
 msgid "(Contributed by Petr Viktorin in :gh:`101101`.)"
-msgstr ""
+msgstr "(Contribuição de Petr Viktorin em :gh:`101101`.)"
 
 #: ../../whatsnew/3.12.rst:1989
 msgid ""
 ":pep:`697`: Add an API for extending types whose instance memory layout is "
 "opaque:"
 msgstr ""
+":pep:`697`: Adiciona uma API para estender tipos cujo layout de memória de "
+"instância é opaco:"
 
 #: ../../whatsnew/3.12.rst:1992
 msgid ""
 ":c:member:`PyType_Spec.basicsize` can be zero or negative to specify "
 "inheriting or extending the base class size."
 msgstr ""
+":c:member:`PyType_Spec.basicsize`pode ser zero ou negativo para especificar "
+"a herança ou extensão do tamanho da classe base."
 
 #: ../../whatsnew/3.12.rst:1994
 msgid ""
 ":c:func:`PyObject_GetTypeData` and :c:func:`PyType_GetTypeDataSize` added to "
 "allow access to subclass-specific instance data."
 msgstr ""
+":c:func:`PyObject_GetTypeData` e :c:func:`PyType_GetTypeDataSize` "
+"adicionadas para permitir acesso a dados de instância específicos da "
+"subclasse."
 
 #: ../../whatsnew/3.12.rst:1996
 msgid ""
@@ -4062,16 +4110,22 @@ msgid ""
 "to allow safely extending certain variable-sized types, including :c:var:"
 "`PyType_Type`."
 msgstr ""
+":c:macro:`Py_TPFLAGS_ITEMS_AT_END` e :c:func:`PyObject_GetItemData` "
+"adicionadas para permitir a extensão segura de certos tipos de tamanho "
+"variável, incluindo :c:var:`PyType_Type`."
 
 #: ../../whatsnew/3.12.rst:1999
 msgid ""
 ":c:macro:`Py_RELATIVE_OFFSET` added to allow defining :c:type:`members "
 "<PyMemberDef>` in terms of a subclass-specific struct."
 msgstr ""
+":c:macro:`Py_RELATIVE_OFFSET` adicionada para permitir a definição de :c:"
+"type:`membros <PyMemberDef>` em termos de uma estrutura específica da "
+"subclasse."
 
 #: ../../whatsnew/3.12.rst:2002
 msgid "(Contributed by Petr Viktorin in :gh:`103509`.)"
-msgstr ""
+msgstr "(Contribuição de Petr Viktorin em :gh:`103509`.)"
 
 #: ../../whatsnew/3.12.rst:2004
 msgid ""
@@ -4080,24 +4134,30 @@ msgid ""
 "`PyType_FromModuleAndSpec` using an additional metaclass argument. "
 "(Contributed by Wenzel Jakob in :gh:`93012`.)"
 msgstr ""
+"Adiciona à :ref:`API C limitada <limited-c-api>` a nova função :c:func:"
+"`PyType_FromMetaclass`, que generaliza a :c:func:`PyType_FromModuleAndSpec` "
+"existente usando um argumento de metaclasse adicional. (Contribuição de "
+"Wenzel Jakob em :gh:`93012`.)"
 
 #: ../../whatsnew/3.12.rst:2009
 msgid ""
 "API for creating objects that can be called using :ref:`the vectorcall "
 "protocol <vectorcall>` was added to the :ref:`Limited API <stable>`:"
 msgstr ""
+"API para criação de objetos que podem ser chamados usando :ref:`o protocolo "
+"vectorcall <vectorcall>` foi adicionada à :ref:`API Limitada <stable>`:"
 
 #: ../../whatsnew/3.12.rst:2013
 msgid ":c:macro:`Py_TPFLAGS_HAVE_VECTORCALL`"
-msgstr ""
+msgstr ":c:macro:`Py_TPFLAGS_HAVE_VECTORCALL`"
 
 #: ../../whatsnew/3.12.rst:2014
 msgid ":c:func:`PyVectorcall_NARGS`"
-msgstr ""
+msgstr ":c:func:`PyVectorcall_NARGS`"
 
 #: ../../whatsnew/3.12.rst:2015
 msgid ":c:func:`PyVectorcall_Call`"
-msgstr ""
+msgstr ":c:func:`PyVectorcall_Call`"
 
 #: ../../whatsnew/3.12.rst:2016
 msgid ":c:type:`vectorcallfunc`"
@@ -4113,6 +4173,13 @@ msgid ""
 "``Py_TPFLAGS_HAVE_VECTORCALL`` flag. (Contributed by Petr Viktorin in :gh:"
 "`93274`.)"
 msgstr ""
+"O sinalizador :c:macro:`Py_TPFLAGS_HAVE_VECTORCALL` agora é removido de uma "
+"classe quando o método :py:meth:`~object.__call__` da classe é reatribuído. "
+"Isso torna vectorcall seguro para uso com tipos mutáveis (ou seja, tipos de "
+"heap sem o sinalizador imutável, :c:macro:`Py_TPFLAGS_IMMUTABLETYPE`). Tipos "
+"mutáveis que não substituem :c:member:`~PyTypeObject.tp_call` agora herdam o "
+"sinalizador ``Py_TPFLAGS_HAVE_VECTORCALL``. (Contribuição de Petr Viktorin "
+"em :gh:`93274`.)"
 
 #: ../../whatsnew/3.12.rst:2026
 msgid ""
@@ -4121,12 +4188,18 @@ msgid ""
 "classes to support object ``__dict__`` and weakrefs with less bookkeeping, "
 "using less memory and with faster access."
 msgstr ""
+"Os sinalizadores :c:macro:`Py_TPFLAGS_MANAGED_DICT` e :c:macro:"
+"`Py_TPFLAGS_MANAGED_WEAKREF` foram adicionados. Isso permite que as classes "
+"de extensões ofereçam suporte a objetos ``__dict__`` e weakrefs com menos "
+"trabalho, usando menos memória e com acesso mais rápido."
 
 #: ../../whatsnew/3.12.rst:2031
 msgid ""
 "API for performing calls using :ref:`the vectorcall protocol <vectorcall>` "
 "was added to the :ref:`Limited API <stable>`:"
 msgstr ""
+"API para realizar chamadas usando :ref:`o protocolo vectorcall <vectorcall>` "
+"foi adicionada à :ref:`API Limitada <stable>`:"
 
 #: ../../whatsnew/3.12.rst:2035
 msgid ":c:func:`PyObject_Vectorcall`"
@@ -4138,7 +4211,7 @@ msgstr ":c:func:`PyObject_VectorcallMethod`"
 
 #: ../../whatsnew/3.12.rst:2037
 msgid ":c:macro:`PY_VECTORCALL_ARGUMENTS_OFFSET`"
-msgstr ""
+msgstr ":c:macro:`PY_VECTORCALL_ARGUMENTS_OFFSET`"
 
 #: ../../whatsnew/3.12.rst:2039
 msgid ""
@@ -4146,6 +4219,9 @@ msgid ""
 "protocol are now available in the :ref:`Limited API <stable>`. (Contributed "
 "by Wenzel Jakob in :gh:`98586`.)"
 msgstr ""
+"Isto significa que ambas as extremidades de entrada e saída do protocolo de "
+"chamada vetorial estão agora disponíveis na :ref:`API Limitada <stable>`. "
+"(Contribuição de Wenzel Jakob em :gh:`98586`.)"
 
 #: ../../whatsnew/3.12.rst:2043
 msgid ""
@@ -4154,6 +4230,10 @@ msgid ""
 "functions in all running threads in addition to the calling one. "
 "(Contributed by Pablo Galindo in :gh:`93503`.)"
 msgstr ""
+"Adiciona duas novas funções públicas, :c:func:`PyEval_SetProfileAllThreads` "
+"e :c:func:`PyEval_SetTraceAllThreads`, que permitem definir funções de "
+"rastreamento e perfilação em todos os threads em execução, além do de "
+"chamada. (Contribuição de Pablo Galindo em :gh:`93503`.)"
 
 #: ../../whatsnew/3.12.rst:2049
 msgid ""
@@ -4161,6 +4241,9 @@ msgid ""
 "the vectorcall field of a given :c:type:`PyFunctionObject`. (Contributed by "
 "Andrew Frost in :gh:`92257`.)"
 msgstr ""
+"Adiciona a nova função :c:func:`PyFunction_SetVectorcall` à API C que define "
+"o campo vectorcall de um determinado :c:type:`PyFunctionObject`. "
+"(Contribuição de Andrew Frost em :gh:`92257`.)"
 
 #: ../../whatsnew/3.12.rst:2053
 msgid ""
@@ -4170,6 +4253,11 @@ msgid ""
 "interpreters, JIT compilers, or debuggers. (Contributed by Carl Meyer in :gh:"
 "`91052`.)"
 msgstr ""
+"A API C agora permite registrar funções de retorno de chamada via :c:func:"
+"`PyDict_AddWatcher`, :c:func:`PyDict_Watch` e APIs relacionadas a serem "
+"chamadas sempre que um dicionário é modificado. Destina-se a ser usado para "
+"otimizar interpretadores, compiladores JIT ou depuradores. (Contribuição de "
+"Carl Meyer em :gh:`91052`.)"
 
 #: ../../whatsnew/3.12.rst:2059
 msgid ""
@@ -4177,6 +4265,9 @@ msgid ""
 "callbacks to receive notification on changes to a type. (Contributed by Carl "
 "Meyer in :gh:`91051`.)"
 msgstr ""
+"Adiciona a API :c:func:`PyType_AddWatcher` e :c:func:`PyType_Watch` para "
+"registrar retornos de chamada para receber notificações sobre alterações em "
+"um tipo. (Contribuição de Carl Meyer em :gh:`91051`.)"
 
 #: ../../whatsnew/3.12.rst:2063
 msgid ""
@@ -4184,6 +4275,10 @@ msgid ""
 "register callbacks to receive notification on creation and destruction of "
 "code objects. (Contributed by Itamar Oren in :gh:`91054`.)"
 msgstr ""
+"Adiciona APIs :c:func:`PyCode_AddWatcher` e :c:func:`PyCode_ClearWatcher` "
+"para registrar retornos de chamada para receber notificação sobre criação e "
+"destruição de objetos de código. (Contribuição de Itamar Oren em :gh:"
+"`91054`.)"
 
 #: ../../whatsnew/3.12.rst:2068
 msgid ""
@@ -4191,6 +4286,9 @@ msgid ""
 "get a frame variable by its name. (Contributed by Victor Stinner in :gh:"
 "`91248`.)"
 msgstr ""
+"Adiciona as funções :c:func:`PyFrame_GetVar` e :c:func:"
+"`PyFrame_GetVarString` para obter uma variável de quadro por seu nome. "
+"(Contribuição de Victor Stinner em :gh:`91248`.)"
 
 #: ../../whatsnew/3.12.rst:2072
 msgid ""
@@ -4201,6 +4299,12 @@ msgid ""
 "`PyErr_Restore`. This is less error prone and a bit more efficient. "
 "(Contributed by Mark Shannon in :gh:`101578`.)"
 msgstr ""
+"Adiciona :c:func:`PyErr_GetRaisedException` e :c:func:"
+"`PyErr_SetRaisedException` para salvar e restaurar a exceção atual. Essas "
+"funções retornam e aceitam um único objeto de exceção, em vez dos argumentos "
+"triplos dos agora obsoletos :c:func:`PyErr_Fetch` e :c:func:`PyErr_Restore`. "
+"Isso é menos sujeito a erros e um pouco mais eficiente. (Contribuição de "
+"Mark Shannon em :gh:`101578`.)"
 
 #: ../../whatsnew/3.12.rst:2080
 msgid ""
@@ -4208,6 +4312,9 @@ msgid ""
 "replace the legacy-API ``_PyErr_ChainExceptions``, which is now deprecated. "
 "(Contributed by Mark Shannon in :gh:`101578`.)"
 msgstr ""
+"Adiciona ``_PyErr_ChainExceptions1``, que usa uma instância de exceção, para "
+"substituir a API legada ``_PyErr_ChainExceptions``, que agora foi "
+"descontinuada. (Contribuição de Mark Shannon em :gh:`101578`.)"
 
 #: ../../whatsnew/3.12.rst:2084
 msgid ""
@@ -4216,6 +4323,10 @@ msgid ""
 "args` passed to the exception's constructor. (Contributed by Mark Shannon "
 "in :gh:`101578`.)"
 msgstr ""
+"Adiciona :c:func:`PyException_GetArgs` e :c:func:`PyException_SetArgs` como "
+"funções de conveniência para recuperar e modificar o :attr:`~BaseException."
+"args` passado para o construtor da exceção. (Contribuição de Mark Shannon "
+"em :gh:`101578`.)"
 
 #: ../../whatsnew/3.12.rst:2089
 msgid ""
@@ -4223,63 +4334,78 @@ msgid ""
 "replace the legacy-api :c:func:`!PyErr_Display`. (Contributed by Irit "
 "Katriel in :gh:`102755`)."
 msgstr ""
+"Adiciona :c:func:`PyErr_DisplayException`, que usa uma instância de exceção, "
+"para substituir a API legada :c:func:`!PyErr_Display`. (Contribuição de Irit "
+"Katriel em :gh:`102755`)."
 
 #: ../../whatsnew/3.12.rst:2095
 msgid ""
 ":pep:`683`: Introduce *Immortal Objects*, which allows objects to bypass "
 "reference counts, and related changes to the C-API:"
 msgstr ""
+":pep:`683`: Introduz *Objetos Imortais*, que permite que objetos ignorem "
+"contagens de referências e alterações relacionadas à API C:"
 
 #: ../../whatsnew/3.12.rst:2098
 msgid "``_Py_IMMORTAL_REFCNT``: The reference count that defines an object"
 msgstr ""
+"``_Py_IMMORTAL_REFCNT``: A contagem de referências que define um objeto"
 
 #: ../../whatsnew/3.12.rst:2099
 msgid "as immortal."
-msgstr ""
+msgstr "como imortal."
 
 #: ../../whatsnew/3.12.rst:2100
 msgid ""
 "``_Py_IsImmortal`` Checks if an object has the immortal reference count."
 msgstr ""
+"``_Py_IsImmortal`` Verifica se um objeto possui a contagem de referências "
+"imortal."
 
 #: ../../whatsnew/3.12.rst:2101
 msgid "``PyObject_HEAD_INIT`` This will now initialize reference count to"
 msgstr ""
+"``PyObject_HEAD_INIT`` Isso agora inicializará a contagem de referências para"
 
 #: ../../whatsnew/3.12.rst:2102
 msgid "``_Py_IMMORTAL_REFCNT`` when used with ``Py_BUILD_CORE``."
-msgstr ""
+msgstr "``_Py_IMMORTAL_REFCNT`` quando usado com ``Py_BUILD_CORE``."
 
 #: ../../whatsnew/3.12.rst:2103
 msgid "``SSTATE_INTERNED_IMMORTAL`` An identifier for interned unicode objects"
 msgstr ""
+"``SSTATE_INTERNED_IMMORTAL`` Um identificador para objetos unicode "
+"internalizados"
 
 #: ../../whatsnew/3.12.rst:2104
 msgid "that are immortal."
-msgstr ""
+msgstr "que são imortais."
 
 #: ../../whatsnew/3.12.rst:2105
 msgid "``SSTATE_INTERNED_IMMORTAL_STATIC`` An identifier for interned unicode"
 msgstr ""
+"``SSTATE_INTERNED_IMMORTAL_STATIC`` Um identificador para unicode "
+"internalizado"
 
 #: ../../whatsnew/3.12.rst:2106
 msgid "objects that are immortal and static"
-msgstr ""
+msgstr "objetos que são imortais e estáticos"
 
 #: ../../whatsnew/3.12.rst:2109
 msgid "``sys.getunicodeinternedsize`` This returns the total number of unicode"
-msgstr ""
+msgstr "``sys.getunicodeinternedsize`` Isso retorna o número total de unicode "
 
 #: ../../whatsnew/3.12.rst:2108
 msgid ""
 "objects that have been interned. This is now needed for :file:`refleak.py` "
 "to correctly track reference counts and allocated blocks"
 msgstr ""
+"objetos que foram internalizados. Isso agora é necessário para :file:"
+"`refleak.py` rastrear corretamente contagens de referências e blocos alocados"
 
 #: ../../whatsnew/3.12.rst:2111
 msgid "(Contributed by Eddie Elizondo in :gh:`84436`.)"
-msgstr ""
+msgstr "(Contribuição de Eddie Elizondo em :gh:`84436`.)"
 
 #: ../../whatsnew/3.12.rst:2113
 msgid ""
@@ -4288,6 +4414,10 @@ msgid ""
 "with their own GILs. (See :ref:`whatsnew312-pep684` for more info.) "
 "(Contributed by Eric Snow in :gh:`104110`.)"
 msgstr ""
+":pep:`684`: Adiciona a nova função :c:func:`Py_NewInterpreterFromConfig` e :"
+"c:type:`PyInterpreterConfig`, que podem ser usadas para criar sub-"
+"interpretadores com seus próprios GILs. (Veja :ref:`whatsnew312-pep684` para "
+"mais informações.) (Contribuição de Eric Snow em :gh:`104110`.)"
 
 #: ../../whatsnew/3.12.rst:2119
 msgid ""
@@ -4295,12 +4425,18 @@ msgid ""
 "`Py_DECREF` functions are now implemented as opaque function calls to hide "
 "implementation details. (Contributed by Victor Stinner in :gh:`105387`.)"
 msgstr ""
+"Na API C limitada versão 3.12, as funções :c:func:`Py_INCREF` e :c:func:"
+"`Py_DECREF` agora são implementadas como chamadas de função opacas para "
+"ocultar detalhes de implementação. (Contribuição de Victor Stinner em :gh:"
+"`105387`.)"
 
 #: ../../whatsnew/3.12.rst:2127
 msgid ""
 "Legacy Unicode APIs based on ``Py_UNICODE*`` representation has been "
 "removed. Please migrate to APIs based on UTF-8 or ``wchar_t*``."
 msgstr ""
+"APIs Unicode legadas baseadas na representação de ``Py_UNICODE*`` foram "
+"removidas. Migre para APIs baseadas em UTF-8 ou ``wchar_t*``."
 
 #: ../../whatsnew/3.12.rst:2130
 msgid ""
@@ -4308,6 +4444,10 @@ msgid ""
 "``Py_UNICODE*`` based format (e.g. ``u``, ``Z``) anymore. Please migrate to "
 "other formats for Unicode like ``s``, ``z``, ``es``, and ``U``."
 msgstr ""
+"Funções de análise de argumentos como :c:func:`PyArg_ParseTuple` não mais "
+"oferecem suporte a formato baseado em ``Py_UNICODE*`` (por exemplo, ``u``, "
+"``Z``). Migre para outros formatos para Unicode como ``s``, ``z``, ``es`` e "
+"``U``."
 
 #: ../../whatsnew/3.12.rst:2134
 msgid ""
@@ -4317,6 +4457,11 @@ msgid ""
 "breakage, consider using the existing public C-API instead, or, if "
 "necessary, the (internal-only) ``_PyObject_GET_WEAKREFS_LISTPTR()`` macro."
 msgstr ""
+"``tp_weaklist`` para todos os tipos embutidos estáticos é sempre ``NULL``. "
+"Este é um campo somente interno em ``PyTypeObject``, mas estamos apontando a "
+"mudança caso alguém acesse o campo diretamente de qualquer maneira. Para "
+"evitar quebras, considere usar a API C pública existente ou, se necessário, "
+"a macro ``_PyObject_GET_WEAKREFS_LISTPTR()`` (somente interna)."
 
 #: ../../whatsnew/3.12.rst:2141
 msgid ""
@@ -4325,12 +4470,18 @@ msgid ""
 "this.  We mention this in case someone happens to be accessing the internal-"
 "only field directly."
 msgstr ""
+"Este :c:member:`PyTypeObject.tp_subclasses` somente interno pode agora não "
+"ser um ponteiro de objeto válido. Seu tipo foi alterado para :c:expr:`void "
+"*` para refletir isso. Mencionamos isso caso alguém esteja acessando "
+"diretamente o campo somente interno."
 
 #: ../../whatsnew/3.12.rst:2146
 msgid ""
 "To get a list of subclasses, call the Python method :py:meth:`~class."
 "__subclasses__` (using :c:func:`PyObject_CallMethod`, for example)."
 msgstr ""
+"Para obter uma lista de subclasses, chame o método Python :py:meth:`~class."
+"__subclasses__` (usando :c:func:`PyObject_CallMethod`, por exemplo)."
 
 #: ../../whatsnew/3.12.rst:2150
 msgid ""
@@ -4340,6 +4491,11 @@ msgid ""
 "and :c:func:`PyUnicode_FromFormatV`. (Contributed by Serhiy Storchaka in :gh:"
 "`98836`.)"
 msgstr ""
+"Adicionado suporte para mais opções de formatação (alinhamento à esquerda, "
+"octais, hexadecimais maiúsculos, :c:type:`intmax_t`, :c:type:`ptrdiff_t`, :c:"
+"type:`wchar_t` strings C, largura variável e precisão) em :c:func:"
+"`PyUnicode_FromFormat` e :c:func:`PyUnicode_FromFormatV`. (Contribuição de "
+"Serhiy Storchaka em :gh:`98836`.)"
 
 #: ../../whatsnew/3.12.rst:2156
 msgid ""
@@ -4349,12 +4505,20 @@ msgid ""
 "the result string, and any extra arguments discarded. (Contributed by Serhiy "
 "Storchaka in :gh:`95781`.)"
 msgstr ""
+"Um caractere de formato não reconhecido em :c:func:`PyUnicode_FromFormat` e :"
+"c:func:`PyUnicode_FromFormatV` agora define um :exc:`SystemError`. Nas "
+"versões anteriores, fazia com que todo o restante da string de formato fosse "
+"copiado como estava para a string de resultado e quaisquer argumentos extras "
+"descartados. (Contribuição de Serhiy Storchaka em :gh:`95781`.)"
 
 #: ../../whatsnew/3.12.rst:2162
 msgid ""
 "Fix wrong sign placement in :c:func:`PyUnicode_FromFormat` and :c:func:"
 "`PyUnicode_FromFormatV`. (Contributed by Philip Georgi in :gh:`95504`.)"
 msgstr ""
+"Corrige o posicionamento incorreto do sinal em :c:func:"
+"`PyUnicode_FromFormat` e :c:func:`PyUnicode_FromFormatV`. (Contribuição de "
+"Philip Georgi em :gh:`95504`.)"
 
 #: ../../whatsnew/3.12.rst:2166
 msgid ""
@@ -4369,6 +4533,16 @@ msgid ""
 "traverse and clear their instance's dictionaries. To clear weakrefs, call :c:"
 "func:`PyObject_ClearWeakRefs`, as before."
 msgstr ""
+"Classes de extensão que desejam adicionar um ``__dict__`` ou slot de "
+"referência fraca devem usar :c:macro:`Py_TPFLAGS_MANAGED_DICT` e :c:macro:"
+"`Py_TPFLAGS_MANAGED_WEAKREF` em vez de ``tp_dictoffset`` e "
+"``tp_weaklistoffset``, respectivamente. O uso de ``tp_dictoffset`` e "
+"``tp_weaklistoffset`` ainda é aceitado, mas não oferece suporte totalmente  "
+"a herança múltipla (:gh:`95589`), e o desempenho pode ser pior. Classes que "
+"declaram :c:macro:`Py_TPFLAGS_MANAGED_DICT` devem chamar :c:func:`!"
+"_PyObject_VisitManagedDict` e :c:func:`!_PyObject_ClearManagedDict` para "
+"percorrer e limpar os dicionários de sua instância. Para limpar weakrefs "
+"(referências fracas), chame :c:func:`PyObject_ClearWeakRefs`, como antes."
 
 #: ../../whatsnew/3.12.rst:2178
 msgid ""
@@ -4377,6 +4551,10 @@ msgid ""
 "exact :class:`bytes` type is accepted for bytes strings. (Contributed by "
 "Victor Stinner in :gh:`98393`.)"
 msgstr ""
+"A função :c:func:`PyUnicode_FSDecoder` não aceita mais caminhos bytes ou "
+"similar, como os tipos :class:`bytearray` e :class:`memoryview`: apenas o "
+"tipo exato :class:`bytes` é aceito para strings de bytes. (Contribuição de "
+"Victor Stinner em :gh:`98393`.)"
 
 #: ../../whatsnew/3.12.rst:2183
 msgid ""
@@ -4385,6 +4563,10 @@ msgid ""
 "effects, these side effects are no longer duplicated. (Contributed by Victor "
 "Stinner in :gh:`98724`.)"
 msgstr ""
+"As macros :c:macro:`Py_CLEAR`, :c:macro:`Py_SETREF` e :c:macro:`Py_XSETREF` "
+"agora avaliam seus argumentos apenas uma vez. Se um argumento tiver efeitos "
+"colaterais, esses efeitos colaterais não serão mais duplicados. "
+"(Contribuição de Victor Stinner em :gh:`98724`.)"
 
 #: ../../whatsnew/3.12.rst:2188
 msgid ""
@@ -4393,6 +4575,10 @@ msgid ""
 "that set the error indicator now normalize the exception before storing it. "
 "(Contributed by Mark Shannon in :gh:`101578`.)"
 msgstr ""
+"O indicador de erro do interpretador agora está sempre normalizado. Isso "
+"significa que :c:func:`PyErr_SetObject`, :c:func:`PyErr_SetString` e as "
+"outras funções que definem o indicador de erro agora normalizam a exceção "
+"antes de armazená-la. (Contribuição de Mark Shannon em :gh:`101578`.)"
 
 #: ../../whatsnew/3.12.rst:2193
 msgid ""
@@ -4401,24 +4587,30 @@ msgid ""
 "debug builds.  If you happen to be using it then you'll need to start using "
 "``_Py_GetGlobalRefTotal()``."
 msgstr ""
+"``_Py_RefTotal`` não é mais oficial e é mantido apenas para compatibilidade "
+"com ABI. Observe que é um global interno e está disponível apenas em "
+"compilações de depuração. Se acontecer de você usá-lo, você precisará "
+"começar a usar ``_Py_GetGlobalRefTotal()``."
 
 #: ../../whatsnew/3.12.rst:2198
 msgid ""
 "The following functions now select an appropriate metaclass for the newly "
 "created type:"
 msgstr ""
+"As seguintes funções agora selecionam uma metaclasse apropriada para o tipo "
+"recém-criado:"
 
 #: ../../whatsnew/3.12.rst:2201
 msgid ":c:func:`PyType_FromSpec`"
-msgstr ""
+msgstr ":c:func:`PyType_FromSpec`"
 
 #: ../../whatsnew/3.12.rst:2202
 msgid ":c:func:`PyType_FromSpecWithBases`"
-msgstr ""
+msgstr ":c:func:`PyType_FromSpecWithBases`"
 
 #: ../../whatsnew/3.12.rst:2203
 msgid ":c:func:`PyType_FromModuleAndSpec`"
-msgstr ""
+msgstr ":c:func:`PyType_FromModuleAndSpec`"
 
 #: ../../whatsnew/3.12.rst:2205
 msgid ""
@@ -4427,6 +4619,10 @@ msgid ""
 "functions ignore ``tp_new`` of the metaclass, possibly allowing incomplete "
 "initialization."
 msgstr ""
+"A criação de classes cujas substituições de metaclasse :c:member:"
+"`~PyTypeObject.tp_new` foi descontinuada e no Python 3.14+ não será "
+"permitida. Observe que essas funções ignoram ``tp_new`` da metaclasse, "
+"possivelmente permitindo uma inicialização incompleta."
 
 #: ../../whatsnew/3.12.rst:2210
 msgid ""
@@ -4434,6 +4630,9 @@ msgid ""
 "disallows creating classes whose metaclass overrides ``tp_new`` (:meth:"
 "`~object.__new__` in Python)."
 msgstr ""
+"Observe que :c:func:`PyType_FromMetaclass` (adicionada em Python 3.12) já "
+"não permite a criação de classes cuja metaclasse substitui ``tp_new`` (:meth:"
+"`~object.__new__` em Python)."
 
 #: ../../whatsnew/3.12.rst:2214
 msgid ""
@@ -4443,16 +4642,23 @@ msgid ""
 "since (meta)classes assume that ``tp_new`` was called. There is no simple "
 "general workaround. One of the following may work for you:"
 msgstr ""
+"Como ``tp_new`` substitui quase tudo que as funções ``PyType_From*`` fazem, "
+"os dois são incompatíveis entre si. O comportamento existente -- ignorar a "
+"metaclasse em vários passos de criação do tipo -- é inseguro em geral, uma "
+"vez que as (meta)classes assumem que ``tp_new`` foi chamado. Não existe uma "
+"solução geral simples. Um dos seguintes pode funcionar para você:"
 
 #: ../../whatsnew/3.12.rst:2221
 msgid "If you control the metaclass, avoid using ``tp_new`` in it:"
-msgstr ""
+msgstr "Se você controla a metaclasse, evite usar ``tp_new`` nela:"
 
 #: ../../whatsnew/3.12.rst:2223
 msgid ""
 "If initialization can be skipped, it can be done in :c:member:`~PyTypeObject."
 "tp_init` instead."
 msgstr ""
+"Se a inicialização puder ser ignorada, isso pode ser feito em :c:member:"
+"`~PyTypeObject.tp_init`."
 
 #: ../../whatsnew/3.12.rst:2225
 msgid ""
@@ -4461,6 +4667,10 @@ msgid ""
 "`Py_TPFLAGS_DISALLOW_INSTANTIATION` flag. This makes it acceptable for "
 "``PyType_From*`` functions."
 msgstr ""
+"Se a metaclasse não precisa ser instanciada do Python, defina seu ``tp_new`` "
+"como ``NULL`` usando o sinalizador :c:macro:"
+"`Py_TPFLAGS_DISALLOW_INSTANTIATION`. Isso o torna aceitável para funções "
+"``PyType_From*``."
 
 #: ../../whatsnew/3.12.rst:2230
 msgid ""
@@ -4468,12 +4678,17 @@ msgid ""
 "(slots or setting the instance size), create types by :ref:`calling <call>` "
 "the metaclass."
 msgstr ""
+"Evite funções ``PyType_From*``: se você não precisa de recursos específicos "
+"do C (slots ou configuração do tamanho da instância), crie tipos :ref:"
+"`chamando <call>` a metaclasse."
 
 #: ../../whatsnew/3.12.rst:2234
 msgid ""
 "If you *know* the ``tp_new`` can be skipped safely, filter the deprecation "
 "warning out using :func:`warnings.catch_warnings` from Python."
 msgstr ""
+"Se você *sabe* que ``tp_new`` pode ser ignorado com segurança, filtre o "
+"aviso de descontinuação usando :func:`warnings.catch_warnings` do Python."
 
 #: ../../whatsnew/3.12.rst:2237
 msgid ""
