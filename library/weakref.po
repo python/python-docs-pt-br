@@ -7,16 +7,16 @@
 # Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2021
 # And Past <andrepgs@gmail.com>, 2021
 # i17obot <i17obot@rougeth.com>, 2021
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2021
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-05 14:14+0000\n"
+"POT-Creation-Date: 2024-04-19 14:13+0000\n"
 "PO-Revision-Date: 2021-06-28 01:17+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2021\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr ""
 
 #: ../../library/weakref.rst:4
 msgid ":mod:`weakref` --- Weak references"
-msgstr ""
+msgstr ":mod:`weakref` --- Referências fracas"
 
 #: ../../library/weakref.rst:14
 msgid "**Source code:** :source:`Lib/weakref.py`"
@@ -39,12 +39,16 @@ msgid ""
 "The :mod:`weakref` module allows the Python programmer to create :dfn:`weak "
 "references` to objects."
 msgstr ""
+"O módulo :mod:`weakref` permite ao programador Python criar :dfn:"
+"`referências fracas` para objetos."
 
 #: ../../library/weakref.rst:24
 msgid ""
 "In the following, the term :dfn:`referent` means the object which is "
 "referred to by a weak reference."
 msgstr ""
+"A seguir, o termo :dfn:`referente` significa o objeto ao qual é referido por "
+"uma referência fraca."
 
 #: ../../library/weakref.rst:27
 msgid ""
@@ -55,6 +59,12 @@ msgid ""
 "weak reference may return the object even if there are no strong references "
 "to it."
 msgstr ""
+"Uma referência fraca a um objeto não é suficiente para mantê-lo vivo: quando "
+"as únicas referências restantes a um referente são referências fracas, a :"
+"term:`coleta de lixo` está livre para destruir o referente e reutilizar sua "
+"memória para outra coisa. Entretanto, até que o objeto seja realmente "
+"destruído, a referência fraca poderá retornar o objeto mesmo que não haja "
+"referências fortes a ele."
 
 #: ../../library/weakref.rst:33
 msgid ""
@@ -62,6 +72,9 @@ msgid ""
 "large objects, where it's desired that a large object not be kept alive "
 "solely because it appears in a cache or mapping."
 msgstr ""
+"Um uso principal para referências fracas é implementar caches ou mapeamentos "
+"contendo objetos grandes, onde é desejado que um objeto grande não seja "
+"mantido ativo apenas porque aparece em um cache ou mapeamento."
 
 #: ../../library/weakref.rst:37
 msgid ""
@@ -78,6 +91,19 @@ msgid ""
 "collection can reclaim the object, and its corresponding entries in weak "
 "mappings are simply deleted."
 msgstr ""
+"Por exemplo, se você tiver vários objetos de imagem binária grandes, poderá "
+"associar um nome a cada um. Se você usasse um dicionário Python para mapear "
+"nomes para imagens, ou imagens para nomes, os objetos de imagem "
+"permaneceriam vivos apenas porque apareceriam como valores ou chaves nos "
+"dicionários. As classes :class:`WeakKeyDictionary` e :class:"
+"`WeakValueDictionary` fornecidas pelo módulo :mod:`weakref` são uma "
+"alternativa, usando referências fracas para construir mapeamentos que não "
+"mantêm objetos vivos apenas porque aparecem nos objetos de mapeamento. Se, "
+"por exemplo, um objeto de imagem for um valor em um :class:"
+"`WeakValueDictionary`, então quando as últimas referências restantes a esse "
+"objeto de imagem forem as referências fracas mantidas por mapeamentos "
+"fracos, a coleta de lixo poderá recuperar o objeto e suas entradas "
+"correspondentes em mapeamentos fracos são simplesmente excluídos."
 
 #: ../../library/weakref.rst:50
 msgid ""
@@ -88,6 +114,12 @@ msgid ""
 "class:`set` interface, but keeps weak references to its elements, just like "
 "a :class:`WeakKeyDictionary` does."
 msgstr ""
+":class:`WeakKeyDictionary` e :class:`WeakValueDictionary` usam referências "
+"fracas em sua implementação, configurando funções de retorno de chamada nas "
+"referências fracas que notificam os dicionários fracos quando uma chave ou "
+"valor foi recuperado pela coleta de lixo. :class:`WeakSet` implementa a "
+"interface :class:`set`, mas mantém referências fracas aos seus elementos, "
+"assim como :class:`WeakKeyDictionary` faz."
 
 #: ../../library/weakref.rst:57
 msgid ""
@@ -97,6 +129,11 @@ msgid ""
 "the module automatically ensures that the finalizer remains alive until the "
 "object is collected."
 msgstr ""
+":class:`finalize` fornece uma maneira direta de registrar uma função de "
+"limpeza a ser chamada quando um objeto é coletado como lixo. Isso é mais "
+"simples de usar do que configurar uma função de retorno de chamada em uma "
+"referência fraca não tratada, pois o módulo garante automaticamente que o "
+"finalizador permaneça ativo até que o objeto seja coletado."
 
 #: ../../library/weakref.rst:63
 msgid ""
@@ -105,6 +142,11 @@ msgid ""
 "your own weak references directly.  The low-level machinery is exposed by "
 "the :mod:`weakref` module for the benefit of advanced uses."
 msgstr ""
+"A maioria dos programas deve descobrir que usar um desses tipos de "
+"contêineres fracos ou :class:`finalize` é tudo que eles precisam -- "
+"geralmente não é necessário criar suas próprias referências fracas "
+"diretamente. O maquinário de baixo nível é exposto pelo módulo :mod:"
+"`weakref` para benefício de usos avançados."
 
 #: ../../library/weakref.rst:68
 msgid ""
@@ -114,28 +156,41 @@ msgid ""
 "object>`, :term:`generators <generator>`, type objects, sockets, arrays, "
 "deques, regular expression pattern objects, and code objects."
 msgstr ""
+"Nem todos os objetos podem ser referenciados de maneira fraca. Objetos que "
+"oferecem suporte a referências fracas incluem instâncias de classe, funções "
+"escritas em Python (mas não em C), métodos de instância, conjuntos, "
+"frozensets, alguns :term:`objetos arquivos <objeto arquivo>`, :term:"
+"`geradores <gerador>`, objetos tipo, sockets, arrays, deques, objetos padrão "
+"de expressão regular e objetos código."
 
 #: ../../library/weakref.rst:74
 msgid "Added support for thread.lock, threading.Lock, and code objects."
-msgstr ""
+msgstr "Adicionado suporte para thread.lock, threading.Lock e objetos código."
 
 #: ../../library/weakref.rst:77
 msgid ""
 "Several built-in types such as :class:`list` and :class:`dict` do not "
 "directly support weak references but can add support through subclassing::"
 msgstr ""
+"Vários tipos embutidos como :class:`list` e :class:`dict` não oferecem "
+"suporta diretamente a referências fracas, mas podem adicionar suporte "
+"através de subclasses::"
 
 #: ../../library/weakref.rst:87
 msgid ""
 "Other built-in types such as :class:`tuple` and :class:`int` do not support "
 "weak references even when subclassed."
 msgstr ""
+"Outros tipos embutidos como :class:`tuple` e :class:`int` não oferecem "
+"suporte a referências fracas mesmo em subclasses."
 
 #: ../../library/weakref.rst:90
 msgid ""
 "Extension types can easily be made to support weak references; see :ref:"
 "`weakref-support`."
 msgstr ""
+"Os tipos de extensão podem ser facilmente criados para oferecer suporte a "
+"referências fracas; veja :ref:`weakref-support`."
 
 #: ../../library/weakref.rst:93
 msgid ""
@@ -144,6 +199,10 @@ msgid ""
 "of strings in the ``__slots__`` declaration. See :ref:`__slots__ "
 "documentation <slots>` for details."
 msgstr ""
+"Quando ``__slots__`` são definidos para um determinado tipo, o suporte a "
+"referência fraca é desativado a menos que uma string ``'__weakref__'`` "
+"também esteja presente na sequência de strings na declaração de "
+"``__slots__``. Veja a :ref:`documentação de __slots__ <slots>` para detalhes."
 
 #: ../../library/weakref.rst:100
 msgid ""
@@ -156,6 +215,14 @@ msgid ""
 "passed as the only parameter to the callback; the referent will no longer be "
 "available."
 msgstr ""
+"Retorna uma referência fraca para *object*. O objeto original pode ser "
+"recuperado chamando o objeto referência se o referente ainda estiver ativo; "
+"se o referente não estiver mais ativo, chamar o objeto referência fará com "
+"que :const:`None` seja retornado. Se *callback* for fornecido e não for :"
+"const:`None`, e o objeto referência fraca retornado ainda estiver ativo, o "
+"função de retorno será chamada quando o objeto estiver prestes a ser "
+"finalizado; o objeto referência fraca será passado como único parâmetro para "
+"a função de retorno; o referente não estará mais disponível."
 
 #: ../../library/weakref.rst:108
 msgid ""
@@ -163,6 +230,10 @@ msgid ""
 "object. Callbacks registered for each weak reference will be called from the "
 "most recently registered callback to the oldest registered callback."
 msgstr ""
+"É permitido que muitas referências fracas sejam construídas para o mesmo "
+"objeto. As funções de retorno registradas para cada referência fraca serão "
+"chamadas da função de retorno registrada mais recentemente para a função de "
+"retorno registrada mais antiga."
 
 #: ../../library/weakref.rst:112
 msgid ""
@@ -170,6 +241,10 @@ msgid ""
 "output, but cannot be propagated; they are handled in exactly the same way "
 "as exceptions raised from an object's :meth:`~object.__del__` method."
 msgstr ""
+"As exceções levantadas pela função de retorno serão anotadas na saída de "
+"erro padrão, mas não poderão ser propagadas; elas são tratadas exatamente da "
+"mesma maneira que as exceções levantadas pelo método :meth:`~object.__del__` "
+"de um objeto."
 
 #: ../../library/weakref.rst:116
 msgid ""
@@ -178,6 +253,10 @@ msgid ""
 "`hash` is called the first time only after the *object* was deleted, the "
 "call will raise :exc:`TypeError`."
 msgstr ""
+"Referências fracas são :term:`hasheáveis <hasheável>` se o *object* for "
+"hasheável. Elas manterão seu valor de hash mesmo depois que *object* for "
+"excluído. Se :func:`hash` for chamada pela primeira vez somente após o "
+"*object* ter sido excluído, a chamada vai levantar :exc:`TypeError`."
 
 #: ../../library/weakref.rst:121
 msgid ""
@@ -187,10 +266,17 @@ msgid ""
 "referent has been deleted, the references are equal only if the reference "
 "objects are the same object."
 msgstr ""
+"Referências fracas oferecem suporte a testes de igualdade, mas não de "
+"ordenação. Se os referentes ainda estiverem vivos, duas referências terão a "
+"mesma relação de igualdade que seus referentes (independentemente do "
+"*callback*). Se um dos referentes tiver sido excluído, as referências serão "
+"iguais somente se os objetos referência forem o mesmo objeto."
 
 #: ../../library/weakref.rst:126
 msgid "This is a subclassable type rather than a factory function."
 msgstr ""
+"Este é um tipo do qual pode ser feita subclasse em vez de uma função de "
+"fábrica."
 
 #: ../../library/weakref.rst:130
 msgid ""
@@ -198,10 +284,14 @@ msgid ""
 "weakref.  If there is no callback or if the referent of the weakref is no "
 "longer alive then this attribute will have value ``None``."
 msgstr ""
+"Este atributo somente leitura retorna a função de retorno atualmente "
+"associada à referência fraca. Se não houver função de retorno ou se o "
+"referente da referência fraca não estiver mais ativo, então este atributo "
+"terá o valor ``None``."
 
 #: ../../library/weakref.rst:134
 msgid "Added the :attr:`__callback__` attribute."
-msgstr ""
+msgstr "Adicionado o atributo :attr:`__callback__`."
 
 #: ../../library/weakref.rst:140
 msgid ""
@@ -215,6 +305,15 @@ msgid ""
 "keys.  *callback* is the same as the parameter of the same name to the :func:"
 "`ref` function."
 msgstr ""
+"Retorna um intermediário (proxy, em inglês) para *object* que usa uma "
+"referência fraca. Isto provê suporte ao uso do intermediário na maioria dos "
+"contextos, em vez de exigir a desreferenciação explícita usada com objetos "
+"de referência fraca. O objeto retornado terá um tipo ``ProxyType`` ou "
+"``CallableProxyType``, dependendo se *object* é chamável. Objetos "
+"intermediários não são :term:`hasheáveis <hasheável>` independentemente do "
+"referente; isso evita uma série de problemas relacionados à sua natureza "
+"fundamentalmente mutável e impede seu uso como chaves de dicionário. "
+"*callback* é igual ao parâmetro de mesmo nome da função :func:`ref`."
 
 #: ../../library/weakref.rst:149
 msgid ""
