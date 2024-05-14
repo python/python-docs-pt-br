@@ -6,17 +6,17 @@
 # Translators:
 # Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2021
 # i17obot <i17obot@rougeth.com>, 2021
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 # And Past <andrepgs@gmail.com>, 2024
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-11 02:33+0000\n"
+"POT-Creation-Date: 2024-05-11 18:37+0000\n"
 "PO-Revision-Date: 2021-06-28 01:08+0000\n"
-"Last-Translator: And Past <andrepgs@gmail.com>, 2024\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -53,10 +53,10 @@ msgid ""
 msgstr ""
 "``importlib.metadata`` é uma biblioteca que fornece acesso aos metadados de "
 "um `Pacote de Distribuição <https://packaging.python.org/pt_BR/latest/"
-"glossary/#term-Distribution-Package>`_ instalado, como seus pontos de "
-"entrada ou seus nomes de nível superior (`Pacotes de Importação <https://"
-"packaging.python.org/pt_BR/latest/glossary/#term-Import-Package>`, módulos, "
-"se houver). Construída em parte no sistema de importação do Python, esta "
+"glossary/#term-Import-Package>`_ instalado, como seus pontos de entrada ou "
+"seus nomes de nível superior (`Pacotes de Importação <https://packaging."
+"python.org/pt_BR/latest/glossary/#term-Import-Package>`, módulos, se "
+"houver). Construída em parte no sistema de importação do Python, esta "
 "biblioteca pretende substituir funcionalidades semelhantes na `API de ponto "
 "de entrada`_ e `API de metadados`_ de ``pkg_resources``. Junto com :mod:"
 "`importlib.resources`, este pacote pode eliminar a necessidade de usar o "
@@ -88,6 +88,13 @@ msgid ""
 "`packages_distributions() <package-distributions>` to get a mapping between "
 "them."
 msgstr ""
+"Eles *não* são necessariamente equivalentes ou correspondem 1:1 aos nomes de "
+"*pacotes de importação* de nível superior que podem ser importados dentro do "
+"código Python. Um *pacote de distribuição* pode conter vários *pacotes de "
+"importação* (e módulos únicos), e um *pacote de importação* de nível "
+"superior pode ser mapeado para vários *pacotes de distribuição* se for um "
+"pacote de espaço de nomes. Você pode usar :ref:`packages_distributions() "
+"<package-distributions>` para obter um mapeamento entre eles."
 
 #: ../../library/importlib.metadata.rst:47
 msgid ""
@@ -276,6 +283,8 @@ msgid ""
 "``EntryPoint`` objects no longer present a tuple-like interface (:meth:"
 "`~object.__getitem__`)."
 msgstr ""
+"Objetos ``EntryPoint`` não apresentam mais uma interface tupla ou similar (:"
+"meth:`~object.__getitem__`)."
 
 #: ../../library/importlib.metadata.rst:190
 msgid "Distribution metadata"
@@ -477,6 +486,8 @@ msgstr ""
 msgid ""
 "For editable packages, an origin property may present :pep:`610` metadata::"
 msgstr ""
+"Para pacotes editáveis, uma propriedade \"origin\" pode apresentar metadados "
+"conforme a :pep:`610`::"
 
 #: ../../library/importlib.metadata.rst:352
 msgid ""
@@ -491,7 +502,7 @@ msgstr ""
 
 #: ../../library/importlib.metadata.rst:355
 msgid "The ``.origin`` property was added."
-msgstr ""
+msgstr "A propriedade ``.origin`` foi adicionada."
 
 #: ../../library/importlib.metadata.rst:359
 msgid "Distribution Discovery"
@@ -508,7 +519,7 @@ msgstr ""
 "Por padrão, este pacote fornece suporte embutido para descoberta de "
 "metadados para sistema de arquivos e arquivo zip `Pacotes de Distribuição "
 "<https://packaging.python.org/pt_BR/latest/glossary/#term-Distribution-"
-"Package>`. Esta pesquisa do localizador de metadados tem como padrão ``sys."
+"Package>`_. Esta pesquisa do localizador de metadados tem como padrão ``sys."
 "path``, mas varia um pouco na maneira como ela interpreta esses valores em "
 "relação a outras mecanismo de importação. Em particular:"
 
@@ -611,6 +622,8 @@ msgid ""
 "Consider for example a custom finder that loads Python modules from a "
 "database::"
 msgstr ""
+"Considere, por exemplo, um localizador personalizado que carrega módulos "
+"Python de um banco de dados:"
 
 #: ../../library/importlib.metadata.rst:424
 msgid ""
@@ -618,6 +631,10 @@ msgid ""
 "but it provides no metadata or entry points. For this custom importer to "
 "provide metadata, it would also need to implement ``DistributionFinder``::"
 msgstr ""
+"Esse importador agora provavelmente fornece módulos importáveis ​​de um banco "
+"de dados, mas não fornece metadados ou pontos de entrada. Para que este "
+"importador personalizado forneça metadados, ele também precisaria "
+"implementar ``DistributionFinder``::"
 
 #: ../../library/importlib.metadata.rst:439
 msgid ""
@@ -627,6 +644,11 @@ msgid ""
 "``DatabaseDistribution`` for ``Context(name='requests')`` or "
 "``Context(name=None)``."
 msgstr ""
+"Desta forma, ``query_distributions`` retornaria registros para cada "
+"distribuição servida pelo banco de dados correspondente à consulta. Por "
+"exemplo, se ``requests-1.0`` estiver no banco de dados, "
+"``find_distributions`` produziria um ``DatabaseDistribution`` para "
+"``Context(name='requests')`` ou ``Context(name=None)``."
 
 #: ../../library/importlib.metadata.rst:445
 msgid ""
@@ -640,10 +662,20 @@ msgid ""
 "``PYTHONPATH``. In that case, the ``find_distributions`` should honor the "
 "``context.path`` and only yield ``Distribution``\\ s pertinent to that path."
 msgstr ""
+"Por uma questão de simplicidade, este exemplo ignora ``context.path``\\. O "
+"atributo ``path`` tem como padrão ``sys.path`` e é o conjunto de caminhos de "
+"importação a serem considerados na pesquisa. Um ``DatabaseImporter`` poderia "
+"funcionar potencialmente sem qualquer preocupação com um caminho de "
+"pesquisa. Supondo que o importador não faça particionamento, o caminho "
+"“path” seria irrelevante. Para ilustrar o propósito de ``path``, o exemplo "
+"precisaria ilustrar um ``DatabaseImporter`` mais complexo cujo comportamento "
+"variasse dependendo de ``sys.path``/``PYTHONPATH``. Nesse caso, "
+"``find_distributions`` deve respeitar o ``context.path`` e produzir apenas "
+"``Distribution``\\s pertinentes a esse caminho."
 
 #: ../../library/importlib.metadata.rst:456
 msgid "``DatabaseDistribution``, then, would look something like::"
-msgstr ""
+msgstr "``DatabaseDistribution``, então, se pareceria com algo como:"
 
 #: ../../library/importlib.metadata.rst:478
 msgid ""
@@ -651,6 +683,9 @@ msgid ""
 "packages served by the ``DatabaseImporter``, assuming that the ``record`` "
 "supplies suitable ``.name``, ``.version``, and ``.entry_points`` attributes."
 msgstr ""
+"Esta implementação básica deve fornecer metadados e pontos de entrada para "
+"pacotes servidos pelo ``DatabaseImporter``, assumindo que o ``record`` "
+"forneça os atributos ``.name``, ``.version`` e ``.entry_points`` adequados."
 
 #: ../../library/importlib.metadata.rst:483
 msgid ""
@@ -659,3 +694,7 @@ msgid ""
 "implementation of ``Distribution.files``. See the source for more "
 "inspiration."
 msgstr ""
+"O ``DatabaseDistribution`` também pode fornecer outros arquivos de "
+"metadados, como ``RECORD`` (necessário para ``Distribution.files``) ou "
+"substituir a implementação de ``Distribution.files``. Veja o código-fonte "
+"para mais inspiração."
