@@ -109,11 +109,11 @@ tx-config: pot tx-install
 	    --pot-dir pot
 	@mkdir -p .tx
 	@sed $(CPYTHON_DIR)/$(LOCALE_DIR)/.tx/config \
-	    -e "s|^file_filter  = .*|&\nx&|;" \
-	    -e "s|^source_file  = pot/|source_file  = $(LOCALE_RELATIVE)/pot/|" \
+	    -e "s|^file_filter *= .*|&\nx&|;" \
+	    -e "s|= pot/|= ../../pot/|" \
 	    > .tx/config
 	@sed -i .tx/config \
-	    -e "s|^xfile_filter  = ./<lang>/LC_MESSAGES/|trans.$(LANGUAGE)  = |;"
+	    -e "s|^xfile_filter *= ./<lang>/LC_MESSAGES/|trans.$(LANGUAGE)            = |;"
 
 
 # tx-install: Install Transifex CLI client if not installed yet. Installs
