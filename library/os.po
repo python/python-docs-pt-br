@@ -5696,7 +5696,7 @@ msgid ""
 "byteorder)``."
 msgstr ""
 "O método :func:`read` do descritor de arquivo pode ser chamado com um buffer "
-"de tamanho 8. Se o temporizador já expirou uma ou mais vezes,:func:`read` "
+"de tamanho 8. Se o temporizador já expirou uma ou mais vezes, :func:`read` "
 "retorna o número de vezes que o descritor expirou com a extremidade do "
 "hospedeiro, que pode ser convertido para um :class:`int` com ``int."
 "from_bytes(x, byteorder=sys.byteorder)``. "
@@ -5770,7 +5770,7 @@ msgid ""
 msgstr ""
 "O comportamento do descritor de arquivo pode ser modificado especificando um "
 "valor para  *flags*. Qualquer um dos seguintes valores pode ser usado, "
-"combinadas usando OU bit a bit (o operador ``|``):"
+"combinadas usando OU (OR) bit a bit (o operador ``|``):"
 
 #: ../../library/os.rst:3914
 msgid ":const:`TFD_NONBLOCK`"
@@ -5814,10 +5814,13 @@ msgid ""
 "Alter a timer file descriptor's internal timer. This function operates the "
 "same interval timer as :func:`timerfd_settime_ns`."
 msgstr ""
+"Altera uma temporizador interno do descritor de arquivo de temporizador. "
+"Essa função opera no mesmo intervalo do temporizador definido com :func:"
+"`timerfd_settime_ns`."
 
 #: ../../library/os.rst:3940
 msgid "*fd* must be a valid timer file descriptor."
-msgstr ""
+msgstr "*fd* deve ser um descritor de arquivo de temporizador válido."
 
 #: ../../library/os.rst:3942
 msgid ""
@@ -5825,14 +5828,17 @@ msgid ""
 "the following variables may used, combined using bitwise OR (the ``|`` "
 "operator):"
 msgstr ""
+"O comportamento do temporizador pode ser modificado especificando um valor "
+"para  *flags*. Qualquer um dos seguintes valores pode ser usado, combinadas "
+"usando OU (OR) bit a bit (o operador ``|``):"
 
 #: ../../library/os.rst:3946
 msgid ":const:`TFD_TIMER_ABSTIME`"
-msgstr ""
+msgstr ":const:`TFD_TIMER_ABSTIME`"
 
 #: ../../library/os.rst:3947
 msgid ":const:`TFD_TIMER_CANCEL_ON_SET`"
-msgstr ""
+msgstr ":const:`TFD_TIMER_CANCEL_ON_SET`"
 
 #: ../../library/os.rst:3949
 msgid ""
@@ -5841,12 +5847,18 @@ msgid ""
 "than zero, it raises an :class:`OSError` exception with ``errno`` set to :"
 "const:`errno.EINVAL`"
 msgstr ""
+"O temporizador é desabilitado definindo *initial* para zero (``0``). Se "
+"*initial* é igual ou maior que zero, o temporizador é habilitador. Se "
+"*initial* é menor que zero, uma exceção :class:`OSError` é levantada com "
+"``errno`` definido como :const:`errno.EINVAL`."
 
 #: ../../library/os.rst:3954
 msgid ""
 "By default the timer will fire when *initial* seconds have elapsed. (If "
 "*initial* is zero, timer will fire immediately.)"
 msgstr ""
+"Por padrão, o temporizador vai disparar quando passarem *initial* segundos. "
+"(Se *initial* é zero, o temporizador dispara imediatamente.)"
 
 #: ../../library/os.rst:3957
 msgid ""
@@ -5854,6 +5866,9 @@ msgid ""
 "when the timer's clock (set by *clockid* in :func:`timerfd_create`) reaches "
 "*initial* seconds."
 msgstr ""
+"Contudo, se o sinalizador :const:`TFD_TIMER_ABSTIME` está definido, o "
+"temporizador dispara quando o relógio do temporizador (definido por "
+"*clockid* em :func:`timerfd_create`) atingir *initial* segundos."
 
 #: ../../library/os.rst:3961
 msgid ""
@@ -5864,6 +5879,12 @@ msgid ""
 "than zero, it raises :class:`OSError` with ``errno`` set to :const:`errno."
 "EINVAL`"
 msgstr ""
+"O intervalor do temporizador é definido pelo :py:class:`float` *interval*. "
+"Se *interval* é zero, o temporizador irá disparar apenas uma vez, no disparo "
+"inicial. Se *interval* é maior que zero, o temporizador vai disparar a cada "
+"*interval* segundos a partir do disparo anterior. Se *interval* é menor que "
+"zero, uma exceção :class:`OSError` será levantada com ``errno`` definido "
+"como :const:`errno.EINVAL`."
 
 #: ../../library/os.rst:3968
 msgid ""
@@ -5873,6 +5894,11 @@ msgid ""
 "changed discontinuously. Reading the descriptor is aborted with the error "
 "ECANCELED."
 msgstr ""
+"Se o sinalizador :const:`TFD_TIMER_CANCEL_ON_SET` é definido com :const:"
+"`TFD_TIMER_ABSTIME` e o relógio para o temporizador é :const:`time."
+"CLOCK_REALTIME`, o temporizador é marcado como cancelável se o relógio em "
+"tempo real é alterado descontinuadamente. Leitura do descritor é abortada "
+"com o erro ECANCELED."
 
 #: ../../library/os.rst:3974
 msgid ""
@@ -5880,35 +5906,44 @@ msgid ""
 "done by changing time offset only and doesn't cause discontinuous system "
 "clock change."
 msgstr ""
+"Linux gerencia relógio do sistema como UTC. A transição do horário de verão "
+"é feita apenas pela alteração da compensação de horário e não causa "
+"alteração descontínua do relógio do sistema."
 
 #: ../../library/os.rst:3978
 msgid ""
 "Discontinuous system clock change will be caused by the following events:"
 msgstr ""
+"A alteração descontínua do relógio do sistema será causada pelos seguintes "
+"eventos:"
 
 #: ../../library/os.rst:3980
 msgid "``settimeofday``"
-msgstr ""
+msgstr "``settimeofday``"
 
 #: ../../library/os.rst:3981
 msgid "``clock_settime``"
-msgstr ""
+msgstr "``clock_settime``"
 
 #: ../../library/os.rst:3982
 msgid "set the system date and time by ``date`` command"
-msgstr ""
+msgstr "definir hora e data do sistema com o comando  ``date``"
 
 #: ../../library/os.rst:3984
 msgid ""
 "Return a two-item tuple of (``next_expiration``, ``interval``) from the "
 "previous timer state, before this function executed."
 msgstr ""
+"Retorna uma tupla com dois elementos (``next_expiration``, ``interval``) do "
+"estado anterior do temporizador, antes da execução dessa função."
 
 #: ../../library/os.rst:3989
 msgid ""
 ":manpage:`timerfd_create(2)`, :manpage:`timerfd_settime(2)`, :manpage:"
 "`settimeofday(2)`, :manpage:`clock_settime(2)`, and :manpage:`date(1)`."
 msgstr ""
+":manpage:`timerfd_create(2)`, :manpage:`timerfd_settime(2)`, :manpage:"
+"`settimeofday(2)`, :manpage:`clock_settime(2)`, e :manpage:`date(1)`."
 
 #: ../../library/os.rst:4000
 msgid ""
