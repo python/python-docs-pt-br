@@ -38,7 +38,7 @@ jobs:
     name: Build translated docs
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.2
+      - uses: actions/checkout@v4.1.6
         with:
           fetch-depth: 5
       
@@ -52,7 +52,7 @@ jobs:
         run: git pull --rebase
 
       - name: Add problem matcher
-        uses: sphinx-doc/github-problem-matcher@v1.0
+        uses: sphinx-doc/github-problem-matcher@v1.1
         
       - name: Build docs
         continue-on-error: true
@@ -62,14 +62,14 @@ jobs:
           
       - name: Upload artifact - docs
         if: steps.build.outcome == 'success'
-        uses: actions/upload-artifact@v4.3.1
+        uses: actions/upload-artifact@v4.3.3
         with:
           name: docs
           path: cpython/Doc/build/html
           
       - name: Upload artifact - log files
         if: always()
-        uses: actions/upload-artifact@v4.3.1
+        uses: actions/upload-artifact@v4.3.3
         with:
           name: build-logs
           path: logs/*
@@ -99,7 +99,7 @@ jobs:
     name: Lint translations
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.2
+      - uses: actions/checkout@v4.1.6
         with:
           fetch-depth: 5
       
@@ -122,7 +122,7 @@ jobs:
           make lint
           
       - name: Upload artifact - log files
-        uses: actions/upload-artifact@v4.3.1
+        uses: actions/upload-artifact@v4.3.3
         with:
           name: lint-logs
           path: logs/*
@@ -152,7 +152,7 @@ jobs:
     name: Spell check translations
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.2
+      - uses: actions/checkout@v4.1.6
         with:
           fetch-depth: 5
       
@@ -174,7 +174,7 @@ jobs:
         run: make spell
         
       - name: Upload artifact - log files
-        uses: actions/upload-artifact@v4.3.1
+        uses: actions/upload-artifact@v4.3.3
         with:
           name: pospell-logs
           path: logs/*
@@ -186,7 +186,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out ${{ github.repository }}
-        uses: actions/checkout@v4.1.2
+        uses: actions/checkout@v4.1.6
         with:
           fetch-depth: 5
       
@@ -211,7 +211,7 @@ jobs:
           powrap compendium.po
           
       - name: Upload artifact
-        uses: actions/upload-artifact@v4.3.1
+        uses: actions/upload-artifact@v4.3.3
         with:
           name: compendium
           path: compendium.po
@@ -221,7 +221,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out ${{ github.repository }}
-        uses: actions/checkout@v4.1.2
+        uses: actions/checkout@v4.1.6
       
       - name: Set up Python 3
         uses: actions/setup-python@v5.1.0
