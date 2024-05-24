@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-11 02:33+0000\n"
+"POT-Creation-Date: 2024-05-24 14:15+0000\n"
 "PO-Revision-Date: 2021-06-28 01:16+0000\n"
 "Last-Translator: Vitor Buxbaum Orlandi, 2023\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -450,16 +450,17 @@ msgstr "Foram adicionados dois argumentos somente-nomeado à função reset_mock
 #: ../../library/unittest.mock.rst:415
 msgid ""
 "This can be useful where you want to make a series of assertions that reuse "
-"the same object. Note that :meth:`reset_mock` *doesn't* clear the return "
-"value, :attr:`side_effect` or any child attributes you have set using normal "
-"assignment by default. In case you want to reset *return_value* or :attr:"
-"`side_effect`, then pass the corresponding parameter as ``True``. Child "
-"mocks and the return value mock (if any) are reset as well."
+"the same object. Note that :meth:`reset_mock` *doesn't* clear the :attr:"
+"`return_value`, :attr:`side_effect` or any child attributes you have set "
+"using normal assignment by default. In case you want to reset :attr:"
+"`return_value` or :attr:`side_effect`, then pass the corresponding parameter "
+"as ``True``. Child mocks and the return value mock (if any) are reset as "
+"well."
 msgstr ""
 
 #: ../../library/unittest.mock.rst:423
-msgid "*return_value*, and :attr:`side_effect` are keyword-only arguments."
-msgstr "*return_value*, e :attr:`side_effect` são argumentos somente-nomeado."
+msgid "*return_value*, and *side_effect* are keyword-only arguments."
+msgstr ""
 
 #: ../../library/unittest.mock.rst:429
 msgid ""
@@ -2335,39 +2336,21 @@ msgstr ""
 
 #: ../../library/unittest.mock.rst:2587
 msgid ""
-":class:`Mock` is a very powerful and flexible object, but it suffers from "
-"two flaws when used to mock out objects from a system under test. One of "
-"these flaws is specific to the :class:`Mock` api and the other is a more "
-"general problem with using mock objects."
+":class:`Mock` is a very powerful and flexible object, but it suffers from a "
+"flaw which is general to mocking. If you refactor some of your code, rename "
+"members and so on, any tests for code that is still using the *old api* but "
+"uses mocks instead of the real objects will still pass. This means your "
+"tests can all pass even though your code is broken."
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2592
+#: ../../library/unittest.mock.rst:2595
 msgid ""
-"First the problem specific to :class:`Mock`. :class:`Mock` has two assert "
-"methods that are extremely handy: :meth:`~Mock.assert_called_with` and :meth:"
-"`~Mock.assert_called_once_with`."
+"Before 3.5, tests with a typo in the word assert would silently pass when "
+"they should raise an error. You can still achieve this behavior by passing "
+"``unsafe=True`` to Mock."
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2605
-msgid ""
-"Because mocks auto-create attributes on demand, and allow you to call them "
-"with arbitrary arguments, if you misspell one of these assert methods then "
-"your assertion is gone:"
-msgstr ""
-
-#: ../../library/unittest.mock.rst:2615
-msgid "Your tests can pass silently and incorrectly because of the typo."
-msgstr ""
-
-#: ../../library/unittest.mock.rst:2617
-msgid ""
-"The second issue is more general to mocking. If you refactor some of your "
-"code, rename members and so on, any tests for code that is still using the "
-"*old api* but uses mocks instead of the real objects will still pass. This "
-"means your tests can all pass even though your code is broken."
-msgstr ""
-
-#: ../../library/unittest.mock.rst:2622
+#: ../../library/unittest.mock.rst:2598
 msgid ""
 "Note that this is another reason why you need integration tests as well as "
 "unit tests. Testing everything in isolation is all fine and dandy, but if "
@@ -2375,20 +2358,20 @@ msgid ""
 "room for bugs that tests might have caught."
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2627
+#: ../../library/unittest.mock.rst:2603
 msgid ""
 ":mod:`mock` already provides a feature to help with this, called speccing. "
 "If you use a class or instance as the :attr:`spec` for a mock then you can "
 "only access attributes on the mock that exist on the real class:"
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2638
+#: ../../library/unittest.mock.rst:2614
 msgid ""
 "The spec only applies to the mock itself, so we still have the same issue "
 "with any methods on the mock:"
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2647
+#: ../../library/unittest.mock.rst:2623
 msgid ""
 "Auto-speccing solves this problem. You can either pass ``autospec=True`` to :"
 "func:`patch` / :func:`patch.object` or use the :func:`create_autospec` "
@@ -2400,24 +2383,24 @@ msgid ""
 "import modules) without a big performance hit."
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2656
+#: ../../library/unittest.mock.rst:2632
 msgid "Here's an example of it in use::"
 msgstr "Aqui está um exemplo disso em uso::"
 
-#: ../../library/unittest.mock.rst:2666
+#: ../../library/unittest.mock.rst:2642
 msgid ""
 "You can see that :class:`request.Request` has a spec. :class:`request."
 "Request` takes two arguments in the constructor (one of which is *self*). "
 "Here's what happens if we try to call it incorrectly::"
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2675
+#: ../../library/unittest.mock.rst:2651
 msgid ""
 "The spec also applies to instantiated classes (i.e. the return value of "
 "specced mocks)::"
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2682
+#: ../../library/unittest.mock.rst:2658
 msgid ""
 ":class:`Request` objects are not callable, so the return value of "
 "instantiating our mocked out :class:`request.Request` is a non-callable "
@@ -2425,20 +2408,20 @@ msgid ""
 "error::"
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2694
+#: ../../library/unittest.mock.rst:2670
 msgid ""
 "In many cases you will just be able to add ``autospec=True`` to your "
 "existing :func:`patch` calls and then be protected against bugs due to typos "
 "and api changes."
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2698
+#: ../../library/unittest.mock.rst:2674
 msgid ""
 "As well as using *autospec* through :func:`patch` there is a :func:"
 "`create_autospec` for creating autospecced mocks directly:"
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2706
+#: ../../library/unittest.mock.rst:2682
 msgid ""
 "This isn't without caveats and limitations however, which is why it is not "
 "the default behaviour. In order to know what attributes are available on the "
@@ -2450,7 +2433,7 @@ msgid ""
 "objects so that introspection is safe [#]_."
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2715
+#: ../../library/unittest.mock.rst:2691
 msgid ""
 "A more serious problem is that it is common for instance attributes to be "
 "created in the :meth:`~object.__init__` method and not to exist on the class "
@@ -2458,7 +2441,7 @@ msgid ""
 "restricts the api to visible attributes. ::"
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2732
+#: ../../library/unittest.mock.rst:2708
 msgid ""
 "There are a few different ways of resolving this problem. The easiest, but "
 "not necessarily the least annoying, way is to simply set the required "
@@ -2467,7 +2450,7 @@ msgid ""
 "setting them::"
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2743
+#: ../../library/unittest.mock.rst:2719
 msgid ""
 "There is a more aggressive version of both *spec* and *autospec* that *does* "
 "prevent you setting non-existent attributes. This is useful if you want to "
@@ -2475,7 +2458,7 @@ msgid ""
 "this particular scenario:"
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2756
+#: ../../library/unittest.mock.rst:2732
 msgid ""
 "Probably the best way of solving the problem is to add class attributes as "
 "default values for instance members initialised in :meth:`~object.__init__`. "
@@ -2484,7 +2467,7 @@ msgid ""
 "course) is faster too. e.g."
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2767
+#: ../../library/unittest.mock.rst:2743
 msgid ""
 "This brings up another issue. It is relatively common to provide a default "
 "value of ``None`` for members that will later be an object of a different "
@@ -2495,7 +2478,7 @@ msgid ""
 "These will just be ordinary mocks (well - MagicMocks):"
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2782
+#: ../../library/unittest.mock.rst:2758
 msgid ""
 "If modifying your production classes to add defaults isn't to your liking "
 "then there are more options. One of these is simply to use an instance as "
@@ -2506,53 +2489,53 @@ msgid ""
 "alternative object as the *autospec* argument::"
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2803
+#: ../../library/unittest.mock.rst:2779
 msgid ""
 "This only applies to classes or already instantiated objects. Calling a "
 "mocked class to create a mock instance *does not* create a real instance. It "
 "is only attribute lookups - along with calls to :func:`dir` - that are done."
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2808
+#: ../../library/unittest.mock.rst:2784
 msgid "Sealing mocks"
 msgstr "Vedando mocks"
 
-#: ../../library/unittest.mock.rst:2817
+#: ../../library/unittest.mock.rst:2793
 msgid ""
 "Seal will disable the automatic creation of mocks when accessing an "
 "attribute of the mock being sealed or any of its attributes that are already "
 "mocks recursively."
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2820
+#: ../../library/unittest.mock.rst:2796
 msgid ""
 "If a mock instance with a name or a spec is assigned to an attribute it "
 "won't be considered in the sealing chain. This allows one to prevent seal "
 "from fixing part of the mock object. ::"
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2836
+#: ../../library/unittest.mock.rst:2812
 msgid ""
 "Order of precedence of :attr:`side_effect`, :attr:`return_value` and *wraps*"
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2838
+#: ../../library/unittest.mock.rst:2814
 msgid "The order of their precedence is:"
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2840
+#: ../../library/unittest.mock.rst:2816
 msgid ":attr:`~Mock.side_effect`"
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2841
+#: ../../library/unittest.mock.rst:2817
 msgid ":attr:`~Mock.return_value`"
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2842
+#: ../../library/unittest.mock.rst:2818
 msgid "*wraps*"
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2844
+#: ../../library/unittest.mock.rst:2820
 msgid ""
 "If all three are set, mock will return the value from :attr:`~Mock."
 "side_effect`, ignoring :attr:`~Mock.return_value` and the wrapped object "
@@ -2561,7 +2544,7 @@ msgid ""
 "of precedence remains unchanged."
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2862
+#: ../../library/unittest.mock.rst:2838
 msgid ""
 "As ``None`` is the default value of :attr:`~Mock.side_effect`, if you "
 "reassign its value back to ``None``, the order of precedence will be checked "
@@ -2569,46 +2552,46 @@ msgid ""
 "`~Mock.side_effect`."
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2871
+#: ../../library/unittest.mock.rst:2847
 msgid ""
 "If the value being returned by :attr:`~Mock.side_effect` is :data:`DEFAULT`, "
 "it is ignored and the order of precedence moves to the successor to obtain "
 "the value to return."
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2880
+#: ../../library/unittest.mock.rst:2856
 msgid ""
 "When :class:`Mock` wraps an object, the default value of :attr:`~Mock."
 "return_value` will be :data:`DEFAULT`."
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2889
+#: ../../library/unittest.mock.rst:2865
 msgid ""
 "The order of precedence will ignore this value and it will move to the last "
 "successor which is the wrapped object."
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2892
+#: ../../library/unittest.mock.rst:2868
 msgid ""
 "As the real call is being made to the wrapped object, creating an instance "
 "of this mock will return the real instance of the class. The positional "
 "arguments, if any, required by the wrapped object must be passed."
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2910
+#: ../../library/unittest.mock.rst:2886
 msgid ""
 "But if you assign ``None`` to it, this will not be ignored as it is an "
 "explicit assignment. So, the order of precedence will not move to the "
 "wrapped object."
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2918
+#: ../../library/unittest.mock.rst:2894
 msgid ""
 "Even if you set all three at once when initializing the mock, the order of "
 "precedence remains the same:"
 msgstr ""
 
-#: ../../library/unittest.mock.rst:2935
+#: ../../library/unittest.mock.rst:2911
 msgid ""
 "If :attr:`~Mock.side_effect` is exhausted, the order of precedence will not "
 "cause a value to be obtained from the successors. Instead, ``StopIteration`` "
