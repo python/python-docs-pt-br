@@ -204,9 +204,9 @@ msgstr ""
 "Para ajudar o Python a descobrir binários em seu novo local, o arquivo ``."
 "so`` original em ``sys.path`` é substituído por um arquivo ``.fwork``. Este "
 "arquivo é um arquivo texto que contém a localização do binário do framework, "
-"relativo ao pacote de aplicativos. Para permitir que o framework retorne ao "
+"relativo ao pacote de aplicações. Para permitir que o framework retorne ao "
 "local original, o framework deve conter um arquivo ``.origin`` que contém a "
-"localização do arquivo ``.fwork``, relativo ao pacote do aplicativo."
+"localização do arquivo ``.fwork``, relativo ao pacote da aplicação."
 
 #: ../../using/ios.rst:86
 msgid ""
@@ -223,6 +223,18 @@ msgid ""
 "framework would also contain ``Frameworks/foo.bar._whiz.framework/foo.bar."
 "_whiz.origin``, containing the path to the ``.fwork`` file."
 msgstr ""
+"Por exemplo, considere o caso de uma importação ``from foo.bar import "
+"_whiz``, onde ``_whiz`` é implementado com o módulo binário ``sources/foo/"
+"bar/_whiz.abi3.so``, com ``sources`` sendo o local registrado em ``sys."
+"path``, relativo ao pacote da aplicação. Este módulo *deve* ser distribuído "
+"como ``Frameworks/foo.bar._whiz.framework/foo.bar._whiz`` (criando o nome do "
+"framework a partir do caminho de importação completo do módulo), com um "
+"arquivo ``Info.plist`` no diretório ``.framework`` identificando o binário "
+"como um framework. O módulo ``foo.bar._whiz`` seria representado no local "
+"original com um arquivo marcador ``sources/foo/bar/_whiz.abi3.fwork``, "
+"contendo o caminho ``Frameworks/foo.bar._whiz/foo.bar._whiz``. O framework "
+"também conteria ``Frameworks/foo.bar._whiz.framework/foo.bar._whiz.origin``, "
+"contendo o caminho para o arquivo ``.fwork``."
 
 #: ../../using/ios.rst:99
 msgid ""
@@ -233,10 +245,16 @@ msgid ""
 "class:`~importlib.machinery.ModuleSpec` for the loaded module will report "
 "the ``origin`` as the location of the binary in the framework folder."
 msgstr ""
+"Ao executar no iOS, o interpretador Python instalará um :class:`~importlib."
+"machinery.AppleFrameworkLoader` que é capaz de ler e importar arquivos ``."
+"fwork``. Uma vez importado, o atributo ``__file__`` do módulo binário "
+"reportará como a localização do arquivo ``.fwork``. Entretanto, o :class:"
+"`~importlib.machinery.ModuleSpec` para o módulo carregado reportará a "
+"``origin`` como a localização do binário na pasta do framework."
 
 #: ../../using/ios.rst:107
 msgid "Compiler stub binaries"
-msgstr ""
+msgstr "Binários stub do compilador"
 
 #: ../../using/ios.rst:109
 msgid ""
@@ -245,12 +263,19 @@ msgid ""
 "iphoneos clang`` to get the ``clang`` for an iPhone device). However, using "
 "this script poses two problems:"
 msgstr ""
+"O Xcode não expõe compiladores explícitos para iOS; em vez disso, ele usa um "
+"script ``xcrun`` que resolve um caminho  do compilador (por exemplo, ``xcrun "
+"--sdk iphoneos clang`` para obter o ``clang`` para um dispositivo iPhone). "
+"No entanto, usar este script apresenta dois problemas:"
 
 #: ../../using/ios.rst:114
 msgid ""
 "The output of ``xcrun`` includes paths that are machine specific, resulting "
 "in a sysconfig module that cannot be shared between users; and"
 msgstr ""
+"A saída de ``xcrun`` inclui caminhos que são específicos da máquina, "
+"resultando em um módulo sysconfig que não pode ser compartilhado entre "
+"usuários; e"
 
 #: ../../using/ios.rst:117
 msgid ""
@@ -259,6 +284,10 @@ msgid ""
 "command line at the first space to get the path to the compiler executable; "
 "this isn't the case when using ``xcrun``."
 msgstr ""
+"Isso resulta em definições ``CC``/``CPP``/``LD``/``AR`` que incluem espaços. "
+"Existem muitas ferramentas do ecossistema C que pressupõem que você pode "
+"dividir uma linha de comando no primeiro espaço para obter o caminho para o "
+"executável do compilador; este não é o caso ao usar ``xcrun``."
 
 #: ../../using/ios.rst:122
 msgid ""
@@ -271,14 +300,23 @@ msgid ""
 "users to compile their own modules. When compiling third-party Python "
 "modules for iOS, you should ensure these stub binaries are on your path."
 msgstr ""
+"Para evitar esses problemas, o Python forneceu stubs para essas ferramentas. "
+"Esses stubs são wrappers de script de shell em torno das ferramentas "
+"subjacentes ``xcrun``, distribuídos em uma pasta ``bin`` distribuída junto "
+"com a estrutura iOS compilada. Esses scripts são relocáveis ​​e sempre serão "
+"resolvidos para os caminhos apropriados do sistema local. Ao incluir esses "
+"scripts na pasta bin que acompanha um framework, o conteúdo do módulo "
+"``sysconfig`` se torna útil para usuários finais compilarem seus próprios "
+"módulos. Ao compilar módulos Python de terceiros para iOS, você deve "
+"garantir que esses binários stub estejam no seu caminho."
 
 #: ../../using/ios.rst:132
 msgid "Installing Python on iOS"
-msgstr ""
+msgstr "Instalando Python no iOS"
 
 #: ../../using/ios.rst:135
 msgid "Tools for building iOS apps"
-msgstr ""
+msgstr "Ferramentas para construir aplicações de iOS"
 
 #: ../../using/ios.rst:137
 msgid ""
@@ -289,6 +327,12 @@ msgid ""
 "Xcode Command Line Tools are not sufficient for iOS development; you need a "
 "*full* Xcode install."
 msgstr ""
+"A construção para iOS requer o uso das ferramentas Xcode da Apple. É "
+"altamente recomendável que você use a versão estável mais recente do Xcode. "
+"Isso exigirá o uso da versão mais recente (ou segunda) do macOS lançada "
+"recentemente, já que a Apple não mantém o Xcode para versões mais antigas do "
+"macOS. As ferramentas de linha de comando do Xcode não são suficientes para "
+"o desenvolvimento iOS; você precisa de uma instalação *completa* do Xcode."
 
 #: ../../using/ios.rst:144
 msgid ""
@@ -298,10 +342,15 @@ msgid ""
 "iOS Simulator Platform by selecting from the Platforms tab of the Xcode "
 "Settings panel."
 msgstr ""
+"Se quiser executar seu código no simulador iOS, você também precisará "
+"instalar um iOS Simulator Platform. Você deverá ser solicitado a selecionar "
+"um iOS Simulator Platform ao executar o Xcode pela primeira vez. "
+"Alternativamente, você pode adicionar um iOS Simulator Platform selecionando "
+"na guia Platforms do painel Settings do Xcode."
 
 #: ../../using/ios.rst:152
 msgid "Adding Python to an iOS project"
-msgstr ""
+msgstr "Adicionando Python a um projeto iOS"
 
 #: ../../using/ios.rst:154
 msgid ""
@@ -310,10 +359,14 @@ msgid ""
 "find a library like `PythonKit <https://github.com/pvieito/PythonKit>`__ to "
 "be helpful."
 msgstr ""
+"Python pode ser adicionado a qualquer projeto iOS, usando Swift ou Objective "
+"C. Os exemplos a seguir usarão Objective C; se você estiver usando Swift, "
+"poderá achar uma biblioteca como `PythonKit <https://github.com/pvieito/"
+"PythonKit>`__ útil."
 
 #: ../../using/ios.rst:159
 msgid "To add Python to an iOS Xcode project:"
-msgstr ""
+msgstr "Para adicionar Python a um projeto Xcode de iOS:"
 
 #: ../../using/ios.rst:161
 msgid ""
@@ -323,6 +376,11 @@ msgid ""
 "supports ``arm64-apple-ios``, plus one of either ``arm64-apple-ios-"
 "simulator`` or ``x86_64-apple-ios-simulator``."
 msgstr ""
+"Construa ou obtenha um ``XCFramework`` em Python. Veja as instruções em :"
+"source:`iOS/README.rst` (na distribuição fonte do CPython) para detalhes "
+"sobre como construir um ``XCFramework`` em Python. No mínimo, você precisará "
+"de uma construção que tenha suporte ``arm64-apple-ios``, além de ``arm64-"
+"apple-ios-simulator`` ou ``x86_64-apple-ios-simulator``."
 
 #: ../../using/ios.rst:167
 msgid ""
@@ -331,12 +389,18 @@ msgid ""
 "of your project; however, you can use any other location that you want by "
 "adjusting paths as needed."
 msgstr ""
+"Arraste o ``XCframework`` para o seu projeto iOS. Nas instruções a seguir, "
+"assumiremos que você colocou o ``XCframework`` na raiz do seu projeto; no "
+"entanto, você pode usar qualquer outro local desejado ajustando os caminhos "
+"conforme necessário."
 
 #: ../../using/ios.rst:172
 msgid ""
 "Drag the ``iOS/Resources/dylib-Info-template.plist`` file into your project, "
 "and ensure it is associated with the app target."
 msgstr ""
+"Arraste o arquivo ``iOS/Resources/dylib-Info-template.plist`` para o seu "
+"projeto e certifique-se de que ele esteja associado ao destino da aplicação."
 
 #: ../../using/ios.rst:175
 msgid ""
@@ -346,55 +410,65 @@ msgid ""
 "adjusting paths as needed. Ensure that this folder is associated with your "
 "app target."
 msgstr ""
+"Adicione o código da sua aplicação como uma pasta no seu projeto Xcode. Nas "
+"instruções a seguir, assumiremos que seu código de usuário está em uma pasta "
+"chamada ``app`` na raiz do seu projeto; você pode usar qualquer outro local "
+"ajustando os caminhos conforme necessário. Certifique-se de que esta pasta "
+"esteja associada ao destino da sua aplicação."
 
 #: ../../using/ios.rst:181
 msgid ""
 "Select the app target by selecting the root node of your Xcode project, then "
 "the target name in the sidebar that appears."
 msgstr ""
+"Selecione o destino da aplicação selecionando o nó raiz do seu projeto Xcode "
+"e, em seguida, o nome do destino na barra lateral que aparece."
 
 #: ../../using/ios.rst:184
 msgid ""
 "In the \"General\" settings, under \"Frameworks, Libraries and Embedded "
 "Content\", add ``Python.xcframework``, with \"Embed & Sign\" selected."
 msgstr ""
+"Nas configurações de \"General\", em \"Frameworks, Libraries and Embedded "
+"Content\", adicione ``Python.xcframework``, com \"Embed & Sign\" selecionado."
 
 #: ../../using/ios.rst:187
 msgid "In the \"Build Settings\" tab, modify the following:"
-msgstr ""
+msgstr "Na guia \"Build Settings\", modifique o seguinte:"
 
 #: ../../using/ios.rst:189
 msgid "Build Options"
-msgstr ""
+msgstr "Build Options"
 
 #: ../../using/ios.rst:191
 msgid "User Script Sandboxing: No"
-msgstr ""
+msgstr "User Script Sandboxing: No"
 
 #: ../../using/ios.rst:192
 msgid "Enable Testability: Yes"
-msgstr ""
+msgstr "Enable Testability: Yes"
 
 #: ../../using/ios.rst:194
 msgid "Search Paths"
-msgstr ""
+msgstr "Search Paths"
 
 #: ../../using/ios.rst:196
 msgid "Framework Search Paths: ``$(PROJECT_DIR)``"
-msgstr ""
+msgstr "Framework Search Paths: ``$(PROJECT_DIR)``"
 
 #: ../../using/ios.rst:197
 msgid ""
 "Header Search Paths: ``\"$(BUILT_PRODUCTS_DIR)/Python.framework/Headers\"``"
 msgstr ""
+"Header Search Paths: ``\"$(BUILT_PRODUCTS_DIR)/Python.framework/Headers\"``"
 
 #: ../../using/ios.rst:199
 msgid "Apple Clang - Warnings - All languages"
-msgstr ""
+msgstr "Apple Clang - Warnings - All languages"
 
 #: ../../using/ios.rst:201
 msgid "Quoted Include In Framework Header: No"
-msgstr ""
+msgstr "Quoted Include In Framework Header: No"
 
 #: ../../using/ios.rst:203
 msgid ""
@@ -404,12 +478,20 @@ msgid ""
 "Name the step \"Install Target Specific Python Standard Library\", disable "
 "the \"Based on dependency analysis\" checkbox, and set the script content to:"
 msgstr ""
+"Adicione uma etapa de construção que copie a biblioteca padrão do Python em "
+"sua aplicação. Na aba \"Build Phases\", adicione uma nova etapa de "
+"construção \"Run Script\" *antes* da etapa \"Embed Frameworks\", mas "
+"*depois* da etapa \"Copy Bundle Resources\". Nomeie a etapa como \"Install "
+"Target Specific Python Standard Library\", desative a caixa de seleção "
+"\"Based on dependency analysis\" e defina o conteúdo do script como:"
 
 #: ../../using/ios.rst:222
 msgid ""
 "Note that the name of the simulator \"slice\" in the XCframework may be "
 "different, depending the CPU architectures your ``XCFramework`` supports."
 msgstr ""
+"Note que o nome da \"fatia\" do simulador no XCframework pode ser diferente, "
+"dependendo das arquiteturas de CPU que seu ``XCFramework`` provê suporte."
 
 #: ../../using/ios.rst:225
 msgid ""
@@ -419,58 +501,74 @@ msgid ""
 "Modules\". It should also have \"Based on dependency analysis\" unchecked, "
 "with the following script content:"
 msgstr ""
+"Adicione uma segunda etapa de construção que processe os módulos de extensão "
+"binária na biblioteca padrão no formato \"Framework\". Adicione uma etapa de "
+"construção \"Run Script\" *diretamente após* aquela que você adicionou na "
+"etapa 8, chamada \"Prepare Python Binary Modules\". Também deve ter \"Based "
+"on dependency analysis\" desmarcado, com o seguinte conteúdo de script:"
 
 #: ../../using/ios.rst:281
 msgid ""
 "Add Objective C code to initialize and use a Python interpreter in embedded "
 "mode. You should ensure that:"
 msgstr ""
+"Adicione código Objective C para inicializar e usar um interpretador Python "
+"em modo embarcado. Você deve garantir que:"
 
 #: ../../using/ios.rst:284
 msgid ":c:member:`UTF-8 mode <PyPreConfig.utf8_mode>` is *enabled*;"
-msgstr ""
+msgstr ":c:member:`Modo UTF-8 <PyPreConfig.utf8_mode>` esteja *enabled*;"
 
 #: ../../using/ios.rst:285
 msgid ":c:member:`Buffered stdio <PyConfig.buffered_stdio>` is *disabled*;"
 msgstr ""
+":c:member:`Buffered stdio <PyConfig.buffered_stdio>` esteja *disabled*;"
 
 #: ../../using/ios.rst:286
 msgid ":c:member:`Writing bytecode <PyConfig.write_bytecode>` is *disabled*;"
 msgstr ""
+":c:member:`Escrita de bytecode <PyConfig.write_bytecode>` esteja *disabled*;"
 
 #: ../../using/ios.rst:287
 msgid ""
 ":c:member:`Signal handlers <PyConfig.install_signal_handlers>` are *enabled*;"
 msgstr ""
+":c:member:`Manipuladores de sinais <PyConfig.install_signal_handlers>` "
+"estejam *enabled*;"
 
 #: ../../using/ios.rst:288
 msgid ""
 "``PYTHONHOME`` for the interpreter is configured to point at the ``python`` "
 "subfolder of your app's bundle; and"
 msgstr ""
+"``PYTHONHOME`` para o interpretador esteja configurado para apontar para a "
+"subpasta ``python`` do pacote da sua aplicação; e"
 
 #: ../../using/ios.rst:290
 msgid "The ``PYTHONPATH`` for the interpreter includes:"
-msgstr ""
+msgstr "O ``PYTHONPATH`` para o interpretador inclui:"
 
 #: ../../using/ios.rst:292
 msgid "the ``python/lib/python3.X`` subfolder of your app's bundle,"
-msgstr ""
+msgstr "a subpasta ``python/lib/python3.X`` do pacote da sua aplicação,"
 
 #: ../../using/ios.rst:293
 msgid ""
 "the ``python/lib/python3.X/lib-dynload`` subfolder of your app's bundle, and"
 msgstr ""
+"a subpasta ``python/lib/python3.X/lib-dynload`` do pacote da sua aplicação, e"
 
 #: ../../using/ios.rst:294
 msgid "the ``app`` subfolder of your app's bundle"
-msgstr ""
+msgstr "a subpasta ``app`` do pacote da sua aplicação"
 
 #: ../../using/ios.rst:296
 msgid ""
 "Your app's bundle location can be determined using ``[[NSBundle mainBundle] "
 "resourcePath]``."
 msgstr ""
+"O local do pacote da sua aplicação pode ser determinada usando ``[[NSBundle "
+"mainBundle] resourcePath]``."
 
 #: ../../using/ios.rst:299
 msgid ""
@@ -478,6 +576,10 @@ msgid ""
 "of pure Python application code, named ``app``. If you have third-party "
 "binary modules in your app, some additional steps will be required:"
 msgstr ""
+"Os passos 8, 9 e 10 destas instruções assumem que você tem uma única pasta "
+"de código de aplicação Python puro, chamada ``app``. Se você tiver módulos "
+"binários de terceiros em sua aplicação, serão necessárias algumas etapas "
+"adicionais:"
 
 #: ../../using/ios.rst:303
 msgid ""
@@ -487,6 +589,12 @@ msgid ""
 "specific build is targeting (i.e., delete any device binaries if you're "
 "building an app targeting the simulator)."
 msgstr ""
+"Você precisa garantir que todas as pastas que contenham binários de "
+"terceiros sejam associadas ao destino da aplicação ou copiadas como parte da "
+"etapa 8. A etapa 8 também deve limpar quaisquer binários que não sejam "
+"apropriados para a plataforma que uma construção específica está "
+"direcionando (ou seja, exclua todos os binários do dispositivo se estiver "
+"criando uma aplicação direcionado ao simulador)."
 
 #: ../../using/ios.rst:309
 msgid ""
@@ -494,9 +602,16 @@ msgid ""
 "framework form by step 9. The invocation of ``install_dylib`` that processes "
 "the ``lib-dynload`` folder can be copied and adapted for this purpose."
 msgstr ""
+"Quaisquer pastas que contenham binários de terceiros devem ser processadas "
+"no formato framework no passo 9. A invocação de ``install_dylib`` que "
+"processa a pasta ``lib-dynload`` pode ser copiada e adaptada para este "
+"propósito."
 
 #: ../../using/ios.rst:313
 msgid ""
 "If you're using a separate folder for third-party packages, ensure that "
 "folder is included as part of the ``PYTHONPATH`` configuration in step 10."
 msgstr ""
+"Se você estiver usando uma pasta separada para pacotes de terceiros, "
+"certifique-se de que essa pasta esteja incluída como parte da configuração "
+"``PYTHONPATH`` no passo 10."
