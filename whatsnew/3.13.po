@@ -83,9 +83,10 @@ msgstr ""
 "programação Python, com uma mistura de mudanças na linguagem, na "
 "implementação e na biblioteca padrão. As maiores mudanças na implementação "
 "incluem um novo interpretador interativo e suporte experimental para "
-"eliminar o Global Interpreter Lock (:pep:`703`) e um compilador Just-In-Time "
-"(:pep:`744`). As alterações da biblioteca contêm a remoção de APIs e módulos "
-"descontinuados, bem como as melhorias usuais na facilidade de uso e correção."
+"eliminar a trava global do interpretador (:pep:`703`) e um compilador Just-"
+"In-Time (:pep:`744`). As alterações da biblioteca contêm a remoção de APIs e "
+"módulos descontinuados, bem como as melhorias usuais na facilidade de uso e "
+"correção."
 
 #: ../../whatsnew/3.13.rst:80
 msgid "Interpreter improvements:"
@@ -173,7 +174,7 @@ msgstr ""
 
 #: ../../whatsnew/3.13.rst:117
 msgid "Free-threading:"
-msgstr ""
+msgstr "Threads sem travas:"
 
 #: ../../whatsnew/3.13.rst:119
 msgid ""
@@ -181,9 +182,9 @@ msgid ""
 "`global interpreter lock` disabled when built with ``--disable-gil``. See :"
 "ref:`Free-threaded CPython <free-threaded-cpython>` for more details."
 msgstr ""
-":pep:`703`: CPython 3.13 tem suporte experimental para ser executado com o :"
-"term:`bloqueio global do interpretador`, ou GIL, desabilitado quando "
-"compilado com ``--disable-gil``. Veja :ref:`CPython com threads livres <free-"
+":pep:`703`: CPython 3.13 tem suporte experimental para ser executado com a :"
+"term:`trava global do interpretador`, ou GIL, desabilitada quando compilado "
+"com ``--disable-gil``. Veja :ref:`CPython com threads sem travas <free-"
 "threaded-cpython>` para mais detalhes."
 
 #: ../../whatsnew/3.13.rst:123
@@ -661,7 +662,7 @@ msgstr ""
 
 #: ../../whatsnew/3.13.rst:384
 msgid "Free-threaded CPython"
-msgstr ""
+msgstr "CPython com threads sem travas"
 
 #: ../../whatsnew/3.13.rst:386
 msgid ""
@@ -672,6 +673,13 @@ msgid ""
 "builds that are marked as *free-threaded*. See :pep:`703` \"Making the "
 "Global Interpreter Lock Optional in CPython\" for more detail."
 msgstr ""
+"O CPython será executado com a :term:`trava global do interpretador` (GIL) "
+"desabilitada quando configurado usando a opção ``--disable-gil`` no momento "
+"da construção. Este é um recurso experimental e, portanto, não é usado por "
+"padrão. Os usuários precisam construir seu próprio interpretador ou instalar "
+"uma das construções experimentais marcadas como *free-threaded* (threads sem "
+"travas). Veja :pep:`703` \"Tornando a trava global do interpretador opcional "
+"no CPython\" para mais detalhes."
 
 #: ../../whatsnew/3.13.rst:393
 msgid ""
@@ -680,6 +688,11 @@ msgid ""
 "While not all software will benefit from this automatically, programs "
 "designed with threading in mind will run faster on multicore hardware."
 msgstr ""
+"A execução com threads sem travas permite a utilização total do poder de "
+"processamento disponível, executando threads em paralelo nos núcleos de CPU "
+"disponíveis. Embora nem todos os softwares se beneficiem disso "
+"automaticamente, os programas projetados com threading em mente serão "
+"executados mais rapidamente em hardware com vários núcleos."
 
 #: ../../whatsnew/3.13.rst:398
 msgid ""
@@ -693,6 +706,10 @@ msgid ""
 "enabled at runtime using the environment variable :envvar:`PYTHON_GIL` or "
 "the command line option :option:`-X gil`."
 msgstr ""
+"A construção com threads sem travas ainda opcionalmente oferece suporte à "
+"execução com a GIL habilitada em tempo de execução usando a variável de "
+"ambiente :envvar:`PYTHON_GIL` ou a opção de linha de comando :option:`-X "
+"gil`."
 
 #: ../../whatsnew/3.13.rst:405
 msgid ""
@@ -713,12 +730,23 @@ msgid ""
 "disabled with the :envvar:`PYTHON_GIL` environment variable or the :option:`-"
 "X gil=0` option."
 msgstr ""
+"Os módulos de extensão da API C precisam ser construídos especificamente "
+"para a construção com threads sem travas. Extensões que oferecem suporte à "
+"execução com :term:`GIL` desabilitada devem usar o slot :c:data:"
+"`Py_mod_gil`. Extensões que usam inicialização monofásica devem usar :c:func:"
+"`PyUnstable_Module_SetGIL` para indicar se oferecem suporte à execução com a "
+"GIL desabilitada. A importação de extensões C que não usam esses mecanismos "
+"fará com que a GIL seja habilitada, a menos que a GIL tenha sido "
+"explicitamente desabilitada com a variável de ambiente :envvar:`PYTHON_GIL` "
+"ou a opção :option:`-X gil=0`."
 
 #: ../../whatsnew/3.13.rst:419
 msgid ""
 "pip 24.1b1 or newer is required to install packages with C extensions in the "
 "free-threaded build."
 msgstr ""
+"pip 24.1b1 ou mais recente é necessário para instalar pacotes com extensões "
+"C na construção com threads sem travas."
 
 #: ../../whatsnew/3.13.rst:423
 msgid "Other Language Changes"
@@ -3725,6 +3753,10 @@ msgid ""
 "flags.  For example, the free-threaded build generates ``python-3.13t.pc`` "
 "and the debug build generates ``python-3.13d.pc``."
 msgstr ""
+"Em sistemas POSIX, os nomes de arquivos pkg-config (``.pc``) agora incluem "
+"os sinalizadores de ABI. Por exemplo, a construção com threads sem travas "
+"gera ``python-3.13t.pc`` e a construção de depuração gera ``python-3.13d."
+"pc``."
 
 #: ../../whatsnew/3.13.rst:2209
 msgid "Porting to Python 3.13"
