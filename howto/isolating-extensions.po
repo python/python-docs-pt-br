@@ -6,16 +6,16 @@
 # Translators:
 # Marco Rougeth <marco@rougeth.com>, 2022
 # Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2022
+# Pedro Fonini, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-24 14:15+0000\n"
+"POT-Creation-Date: 2024-05-17 14:15+0000\n"
 "PO-Revision-Date: 2022-11-05 19:48+0000\n"
-"Last-Translator: Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, "
-"2022\n"
+"Last-Translator: Pedro Fonini, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr ""
 
 #: ../../howto/isolating-extensions.rst:7
 msgid "Isolating Extension Modules"
-msgstr ""
+msgstr "Isolando Módulos de Extensão"
 
 #: ../../howto/isolating-extensions.rst-1
 msgid "Abstract"
@@ -39,6 +39,10 @@ msgid ""
 "``static`` variables, which have process-wide scope. This document describes "
 "problems of such per-process state and shows a safer way: per-module state."
 msgstr ""
+"Tradicionalmente, o estado que pertence a módulos de extensão do Python era "
+"mantido em variáveis ``static`` em C, que têm escopo em todo o processo. "
+"Este documento descreve problemas de tal estado por processo e apresenta um "
+"modo mais seguro: o estado por módulo."
 
 #: ../../howto/isolating-extensions.rst:16
 msgid ""
@@ -47,10 +51,14 @@ msgid ""
 "potentially switching from static types to heap types, and—perhaps most "
 "importantly—accessing per-module state from code."
 msgstr ""
+"O documento também descreve como migrar para o uso do estado por módulo onde "
+"for possível. Essa transição envolve alocar espaço para este estado, "
+"potencialmente trocar tipos estáticos por tipos no heap, e—talvez o mais "
+"importante—acessar o estado por módulo a partir do código."
 
 #: ../../howto/isolating-extensions.rst:23
 msgid "Who should read this"
-msgstr ""
+msgstr "Quem deveria ler isto"
 
 #: ../../howto/isolating-extensions.rst:25
 msgid ""
@@ -58,10 +66,13 @@ msgid ""
 "extensions who would like to make that extension safer to use in "
 "applications where Python itself is used as a library."
 msgstr ""
+"Este guia é escrito para mantenedores de extensões que usam a :ref:`API C <c-"
+"api-index>` que desejam torná-las mais seguras para o uso em aplicações onde "
+"o Python em si é usado como uma biblioteca."
 
 #: ../../howto/isolating-extensions.rst:31
 msgid "Background"
-msgstr ""
+msgstr "Informações preliminares"
 
 #: ../../howto/isolating-extensions.rst:33
 msgid ""
@@ -69,24 +80,34 @@ msgid ""
 "configuration (e.g. the import path) and runtime state (e.g. the set of "
 "imported modules)."
 msgstr ""
+"Um *interpretador* é o contexto no qual o código Python é executado. Ele "
+"contém estado de configuração (por exemplo o caminho de importação) e de "
+"tempo de execução (por exemplo o conjunto de módulos importados)."
 
 #: ../../howto/isolating-extensions.rst:37
 msgid ""
 "Python supports running multiple interpreters in one process. There are two "
 "cases to think about—users may run interpreters:"
 msgstr ""
+"O Python provê suporte para executar múltiplos interpretadores em um "
+"processo. Dois casos devem ser considerados—usuários podem executar "
+"interpretadores:"
 
 #: ../../howto/isolating-extensions.rst:40
 msgid ""
 "in sequence, with several :c:func:`Py_InitializeEx`/:c:func:`Py_FinalizeEx` "
 "cycles, and"
 msgstr ""
+"em sequência, com vários ciclos de :c:func:`Py_InitializeEx`/:c:func:"
+"`Py_FinalizeEx`, e"
 
 #: ../../howto/isolating-extensions.rst:42
 msgid ""
 "in parallel, managing \"sub-interpreters\" using :c:func:"
 "`Py_NewInterpreter`/:c:func:`Py_EndInterpreter`."
 msgstr ""
+"em paralelo, gerenciando \"sub-interpretadores\" usando :c:func:"
+"`Py_NewInterpreter`/:c:func:`Py_EndInterpreter`."
 
 #: ../../howto/isolating-extensions.rst:45
 msgid ""
@@ -95,6 +116,10 @@ msgid ""
 "about the application that uses them, which include assuming a process-wide "
 "\"main Python interpreter\"."
 msgstr ""
+"Ambos os casos (e combinações deles) são muito úteis ao embutir o Python em "
+"uma biblioteca. Bibliotecas geralmente não devem fazer suposições sobre a "
+"aplicação que as usa, o que inclui supor um \"interpretador Python "
+"principal\" para o processo inteiro."
 
 #: ../../howto/isolating-extensions.rst:50
 msgid ""
@@ -106,6 +131,14 @@ msgid ""
 "introduce edge cases that lead to crashes when a module is loaded in more "
 "than one interpreter in the same process."
 msgstr ""
+"Historicamente, módulos de extensão do Python não lidam bem com este caso de "
+"uso. Muitos módulos de extensão (e até alguns módulos da biblioteca padrão) "
+"usam estado global *por processo*, uma vez que variáveis ``static`` do C são "
+"extremamente fáceis de se usar. Assim, dados que deveriam ser específicos "
+"para um interpretador acabam sendo compartilhados entre interpretadores. A "
+"menos que o desenvolvedor da extensão tenha cuidado, é muito fácil criar "
+"casos particulares que acabam quebrando o processo quando um módulo é "
+"carregado em mais de um interpretador no mesmo processo."
 
 #: ../../howto/isolating-extensions.rst:58
 msgid ""
@@ -113,10 +146,13 @@ msgid ""
 "authors tend to not keep multiple interpreters in mind when developing, and "
 "it is currently cumbersome to test the behavior."
 msgstr ""
+"Infelizmente, não é fácil fazer o estado por interpretador. Autores de "
+"extensões tendem a não ter múltiplos interpretadores em mente ao "
+"desenvolver, e no momento é complicado testar este comportamento."
 
 #: ../../howto/isolating-extensions.rst:63
 msgid "Enter Per-Module State"
-msgstr ""
+msgstr "Entra o estado por módulo"
 
 #: ../../howto/isolating-extensions.rst:65
 msgid ""
@@ -127,6 +163,13 @@ msgid ""
 "multiple module objects corresponding to a single extension can even be "
 "loaded in a single interpreter."
 msgstr ""
+"Ao invés de focar no estado por interpretador, a API C do Python está "
+"evoluindo para melhor suportar o estado *por módulo*, que é mais granular. "
+"Isso significa que dados a nível do C devem estar atrelados a um *objeto de "
+"módulo*. Cada interpretador cria o seu próprio objeto de módulo, garantindo "
+"assim a separação dos dados. Para testar o isolamento, múltiplos objetos de "
+"módulo correspondentes a uma única extensão podem até ser carregados em um "
+"único interpretador."
 
 #: ../../howto/isolating-extensions.rst:72
 msgid ""
@@ -136,6 +179,11 @@ msgid ""
 "any other :c:expr:`PyObject *`; there are no \"on interpreter shutdown\" "
 "hooks to think—or forget—about."
 msgstr ""
+"O estado por módulo fornece um modo fácil de pensar sobre tempos de vida e "
+"posse de recursos: o módulo de extensão será inicializado quando um objeto "
+"de módulo for criado, e limpado quando ele for liberado. Nesse sentido, um "
+"módulo funciona como qualquer outro :c:expr:`PyObject *`; não há ganchos "
+"\"de desligamento do interpretador\" a serem considerados—ou esquecidos."
 
 #: ../../howto/isolating-extensions.rst:78
 msgid ""
@@ -145,10 +193,16 @@ msgid ""
 "exceptional cases: if you need them, you should give them additional care "
 "and testing. (Note that this guide does not cover them.)"
 msgstr ""
+"Note que há casos de uso para diferentes tipos de \"objetos globais\": "
+"estado por processo, por interpretador, por thread, ou por tarefa. Com o "
+"estado por módulo como padrão, as outras formas ainda são possíveis, mas "
+"devem ser tratadas como casos excepcionais: se você precisar delas, você "
+"deve tomar cuidados adicionais e escrever mais testes. (Note que este guia "
+"não cobre tais medidas.)"
 
 #: ../../howto/isolating-extensions.rst:87
 msgid "Isolated Module Objects"
-msgstr ""
+msgstr "Objetos de módulo isolados"
 
 #: ../../howto/isolating-extensions.rst:89
 msgid ""
@@ -156,6 +210,9 @@ msgid ""
 "several module objects can be created from a single shared library. For "
 "example:"
 msgstr ""
+"O ponto chave de se manter em mente ao desenvolver um módulo de extensão é "
+"que vários objetos de módulo podem ser criados a partir de uma única "
+"biblioteca compartilhada. Por exemplo:"
 
 #: ../../howto/isolating-extensions.rst:103
 msgid ""
@@ -166,6 +223,13 @@ msgid ""
 "are possible (see `Managing Global State`_), but they will need more thought "
 "and attention to edge cases."
 msgstr ""
+"Como regra geral, os dois módulos devem ser completamente independentes. "
+"Todos os objetos e o estado específicos do módulo devem ser encapsulados no "
+"objeto de módulo, não devem ser compartilhados com outros objetos de módulo, "
+"e devem ser limpados quando o objeto de módulo for desalocado. Uma vez que "
+"esta é somente uma regra geral, exceções são possíveis (veja `Gerenciando "
+"Estado Global`_), mas elas necessitam mais cuidado e atenção a casos "
+"especiais."
 
 #: ../../howto/isolating-extensions.rst:111
 msgid ""
@@ -173,10 +237,13 @@ msgid ""
 "modules make it easier to set clear expectations and guidelines that work "
 "across a variety of use cases."
 msgstr ""
+"Enquanto alguns módulos funcionariam bem com restrições menos rigorosas, "
+"isolar os módulos torna mais fácil definir expectativas claras e diretrizes "
+"que dão certo em uma variedade de casos de uso."
 
 #: ../../howto/isolating-extensions.rst:117
 msgid "Surprising Edge Cases"
-msgstr ""
+msgstr "Casos particulares surpreendentes"
 
 #: ../../howto/isolating-extensions.rst:119
 msgid ""
@@ -206,7 +273,7 @@ msgstr ""
 
 #: ../../howto/isolating-extensions.rst:152
 msgid "Managing Global State"
-msgstr ""
+msgstr "Gerenciando Estado Global"
 
 #: ../../howto/isolating-extensions.rst:154
 msgid ""
