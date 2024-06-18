@@ -409,7 +409,7 @@ msgid ""
 "c>`__; example module initialization shown at the bottom of the file."
 msgstr ""
 "Um exemplo de módulo com estado por módulo está disponível atualmente como "
-"``xxlimited <https://github.com/python/cpython/blob/master/Modules/xxlimited."
+"`xxlimited <https://github.com/python/cpython/blob/master/Modules/xxlimited."
 "c>`__; há um exemplo de inicialização do módulo no final do arquivo."
 
 #: ../../howto/isolating-extensions.rst:211
@@ -491,11 +491,11 @@ msgid ""
 msgstr ""
 "Não há problema em compartilhar objetos verdadeiramente imutáveis entre "
 "interpretadores, desde que através deles não seja possível acessar outros "
-"objetos mutáveis. Entretanto, no CPython, todo objeto Python tem um detalhe "
-"de implementação mutável: o contador de referências. Mudanças no refcount "
-"são protegidas pelo GIL. Logo, todo código que compartilha um objeto Python "
-"entre interpretadores depende implicitamente do GIL (que é global a nível de "
-"processo)."
+"objetos mutáveis. De toda forma, no CPython, todo objeto Python tem um "
+"detalhe de implementação mutável: o contador de referências. Mudanças no "
+"refcount são protegidas pelo GIL. Logo, todo código que compartilha um "
+"objeto Python entre interpretadores depende implicitamente do atual GIL do "
+"CPython (que é global a nível de processo)."
 
 #: ../../howto/isolating-extensions.rst:277
 msgid ""
@@ -505,14 +505,20 @@ msgid ""
 "*heap type* for short. These correspond more closely to classes created by "
 "Python's ``class`` statement."
 msgstr ""
+"Por ser imutável e global no processo, um tipo estático não pode acessar o "
+"estado do \"seu\" módulo. Se um método de tal tipo precisar de acesso ao "
+"estado do módulo, o tipo precisa ser convertido para um *tipo alocado no "
+"heap*, ou, abreviando, *tipo no heap*. Tipos no heap correspondem mais "
+"fielmente a classes criadas pela instrução ``class`` do Python."
 
 #: ../../howto/isolating-extensions.rst:284
 msgid "For new modules, using heap types by default is a good rule of thumb."
 msgstr ""
+"Para módulos novos, usar tipos no heap por padrão é uma boa regra geral."
 
 #: ../../howto/isolating-extensions.rst:288
 msgid "Changing Static Types to Heap Types"
-msgstr ""
+msgstr "Mudando tipos estáticos para tipos no heap"
 
 #: ../../howto/isolating-extensions.rst:290
 msgid ""
@@ -523,18 +529,30 @@ msgid ""
 "unintentionally change a few details (e.g. pickleability or inherited "
 "slots). Always test the details that are important to you."
 msgstr ""
+"Tipos estáticos podem ser convertidos para tipos no heap, mas note que a API "
+"de tipos no heap não foi projetada para conversão \"sem perda\" de tipos "
+"estáticos—isto é, para criar um tipo que funciona exatamente como um dado "
+"tipo estático. Então, ao reescrever a definição de classe em uma nova API, é "
+"provável que você altere alguns detalhes sem querer (por exemplo, se o tipo "
+"é serializável em pickle ou não, ou slots herdados). Sempre teste os "
+"detalhes que são importantes para você."
 
 #: ../../howto/isolating-extensions.rst:299
 msgid ""
 "Watch out for the following two points in particular (but note that this is "
 "not a comprehensive list):"
 msgstr ""
+"Fique atento em particular aos dois pontos a seguir (mas note the esta não é "
+"uma lista completa):"
 
 #: ../../howto/isolating-extensions.rst:302
 msgid ""
 "Unlike static types, heap type objects are mutable by default. Use the :c:"
 "macro:`Py_TPFLAGS_IMMUTABLETYPE` flag to prevent mutability."
 msgstr ""
+"Ao contrário de tipos estáticos, tipos no heap são mutáveis por padrão. Use "
+"o sinalizador :c:macro:`Py_TPFLAGS_IMMUTABLETYPE` para impedir a "
+"mutabilidade."
 
 #: ../../howto/isolating-extensions.rst:304
 msgid ""
@@ -542,10 +560,13 @@ msgid ""
 "become possible to instantiate them from Python code. You can prevent this "
 "with the :c:macro:`Py_TPFLAGS_DISALLOW_INSTANTIATION` flag."
 msgstr ""
+"Tipos no heap herdam :c:member:`~PyTypeObject.tp_new` por padrão, e portanto "
+"eles podem passar a ser instanciáveis a partir de código Python. Você pode "
+"impedir isso com o sinalizador :c:macro:`Py_TPFLAGS_DISALLOW_INSTANTIATION`."
 
 #: ../../howto/isolating-extensions.rst:310
 msgid "Defining Heap Types"
-msgstr ""
+msgstr "Definindo tipos no heap"
 
 #: ../../howto/isolating-extensions.rst:312
 msgid ""
@@ -553,6 +574,9 @@ msgid ""
 "description or \"blueprint\" of a class, and calling :c:func:"
 "`PyType_FromModuleAndSpec` to construct a new class object."
 msgstr ""
+"Tipos no heap podem ser criados preenchendo uma estrutura :c:struct:"
+"`PyType_Spec`, uma descrição ou \"diagrama\" de uma classe, e chamando :c:"
+"func:`PyType_FromModuleAndSpec` para construir um novo objeto classe."
 
 #: ../../howto/isolating-extensions.rst:317
 msgid ""
@@ -560,16 +584,22 @@ msgid ""
 "but :c:func:`PyType_FromModuleAndSpec` associates the module with the class, "
 "allowing access to the module state from methods."
 msgstr ""
+"Outras funções, como :c:func:`PyType_FromSpec`, também podem criar tipos no "
+"heap, mas :c:func:`PyType_FromModuleAndSpec` associa a classe ao módulo, "
+"permitindo acesso ao estado do módulo a partir dos métodos."
 
 #: ../../howto/isolating-extensions.rst:321
 msgid ""
 "The class should generally be stored in *both* the module state (for safe "
 "access from C) and the module's ``__dict__`` (for access from Python code)."
 msgstr ""
+"A classe deve em geral ser guardada *tanto* no estado do módulo (para acesso "
+"seguro a partir do C) *quanto* no ``__dict__`` do módulo (para acesso a "
+"partir de código Python)."
 
 #: ../../howto/isolating-extensions.rst:327
 msgid "Garbage-Collection Protocol"
-msgstr ""
+msgstr "Protocolo de recolhimento de lixo"
 
 #: ../../howto/isolating-extensions.rst:329
 msgid ""
@@ -577,28 +607,38 @@ msgid ""
 "the type isn't destroyed before all its instances are, but may result in "
 "reference cycles that need to be broken by the garbage collector."
 msgstr ""
+"Instâncias de tipos no heap contêm referências aos seus tipos. Isso garante "
+"que o tipo não é destruído antes que todas as suas instâncias sejam, mas "
+"pode resultar em ciclos de referência que precisam ser quebrados pelo "
+"coletor de lixo."
 
 #: ../../howto/isolating-extensions.rst:334
 msgid ""
 "To avoid memory leaks, instances of heap types must implement the garbage "
 "collection protocol. That is, heap types should:"
 msgstr ""
+"Para evitar vazamentos de memória, instâncias de tipos no heap precisam "
+"implementar o protocolo de recolhimento de lixo. Isto é, tipos no heap devem:"
 
 #: ../../howto/isolating-extensions.rst:338
 msgid "Have the :c:macro:`Py_TPFLAGS_HAVE_GC` flag."
-msgstr ""
+msgstr "Ter o sinalizador :c:macro:`Py_TPFLAGS_HAVE_GC`."
 
 #: ../../howto/isolating-extensions.rst:339
 msgid ""
 "Define a traverse function using ``Py_tp_traverse``, which visits the type "
 "(e.g. using ``Py_VISIT(Py_TYPE(self))``)."
 msgstr ""
+"Definir uma função de travessia usando ``Py_tp_traverse``, que visita o tipo "
+"(por exemplo, usando ``Py_VISIT(Py_TYPE(self))``)."
 
 #: ../../howto/isolating-extensions.rst:342
 msgid ""
 "Please refer to the the documentation of :c:macro:`Py_TPFLAGS_HAVE_GC` and :"
 "c:member:`~PyTypeObject.tp_traverse` for additional considerations."
 msgstr ""
+"Por favor veja as documentações de :c:macro:`Py_TPFLAGS_HAVE_GC` e de :c:"
+"member:`~PyTypeObject.tp_traverse` para considerações adicionais."
 
 #: ../../howto/isolating-extensions.rst:346
 msgid ""
