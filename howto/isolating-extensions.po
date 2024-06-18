@@ -27,7 +27,7 @@ msgstr ""
 
 #: ../../howto/isolating-extensions.rst:7
 msgid "Isolating Extension Modules"
-msgstr "Isolando Módulos de Extensão"
+msgstr "Isolando módulos de extensão"
 
 #: ../../howto/isolating-extensions.rst-1
 msgid "Abstract"
@@ -228,7 +228,7 @@ msgstr ""
 "objeto de módulo, não devem ser compartilhados com outros objetos de módulo, "
 "e devem ser limpados quando o objeto de módulo for desalocado. Uma vez que "
 "esta é somente uma regra geral, exceções são possíveis (veja `Gerenciando "
-"Estado Global`_), mas elas necessitam mais cuidado e atenção a casos "
+"estado global`_), mas elas necessitam mais cuidado e atenção a casos "
 "especiais."
 
 #: ../../howto/isolating-extensions.rst:111
@@ -254,26 +254,37 @@ msgid ""
 "``binascii.Error`` are separate objects. In the following code, the "
 "exception is *not* caught:"
 msgstr ""
+"Note que módulos isolados criam alguns casos particulares que podem acabar "
+"surpreendendo. O mais notável é que, tipicamente, cada objeto de módulo não "
+"vai compartilhar as suas classes e exceções com outros módulos similares. "
+"Continuando o `exemplo acima <Objetos de módulo isolados_>`__, note "
+"``old_binascii.Error`` e ``binascii.Error`` são objetos separados. No código "
+"a seguir, a exceção *não* é capturada:"
 
 #: ../../howto/isolating-extensions.rst:139
 msgid ""
 "This is expected. Notice that pure-Python modules behave the same way: it is "
 "a part of how Python works."
 msgstr ""
+"Isso é esperado. Repare que módulos Python-puro se comportam do mesmo jeito: "
+"isso é parte de como o Python funciona."
 
 #: ../../howto/isolating-extensions.rst:142
 msgid ""
 "The goal is to make extension modules safe at the C level, not to make hacks "
 "behave intuitively. Mutating ``sys.modules`` \"manually\" counts as a hack."
 msgstr ""
+"O objetivo é fazer módulos de extensão seguros no nível do C, e não fazer "
+"gambiarras se comportarem de forma intuitiva. Modificar o ``sys.modules`` "
+"\"manualmente\" conta como uma gambiarra."
 
 #: ../../howto/isolating-extensions.rst:148
 msgid "Making Modules Safe with Multiple Interpreters"
-msgstr ""
+msgstr "Fazendo módulos seguros com múltiplos interpretadores"
 
 #: ../../howto/isolating-extensions.rst:152
 msgid "Managing Global State"
-msgstr "Gerenciando Estado Global"
+msgstr "Gerenciando estado global"
 
 #: ../../howto/isolating-extensions.rst:154
 msgid ""
@@ -281,15 +292,20 @@ msgid ""
 "module, but to the entire process (or something else \"more global\" than a "
 "module). For example:"
 msgstr ""
+"Às vezes, o estado associado a um módulo Python não é específico àquele "
+"módulo, mas ao processo inteiro (ou a alguma outra coisa \"mais global\" que "
+"um módulo). Por exemplo:"
 
 #: ../../howto/isolating-extensions.rst:158
 msgid "The ``readline`` module manages *the* terminal."
-msgstr ""
+msgstr "O módulo ``readline`` gerencia *o* terminal."
 
 #: ../../howto/isolating-extensions.rst:159
 msgid ""
 "A module running on a circuit board wants to control *the* on-board LED."
 msgstr ""
+"Um módulo executando em uma placa de circuito quer controlar *o* componente "
+"LED."
 
 #: ../../howto/isolating-extensions.rst:162
 msgid ""
@@ -299,6 +315,11 @@ msgid ""
 "whether for Python or other languages). If that is not possible, consider "
 "explicit locking."
 msgstr ""
+"Nestes casos, o módulo Python deve prover *acesso* ao estado global, ao "
+"invés de *possuí-lo*. Se possível, escreva o módulo de forma que múltiplas "
+"cópias dele possam acessar o estado independentemente (junto com outras "
+"bibliotecas, sejam elas do Python ou de outras linguagens). Se isso não for "
+"possível, considere usar travas explícitas."
 
 #: ../../howto/isolating-extensions.rst:168
 msgid ""
@@ -307,10 +328,14 @@ msgid ""
 "being loaded more than once per process—see `Opt-Out: Limiting to One Module "
 "Object per Process`_."
 msgstr ""
+"Se for necessário usar estado global para o processo, o jeito mais simples "
+"de evitar problemas com múltiplos interpretadores é prevenir explicitamente "
+"que o módulo seja carregado mais de uma vez por processo—veja `Exclusão "
+"voluntária: limitando a um objeto de módulo por processo`_."
 
 #: ../../howto/isolating-extensions.rst:175
 msgid "Managing Per-Module State"
-msgstr ""
+msgstr "Gerenciando estado por módulo"
 
 #: ../../howto/isolating-extensions.rst:177
 msgid ""
@@ -318,6 +343,9 @@ msgid ""
 "initialization <multi-phase-initialization>`. This signals that your module "
 "supports multiple interpreters correctly."
 msgstr ""
+"Para usar estado por módulo, use :ref:`inicialização multifásica de módulos "
+"de extensão <multi-phase-initialization>`. Assim, você sinaliza que o seu "
+"módulo suporta múltiplos interpretadores corretamente."
 
 #: ../../howto/isolating-extensions.rst:181
 msgid ""
@@ -329,6 +357,13 @@ msgid ""
 "``csv``'s :py:data:`~csv.field_size_limit`) which the C code needs to "
 "function."
 msgstr ""
+"Defina ``PyModuleDef.m_size`` como um número positivo *N* para requerer *N* "
+"bytes de armazenamento local para o módulo. Geralmente, *N* será o tamanho "
+"de alguma ``struct`` específica para o módulo, a qual pode guardar todo o "
+"estado a nível de C do módulo. Em particular, é nela que você deve colocar "
+"ponteiros para classes (incluindo exceções, mas excluindo tipos estáticos) e "
+"configurações (por exemplo, :py:data:`~csv.field_size_limit` no módulo "
+"``csv``) que o código C precisa para funcionar."
 
 #: ../../howto/isolating-extensions.rst:190
 msgid ""
@@ -337,12 +372,19 @@ msgid ""
 "means error- and type-checking at the C level, which is easy to get wrong "
 "and hard to test sufficiently."
 msgstr ""
+"Outra opção é guardar estado no ``__dict__`` do módulo, mas você deve evitar "
+"quebrar quando usuários modificarem o ``__dict__`` a partir do código "
+"Python. Isso geralmente significa verificar tipos e erros no nível do C, o "
+"que é fácil de ser feito incorretamente e difícil de se testar "
+"suficientemente."
 
 #: ../../howto/isolating-extensions.rst:195
 msgid ""
 "However, if module state is not needed in C code, storing it in ``__dict__`` "
 "only is a good idea."
 msgstr ""
+"Entretanto, se o estado do módulo não for necessário para o código C, guardá-"
+"lo somente no ``__dict__`` é uma boa ideia."
 
 #: ../../howto/isolating-extensions.rst:198
 msgid ""
@@ -353,6 +395,12 @@ msgid ""
 "and make the code longer; this is the price for modules which can be "
 "unloaded cleanly."
 msgstr ""
+"Se o estado do módulo inclui ponteiros para ``PyObject``, o objeto de módulo "
+"deve conter referências a tais objetos e implementar os ganchos a nível de "
+"módulo ``m_traverse``, ``m_clear`` e ``m_free``. Eles funcionam como os "
+"``tp_traverse``, ``tp_clear`` e ``tp_free`` de uma classe. Adicioná-los "
+"requer algum trabalho e torna o código mais longo; é o preço de módulos que "
+"podem ser descarregados de forma limpa."
 
 #: ../../howto/isolating-extensions.rst:205
 msgid ""
@@ -360,10 +408,13 @@ msgid ""
 "`xxlimited <https://github.com/python/cpython/blob/master/Modules/xxlimited."
 "c>`__; example module initialization shown at the bottom of the file."
 msgstr ""
+"Um exemplo de módulo com estado por módulo está disponível atualmente como "
+"``xxlimited <https://github.com/python/cpython/blob/master/Modules/xxlimited."
+"c>`__; há um exemplo de inicialização do módulo no final do arquivo."
 
 #: ../../howto/isolating-extensions.rst:211
 msgid "Opt-Out: Limiting to One Module Object per Process"
-msgstr ""
+msgstr "Exclusão voluntária: limitando a um objeto de módulo por processo"
 
 #: ../../howto/isolating-extensions.rst:213
 msgid ""
@@ -372,10 +423,14 @@ msgid ""
 "module, you can explicitly make your module loadable only once per process. "
 "For example::"
 msgstr ""
+"Um ``PyModuleDef.m_size`` não-negativo sinaliza que um módulo admite "
+"múltiplos interpretadores corretamente. Se este ainda não é o caso para o "
+"seu módulo, you pode explicitamente torná-lo carregável somente uma vez por "
+"processo. Por exemplo::"
 
 #: ../../howto/isolating-extensions.rst:234
 msgid "Module State Access from Functions"
-msgstr ""
+msgstr "Acesso ao estado de módulo a partir de funções"
 
 #: ../../howto/isolating-extensions.rst:236
 msgid ""
@@ -383,6 +438,9 @@ msgid ""
 "Functions get the module object as their first argument; for extracting the "
 "state, you can use ``PyModule_GetState``::"
 msgstr ""
+"É trivial acessar o estado a partir de funções a nível do módulo. Funções "
+"recebem o objeto de módulo como o primeiro argumento; para extrair o estado, "
+"você pode usar ``PyModule_GetState``::"
 
 #: ../../howto/isolating-extensions.rst:251
 msgid ""
@@ -390,10 +448,14 @@ msgid ""
 "there is no module state, i.e. ``PyModuleDef.m_size`` was zero. In your own "
 "module, you're in control of ``m_size``, so this is easy to prevent."
 msgstr ""
+"``PyModule_GetState`` pode retornar ``NULL`` sem definir uma exceção se não "
+"houver estado de módulo, ou seja se ``PyModuleDef.m_size`` for zero. No seu "
+"próprio módulo, você controla o ``m_size``, de forma que isso é fácil de "
+"prevenir."
 
 #: ../../howto/isolating-extensions.rst:258
 msgid "Heap Types"
-msgstr ""
+msgstr "Tipos no heap"
 
 #: ../../howto/isolating-extensions.rst:260
 msgid ""
@@ -401,6 +463,9 @@ msgid ""
 "PyTypeObject`` structures defined directly in code and initialized using "
 "``PyType_Ready()``."
 msgstr ""
+"Tradicionalmente, tipos definidos em C são *estáticos*; isto é, estruturas "
+"``static PyTypeObject`` definidas diretamente em código e inicializadas "
+"usando ``PyType_Ready()``."
 
 #: ../../howto/isolating-extensions.rst:264
 msgid ""
@@ -409,6 +474,11 @@ msgid ""
 "limit the possible issues, static types are immutable at the Python level: "
 "for example, you can't set ``str.myattribute = 123``."
 msgstr ""
+"Tais tipos são necessariamente compartilhados pelo processo inteiro. "
+"Compartilhá-los entre objetos de módulo requer atenção a qualquer estado que "
+"eles possuam ou acessem. Para limitar potenciais problemas, tipos estáticos "
+"são imutáveis a nível do Python: por exemplo, você não pode atribuir ``str."
+"meuatributo = 123``."
 
 #: ../../howto/isolating-extensions.rst:270
 msgid ""
@@ -419,6 +489,13 @@ msgid ""
 "Python objects across interpreters implicitly depends on CPython's current, "
 "process-wide GIL."
 msgstr ""
+"Não há problema em compartilhar objetos verdadeiramente imutáveis entre "
+"interpretadores, desde que através deles não seja possível acessar outros "
+"objetos mutáveis. Entretanto, no CPython, todo objeto Python tem um detalhe "
+"de implementação mutável: o contador de referências. Mudanças no refcount "
+"são protegidas pelo GIL. Logo, todo código que compartilha um objeto Python "
+"entre interpretadores depende implicitamente do GIL (que é global a nível de "
+"processo)."
 
 #: ../../howto/isolating-extensions.rst:277
 msgid ""
