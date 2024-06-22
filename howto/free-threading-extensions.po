@@ -5,17 +5,17 @@
 #
 # Translators:
 # felipe caridade fernandes <caridade500@gmail.com>, 2024
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 # Adorilson Bezerra <adorilson@gmail.com>, 2024
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-20 06:40+0000\n"
+"POT-Creation-Date: 2024-06-21 14:14+0000\n"
 "PO-Revision-Date: 2024-06-20 06:42+0000\n"
-"Last-Translator: Adorilson Bezerra <adorilson@gmail.com>, 2024\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -123,13 +123,16 @@ msgstr "Diretrizes gerais de API"
 
 #: ../../howto/free-threading-extensions.rst:95
 msgid "Most of the C API is thread-safe, but there are some exceptions."
-msgstr ""
+msgstr "A maior parte da API C é segura para thread, mas há algumas exceções."
 
 #: ../../howto/free-threading-extensions.rst:97
 msgid ""
 "**Struct Fields**: Accessing fields in Python C API objects or structs "
 "directly is not thread-safe if the field may be concurrently modified."
 msgstr ""
+"**Campos de structs**: acessar campos em objetos ou structs da API C do "
+"Python diretamente não é seguro para thread se o campo puder ser modificado "
+"simultaneamente."
 
 #: ../../howto/free-threading-extensions.rst:99
 msgid ""
@@ -137,6 +140,10 @@ msgid ""
 "`PyList_SET_ITEM` do not perform any error checking or locking. These macros "
 "are not thread-safe if the container object may be modified concurrently."
 msgstr ""
+"**Macros**: Macros de acesso como :c:macro:`PyList_GET_ITEM` e :c:macro:"
+"`PyList_SET_ITEM` não executam nenhuma verificação por erros e nenhum "
+"travamento. Essas macros não são seguras para thread se o objeto contêiner "
+"puder ser modificado simultaneamente."
 
 #: ../../howto/free-threading-extensions.rst:103
 msgid ""
@@ -145,10 +152,15 @@ msgid ""
 "object is modified concurrently.  See the section on :ref:`borrowed "
 "references <borrowed-references>` for more information."
 msgstr ""
+"**Referências emprestadas**: As funções da API C que retornam :term:"
+"`referências emprestadas <borrowed reference>` podem não ser seguras para "
+"thread se o objeto que as contêm for modificado simultaneamente. Veja a "
+"seção sobre :ref:`referências emprestadas <borrowed-references>` para mais "
+"informações."
 
 #: ../../howto/free-threading-extensions.rst:110
 msgid "Container Thread Safety"
-msgstr ""
+msgstr "Segurança de threads de contêineres"
 
 #: ../../howto/free-threading-extensions.rst:112
 msgid ""
@@ -157,10 +169,14 @@ msgid ""
 "For example, the :c:func:`PyList_Append` will lock the list before appending "
 "an item."
 msgstr ""
+"Contêineres como :c:struct:`PyListObject`, :c:struct:`PyDictObject` e :c:"
+"struct:`PySetObject` executam uma trava interna na construção com threads "
+"livres. Por exemplo, :c:func:`PyList_Append` irá travar a lista antes de "
+"anexar um item."
 
 #: ../../howto/free-threading-extensions.rst:119
 msgid "Borrowed References"
-msgstr ""
+msgstr "Referências emprestadas"
 
 #: ../../howto/free-threading-extensions.rst:123
 msgid ""
@@ -169,20 +185,26 @@ msgid ""
 "modified concurrently.  For example, it's not safe to use :c:func:"
 "`PyList_GetItem` if the list may be modified concurrently."
 msgstr ""
+"Algumas funções da API C retornam :term:`referências emprestadas <borrowed "
+"reference>`. Essas APIs não são seguras para thread se o objeto que as "
+"contém for modificado simultaneamente. Por exemplo, não é seguro usar :c:"
+"func:`PyList_GetItem` se a lista puder ser modificada simultaneamente."
 
 #: ../../howto/free-threading-extensions.rst:128
 msgid ""
 "The following table lists some borrowed reference APIs and their "
 "replacements that return :term:`strong references <strong reference>`."
 msgstr ""
+"A tabela a seguir lista algumas APIs de referências emprestadas e suas "
+"substituições que retornam :term:`referências fortes <strong reference>`."
 
 #: ../../howto/free-threading-extensions.rst:132
 msgid "Borrowed reference API"
-msgstr ""
+msgstr "API de referências emprestadas"
 
 #: ../../howto/free-threading-extensions.rst:132
 msgid "Strong reference API"
-msgstr ""
+msgstr "API de referências fortes"
 
 #: ../../howto/free-threading-extensions.rst:134
 msgid ":c:func:`PyList_GetItem`"
@@ -227,7 +249,7 @@ msgstr ":c:func:`PyDict_Next`"
 
 #: ../../howto/free-threading-extensions.rst:144
 msgid "no direct replacement"
-msgstr ""
+msgstr "nenhum substituto direto"
 
 #: ../../howto/free-threading-extensions.rst:146
 msgid ":c:func:`PyWeakref_GetObject`"
@@ -260,6 +282,14 @@ msgid ""
 "(not accessible by other threads), so using borrowed references in that "
 "context is safe."
 msgstr ""
+"Nem todas as APIs que retornam referências emprestadas são problemáticas. "
+"Por exemplo, :c:func:`PyTuple_GetItem` é segura porque as tuplas são "
+"imutáveis. Da mesma forma, nem todos os usos das APIs acima são "
+"problemáticos. Por exemplo, :c:func:`PyDict_GetItem` é frequentemente usado "
+"para analisar dicionários de argumentos nomeados em chamadas de função; "
+"esses dicionários de argumentos nomeados efetivamente privados (não "
+"acessíveis por outros threads), portanto, usar referências emprestadas nesse "
+"contexto é seguro."
 
 #: ../../howto/free-threading-extensions.rst:161
 msgid ""
@@ -267,10 +297,14 @@ msgid ""
 "`pythoncapi-compat <https://github.com/python/pythoncapi-compat>`_ package "
 "to provide implementations of these functions for older Python versions."
 msgstr ""
+"Algumas dessas funções foram adicionadas no Python 3.13. Você pode usar o "
+"pacote `pythoncapi-compat <https://github.com/python/pythoncapi-compat>`_ "
+"para fornecer implementações dessas funções para versões mais antigas do "
+"Python."
 
 #: ../../howto/free-threading-extensions.rst:167
 msgid "Memory Allocation APIs"
-msgstr ""
+msgstr "APIs de alocação de memória"
 
 #: ../../howto/free-threading-extensions.rst:169
 msgid ""
@@ -281,6 +315,13 @@ msgid ""
 "allocated using that domain.  This differes from the prior Python versions, "
 "where this was only a best practice and not a hard requirement."
 msgstr ""
+"A API C de gerenciamento de memória do Python fornece funções em três :ref:"
+"`domínios de alocação <allocator-domains>` diferentes: \"raw\", \"mem\" e "
+"\"object\".  Para segurança de thread, a construção de threads livres requer "
+"que apenas objetos Python sejam alocados usando o domínio do objeto e que "
+"todos os objetos Python sejam alocados usando esse domínio. Isso difere das "
+"versões anteriores do Python, onde era apenas uma melhor prática e não um "
+"requisito estrito."
 
 #: ../../howto/free-threading-extensions.rst:178
 msgid ""
@@ -288,16 +329,21 @@ msgid ""
 "that the allocated memory is used for Python objects. Use :c:func:"
 "`PyMem_Malloc` to allocate buffers instead of :c:func:`PyObject_Malloc`."
 msgstr ""
+"Procure usos de :c:func:`PyObject_Malloc` em sua extensão e verifique se a "
+"memória alocada é usada para objetos Python. Use :c:func:`PyMem_Malloc` para "
+"alocar buffers em vez de :c:func:`PyObject_Malloc`."
 
 #: ../../howto/free-threading-extensions.rst:185
 msgid "Thread State and GIL APIs"
-msgstr ""
+msgstr "APIs da GIL e de estado de threads"
 
 #: ../../howto/free-threading-extensions.rst:187
 msgid ""
 "Python provides a set of functions and macros to manage thread state and the "
 "GIL, such as:"
 msgstr ""
+"Python fornece um conjunto de funções e macros para gerenciar o estado de "
+"threads e a GIL, como:"
 
 #: ../../howto/free-threading-extensions.rst:190
 msgid ":c:func:`PyGILState_Ensure` and :c:func:`PyGILState_Release`"
@@ -319,6 +365,11 @@ msgid ""
 "before calling into the Python API to ensure that the thread has a valid "
 "Python thread state."
 msgstr ""
+"Estas funções ainda devem ser usadas na construção com threads livres para "
+"gerenciar o estado de threads mesmo quando a :term:`GIL` está desabilitada. "
+"Por exemplo, se você criar uma thread fora do Python, você deve chamar :c:"
+"func:`PyGILState_Ensure` antes de chamar a API Python para garantir que a "
+"thread tenha um estado de thread válido para o Python."
 
 #: ../../howto/free-threading-extensions.rst:200
 msgid ""
@@ -327,10 +378,14 @@ msgid ""
 "acquisitions, to allow other threads to run the :term:`cyclic garbage "
 "collector <garbage collection>`."
 msgstr ""
+"Você deve continuar a chamar :c:func:`PyEval_SaveThread` ou :c:macro:"
+"`Py_BEGIN_ALLOW_THREADS` em torno de operações de travamento, como E/S ou "
+"aquisições de trava, para permitir que outras threads executem o :term:"
+"`coletor de lixo cíclico <garbage collection>`."
 
 #: ../../howto/free-threading-extensions.rst:207
 msgid "Protecting Internal Extension State"
-msgstr ""
+msgstr "Protegendo o estado interno das extensões"
 
 #: ../../howto/free-threading-extensions.rst:209
 msgid ""
@@ -338,6 +393,9 @@ msgid ""
 "GIL.  You may need to add locking to protect this state.  The approach will "
 "depend on your extension, but some common patterns include:"
 msgstr ""
+"Sua extensão pode ter um estado interno que foi previamente protegido pela "
+"GIL. Talvez seja necessário adicionar uma trava para proteger esse estado. A "
+"abordagem dependerá da sua extensão, mas alguns padrões comuns incluem:"
 
 #: ../../howto/free-threading-extensions.rst:213
 msgid ""
@@ -345,6 +403,9 @@ msgid ""
 "using a lock to protect the cache or disabling it in the free-threaded build "
 "if the cache is not critical for performance."
 msgstr ""
+"**Caches**: caches globais são uma fonte comum de estado compartilhado. "
+"Considere usar uma trava para proteger o cache ou desativá-lo na construção "
+"com threads livres se o cache não for crítico para o desempenho."
 
 #: ../../howto/free-threading-extensions.rst:216
 msgid ""
@@ -353,22 +414,31 @@ msgid ""
 "``_Thread_local`` for `thread-local storage <https://en.cppreference.com/w/c/"
 "language/storage_duration>`_."
 msgstr ""
+"**Estado global**: o estado global pode precisar ser protegido por uma trava "
+"ou movido para o armazenamento local do thread. C11 e C++11 fornecem "
+"``thread_local`` ou ``_Thread_local`` para `armazenamento local de thread "
+"<https://en.cppreference.com/w/c/language/storage_duration>`_."
 
 #: ../../howto/free-threading-extensions.rst:223
 msgid "Building Extensions for the Free-Threaded Build"
-msgstr ""
+msgstr "Construindo extensões para a construção com threads livres"
 
 #: ../../howto/free-threading-extensions.rst:225
 msgid ""
 "C API extensions need to be built specifically for the free-threaded build. "
 "The wheels, shared libraries, and binaries are indicated by a ``t`` suffix."
 msgstr ""
+"As extensões da API C precisam ser construídas especificamente para a "
+"construção com threads livres. As wheels, bibliotecas compartilhadas e "
+"binários são indicados por um sufixo ``t``."
 
 #: ../../howto/free-threading-extensions.rst:228
 msgid ""
 "`pypa/manylinux <https://github.com/pypa/manylinux>`_ supports the free-"
 "threaded build, with the ``t`` suffix, such as ``python3.13t``."
 msgstr ""
+"`pypa/manylinux <https://github.com/pypa/manylinux>`_ oferece suporte à "
+"construção com threads livres, com o sufixo ``t``, como ``python3.13t``."
 
 #: ../../howto/free-threading-extensions.rst:230
 msgid ""
@@ -376,10 +446,13 @@ msgid ""
 "free-threaded build if you set `CIBW_FREE_THREADED_SUPPORT <https://"
 "cibuildwheel.pypa.io/en/stable/options/#free-threaded-support>`_."
 msgstr ""
+"`pypa/cibuildwheel <https://github.com/pypa/cibuildwheel>`_ tem suporte à "
+"construção com threads livres se você definir `CIBW_FREE_THREADED_SUPPORT "
+"<https://cibuildwheel.pypa.io/en/stable/options/#free-threaded-support>`_."
 
 #: ../../howto/free-threading-extensions.rst:235
 msgid "Limited C API and Stable ABI"
-msgstr ""
+msgstr "API C limitada e ABI estável"
 
 #: ../../howto/free-threading-extensions.rst:237
 msgid ""
@@ -390,6 +463,12 @@ msgid ""
 "sysconfig.get_config_var(\"Py_GIL_DISABLED\")`` to opt out of the limited "
 "API when building with the free-threaded build."
 msgstr ""
+"A construção com threads livres não tem suporte atualmente à :ref:`API C "
+"limitada <limited-c-api>` ou à ABI estável. Se você usar `setuptools "
+"<https://setuptools.pypa.io/en/latest/setuptools.html>`_ para construir sua "
+"extensão e atualmente definir ``py_limited_api=True``, você pode usar "
+"``py_limited_api=not sysconfig.get_config_var(\"Py_GIL_DISABLED\")`` para "
+"não usar a API limitada ao construir com a construção com threads livres."
 
 #: ../../howto/free-threading-extensions.rst:245
 msgid ""
@@ -397,6 +476,9 @@ msgid ""
 "build.  If you currently use the stable ABI, you can continue to build a "
 "single wheel for multiple non-free-threaded Python versions."
 msgstr ""
+"Você precisará construir wheels separadas especificamente para a construção "
+"com threads livres. Se você usa atualmente a ABI estável, poderá continuar a "
+"construir uma única wheel para várias versões do Python sem threads livres."
 
 #: ../../howto/free-threading-extensions.rst:251
 msgid "Windows"
@@ -407,3 +489,6 @@ msgid ""
 "Due to a limitation of the official Windows installer, you will need to "
 "manually define ``Py_GIL_DISABLED=1`` when building extensions from source."
 msgstr ""
+"Devido a uma limitação do instalador oficial do Windows, você precisará "
+"definir manualmente ``Py_GIL_DISABLED=1`` ao construir extensões a partir do "
+"código-fonte."
