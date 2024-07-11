@@ -4106,6 +4106,11 @@ msgid ""
 "optimize closing of generators. (Contributed by Irit Katriel in :gh:"
 "`111354`.)"
 msgstr ""
+"O oparg de ``YIELD_VALUE`` agora é ``1`` se o yield fizer parte de um yield-"
+"from ou um await, e ``0`` caso contrário. O oparg de ``RESUME`` foi alterado "
+"para adicionar um bit indicando se a profundidade de exceção é 1, o que é "
+"necessário para otimizar o fechamento dos geradores. (Contribuição de Irit "
+"Katriel em :gh:`111354`.)"
 
 #: ../../whatsnew/3.13.rst:1946
 msgid "C API Changes"
@@ -4119,6 +4124,11 @@ msgid ""
 "use ``Py_ssize_t`` for ``#`` formats. (Contributed by Inada Naoki in :gh:"
 "`104922`.)"
 msgstr ""
+"Você não precisa mais definir a macro ``PY_SSIZE_T_CLEAN`` antes de incluir :"
+"file:`Python.h` ao usar formatos ``#`` em :ref:`códigos de formato <arg-"
+"parsing-string-and-buffers>`. APIs que aceitam os códigos de formato sempre "
+"usam ``Py_ssize_t`` para formatos ``#``. (Contribuição de Inada Naoki em :gh:"
+"`104922`.)"
 
 #: ../../whatsnew/3.13.rst:1957
 msgid ""
@@ -4131,6 +4141,14 @@ msgid ""
 "can be overridden with the :c:macro:`PY_CXX_CONST` macro. (Contributed by "
 "Serhiy Storchaka in :gh:`65210`.)"
 msgstr ""
+"O parâmetro *keywords* de :c:func:`PyArg_ParseTupleAndKeywords` e :c:func:"
+"`PyArg_VaParseTupleAndKeywords` agora tem tipo :c:expr:`char * const *` em C "
+"e :c:expr:`const char * const *` em C++, em vez de :c:expr:`char **`. Torna "
+"essas funções compatíveis com argumentos do tipo :c:expr:`const char * const "
+"*`, :c:expr:`const char **` ou :c:expr:`char * const *` em C++ e :c:expr:"
+"`char * const *` em C sem uma conversão de tipo explícita. Isso pode ser "
+"substituído pela macro :c:macro:`PY_CXX_CONST`. (Contribuição de Serhiy "
+"Storchaka em :gh:`65210`.)"
 
 #: ../../whatsnew/3.13.rst:1967
 msgid ""
@@ -4138,6 +4156,10 @@ msgid ""
 "`PyImport_AddModule`, but return a :term:`strong reference` instead of a :"
 "term:`borrowed reference`. (Contributed by Victor Stinner in :gh:`105922`.)"
 msgstr ""
+"Adiciona :c:func:`PyImport_AddModuleRef`: semelhante a :c:func:"
+"`PyImport_AddModule`, mas retorna uma :term:`referência forte` em vez de "
+"uma :term:`referência emprestada`. (Contribuição de Victor Stinner em :gh:"
+"`105922`.)"
 
 #: ../../whatsnew/3.13.rst:1972
 msgid ""
@@ -4146,6 +4168,10 @@ msgid ""
 "the referent is no longer live. (Contributed by Victor Stinner in :gh:"
 "`105927`.)"
 msgstr ""
+"Adiciona a função :c:func:`PyWeakref_GetRef`: semelhante a :c:func:"
+"`PyWeakref_GetObject`, mas retorna uma :term:`referência forte`, ou ``NULL`` "
+"se o referente não mais existir. (Contribuição de Victor Stinner em :gh:"
+"`105927`.)"
 
 #: ../../whatsnew/3.13.rst:1977
 msgid ""
@@ -4156,6 +4182,12 @@ msgid ""
 "if the missing attribute should not be treated as a failure. (Contributed by "
 "Serhiy Storchaka in :gh:`106521`.)"
 msgstr ""
+"Adiciona :c:func:`PyObject_GetOptionalAttr` e :c:func:"
+"`PyObject_GetOptionalAttrString`, variantes de :c:func:`PyObject_GetAttr` e :"
+"c:func:`PyObject_GetAttrString` que não levantam :exc:`AttributeError` se o "
+"atributo não for encontrado. Essas variantes são mais convenientes e rápidas "
+"se o atributo ausente não for tratado como uma falha. (Contribuição de "
+"Serhiy Storchaka em :gh:`106521`.)"
 
 #: ../../whatsnew/3.13.rst:1985
 msgid ""
@@ -4166,42 +4198,56 @@ msgid ""
 "missing key should not be treated as a failure. (Contributed by Serhiy "
 "Storchaka in :gh:`106307`.)"
 msgstr ""
+"Adiciona :c:func:`PyMapping_GetOptionalItem` e :c:func:"
+"`PyMapping_GetOptionalItemString`, variantes de :c:func:`PyObject_GetItem` "
+"e :c:func:`PyMapping_GetItemString` que não levantam :exc:`KeyError` se a "
+"chave não for encontrada. Essas variantes são mais convenientes e rápidas se "
+"a chave ausente não for tratada como uma falha. (Contribuição de Serhiy "
+"Storchaka em :gh:`106307`.)"
 
 #: ../../whatsnew/3.13.rst:1993
 msgid "Add fixed variants of functions which silently ignore errors:"
-msgstr ""
+msgstr "Adiciona variantes fixas de funções que ignoram erros silenciosamente:"
 
 #: ../../whatsnew/3.13.rst:1995
 msgid ""
 ":c:func:`PyObject_HasAttrWithError` replaces :c:func:`PyObject_HasAttr`."
 msgstr ""
+":c:func:`PyObject_HasAttrWithError` substitui :c:func:`PyObject_HasAttr`."
 
 #: ../../whatsnew/3.13.rst:1996
 msgid ""
 ":c:func:`PyObject_HasAttrStringWithError` replaces :c:func:"
 "`PyObject_HasAttrString`."
 msgstr ""
+":c:func:`PyObject_HasAttrStringWithError` substitui :c:func:"
+"`PyObject_HasAttrString`."
 
 #: ../../whatsnew/3.13.rst:1997
 msgid ""
 ":c:func:`PyMapping_HasKeyWithError` replaces :c:func:`PyMapping_HasKey`."
 msgstr ""
+":c:func:`PyMapping_HasKeyWithError` substitui :c:func:`PyMapping_HasKey`."
 
 #: ../../whatsnew/3.13.rst:1998
 msgid ""
 ":c:func:`PyMapping_HasKeyStringWithError` replaces :c:func:"
 "`PyMapping_HasKeyString`."
 msgstr ""
+":c:func:`PyMapping_HasKeyStringWithError` substitui :c:func:"
+"`PyMapping_HasKeyString`."
 
 #: ../../whatsnew/3.13.rst:2000
 msgid ""
 "New functions return not only ``1`` for true and ``0`` for false, but also "
 "``-1`` for error."
 msgstr ""
+"Novas funções retornam não apenas ``1`` para verdadeiro e ``0`` para falso, "
+"mas também ``-1`` para erro."
 
 #: ../../whatsnew/3.13.rst:2003
 msgid "(Contributed by Serhiy Storchaka in :gh:`108511`.)"
-msgstr ""
+msgstr "(Contribuição de Serhiy Storchaka em :gh:`108511`.)"
 
 #: ../../whatsnew/3.13.rst:2005
 msgid ""
@@ -4210,6 +4256,10 @@ msgid ""
 "`PyList_SET_ITEM` now check the index argument with an assertion. "
 "(Contributed by Victor Stinner in :gh:`106168`.)"
 msgstr ""
+"Se Python for construído em :ref:`modo de depuração <debug-build>` ou :"
+"option:`com asserções <--with-assertions>`, :c:func:`PyTuple_SET_ITEM` e :c:"
+"func:`PyList_SET_ITEM` agora verificam o argumento do índice com uma "
+"asserção. (Contribuição de Victor Stinner em :gh:`106168`.)"
 
 #: ../../whatsnew/3.13.rst:2010
 msgid ""
@@ -4217,6 +4267,9 @@ msgid ""
 "`PyModule_AddObjectRef` and :c:func:`PyModule_AddObject` but always steals a "
 "reference to the value. (Contributed by Serhiy Storchaka in :gh:`86493`.)"
 msgstr ""
+"Adiciona a função :c:func:`PyModule_Add`: semelhante a :c:func:"
+"`PyModule_AddObjectRef` e :c:func:`PyModule_AddObject`, mas sempre rouba uma "
+"referência ao valor. (Contribuição de Serhiy Storchaka em :gh:`86493`.)"
 
 #: ../../whatsnew/3.13.rst:2015
 msgid ""
@@ -4226,6 +4279,12 @@ msgid ""
 "these functions return -1 on error and so checking ``PyErr_Occurred()`` is "
 "not needed. (Contributed by Victor Stinner in :gh:`106004`.)"
 msgstr ""
+"Adiciona funções :c:func:`PyDict_GetItemRef` e :c:func:"
+"`PyDict_GetItemStringRef`: semelhantes a :c:func:`PyDict_GetItemWithError`, "
+"mas retornando uma :term:`referência forte` em vez de uma :term:`referência "
+"emprestada` . Além disso, essas funções retornam -1 em caso de erro e, "
+"portanto, a verificação de ``PyErr_Occurred()`` não é necessária. "
+"(Contribuição de Victor Stinner em :gh:`106004`.)"
 
 #: ../../whatsnew/3.13.rst:2022
 msgid ""
@@ -4235,6 +4294,11 @@ msgid ""
 "insertion, and ``1`` if the key was already present in the dictionary. "
 "(Contributed by Sam Gross in :gh:`112066`.)"
 msgstr ""
+"Adicionada :c:func:`PyDict_SetDefaultRef`, que é semelhante a :c:func:"
+"`PyDict_SetDefault`, mas retorna uma :term:`referência forte` em vez de uma :"
+"term:`referência emprestada`. Esta função retorna ``-1`` em caso de erro, "
+"``0`` na inserção e ``1`` se a chave já estivesse presente no dicionário. "
+"(Contribuição de Sam Gross em :gh:`112066`.)"
 
 #: ../../whatsnew/3.13.rst:2028
 msgid ""
@@ -4243,6 +4307,10 @@ msgid ""
 "encoded bytes string, rather than a :c:expr:`PyObject*`. (Contributed by "
 "Victor Stinner in :gh:`108314`.)"
 msgstr ""
+"Adiciona a função :c:func:`PyDict_ContainsString` como :c:func:"
+"`PyDict_Contains`, mas *key* é especificada como uma string de bytes :c:expr:"
+"`const char*` codificada em UTF-8, em vez de um :c:expr:`PyObject*`. "
+"(Contribuição de Victor Stinner em :gh:`108314`.)"
 
 #: ../../whatsnew/3.13.rst:2033
 msgid ""
@@ -4250,6 +4318,9 @@ msgid ""
 "`PyList_GetItem` but returns a :term:`strong reference` instead of a :term:"
 "`borrowed reference`."
 msgstr ""
+"Adicionada a função :c:func:`PyList_GetItemRef`: semelhante a :c:func:"
+"`PyList_GetItem`, mas retorna uma :term:`referência forte` em vez de uma :"
+"term:`referência emprestada`."
 
 #: ../../whatsnew/3.13.rst:2037
 msgid ""
@@ -4257,6 +4328,9 @@ msgid ""
 "is :term:`shutting down <interpreter shutdown>`. (Contributed by Victor "
 "Stinner in :gh:`108014`.)"
 msgstr ""
+"Adiciona a função :c:func:`Py_IsFinalizing`: verifica se o interpretador "
+"Python principal está :term:`sendo desligado <interpreter shutdown>`. "
+"(Contribuição de Victor Stinner em :gh:`108014`.)"
 
 #: ../../whatsnew/3.13.rst:2041
 msgid ""
@@ -4265,6 +4339,11 @@ msgid ""
 "Previously, it was known as the private function :c:func:`!_PyLong_AsInt` "
 "(with an underscore prefix). (Contributed by Victor Stinner in :gh:`108014`.)"
 msgstr ""
+"Adiciona a função :c:func:`PyLong_AsInt`: semelhante a :c:func:"
+"`PyLong_AsLong`, mas armazena o resultado em um :c:expr:`int` C em vez de "
+"um :c:expr:`long` C. Anteriormente, era conhecida como função privada :c:"
+"func:`!_PyLong_AsInt` (com um prefixo de sublinhado). (Contribuição de "
+"Victor Stinner em :gh:`108014`.)"
 
 #: ../../whatsnew/3.13.rst:2047
 msgid ""
@@ -4272,6 +4351,9 @@ msgid ""
 "references) now supports the :ref:`Limited API <limited-c-api>`. "
 "(Contributed by Victor Stinner in :gh:`108634`.)"
 msgstr ""
+"Python construído com :file:`configure` :option:`--with-trace-refs` "
+"(referências de rastreamento) agora oferece suporte à :ref:`API Limitada "
+"<limited-c-api>`. (Contribuição de Victor Stinner em :gh:`108634`.)"
 
 #: ../../whatsnew/3.13.rst:2051
 msgid ""
@@ -4282,6 +4364,12 @@ msgid ""
 "compat/>`__ can be used to get these functions on Python 3.11 and 3.12. "
 "(Contributed by Victor Stinner in :gh:`107073`.)"
 msgstr ""
+"Adiciona funções :c:func:`PyObject_VisitManagedDict` e :c:func:"
+"`PyObject_ClearManagedDict` que devem ser chamadas pelas funções traverse e "
+"clear de um tipo usando o sinalizador :c:macro:`Py_TPFLAGS_MANAGED_DICT`. O "
+"projeto `pythoncapi-compat <https://github.com/python/pythoncapi-compat/>`__ "
+"pode ser usado para obter essas funções no Python 3.11 e 3.12. (Contribuição "
+"de Victor Stinner em :gh:`107073`.)"
 
 #: ../../whatsnew/3.13.rst:2059
 msgid ""
@@ -4291,6 +4379,11 @@ msgid ""
 "equal, or false (``0``) otherwise. These functions do not raise exceptions. "
 "(Contributed by Serhiy Storchaka in :gh:`110289`.)"
 msgstr ""
+"Adiciona as funções :c:func:`PyUnicode_EqualToUTF8AndSize` e :c:func:"
+"`PyUnicode_EqualToUTF8`: comparam o objeto Unicode com uma string :c:expr:"
+"`const char*` codificada em UTF-8 e retornam true (``1``) se forem iguais, "
+"ou falso (``0``) caso contrário. Essas funções não levantam exceções. "
+"(Contribuição de Serhiy Storchaka em :gh:`110289`.)"
 
 #: ../../whatsnew/3.13.rst:2065
 msgid ""
@@ -4301,6 +4394,12 @@ msgid ""
 "``_PyThreadState_UncheckedGet()``. (Contributed by Victor Stinner in :gh:"
 "`108867`.)"
 msgstr ""
+"Adiciona a função :c:func:`PyThreadState_GetUnchecked()`: semelhante a :c:"
+"func:`PyThreadState_Get()`, mas não encerra forçadamente o processo com um "
+"erro fatal se for NULL. O chamador é responsável por verificar se o "
+"resultado é NULL. Anteriormente, a função era privada e conhecida como "
+"``_PyThreadState_UncheckedGet()``. (Contribuição de Victor Stinner em :gh:"
+"`108867`.)"
 
 #: ../../whatsnew/3.13.rst:2072
 msgid ""
@@ -4308,12 +4407,18 @@ msgid ""
 "but pass event arguments as a Python :class:`tuple` object. (Contributed by "
 "Victor Stinner in :gh:`85283`.)"
 msgstr ""
+"Adiciona a função :c:function:`PySys_AuditTuple`: semelhante a :c:func:`Py "
+"Sys_Audit`, mas passa argumentos de evento como um objeto :class:`tuple` do "
+"Python. (Contribuição de Victor Stinner em :gh:`85283`.)"
 
 #: ../../whatsnew/3.13.rst:2076
 msgid ""
 ":c:func:`PyArg_ParseTupleAndKeywords` now supports non-ASCII keyword "
 "parameter names. (Contributed by Serhiy Storchaka in :gh:`110815`.)"
 msgstr ""
+":c:func:`PyArg_ParseTupleAndKeywords` agora oferece suporte a nomes de "
+"parâmetros nomeados não-ASCII. (Contribuição de Serhiy Storchaka em :gh:"
+"`110815`.)"
 
 #: ../../whatsnew/3.13.rst:2080
 msgid ""
@@ -4321,12 +4426,17 @@ msgid ""
 "`PyMem_RawRealloc` and :c:func:`PyMem_RawFree` to the limited C API (version "
 "3.13). (Contributed by Victor Stinner in :gh:`85283`.)"
 msgstr ""
+"Adiciona :c:func:`PyMem_RawMalloc`, :c:func:`PyMem_RawCalloc`, :c:func:"
+"`PyMem_RawRealloc` e :c:func:`PyMem_RawFree` à API C limitada (versão 3.13). "
+"(Contribuição de Victor Stinner em :gh:`85283`.)"
 
 #: ../../whatsnew/3.13.rst:2085
 msgid ""
 "Add :c:func:`PySys_Audit` and :c:func:`PySys_AuditTuple` functions to the "
 "limited C API. (Contributed by Victor Stinner in :gh:`85283`.)"
 msgstr ""
+"Adiciona as funções :c:func:`PySys_Audit` e :c:func:`PySys_AuditTuple` à API "
+"C limitada. (Contribuição de Victor Stinner em :gh:`85283`.)"
 
 #: ../../whatsnew/3.13.rst:2089
 msgid ""
@@ -4334,6 +4444,9 @@ msgid ""
 "`PyErr_WriteUnraisable`, but allow customizing the warning message. "
 "(Contributed by Serhiy Storchaka in :gh:`108082`.)"
 msgstr ""
+"Adiciona a função :c:func:`PyErr_FormatUnraisable`: semelhante a :c:func:"
+"`PyErr_WriteUnraisable`, mas permite personalizar a mensagem de aviso. "
+"(Contribuição de Serhiy Storchaka em :gh:`108082`.)"
 
 #: ../../whatsnew/3.13.rst:2093
 msgid ""
@@ -4341,6 +4454,9 @@ msgid ""
 "Python ``list.extend()`` and ``list.clear()`` methods. (Contributed by "
 "Victor Stinner in :gh:`111138`.)"
 msgstr ""
+"Adiciona as funções :c:func:`PyList_Extend` e :c:func:`PyList_Clear`: "
+"semelhantes aos métodos ``list.extend()`` e ``list.clear()`` do Python. "
+"(Contribuição de Victor Stinner em :gh:`111138`.)"
 
 #: ../../whatsnew/3.13.rst:2097
 msgid ""
@@ -4350,12 +4466,19 @@ msgid ""
 "exc:`KeyError` if the key is missing. (Contributed by Stefan Behnel and "
 "Victor Stinner in :gh:`111262`.)"
 msgstr ""
+"Adiciona funções :c:func:`PyDict_Pop` e :c:func:`PyDict_PopString`: removem "
+"uma chave de um dicionário e, opcionalmente, retornam o valor removido. Isto "
+"é semelhante a :meth:`dict.pop`, mas sem o valor padrão e sem levantar :exc:"
+"`KeyError` se a chave estiver ausente. (Contribuição de Stefan Behnel e "
+"Victor Stinner em :gh:`111262`.)"
 
 #: ../../whatsnew/3.13.rst:2103
 msgid ""
 "Add :c:func:`Py_HashPointer` function to hash a pointer. (Contributed by "
 "Victor Stinner in :gh:`111545`.)"
 msgstr ""
+"Adiciona a função :c:func:`Py_HashPointer` para fazer hash de um ponteiro. "
+"(Contribuição de Victor Stinner em :gh:`111545`.)"
 
 #: ../../whatsnew/3.13.rst:2106
 msgid ""
@@ -4363,22 +4486,25 @@ msgid ""
 "hashing function of a Python object. (Contributed by Serhiy Storchaka in :gh:"
 "`113024`.)"
 msgstr ""
+"Adiciona a função :c:func:`PyObject_GenericHash` que implementa a função "
+"hashing padrão de um objeto Python. (Contribuição de Serhiy Storchaka em :gh:"
+"`113024`.)"
 
 #: ../../whatsnew/3.13.rst:2110
 msgid "Add PyTime C API:"
-msgstr ""
+msgstr "Adiciona a API C PyTime:"
 
 #: ../../whatsnew/3.13.rst:2112
 msgid ":c:type:`PyTime_t` type."
-msgstr ""
+msgstr "Tipo :c:type:`PyTime_t`."
 
 #: ../../whatsnew/3.13.rst:2113
 msgid ":c:var:`PyTime_MIN` and :c:var:`PyTime_MAX` constants."
-msgstr ""
+msgstr "Constantes :c:var:`PyTime_MIN` e :c:var:`PyTime_MAX`."
 
 #: ../../whatsnew/3.13.rst:2114
 msgid "Add functions:"
-msgstr ""
+msgstr "Adiciona as funções:"
 
 #: ../../whatsnew/3.13.rst:2116
 msgid ":c:func:`PyTime_AsSecondsDouble`."
@@ -4410,7 +4536,7 @@ msgstr ":c:func:`PyTime_TimeRaw`."
 
 #: ../../whatsnew/3.13.rst:2124
 msgid "(Contributed by Victor Stinner and Petr Viktorin in :gh:`110850`.)"
-msgstr ""
+msgstr "(Contribuição de Victor Stinner e Petr Viktorin em :gh:`110850`.)"
 
 #: ../../whatsnew/3.13.rst:2126
 msgid ""
@@ -4419,6 +4545,10 @@ msgid ""
 "between native integer types and Python :class:`int` objects. (Contributed "
 "by Steve Dower in :gh:`111140`.)"
 msgstr ""
+"Adiciona as funções :c:func:`PyLong_AsNativeBytes`, :c:func:"
+"`PyLong_FromNativeBytes` e :c:func:`PyLong_FromUnsignedNativeBytes` para "
+"simplificar a conversão entre tipos inteiros nativos e objetos :class:`int` "
+"do Python. (Contribuição de Steve Dower em :gh:`111140`.)"
 
 #: ../../whatsnew/3.13.rst:2131
 msgid ""
@@ -4428,6 +4558,11 @@ msgid ""
 "string or is equal to ``\"builtins\"``. (Contributed by Victor Stinner in :"
 "gh:`111696`.)"
 msgstr ""
+"Adiciona a função :c:func:`PyType_GetFullyQualifiedName` para obter o nome "
+"totalmente qualificado do tipo. Equivalente a ``f\"{type.__module__}.{type."
+"__qualname__}\"``, ou ``type.__qualname__`` se ``type.__module__`` não for "
+"uma string ou for igual a ``\"builtins\"``. (Contribuição de Victor Stinner "
+"em :gh:`111696`.)"
 
 #: ../../whatsnew/3.13.rst:2137
 msgid ""
@@ -4435,6 +4570,9 @@ msgid ""
 "Equivalent to getting the ``type.__module__`` attribute. (Contributed by "
 "Eric Snow and Victor Stinner in :gh:`111696`.)"
 msgstr ""
+"Adiciona a função :c:func:`PyType_GetModuleName` para obter o nome do módulo "
+"do tipo. Equivalente a obter o atributo ``type.__module__``. (Contribuição "
+"de Eric Snow e Victor Stinner em :gh:`111696`.)"
 
 #: ../../whatsnew/3.13.rst:2141
 msgid ""
