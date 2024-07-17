@@ -1549,6 +1549,8 @@ msgid ""
 "For type checkers that simply check against a fixed set of values, consider "
 "using the choices_ keyword instead."
 msgstr ""
+"Para verificadores de tipo que simplesmente verificam um conjunto fixo de "
+"valores, considere usar o argumento nomeado choices_."
 
 #: ../../library/argparse.rst:1211
 msgid "choices"
@@ -1562,6 +1564,12 @@ msgid ""
 "line is parsed, argument values will be checked, and an error message will "
 "be displayed if the argument was not one of the acceptable values::"
 msgstr ""
+"Alguns argumentos de linha de comando devem ser selecionados em um conjunto "
+"restrito de valores. Eles podem ser tratados passando um objeto sequência "
+"como o argumento nomeado *choices* para :meth:`~ArgumentParser."
+"add_argument`. Quando a linha de comando for analisada, os valores dos "
+"argumentos serão verificados e uma mensagem de erro será exibida se o "
+"argumento não for um dos valores aceitáveis::"
 
 #: ../../library/argparse.rst:1228
 msgid ""
@@ -1569,18 +1577,26 @@ msgid ""
 "conversions have been performed, so the type of the objects in the *choices* "
 "sequence should match the type_ specified::"
 msgstr ""
+"Observe que a inclusão na sequência *choices* é verificada após qualquer "
+"conversão de type_ ter sido realizada, portanto o tipo dos objetos na "
+"sequência *choices* deve corresponder ao type_ especificado::"
 
 #: ../../library/argparse.rst:1240
 msgid ""
 "Any sequence can be passed as the *choices* value, so :class:`list` "
 "objects, :class:`tuple` objects, and custom sequences are all supported."
 msgstr ""
+"Qualquer sequência pode ser passada como o valor *choices*, portanto "
+"objetos :class:`list`, objetos :class:`tuple` e sequências personalizadas "
+"são todos suportados."
 
 #: ../../library/argparse.rst:1243
 msgid ""
 "Use of :class:`enum.Enum` is not recommended because it is difficult to "
 "control its appearance in usage, help, and error messages."
 msgstr ""
+"O uso de :class:`enum.Enum` não é recomendado porque é difícil controlar sua "
+"aparência no uso, na ajuda e nas mensagens de erro."
 
 #: ../../library/argparse.rst:1246
 msgid ""
@@ -1589,6 +1605,10 @@ msgid ""
 "*dest* parameter.  If this display isn't desirable (perhaps because there "
 "are many choices), just specify an explicit metavar_."
 msgstr ""
+"As opções formatadas substituem o *metavar* padrão que normalmente é "
+"derivado de *dest*. Geralmente é isso que você deseja porque o usuário nunca "
+"vê o parâmetro *dest*. Se esta exibição não for desejável (talvez porque "
+"haja muitas opções), basta especificar um metavar_ explícito."
 
 #: ../../library/argparse.rst:1255
 msgid "required"
@@ -1601,6 +1621,11 @@ msgid ""
 "command line. To make an option *required*, ``True`` can be specified for "
 "the ``required=`` keyword argument to :meth:`~ArgumentParser.add_argument`::"
 msgstr ""
+"Em geral, o módulo :mod:`argparse` presume que sinalizadores como ``-f`` e "
+"``--bar`` indicam argumentos *opcionais*, que sempre podem ser omitidos na "
+"linha de comando. Para tornar uma opção obrigatória, ``True`` pode ser "
+"especificado para o argumento nomeado ``required=`` para :meth:"
+"`~ArgumentParser.add_argument`::"
 
 #: ../../library/argparse.rst:1270
 msgid ""
@@ -1608,12 +1633,18 @@ msgid ""
 "`~ArgumentParser.parse_args` will report an error if that option is not "
 "present at the command line."
 msgstr ""
+"Como mostra o exemplo, se uma opção estiver marcada como ``required``, :meth:"
+"`~ArgumentParser.parse_args` reportará um erro se essa opção não estiver "
+"presente na linha de comando."
 
 #: ../../library/argparse.rst:1276
 msgid ""
 "Required options are generally considered bad form because users expect "
 "*options* to be *optional*, and thus they should be avoided when possible."
 msgstr ""
+"As opções obrigatórias são geralmente consideradas inadequadas porque os "
+"usuários esperam que as *opções* sejam *opcionais* e, portanto, devem ser "
+"evitadas quando possível."
 
 #: ../../library/argparse.rst:1283
 msgid "help"
@@ -1626,6 +1657,10 @@ msgid ""
 "at the command line), these ``help`` descriptions will be displayed with "
 "each argument::"
 msgstr ""
+"O valor ``help`` é uma string contendo uma breve descrição do argumento. "
+"Quando um usuário solicita ajuda (geralmente usando ``-h`` ou ``--help`` na "
+"linha de comando), estas descrições de ``help`` serão exibidas com cada "
+"argumento::"
 
 #: ../../library/argparse.rst:1305
 msgid ""
@@ -1635,18 +1670,28 @@ msgid ""
 "arguments to :meth:`~ArgumentParser.add_argument`, e.g. ``%(default)s``, "
 "``%(type)s``, etc.::"
 msgstr ""
+"As strings ``help`` podem incluir vários especificadores de formato para "
+"evitar a repetição de coisas como o nome do programa ou o argumento "
+"default_. Os especificadores disponíveis incluem o nome do programa, "
+"``%(prog)s`` e a maioria dos argumentos nomeados para :meth:`~ArgumentParser."
+"add_argument`, por exemplo. ``%(default)s``, ``%(type)s``, etc.::"
 
 #: ../../library/argparse.rst:1322
 msgid ""
 "As the help string supports %-formatting, if you want a literal ``%`` to "
 "appear in the help string, you must escape it as ``%%``."
 msgstr ""
+"Como a string de ajuda oferece suporte à formatação com %, se você quiser "
+"que um literal ``%`` apareça na string de ajuda, você deve escapá-lo como ``%"
+"%``."
 
 #: ../../library/argparse.rst:1325
 msgid ""
 ":mod:`argparse` supports silencing the help entry for certain options, by "
 "setting the ``help`` value to ``argparse.SUPPRESS``::"
 msgstr ""
+":mod:`argparse` oferece suporte a silenciar a entrada de ajuda para certas "
+"opções, definindo o valor ``help`` como ``argparse.SUPPRESS``::"
 
 #: ../../library/argparse.rst:1340
 msgid "metavar"
@@ -1663,10 +1708,19 @@ msgid ""
 "optional argument ``--foo`` that should be followed by a single command-line "
 "argument will be referred to as ``FOO``.  An example::"
 msgstr ""
+"Quando :class:`ArgumentParser` gera mensagens de ajuda, ele precisa de "
+"alguma forma de se referir a cada argumento esperado. Por padrão, os objetos "
+"ArgumentParser usam o valor dest_ como o \"nome\" de cada objeto. Por "
+"padrão, para ações de argumentos posicionais, o valor dest_ é usado "
+"diretamente, e para ações de argumentos opcionais, o valor dest_ é "
+"maiúsculo. Portanto, um único argumento posicional com ``dest='bar'`` será "
+"referido como ``bar``. Um único argumento opcional ``--foo`` que deve ser "
+"seguido por um único argumento de linha de comando será referido como "
+"``FOO``. Um exemplo::"
 
 #: ../../library/argparse.rst:1366
 msgid "An alternative name can be specified with ``metavar``::"
-msgstr ""
+msgstr "Um nome alternativo pode ser especificado com ``metavar``::"
 
 #: ../../library/argparse.rst:1383
 msgid ""
@@ -1674,6 +1728,9 @@ msgid ""
 "attribute on the :meth:`~ArgumentParser.parse_args` object is still "
 "determined by the dest_ value."
 msgstr ""
+"Observe que ``metavar`` apenas altera o nome *exibido* - o nome do atributo "
+"no objeto :meth:`~ArgumentParser.parse_args` ainda é determinado pelo valor "
+"dest_."
 
 #: ../../library/argparse.rst:1387
 msgid ""
@@ -1681,6 +1738,9 @@ msgid ""
 "times. Providing a tuple to ``metavar`` specifies a different display for "
 "each of the arguments::"
 msgstr ""
+"Valores diferentes de ``nargs`` podem fazer com que o metavar seja usado "
+"múltiplas vezes. Fornecer uma tupla para ``metavar`` especifica uma exibição "
+"diferente para cada um dos argumentos::"
 
 #: ../../library/argparse.rst:1406
 msgid "dest"
@@ -1695,6 +1755,12 @@ msgid ""
 "is normally supplied as the first argument to :meth:`~ArgumentParser."
 "add_argument`::"
 msgstr ""
+"A maioria das ações :class:`ArgumentParser` adiciona algum valor como um "
+"atributo do objeto retornado por :meth:`~ArgumentParser.parse_args`. O nome "
+"deste atributo é determinado pelo argumento nomeado ``dest`` de :meth:"
+"`~ArgumentParser.add_argument`. Para ações de argumento posicional, ``dest`` "
+"é normalmente fornecido como o primeiro argumento para :meth:"
+"`~ArgumentParser.add_argument`::"
 
 #: ../../library/argparse.rst:1420
 msgid ""
@@ -1707,14 +1773,23 @@ msgid ""
 "characters to make sure the string is a valid attribute name.  The examples "
 "below illustrate this behavior::"
 msgstr ""
+"Para ações de argumentos opcionais, o valor de ``dest`` é normalmente "
+"inferido das strings de opções. :class:`ArgumentParser` gera o valor de "
+"``dest`` pegando a primeira string de opção longa e removendo a string "
+"inicial ``--``. Se nenhuma string de opção longa for fornecida, ``dest`` "
+"será derivado da primeira string de opção curta removendo o caractere ``-`` "
+"inicial.  Quaisquer caracteres ``-`` internos serão convertidos em "
+"caracteres ``_`` para garantir que a string seja um nome de atributo válido. "
+"Os exemplos abaixo ilustram esse comportamento:"
 
 #: ../../library/argparse.rst:1437
 msgid "``dest`` allows a custom attribute name to be provided::"
 msgstr ""
+"``dest`` permite que um nome de atributo personalizado seja fornecido::"
 
 #: ../../library/argparse.rst:1448
 msgid "deprecated"
-msgstr ""
+msgstr "deprecated"
 
 #: ../../library/argparse.rst:1450
 msgid ""
@@ -1726,6 +1801,13 @@ msgid ""
 "the future. For arguments, if ``deprecated`` is ``True``, then a warning "
 "will be printed to standard error when the argument is used::"
 msgstr ""
+"Durante a vida de um projeto, alguns argumentos podem precisar ser removidos "
+"da linha de comando. Antes de removê-los, você deve informar aos seus "
+"usuários que os argumentos estão descontinuados e serão removidos. O "
+"argumento nomeado ``deprecated`` de :meth:`~ArgumentParser.add_argument`, "
+"cujo padrão é ``False``, especifica se o argumento está descontinuado e será "
+"removido no futuro. Para argumentos, se ``deprecated`` for ``True``, então "
+"um aviso será impresso no erro padrão quando o argumento for usado::"
 
 #: ../../library/argparse.rst:1473
 msgid "Action classes"
