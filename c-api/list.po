@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-05 14:16+0000\n"
+"POT-Creation-Date: 2024-07-19 14:16+0000\n"
 "PO-Revision-Date: 2021-06-28 00:49+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -68,16 +68,15 @@ msgstr ""
 #: ../../c-api/list.rst:40
 msgid ""
 "If *len* is greater than zero, the returned list object's items are set to "
-"``NULL``.  Thus you cannot use abstract API functions such as :c:func:"
-"`PySequence_SetItem`  or expose the object to Python code before setting all "
-"items to a real object with :c:func:`PyList_SetItem`."
+"``NULL``. Thus you cannot use abstract API functions such as :c:func:"
+"`PySequence_SetItem` or expose the object to Python code before setting all "
+"items to a real object with :c:func:`PyList_SetItem` or :c:func:"
+"`PyList_SET_ITEM()`. The following APIs are safe APIs before the list is "
+"fully initialized: :c:func:`PyList_SetItem()` and :c:func:"
+"`PyList_SET_ITEM()`."
 msgstr ""
-"Se *len* for maior que zero, os itens do objeto de lista retornado são "
-"definidos como ``NULL``. Portanto, você não pode usar funções API abstratas, "
-"como :c:func:`PySequence_SetItem` ou expor o objeto ao código Python antes "
-"de definir todos os itens para um objeto real com :c:func:`PyList_SetItem`."
 
-#: ../../c-api/list.rst:50
+#: ../../c-api/list.rst:53
 msgid ""
 "Return the length of the list object in *list*; this is equivalent to "
 "``len(list)`` on a list object."
@@ -85,11 +84,11 @@ msgstr ""
 "Retorna o comprimento do objeto de lista em *list*; isto é equivalente a "
 "``len(list)`` em um objeto lista."
 
-#: ../../c-api/list.rst:56
+#: ../../c-api/list.rst:59
 msgid "Similar to :c:func:`PyList_Size`, but without error checking."
 msgstr "Similar a :c:func:`PyList_Size`, mas sem verificação de erro."
 
-#: ../../c-api/list.rst:61
+#: ../../c-api/list.rst:64
 msgid ""
 "Return the object at position *index* in the list pointed to by *list*.  The "
 "position must be non-negative; indexing from the end of the list is not "
@@ -101,7 +100,7 @@ msgstr ""
 "*index* estiver fora dos limites (:code:`<0 or >=len(list)`), retorna "
 "``NULL`` e levanta uma exceção :exc:`IndexError`."
 
-#: ../../c-api/list.rst:71
+#: ../../c-api/list.rst:74
 msgid ""
 "Like :c:func:`PyList_GetItemRef`, but returns a :term:`borrowed reference` "
 "instead of a :term:`strong reference`."
@@ -109,11 +108,11 @@ msgstr ""
 "Como :c:func:`PyList_GetItemRef`, mas retorna uma :term:`referência "
 "emprestada` em vez de uma :term:`referência forte`."
 
-#: ../../c-api/list.rst:77
+#: ../../c-api/list.rst:80
 msgid "Similar to :c:func:`PyList_GetItem`, but without error checking."
 msgstr "Similar a :c:func:`PyList_GetItem`, mas sem verificação de erro."
 
-#: ../../c-api/list.rst:82
+#: ../../c-api/list.rst:85
 msgid ""
 "Set the item at index *index* in list to *item*.  Return ``0`` on success. "
 "If *index* is out of bounds, return ``-1`` and set an :exc:`IndexError` "
@@ -123,7 +122,7 @@ msgstr ""
 "de sucesso. Se *index* estiver fora dos limites, retorna ``-1`` e levanta "
 "uma exceção :exc:`IndexError`."
 
-#: ../../c-api/list.rst:88
+#: ../../c-api/list.rst:91
 msgid ""
 "This function \"steals\" a reference to *item* and discards a reference to "
 "an item already in the list at the affected position."
@@ -131,7 +130,7 @@ msgstr ""
 "Esta função \"rouba\" uma referência para o *item* e descarta uma referência "
 "para um item já presente na lista na posição afetada."
 
-#: ../../c-api/list.rst:94
+#: ../../c-api/list.rst:97
 msgid ""
 "Macro form of :c:func:`PyList_SetItem` without error checking. This is "
 "normally only used to fill in new lists where there is no previous content."
@@ -140,7 +139,7 @@ msgstr ""
 "normalmente usado apenas para preencher novas listas onde não há conteúdo "
 "anterior."
 
-#: ../../c-api/list.rst:97
+#: ../../c-api/list.rst:100
 msgid ""
 "Bounds checking is performed as an assertion if Python is built in :ref:"
 "`debug mode <debug-build>` or :option:`with assertions <--with-assertions>`."
@@ -149,7 +148,7 @@ msgstr ""
 "construído em :ref:`modo de depuração <debug-build>` ou :option:`com "
 "asserções <--with-assertions>`."
 
-#: ../../c-api/list.rst:103
+#: ../../c-api/list.rst:106
 msgid ""
 "This macro \"steals\" a reference to *item*, and, unlike :c:func:"
 "`PyList_SetItem`, does *not* discard a reference to any item that is being "
@@ -159,7 +158,7 @@ msgstr ""
 "`PyList_SetItem`, *não* descarta uma referência para nenhum item que esteja "
 "sendo substituído; qualquer referência em *list* será perdida."
 
-#: ../../c-api/list.rst:111
+#: ../../c-api/list.rst:114
 msgid ""
 "Insert the item *item* into list *list* in front of index *index*.  Return "
 "``0`` if successful; return ``-1`` and set an exception if unsuccessful. "
@@ -169,7 +168,7 @@ msgstr ""
 "``0`` se for bem-sucedido; retorna ``-1`` e levanta uma exceção se "
 "malsucedido. Análogo a ``list.insert(index, item)``."
 
-#: ../../c-api/list.rst:118
+#: ../../c-api/list.rst:121
 msgid ""
 "Append the object *item* at the end of list *list*. Return ``0`` if "
 "successful; return ``-1`` and set an exception if unsuccessful.  Analogous "
@@ -179,7 +178,7 @@ msgstr ""
 "sucedido; retorna ``-1`` e levanta uma exceção se malsucedido. Análogo a "
 "``list.insert(index, item)``."
 
-#: ../../c-api/list.rst:125
+#: ../../c-api/list.rst:128
 msgid ""
 "Return a list of the objects in *list* containing the objects *between* "
 "*low* and *high*.  Return ``NULL`` and set an exception if unsuccessful.  "
@@ -190,7 +189,7 @@ msgstr ""
 "*alto*. Retorne ``NULL`` e levanta uma exceção se malsucedido. Análogo a "
 "``list[low:high]``. Não há suporte à indexação do final da lista."
 
-#: ../../c-api/list.rst:132
+#: ../../c-api/list.rst:135
 msgid ""
 "Set the slice of *list* between *low* and *high* to the contents of "
 "*itemlist*.  Analogous to ``list[low:high] = itemlist``. The *itemlist* may "
@@ -204,7 +203,7 @@ msgstr ""
 "em caso de sucesso, ``-1`` em caso de falha. Não há suporte à indexação do "
 "final da lista."
 
-#: ../../c-api/list.rst:141
+#: ../../c-api/list.rst:144
 msgid ""
 "Extend *list* with the contents of *iterable*.  This is the same as "
 "``PyList_SetSlice(list, PY_SSIZE_T_MAX, PY_SSIZE_T_MAX, iterable)`` and "
@@ -214,7 +213,7 @@ msgstr ""
 "``PyList_SetSlice(list, PY_SSIZE_T_MAX, PY_SSIZE_T_MAX, iterable)`` e "
 "análogo a ``list.extend(iterable)`` ou ``list += iterable``."
 
-#: ../../c-api/list.rst:145
+#: ../../c-api/list.rst:148
 msgid ""
 "Raise an exception and return ``-1`` if *list* is not a :class:`list` "
 "object. Return 0 on success."
@@ -222,7 +221,7 @@ msgstr ""
 "Levanta uma exceção e retorna ``-1`` se *list* não for um objeto :class:"
 "`list`. Retorna 0 em caso de sucesso."
 
-#: ../../c-api/list.rst:153
+#: ../../c-api/list.rst:156
 msgid ""
 "Remove all items from *list*.  This is the same as ``PyList_SetSlice(list, "
 "0, PY_SSIZE_T_MAX, NULL)`` and analogous to ``list.clear()`` or ``del "
@@ -231,7 +230,7 @@ msgstr ""
 "Remove todos os itens da *lista*. Isto é o mesmo que ``PyList_SetSlice(list, "
 "0, PY_SSIZE_T_MAX, NULL)`` e análogo a ``list.clear()`` ou ``del list[:]``."
 
-#: ../../c-api/list.rst:157
+#: ../../c-api/list.rst:160
 msgid ""
 "Raise an exception and return ``-1`` if *list* is not a :class:`list` "
 "object.  Return 0 on success."
@@ -239,7 +238,7 @@ msgstr ""
 "Levanta uma exceção e retorna ``-1`` se *list* não for um objeto :class:"
 "`list`. Retorna 0 em caso de sucesso."
 
-#: ../../c-api/list.rst:165
+#: ../../c-api/list.rst:168
 msgid ""
 "Sort the items of *list* in place.  Return ``0`` on success, ``-1`` on "
 "failure.  This is equivalent to ``list.sort()``."
@@ -247,7 +246,7 @@ msgstr ""
 "Ordena os itens de *list* no mesmo lugar. Retorna ``0`` em caso de sucesso, "
 "e ``-1`` em caso de falha. Isso é o equivalente de ``list.sort()``."
 
-#: ../../c-api/list.rst:171
+#: ../../c-api/list.rst:174
 msgid ""
 "Reverse the items of *list* in place.  Return ``0`` on success, ``-1`` on "
 "failure.  This is the equivalent of ``list.reverse()``."
@@ -255,7 +254,7 @@ msgstr ""
 "Inverte os itens de *list* no mesmo lugar. Retorna ``0`` em caso de sucesso, "
 "e ``-1`` em caso de falha. Isso é o equivalente de ``list.reverse()``."
 
-#: ../../c-api/list.rst:179
+#: ../../c-api/list.rst:182
 msgid ""
 "Return a new tuple object containing the contents of *list*; equivalent to "
 "``tuple(list)``."
@@ -271,14 +270,14 @@ msgstr "objeto"
 msgid "list"
 msgstr "lista"
 
-#: ../../c-api/list.rst:48 ../../c-api/list.rst:177
+#: ../../c-api/list.rst:51 ../../c-api/list.rst:180
 msgid "built-in function"
 msgstr "função embutida"
 
-#: ../../c-api/list.rst:48
+#: ../../c-api/list.rst:51
 msgid "len"
 msgstr "len"
 
-#: ../../c-api/list.rst:177
+#: ../../c-api/list.rst:180
 msgid "tuple"
 msgstr "tupla"
