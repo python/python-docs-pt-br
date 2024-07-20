@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-19 14:16+0000\n"
+"POT-Creation-Date: 2024-07-20 00:52+0000\n"
 "PO-Revision-Date: 2021-06-28 01:04+0000\n"
 "Last-Translator: Pedro Fonini, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -1205,6 +1205,10 @@ msgid ""
 "its :c:member:`~PyTypeObject.tp_flags`), push ``True`` onto the stack.  "
 "Otherwise, push ``False``."
 msgstr ""
+"Se ``STACK[-1]`` for uma instância de :class:`collections.abc.Mapping` (ou, "
+"de forma mais técnica: se tiver o sinalizador :c:macro:`Py_TPFLAGS_MAPPING` "
+"definido no seu :c:member:`~PyTypeObject.tp_flags`), põe ``True`` no topo da "
+"pilha. Caso contrário, põe ``False``."
 
 #: ../../library/dis.rst:977
 msgid ""
@@ -1214,6 +1218,11 @@ msgid ""
 "its :c:member:`~PyTypeObject.tp_flags`), push ``True`` onto the stack.  "
 "Otherwise, push ``False``."
 msgstr ""
+"Se ``STACK[-1]`` for uma instância de :class:`collections.abc.Sequence` e "
+"*não* for uma instância de :class:`str`/:class:`bytes`/:class:bytearray` "
+"(ou, de forma mais técnica: se tiver o sinalizador :c:macro:"
+"`Py_TPFLAGS_SEQUENCE` definido no seu :c:member:`~PyTypeObject.tp_flags`), "
+"põe ``True`` no topo da pilha. Caso contrário, põe ``False``."
 
 #: ../../library/dis.rst:987
 msgid ""
@@ -1221,12 +1230,18 @@ msgid ""
 "subject. If ``STACK[-2]`` contains all of the keys in ``STACK[-1]``, push a :"
 "class:`tuple` containing the corresponding values. Otherwise, push ``None``."
 msgstr ""
+"``STACK[-1]`` é uma tupla de chaves de um mapeamento, e ``STACK[-2]`` é o "
+"sujeito de uma correspondência. Se ``STACK[-2]`` contiver todas as chaves em "
+"``STACK[-1]``, põe no topo da pilha um :class:`tuple` contendo os valores "
+"correspondentes. Caso contrário, põe ``None``."
 
 #: ../../library/dis.rst:993 ../../library/dis.rst:1660
 msgid ""
 "Previously, this instruction also pushed a boolean value indicating success "
 "(``True``) or failure (``False``)."
 msgstr ""
+"Anteriormente, essa instrução também colocava na pilha um valor booleano "
+"indicando sucesso (``True``) ou falha (``False``)."
 
 #: ../../library/dis.rst:1000
 msgid ""
@@ -1235,18 +1250,27 @@ msgid ""
 "objects>`. The compiler tries to use :opcode:`STORE_FAST` or :opcode:"
 "`STORE_GLOBAL` if possible."
 msgstr ""
+"Implementa ``name = STACK.pop()``. *namei* é o índice de *name* no atributo :"
+"attr:`~codeobject.co_names` do :ref:`objeto de código <code-objects>`. O "
+"compilador tenta usar :opcode:`STORE_FAST` ou :opcode:`STORE_GLOBAL` se "
+"possível."
 
 #: ../../library/dis.rst:1007
 msgid ""
 "Implements ``del name``, where *namei* is the index into :attr:`~codeobject."
 "co_names` attribute of the :ref:`code object <code-objects>`."
 msgstr ""
+"Implementa ``del name``, onde *namei* é o índice no atributo :attr:"
+"`~codeobject.co_names` do :ref:`objeto de código <code-objects>`."
 
 #: ../../library/dis.rst:1013
 msgid ""
 "Unpacks ``STACK[-1]`` into *count* individual values, which are put onto the "
 "stack right-to-left. Require there to be exactly *count* values.::"
 msgstr ""
+"Desempacota ``STACK[-1]`` em *count* valores individuais, os quais são "
+"postos na pilha da direita para a esquerda. Requer que haja exatamente "
+"*count* valores::"
 
 #: ../../library/dis.rst:1022
 msgid ""
@@ -1255,10 +1279,16 @@ msgid ""
 "be smaller than the number of items in the iterable: one of the new values "
 "will be a list of all leftover items."
 msgstr ""
+"Implementa atribuição com um alvo estrelado: desempacota o iterável "
+"``STACK[-1]`` em valores individuais, sendo que pode haver menos valores do "
+"que itens no iterável: um dos novos valores será a lista de todos os itens "
+"que sobraram."
 
 #: ../../library/dis.rst:1027
 msgid "The number of values before and after the list value is limited to 255."
 msgstr ""
+"A quantidade de valores antes e após o valor que será a lista é limitada a "
+"255."
 
 #: ../../library/dis.rst:1029
 msgid ""
@@ -1268,42 +1298,59 @@ msgid ""
 "values where the low byte of *counts* is the number of values before the "
 "list value, the high byte of *counts* the number of values after it."
 msgstr ""
+"A quantidade de valores antes do valor lista é passada no argumento do "
+"opcode. A quantidade de valores após a lista, se houver, é passada usando um "
+"``EXTENDED_ARG``. A consequência é que o argumento pode ser visto como um "
+"valor de dois bytes, onde o byte \"de baixo\" de *counts* é a quantidade de "
+"valores antes do valor lista, e o byte \"de cima\" de *counts*, a quantidade "
+"após."
 
 #: ../../library/dis.rst:1035
 msgid ""
 "The extracted values are put onto the stack right-to-left, i.e. ``a, *b, c = "
 "d`` will be stored after execution as ``STACK.extend((a, b, c))``."
 msgstr ""
+"Os valores extraídos são postos na pilha da direita para a esquerda, ou "
+"seja, após executar ``a, *b, c = d`` os valores serão armazenados como "
+"``STACK.extend((a, b, c))``."
 
 #: ../../library/dis.rst:1047
 msgid ""
 "where *namei* is the index of name in :attr:`~codeobject.co_names` of the :"
 "ref:`code object <code-objects>`."
 msgstr ""
+"onde *namei* é o índice do nome no :attr:`~codeobject.co_names` do :ref:"
+"`objeto de código <code-objects>`."
 
 #: ../../library/dis.rst:1057
 msgid ""
 "where *namei* is the index of name into :attr:`~codeobject.co_names` of the :"
 "ref:`code object <code-objects>`."
 msgstr ""
+"onde *namei* é o índice do nome no :attr:`~codeobject.co_names` do :ref:"
+"`objeto de código <code-objects>`."
 
 #: ../../library/dis.rst:1063
 msgid "Works as :opcode:`STORE_NAME`, but stores the name as a global."
 msgstr ""
+"Funciona como o :opcode:`STORE_NAME`, mas o nome é armazenado com um nome "
+"global."
 
 #: ../../library/dis.rst:1068
 msgid "Works as :opcode:`DELETE_NAME`, but deletes a global name."
-msgstr ""
+msgstr "Funciona como o :opcode:`DELETE_NAME`, mas deleta um nome global."
 
 #: ../../library/dis.rst:1073
 msgid "Pushes ``co_consts[consti]`` onto the stack."
-msgstr ""
+msgstr "Põe ``co_consts[consti]`` no topo da pilha."
 
 #: ../../library/dis.rst:1078
 msgid ""
 "Pushes the value associated with ``co_names[namei]`` onto the stack. The "
 "name is looked up within the locals, then the globals, then the builtins."
 msgstr ""
+"Põe no topo da pilha o valor associado a ``co_names[namei]``. O nome é "
+"procurado nos locais, nos globais, e então nos embutidos."
 
 #: ../../library/dis.rst:1084
 msgid ""
