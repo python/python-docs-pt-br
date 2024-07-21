@@ -1874,6 +1874,8 @@ msgstr "O tamanho de pilha necessário do objeto código"
 msgid ""
 "An :class:`integer <int>` encoding a number of flags for the interpreter."
 msgstr ""
+"Um número :class:`inteiro <int>` codificando uma série de sinalizadores para "
+"o interpretador."
 
 #: ../../reference/datamodel.rst:1211
 msgid ""
@@ -1885,6 +1887,13 @@ msgid ""
 "`inspect-module-co-flags` for details on the semantics of each flags that "
 "might be present."
 msgstr ""
+"Os seguintes bits sinalizadores são definidos para :attr:`~codeobject."
+"co_flags`: o bit ``0x04`` é definido se a função usa a sintaxe "
+"``*arguments`` para aceitar um número arbitrário de argumentos posicionais; "
+"o bit ``0x08`` é definido se a função usa a sintaxe ``**keywords`` para "
+"aceitar argumentos nomeados arbitrários; o bit ``0x20`` é definido se a "
+"função for um gerador. Veja :ref:`inspect-module-co-flags` para detalhes na "
+"semântica de cada sinalizadores que podem estar presentes."
 
 #: ../../reference/datamodel.rst:1219
 msgid ""
@@ -1894,11 +1903,17 @@ msgid ""
 "function was compiled with future division enabled; bits ``0x10`` and "
 "``0x1000`` were used in earlier versions of Python."
 msgstr ""
+"Declarações de recursos futuros (``from __future__ import division``) também "
+"usam bits em :attr:`~codeobject.co_flags` para indicar se um objeto código "
+"foi compilado com um recurso específico habilitado: o bit ``0x2000`` é "
+"definido se a função foi compilada com divisão futura habilitada; os bits "
+"``0x10`` e ``0x1000`` foram usados em versões anteriores do Python."
 
 #: ../../reference/datamodel.rst:1225
 msgid ""
 "Other bits in :attr:`~codeobject.co_flags` are reserved for internal use."
 msgstr ""
+"Outros bits em :attr:`~codeobject.co_flags` são reservados para uso interno."
 
 #: ../../reference/datamodel.rst:1229
 msgid ""
@@ -1906,16 +1921,21 @@ msgid ""
 "co_consts` is the documentation string of the function, or ``None`` if "
 "undefined."
 msgstr ""
+"Se um objeto código representa uma função, o primeiro item em :attr:"
+"`~codeobject.co_consts` é a string de documentação da função, ou ``None`` se "
+"indefinido."
 
 #: ../../reference/datamodel.rst:1234
 msgid "Methods on code objects"
-msgstr ""
+msgstr "Métodos de objetos código"
 
 #: ../../reference/datamodel.rst:1238
 msgid ""
 "Returns an iterable over the source code positions of each :term:`bytecode` "
 "instruction in the code object."
 msgstr ""
+"Retorna um iterável das posições no código-fonte de cada instrução :term:"
+"`bytecode` no objeto código."
 
 #: ../../reference/datamodel.rst:1241
 msgid ""
@@ -1924,6 +1944,11 @@ msgid ""
 "position of the source code that compiled to the *i-th* code unit. Column "
 "information is 0-indexed utf-8 byte offsets on the given source line."
 msgstr ""
+"O iterador retorna :class:`tuple`\\s contendo ``(start_line, end_line, "
+"start_column, end_column)``. A *i-nésima* tupla corresponde à posição do "
+"código-fonte que compilou para a *i-nésima* unidade de código. As "
+"informações da coluna são deslocamentos de bytes utf-8 indexados em 0 na "
+"linha de código fornecida."
 
 #: ../../reference/datamodel.rst:1247
 msgid ""
@@ -1984,18 +2009,25 @@ msgid ""
 "`bytecode`\\s. Each item yielded is a ``(start, end, lineno)`` :class:"
 "`tuple`:"
 msgstr ""
+"Retorna um iterador que produz informações sobre intervalos sucessivos de :"
+"term:`bytecode`\\s. Cada item gerado é uma :class:`tuple` de ``(start, end, "
+"lineno)``:"
 
 #: ../../reference/datamodel.rst:1275
 msgid ""
 "``start`` (an :class:`int`) represents the offset (inclusive) of the start "
 "of the :term:`bytecode` range"
 msgstr ""
+"``start`` (um :class:`int`) representa o deslocamento (inclusivo) do início "
+"do intervalo :term:`bytecode`"
 
 #: ../../reference/datamodel.rst:1277
 msgid ""
 "``end`` (an :class:`int`) represents the offset (exclusive) of the end of "
 "the :term:`bytecode` range"
 msgstr ""
+"``end`` (um :class:`int`) representa o deslocamento (exclusivo) do fim do "
+"intervalo :term:`bytecode`"
 
 #: ../../reference/datamodel.rst:1279
 msgid ""
@@ -2003,14 +2035,17 @@ msgid ""
 "`bytecode` range, or ``None`` if the bytecodes in the given range have no "
 "line number"
 msgstr ""
+"``lineno`` é um :class:`int` representando o número da linha do intervalo "
+"do :term:`bytecode`, ou ``None`` se os bytecodes no intervalo fornecido não "
+"tiverem número de linha"
 
 #: ../../reference/datamodel.rst:1283
 msgid "The items yielded will have the following properties:"
-msgstr ""
+msgstr "Os itens gerados terão as seguintes propriedades:"
 
 #: ../../reference/datamodel.rst:1285
 msgid "The first range yielded will have a ``start`` of 0."
-msgstr ""
+msgstr "O primeiro intervalo gerado terá um ``start`` de 0."
 
 #: ../../reference/datamodel.rst:1286
 msgid ""
@@ -2018,16 +2053,21 @@ msgid ""
 "for any pair of :class:`tuple`\\s, the ``start`` of the second will be equal "
 "to the ``end`` of the first."
 msgstr ""
+"Os intervalos ``(start, end)`` serão não decrescentes e consecutivos. Ou "
+"seja, para qualquer par de :class:`tuple`\\s, o ``start`` do segundo será "
+"igual ao ``end`` do primeiro."
 
 #: ../../reference/datamodel.rst:1289
 msgid "No range will be backwards: ``end >= start`` for all triples."
-msgstr ""
+msgstr "Nenhum intervalo será inverso: ``end >= start`` para todos os trios."
 
 #: ../../reference/datamodel.rst:1290
 msgid ""
 "The last :class:`tuple` yielded will have ``end`` equal to the size of the :"
 "term:`bytecode`."
 msgstr ""
+"A última :class:`tuple` gerada terá ``end`` igual ao tamanho do :term:"
+"`bytecode`."
 
 #: ../../reference/datamodel.rst:1293
 msgid ""
@@ -2035,14 +2075,18 @@ msgid ""
 "are used for lines that are present in the source code, but have been "
 "eliminated by the :term:`bytecode` compiler."
 msgstr ""
+"Intervalos de largura zero, onde ``start == end``, são permitidos. "
+"Intervalos de largura zero são usados ​​para linhas que estão presentes no "
+"código-fonte, mas foram eliminadas pelo compilador de :term:`bytecode`."
 
 #: ../../reference/datamodel.rst:1301
 msgid ":pep:`626` - Precise line numbers for debugging and other tools."
 msgstr ""
+":pep:`626` - Números de linha precisos para depuração e outras ferramentas."
 
 #: ../../reference/datamodel.rst:1302
 msgid "The PEP that introduced the :meth:`!co_lines` method."
-msgstr ""
+msgstr "A PEP que introduziu o método :meth:`!co_lines`."
 
 #: ../../reference/datamodel.rst:1306
 msgid ""
@@ -2055,6 +2099,8 @@ msgstr ""
 msgid ""
 "Code objects are also supported by the generic function :func:`copy.replace`."
 msgstr ""
+"Objetos de código também são suportados pela função genérica :func:`copy."
+"replace`."
 
 #: ../../reference/datamodel.rst:1316
 msgid "Frame objects"
@@ -2066,12 +2112,17 @@ msgid ""
 "objects <traceback-objects>`, and are also passed to registered trace "
 "functions."
 msgstr ""
+"Objetos quadro representam quadros de execução. Eles podem ocorrer em :ref:"
+"`objetos traceback <traceback-objects>` e também são passados para funções "
+"de rastreamento registradas."
 
 #: ../../reference/datamodel.rst:1338
 msgid ""
 "Points to the previous stack frame (towards the caller), or ``None`` if this "
 "is the bottom stack frame"
 msgstr ""
+"Aponta para o quadro de pilha anterior (em direção ao chamador), ou ``None`` "
+"se este for o quadro de pilha mais abaixo."
 
 #: ../../reference/datamodel.rst:1342
 msgid ""
@@ -2079,6 +2130,9 @@ msgid ""
 "Accessing this attribute raises an :ref:`auditing event <auditing>` ``object."
 "__getattr__`` with arguments ``obj`` and ``\"f_code\"``."
 msgstr ""
+"O :ref:`objeto código <code-objects>` sendo executado neste quadro. Acessar "
+"este atributo levanta um :ref:`evento de auditoria <auditing>` ``object."
+"__getattr__`` com argumentos ``obj`` e ``\"f_code\"``."
 
 #: ../../reference/datamodel.rst:1347
 msgid ""
@@ -2086,6 +2140,9 @@ msgid ""
 "the frame refers to an :term:`optimized scope`, this may return a write-"
 "through proxy object."
 msgstr ""
+"O mapeamento usado pelo quadro para procurar :ref:`variáveis ​​locais "
+"<naming>`. Se o quadro se referir a um :term:`escopo otimizado`, isso pode "
+"retornar um objeto proxy write-through."
 
 #: ../../reference/datamodel.rst:1352
 msgid "Return a proxy for optimized scopes."
