@@ -1595,8 +1595,8 @@ msgid ""
 "thus may not be available in all Python implementations."
 msgstr ""
 "A função :func:`gettrace` destina-se apenas à implementação de depuradores, "
-"criadores de perfil, ferramentas de cobertura e similares. Seu comportamento "
-"faz parte da plataforma de implementação, e não da definição da linguagem e, "
+"perfiladores, ferramentas de cobertura e similares. Seu comportamento faz "
+"parte da plataforma de implementação, e não da definição da linguagem e, "
 "portanto, pode não estar disponível em todas as implementações do Python."
 
 #: ../../library/sys.rst:950
@@ -2279,7 +2279,7 @@ msgstr ""
 
 #: ../../library/sys.rst:1364 ../../library/sys.rst:1375
 msgid "Originally specified in :pep:`302`."
-msgstr "Originalmente especificado em :pep:`302`."
+msgstr "Originalmente especificado na :pep:`302`."
 
 #: ../../library/sys.rst:1369
 msgid ""
@@ -2678,6 +2678,9 @@ msgid ""
 "limit prevents infinite recursion from causing an overflow of the C stack "
 "and crashing Python."
 msgstr ""
+"Define a profundidade máxima da pilha do interpretador Python para *limit*. "
+"Esse limite impede que a recursão infinita cause um estouro da pilha C e "
+"trave o Python."
 
 #: ../../library/sys.rst:1556
 msgid ""
@@ -2686,18 +2689,26 @@ msgid ""
 "platform that supports a higher limit.  This should be done with care, "
 "because a too-high limit can lead to a crash."
 msgstr ""
+"O limite mais alto possível depende da plataforma. Um usuário pode precisar "
+"definir o limite mais alto quando tiver um programa que exija recursão "
+"profunda e uma plataforma que dê suporte a um limite mais alto. Isso deve "
+"ser feito com cuidado, porque um limite muito alto pode levar a uma falha."
 
 #: ../../library/sys.rst:1561
 msgid ""
 "If the new limit is too low at the current recursion depth, a :exc:"
 "`RecursionError` exception is raised."
 msgstr ""
+"Se o novo limite for muito baixo na profundidade de recursão atual, uma "
+"exceção :exc:`RecursionError` será levantada."
 
 #: ../../library/sys.rst:1564
 msgid ""
 "A :exc:`RecursionError` exception is now raised if the new limit is too low "
 "at the current recursion depth."
 msgstr ""
+"Uma exceção :exc:`RecursionError` agora é levantada se o novo limite for "
+"muito baixo na profundidade de recursão atual."
 
 #: ../../library/sys.rst:1571
 msgid ""
@@ -2709,6 +2720,13 @@ msgid ""
 "the operating system's decision.  The interpreter doesn't have its own "
 "scheduler."
 msgstr ""
+"Define o intervalo de troca de thread do interpretador (em segundos). Este "
+"valor de ponto flutuante determina a duração ideal das \"fatias de tempo\" "
+"alocadas para threads Python em execução simultânea. Observe que o valor "
+"real pode ser maior, especialmente se funções ou métodos internos de "
+"execução longa forem usados. Além disso, qual thread se torna agendada no "
+"final do intervalo é uma decisão do sistema operacional. O interpretador não "
+"tem seu próprio escalonador."
 
 #: ../../library/sys.rst:1588
 msgid ""
@@ -2718,6 +2736,11 @@ msgid ""
 "using :func:`settrace` for each thread being debugged or use :func:"
 "`threading.settrace`."
 msgstr ""
+"Define a função trace do sistema, que permite que você implemente um "
+"depurador de código-fonte Python em Python. A função é específica de thread; "
+"para um depurador suportar múltiplas threads, ele deve registrar uma função "
+"trace usando :func:`settrace` para cada thread que está sendo depurada ou "
+"usar :func:`threading.settrace`."
 
 #: ../../library/sys.rst:1593
 msgid ""
@@ -2726,6 +2749,10 @@ msgid ""
 "``'line'``, ``'return'``, ``'exception'`` or ``'opcode'``.  *arg* depends on "
 "the event type."
 msgstr ""
+"As funções de rastreamento devem ter três argumentos: *frame*, *event* e "
+"*arg*. *frame* é o quadro de pilha atual. *event* é uma string: ``'call'``, "
+"``'line'``, ``'return'``, ``'exception'`` ou ``'opcode'``. *arg* depende do "
+"tipo de evento."
 
 #: ../../library/sys.rst:1598
 msgid ""
@@ -2734,24 +2761,36 @@ msgid ""
 "function to be used for the new scope, or ``None`` if the scope shouldn't be "
 "traced."
 msgstr ""
+"A função de rastreamento é invocada (com *event* definido como ``'call'``) "
+"sempre que um novo escopo local é inserido; ela deve retornar uma referência "
+"a uma função de rastreamento local a ser usada para o novo escopo, ou "
+"``None`` se o escopo não deve ser rastreado."
 
 #: ../../library/sys.rst:1603
 msgid ""
 "The local trace function should return a reference to itself, or to another "
 "function which would then be used as the local trace function for the scope."
 msgstr ""
+"A função de rastreamento local deve retornar uma referência a si mesma ou a "
+"outra função que seria então usada como a função de rastreamento local para "
+"o escopo."
 
 #: ../../library/sys.rst:1606
 msgid ""
 "If there is any error occurred in the trace function, it will be unset, just "
 "like ``settrace(None)`` is called."
 msgstr ""
+"Se ocorrer algum erro na função de rastreamento, ela será desativada, assim "
+"como ``settrace(None)`` é chamado."
 
 #: ../../library/sys.rst:1610
 msgid ""
 "Tracing is disabled while calling the trace function (e.g. a function set "
 "by :func:`!settrace`). For recursive tracing see :func:`call_tracing`."
 msgstr ""
+"O rastreamento é desabilitado ao chamar a função de rastreamento (por "
+"exemplo, uma função definida por :func:`!settrace`). Para rastreamento "
+"recursivo, veja :func:`call_tracing`."
 
 #: ../../library/sys.rst:1616
 msgid ""
@@ -2759,6 +2798,9 @@ msgid ""
 "function is called; *arg* is ``None``; the return value specifies the local "
 "trace function."
 msgstr ""
+"Uma função é chamada (ou algum outro bloco de código é inserido). A função "
+"de rastreamento global é chamada; *arg* é ``None``; o valor de retorno "
+"especifica a função de rastreamento local."
 
 #: ../../library/sys.rst:1620
 msgid "``'line'``"
@@ -2773,6 +2815,13 @@ msgid ""
 "events may be disabled for a frame by setting :attr:`~frame.f_trace_lines` "
 "to :const:`False` on that :ref:`frame <frame-objects>`."
 msgstr ""
+"O interpretador está prestes a executar uma nova linha de código ou "
+"reexecutar a condição de um laço. A função de rastreamento local é chamada; "
+"*arg* é ``None``; o valor de retorno especifica a nova função de "
+"rastreamento local. Veja :file:`Objects/lnotab_notes.txt` para uma "
+"explicação detalhada de como isso funciona. Eventos por linha podem ser "
+"desabilitados para um quadro definindo :attr:`~frame.f_trace_lines` como :"
+"const:`False` naquele :ref:`quadro <frame-objects>`."
 
 #: ../../library/sys.rst:1631
 msgid ""
@@ -2781,6 +2830,10 @@ msgid ""
 "the event is caused by an exception being raised.  The trace function's "
 "return value is ignored."
 msgstr ""
+"Uma função (ou outro bloco de código) está prestes a retornar. A função de "
+"rastreamento local é chamada; *arg* é o valor que será retornado, ou "
+"``None`` se o evento for causado por uma exceção sendo levantada. O valor de "
+"retorno da função de rastreamento é ignorado."
 
 #: ../../library/sys.rst:1636
 msgid "``'exception'``"
@@ -2792,6 +2845,9 @@ msgid ""
 "tuple ``(exception, value, traceback)``; the return value specifies the new "
 "local trace function."
 msgstr ""
+"Ocorreu uma exceção. A função de rastreamento local é chamada; *arg* é uma "
+"tupla ``(exception, value, traceback)``; o valor de retorno especifica a "
+"nova função de rastreamento local."
 
 #: ../../library/sys.rst:1641
 msgid "``'opcode'``"
@@ -2806,12 +2862,20 @@ msgid ""
 "`~frame.f_trace_opcodes` to :const:`True` on the :ref:`frame <frame-"
 "objects>`."
 msgstr ""
+"O interpretador está prestes a executar um novo opcode (veja :mod:`dis` para "
+"detalhes do opcode). A função de rastreamento local é chamada; *arg* é "
+"``None``; o valor de retorno especifica a nova função de rastreamento local. "
+"Eventos por opcode não são emitidos por padrão: eles devem ser "
+"explicitamente solicitados definindo :attr:`~frame.f_trace_opcodes` como :"
+"const:`True` no :ref:`quadro <frame-objects>`."
 
 #: ../../library/sys.rst:1649
 msgid ""
 "Note that as an exception is propagated down the chain of callers, an "
 "``'exception'`` event is generated at each level."
 msgstr ""
+"Observe que, à medida que uma exceção é propagada pela cadeia de chamadores, "
+"um evento ``'exception'`` é gerado em cada nível."
 
 #: ../../library/sys.rst:1652
 msgid ""
@@ -2826,10 +2890,23 @@ msgid ""
 "tracing function that simply returns ``None`` to disable itself immediately "
 "on each frame)."
 msgstr ""
+"Para um uso mais refinado, é possível definir uma função de rastreamento "
+"atribuindo ``frame.f_trace = tracefunc`` explicitamente, em vez de depender "
+"de ser definida indiretamente por meio do valor de retorno de uma função de "
+"rastreamento já instalada. Isso também é necessário para ativar a função de "
+"rastreamento no quadro atual, o que :func:`settrace` não faz. Observe que, "
+"para que isso funcione, uma função de rastreamento global deve ter sido "
+"instalada com :func:`settrace` para habilitar o maquinário de rastreamento "
+"em tempo de execução, mas não precisa ser a mesma função de rastreamento "
+"(por exemplo, pode ser uma função de rastreamento de baixa sobrecarga que "
+"simplesmente retorna ``None`` para se desabilitar imediatamente em cada "
+"quadro)."
 
 #: ../../library/sys.rst:1663
 msgid "For more information on code and frame objects, refer to :ref:`types`."
 msgstr ""
+"Para mais informações sobre objetos de código e quadro, consulte :ref:"
+"`types`."
 
 #: ../../library/sys.rst:1665
 msgid ""
@@ -2846,12 +2923,18 @@ msgid ""
 "implementation platform, rather than part of the language definition, and "
 "thus may not be available in all Python implementations."
 msgstr ""
+"A função :func:`settrace` destina-se apenas à implementação de depuradores, "
+"perfiladores, ferramentas de cobertura e similares. Seu comportamento faz "
+"parte da plataforma de implementação, e não da definição da linguagem e, "
+"portanto, pode não estar disponível em todas as implementações do Python."
 
 #: ../../library/sys.rst:1676
 msgid ""
 "``'opcode'`` event type added; :attr:`~frame.f_trace_lines` and :attr:"
 "`~frame.f_trace_opcodes` attributes added to frames"
 msgstr ""
+"Tipo de evento ``'opcode'`` adicionado; atributos :attr:`~frame."
+"f_trace_lines` e :attr:`~frame.f_trace_opcodes` adicionados a quadros"
 
 #: ../../library/sys.rst:1681
 msgid ""
@@ -2861,6 +2944,11 @@ msgid ""
 "first time. The *finalizer* will be called when an asynchronous generator is "
 "about to be garbage collected."
 msgstr ""
+"Aceita dois argumentos nomeados opcionais que são chamáveis que aceitam um :"
+"term:`iterador gerador assíncrono` como argumento. O chamável *firstiter* "
+"será chamado quando um gerador assíncrono for iterado pela primeira vez. O "
+"*finalizer* será chamado quando um gerador assíncrono estiver prestes a ser "
+"coletado como lixo."
 
 #: ../../library/sys.rst:1687
 msgid ""
@@ -2883,6 +2971,8 @@ msgid ""
 "Two auditing events are raised because the underlying API consists of two "
 "calls, each of which must raise its own event."
 msgstr ""
+"Dois eventos de auditoria são gerados porque a API subjacente consiste em "
+"duas chamadas, cada uma das quais deve levantar seu próprio evento."
 
 #: ../../library/sys.rst:1694
 msgid ""
@@ -2890,6 +2980,9 @@ msgid ""
 "*finalizer* method see the implementation of ``asyncio.Loop."
 "shutdown_asyncgens`` in :source:`Lib/asyncio/base_events.py`"
 msgstr ""
+"Veja a :pep:`525` para mais detalhes, e para um exemplo de referência de um "
+"método *finalizer* veja a implementação de ``asyncio.Loop."
+"shutdown_asyncgens`` em :source:`Lib/asyncio/base_events.py`"
 
 #: ../../library/sys.rst:1706
 msgid ""
@@ -2899,6 +2992,11 @@ msgid ""
 "the coroutine object was created, with the most recent call first. When "
 "disabled, ``cr_origin`` will be ``None``."
 msgstr ""
+"Permite habilitar ou desabilitar o rastreamento de origem de corrotina. "
+"Quando habilitado, o atributo ``cr_origin`` em objetos de corrotina conterá "
+"uma tupla de tuplas (nome do arquivo, número da linha, nome da função) "
+"descrevendo o traceback onde o objeto corrotina foi criado, com a chamada "
+"mais recente primeiro. Quando desabilitado, ``cr_origin`` será ``None``."
 
 #: ../../library/sys.rst:1713
 msgid ""
@@ -2906,10 +3004,13 @@ msgid ""
 "frames whose information will be captured. To disable, pass set *depth* to "
 "zero."
 msgstr ""
+"Para habilitar, passe um valor *depth* maior que zero; isso define o número "
+"de quadros cujas informações serão capturadas. Para desabilitar, defina "
+"*depth* para zero."
 
 #: ../../library/sys.rst:1717
 msgid "This setting is thread-specific."
-msgstr ""
+msgstr "Esta configuração é específica do thread."
 
 #: ../../library/sys.rst:1727
 msgid ""
