@@ -10,17 +10,17 @@
 # Alexandre B A Villares, 2021
 # Mariana Costa <mrncstt@gmail.com>, 2021
 # a76d6fb6142d7607ab0526dcbddb02d7_7bf0da0 <3b5fb0f281c8dfb4c0170f2ee2a6cfcf_843623>, 2021
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 # Adorilson Bezerra <adorilson@gmail.com>, 2024
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-29 04:06+0000\n"
+"POT-Creation-Date: 2024-08-09 16:36+0000\n"
 "PO-Revision-Date: 2021-06-28 00:52+0000\n"
-"Last-Translator: Adorilson Bezerra <adorilson@gmail.com>, 2024\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -568,6 +568,14 @@ msgid ""
 "containing this work, although it may not be completely functional in this "
 "release."
 msgstr ""
+"Com a aprovação da :pep:`703`, o trabalho está em andamento para remover a "
+"GIL da implementação CPython do Python. Inicialmente, ele será implementado "
+"como um sinalizador opcional de compilador ao construir o interpretador, e "
+"assim construções separadas estarão disponíveis com e sem a GIL. A longo "
+"prazo, a esperança é estabelecer uma única construção, uma vez que as "
+"implicações de desempenho da remoção do GIL sejam totalmente compreendidas. "
+"O Python 3.13 provavelmente será a primeira versão contendo esse trabalho, "
+"embora possa não ser completamente funcional nesta versão."
 
 #: ../../faq/library.rst:422
 msgid ""
@@ -583,6 +591,18 @@ msgid ""
 "compensate for the removal of the GIL.  The Python 3.9 fork is the first "
 "attempt at removing the GIL with an acceptable performance impact."
 msgstr ""
+"O trabalho atual para remover a GIL é baseado em um `fork do Python 3.9 com "
+"a GIL removida <https://github.com/colesbury/nogil>`_ por Sam Gross. Antes "
+"disso, na época do Python 1.5, Greg Stein implementou um conjunto abrangente "
+"de patches (os patches de \"threads livres\") que removeu a GIL e a "
+"substituiu por um travamento de granulação fina. Adam Olsen fez um "
+"experimento semelhante em seu projeto `python-safethread <https://code."
+"google.com/archive/p/python-safethread>`_. Infelizmente, ambos os "
+"experimentos iniciais exibiram uma queda acentuada no desempenho de thread "
+"único (pelo menos 30% mais lento), devido à quantidade de travamento de "
+"granulação fina necessária para compensar a remoção da GIL. O fork do Python "
+"3.9 é a primeira tentativa de remover a GIL com um impacto aceitável no "
+"desempenho."
 
 #: ../../faq/library.rst:437
 msgid ""
@@ -594,6 +614,13 @@ msgid ""
 "doing so; the :mod:`multiprocessing` module provides a lower-level API in "
 "case you want more control over dispatching of tasks."
 msgstr ""
+"A presença da GIL nas versões atuais do Python não significa que você não "
+"pode fazer bom uso do Python em máquinas com várias CPUs! Você só precisa "
+"ser criativo ao dividir o trabalho entre vários *processos* em vez de vários "
+"*threads*. A classe :class:`~concurrent.futures.ProcessPoolExecutor` no novo "
+"módulo :mod:`concurrent.futures` fornece uma maneira fácil de fazer isso; o "
+"módulo :mod:`multiprocessing` fornece uma API de nível inferior, caso você "
+"queira mais controle sobre o despacho de tarefas."
 
 #: ../../faq/library.rst:446
 msgid ""
@@ -619,6 +646,14 @@ msgid ""
 "since these must be written with multiple interpreters in mind in order to "
 "be usable, so many older extension modules will not be usable."
 msgstr ""
+"Uma abordagem alternativa para reduzir o impacto da GIL é fazer da GIL uma "
+"trava por estado do interpretador em vez de verdadeiramente global. Isso "
+"foi :ref:`implementado pela primeira vez no Python 3.12 <whatsnew312-"
+"pep684>` e está disponível na API C. Uma interface Python para ele é "
+"esperada no Python 3.13. A principal limitação para ele no momento "
+"provavelmente são módulos de extensão de terceiros, já que estes devem ser "
+"escritos com múltiplos interpretadores em mente para serem utilizáveis, "
+"então muitos módulos de extensão mais antigos não serão utilizáveis."
 
 #: ../../faq/library.rst:462
 msgid "Input and Output"
@@ -634,7 +669,7 @@ msgid ""
 "see the :mod:`os` module.  The two functions are identical; :func:`~os."
 "unlink` is simply the name of the Unix system call for this function."
 msgstr ""
-"Use ``os.remove(filename)`` ou ``os.unlink(filename)``;para documentação, "
+"Use ``os.remove(arquivo)`` ou ``os.unlink(arquivo)``; para documentação, "
 "veja o módulo :mod:`os`. As duas funções são idênticas; :func:`~os.unlink` é "
 "simplesmente o nome da chamada do sistema para esta função no Unix."
 
@@ -646,10 +681,17 @@ msgid ""
 "directories as long as they're empty; if you want to delete an entire "
 "directory tree and its contents, use :func:`shutil.rmtree`."
 msgstr ""
+"Para remover um diretório, use :func:`os.rmdir`; use :func:`os.mkdir` para "
+"criar um. ``os.makedirs(caminho)`` criará quaisquer diretórios "
+"intermediários em ``path`` que não existam. ``os.removedirs(caminho)`` "
+"removerá diretórios intermediários, desde que estejam vazios; se quiser "
+"excluir toda uma árvore de diretórios e seu conteúdo, use :func:`shutil."
+"rmtree`."
 
 #: ../../faq/library.rst:477
 msgid "To rename a file, use ``os.rename(old_path, new_path)``."
-msgstr "Para renomear um arquivos, use ``os.rename(old_path, new_path)``."
+msgstr ""
+"Para renomear um arquivos, use ``os.rename(caminho_antigo, caminho_novo)``."
 
 #: ../../faq/library.rst:479
 msgid ""
@@ -658,6 +700,10 @@ msgid ""
 "There's also ``os.ftruncate(fd, offset)`` for files opened with :func:`os."
 "open`, where *fd* is the file descriptor (a small integer)."
 msgstr ""
+"Para truncar um arquivo, abra-o usando ``f = open(arquivo, \"rb+\")``, e use "
+"``f.truncate(posição)``; a posição tem como padrão a posição atual de busca. "
+"Há também ``os.ftruncate(fd, posição)`` para arquivos abertos com :func:`os."
+"open`, onde *fd* é o descritor de arquivo (um pequeno inteiro)."
 
 #: ../../faq/library.rst:484
 msgid ""
@@ -665,6 +711,9 @@ msgid ""
 "files including :func:`~shutil.copyfile`, :func:`~shutil.copytree`, and :"
 "func:`~shutil.rmtree`."
 msgstr ""
+"O módulo :mod:`shutil` também contém uma série de funções para trabalhar em "
+"arquivos, incluindo :func:`~shutil.copyfile`, :func:`~shutil.copytree` e :"
+"func:`~shutil.rmtree`."
 
 #: ../../faq/library.rst:490
 msgid "How do I copy a file?"
@@ -680,6 +729,13 @@ msgid ""
 "permissions and metadata, though using :func:`shutil.copy2` instead will "
 "preserve most (though not all) of it."
 msgstr ""
+"O módulo :mod:`shutil` contém uma função :func:`~shutil.copyfile`. Observe "
+"que em volumes NTFS do Windows, ele não copia `fluxos de dados alternativos "
+"<https://en.wikipedia.org/wiki/NTFS#Alternate_data_stream_(ADS)>`_ nem "
+"`forks de recursos <https://en.wikipedia.org/wiki/Resource_fork>`__ em "
+"volumes HFS+ do macOS, embora ambos sejam raramente usados ​​agora. Ele também "
+"não copia permissões de arquivo e metadados, embora usar :func:`shutil."
+"copy2` em vez disso preserve a maioria (embora não todos) deles."
 
 #: ../../faq/library.rst:503
 msgid "How do I read (or write) binary data?"
@@ -691,12 +747,17 @@ msgid ""
 "`struct` module.  It allows you to take a string containing binary data "
 "(usually numbers) and convert it to Python objects; and vice versa."
 msgstr ""
+"Para ler ou escrever formatos de dados binários complexos, é melhor usar o "
+"módulo :mod:`struct`. Ele permite que você pegue uma string contendo dados "
+"binários (geralmente números) e a converta em objetos Python; e vice-versa."
 
 #: ../../faq/library.rst:509
 msgid ""
 "For example, the following code reads two 2-byte integers and one 4-byte "
 "integer in big-endian format from a file::"
 msgstr ""
+"Por exemplo, o código a seguir lê dois inteiros de 2 bytes e um inteiro de 4 "
+"bytes no formato big-endian de um arquivo:"
 
 #: ../../faq/library.rst:518
 msgid ""
@@ -704,12 +765,17 @@ msgid ""
 "one \"short integer\" (2 bytes), and 'l' reads one \"long integer\" (4 "
 "bytes) from the string."
 msgstr ""
+"O '>' na string de formato força dados big-endian; a letra 'h' lê um "
+"\"inteiro curto\" (2 bytes) e 'l' lê um \"inteiro longo\" (4 bytes) da "
+"string."
 
 #: ../../faq/library.rst:522
 msgid ""
 "For data that is more regular (e.g. a homogeneous list of ints or floats), "
 "you can also use the :mod:`array` module."
 msgstr ""
+"Para dados mais regulares (por exemplo, uma lista homogênea de ints ou "
+"floats), você também pode usar o módulo :mod:`array`."
 
 #: ../../faq/library.rst:527
 msgid ""
@@ -718,6 +784,10 @@ msgid ""
 "instead (the default), the file will be open in text mode and ``f.read()`` "
 "will return :class:`str` objects rather than :class:`bytes` objects."
 msgstr ""
+"Para ler e escrever dados binários, é obrigatório abrir o arquivo no modo "
+"binário (aqui, passando ``\"rb\"`` para :func:`open`). Se você usar "
+"``\"r\"`` em vez disso (o padrão), o arquivo será aberto no modo texto e ``f."
+"read()`` retornará objetos :class:`str` em vez de objetos :class:`bytes`."
 
 #: ../../faq/library.rst:535
 msgid "I can't seem to use os.read() on a pipe created with os.popen(); why?"
@@ -731,6 +801,11 @@ msgid ""
 "function. Thus, to read *n* bytes from a pipe *p* created with :func:`os."
 "popen`, you need to use ``p.read(n)``."
 msgstr ""
+":func:`os.read` é uma função de baixo nível que pega um descritor de "
+"arquivo, um pequeno inteiro representando o arquivo aberto. :func:`os.popen` "
+"cria um objeto arquivo de alto nível, o mesmo tipo retornado pela função "
+"embutida :func:`open`. Assim, para ler *n* bytes de um pipe *p* criado com :"
+"func:`os.popen`, você precisa usar ``p.read(n)``."
 
 #: ../../faq/library.rst:623
 msgid "How do I access the serial (RS232) port?"
@@ -738,11 +813,11 @@ msgstr "Como acesso a porta serial (RS232)?"
 
 #: ../../faq/library.rst:625
 msgid "For Win32, OSX, Linux, BSD, Jython, IronPython:"
-msgstr ""
+msgstr "Para Win32, OSX, Linux, BSD, Jython, IronPython:"
 
 #: ../../faq/library.rst:627
 msgid ":pypi:`pyserial`"
-msgstr ""
+msgstr ":pypi:`pyserial`"
 
 #: ../../faq/library.rst:629
 msgid "For Unix, see a Usenet post by Mitch Chapman:"
@@ -761,6 +836,8 @@ msgid ""
 "Python :term:`file objects <file object>` are a high-level layer of "
 "abstraction on low-level C file descriptors."
 msgstr ""
+"Os :term:`objetos arquivos <file object>` do Python são uma camada de alto "
+"nível de abstração em descritores de arquivo C de baixo nível."
 
 #: ../../faq/library.rst:640
 msgid ""
@@ -770,6 +847,11 @@ msgid ""
 "descriptor.  This also happens automatically in ``f``'s destructor, when "
 "``f`` becomes garbage."
 msgstr ""
+"Para a maioria dos objetos arquivo que você cria em Python por meio da "
+"função embutida :func:`open`, ``f.close()`` marca o objeto arquivo Python "
+"como fechado do ponto de vista do Python e também organiza o fechamento do "
+"descritor de arquivo C subjacente. Isso também acontece automaticamente no "
+"destrutor de ``f``, quando ``f`` se torna lixo."
 
 #: ../../faq/library.rst:646
 msgid ""
@@ -778,6 +860,10 @@ msgid ""
 "marks the Python-level file object as being closed, but does *not* close the "
 "associated C file descriptor."
 msgstr ""
+"Mas stdin, stdout e stderr são tratados de forma especial pelo Python, "
+"devido ao status especial que também lhes é dado pelo C. Executar ``sys."
+"stdout.close()`` marca o objeto arquivo de nível Python como fechado, mas "
+"*não* fecha o descritor de arquivo C associado."
 
 #: ../../faq/library.rst:651
 msgid ""
@@ -785,10 +871,14 @@ msgid ""
 "first be sure that's what you really want to do (e.g., you may confuse "
 "extension modules trying to do I/O).  If it is, use :func:`os.close`::"
 msgstr ""
+"Para fechar o descritor de arquivo C subjacente para um desses três, você "
+"deve primeiro ter certeza de que é isso que você realmente quer fazer (por "
+"exemplo, você pode confundir módulos de extensão tentando fazer E/S). Se "
+"for, use :func:`os.close`::"
 
 #: ../../faq/library.rst:659
 msgid "Or you can use the numeric constants 0, 1 and 2, respectively."
-msgstr "Ou você pode usar as constantes numérias 0, 1 e 2, respectivamente."
+msgstr "Ou você pode usar as constantes numéricas 0, 1 e 2, respectivamente."
 
 #: ../../faq/library.rst:663
 msgid "Network/Internet Programming"
@@ -796,7 +886,7 @@ msgstr "Programação Rede / Internet"
 
 #: ../../faq/library.rst:666
 msgid "What WWW tools are there for Python?"
-msgstr "Quais ferramentas WWW existem no Python?"
+msgstr "Quais ferramentas para WWW existem no Python?"
 
 #: ../../faq/library.rst:668
 msgid ""
@@ -804,6 +894,9 @@ msgid ""
 "Reference Manual.  Python has many modules that will help you build server-"
 "side and client-side web systems."
 msgstr ""
+"Veja os capítulos intitulados :ref:`internet` e :ref:`netdata` no Manual de "
+"Referência da Biblioteca. Python tem muitos módulos que ajudarão você a "
+"construir sistemas web do lado do servidor e do lado do cliente."
 
 #: ../../faq/library.rst:674
 msgid ""
@@ -848,10 +941,14 @@ msgid ""
 "usr/sbin/sendmail``.  The sendmail manual page will help you out.  Here's "
 "some sample code::"
 msgstr ""
+"Uma alternativa somente para Unix usa o sendmail. A localização do programa "
+"sendmail varia entre os sistemas; às vezes é ``/usr/lib/sendmail``, às vezes "
+"``/usr/sbin/sendmail``. A página de manual do sendmail vai ajudar você. Aqui "
+"está um código de exemplo::"
 
 #: ../../faq/library.rst:732
 msgid "How do I avoid blocking in the connect() method of a socket?"
-msgstr "Como evito o bloqueio no método connect() de um soquete?"
+msgstr "Como evito um bloqueio no método connect() de um soquete?"
 
 #: ../../faq/library.rst:734
 msgid ""
@@ -871,6 +968,13 @@ msgid ""
 "return different values, so you're going to have to check what's returned on "
 "your system."
 msgstr ""
+"Para evitar que a conexão TCP bloqueie, você pode definir o soquete para o "
+"modo sem bloqueio. Então, quando você fizer o :meth:`~socket.socket."
+"connect`, você se conectará imediatamente (improvável) ou obterá uma exceção "
+"que contém o número de erro como ``.errno``. ``errno.EINPROGRESS`` indica "
+"que a conexão está em andamento, mas ainda não terminou. Diferentes sistemas "
+"operacionais retornarão valores diferentes, então você terá que verificar o "
+"que é retornado no seu sistema."
 
 #: ../../faq/library.rst:745
 msgid ""
@@ -880,6 +984,11 @@ msgid ""
 "indicate that you're connected -- or you can pass this socket to :meth:"
 "`select.select` to check if it's writable."
 msgstr ""
+"Você pode usar o método :meth:`~socket.socket.connect_ex` para evitar criar "
+"uma exceção. Ele retornará apenas o valor de errno. Para pesquisar, você "
+"pode chamar :meth:`~socket.socket.connect_ex` novamente mais tarde -- ``0`` "
+"ou ``errno.EISCONN`` indicam que você está conectado -- ou você pode passar "
+"este soquete para :meth:`select.select` para verificar se ele é gravável."
 
 #: ../../faq/library.rst:753
 msgid ""
@@ -888,6 +997,10 @@ msgid ""
 "network code. The third-party `Twisted <https://twisted.org/>`_ library is a "
 "popular and feature-rich alternative."
 msgstr ""
+"O módulo :mod:`asyncio` fornece uma biblioteca assíncrona de thread única e "
+"concorrente de propósito geral, que pode ser usada para escrever código de "
+"rede não bloqueante. A biblioteca de terceiros `Twisted <https://twisted.org/"
+">`_ é uma alternativa popular e rica em recursos."
 
 #: ../../faq/library.rst:761
 msgid "Databases"
@@ -908,6 +1021,10 @@ msgid ""
 "`sqlite3` module, which provides a lightweight disk-based relational "
 "database."
 msgstr ""
+"Interfaces para hashes baseados em disco, como :mod:`DBM <dbm.ndbm>` e :mod:"
+"`GDBM <dbm.gnu>` também estão incluídas no Python padrão. Há também o "
+"módulo :mod:`sqlite3`, que fornece um banco de dados relacional baseado em "
+"disco leve."
 
 #: ../../faq/library.rst:773
 msgid ""
@@ -930,6 +1047,11 @@ msgid ""
 "mod:`shelve` library module uses pickle and (g)dbm to create persistent "
 "mappings containing arbitrary Python objects."
 msgstr ""
+"O módulo de biblioteca :mod:`pickle` resolve isso de uma maneira muito geral "
+"(embora você ainda não possa armazenar coisas como arquivos abertos, "
+"soquetes ou janelas), e o módulo de biblioteca :mod:`shelve` usa pickle e "
+"(g)dbm para criar mapeamentos persistentes contendo objetos Python "
+"arbitrários."
 
 #: ../../faq/library.rst:788
 msgid "Mathematics and Numerics"
@@ -970,6 +1092,8 @@ msgstr ""
 msgid ""
 "``normalvariate(mean, sdev)`` samples the normal (Gaussian) distribution."
 msgstr ""
+"``normalvariate(mean, sdev)`` gera números pseudoaleatórios que seguem uma "
+"distribuição normal (Gaussiana)."
 
 #: ../../faq/library.rst:807
 msgid "Some higher-level functions operate on sequences directly, such as:"
@@ -979,10 +1103,13 @@ msgstr ""
 #: ../../faq/library.rst:809
 msgid "``choice(S)`` chooses a random element from a given sequence."
 msgstr ""
+"``choice(S)`` escolhe um elemento aleatório de uma determinada sequência."
 
 #: ../../faq/library.rst:810
 msgid "``shuffle(L)`` shuffles a list in-place, i.e. permutes it randomly."
 msgstr ""
+"``shuffle(L)`` embaralha uma lista internamente, ou seja permuta seus "
+"elementos aleatoriamente."
 
 #: ../../faq/library.rst:812
 msgid ""
