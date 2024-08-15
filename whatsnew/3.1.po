@@ -245,6 +245,12 @@ msgid ""
 "`bytearray` each have their own **maketrans** and **translate** methods with "
 "intermediate translation tables of the appropriate type."
 msgstr ""
+"The :func:`!string.maketrans` function is deprecated and is replaced by new "
+"static methods, :meth:`bytes.maketrans` and :meth:`bytearray.maketrans`. "
+"This change solves the confusion around which types were supported by the :"
+"mod:`string` module. Now, :class:`str`, :class:`bytes`, and :class:"
+"`bytearray` each have their own **maketrans** and **translate** methods with "
+"intermediate translation tables of the appropriate type."
 
 #: ../../whatsnew/3.1.rst:184
 msgid "(Contributed by Georg Brandl; :issue:`5675`.)"
@@ -263,6 +269,8 @@ msgid ""
 "With the new syntax, the :func:`!contextlib.nested` function is no longer "
 "needed and is now deprecated."
 msgstr ""
+"With the new syntax, the :func:`!contextlib.nested` function is no longer "
+"needed and is now deprecated."
 
 #: ../../whatsnew/3.1.rst:197
 msgid ""
@@ -323,6 +331,14 @@ msgid ""
 "intrinsic limitations of binary floating-point representation as being a "
 "problem with Python itself)."
 msgstr ""
+"What is new is how the number gets displayed.  Formerly, Python used a "
+"simple approach.  The value of ``repr(1.1)`` was computed as ``format(1.1, "
+"'.17g')`` which evaluated to ``'1.1000000000000001'``. The advantage of "
+"using 17 digits was that it relied on IEEE-754 guarantees to assure that "
+"``eval(repr(1.1))`` would round-trip exactly to its original value.  The "
+"disadvantage is that many people found the output to be confusing (mistaking "
+"intrinsic limitations of binary floating-point representation as being a "
+"problem with Python itself)."
 
 #: ../../whatsnew/3.1.rst:230
 msgid ""
@@ -353,6 +369,10 @@ msgid ""
 "algorithm will continue to be used.  Also, the text pickle protocols assure "
 "cross-platform portability by using the old algorithm."
 msgstr ""
+"The new algorithm depends on certain features in the underlying floating-"
+"point implementation.  If the required features are not found, the old "
+"algorithm will continue to be used.  Also, the text pickle protocols assure "
+"cross-platform portability by using the old algorithm."
 
 #: ../../whatsnew/3.1.rst:244
 msgid "(Contributed by Eric Smith and Mark Dickinson; :issue:`1580`)"
@@ -572,6 +592,13 @@ msgid ""
 "<unittest.TestCase.assertRaisesRegex>`, :meth:`~unittest.TestCase."
 "assertIsNone`, and :meth:`~unittest.TestCase.assertIsNotNone`."
 msgstr ""
+"In addition, several new assertion methods were added including :meth:"
+"`~unittest.TestCase.assertSetEqual`, :meth:`~unittest.TestCase."
+"assertDictEqual`, :meth:`!assertDictContainsSubset`, :meth:`~unittest."
+"TestCase.assertListEqual`, :meth:`~unittest.TestCase.assertTupleEqual`, :"
+"meth:`~unittest.TestCase.assertSequenceEqual`, :meth:`assertRaisesRegexp() "
+"<unittest.TestCase.assertRaisesRegex>`, :meth:`~unittest.TestCase."
+"assertIsNone`, and :meth:`~unittest.TestCase.assertIsNotNone`."
 
 #: ../../whatsnew/3.1.rst:394
 msgid "(Contributed by Benjamin Peterson and Antoine Pitrou.)"
@@ -582,10 +609,12 @@ msgid ""
 "The :mod:`io` module has three new constants for the :meth:`~io.IOBase.seek` "
 "method: :data:`~os.SEEK_SET`, :data:`~os.SEEK_CUR`, and :data:`~os.SEEK_END`."
 msgstr ""
+"The :mod:`io` module has three new constants for the :meth:`~io.IOBase.seek` "
+"method: :data:`~os.SEEK_SET`, :data:`~os.SEEK_CUR`, and :data:`~os.SEEK_END`."
 
 #: ../../whatsnew/3.1.rst:399
 msgid "The :data:`sys.version_info` tuple is now a named tuple::"
-msgstr ""
+msgstr "The :data:`sys.version_info` tuple is now a named tuple::"
 
 #: ../../whatsnew/3.1.rst:404
 msgid "(Contributed by Ross Light; :issue:`4285`.)"
@@ -593,7 +622,7 @@ msgstr "(Contributed by Ross Light; :issue:`4285`.)"
 
 #: ../../whatsnew/3.1.rst:406
 msgid "The :mod:`!nntplib` and :mod:`imaplib` modules now support IPv6."
-msgstr ""
+msgstr "The :mod:`!nntplib` and :mod:`imaplib` modules now support IPv6."
 
 #: ../../whatsnew/3.1.rst:408
 msgid "(Contributed by Derek Morr; :issue:`1655` and :issue:`1664`.)"
@@ -741,6 +770,11 @@ msgid ""
 "closely match the `JSON specification <https://json.org/>`_ which is defined "
 "in terms of Unicode."
 msgstr ""
+"The :mod:`json` module now has a C extension to substantially improve its "
+"performance.  In addition, the API was modified so that json works only "
+"with :class:`str`, not with :class:`bytes`.  That change makes the module "
+"closely match the `JSON specification <https://json.org/>`_ which is defined "
+"in terms of Unicode."
 
 #: ../../whatsnew/3.1.rst:483
 msgid ""
@@ -840,6 +874,7 @@ msgstr "(Contributed by Mark Dickinson and Lisandro Dalcrin; :issue:`5175`.)"
 msgid ""
 "Deprecated :c:func:`!PyNumber_Int`.  Use :c:func:`PyNumber_Long` instead."
 msgstr ""
+"Deprecated :c:func:`!PyNumber_Int`.  Use :c:func:`PyNumber_Long` instead."
 
 #: ../../whatsnew/3.1.rst:532
 msgid "(Contributed by Mark Dickinson; :issue:`4910`.)"
@@ -851,6 +886,9 @@ msgid ""
 "deprecated functions :c:func:`!PyOS_ascii_strtod` and :c:func:`!"
 "PyOS_ascii_atof`."
 msgstr ""
+"Added a new :c:func:`PyOS_string_to_double` function to replace the "
+"deprecated functions :c:func:`!PyOS_ascii_strtod` and :c:func:`!"
+"PyOS_ascii_atof`."
 
 #: ../../whatsnew/3.1.rst:537
 msgid "(Contributed by Mark Dickinson; :issue:`5914`.)"
@@ -864,6 +902,11 @@ msgid ""
 "calling a destructor.  The old type had a problematic API and is now "
 "deprecated."
 msgstr ""
+"Added :c:type:`PyCapsule` as a replacement for the :c:type:`!PyCObject` API. "
+"The principal difference is that the new type has a well defined interface "
+"for passing typing safety information and a less complicated signature for "
+"calling a destructor.  The old type had a problematic API and is now "
+"deprecated."
 
 #: ../../whatsnew/3.1.rst:545
 msgid "(Contributed by Larry Hastings; :issue:`5630`.)"
@@ -886,6 +929,8 @@ msgid ""
 "The new floating-point string representations can break existing doctests. "
 "For example::"
 msgstr ""
+"The new floating-point string representations can break existing doctests. "
+"For example::"
 
 #: ../../whatsnew/3.1.rst:576
 msgid ""
