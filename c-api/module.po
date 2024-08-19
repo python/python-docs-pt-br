@@ -72,7 +72,7 @@ msgstr ""
 #: ../../c-api/module.rst:46 ../../c-api/module.rst:270
 #: ../../c-api/module.rst:470
 msgid "Return ``NULL`` with an exception set on error."
-msgstr ""
+msgstr "Retorna ``NULL`` com uma exceção definida em caso de erro."
 
 #: ../../c-api/module.rst:50
 msgid ":attr:`__package__` and :attr:`__loader__` are set to ``None``."
@@ -93,6 +93,10 @@ msgid ""
 "object. If *module* is not a module object (or a subtype of a module "
 "object), :exc:`SystemError` is raised and ``NULL`` is returned."
 msgstr ""
+"Retorna o objeto dicionário que implementa o espaço de nomes de *module*; "
+"este objeto é o mesmo que o atributo :attr:`~object.__dict__` do objeto de "
+"módulo. Se *module* não for um objeto de módulo (ou um subtipo de um objeto "
+"de módulo), :exc:`SystemError` é levantada e ``NULL`` é retornado."
 
 #: ../../c-api/module.rst:69
 msgid ""
@@ -100,6 +104,9 @@ msgid ""
 "functions rather than directly manipulate a module's :attr:`~object."
 "__dict__`."
 msgstr ""
+"É recomendado que as extensões usem outras funções ``PyModule_*`` e "
+"``PyObject_*`` em vez de manipular diretamente o :attr:`~object.__dict__` de "
+"um módulo."
 
 #: ../../c-api/module.rst:80
 msgid ""
@@ -107,6 +114,9 @@ msgid ""
 "one, or if it is not a string, :exc:`SystemError` is raised and ``NULL`` is "
 "returned."
 msgstr ""
+"Retorna o valor :attr:`__name__` do *módulo*. Se o módulo não fornecer um, "
+"ou se não for uma string, :exc:`SystemError` é levantada e ``NULL`` é "
+"retornado."
 
 #: ../../c-api/module.rst:88
 msgid ""
@@ -159,6 +169,8 @@ msgid ""
 ":c:func:`PyModule_GetFilename` raises :exc:`UnicodeEncodeError` on "
 "unencodable filenames, use :c:func:`PyModule_GetFilenameObject` instead."
 msgstr ""
+":c:func:`PyModule_GetFilename`: levanta :exc:`UnicodeEncodeError` quando há "
+"nomes de arquivos não codificáveis, use :c:func:`PyModule_GetFilenameObject`."
 
 #: ../../c-api/module.rst:131
 msgid "Initializing C modules"
@@ -200,7 +212,7 @@ msgstr ""
 
 #: ../../c-api/module.rst:150
 msgid "Always initialize this member to :c:macro:`PyModuleDef_HEAD_INIT`."
-msgstr ""
+msgstr "Sempre inicializa este membro para :c:macro:`PyModuleDef_HEAD_INIT`."
 
 #: ../../c-api/module.rst:154
 msgid "Name for the new module."
@@ -220,6 +232,10 @@ msgid ""
 "with :c:func:`PyModule_GetState`, rather than in static globals. This makes "
 "modules safe for use in multiple sub-interpreters."
 msgstr ""
+"O estado do módulo pode ser mantido em uma área de memória por módulo que "
+"pode ser recuperada com :c:func:`PyModule_GetState`, em vez de em globais "
+"estáticos. Isso torna os módulos seguros para uso em vários "
+"subinterpretadores."
 
 #: ../../c-api/module.rst:167
 msgid ""
@@ -227,12 +243,17 @@ msgid ""
 "freed when the module object is deallocated, after the :c:member:"
 "`~PyModuleDef.m_free` function has been called, if present."
 msgstr ""
+"Esta área de memória é alocada com base em *m_size* na criação do módulo e "
+"liberada quando o objeto do módulo é desalocado, após a função :c:member:"
+"`~PyModuleDef.m_free` ter sido chamada, se presente."
 
 #: ../../c-api/module.rst:171
 msgid ""
 "Setting ``m_size`` to ``-1`` means that the module does not support sub-"
 "interpreters, because it has global state."
 msgstr ""
+"Definir ``m_size`` como ``-1`` significa que o módulo não oferece suporte a "
+"subinterpretadores, porque ele tem estado global."
 
 #: ../../c-api/module.rst:174
 msgid ""
@@ -255,6 +276,9 @@ msgid ""
 "A pointer to a table of module-level functions, described by :c:type:"
 "`PyMethodDef` values.  Can be ``NULL`` if no functions are present."
 msgstr ""
+"Um ponteiro para uma tabela de funções de nível de módulo, descritas por "
+"valores :c:type:`PyMethodDef`. Pode ser ``NULL`` se nenhuma função estiver "
+"presente."
 
 #: ../../c-api/module.rst:188
 msgid ""
@@ -262,18 +286,25 @@ msgid ""
 "``{0, NULL}`` entry. When using single-phase initialization, *m_slots* must "
 "be ``NULL``."
 msgstr ""
+"Uma matriz de definições de slot para inicialização multifásica, terminada "
+"por uma entrada ``{0, NULL}``. Ao usar inicialização monofásica, *m_slots* "
+"deve ser ``NULL``."
 
 #: ../../c-api/module.rst:194
 msgid ""
 "Prior to version 3.5, this member was always set to ``NULL``, and was "
 "defined as:"
 msgstr ""
+"Antes da versão 3.5, esse membro era sempre definido como ``NULL`` e era "
+"definido como:"
 
 #: ../../c-api/module.rst:201
 msgid ""
 "A traversal function to call during GC traversal of the module object, or "
 "``NULL`` if not needed."
 msgstr ""
+"Uma função de travessia para chamar durante a travessia do GC do objeto do "
+"módulo, ou ``NULL`` se não for necessário."
 
 #: ../../c-api/module.rst:204 ../../c-api/module.rst:219
 #: ../../c-api/module.rst:240
@@ -285,6 +316,12 @@ msgid ""
 "greater than 0 and the module state (as returned by :c:func:"
 "`PyModule_GetState`) is ``NULL``."
 msgstr ""
+"Esta função não é mais chamada se o estado do módulo foi solicitado, mas "
+"ainda não está alocado. Este é o caso imediatamente após o módulo ser criado "
+"e antes de o módulo ser executado (função :c:data:`Py_mod_exec`). Mais "
+"precisamente, esta função não é chamada se :c:member:`~PyModuleDef.m_size` "
+"for maior que 0 e o estado do módulo (como retornado por :c:func:"
+"`PyModule_GetState`) for ``NULL``."
 
 #: ../../c-api/module.rst:211 ../../c-api/module.rst:232
 #: ../../c-api/module.rst:247
@@ -296,6 +333,8 @@ msgid ""
 "A clear function to call during GC clearing of the module object, or "
 "``NULL`` if not needed."
 msgstr ""
+"Uma função de limpeza para chamar durante a limpeza do GC do objeto do "
+"módulo, ou ``NULL`` se não for necessário."
 
 #: ../../c-api/module.rst:226
 msgid ""
