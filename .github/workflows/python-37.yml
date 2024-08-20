@@ -1,0 +1,19 @@
+name: python-37
+
+on:
+  workflow_dispatch:
+
+jobs:
+  sync:
+    uses: ./.github/workflows/sync.yml
+    with:
+      tx_project: ${{ github.workflow }}
+      version: 3.7
+    secrets: inherit
+  check:
+    uses: ./.github/workflows/check.yml
+    needs: sync
+    with:
+      tx_project: ${{ github.workflow }}
+      version: 3.7
+    secrets: inherit
