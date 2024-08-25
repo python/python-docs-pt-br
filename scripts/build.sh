@@ -5,6 +5,9 @@
 
 set -xeu
 
+# Fail earlier if required variables are not set
+test -n ${PYDOC_LANGUAGE+x}
+
 cd "$(dirname $0)/.."
 mkdir -p logs
 opts="-D gettext_compact=False -D language=${PYDOC_LANGUAGE} --keep-going -w ../../logs/sphinxwarnings.txt"

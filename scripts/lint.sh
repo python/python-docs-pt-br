@@ -5,6 +5,9 @@
 
 set -xeu
 
+# Fail earlier if required variables are not set
+test -n ${PYDOC_LANGUAGE+x}
+
 rootdir=$(realpath $(dirname $0)/..)
 
 cd "$rootdir"
