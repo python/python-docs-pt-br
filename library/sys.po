@@ -3147,6 +3147,14 @@ msgid ""
 "defaults to the system :term:`locale encoding` if the process is not "
 "initially attached to a console."
 msgstr ""
+"No Windows, o UTF-8 é usado para o dispositivo de console. Dispositivos não-"
+"caracteres, como arquivos de disco e pipes, usam a codificação da localidade "
+"do sistema (ou seja, a página de código ANSI). Dispositivos de caracteres "
+"não-console, como NUL (ou seja, onde ``isatty()`` retorna ``True``) usam o "
+"valor das páginas de código de entrada e saída do console na inicialização, "
+"respectivamente para stdin e stdout/stderr. Isso assume como padrão a :term:"
+"`codificação da localidade` do sistema se o processo não for inicialmente "
+"anexado a um console."
 
 #: ../../library/sys.rst:1811
 msgid ""
@@ -3154,6 +3162,10 @@ msgid ""
 "environment variable PYTHONLEGACYWINDOWSSTDIO before starting Python. In "
 "that case, the console codepages are used as for any other character device."
 msgstr ""
+"O comportamento especial do console pode ser substituído definindo a "
+"variável de ambiente PYTHONLEGACYWINDOWSSTDIO antes de iniciar o Python. "
+"Nesse caso, as páginas de código do console são usadas como para qualquer "
+"outro dispositivo de caractere."
 
 #: ../../library/sys.rst:1816
 msgid ""
@@ -3163,6 +3175,12 @@ msgid ""
 "`PYTHONUTF8` environment variable.  However, for the Windows console, this "
 "only applies when :envvar:`PYTHONLEGACYWINDOWSSTDIO` is also set."
 msgstr ""
+"Em todas as plataformas, você pode substituir a codificação de caracteres "
+"definindo a variável de ambiente :envvar:`PYTHONIOENCODING` antes de iniciar "
+"o Python ou usando a nova opção de linha de comando :option:`-X` ``utf8`` e "
+"a variável de ambiente :envvar:`PYTHONUTF8`. No entanto, para o console do "
+"Windows, isso só se aplica quando :envvar:`PYTHONLEGACYWINDOWSSTDIO` também "
+"está definido."
 
 #: ../../library/sys.rst:1823
 msgid ""
@@ -3172,11 +3190,18 @@ msgid ""
 "the :option:`-u` command-line option or setting the :envvar:"
 "`PYTHONUNBUFFERED` environment variable."
 msgstr ""
+"Quando interativo, o fluxo ``stdout`` é armazenado em buffer de linha. Caso "
+"contrário, ele é armazenado em buffer de bloco como arquivos texto comuns. O "
+"fluxo ``stderr`` é armazenado em buffer de linha em ambos os casos. Você "
+"pode tornar ambos os fluxos sem buffer passando a opção de linha de comando :"
+"option:`-u` ou definindo a variável de ambiente :envvar:`PYTHONUNBUFFERED`."
 
 #: ../../library/sys.rst:1829
 msgid ""
 "Non-interactive ``stderr`` is now line-buffered instead of fully buffered."
 msgstr ""
+"``stderr`` não interativo agora é armazenado em buffer de linha em vez de "
+"totalmente armazenado em buffer."
 
 #: ../../library/sys.rst:1835
 msgid ""
@@ -3184,6 +3209,9 @@ msgid ""
 "underlying binary :data:`~io.TextIOBase.buffer` object.  For example, to "
 "write bytes to :data:`stdout`, use ``sys.stdout.buffer.write(b'abc')``."
 msgstr ""
+"Para escrever ou ler dados binários de/para os fluxos padrão, use o objeto "
+"binário subjacente :data:`~io.TextIOBase.buffer`. Por exemplo, para escrever "
+"bytes em :data:`stdout`, use ``sys.stdout.buffer.write(b'abc')``."
 
 #: ../../library/sys.rst:1839
 msgid ""
@@ -3192,6 +3220,10 @@ msgid ""
 "replaced with file-like objects like :class:`io.StringIO` which do not "
 "support the :attr:`!buffer` attribute."
 msgstr ""
+"Entretanto, se você estiver escrevendo uma biblioteca (e não controlar em "
+"qual contexto seu código será executado), esteja ciente de que os fluxos "
+"padrão podem ser substituídos por objetos arquivo ou similar, como :class:"
+"`io.StringIO`, que não oferecem suporte ao atributo :attr:`!buffer`."
 
 #: ../../library/sys.rst:1849
 msgid ""
@@ -3200,6 +3232,10 @@ msgid ""
 "and could be useful to print to the actual standard stream no matter if the "
 "``sys.std*`` object has been redirected."
 msgstr ""
+"Esses objetos contêm os valores originais de ``stdin``, ``stderr`` e "
+"``stdout`` no início do programa. Eles são usados ​​durante a finalização e "
+"podem ser úteis para imprimir no fluxo padrão real, não importa se o objeto "
+"``sys.std*`` foi redirecionado."
 
 #: ../../library/sys.rst:1854
 msgid ""
@@ -3208,6 +3244,11 @@ msgid ""
 "the preferred way to do this is to explicitly save the previous stream "
 "before replacing it, and restore the saved object."
 msgstr ""
+"Ele também pode ser usado para restaurar os arquivos reais para objetos "
+"arquivo de trabalho conhecidos, caso tenham sido substituídos por um objeto "
+"quebrado. No entanto, a maneira preferida de fazer isso é salvar "
+"explicitamente o fluxo anterior antes de substituí-lo e restaurar o objeto "
+"salvo."
 
 #: ../../library/sys.rst:1860
 msgid ""
@@ -3216,6 +3257,11 @@ msgid ""
 "``None``. It is usually the case for Windows GUI apps that aren't connected "
 "to a console and Python apps started with :program:`pythonw`."
 msgstr ""
+"Sob algumas condições, ``stdin``, ``stdout`` e ``stderr``, bem como os "
+"valores originais de ``__stdin__``, ``__stdout__`` e ``__stderr__`` podem "
+"ser ``None``. Geralmente é o caso de aplicativos GUI do Windows que não "
+"estão conectados a um console e aplicativos Python iniciados com :program:"
+"`pythonw`."
 
 #: ../../library/sys.rst:1868
 msgid ""
@@ -3249,7 +3295,7 @@ msgstr ""
 
 #: ../../library/sys.rst:1892
 msgid "The name of the thread implementation:"
-msgstr ""
+msgstr "O nome da implementação da thread:"
 
 #: ../../library/sys.rst:1894
 msgid "``\"nt\"``: Windows threads"
