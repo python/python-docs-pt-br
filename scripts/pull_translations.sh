@@ -19,7 +19,6 @@
 
 set -xeu
 
-test -n ${PYDOC_LANGUAGE+x}
 test -n ${PYDOC_TX_PROJECT+x}
 
 cd "$(dirname $0)/../cpython/Doc/locale/${PYDOC_LANGUAGE}/LC_MESSAGES/"
