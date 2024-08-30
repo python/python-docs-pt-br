@@ -129,6 +129,10 @@ msgid ""
 "basic :mod:`!sqlite3` functionality. It assumes a fundamental understanding "
 "of database concepts, including `cursors`_ and `transactions`_."
 msgstr ""
+"Neste tutorial, você criará um banco de dados de filmes do Monty Python "
+"usando a funcionalidade básica :mod:`!sqlite3`. Ele pressupõe uma "
+"compreensão fundamental dos conceitos de banco de dados, incluindo "
+"`cursores`_ e `transações`_."
 
 #: ../../library/sqlite3.rst:73
 msgid ""
@@ -143,6 +147,8 @@ msgid ""
 "The returned :class:`Connection` object ``con`` represents the connection to "
 "the on-disk database."
 msgstr ""
+"O objeto :class:`Connection` ``con`` retornado representa a conexão com o "
+"banco de dados em disco."
 
 #: ../../library/sqlite3.rst:87
 msgid ""
@@ -150,6 +156,9 @@ msgid ""
 "will need to use a database cursor. Call :meth:`con.cursor() <Connection."
 "cursor>` to create the :class:`Cursor`:"
 msgstr ""
+"Para executar instruções SQL e buscar resultados de consultas SQL, "
+"precisaremos usar um cursor de banco de dados. Chame :meth:`con.cursor() "
+"<Connection.cursor>` para criar o :class:`Cursor`:"
 
 #: ../../library/sqlite3.rst:95
 msgid ""
@@ -160,6 +169,13 @@ msgid ""
 "types is optional. Execute the ``CREATE TABLE`` statement by calling :meth:"
 "`cur.execute(...) <Cursor.execute>`:"
 msgstr ""
+"Agora que temos uma conexão com o banco de dados e um cursor, podemos criar "
+"uma tabela de banco de dados ``movie`` com colunas para título, ano de "
+"lançamento e pontuação da revisão. Para simplificar, podemos apenas usar "
+"nomes de colunas na declaração da tabela - graças ao recurso `tipagem "
+"flexível`_ do SQLite, especificar os tipos de dados é opcional. Execute a "
+"instrução ``CREATE TABLE`` chamando :meth:`cur.execute(...) <Cursor."
+"execute>`:"
 
 #: ../../library/sqlite3.rst:111
 msgid ""
@@ -170,6 +186,12 @@ msgid ""
 "execute>`, assign the result to ``res``, and call :meth:`res.fetchone() "
 "<Cursor.fetchone>` to fetch the resulting row:"
 msgstr ""
+"Podemos verificar se a nova tabela foi criada consultando a tabela embutida "
+"``sqlite_master`` no SQLite, que agora deve conter uma entrada para a "
+"definição da tabela ``movie`` (veja `The Schema Table`_ para detalhes). "
+"Execute essa consulta chamando :meth:`cur.execute(...) <Cursor.execute>`, "
+"atribua o resultado a ``res`` e chame :meth:`res.fetchone() <Cursor."
+"fetchone>` para buscar a linha resultante:"
 
 #: ../../library/sqlite3.rst:125
 msgid ""
@@ -177,6 +199,9 @@ msgid ""
 "`tuple` containing the table's name. If we query ``sqlite_master`` for a non-"
 "existent table ``spam``, :meth:`!res.fetchone()` will return ``None``:"
 msgstr ""
+"Podemos ver que a tabela foi criada, pois a consulta retorna uma :class:"
+"`tuple` contendo o nome da tabela. Se consultarmos ``sqlite_master`` por uma "
+"tabela inexistente ``spam``, :meth:`!res.fetchone()` retornará ``None``:"
 
 #: ../../library/sqlite3.rst:136
 msgid ""
@@ -184,6 +209,9 @@ msgid ""
 "``INSERT`` statement, once again by calling :meth:`cur.execute(...) <Cursor."
 "execute>`:"
 msgstr ""
+"Agora, adicione duas linhas de dados fornecidos como literais SQL executando "
+"uma instrução ``INSERT``, mais uma vez chamando :meth:`cur.execute(...) "
+"<Cursor.execute>`:"
 
 #: ../../library/sqlite3.rst:148
 msgid ""
@@ -192,6 +220,10 @@ msgid ""
 "controlling-transactions` for details). Call :meth:`con.commit() <Connection."
 "commit>` on the connection object to commit the transaction:"
 msgstr ""
+"A instrução ``INSERT`` abre implicitamente uma transação, que precisa ser "
+"confirmada antes que as alterações sejam salvas no banco de dados (veja :ref:"
+"`sqlite3-controlling-transactions` para detalhes). Chame :meth:`con.commit() "
+"<Connection.commit>` no objeto de conexão para confirmar a transação:"
 
 #: ../../library/sqlite3.rst:158
 msgid ""
@@ -200,18 +232,26 @@ msgid ""
 "assign the result to ``res``, and call :meth:`res.fetchall() <Cursor."
 "fetchall>` to return all resulting rows:"
 msgstr ""
+"Podemos verificar que os dados foram inseridos corretamente executando uma "
+"consulta ``SELECT``. Use o já conhecido :meth:`cur.execute(...) <Cursor."
+"execute>` para atribuir o resultado a ``res`` e chame :meth:`res.fetchall() "
+"<Cursor.fetchall>` para retornar todas as linhas resultantes."
 
 #: ../../library/sqlite3.rst:170
 msgid ""
 "The result is a :class:`list` of two :class:`!tuple`\\s, one per row, each "
 "containing that row's ``score`` value."
 msgstr ""
+"O resultado é uma :class:`list` de duas :class:`!tuple`\\s, uma por linha, "
+"cada uma contendo o valor ``score`` dessa linha."
 
 #: ../../library/sqlite3.rst:173
 msgid ""
 "Now, insert three more rows by calling :meth:`cur.executemany(...) <Cursor."
 "executemany>`:"
 msgstr ""
+"Agora, insira mais três linhas chamando :meth:`cur.executemany(...) <Cursor."
+"executemany>`:"
 
 #: ../../library/sqlite3.rst:186
 msgid ""
@@ -220,18 +260,27 @@ msgid ""
 "to bind Python values to SQL statements, to avoid `SQL injection attacks`_ "
 "(see :ref:`sqlite3-placeholders` for more details)."
 msgstr ""
+"Observe que espaços reservados ``?`` são usados para vincular ``data`` à "
+"consulta. Sempre use espaços reservados em vez de :ref:`formatação de string "
+"<tut-formatting>` para vincular valores Python a instruções SQL, para evitar "
+"`ataques de injeção de SQL`_ (consulte :ref:`sqlite3-placeholders` para mais "
+"detalhes)."
 
 #: ../../library/sqlite3.rst:192
 msgid ""
 "We can verify that the new rows were inserted by executing a ``SELECT`` "
 "query, this time iterating over the results of the query:"
 msgstr ""
+"Podemos verificar que as novas linhas foram inseridas executando uma "
+"consulta ``SELECT``, desta vez iterando sobre os resultados da consulta."
 
 #: ../../library/sqlite3.rst:206
 msgid ""
 "Each row is a two-item :class:`tuple` of ``(year, title)``, matching the "
 "columns selected in the query."
 msgstr ""
+"Cada linha é uma :class:`tuple` de dois itens ``(year, title)``, "
+"correspondendo às colunas selecionadas na consulta."
 
 #: ../../library/sqlite3.rst:209
 msgid ""
@@ -239,16 +288,21 @@ msgid ""
 "`con.close() <Connection.close>` to close the existing connection, opening a "
 "new one, creating a new cursor, then querying the database:"
 msgstr ""
+"Finalmente, verifique se o banco de dados foi gravado no disco chamando :"
+"meth:`con.close() <Connection.close>` para fechar a conexão existente, abrir "
+"uma nova, criar um novo cursor e, em seguida, consultar o banco de dados."
 
 #: ../../library/sqlite3.rst:224
 msgid ""
 "You've now created an SQLite database using the :mod:`!sqlite3` module, "
 "inserted data and retrieved values from it in multiple ways."
 msgstr ""
+"Você agora criou um banco de dados SQLite usando o módulo :mod:`!sqlite3`, "
+"inseriu dados e recuperou valores dele de várias maneiras."
 
 #: ../../library/sqlite3.rst:236
 msgid ":ref:`sqlite3-howtos` for further reading:"
-msgstr ""
+msgstr ":ref:`sqlite3-howtos` para leitura adicional:"
 
 #: ../../library/sqlite3.rst:238
 msgid ":ref:`sqlite3-placeholders`"
@@ -270,6 +324,8 @@ msgstr ":ref:`sqlite3-connection-context-manager`"
 msgid ""
 ":ref:`sqlite3-explanation` for in-depth background on transaction control."
 msgstr ""
+":ref:`sqlite3-explanation` para obter informações detalhadas sobre o "
+"controle de transações."
 
 #: ../../library/sqlite3.rst:248
 msgid "Reference"
@@ -360,12 +416,16 @@ msgid ""
 "Raises an :ref:`auditing event <auditing>` ``sqlite3.connect`` with argument "
 "``database``."
 msgstr ""
+"Levanta um :ref:`evento de auditoria <auditing>` ``sqlite3.connect`` com o "
+"argumento ``database``."
 
 #: ../../library/sqlite3.rst:327
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``sqlite3.connect/handle`` with "
 "argument ``connection_handle``."
 msgstr ""
+"Levanta um :ref:`evento de auditoria <auditing>` ``sqlite3.connect/handle`` "
+"com o argumento ``connection_handle``."
 
 #: ../../library/sqlite3.rst:329
 msgid "The *uri* parameter."
@@ -832,6 +892,8 @@ msgid ""
 "Raises an :ref:`auditing event <auditing>` ``sqlite3.enable_load_extension`` "
 "with arguments ``connection``, ``enabled``."
 msgstr ""
+"Levanta um :ref:`evento de auditoria <auditing>` ``sqlite3."
+"enable_load_extension`` com os argumentos ``connection``, ``enabled``."
 
 #: ../../library/sqlite3.rst:787
 msgid "Added the ``sqlite3.enable_load_extension`` auditing event."
@@ -849,6 +911,8 @@ msgid ""
 "Raises an :ref:`auditing event <auditing>` ``sqlite3.load_extension`` with "
 "arguments ``connection``, ``path``."
 msgstr ""
+"Levanta um :ref:`evento de auditoria <auditing>` ``sqlite3.load_extension`` "
+"com os argumentos ``connection``, ``path``."
 
 #: ../../library/sqlite3.rst:838
 msgid "Added the ``sqlite3.load_extension`` auditing event."
@@ -1386,7 +1450,7 @@ msgstr ""
 
 #: ../../library/sqlite3.rst:1433
 msgid "How-to guides"
-msgstr ""
+msgstr "Guias de como fazer"
 
 #: ../../library/sqlite3.rst:1438
 msgid "How to use placeholders to bind values in SQL queries"
@@ -1600,7 +1664,7 @@ msgstr "Explanação"
 
 #: ../../library/sqlite3.rst:1847
 msgid "Transaction control"
-msgstr ""
+msgstr "Controle de transações"
 
 #: ../../library/sqlite3.rst:1849
 msgid ""
@@ -1621,6 +1685,16 @@ msgid ""
 "sqlite3` implicitly executes – via the :attr:`~Connection.isolation_level` "
 "attribute."
 msgstr ""
+"Se o atributo de conexão :attr:`~Connection.isolation_level` não for "
+"``None``, novas transações são abertas implicitamente antes de :meth:"
+"`~Cursor.execute` e :meth:`~Cursor.executemany` executa instruções "
+"``INSERT``, ``UPDATE``, ``DELETE`` ou ``REPLACE``; para outras instruções, "
+"nenhuma manipulação de transação implícita é executada. Use os métodos :meth:"
+"`~Connection.commit` e :meth:`~Connection.rollback` para fazer commit e "
+"reverter respectivamente transações pendentes. Você pode escolher o "
+"`comportamento subjacente de transação do SQLite`_ -- isto é, se e que tipo "
+"de instruções ``BEGIN`` do :mod:`!sqlite3` são executadas implicitamente -- "
+"através do atributo :attr:`~Connection.isolation_level`."
 
 #: ../../library/sqlite3.rst:1865
 msgid ""
@@ -1631,6 +1705,12 @@ msgid ""
 "library autocommit mode can be queried using the :attr:`~Connection."
 "in_transaction` attribute."
 msgstr ""
+"Se :attr:`~Connection.isolation_level` estiver definido como ``None``, "
+"nenhuma transação será aberta implicitamente. Isso deixa a biblioteca SQLite "
+"subjacente no `modo autocommit`_, mas também permite que o usuário execute "
+"sua própria manipulação de transações usando instruções SQL explícitas. O "
+"modo de autocommit da biblioteca SQLite subjacente pode ser consultado "
+"usando o atributo :attr:`~Connection.in_transaction`."
 
 #: ../../library/sqlite3.rst:1873
 msgid ""
@@ -1638,9 +1718,14 @@ msgid ""
 "transaction before execution of the given SQL script, regardless of the "
 "value of :attr:`~Connection.isolation_level`."
 msgstr ""
+"O método :meth:`~Cursor.executescript` compromete implicitamente qualquer "
+"transação pendente antes da execução do script SQL fornecido, "
+"independentemente do valor de :attr:`~Connection.isolation_level`."
 
 #: ../../library/sqlite3.rst:1877
 msgid ""
 ":mod:`!sqlite3` used to implicitly commit an open transaction before DDL "
 "statements.  This is no longer the case."
 msgstr ""
+":mod:`!sqlite3` costumava fazer commit de forma implícita de uma transação "
+"aberta antes das instruções DDL. Este não é mais o caso."

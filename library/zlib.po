@@ -37,6 +37,13 @@ msgid ""
 "earlier than 1.1.3; 1.1.3 has a `security vulnerability <https://zlib.net/"
 "zlib_faq.html#faq33>`_, so we recommend using 1.1.4 or later."
 msgstr ""
+"Para aplicações que exigem compactação de dados, as funções deste módulo "
+"permitem a compactação e a descompactação, usando a biblioteca zlib. A "
+"biblioteca zlib tem sua própria página em https://www.zlib.net. Existem "
+"algumas incompatibilidades conhecidas entre o Python módulo e as versões da "
+"biblioteca zlib anteriores à 1.1.3; a 1.1.3 tem uma `vulnerabilidade de "
+"segurança <https://zlib.net/zlib_faq.html#faq33>`_, portanto, recomendamos o "
+"uso da 1.1.4 ou posterior."
 
 #: ../../library/zlib.rst:17
 msgid ""
@@ -353,13 +360,15 @@ msgstr ""
 
 #: ../../library/zlib.rst:176
 msgid "*wbits* and *bufsize* can be used as keyword arguments."
-msgstr ""
+msgstr "*wbits* e *bufsize* podem ser usados como argumentos nomeados."
 
 #: ../../library/zlib.rst:181
 msgid ""
 "Returns a decompression object, to be used for decompressing data streams "
 "that won't fit into memory at once."
 msgstr ""
+"Retorna um objeto descompactado, a ser usado para descompactar fluxos de "
+"dados que não cabem na memória de uma só vez."
 
 #: ../../library/zlib.rst:184
 msgid ""
@@ -367,6 +376,10 @@ msgid ""
 "\"window size\"), and what header and trailer format is expected.  It has "
 "the same meaning as `described for decompress() <#decompress-wbits>`__."
 msgstr ""
+"O parâmetro *wbits* controla o tamanho do histórico do buffer (ou o "
+"\"tamanho da janela do buffer\") e qual formato do cabeçalho e trailer são "
+"esperados. Ele tem o mesmo significado que o `descrito para decompress() "
+"<#decompress-wbits>`__."
 
 #: ../../library/zlib.rst:188
 msgid ""
@@ -374,6 +387,9 @@ msgid ""
 "provided, this must be the same dictionary as was used by the compressor "
 "that produced the data that is to be decompressed."
 msgstr ""
+"O parâmetro *zdict* especifica uma dicionário pre-definido de compressão. Se "
+"fornecido, deve ser o mesmo dicionário usado pelo compressor que produziu os "
+"dados a serem descompactados."
 
 #: ../../library/zlib.rst:194
 msgid ""
@@ -381,6 +397,9 @@ msgid ""
 "modify its contents between the call to :func:`decompressobj` and the first "
 "call to the decompressor's ``decompress()`` method."
 msgstr ""
+"Se *zdict* for um objeto mutável (como um :class:`bytearray`), você não deve "
+"modificar seu conteúdo entre a chamada de :func:`decompressobj` e a primeira "
+"chamada para o método de descompatação ``decompress()``."
 
 #: ../../library/zlib.rst:198
 msgid "Added the *zdict* parameter."
@@ -388,7 +407,7 @@ msgstr "Adicionado o parâmetro *zdict*."
 
 #: ../../library/zlib.rst:202
 msgid "Compression objects support the following methods:"
-msgstr ""
+msgstr "Um objeto do tipo Compress oferece suporte aos seguintes métodos:"
 
 #: ../../library/zlib.rst:207
 msgid ""
@@ -397,6 +416,11 @@ msgid ""
 "output produced by any preceding calls to the :meth:`compress` method.  Some "
 "input may be kept in internal buffers for later processing."
 msgstr ""
+"Comprime *data*, retornando um objeto de bytes que contém dados compactados "
+"para pelo menos parte dos dados em *data*.  Esses dados devem ser "
+"concatenados à saída produzida por quaisquer chamadas anteriores ao método :"
+"meth:`compress`. Algumas entradas podem ser mantidas em buffers internos "
+"para processamento posterior."
 
 #: ../../library/zlib.rst:215
 msgid ""
@@ -411,22 +435,37 @@ msgid ""
 "`compress` method cannot be called again; the only realistic action is to "
 "delete the object."
 msgstr ""
+"Toda a entrada pendente é processada e um objeto de bytes contendo a saída "
+"compactada restante é retornado.  O *mode* pode ser selecionado entre "
+"constantes :const:`Z_NO_FLUSH` , :const:`Z_PARTIAL_FLUSH`, :const:"
+"`Z_SYNC_FLUSH`, :const:`Z_FULL_FLUSH`, :const:`Z_BLOCK` (zlib 1.2.3.4) ou :"
+"const:`Z_FINISH`, com o padrão sendo :const:`Z_FINISH`. Exceto :const:"
+"`Z_FINISH`, todas as demais constantes permitem a compactação de mais "
+"bytestrings de dados, enquanto :const:`Z_FINISH` finaliza o fluxo compactado "
+"e impede a compactação de mais dados.  Depois de chamar :meth:`flush` com "
+"*mode* definido como :const:`Z_FINISH`, o método :meth:`compress` não pode "
+"ser chamado novamente; a única ação restante possível é excluir o objeto."
 
 #: ../../library/zlib.rst:228
 msgid ""
 "Returns a copy of the compression object.  This can be used to efficiently "
 "compress a set of data that share a common initial prefix."
 msgstr ""
+"Retorna uma cópia do objeto de compactação.  Isso pode ser usado para "
+"compactar com eficiência um conjunto de dados que compartilham um prefixo "
+"inicial comum."
 
 #: ../../library/zlib.rst:232
 msgid ""
 "Added :func:`copy.copy` and :func:`copy.deepcopy` support to compression "
 "objects."
 msgstr ""
+"As funções :func:`copy.copy` e :func:`copy.deepcopy` foram adicionadas como "
+"suporte para a compressão de objetos."
 
 #: ../../library/zlib.rst:237
 msgid "Decompression objects support the following methods and attributes:"
-msgstr ""
+msgstr "Um objeto do tipo Decompress oferece suporte aos seguintes métodos:"
 
 #: ../../library/zlib.rst:242
 msgid ""
@@ -435,6 +474,10 @@ msgid ""
 "compression data is available.  If the whole bytestring turned out to "
 "contain compressed data, this is ``b\"\"``, an empty bytes object."
 msgstr ""
+"Um objeto de bytes que contém todos os bytes após o final dos dados "
+"compactados. Ou seja, ele permanece ``b\"\"`` até que o último byte que "
+"contém dados compactados esteja disponível.  Se todo o bytestring contiver "
+"dados compactados, este será ``b\"\"``, um objeto de bytes vazio."
 
 #: ../../library/zlib.rst:250
 msgid ""
@@ -444,18 +487,27 @@ msgid ""
 "must feed it (possibly with further data concatenated to it) back to a "
 "subsequent :meth:`decompress` method call in order to get correct output."
 msgstr ""
+"Um objeto de bytes que contém todos os dados que não foram consumidos pela "
+"última chamada :meth:`decompress` porque excederam o limite dos dados não "
+"compactados no buffer.  Esses dados ainda não foram vistos pela zlib, "
+"portanto, você deve alimentá-los (possivelmente com outros dados "
+"concatenados a eles) em uma chamada  subsequente para o método :meth:"
+"`decompress` e, com isso, obter a saída correta."
 
 #: ../../library/zlib.rst:259
 msgid ""
 "A boolean indicating whether the end of the compressed data stream has been "
 "reached."
 msgstr ""
+"Um booleano indicando se o fim do fluxo de dados compactados foi alcançado."
 
 #: ../../library/zlib.rst:262
 msgid ""
 "This makes it possible to distinguish between a properly formed compressed "
 "stream, and an incomplete or truncated one."
 msgstr ""
+"Isso permite distinguir entre um fluxo compactado formado corretamente e um "
+"fluxo incompleto ou truncado."
 
 #: ../../library/zlib.rst:270
 msgid ""
@@ -465,6 +517,12 @@ msgid ""
 "`decompress` method.  Some of the input data may be preserved in internal "
 "buffers for later processing."
 msgstr ""
+"Descompacta *data*, retornando um objeto de bytes que contém os dados não "
+"compactados correspondentes a pelo menos uma parte dos dados em *string*. "
+"Esses dados devem ser concatenados com a saída produzida por quaisquer "
+"chamadas anteriores ao método :meth:`decompress` . Alguns dos dados de "
+"entrada podem ser preservados em buffers internos para processamento "
+"posterior."
 
 #: ../../library/zlib.rst:276
 msgid ""
@@ -476,10 +534,17 @@ msgid ""
 "*max_length* is zero then the whole input is decompressed, and :attr:"
 "`unconsumed_tail` is empty."
 msgstr ""
+"Se o parâmetro opcional *max_length* for diferente de zero, o valor "
+"retornado não será maior que *max_length*. Isso pode significar que nem toda "
+"a entrada compactada poderá ser processada, e os dados não consumidos serão "
+"armazenados no atributo :attr:`unconsumed_tail` . Esse bytestring deve ser "
+"passado para uma chamada subsequente a :meth:`decompress` se a descompressão "
+"tiver que continuar.  Se *max_length* for zero, toda a entrada será "
+"descompactada e :attr:`unconsumed_tail` ficará vazio."
 
 #: ../../library/zlib.rst:283
 msgid "*max_length* can be used as a keyword argument."
-msgstr ""
+msgstr "*max_length* pode ser usado como argumento nomeado."
 
 #: ../../library/zlib.rst:289
 msgid ""
@@ -488,11 +553,17 @@ msgid ""
 "`decompress` method cannot be called again; the only realistic action is to "
 "delete the object."
 msgstr ""
+"Toda a entrada que estiver pendente é processada e um objeto de bytes "
+"contendo a saída descompactada restante é retornado.  Depois de chamar :meth:"
+"`flush`, o método :meth:`decompress` não pode ser chamado novamente; a única "
+"ação possível é excluir o objeto."
 
 #: ../../library/zlib.rst:294
 msgid ""
 "The optional parameter *length* sets the initial size of the output buffer."
 msgstr ""
+"O parâmetro opcional *comprimento* define o tamanho inicial da saída do "
+"buffer."
 
 #: ../../library/zlib.rst:299
 msgid ""
@@ -500,18 +571,25 @@ msgid ""
 "state of the decompressor midway through the data stream in order to speed "
 "up random seeks into the stream at a future point."
 msgstr ""
+"Retorna uma cópia do objeto de descompressão.  Isso pode ser usado para "
+"salvar o estado do descompressor no meio do fluxo de dados, a fim de "
+"acelerar as buscas aleatórias no fluxo em um ponto futuro."
 
 #: ../../library/zlib.rst:304
 msgid ""
 "Added :func:`copy.copy` and :func:`copy.deepcopy` support to decompression "
 "objects."
 msgstr ""
+"As funções :func:`copy.copy` e :func:`copy.deepcopy` foram adicionadas como "
+"suporte para a descompressão de objetos."
 
 #: ../../library/zlib.rst:309
 msgid ""
 "Information about the version of the zlib library in use is available "
 "through the following constants:"
 msgstr ""
+"As informações sobre o versão da biblioteca zlib em uso estão disponíveis no "
+"seguinte constantes:"
 
 #: ../../library/zlib.rst:315
 msgid ""
@@ -519,19 +597,24 @@ msgid ""
 "module. This may be different from the zlib library actually used at "
 "runtime, which is available as :const:`ZLIB_RUNTIME_VERSION`."
 msgstr ""
+"Uma string com a versão da biblioteca zlib que foi usada para construir o "
+"módulo. Isso pode ser diferente da biblioteca zlib realmente usada no tempo "
+"de execução, que está disponível como :const:`ZLIB_RUNTIME_VERSION`."
 
 #: ../../library/zlib.rst:322
 msgid ""
 "The version string of the zlib library actually loaded by the interpreter."
 msgstr ""
+"Uma string com a versão da biblioteca zlib atualmente utilizada pelo "
+"interpretador."
 
 #: ../../library/zlib.rst:330
 msgid "Module :mod:`gzip`"
-msgstr ""
+msgstr "módulo :mod:`gzip`"
 
 #: ../../library/zlib.rst:330
 msgid "Reading and writing :program:`gzip`\\ -format files."
-msgstr ""
+msgstr "Leia e escreva arquivos no formato :program:`gzip`"
 
 #: ../../library/zlib.rst:333
 msgid "http://www.zlib.net"
@@ -539,14 +622,16 @@ msgstr "http://www.zlib.net"
 
 #: ../../library/zlib.rst:333
 msgid "The zlib library home page."
-msgstr ""
+msgstr "A página inicial da biblioteca zlib."
 
 #: ../../library/zlib.rst:336
 msgid "http://www.zlib.net/manual.html"
-msgstr ""
+msgstr "http://www.zlib.net/manual.html"
 
 #: ../../library/zlib.rst:336
 msgid ""
 "The zlib manual explains  the semantics and usage of the library's many "
 "functions."
 msgstr ""
+"O manual da zlib explica a semântica e uso de diversas funções desta "
+"biblioteca."

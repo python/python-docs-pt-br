@@ -3905,7 +3905,7 @@ msgstr ""
 
 #: ../../reference/datamodel.rst:2233
 msgid "The purpose of *__class_getitem__*"
-msgstr ""
+msgstr "O propósito de *__class_getitem__*"
 
 #: ../../reference/datamodel.rst:2235
 msgid ""
@@ -3913,6 +3913,9 @@ msgid ""
 "parameterization of standard-library generic classes in order to more easily "
 "apply :term:`type hints<type hint>` to these classes."
 msgstr ""
+"O propósito de :meth:`~object.__class_getitem__` é permitir a parametrização "
+"em tempo de execução de classes genéricas da biblioteca padrão, a fim de "
+"aplicar mais facilmente :term:`dicas de tipo<type hint>` a essas classes."
 
 #: ../../reference/datamodel.rst:2239
 msgid ""
@@ -3922,6 +3925,12 @@ msgid ""
 "__class_getitem__`, or inherit from :class:`typing.Generic`, which has its "
 "own implementation of ``__class_getitem__()``."
 msgstr ""
+"Para implementar classes genéricas personalizadas que podem ser "
+"parametrizadas em tempo de execução e compreendidas por verificadores de "
+"tipo estáticos, os usuários devem herdar de uma classe da biblioteca padrão "
+"que já implementa :meth:`~object.__class_getitem__`, ou herdar de :class:"
+"`typing.Generic`, que possui sua própria implementação de "
+"``__class_getitem__()``."
 
 #: ../../reference/datamodel.rst:2245
 msgid ""
@@ -3930,10 +3939,15 @@ msgid ""
 "type-checkers such as mypy. Using ``__class_getitem__()`` on any class for "
 "purposes other than type hinting is discouraged."
 msgstr ""
+"Implementações personalizadas de :meth:`~object.__class_getitem__` em "
+"classes definidas fora da biblioteca padrão podem não ser compreendidas por "
+"verificadores de tipo de terceiros, como o mypy. O uso de "
+"``__class_getitem__()`` em qualquer classe para fins diferentes de dicas de "
+"tipo é desencorajado."
 
 #: ../../reference/datamodel.rst:2255
 msgid "*__class_getitem__* versus *__getitem__*"
-msgstr ""
+msgstr "*__class_getitem__* versus *__getitem__*"
 
 #: ../../reference/datamodel.rst:2257
 msgid ""
@@ -3944,6 +3958,12 @@ msgid ""
 "instead. ``__class_getitem__()`` should return a :ref:`GenericAlias<types-"
 "genericalias>` object if it is properly defined."
 msgstr ""
+"Normalmente, a :ref:`subscription<subscriptions>` de um objeto usando "
+"colchetes chamará o método de instância :meth:`~object.__getitem__` definido "
+"na classe do objeto. No entanto, se o objeto sendo subscrito for ele mesmo "
+"uma classe, o método de classe :meth:`~object.__class_getitem__` pode ser "
+"chamado em seu lugar. ``__class_getitem__()`` deve retornar um objeto :ref:"
+"`GenericAlias<types-genericalias>` se estiver devidamente definido."
 
 #: ../../reference/datamodel.rst:2264
 msgid ""
@@ -3951,6 +3971,9 @@ msgid ""
 "follows something like the following process to decide whether :meth:"
 "`~object.__getitem__` or :meth:`~object.__class_getitem__` should be called::"
 msgstr ""
+"Apresentado com a :term:`expressão` ``obj[x]``, o interpretador de Python "
+"segue algo parecido com o seguinte processo para decidir se :meth:`~object."
+"__getitem__` ou :meth:`~object.__class_getitem__` deve ser chamado:"
 
 #: ../../reference/datamodel.rst:2292
 msgid ""
@@ -3961,6 +3984,12 @@ msgid ""
 "``dict[str, float]`` and ``tuple[str, bytes]`` all result in :meth:`~object."
 "__class_getitem__` being called::"
 msgstr ""
+"Em Python, todas as classes são elas mesmas instâncias de outras classes. A "
+"classe de uma classe é conhecida como :term:`metaclasse` dessa classe, e a "
+"maioria das classes tem a classe :class:`type` como sua metaclasse. :class:"
+"`type` não define :meth:`~object.__getitem__`, o que significa que "
+"expressões como ``list[int]``, ``dict[str, float]`` e ``tuple[str, bytes]`` "
+"resultam em chamadas para :meth:`~object.__class_getitem__`::"
 
 #: ../../reference/datamodel.rst:2311
 msgid ""
@@ -3968,10 +3997,14 @@ msgid ""
 "__getitem__`, subscribing the class may result in different behaviour. An "
 "example of this can be found in the :mod:`enum` module::"
 msgstr ""
+"No entanto, se uma classe tiver uma metaclasse personalizada que define :"
+"meth:`~object.__getitem__`, subscrever a classe pode resultar em "
+"comportamento diferente. Um exemplo disso pode ser encontrado no módulo :mod:"
+"`enum`::"
 
 #: ../../reference/datamodel.rst:2336
 msgid ":pep:`560` - Core Support for typing module and generic types"
-msgstr ""
+msgstr ":pep:`560` - Suporte básico para módulo typing e tipos genéricos"
 
 #: ../../reference/datamodel.rst:2335
 msgid ""
@@ -3979,6 +4012,9 @@ msgid ""
 "`subscription<subscriptions>` results in ``__class_getitem__()`` being "
 "called instead of :meth:`~object.__getitem__`"
 msgstr ""
+"Introduz :meth:`~object.__class_getitem__`, e define quando uma :ref:"
+"`subscrição<subscriptions>` resulta na chamada de ``__class_getitem__()`` em "
+"vez de :meth:`~object.__getitem__`"
 
 #: ../../reference/datamodel.rst:2343
 msgid "Emulating callable objects"

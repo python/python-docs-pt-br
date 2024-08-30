@@ -26,7 +26,7 @@ msgstr ""
 
 #: ../../c-api/stable.rst:7
 msgid "C API Stability"
-msgstr ""
+msgstr "Estabilidade da API C"
 
 #: ../../c-api/stable.rst:9
 msgid ""
@@ -84,6 +84,8 @@ msgid ""
 "Define this macro before including ``Python.h`` to opt in to only use the "
 "Limited API, and to select the Limited API version."
 msgstr ""
+"Defina essa macro antes de incluir ``Python.h`` para optar por usar apenas a "
+"API Limitada e selecionar a versão da API Limitada."
 
 #: ../../c-api/stable.rst:47
 msgid ""
@@ -100,12 +102,18 @@ msgid ""
 "minor version (e.g. ``0x030A0000`` for Python 3.10) for stability when "
 "compiling with future Python versions."
 msgstr ""
+"Em vez de usar diretamente a macro ``PY_VERSION_HEX``, codifique uma versão "
+"menor mínima (por exemplo, ``0x030A0000`` para o Python 3.10) para garantir "
+"estabilidade ao compilar com versões futuras do Python."
 
 #: ../../c-api/stable.rst:57
 msgid ""
 "You can also define ``Py_LIMITED_API`` to ``3``. This works the same as "
 "``0x03020000`` (Python 3.2, the version that introduced Limited API)."
 msgstr ""
+"Você também pode definir ``Py_LIMITED_API`` como ``3``. Isso funciona da "
+"mesma forma que ``0x03020000`` (Python 3.2, a versão que introduziu a API "
+"Limitada)."
 
 #: ../../c-api/stable.rst:60
 msgid ""
@@ -113,6 +121,9 @@ msgid ""
 "``python3.dll`` rather than a version-specific library such as ``python39."
 "dll``."
 msgstr ""
+"No Windows, as extensões que usam a ABI Estável devem ser vinculadas a "
+"``python3.dll`` em vez de uma biblioteca específica de versão, como "
+"``python39.dll``."
 
 #: ../../c-api/stable.rst:64
 msgid ""
@@ -122,6 +133,13 @@ msgid ""
 "to ensure that, for example, extensions built with the 3.10+ Limited API are "
 "not installed for lower versions of Python."
 msgstr ""
+"Em algumas plataformas, o Python procurará e carregará arquivos de "
+"biblioteca compartilhada com o nome marcado como ``abi3`` (por exemplo, "
+"``meumódulo.abi3.so``). Ele não verifica se essas extensões estão em "
+"conformidade com uma ABI Estável. O usuário (ou suas ferramentas de "
+"empacotamento) precisa garantir que, por exemplo, as extensões construídas "
+"com a API Limitada 3.10+ não sejam instaladas em versões mais baixas do "
+"Python."
 
 #: ../../c-api/stable.rst:71
 msgid ""
@@ -129,16 +147,21 @@ msgid ""
 "library, not solely as macros. This makes them usable from languages that "
 "don't use the C preprocessor."
 msgstr ""
+"Todas as funções na ABI estável estão presentes como funções na biblioteca "
+"compartilhada do Python, não apenas como macros. Isso as torna utilizáveis "
+"em linguagens que não utilizam o pré-processador C."
 
 #: ../../c-api/stable.rst:77
 msgid "Limited API Scope and Performance"
-msgstr ""
+msgstr "Escopo e Desempenho da API Limitada"
 
 #: ../../c-api/stable.rst:79
 msgid ""
 "The goal for the Limited API is to allow everything that is possible with "
 "the full C API, but possibly with a performance penalty."
 msgstr ""
+"O objetivo da API Limitada é permitir tudo o que é possível com a API C "
+"completa, mas possivelmente com uma penalidade de desempenho."
 
 #: ../../c-api/stable.rst:82
 msgid ""
@@ -146,6 +169,10 @@ msgid ""
 "variant :c:func:`PyList_GET_ITEM` is not. The macro can be faster because it "
 "can rely on version-specific implementation details of the list object."
 msgstr ""
+"Por exemplo, enquanto :c:func:`PyList_GetItem` está disponível, sua variante "
+"de macro \"insegura\" :c:func:`PyList_GET_ITEM` não está. A macro pode ser "
+"mais rápida porque pode depender de detalhes de implementação específicos da "
+"versão do objeto da lista."
 
 #: ../../c-api/stable.rst:87
 msgid ""
@@ -154,6 +181,10 @@ msgid ""
 "allowing stability as Python's data structures are improved, but possibly "
 "reducing performance."
 msgstr ""
+"Sem a definição de ``Py_LIMITED_API``, algumas funções da API C são "
+"colocadas \"inline\" ou substituídas por macros. Definir ``Py_LIMITED_API`` "
+"desativa esse inline, permitindo estabilidade à medida que as estruturas de "
+"dados do Python são aprimoradas, mas possivelmente reduzindo o desempenho."
 
 #: ../../c-api/stable.rst:92
 msgid ""
@@ -164,10 +195,17 @@ msgid ""
 "where a version-specific one is not available – for example, for prereleases "
 "of an upcoming Python version."
 msgstr ""
+"Ao deixar de fora a definição ``Py_LIMITED_API``, é possível compilar uma "
+"extensão da API Limitada com uma ABI específica da versão. Isso pode "
+"melhorar o desempenho para essa versão do Python, mas limitará a "
+"compatibilidade. Compilar com ``Py_LIMITED_API`` vai produzir uma extensão "
+"que pode ser distribuída quando uma específica da versão não estiver "
+"disponível -- por exemplo, para pré-lançamentos de uma próxima versão do "
+"Python."
 
 #: ../../c-api/stable.rst:101
 msgid "Limited API Caveats"
-msgstr ""
+msgstr "Limitações da API Limitada"
 
 #: ../../c-api/stable.rst:103
 msgid ""
@@ -186,18 +224,30 @@ msgid ""
 "the argument will be used directly, causing a ``NULL`` dereference and "
 "crash. A similar argument works for fields of structs."
 msgstr ""
+"Uma questão que ``Py_LIMITED_API`` não protege é a chamada de uma função com "
+"argumentos inválidos em uma versão inferior do Python. Por exemplo, "
+"considere uma função que começa a aceitar ``NULL`` como argumento. No Python "
+"3.9, ``NULL`` agora seleciona um comportamento padrão, mas no Python 3.8, o "
+"argumento será usado diretamente, causando uma referência ``NULL`` e uma "
+"falha. Um argumento similar funciona para campos de estruturas."
 
 #: ../../c-api/stable.rst:115
 msgid ""
 "Another issue is that some struct fields are currently not hidden when "
 "``Py_LIMITED_API`` is defined, even though they're part of the Limited API."
 msgstr ""
+"Outra questão é que alguns campos de estrutura não estão atualmente ocultos "
+"quando ``Py_LIMITED_API`` é definido, mesmo que eles façam parte da API "
+"Limitada."
 
 #: ../../c-api/stable.rst:118
 msgid ""
 "For these reasons, we recommend testing an extension with *all* minor Python "
 "versions it supports, and preferably to build with the *lowest* such version."
 msgstr ""
+"Por esses motivos, recomendamos testar uma extensão com *todas* as versões "
+"menores do Python que ela oferece suporte e, preferencialmente, construir "
+"com a versão *mais baixa* dessas."
 
 #: ../../c-api/stable.rst:121
 msgid ""
@@ -206,6 +256,10 @@ msgid ""
 "few private declarations are exposed for technical reasons (or even "
 "unintentionally, as bugs)."
 msgstr ""
+"Também recomendamos revisar a documentação de todas as APIs utilizadas para "
+"verificar se ela faz parte explicitamente da API Limitada. Mesmo com a "
+"definição de ``Py_LIMITED_API``, algumas declarações privadas são expostas "
+"por razões técnicas (ou até mesmo acidentalmente, como bugs)."
 
 #: ../../c-api/stable.rst:126
 msgid ""
@@ -215,10 +269,15 @@ msgid ""
 "particular, parts of the Limited API may be deprecated and removed, provided "
 "that the Stable ABI stays stable."
 msgstr ""
+"Também observe que a API Limitada não é necessariamente estável: compilar "
+"com ``Py_LIMITED_API`` com Python 3.8 significa que a extensão será "
+"executada com Python 3.12, mas não necessariamente será *compilada* com "
+"Python 3.12. Em particular, partes da API Limitada podem ser descontinuadas "
+"e removidas, desde que a ABI Estável permaneça estável."
 
 #: ../../c-api/stable.rst:136
 msgid "Platform Considerations"
-msgstr ""
+msgstr "Considerações da plataforma"
 
 #: ../../c-api/stable.rst:138
 msgid ""
@@ -235,10 +294,15 @@ msgid ""
 "does not break the Stable ABI. This is the case with Windows and macOS "
 "releases from ``python.org`` and many third-party distributors."
 msgstr ""
+"É responsabilidade de cada distribuidor particular do Python garantir que "
+"todas as versões do Python em uma plataforma específica sejam construídas de "
+"forma a não quebrar a ABI estável. Isso é válido para as versões do Windows "
+"e macOS disponibilizadas pela ``python.org`` e por muitos distribuidores "
+"terceiros."
 
 #: ../../c-api/stable.rst:153
 msgid "Contents of Limited API"
-msgstr ""
+msgstr "Conteúdo da API Limitada"
 
 #: ../../c-api/stable.rst:156
 msgid "Currently, the Limited API includes the following items:"

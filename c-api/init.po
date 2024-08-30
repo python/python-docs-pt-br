@@ -564,6 +564,8 @@ msgid ""
 "Raises an :ref:`auditing event <auditing>` ``cpython."
 "_PySys_ClearAuditHooks`` with no arguments."
 msgstr ""
+"Levanta um :ref:`evento de auditoria <auditing>` ``cpython."
+"_PySys_ClearAuditHooks`` sem argumentos."
 
 #: ../../c-api/init.rst:311
 msgid ""
@@ -986,6 +988,8 @@ msgid ""
 "hidden local variable; the :c:macro:`Py_END_ALLOW_THREADS` macro closes the "
 "block."
 msgstr ""
+"A macro :c:macro:`Py_BEGIN_ALLOW_THREADS` abre um novo bloco e declara uma "
+"variável local oculta; a macro :c:macro:`Py_END_ALLOW_THREADS` fecha o bloco."
 
 #: ../../c-api/init.rst:740
 msgid "The block above expands to the following code::"
@@ -1227,6 +1231,15 @@ msgid ""
 "c:macro:`Py_BEGIN_ALLOW_THREADS` and :c:macro:`Py_END_ALLOW_THREADS` macros "
 "is acceptable."
 msgstr ""
+"Certifique-se de que a thread atual esteja pronta para chamar a API Python "
+"C, independentemente do estado atual do Python ou da trava global do "
+"interpretador (GIL). Isso pode ser chamado quantas vezes desejar por uma "
+"thread, desde que cada chamada corresponda a uma chamada para :c:func:"
+"`PyGILState_Release`. Em geral, outras APIs relacionadas a threads podem ser "
+"usadas entre chamadas :c:func:`PyGILState_Ensure` e :c:func:"
+"`PyGILState_Release` desde que o estado da thread seja restaurado ao seu "
+"estado anterior antes de Release(). Por exemplo, o uso normal das macros :c:"
+"macro:`Py_BEGIN_ALLOW_THREADS` e :c:macro:`Py_END_ALLOW_THREADS` é aceitável."
 
 #: ../../c-api/init.rst:964
 msgid ""
@@ -1290,6 +1303,10 @@ msgid ""
 "following :c:macro:`Py_END_ALLOW_THREADS` macro.  See above for further "
 "discussion of this macro."
 msgstr ""
+"Esta macro se expande para ``{ PyThreadState *_save; _save = "
+"PyEval_SaveThread();``. Observe que ele contém uma chave de abertura; ele "
+"deve ser combinado com a seguinte macro :c:macro:`Py_END_ALLOW_THREADS`. "
+"Veja acima para uma discussão mais aprofundada desta macro."
 
 #: ../../c-api/init.rst:1028
 msgid ""
@@ -1298,12 +1315,18 @@ msgid ""
 "`Py_BEGIN_ALLOW_THREADS` macro.  See above for further discussion of this "
 "macro."
 msgstr ""
+"Esta macro se expande para ``PyEval_RestoreThread(_save); }``. Observe que "
+"ele contém uma chave de fechamento; ele deve ser combinado com uma macro :c:"
+"macro:`Py_BEGIN_ALLOW_THREADS` anterior. Veja acima para uma discussão mais "
+"aprofundada desta macro."
 
 #: ../../c-api/init.rst:1036
 msgid ""
 "This macro expands to ``PyEval_RestoreThread(_save);``: it is equivalent to :"
 "c:macro:`Py_END_ALLOW_THREADS` without the closing brace."
 msgstr ""
+"Esta macro se expande para ``PyEval_RestoreThread(_save);``: é equivalente "
+"a :c:macro:`Py_END_ALLOW_THREADS` sem a chave de fechamento."
 
 #: ../../c-api/init.rst:1042
 msgid ""
@@ -1311,6 +1334,9 @@ msgid ""
 "c:macro:`Py_BEGIN_ALLOW_THREADS` without the opening brace and variable "
 "declaration."
 msgstr ""
+"Esta macro se expande para ``_save = PyEval_SaveThread();``: é equivalente "
+"a :c:macro:`Py_BEGIN_ALLOW_THREADS` sem a chave de abertura e declaração de "
+"variável."
 
 #: ../../c-api/init.rst:1048
 msgid "Low-level API"
@@ -1337,6 +1363,8 @@ msgid ""
 "Raises an :ref:`auditing event <auditing>` ``cpython."
 "PyInterpreterState_New`` with no arguments."
 msgstr ""
+"Levanta um :ref:`evento de auditoria <auditing>` ``cpython."
+"PyInterpreterState_New`` sem argumentos."
 
 #: ../../c-api/init.rst:1067
 msgid ""
@@ -1349,6 +1377,8 @@ msgid ""
 "Raises an :ref:`auditing event <auditing>` ``cpython."
 "PyInterpreterState_Clear`` with no arguments."
 msgstr ""
+"Levanta um :ref:`evento de auditoria <auditing>` ``cpython."
+"PyInterpreterState_Clear`` sem argumentos."
 
 #: ../../c-api/init.rst:1075
 msgid ""
@@ -2056,6 +2086,8 @@ msgid ""
 "When :ref:`Py_LIMITED_API <stable>` is not defined, static allocation of "
 "this type by :c:macro:`Py_tss_NEEDS_INIT` is allowed."
 msgstr ""
+"Quando :ref:`Py_LIMITED_API <stable>` não é definido, a alocação estática "
+"deste tipo por :c:macro:`Py_tss_NEEDS_INIT` é permitida."
 
 #: ../../c-api/init.rst:1701
 msgid ""
@@ -2079,6 +2111,8 @@ msgid ""
 "Return a value which is the same state as a value initialized with :c:macro:"
 "`Py_tss_NEEDS_INIT`, or ``NULL`` in the case of dynamic allocation failure."
 msgstr ""
+"Retorna um valor que é o mesmo estado de um valor inicializado com :c:macro:"
+"`Py_tss_NEEDS_INIT`, ou ``NULL`` no caso de falha de alocação dinâmica."
 
 #: ../../c-api/init.rst:1722
 msgid ""
@@ -2118,6 +2152,11 @@ msgid ""
 "repeatedly on the same key -- calling it on an already initialized key is a "
 "no-op and immediately returns success."
 msgstr ""
+"Retorna um valor zero na inicialização bem-sucedida de uma chave TSS. O "
+"comportamento é indefinido se o valor apontado pelo argumento *key* não for "
+"inicializado por :c:macro:`Py_tss_NEEDS_INIT`. Essa função pode ser chamada "
+"repetidamente na mesma tecla -- chamá-la em uma tecla já inicializada não "
+"funciona e retorna imediatamente com sucesso."
 
 #: ../../c-api/init.rst:1758
 msgid ""

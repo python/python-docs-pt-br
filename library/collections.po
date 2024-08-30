@@ -432,6 +432,11 @@ msgid ""
 "encountered in the left operand and then by the order encountered in the "
 "right operand."
 msgstr ""
+"Como uma subclasse de :class:`dict`, :class:`Counter` herda a capacidade de "
+"lembrar a ordem de inserção. Operações matemáticas em objetos *Counter* "
+"também preservam ordem. Os resultados são ordenados de acordo com o momento "
+"que um elemento é encontrado pela primeira vez no operando da esquerda e, em "
+"seguida, pela ordem encontrada no operando da direita."
 
 #: ../../library/collections.rst:279
 msgid ""
@@ -1043,11 +1048,16 @@ msgid ""
 "from the first argument to the constructor, if present, or to ``None``, if "
 "absent."
 msgstr ""
+"Este atributo é usado pelo método :meth:`__missing__`; ele é inicializado a "
+"partir do primeiro argumento para o construtor, se presente, ou para "
+"``None``, se ausente."
 
 #: ../../library/collections.rst:764 ../../library/collections.rst:1180
 msgid ""
 "Added merge (``|``) and update (``|=``) operators, specified in :pep:`584`."
 msgstr ""
+"Adicionado operadores de mesclagem (``|``) e de atualização (``|=``), "
+"especificados na :pep:`584`."
 
 #: ../../library/collections.rst:770
 msgid ":class:`defaultdict` Examples"
@@ -1072,6 +1082,14 @@ msgid ""
 "list. This technique is simpler and faster than an equivalent technique "
 "using :meth:`dict.setdefault`:"
 msgstr ""
+"Quando cada chave é encontrada pela primeira vez, ela ainda não está no "
+"mapeamento; então uma entrada é criada automaticamente usando a função :attr:"
+"`~defaultdict.default_factory` que retorna uma :class:`list` vazia. A "
+"operação :meth:`list.append` então anexa o valor à nova lista. Quando as "
+"chaves são encontradas novamente, a pesquisa prossegue normalmente "
+"(retornando a lista daquela chave) e a operação :meth:`list.append` adiciona "
+"outro valor à lista. Esta técnica é mais simples e rápida que uma técnica "
+"equivalente usando :meth:`dict.setdefault`:"
 
 #: ../../library/collections.rst:798
 msgid ""
@@ -1079,6 +1097,9 @@ msgid ""
 "class:`defaultdict` useful for counting (like a bag or multiset in other "
 "languages):"
 msgstr ""
+"Definir :attr:`~defaultdict.default_factory` como :class:`int` torna :class:"
+"`defaultdict` útil para contagem (como um multiconjunto em outras "
+"linguagens):"
 
 #: ../../library/collections.rst:810
 msgid ""
@@ -1087,6 +1108,10 @@ msgid ""
 "default count of zero.  The increment operation then builds up the count for "
 "each letter."
 msgstr ""
+"Quando uma letra é encontrada pela primeira vez, ela está ausente no "
+"mapeamento, então a função :attr:`~defaultdict.default_factory` chama :func:"
+"`int` para fornecer uma contagem padrão de zero. A operação de incremento "
+"então cria a contagem para cada letra."
 
 #: ../../library/collections.rst:814
 msgid ""
@@ -1095,16 +1120,22 @@ msgid ""
 "functions is to use a lambda function which can supply any constant value "
 "(not just zero):"
 msgstr ""
+"A função :func:`int` que sempre retorna zero é apenas um caso especial de "
+"funções constantes. Uma maneira mais rápida e flexível de criar funções "
+"constantes é usar uma função lambda que pode fornecer qualquer valor "
+"constante (não apenas zero):"
 
 #: ../../library/collections.rst:826
 msgid ""
 "Setting the :attr:`~defaultdict.default_factory` to :class:`set` makes the :"
 "class:`defaultdict` useful for building a dictionary of sets:"
 msgstr ""
+"Definir :attr:`~defaultdict.default_factory` como :class:`set` torna :class:"
+"`defaultdict` útil para construir um dicionário de conjuntos:"
 
 #: ../../library/collections.rst:839
 msgid ":func:`namedtuple` Factory Function for Tuples with Named Fields"
-msgstr ""
+msgstr "Função de fábrica para tuplas com campos nomeados :func:`namedtuple`"
 
 #: ../../library/collections.rst:841
 msgid ""
@@ -1126,6 +1157,12 @@ msgid ""
 "helpful docstring (with typename and field_names) and a helpful :meth:"
 "`__repr__` method which lists the tuple contents in a ``name=value`` format."
 msgstr ""
+"Retorna uma nova subclasse de tupla chamada *typename*. A nova subclasse é "
+"usada para criar objetos semelhantes a tuplas que possuem campos acessíveis "
+"por pesquisa de atributos, além de serem indexáveis ​​e iteráveis. As "
+"instâncias da subclasse também possuem uma docstring útil (com typename e "
+"field_names) e um método útil :meth:`__repr__` que lista o conteúdo da tupla "
+"em um formato ``nome=valor``."
 
 #: ../../library/collections.rst:853
 msgid ""
@@ -1133,6 +1170,10 @@ msgid ""
 "Alternatively, *field_names* can be a single string with each fieldname "
 "separated by whitespace and/or commas, for example ``'x y'`` or ``'x, y'``."
 msgstr ""
+"*field_names* são uma sequência de strings como ``['x', 'y']``. "
+"Alternativamente, *field_names* pode ser uma única string com cada nome de "
+"campo separado por espaços em branco e/ou vírgulas como, por exemplo, ``'x "
+"y'`` ou ``'x, y'``."
 
 #: ../../library/collections.rst:857
 msgid ""
@@ -1141,6 +1182,11 @@ msgid ""
 "and underscores but do not start with a digit or underscore and cannot be a :"
 "mod:`keyword` such as *class*, *for*, *return*, *global*, *pass*, or *raise*."
 msgstr ""
+"Qualquer identificador Python válido pode ser usado para um nome de campo, "
+"exceto para nomes que começam com um sublinhado. Identificadores válidos "
+"consistem em letras, dígitos e sublinhados, mas não começam com um dígito ou "
+"sublinhado e não podem ser uma :mod:`keyword` como *class*, *for*, *return*, "
+"*global*, *pass* ou *raise*."
 
 #: ../../library/collections.rst:863
 msgid ""
@@ -1149,6 +1195,10 @@ msgid ""
 "converted to ``['abc', '_1', 'ghi', '_3']``, eliminating the keyword ``def`` "
 "and the duplicate fieldname ``abc``."
 msgstr ""
+"Se *rename* for verdadeiro, nomes de campos inválidos serão automaticamente "
+"substituídos por nomes posicionais. Por exemplo, ``['abc', 'def', 'ghi', "
+"'abc']`` é convertido para ``['abc', '_1', 'ghi', '_3']``, eliminando a "
+"palavra reservada ``def`` e o nome de campo duplicado ``abc``."
 
 #: ../../library/collections.rst:868
 msgid ""
@@ -1159,24 +1209,36 @@ msgid ""
 "``x`` will be a required argument, ``y`` will default to ``1``, and ``z`` "
 "will default to ``2``."
 msgstr ""
+"*defaults* pode ser ``None`` ou um :term:`iterável` de valores padrão. Como "
+"os campos com valor padrão devem vir depois de qualquer campo sem padrão, os "
+"*padrões* são aplicados aos parâmetros mais à direita. Por exemplo, se os "
+"nomes dos campos forem ``['x', 'y', 'z']`` e os padrões forem ``(1, 2)``, "
+"então ``x`` será um argumento obrigatório, ``y`` será o padrão ``1``, e "
+"``z`` será o padrão ``2``."
 
 #: ../../library/collections.rst:875
 msgid ""
 "If *module* is defined, the ``__module__`` attribute of the named tuple is "
 "set to that value."
 msgstr ""
+"Se *module* for definido, o atributo ``__module__`` da tupla nomeada será "
+"definido com esse valor."
 
 #: ../../library/collections.rst:878
 msgid ""
 "Named tuple instances do not have per-instance dictionaries, so they are "
 "lightweight and require no more memory than regular tuples."
 msgstr ""
+"As instâncias de tuplas nomeadas não possuem dicionários por instância, "
+"portanto são leves e não requerem mais memória do que as tuplas normais."
 
 #: ../../library/collections.rst:881
 msgid ""
 "To support pickling, the named tuple class should be assigned to a variable "
 "that matches *typename*."
 msgstr ""
+"Para prover suporte para a serialização com pickle, a classe de tupla "
+"nomeada deve ser atribuída a uma variável que corresponda a *typename*."
 
 #: ../../library/collections.rst:884
 msgid "Added support for *rename*."
@@ -1187,6 +1249,8 @@ msgid ""
 "The *verbose* and *rename* parameters became :ref:`keyword-only arguments "
 "<keyword-only_parameter>`."
 msgstr ""
+"Os parâmetros *verbose* e *rename* tornaram-se :ref:`argumentos somente-"
+"nomeados <keyword-only_parameter>`."
 
 #: ../../library/collections.rst:891
 msgid "Added the *module* parameter."
@@ -1207,6 +1271,8 @@ msgid ""
 "Named tuples are especially useful for assigning field names to result "
 "tuples returned by the :mod:`csv` or :mod:`sqlite3` modules::"
 msgstr ""
+"Tuplas nomeadas são especialmente úteis para atribuir nomes de campos a "
+"tuplas de resultados retornadas pelos módulos :mod:`csv` ou :mod:`sqlite3`::"
 
 #: ../../library/collections.rst:933
 msgid ""
@@ -1214,11 +1280,16 @@ msgid ""
 "additional methods and two attributes.  To prevent conflicts with field "
 "names, the method and attribute names start with an underscore."
 msgstr ""
+"Além dos métodos herdados das tuplas, as tuplas nomeadas oferecem suporte a "
+"três métodos adicionais e dois atributos. Para evitar conflitos com nomes de "
+"campos, os nomes de métodos e atributos começam com um sublinhado."
 
 #: ../../library/collections.rst:939
 msgid ""
 "Class method that makes a new instance from an existing sequence or iterable."
 msgstr ""
+"Método de classe que cria uma nova instância a partir de uma sequência "
+"existente ou iterável."
 
 #: ../../library/collections.rst:949
 msgid ""
@@ -1230,7 +1301,7 @@ msgstr ""
 
 #: ../../library/collections.rst:958
 msgid "Returns an :class:`OrderedDict` instead of a regular :class:`dict`."
-msgstr ""
+msgstr "Retorna um :class:`OrderedDict` em vez de um :class:`dict` normal."
 
 #: ../../library/collections.rst:961
 msgid ""
@@ -1239,34 +1310,47 @@ msgid ""
 "features of :class:`OrderedDict` are required, the suggested remediation is "
 "to cast the result to the desired type: ``OrderedDict(nt._asdict())``."
 msgstr ""
+"Retorna um :class:`dict` regular em vez de um :class:`OrderedDict`. A partir "
+"do Python 3.7, é garantido que os dicionários regulares sejam ordenados. Se "
+"os recursos extras de :class:`OrderedDict` forem necessários, a correção "
+"sugerida é converter o resultado para o tipo desejado: ``OrderedDict(nt."
+"_asdict())``."
 
 #: ../../library/collections.rst:970
 msgid ""
 "Return a new instance of the named tuple replacing specified fields with new "
 "values::"
 msgstr ""
+"Retorna uma nova instância da tupla nomeada substituindo os campos "
+"especificados por novos valores::"
 
 #: ../../library/collections.rst:982
 msgid ""
 "Tuple of strings listing the field names.  Useful for introspection and for "
 "creating new named tuple types from existing named tuples."
 msgstr ""
+"Tupla de strings listando os nomes dos campos. Útil para introspecção e para "
+"criar novos tipos de tuplas nomeadas a partir de tuplas nomeadas existentes."
 
 #: ../../library/collections.rst:997
 msgid "Dictionary mapping field names to default values."
-msgstr ""
+msgstr "Dicionário mapeando nomes de campos para valores padrão."
 
 #: ../../library/collections.rst:1007
 msgid ""
 "To retrieve a field whose name is stored in a string, use the :func:"
 "`getattr` function:"
 msgstr ""
+"Para recuperar um campo cujo nome está armazenado em uma string, use a "
+"função :func:`getattr`:"
 
 #: ../../library/collections.rst:1013
 msgid ""
 "To convert a dictionary to a named tuple, use the double-star-operator (as "
 "described in :ref:`tut-unpacking-arguments`):"
 msgstr ""
+"Para converter um dicionário em uma tupla nomeada, use o operador estrela "
+"dupla (conforme descrito em :ref:`tut-unpacking-arguments`):"
 
 #: ../../library/collections.rst:1020
 msgid ""
@@ -1274,6 +1358,9 @@ msgid ""
 "functionality with a subclass.  Here is how to add a calculated field and a "
 "fixed-width print format:"
 msgstr ""
+"Como uma tupla nomeada é uma classe regular do Python, é fácil adicionar ou "
+"alterar funcionalidades com uma subclasse. Veja como adicionar um campo "
+"calculado e um formato de impressão de largura fixa:"
 
 #: ../../library/collections.rst:1039
 msgid ""
@@ -1281,6 +1368,9 @@ msgid ""
 "keep memory requirements low by preventing the creation of instance "
 "dictionaries."
 msgstr ""
+"A subclasse mostrada acima define ``__slots__`` como uma tupla vazia. Isso "
+"ajuda a manter baixos os requisitos de memória, evitando a criação de "
+"dicionários de instância."
 
 #: ../../library/collections.rst:1042
 msgid ""
@@ -1288,16 +1378,21 @@ msgid ""
 "create a new named tuple type from the :attr:`~somenamedtuple._fields` "
 "attribute:"
 msgstr ""
+"A criação de subclasse não é útil para adicionar novos campos armazenados. "
+"Em vez disso, simplesmente crie um novo tipo de tupla nomeado a partir do "
+"atributo :attr:`~somenamedtuple._fields`:"
 
 #: ../../library/collections.rst:1047
 msgid ""
 "Docstrings can be customized by making direct assignments to the ``__doc__`` "
 "fields:"
 msgstr ""
+"Docstrings podem ser personalizados fazendo atribuições diretas aos campos "
+"``__doc__``:"
 
 #: ../../library/collections.rst:1056
 msgid "Property docstrings became writeable."
-msgstr ""
+msgstr "Os docstrings de propriedade tornaram-se graváveis."
 
 #: ../../library/collections.rst:1061
 msgid ""
@@ -1305,18 +1400,25 @@ msgid ""
 "tuples.  It also provides an elegant notation using the :keyword:`class` "
 "keyword::"
 msgstr ""
+"Veja :class:`typing.NamedTuple` para uma maneira de adicionar dicas de tipo "
+"para tuplas nomeadas. Ele também fornece uma notação elegante usando a "
+"palavra reservada :keyword:`class`::"
 
 #: ../../library/collections.rst:1070
 msgid ""
 "See :meth:`types.SimpleNamespace` for a mutable namespace based on an "
 "underlying dictionary instead of a tuple."
 msgstr ""
+"Veja :meth:`types.SimpleNamespace` para um espaço de nomes mutável baseado "
+"em um dicionário subjacente em vez de uma tupla."
 
 #: ../../library/collections.rst:1073
 msgid ""
 "The :mod:`dataclasses` module provides a decorator and functions for "
 "automatically adding generated special methods to user-defined classes."
 msgstr ""
+"O módulo :mod:`dataclasses` fornece um decorador e funções para adicionar "
+"automaticamente métodos especiais gerados a classes definidas pelo usuário."
 
 #: ../../library/collections.rst:1078
 msgid ":class:`OrderedDict` objects"
@@ -1329,16 +1431,23 @@ msgid ""
 "important now that the built-in :class:`dict` class gained the ability to "
 "remember insertion order (this new behavior became guaranteed in Python 3.7)."
 msgstr ""
+"Os dicionários ordenados são como os dicionários normais, mas possuem alguns "
+"recursos extras relacionados às operações de pedido. Eles se tornaram menos "
+"importantes agora que a classe embutida :class:`dict` ganhou a capacidade de "
+"lembrar a ordem de inserção (esse novo comportamento foi garantido no Python "
+"3.7)."
 
 #: ../../library/collections.rst:1086
 msgid "Some differences from :class:`dict` still remain:"
-msgstr ""
+msgstr "Algumas diferenças de :class:`dict` ainda permanecem:"
 
 #: ../../library/collections.rst:1088
 msgid ""
 "The regular :class:`dict` was designed to be very good at mapping "
 "operations.  Tracking insertion order was secondary."
 msgstr ""
+"O :class:`dict` regular foi projetado para ser muito bom em operações de "
+"mapeamento. O rastreamento do pedido de inserção era secundário."
 
 #: ../../library/collections.rst:1091
 msgid ""
@@ -1346,6 +1455,9 @@ msgid ""
 "Space efficiency, iteration speed, and the performance of update operations "
 "were secondary."
 msgstr ""
+"O :class:`OrderedDict` foi projetado para ser bom em operações de "
+"reordenação. A eficiência de espaço, a velocidade de iteração e o desempenho "
+"das operações de atualização eram secundários."
 
 #: ../../library/collections.rst:1095
 msgid ""
@@ -1353,29 +1465,42 @@ msgid ""
 "better than :class:`dict`.  As shown in the recipes below, this makes it "
 "suitable for implementing various kinds of LRU caches."
 msgstr ""
+"O algoritmo :class:`OrderedDict` pode lidar com operações de reordenação "
+"frequentes melhor do que :class:`dict`. Conforme mostrado nas receitas "
+"abaixo, isso o torna adequado para implementar vários tipos de caches LRU."
 
 #: ../../library/collections.rst:1099
 msgid ""
 "The equality operation for :class:`OrderedDict` checks for matching order."
 msgstr ""
+"A operação de igualdade para :class:`OrderedDict` verifica a ordem "
+"correspondente."
 
 #: ../../library/collections.rst:1101
 msgid ""
 "A regular :class:`dict` can emulate the order sensitive equality test with "
 "``p == q and all(k1 == k2 for k1, k2 in zip(p, q))``."
 msgstr ""
+"Um :class:`dict` regular pode emular o teste de igualdade sensível à ordem "
+"com ``p == q and all(k1 == k2 for k1, k2 in zip(p, q))``."
 
 #: ../../library/collections.rst:1104
 msgid ""
 "The :meth:`popitem` method of :class:`OrderedDict` has a different "
 "signature.  It accepts an optional argument to specify which item is popped."
 msgstr ""
+"O método :meth:`popitem` de :class:`OrderedDict` tem uma assinatura "
+"diferente. Ele aceita um argumento opcional para especificar qual item será "
+"exibido."
 
 #: ../../library/collections.rst:1107
 msgid ""
 "A regular :class:`dict` can emulate OrderedDict's ``od.popitem(last=True)`` "
 "with ``d.popitem()`` which is guaranteed to pop the rightmost (last) item."
 msgstr ""
+"Um :class:`dict` normal pode emular o ``od.popitem(last=True)`` do "
+"OrderedDict com ``d.popitem()`` que é garantido para exibir o (último) item "
+"mais à direita."
 
 #: ../../library/collections.rst:1110
 msgid ""
@@ -1383,12 +1508,17 @@ msgid ""
 "with ``(k := next(iter(d)), d.pop(k))`` which will return and remove the "
 "leftmost (first) item if it exists."
 msgstr ""
+"Um :class:`dict` normal pode emular o ``od.popitem(last=False)`` do "
+"OrderedDict com ``(k := next(iter(d)), d.pop(k))`` que retornará e remova o "
+"item mais à esquerda (primeiro), se existir."
 
 #: ../../library/collections.rst:1114
 msgid ""
 ":class:`OrderedDict` has a :meth:`move_to_end` method to efficiently "
 "reposition an element to an endpoint."
 msgstr ""
+":class:`OrderedDict` possui um método :meth:`move_to_end` para reposicionar "
+"eficientemente um elemento em um endpoint."
 
 #: ../../library/collections.rst:1117
 msgid ""
@@ -1396,6 +1526,9 @@ msgid ""
 "last=True)`` with ``d[k] = d.pop(k)`` which will move the key and its "
 "associated value to the rightmost (last) position."
 msgstr ""
+"Um :class:`dict` normal pode emular o ``od.move_to_end(k, last=True)`` do "
+"OrderedDict com ``d[k] = d.pop(k)`` que moverá a chave e seu valor associado "
+"para a posição mais à direita (última)."
 
 #: ../../library/collections.rst:1121
 msgid ""
@@ -1403,16 +1536,22 @@ msgid ""
 "OrderedDict's ``od.move_to_end(k, last=False)`` which moves the key and its "
 "associated value to the leftmost (first) position."
 msgstr ""
+"Um :class:`dict` regular não tem um equivalente eficiente para o ``od."
+"move_to_end(k, last=False)`` do OrderedDict, que move a chave e seu valor "
+"associado para a posição mais à esquerda (primeira)."
 
 #: ../../library/collections.rst:1125
 msgid "Until Python 3.8, :class:`dict` lacked a :meth:`__reversed__` method."
 msgstr ""
+"Até o Python 3.8, :class:`dict` não tinha um método :meth:`__reversed__`."
 
 #: ../../library/collections.rst:1130
 msgid ""
 "Return an instance of a :class:`dict` subclass that has methods specialized "
 "for rearranging dictionary order."
 msgstr ""
+"Retorna uma instância de uma subclasse :class:`dict` que possui métodos "
+"especializados para reorganizar a ordem do dicionário."
 
 #: ../../library/collections.rst:1137
 msgid ""
@@ -1421,6 +1560,10 @@ msgid ""
 "out)` order if *last* is true or :abbr:`FIFO (first-in, first-out)` order if "
 "false."
 msgstr ""
+"O método :meth:`popitem` para dicionários ordenados retorna e remove um par "
+"(chave, valor). Os pares são retornados na ordem :abbr:`LIFO (último a "
+"entrar, primeiro a sair)` se *last* for verdadeiro ou na ordem :abbr:`FIFO "
+"(primeiro a entrar, primeiro a sair)` se for falso."
 
 #: ../../library/collections.rst:1144
 msgid ""
@@ -1428,6 +1571,10 @@ msgid ""
 "moved to the right end if *last* is true (the default) or to the beginning "
 "if *last* is false.  Raises :exc:`KeyError` if the *key* does not exist:"
 msgstr ""
+"Move uma chave *key* existente para qualquer extremidade de um dicionário "
+"ordenado. O item é movido para a extremidade direita se *last* for "
+"verdadeiro (o padrão) ou para o início se *último* for falso. Levanta :exc:"
+"`KeyError` se a *key* não existir:"
 
 #: ../../library/collections.rst:1161
 msgid ""
@@ -1446,22 +1593,33 @@ msgid ""
 "allows :class:`OrderedDict` objects to be substituted anywhere a regular "
 "dictionary is used."
 msgstr ""
+"Testes de igualdade entre objetos :class:`OrderedDict` são sensíveis à ordem "
+"e são implementados como ``list(od1.items())==list(od2.items())``. Testes de "
+"igualdade entre objetos :class:`OrderedDict` e outros objetos :class:"
+"`~collections.abc.Mapping` são insensíveis à ordem como dicionários "
+"regulares. Isso permite que objetos :class:`OrderedDict` sejam substituídos "
+"em qualquer lugar que um dicionário regular seja usado."
 
 #: ../../library/collections.rst:1171
 msgid ""
 "The items, keys, and values :term:`views <dictionary view>` of :class:"
 "`OrderedDict` now support reverse iteration using :func:`reversed`."
 msgstr ""
+"Os itens, chaves e valores de :term:`visões <dictionary view>` de :class:"
+"`OrderedDict` agora oferecem suporte a iteração reversa usando :func:"
+"`reversed`."
 
 #: ../../library/collections.rst:1175
 msgid ""
 "With the acceptance of :pep:`468`, order is retained for keyword arguments "
 "passed to the :class:`OrderedDict` constructor and its :meth:`update` method."
 msgstr ""
+"Com a aceitação da :pep:`468`, a ordem é mantida para argumentos nomeados "
+"passados ​​para o construtor :class:`OrderedDict` e seu método :meth:`update`."
 
 #: ../../library/collections.rst:1185
 msgid ":class:`OrderedDict` Examples and Recipes"
-msgstr ""
+msgstr "Exemplos e receitas de :class:`OrderedDict`"
 
 #: ../../library/collections.rst:1187
 msgid ""
@@ -1470,16 +1628,22 @@ msgid ""
 "existing entry, the original insertion position is changed and moved to the "
 "end::"
 msgstr ""
+"É simples criar uma variante de dicionário ordenado que lembre a ordem em "
+"que as chaves foram inseridas pela *última* vez. Se uma nova entrada "
+"substituir uma entrada existente, a posição de inserção original será "
+"alterada e movida para o final::"
 
 #: ../../library/collections.rst:1199
 msgid ""
 "An :class:`OrderedDict` would also be useful for implementing variants of :"
 "func:`functools.lru_cache`:"
 msgstr ""
+"Um :class:`OrderedDict` também seria útil para implementar variantes de :"
+"func:`functools.lru_cache`:"
 
 #: ../../library/collections.rst:1297
 msgid ":class:`UserDict` objects"
-msgstr ""
+msgstr "Objetos :class:`UserDict`"
 
 #: ../../library/collections.rst:1299
 msgid ""
@@ -1488,6 +1652,11 @@ msgid ""
 "subclass directly from :class:`dict`; however, this class can be easier to "
 "work with because the underlying dictionary is accessible as an attribute."
 msgstr ""
+"A classe :class:`UserDict` atua como um invólucro em torno de objetos "
+"dicionário. A necessidade desta classe foi parcialmente suplantada pela "
+"capacidade de criar subclasses diretamente de :class:`dict`; entretanto, "
+"essa classe pode ser mais fácil de trabalhar porque o dicionário subjacente "
+"é acessível como um atributo."
 
 #: ../../library/collections.rst:1307
 msgid ""
@@ -1497,21 +1666,30 @@ msgid ""
 "initialized with its contents; note that a reference to *initialdata* will "
 "not be kept, allowing it to be used for other purposes."
 msgstr ""
+"Classe que simula um dicionário. O conteúdo da instância é mantido em um "
+"dicionário regular, que é acessível através do atributo :attr:`data` das "
+"instâncias :class:`UserDict`. Se *initialdata* for fornecido, :attr:`data` é "
+"inicializado com seu conteúdo; observe que a referência a *initialdata* não "
+"será mantida, permitindo sua utilização para outros fins."
 
 #: ../../library/collections.rst:1313
 msgid ""
 "In addition to supporting the methods and operations of mappings, :class:"
 "`UserDict` instances provide the following attribute:"
 msgstr ""
+"Além de prover suporte aos métodos e operações de mapeamentos, as "
+"instâncias :class:`UserDict` fornecem o seguinte atributo:"
 
 #: ../../library/collections.rst:1318
 msgid ""
 "A real dictionary used to store the contents of the :class:`UserDict` class."
 msgstr ""
+"Um dicionário real usado para armazenar o conteúdo da classe :class:"
+"`UserDict`."
 
 #: ../../library/collections.rst:1324
 msgid ":class:`UserList` objects"
-msgstr ""
+msgstr "Objetos :class:`UserList`"
 
 #: ../../library/collections.rst:1326
 msgid ""
@@ -1520,6 +1698,10 @@ msgid ""
 "existing methods or add new ones.  In this way, one can add new behaviors to "
 "lists."
 msgstr ""
+"Esta classe atua como um invólucro em torno de objetos de lista. É uma "
+"classe base útil para suas próprias classes semelhantes a listas, que podem "
+"herdar delas e substituir métodos existentes ou adicionar novos. Desta "
+"forma, é possível adicionar novos comportamentos às listas."
 
 #: ../../library/collections.rst:1331
 msgid ""
@@ -1527,6 +1709,10 @@ msgid ""
 "subclass directly from :class:`list`; however, this class can be easier to "
 "work with because the underlying list is accessible as an attribute."
 msgstr ""
+"A necessidade desta classe foi parcialmente suplantada pela capacidade de "
+"criar subclasses diretamente de :class:`list`; no entanto, pode ser mais "
+"fácil trabalhar com essa classe porque a lista subjacente pode ser acessada "
+"como um atributo."
 
 #: ../../library/collections.rst:1337
 msgid ""
@@ -1536,18 +1722,27 @@ msgid ""
 "of *list*, defaulting to the empty list ``[]``.  *list* can be any iterable, "
 "for example a real Python list or a :class:`UserList` object."
 msgstr ""
+"Classe que simula uma lista. O conteúdo da instância é mantido em uma lista "
+"regular, que é acessível através do atributo :attr:`data` das instâncias :"
+"class:`UserList`. O conteúdo da instância é inicialmente definido como uma "
+"cópia de *list*, padronizando a lista vazia ``[]``. *list* pode ser qualquer "
+"iterável, por exemplo, uma lista Python real ou um objeto :class:`UserList`."
 
 #: ../../library/collections.rst:1343
 msgid ""
 "In addition to supporting the methods and operations of mutable sequences, :"
 "class:`UserList` instances provide the following attribute:"
 msgstr ""
+"Além de prover suporte aos métodos e operações de sequências mutáveis, as "
+"instâncias :class:`UserList` fornecem o seguinte atributo:"
 
 #: ../../library/collections.rst:1348
 msgid ""
 "A real :class:`list` object used to store the contents of the :class:"
 "`UserList` class."
 msgstr ""
+"Um objeto :class:`list` real usado para armazenar o conteúdo da classe :"
+"class:`UserList`."
 
 #: ../../library/collections.rst:1351
 msgid ""
@@ -1558,6 +1753,12 @@ msgid ""
 "constructor can be called with a single parameter, which is a sequence "
 "object used as a data source."
 msgstr ""
+"**Requisitos para criar subclasse:** Espera-se que as subclasses de :class:"
+"`UserList` ofereçam um construtor que pode ser chamado sem argumentos ou com "
+"um argumento. Listar operações que retornam uma nova sequência tenta criar "
+"uma instância da classe de implementação real. Para isso, presume que o "
+"construtor pode ser chamado com um único parâmetro, que é um objeto de "
+"sequência usado como fonte de dados."
 
 #: ../../library/collections.rst:1358
 msgid ""
@@ -1566,10 +1767,14 @@ msgid ""
 "consult the sources for information about the methods which need to be "
 "provided in that case."
 msgstr ""
+"Se uma classe derivada não desejar atender a este requisito, todos os "
+"métodos especiais suportados por esta classe precisarão ser substituídos; "
+"consulte as fontes para obter informações sobre os métodos que precisam ser "
+"fornecidos nesse caso."
 
 #: ../../library/collections.rst:1364
 msgid ":class:`UserString` objects"
-msgstr ""
+msgstr "Objetos :class:`UserString`"
 
 #: ../../library/collections.rst:1366
 msgid ""
@@ -1578,6 +1783,11 @@ msgid ""
 "directly from :class:`str`; however, this class can be easier to work with "
 "because the underlying string is accessible as an attribute."
 msgstr ""
+"A classe :class:`UserString` atua como um invólucro em torno de objetos "
+"string. A necessidade desta classe foi parcialmente suplantada pela "
+"capacidade de criar subclasses diretamente de :class:`str`; entretanto, essa "
+"classe pode ser mais fácil de trabalhar porque a string subjacente é "
+"acessível como um atributo."
 
 #: ../../library/collections.rst:1374
 msgid ""
@@ -1587,21 +1797,32 @@ msgid ""
 "to a copy of *seq*.  The *seq* argument can be any object which can be "
 "converted into a string using the built-in :func:`str` function."
 msgstr ""
+"Classe que simula um objeto string. O conteúdo da instância é mantido em um "
+"objeto string regular, que é acessível através do atributo :attr:`data` das "
+"instâncias :class:`UserString`. O conteúdo da instância é inicialmente "
+"definido como uma cópia de *seq*. O argumento *seq* pode ser qualquer objeto "
+"que possa ser convertido em uma string usando a função embutida :func:`str`."
 
 #: ../../library/collections.rst:1381
 msgid ""
 "In addition to supporting the methods and operations of strings, :class:"
 "`UserString` instances provide the following attribute:"
 msgstr ""
+"Além de prover suporte aos métodos e operações de strings, as instâncias :"
+"class:`UserString` fornecem o seguinte atributo:"
 
 #: ../../library/collections.rst:1386
 msgid ""
 "A real :class:`str` object used to store the contents of the :class:"
 "`UserString` class."
 msgstr ""
+"Um objeto :class:`str` real usado para armazenar o conteúdo da classe :class:"
+"`UserString`."
 
 #: ../../library/collections.rst:1389
 msgid ""
 "New methods ``__getnewargs__``, ``__rmod__``, ``casefold``, ``format_map``, "
 "``isprintable``, and ``maketrans``."
 msgstr ""
+"Novos métodos ``__getnewargs__``, ``__rmod__``, ``casefold``, "
+"``format_map``, ``isprintable`` e ``maketrans``."
