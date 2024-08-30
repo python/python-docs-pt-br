@@ -17,10 +17,10 @@ msgstr ""
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2023\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -55,6 +55,10 @@ msgid ""
 "the current process. Only available on systems where :c:func:`fork` is "
 "defined."
 msgstr ""
+"Função para preparar algum estado interno antes de ser feito um fork do "
+"processo. Isso deve ser chamado antes de chamar :c:func:`fork` ou qualquer "
+"função semelhante que clone o processo atual. Disponível apenas em sistemas "
+"onde :c:func:`fork` é definido."
 
 #: ../../c-api/sys.rst:37
 msgid ""
@@ -62,6 +66,9 @@ msgid ""
 "<fork-and-threads>` (of the :ref:`\"main\" interpreter <sub-interpreter-"
 "support>`).  The same is true for ``PyOS_BeforeFork()``."
 msgstr ""
+"A chamada C :c:func:`fork` só deve ser feita a partir da :ref:`thread "
+"\"main\" <fork-and-threads>` (do :ref:`interpretador \"main\" <sub-"
+"interpreter-support>`). O mesmo vale para ``PyOS_BeforeFork()``."
 
 #: ../../c-api/sys.rst:47
 msgid ""
@@ -71,6 +78,11 @@ msgid ""
 "cloning was successful. Only available on systems where :c:func:`fork` is "
 "defined."
 msgstr ""
+"Função para atualizar algum estado interno depois de ser feito um fork do "
+"processo. Isso deve ser chamado a partir do processo pai depois de chamar :c:"
+"func:`fork` ou qualquer função semelhante que clone o processo atual, "
+"independentemente da clonagem do processo ter sido bem-sucedida ou não. "
+"Disponível apenas em sistemas onde :c:func:`fork` é definido."
 
 #: ../../c-api/sys.rst:54
 msgid ""
@@ -78,6 +90,9 @@ msgid ""
 "<fork-and-threads>` (of the :ref:`\"main\" interpreter <sub-interpreter-"
 "support>`).  The same is true for ``PyOS_AfterFork_Parent()``."
 msgstr ""
+"A chamada C :c:func:`fork` só deve ser feita a partir da :ref:`thread "
+"\"main\" <fork-and-threads>` (do :ref:`interpretador \"main\" <sub-"
+"interpreter-support>`). O mesmo vale para ``PyOS_AfterFork_Parent()``."
 
 #: ../../c-api/sys.rst:64
 msgid ""
@@ -87,6 +102,12 @@ msgid ""
 "process will call back into the Python interpreter. Only available on "
 "systems where :c:func:`fork` is defined."
 msgstr ""
+"Função para atualizar o estado interno do interpretador depois de ser feito "
+"um fork do processo. Isso deve ser chamado a partir do processo filho depois "
+"de chamar :c:func:`fork` ou qualquer função semelhante que clone o processo "
+"atual, se houver alguma chance do processo ter uma chamada de retorno para o "
+"interpretador Python. Disponível apenas em sistemas onde :c:func:`fork` é "
+"definido."
 
 #: ../../c-api/sys.rst:71
 msgid ""
@@ -94,6 +115,9 @@ msgid ""
 "<fork-and-threads>` (of the :ref:`\"main\" interpreter <sub-interpreter-"
 "support>`).  The same is true for ``PyOS_AfterFork_Child()``."
 msgstr ""
+"A chamada C :c:func:`fork` só deve ser feita a partir da :ref:`thread "
+"\"main\" <fork-and-threads>` (do :ref:`interpretador \"main\" <sub-"
+"interpreter-support>`). O mesmo vale para ``PyOS_AfterFork_Child()``."
 
 #: ../../c-api/sys.rst:79
 msgid ""
@@ -101,6 +125,9 @@ msgid ""
 "called by :c:func:`PyOS_BeforeFork()`, :c:func:`PyOS_AfterFork_Parent` and  :"
 "c:func:`PyOS_AfterFork_Child`."
 msgstr ""
+":func:`os.register_at_fork` permite registrar funções personalizadas do "
+"Python para serem chamadas por :c:func:`PyOS_BeforeFork()`, :c:func:"
+"`PyOS_AfterFork_Parent` e  :c:func:`PyOS_AfterFork_Child`."
 
 #: ../../c-api/sys.rst:86
 msgid ""
@@ -116,7 +143,7 @@ msgstr ""
 
 #: ../../c-api/sys.rst:91
 msgid "This function is superseded by :c:func:`PyOS_AfterFork_Child()`."
-msgstr ""
+msgstr "Esta função foi sucedida por :c:func:`PyOS_AfterFork_Child()`."
 
 #: ../../c-api/sys.rst:97
 msgid ""
@@ -149,6 +176,9 @@ msgid ""
 "with the :c:func:`PyConfig_SetBytesString` function which ensures that :ref:"
 "`Python is preinitialized <c-preinit>`."
 msgstr ""
+"Esta função não deve ser chamada diretamente: use a API :c:type:`PyConfig` "
+"com a função :c:func:`PyConfig_SetBytesString` que garante que :ref:`Python "
+"esteja pré-inicializado <c-preinit>`."
 
 #: ../../c-api/sys.rst:126 ../../c-api/sys.rst:193
 msgid ""
@@ -156,6 +186,9 @@ msgid ""
 "preinit>` and so that the LC_CTYPE locale is properly configured: see the :c:"
 "func:`Py_PreInitialize` function."
 msgstr ""
+"Esta função não deve ser chamada antes de :ref:`Python estar pré-"
+"inicializado <c-preinit>` e para que a localidade LC_CTYPE seja configurada "
+"corretamente: consulte a função :c:func:`Py_PreInitialize`."
 
 #: ../../c-api/sys.rst:130
 msgid ""
@@ -166,6 +199,13 @@ msgid ""
 "character, the bytes are escaped using the surrogateescape error handler "
 "instead of decoding them."
 msgstr ""
+"Decodifica uma string de bytes do :term:`tratador de erros e codificação do "
+"sistema de arquivos`. Se o tratador de erros for o :ref:`tratador de errors "
+"surrogateescape <surrogateescape>`, bytes não decodificáveis ​​são "
+"decodificados como caracteres no intervalo U+DC80..U+DCFF; e se uma string "
+"de bytes puder ser decodificada como um caractere substituto, os bytes são "
+"escapados usando o tratador de erros surrogateescape em vez de decodificá-"
+"los."
 
 #: ../../c-api/sys.rst:137
 msgid ""
@@ -173,6 +213,10 @@ msgid ""
 "`PyMem_RawFree` to free the memory. If size is not ``NULL``, write the "
 "number of wide characters excluding the null character into ``*size``"
 msgstr ""
+"Retorna um ponteiro para uma string de caracteres largos recém-alocada, usa :"
+"c:func:`PyMem_RawFree` para liberar a memória. Se o tamanho não for "
+"``NULL``, escreve o número de caracteres largos excluindo o caractere nulo "
+"em ``*size``"
 
 #: ../../c-api/sys.rst:141
 msgid ""
@@ -180,6 +224,9 @@ msgid ""
 "not ``NULL``, ``*size`` is set to ``(size_t)-1`` on memory error or set to "
 "``(size_t)-2`` on decoding error."
 msgstr ""
+"Retorna ``NULL`` em erro de decodificação ou erro de alocação de memória. Se "
+"*size* não for ``NULL``, ``*size`` é definido como ``(size_t)-1`` em erro de "
+"memória ou definido como ``(size_t)-2`` em erro de decodificação."
 
 #: ../../c-api/sys.rst:145 ../../c-api/sys.rst:185
 msgid ""
@@ -187,29 +234,41 @@ msgid ""
 "`PyConfig_Read`: see :c:member:`~PyConfig.filesystem_encoding` and :c:member:"
 "`~PyConfig.filesystem_errors` members of :c:type:`PyConfig`."
 msgstr ""
+":term:`tratador de erros e codificação do sistema de arquivos` são "
+"selecionados por :c:func:`PyConfig_Read`: veja os membros :c:member:"
+"`~PyConfig.filesystem_encoding` e :c:member:`~PyConfig.filesystem_errors` "
+"de :c:type:`PyConfig`."
 
 #: ../../c-api/sys.rst:149
 msgid ""
 "Decoding errors should never happen, unless there is a bug in the C library."
 msgstr ""
+"Erros de decodificação nunca devem acontecer, a menos que haja um bug na "
+"biblioteca C."
 
 #: ../../c-api/sys.rst:152
 msgid ""
 "Use the :c:func:`Py_EncodeLocale` function to encode the character string "
 "back to a byte string."
 msgstr ""
+"Use a função :c:func:`Py_EncodeLocale` para codificar a string de caracteres "
+"de volta para uma string de bytes."
 
 #: ../../c-api/sys.rst:157
 msgid ""
 "The :c:func:`PyUnicode_DecodeFSDefaultAndSize` and :c:func:"
 "`PyUnicode_DecodeLocaleAndSize` functions."
 msgstr ""
+"As funções :c:func:`PyUnicode_DecodeFSDefaultAndSize` e :c:func:"
+"`PyUnicode_DecodeLocaleAndSize`."
 
 #: ../../c-api/sys.rst:162 ../../c-api/sys.rst:204
 msgid ""
 "The function now uses the UTF-8 encoding in the :ref:`Python UTF-8 Mode "
 "<utf8-mode>`."
 msgstr ""
+"A função agora usa a codificação UTF-8 no :ref:`Modo UTF-8 do Python <utf8-"
+"mode>`."
 
 #: ../../c-api/sys.rst:166
 msgid ""

@@ -30,10 +30,10 @@ msgstr ""
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2023\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -3573,22 +3573,30 @@ msgid ""
 "the base. The returned tuple may be empty: in these cases, the original base "
 "is ignored."
 msgstr ""
+"Se uma classe base que aparece em uma definição de classe não é uma "
+"instância de :class:`type`, então um método :meth:`!__mro_entries__` é "
+"procurado na base. Se um método :meth:`!__mro_entries__` é encontrado, a "
+"base é substituída pelo resultado de uma chamada para :meth:`!"
+"__mro_entries__` ao criar a classe. O método é chamado com a tupla de bases "
+"original passada como parâmetro *bases*, e deve retornar uma tupla de "
+"classes que serão usadas no lugar da base. A tupla retornada pode estar "
+"vazia: nesses casos, a base original é ignorada."
 
 #: ../../reference/datamodel.rst:2102
 msgid ":func:`types.resolve_bases`"
-msgstr ""
+msgstr ":func:`types.resolve_bases`"
 
 #: ../../reference/datamodel.rst:2102
 msgid "Dynamically resolve bases that are not instances of :class:`type`."
-msgstr ""
+msgstr "Dinamicamente resolve bases que não são instâncias de :class:`type`."
 
 #: ../../reference/datamodel.rst:2104
 msgid ":pep:`560`"
-msgstr ""
+msgstr ":pep:`560`"
 
 #: ../../reference/datamodel.rst:2105
 msgid "Core support for typing module and generic types."
-msgstr ""
+msgstr "Suporte básico para módulo typing e tipos genéricos."
 
 #: ../../reference/datamodel.rst:2109
 msgid "Determining the appropriate metaclass"
@@ -3995,7 +4003,7 @@ msgstr ""
 
 #: ../../reference/datamodel.rst:2312
 msgid "The purpose of *__class_getitem__*"
-msgstr ""
+msgstr "O propósito de *__class_getitem__*"
 
 #: ../../reference/datamodel.rst:2314
 msgid ""
@@ -4003,6 +4011,9 @@ msgid ""
 "parameterization of standard-library generic classes in order to more easily "
 "apply :term:`type hints<type hint>` to these classes."
 msgstr ""
+"O propósito de :meth:`~object.__class_getitem__` é permitir a parametrização "
+"em tempo de execução de classes genéricas da biblioteca padrão, a fim de "
+"aplicar mais facilmente :term:`dicas de tipo<type hint>` a essas classes."
 
 #: ../../reference/datamodel.rst:2318
 msgid ""
@@ -4012,6 +4023,12 @@ msgid ""
 "__class_getitem__`, or inherit from :class:`typing.Generic`, which has its "
 "own implementation of ``__class_getitem__()``."
 msgstr ""
+"Para implementar classes genéricas personalizadas que podem ser "
+"parametrizadas em tempo de execução e compreendidas por verificadores de "
+"tipo estáticos, os usuários devem herdar de uma classe da biblioteca padrão "
+"que já implementa :meth:`~object.__class_getitem__`, ou herdar de :class:"
+"`typing.Generic`, que possui sua própria implementação de "
+"``__class_getitem__()``."
 
 #: ../../reference/datamodel.rst:2324
 msgid ""
@@ -4020,10 +4037,15 @@ msgid ""
 "type-checkers such as mypy. Using ``__class_getitem__()`` on any class for "
 "purposes other than type hinting is discouraged."
 msgstr ""
+"Implementações personalizadas de :meth:`~object.__class_getitem__` em "
+"classes definidas fora da biblioteca padrão podem não ser compreendidas por "
+"verificadores de tipo de terceiros, como o mypy. O uso de "
+"``__class_getitem__()`` em qualquer classe para fins diferentes de dicas de "
+"tipo é desencorajado."
 
 #: ../../reference/datamodel.rst:2334
 msgid "*__class_getitem__* versus *__getitem__*"
-msgstr ""
+msgstr "*__class_getitem__* versus *__getitem__*"
 
 #: ../../reference/datamodel.rst:2336
 msgid ""
@@ -4034,6 +4056,12 @@ msgid ""
 "instead. ``__class_getitem__()`` should return a :ref:`GenericAlias<types-"
 "genericalias>` object if it is properly defined."
 msgstr ""
+"Normalmente, a :ref:`subscription<subscriptions>` de um objeto usando "
+"colchetes chamará o método de instância :meth:`~object.__getitem__` definido "
+"na classe do objeto. No entanto, se o objeto sendo subscrito for ele mesmo "
+"uma classe, o método de classe :meth:`~object.__class_getitem__` pode ser "
+"chamado em seu lugar. ``__class_getitem__()`` deve retornar um objeto :ref:"
+"`GenericAlias<types-genericalias>` se estiver devidamente definido."
 
 #: ../../reference/datamodel.rst:2343
 msgid ""
@@ -4041,6 +4069,9 @@ msgid ""
 "follows something like the following process to decide whether :meth:"
 "`~object.__getitem__` or :meth:`~object.__class_getitem__` should be called::"
 msgstr ""
+"Apresentado com a :term:`expressão` ``obj[x]``, o interpretador de Python "
+"segue algo parecido com o seguinte processo para decidir se :meth:`~object."
+"__getitem__` ou :meth:`~object.__class_getitem__` deve ser chamado:"
 
 #: ../../reference/datamodel.rst:2371
 msgid ""
@@ -4051,6 +4082,12 @@ msgid ""
 "``dict[str, float]`` and ``tuple[str, bytes]`` all result in :meth:`~object."
 "__class_getitem__` being called::"
 msgstr ""
+"Em Python, todas as classes são elas mesmas instâncias de outras classes. A "
+"classe de uma classe é conhecida como :term:`metaclasse` dessa classe, e a "
+"maioria das classes tem a classe :class:`type` como sua metaclasse. :class:"
+"`type` não define :meth:`~object.__getitem__`, o que significa que "
+"expressões como ``list[int]``, ``dict[str, float]`` e ``tuple[str, bytes]`` "
+"resultam em chamadas para :meth:`~object.__class_getitem__`::"
 
 #: ../../reference/datamodel.rst:2390
 msgid ""
@@ -4058,10 +4095,14 @@ msgid ""
 "__getitem__`, subscribing the class may result in different behaviour. An "
 "example of this can be found in the :mod:`enum` module::"
 msgstr ""
+"No entanto, se uma classe tiver uma metaclasse personalizada que define :"
+"meth:`~object.__getitem__`, subscrever a classe pode resultar em "
+"comportamento diferente. Um exemplo disso pode ser encontrado no módulo :mod:"
+"`enum`::"
 
 #: ../../reference/datamodel.rst:2415
 msgid ":pep:`560` - Core Support for typing module and generic types"
-msgstr ""
+msgstr ":pep:`560` - Suporte básico para módulo typing e tipos genéricos"
 
 #: ../../reference/datamodel.rst:2414
 msgid ""
@@ -4069,6 +4110,9 @@ msgid ""
 "`subscription<subscriptions>` results in ``__class_getitem__()`` being "
 "called instead of :meth:`~object.__getitem__`"
 msgstr ""
+"Introduz :meth:`~object.__class_getitem__`, e define quando uma :ref:"
+"`subscrição<subscriptions>` resulta na chamada de ``__class_getitem__()`` em "
+"vez de :meth:`~object.__getitem__`"
 
 #: ../../reference/datamodel.rst:2422
 msgid "Emulating callable objects"
@@ -4961,7 +5005,7 @@ msgstr "função embutida"
 
 #: ../../reference/datamodel.rst:23
 msgid "id"
-msgstr ""
+msgstr "id"
 
 #: ../../reference/datamodel.rst:23 ../../reference/datamodel.rst:122
 #: ../../reference/datamodel.rst:2050
@@ -5002,7 +5046,7 @@ msgstr ""
 
 #: ../../reference/datamodel.rst:95 ../../reference/datamodel.rst:807
 msgid "container"
-msgstr ""
+msgstr "contêiner"
 
 #: ../../reference/datamodel.rst:122
 msgid "hierarchy"
@@ -5026,7 +5070,7 @@ msgstr "C"
 #: ../../reference/datamodel.rst:122 ../../reference/datamodel.rst:244
 #: ../../reference/datamodel.rst:690
 msgid "language"
-msgstr ""
+msgstr "linguagem"
 
 #: ../../reference/datamodel.rst:135 ../../reference/datamodel.rst:807
 #: ../../reference/datamodel.rst:824 ../../reference/datamodel.rst:867
@@ -5052,7 +5096,7 @@ msgstr "reticências literais"
 
 #: ../../reference/datamodel.rst:182 ../../reference/datamodel.rst:894
 msgid "numeric"
-msgstr ""
+msgstr "numérico"
 
 #: ../../reference/datamodel.rst:212 ../../reference/datamodel.rst:238
 #: ../../reference/datamodel.rst:310
@@ -5089,12 +5133,12 @@ msgstr ""
 
 #: ../../reference/datamodel.rst:259 ../../reference/datamodel.rst:2738
 msgid "complex"
-msgstr ""
+msgstr "complexo"
 
 #: ../../reference/datamodel.rst:269 ../../reference/datamodel.rst:386
 #: ../../reference/datamodel.rst:420 ../../reference/datamodel.rst:2474
 msgid "len"
-msgstr ""
+msgstr "len"
 
 #: ../../reference/datamodel.rst:269 ../../reference/datamodel.rst:894
 msgid "sequence"
@@ -5111,11 +5155,11 @@ msgstr ""
 #: ../../reference/datamodel.rst:269 ../../reference/datamodel.rst:352
 #: ../../reference/datamodel.rst:420
 msgid "subscription"
-msgstr ""
+msgstr "subscrição"
 
 #: ../../reference/datamodel.rst:281 ../../reference/datamodel.rst:352
 msgid "slicing"
-msgstr ""
+msgstr "fatiamento"
 
 #: ../../reference/datamodel.rst:295
 msgid "immutable sequence"
@@ -5144,7 +5188,7 @@ msgstr ""
 
 #: ../../reference/datamodel.rst:310
 msgid "character"
-msgstr ""
+msgstr "caractere"
 
 #: ../../reference/datamodel.rst:310
 msgid "Unicode"
@@ -5160,11 +5204,11 @@ msgstr ""
 
 #: ../../reference/datamodel.rst:330
 msgid "empty"
-msgstr ""
+msgstr "vazia"
 
 #: ../../reference/datamodel.rst:343 ../../reference/datamodel.rst:1413
 msgid "bytes"
-msgstr ""
+msgstr "bytes"
 
 #: ../../reference/datamodel.rst:343
 msgid "byte"
@@ -5172,7 +5216,7 @@ msgstr ""
 
 #: ../../reference/datamodel.rst:352
 msgid "mutable sequence"
-msgstr ""
+msgstr "sequência mutável"
 
 #: ../../reference/datamodel.rst:352
 msgid "mutable"
@@ -5181,7 +5225,7 @@ msgstr "mutável"
 #: ../../reference/datamodel.rst:352 ../../reference/datamodel.rst:824
 #: ../../reference/datamodel.rst:887
 msgid "assignment"
-msgstr ""
+msgstr "atribuição"
 
 #: ../../reference/datamodel.rst:352 ../../reference/datamodel.rst:729
 #: ../../reference/datamodel.rst:1149 ../../reference/datamodel.rst:1309
@@ -5195,7 +5239,7 @@ msgstr "lista"
 
 #: ../../reference/datamodel.rst:373
 msgid "bytearray"
-msgstr ""
+msgstr "bytearray"
 
 #: ../../reference/datamodel.rst:380
 msgid "array"
@@ -5207,11 +5251,11 @@ msgstr ""
 
 #: ../../reference/datamodel.rst:405
 msgid "set"
-msgstr ""
+msgstr "set"
 
 #: ../../reference/datamodel.rst:412
 msgid "frozenset"
-msgstr ""
+msgstr "frozenset"
 
 #: ../../reference/datamodel.rst:420 ../../reference/datamodel.rst:894
 msgid "mapping"
@@ -5243,7 +5287,7 @@ msgstr "função"
 #: ../../reference/datamodel.rst:467 ../../reference/datamodel.rst:807
 #: ../../reference/datamodel.rst:829 ../../reference/datamodel.rst:2427
 msgid "call"
-msgstr ""
+msgstr "chamada"
 
 #: ../../reference/datamodel.rst:467
 msgid "invocation"
@@ -5255,11 +5299,11 @@ msgstr "argumento"
 
 #: ../../reference/datamodel.rst:477 ../../reference/datamodel.rst:582
 msgid "user-defined"
-msgstr ""
+msgstr "definida por usuário"
 
 #: ../../reference/datamodel.rst:477
 msgid "user-defined function"
-msgstr ""
+msgstr "função definida por usuário"
 
 #: ../../reference/datamodel.rst:491
 msgid "__doc__ (function attribute)"
@@ -5283,7 +5327,7 @@ msgstr ""
 
 #: ../../reference/datamodel.rst:491
 msgid "__closure__ (function attribute)"
-msgstr ""
+msgstr "__closure__ (atributo de função)"
 
 #: ../../reference/datamodel.rst:491
 msgid "__code__ (function attribute)"
@@ -5303,7 +5347,7 @@ msgstr ""
 
 #: ../../reference/datamodel.rst:491
 msgid "global"
-msgstr ""
+msgstr "global"
 
 #: ../../reference/datamodel.rst:491 ../../reference/datamodel.rst:748
 msgid "namespace"
@@ -5359,7 +5403,7 @@ msgstr "iterador assíncrono"
 
 #: ../../reference/datamodel.rst:705
 msgid "built-in method"
-msgstr ""
+msgstr "método embutido"
 
 #: ../../reference/datamodel.rst:705
 msgid "built-in"
@@ -5367,7 +5411,7 @@ msgstr "embutido"
 
 #: ../../reference/datamodel.rst:729
 msgid "import"
-msgstr ""
+msgstr "import"
 
 #: ../../reference/datamodel.rst:748
 msgid "__name__ (module attribute)"
@@ -5398,16 +5442,16 @@ msgstr "classe"
 #: ../../reference/datamodel.rst:807 ../../reference/datamodel.rst:867
 #: ../../reference/datamodel.rst:887
 msgid "class instance"
-msgstr ""
+msgstr "instância de classe"
 
 #: ../../reference/datamodel.rst:807 ../../reference/datamodel.rst:867
 #: ../../reference/datamodel.rst:2427
 msgid "instance"
-msgstr ""
+msgstr "instância"
 
 #: ../../reference/datamodel.rst:807 ../../reference/datamodel.rst:829
 msgid "class object"
-msgstr ""
+msgstr "objeto classe"
 
 #: ../../reference/datamodel.rst:833
 msgid "__name__ (class attribute)"
@@ -5443,7 +5487,7 @@ msgstr ""
 
 #: ../../reference/datamodel.rst:910
 msgid "open"
-msgstr ""
+msgstr "open"
 
 #: ../../reference/datamodel.rst:910
 msgid "io"
@@ -5499,79 +5543,79 @@ msgstr "bytecode"
 
 #: ../../reference/datamodel.rst:944
 msgid "code"
-msgstr ""
+msgstr "código"
 
 #: ../../reference/datamodel.rst:944
 msgid "code object"
-msgstr ""
+msgstr "objeto código"
 
 #: ../../reference/datamodel.rst:956
 msgid "co_argcount (code object attribute)"
-msgstr ""
+msgstr "co_argcount (atributo de objeto código)"
 
 #: ../../reference/datamodel.rst:956
 msgid "co_posonlyargcount (code object attribute)"
-msgstr ""
+msgstr "co_posonlyargcount (atributo de objeto código)"
 
 #: ../../reference/datamodel.rst:956
 msgid "co_kwonlyargcount (code object attribute)"
-msgstr ""
+msgstr "co_kwonlyargcount (atributo de objeto código)"
 
 #: ../../reference/datamodel.rst:956
 msgid "co_code (code object attribute)"
-msgstr ""
+msgstr "co_code (atributo de objeto código)"
 
 #: ../../reference/datamodel.rst:956
 msgid "co_consts (code object attribute)"
-msgstr ""
+msgstr "co_consts (atributo de objeto código)"
 
 #: ../../reference/datamodel.rst:956
 msgid "co_filename (code object attribute)"
-msgstr ""
+msgstr "co_filename (atributo de objeto código)"
 
 #: ../../reference/datamodel.rst:956
 msgid "co_firstlineno (code object attribute)"
-msgstr ""
+msgstr "co_firstlineno (atributo de objeto código)"
 
 #: ../../reference/datamodel.rst:956
 msgid "co_flags (code object attribute)"
-msgstr ""
+msgstr "co_flags (atributo de objeto código)"
 
 #: ../../reference/datamodel.rst:956
 msgid "co_lnotab (code object attribute)"
-msgstr ""
+msgstr "co_lnotab (atributo de objeto código)"
 
 #: ../../reference/datamodel.rst:956
 msgid "co_name (code object attribute)"
-msgstr ""
+msgstr "co_name (atributo de objeto código)"
 
 #: ../../reference/datamodel.rst:956
 msgid "co_names (code object attribute)"
-msgstr ""
+msgstr "co_names (atributo de objeto código)"
 
 #: ../../reference/datamodel.rst:956
 msgid "co_nlocals (code object attribute)"
-msgstr ""
+msgstr "co_nlocals (atributo de objeto código)"
 
 #: ../../reference/datamodel.rst:956
 msgid "co_stacksize (code object attribute)"
-msgstr ""
+msgstr "co_stacksize (atributo de objeto código)"
 
 #: ../../reference/datamodel.rst:956
 msgid "co_varnames (code object attribute)"
-msgstr ""
+msgstr "co_varnames (atributo de objeto código)"
 
 #: ../../reference/datamodel.rst:956
 msgid "co_cellvars (code object attribute)"
-msgstr ""
+msgstr "co_cellvars (atributo de objeto código)"
 
 #: ../../reference/datamodel.rst:956
 msgid "co_freevars (code object attribute)"
-msgstr ""
+msgstr "co_freevars (atributo de objeto código)"
 
 #: ../../reference/datamodel.rst:956
 msgid "co_qualname (code object attribute)"
-msgstr ""
+msgstr "co_qualname (atributo de objeto código)"
 
 #: ../../reference/datamodel.rst:1014
 msgid "documentation string"
@@ -5579,7 +5623,7 @@ msgstr "string de documentação"
 
 #: ../../reference/datamodel.rst:1055
 msgid "frame"
-msgstr ""
+msgstr "quadro"
 
 #: ../../reference/datamodel.rst:1060
 msgid "f_back (frame attribute)"
@@ -5635,7 +5679,7 @@ msgstr ""
 
 #: ../../reference/datamodel.rst:1117
 msgid "exception"
-msgstr ""
+msgstr "exceção"
 
 #: ../../reference/datamodel.rst:1117
 msgid "handler"
@@ -5643,7 +5687,7 @@ msgstr ""
 
 #: ../../reference/datamodel.rst:1117
 msgid "execution"
-msgstr ""
+msgstr "execução"
 
 #: ../../reference/datamodel.rst:1117
 msgid "exc_info (in module sys)"
@@ -5655,15 +5699,15 @@ msgstr ""
 
 #: ../../reference/datamodel.rst:1117
 msgid "sys.exc_info"
-msgstr ""
+msgstr "sys.exc_info"
 
 #: ../../reference/datamodel.rst:1117
 msgid "sys.exception"
-msgstr ""
+msgstr "sys.exception"
 
 #: ../../reference/datamodel.rst:1117
 msgid "sys.last_traceback"
-msgstr ""
+msgstr "sys.last_traceback"
 
 #: ../../reference/datamodel.rst:1149
 msgid "tb_frame (traceback attribute)"
@@ -5679,7 +5723,7 @@ msgstr ""
 
 #: ../../reference/datamodel.rst:1149
 msgid "try"
-msgstr ""
+msgstr "try"
 
 #: ../../reference/datamodel.rst:1167
 msgid "tb_next (traceback attribute)"
@@ -5691,15 +5735,15 @@ msgstr "fatia"
 
 #: ../../reference/datamodel.rst:1185
 msgid "start (slice object attribute)"
-msgstr ""
+msgstr "start (atributo de objeto fatia)"
 
 #: ../../reference/datamodel.rst:1185
 msgid "stop (slice object attribute)"
-msgstr ""
+msgstr "stop (atributo de objeto fatia)"
 
 #: ../../reference/datamodel.rst:1185
 msgid "step (slice object attribute)"
-msgstr ""
+msgstr "step (atributo de objeto fatia)"
 
 #: ../../reference/datamodel.rst:1227
 msgid "operator"
@@ -5727,7 +5771,7 @@ msgstr ""
 
 #: ../../reference/datamodel.rst:1309
 msgid "destructor"
-msgstr ""
+msgstr "destrutor"
 
 #: ../../reference/datamodel.rst:1309
 msgid "finalizer"
@@ -5735,7 +5779,7 @@ msgstr ""
 
 #: ../../reference/datamodel.rst:1309
 msgid "del"
-msgstr ""
+msgstr "del"
 
 #: ../../reference/datamodel.rst:1371
 msgid "repr() (built-in function)"
@@ -5763,7 +5807,7 @@ msgstr ""
 
 #: ../../reference/datamodel.rst:1418
 msgid "conversion"
-msgstr ""
+msgstr "conversão"
 
 #: ../../reference/datamodel.rst:1418
 msgid "print"
@@ -5771,11 +5815,11 @@ msgstr ""
 
 #: ../../reference/datamodel.rst:1457
 msgid "comparisons"
-msgstr ""
+msgstr "comparações"
 
 #: ../../reference/datamodel.rst:1499
 msgid "hash"
-msgstr ""
+msgstr "hash"
 
 #: ../../reference/datamodel.rst:1580
 msgid "__len__() (mapping object method)"
@@ -5799,7 +5843,7 @@ msgstr "metaclasse"
 
 #: ../../reference/datamodel.rst:2050
 msgid "= (equals)"
-msgstr ""
+msgstr "= (igual)"
 
 #: ../../reference/datamodel.rst:2050
 msgid "class definition"
