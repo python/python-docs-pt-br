@@ -213,7 +213,7 @@ jobs:
           git config user.email github-actions@github.com
           git diff -I'^"POT-Creation-Date: ' --numstat *.po **/*.po | cut -f3 | xargs -r git add
           git add $(git ls-files -o --exclude-standard *.po **/*.po) .tx/config
-          git diff-index --cached --quiet HEAD || git commit -m "Merge ${{ env.CURRENT_BRANCH }} into ${{ matrix.branch }}"
+          git diff-index --cached --quiet HEAD || { git commit -m "Merge ${{ env.CURRENT_BRANCH }} into ${{ matrix.branch }}" && git push; }
         working-directory: ${{ matrix.branch }}
 
 
