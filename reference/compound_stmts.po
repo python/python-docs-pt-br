@@ -26,10 +26,10 @@ msgstr ""
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2023\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -117,10 +117,11 @@ msgid ""
 "keyword:`if` statements to be indented)."
 msgstr ""
 "Note que instruções sempre terminam em uma ``NEWLINE`` possivelmente seguida "
-"por uma ``DEDENT``. Note também que cláusulas de continuação sempre começam "
-"com uma palavra reservada que não pode iniciar uma instrução, desta forma "
-"não há ambiguidades (o problema do \":keyword:`else` pendurado\" é resolvido "
-"em Python obrigando que instruções :keyword:`if` aninhadas tenham indentação)"
+"por uma ``DEDENT``. Note também que cláusulas opcionais de continuação "
+"sempre começam com uma palavra reservada que não pode iniciar uma instrução, "
+"desta forma não há ambiguidades (o problema do \":keyword:`else` pendurado\" "
+"é resolvido em Python obrigando que instruções :keyword:`if` aninhadas "
+"tenham indentação)"
 
 #: ../../reference/compound_stmts.rst:75
 msgid ""
@@ -407,7 +408,7 @@ msgstr ""
 
 #: ../../reference/compound_stmts.rst:334
 msgid ":keyword:`!except*` clause"
-msgstr ""
+msgstr "Cláusula :keyword:`!except*`"
 
 #: ../../reference/compound_stmts.rst:336
 msgid ""
@@ -421,6 +422,15 @@ msgid ""
 "in the group is handled by at most one :keyword:`!except*` clause, the first "
 "that matches it. ::"
 msgstr ""
+"As cláusulas :keyword:`!except*` são usadas para manipular :exc:"
+"`ExceptionGroup`\\s. O tipo de exceção para correspondência é interpretado "
+"como no caso de :keyword:`except`, mas no caso de grupos de exceção, podemos "
+"ter correspondências parciais quando o tipo corresponde a algumas das "
+"exceções no grupo. Isso significa que várias cláusulas :keyword:`!except*` "
+"podem ser executadas, cada uma manipulando parte do grupo de exceções. Cada "
+"cláusula é executada no máximo uma vez e manipula um grupo de exceções de "
+"todas as exceções correspondentes. Cada exceção no grupo é manipulada por no "
+"máximo uma cláusula :keyword:`!except*`, a primeira que corresponde a ela. ::"
 
 #: ../../reference/compound_stmts.rst:364
 msgid ""
@@ -429,6 +439,11 @@ msgid ""
 "from within the :keyword:`!except*` clauses. If this list contains more than "
 "one exception to reraise, they are combined into an exception group."
 msgstr ""
+"Quaisquer exceções restantes que não foram manipuladas por nenhuma cláusula :"
+"keyword:`!except*` são levantadas novamente no final, junto com todas as "
+"exceções que foram levantadas de dentro das cláusulas :keyword:`!except*`. "
+"Se esta lista contiver mais de uma exceção para levantar novamente, elas "
+"serão combinadas em um grupo de exceções."
 
 #: ../../reference/compound_stmts.rst:370
 msgid ""
@@ -436,6 +451,9 @@ msgid ""
 "of the :keyword:`!except*` clauses, it is caught and wrapped by an exception "
 "group with an empty message string. ::"
 msgstr ""
+"Se a exceção levantada não for um grupo de exceções e seu tipo corresponder "
+"a uma das cláusulas :keyword:`!except*`, ela será capturada e encapsulada "
+"por um grupo de exceções com uma string de mensagem vazia. ::"
 
 #: ../../reference/compound_stmts.rst:381
 msgid ""
@@ -448,7 +466,7 @@ msgstr ""
 
 #: ../../reference/compound_stmts.rst:398
 msgid ":keyword:`!else` clause"
-msgstr ""
+msgstr "Cláusula :keyword:`!else`"
 
 #: ../../reference/compound_stmts.rst:400
 msgid ""
@@ -458,10 +476,15 @@ msgid ""
 "Exceptions in the :keyword:`!else` clause are not handled by the preceding :"
 "keyword:`except` clauses."
 msgstr ""
+"A cláusula opcional :keyword:`!else` é executada se o fluxo de controle "
+"deixar o conjunto :keyword:`try`, nenhuma exceção foi levantada e nenhuma "
+"instrução :keyword:`return`, :keyword:`continue` ou :keyword:`break` foi "
+"executada. Exceções na cláusula :keyword:`!else` não são manipuladas pelas "
+"cláusulas :keyword:`except` precedentes."
 
 #: ../../reference/compound_stmts.rst:412
 msgid ":keyword:`!finally` clause"
-msgstr ""
+msgstr "Cláusula :keyword:`!finally`"
 
 #: ../../reference/compound_stmts.rst:414
 msgid ""
@@ -476,12 +499,24 @@ msgid ""
 "`return`, :keyword:`break` or :keyword:`continue` statement, the saved "
 "exception is discarded::"
 msgstr ""
+"Se :keyword:`!finally` estiver presente, especifica um manipulador de "
+"\"limpeza\". A cláusula :keyword:`try` é executada, incluindo quaisquer "
+"cláusulas :keyword:`except` e :keyword:`else`. Se uma exceção ocorrer em "
+"qualquer uma das cláusulas e não for manipulada, a exceção será salva "
+"temporariamente. A cláusula :keyword:`!finally` é executada. Se houver uma "
+"exceção salva, ela será levantada novamente no final da cláusula :keyword:`!"
+"finally`. Se a cláusula :keyword:`!finally` levantar outra exceção, a "
+"exceção salva será definida como o contexto da nova exceção. Se a cláusula :"
+"keyword:`!finally` executar uma instrução :keyword:`return`, :keyword:"
+"`break` ou :keyword:`continue`, a exceção salva será descartada::"
 
 #: ../../reference/compound_stmts.rst:433
 msgid ""
 "The exception information is not available to the program during execution "
 "of the :keyword:`!finally` clause."
 msgstr ""
+"As informações de exceção não estão disponíveis para o programa durante a "
+"execução da cláusula :keyword:`!finally`."
 
 #: ../../reference/compound_stmts.rst:441
 msgid ""
@@ -490,6 +525,10 @@ msgid ""
 "finally` statement, the :keyword:`!finally` clause is also executed 'on the "
 "way out.'"
 msgstr ""
+"Quando uma instrução :keyword:`return`, :keyword:`break` ou :keyword:"
+"`continue` é executada no conjunto :keyword:`try` de uma instrução :keyword:"
+"`!try`...\\ :keyword:`!finally`, a cláusula :keyword:`!finally` também é "
+"executada \"na saída\"."
 
 #: ../../reference/compound_stmts.rst:445
 msgid ""
@@ -498,16 +537,22 @@ msgid ""
 "a :keyword:`!return` statement executed in the :keyword:`!finally` clause "
 "will always be the last one executed::"
 msgstr ""
+"O valor de retorno de uma função é determinado pela última instrução :"
+"keyword:`return` executada. Como a cláusula :keyword:`!finally` sempre é "
+"executada, uma instrução :keyword:`!return` executada na cláusula :keyword:`!"
+"finally` sempre será a última executada::"
 
 #: ../../reference/compound_stmts.rst:459
 msgid ""
 "Prior to Python 3.8, a :keyword:`continue` statement was illegal in the :"
 "keyword:`!finally` clause due to a problem with the implementation."
 msgstr ""
+"Antes do Python 3.8, uma instrução :keyword:`continue` era ilegal na "
+"cláusula :keyword:`!finally` devido a um problema com a implementação."
 
 #: ../../reference/compound_stmts.rst:468
 msgid "The :keyword:`!with` statement"
-msgstr ""
+msgstr "A instrução :keyword:`!with`"
 
 #: ../../reference/compound_stmts.rst:477
 msgid ""
@@ -516,37 +561,53 @@ msgid ""
 "This allows common :keyword:`try`...\\ :keyword:`except`...\\ :keyword:"
 "`finally` usage patterns to be encapsulated for convenient reuse."
 msgstr ""
+"A instrução :keyword:`with` é usada para envolver em um invólucro a execução "
+"de um bloco com métodos definidos por um gerenciador de contexto (veja a "
+"seção :ref:`context-managers`). Isso permite que padrões comuns de uso de :"
+"keyword:`try`...\\ :keyword:`except`...\\ :keyword:`finally` sejam "
+"encapsulados para reutilização conveniente."
 
 #: ../../reference/compound_stmts.rst:487
 msgid ""
 "The execution of the :keyword:`with` statement with one \"item\" proceeds as "
 "follows:"
 msgstr ""
+"A execução da instrução :keyword:`with` com um \"item\" ocorre da seguinte "
+"maneira:"
 
 #: ../../reference/compound_stmts.rst:489
 msgid ""
 "The context expression (the expression given in the :token:`~python-grammar:"
 "with_item`) is evaluated to obtain a context manager."
 msgstr ""
+"A expressão de contexto (a expressão fornecida em :token:`~python-grammar:"
+"with_item`) é avaliada para obter um gerenciador de contexto."
 
 #: ../../reference/compound_stmts.rst:492
 msgid ""
 "The context manager's :meth:`~object.__enter__` is loaded for later use."
 msgstr ""
+"O :meth:`~object.__enter__` do gerenciador de contexto é carregado para uso "
+"posterior."
 
 #: ../../reference/compound_stmts.rst:494
 msgid "The context manager's :meth:`~object.__exit__` is loaded for later use."
 msgstr ""
+"O :meth:`~object.__exit__` do gerenciador de contexto é carregado para uso "
+"posterior."
 
 #: ../../reference/compound_stmts.rst:496
 msgid "The context manager's :meth:`~object.__enter__` method is invoked."
 msgstr ""
+"O método :meth:`~object.__enter__` do gerenciador de contexto é invocado."
 
 #: ../../reference/compound_stmts.rst:498
 msgid ""
 "If a target was included in the :keyword:`with` statement, the return value "
 "from :meth:`~object.__enter__` is assigned to it."
 msgstr ""
+"Se um alvo foi incluído na instrução :keyword:`with`, o valor de retorno de :"
+"meth:`~object.__enter__` é atribuído a ele."
 
 #: ../../reference/compound_stmts.rst:503
 msgid ""
@@ -556,10 +617,15 @@ msgid ""
 "target list, it will be treated the same as an error occurring within the "
 "suite would be. See step 7 below."
 msgstr ""
+"A instrução :keyword:`with` garante que se o método :meth:`~object."
+"__enter__` retornar sem um erro, então :meth:`~object.__exit__` sempre será "
+"chamado. Assim, se ocorrer um erro durante a atribuição à lista de alvos, "
+"ele será tratado da mesma forma que um erro ocorrendo dentro do conjunto "
+"seria. Veja a etapa 7 abaixo."
 
 #: ../../reference/compound_stmts.rst:509
 msgid "The suite is executed."
-msgstr ""
+msgstr "O conjunto é executado."
 
 #: ../../reference/compound_stmts.rst:511
 msgid ""
@@ -568,6 +634,10 @@ msgid ""
 "passed as arguments to :meth:`~object.__exit__`. Otherwise, three :const:"
 "`None` arguments are supplied."
 msgstr ""
+"O método :meth:`~object.__exit__` do gerenciador de contexto é invocado. Se "
+"uma exceção fez com que o conjunto fosse encerrado, seu tipo, valor e "
+"traceback são passados ​​como argumentos para :meth:`~object.__exit__`. Caso "
+"contrário, três argumentos :const:`None` são fornecidos."
 
 #: ../../reference/compound_stmts.rst:516
 msgid ""
@@ -576,6 +646,10 @@ msgid ""
 "return value was true, the exception is suppressed, and execution continues "
 "with the statement following the :keyword:`with` statement."
 msgstr ""
+"Se o conjunto foi encerrado devido a uma exceção, e o valor de retorno do "
+"método :meth:`~object.__exit__` foi falso, a exceção é levantada novamente. "
+"Se o valor de retorno era verdadeiro, a exceção é suprimida, e a execução "
+"continua com a instrução após a instrução :keyword:`with`."
 
 #: ../../reference/compound_stmts.rst:521
 msgid ""
@@ -583,40 +657,49 @@ msgid ""
 "value from :meth:`~object.__exit__` is ignored, and execution proceeds at "
 "the normal location for the kind of exit that was taken."
 msgstr ""
+"Se o conjunto foi encerrado por qualquer motivo diferente de uma exceção, o "
+"valor de retorno de :meth:`~object.__exit__` é ignorado e a execução "
+"prossegue no local normal para o tipo de saída que foi realizada."
 
 #: ../../reference/compound_stmts.rst:525
 #: ../../reference/compound_stmts.rst:1540
 #: ../../reference/compound_stmts.rst:1581
 msgid "The following code::"
-msgstr ""
+msgstr "O seguinte código::"
 
 #: ../../reference/compound_stmts.rst:530
 #: ../../reference/compound_stmts.rst:555
 #: ../../reference/compound_stmts.rst:1586
 msgid "is semantically equivalent to::"
-msgstr ""
+msgstr "é semanticamente equivalente a::"
 
 #: ../../reference/compound_stmts.rst:549
 msgid ""
 "With more than one item, the context managers are processed as if multiple :"
 "keyword:`with` statements were nested::"
 msgstr ""
+"Com mais de um item, os gerenciadores de contexto são processados ​​como se "
+"várias instruções :keyword:`with` estivessem aninhadas::"
 
 #: ../../reference/compound_stmts.rst:561
 msgid ""
 "You can also write multi-item context managers in multiple lines if the "
 "items are surrounded by parentheses. For example::"
 msgstr ""
+"Você também pode escrever gerenciadores de contexto multi-item em várias "
+"linhas se os itens estiverem entre parênteses. Por exemplo::"
 
 #: ../../reference/compound_stmts.rst:570
 msgid "Support for multiple context expressions."
-msgstr ""
+msgstr "Suporte para múltiplas expressões de contexto."
 
 #: ../../reference/compound_stmts.rst:573
 msgid ""
 "Support for using grouping parentheses to break the statement in multiple "
 "lines."
 msgstr ""
+"Suporte para usar parênteses de agrupamento para dividir a instrução em "
+"várias linhas."
 
 #: ../../reference/compound_stmts.rst:578
 msgid ":pep:`343` - The \"with\" statement"
@@ -632,17 +715,19 @@ msgstr ""
 
 #: ../../reference/compound_stmts.rst:585
 msgid "The :keyword:`!match` statement"
-msgstr ""
+msgstr "A instrução :keyword:`!match`"
 
 #: ../../reference/compound_stmts.rst:599
 msgid "The match statement is used for pattern matching.  Syntax:"
-msgstr ""
+msgstr "A instrução match é usada para correspondência de padrões. Sintaxe:"
 
 #: ../../reference/compound_stmts.rst:608
 msgid ""
 "This section uses single quotes to denote :ref:`soft keywords <soft-"
 "keywords>`."
 msgstr ""
+"Esta seção usa aspas simples para denotar :ref:`palavras reservadas "
+"contextuais <soft-keywords>`."
 
 #: ../../reference/compound_stmts.rst:611
 msgid ""
@@ -650,21 +735,30 @@ msgid ""
 "value (following ``match``).  The pattern (which may contain subpatterns) is "
 "matched against the subject value.  The outcomes are:"
 msgstr ""
+"A correspondência de padrões aceita um padrão como entrada (seguindo "
+"``case``) e um valor de sujeito (seguindo ``match``). O padrão (que pode "
+"conter subpadrões) é correspondido ao valor de assunto. Os resultados são:"
 
 #: ../../reference/compound_stmts.rst:615
 msgid "A match success or failure (also termed a pattern success or failure)."
 msgstr ""
+"Um sucesso ou falha de correspondência (também chamado de sucesso ou falha "
+"de padrão)."
 
 #: ../../reference/compound_stmts.rst:617
 msgid ""
 "Possible binding of matched values to a name.  The prerequisites for this "
 "are further discussed below."
 msgstr ""
+"Possível vinculação de valores correspondentes a um nome. Os pré-requisitos "
+"para isso são discutidos mais adiante."
 
 #: ../../reference/compound_stmts.rst:620
 msgid ""
 "The ``match`` and ``case`` keywords are :ref:`soft keywords <soft-keywords>`."
 msgstr ""
+"As palavras reservadas ``match`` e ``case`` são :ref:`palavras reservadas "
+"contextuais <soft-keywords>`."
 
 #: ../../reference/compound_stmts.rst:624
 #: ../../reference/compound_stmts.rst:1181
@@ -674,7 +768,7 @@ msgstr ":pep:`634` -- Structural Pattern Matching: Specification"
 #: ../../reference/compound_stmts.rst:625
 #: ../../reference/compound_stmts.rst:1182
 msgid ":pep:`636` -- Structural Pattern Matching: Tutorial"
-msgstr ""
+msgstr ":pep:`636` -- Correspondência de padrões estruturais: Tutorial"
 
 #: ../../reference/compound_stmts.rst:629
 msgid "Overview"
@@ -682,7 +776,7 @@ msgstr "Visão Geral"
 
 #: ../../reference/compound_stmts.rst:631
 msgid "Here's an overview of the logical flow of a match statement:"
-msgstr ""
+msgstr "Aqui está uma visão geral do fluxo lógico de uma instrução match:"
 
 #: ../../reference/compound_stmts.rst:634
 msgid ""
@@ -690,6 +784,9 @@ msgid ""
 "value obtained. If the subject expression contains a comma, a tuple is "
 "constructed using :ref:`the standard rules <typesseq-tuple>`."
 msgstr ""
+"A expressão de sujeito ``subject_expr`` é avaliada e um valor de sujeito "
+"resultante é obtido. Se a expressão de sujeito contiver uma vírgula, uma "
+"tupla é construída usando :ref:`as regras padrão <typesseq-tuple>`."
 
 #: ../../reference/compound_stmts.rst:638
 msgid ""
@@ -700,6 +797,13 @@ msgid ""
 "specified below.  **Name bindings made during a successful pattern match "
 "outlive the executed block and can be used after the match statement**."
 msgstr ""
+"Cada padrão em um ``case_block`` é tentado para corresponder ao valor de "
+"sujeito. As regras específicas para sucesso ou falha são descritas abaixo. A "
+"tentativa de correspondência também pode vincular alguns ou todos os nomes "
+"autônomos dentro do padrão. As regras precisas de vinculação de padrão "
+"variam por tipo de padrão e são especificadas abaixo. **As vinculações de "
+"nome feitas durante uma correspondência de padrão bem-sucedida sobrevivem ao "
+"bloco executado e podem ser usadas após a instrução match**."
 
 #: ../../reference/compound_stmts.rst:647
 msgid ""
@@ -709,26 +813,39 @@ msgid ""
 "dependent on implementation and may vary.  This is an intentional decision "
 "made to allow different implementations to add optimizations."
 msgstr ""
+"Durante correspondências de padrões com falha, alguns subpadrões podem ter "
+"sucesso. Não confie em vinculações sendo feitas para uma correspondência com "
+"falha. Por outro lado, não confie em variáveis ​​permanecendo inalteradas após "
+"uma correspondência com falha. O comportamento exato depende da "
+"implementação e pode variar. Esta é uma decisão intencional feita para "
+"permitir que diferentes implementações adicionem otimizações."
 
 #: ../../reference/compound_stmts.rst:654
 msgid ""
 "If the pattern succeeds, the corresponding guard (if present) is evaluated. "
 "In this case all name bindings are guaranteed to have happened."
 msgstr ""
+"Se o padrão for bem-sucedido, o *guard* correspondente (se presente) é "
+"avaliado. Neste caso, todas as vinculações de nome são garantidas como tendo "
+"acontecido."
 
 #: ../../reference/compound_stmts.rst:657
 msgid ""
 "If the guard evaluates as true or is missing, the ``block`` inside "
 "``case_block`` is executed."
 msgstr ""
+"Se o *guard* for avaliado como verdadeiro ou estiver ausente, o ``block`` "
+"dentro de ``case_block`` será executado."
 
 #: ../../reference/compound_stmts.rst:660
 msgid "Otherwise, the next ``case_block`` is attempted as described above."
 msgstr ""
+"Caso contrário, o próximo ``case_block`` será tentado conforme descrito "
+"acima."
 
 #: ../../reference/compound_stmts.rst:662
 msgid "If there are no further case blocks, the match statement is completed."
-msgstr ""
+msgstr "Se não houver mais blocos de caso, a instrução match será concluída."
 
 #: ../../reference/compound_stmts.rst:666
 msgid ""
@@ -736,20 +853,24 @@ msgid ""
 "on implementation, the interpreter may cache values or use other "
 "optimizations which skip repeated evaluations."
 msgstr ""
+"Os usuários geralmente nunca devem confiar em um padrão sendo avaliado. "
+"Dependendo da implementação, o interpretador pode armazenar valores em cache "
+"ou usar outras otimizações que pulam avaliações repetidas."
 
 #: ../../reference/compound_stmts.rst:670
 msgid "A sample match statement::"
-msgstr ""
+msgstr "Um exemplo de instrução match::"
 
 #: ../../reference/compound_stmts.rst:686
 msgid ""
 "In this case, ``if flag`` is a guard.  Read more about that in the next "
 "section."
 msgstr ""
+"Neste caso, ``if flag`` é um *guard*. Leia mais sobre isso na próxima seção."
 
 #: ../../reference/compound_stmts.rst:689
 msgid "Guards"
-msgstr ""
+msgstr "Guards"
 
 #: ../../reference/compound_stmts.rst:696
 msgid ""
@@ -757,10 +878,13 @@ msgid ""
 "``case`` block to execute.  It takes the form: :keyword:`if` followed by an "
 "expression."
 msgstr ""
+"Um ``guard`` (que faz parte do ``case``) deve ter sucesso para que o código "
+"dentro do bloco ``case`` seja executado. Ele assume a forma: :keyword:`if` "
+"seguido por uma expressão."
 
 #: ../../reference/compound_stmts.rst:701
 msgid "The logical flow of a ``case`` block with a ``guard`` follows:"
-msgstr ""
+msgstr "O fluxo lógico de um bloco ``case`` com um ``guard`` é o seguinte:"
 
 #: ../../reference/compound_stmts.rst:703
 msgid ""
@@ -768,27 +892,34 @@ msgid ""
 "failed, the ``guard`` is not evaluated and the next ``case`` block is "
 "checked."
 msgstr ""
+"Verifique se o padrão no bloco ``case`` foi bem-sucedido. Se o padrão "
+"falhou, o ``guard`` não é avaliado e o próximo bloco ``case`` é verificado."
 
 #: ../../reference/compound_stmts.rst:707
 msgid "If the pattern succeeded, evaluate the ``guard``."
-msgstr ""
+msgstr "Se o padrão for bem-sucedido, avalia o ``guard``."
 
 #: ../../reference/compound_stmts.rst:709
 msgid ""
 "If the ``guard`` condition evaluates as true, the case block is selected."
 msgstr ""
+"Se a condição ``guard`` for avaliada como verdadeira, o bloco de caso será "
+"selecionado."
 
 #: ../../reference/compound_stmts.rst:712
 msgid ""
 "If the ``guard`` condition evaluates as false, the case block is not "
 "selected."
 msgstr ""
+"Se a condição ``guard`` for avaliada como falsa, o bloco de caso não será "
+"selecionado."
 
 #: ../../reference/compound_stmts.rst:715
 msgid ""
 "If the ``guard`` raises an exception during evaluation, the exception "
 "bubbles up."
 msgstr ""
+"Se o ``guard`` levantar uma exceção durante a avaliação, a exceção surgirá."
 
 #: ../../reference/compound_stmts.rst:718
 msgid ""
@@ -798,16 +929,24 @@ msgid ""
 "evaluation must happen in order.) Guard evaluation must stop once a case "
 "block is selected."
 msgstr ""
+"Guards podem ter efeitos colaterais, pois são expressões. A avaliação de "
+"guards deve prosseguir do primeiro ao último bloco de caso, um de cada vez, "
+"pulando blocos de caso cujos padrões não são todos bem-sucedidos. (Isto é, a "
+"avaliação de guardas deve acontecer em ordem.) A avaliação de guards deve "
+"parar quando um bloco de caso for selecionado."
 
 #: ../../reference/compound_stmts.rst:728
 msgid "Irrefutable Case Blocks"
-msgstr ""
+msgstr "Blocos irrefutáveis de case"
 
 #: ../../reference/compound_stmts.rst:732
 msgid ""
 "An irrefutable case block is a match-all case block.  A match statement may "
 "have at most one irrefutable case block, and it must be last."
 msgstr ""
+"Um bloco irrefutável de case é um bloco de case que corresponde a qualquer "
+"valor. Uma instrução match pode ter no máximo um bloco irrefutável de case, "
+"e ele deve ser o último."
 
 #: ../../reference/compound_stmts.rst:735
 msgid ""
@@ -816,42 +955,47 @@ msgid ""
 "syntax alone that it will always succeed.  Only the following patterns are "
 "irrefutable:"
 msgstr ""
+"Um bloco de case é considerado irrefutável se não tiver guard e seu padrão "
+"for irrefutável. Um padrão é considerado irrefutável se pudermos provar "
+"somente por sua sintaxe que ele sempre terá sucesso. Somente os seguintes "
+"padrões são irrefutáveis:"
 
 #: ../../reference/compound_stmts.rst:740
 msgid ":ref:`as-patterns` whose left-hand side is irrefutable"
-msgstr ""
+msgstr ":ref:`as-patterns` cujo lado esquerdo é irrefutável"
 
 #: ../../reference/compound_stmts.rst:742
 msgid ":ref:`or-patterns` containing at least one irrefutable pattern"
-msgstr ""
+msgstr ":ref:`or-patterns` contendo pelo menos um padrão irrefutável"
 
 #: ../../reference/compound_stmts.rst:744
 msgid ":ref:`capture-patterns`"
-msgstr ""
+msgstr ":ref:`capture-patterns`"
 
 #: ../../reference/compound_stmts.rst:746
 msgid ":ref:`wildcard-patterns`"
-msgstr ""
+msgstr ":ref:`wildcard-patterns`"
 
 #: ../../reference/compound_stmts.rst:748
 msgid "parenthesized irrefutable patterns"
-msgstr ""
+msgstr "padrões irrefutáveis entre parêteses"
 
 #: ../../reference/compound_stmts.rst:752
 msgid "Patterns"
-msgstr ""
+msgstr "Padrões"
 
 #: ../../reference/compound_stmts.rst:759
 msgid "This section uses grammar notations beyond standard EBNF:"
-msgstr ""
+msgstr "Esta seção usa notações de gramática para além do padrão de EBNF:"
 
 #: ../../reference/compound_stmts.rst:761
 msgid "the notation ``SEP.RULE+`` is shorthand for ``RULE (SEP RULE)*``"
-msgstr ""
+msgstr "a notação ``SEP.RULE+`` é uma abreviação para ``RULE (SEP RULE)*``"
 
 #: ../../reference/compound_stmts.rst:763
 msgid "the notation ``!RULE`` is shorthand for a negative lookahead assertion"
 msgstr ""
+"a notação ``!RULE`` é uma abreviação para uma asserção de negação antecipada."
 
 #: ../../reference/compound_stmts.rst:766
 msgid "The top-level syntax for ``patterns`` is:"
@@ -1644,7 +1788,7 @@ msgstr ""
 
 #: ../../reference/compound_stmts.rst:1360
 msgid ":pep:`484` - Type Hints"
-msgstr ":pep:`484` - Dicas de tipos"
+msgstr ":pep:`484` - Dicas de tipo"
 
 #: ../../reference/compound_stmts.rst:1361
 msgid "Definition of a standard meaning for annotations: type hints."
@@ -1699,7 +1843,7 @@ msgstr ""
 
 #: ../../reference/compound_stmts.rst:1409
 msgid "is equivalent to ::"
-msgstr "é equivalente a::"
+msgstr "é equivalente a ::"
 
 #: ../../reference/compound_stmts.rst:1414
 msgid ""
@@ -1792,7 +1936,7 @@ msgstr "Corrotinas"
 
 #: ../../reference/compound_stmts.rst:1494
 msgid "Coroutine function definition"
-msgstr ""
+msgstr "Definição de função de corrotina"
 
 #: ../../reference/compound_stmts.rst:1504
 msgid ""
@@ -2119,7 +2263,7 @@ msgstr ""
 
 #: ../../reference/compound_stmts.rst:1854
 msgid ":class:`array.array`"
-msgstr ""
+msgstr ":class:`array.array`"
 
 #: ../../reference/compound_stmts.rst:1855
 msgid ":class:`collections.deque`"
@@ -2127,11 +2271,11 @@ msgstr ":class:`collections.deque`"
 
 #: ../../reference/compound_stmts.rst:1857
 msgid ":class:`memoryview`"
-msgstr ""
+msgstr ":class:`memoryview`"
 
 #: ../../reference/compound_stmts.rst:1858
 msgid ":class:`range`"
-msgstr ""
+msgstr ":class:`range`"
 
 #: ../../reference/compound_stmts.rst:1861
 msgid ""
@@ -2460,7 +2604,7 @@ msgstr "nome"
 #: ../../reference/compound_stmts.rst:1194
 #: ../../reference/compound_stmts.rst:1380
 msgid "binding"
-msgstr "vinculação"
+msgstr "vinculação; ligação"
 
 #: ../../reference/compound_stmts.rst:1194
 msgid "user-defined function"
@@ -2486,7 +2630,7 @@ msgstr "default"
 
 #: ../../reference/compound_stmts.rst:1271
 msgid "value"
-msgstr "value"
+msgstr "valor"
 
 #: ../../reference/compound_stmts.rst:1271
 msgid "argument"
