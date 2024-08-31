@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-09 16:36+0000\n"
+"POT-Creation-Date: 2024-08-31 10:59+0000\n"
 "PO-Revision-Date: 2022-11-05 19:49+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -185,6 +185,18 @@ msgstr ""
 "agora apontará para a expressão exata que causou o erro, em vez de apenas a "
 "linha. Por exemplo:"
 
+#: ../../whatsnew/3.11.rst:118
+msgid ""
+"Traceback (most recent call last):\n"
+"  File \"distance.py\", line 11, in <module>\n"
+"    print(manhattan_distance(p1, p2))\n"
+"          ^^^^^^^^^^^^^^^^^^^^^^^^^^\n"
+"  File \"distance.py\", line 6, in manhattan_distance\n"
+"    return abs(point_1.x - point_2.x) + abs(point_1.y - point_2.y)\n"
+"                           ^^^^^^^^^\n"
+"AttributeError: 'NoneType' object has no attribute 'x'"
+msgstr ""
+
 #: ../../whatsnew/3.11.rst:129
 msgid ""
 "Previous versions of the interpreter would point to just the line, making it "
@@ -197,9 +209,35 @@ msgstr ""
 "úteis ao lidar com objetos :class:`dict` profundamente aninhados e várias "
 "chamadas de função:"
 
+#: ../../whatsnew/3.11.rst:133
+msgid ""
+"Traceback (most recent call last):\n"
+"  File \"query.py\", line 37, in <module>\n"
+"    magic_arithmetic('foo')\n"
+"  File \"query.py\", line 18, in magic_arithmetic\n"
+"    return add_counts(x) / 25\n"
+"           ^^^^^^^^^^^^^\n"
+"  File \"query.py\", line 24, in add_counts\n"
+"    return 25 + query_user(user1) + query_user(user2)\n"
+"                ^^^^^^^^^^^^^^^^^\n"
+"  File \"query.py\", line 32, in query_user\n"
+"    return 1 + query_count(db, response['a']['b']['c']['user'], retry=True)\n"
+"                               ~~~~~~~~~~~~~~~~~~^^^^^\n"
+"TypeError: 'NoneType' object is not subscriptable"
+msgstr ""
+
 #: ../../whatsnew/3.11.rst:149
 msgid "As well as complex arithmetic expressions:"
 msgstr "Bem como expressões aritméticas complexas:"
+
+#: ../../whatsnew/3.11.rst:151
+msgid ""
+"Traceback (most recent call last):\n"
+"  File \"calculation.py\", line 54, in <module>\n"
+"    result = (x / y / z) * (a / b / c)\n"
+"              ~~~~~~^~~\n"
+"ZeroDivisionError: division by zero"
+msgstr ""
 
 #: ../../whatsnew/3.11.rst:159
 msgid ""
@@ -448,9 +486,27 @@ msgstr ""
 "são obrigatórios por padrão. Por exemplo, o seguinte especifica um :class:`!"
 "TypedDict` com uma chave obrigatória e uma chave não obrigatória::"
 
+#: ../../whatsnew/3.11.rst:291
+msgid ""
+"class Movie(TypedDict):\n"
+"   title: str\n"
+"   year: NotRequired[int]\n"
+"\n"
+"m1: Movie = {\"title\": \"Black Panther\", \"year\": 2018}  # OK\n"
+"m2: Movie = {\"title\": \"Star Wars\"}  # OK (year is not required)\n"
+"m3: Movie = {\"year\": 2022}  # ERROR (missing required field title)"
+msgstr ""
+
 #: ../../whatsnew/3.11.rst:299
 msgid "The following definition is equivalent::"
 msgstr "A seguinte definição é equivalente::"
+
+#: ../../whatsnew/3.11.rst:301
+msgid ""
+"class Movie(TypedDict, total=False):\n"
+"   title: Required[str]\n"
+"   year: int"
+msgstr ""
 
 #: ../../whatsnew/3.11.rst:305
 msgid "See :pep:`655` for more details."
@@ -491,6 +547,23 @@ msgstr ""
 "Casos de uso comuns incluem construtores alternativos fornecidos como :func:"
 "`classmethod <classmethod>`\\s e métodos :meth:`~object.__enter__` que "
 "retornam ``self``::"
+
+#: ../../whatsnew/3.11.rst:326
+msgid ""
+"class MyLock:\n"
+"    def __enter__(self) -> Self:\n"
+"        self.lock()\n"
+"        return self\n"
+"\n"
+"    ...\n"
+"\n"
+"class MyInt:\n"
+"    @classmethod\n"
+"    def fromhex(cls, s: str) -> Self:\n"
+"        return cls(int(s, 16))\n"
+"\n"
+"    ..."
+msgstr ""
 
 #: ../../whatsnew/3.11.rst:340
 msgid ""
@@ -539,6 +612,25 @@ msgid "For example, a SQL query function could be annotated as follows::"
 msgstr ""
 "Por exemplo, uma função de consulta SQL pode ser anotada da seguinte forma::"
 
+#: ../../whatsnew/3.11.rst:364
+msgid ""
+"def run_query(sql: LiteralString) -> ...\n"
+"    ...\n"
+"\n"
+"def caller(\n"
+"    arbitrary_string: str,\n"
+"    query_string: LiteralString,\n"
+"    table_name: LiteralString,\n"
+") -> None:\n"
+"    run_query(\"SELECT * FROM students\")       # ok\n"
+"    run_query(query_string)                   # ok\n"
+"    run_query(\"SELECT * FROM \" + table_name)  # ok\n"
+"    run_query(arbitrary_string)               # type checker error\n"
+"    run_query(                                # type checker error\n"
+"        f\"SELECT * FROM students WHERE name = {arbitrary_string}\"\n"
+"    )"
+msgstr ""
+
 #: ../../whatsnew/3.11.rst:380
 msgid "See :pep:`675` for more details."
 msgstr "Veja :pep:`675` para mais detalhes."
@@ -573,6 +665,25 @@ msgstr ""
 #: ../../whatsnew/3.11.rst:397
 msgid "For example::"
 msgstr "Por exemplo::"
+
+#: ../../whatsnew/3.11.rst:399
+msgid ""
+"# The create_model decorator is defined by a library.\n"
+"@typing.dataclass_transform()\n"
+"def create_model(cls: Type[T]) -> Type[T]:\n"
+"    cls.__init__ = ...\n"
+"    cls.__eq__ = ...\n"
+"    cls.__ne__ = ...\n"
+"    return cls\n"
+"\n"
+"# The create_model decorator can now be used to create new model classes:\n"
+"@create_model\n"
+"class CustomerModel:\n"
+"    id: int\n"
+"    name: str\n"
+"\n"
+"c = CustomerModel(id=327, name=\"Eric Idle\")"
+msgstr ""
 
 #: ../../whatsnew/3.11.rst:415
 msgid "See :pep:`681` for more details."
@@ -1195,6 +1306,31 @@ msgid ""
 msgstr ""
 ":func:`functools.singledispatch` agora suporta :data:`types.UnionType` e :"
 "data:`typing.Union` como anotações para o argumento de dispatch.::"
+
+#: ../../whatsnew/3.11.rst:746
+msgid ""
+">>> from functools import singledispatch\n"
+">>> @singledispatch\n"
+"... def fun(arg, verbose=False):\n"
+"...     if verbose:\n"
+"...         print(\"Let me just say,\", end=\" \")\n"
+"...     print(arg)\n"
+"...\n"
+">>> @fun.register\n"
+"... def _(arg: int | float, verbose=False):\n"
+"...     if verbose:\n"
+"...         print(\"Strength in numbers, eh?\", end=\" \")\n"
+"...     print(arg)\n"
+"...\n"
+">>> from typing import Union\n"
+">>> @fun.register\n"
+"... def _(arg: Union[list, set], verbose=False):\n"
+"...     if verbose:\n"
+"...         print(\"Enumerate this:\")\n"
+"...     for i, elem in enumerate(arg):\n"
+"...         print(i, elem)\n"
+"..."
+msgstr ""
 
 #: ../../whatsnew/3.11.rst:768
 msgid "(Contributed by Yurii Karabas in :issue:`46014`.)"
@@ -2252,6 +2388,10 @@ msgstr ""
 msgid "Previously in 3.10, Python module execution looked like this:"
 msgstr "Anteriormente na versão 3.10, a execução do módulo Python era assim:"
 
+#: ../../whatsnew/3.11.rst:1358
+msgid "Read __pycache__ -> Unmarshal -> Heap allocated code object -> Evaluate"
+msgstr ""
+
 #: ../../whatsnew/3.11.rst:1362
 msgid ""
 "In Python 3.11, the core modules essential for Python startup are "
@@ -2263,6 +2403,10 @@ msgstr ""
 "Python são \"congelados\". Isso significa que seus :ref:`codeobjects` (e "
 "bytecode) são alocados estaticamente pelo interpretador. Isso reduz as "
 "etapas no processo de execução do módulo para isso:"
+
+#: ../../whatsnew/3.11.rst:1367
+msgid "Statically allocated code object -> Evaluate"
+msgstr ""
 
 #: ../../whatsnew/3.11.rst:1371
 msgid ""
@@ -4668,9 +4812,33 @@ msgstr ""
 msgid "A tp_dealloc function that has the old macros, such as::"
 msgstr "Uma função tp_dealloc que possui as macros antigas, como::"
 
+#: ../../whatsnew/3.11.rst:2332
+msgid ""
+"static void\n"
+"mytype_dealloc(mytype *p)\n"
+"{\n"
+"    PyObject_GC_UnTrack(p);\n"
+"    Py_TRASHCAN_SAFE_BEGIN(p);\n"
+"    ...\n"
+"    Py_TRASHCAN_SAFE_END\n"
+"}"
+msgstr ""
+
 #: ../../whatsnew/3.11.rst:2341
 msgid "should migrate to the new macros as follows::"
 msgstr "deve migrar para as novas macros da seguinte forma::"
+
+#: ../../whatsnew/3.11.rst:2343
+msgid ""
+"static void\n"
+"mytype_dealloc(mytype *p)\n"
+"{\n"
+"    PyObject_GC_UnTrack(p);\n"
+"    Py_TRASHCAN_BEGIN(p, mytype_dealloc)\n"
+"    ...\n"
+"    Py_TRASHCAN_END\n"
+"}"
+msgstr ""
 
 #: ../../whatsnew/3.11.rst:2352
 msgid ""
@@ -4689,6 +4857,17 @@ msgstr ""
 "Para oferecer suporte a versões mais antigas do Python na mesma base de "
 "código, você pode definir as seguintes macros e usá-las em todo o código "
 "(crédito: elas foram copiadas da base de código do ``mypy``)::"
+
+#: ../../whatsnew/3.11.rst:2359
+msgid ""
+"#if PY_VERSION_HEX >= 0x03080000\n"
+"#  define CPy_TRASHCAN_BEGIN(op, dealloc) Py_TRASHCAN_BEGIN(op, dealloc)\n"
+"#  define CPy_TRASHCAN_END(op) Py_TRASHCAN_END\n"
+"#else\n"
+"#  define CPy_TRASHCAN_BEGIN(op, dealloc) Py_TRASHCAN_SAFE_BEGIN(op)\n"
+"#  define CPy_TRASHCAN_END(op) Py_TRASHCAN_SAFE_END(op)\n"
+"#endif"
+msgstr ""
 
 #: ../../whatsnew/3.11.rst:2367
 msgid ""
@@ -4727,6 +4906,15 @@ msgstr ""
 "Python 3.9). Para compatibilidade com versões anteriores, esta macro pode "
 "ser usada::"
 
+#: ../../whatsnew/3.11.rst:2383
+msgid ""
+"#if PY_VERSION_HEX < 0x030900A4 && !defined(Py_SET_TYPE)\n"
+"static inline void _Py_SET_TYPE(PyObject *ob, PyTypeObject *type)\n"
+"{ ob->ob_type = type; }\n"
+"#define Py_SET_TYPE(ob, type) _Py_SET_TYPE((PyObject*)(ob), type)\n"
+"#endif"
+msgstr ""
+
 #: ../../whatsnew/3.11.rst:2389 ../../whatsnew/3.11.rst:2403
 msgid "(Contributed by Victor Stinner in :issue:`39573`.)"
 msgstr "(Contribuição de Victor Stinner em :issue:`39573`.)"
@@ -4743,6 +4931,15 @@ msgstr ""
 "new_size)``: veja a função :c:func:`Py_SET_SIZE()` (disponível desde Python "
 "3.9). Para compatibilidade com versões anteriores, esta macro pode ser "
 "usada::"
+
+#: ../../whatsnew/3.11.rst:2397
+msgid ""
+"#if PY_VERSION_HEX < 0x030900A4 && !defined(Py_SET_SIZE)\n"
+"static inline void _Py_SET_SIZE(PyVarObject *ob, Py_ssize_t size)\n"
+"{ ob->ob_size = size; }\n"
+"#define Py_SET_SIZE(ob, size) _Py_SET_SIZE((PyVarObject*)(ob), size)\n"
+"#endif"
+msgstr ""
 
 #: ../../whatsnew/3.11.rst:2405
 msgid ""
@@ -4982,9 +5179,31 @@ msgstr ""
 msgid "Code defining ``PyFrame_GetCode()`` on Python 3.8 and older::"
 msgstr "Código definindo ``PyFrame_GetCode()`` no Python 3.8 e anteriores::"
 
+#: ../../whatsnew/3.11.rst:2488
+msgid ""
+"#if PY_VERSION_HEX < 0x030900B1\n"
+"static inline PyCodeObject* PyFrame_GetCode(PyFrameObject *frame)\n"
+"{\n"
+"    Py_INCREF(frame->f_code);\n"
+"    return frame->f_code;\n"
+"}\n"
+"#endif"
+msgstr ""
+
 #: ../../whatsnew/3.11.rst:2496
 msgid "Code defining ``PyFrame_GetBack()`` on Python 3.8 and older::"
 msgstr "Código definindo ``PyFrame_GetBack()`` no Python 3.8 e anteriores::"
+
+#: ../../whatsnew/3.11.rst:2498
+msgid ""
+"#if PY_VERSION_HEX < 0x030900B1\n"
+"static inline PyFrameObject* PyFrame_GetBack(PyFrameObject *frame)\n"
+"{\n"
+"    Py_XINCREF(frame->f_back);\n"
+"    return frame->f_back;\n"
+"}\n"
+"#endif"
+msgstr ""
 
 #: ../../whatsnew/3.11.rst:2506
 msgid ""
@@ -5035,6 +5254,17 @@ msgid "Code defining ``PyThreadState_GetFrame()`` on Python 3.8 and older::"
 msgstr ""
 "Código definindo ``PyThreadState_GetFrame()`` no Python 3.8 e anteriores::"
 
+#: ../../whatsnew/3.11.rst:2525
+msgid ""
+"#if PY_VERSION_HEX < 0x030900B1\n"
+"static inline PyFrameObject* PyThreadState_GetFrame(PyThreadState *tstate)\n"
+"{\n"
+"    Py_XINCREF(tstate->frame);\n"
+"    return tstate->frame;\n"
+"}\n"
+"#endif"
+msgstr ""
+
 #: ../../whatsnew/3.11.rst:2533
 msgid ""
 "Code defining ``PyThreadState_EnterTracing()`` and "
@@ -5042,6 +5272,33 @@ msgid ""
 msgstr ""
 "Código definindo ``PyThreadState_EnterTracing()`` e "
 "``PyThreadState_LeaveTracing()`` no Python 3.10 e anteriores::"
+
+#: ../../whatsnew/3.11.rst:2536
+msgid ""
+"#if PY_VERSION_HEX < 0x030B00A2\n"
+"static inline void PyThreadState_EnterTracing(PyThreadState *tstate)\n"
+"{\n"
+"    tstate->tracing++;\n"
+"#if PY_VERSION_HEX >= 0x030A00A1\n"
+"    tstate->cframe->use_tracing = 0;\n"
+"#else\n"
+"    tstate->use_tracing = 0;\n"
+"#endif\n"
+"}\n"
+"\n"
+"static inline void PyThreadState_LeaveTracing(PyThreadState *tstate)\n"
+"{\n"
+"    int use_tracing = (tstate->c_tracefunc != NULL || tstate->c_profilefunc !"
+"= NULL);\n"
+"    tstate->tracing--;\n"
+"#if PY_VERSION_HEX >= 0x030A00A1\n"
+"    tstate->cframe->use_tracing = use_tracing;\n"
+"#else\n"
+"    tstate->use_tracing = use_tracing;\n"
+"#endif\n"
+"}\n"
+"#endif"
+msgstr ""
 
 #: ../../whatsnew/3.11.rst:2559
 msgid ""

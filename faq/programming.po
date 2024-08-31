@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-29 04:06+0000\n"
+"POT-Creation-Date: 2024-08-31 10:59+0000\n"
 "PO-Revision-Date: 2021-06-28 00:52+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -393,6 +393,13 @@ msgstr ""
 "Suponha que utilizes um loop for para definir algumas funções lambdas (ou "
 "mesmo funções simples), por exemplo.::"
 
+#: ../../faq/programming.rst:213
+msgid ""
+">>> squares = []\n"
+">>> for x in range(5):\n"
+"...     squares.append(lambda: x**2)"
+msgstr ""
+
 #: ../../faq/programming.rst:217
 msgid ""
 "This gives you a list that contains 5 lambdas that calculate ``x**2``.  You "
@@ -404,6 +411,14 @@ msgstr ""
 "esperar que, quando invocado, os mesmo retornem, respectivamente, ``0``, "
 "``1``, ``4``, ``9``, e ``16``. No entanto, quando realmente tentares, verás "
 "que todos retornam ``16``::"
+
+#: ../../faq/programming.rst:222
+msgid ""
+">>> squares[2]()\n"
+"16\n"
+">>> squares[4]()\n"
+"16"
+msgstr ""
 
 #: ../../faq/programming.rst:227
 msgid ""
@@ -420,6 +435,13 @@ msgstr ""
 "isso alterando o valor de ``x`` e vendo como os resultados dos lambdas "
 "mudam::"
 
+#: ../../faq/programming.rst:233
+msgid ""
+">>> x = 8\n"
+">>> squares[2]()\n"
+"64"
+msgstr ""
+
 #: ../../faq/programming.rst:237
 msgid ""
 "In order to avoid this, you need to save the values in variables local to "
@@ -427,6 +449,13 @@ msgid ""
 msgstr ""
 "Para evitar isso, precisarás salvar os valores nas variáveis locais para os "
 "lambdas, para que eles não dependam do valor de ``x`` global::"
+
+#: ../../faq/programming.rst:240
+msgid ""
+">>> squares = []\n"
+">>> for x in range(5):\n"
+"...     squares.append(lambda n=x: n**2)"
+msgstr ""
 
 #: ../../faq/programming.rst:244
 msgid ""
@@ -442,6 +471,14 @@ msgstr ""
 "primeiro \"ciclo\" do lambda, ``1`` no segundo \"ciclo\", ``2`` no terceiro, "
 "e assim por diante. Portanto, cada lambda agora retornará o resultado "
 "correto::"
+
+#: ../../faq/programming.rst:250
+msgid ""
+">>> squares[2]()\n"
+"4\n"
+">>> squares[4]()\n"
+"16"
+msgstr ""
 
 #: ../../faq/programming.rst:255
 msgid ""
@@ -475,13 +512,30 @@ msgstr ""
 msgid "config.py::"
 msgstr "config.py::"
 
+#: ../../faq/programming.rst:270
+msgid "x = 0   # Default value of the 'x' configuration setting"
+msgstr ""
+
 #: ../../faq/programming.rst:272
 msgid "mod.py::"
 msgstr "mod.py::"
 
+#: ../../faq/programming.rst:274
+msgid ""
+"import config\n"
+"config.x = 1"
+msgstr ""
+
 #: ../../faq/programming.rst:277
 msgid "main.py::"
 msgstr "main.py::"
+
+#: ../../faq/programming.rst:279
+msgid ""
+"import config\n"
+"import mod\n"
+"print(config.x)"
+msgstr ""
 
 #: ../../faq/programming.rst:283
 msgid ""
@@ -630,6 +684,14 @@ msgstr ""
 "Este tipo de erro geralmente pega programadores neófitos. Considere esta "
 "função::"
 
+#: ../../faq/programming.rst:342
+msgid ""
+"def foo(mydict={}):  # Danger: shared reference to one dict for all calls\n"
+"    ... compute something ...\n"
+"    mydict[key] = value\n"
+"    return mydict"
+msgstr ""
+
 #: ../../faq/programming.rst:347
 msgid ""
 "The first time you call this function, ``mydict`` contains a single item.  "
@@ -679,9 +741,22 @@ msgstr ""
 "e crie uma nova lista /dicionário/ o que quer que seja. Por exemplo, escreva "
 "o seguinte código::"
 
+#: ../../faq/programming.rst:365
+msgid ""
+"def foo(mydict={}):\n"
+"    ..."
+msgstr ""
+
 #: ../../faq/programming.rst:368
 msgid "but::"
 msgstr "mas::"
+
+#: ../../faq/programming.rst:370
+msgid ""
+"def foo(mydict=None):\n"
+"    if mydict is None:\n"
+"        mydict = {}  # create a new dict for local namespace"
+msgstr ""
 
 #: ../../faq/programming.rst:374
 msgid ""
@@ -696,6 +771,20 @@ msgstr ""
 "o valor resultante de cada chamada para a função e retornar o valor em cache "
 "se o mesmo valor for solicitado novamente. Isso se chama \"memoizar\", e "
 "pode ser implementado da seguinte forma::"
+
+#: ../../faq/programming.rst:379
+msgid ""
+"# Callers can only provide two parameters and optionally pass _cache by "
+"keyword\n"
+"def expensive(arg1, arg2, *, _cache={}):\n"
+"    if (arg1, arg2) in _cache:\n"
+"        return _cache[(arg1, arg2)]\n"
+"\n"
+"    # Calculate the value\n"
+"    result = ... expensive computation ...\n"
+"    _cache[(arg1, arg2)] = result           # Store result in the cache\n"
+"    return result"
+msgstr ""
 
 #: ../../faq/programming.rst:389
 msgid ""
@@ -725,6 +814,15 @@ msgstr ""
 "também, passar esses argumentos ao invocar outra função usando ``*`` e "
 "``**``::"
 
+#: ../../faq/programming.rst:401
+msgid ""
+"def f(x, *args, **kwargs):\n"
+"    ...\n"
+"    kwargs['width'] = '14.3c'\n"
+"    ...\n"
+"    g(x, *args, **kwargs)"
+msgstr ""
+
 #: ../../faq/programming.rst:415
 msgid "What is the difference between arguments and parameters?"
 msgstr "Qual a diferença entre argumentos e parâmetros?"
@@ -738,6 +836,12 @@ msgid ""
 "the function definition::"
 msgstr ""
 
+#: ../../faq/programming.rst:423
+msgid ""
+"def func(foo, bar=None, **kwargs):\n"
+"    pass"
+msgstr ""
+
 #: ../../faq/programming.rst:426
 msgid ""
 "*foo*, *bar* and *kwargs* are parameters of ``func``.  However, when calling "
@@ -745,6 +849,10 @@ msgid ""
 msgstr ""
 "*foo*, *bar* e *kwargs* são parâmetros de ``func``. Dessa forma, ao invocar "
 "``func``, por exemplo::"
+
+#: ../../faq/programming.rst:429
+msgid "func(42, bar=314, extra=somevar)"
+msgstr ""
 
 #: ../../faq/programming.rst:431
 msgid "the values ``42``, ``314``, and ``somevar`` are arguments."
@@ -757,6 +865,17 @@ msgstr "Por que ao alterar a lista 'y' também altera a lista 'x'?"
 #: ../../faq/programming.rst:437
 msgid "If you wrote code like::"
 msgstr "Se escreveres um código como::"
+
+#: ../../faq/programming.rst:439
+msgid ""
+">>> x = []\n"
+">>> y = x\n"
+">>> y.append(10)\n"
+">>> y\n"
+"[10]\n"
+">>> x\n"
+"[10]"
+msgstr ""
 
 #: ../../faq/programming.rst:447
 msgid ""
@@ -799,6 +918,17 @@ msgstr ""
 #: ../../faq/programming.rst:461
 msgid "If we instead assign an immutable object to ``x``::"
 msgstr "Se por acaso, atribuímos um objeto imutável a ``x``::"
+
+#: ../../faq/programming.rst:463
+msgid ""
+">>> x = 5  # ints are immutable\n"
+">>> y = x\n"
+">>> x = x + 1  # 5 can't be mutated, we are creating a new object here\n"
+">>> x\n"
+"6\n"
+">>> y\n"
+"5"
+msgstr ""
 
 #: ../../faq/programming.rst:471
 msgid ""
@@ -903,6 +1033,18 @@ msgstr ""
 msgid "By returning a tuple of the results::"
 msgstr "Retornando um Tupla com os resultados::"
 
+#: ../../faq/programming.rst:519
+msgid ""
+">>> def func1(a, b):\n"
+"...     a = 'new-value'        # a and b are local names\n"
+"...     b = b + 1              # assigned to new objects\n"
+"...     return a, b            # return new values\n"
+"...\n"
+">>> x, y = 'old-value', 99\n"
+">>> func1(x, y)\n"
+"('new-value', 100)"
+msgstr ""
+
 #: ../../faq/programming.rst:528
 msgid "This is almost always the clearest solution."
 msgstr "Esta quase sempre é a solução mais clara."
@@ -919,13 +1061,54 @@ msgid "By passing a mutable (changeable in-place) object::"
 msgstr ""
 "Pela passagem de um objeto mutável (que possa ser alterado internamente)::"
 
+#: ../../faq/programming.rst:534
+msgid ""
+">>> def func2(a):\n"
+"...     a[0] = 'new-value'     # 'a' references a mutable list\n"
+"...     a[1] = a[1] + 1        # changes a shared object\n"
+"...\n"
+">>> args = ['old-value', 99]\n"
+">>> func2(args)\n"
+">>> args\n"
+"['new-value', 100]"
+msgstr ""
+
 #: ../../faq/programming.rst:543
 msgid "By passing in a dictionary that gets mutated::"
 msgstr "Pela passagem de um dicionário que seja mutável::"
 
+#: ../../faq/programming.rst:545
+msgid ""
+">>> def func3(args):\n"
+"...     args['a'] = 'new-value'     # args is a mutable dictionary\n"
+"...     args['b'] = args['b'] + 1   # change it in-place\n"
+"...\n"
+">>> args = {'a': 'old-value', 'b': 99}\n"
+">>> func3(args)\n"
+">>> args\n"
+"{'a': 'new-value', 'b': 100}"
+msgstr ""
+
 #: ../../faq/programming.rst:554
 msgid "Or bundle up values in a class instance::"
 msgstr "Ou agrupando valores numa instância de classe::"
+
+#: ../../faq/programming.rst:556
+msgid ""
+">>> class Namespace:\n"
+"...     def __init__(self, /, **args):\n"
+"...         for key, value in args.items():\n"
+"...             setattr(self, key, value)\n"
+"...\n"
+">>> def func4(args):\n"
+"...     args.a = 'new-value'        # args is a mutable Namespace\n"
+"...     args.b = args.b + 1         # change object in-place\n"
+"...\n"
+">>> args = Namespace(a='old-value', b=99)\n"
+">>> func4(args)\n"
+">>> vars(args)\n"
+"{'a': 'new-value', 'b': 100}"
+msgstr ""
 
 #: ../../faq/programming.rst:571
 msgid "There's almost never a good reason to get this complicated."
@@ -953,13 +1136,36 @@ msgstr ""
 "retorne uma função ``f(x)`` que calcule o valor ``a*x+b``. Usando escopos "
 "aninhados, temos::"
 
+#: ../../faq/programming.rst:583
+msgid ""
+"def linear(a, b):\n"
+"    def result(x):\n"
+"        return a * x + b\n"
+"    return result"
+msgstr ""
+
 #: ../../faq/programming.rst:588
 msgid "Or using a callable object::"
 msgstr "Ou utilizando objetos chamáveis::"
 
+#: ../../faq/programming.rst:590
+msgid ""
+"class linear:\n"
+"\n"
+"    def __init__(self, a, b):\n"
+"        self.a, self.b = a, b\n"
+"\n"
+"    def __call__(self, x):\n"
+"        return self.a * x + self.b"
+msgstr ""
+
 #: ../../faq/programming.rst:598
 msgid "In both cases, ::"
 msgstr "Em ambos os casos::"
+
+#: ../../faq/programming.rst:600
+msgid "taxes = linear(0.3, 2)"
+msgstr ""
 
 #: ../../faq/programming.rst:602
 msgid "gives a callable object where ``taxes(10e6) == 0.3 * 10e6 + 2``."
@@ -975,9 +1181,36 @@ msgstr ""
 "lento e resulta num código ligeiramente mais longo. No entanto, note que uma "
 "coleção de chamáveis pode compartilhar sua assinatura via herança::"
 
+#: ../../faq/programming.rst:608
+msgid ""
+"class exponential(linear):\n"
+"    # __init__ inherited\n"
+"    def __call__(self, x):\n"
+"        return self.a * (x ** self.b)"
+msgstr ""
+
 #: ../../faq/programming.rst:613
 msgid "Object can encapsulate state for several methods::"
 msgstr "Objetos podem encapsular o estado para vários métodos::"
+
+#: ../../faq/programming.rst:615
+msgid ""
+"class counter:\n"
+"\n"
+"    value = 0\n"
+"\n"
+"    def set(self, x):\n"
+"        self.value = x\n"
+"\n"
+"    def up(self):\n"
+"        self.value = self.value + 1\n"
+"\n"
+"    def down(self):\n"
+"        self.value = self.value - 1\n"
+"\n"
+"count = counter()\n"
+"inc, dec, reset = count.up, count.down, count.set"
+msgstr ""
 
 #: ../../faq/programming.rst:631
 msgid ""
@@ -1008,9 +1241,17 @@ msgstr ""
 "Alguns objetos podem ser copiados com mais facilidade. Os dicionários têm um "
 "método :meth:`~dict.copy`::"
 
+#: ../../faq/programming.rst:644
+msgid "newdict = olddict.copy()"
+msgstr ""
+
 #: ../../faq/programming.rst:646
 msgid "Sequences can be copied by slicing::"
 msgstr "As sequências podem ser copiadas através do uso de fatiamento::"
+
+#: ../../faq/programming.rst:648
+msgid "new_l = l[:]"
+msgstr ""
 
 #: ../../faq/programming.rst:652
 msgid "How can I find the methods or attributes of an object?"
@@ -1038,6 +1279,20 @@ msgstr ""
 "Essencialmente, a atribuição sempre liga um nome a um valor; o mesmo é "
 "verdade para as instruções ``def`` e ``class``, mas nesse caso o valor é um "
 "chamável. Considere o seguinte código::"
+
+#: ../../faq/programming.rst:667
+msgid ""
+">>> class A:\n"
+"...     pass\n"
+"...\n"
+">>> B = A\n"
+">>> a = B()\n"
+">>> b = a\n"
+">>> print(b)\n"
+"<__main__.A object at 0x16D07CC>\n"
+">>> print(a)\n"
+"<__main__.A object at 0x16D07CC>"
+msgstr ""
 
 #: ../../faq/programming.rst:678
 msgid ""
@@ -1097,6 +1352,12 @@ msgstr "O que há com a precedência do operador vírgula?"
 msgid "Comma is not an operator in Python.  Consider this session::"
 msgstr "A vírgula não é um operador em Python. Considere este código::"
 
+#: ../../faq/programming.rst:705
+msgid ""
+">>> \"a\" in \"b\", \"a\"\n"
+"(False, 'a')"
+msgstr ""
+
 #: ../../faq/programming.rst:708
 msgid ""
 "Since the comma is not an operator, but a separator between expressions the "
@@ -1105,9 +1366,17 @@ msgstr ""
 "Uma vez que a vírgula não seja um operador, mas um separador entre as "
 "expressões acima, o código será avaliado como se tivéssemos entrado::"
 
+#: ../../faq/programming.rst:711
+msgid "(\"a\" in \"b\"), \"a\""
+msgstr ""
+
 #: ../../faq/programming.rst:713
 msgid "not::"
 msgstr "não::"
+
+#: ../../faq/programming.rst:715
+msgid "\"a\" in (\"b\", \"a\")"
+msgstr ""
 
 #: ../../faq/programming.rst:717
 msgid ""
@@ -1127,6 +1396,14 @@ msgstr "Existe um equivalente ao operador \"?:\" ternário do C?"
 msgid "Yes, there is. The syntax is as follows::"
 msgstr "Sim existe. A sintaxe é a seguinte::"
 
+#: ../../faq/programming.rst:726
+msgid ""
+"[on_true] if [expression] else [on_false]\n"
+"\n"
+"x, y = 50, 25\n"
+"small = x if x < y else y"
+msgstr ""
+
 #: ../../faq/programming.rst:731
 msgid ""
 "Before this syntax was introduced in Python 2.5, a common idiom was to use "
@@ -1134,6 +1411,10 @@ msgid ""
 msgstr ""
 "Antes que essa sintaxe fosse introduzida no Python 2.5, um idioma comum era "
 "usar operadores lógicos::"
+
+#: ../../faq/programming.rst:734
+msgid "[expression] and [on_true] or [on_false]"
+msgstr ""
 
 #: ../../faq/programming.rst:736
 msgid ""
@@ -1154,6 +1435,34 @@ msgid ""
 "Yes.  Usually this is done by nesting :keyword:`lambda` within :keyword:`!"
 "lambda`.  See the following three examples, slightly adapted from Ulf "
 "Bartelt::"
+msgstr ""
+
+#: ../../faq/programming.rst:747
+msgid ""
+"from functools import reduce\n"
+"\n"
+"# Primes < 1000\n"
+"print(list(filter(None,map(lambda y:y*reduce(lambda x,y:x*y!=0,\n"
+"map(lambda x,y=y:y%x,range(2,int(pow(y,0.5)+1))),1),range(2,1000)))))\n"
+"\n"
+"# First 10 Fibonacci numbers\n"
+"print(list(map(lambda x,f=lambda x,f:(f(x-1,f)+f(x-2,f)) if x>1 else 1:\n"
+"f(x,f), range(10))))\n"
+"\n"
+"# Mandelbrot set\n"
+"print((lambda Ru,Ro,Iu,Io,IM,Sx,Sy:reduce(lambda x,y:x+'\\n'+y,map(lambda "
+"y,\n"
+"Iu=Iu,Io=Io,Ru=Ru,Ro=Ro,Sy=Sy,L=lambda yc,Iu=Iu,Io=Io,Ru=Ru,Ro=Ro,i=IM,\n"
+"Sx=Sx,Sy=Sy:reduce(lambda x,y:x+y,map(lambda x,xc=Ru,yc=yc,Ru=Ru,Ro=Ro,\n"
+"i=i,Sx=Sx,F=lambda xc,yc,x,y,k,f=lambda xc,yc,x,y,k,f:(k<=0)or (x*x+y*y\n"
+">=4.0) or 1+f(xc,yc,x*x-y*y+xc,2.0*x*y+yc,k-1,f):f(xc,yc,x,y,k,f):chr(\n"
+"64+F(Ru+x*(Ro-Ru)/Sx,yc,0,0,i)),range(Sx))):L(Iu+y*(Io-Iu)/Sy),range(Sy\n"
+"))))(-2.1, 0.7, -1.2, 1.2, 30, 80, 24))\n"
+"#    \\___ ___/  \\___ ___/  |   |   |__ lines on screen\n"
+"#        V          V      |   |______ columns on screen\n"
+"#        |          |      |__________ maximum of \"iterations\"\n"
+"#        |          |_________________ range on y axis\n"
+"#        |____________________________ range on x axis"
 msgstr ""
 
 #: ../../faq/programming.rst:771
@@ -1181,6 +1490,15 @@ msgstr ""
 "função que aceita parâmetros somente-posicionais. Sua documentação tem esta "
 "forma:"
 
+#: ../../faq/programming.rst:786
+msgid ""
+">>> help(divmod)\n"
+"Help on built-in function divmod in module builtins:\n"
+"\n"
+"divmod(x, y, /)\n"
+"    Return the tuple (x//y, x%y).  Invariant: div*y + mod == x."
+msgstr ""
+
 #: ../../faq/programming.rst:792
 msgid ""
 "The slash at the end of the parameter list means that both parameters are "
@@ -1190,6 +1508,14 @@ msgstr ""
 "A barra no final da lista de parâmetros significa que ambos os parâmetros "
 "são somente-posicionais. Assim, chamar :func:`divmod` com argumentos "
 "nomeados levaria a um erro::"
+
+#: ../../faq/programming.rst:796
+msgid ""
+">>> divmod(x=3, y=4)\n"
+"Traceback (most recent call last):\n"
+"  File \"<stdin>\", line 1, in <module>\n"
+"TypeError: divmod() takes no keyword arguments"
+msgstr ""
 
 #: ../../faq/programming.rst:803
 msgid "Numbers and strings"
@@ -1209,6 +1535,13 @@ msgstr ""
 "zero e, em seguida, um \"o\" minúsculo ou maiúsculo. Por exemplo, para "
 "definir a variável \"a\" para o valor octal \"10\" (8 em decimal), digite::"
 
+#: ../../faq/programming.rst:812
+msgid ""
+">>> a = 0o10\n"
+">>> a\n"
+"8"
+msgstr ""
+
 #: ../../faq/programming.rst:816
 msgid ""
 "Hexadecimal is just as easy.  Simply precede the hexadecimal number with a "
@@ -1219,6 +1552,16 @@ msgstr ""
 "em seguida, um \"x\" minúsculo ou maiúsculo. Os dígitos hexadecimais podem "
 "ser especificados em letras maiúsculas e minúsculas. Por exemplo, no "
 "interpretador Python::"
+
+#: ../../faq/programming.rst:820
+msgid ""
+">>> a = 0xa5\n"
+">>> a\n"
+"165\n"
+">>> b = 0XB2\n"
+">>> b\n"
+"178"
+msgstr ""
 
 #: ../../faq/programming.rst:829
 msgid "Why does -22 // 10 return -3?"
@@ -1231,6 +1574,10 @@ msgid ""
 msgstr ""
 "É principalmente direcionado pelo desejo de que ``i % j`` possui o mesmo "
 "sinal que ``j``. Se quiseres isso, e também se desejares::"
+
+#: ../../faq/programming.rst:834
+msgid "i == (i // j) * j + (i % j)"
+msgstr ""
 
 #: ../../faq/programming.rst:836
 msgid ""
@@ -1264,6 +1611,15 @@ msgstr ""
 msgid ""
 "Trying to lookup an ``int`` literal attribute in the normal manner gives a :"
 "exc:`SyntaxError` because the period is seen as a decimal point::"
+msgstr ""
+
+#: ../../faq/programming.rst:853
+msgid ""
+">>> 1.__class__\n"
+"  File \"<stdin>\", line 1\n"
+"  1.__class__\n"
+"   ^\n"
+"SyntaxError: invalid decimal literal"
 msgstr ""
 
 #: ../../faq/programming.rst:859
@@ -1362,6 +1718,31 @@ msgstr ""
 "internamente, tente usar a classe :class:`io.StringIO` ou o módulo :mod:"
 "`array`::"
 
+#: ../../faq/programming.rst:914
+msgid ""
+">>> import io\n"
+">>> s = \"Hello, world\"\n"
+">>> sio = io.StringIO(s)\n"
+">>> sio.getvalue()\n"
+"'Hello, world'\n"
+">>> sio.seek(7)\n"
+"7\n"
+">>> sio.write(\"there!\")\n"
+"6\n"
+">>> sio.getvalue()\n"
+"'Hello, there!'\n"
+"\n"
+">>> import array\n"
+">>> a = array.array('w', s)\n"
+">>> print(a)\n"
+"array('w', 'Hello, world')\n"
+">>> a[0] = 'y'\n"
+">>> print(a)\n"
+"array('w', 'yello, world')\n"
+">>> a.tounicode()\n"
+"'yello, world'"
+msgstr ""
+
 #: ../../faq/programming.rst:938
 msgid "How do I use strings to call functions/methods?"
 msgstr "Como faço para invocar funções/métodos através de uma String?"
@@ -1382,9 +1763,28 @@ msgstr ""
 "nomes das funções. Esta é também a principal técnica utilizada para emular "
 "uma construção de maiúsculas e minúsculas ::"
 
+#: ../../faq/programming.rst:947
+msgid ""
+"def a():\n"
+"    pass\n"
+"\n"
+"def b():\n"
+"    pass\n"
+"\n"
+"dispatch = {'go': a, 'stop': b}  # Note lack of parens for funcs\n"
+"\n"
+"dispatch[get_input()]()  # Note trailing parens to call function"
+msgstr ""
+
 #: ../../faq/programming.rst:957
 msgid "Use the built-in function :func:`getattr`::"
 msgstr "Utilize a função embutida :func:`getattr`::"
+
+#: ../../faq/programming.rst:959
+msgid ""
+"import foo\n"
+"getattr(foo, 'bar')()"
+msgstr ""
 
 #: ../../faq/programming.rst:962
 msgid ""
@@ -1398,9 +1798,33 @@ msgstr ""
 msgid "This is used in several places in the standard library, like this::"
 msgstr "A mesma é usado em vários lugares na biblioteca padrão, como este::"
 
+#: ../../faq/programming.rst:967
+msgid ""
+"class Foo:\n"
+"    def do_foo(self):\n"
+"        ...\n"
+"\n"
+"    def do_bar(self):\n"
+"        ...\n"
+"\n"
+"f = getattr(foo_instance, 'do_' + opname)\n"
+"f()"
+msgstr ""
+
 #: ../../faq/programming.rst:978
 msgid "Use :func:`locals` to resolve the function name::"
 msgstr "Use :func:`locals` para determinar o nome da função::"
+
+#: ../../faq/programming.rst:980
+msgid ""
+"def myFunc():\n"
+"    print(\"hello\")\n"
+"\n"
+"fname = \"myFunc\"\n"
+"\n"
+"f = locals()[fname]\n"
+"f()"
+msgstr ""
 
 #: ../../faq/programming.rst:990
 msgid ""
@@ -1423,6 +1847,15 @@ msgstr ""
 "os espaços em branco. Se a string ``S`` representar mais de uma linha, "
 "contendo várias linhas vazias no final, os terminadores de linha de todas "
 "linhas em branco serão removidos::"
+
+#: ../../faq/programming.rst:998
+msgid ""
+">>> lines = (\"line 1 \\r\\n\"\n"
+"...          \"\\r\\n\"\n"
+"...          \"\\r\\n\")\n"
+">>> lines.rstrip(\"\\n\\r\")\n"
+"'line 1 '"
+msgstr ""
 
 #: ../../faq/programming.rst:1004
 msgid ""
@@ -1481,10 +1914,25 @@ msgid ""
 "string's quote::"
 msgstr ""
 
+#: ../../faq/programming.rst:1036
+msgid ""
+">>> r'C:\\this\\will\\not\\work\\'\n"
+"  File \"<stdin>\", line 1\n"
+"    r'C:\\this\\will\\not\\work\\'\n"
+"         ^\n"
+"SyntaxError: unterminated string literal (detected at line 1)"
+msgstr ""
+
 #: ../../faq/programming.rst:1042
 msgid ""
 "There are several workarounds for this. One is to use regular strings and "
 "double the backslashes::"
+msgstr ""
+
+#: ../../faq/programming.rst:1045
+msgid ""
+">>> 'C:\\\\this\\\\will\\\\work\\\\'\n"
+"'C:\\\\this\\\\will\\\\work\\\\'"
 msgstr ""
 
 #: ../../faq/programming.rst:1048
@@ -1493,10 +1941,22 @@ msgid ""
 "to the raw string::"
 msgstr ""
 
+#: ../../faq/programming.rst:1051
+msgid ""
+">>> r'C:\\this\\will\\work' '\\\\'\n"
+"'C:\\\\this\\\\will\\\\work\\\\'"
+msgstr ""
+
 #: ../../faq/programming.rst:1054
 msgid ""
 "It is also possible to use :func:`os.path.join` to append a backslash on "
 "Windows::"
+msgstr ""
+
+#: ../../faq/programming.rst:1056
+msgid ""
+">>> os.path.join(r'C:\\this\\will\\work', '')\n"
+"'C:\\\\this\\\\will\\\\work\\\\'"
 msgstr ""
 
 #: ../../faq/programming.rst:1059
@@ -1505,6 +1965,12 @@ msgid ""
 "determining where the raw string ends, no escaping occurs when interpreting "
 "the value of the raw string. That is, the backslash remains present in the "
 "value of the raw string::"
+msgstr ""
+
+#: ../../faq/programming.rst:1064
+msgid ""
+">>> r'backslash\\'preserved'\n"
+"\"backslash\\\\'preserved\""
 msgstr ""
 
 #: ../../faq/programming.rst:1067
@@ -1674,6 +2140,14 @@ msgstr ""
 "Para juntar vários objetos :class:`str`, a linguagem recomendada colocá-los "
 "numa lista e invocar o método :meth:`str.join`::"
 
+#: ../../faq/programming.rst:1141
+msgid ""
+"chunks = []\n"
+"for s in my_strings:\n"
+"    chunks.append(s)\n"
+"result = ''.join(chunks)"
+msgstr ""
+
 #: ../../faq/programming.rst:1146
 msgid "(another reasonably efficient idiom is to use :class:`io.StringIO`)"
 msgstr ""
@@ -1688,6 +2162,13 @@ msgstr ""
 "Para juntar vários objetos :class:`bytes`, a forma recomendada é estender "
 "uma classe :class:`bytearray` usando a concatenação local (com o operador "
 "``+=``)::"
+
+#: ../../faq/programming.rst:1151
+msgid ""
+"result = bytearray()\n"
+"for b in my_bytes_objects:\n"
+"    result += b"
+msgstr ""
 
 #: ../../faq/programming.rst:1157
 msgid "Sequences (Tuples/Lists)"
@@ -1758,6 +2239,12 @@ msgstr "Como que eu itero uma sequência na ordem inversa?"
 msgid "Use the :func:`reversed` built-in function::"
 msgstr "Use a função embutida :func:`reversed`::"
 
+#: ../../faq/programming.rst:1194
+msgid ""
+"for x in reversed(sequence):\n"
+"    ...  # do something with x ..."
+msgstr ""
+
 #: ../../faq/programming.rst:1197
 msgid ""
 "This won't touch your original sequence, but build a new copy with reversed "
@@ -1784,6 +2271,18 @@ msgid ""
 "the list, deleting duplicates as you go::"
 msgstr ""
 
+#: ../../faq/programming.rst:1211
+msgid ""
+"if mylist:\n"
+"    mylist.sort()\n"
+"    last = mylist[-1]\n"
+"    for i in range(len(mylist)-2, -1, -1):\n"
+"        if last == mylist[i]:\n"
+"            del mylist[i]\n"
+"        else:\n"
+"            last = mylist[i]"
+msgstr ""
+
 #: ../../faq/programming.rst:1220
 msgid ""
 "If all elements of the list may be used as set keys (i.e. they are all :term:"
@@ -1792,6 +2291,10 @@ msgstr ""
 "Se todos os elementos da lista podem ser usados como chaves de conjunto "
 "(isto é, eles são todos :term:`hasheáveis <hasheável>`) isso é muitas vezes "
 "mais rápido ::"
+
+#: ../../faq/programming.rst:1223
+msgid "mylist = list(set(mylist))"
+msgstr ""
 
 #: ../../faq/programming.rst:1225
 msgid ""
@@ -1813,6 +2316,13 @@ msgid ""
 "variations.::"
 msgstr ""
 
+#: ../../faq/programming.rst:1237
+msgid ""
+"mylist[:] = filter(keep_function, mylist)\n"
+"mylist[:] = (x for x in mylist if keep_condition)\n"
+"mylist[:] = [x for x in mylist if keep_condition]"
+msgstr ""
+
 #: ../../faq/programming.rst:1241
 msgid "The list comprehension may be fastest."
 msgstr "A compreensão de lista pode ser a mais rápida."
@@ -1824,6 +2334,10 @@ msgstr "Como fazer um vetor em Python?"
 #: ../../faq/programming.rst:1247
 msgid "Use a list::"
 msgstr "Utilize uma lista::"
+
+#: ../../faq/programming.rst:1249
+msgid "[\"this\", 1, \"is\", \"an\", \"array\"]"
+msgstr ""
 
 #: ../../faq/programming.rst:1251
 msgid ""
@@ -1845,6 +2359,10 @@ msgid ""
 "To get Lisp-style linked lists, you can emulate *cons cells* using tuples::"
 msgstr ""
 
+#: ../../faq/programming.rst:1262
+msgid "lisp_list = (\"like\",  (\"this\",  (\"example\", None) ) )"
+msgstr ""
+
 #: ../../faq/programming.rst:1264
 msgid ""
 "If mutability is desired, you could use lists instead of tuples.  Here the "
@@ -1861,13 +2379,30 @@ msgstr "Como faço para criar uma lista multidimensional?"
 msgid "You probably tried to make a multidimensional array like this::"
 msgstr "Você provavelmente tentou fazer um Array multidimensional como isso::"
 
+#: ../../faq/programming.rst:1277
+msgid ">>> A = [[None] * 2] * 3"
+msgstr ""
+
 #: ../../faq/programming.rst:1279
 msgid "This looks correct if you print it:"
 msgstr "Isso parece correto se você imprimir:"
 
+#: ../../faq/programming.rst:1285
+msgid ""
+">>> A\n"
+"[[None, None], [None, None], [None, None]]"
+msgstr ""
+
 #: ../../faq/programming.rst:1290
 msgid "But when you assign a value, it shows up in multiple places:"
 msgstr "Mas quando atribuíres um valor, o mesmo aparecerá em vários lugares:"
+
+#: ../../faq/programming.rst:1296
+msgid ""
+">>> A[0][0] = 5\n"
+">>> A\n"
+"[[5, None], [5, None], [5, None]]"
+msgstr ""
 
 #: ../../faq/programming.rst:1302
 msgid ""
@@ -1889,6 +2424,13 @@ msgstr ""
 "A abordagem sugerida é criar uma lista de comprimento desejado primeiro e, "
 "em seguida, preencher cada elemento com uma lista recém-criada::"
 
+#: ../../faq/programming.rst:1310
+msgid ""
+"A = [None] * 3\n"
+"for i in range(3):\n"
+"    A[i] = [None] * 2"
+msgstr ""
+
 #: ../../faq/programming.rst:1314
 msgid ""
 "This generates a list containing 3 different lists of length two.  You can "
@@ -1896,6 +2438,12 @@ msgid ""
 msgstr ""
 "Isso gera uma lista contendo 3 listas diferentes contendo 2 itens cadas. "
 "Você também pode usar uma compreensão de lista::"
+
+#: ../../faq/programming.rst:1317
+msgid ""
+"w, h = 2, 3\n"
+"A = [[None] * w for i in range(h)]"
+msgstr ""
 
 #: ../../faq/programming.rst:1320
 msgid ""
@@ -1913,10 +2461,26 @@ msgid ""
 "term:`list comprehension` is an elegant solution::"
 msgstr ""
 
+#: ../../faq/programming.rst:1330
+msgid ""
+"result = [obj.method() for obj in mylist]\n"
+"\n"
+"result = [function(obj) for obj in mylist]"
+msgstr ""
+
 #: ../../faq/programming.rst:1334
 msgid ""
 "To just run the method or function without saving the return values, a "
 "plain :keyword:`for` loop will suffice::"
+msgstr ""
+
+#: ../../faq/programming.rst:1337
+msgid ""
+"for obj in mylist:\n"
+"    obj.method()\n"
+"\n"
+"for obj in mylist:\n"
+"    function(obj)"
 msgstr ""
 
 #: ../../faq/programming.rst:1346
@@ -1943,6 +2507,15 @@ msgstr ""
 msgid "If you wrote::"
 msgstr "Se você escrever::"
 
+#: ../../faq/programming.rst:1358
+msgid ""
+">>> a_tuple = (1, 2)\n"
+">>> a_tuple[0] += 1\n"
+"Traceback (most recent call last):\n"
+"   ...\n"
+"TypeError: 'tuple' object does not support item assignment"
+msgstr ""
+
 #: ../../faq/programming.rst:1364
 msgid ""
 "The reason for the exception should be immediately clear: ``1`` is added to "
@@ -1960,6 +2533,15 @@ msgstr ""
 "Por baixo, o que a instrução de atribuição aumentada está fazendo é "
 "aproximadamente isso::"
 
+#: ../../faq/programming.rst:1373
+msgid ""
+">>> result = a_tuple[0] + 1\n"
+">>> a_tuple[0] = result\n"
+"Traceback (most recent call last):\n"
+"  ...\n"
+"TypeError: 'tuple' object does not support item assignment"
+msgstr ""
+
 #: ../../faq/programming.rst:1379
 msgid ""
 "It is the assignment part of the operation that produces the error, since a "
@@ -1972,10 +2554,25 @@ msgstr ""
 msgid "When you write something like::"
 msgstr "Quando você escreve algo como::"
 
+#: ../../faq/programming.rst:1384
+msgid ""
+">>> a_tuple = (['foo'], 'bar')\n"
+">>> a_tuple[0] += ['item']\n"
+"Traceback (most recent call last):\n"
+"  ...\n"
+"TypeError: 'tuple' object does not support item assignment"
+msgstr ""
+
 #: ../../faq/programming.rst:1390
 msgid ""
 "The exception is a bit more surprising, and even more surprising is the fact "
 "that even though there was an error, the append worked::"
+msgstr ""
+
+#: ../../faq/programming.rst:1393
+msgid ""
+">>> a_tuple[0]\n"
+"['foo', 'item']"
 msgstr ""
 
 #: ../../faq/programming.rst:1396
@@ -1988,9 +2585,23 @@ msgid ""
 "we say that for lists, ``+=`` is a \"shorthand\" for :meth:`!list.extend`::"
 msgstr ""
 
+#: ../../faq/programming.rst:1404
+msgid ""
+">>> a_list = []\n"
+">>> a_list += [1]\n"
+">>> a_list\n"
+"[1]"
+msgstr ""
+
 #: ../../faq/programming.rst:1409
 msgid "This is equivalent to::"
 msgstr "Isso equivale a::"
+
+#: ../../faq/programming.rst:1411
+msgid ""
+">>> result = a_list.__iadd__([1])\n"
+">>> a_list = result"
+msgstr ""
 
 #: ../../faq/programming.rst:1414
 msgid ""
@@ -2002,6 +2613,15 @@ msgstr ""
 
 #: ../../faq/programming.rst:1419
 msgid "Thus, in our tuple example what is happening is equivalent to::"
+msgstr ""
+
+#: ../../faq/programming.rst:1421
+msgid ""
+">>> result = a_tuple[0].__iadd__(['item'])\n"
+">>> a_tuple[0] = result\n"
+"Traceback (most recent call last):\n"
+"  ...\n"
+"TypeError: 'tuple' object does not support item assignment"
 msgstr ""
 
 #: ../../faq/programming.rst:1427
@@ -2026,6 +2646,12 @@ msgid ""
 "method::"
 msgstr ""
 
+#: ../../faq/programming.rst:1439
+msgid ""
+"Isorted = L[:]\n"
+"Isorted.sort(key=lambda s: int(s[10:15]))"
+msgstr ""
+
 #: ../../faq/programming.rst:1444
 msgid "How can I sort one list by values from another list?"
 msgstr "Como eu posso ordenar uma lista pelos valores de outra lista?"
@@ -2034,6 +2660,20 @@ msgstr "Como eu posso ordenar uma lista pelos valores de outra lista?"
 msgid ""
 "Merge them into an iterator of tuples, sort the resulting list, and then "
 "pick out the element you want. ::"
+msgstr ""
+
+#: ../../faq/programming.rst:1449
+msgid ""
+">>> list1 = [\"what\", \"I'm\", \"sorting\", \"by\"]\n"
+">>> list2 = [\"something\", \"else\", \"to\", \"sort\"]\n"
+">>> pairs = zip(list1, list2)\n"
+">>> pairs = sorted(pairs)\n"
+">>> pairs\n"
+"[(\"I'm\", 'else'), ('by', 'sort'), ('sorting', 'to'), ('what', "
+"'something')]\n"
+">>> result = [x[1] for x in pairs]\n"
+">>> result\n"
+"['else', 'sort', 'to', 'something']"
 msgstr ""
 
 #: ../../faq/programming.rst:1461
@@ -2071,6 +2711,13 @@ msgid ""
 "A method is a function on some object ``x`` that you normally call as ``x."
 "name(arguments...)``.  Methods are defined as functions inside the class "
 "definition::"
+msgstr ""
+
+#: ../../faq/programming.rst:1485
+msgid ""
+"class C:\n"
+"    def meth(self, arg):\n"
+"        return arg * 2 + self.attribute"
 msgstr ""
 
 #: ../../faq/programming.rst:1491
@@ -2115,6 +2762,38 @@ msgid ""
 "To test for \"true inheritance\", scan the :term:`MRO` of the class:"
 msgstr ""
 
+#: ../../faq/programming.rst:1516
+msgid ""
+"from collections.abc import Mapping\n"
+"\n"
+"class P:\n"
+"     pass\n"
+"\n"
+"class C(P):\n"
+"    pass\n"
+"\n"
+"Mapping.register(P)"
+msgstr ""
+
+#: ../../faq/programming.rst:1528
+msgid ""
+">>> c = C()\n"
+">>> isinstance(c, C)        # direct\n"
+"True\n"
+">>> isinstance(c, P)        # indirect\n"
+"True\n"
+">>> isinstance(c, Mapping)  # virtual\n"
+"True\n"
+"\n"
+"# Actual inheritance chain\n"
+">>> type(c).__mro__\n"
+"(<class 'C'>, <class 'P'>, <class 'object'>)\n"
+"\n"
+"# Test for \"true inheritance\"\n"
+">>> Mapping in type(c).__mro__\n"
+"False"
+msgstr ""
+
 #: ../../faq/programming.rst:1546
 msgid ""
 "Note that most programs do not use :func:`isinstance` on user-defined "
@@ -2125,10 +2804,33 @@ msgid ""
 "have a function that does something::"
 msgstr ""
 
+#: ../../faq/programming.rst:1553
+msgid ""
+"def search(obj):\n"
+"    if isinstance(obj, Mailbox):\n"
+"        ...  # code to search a mailbox\n"
+"    elif isinstance(obj, Document):\n"
+"        ...  # code to search a document\n"
+"    elif ..."
+msgstr ""
+
 #: ../../faq/programming.rst:1560
 msgid ""
 "A better approach is to define a ``search()`` method on all the classes and "
 "just call it::"
+msgstr ""
+
+#: ../../faq/programming.rst:1563
+msgid ""
+"class Mailbox:\n"
+"    def search(self):\n"
+"        ...  # code to search a mailbox\n"
+"\n"
+"class Document:\n"
+"    def search(self):\n"
+"        ...  # code to search a document\n"
+"\n"
+"obj.search()"
 msgstr ""
 
 #: ../../faq/programming.rst:1575
@@ -2151,6 +2853,20 @@ msgid ""
 "written data to uppercase::"
 msgstr ""
 
+#: ../../faq/programming.rst:1587
+msgid ""
+"class UpperOut:\n"
+"\n"
+"    def __init__(self, outfile):\n"
+"        self._outfile = outfile\n"
+"\n"
+"    def write(self, s):\n"
+"        self._outfile.write(s.upper())\n"
+"\n"
+"    def __getattr__(self, name):\n"
+"        return getattr(self._outfile, name)"
+msgstr ""
+
 #: ../../faq/programming.rst:1598
 msgid ""
 "Here the ``UpperOut`` class redefines the ``write()`` method to convert the "
@@ -2168,6 +2884,15 @@ msgid ""
 "`~object.__setattr__` method too, and it must do so carefully.  The basic "
 "implementation of :meth:`!__setattr__` is roughly equivalent to the "
 "following::"
+msgstr ""
+
+#: ../../faq/programming.rst:1610
+msgid ""
+"class X:\n"
+"    ...\n"
+"    def __setattr__(self, name, value):\n"
+"        self.__dict__[name] = value\n"
+"    ..."
 msgstr ""
 
 #: ../../faq/programming.rst:1616
@@ -2188,6 +2913,13 @@ msgstr ""
 #: ../../faq/programming.rst:1624
 msgid "Use the built-in :func:`super` function::"
 msgstr "Use a função embutida :func:`super`::"
+
+#: ../../faq/programming.rst:1626
+msgid ""
+"class Derived(Base):\n"
+"    def meth(self):\n"
+"        super().meth()  # calls Base.meth"
+msgstr ""
 
 #: ../../faq/programming.rst:1630
 msgid ""
@@ -2210,6 +2942,17 @@ msgid ""
 "on availability of resources) which base class to use.  Example::"
 msgstr ""
 
+#: ../../faq/programming.rst:1644
+msgid ""
+"class Base:\n"
+"    ...\n"
+"\n"
+"BaseAlias = Base\n"
+"\n"
+"class Derived(BaseAlias):\n"
+"    ..."
+msgstr ""
+
 #: ../../faq/programming.rst:1654
 msgid "How do I create static class data and static class methods?"
 msgstr ""
@@ -2224,6 +2967,18 @@ msgstr ""
 msgid ""
 "For static data, simply define a class attribute.  To assign a new value to "
 "the attribute, you have to explicitly use the class name in the assignment::"
+msgstr ""
+
+#: ../../faq/programming.rst:1662
+msgid ""
+"class C:\n"
+"    count = 0   # number of times C.__init__ called\n"
+"\n"
+"    def __init__(self):\n"
+"        C.count = C.count + 1\n"
+"\n"
+"    def getcount(self):\n"
+"        return C.count  # or return self.count"
 msgstr ""
 
 #: ../../faq/programming.rst:1671
@@ -2241,14 +2996,33 @@ msgid ""
 "whether inside a method or not::"
 msgstr ""
 
+#: ../../faq/programming.rst:1680
+msgid "C.count = 314"
+msgstr ""
+
 #: ../../faq/programming.rst:1682
 msgid "Static methods are possible::"
 msgstr "Métodos estáticos são possíveis::"
+
+#: ../../faq/programming.rst:1684
+msgid ""
+"class C:\n"
+"    @staticmethod\n"
+"    def static(arg1, arg2, arg3):\n"
+"        # No 'self' parameter!\n"
+"        ..."
+msgstr ""
 
 #: ../../faq/programming.rst:1690
 msgid ""
 "However, a far more straightforward way to get the effect of a static method "
 "is via a simple module-level function::"
+msgstr ""
+
+#: ../../faq/programming.rst:1693
+msgid ""
+"def getcount():\n"
+"    return C.count"
 msgstr ""
 
 #: ../../faq/programming.rst:1696
@@ -2273,6 +3047,14 @@ msgstr ""
 msgid "In C++ you'd write"
 msgstr "Em C++ escreveríamos"
 
+#: ../../faq/programming.rst:1708
+msgid ""
+"class C {\n"
+"    C() { cout << \"No arguments\\n\"; }\n"
+"    C(int i) { cout << \"Argument is \" << i << \"\\n\"; }\n"
+"}"
+msgstr ""
+
 #: ../../faq/programming.rst:1715
 msgid ""
 "In Python you have to write a single constructor that catches all cases "
@@ -2280,6 +3062,16 @@ msgid ""
 msgstr ""
 "Em Python você tem que escrever um único construtor que pega todos os casos "
 "usando argumentos padrão. Por exemplo::"
+
+#: ../../faq/programming.rst:1718
+msgid ""
+"class C:\n"
+"    def __init__(self, i=None):\n"
+"        if i is None:\n"
+"            print(\"No arguments\")\n"
+"        else:\n"
+"            print(\"Argument is\", i)"
+msgstr ""
 
 #: ../../faq/programming.rst:1725
 msgid "This is not entirely equivalent, but close enough in practice."
@@ -2290,6 +3082,12 @@ msgid "You could also try a variable-length argument list, e.g. ::"
 msgstr ""
 "Você também pode tentar uma lista de argumentos de comprimento variável, por "
 "exemplo::"
+
+#: ../../faq/programming.rst:1729
+msgid ""
+"def __init__(self, *args):\n"
+"    ..."
+msgstr ""
 
 #: ../../faq/programming.rst:1732
 msgid "The same approach works for all method definitions."
@@ -2313,6 +3111,21 @@ msgstr ""
 msgid ""
 "The identifier can be used unchanged within the class, but to access it "
 "outside the class, the mangled name must be used:"
+msgstr ""
+
+#: ../../faq/programming.rst:1747
+msgid ""
+"class A:\n"
+"    def __one(self):\n"
+"        return 1\n"
+"    def two(self):\n"
+"        return 2 * self.__one()\n"
+"\n"
+"class B(A):\n"
+"    def three(self):\n"
+"        return 3 * self._A__one()\n"
+"\n"
+"four = 4 * A()._A__one()"
 msgstr ""
 
 #: ../../faq/programming.rst:1761
@@ -2471,11 +3284,34 @@ msgid ""
 "guaranteed to be singletons::"
 msgstr ""
 
+#: ../../faq/programming.rst:1879
+msgid ""
+">>> a = 1000\n"
+">>> b = 500\n"
+">>> c = b + 500\n"
+">>> a is c\n"
+"False\n"
+"\n"
+">>> a = 'Python'\n"
+">>> b = 'Py'\n"
+">>> c = b + 'thon'\n"
+">>> a is c\n"
+"False"
+msgstr ""
+
 #: ../../faq/programming.rst:1891
 msgid "Likewise, new instances of mutable containers are never identical::"
 msgstr ""
 "Do mesmo jeito, novas instâncias de contêineres mutáveis nunca são "
 "idênticas::"
+
+#: ../../faq/programming.rst:1893
+msgid ""
+">>> a = []\n"
+">>> b = []\n"
+">>> a is b\n"
+"False"
+msgstr ""
 
 #: ../../faq/programming.rst:1898
 msgid ""
@@ -2499,6 +3335,20 @@ msgid ""
 "implement a method that behaves like :meth:`dict.pop`::"
 msgstr ""
 
+#: ../../faq/programming.rst:1910
+msgid ""
+"_sentinel = object()\n"
+"\n"
+"def pop(self, key, default=_sentinel):\n"
+"    if key in self:\n"
+"        value = self[key]\n"
+"        del self[key]\n"
+"        return value\n"
+"    if default is _sentinel:\n"
+"        raise KeyError(key)\n"
+"    return default"
+msgstr ""
+
 #: ../../faq/programming.rst:1921
 msgid ""
 "3) Container implementations sometimes need to augment equality tests with "
@@ -2510,6 +3360,15 @@ msgstr ""
 msgid ""
 "For example, here is the implementation of :meth:`!collections.abc.Sequence."
 "__contains__`::"
+msgstr ""
+
+#: ../../faq/programming.rst:1928
+msgid ""
+"def __contains__(self, value):\n"
+"    for v in self:\n"
+"        if v is value or v == value:\n"
+"            return True\n"
+"    return False"
 msgstr ""
 
 #: ../../faq/programming.rst:1936
@@ -2531,8 +3390,44 @@ msgid ""
 "class:"
 msgstr ""
 
+#: ../../faq/programming.rst:1946
+msgid ""
+"from datetime import date\n"
+"\n"
+"class FirstOfMonthDate(date):\n"
+"    \"Always choose the first day of the month\"\n"
+"    def __new__(cls, year, month, day):\n"
+"        return super().__new__(cls, year, month, 1)\n"
+"\n"
+"class NamedInt(int):\n"
+"    \"Allow text names for some numbers\"\n"
+"    xlat = {'zero': 0, 'one': 1, 'ten': 10}\n"
+"    def __new__(cls, value):\n"
+"        value = cls.xlat.get(value, value)\n"
+"        return super().__new__(cls, value)\n"
+"\n"
+"class TitleStr(str):\n"
+"    \"Convert str to name suitable for a URL path\"\n"
+"    def __new__(cls, s):\n"
+"        s = s.lower().replace(' ', '-')\n"
+"        s = ''.join([c for c in s if c.isalnum() or c == '-'])\n"
+"        return super().__new__(cls, s)"
+msgstr ""
+
 #: ../../faq/programming.rst:1969
 msgid "The classes can be used like this:"
+msgstr ""
+
+#: ../../faq/programming.rst:1971
+msgid ""
+">>> FirstOfMonthDate(2012, 2, 14)\n"
+"FirstOfMonthDate(2012, 2, 1)\n"
+">>> NamedInt('ten')\n"
+"10\n"
+">>> NamedInt(20)\n"
+"20\n"
+">>> TitleStr('Blog: Why Python Rocks')\n"
+"'blog-why-python-rocks'"
 msgstr ""
 
 #: ../../faq/programming.rst:1986
@@ -2579,6 +3474,31 @@ msgstr ""
 msgid "This example shows the various techniques::"
 msgstr "Esse exemplo mostra as várias técnicas::"
 
+#: ../../faq/programming.rst:2013
+msgid ""
+"class Weather:\n"
+"    \"Lookup weather information on a government website\"\n"
+"\n"
+"    def __init__(self, station_id):\n"
+"        self._station_id = station_id\n"
+"        # The _station_id is private and immutable\n"
+"\n"
+"    def current_temperature(self):\n"
+"        \"Latest hourly observation\"\n"
+"        # Do not cache this because old results\n"
+"        # can be out of date.\n"
+"\n"
+"    @cached_property\n"
+"    def location(self):\n"
+"        \"Return the longitude/latitude coordinates of the station\"\n"
+"        # Result only depends on the station_id\n"
+"\n"
+"    @lru_cache(maxsize=20)\n"
+"    def historic_rainfall(self, date, units='mm'):\n"
+"        \"Rainfall on a given date\"\n"
+"        # Depends on the station_id, date, and units."
+msgstr ""
+
 #: ../../faq/programming.rst:2035
 msgid ""
 "The above example assumes that the *station_id* never changes.  If the "
@@ -2591,6 +3511,29 @@ msgid ""
 "To make the *lru_cache* approach work when the *station_id* is mutable, the "
 "class needs to define the :meth:`~object.__eq__` and :meth:`~object."
 "__hash__` methods so that the cache can detect relevant attribute updates::"
+msgstr ""
+
+#: ../../faq/programming.rst:2044
+msgid ""
+"class Weather:\n"
+"    \"Example with a mutable station identifier\"\n"
+"\n"
+"    def __init__(self, station_id):\n"
+"        self.station_id = station_id\n"
+"\n"
+"    def change_station(self, station_id):\n"
+"        self.station_id = station_id\n"
+"\n"
+"    def __eq__(self, other):\n"
+"        return self.station_id == other.station_id\n"
+"\n"
+"    def __hash__(self):\n"
+"        return hash(self.station_id)\n"
+"\n"
+"    @lru_cache(maxsize=20)\n"
+"    def historic_rainfall(self, date, units='cm'):\n"
+"        'Rainfall on a given date'\n"
+"        # Depends on the station_id, date, and units."
 msgstr ""
 
 #: ../../faq/programming.rst:2066
@@ -2653,6 +3596,12 @@ msgid ""
 "use the ``compile()`` function in that module interactively::"
 msgstr ""
 
+#: ../../faq/programming.rst:2103
+msgid ""
+">>> import py_compile\n"
+">>> py_compile.compile('foo.py')                 "
+msgstr ""
+
 #: ../../faq/programming.rst:2106
 msgid ""
 "This will write the ``.pyc`` to a ``__pycache__`` subdirectory in the same "
@@ -2668,6 +3617,10 @@ msgid ""
 "Python files to compile::"
 msgstr ""
 
+#: ../../faq/programming.rst:2115
+msgid "python -m compileall ."
+msgstr ""
+
 #: ../../faq/programming.rst:2119
 msgid "How do I find the current module name?"
 msgstr "Como encontro o nome do módulo atual?"
@@ -2679,6 +3632,16 @@ msgid ""
 "program is running as a script.  Many modules that are usually used by "
 "importing them also provide a command-line interface or a self-test, and "
 "only execute this code after checking ``__name__``::"
+msgstr ""
+
+#: ../../faq/programming.rst:2127
+msgid ""
+"def main():\n"
+"    print('Running test...')\n"
+"    ...\n"
+"\n"
+"if __name__ == '__main__':\n"
+"    main()"
 msgstr ""
 
 #: ../../faq/programming.rst:2136
@@ -2693,9 +3656,21 @@ msgstr "Suponha que tenhas os seguintes módulos:"
 msgid ":file:`foo.py`::"
 msgstr ":file:`foo.py`::"
 
+#: ../../faq/programming.rst:2142
+msgid ""
+"from bar import bar_var\n"
+"foo_var = 1"
+msgstr ""
+
 #: ../../faq/programming.rst:2145
 msgid ":file:`bar.py`::"
 msgstr ":file:`bar.py`::"
+
+#: ../../faq/programming.rst:2147
+msgid ""
+"from foo import foo_var\n"
+"bar_var = 2"
+msgstr ""
 
 #: ../../faq/programming.rst:2150
 msgid "The problem is that the interpreter will perform the following steps:"
@@ -2809,6 +3784,10 @@ msgid ""
 "from :mod:`importlib` instead::"
 msgstr ""
 
+#: ../../faq/programming.rst:2196
+msgid "z = importlib.import_module('x.y.z')"
+msgstr ""
+
 #: ../../faq/programming.rst:2200
 msgid ""
 "When I edit an imported module and reimport it, the changes don't show up.  "
@@ -2826,6 +3805,13 @@ msgid ""
 "re-reading of a changed module, do this::"
 msgstr ""
 
+#: ../../faq/programming.rst:2208
+msgid ""
+"import importlib\n"
+"import modname\n"
+"importlib.reload(modname)"
+msgstr ""
+
 #: ../../faq/programming.rst:2212
 msgid ""
 "Warning: this technique is not 100% fool-proof.  In particular, modules "
@@ -2833,6 +3819,10 @@ msgid ""
 msgstr ""
 "Aviso: essa técnica não é 100% a prova de falhas. Em particular, módulos "
 "contendo instruções como ::"
+
+#: ../../faq/programming.rst:2215
+msgid "from modname import some_objects"
+msgstr ""
 
 #: ../../faq/programming.rst:2217
 msgid ""
@@ -2842,6 +3832,17 @@ msgid ""
 "paradoxical behaviour::"
 msgstr ""
 
+#: ../../faq/programming.rst:2222
+msgid ""
+">>> import importlib\n"
+">>> import cls\n"
+">>> c = cls.C()                # Create an instance of C\n"
+">>> importlib.reload(cls)\n"
+"<module 'cls' from 'cls.py'>\n"
+">>> isinstance(c, cls.C)       # isinstance is false?!?\n"
+"False"
+msgstr ""
+
 #: ../../faq/programming.rst:2230
 msgid ""
 "The nature of the problem is made clear if you print out the \"identity\" of "
@@ -2849,6 +3850,14 @@ msgid ""
 msgstr ""
 "A natureza do problema fica clara se você exibir a \"identidade\" dos "
 "objetos da classe::"
+
+#: ../../faq/programming.rst:2233
+msgid ""
+">>> hex(id(c.__class__))\n"
+"'0x7352a0'\n"
+">>> hex(id(cls.C))\n"
+"'0x4198d0'"
+msgstr ""
 
 #: ../../faq/programming.rst:408
 msgid "argument"

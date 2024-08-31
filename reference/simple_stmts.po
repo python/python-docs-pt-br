@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-03 20:15+0000\n"
+"POT-Creation-Date: 2024-08-31 10:59+0000\n"
 "PO-Revision-Date: 2021-06-28 01:49+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -259,6 +259,14 @@ msgstr ""
 "atributo de classe, o lado esquerdo cria um novo atributo de instância como "
 "alvo da atribuição::"
 
+#: ../../reference/simple_stmts.rst:179
+msgid ""
+"class Cls:\n"
+"    x = 3             # class variable\n"
+"inst = Cls()\n"
+"inst.x = inst.x + 1   # writes inst.x as 4 leaving Cls.x as 3"
+msgstr ""
+
 #: ../../reference/simple_stmts.rst:184
 msgid ""
 "This description does not necessarily apply to descriptor attributes, such "
@@ -371,6 +379,14 @@ msgstr ""
 "a`` troca duas variáveis), sobreposições *dentro* da coleção de variáveis "
 "atribuídas ocorrem da esquerda para a direita, às vezes resultando em "
 "confusão. Por exemplo, o programa a seguir imprime ``[0, 2]``::"
+
+#: ../../reference/simple_stmts.rst:246
+msgid ""
+"x = [0, 1]\n"
+"i = 0\n"
+"i, x[i] = 1, 2         # i is updated, then x[i] is updated\n"
+"print(x)"
+msgstr ""
 
 #: ../../reference/simple_stmts.rst:254
 msgid ":pep:`3132` - Extended Iterable Unpacking"
@@ -593,11 +609,23 @@ msgstr ""
 msgid "The simple form, ``assert expression``, is equivalent to ::"
 msgstr "A forma simples, ``assert expression``, é equivalente a ::"
 
+#: ../../reference/simple_stmts.rst:395
+msgid ""
+"if __debug__:\n"
+"    if not expression: raise AssertionError"
+msgstr ""
+
 #: ../../reference/simple_stmts.rst:398
 msgid ""
 "The extended form, ``assert expression1, expression2``, is equivalent to ::"
 msgstr ""
 "A forma estendida, ``assert expression1, expression2``, é equivalente a ::"
+
+#: ../../reference/simple_stmts.rst:400
+msgid ""
+"if __debug__:\n"
+"    if not expression1: raise AssertionError(expression2)"
+msgstr ""
 
 #: ../../reference/simple_stmts.rst:407
 msgid ""
@@ -641,6 +669,13 @@ msgstr ""
 ":keyword:`pass` é uma operação nula --- quando é executada, nada acontece. É "
 "útil como um espaço reservado quando uma instrução é necessária "
 "sintaticamente, mas nenhum código precisa ser executado, por exemplo::"
+
+#: ../../reference/simple_stmts.rst:437
+msgid ""
+"def f(arg): pass    # a function that does nothing (yet)\n"
+"\n"
+"class C: pass       # a class with no methods (yet)"
+msgstr ""
 
 #: ../../reference/simple_stmts.rst:445
 msgid "The :keyword:`!del` statement"
@@ -773,9 +808,21 @@ msgstr ""
 "os parênteses que, de outra forma, seriam necessários na instrução de "
 "expressão yield equivalente. Por exemplo, as instruções yield ::"
 
+#: ../../reference/simple_stmts.rst:538
+msgid ""
+"yield <expr>\n"
+"yield from <expr>"
+msgstr ""
+
 #: ../../reference/simple_stmts.rst:541
 msgid "are equivalent to the yield expression statements ::"
 msgstr "são equivalentes às instruções de expressão yield ::"
+
+#: ../../reference/simple_stmts.rst:543
+msgid ""
+"(yield <expr>)\n"
+"(yield from <expr>)"
+msgstr ""
 
 #: ../../reference/simple_stmts.rst:546
 msgid ""
@@ -849,6 +896,10 @@ msgstr ""
 "`~BaseException.with_traceback` (que retorna a mesma instância de exceção, "
 "com seu traceback definido para seu argumento), assim::"
 
+#: ../../reference/simple_stmts.rst:589
+msgid "raise Exception(\"foo occurred\").with_traceback(tracebackobj)"
+msgstr ""
+
 #: ../../reference/simple_stmts.rst:595
 msgid ""
 "The ``from`` clause is used for exception chaining: if given, the second "
@@ -869,6 +920,27 @@ msgstr ""
 "levantada como o atributo :attr:`!__cause__`. Se a exceção levantada não for "
 "tratada, ambas as exceções serão impressas::"
 
+#: ../../reference/simple_stmts.rst:604
+msgid ""
+">>> try:\n"
+"...     print(1 / 0)\n"
+"... except Exception as exc:\n"
+"...     raise RuntimeError(\"Something bad happened\") from exc\n"
+"...\n"
+"Traceback (most recent call last):\n"
+"  File \"<stdin>\", line 2, in <module>\n"
+"    print(1 / 0)\n"
+"          ~~^~~\n"
+"ZeroDivisionError: division by zero\n"
+"\n"
+"The above exception was the direct cause of the following exception:\n"
+"\n"
+"Traceback (most recent call last):\n"
+"  File \"<stdin>\", line 4, in <module>\n"
+"    raise RuntimeError(\"Something bad happened\") from exc\n"
+"RuntimeError: Something bad happened"
+msgstr ""
+
 #: ../../reference/simple_stmts.rst:624
 msgid ""
 "A similar mechanism works implicitly if a new exception is raised when an "
@@ -883,6 +955,27 @@ msgstr ""
 "instrução :keyword:`with`, é usada. A exceção anterior é então anexada como "
 "o atributo :attr:`~BaseException.__context__` da nova exceção:"
 
+#: ../../reference/simple_stmts.rst:630
+msgid ""
+">>> try:\n"
+"...     print(1 / 0)\n"
+"... except:\n"
+"...     raise RuntimeError(\"Something bad happened\")\n"
+"...\n"
+"Traceback (most recent call last):\n"
+"  File \"<stdin>\", line 2, in <module>\n"
+"    print(1 / 0)\n"
+"          ~~^~~\n"
+"ZeroDivisionError: division by zero\n"
+"\n"
+"During handling of the above exception, another exception occurred:\n"
+"\n"
+"Traceback (most recent call last):\n"
+"  File \"<stdin>\", line 4, in <module>\n"
+"    raise RuntimeError(\"Something bad happened\")\n"
+"RuntimeError: Something bad happened"
+msgstr ""
+
 #: ../../reference/simple_stmts.rst:650
 msgid ""
 "Exception chaining can be explicitly suppressed by specifying :const:`None` "
@@ -890,6 +983,18 @@ msgid ""
 msgstr ""
 "O encadeamento de exceção pode ser explicitamente suprimido especificando :"
 "const:`None` na cláusula ``from``:"
+
+#: ../../reference/simple_stmts.rst:653
+msgid ""
+">>> try:\n"
+"...     print(1 / 0)\n"
+"... except:\n"
+"...     raise RuntimeError(\"Something bad happened\") from None\n"
+"...\n"
+"Traceback (most recent call last):\n"
+"  File \"<stdin>\", line 4, in <module>\n"
+"RuntimeError: Something bad happened"
+msgstr ""
 
 #: ../../reference/simple_stmts.rst:664
 msgid ""
@@ -1131,6 +1236,18 @@ msgstr ""
 msgid "Examples::"
 msgstr "Exemplos::"
 
+#: ../../reference/simple_stmts.rst:818
+msgid ""
+"import foo                 # foo imported and bound locally\n"
+"import foo.bar.baz         # foo, foo.bar, and foo.bar.baz imported, foo "
+"bound locally\n"
+"import foo.bar.baz as fbb  # foo, foo.bar, and foo.bar.baz imported, foo.bar."
+"baz bound as fbb\n"
+"from foo.bar import baz    # foo, foo.bar, and foo.bar.baz imported, foo.bar."
+"baz bound as baz\n"
+"from foo import attr       # foo imported and foo.attr bound as attr"
+msgstr ""
+
 #: ../../reference/simple_stmts.rst:826
 msgid ""
 "If the list of identifiers is replaced by a star (``'*'``), all public names "
@@ -1347,6 +1464,10 @@ msgstr ""
 msgid "Note that there is nothing special about the statement::"
 msgstr "Observe que não há nada de especial sobre a instrução::"
 
+#: ../../reference/simple_stmts.rst:931
+msgid "import __future__ [as name]"
+msgstr ""
+
 #: ../../reference/simple_stmts.rst:933
 msgid ""
 "That is not a future statement; it's an ordinary import statement with no "
@@ -1530,9 +1651,20 @@ msgstr ""
 msgid "For example, the following statement creates a type alias::"
 msgstr "Por exemplo, a instrução a seguir cria um apelido de tipo::"
 
+#: ../../reference/simple_stmts.rst:1050
+msgid "type Point = tuple[float, float]"
+msgstr ""
+
 #: ../../reference/simple_stmts.rst:1052
 msgid "This code is roughly equivalent to::"
 msgstr "Este código é aproximadamente equivalente a::"
+
+#: ../../reference/simple_stmts.rst:1054
+msgid ""
+"annotation-def VALUE_OF_Point():\n"
+"    return tuple[float, float]\n"
+"Point = typing.TypeAliasType(\"Point\", VALUE_OF_Point())"
+msgstr ""
 
 #: ../../reference/simple_stmts.rst:1058
 msgid ""

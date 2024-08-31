@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-23 14:16+0000\n"
+"POT-Creation-Date: 2024-08-31 10:59+0000\n"
 "PO-Revision-Date: 2021-06-28 01:14+0000\n"
 "Last-Translator: Adorilson Bezerra <adorilson@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -781,8 +781,27 @@ msgid ""
 "ordering::"
 msgstr ""
 
+#: ../../library/struct.rst:390
+msgid ""
+">>> from struct import *\n"
+">>> pack(\">bhl\", 1, 2, 3)\n"
+"b'\\x01\\x00\\x02\\x00\\x00\\x00\\x03'\n"
+">>> unpack('>bhl', b'\\x01\\x00\\x02\\x00\\x00\\x00\\x03')\n"
+"(1, 2, 3)\n"
+">>> calcsize('>bhl')\n"
+"7"
+msgstr ""
+
 #: ../../library/struct.rst:398
 msgid "Attempt to pack an integer which is too large for the defined field::"
+msgstr ""
+
+#: ../../library/struct.rst:400
+msgid ""
+">>> pack(\">h\", 99999)\n"
+"Traceback (most recent call last):\n"
+"  File \"<stdin>\", line 1, in <module>\n"
+"struct.error: 'h' format requires -32768 <= number <= 32767"
 msgstr ""
 
 #: ../../library/struct.rst:405
@@ -790,10 +809,29 @@ msgid ""
 "Demonstrate the difference between ``'s'`` and ``'c'`` format characters::"
 msgstr ""
 
+#: ../../library/struct.rst:408
+msgid ""
+">>> pack(\"@ccc\", b'1', b'2', b'3')\n"
+"b'123'\n"
+">>> pack(\"@3s\", b'123')\n"
+"b'123'"
+msgstr ""
+
 #: ../../library/struct.rst:413
 msgid ""
 "Unpacked fields can be named by assigning them to variables or by wrapping "
 "the result in a named tuple::"
+msgstr ""
+
+#: ../../library/struct.rst:416
+msgid ""
+">>> record = b'raymond   \\x32\\x12\\x08\\x01\\x08'\n"
+">>> name, serialnum, school, gradelevel = unpack('<10sHHb', record)\n"
+"\n"
+">>> from collections import namedtuple\n"
+">>> Student = namedtuple('Student', 'name serialnum school gradelevel')\n"
+">>> Student._make(unpack('<10sHHb', record))\n"
+"Student(name=b'raymond   ', serialnum=4658, school=264, gradelevel=8)"
 msgstr ""
 
 #: ../../library/struct.rst:424
@@ -806,10 +844,28 @@ msgid ""
 "a little endian machine::"
 msgstr ""
 
+#: ../../library/struct.rst:432
+msgid ""
+">>> pack('@ci', b'#', 0x12131415)\n"
+"b'#\\x00\\x00\\x00\\x15\\x14\\x13\\x12'\n"
+">>> pack('@ic', 0x12131415, b'#')\n"
+"b'\\x15\\x14\\x13\\x12#'\n"
+">>> calcsize('@ci')\n"
+"8\n"
+">>> calcsize('@ic')\n"
+"5"
+msgstr ""
+
 #: ../../library/struct.rst:441
 msgid ""
 "The following format ``'llh0l'`` results in two pad bytes being added at the "
 "end, assuming the platform's longs are aligned on 4-byte boundaries::"
+msgstr ""
+
+#: ../../library/struct.rst:444
+msgid ""
+">>> pack('@llh0l', 1, 2, 3)\n"
+"b'\\x00\\x00\\x00\\x01\\x00\\x00\\x00\\x02\\x00\\x03\\x00\\x00'"
 msgstr ""
 
 #: ../../library/struct.rst:450
@@ -870,11 +926,25 @@ msgid ""
 "Consider these two simple examples (on a 64-bit, little-endian machine)::"
 msgstr ""
 
+#: ../../library/struct.rst:489
+msgid ""
+">>> calcsize('@lhl')\n"
+"24\n"
+">>> calcsize('@llh')\n"
+"18"
+msgstr ""
+
 #: ../../library/struct.rst:494
 msgid ""
 "Data is not padded to an 8-byte boundary at the end of the second format "
 "string without the use of extra padding.  A zero-repeat format code solves "
 "that problem::"
+msgstr ""
+
+#: ../../library/struct.rst:498
+msgid ""
+">>> calcsize('@llh0l')\n"
+"24"
 msgstr ""
 
 #: ../../library/struct.rst:501
@@ -907,11 +977,39 @@ msgid ""
 "from the previous section, we have::"
 msgstr ""
 
+#: ../../library/struct.rst:525
+msgid ""
+">>> calcsize('<qh6xq')\n"
+"24\n"
+">>> pack('<qh6xq', 1, 2, 3) == pack('@lhl', 1, 2, 3)\n"
+"True\n"
+">>> calcsize('@llh')\n"
+"18\n"
+">>> pack('@llh', 1, 2, 3) == pack('<qqh', 1, 2, 3)\n"
+"True\n"
+">>> calcsize('<qqh6x')\n"
+"24\n"
+">>> calcsize('@llh0l')\n"
+"24\n"
+">>> pack('@llh0l', 1, 2, 3) == pack('<qqh6x', 1, 2, 3)\n"
+"True"
+msgstr ""
+
 #: ../../library/struct.rst:540
 msgid ""
 "The above results (executed on a 64-bit machine) aren't guaranteed to match "
 "when executed on different machines.  For example, the examples below were "
 "executed on a 32-bit machine::"
+msgstr ""
+
+#: ../../library/struct.rst:544
+msgid ""
+">>> calcsize('<qqh6x')\n"
+"24\n"
+">>> calcsize('@llh0l')\n"
+"12\n"
+">>> pack('@llh0l', 1, 2, 3) == pack('<qqh6x', 1, 2, 3)\n"
+"False"
 msgstr ""
 
 #: ../../library/struct.rst:555

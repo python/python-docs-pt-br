@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-03 20:15+0000\n"
+"POT-Creation-Date: 2024-08-31 10:59+0000\n"
 "PO-Revision-Date: 2021-06-28 01:13+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -748,10 +748,22 @@ msgid ""
 "on Windows::"
 msgstr ""
 
+#: ../../library/shutil.rst:469
+msgid ""
+">>> shutil.which(\"python\")\n"
+"'C:\\\\Python33\\\\python.EXE'"
+msgstr ""
+
 #: ../../library/shutil.rst:472
 msgid ""
 "This is also applied when *cmd* is a path that contains a directory "
 "component::"
+msgstr ""
+
+#: ../../library/shutil.rst:475
+msgid ""
+">> shutil.which(\"C:\\\\Python33\\\\python\")\n"
+"'C:\\\\Python33\\\\python.EXE'"
 msgstr ""
 
 #: ../../library/shutil.rst:480
@@ -849,6 +861,13 @@ msgstr "Exemplo de copytree"
 msgid "An example that uses the :func:`ignore_patterns` helper::"
 msgstr ""
 
+#: ../../library/shutil.rst:539
+msgid ""
+"from shutil import copytree, ignore_patterns\n"
+"\n"
+"copytree(source, destination, ignore=ignore_patterns('*.pyc', 'tmp*'))"
+msgstr ""
+
 #: ../../library/shutil.rst:543
 msgid ""
 "This will copy everything except ``.pyc`` files and files or directories "
@@ -863,6 +882,18 @@ msgstr ""
 "Outro exemplo que usa o argumento *ignore* para adicionar uma chamada de "
 "registro::"
 
+#: ../../library/shutil.rst:548
+msgid ""
+"from shutil import copytree\n"
+"import logging\n"
+"\n"
+"def _logpath(path, names):\n"
+"    logging.info('Working in %s', path)\n"
+"    return []   # nothing will be ignored\n"
+"\n"
+"copytree(source, destination, ignore=_logpath)"
+msgstr ""
+
 #: ../../library/shutil.rst:561
 msgid "rmtree example"
 msgstr "exemplo rmtree"
@@ -873,6 +904,19 @@ msgid ""
 "the files have their read-only bit set. It uses the onexc callback to clear "
 "the readonly bit and reattempt the remove. Any subsequent failure will "
 "propagate. ::"
+msgstr ""
+
+#: ../../library/shutil.rst:568
+msgid ""
+"import os, stat\n"
+"import shutil\n"
+"\n"
+"def remove_readonly(func, path, _):\n"
+"    \"Clear the readonly bit and reattempt the removal\"\n"
+"    os.chmod(path, stat.S_IWRITE)\n"
+"    func(path)\n"
+"\n"
+"shutil.rmtree(directory, onexc=remove_readonly)"
 msgstr ""
 
 #: ../../library/shutil.rst:581
@@ -1252,9 +1296,32 @@ msgstr ""
 "Neste exemplo, criamos um arquivo tar compactado com gzip contendo todos os "
 "arquivos encontrados no diretório :file:`.ssh` do usuário::"
 
+#: ../../library/shutil.rst:782
+msgid ""
+">>> from shutil import make_archive\n"
+">>> import os\n"
+">>> archive_name = os.path.expanduser(os.path.join('~', 'myarchive'))\n"
+">>> root_dir = os.path.expanduser(os.path.join('~', '.ssh'))\n"
+">>> make_archive(archive_name, 'gztar', root_dir)\n"
+"'/Users/tarek/myarchive.tar.gz'"
+msgstr ""
+
 #: ../../library/shutil.rst:789
 msgid "The resulting archive contains:"
 msgstr "O arquivo resultante contém:"
+
+#: ../../library/shutil.rst:791
+msgid ""
+"$ tar -tzvf /Users/tarek/myarchive.tar.gz\n"
+"drwx------ tarek/staff       0 2010-02-01 16:23:40 ./\n"
+"-rw-r--r-- tarek/staff     609 2008-06-09 13:26:54 ./authorized_keys\n"
+"-rwxr-xr-x tarek/staff      65 2008-06-09 13:26:54 ./config\n"
+"-rwx------ tarek/staff     668 2008-06-09 13:26:54 ./id_dsa\n"
+"-rwxr-xr-x tarek/staff     609 2008-06-09 13:26:54 ./id_dsa.pub\n"
+"-rw------- tarek/staff    1675 2008-06-09 13:26:54 ./id_rsa\n"
+"-rw-r--r-- tarek/staff     397 2008-06-09 13:26:54 ./id_rsa.pub\n"
+"-rw-r--r-- tarek/staff   37192 2010-02-06 18:23:10 ./known_hosts"
+msgstr ""
 
 #: ../../library/shutil.rst:807
 msgid "Archiving example with *base_dir*"
@@ -1270,6 +1337,17 @@ msgstr ""
 "como usar :func:`make_archive`, mas desta vez com o uso de *base_dir*. Agora "
 "temos a seguinte estrutura de diretório:"
 
+#: ../../library/shutil.rst:813
+msgid ""
+"$ tree tmp\n"
+"tmp\n"
+"└── root\n"
+"    └── structure\n"
+"        ├── content\n"
+"            └── please_add.txt\n"
+"        └── do_not_add.txt"
+msgstr ""
+
 #: ../../library/shutil.rst:823
 msgid ""
 "In the final archive, :file:`please_add.txt` should be included, but :file:"
@@ -1278,9 +1356,30 @@ msgstr ""
 "No arquivo final, :file:`please_add.txt` deve ser incluído, mas :file:"
 "`do_not_add.txt` não deve. Portanto, usamos o seguinte::"
 
+#: ../../library/shutil.rst:826
+msgid ""
+">>> from shutil import make_archive\n"
+">>> import os\n"
+">>> archive_name = os.path.expanduser(os.path.join('~', 'myarchive'))\n"
+">>> make_archive(\n"
+"...     archive_name,\n"
+"...     'tar',\n"
+"...     root_dir='tmp/root',\n"
+"...     base_dir='structure/content',\n"
+"... )\n"
+"'/Users/tarek/my_archive.tar'"
+msgstr ""
+
 #: ../../library/shutil.rst:837
 msgid "Listing the files in the resulting archive gives us:"
 msgstr "Listar os arquivos no arquivo resultante nos dá:"
+
+#: ../../library/shutil.rst:839
+msgid ""
+"$ python -m tarfile -l /Users/tarek/myarchive.tar\n"
+"structure/content/\n"
+"structure/content/please_add.txt"
+msgstr ""
 
 #: ../../library/shutil.rst:847
 msgid "Querying the size of the output terminal"

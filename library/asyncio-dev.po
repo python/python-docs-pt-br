@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-11 18:37+0000\n"
+"POT-Creation-Date: 2024-08-31 10:59+0000\n"
 "PO-Revision-Date: 2021-06-28 00:54+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2022\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -82,6 +82,10 @@ msgid ""
 "at startup of the application::"
 msgstr ""
 
+#: ../../library/asyncio-dev.rst:40
+msgid "logging.basicConfig(level=logging.DEBUG)"
+msgstr ""
+
 #: ../../library/asyncio-dev.rst:42
 msgid ""
 "configuring the :mod:`warnings` module to display :exc:`ResourceWarning` "
@@ -146,6 +150,10 @@ msgstr ""
 "Para agendar uma :term:`callback` de outra thread do SO, o método :meth:"
 "`loop.call_soon_threadsafe` deve ser usado. Exemplo::"
 
+#: ../../library/asyncio-dev.rst:79
+msgid "loop.call_soon_threadsafe(callback, *args)"
+msgstr ""
+
 #: ../../library/asyncio-dev.rst:81
 msgid ""
 "Almost all asyncio objects are not thread safe, which is typically not a "
@@ -154,11 +162,27 @@ msgid ""
 "API, the :meth:`loop.call_soon_threadsafe` method should be used, e.g.::"
 msgstr ""
 
+#: ../../library/asyncio-dev.rst:87
+msgid "loop.call_soon_threadsafe(fut.cancel)"
+msgstr ""
+
 #: ../../library/asyncio-dev.rst:89
 msgid ""
 "To schedule a coroutine object from a different OS thread, the :func:"
 "`run_coroutine_threadsafe` function should be used. It returns a :class:"
 "`concurrent.futures.Future` to access the result::"
+msgstr ""
+
+#: ../../library/asyncio-dev.rst:93
+msgid ""
+"async def coro_func():\n"
+"     return await asyncio.sleep(1, 42)\n"
+"\n"
+"# Later in another OS thread:\n"
+"\n"
+"future = asyncio.run_coroutine_threadsafe(coro_func(), loop)\n"
+"# Wait for the result:\n"
+"result = future.result()"
 msgstr ""
 
 #: ../../library/asyncio-dev.rst:102
@@ -222,6 +246,10 @@ msgid ""
 "adjusted::"
 msgstr ""
 
+#: ../../library/asyncio-dev.rst:148
+msgid "logging.getLogger(\"asyncio\").setLevel(logging.WARNING)"
+msgstr ""
+
 #: ../../library/asyncio-dev.rst:151
 msgid ""
 "Network logging can block the event loop. It is recommended to use a "
@@ -240,18 +268,57 @@ msgid ""
 "`asyncio.create_task`, asyncio will emit a :exc:`RuntimeWarning`::"
 msgstr ""
 
+#: ../../library/asyncio-dev.rst:166
+msgid ""
+"import asyncio\n"
+"\n"
+"async def test():\n"
+"    print(\"never scheduled\")\n"
+"\n"
+"async def main():\n"
+"    test()\n"
+"\n"
+"asyncio.run(main())"
+msgstr ""
+
 #: ../../library/asyncio-dev.rst:176 ../../library/asyncio-dev.rst:221
 msgid "Output::"
 msgstr "Saída::"
 
+#: ../../library/asyncio-dev.rst:178
+msgid ""
+"test.py:7: RuntimeWarning: coroutine 'test' was never awaited\n"
+"  test()"
+msgstr ""
+
 #: ../../library/asyncio-dev.rst:181 ../../library/asyncio-dev.rst:237
 msgid "Output in debug mode::"
+msgstr ""
+
+#: ../../library/asyncio-dev.rst:183
+msgid ""
+"test.py:7: RuntimeWarning: coroutine 'test' was never awaited\n"
+"Coroutine created at (most recent call last)\n"
+"  File \"../t.py\", line 9, in <module>\n"
+"    asyncio.run(main(), debug=True)\n"
+"\n"
+"  < .. >\n"
+"\n"
+"  File \"../t.py\", line 7, in main\n"
+"    test()\n"
+"  test()"
 msgstr ""
 
 #: ../../library/asyncio-dev.rst:194
 msgid ""
 "The usual fix is to either await the coroutine or call the :meth:`asyncio."
 "create_task` function::"
+msgstr ""
+
+#: ../../library/asyncio-dev.rst:197
+msgid ""
+"async def main():\n"
+"    await test()"
 msgstr ""
 
 #: ../../library/asyncio-dev.rst:202
@@ -270,8 +337,55 @@ msgstr ""
 msgid "Example of an unhandled exception::"
 msgstr "Exemplo de uma exceção não tratada::"
 
+#: ../../library/asyncio-dev.rst:211
+msgid ""
+"import asyncio\n"
+"\n"
+"async def bug():\n"
+"    raise Exception(\"not consumed\")\n"
+"\n"
+"async def main():\n"
+"    asyncio.create_task(bug())\n"
+"\n"
+"asyncio.run(main())"
+msgstr ""
+
+#: ../../library/asyncio-dev.rst:223
+msgid ""
+"Task exception was never retrieved\n"
+"future: <Task finished coro=<bug() done, defined at test.py:3>\n"
+"  exception=Exception('not consumed')>\n"
+"\n"
+"Traceback (most recent call last):\n"
+"  File \"test.py\", line 4, in bug\n"
+"    raise Exception(\"not consumed\")\n"
+"Exception: not consumed"
+msgstr ""
+
 #: ../../library/asyncio-dev.rst:232
 msgid ""
 ":ref:`Enable the debug mode <asyncio-debug-mode>` to get the traceback where "
 "the task was created::"
+msgstr ""
+
+#: ../../library/asyncio-dev.rst:235
+msgid "asyncio.run(main(), debug=True)"
+msgstr ""
+
+#: ../../library/asyncio-dev.rst:239
+msgid ""
+"Task exception was never retrieved\n"
+"future: <Task finished coro=<bug() done, defined at test.py:3>\n"
+"    exception=Exception('not consumed') created at asyncio/tasks.py:321>\n"
+"\n"
+"source_traceback: Object created at (most recent call last):\n"
+"  File \"../t.py\", line 9, in <module>\n"
+"    asyncio.run(main(), debug=True)\n"
+"\n"
+"< .. >\n"
+"\n"
+"Traceback (most recent call last):\n"
+"  File \"../t.py\", line 4, in bug\n"
+"    raise Exception(\"not consumed\")\n"
+"Exception: not consumed"
 msgstr ""

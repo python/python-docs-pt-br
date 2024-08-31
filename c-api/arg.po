@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-29 04:06+0000\n"
+"POT-Creation-Date: 2024-08-31 10:59+0000\n"
 "PO-Revision-Date: 2021-06-28 00:47+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -820,6 +820,10 @@ msgstr ""
 "endereço da variável C (de tipo arbitrário), convertendo para :c:expr:"
 "`void*`. A função *converter* por sua vez,  é chamada da seguinte maneira::"
 
+#: ../../c-api/arg.rst:316
+msgid "status = converter(object, address);"
+msgstr ""
+
 #: ../../c-api/arg.rst:318
 msgid ""
 "where *object* is the Python object to be converted and *address* is the :c:"
@@ -1114,6 +1118,20 @@ msgstr ""
 msgid "Example::"
 msgstr "Exemplo::"
 
+#: ../../c-api/arg.rst:467
+msgid ""
+"// Function using METH_O calling convention\n"
+"static PyObject*\n"
+"my_function(PyObject *module, PyObject *arg)\n"
+"{\n"
+"    int value;\n"
+"    if (!PyArg_Parse(arg, \"i:my_function\", &value)) {\n"
+"        return NULL;\n"
+"    }\n"
+"    // ... use value ...\n"
+"}"
+msgstr ""
+
 #: ../../c-api/arg.rst:481
 msgid ""
 "A simpler form of parameter retrieval which does not use a format string to "
@@ -1155,6 +1173,22 @@ msgstr ""
 "Este é um exemplo do uso dessa função, tirado das fontes do módulo auxiliar "
 "para referências fracas :mod:`!_weakref`::"
 
+#: ../../c-api/arg.rst:499
+msgid ""
+"static PyObject *\n"
+"weakref_ref(PyObject *self, PyObject *args)\n"
+"{\n"
+"    PyObject *object;\n"
+"    PyObject *callback = NULL;\n"
+"    PyObject *result = NULL;\n"
+"\n"
+"    if (PyArg_UnpackTuple(args, \"ref\", 1, 2, &object, &callback)) {\n"
+"        result = PyWeakref_NewRef(object, callback);\n"
+"    }\n"
+"    return result;\n"
+"}"
+msgstr ""
+
 #: ../../c-api/arg.rst:512
 msgid ""
 "The call to :c:func:`PyArg_UnpackTuple` in this example is entirely "
@@ -1162,6 +1196,10 @@ msgid ""
 msgstr ""
 "A chamada à :c:func:`PyArg_UnpackTuple` neste exemplo é inteiramente "
 "equivalente à chamada para :c:func:`PyArg_ParseTuple`::"
+
+#: ../../c-api/arg.rst:515
+msgid "PyArg_ParseTuple(args, \"O|O:ref\", &object, &callback)"
+msgstr ""
 
 #: ../../c-api/arg.rst:519
 msgid ""

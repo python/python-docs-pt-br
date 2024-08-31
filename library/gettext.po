@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-31 14:14+0000\n"
+"POT-Creation-Date: 2024-08-31 10:59+0000\n"
 "PO-Revision-Date: 2021-06-28 01:06+0000\n"
 "Last-Translator: Adorilson Bezerra <adorilson@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -191,6 +191,16 @@ msgstr ""
 msgid "Here's an example of typical usage for this API::"
 msgstr "Aqui está um exemplo de uso típico para esta API::"
 
+#: ../../library/gettext.rst:106
+msgid ""
+"import gettext\n"
+"gettext.bindtextdomain('myapplication', '/path/to/my/language/directory')\n"
+"gettext.textdomain('myapplication')\n"
+"_ = gettext.gettext\n"
+"# ...\n"
+"print(_('This is a translatable string.'))"
+msgstr ""
+
 #: ../../library/gettext.rst:115
 msgid "Class-based API"
 msgstr "API baseada em classe"
@@ -344,6 +354,10 @@ msgstr ""
 "em sua aplicação, envolvendo-as em uma chamada para a função :func:`!_`, "
 "assim::"
 
+#: ../../library/gettext.rst:187
+msgid "print(_('This string will be translated.'))"
+msgstr ""
+
 #: ../../library/gettext.rst:189
 msgid ""
 "For convenience, you want the :func:`!_` function to be installed in "
@@ -496,6 +510,13 @@ msgstr ""
 "os módulos localizados nunca devem instalar :func:`!_`. Em vez disso, eles "
 "devem usar este código para disponibilizar :func:`!_` para seu módulo::"
 
+#: ../../library/gettext.rst:285
+msgid ""
+"import gettext\n"
+"t = gettext.translation('mymodule', ...)\n"
+"_ = t.gettext"
+msgstr ""
+
 #: ../../library/gettext.rst:289
 msgid ""
 "This puts :func:`!_` only in the module's global namespace and so only "
@@ -623,6 +644,16 @@ msgstr ""
 msgid "Here is an example::"
 msgstr "Aqui está um exemplo::"
 
+#: ../../library/gettext.rst:350
+msgid ""
+"n = len(os.listdir('.'))\n"
+"cat = GNUTranslations(somefile)\n"
+"message = cat.ngettext(\n"
+"    'There is %(num)d file in this directory',\n"
+"    'There are %(num)d files in this directory',\n"
+"    n) % {'num': n}"
+msgstr ""
+
 #: ../../library/gettext.rst:360
 msgid ""
 "Look up the *context* and *message* id in the catalog and return the "
@@ -684,6 +715,14 @@ msgid ""
 msgstr ""
 "O GNOME usa uma versão do módulo :mod:`gettext` de James Henstridge, mas "
 "esta versão tem uma API um pouco diferente. Seu uso documentado foi::"
+
+#: ../../library/gettext.rst:399
+msgid ""
+"import gettext\n"
+"cat = gettext.Catalog(domain, localedir)\n"
+"_ = cat.gettext\n"
+"print(_('hello world'))"
+msgstr ""
 
 #: ../../library/gettext.rst:404
 msgid ""
@@ -757,6 +796,14 @@ msgstr ""
 "em seus arquivos. Qualquer string que precise ser traduzida deve ser marcada "
 "envolvendo-a em ``_('...')`` --- isto é, uma chamada para a função :func:`_ "
 "<gettext>`. Por exemplo::"
+
+#: ../../library/gettext.rst:434
+msgid ""
+"filename = 'mylog.txt'\n"
+"message = _('writing a log message')\n"
+"with open(filename, 'w') as fp:\n"
+"    fp.write(message)"
+msgstr ""
 
 #: ../../library/gettext.rst:439
 msgid ""
@@ -880,6 +927,13 @@ msgstr ""
 "formato GNU :program:`gettext`. Aqui está o que você colocaria sobre o seu "
 "módulo::"
 
+#: ../../library/gettext.rst:496
+msgid ""
+"import gettext\n"
+"t = gettext.translation('spam', '/usr/share/locale')\n"
+"_ = t.gettext"
+msgstr ""
+
 #: ../../library/gettext.rst:502
 msgid "Localizing your application"
 msgstr "Localizando sua aplicação"
@@ -905,6 +959,12 @@ msgstr ""
 "No caso simples, você precisa adicionar apenas o seguinte código ao arquivo "
 "do driver principal da sua aplicação::"
 
+#: ../../library/gettext.rst:512
+msgid ""
+"import gettext\n"
+"gettext.install('myapplication')"
+msgstr ""
+
 #: ../../library/gettext.rst:515
 msgid ""
 "If you need to set the locale directory, you can pass it into the :func:"
@@ -912,6 +972,12 @@ msgid ""
 msgstr ""
 "Se você precisar definir o diretório da localidade, poderá passá-lo para a "
 "função :func:`install`::"
+
+#: ../../library/gettext.rst:518
+msgid ""
+"import gettext\n"
+"gettext.install('myapplication', '/usr/share/locale')"
+msgstr ""
 
 #: ../../library/gettext.rst:523
 msgid "Changing languages on the fly"
@@ -927,6 +993,24 @@ msgstr ""
 "convém criar várias instâncias de tradução e alternar entre elas "
 "explicitamente, assim::"
 
+#: ../../library/gettext.rst:529
+msgid ""
+"import gettext\n"
+"\n"
+"lang1 = gettext.translation('myapplication', languages=['en'])\n"
+"lang2 = gettext.translation('myapplication', languages=['fr'])\n"
+"lang3 = gettext.translation('myapplication', languages=['de'])\n"
+"\n"
+"# start by using language1\n"
+"lang1.install()\n"
+"\n"
+"# ... time goes by, user selects language 2\n"
+"lang2.install()\n"
+"\n"
+"# ... more time goes by, user selects language 3\n"
+"lang3.install()"
+msgstr ""
+
 #: ../../library/gettext.rst:546
 msgid "Deferred translations"
 msgstr "Traduções adiadas"
@@ -941,6 +1025,18 @@ msgstr ""
 "codificadas. Ocasionalmente, no entanto, é necessário marcar strings para "
 "tradução, mas adiar a tradução real até mais tarde. Um exemplo clássico é::"
 
+#: ../../library/gettext.rst:552
+msgid ""
+"animals = ['mollusk',\n"
+"           'albatross',\n"
+"           'rat',\n"
+"           'penguin',\n"
+"           'python', ]\n"
+"# ...\n"
+"for a in animals:\n"
+"    print(a)"
+msgstr ""
+
 #: ../../library/gettext.rst:561
 msgid ""
 "Here, you want to mark the strings in the ``animals`` list as being "
@@ -953,6 +1049,23 @@ msgstr ""
 #: ../../library/gettext.rst:565
 msgid "Here is one way you can handle this situation::"
 msgstr "Aqui está uma maneira de lidar com esta situação::"
+
+#: ../../library/gettext.rst:567
+msgid ""
+"def _(message): return message\n"
+"\n"
+"animals = [_('mollusk'),\n"
+"           _('albatross'),\n"
+"           _('rat'),\n"
+"           _('penguin'),\n"
+"           _('python'), ]\n"
+"\n"
+"del _\n"
+"\n"
+"# ...\n"
+"for a in animals:\n"
+"    print(_(a))"
+msgstr ""
 
 #: ../../library/gettext.rst:581
 msgid ""
@@ -981,6 +1094,21 @@ msgstr ""
 #: ../../library/gettext.rst:591
 msgid "Another way to handle this is with the following example::"
 msgstr "Outra maneira de lidar com isso é com o seguinte exemplo::"
+
+#: ../../library/gettext.rst:593
+msgid ""
+"def N_(message): return message\n"
+"\n"
+"animals = [N_('mollusk'),\n"
+"           N_('albatross'),\n"
+"           N_('rat'),\n"
+"           N_('penguin'),\n"
+"           N_('python'), ]\n"
+"\n"
+"# ...\n"
+"for a in animals:\n"
+"    print(_(a))"
+msgstr ""
 
 #: ../../library/gettext.rst:605
 msgid ""

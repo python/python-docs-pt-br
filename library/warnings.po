@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-11 02:33+0000\n"
+"POT-Creation-Date: 2024-08-31 10:59+0000\n"
 "PO-Revision-Date: 2021-06-28 01:17+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -463,6 +463,10 @@ msgid ""
 "by colons::"
 msgstr ""
 
+#: ../../library/warnings.rst:196
+msgid "action:message:category:module:line"
+msgstr ""
+
 #: ../../library/warnings.rst:198
 msgid ""
 "The meaning of each of these fields is as described in :ref:`warning-"
@@ -480,6 +484,19 @@ msgid ""
 "Some examples::"
 msgstr ""
 
+#: ../../library/warnings.rst:209
+msgid ""
+"default                      # Show all warnings (even those ignored by "
+"default)\n"
+"ignore                       # Ignore all warnings\n"
+"error                        # Convert all warnings to errors\n"
+"error::ResourceWarning       # Treat ResourceWarning messages as errors\n"
+"default::DeprecationWarning  # Show DeprecationWarning messages\n"
+"ignore,default:::mymodule    # Only report warnings triggered by "
+"\"mymodule\"\n"
+"error:::mymodule             # Convert warnings to errors in \"mymodule\""
+msgstr ""
+
 #: ../../library/warnings.rst:221
 msgid "Default Warning Filter"
 msgstr "Filtro de avisos padrão"
@@ -495,6 +512,15 @@ msgstr ""
 msgid ""
 "In regular release builds, the default warning filter has the following "
 "entries (in order of precedence)::"
+msgstr ""
+
+#: ../../library/warnings.rst:230
+msgid ""
+"default::DeprecationWarning:__main__\n"
+"ignore::DeprecationWarning\n"
+"ignore::PendingDeprecationWarning\n"
+"ignore::ImportWarning\n"
+"ignore::ResourceWarning"
 msgstr ""
 
 #: ../../library/warnings.rst:236
@@ -536,11 +562,30 @@ msgid ""
 "disabled::"
 msgstr ""
 
+#: ../../library/warnings.rst:263
+msgid ""
+"import sys\n"
+"\n"
+"if not sys.warnoptions:\n"
+"    import warnings\n"
+"    warnings.simplefilter(\"ignore\")"
+msgstr ""
+
 #: ../../library/warnings.rst:269
 msgid ""
 "Developers of test runners for Python code are advised to instead ensure "
 "that *all* warnings are displayed by default for the code under test, using "
 "code like::"
+msgstr ""
+
+#: ../../library/warnings.rst:273
+msgid ""
+"import sys\n"
+"\n"
+"if not sys.warnoptions:\n"
+"    import os, warnings\n"
+"    warnings.simplefilter(\"default\") # Change the filter in this process\n"
+"    os.environ[\"PYTHONWARNINGS\"] = \"default\" # Also affect subprocesses"
 msgstr ""
 
 #: ../../library/warnings.rst:280
@@ -549,6 +594,13 @@ msgid ""
 "other than ``__main__`` are advised to ensure that :exc:`DeprecationWarning` "
 "messages are made visible by default, using code like the following (where "
 "``user_ns`` is the module used to execute code entered interactively)::"
+msgstr ""
+
+#: ../../library/warnings.rst:285
+msgid ""
+"import warnings\n"
+"warnings.filterwarnings(\"default\", category=DeprecationWarning,\n"
+"                                   module=user_ns.get(\"__name__\"))"
 msgstr ""
 
 #: ../../library/warnings.rst:293
@@ -561,6 +613,18 @@ msgid ""
 "deprecated function, but do not want to see the warning (even when warnings "
 "have been explicitly configured via the command line), then it is possible "
 "to suppress the warning using the :class:`catch_warnings` context manager::"
+msgstr ""
+
+#: ../../library/warnings.rst:300
+msgid ""
+"import warnings\n"
+"\n"
+"def fxn():\n"
+"    warnings.warn(\"deprecated\", DeprecationWarning)\n"
+"\n"
+"with warnings.catch_warnings():\n"
+"    warnings.simplefilter(\"ignore\")\n"
+"    fxn()"
 msgstr ""
 
 #: ../../library/warnings.rst:309
@@ -583,6 +647,24 @@ msgid ""
 "manager. With it you can temporarily mutate the warnings filter to "
 "facilitate your testing. For instance, do the following to capture all "
 "raised warnings to check::"
+msgstr ""
+
+#: ../../library/warnings.rst:328
+msgid ""
+"import warnings\n"
+"\n"
+"def fxn():\n"
+"    warnings.warn(\"deprecated\", DeprecationWarning)\n"
+"\n"
+"with warnings.catch_warnings(record=True) as w:\n"
+"    # Cause all warnings to always be triggered.\n"
+"    warnings.simplefilter(\"always\")\n"
+"    # Trigger a warning.\n"
+"    fxn()\n"
+"    # Verify some things\n"
+"    assert len(w) == 1\n"
+"    assert issubclass(w[-1].category, DeprecationWarning)\n"
+"    assert \"deprecated\" in str(w[-1].message)"
 msgstr ""
 
 #: ../../library/warnings.rst:343
@@ -671,6 +753,12 @@ msgid ""
 "functions written in Python, like this::"
 msgstr ""
 
+#: ../../library/warnings.rst:410
+msgid ""
+"def deprecated_api(message):\n"
+"    warnings.warn(message, DeprecationWarning, stacklevel=2)"
+msgstr ""
+
 #: ../../library/warnings.rst:413
 msgid ""
 "This makes the warning refer to ``deprecated_api``'s caller, rather than to "
@@ -688,6 +776,23 @@ msgid ""
 "prefixes are supplied, stacklevel is implicitly overridden to be ``max(2, "
 "stacklevel)``. To cause a warning to be attributed to the caller from "
 "outside of the current package you might write::"
+msgstr ""
+
+#: ../../library/warnings.rst:426
+msgid ""
+"# example/lower.py\n"
+"_warn_skips = (os.path.dirname(__file__),)\n"
+"\n"
+"def one_way(r_luxury_yacht=None, t_wobbler_mangrove=None):\n"
+"    if r_luxury_yacht:\n"
+"        warnings.warn(\"Please migrate to t_wobbler_mangrove=.\",\n"
+"                      skip_file_prefixes=_warn_skips)\n"
+"\n"
+"# example/higher.py\n"
+"from . import lower\n"
+"\n"
+"def another_way(**kw):\n"
+"    lower.one_way(**kw)"
 msgstr ""
 
 #: ../../library/warnings.rst:440
@@ -798,6 +903,26 @@ msgstr ""
 #: ../../library/warnings.rst:534
 msgid "Usage::"
 msgstr "Uso::"
+
+#: ../../library/warnings.rst:536
+msgid ""
+"from warnings import deprecated\n"
+"from typing import overload\n"
+"\n"
+"@deprecated(\"Use B instead\")\n"
+"class A:\n"
+"    pass\n"
+"\n"
+"@deprecated(\"Use g instead\")\n"
+"def f():\n"
+"    pass\n"
+"\n"
+"@overload\n"
+"@deprecated(\"int support is deprecated\")\n"
+"def g(x: int) -> int: ...\n"
+"@overload\n"
+"def g(x: str) -> int: ..."
+msgstr ""
 
 #: ../../library/warnings.rst:553
 msgid ""

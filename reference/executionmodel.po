@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-11 18:37+0000\n"
+"POT-Creation-Date: 2024-08-31 10:59+0000\n"
 "PO-Revision-Date: 2021-06-28 01:19+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -343,9 +343,25 @@ msgstr ""
 "inclui :ref:`escopos de anotação <annotation-scopes>`, que têm acesso a seus "
 "escopos de classe delimitadores. Isso significa que o seguinte falhará::"
 
+#: ../../reference/executionmodel.rst:176
+msgid ""
+"class A:\n"
+"    a = 42\n"
+"    b = list(a + i for i in range(10))"
+msgstr ""
+
 #: ../../reference/executionmodel.rst:180
 msgid "However, the following will succeed::"
 msgstr "Porém, o seguinte vai funcionar::"
+
+#: ../../reference/executionmodel.rst:182
+msgid ""
+"class A:\n"
+"    type Alias = Nested\n"
+"    class Nested: pass\n"
+"\n"
+"print(A.Alias.__value__)  # <type 'A.Nested'>"
+msgstr ""
 
 #: ../../reference/executionmodel.rst:191
 msgid "Annotation scopes"
@@ -508,6 +524,21 @@ msgstr ""
 msgid "Example:"
 msgstr "Exemplo:"
 
+#: ../../reference/executionmodel.rst:253
+msgid ""
+">>> type Alias = 1/0\n"
+">>> Alias.__value__\n"
+"Traceback (most recent call last):\n"
+"  ...\n"
+"ZeroDivisionError: division by zero\n"
+">>> def func[T: 1/0](): pass\n"
+">>> T = func.__type_params__[0]\n"
+">>> T.__bound__\n"
+"Traceback (most recent call last):\n"
+"  ...\n"
+"ZeroDivisionError: division by zero"
+msgstr ""
+
 #: ../../reference/executionmodel.rst:267
 msgid ""
 "Here the exception is raised only when the ``__value__`` attribute of the "
@@ -526,6 +557,15 @@ msgstr ""
 "não foram definidos quando o alias de tipo ou variável de tipo é criado. Por "
 "exemplo, a avaliação preguiçosa permite a criação de apelidos de tipo "
 "mutuamente recursivos::"
+
+#: ../../reference/executionmodel.rst:275
+msgid ""
+"from typing import Literal\n"
+"\n"
+"type SimpleExpr = int | Parenthesized\n"
+"type Parenthesized = tuple[Literal[\"(\"], Expr, Literal[\")\"]]\n"
+"type Expr = SimpleExpr | tuple[SimpleExpr, Literal[\"+\", \"-\"], Expr]"
+msgstr ""
 
 #: ../../reference/executionmodel.rst:281
 msgid ""
@@ -583,6 +623,15 @@ msgid ""
 msgstr ""
 "A resolução de nome de variáveis livres ocorre em tempo de execução, não em "
 "tempo de compilação. Isso significa que o código a seguir imprimirá 42::"
+
+#: ../../reference/executionmodel.rst:318
+msgid ""
+"i = 10\n"
+"def f():\n"
+"    print(i)\n"
+"i = 42\n"
+"f()"
+msgstr ""
 
 #: ../../reference/executionmodel.rst:326
 msgid ""

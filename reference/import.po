@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-29 04:06+0000\n"
+"POT-Creation-Date: 2024-08-31 10:59+0000\n"
 "PO-Revision-Date: 2021-06-28 01:49+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -235,6 +235,18 @@ msgid ""
 msgstr ""
 "Por exemplo, o layout do sistema de arquivos a seguir define um pacote "
 "``parent`` de nível superior com três subpacotes::"
+
+#: ../../reference/import.rst:111
+msgid ""
+"parent/\n"
+"    __init__.py\n"
+"    one/\n"
+"        __init__.py\n"
+"    two/\n"
+"        __init__.py\n"
+"    three/\n"
+"        __init__.py"
+msgstr ""
 
 #: ../../reference/import.rst:120
 msgid ""
@@ -683,6 +695,38 @@ msgstr ""
 "do módulo. Aqui está uma aproximação do que acontece durante a etapa de "
 "carregamento de uma importação::"
 
+#: ../../reference/import.rst:348
+msgid ""
+"module = None\n"
+"if spec.loader is not None and hasattr(spec.loader, 'create_module'):\n"
+"    # It is assumed 'exec_module' will also be defined on the loader.\n"
+"    module = spec.loader.create_module(spec)\n"
+"if module is None:\n"
+"    module = ModuleType(spec.name)\n"
+"# The import-related module attributes get set here:\n"
+"_init_module_attrs(spec, module)\n"
+"\n"
+"if spec.loader is None:\n"
+"    # unsupported\n"
+"    raise ImportError\n"
+"if spec.origin is None and spec.submodule_search_locations is not None:\n"
+"    # namespace package\n"
+"    sys.modules[spec.name] = module\n"
+"elif not hasattr(spec.loader, 'exec_module'):\n"
+"    module = spec.loader.load_module(spec.name)\n"
+"else:\n"
+"    sys.modules[spec.name] = module\n"
+"    try:\n"
+"        spec.loader.exec_module(module)\n"
+"    except BaseException:\n"
+"        try:\n"
+"            del sys.modules[spec.name]\n"
+"        except KeyError:\n"
+"            pass\n"
+"        raise\n"
+"return sys.modules[spec.name]"
+msgstr ""
+
 #: ../../reference/import.rst:377
 msgid "Note the following details:"
 msgstr "Perceba os seguintes detalhes:"
@@ -943,9 +987,20 @@ msgstr ""
 "``foo`` que está vinculado ao submódulo. Digamos que você tenha a seguinte "
 "estrutura de diretórios::"
 
+#: ../../reference/import.rst:493
+msgid ""
+"spam/\n"
+"    __init__.py\n"
+"    foo.py"
+msgstr ""
+
 #: ../../reference/import.rst:497
 msgid "and ``spam/__init__.py`` has the following line in it::"
 msgstr "e ``spam/__init__.py`` tem a seguinte linha::"
+
+#: ../../reference/import.rst:499
+msgid "from .foo import Foo"
+msgstr ""
 
 #: ../../reference/import.rst:501
 msgid ""
@@ -954,6 +1009,15 @@ msgid ""
 msgstr ""
 "então executar o seguinte coloca ligações de nome para ``foo`` e ``Foo`` no "
 "módulo ``spam``::"
+
+#: ../../reference/import.rst:504
+msgid ""
+">>> import spam\n"
+">>> spam.foo\n"
+"<module 'spam.foo' from '/tmp/imports/spam/foo.py'>\n"
+">>> spam.Foo\n"
+"<class 'spam.foo.Foo'>"
+msgstr ""
 
 #: ../../reference/import.rst:510
 msgid ""
@@ -1893,6 +1957,20 @@ msgstr ""
 "pacote atual, um nível por ponto após o primeiro. Por exemplo, dado o "
 "seguinte layout de pacote::"
 
+#: ../../reference/import.rst:965
+msgid ""
+"package/\n"
+"    __init__.py\n"
+"    subpackage1/\n"
+"        __init__.py\n"
+"        moduleX.py\n"
+"        moduleY.py\n"
+"    subpackage2/\n"
+"        __init__.py\n"
+"        moduleZ.py\n"
+"    moduleA.py"
+msgstr ""
+
 #: ../../reference/import.rst:976
 msgid ""
 "In either ``subpackage1/moduleX.py`` or ``subpackage1/__init__.py``, the "
@@ -1900,6 +1978,16 @@ msgid ""
 msgstr ""
 "Em ``subpackage1/moduleX.py`` ou ``subpackage1/__init__.py``, as seguintes "
 "são importações relativas válidas:"
+
+#: ../../reference/import.rst:979
+msgid ""
+"from .moduleY import spam\n"
+"from .moduleY import spam as ham\n"
+"from . import moduleY\n"
+"from ..subpackage1 import moduleY\n"
+"from ..subpackage2.moduleZ import eggs\n"
+"from ..moduleA import foo"
+msgstr ""
 
 #: ../../reference/import.rst:986
 msgid ""
@@ -1910,6 +1998,10 @@ msgstr ""
 "Importações absolutas podem usar a sintaxe ``import <>`` ou ``from <> import "
 "<>``, mas importações relativas podem usar apenas a segunda forma; o motivo "
 "para isso é que:"
+
+#: ../../reference/import.rst:990
+msgid "import XXX.YYY.ZZZ"
+msgstr ""
 
 #: ../../reference/import.rst:992
 msgid ""

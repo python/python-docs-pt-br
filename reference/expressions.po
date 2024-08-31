@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-29 04:06+0000\n"
+"POT-Creation-Date: 2024-08-31 10:59+0000\n"
 "PO-Revision-Date: 2021-06-28 01:49+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -724,6 +724,15 @@ msgstr ""
 "geradora, e usá-la no corpo de uma função :keyword:`async def` faz com que "
 "essa função de corrotina seja uma função geradora assíncrona. Por exemplo::"
 
+#: ../../reference/expressions.rst:466
+msgid ""
+"def gen():  # defines a generator function\n"
+"    yield 123\n"
+"\n"
+"async def agen(): # defines an asynchronous generator function\n"
+"    yield 123"
+msgstr ""
+
 #: ../../reference/expressions.rst:472
 msgid ""
 "Due to their side effects on the containing scope, ``yield`` expressions are "
@@ -1067,6 +1076,34 @@ msgid ""
 msgstr ""
 "Aqui está um exemplo simples que demonstra o comportamento de geradores e "
 "funções geradoras::"
+
+#: ../../reference/expressions.rst:652
+msgid ""
+">>> def echo(value=None):\n"
+"...     print(\"Execution starts when 'next()' is called for the first time."
+"\")\n"
+"...     try:\n"
+"...         while True:\n"
+"...             try:\n"
+"...                 value = (yield value)\n"
+"...             except Exception as e:\n"
+"...                 value = e\n"
+"...     finally:\n"
+"...         print(\"Don't forget to clean up when 'close()' is called.\")\n"
+"...\n"
+">>> generator = echo(1)\n"
+">>> print(next(generator))\n"
+"Execution starts when 'next()' is called for the first time.\n"
+"1\n"
+">>> print(next(generator))\n"
+"None\n"
+">>> print(generator.send(2))\n"
+"2\n"
+">>> generator.throw(TypeError, \"spam\")\n"
+"TypeError('spam',)\n"
+">>> generator.close()\n"
+"Don't forget to clean up when 'close()' is called."
+msgstr ""
 
 #: ../../reference/expressions.rst:676
 msgid ""
@@ -1713,6 +1750,21 @@ msgstr ""
 "*depois* de argumentos nomeados explícitos, ela é processada *antes* dos "
 "argumentos nomeados (e de quaisquer argumentos de ``**expressão`` -- veja "
 "abaixo). Então::"
+
+#: ../../reference/expressions.rst:1095
+msgid ""
+">>> def f(a, b):\n"
+"...     print(a, b)\n"
+"...\n"
+">>> f(b=1, *(2,))\n"
+"2 1\n"
+">>> f(a=1, *(2,))\n"
+"Traceback (most recent call last):\n"
+"  File \"<stdin>\", line 1, in <module>\n"
+"TypeError: f() got multiple values for keyword argument 'a'\n"
+">>> f(1, *(2,))\n"
+"1 2"
+msgstr ""
 
 #: ../../reference/expressions.rst:1107
 msgid ""
@@ -2871,9 +2923,21 @@ msgid "One common use case is when handling matched regular expressions:"
 msgstr ""
 "Um caso de uso comum é ao lidar com expressões regulares correspondentes:"
 
+#: ../../reference/expressions.rst:1820
+msgid ""
+"if matching := pattern.search(data):\n"
+"    do_something(matching)"
+msgstr ""
+
 #: ../../reference/expressions.rst:1825
 msgid "Or, when processing a file stream in chunks:"
 msgstr "Ou, ao processar um fluxo de arquivos em partes:"
+
+#: ../../reference/expressions.rst:1827
+msgid ""
+"while chunk := file.read(9000):\n"
+"    process(chunk)"
+msgstr ""
 
 #: ../../reference/expressions.rst:1832
 msgid ""
@@ -2936,6 +3000,12 @@ msgstr ""
 "criar funções anônimas. A expressão ``lambda parameters: expression`` produz "
 "um objeto função. O objeto sem nome se comporta como um objeto de função "
 "definido com:"
+
+#: ../../reference/expressions.rst:1888
+msgid ""
+"def <lambda>(parameters):\n"
+"    return expression"
+msgstr ""
 
 #: ../../reference/expressions.rst:1893
 msgid ""
@@ -3014,6 +3084,16 @@ msgid ""
 msgstr ""
 "Nas linhas a seguir, as expressões serão avaliadas na ordem aritmética de "
 "seus sufixos::"
+
+#: ../../reference/expressions.rst:1955
+msgid ""
+"expr1, expr2, expr3, expr4\n"
+"(expr1, expr2, expr3, expr4)\n"
+"{expr1: expr2, expr3: expr4}\n"
+"expr1 + expr2 * (expr3 - expr4)\n"
+"expr1(expr2, expr3, *expr4, **expr5)\n"
+"expr3, expr4 = expr1, expr2"
+msgstr ""
 
 #: ../../reference/expressions.rst:1966
 msgid "Operator precedence"

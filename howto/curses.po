@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-23 14:16+0000\n"
+"POT-Creation-Date: 2024-08-31 10:59+0000\n"
 "PO-Revision-Date: 2021-06-28 00:53+0000\n"
 "Last-Translator: Adorilson Bezerra <adorilson@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -185,6 +185,12 @@ msgid ""
 "after the name of the corresponding C variable. ::"
 msgstr ""
 
+#: ../../howto/curses.rst:90
+msgid ""
+"import curses\n"
+"stdscr = curses.initscr()"
+msgstr ""
+
 #: ../../howto/curses.rst:93
 msgid ""
 "Usually curses applications turn off automatic echoing of keys to the "
@@ -195,6 +201,10 @@ msgstr ""
 "tela, para que seja possível ler chaves e somente exibi-las sob certas "
 "circunstâncias. Isto requer a chamada da função :func:`~curses.noecho`. ::"
 
+#: ../../howto/curses.rst:98
+msgid "curses.noecho()"
+msgstr ""
+
 #: ../../howto/curses.rst:100
 msgid ""
 "Applications will also commonly need to react to keys instantly, without "
@@ -204,6 +214,10 @@ msgstr ""
 "Aplicações também irão comumente precisar reagir a teclas instantaneamente, "
 "sem requisitar que a tecla Enter seja pressionada; isto é chamado de modo "
 "cbreak, ao contrário do modo de entrada buferizada usual. ::"
+
+#: ../../howto/curses.rst:104
+msgid "curses.cbreak()"
+msgstr ""
 
 #: ../../howto/curses.rst:106
 msgid ""
@@ -221,6 +235,10 @@ msgstr ""
 "valor especial como :const:`curses.KEY_LEFT`. Para permitir que curses faça "
 "esse trabalho, você precisará habilitar o modo keypad. ::"
 
+#: ../../howto/curses.rst:113
+msgid "stdscr.keypad(True)"
+msgstr ""
+
 #: ../../howto/curses.rst:115
 msgid ""
 "Terminating a curses application is much easier than starting one. You'll "
@@ -228,6 +246,13 @@ msgid ""
 msgstr ""
 "Finalizar uma aplicação curses é mais fácil do que iniciar uma. Você "
 "precisará executar::"
+
+#: ../../howto/curses.rst:118
+msgid ""
+"curses.nocbreak()\n"
+"stdscr.keypad(False)\n"
+"curses.echo()"
+msgstr ""
 
 #: ../../howto/curses.rst:122
 msgid ""
@@ -238,6 +263,10 @@ msgstr ""
 "para reverter as configurações de terminal amigáveis da curses. Então chame "
 "a função :func:`~curses.endwin` para restaurar o terminal para seu modo de "
 "operação original. ::"
+
+#: ../../howto/curses.rst:126
+msgid "curses.endwin()"
+msgstr ""
 
 #: ../../howto/curses.rst:128
 msgid ""
@@ -262,6 +291,25 @@ msgstr ""
 "No Python você pode evitar essas complicações e fazer depurações de forma "
 "mais simples importando a função :func:`curses.wrapper` e utilizando-a desta "
 "forma::"
+
+#: ../../howto/curses.rst:137
+msgid ""
+"from curses import wrapper\n"
+"\n"
+"def main(stdscr):\n"
+"    # Clear screen\n"
+"    stdscr.clear()\n"
+"\n"
+"    # This raises ZeroDivisionError when i == 10.\n"
+"    for i in range(0, 11):\n"
+"        v = i-10\n"
+"        stdscr.addstr(i, 0, '10 divided by {} is {}'.format(v, 10/v))\n"
+"\n"
+"    stdscr.refresh()\n"
+"    stdscr.getkey()\n"
+"\n"
+"wrapper(main)"
+msgstr ""
 
 #: ../../howto/curses.rst:153
 msgid ""
@@ -305,6 +353,13 @@ msgstr ""
 "janelas menores, a fim de redefini-las ou limpá-las separadamente. A função :"
 "func:`~curses.newwin` cria uma nova janela de um dado tamanho, retornando o "
 "novo objeto janela. ::"
+
+#: ../../howto/curses.rst:178
+msgid ""
+"begin_x = 20; begin_y = 7\n"
+"height = 5; width = 40\n"
+"win = curses.newwin(height, width, begin_y, begin_x)"
+msgstr ""
 
 #: ../../howto/curses.rst:182
 msgid ""
@@ -377,6 +432,24 @@ msgstr ""
 "atual, e apenas uma porção do pad exibido por vez. Criar um pad requer sua "
 "altura e largura, enquanto atualizar o pad requer dar as coordenadas da área "
 "na tela onde uma subseção do pad será exibida. ::"
+
+#: ../../howto/curses.rst:223
+msgid ""
+"pad = curses.newpad(100, 100)\n"
+"# These loops fill the pad with letters; addch() is\n"
+"# explained in the next section\n"
+"for y in range(0, 99):\n"
+"    for x in range(0, 99):\n"
+"        pad.addch(y,x, ord('a') + (x*x+y*y) % 26)\n"
+"\n"
+"# Displays a section of the pad in the middle of the screen.\n"
+"# (0,0) : coordinate of upper-left corner of pad area to display.\n"
+"# (5,5) : coordinate of upper-left corner of window area to be filled\n"
+"#         with pad content.\n"
+"# (20, 75) : coordinate of lower-right corner of window area to be\n"
+"#          : filled with pad content.\n"
+"pad.refresh( 0,0, 5,5, 20,75)"
+msgstr ""
 
 #: ../../howto/curses.rst:238
 msgid ""
@@ -646,6 +719,13 @@ msgid ""
 "you could code::"
 msgstr ""
 
+#: ../../howto/curses.rst:364
+msgid ""
+"stdscr.addstr(0, 0, \"Current mode: Typing mode\",\n"
+"              curses.A_REVERSE)\n"
+"stdscr.refresh()"
+msgstr ""
+
 #: ../../howto/curses.rst:368
 msgid ""
 "The curses library also supports color on those terminals that provide it. "
@@ -679,6 +759,12 @@ msgstr ""
 msgid "An example, which displays a line of text using color pair 1::"
 msgstr ""
 
+#: ../../howto/curses.rst:391
+msgid ""
+"stdscr.addstr(\"Pretty text\", curses.color_pair(1))\n"
+"stdscr.refresh()"
+msgstr ""
+
 #: ../../howto/curses.rst:394
 msgid ""
 "As I said before, a color pair consists of a foreground and background "
@@ -702,11 +788,19 @@ msgid ""
 "background, you would call::"
 msgstr ""
 
+#: ../../howto/curses.rst:408
+msgid "curses.init_pair(1, curses.COLOR_RED, curses.COLOR_WHITE)"
+msgstr ""
+
 #: ../../howto/curses.rst:410
 msgid ""
 "When you change a color pair, any text already displayed using that color "
 "pair will change to the new colors.  You can also display new text in this "
 "color with::"
+msgstr ""
+
+#: ../../howto/curses.rst:414
+msgid "stdscr.addstr(0,0, \"RED ALERT!\", curses.color_pair(1))"
 msgstr ""
 
 #: ../../howto/curses.rst:416
@@ -774,6 +868,18 @@ msgid ""
 "program may look something like this::"
 msgstr ""
 
+#: ../../howto/curses.rst:462
+msgid ""
+"while True:\n"
+"    c = stdscr.getch()\n"
+"    if c == ord('p'):\n"
+"        PrintDocument()\n"
+"    elif c == ord('q'):\n"
+"        break  # Exit the while loop\n"
+"    elif c == curses.KEY_HOME:\n"
+"        x = y = 0"
+msgstr ""
+
 #: ../../howto/curses.rst:471
 msgid ""
 "The :mod:`curses.ascii` module supplies ASCII class membership functions "
@@ -793,12 +899,41 @@ msgid ""
 "number of characters. ::"
 msgstr ""
 
+#: ../../howto/curses.rst:484
+msgid ""
+"curses.echo()            # Enable echoing of characters\n"
+"\n"
+"# Get a 15-character string, with the cursor on the top line\n"
+"s = stdscr.getstr(0,0, 15)"
+msgstr ""
+
 #: ../../howto/curses.rst:489
 msgid ""
 "The :mod:`curses.textpad` module supplies a text box that supports an Emacs-"
 "like set of keybindings.  Various methods of the :class:`~curses.textpad."
 "Textbox` class support editing with input validation and gathering the edit "
 "results either with or without trailing spaces.  Here's an example::"
+msgstr ""
+
+#: ../../howto/curses.rst:495
+msgid ""
+"import curses\n"
+"from curses.textpad import Textbox, rectangle\n"
+"\n"
+"def main(stdscr):\n"
+"    stdscr.addstr(0, 0, \"Enter IM message: (hit Ctrl-G to send)\")\n"
+"\n"
+"    editwin = curses.newwin(5,30, 2,1)\n"
+"    rectangle(stdscr, 1,0, 1+5+1, 1+30+1)\n"
+"    stdscr.refresh()\n"
+"\n"
+"    box = Textbox(editwin)\n"
+"\n"
+"    # Let the user edit until Ctrl-G is struck.\n"
+"    box.edit()\n"
+"\n"
+"    # Get resulting contents\n"
+"    message = box.gather()"
 msgstr ""
 
 #: ../../howto/curses.rst:513

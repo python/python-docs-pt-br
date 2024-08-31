@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-30 14:16+0000\n"
+"POT-Creation-Date: 2024-08-31 10:59+0000\n"
 "PO-Revision-Date: 2023-05-24 13:08+0000\n"
 "Last-Translator: Adorilson Bezerra <adorilson@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -371,6 +371,19 @@ msgstr ""
 "ref:`classes genéricas <generic-classes>` e :ref:`funções <generic-"
 "functions>`::"
 
+#: ../../whatsnew/3.12.rst:190
+msgid ""
+"def max[T](args: Iterable[T]) -> T:\n"
+"    ...\n"
+"\n"
+"class list[T]:\n"
+"    def __getitem__(self, index: int, /) -> T:\n"
+"        ...\n"
+"\n"
+"    def append(self, element: T) -> None:\n"
+"        ..."
+msgstr ""
+
 #: ../../whatsnew/3.12.rst:200
 msgid ""
 "In addition, the PEP introduces a new way to declare :ref:`type aliases "
@@ -381,11 +394,19 @@ msgstr ""
 "tipos <type-aliases>` usando a instrução :keyword:`type`, que cria uma "
 "instância de :class:`~typing.TypeAliasType`::"
 
+#: ../../whatsnew/3.12.rst:204
+msgid "type Point = tuple[float, float]"
+msgstr ""
+
 #: ../../whatsnew/3.12.rst:206
 msgid "Type aliases can also be :ref:`generic <generic-type-aliases>`::"
 msgstr ""
 "Os apelidos de tipo também podem ser :ref:`genéricos <generic-type-"
 "aliases>`::"
+
+#: ../../whatsnew/3.12.rst:208
+msgid "type Point[T] = tuple[T, T]"
+msgstr ""
 
 #: ../../whatsnew/3.12.rst:210
 msgid ""
@@ -396,6 +417,15 @@ msgstr ""
 "A nova sintaxe permite declarar os parâmetros :class:`~typing.TypeVarTuple` "
 "e :class:`~typing.ParamSpec`, bem como os parâmetros :class:`~typing."
 "TypeVar` com limites ou restrições::"
+
+#: ../../whatsnew/3.12.rst:214
+msgid ""
+"type IntFunc[**P] = Callable[P, int]  # ParamSpec\n"
+"type LabeledTuple[*Ts] = tuple[str, *Ts]  # TypeVarTuple\n"
+"type HashableSequence[T: Hashable] = Sequence[T]  # TypeVar with bound\n"
+"type IntOrStrSequence[T: (int, str)] = Sequence[T]  # TypeVar with "
+"constraints"
+msgstr ""
 
 #: ../../whatsnew/3.12.rst:219
 msgid ""
@@ -551,6 +581,15 @@ msgstr ""
 "do erro. Por exemplo, no Python 3.11, a seguinte f-string levanta um :exc:"
 "`SyntaxError`:"
 
+#: ../../whatsnew/3.12.rst:310
+msgid ""
+">>> my_string = f\"{x z y}\" + f\"{1 + 1}\"\n"
+"  File \"<stdin>\", line 1\n"
+"    (x z y)\n"
+"     ^^^\n"
+"SyntaxError: f-string: invalid syntax. Perhaps you forgot a comma?"
+msgstr ""
+
 #: ../../whatsnew/3.12.rst:318
 msgid ""
 "but the error message doesn't include the exact location of the error within "
@@ -562,6 +601,15 @@ msgstr ""
 "também tem a expressão artificialmente cercada por parênteses. No Python "
 "3.12, como as f-strings são analisadas com o analisador GASE, as mensagens "
 "de erro podem ser mais precisas e mostrar a linha inteira:"
+
+#: ../../whatsnew/3.12.rst:322
+msgid ""
+">>> my_string = f\"{x z y}\" + f\"{1 + 1}\"\n"
+"  File \"<stdin>\", line 1\n"
+"    my_string = f\"{x z y}\" + f\"{1 + 1}\"\n"
+"                   ^^^\n"
+"SyntaxError: invalid syntax. Perhaps you forgot a comma?"
+msgstr ""
 
 #: ../../whatsnew/3.12.rst:330
 msgid ""
@@ -598,6 +646,20 @@ msgid ""
 msgstr ""
 "Use a nova função :c:func:`Py_NewInterpreterFromConfig` para criar um "
 "interpretador com sua própria GIL:"
+
+#: ../../whatsnew/3.12.rst:348
+msgid ""
+"PyInterpreterConfig config = {\n"
+"    .check_multi_interp_extensions = 1,\n"
+"    .gil = PyInterpreterConfig_OWN_GIL,\n"
+"};\n"
+"PyThreadState *tstate = NULL;\n"
+"PyStatus status = Py_NewInterpreterFromConfig(&tstate, &config);\n"
+"if (PyStatus_Exception(status)) {\n"
+"    return -1;\n"
+"}\n"
+"/* The new interpreter is now active in the current thread. */"
+msgstr ""
 
 #: ../../whatsnew/3.12.rst:361
 msgid ""
@@ -825,6 +887,17 @@ msgstr ""
 "A :pep:`692` especifica uma maneira mais precisa de definir tipos de "
 "``**kwargs``, contando com dicionários tipados::"
 
+#: ../../whatsnew/3.12.rst:497
+msgid ""
+"from typing import TypedDict, Unpack\n"
+"\n"
+"class Movie(TypedDict):\n"
+"  name: str\n"
+"  year: int\n"
+"\n"
+"def foo(**kwargs: Unpack[Movie]): ..."
+msgstr ""
+
 #: ../../whatsnew/3.12.rst:505
 msgid "See :pep:`692` for more details."
 msgstr "Veja :pep:`692` para mais detalhes."
@@ -854,6 +927,25 @@ msgstr ""
 #: ../../whatsnew/3.12.rst:520
 msgid "Example::"
 msgstr "Exemplo::"
+
+#: ../../whatsnew/3.12.rst:522
+msgid ""
+"from typing import override\n"
+"\n"
+"class Base:\n"
+"  def get_color(self) -> str:\n"
+"    return \"blue\"\n"
+"\n"
+"class GoodChild(Base):\n"
+"  @override  # ok: overrides Base.get_color\n"
+"  def get_color(self) -> str:\n"
+"    return \"yellow\"\n"
+"\n"
+"class BadChild(Base):\n"
+"  @override  # type checker error: does not override Base.get_color\n"
+"  def get_colour(self) -> str:\n"
+"    return \"red\""
+msgstr ""
 
 #: ../../whatsnew/3.12.rst:538
 msgid "See :pep:`698` for more details."
@@ -1809,6 +1901,27 @@ msgstr ""
 "nas verificações de :func:`isinstance` comparando objetos com o protocolo. "
 "Por exemplo::"
 
+#: ../../whatsnew/3.12.rst:984
+msgid ""
+">>> from typing import Protocol, runtime_checkable\n"
+">>> @runtime_checkable\n"
+"... class HasX(Protocol):\n"
+"...     x = 1\n"
+"...\n"
+">>> class Foo: ...\n"
+"...\n"
+">>> f = Foo()\n"
+">>> isinstance(f, HasX)\n"
+"False\n"
+">>> f.x = 1\n"
+">>> isinstance(f, HasX)\n"
+"True\n"
+">>> HasX.y = 2\n"
+">>> isinstance(f, HasX)  # unchanged, even though HasX now also has a \"y\" "
+"attribute\n"
+"True"
+msgstr ""
+
 #: ../../whatsnew/3.12.rst:1001
 msgid ""
 "This change was made in order to speed up ``isinstance()`` checks against "
@@ -1876,6 +1989,23 @@ msgid ""
 msgstr ""
 "Adiciona uma opção de linha de comando ``--durations``, mostrando os N casos "
 "de teste mais lentos::"
+
+#: ../../whatsnew/3.12.rst:1030
+msgid ""
+"python3 -m unittest --durations=3 lib.tests.test_threading\n"
+".....\n"
+"Slowest test durations\n"
+"----------------------------------------------------------------------\n"
+"1.210s     test_timeout (Lib.test.test_threading.BarrierTests)\n"
+"1.003s     test_default_timeout (Lib.test.test_threading.BarrierTests)\n"
+"0.518s     test_timeout (Lib.test.test_threading.EventTests)\n"
+"\n"
+"(0.000 durations hidden.  Use -v to show these durations.)\n"
+"----------------------------------------------------------------------\n"
+"Ran 158 tests in 9.869s\n"
+"\n"
+"OK (skipped=3)"
+msgstr ""
 
 #: ../../whatsnew/3.12.rst:1044
 msgid "(Contributed by Giampaolo Rodola in :gh:`48330`)"
@@ -2733,13 +2863,10 @@ msgstr "``read_text()``"
 
 #: ../../deprecations/pending-removal-in-3.13.rst:51
 msgid ""
-"Use :func:`importlib.resources.files()` instead.  Refer to `importlib-"
+"Use :func:`importlib.resources.files` instead.  Refer to `importlib-"
 "resources: Migrating from Legacy <https://importlib-resources.readthedocs.io/"
 "en/latest/using.html#migrating-from-legacy>`_ (:gh:`106531`)"
 msgstr ""
-"Use :func:`importlib.resources.files()` em vez disso. Confira `importlib-"
-"resources: Migrando do legado <https://importlib-resources.readthedocs.io/en/"
-"latest/using.html#migrating-from-legacy>`_ , em inglês (:gh:`106531`)"
 
 #: ../../deprecations/c-api-pending-removal-in-3.14.rst:2
 #: ../../deprecations/pending-removal-in-3.14.rst:2
@@ -2938,15 +3065,10 @@ msgstr ""
 msgid ""
 ":class:`locale`: :func:`locale.getdefaultlocale` was deprecated in Python "
 "3.11 and originally planned for removal in Python 3.13 (:gh:`90817`), but "
-"removal has been postponed to Python 3.15. Use :func:`locale.setlocale()`, :"
-"func:`locale.getencoding()` and :func:`locale.getlocale()` instead. "
-"(Contributed by Hugo van Kemenade in :gh:`111187`.)"
+"removal has been postponed to Python 3.15. Use :func:`locale.setlocale`, :"
+"func:`locale.getencoding` and :func:`locale.getlocale` instead. (Contributed "
+"by Hugo van Kemenade in :gh:`111187`.)"
 msgstr ""
-":class:`locale`: :func:`locale.getdefaultlocale` foi descontinuada no Python "
-"3.11 e originalmente planejada para remoção no Python 3.13 (:gh:`90817`), "
-"mas a remoção foi adiada para o Python 3.15. Use :func:`locale."
-"setlocale()`, :func:`locale.getencoding()` e :func:`locale.getlocale()` em "
-"vez disso. (Contribuição de Hugo van Kemenade em :gh:`111187`.)"
 
 #: ../../deprecations/pending-removal-in-3.15.rst:16
 msgid ""
@@ -3672,16 +3794,11 @@ msgstr "hashlib"
 #: ../../whatsnew/3.12.rst:1424
 msgid ""
 "Remove the pure Python implementation of :mod:`hashlib`'s :func:`hashlib."
-"pbkdf2_hmac()`, deprecated in Python 3.10. Python 3.10 and newer requires "
+"pbkdf2_hmac`, deprecated in Python 3.10. Python 3.10 and newer requires "
 "OpenSSL 1.1.1 (:pep:`644`): this OpenSSL version provides a C implementation "
-"of :func:`~hashlib.pbkdf2_hmac()` which is faster. (Contributed by Victor "
+"of :func:`~hashlib.pbkdf2_hmac` which is faster. (Contributed by Victor "
 "Stinner in :gh:`94199`.)"
 msgstr ""
-"Remove a implementação Python pura de :func:`hashlib.pbkdf2_hmac()` de :mod:"
-"`hashlib`, descontinuado em Python 3.10. Python 3.10 e mais recente requer "
-"OpenSSL 1.1.1 (:pep:`644`): esta versão do OpenSSL fornece uma implementação "
-"C de :func:`~hashlib.pbkdf2_hmac()` que é mais rápida. (Contribuição de "
-"Victor Stinner em :gh:`94199`.)"
 
 #: ../../whatsnew/3.12.rst:1431 ../../whatsnew/3.12.rst:1458
 msgid "importlib"
@@ -3840,6 +3957,23 @@ msgstr "*Veja abaixo*"
 #: ../../whatsnew/3.12.rst:1473
 msgid "Replace ``imp.load_source()`` with::"
 msgstr "Substitua ``imp.load_source()`` com::"
+
+#: ../../whatsnew/3.12.rst:1475
+msgid ""
+"import importlib.util\n"
+"import importlib.machinery\n"
+"\n"
+"def load_source(modname, filename):\n"
+"    loader = importlib.machinery.SourceFileLoader(modname, filename)\n"
+"    spec = importlib.util.spec_from_file_location(modname, filename, "
+"loader=loader)\n"
+"    module = importlib.util.module_from_spec(spec)\n"
+"    # The module is always executed and not cached in sys.modules.\n"
+"    # Uncomment the following line to cache the module.\n"
+"    # sys.modules[module.__name__] = module\n"
+"    loader.exec_module(module)\n"
+"    return module"
+msgstr ""
 
 #: ../../whatsnew/3.12.rst:1488
 msgid "Remove :mod:`!imp` functions and attributes with no replacements:"
@@ -4458,9 +4592,26 @@ msgstr ""
 "tokenização nos componentes da expressão. Por exemplo, para a f-string "
 "``f\"start {1+1} end\"`` a versão antiga do tokenizer emitida::"
 
+#: ../../whatsnew/3.12.rst:1742
+msgid "1,0-1,18:           STRING         'f\"start {1+1} end\"'"
+msgstr ""
+
 #: ../../whatsnew/3.12.rst:1744
 msgid "while the new version emits::"
 msgstr "enquanto a nova versão emite::"
+
+#: ../../whatsnew/3.12.rst:1746
+msgid ""
+"1,0-1,2:            FSTRING_START  'f\"'\n"
+"1,2-1,8:            FSTRING_MIDDLE 'start '\n"
+"1,8-1,9:            OP             '{'\n"
+"1,9-1,10:           NUMBER         '1'\n"
+"1,10-1,11:          OP             '+'\n"
+"1,11-1,12:          NUMBER         '1'\n"
+"1,12-1,13:          OP             '}'\n"
+"1,13-1,17:          FSTRING_MIDDLE ' end'\n"
+"1,17-1,18:          FSTRING_END    '\"'"
+msgstr ""
 
 #: ../../whatsnew/3.12.rst:1756
 msgid ""

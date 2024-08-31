@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-23 14:16+0000\n"
+"POT-Creation-Date: 2024-08-31 10:59+0000\n"
 "PO-Revision-Date: 2021-06-28 01:13+0000\n"
 "Last-Translator: Adorilson Bezerra <adorilson@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -148,6 +148,12 @@ msgstr ""
 "`tutorial.db` no diretório de trabalho atual, criando-o implicitamente se "
 "ele não existir:"
 
+#: ../../library/sqlite3.rst:81
+msgid ""
+"import sqlite3\n"
+"con = sqlite3.connect(\"tutorial.db\")"
+msgstr ""
+
 #: ../../library/sqlite3.rst:86
 msgid ""
 "The returned :class:`Connection` object ``con`` represents the connection to "
@@ -166,6 +172,10 @@ msgstr ""
 "precisaremos usar um cursor de banco de dados. Chame :meth:`con.cursor() "
 "<Connection.cursor>` para criar o :class:`Cursor`:"
 
+#: ../../library/sqlite3.rst:93
+msgid "cur = con.cursor()"
+msgstr ""
+
 #: ../../library/sqlite3.rst:97
 msgid ""
 "Now that we've got a database connection and a cursor, we can create a "
@@ -183,6 +193,10 @@ msgstr ""
 "instrução ``CREATE TABLE`` chamando :meth:`cur.execute(...) <Cursor."
 "execute>`:"
 
+#: ../../library/sqlite3.rst:106
+msgid "cur.execute(\"CREATE TABLE movie(title, year, score)\")"
+msgstr ""
+
 #: ../../library/sqlite3.rst:113
 msgid ""
 "We can verify that the new table has been created by querying the "
@@ -199,6 +213,13 @@ msgstr ""
 "atribua o resultado a ``res`` e chame :meth:`res.fetchone() <Cursor."
 "fetchone>` para buscar a linha resultante:"
 
+#: ../../library/sqlite3.rst:121
+msgid ""
+">>> res = cur.execute(\"SELECT name FROM sqlite_master\")\n"
+">>> res.fetchone()\n"
+"('movie',)"
+msgstr ""
+
 #: ../../library/sqlite3.rst:127
 msgid ""
 "We can see that the table has been created, as the query returns a :class:"
@@ -209,6 +230,13 @@ msgstr ""
 "`tuple` contendo o nome da tabela. Se consultarmos ``sqlite_master`` por uma "
 "tabela inexistente ``spam``, :meth:`!res.fetchone()` retornará ``None``:"
 
+#: ../../library/sqlite3.rst:132
+msgid ""
+">>> res = cur.execute(\"SELECT name FROM sqlite_master WHERE name='spam'\")\n"
+">>> res.fetchone() is None\n"
+"True"
+msgstr ""
+
 #: ../../library/sqlite3.rst:138
 msgid ""
 "Now, add two rows of data supplied as SQL literals by executing an "
@@ -218,6 +246,15 @@ msgstr ""
 "Agora, adicione duas linhas de dados fornecidos como literais SQL executando "
 "uma instrução ``INSERT``, mais uma vez chamando :meth:`cur.execute(...) "
 "<Cursor.execute>`:"
+
+#: ../../library/sqlite3.rst:142
+msgid ""
+"cur.execute(\"\"\"\n"
+"    INSERT INTO movie VALUES\n"
+"        ('Monty Python and the Holy Grail', 1975, 8.2),\n"
+"        ('And Now for Something Completely Different', 1971, 7.5)\n"
+"\"\"\")"
+msgstr ""
 
 #: ../../library/sqlite3.rst:150
 msgid ""
@@ -231,6 +268,10 @@ msgstr ""
 "`sqlite3-controlling-transactions` para detalhes). Chame :meth:`con.commit() "
 "<Connection.commit>` no objeto de conexão para confirmar a transação:"
 
+#: ../../library/sqlite3.rst:156
+msgid "con.commit()"
+msgstr ""
+
 #: ../../library/sqlite3.rst:160
 msgid ""
 "We can verify that the data was inserted correctly by executing a ``SELECT`` "
@@ -242,6 +283,13 @@ msgstr ""
 "consulta ``SELECT``. Use o já conhecido :meth:`cur.execute(...) <Cursor."
 "execute>` para atribuir o resultado a ``res`` e chame :meth:`res.fetchall() "
 "<Cursor.fetchall>` para retornar todas as linhas resultantes."
+
+#: ../../library/sqlite3.rst:166
+msgid ""
+">>> res = cur.execute(\"SELECT score FROM movie\")\n"
+">>> res.fetchall()\n"
+"[(8.2,), (7.5,)]"
+msgstr ""
 
 #: ../../library/sqlite3.rst:172
 msgid ""
@@ -258,6 +306,17 @@ msgid ""
 msgstr ""
 "Agora, insira mais três linhas chamando :meth:`cur.executemany(...) <Cursor."
 "executemany>`:"
+
+#: ../../library/sqlite3.rst:178
+msgid ""
+"data = [\n"
+"    (\"Monty Python Live at the Hollywood Bowl\", 1982, 7.9),\n"
+"    (\"Monty Python's The Meaning of Life\", 1983, 7.5),\n"
+"    (\"Monty Python's Life of Brian\", 1979, 8.0),\n"
+"]\n"
+"cur.executemany(\"INSERT INTO movie VALUES(?, ?, ?)\", data)\n"
+"con.commit()  # Remember to commit the transaction after executing INSERT."
+msgstr ""
 
 #: ../../library/sqlite3.rst:188
 msgid ""
@@ -280,6 +339,18 @@ msgstr ""
 "Podemos verificar que as novas linhas foram inseridas executando uma "
 "consulta ``SELECT``, desta vez iterando sobre os resultados da consulta."
 
+#: ../../library/sqlite3.rst:198
+msgid ""
+">>> for row in cur.execute(\"SELECT year, title FROM movie ORDER BY "
+"year\"):\n"
+"...     print(row)\n"
+"(1971, 'And Now for Something Completely Different')\n"
+"(1975, 'Monty Python and the Holy Grail')\n"
+"(1979, \"Monty Python's Life of Brian\")\n"
+"(1982, 'Monty Python Live at the Hollywood Bowl')\n"
+"(1983, \"Monty Python's The Meaning of Life\")"
+msgstr ""
+
 #: ../../library/sqlite3.rst:208
 msgid ""
 "Each row is a two-item :class:`tuple` of ``(year, title)``, matching the "
@@ -297,6 +368,21 @@ msgstr ""
 "Finalmente, verifique se o banco de dados foi gravado no disco chamando :"
 "meth:`con.close() <Connection.close>` para fechar a conexão existente, abrir "
 "uma nova, criar um novo cursor e, em seguida, consultar o banco de dados."
+
+#: ../../library/sqlite3.rst:216
+msgid ""
+">>> con.close()\n"
+">>> new_con = sqlite3.connect(\"tutorial.db\")\n"
+">>> new_cur = new_con.cursor()\n"
+">>> res = new_cur.execute(\"SELECT title, year FROM movie ORDER BY score "
+"DESC\")\n"
+">>> title, year = res.fetchone()\n"
+">>> print(f'The highest scoring Monty Python movie is {title!r}, released in "
+"{year}')\n"
+"The highest scoring Monty Python movie is 'Monty Python and the Holy Grail', "
+"released in 1975\n"
+">>> new_con.close()"
+msgstr ""
 
 #: ../../library/sqlite3.rst:227
 msgid ""
@@ -486,6 +572,14 @@ msgstr ""
 msgid "For example:"
 msgstr "Por exemplo:"
 
+#: ../../library/sqlite3.rst:377
+msgid ""
+">>> sqlite3.complete_statement(\"SELECT foo FROM bar;\")\n"
+"True\n"
+">>> sqlite3.complete_statement(\"SELECT foo\")\n"
+"False"
+msgstr ""
+
 #: ../../library/sqlite3.rst:384
 msgid ""
 "This function may be useful during command-line input to determine if the "
@@ -558,6 +652,11 @@ msgid ""
 "in square brackets (``[]``)."
 msgstr ""
 
+#: ../../library/sqlite3.rst:447
+msgid ""
+"SELECT p as \"p [point]\" FROM test;  ! will look up converter \"point\""
+msgstr ""
+
 #: ../../library/sqlite3.rst:451
 msgid ""
 "This flag may be combined with :const:`PARSE_DECLTYPES` using the ``|`` "
@@ -571,6 +670,15 @@ msgid ""
 "types are declared when the database table is created. :mod:`!sqlite3` will "
 "look up a converter function using the first word of the declared type as "
 "the converter dictionary key. For example:"
+msgstr ""
+
+#: ../../library/sqlite3.rst:464
+msgid ""
+"CREATE TABLE test(\n"
+"   i integer primary key,  ! will look up a converter named \"integer\"\n"
+"   p point,                ! will look up a converter named \"point\"\n"
+"   n number(10)            ! will look up a converter named \"number\"\n"
+" )"
 msgstr ""
 
 #: ../../library/sqlite3.rst:472
@@ -915,6 +1023,19 @@ msgstr ""
 msgid "Example:"
 msgstr "Exemplo:"
 
+#: ../../library/sqlite3.rst:740
+msgid ""
+">>> import hashlib\n"
+">>> def md5sum(t):\n"
+"...     return hashlib.md5(t).hexdigest()\n"
+">>> con = sqlite3.connect(\":memory:\")\n"
+">>> con.create_function(\"md5\", 1, md5sum)\n"
+">>> for row in con.execute(\"SELECT md5(?)\", (b\"foo\",)):\n"
+"...     print(row)\n"
+"('acbd18db4cc2f85cedef654fccc4a4d8',)\n"
+">>> con.close()"
+msgstr ""
+
 #: ../../library/sqlite3.rst:754
 msgid ""
 "Passing *name*, *narg*, and *func* as keyword arguments is deprecated. These "
@@ -966,6 +1087,29 @@ msgstr ""
 
 #: ../../library/sqlite3.rst:779
 msgid "Set to ``None`` to remove an existing SQL aggregate function."
+msgstr ""
+
+#: ../../library/sqlite3.rst:784
+msgid ""
+"class MySum:\n"
+"    def __init__(self):\n"
+"        self.count = 0\n"
+"\n"
+"    def step(self, value):\n"
+"        self.count += value\n"
+"\n"
+"    def finalize(self):\n"
+"        return self.count\n"
+"\n"
+"con = sqlite3.connect(\":memory:\")\n"
+"con.create_aggregate(\"mysum\", 1, MySum)\n"
+"cur = con.execute(\"CREATE TABLE test(i)\")\n"
+"cur.execute(\"INSERT INTO test(i) VALUES(1)\")\n"
+"cur.execute(\"INSERT INTO test(i) VALUES(2)\")\n"
+"cur.execute(\"SELECT mysum(i) FROM test\")\n"
+"print(cur.fetchone()[0])\n"
+"\n"
+"con.close()"
 msgstr ""
 
 #: ../../library/sqlite3.rst:813
@@ -1032,6 +1176,54 @@ msgid ""
 "aggregate window functions."
 msgstr ""
 
+#: ../../library/sqlite3.rst:852
+msgid ""
+"# Example taken from https://www.sqlite.org/windowfunctions.html#udfwinfunc\n"
+"class WindowSumInt:\n"
+"    def __init__(self):\n"
+"        self.count = 0\n"
+"\n"
+"    def step(self, value):\n"
+"        \"\"\"Add a row to the current window.\"\"\"\n"
+"        self.count += value\n"
+"\n"
+"    def value(self):\n"
+"        \"\"\"Return the current value of the aggregate.\"\"\"\n"
+"        return self.count\n"
+"\n"
+"    def inverse(self, value):\n"
+"        \"\"\"Remove a row from the current window.\"\"\"\n"
+"        self.count -= value\n"
+"\n"
+"    def finalize(self):\n"
+"        \"\"\"Return the final value of the aggregate.\n"
+"\n"
+"        Any clean-up actions should be placed here.\n"
+"        \"\"\"\n"
+"        return self.count\n"
+"\n"
+"\n"
+"con = sqlite3.connect(\":memory:\")\n"
+"cur = con.execute(\"CREATE TABLE test(x, y)\")\n"
+"values = [\n"
+"    (\"a\", 4),\n"
+"    (\"b\", 5),\n"
+"    (\"c\", 3),\n"
+"    (\"d\", 8),\n"
+"    (\"e\", 1),\n"
+"]\n"
+"cur.executemany(\"INSERT INTO test VALUES(?, ?)\", values)\n"
+"con.create_window_function(\"sumint\", 1, WindowSumInt)\n"
+"cur.execute(\"\"\"\n"
+"    SELECT x, sumint(y) OVER (\n"
+"        ORDER BY x ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING\n"
+"    ) AS sum_y\n"
+"    FROM test ORDER BY x\n"
+"\"\"\")\n"
+"print(cur.fetchall())\n"
+"con.close()"
+msgstr ""
+
 #: ../../library/sqlite3.rst:906
 msgid ""
 "Create a collation named *name* using the collating function *callable*. "
@@ -1053,6 +1245,27 @@ msgstr ""
 
 #: ../../library/sqlite3.rst:914
 msgid "The following example shows a reverse sorting collation:"
+msgstr ""
+
+#: ../../library/sqlite3.rst:916
+msgid ""
+"def collate_reverse(string1, string2):\n"
+"    if string1 == string2:\n"
+"        return 0\n"
+"    elif string1 < string2:\n"
+"        return 1\n"
+"    else:\n"
+"        return -1\n"
+"\n"
+"con = sqlite3.connect(\":memory:\")\n"
+"con.create_collation(\"reverse\", collate_reverse)\n"
+"\n"
+"cur = con.execute(\"CREATE TABLE test(x)\")\n"
+"cur.executemany(\"INSERT INTO test(x) VALUES(?)\", [(\"a\",), (\"b\",)])\n"
+"cur.execute(\"SELECT x FROM test ORDER BY x COLLATE reverse\")\n"
+"for row in cur:\n"
+"    print(row)\n"
+"con.close()"
 msgstr ""
 
 #: ../../library/sqlite3.rst:942
@@ -1203,6 +1416,36 @@ msgstr ""
 msgid "Added the ``sqlite3.enable_load_extension`` auditing event."
 msgstr ""
 
+#: ../../library/sqlite3.rst:1061
+msgid ""
+"con.enable_load_extension(True)\n"
+"\n"
+"# Load the fulltext search extension\n"
+"con.execute(\"select load_extension('./fts3.so')\")\n"
+"\n"
+"# alternatively you can load the extension using an API call:\n"
+"# con.load_extension(\"./fts3.so\")\n"
+"\n"
+"# disable extension loading again\n"
+"con.enable_load_extension(False)\n"
+"\n"
+"# example from SQLite wiki\n"
+"con.execute(\"CREATE VIRTUAL TABLE recipe USING fts3(name, ingredients)\")\n"
+"con.executescript(\"\"\"\n"
+"    INSERT INTO recipe (name, ingredients) VALUES('broccoli stew', 'broccoli "
+"peppers cheese tomatoes');\n"
+"    INSERT INTO recipe (name, ingredients) VALUES('pumpkin stew', 'pumpkin "
+"onions garlic celery');\n"
+"    INSERT INTO recipe (name, ingredients) VALUES('broccoli pie', 'broccoli "
+"cheese onions flour');\n"
+"    INSERT INTO recipe (name, ingredients) VALUES('pumpkin pie', 'pumpkin "
+"sugar flour butter');\n"
+"    \"\"\")\n"
+"for row in con.execute(\"SELECT rowid, name, ingredients FROM recipe WHERE "
+"name MATCH 'pie'\"):\n"
+"    print(row)"
+msgstr ""
+
 #: ../../library/sqlite3.rst:1087
 msgid ""
 "Load an SQLite extension from a shared library. Enable extension loading "
@@ -1248,6 +1491,16 @@ msgid ""
 "An optional ``LIKE`` pattern for database objects to dump, e.g. "
 "``prefix_%``. If ``None`` (the default), all database objects will be "
 "included."
+msgstr ""
+
+#: ../../library/sqlite3.rst:1131
+msgid ""
+"# Convert file example.db to SQL dump file dump.sql\n"
+"con = sqlite3.connect('example.db')\n"
+"with open('dump.sql', 'w') as f:\n"
+"    for line in con.iterdump():\n"
+"        f.write('%s\\n' % line)\n"
+"con.close()"
 msgstr ""
 
 #: ../../library/sqlite3.rst:1142 ../../library/sqlite3.rst:1216
@@ -1303,8 +1556,30 @@ msgstr ""
 msgid "Example 1, copy an existing database into another:"
 msgstr ""
 
+#: ../../library/sqlite3.rst:1185
+msgid ""
+"def progress(status, remaining, total):\n"
+"    print(f'Copied {total-remaining} of {total} pages...')\n"
+"\n"
+"src = sqlite3.connect('example.db')\n"
+"dst = sqlite3.connect('backup.db')\n"
+"with dst:\n"
+"    src.backup(dst, pages=1, progress=progress)\n"
+"dst.close()\n"
+"src.close()"
+msgstr ""
+
 #: ../../library/sqlite3.rst:1202
 msgid "Example 2, copy an existing database into a transient copy:"
+msgstr ""
+
+#: ../../library/sqlite3.rst:1204
+msgid ""
+"src = sqlite3.connect('example.db')\n"
+"dst = sqlite3.connect(':memory:')\n"
+"src.backup(dst)\n"
+"dst.close()\n"
+"src.close()"
 msgstr ""
 
 #: ../../library/sqlite3.rst:1220
@@ -1323,6 +1598,12 @@ msgstr ""
 msgid ""
 "Example, query the maximum length of an SQL statement for :class:"
 "`Connection` ``con`` (the default is 1000000000):"
+msgstr ""
+
+#: ../../library/sqlite3.rst:1240
+msgid ""
+">>> con.getlimit(sqlite3.SQLITE_LIMIT_SQL_LENGTH)\n"
+"1000000000"
 msgstr ""
 
 #: ../../library/sqlite3.rst:1250
@@ -1346,6 +1627,14 @@ msgstr ""
 msgid ""
 "Example, limit the number of attached databases to 1 for :class:`Connection` "
 "``con`` (the default limit is 10):"
+msgstr ""
+
+#: ../../library/sqlite3.rst:1270
+msgid ""
+">>> con.setlimit(sqlite3.SQLITE_LIMIT_ATTACHED, 1)\n"
+"10\n"
+">>> con.getlimit(sqlite3.SQLITE_LIMIT_ATTACHED)\n"
+"1"
 msgstr ""
 
 #: ../../library/sqlite3.rst:1288
@@ -1556,6 +1845,12 @@ msgid ""
 "to fetch the resulting rows:"
 msgstr ""
 
+#: ../../library/sqlite3.rst:1475
+msgid ""
+"for row in cur.execute(\"SELECT t FROM data\"):\n"
+"    print(row)"
+msgstr ""
+
 #: ../../library/sqlite3.rst:1489
 msgid "A :class:`Cursor` instance has the following attributes and methods."
 msgstr ""
@@ -1627,6 +1922,16 @@ msgid ""
 "If *sql* contains more than one SQL statement, or is not a DML statement."
 msgstr ""
 
+#: ../../library/sqlite3.rst:1553
+msgid ""
+"rows = [\n"
+"    (\"row1\",),\n"
+"    (\"row2\",),\n"
+"]\n"
+"# cur is an sqlite3.Cursor object\n"
+"cur.executemany(\"INSERT INTO data VALUES(?)\", rows)"
+msgstr ""
+
 #: ../../library/sqlite3.rst:1568
 msgid ""
 "Any resulting rows are discarded, including DML statements with `RETURNING "
@@ -1652,6 +1957,18 @@ msgstr ""
 
 #: ../../library/sqlite3.rst:1592
 msgid "*sql_script* must be a :class:`string <str>`."
+msgstr ""
+
+#: ../../library/sqlite3.rst:1596
+msgid ""
+"# cur is an sqlite3.Cursor object\n"
+"cur.executescript(\"\"\"\n"
+"    BEGIN;\n"
+"    CREATE TABLE person(firstname, lastname, age);\n"
+"    CREATE TABLE book(title, author, published);\n"
+"    CREATE TABLE publisher(name, address);\n"
+"    COMMIT;\n"
+"\"\"\")"
 msgstr ""
 
 #: ../../library/sqlite3.rst:1609
@@ -1718,6 +2035,15 @@ msgid ""
 "belonging to the cursor.  A :class:`Cursor` object created by calling :meth:"
 "`con.cursor() <Connection.cursor>` will have a :attr:`connection` attribute "
 "that refers to *con*:"
+msgstr ""
+
+#: ../../library/sqlite3.rst:1665
+msgid ""
+">>> con = sqlite3.connect(\":memory:\")\n"
+">>> cur = con.cursor()\n"
+">>> cur.connection == con\n"
+"True\n"
+">>> con.close()"
 msgstr ""
 
 #: ../../library/sqlite3.rst:1675
@@ -1820,6 +2146,28 @@ msgstr ""
 msgid ""
 "Use the :class:`Blob` as a :term:`context manager` to ensure that the blob "
 "handle is closed after use."
+msgstr ""
+
+#: ../../library/sqlite3.rst:1773
+msgid ""
+"con = sqlite3.connect(\":memory:\")\n"
+"con.execute(\"CREATE TABLE test(blob_col blob)\")\n"
+"con.execute(\"INSERT INTO test(blob_col) VALUES(zeroblob(13))\")\n"
+"\n"
+"# Write to our blob, using two write operations:\n"
+"with con.blobopen(\"test\", \"blob_col\", 1) as blob:\n"
+"    blob.write(b\"hello, \")\n"
+"    blob.write(b\"world.\")\n"
+"    # Modify the first and last bytes of our blob\n"
+"    blob[0] = ord(\"H\")\n"
+"    blob[-1] = ord(\"!\")\n"
+"\n"
+"# Read the contents of our blob\n"
+"with con.blobopen(\"test\", \"blob_col\", 1) as blob:\n"
+"    greeting = blob.read()\n"
+"\n"
+"print(greeting)  # outputs \"b'Hello, world!'\"\n"
+"con.close()"
 msgstr ""
 
 #: ../../library/sqlite3.rst:1801
@@ -2111,6 +2459,10 @@ msgid ""
 "shell. The argument signature is as follows::"
 msgstr ""
 
+#: ../../library/sqlite3.rst:2031
+msgid "python -m sqlite3 [-h] [-v] [filename] [sql]"
+msgstr ""
+
 #: ../../library/sqlite3.rst:2033
 msgid "Type ``.quit`` or CTRL-D to exit the shell."
 msgstr ""
@@ -2139,6 +2491,17 @@ msgid ""
 "close the single quote and inject ``OR TRUE`` to select all rows::"
 msgstr ""
 
+#: ../../library/sqlite3.rst:2063
+msgid ""
+">>> # Never do this -- insecure!\n"
+">>> symbol = input()\n"
+"' OR TRUE; --\n"
+">>> sql = \"SELECT * FROM stocks WHERE symbol = '%s'\" % symbol\n"
+">>> print(sql)\n"
+"SELECT * FROM stocks WHERE symbol = '' OR TRUE; --'\n"
+">>> cur.execute(sql)"
+msgstr ""
+
 #: ../../library/sqlite3.rst:2071
 msgid ""
 "Instead, use the DB-API's parameter substitution. To insert a variable into "
@@ -2156,6 +2519,27 @@ msgid ""
 "style, *parameters* must be an instance of a :class:`dict` (or a subclass), "
 "which must contain keys for all named parameters; any extra items are "
 "ignored. Here's an example of both styles:"
+msgstr ""
+
+#: ../../library/sqlite3.rst:2087
+msgid ""
+"con = sqlite3.connect(\":memory:\")\n"
+"cur = con.execute(\"CREATE TABLE lang(name, first_appeared)\")\n"
+"\n"
+"# This is the named style used with executemany():\n"
+"data = (\n"
+"    {\"name\": \"C\", \"year\": 1972},\n"
+"    {\"name\": \"Fortran\", \"year\": 1957},\n"
+"    {\"name\": \"Python\", \"year\": 1991},\n"
+"    {\"name\": \"Go\", \"year\": 2009},\n"
+")\n"
+"cur.executemany(\"INSERT INTO lang VALUES(:name, :year)\", data)\n"
+"\n"
+"# This is the qmark style used in a SELECT query:\n"
+"params = (1972,)\n"
+"cur.execute(\"SELECT * FROM lang WHERE first_appeared = ?\", params)\n"
+"print(cur.fetchall())\n"
+"con.close()"
 msgstr ""
 
 #: ../../library/sqlite3.rst:2114
@@ -2199,6 +2583,24 @@ msgid ""
 "object passed to *protocol* will be of type :class:`PrepareProtocol`."
 msgstr ""
 
+#: ../../library/sqlite3.rst:2149
+msgid ""
+"class Point:\n"
+"    def __init__(self, x, y):\n"
+"        self.x, self.y = x, y\n"
+"\n"
+"    def __conform__(self, protocol):\n"
+"        if protocol is sqlite3.PrepareProtocol:\n"
+"            return f\"{self.x};{self.y}\"\n"
+"\n"
+"con = sqlite3.connect(\":memory:\")\n"
+"cur = con.cursor()\n"
+"\n"
+"cur.execute(\"SELECT ?\", (Point(4.0, -3.2),))\n"
+"print(cur.fetchone()[0])\n"
+"con.close()"
+msgstr ""
+
 #: ../../library/sqlite3.rst:2173
 msgid "How to register adapter callables"
 msgstr ""
@@ -2208,6 +2610,25 @@ msgid ""
 "The other possibility is to create a function that converts the Python "
 "object to an SQLite-compatible type. This function can then be registered "
 "using :func:`register_adapter`."
+msgstr ""
+
+#: ../../library/sqlite3.rst:2179
+msgid ""
+"class Point:\n"
+"    def __init__(self, x, y):\n"
+"        self.x, self.y = x, y\n"
+"\n"
+"def adapt_point(point):\n"
+"    return f\"{point.x};{point.y}\"\n"
+"\n"
+"sqlite3.register_adapter(Point, adapt_point)\n"
+"\n"
+"con = sqlite3.connect(\":memory:\")\n"
+"cur = con.cursor()\n"
+"\n"
+"cur.execute(\"SELECT ?\", (Point(1.0, 2.5),))\n"
+"print(cur.fetchone()[0])\n"
+"con.close()"
 msgstr ""
 
 #: ../../library/sqlite3.rst:2206
@@ -2239,6 +2660,13 @@ msgid ""
 "the underlying SQLite data type."
 msgstr ""
 
+#: ../../library/sqlite3.rst:2224
+msgid ""
+"def convert_point(s):\n"
+"    x, y = map(float, s.split(b\";\"))\n"
+"    return Point(x, y)"
+msgstr ""
+
 #: ../../library/sqlite3.rst:2230
 msgid ""
 "We now need to tell :mod:`!sqlite3` when it should convert a given SQLite "
@@ -2264,12 +2692,92 @@ msgstr ""
 msgid "The following example illustrates the implicit and explicit approaches:"
 msgstr ""
 
+#: ../../library/sqlite3.rst:2242
+msgid ""
+"class Point:\n"
+"    def __init__(self, x, y):\n"
+"        self.x, self.y = x, y\n"
+"\n"
+"    def __repr__(self):\n"
+"        return f\"Point({self.x}, {self.y})\"\n"
+"\n"
+"def adapt_point(point):\n"
+"    return f\"{point.x};{point.y}\"\n"
+"\n"
+"def convert_point(s):\n"
+"    x, y = list(map(float, s.split(b\";\")))\n"
+"    return Point(x, y)\n"
+"\n"
+"# Register the adapter and converter\n"
+"sqlite3.register_adapter(Point, adapt_point)\n"
+"sqlite3.register_converter(\"point\", convert_point)\n"
+"\n"
+"# 1) Parse using declared types\n"
+"p = Point(4.0, -3.2)\n"
+"con = sqlite3.connect(\":memory:\", detect_types=sqlite3.PARSE_DECLTYPES)\n"
+"cur = con.execute(\"CREATE TABLE test(p point)\")\n"
+"\n"
+"cur.execute(\"INSERT INTO test(p) VALUES(?)\", (p,))\n"
+"cur.execute(\"SELECT p FROM test\")\n"
+"print(\"with declared types:\", cur.fetchone()[0])\n"
+"cur.close()\n"
+"con.close()\n"
+"\n"
+"# 2) Parse using column names\n"
+"con = sqlite3.connect(\":memory:\", detect_types=sqlite3.PARSE_COLNAMES)\n"
+"cur = con.execute(\"CREATE TABLE test(p)\")\n"
+"\n"
+"cur.execute(\"INSERT INTO test(p) VALUES(?)\", (p,))\n"
+"cur.execute('SELECT p AS \"p [point]\" FROM test')\n"
+"print(\"with column names:\", cur.fetchone()[0])\n"
+"cur.close()\n"
+"con.close()"
+msgstr ""
+
 #: ../../library/sqlite3.rst:2293
 msgid "Adapter and converter recipes"
 msgstr ""
 
 #: ../../library/sqlite3.rst:2295
 msgid "This section shows recipes for common adapters and converters."
+msgstr ""
+
+#: ../../library/sqlite3.rst:2297
+msgid ""
+"import datetime\n"
+"import sqlite3\n"
+"\n"
+"def adapt_date_iso(val):\n"
+"    \"\"\"Adapt datetime.date to ISO 8601 date.\"\"\"\n"
+"    return val.isoformat()\n"
+"\n"
+"def adapt_datetime_iso(val):\n"
+"    \"\"\"Adapt datetime.datetime to timezone-naive ISO 8601 date.\"\"\"\n"
+"    return val.isoformat()\n"
+"\n"
+"def adapt_datetime_epoch(val):\n"
+"    \"\"\"Adapt datetime.datetime to Unix timestamp.\"\"\"\n"
+"    return int(val.timestamp())\n"
+"\n"
+"sqlite3.register_adapter(datetime.date, adapt_date_iso)\n"
+"sqlite3.register_adapter(datetime.datetime, adapt_datetime_iso)\n"
+"sqlite3.register_adapter(datetime.datetime, adapt_datetime_epoch)\n"
+"\n"
+"def convert_date(val):\n"
+"    \"\"\"Convert ISO 8601 date to datetime.date object.\"\"\"\n"
+"    return datetime.date.fromisoformat(val.decode())\n"
+"\n"
+"def convert_datetime(val):\n"
+"    \"\"\"Convert ISO 8601 datetime to datetime.datetime object.\"\"\"\n"
+"    return datetime.datetime.fromisoformat(val.decode())\n"
+"\n"
+"def convert_timestamp(val):\n"
+"    \"\"\"Convert Unix epoch timestamp to datetime.datetime object.\"\"\"\n"
+"    return datetime.datetime.fromtimestamp(int(val))\n"
+"\n"
+"sqlite3.register_converter(\"date\", convert_date)\n"
+"sqlite3.register_converter(\"datetime\", convert_datetime)\n"
+"sqlite3.register_converter(\"timestamp\", convert_timestamp)"
 msgstr ""
 
 #: ../../library/sqlite3.rst:2357
@@ -2286,6 +2794,30 @@ msgid ""
 "the cursor objects. This way, you can execute a ``SELECT`` statement and "
 "iterate over it directly using only a single call on the :class:`Connection` "
 "object."
+msgstr ""
+
+#: ../../library/sqlite3.rst:2368
+msgid ""
+"# Create and fill the table.\n"
+"con = sqlite3.connect(\":memory:\")\n"
+"con.execute(\"CREATE TABLE lang(name, first_appeared)\")\n"
+"data = [\n"
+"    (\"C++\", 1985),\n"
+"    (\"Objective-C\", 1984),\n"
+"]\n"
+"con.executemany(\"INSERT INTO lang(name, first_appeared) VALUES(?, ?)\", "
+"data)\n"
+"\n"
+"# Print the table contents\n"
+"for row in con.execute(\"SELECT name, first_appeared FROM lang\"):\n"
+"    print(row)\n"
+"\n"
+"print(\"I just deleted\", con.execute(\"DELETE FROM lang\").rowcount, "
+"\"rows\")\n"
+"\n"
+"# close() is not a shortcut method and it's not called automatically;\n"
+"# the connection object should be closed manually\n"
+"con.close()"
 msgstr ""
 
 #: ../../library/sqlite3.rst:2400
@@ -2318,6 +2850,30 @@ msgid ""
 "`contextlib.closing`."
 msgstr ""
 
+#: ../../library/sqlite3.rst:2422
+msgid ""
+"con = sqlite3.connect(\":memory:\")\n"
+"con.execute(\"CREATE TABLE lang(id INTEGER PRIMARY KEY, name VARCHAR "
+"UNIQUE)\")\n"
+"\n"
+"# Successful, con.commit() is called automatically afterwards\n"
+"with con:\n"
+"    con.execute(\"INSERT INTO lang(name) VALUES(?)\", (\"Python\",))\n"
+"\n"
+"# con.rollback() is called after the with block finishes with an exception,\n"
+"# the exception is still raised and must be caught\n"
+"try:\n"
+"    with con:\n"
+"        con.execute(\"INSERT INTO lang(name) VALUES(?)\", (\"Python\",))\n"
+"except sqlite3.IntegrityError:\n"
+"    print(\"couldn't add Python twice\")\n"
+"\n"
+"# Connection object used as context manager only commits or rollbacks "
+"transactions,\n"
+"# so the connection object should be closed manually\n"
+"con.close()"
+msgstr ""
+
 #: ../../library/sqlite3.rst:2452
 msgid "How to work with SQLite URIs"
 msgstr ""
@@ -2330,14 +2886,44 @@ msgstr ""
 msgid "Open a database in read-only mode:"
 msgstr ""
 
+#: ../../library/sqlite3.rst:2458
+msgid ""
+">>> con = sqlite3.connect(\"file:tutorial.db?mode=ro\", uri=True)\n"
+">>> con.execute(\"CREATE TABLE readonly(data)\")\n"
+"Traceback (most recent call last):\n"
+"OperationalError: attempt to write a readonly database"
+msgstr ""
+
 #: ../../library/sqlite3.rst:2465
 msgid ""
 "Do not implicitly create a new database file if it does not already exist; "
 "will raise :exc:`~sqlite3.OperationalError` if unable to create a new file:"
 msgstr ""
 
+#: ../../library/sqlite3.rst:2468
+msgid ""
+">>> con = sqlite3.connect(\"file:nosuchdb.db?mode=rw\", uri=True)\n"
+"Traceback (most recent call last):\n"
+"OperationalError: unable to open database file"
+msgstr ""
+
 #: ../../library/sqlite3.rst:2475
 msgid "Create a shared named in-memory database:"
+msgstr ""
+
+#: ../../library/sqlite3.rst:2477
+msgid ""
+"db = \"file:mem1?mode=memory&cache=shared\"\n"
+"con1 = sqlite3.connect(db, uri=True)\n"
+"con2 = sqlite3.connect(db, uri=True)\n"
+"with con1:\n"
+"    con1.execute(\"CREATE TABLE shared(data)\")\n"
+"    con1.execute(\"INSERT INTO shared VALUES(28)\")\n"
+"res = con2.execute(\"SELECT data FROM shared\")\n"
+"assert res.fetchone() == (28,)\n"
+"\n"
+"con1.close()\n"
+"con2.close()"
 msgstr ""
 
 #: ../../library/sqlite3.rst:2491
@@ -2373,8 +2959,29 @@ msgid ""
 "attribute:"
 msgstr ""
 
+#: ../../library/sqlite3.rst:2517
+msgid ""
+">>> con = sqlite3.connect(\":memory:\")\n"
+">>> con.row_factory = sqlite3.Row"
+msgstr ""
+
 #: ../../library/sqlite3.rst:2522
 msgid "Queries now return :class:`!Row` objects:"
+msgstr ""
+
+#: ../../library/sqlite3.rst:2524
+msgid ""
+">>> res = con.execute(\"SELECT 'Earth' AS name, 6378 AS radius\")\n"
+">>> row = res.fetchone()\n"
+">>> row.keys()\n"
+"['name', 'radius']\n"
+">>> row[0]         # Access by index.\n"
+"'Earth'\n"
+">>> row[\"name\"]    # Access by name.\n"
+"'Earth'\n"
+">>> row[\"RADIUS\"]  # Column names are case-insensitive.\n"
+"6378\n"
+">>> con.close()"
 msgstr ""
 
 #: ../../library/sqlite3.rst:2540
@@ -2391,17 +2998,59 @@ msgid ""
 "a :class:`dict`, with column names mapped to values:"
 msgstr ""
 
+#: ../../library/sqlite3.rst:2548
+msgid ""
+"def dict_factory(cursor, row):\n"
+"    fields = [column[0] for column in cursor.description]\n"
+"    return {key: value for key, value in zip(fields, row)}"
+msgstr ""
+
 #: ../../library/sqlite3.rst:2554
 msgid ""
 "Using it, queries now return a :class:`!dict` instead of a :class:`!tuple`:"
+msgstr ""
+
+#: ../../library/sqlite3.rst:2556
+msgid ""
+">>> con = sqlite3.connect(\":memory:\")\n"
+">>> con.row_factory = dict_factory\n"
+">>> for row in con.execute(\"SELECT 1 AS a, 2 AS b\"):\n"
+"...     print(row)\n"
+"{'a': 1, 'b': 2}\n"
+">>> con.close()"
 msgstr ""
 
 #: ../../library/sqlite3.rst:2565
 msgid "The following row factory returns a :term:`named tuple`:"
 msgstr ""
 
+#: ../../library/sqlite3.rst:2567
+msgid ""
+"from collections import namedtuple\n"
+"\n"
+"def namedtuple_factory(cursor, row):\n"
+"    fields = [column[0] for column in cursor.description]\n"
+"    cls = namedtuple(\"Row\", fields)\n"
+"    return cls._make(row)"
+msgstr ""
+
 #: ../../library/sqlite3.rst:2576
 msgid ":func:`!namedtuple_factory` can be used as follows:"
+msgstr ""
+
+#: ../../library/sqlite3.rst:2578
+msgid ""
+">>> con = sqlite3.connect(\":memory:\")\n"
+">>> con.row_factory = namedtuple_factory\n"
+">>> cur = con.execute(\"SELECT 1 AS a, 2 AS b\")\n"
+">>> row = cur.fetchone()\n"
+">>> row\n"
+"Row(a=1, b=2)\n"
+">>> row[0]  # Indexed access.\n"
+"1\n"
+">>> row.b   # Attribute access.\n"
+"2\n"
+">>> con.close()"
 msgstr ""
 
 #: ../../library/sqlite3.rst:2592
@@ -2434,10 +3083,18 @@ msgid ""
 "text using this :attr:`~Connection.text_factory`:"
 msgstr ""
 
+#: ../../library/sqlite3.rst:2617
+msgid "con.text_factory = lambda data: str(data, encoding=\"latin2\")"
+msgstr ""
+
 #: ../../library/sqlite3.rst:2621
 msgid ""
 "For invalid UTF-8 or arbitrary data in stored in ``TEXT`` table columns, you "
 "can use the following technique, borrowed from the :ref:`unicode-howto`:"
+msgstr ""
+
+#: ../../library/sqlite3.rst:2624
+msgid "con.text_factory = lambda data: str(data, errors=\"surrogateescape\")"
 msgstr ""
 
 #: ../../library/sqlite3.rst:2630

@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-16 14:15+0000\n"
+"POT-Creation-Date: 2024-08-31 10:59+0000\n"
 "PO-Revision-Date: 2021-06-29 13:04+0000\n"
 "Last-Translator: Adorilson Bezerra <adorilson@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -86,6 +86,12 @@ msgstr ""
 "Neste exemplo, a expressão de atribuição ajuda a evitar a chamada de :func:"
 "`len` duas vezes::"
 
+#: ../../whatsnew/3.8.rst:85
+msgid ""
+"if (n := len(a)) > 10:\n"
+"    print(f\"List is too long ({n} elements, expected <= 10)\")"
+msgstr ""
+
 #: ../../whatsnew/3.8.rst:88
 msgid ""
 "A similar benefit arises during regular expression matching where match "
@@ -97,6 +103,13 @@ msgstr ""
 "uma vez para testar se ocorreu uma correspondência e outra para extrair um "
 "subgrupo::"
 
+#: ../../whatsnew/3.8.rst:92
+msgid ""
+"discount = 0.0\n"
+"if (mo := re.search(r'(\\d+)% discount', advertisement)):\n"
+"    discount = float(mo.group(1)) / 100.0"
+msgstr ""
+
 #: ../../whatsnew/3.8.rst:96
 msgid ""
 "The operator is also useful with while-loops that compute a value to test "
@@ -107,6 +120,13 @@ msgstr ""
 "finalização do loop e, em seguida, precisam desse mesmo valor novamente no "
 "corpo do loop::"
 
+#: ../../whatsnew/3.8.rst:100
+msgid ""
+"# Loop over fixed length blocks\n"
+"while (block := f.read(256)) != '':\n"
+"    process(block)"
+msgstr ""
+
 #: ../../whatsnew/3.8.rst:104
 msgid ""
 "Another motivating use case arises in list comprehensions where a value "
@@ -115,6 +135,12 @@ msgstr ""
 "Outro caso de uso motivador surge em compreensões de lista em que um valor "
 "calculado em uma condição de filtragem também é necessário no corpo da "
 "expressão::"
+
+#: ../../whatsnew/3.8.rst:108
+msgid ""
+"[clean_name.title() for name in names\n"
+" if (clean_name := normalize('NFC', name)) in allowed_names]"
+msgstr ""
 
 #: ../../whatsnew/3.8.rst:111
 msgid ""
@@ -160,13 +186,29 @@ msgstr ""
 "enquanto *c* ou *d* podem ser posicionais ou nomeados e *e* ou *f* são "
 "obrigatoriamente nomeados::"
 
+#: ../../whatsnew/3.8.rst:132
+msgid ""
+"def f(a, b, /, c, d, *, e, f):\n"
+"    print(a, b, c, d, e, f)"
+msgstr ""
+
 #: ../../whatsnew/3.8.rst:135
 msgid "The following is a valid call::"
 msgstr "A seguir, uma chamada válida::"
 
+#: ../../whatsnew/3.8.rst:137
+msgid "f(10, 20, 30, d=40, e=50, f=60)"
+msgstr ""
+
 #: ../../whatsnew/3.8.rst:139
 msgid "However, these are invalid calls::"
 msgstr "Porém, essas chamadas são inválidas::"
+
+#: ../../whatsnew/3.8.rst:141
+msgid ""
+"f(10, b=20, c=30, d=40, e=50, f=60)   # b cannot be a keyword argument\n"
+"f(10, 20, 30, 40, 50, f=60)           # e must be a keyword argument"
+msgstr ""
 
 #: ../../whatsnew/3.8.rst:144
 msgid ""
@@ -179,6 +221,13 @@ msgstr ""
 "existentes. Por exemplo, a função embutida :func:`divmod` não aceita "
 "argumentos nomeados::"
 
+#: ../../whatsnew/3.8.rst:148
+msgid ""
+"def divmod(a, b, /):\n"
+"    \"Emulate the built in divmod() function\"\n"
+"    return (a // b, a % b)"
+msgstr ""
+
 #: ../../whatsnew/3.8.rst:152
 msgid ""
 "Another use case is to preclude keyword arguments when the parameter name is "
@@ -188,6 +237,10 @@ msgstr ""
 "Outro caso de uso é impedir argumentos nomeados quando o nome do parâmetro "
 "não for útil. Por exemplo, a função embutida :func:`len` possui a assinatura "
 "``len(obj, /)``. Isso exclui chamadas estranhas, como::"
+
+#: ../../whatsnew/3.8.rst:156
+msgid "len(obj='hello')  # The \"obj\" keyword argument impairs readability"
+msgstr ""
 
 #: ../../whatsnew/3.8.rst:158
 msgid ""
@@ -203,6 +256,12 @@ msgstr ""
 "nome do parâmetro *dist* pode ser alterado no futuro. Isso foi possível com "
 "a seguinte especificação de função::"
 
+#: ../../whatsnew/3.8.rst:164
+msgid ""
+"def quantiles(dist, /, *, n=4, method='exclusive')\n"
+"    ..."
+msgstr ""
+
 #: ../../whatsnew/3.8.rst:167
 msgid ""
 "Since the parameters to the left of ``/`` are not exposed as possible "
@@ -211,6 +270,15 @@ msgstr ""
 "Como os parâmetros à esquerda de ``/`` não são expostos como possíveis "
 "palavras-chave, os nomes dos parâmetros permanecem disponíveis para uso em "
 "``**kwargs``::"
+
+#: ../../whatsnew/3.8.rst:170
+msgid ""
+">>> def f(a, b, /, **kwargs):\n"
+"...     print(a, b, kwargs)\n"
+"...\n"
+">>> f(10, 20, a=1, b=2, c=3)         # a and b are used in two ways\n"
+"10 20 {'a': 1, 'b': 2, 'c': 3}"
+msgstr ""
 
 #: ../../whatsnew/3.8.rst:176
 msgid ""
@@ -221,6 +289,14 @@ msgstr ""
 "Isso simplifica bastante a implementação de funções e métodos que precisam "
 "aceitar argumentos nomeados arbitrários. Por exemplo, aqui está um trecho do "
 "código no módulo :mod:`collections`::"
+
+#: ../../whatsnew/3.8.rst:180
+msgid ""
+"class Counter(dict):\n"
+"\n"
+"    def __init__(self, iterable=None, /, **kwds):\n"
+"        # Note \"iterable\" is a possible keyword argument"
+msgstr ""
 
 #: ../../whatsnew/3.8.rst:185
 msgid "See :pep:`570` for a full description."
@@ -383,6 +459,13 @@ msgstr ""
 "O habitual :ref:`f-string especificadores de formato <f-strings>` permite "
 "mais controle sobre como o resultado da expressão é exibido::"
 
+#: ../../whatsnew/3.8.rst:270
+msgid ""
+">>> delta = date.today() - member_since\n"
+">>> f'{user=!s}  {delta.days=:,d}'\n"
+"'user=eric_idle  delta.days=16,075'"
+msgstr ""
+
 #: ../../whatsnew/3.8.rst:274
 msgid ""
 "The ``=`` specifier will display the whole expression so that calculations "
@@ -390,6 +473,12 @@ msgid ""
 msgstr ""
 "O especificador ``=`` exibirá toda a expressão para que os cálculos possam "
 "ser mostrados::"
+
+#: ../../whatsnew/3.8.rst:277
+msgid ""
+">>> print(f'{theta=}  {cos(radians(theta))=:.3f}')\n"
+"theta=30  cos(radians(theta))=0.866"
+msgstr ""
 
 #: ../../whatsnew/3.8.rst:280
 msgid "(Contributed by Eric V. Smith and Larry Hastings in :issue:`36817`.)"
@@ -712,6 +801,14 @@ msgstr ""
 "Adicionado suporte a escapes :samp:`\\\\N\\\\{{name}\\\\}` em :mod:"
 "`expressões regulares <re>`::"
 
+#: ../../whatsnew/3.8.rst:409
+msgid ""
+">>> notice = 'Copyright © 2019'\n"
+">>> copyright_year_pattern = re.compile(r'\\N{copyright sign}\\s*(\\d{4})')\n"
+">>> int(copyright_year_pattern.search(notice).group(1))\n"
+"2019"
+msgstr ""
+
 #: ../../whatsnew/3.8.rst:414
 msgid ""
 "(Contributed by Jonathan Eunice and Serhiy Storchaka in :issue:`30688`.)"
@@ -749,6 +846,16 @@ msgstr ""
 "O desempacotamento de iterável generalizado das instruções :keyword:`yield` "
 "e :keyword:`return` não requer mais parênteses. Isso traz a sintaxe *yield* "
 "e *return* uma melhor concordância com a sintaxe de atribuição normal::"
+
+#: ../../whatsnew/3.8.rst:430
+msgid ""
+">>> def parse(family):\n"
+"        lastname, *members = family.split()\n"
+"        return lastname.upper(), *members\n"
+"\n"
+">>> parse('simpsons homer marge bart lisa maggie')\n"
+"('SIMPSONS', 'homer', 'marge', 'bart', 'lisa', 'maggie')"
+msgstr ""
 
 #: ../../whatsnew/3.8.rst:437
 msgid "(Contributed by David Cuthbert and Jordan Chapman in :issue:`32117`.)"
@@ -823,6 +930,19 @@ msgstr ""
 "Aqui está um exemplo que altera a função :func:`Statistics.mean` para "
 "impedir que o parâmetro *data* seja usado como argumento nomeado::"
 
+#: ../../whatsnew/3.8.rst:470
+msgid ""
+">>> from statistics import mean\n"
+">>> mean(data=[10, 20, 90])\n"
+"40\n"
+">>> mean.__code__ = mean.__code__.replace(co_posonlyargcount=1)\n"
+">>> mean(data=[10, 20, 90])\n"
+"Traceback (most recent call last):\n"
+"  ...\n"
+"TypeError: mean() got some positional-only arguments passed as keyword "
+"arguments: 'data'"
+msgstr ""
+
 #: ../../whatsnew/3.8.rst:479
 msgid "(Contributed by Victor Stinner in :issue:`37032`.)"
 msgstr "(Contribuição de Victor Stinner em :issue:`37032`.)"
@@ -844,6 +964,14 @@ msgstr ""
 "para outros expoentes negativos. Por exemplo, para calcular o `inverso "
 "multiplicativo modular <https://en.wikipedia.org/wiki/"
 "Modular_multiplicative_inverse>`_ de 38 módulo 137, escreva::"
+
+#: ../../whatsnew/3.8.rst:490
+msgid ""
+">>> pow(38, -1, 137)\n"
+"119\n"
+">>> 119 * 38 % 137\n"
+"1"
+msgstr ""
 
 #: ../../whatsnew/3.8.rst:495
 msgid ""
@@ -869,6 +997,21 @@ msgstr ""
 "As compreensões de dict foram sincronizadas com literais de dict, para que a "
 "chave seja computada primeiro e o valor em segundo::"
 
+#: ../../whatsnew/3.8.rst:510
+msgid ""
+">>> # Dict comprehension\n"
+">>> cast = {input('role? '): input('actor? ') for i in range(2)}\n"
+"role? King Arthur\n"
+"actor? Chapman\n"
+"role? Black Knight\n"
+"actor? Cleese\n"
+"\n"
+">>> # Dict literal\n"
+">>> cast = {input('role? '): input('actor? ')}\n"
+"role? Sir Robin\n"
+"actor? Eric Idle"
+msgstr ""
+
 #: ../../whatsnew/3.8.rst:522
 msgid ""
 "The guaranteed execution order is helpful with assignment expressions "
@@ -878,6 +1021,15 @@ msgstr ""
 "A ordem de execução garantida é útil nas expressões de atribuição, porque as "
 "variáveis atribuídas na expressão de chave estarão disponíveis na expressão "
 "de valor::"
+
+#: ../../whatsnew/3.8.rst:526
+msgid ""
+">>> names = ['Martin von Löwis', 'Łukasz Langa', 'Walter Dörwald']\n"
+">>> {(n := normalize('NFC', name)).casefold() : n for name in names}\n"
+"{'martin von löwis': 'Martin von Löwis',\n"
+" 'łukasz langa': 'Łukasz Langa',\n"
+" 'walter dörwald': 'Walter Dörwald'}"
+msgstr ""
 
 #: ../../whatsnew/3.8.rst:532
 msgid "(Contributed by Jörn Heissler in :issue:`35224`.)"
@@ -915,6 +1067,24 @@ msgstr ""
 "leitura de metadados de pacotes de terceiros. Por exemplo, ele pode extrair "
 "o número da versão de um pacote instalado, a lista de pontos de entrada e "
 "muito mais::"
+
+#: ../../whatsnew/3.8.rst:549
+msgid ""
+">>> # Note following example requires that the popular \"requests\"\n"
+">>> # package has been installed.\n"
+">>>\n"
+">>> from importlib.metadata import version, requires, files\n"
+">>> version('requests')\n"
+"'2.22.0'\n"
+">>> list(requires('requests'))\n"
+"['chardet (<3.1.0,>=3.0.2)']\n"
+">>> list(files('requests'))[:5]\n"
+"[PackagePath('requests-2.22.0.dist-info/INSTALLER'),\n"
+" PackagePath('requests-2.22.0.dist-info/LICENSE'),\n"
+" PackagePath('requests-2.22.0.dist-info/METADATA'),\n"
+" PackagePath('requests-2.22.0.dist-info/RECORD'),\n"
+" PackagePath('requests-2.22.0.dist-info/WHEEL')]"
+msgstr ""
 
 #: ../../whatsnew/3.8.rst:564
 msgid "(Contributed by Barry Warsaw and Jason R. Coombs in :issue:`34632`.)"
@@ -998,9 +1168,37 @@ msgstr ""
 "pode ser usada para executar uma :term:`corrotina <coroutine>` e retornar o "
 "resultado enquanto gerencia automaticamente o loop de eventos. Por exemplo::"
 
+#: ../../whatsnew/3.8.rst:604
+msgid ""
+"import asyncio\n"
+"\n"
+"async def main():\n"
+"    await asyncio.sleep(0)\n"
+"    return 42\n"
+"\n"
+"asyncio.run(main())"
+msgstr ""
+
 #: ../../whatsnew/3.8.rst:612
 msgid "This is *roughly* equivalent to::"
 msgstr "Isso é *aproximadamente* equivalente a::"
+
+#: ../../whatsnew/3.8.rst:614
+msgid ""
+"import asyncio\n"
+"\n"
+"async def main():\n"
+"    await asyncio.sleep(0)\n"
+"    return 42\n"
+"\n"
+"loop = asyncio.new_event_loop()\n"
+"asyncio.set_event_loop(loop)\n"
+"try:\n"
+"    loop.run_until_complete(main())\n"
+"finally:\n"
+"    asyncio.set_event_loop(None)\n"
+"    loop.close()"
+msgstr ""
 
 #: ../../whatsnew/3.8.rst:629
 msgid ""
@@ -1025,6 +1223,18 @@ msgstr ""
 "permite a experimentação rápida de código que possui um nível superior :"
 "keyword:`await`. Não é mais necessário chamar diretamente ``asyncio.run()``, "
 "o que geraria um novo loop de evento a cada chamada:"
+
+#: ../../whatsnew/3.8.rst:639
+msgid ""
+"$ python -m asyncio\n"
+"asyncio REPL 3.8.0\n"
+"Use \"await\" directly instead of \"asyncio.run()\".\n"
+"Type \"help\", \"copyright\", \"credits\" or \"license\" for more "
+"information.\n"
+">>> import asyncio\n"
+">>> await asyncio.sleep(10, result='hello')\n"
+"hello"
+msgstr ""
 
 #: ../../whatsnew/3.8.rst:649
 msgid "(Contributed by Yury Selivanov in :issue:`37028`.)"
@@ -1165,6 +1375,15 @@ msgstr ""
 "A classe :class:`cProfile.Profile <profile.Profile>` agora pode ser usada "
 "como um gerenciador de contexto. Perfile um bloco de código executando::"
 
+#: ../../whatsnew/3.8.rst:716
+msgid ""
+"import cProfile\n"
+"\n"
+"with cProfile.Profile() as profiler:\n"
+"      # code to be profiled\n"
+"      ..."
+msgstr ""
+
 #: ../../whatsnew/3.8.rst:722
 msgid "(Contributed by Scott Sanderson in :issue:`29235`.)"
 msgstr "(Contribuição de Scott Sanderson em :issue:`29235`.)"
@@ -1253,6 +1472,17 @@ msgstr ""
 "não como uma função retornando um decorador. Portanto, agora ambos são "
 "suportados::"
 
+#: ../../whatsnew/3.8.rst:769
+msgid ""
+"@lru_cache\n"
+"def f(x):\n"
+"    ...\n"
+"\n"
+"@lru_cache(maxsize=256)\n"
+"def f(x):\n"
+"    ..."
+msgstr ""
+
 #: ../../whatsnew/3.8.rst:777
 msgid "(Contributed by Raymond Hettinger in :issue:`36772`.)"
 msgstr "(Contribuição de Raymond Hettinger em :issue:`36772`.)"
@@ -1265,6 +1495,20 @@ msgstr ""
 "Adicionado um novo decorador :func:`functools.cached_property`, para "
 "propriedades computadas armazenadas em cache durante toda a vida útil da "
 "instância. ::"
+
+#: ../../whatsnew/3.8.rst:782
+msgid ""
+"import functools\n"
+"import statistics\n"
+"\n"
+"class Dataset:\n"
+"   def __init__(self, sequence_of_numbers):\n"
+"      self.data = sequence_of_numbers\n"
+"\n"
+"   @functools.cached_property\n"
+"   def variance(self):\n"
+"      return statistics.variance(self.data)"
+msgstr ""
 
 #: ../../whatsnew/3.8.rst:793
 msgid "(Contributed by Carl Meyer in :issue:`21145`)"
@@ -1279,6 +1523,27 @@ msgstr ""
 "Adicionado um novo decorador :func:`functools.singledispatchmethod` que "
 "converte métodos em :term:`funções genéricas <generic function>` usando :"
 "term:`despacho único <single dispatch>`::"
+
+#: ../../whatsnew/3.8.rst:800
+msgid ""
+"from functools import singledispatchmethod\n"
+"from contextlib import suppress\n"
+"\n"
+"class TaskManager:\n"
+"\n"
+"    def __init__(self, tasks):\n"
+"        self.tasks = list(tasks)\n"
+"\n"
+"    @singledispatchmethod\n"
+"    def discard(self, value):\n"
+"        with suppress(ValueError):\n"
+"            self.tasks.remove(value)\n"
+"\n"
+"    @discard.register(list)\n"
+"    def _(self, tasks):\n"
+"        targets = set(tasks)\n"
+"        self.tasks = [x for x in self.tasks if x not in targets]"
+msgstr ""
 
 #: ../../whatsnew/3.8.rst:818
 msgid "(Contributed by Ethan Smith in :issue:`32380`)"
@@ -1448,6 +1713,16 @@ msgstr ""
 "docstrings. Isso fornece opções de documentação semelhantes às que já temos "
 "para :func:`property`, :func:`classmethod` e :func:`staticmethod`::"
 
+#: ../../whatsnew/3.8.rst:897
+msgid ""
+"class AudioClip:\n"
+"    __slots__ = {'bit_rate': 'expressed in kilohertz to one decimal place',\n"
+"                 'duration': 'in seconds, rounded up to an integer'}\n"
+"    def __init__(self, bit_rate, duration):\n"
+"        self.bit_rate = round(bit_rate / 1000.0, 1)\n"
+"        self.duration = ceil(duration)"
+msgstr ""
+
 #: ../../whatsnew/3.8.rst:904
 msgid "(Contributed by Raymond Hettinger in :issue:`36326`.)"
 msgstr "(Contribuição de Raymond Hettinger em :issue:`36326`.)"
@@ -1481,6 +1756,13 @@ msgstr ""
 "A função :func:`itertools.accumulate` adicionou uma opção de argumento "
 "nomeado *initial* para especificar um valor inicial::"
 
+#: ../../whatsnew/3.8.rst:922
+msgid ""
+">>> from itertools import accumulate\n"
+">>> list(accumulate([10, 5, 30, 15], initial=1000))\n"
+"[1000, 1010, 1015, 1045, 1060]"
+msgstr ""
+
 #: ../../whatsnew/3.8.rst:926
 msgid "(Contributed by Lisa Roach in :issue:`34659`.)"
 msgstr "(Contribuído por Lisa Roach em :issue:`34659`.)"
@@ -1503,15 +1785,11 @@ msgstr "logging"
 
 #: ../../whatsnew/3.8.rst:939
 msgid ""
-"Added a *force* keyword argument to :func:`logging.basicConfig()` When set "
-"to true, any existing handlers attached to the root logger are removed and "
+"Added a *force* keyword argument to :func:`logging.basicConfig` When set to "
+"true, any existing handlers attached to the root logger are removed and "
 "closed before carrying out the configuration specified by the other "
 "arguments."
 msgstr ""
-"Adicionado um argumento nomeado *force* em :func:`logging.basicConfig()` "
-"Quando definido como true, qualquer manipulador existente anexado ao logger "
-"raiz é removido e fechado antes de executar a configuração especificada "
-"pelos outros argumentos."
 
 #: ../../whatsnew/3.8.rst:944
 msgid ""
@@ -1567,6 +1845,14 @@ msgstr ""
 "que retorna o produto de um valor 'start' (padrão: 1) vezes uma iterável de "
 "números::"
 
+#: ../../whatsnew/3.8.rst:968
+msgid ""
+">>> prior = 0.8\n"
+">>> likelihoods = [0.625, 0.84, 0.30]\n"
+">>> math.prod(likelihoods, start=prior)\n"
+"0.126"
+msgstr ""
+
 #: ../../whatsnew/3.8.rst:973
 msgid "(Contributed by Pablo Galindo in :issue:`35606`.)"
 msgstr "(Contribuição de Pablo Galindo em :issue:`35606`.)"
@@ -1578,6 +1864,14 @@ msgid ""
 msgstr ""
 "Adicionadas duas novas funções combinatórias :func:`math.perm` e :func:`math."
 "comb`::"
+
+#: ../../whatsnew/3.8.rst:977
+msgid ""
+">>> math.perm(10, 3)    # Permutations of 10 things taken 3 at a time\n"
+"720\n"
+">>> math.comb(10, 3)    # Combinations of 10 things taken 3 at a time\n"
+"120"
+msgstr ""
 
 #: ../../whatsnew/3.8.rst:982
 msgid ""
@@ -1598,6 +1892,16 @@ msgstr ""
 "inteiras precisas sem conversão para ponto flutuante. A nova função suporta "
 "números inteiros arbitrariamente grandes. É mais rápido que "
 "``floor(sqrt(n))``, mas mais lento que :func:`math.sqrt`::"
+
+#: ../../whatsnew/3.8.rst:990
+msgid ""
+">>> r = 650320427\n"
+">>> s = r ** 2\n"
+">>> isqrt(s - 1)         # correct\n"
+"650320426\n"
+">>> floor(sqrt(s - 1))   # incorrect\n"
+"650320427"
+msgstr ""
 
 #: ../../whatsnew/3.8.rst:997
 msgid "(Contributed by Mark Dickinson in :issue:`36887`.)"
@@ -1860,6 +2164,21 @@ msgstr ""
 "como :func:`pprint.pprint`, mas com *sort_dicts* padronizando como "
 "``False``::"
 
+#: ../../whatsnew/3.8.rst:1126
+msgid ""
+">>> from pprint import pprint, pp\n"
+">>> d = dict(source='input.txt', operation='filter', destination='output."
+"txt')\n"
+">>> pp(d, width=40)                  # Original order\n"
+"{'source': 'input.txt',\n"
+" 'operation': 'filter',\n"
+" 'destination': 'output.txt'}\n"
+">>> pprint(d, width=40)              # Keys sorted alphabetically\n"
+"{'destination': 'output.txt',\n"
+" 'operation': 'filter',\n"
+" 'source': 'input.txt'}"
+msgstr ""
+
 #: ../../whatsnew/3.8.rst:1137
 msgid "(Contributed by Rémi Lapeyre in :issue:`30670`.)"
 msgstr "(Contribuição de Rémi Lapeyre em :issue:`30670`.)"
@@ -1942,13 +2261,10 @@ msgstr ""
 
 #: ../../whatsnew/3.8.rst:1178
 msgid ""
-"The :func:`socket.if_nameindex()`, :func:`socket.if_nametoindex()`, and :"
-"func:`socket.if_indextoname()` functions have been implemented on Windows. "
+"The :func:`socket.if_nameindex`, :func:`socket.if_nametoindex`, and :func:"
+"`socket.if_indextoname` functions have been implemented on Windows. "
 "(Contributed by Zackery Spytz in :issue:`37007`.)"
 msgstr ""
-"As funções :func:`socket.if_nameindex()`, :func:`socket.if_nametoindex()` e :"
-"func:`socket.if_indextoname()` foram agora implementadas no Windows. "
-"(Contribuição de Zackery Spytz em :issue:`37007`.)"
 
 #: ../../whatsnew/3.8.rst:1184
 msgid "ssl"
@@ -1972,20 +2288,15 @@ msgstr "statistics"
 #: ../../whatsnew/3.8.rst:1195
 msgid ""
 "Added :func:`statistics.fmean` as a faster, floating-point variant of :func:"
-"`statistics.mean()`.  (Contributed by Raymond Hettinger and Steven D'Aprano "
+"`statistics.mean`.  (Contributed by Raymond Hettinger and Steven D'Aprano "
 "in :issue:`35904`.)"
 msgstr ""
-"Adicionada :func:`statistics.fmean` como uma variante de ponto flutuante "
-"mais rápida de :func:`statistics.mean()`. (Contribuição de Raymond Hettinger "
-"e Steven D'Aprano em :issue:`35904`.)"
 
 #: ../../whatsnew/3.8.rst:1199
 msgid ""
-"Added :func:`statistics.geometric_mean()` (Contributed by Raymond Hettinger "
+"Added :func:`statistics.geometric_mean` (Contributed by Raymond Hettinger "
 "in :issue:`27181`.)"
 msgstr ""
-"Adicionada :func:`statistics.geometric_mean()` (Contribuição de Raymond "
-"Hettinger em :issue:`27181`.)"
 
 #: ../../whatsnew/3.8.rst:1202
 msgid ""
@@ -2014,6 +2325,31 @@ msgstr ""
 "Adicionada :class:`statistics.NormalDist`, uma ferramenta para criar e "
 "manipular distribuições normais de uma variável aleatória. (Contribuição de "
 "Raymond Hettinger em :issue:`36018`.)"
+
+#: ../../whatsnew/3.8.rst:1215
+msgid ""
+">>> temperature_feb = NormalDist.from_samples([4, 12, -3, 2, 7, 14])\n"
+">>> temperature_feb.mean\n"
+"6.0\n"
+">>> temperature_feb.stdev\n"
+"6.356099432828281\n"
+"\n"
+">>> temperature_feb.cdf(3)            # Chance of being under 3 degrees\n"
+"0.3184678262814532\n"
+">>> # Relative chance of being 7 degrees versus 10 degrees\n"
+">>> temperature_feb.pdf(7) / temperature_feb.pdf(10)\n"
+"1.2039930378537762\n"
+"\n"
+">>> el_niño = NormalDist(4, 2.5)\n"
+">>> temperature_feb += el_niño        # Add in a climate effect\n"
+">>> temperature_feb\n"
+"NormalDist(mu=10.0, sigma=6.830080526611674)\n"
+"\n"
+">>> temperature_feb * (9/5) + 32      # Convert to Fahrenheit\n"
+"NormalDist(mu=50.0, sigma=12.294144947901014)\n"
+">>> temperature_feb.samples(3)        # Generate random samples\n"
+"[7.672102882379219, 12.000027119750287, 4.647488369766392]"
+msgstr ""
 
 #: ../../whatsnew/3.8.rst:1239
 msgid "sys"
@@ -2166,6 +2502,14 @@ msgstr ""
 "que todas as chaves estejam presentes. Especifique \"total=False\" para "
 "permitir que as chaves sejam opcionais::"
 
+#: ../../whatsnew/3.8.rst:1322
+msgid ""
+"class Location(TypedDict, total=False):\n"
+"    lat_long: tuple\n"
+"    grid_square: str\n"
+"    xy_coordinate: tuple"
+msgstr ""
+
 #: ../../whatsnew/3.8.rst:1327
 msgid ""
 "Literal types.  See :pep:`586` and :class:`typing.Literal`. Literal types "
@@ -2175,6 +2519,12 @@ msgstr ""
 "Tipos literais. Veja :pep:`586` e :class:`typing.Literal`. Tipos literais "
 "indicam que um parâmetro ou valor de retorno está restrito a um ou mais "
 "valores literais específicos::"
+
+#: ../../whatsnew/3.8.rst:1331
+msgid ""
+"def get_status(port: int) -> Literal['connected', 'disconnected']:\n"
+"    ..."
+msgstr ""
 
 #: ../../whatsnew/3.8.rst:1334
 msgid ""
@@ -2186,6 +2536,10 @@ msgstr ""
 "`typing.Final` e :func:`typing.final`. O qualificador final instrui um "
 "verificador de tipo estático a restringir criação de subclasse, substituição "
 "ou reatribuição::"
+
+#: ../../whatsnew/3.8.rst:1339
+msgid "pi: Final[float] = 3.1415926536"
+msgstr ""
 
 #: ../../whatsnew/3.8.rst:1341
 msgid ""
@@ -2247,15 +2601,11 @@ msgstr ""
 
 #: ../../whatsnew/3.8.rst:1370
 msgid ""
-"Added :func:`~unittest.addModuleCleanup()` and :meth:`~unittest.TestCase."
+"Added :func:`~unittest.addModuleCleanup` and :meth:`~unittest.TestCase."
 "addClassCleanup()` to unittest to support cleanups for :func:`~unittest."
-"setUpModule()` and :meth:`~unittest.TestCase.setUpClass()`. (Contributed by "
+"setUpModule` and :meth:`~unittest.TestCase.setUpClass()`. (Contributed by "
 "Lisa Roach in :issue:`24412`.)"
 msgstr ""
-"Adicionados :func:`~unittest.addModuleCleanup()` e :meth:`~unittest.TestCase."
-"addClassCleanup()` a unittest para dar suporte a limpezas para :func:"
-"`~unittest.setUpModule()` e :meth:`~unittest.TestCase.setUpClass()`. "
-"(Contribuição de Lisa Roach em :issue:`24412`.)"
 
 #: ../../whatsnew/3.8.rst:1376
 msgid ""
@@ -2279,6 +2629,28 @@ msgstr ""
 #: ../../whatsnew/3.8.rst:1383
 msgid "Example::"
 msgstr "Exemplo::"
+
+#: ../../whatsnew/3.8.rst:1385
+msgid ""
+"import unittest\n"
+"\n"
+"\n"
+"class TestRequest(unittest.IsolatedAsyncioTestCase):\n"
+"\n"
+"    async def asyncSetUp(self):\n"
+"        self.connection = await AsyncConnection()\n"
+"\n"
+"    async def test_get(self):\n"
+"        response = await self.connection.get(\"https://example.com\")\n"
+"        self.assertEqual(response.status_code, 200)\n"
+"\n"
+"    async def asyncTearDown(self):\n"
+"        await self.connection.close()\n"
+"\n"
+"\n"
+"if __name__ == \"__main__\":\n"
+"    unittest.main()"
+msgstr ""
 
 #: ../../whatsnew/3.8.rst:1406
 msgid "venv"
@@ -2337,12 +2709,9 @@ msgstr ""
 #: ../../whatsnew/3.8.rst:1434
 msgid ""
 "The :mod:`xml.etree.ElementTree` module provides a new function :func:`–xml."
-"etree.ElementTree.canonicalize()` that implements C14N 2.0. (Contributed by "
+"etree.ElementTree.canonicalize` that implements C14N 2.0. (Contributed by "
 "Stefan Behnel in :issue:`13611`.)"
 msgstr ""
-"O módulo :mod:`xml.etree.ElementTree` fornece uma nova função :func:`–xml."
-"etree.ElementTree.canonicalize()` que implementa o C14N 2.0. (Contribuição "
-"de Stefan Behnel em :issue:`13611`.)"
 
 #: ../../whatsnew/3.8.rst:1438
 msgid ""
@@ -3744,6 +4113,21 @@ msgstr ""
 msgid "Example:"
 msgstr "Exemplo:"
 
+#: ../../whatsnew/3.8.rst:2071
+msgid ""
+"static foo_struct *\n"
+"foo_new(PyObject *type) {\n"
+"    foo_struct *foo = PyObject_GC_New(foo_struct, (PyTypeObject *) type);\n"
+"    if (foo == NULL)\n"
+"        return NULL;\n"
+"#if PY_VERSION_HEX < 0x03080000\n"
+"    // Workaround for Python issue 35810; no longer necessary in Python 3.8\n"
+"    PY_INCREF(type)\n"
+"#endif\n"
+"    return foo;\n"
+"}"
+msgstr ""
+
 #: ../../whatsnew/3.8.rst:2085
 msgid ""
 "Ensure that all custom ``tp_dealloc`` functions of heap-allocated types "
@@ -3751,6 +4135,19 @@ msgid ""
 msgstr ""
 "Certifica-se de que todas as funções ``tp_dealloc`` personalizadas de tipos "
 "alocados em heap diminuam a contagem de referências do tipo."
+
+#: ../../whatsnew/3.8.rst:2090
+msgid ""
+"static void\n"
+"foo_dealloc(foo_struct *instance) {\n"
+"    PyObject *type = Py_TYPE(instance);\n"
+"    PyObject_GC_Del(instance);\n"
+"#if PY_VERSION_HEX >= 0x03080000\n"
+"    // This was not needed before Python 3.8 (Python issue 35810)\n"
+"    Py_DECREF(type);\n"
+"#endif\n"
+"}"
+msgstr ""
 
 #: ../../whatsnew/3.8.rst:2102
 msgid "(Contributed by Eddie Elizondo in :issue:`35810`.)"
@@ -3763,6 +4160,10 @@ msgid ""
 msgstr ""
 "A macro :c:macro:`Py_DEPRECATED()` foi implementada para MSVC. A macro agora "
 "deve ser colocada antes do nome do símbolo."
+
+#: ../../whatsnew/3.8.rst:2109
+msgid "Py_DEPRECATED(3.8) PyAPI_FUNC(int) Py_OldFunction(void);"
+msgstr ""
 
 #: ../../whatsnew/3.8.rst:2113
 msgid "(Contributed by Zackery Spytz in :issue:`33407`.)"
@@ -3810,6 +4211,12 @@ msgstr ""
 "distribuição regular do Windows. Se você precisar deste arquivo, ele poderá "
 "ser gerado com as ferramentas ``gendef`` e ``dlltool``, que fazem parte do "
 "pacote binutils do MinGW:"
+
+#: ../../whatsnew/3.8.rst:2132
+msgid ""
+"gendef - python38.dll > tmp.def\n"
+"dlltool --dllname python38.dll --def tmp.def --output-lib libpython38.a"
+msgstr ""
 
 #: ../../whatsnew/3.8.rst:2137
 msgid ""
@@ -3906,6 +4313,82 @@ msgstr ""
 #: ../../whatsnew/3.8.rst:2181
 msgid "Here's a summary of performance improvements since Python 3.3:"
 msgstr "Aqui está um resumo das melhorias de desempenho desde Python 3.3:"
+
+#: ../../whatsnew/3.8.rst:2183
+msgid ""
+"Python version                       3.3     3.4     3.5     3.6     3.7     "
+"3.8\n"
+"--------------                       ---     ---     ---     ---     ---     "
+"---\n"
+"\n"
+"Variable and attribute read access:\n"
+"    read_local                       4.0     7.1     7.1     5.4     5.1     "
+"3.9\n"
+"    read_nonlocal                    5.3     7.1     8.1     5.8     5.4     "
+"4.4\n"
+"    read_global                     13.3    15.5    19.0    14.3    13.6     "
+"7.6\n"
+"    read_builtin                    20.0    21.1    21.6    18.5    19.0     "
+"7.5\n"
+"    read_classvar_from_class        20.5    25.6    26.5    20.7    19.5    "
+"18.4\n"
+"    read_classvar_from_instance     18.5    22.8    23.5    18.8    17.1    "
+"16.4\n"
+"    read_instancevar                26.8    32.4    33.1    28.0    26.3    "
+"25.4\n"
+"    read_instancevar_slots          23.7    27.8    31.3    20.8    20.8    "
+"20.2\n"
+"    read_namedtuple                 68.5    73.8    57.5    45.0    46.8    "
+"18.4\n"
+"    read_boundmethod                29.8    37.6    37.9    29.6    26.9    "
+"27.7\n"
+"\n"
+"Variable and attribute write access:\n"
+"    write_local                      4.6     8.7     9.3     5.5     5.3     "
+"4.3\n"
+"    write_nonlocal                   7.3    10.5    11.1     5.6     5.5     "
+"4.7\n"
+"    write_global                    15.9    19.7    21.2    18.0    18.0    "
+"15.8\n"
+"    write_classvar                  81.9    92.9    96.0   104.6   102.1    "
+"39.2\n"
+"    write_instancevar               36.4    44.6    45.8    40.0    38.9    "
+"35.5\n"
+"    write_instancevar_slots         28.7    35.6    36.1    27.3    26.6    "
+"25.7\n"
+"\n"
+"Data structure read access:\n"
+"    read_list                       19.2    24.2    24.5    20.8    20.8    "
+"19.0\n"
+"    read_deque                      19.9    24.7    25.5    20.2    20.6    "
+"19.8\n"
+"    read_dict                       19.7    24.3    25.7    22.3    23.0    "
+"21.0\n"
+"    read_strdict                    17.9    22.6    24.3    19.5    21.2    "
+"18.9\n"
+"\n"
+"Data structure write access:\n"
+"    write_list                      21.2    27.1    28.5    22.5    21.6    "
+"20.0\n"
+"    write_deque                     23.8    28.7    30.1    22.7    21.8    "
+"23.5\n"
+"    write_dict                      25.9    31.4    33.3    29.3    29.2    "
+"24.7\n"
+"    write_strdict                   22.9    28.4    29.9    27.5    25.2    "
+"23.1\n"
+"\n"
+"Stack (or queue) operations:\n"
+"    list_append_pop                144.2    93.4   112.7    75.4    74.2    "
+"50.8\n"
+"    deque_append_pop                30.4    43.5    57.0    49.4    49.2    "
+"42.5\n"
+"    deque_append_popleft            30.8    43.7    57.3    49.7    49.7    "
+"42.8\n"
+"\n"
+"Timing loop:\n"
+"    loop_overhead                    0.3     0.5     0.6     0.4     0.3     "
+"0.3"
+msgstr ""
 
 #: ../../whatsnew/3.8.rst:2228
 msgid ""

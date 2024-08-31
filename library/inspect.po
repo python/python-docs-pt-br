@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-26 14:15+0000\n"
+"POT-Creation-Date: 2024-08-31 10:59+0000\n"
 "PO-Revision-Date: 2021-06-28 01:08+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2023\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -748,10 +748,33 @@ msgid ""
 "generators:"
 msgstr ""
 
+#: ../../library/inspect.rst:427
+msgid ""
+"import types\n"
+"\n"
+"def gen():\n"
+"    yield\n"
+"@types.coroutine\n"
+"def gen_coro():\n"
+"    yield\n"
+"\n"
+"assert not isawaitable(gen())\n"
+"assert isawaitable(gen_coro())"
+msgstr ""
+
 #: ../../library/inspect.rst:445
 msgid ""
 "Return ``True`` if the object is an :term:`asynchronous generator` function, "
 "for example:"
+msgstr ""
+
+#: ../../library/inspect.rst:448
+msgid ""
+">>> async def agen():\n"
+"...     yield 1\n"
+"...\n"
+">>> inspect.isasyncgenfunction(agen)\n"
+"True"
 msgstr ""
 
 #: ../../library/inspect.rst:458
@@ -978,6 +1001,24 @@ msgstr ""
 msgid "Return a :class:`Signature` object for the given *callable*:"
 msgstr ""
 
+#: ../../library/inspect.rst:676
+msgid ""
+">>> from inspect import signature\n"
+">>> def foo(a, *, b:int, **kwargs):\n"
+"...     pass\n"
+"\n"
+">>> sig = signature(foo)\n"
+"\n"
+">>> str(sig)\n"
+"'(a, *, b: int, **kwargs)'\n"
+"\n"
+">>> str(sig.parameters['b'])\n"
+"'b: int'\n"
+"\n"
+">>> sig.parameters['b'].annotation\n"
+"<class 'int'>"
+msgstr ""
+
 #: ../../library/inspect.rst:693
 msgid ""
 "Accepts a wide range of Python callables, from plain functions and classes "
@@ -1116,6 +1157,17 @@ msgid ""
 "Signature`, pass in :attr:`Signature.empty`."
 msgstr ""
 
+#: ../../library/inspect.rst:803
+msgid ""
+">>> def test(a, b):\n"
+"...     pass\n"
+"...\n"
+">>> sig = signature(test)\n"
+">>> new_sig = sig.replace(return_annotation=\"new return anno\")\n"
+">>> str(new_sig)\n"
+"\"(a, b) -> 'new return anno'\""
+msgstr ""
+
 #: ../../library/inspect.rst:813
 msgid ""
 ":class:`Signature` objects are also supported by the generic function :func:"
@@ -1141,6 +1193,14 @@ msgstr ""
 
 #: ../../library/inspect.rst:832
 msgid "This method simplifies subclassing of :class:`Signature`:"
+msgstr ""
+
+#: ../../library/inspect.rst:834
+msgid ""
+"class MySignature(Signature):\n"
+"    pass\n"
+"sig = MySignature.from_callable(sum)\n"
+"assert isinstance(sig, MySignature)"
 msgstr ""
 
 #: ../../library/inspect.rst:841
@@ -1265,6 +1325,19 @@ msgstr ""
 msgid "Example: print all keyword-only arguments without default values:"
 msgstr ""
 
+#: ../../library/inspect.rst:927
+msgid ""
+">>> def foo(a, b, *, c, d=10):\n"
+"...     pass\n"
+"\n"
+">>> sig = signature(foo)\n"
+">>> for param in sig.parameters.values():\n"
+"...     if (param.kind == param.KEYWORD_ONLY and\n"
+"...                        param.default is param.empty):\n"
+"...         print('Parameter:', param)\n"
+"Parameter: c"
+msgstr ""
+
 #: ../../library/inspect.rst:941
 msgid "Describes an enum value of :attr:`Parameter.kind`."
 msgstr ""
@@ -1273,12 +1346,40 @@ msgstr ""
 msgid "Example: print all descriptions of arguments:"
 msgstr ""
 
+#: ../../library/inspect.rst:947
+msgid ""
+">>> def foo(a, b, *, c, d=10):\n"
+"...     pass\n"
+"\n"
+">>> sig = signature(foo)\n"
+">>> for param in sig.parameters.values():\n"
+"...     print(param.kind.description)\n"
+"positional or keyword\n"
+"positional or keyword\n"
+"keyword-only\n"
+"keyword-only"
+msgstr ""
+
 #: ../../library/inspect.rst:962
 msgid ""
 "Create a new :class:`Parameter` instance based on the instance replaced was "
 "invoked on.  To override a :class:`!Parameter` attribute, pass the "
 "corresponding argument.  To remove a default value or/and an annotation from "
 "a :class:`!Parameter`, pass :attr:`Parameter.empty`."
+msgstr ""
+
+#: ../../library/inspect.rst:967
+msgid ""
+">>> from inspect import Parameter\n"
+">>> param = Parameter('foo', Parameter.KEYWORD_ONLY, default=42)\n"
+">>> str(param)\n"
+"'foo=42'\n"
+"\n"
+">>> str(param.replace()) # Will create a shallow copy of 'param'\n"
+"'foo=42'\n"
+"\n"
+">>> str(param.replace(default=Parameter.empty, annotation='spam'))\n"
+"\"foo: 'spam'\""
 msgstr ""
 
 #: ../../library/inspect.rst:980
@@ -1356,10 +1457,29 @@ msgid ""
 "For variable-keyword arguments (``**kwargs``) the default is an empty dict."
 msgstr ""
 
+#: ../../library/inspect.rst:1037
+msgid ""
+">>> def foo(a, b='ham', *args): pass\n"
+">>> ba = inspect.signature(foo).bind('spam')\n"
+">>> ba.apply_defaults()\n"
+">>> ba.arguments\n"
+"{'a': 'spam', 'b': 'ham', 'args': ()}"
+msgstr ""
+
 #: ../../library/inspect.rst:1047
 msgid ""
 "The :attr:`args` and :attr:`kwargs` properties can be used to invoke "
 "functions:"
+msgstr ""
+
+#: ../../library/inspect.rst:1050
+msgid ""
+"def test(a, *, b):\n"
+"    ...\n"
+"\n"
+"sig = signature(test)\n"
+"ba = sig.bind(10, b=20)\n"
+"test(*ba.args, **ba.kwargs)"
 msgstr ""
 
 #: ../../library/inspect.rst:1062
@@ -1478,6 +1598,23 @@ msgid ""
 "example:"
 msgstr ""
 
+#: ../../library/inspect.rst:1171
+msgid ""
+">>> from inspect import getcallargs\n"
+">>> def f(a, b=1, *pos, **named):\n"
+"...     pass\n"
+"...\n"
+">>> getcallargs(f, 1, 2, 3) == {'a': 1, 'named': {}, 'b': 2, 'pos': (3,)}\n"
+"True\n"
+">>> getcallargs(f, a=2, x=4) == {'a': 2, 'named': {'x': 4}, 'b': 1, 'pos': "
+"()}\n"
+"True\n"
+">>> getcallargs(f)\n"
+"Traceback (most recent call last):\n"
+"...\n"
+"TypeError: f() missing 1 required positional argument: 'a'"
+msgstr ""
+
 #: ../../library/inspect.rst:1188
 msgid "Use :meth:`Signature.bind` and :meth:`Signature.bind_partial` instead."
 msgstr ""
@@ -1543,7 +1680,7 @@ msgstr ""
 #: ../../library/inspect.rst:1238
 msgid ""
 "If ``eval_str`` is true, values of type ``str`` will be un-stringized using :"
-"func:`eval()`.  This is intended for use with stringized annotations (``from "
+"func:`eval`.  This is intended for use with stringized annotations (``from "
 "__future__ import annotations``)."
 msgstr ""
 
@@ -1573,15 +1710,14 @@ msgstr ""
 #: ../../library/inspect.rst:1252
 msgid ""
 "``eval_str`` controls whether or not values of type ``str`` are replaced "
-"with the result of calling :func:`eval()` on those values:"
+"with the result of calling :func:`eval` on those values:"
 msgstr ""
 
 #: ../../library/inspect.rst:1255
 msgid ""
-"If eval_str is true, :func:`eval()` is called on values of type ``str``. "
-"(Note that ``get_annotations`` doesn't catch exceptions; if :func:`eval()` "
-"raises an exception, it will unwind the stack past the ``get_annotations`` "
-"call.)"
+"If eval_str is true, :func:`eval` is called on values of type ``str``. (Note "
+"that ``get_annotations`` doesn't catch exceptions; if :func:`eval` raises an "
+"exception, it will unwind the stack past the ``get_annotations`` call.)"
 msgstr ""
 
 #: ../../library/inspect.rst:1259
@@ -1591,8 +1727,8 @@ msgstr ""
 
 #: ../../library/inspect.rst:1261
 msgid ""
-"``globals`` and ``locals`` are passed in to :func:`eval()`; see the "
-"documentation for :func:`eval()` for more information.  If ``globals`` or "
+"``globals`` and ``locals`` are passed in to :func:`eval`; see the "
+"documentation for :func:`eval` for more information.  If ``globals`` or "
 "``locals`` is ``None``, this function may replace that value with a context-"
 "specific default, contingent on ``type(obj)``:"
 msgstr ""
@@ -1741,6 +1877,16 @@ msgid ""
 "disabled when Python was compiled or using :func:`gc.disable`.  For example::"
 msgstr ""
 
+#: ../../library/inspect.rst:1387
+msgid ""
+"def handle_stackframe_without_leak():\n"
+"    frame = inspect.currentframe()\n"
+"    try:\n"
+"        # do something with the frame\n"
+"    finally:\n"
+"        del frame"
+msgstr ""
+
 #: ../../library/inspect.rst:1394
 msgid ""
 "If you want to keep the frame around (for example to print a traceback "
@@ -1871,6 +2017,29 @@ msgstr ""
 msgid ""
 "You can handle these with code like the following. Note that for arbitrary "
 "getset descriptors invoking these may trigger code execution::"
+msgstr ""
+
+#: ../../library/inspect.rst:1521
+msgid ""
+"# example code for resolving the builtin descriptor types\n"
+"class _foo:\n"
+"    __slots__ = ['foo']\n"
+"\n"
+"slot_descriptor = type(_foo.foo)\n"
+"getset_descriptor = type(type(open(__file__)).name)\n"
+"wrapper_descriptor = type(str.__dict__['__add__'])\n"
+"descriptor_types = (slot_descriptor, getset_descriptor, wrapper_descriptor)\n"
+"\n"
+"result = getattr_static(some_object, 'foo')\n"
+"if type(result) in descriptor_types:\n"
+"    try:\n"
+"        result = result.__get__()\n"
+"    except AttributeError:\n"
+"        # descriptors can raise AttributeError to\n"
+"        # indicate there is no underlying value\n"
+"        # in which case the descriptor itself will\n"
+"        # have to do\n"
+"        pass"
 msgstr ""
 
 #: ../../library/inspect.rst:1543

@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-23 14:16+0000\n"
+"POT-Creation-Date: 2024-08-31 10:59+0000\n"
 "PO-Revision-Date: 2021-06-28 00:49+0000\n"
 "Last-Translator: Adorilson Bezerra <adorilson@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -876,6 +876,10 @@ msgstr ""
 "Retorna a verão deste interpretador Python. Esta é uma string que se parece "
 "com ::"
 
+#: ../../c-api/init.rst:607
+msgid "\"3.0a5+ (py3k:63103M, May 12 2008, 00:53:55) \\n[GCC 4.2.3]\""
+msgstr ""
+
 #: ../../c-api/init.rst:611
 msgid ""
 "The first word (up to the first space character) is the current Python "
@@ -926,6 +930,10 @@ msgstr ""
 "Retorna uma indicação do compilador usado para construir a atual versão do "
 "Python, em colchetes, por exemplo::"
 
+#: ../../c-api/init.rst:649
+msgid "\"[GCC 2.7.2.2]\""
+msgstr ""
+
 #: ../../c-api/init.rst:653 ../../c-api/init.rst:667
 msgid ""
 "The returned string points into static storage; the caller should not modify "
@@ -940,6 +948,10 @@ msgid ""
 msgstr ""
 "Retorna informação sobre o número de sequência e a data e hora da construção "
 "da instância atual do interpretador Python, por exemplo ::"
+
+#: ../../c-api/init.rst:663
+msgid "\"#67, Aug  1 1997, 22:34:28\""
+msgstr ""
 
 #: ../../c-api/init.rst:679
 msgid ""
@@ -1002,6 +1014,10 @@ msgid ""
 "On versions before 3.1.3, you can achieve the same effect by manually "
 "popping the first :data:`sys.path` element after having called :c:func:"
 "`PySys_SetArgv`, for example using::"
+msgstr ""
+
+#: ../../c-api/init.rst:720
+msgid "PyRun_SimpleString(\"import sys; sys.path.pop(0)\\n\");"
 msgstr ""
 
 #: ../../c-api/init.rst:732
@@ -1103,8 +1119,24 @@ msgstr ""
 "A maioria dos códigos de extensão que manipulam a :term:`GIL` tem a seguinte "
 "estrutura::"
 
+#: ../../c-api/init.rst:830
+msgid ""
+"Save the thread state in a local variable.\n"
+"Release the global interpreter lock.\n"
+"... Do some blocking I/O operation ...\n"
+"Reacquire the global interpreter lock.\n"
+"Restore the thread state from the local variable."
+msgstr ""
+
 #: ../../c-api/init.rst:836
 msgid "This is so common that a pair of macros exists to simplify it::"
+msgstr ""
+
+#: ../../c-api/init.rst:838
+msgid ""
+"Py_BEGIN_ALLOW_THREADS\n"
+"... Do some blocking I/O operation ...\n"
+"Py_END_ALLOW_THREADS"
 msgstr ""
 
 #: ../../c-api/init.rst:846
@@ -1118,6 +1150,15 @@ msgstr ""
 
 #: ../../c-api/init.rst:850
 msgid "The block above expands to the following code::"
+msgstr ""
+
+#: ../../c-api/init.rst:852
+msgid ""
+"PyThreadState *_save;\n"
+"\n"
+"_save = PyEval_SaveThread();\n"
+"... Do some blocking I/O operation ...\n"
+"PyEval_RestoreThread(_save);"
 msgstr ""
 
 #: ../../c-api/init.rst:862
@@ -1171,6 +1212,19 @@ msgid ""
 "The :c:func:`PyGILState_Ensure` and :c:func:`PyGILState_Release` functions "
 "do all of the above automatically.  The typical idiom for calling into "
 "Python from a C thread is::"
+msgstr ""
+
+#: ../../c-api/init.rst:903
+msgid ""
+"PyGILState_STATE gstate;\n"
+"gstate = PyGILState_Ensure();\n"
+"\n"
+"/* Perform Python actions here. */\n"
+"result = CallSomeFunction();\n"
+"/* evaluate result or handle exception */\n"
+"\n"
+"/* Release the thread. No Python API allowed beyond this point. */\n"
+"PyGILState_Release(gstate);"
 msgstr ""
 
 #: ../../c-api/init.rst:913
@@ -1908,6 +1962,20 @@ msgid ""
 "certain functionality restricted::"
 msgstr ""
 
+#: ../../c-api/init.rst:1554
+msgid ""
+"PyInterpreterConfig config = {\n"
+"    .use_main_obmalloc = 0,\n"
+"    .allow_fork = 0,\n"
+"    .allow_exec = 0,\n"
+"    .allow_threads = 1,\n"
+"    .allow_daemon_threads = 0,\n"
+"    .check_multi_interp_extensions = 1,\n"
+"    .gil = PyInterpreterConfig_OWN_GIL,\n"
+"};\n"
+"PyThreadState *tstate = Py_NewInterpreterFromConfig(&config);"
+msgstr ""
+
 #: ../../c-api/init.rst:1565
 msgid ""
 "Note that the config is used only briefly and does not get modified. During "
@@ -2641,6 +2709,10 @@ msgid ""
 "zero to represent the unlocked state.  For example::"
 msgstr ""
 
+#: ../../c-api/init.rst:2177
+msgid "PyMutex mutex = {0};"
+msgstr ""
+
 #: ../../c-api/init.rst:2179
 msgid ""
 "Instances of :c:type:`!PyMutex` should not be copied or moved.  Both the "
@@ -2711,6 +2783,18 @@ msgstr ""
 msgid "Example usage::"
 msgstr "Exemplo de uso::"
 
+#: ../../c-api/init.rst:2238
+msgid ""
+"static PyObject *\n"
+"set_field(MyObject *self, PyObject *value)\n"
+"{\n"
+"   Py_BEGIN_CRITICAL_SECTION(self);\n"
+"   Py_SETREF(self->field, Py_XNewRef(value));\n"
+"   Py_END_CRITICAL_SECTION();\n"
+"   Py_RETURN_NONE;\n"
+"}"
+msgstr ""
+
 #: ../../c-api/init.rst:2247
 msgid ""
 "In the above example, :c:macro:`Py_SETREF` calls :c:macro:`Py_DECREF`, which "
@@ -2732,12 +2816,25 @@ msgstr ""
 msgid "In the free-threaded build, this macro expands to::"
 msgstr ""
 
+#: ../../c-api/init.rst:2260
+msgid ""
+"{\n"
+"    PyCriticalSection _py_cs;\n"
+"    PyCriticalSection_Begin(&_py_cs, (PyObject*)(op))"
+msgstr ""
+
 #: ../../c-api/init.rst:2264 ../../c-api/init.rst:2293
 msgid "In the default build, this macro expands to ``{``."
 msgstr ""
 
 #: ../../c-api/init.rst:2270
 msgid "Ends the critical section and releases the per-object lock."
+msgstr ""
+
+#: ../../c-api/init.rst:2274
+msgid ""
+"    PyCriticalSection_End(&_py_cs);\n"
+"}"
 msgstr ""
 
 #: ../../c-api/init.rst:2277 ../../c-api/init.rst:2306
@@ -2751,8 +2848,21 @@ msgid ""
 "address first) to avoid lock ordering deadlocks."
 msgstr ""
 
+#: ../../c-api/init.rst:2289
+msgid ""
+"{\n"
+"    PyCriticalSection2 _py_cs2;\n"
+"    PyCriticalSection_Begin2(&_py_cs2, (PyObject*)(a), (PyObject*)(b))"
+msgstr ""
+
 #: ../../c-api/init.rst:2299
 msgid "Ends the critical section and releases the per-object locks."
+msgstr ""
+
+#: ../../c-api/init.rst:2303
+msgid ""
+"    PyCriticalSection_End2(&_py_cs2);\n"
+"}"
 msgstr ""
 
 #: ../../c-api/init.rst:335
