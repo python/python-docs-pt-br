@@ -7,6 +7,7 @@ die() { echo "$0: error: $*" >&2; exit 1; }
 [ $# -ne 2 ] && die "Expected 1 input and 1 output files, got $#"
 [ ! -f "$1" ]  && die "Input file $1 not found, skipping."
 [ -z "${PYDOC_REPO}" ] && die "PYDOC_REPO is empty."
+[ -z "${PYDOC_VERSION}" ] && die "PYDOC_VERSION is empty."
 [ -z "${GITHUB_RUN_ID}" ] && die "GITHUB_RUN_ID is empty."
 [ -z "${GITHUB_JOB}" ] && die "GITHUB_JOB is empty."
 
@@ -34,6 +35,6 @@ fi
 
 [[ $(cat aux) == "" ]] && die "Unexpected empty output message."
 
-echo "❌ *${GITHUB_JOB}* (ID&nbsp;[${GITHUB_RUN_ID}]($URL)):" > "$output";
+echo "❌ *${PYDOC_VERSION} ${GITHUB_JOB}* (ID&nbsp;[${GITHUB_RUN_ID}]($URL)):" > "$output";
 { echo ""; cat aux; echo ""; } >> "$output"
 rm aux
