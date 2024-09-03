@@ -7,6 +7,8 @@ set -eu
 
 cd $(dirname $0)/../cpython/Doc/locale/${PYDOC_LANGUAGE}/LC_MESSAGES
 
+extra_files=".tx/config stats.json potodo.md"
+
 set +u
 if [ -n "${CI+x}" ]; then
   git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -21,7 +23,7 @@ git status -s | grep '^ D ' | cut -d' ' -f3 | xargs -r git rm -v
 git diff -I'^"POT-Creation-Date: ' --numstat *.po **/*.po | cut -f3 | xargs -r git add -v
 
 # Add currently untracked PO files, and update other helper files
-git add -v $(git ls-files -o --exclude-standard *.po **/*.po) .tx/config stats.json potodo.md
+git add -v $(git ls-files -o --exclude-standard *.po **/*.po)
 
 # Commit only if there is any cached file
-git diff-index --cached --quiet HEAD || git commit -vm "Update translations"
+git diff-index --cached --quiet HEAD || { git add -v $extra_files; git commit -vm "Update translations"; }
