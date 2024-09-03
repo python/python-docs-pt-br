@@ -27,10 +27,11 @@ while(url):
         url = data['links'].get('next')
         for resourse in data['data']:
             translated = translated + resourse['attributes']['translated_strings']
-            total =  total + resourse['attributes']['total_strings']
+            total = total + resourse['attributes']['total_strings']
 
 p = '{:.2%}'.format(translated/total)
 print(json.dumps({
     'translation':p,
+    'total':total,
     'updated_at':datetime.now(timezone.utc).isoformat(timespec='seconds') + 'Z',
     }))
