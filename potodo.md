@@ -82,7 +82,7 @@
 - index.po                       166 / 226 ( 73.0% translated).
 
 
-# library (44.63% done)
+# library (44.61% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          33 /  49 ( 67.0% translated).
@@ -136,7 +136,7 @@
 - email.compat32-message.po        5 / 104 (  4.0% translated).
 - email.contentmanager.po          4 /  41 (  9.0% translated).
 - email.encoders.po                2 /  15 ( 13.0% translated).
-- email.errors.po                  6 /  26 ( 23.0% translated).
+- email.errors.po                  6 /  27 ( 22.0% translated).
 - email.generator.po               2 /  41 (  4.0% translated).
 - email.header.po                  3 /  38 (  7.0% translated).
 - email.headerregistry.po         13 / 103 ( 12.0% translated).
@@ -144,8 +144,8 @@
 - email.mime.po                   26 /  38 ( 68.0% translated).
 - email.parser.po                  2 /  47 (  4.0% translated).
 - email.po                        25 /  27 ( 92.0% translated).
-- email.policy.po                 11 / 100 ( 11.0% translated).
-- email.utils.po                  29 /  30 ( 96.0% translated).
+- email.policy.po                 11 / 102 ( 10.0% translated).
+- email.utils.po                  28 /  33 ( 84.0% translated).
 - enum.po                         19 / 192 (  9.0% translated).
 - errno.po                         8 / 134 (  5.0% translated).
 - faulthandler.po                  4 /  42 (  9.0% translated).
@@ -304,7 +304,7 @@
 - windows.po                     314 / 343 ( 91.0% translated).
 
 
-# whatsnew (73.40% done)
+# whatsnew (73.37% done)
 
 - 2.0.po                         181 / 183 ( 98.0% translated).
 - 2.1.po                         138 / 139 ( 99.0% translated).
@@ -316,7 +316,7 @@
 - 2.7.po                         451 / 453 ( 99.0% translated).
 - 3.0.po                         204 / 205 ( 99.0% translated).
 - 3.10.po                        498 / 506 ( 98.0% translated).
-- 3.11.po                        745 / 761 ( 97.0% translated).
+- 3.11.po                        746 / 765 ( 97.0% translated).
 - 3.2.po                          64 / 518 ( 12.0% translated).
 - 3.3.po                         130 / 662 ( 19.0% translated).
 - 3.4.po                         503 / 511 ( 98.0% translated).
