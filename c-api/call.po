@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2021, Python Software Foundation
+# Copyright (C) 2001-2024, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -7,22 +7,28 @@
 # Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2020
 # Renan Lopes <renans.l@icloud.com>, 2020
 # Alexandre B A Villares, 2021
+# Flávio Neves, 2022
+# Ana Carolina Dias, 2022
+# Mozart Dias Martins, 2023
+# Leonardo Rodrigues da Costa, 2023
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-01 05:02+0000\n"
+"POT-Creation-Date: 2024-08-16 16:41+0000\n"
 "PO-Revision-Date: 2020-05-31 09:28+0000\n"
-"Last-Translator: Alexandre B A Villares, 2021\n"
-"Language-Team: Portuguese (Brazil) (https://www.transifex.com/python-doc/"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
+"Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
+"1000000 == 0 ? 1 : 2;\n"
 
 #: ../../c-api/call.rst:6
 msgid "Call Protocol"
@@ -54,7 +60,7 @@ msgid ""
 msgstr ""
 "Uma chamada é feita usando uma tupla para os argumentos posicionais e um "
 "dicionário para os argumentos nomeados, similar a ``callable(*args, "
-"**kwargs)`` em Python. *args* não pode ser nulo (utilize uma tupla vazia se "
+"**kwargs)`` no Python. *args* não pode ser nulo (utilize uma tupla vazia se "
 "não houver argumentos), mas *kwargs* pode ser *NULL* se não houver "
 "argumentos nomeados."
 
@@ -69,9 +75,11 @@ msgstr ""
 
 #: ../../c-api/call.rst:29
 msgid ""
-"To call an object, use :c:func:`PyObject_Call` or other :ref:`call API <capi-"
-"call>`."
+"To call an object, use :c:func:`PyObject_Call` or another :ref:`call API "
+"<capi-call>`."
 msgstr ""
+"Para chamar um objeto, use :c:func:`PyObject_Call` ou outra :ref:`call API "
+"<capi-call>`."
 
 #: ../../c-api/call.rst:36
 msgid "The Vectorcall Protocol"
@@ -97,14 +105,14 @@ msgid ""
 "`PyVectorcall_Call`. This bears repeating:"
 msgstr ""
 "Como regra de bolso. CPython vai preferir o vectorcall para invocações "
-"internas se o invocável suportar. Entretanto, isso não é uma regra rígida.\n"
+"internas se o chamável suportar. Entretanto, isso não é uma regra rígida. "
 "Ademais, alguma extensões de terceiros usam  diretamente *tp_call* (em vez "
 "de utilizar :c:func:`PyObject_Call`). Portanto, uma classe que suporta "
 "vectorcall precisa também implementar :c:member:`~PyTypeObject.tp_call`. "
-"Além disso, o invocável precisa se comportar da mesma forma independe de "
-"qual protocolo é utilizado. A forma recomendada de alcançar isso é "
-"definindo :c:member:`~PyTypeObject.tp_call` para :c:func:"
-"`PyVectorcall_Call`. Vale a pena repetir:"
+"Além disso, o chamável precisa se comportar da mesma forma independe de qual "
+"protocolo é utilizado. A forma recomendada de alcançar isso é definindo :c:"
+"member:`~PyTypeObject.tp_call` para :c:func:`PyVectorcall_Call`. Vale a pena "
+"repetir:"
 
 #: ../../c-api/call.rst:57
 msgid ""
@@ -121,10 +129,10 @@ msgid ""
 "args tuple and kwargs dict anyway, then there is no point in implementing "
 "vectorcall."
 msgstr ""
-"Uma classe não deve implementar chamadas de vetores se for mais lento que "
-"*tp_call*. Por exemplo, se o chamador precisa converter os argumentos para "
-"uma tupla args e um dicionário kwargs de qualquer forma, então não é "
-"necessário implementar chamada de vetor."
+"Uma classe não deve implementar vectorcall se for mais lento que *tp_call*. "
+"Por exemplo, se o chamador precisa converter os argumentos para uma tupla "
+"args e um dicionário kwargs de qualquer forma, então não é necessário "
+"implementar vectorcall."
 
 #: ../../c-api/call.rst:65
 msgid ""
@@ -171,7 +179,7 @@ msgstr ""
 
 #: ../../c-api/call.rst:85
 msgid "*kwnames* is a tuple containing the names of the keyword arguments;"
-msgstr "*kwnames* é uma tupla contendo os nomes dos argumentos-chave;"
+msgstr "*kwnames* é uma tupla contendo os nomes dos argumentos nomeados;"
 
 #: ../../c-api/call.rst:82
 msgid ""
@@ -181,7 +189,7 @@ msgid ""
 msgstr ""
 "em outras palavras, as chaves do dicionário kwargs. Estes nomes devem ser "
 "strings (instâncias de ``str`` ou uma subclasse) e eles devem ser únicos. Se "
-"não existem argumentos-chave, então *kwnames* deve então ser *NULL*."
+"não existem argumentos nomeados, então *kwnames* deve então ser *NULL*."
 
 #: ../../c-api/call.rst:89
 msgid ""
@@ -190,7 +198,7 @@ msgid ""
 "argument 1 (not 0) in the allocated vector. The callee must restore the "
 "value of ``args[-1]`` before returning."
 msgstr ""
-"Se essa flag é definida em um argumento de chamada de vetor *nargsf*, deve "
+"Se esse sinalizador é definido em um argumento *nargsf* do vectorcall, deve "
 "ser permitido ao chamado temporariamente mudar ``args[-1]``. Em outras "
 "palavras, *args* aponta para o argumento 1 (não 0) no vetor alocado. O "
 "chamado deve restaurar o valor de ``args[-1]`` antes de retornar."
@@ -256,7 +264,7 @@ msgid ""
 "`Py_LeaveRecursiveCall` for calls made using *tp_call*."
 msgstr ""
 "Quando utilizando *tp_call*, invocadores não precisam se preocupar sobre :"
-"ref:`recursion <recursion>`:CPython usar :c:func:`Py_EnterRecursiveCall`e :c:"
+"ref:`recursão <recursion>`: CPython usa :c:func:`Py_EnterRecursiveCall` e :c:"
 "func:`Py_LeaveRecursiveCall` para chamadas utilizando *tp_call*."
 
 #: ../../c-api/call.rst:128
@@ -293,7 +301,7 @@ msgstr ""
 #: ../../c-api/call.rst:259 ../../c-api/call.rst:346 ../../c-api/call.rst:360
 #: ../../c-api/call.rst:375 ../../c-api/call.rst:391 ../../c-api/call.rst:413
 msgid "This function is not part of the :ref:`limited API <stable>`."
-msgstr ""
+msgstr "Esta função não é parte da :ref:`limited API <stable>`."
 
 #: ../../c-api/call.rst:153
 msgid ""
@@ -320,7 +328,7 @@ msgid ""
 "Call *callable*'s :c:type:`vectorcallfunc` with positional and keyword "
 "arguments given in a tuple and dict, respectively."
 msgstr ""
-"Chame o :c:type:`vectorcallfunc` de *callable* com argumentos posicionais e "
+"Chama o :c:type:`vectorcallfunc` de *callable* com argumentos posicionais e "
 "nomeados dados em uma tupla e dicionário, respectivamente."
 
 #: ../../c-api/call.rst:170
@@ -343,21 +351,26 @@ msgstr "API de chamada de objetos"
 msgid ""
 "Various functions are available for calling a Python object. Each converts "
 "its arguments to a convention supported by the called object – either "
-"*tp_call* or vectorcall. In order to do as litle conversion as possible, "
+"*tp_call* or vectorcall. In order to do as little conversion as possible, "
 "pick one that best fits the format of data you have available."
 msgstr ""
+"Várias funções estão disponíveis para chamar um objeto Python. Cada uma "
+"converte seus argumentos para uma convenção suportada pelo objeto chamado – "
+"seja *tp_call* ou chamada de vetor. Para fazer o mínimo possível de "
+"conversões, escolha um que melhor se adapte ao formato de dados que você tem "
+"disponível."
 
 #: ../../c-api/call.rst:191
 msgid ""
 "The following table summarizes the available functions; please see "
 "individual documentation for details."
 msgstr ""
-"A tabela a seguir sumariza as funções disponíveis; por favor, veja a "
+"A tabela a seguir resume as funções disponíveis; por favor, veja a "
 "documentação individual para detalhes."
 
 #: ../../c-api/call.rst:195
 msgid "Function"
-msgstr "Função "
+msgstr "Função"
 
 #: ../../c-api/call.rst:195
 msgid "callable"
@@ -480,7 +493,7 @@ msgid ""
 "Call a callable Python object *callable*, with arguments given by the tuple "
 "*args*, and named arguments given by the dictionary *kwargs*."
 msgstr ""
-"Chame um objeto Python chamável de *callable*, com argumentos dados pela "
+"Chama um objeto Python chamável de *callable*, com argumentos dados pela "
 "tupla *args*, e argumentos nomeados dados pelo dicionário *kwargs*."
 
 #: ../../c-api/call.rst:230
@@ -500,7 +513,7 @@ msgid ""
 "Return the result of the call on success, or raise an exception and return "
 "*NULL* on failure."
 msgstr ""
-"Retorne o resultado da chamada em sucesso, ou levante uma exceção e retorne "
+"Retorna o resultado da chamada em sucesso, ou levanta uma exceção e retorna "
 "*NULL* em caso de falha."
 
 #: ../../c-api/call.rst:236
@@ -515,7 +528,7 @@ msgid ""
 "Call a callable Python object *callable* without any arguments. It is the "
 "most efficient way to call a callable Python object without any argument."
 msgstr ""
-"Chame um objeto Python chamável de *callable* sem nenhum argumento. É o "
+"Chama um objeto Python chamável de *callable* sem nenhum argumento. É o "
 "jeito mais eficiente de chamar um objeto Python sem nenhum argumento."
 
 #: ../../c-api/call.rst:253
@@ -523,7 +536,7 @@ msgid ""
 "Call a callable Python object *callable* with exactly 1 positional argument "
 "*arg* and no keyword arguments."
 msgstr ""
-"Chame um objeto Python chamável de *callable* com exatamente 1 argumento "
+"Chama um objeto Python chamável de *callable* com exatamente 1 argumento "
 "posicional *arg* e nenhum argumento nomeado."
 
 #: ../../c-api/call.rst:266
@@ -531,7 +544,7 @@ msgid ""
 "Call a callable Python object *callable*, with arguments given by the tuple "
 "*args*.  If no arguments are needed, then *args* can be *NULL*."
 msgstr ""
-"Chame um objeto Python chamável de *callable* com argumentos dados pela "
+"Chama um objeto Python chamável de *callable* com argumentos dados pela "
 "tupla *args*. Se nenhum argumento é necessário, *args* pode ser *NULL*."
 
 #: ../../c-api/call.rst:272 ../../c-api/call.rst:284
@@ -545,7 +558,7 @@ msgid ""
 "style format string.  The format can be *NULL*, indicating that no arguments "
 "are provided."
 msgstr ""
-"Chame um objeto Python chamável de *callable*, com um número variável de "
+"Chama um objeto Python chamável de *callable*, com um número variável de "
 "argumentos C. Os argumentos C são descritos usando uma string de estilo no "
 "formato :c:func:`Py_BuildValue`. O formato pode ser *NULL*, indicando que "
 "nenhum argumento foi provido."
@@ -555,6 +568,8 @@ msgid ""
 "Note that if you only pass :c:type:`PyObject *` args, :c:func:"
 "`PyObject_CallFunctionObjArgs` is a faster alternative."
 msgstr ""
+"Observe que se você passar apenas argumentos :c:type:`PyObject *` , :c:func:"
+"`PyObject_CallFunctionObjArgs` é uma alternativa mais rápida."
 
 #: ../../c-api/call.rst:289
 msgid "The type of *format* was changed from ``char *``."
@@ -566,7 +581,7 @@ msgid ""
 "arguments.  The C arguments are described by a :c:func:`Py_BuildValue` "
 "format string that should produce a tuple."
 msgstr ""
-"Chame o método chamado *name* do objeto *obj* com um número variável de "
+"Chama o método chamado *name* do objeto *obj* com um número variável de "
 "argumentos C. Os argumentos C são descritos com uma string de formato :c:"
 "func:`Py_BuildValue` que deve produzir uma tupla."
 
@@ -586,6 +601,8 @@ msgid ""
 "Note that if you only pass :c:type:`PyObject *` args, :c:func:"
 "`PyObject_CallMethodObjArgs` is a faster alternative."
 msgstr ""
+"Note que é uma alternativa mais rápida se você só passar :c:type:`PyObject "
+"*` args, :c:func:`PyObject_CallMethodObjArgs`."
 
 #: ../../c-api/call.rst:310
 msgid "The types of *name* and *format* were changed from ``char *``."
@@ -597,6 +614,9 @@ msgid ""
 "`PyObject *` arguments.  The arguments are provided as a variable number of "
 "parameters followed by *NULL*."
 msgstr ""
+"Chamar um objeto python chamável *callable*, com um numero variável de "
+"argumentos :c:type:`PyObject *`. Os argumentos são fornecidos como um numero "
+"de parametros variáveis seguidos por *NULL*. "
 
 #: ../../c-api/call.rst:323
 msgid ""
@@ -612,6 +632,10 @@ msgid ""
 "number of :c:type:`PyObject *` arguments.  The arguments are provided as a "
 "variable number of parameters followed by *NULL*."
 msgstr ""
+"Chamar um método do objeto python *obj*, onde o nome do método é dado como "
+"um objeto string *name*. Ele é chamado com um numero variável de argumentos :"
+"c:type:`PyObject *`.  Os argumentos são fornecidos como um numero variável "
+"de parametros seguidos por *NULL*."
 
 #: ../../c-api/call.rst:340
 msgid ""

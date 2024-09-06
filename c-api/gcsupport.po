@@ -1,31 +1,32 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2021, Python Software Foundation
+# Copyright (C) 2001-2024, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2017
+# Andressa Lima Ferreira, 2023
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2023
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-29 06:28+0000\n"
+"POT-Creation-Date: 2024-08-31 13:14+0000\n"
 "PO-Revision-Date: 2017-02-16 17:35+0000\n"
-"Last-Translator: Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, "
-"2017\n"
-"Language-Team: Portuguese (Brazil) (https://www.transifex.com/python-doc/"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2023\n"
+"Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
+"1000000 == 0 ? 1 : 2;\n"
 
 #: ../../c-api/gcsupport.rst:6
 msgid "Supporting Cyclic Garbage Collection"
-msgstr "Suporte a Coleta Cíclica de Lixo "
+msgstr "Suporte a Coleta Cíclica de Lixo"
 
 #: ../../c-api/gcsupport.rst:8
 msgid ""
@@ -63,9 +64,9 @@ msgid ""
 "documented here.  For convenience these objects will be referred to as "
 "container objects."
 msgstr ""
-"Objetos com esse tipo de sinalizador definido devem seguir as regras "
-"documentadas aqui. Por conveniência esses objetos serão referenciados como "
-"objetos de contêiner."
+"Objetos com esse tipo de sinalizador definido devem estar em conformidade "
+"com regras documentadas aqui. Por conveniência esses objetos serão "
+"referenciados como objetos de contêiner."
 
 #: ../../c-api/gcsupport.rst:28
 msgid "Constructors for container types must conform to two rules:"
@@ -87,14 +88,37 @@ msgstr ""
 "Uma vez que todos os campos que podem conter referências a outros containers "
 "foram inicializados, deve-se chamar  :c:func:`PyObject_GC_Track`."
 
-#: ../../c-api/gcsupport.rst:37
+#: ../../c-api/gcsupport.rst:36
+msgid ""
+"Similarly, the deallocator for the object must conform to a similar pair of "
+"rules:"
+msgstr ""
+"Da mesma forma, o desalocador para o objeto deve estar em conformidade com "
+"regras semelhantes:"
+
+#: ../../c-api/gcsupport.rst:39
+msgid ""
+"Before fields which refer to other containers are invalidated, :c:func:"
+"`PyObject_GC_UnTrack` must be called."
+msgstr ""
+"Antes que os campos que fazer referência a outros containers sejam "
+"invalidados,  :c:func:`PyObject_GC_UnTrack` deve ser chamado."
+
+#: ../../c-api/gcsupport.rst:42
+msgid ""
+"The object's memory must be deallocated using :c:func:`PyObject_GC_Del`."
+msgstr ""
+"A memória destinada ao objeto deve ser desalocada usando :c:func:"
+"`PyObject_GC_Del`."
+
+#: ../../c-api/gcsupport.rst:45
 msgid ""
 "If a type adds the Py_TPFLAGS_HAVE_GC, then it *must* implement at least a :"
 "c:member:`~PyTypeObject.tp_traverse` handler or explicitly use one from its "
 "subclass or subclasses."
 msgstr ""
 
-#: ../../c-api/gcsupport.rst:41
+#: ../../c-api/gcsupport.rst:49
 msgid ""
 "When calling :c:func:`PyType_Ready` or some of the APIs that indirectly call "
 "it like :c:func:`PyType_FromSpecWithBases` or :c:func:`PyType_FromSpec` the "
@@ -105,26 +129,26 @@ msgid ""
 "include the :const:`Py_TPFLAGS_HAVE_GC` flag."
 msgstr ""
 
-#: ../../c-api/gcsupport.rst:51
+#: ../../c-api/gcsupport.rst:59
 msgid ""
 "Analogous to :c:func:`PyObject_New` but for container objects with the :"
 "const:`Py_TPFLAGS_HAVE_GC` flag set."
 msgstr ""
 
-#: ../../c-api/gcsupport.rst:57
+#: ../../c-api/gcsupport.rst:65
 msgid ""
 "Analogous to :c:func:`PyObject_NewVar` but for container objects with the :"
 "const:`Py_TPFLAGS_HAVE_GC` flag set."
 msgstr ""
 
-#: ../../c-api/gcsupport.rst:63
+#: ../../c-api/gcsupport.rst:71
 msgid ""
 "Resize an object allocated by :c:func:`PyObject_NewVar`.  Returns the "
 "resized object or ``NULL`` on failure.  *op* must not be tracked by the "
 "collector yet."
 msgstr ""
 
-#: ../../c-api/gcsupport.rst:69
+#: ../../c-api/gcsupport.rst:77
 msgid ""
 "Adds the object *op* to the set of container objects tracked by the "
 "collector.  The collector can run at unexpected times so objects must be "
@@ -133,60 +157,37 @@ msgid ""
 "usually near the end of the constructor."
 msgstr ""
 
-#: ../../c-api/gcsupport.rst:78
+#: ../../c-api/gcsupport.rst:86
 msgid ""
 "Returns non-zero if the object implements the garbage collector protocol, "
 "otherwise returns 0."
 msgstr ""
 
-#: ../../c-api/gcsupport.rst:81
+#: ../../c-api/gcsupport.rst:89
 msgid ""
 "The object cannot be tracked by the garbage collector if this function "
 "returns 0."
 msgstr ""
 
-#: ../../c-api/gcsupport.rst:86
+#: ../../c-api/gcsupport.rst:94
 msgid ""
 "Returns 1 if the object type of *op* implements the GC protocol and *op* is "
 "being currently tracked by the garbage collector and 0 otherwise."
 msgstr ""
 
-#: ../../c-api/gcsupport.rst:89
+#: ../../c-api/gcsupport.rst:97
 msgid "This is analogous to the Python function :func:`gc.is_tracked`."
 msgstr ""
 
-#: ../../c-api/gcsupport.rst:96
+#: ../../c-api/gcsupport.rst:104
 msgid ""
 "Returns 1 if the object type of *op* implements the GC protocol and *op* has "
 "been already finalized by the garbage collector and 0 otherwise."
 msgstr ""
 
-#: ../../c-api/gcsupport.rst:99
+#: ../../c-api/gcsupport.rst:107
 msgid "This is analogous to the Python function :func:`gc.is_finalized`."
 msgstr ""
-
-#: ../../c-api/gcsupport.rst:103
-msgid ""
-"Similarly, the deallocator for the object must conform to a similar pair of "
-"rules:"
-msgstr ""
-"Da mesma forma, o desalocador para o objeto deve estar em conformidade com "
-"regras semelhantes:"
-
-#: ../../c-api/gcsupport.rst:106
-msgid ""
-"Before fields which refer to other containers are invalidated, :c:func:"
-"`PyObject_GC_UnTrack` must be called."
-msgstr ""
-"Antes que os campos que fazer referência a outros containers sejam "
-"invalidados,  :c:func:`PyObject_GC_UnTrack` deve ser chamado."
-
-#: ../../c-api/gcsupport.rst:109
-msgid ""
-"The object's memory must be deallocated using :c:func:`PyObject_GC_Del`."
-msgstr ""
-"A memória destinada ao objeto deve ser desalocada usando :c:func:"
-"`PyObject_GC_Del`."
 
 #: ../../c-api/gcsupport.rst:114
 msgid ""
