@@ -4,12 +4,16 @@ Brazilian Portuguese Translation of the Python Documentation
 All translations are done on Transifex.
 https://explore.transifex.com/python-doc/
 
-Pull request for updating translations will not be accept, please use Transifex.
+Please use pull request only for improving scripts, README, etc.; not for translation
 
 For guides, contacts and more, please see the `Wiki <https://github.com/python/python-docs-pt-br/wiki>`_.
 
+Join the translation team at the Telegram group `@pybr_i18n <https://t.me/pybr_i18n>`_.
+
 Versions translation status
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+See below a table of the translation status for each version, separated by versions that are still maintained and version that reached the end-of-life (EOL).
 
 Maintained versions:
 --------------------
@@ -95,54 +99,6 @@ EOL versions:
      - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fpython%2Fpython-docs-pt-br%2Fraw%2F3.7%2Fstats.json&query=total&label=3.7
           :alt: Total strings for Python 3.7
           :target: https://app.transifex.com/python-doc/python-37/
-
-Translation priorities
-~~~~~~~~~~~~~~~~~~~~~~
-
-The following modules are considered as priority targets, hence should
-receive more attention than other modules/pages (0 has higher priority
-than 2). Please help us to keep them 100% translated.
-
-Priority 0
-----------
-
-* `bugs <https://app.transifex.com/python-doc/python-newest/translate/#pt_BR/bugs>`_
-* `glossary <https://app.transifex.com/python-doc/python-newest/translate/#pt_BR/glossary_>`_
-* `library/functions <https://app.transifex.com/python-doc/python-newest/translate/#pt_BR/library--functions>`_
-* `library/index <https://app.transifex.com/python-doc/python-newest/translate/#pt_BR/library--index>`_
-* `library/intro <https://app.transifex.com/python-doc/python-newest/translate/#pt_BR/library--intro>`_
-* `library/constants <https://app.transifex.com/python-doc/python-newest/translate/#pt_BR/library--constants>`_
-* `library/stdtypes <https://app.transifex.com/python-doc/python-newest/translate/#pt_BR/library--stdtypes>`_
-* `library/exceptions <https://app.transifex.com/python-doc/python-newest/translate/#pt_BR/library--exceptions>`_
-* `sphinx <https://app.transifex.com/python-doc/python-newest/translate/#pt_BR/sphinx>`_
-* `tutorial/ (all!) <https://app.transifex.com/python-doc/python-newest/translate/#pt_BR>`_ (search for 'tutorial--')
-
-Priority 1
-----------
-
-* `reference/ (all) <https://app.transifex.com/python-doc/python-newest/translate/#pt_BR>`_ (search for 'reference--')
-* `faq/ (all) <https://app.transifex.com/python-doc/python-newest/translate/#pt_BR>`_ (search for 'faq--')
-
-Priority 2
-----------
-
-* `library/turtle <https://app.transifex.com/python-doc/python-newest/translate/#pt_BR/library--turtle>`_
-* `library/sys <https://app.transifex.com/python-doc/python-newest/translate/#pt_BR/library--sys>`_
-* `library/argparse <https://app.transifex.com/python-doc/python-newest/translate/#pt_BR/library--argparse>`_
-* `library/random <https://app.transifex.com/python-doc/python-newest/translate/#pt_BR/library--random>`_
-* `library/statistics <https://app.transifex.com/python-doc/python-newest/translate/#pt_BR/library--statistics>`_
-* `library/urllib.request <https://app.transifex.com/python-doc/python-newest/translate/#pt_BR/library--urllib_request>`_
-* `library/smtplib <https://app.transifex.com/python-doc/python-newest/translate/#pt_BR/library--smtplib>`_
-* `library/datetime <https://app.transifex.com/python-doc/python-newest/translate/#pt_BR/library--datetime>`_
-* `library/zlib <https://app.transifex.com/python-doc/python-newest/translate/#pt_BR/library--zlib>`_
-* `library/gzip <https://app.transifex.com/python-doc/python-newest/translate/#pt_BR/library--gzip>`_
-* `library/lzma <https://app.transifex.com/python-doc/python-newest/translate/#pt_BR/library--lzma>`_
-* `library/tarfile <https://app.transifex.com/python-doc/python-newest/translate/#pt_BR/library--tarfile>`_
-* `library/timeit <https://app.transifex.com/python-doc/python-newest/translate/#pt_BR/library--timeit>`_
-* `library/profile <https://app.transifex.com/python-doc/python-newest/translate/#pt_BR/library--profile>`_
-* `library/doctest <https://app.transifex.com/python-doc/python-newest/translate/#pt_BR/library--doctest>`_
-* `library/unittest <https://app.transifex.com/python-doc/python-newest/translate/#pt_BR/library--unittest>`_
-* `library/ (except the ones mentioned above) <https://app.transifex.com/python-doc/python-newest/translate/#pt_BR>`_ (search for 'library--')
 
 
 Documentation Contribution Agreement
