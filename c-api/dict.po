@@ -4,25 +4,22 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2021
-# Aline Balogh <linecrist@hotmail.com>, 2021
-# felipe caridade fernandes <caridade500@gmail.com>, 2023
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2023
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-19 14:14+0000\n"
-"PO-Revision-Date: 2021-06-28 00:48+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2023\n"
+"POT-Creation-Date: 2024-08-31 11:30+0000\n"
+"PO-Revision-Date: 2024-05-11 00:32+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -268,6 +265,17 @@ msgstr ""
 msgid "For example::"
 msgstr "Por exemplo::"
 
+#: ../../c-api/dict.rst:181
+msgid ""
+"PyObject *key, *value;\n"
+"Py_ssize_t pos = 0;\n"
+"\n"
+"while (PyDict_Next(self->dict, &pos, &key, &value)) {\n"
+"    /* do something interesting with the values... */\n"
+"    ...\n"
+"}"
+msgstr ""
+
 #: ../../c-api/dict.rst:189
 msgid ""
 "The dictionary *p* should not be mutated during iteration.  It is safe to "
@@ -277,6 +285,27 @@ msgstr ""
 "O dicionário *p* não deve sofrer mutação durante a iteração. É seguro "
 "modificar os valores das chaves à medida que você itera no dicionário, mas "
 "apenas enquanto o conjunto de chaves não mudar. Por exemplo::"
+
+#: ../../c-api/dict.rst:193
+msgid ""
+"PyObject *key, *value;\n"
+"Py_ssize_t pos = 0;\n"
+"\n"
+"while (PyDict_Next(self->dict, &pos, &key, &value)) {\n"
+"    long i = PyLong_AsLong(value);\n"
+"    if (i == -1 && PyErr_Occurred()) {\n"
+"        return -1;\n"
+"    }\n"
+"    PyObject *o = PyLong_FromLong(i + 1);\n"
+"    if (o == NULL)\n"
+"        return -1;\n"
+"    if (PyDict_SetItem(self->dict, key, o) < 0) {\n"
+"        Py_DECREF(o);\n"
+"        return -1;\n"
+"    }\n"
+"    Py_DECREF(o);\n"
+"}"
+msgstr ""
 
 #: ../../c-api/dict.rst:214
 msgid ""
@@ -323,6 +352,14 @@ msgstr ""
 "a última vence se *override* for verdadeiro, caso contrário, a primeira "
 "vence. Retorne ``0`` em caso de sucesso ou ``-1`` se uma exceção foi "
 "levantada. Python equivalente (exceto para o valor de retorno)::"
+
+#: ../../c-api/dict.rst:240
+msgid ""
+"def PyDict_MergeFromSeq2(a, seq2, override):\n"
+"    for key, value in seq2:\n"
+"        if override or key not in a:\n"
+"            a[key] = value"
+msgstr ""
 
 #: ../../c-api/dict.rst:247
 msgid ""

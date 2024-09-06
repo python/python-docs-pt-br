@@ -4,25 +4,22 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Marco Rougeth <marco@rougeth.com>, 2021
-# i17obot <i17obot@rougeth.com>, 2021
-# Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2023
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2023
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-10 14:14+0000\n"
-"PO-Revision-Date: 2021-06-28 01:17+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2023\n"
+"POT-Creation-Date: 2024-08-31 11:30+0000\n"
+"PO-Revision-Date: 2024-05-11 00:34+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -56,6 +53,13 @@ msgid ""
 "``sftp``, ``shttp``, ``sip``, ``sips``, ``snews``, ``svn``, ``svn+ssh``, "
 "``telnet``, ``wais``, ``ws``, ``wss``."
 msgstr ""
+"O módulo foi projetado para corresponder ao RFC da internet sobre "
+"Localizadores de Recursos Uniformes Relativos, ou URL relativa. Ele tem "
+"suporte aos seguintes esquemas de URL: ``file``, ``ftp``, ``gopher``, "
+"``hdl``, ``http``, ``https``, ``imap``, ``mailto``, ``mms``, ``news``, "
+"``nntp``, ``prospero``, ``rsync``, ``rtsp``, ``rtsps``,``rtspu``, ``sftp``, "
+"``shttp``, ``sip``, ``sips``, ``snews``, ``svn``, ``svn+ssh``, ``telnet``, "
+"``wais``, ``ws``, ``wss``."
 
 #: ../../library/urllib.parse.rst:30
 msgid ""
@@ -112,6 +116,31 @@ msgstr ""
 "resultado, exceto por uma barra inicial no componente *path*, que é retido "
 "se estiver presente. Por exemplo:"
 
+#: ../../library/urllib.parse.rst:56
+msgid ""
+">>> from urllib.parse import urlparse\n"
+">>> urlparse(\"scheme://netloc/path;parameters?query#fragment\")\n"
+"ParseResult(scheme='scheme', netloc='netloc', path='/path;parameters', "
+"params='',\n"
+"            query='query', fragment='fragment')\n"
+">>> o = urlparse(\"http://docs.python.org:80/3/library/urllib.parse.html?\"\n"
+"...              \"highlight=params#url-parsing\")\n"
+">>> o\n"
+"ParseResult(scheme='http', netloc='docs.python.org:80',\n"
+"            path='/3/library/urllib.parse.html', params='',\n"
+"            query='highlight=params', fragment='url-parsing')\n"
+">>> o.scheme\n"
+"'http'\n"
+">>> o.netloc\n"
+"'docs.python.org:80'\n"
+">>> o.hostname\n"
+"'docs.python.org'\n"
+">>> o.port\n"
+"80\n"
+">>> o._replace(fragment=\"\").geturl()\n"
+"'http://docs.python.org:80/3/library/urllib.parse.html?highlight=params'"
+msgstr ""
+
 #: ../../library/urllib.parse.rst:80
 msgid ""
 "Following the syntax specifications in :rfc:`1808`, urlparse recognizes a "
@@ -122,6 +151,21 @@ msgstr ""
 "um netloc apenas se for introduzido apropriadamente por '//'. Caso "
 "contrário, presume-se que a entrada seja uma URL relativa e, portanto, "
 "comece com um componente de caminho."
+
+#: ../../library/urllib.parse.rst:85
+msgid ""
+">>> from urllib.parse import urlparse\n"
+">>> urlparse('//www.cwi.nl:80/%7Eguido/Python.html')\n"
+"ParseResult(scheme='', netloc='www.cwi.nl:80', path='/%7Eguido/Python."
+"html',\n"
+"            params='', query='', fragment='')\n"
+">>> urlparse('www.cwi.nl/%7Eguido/Python.html')\n"
+"ParseResult(scheme='', netloc='', path='www.cwi.nl/%7Eguido/Python.html',\n"
+"            params='', query='', fragment='')\n"
+">>> urlparse('help/Python.html')\n"
+"ParseResult(scheme='', netloc='', path='help/Python.html', params='',\n"
+"            query='', fragment='')"
+msgstr ""
 
 #: ../../library/urllib.parse.rst:99
 msgid ""
@@ -345,6 +389,20 @@ msgstr ""
 "meth:`_replace`. O método :meth:`_replace` retornará um novo objeto "
 "ParseResult substituindo os campos especificados por novos valores."
 
+#: ../../library/urllib.parse.rst:155
+msgid ""
+">>> from urllib.parse import urlparse\n"
+">>> u = urlparse('//www.cwi.nl:80/%7Eguido/Python.html')\n"
+">>> u\n"
+"ParseResult(scheme='', netloc='www.cwi.nl:80', path='/%7Eguido/Python."
+"html',\n"
+"            params='', query='', fragment='')\n"
+">>> u._replace(scheme='http')\n"
+"ParseResult(scheme='http', netloc='www.cwi.nl:80', path='/%7Eguido/Python."
+"html',\n"
+"            params='', query='', fragment='')"
+msgstr ""
+
 #: ../../library/urllib.parse.rst:169
 msgid ""
 ":func:`urlparse` does not perform validation.  See :ref:`URL parsing "
@@ -359,10 +417,13 @@ msgstr "Adicionados recursos de análise de URL IPv6."
 
 #: ../../library/urllib.parse.rst:175
 msgid ""
-"The fragment is now parsed for all URL schemes (unless *allow_fragment* is "
+"The fragment is now parsed for all URL schemes (unless *allow_fragments* is "
 "false), in accordance with :rfc:`3986`.  Previously, an allowlist of schemes "
 "that support fragments existed."
 msgstr ""
+"O fragmento agora é analisado para todos os esquemas de URL (a menos que "
+"*allow_fragments* seja falso), de acordo com a :rfc:`3986`. Anteriormente, "
+"existia uma lista de permitidos de esquemas que suportam fragmentos."
 
 #: ../../library/urllib.parse.rst:180 ../../library/urllib.parse.rst:345
 msgid ""
@@ -504,6 +565,11 @@ msgid ""
 "returns a 5-item :term:`named tuple`::"
 msgstr ""
 
+#: ../../library/urllib.parse.rst:296
+msgid ""
+"(addressing scheme, network location, path, query, fragment identifier)."
+msgstr ""
+
 #: ../../library/urllib.parse.rst:298 ../../library/urllib.parse.rst:411
 msgid ""
 "The return value is a :term:`named tuple`, its items can be accessed by "
@@ -560,6 +626,13 @@ msgid ""
 "If *url* is an absolute URL (that is, it starts with ``//`` or ``scheme://"
 "``), the *url*'s hostname and/or scheme will be present in the result.  For "
 "example:"
+msgstr ""
+
+#: ../../library/urllib.parse.rst:389
+msgid ""
+">>> urljoin('http://www.cwi.nl/%7Eguido/Python.html',\n"
+"...         '//www.python.org/%7Eguido')\n"
+"'http://www.python.org/%7Eguido'"
 msgstr ""
 
 #: ../../library/urllib.parse.rst:395

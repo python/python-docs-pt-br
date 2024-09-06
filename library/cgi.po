@@ -4,26 +4,22 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Marco Rougeth <marco@rougeth.com>, 2021
-# Ruan Aragão <ruanaragao2@gmail.com>, 2021
-# Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2023
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2023
-# Vitor Buxbaum Orlandi, 2023
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-19 14:13+0000\n"
-"PO-Revision-Date: 2021-06-28 00:56+0000\n"
-"Last-Translator: Vitor Buxbaum Orlandi, 2023\n"
+"POT-Creation-Date: 2024-08-31 11:30+0000\n"
+"PO-Revision-Date: 2024-05-11 00:33+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -35,7 +31,7 @@ msgstr ":mod:`cgi` --- Suporte a Common Gateway Interface"
 msgid "**Source code:** :source:`Lib/cgi.py`"
 msgstr "**Código-fonte:** :source:`Lib/cgi.py`"
 
-#: ../../library/cgi.rst:27
+#: ../../library/cgi.rst:18
 msgid ""
 "The :mod:`cgi` module is deprecated (see :pep:`PEP 594 <594#cgi>` for "
 "details and alternatives)."
@@ -141,6 +137,12 @@ msgstr ""
 "cliente que tipo de dados está seguindo. O código Python para gerar uma "
 "seção de cabeçalho mínima se parece com isto::"
 
+#: ../../library/cgi.rst:68
+msgid ""
+"print(\"Content-Type: text/html\")    # HTML is following\n"
+"print()                             # blank line, end of headers"
+msgstr ""
+
 #: ../../library/cgi.rst:71
 msgid ""
 "The second section is usually HTML, which allows the client software to "
@@ -150,6 +152,13 @@ msgstr ""
 "A segunda seção é geralmente HTML, o que permite que o software cliente "
 "exiba um texto bem formatado com cabeçalho, imagens em linha etc. Aqui está "
 "o código Python que imprime um pedaço simples de HTML ::"
+
+#: ../../library/cgi.rst:75
+msgid ""
+"print(\"<TITLE>CGI script output</TITLE>\")\n"
+"print(\"<H1>This is my first CGI script</H1>\")\n"
+"print(\"Hello, world!\")"
+msgstr ""
 
 #: ../../library/cgi.rst:83
 msgid "Using the cgi module"
@@ -163,12 +172,24 @@ msgstr "Comece escrevendo ``import cgi``."
 msgid "When you write a new script, consider adding these lines::"
 msgstr "Ao escrever um novo script, considere adicionar estas linhas::"
 
+#: ../../library/cgi.rst:89 ../../library/cgi.rst:505
+msgid ""
+"import cgitb\n"
+"cgitb.enable()"
+msgstr ""
+
 #: ../../library/cgi.rst:92
 msgid ""
 "This activates a special exception handler that will display detailed "
 "reports in the web browser if any errors occur.  If you'd rather not show "
 "the guts of your program to users of your script, you can have the reports "
 "saved to files instead, with code like this::"
+msgstr ""
+
+#: ../../library/cgi.rst:97
+msgid ""
+"import cgitb\n"
+"cgitb.enable(display=0, logdir=\"/path/to/logdir\")"
 msgstr ""
 
 #: ../../library/cgi.rst:100
@@ -221,6 +242,18 @@ msgid ""
 "the fields ``name`` and ``addr`` are both set to a non-empty string::"
 msgstr ""
 
+#: ../../library/cgi.rst:127
+msgid ""
+"form = cgi.FieldStorage()\n"
+"if \"name\" not in form or \"addr\" not in form:\n"
+"    print(\"<H1>Error</H1>\")\n"
+"    print(\"Please fill in the name and addr fields.\")\n"
+"    return\n"
+"print(\"<p>name:\", form[\"name\"].value)\n"
+"print(\"<p>addr:\", form[\"addr\"].value)\n"
+"...further form processing here..."
+msgstr ""
+
 #: ../../library/cgi.rst:136
 msgid ""
 "Here the fields, accessed through ``form[key]``, are themselves instances "
@@ -244,6 +277,12 @@ msgid ""
 "username fields, separated by commas::"
 msgstr ""
 
+#: ../../library/cgi.rst:153
+msgid ""
+"value = form.getlist(\"username\")\n"
+"usernames = \",\".join(value)"
+msgstr ""
+
 #: ../../library/cgi.rst:156
 msgid ""
 "If a field represents an uploaded file, accessing the value via the :attr:"
@@ -255,6 +294,18 @@ msgid ""
 "automatically closed as part of the garbage collection of the :class:"
 "`FieldStorage` instance (the :func:`~io.RawIOBase.read` and :func:`~io."
 "IOBase.readline` methods will return bytes)::"
+msgstr ""
+
+#: ../../library/cgi.rst:167
+msgid ""
+"fileitem = form[\"userfile\"]\n"
+"if fileitem.file:\n"
+"    # It's an uploaded file; count lines\n"
+"    linecount = 0\n"
+"    while True:\n"
+"        line = fileitem.file.readline()\n"
+"        if not line: break\n"
+"        linecount = linecount + 1"
 msgstr ""
 
 #: ../../library/cgi.rst:176
@@ -336,10 +387,25 @@ msgid ""
 "expected a user to post more than one value under one name::"
 msgstr ""
 
+#: ../../library/cgi.rst:228
+msgid ""
+"item = form.getvalue(\"item\")\n"
+"if isinstance(item, list):\n"
+"    # The user is requesting more than one item.\n"
+"else:\n"
+"    # The user is requesting only one item."
+msgstr ""
+
 #: ../../library/cgi.rst:234
 msgid ""
 "This situation is common for example when a form contains a group of "
 "multiple checkboxes with the same name::"
+msgstr ""
+
+#: ../../library/cgi.rst:237
+msgid ""
+"<input type=\"checkbox\" name=\"item\" value=\"1\" />\n"
+"<input type=\"checkbox\" name=\"item\" value=\"2\" />"
 msgstr ""
 
 #: ../../library/cgi.rst:240
@@ -347,6 +413,10 @@ msgid ""
 "In most situations, however, there's only one form control with a particular "
 "name in a form and then you expect and need only one value associated with "
 "this name.  So you write a script containing for example this code::"
+msgstr ""
+
+#: ../../library/cgi.rst:244
+msgid "user = form.getvalue(\"user\").upper()"
 msgstr ""
 
 #: ../../library/cgi.rst:246
@@ -397,6 +467,15 @@ msgstr ""
 msgid "Using these methods you can write nice compact code::"
 msgstr ""
 
+#: ../../library/cgi.rst:281
+msgid ""
+"import cgi\n"
+"form = cgi.FieldStorage()\n"
+"user = form.getfirst(\"user\", \"\").upper()    # This way it's safe.\n"
+"for item in form.getlist(\"item\"):\n"
+"    do_something(item)"
+msgstr ""
+
 #: ../../library/cgi.rst:291
 msgid "Functions"
 msgstr "Funções"
@@ -414,7 +493,7 @@ msgid ""
 "parameters are passed to :func:`urllib.parse.parse_qs` unchanged."
 msgstr ""
 
-#: ../../library/cgi.rst:307
+#: ../../library/cgi.rst:303
 msgid ""
 "This function, like the rest of the :mod:`cgi` module, is deprecated. It can "
 "be replaced by calling :func:`urllib.parse.parse_qs` directly on the desired "
@@ -454,7 +533,7 @@ msgstr ""
 msgid "Added the *separator* parameter."
 msgstr ""
 
-#: ../../library/cgi.rst:337
+#: ../../library/cgi.rst:332
 msgid ""
 "This function, like the rest of the :mod:`cgi` module, is deprecated. It can "
 "be replaced with the functionality in the :mod:`email` package (e.g. :class:"
@@ -468,7 +547,7 @@ msgid ""
 "and a dictionary of parameters."
 msgstr ""
 
-#: ../../library/cgi.rst:355
+#: ../../library/cgi.rst:345
 msgid ""
 "This function, like the rest of the :mod:`cgi` module, is deprecated. It can "
 "be replaced with the functionality in the :mod:`email` package, which "
@@ -477,6 +556,14 @@ msgstr ""
 
 #: ../../library/cgi.rst:350
 msgid "For example, with :class:`email.message.EmailMessage`::"
+msgstr ""
+
+#: ../../library/cgi.rst:352
+msgid ""
+"from email.message import EmailMessage\n"
+"msg = EmailMessage()\n"
+"msg['content-type'] = 'application/json; charset=\"utf8\"'\n"
+"main, params = msg.get_content_type(), msg['content-type'].params"
 msgstr ""
 
 #: ../../library/cgi.rst:360
@@ -542,6 +629,10 @@ msgid ""
 "column 1 followed by the pathname of the Python interpreter, for instance::"
 msgstr ""
 
+#: ../../library/cgi.rst:416
+msgid "#!/usr/local/bin/python"
+msgstr ""
+
 #: ../../library/cgi.rst:418
 msgid ""
 "Make sure the Python interpreter exists and is executable by \"others\"."
@@ -567,6 +658,13 @@ msgid ""
 "If you need to load modules from a directory which is not on Python's "
 "default module search path, you can change the path in your script, before "
 "importing other modules.  For example::"
+msgstr ""
+
+#: ../../library/cgi.rst:435
+msgid ""
+"import sys\n"
+"sys.path.insert(0, \"/usr/home/joe/lib/python\")\n"
+"sys.path.insert(0, \"/usr/local/lib/python\")"
 msgstr ""
 
 #: ../../library/cgi.rst:439
@@ -616,6 +714,10 @@ msgid ""
 "your browser of the form:"
 msgstr ""
 
+#: ../../library/cgi.rst:473
+msgid "http://yourhostname/cgi-bin/cgi.py?name=Joe+Blow&addr=At+Home"
+msgstr ""
+
 #: ../../library/cgi.rst:477
 msgid ""
 "If this gives an error of type 404, the server cannot find the script -- "
@@ -632,6 +734,10 @@ msgstr ""
 msgid ""
 "The next step could be to call the :mod:`cgi` module's :func:`test` function "
 "from your script: replace its main code with the single statement ::"
+msgstr ""
+
+#: ../../library/cgi.rst:489
+msgid "cgi.test()"
 msgstr ""
 
 #: ../../library/cgi.rst:491
@@ -669,6 +775,15 @@ msgid ""
 "If you suspect that there may be a problem in importing the :mod:`cgitb` "
 "module, you can use an even more robust approach (which only uses built-in "
 "modules)::"
+msgstr ""
+
+#: ../../library/cgi.rst:515
+msgid ""
+"import sys\n"
+"sys.stderr = sys.stdout\n"
+"print(\"Content-Type: text/plain\")\n"
+"print()\n"
+"...your code here..."
 msgstr ""
 
 #: ../../library/cgi.rst:521

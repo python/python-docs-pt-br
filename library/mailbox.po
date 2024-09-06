@@ -4,27 +4,22 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Raphael Mendonça, 2021
-# Welington Carlos <wcarlos3@gmail.com>, 2021
-# Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2021
-# Leticia Portella <leportella@gmail.com>, 2021
-# Julia Rizza <contato@juliarizza.com>, 2021
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2021
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-10 14:14+0000\n"
-"PO-Revision-Date: 2021-06-28 01:09+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2021\n"
+"POT-Creation-Date: 2024-08-31 11:30+0000\n"
+"PO-Revision-Date: 2024-05-11 00:33+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -413,6 +408,12 @@ msgid ""
 "character in file names, If you wish to use a Maildir-like format on such an "
 "operating system, you should specify another character to use instead. The "
 "exclamation point (``'!'``) is a popular choice. For example::"
+msgstr ""
+
+#: ../../library/mailbox.rst:362
+msgid ""
+"import mailbox\n"
+"mailbox.Maildir.colon = '!'"
 msgstr ""
 
 #: ../../library/mailbox.rst:365
@@ -1619,7 +1620,7 @@ msgstr ""
 
 #: ../../library/mailbox.rst:1281
 msgid ""
-"Return an :class:`Message` instance whose headers are the message's visible "
+"Return a :class:`Message` instance whose headers are the message's visible "
 "headers and whose body is empty."
 msgstr ""
 
@@ -1780,10 +1781,30 @@ msgid ""
 "seem interesting::"
 msgstr ""
 
+#: ../../library/mailbox.rst:1548
+msgid ""
+"import mailbox\n"
+"for message in mailbox.mbox('~/mbox'):\n"
+"    subject = message['subject']       # Could possibly be None.\n"
+"    if subject and 'python' in subject.lower():\n"
+"        print(subject)"
+msgstr ""
+
 #: ../../library/mailbox.rst:1554
 msgid ""
 "To copy all mail from a Babyl mailbox to an MH mailbox, converting all of "
 "the format-specific information that can be converted::"
+msgstr ""
+
+#: ../../library/mailbox.rst:1557
+msgid ""
+"import mailbox\n"
+"destination = mailbox.MH('~/Mail')\n"
+"destination.lock()\n"
+"for message in mailbox.Babyl('~/RMAIL'):\n"
+"    destination.add(mailbox.MHMessage(message))\n"
+"destination.flush()\n"
+"destination.unlock()"
 msgstr ""
 
 #: ../../library/mailbox.rst:1565
@@ -1792,4 +1813,45 @@ msgid ""
 "being careful to avoid mail corruption due to concurrent modification by "
 "other programs, mail loss due to interruption of the program, or premature "
 "termination due to malformed messages in the mailbox::"
+msgstr ""
+
+#: ../../library/mailbox.rst:1570
+msgid ""
+"import mailbox\n"
+"import email.errors\n"
+"\n"
+"list_names = ('python-list', 'python-dev', 'python-bugs')\n"
+"\n"
+"boxes = {name: mailbox.mbox('~/email/%s' % name) for name in list_names}\n"
+"inbox = mailbox.Maildir('~/Maildir', factory=None)\n"
+"\n"
+"for key in inbox.iterkeys():\n"
+"    try:\n"
+"        message = inbox[key]\n"
+"    except email.errors.MessageParseError:\n"
+"        continue                # The message is malformed. Just leave it.\n"
+"\n"
+"    for name in list_names:\n"
+"        list_id = message['list-id']\n"
+"        if list_id and name in list_id:\n"
+"            # Get mailbox to use\n"
+"            box = boxes[name]\n"
+"\n"
+"            # Write copy to disk before removing original.\n"
+"            # If there's a crash, you might duplicate a message, but\n"
+"            # that's better than losing a message completely.\n"
+"            box.lock()\n"
+"            box.add(message)\n"
+"            box.flush()\n"
+"            box.unlock()\n"
+"\n"
+"            # Remove original message\n"
+"            inbox.lock()\n"
+"            inbox.discard(key)\n"
+"            inbox.flush()\n"
+"            inbox.unlock()\n"
+"            break               # Found destination, so stop looking.\n"
+"\n"
+"for box in boxes.itervalues():\n"
+"    box.close()"
 msgstr ""

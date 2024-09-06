@@ -4,25 +4,22 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Bonifacio de Oliveira <bonifacio.segundo@gmail.com>, 2021
-# Lilian Corrêa <lilianflavia.cor@hotmail.com>, 2021
-# Alexsandro Felix <felix@ffelix.eti.br>, 2021
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2023
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-10 14:14+0000\n"
-"PO-Revision-Date: 2021-06-28 00:54+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2023\n"
+"POT-Creation-Date: 2024-08-31 11:30+0000\n"
+"PO-Revision-Date: 2024-05-11 00:32+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -73,6 +70,14 @@ msgid ""
 "avoiding sometimes confusing metaclass usage, for example::"
 msgstr ""
 
+#: ../../library/abc.rst:36
+msgid ""
+"from abc import ABC\n"
+"\n"
+"class MyABC(ABC):\n"
+"    pass"
+msgstr ""
+
 #: ../../library/abc.rst:41
 msgid ""
 "Note that the type of :class:`!ABC` is still :class:`ABCMeta`, therefore "
@@ -80,6 +85,14 @@ msgid ""
 "metaclass usage, as multiple inheritance may lead to metaclass conflicts. "
 "One may also define an abstract base class by passing the metaclass keyword "
 "and using :class:`!ABCMeta` directly, for example::"
+msgstr ""
+
+#: ../../library/abc.rst:47
+msgid ""
+"from abc import ABCMeta\n"
+"\n"
+"class MyABC(metaclass=ABCMeta):\n"
+"    pass"
 msgstr ""
 
 #: ../../library/abc.rst:57
@@ -117,6 +130,19 @@ msgid ""
 "Register *subclass* as a \"virtual subclass\" of this ABC. For example::"
 msgstr ""
 "Registrar *subclasse* como uma \"subclasse virtual\" desta CBA. Por exemplo::"
+
+#: ../../library/abc.rst:75
+msgid ""
+"from abc import ABC\n"
+"\n"
+"class MyABC(ABC):\n"
+"    pass\n"
+"\n"
+"MyABC.register(tuple)\n"
+"\n"
+"assert issubclass(tuple, MyABC)\n"
+"assert isinstance((), MyABC)"
+msgstr ""
 
 #: ../../library/abc.rst:85
 msgid "Returns the registered subclass, to allow usage as a class decorator."
@@ -161,6 +187,36 @@ msgid ""
 "For a demonstration of these concepts, look at this example ABC definition::"
 msgstr ""
 "Para uma demonstração destes conceitos, veja este exemplo de definição CBA::"
+
+#: ../../library/abc.rst:116
+msgid ""
+"class Foo:\n"
+"    def __getitem__(self, index):\n"
+"        ...\n"
+"    def __len__(self):\n"
+"        ...\n"
+"    def get_iterator(self):\n"
+"        return iter(self)\n"
+"\n"
+"class MyIterable(ABC):\n"
+"\n"
+"    @abstractmethod\n"
+"    def __iter__(self):\n"
+"        while False:\n"
+"            yield None\n"
+"\n"
+"    def get_iterator(self):\n"
+"        return self.__iter__()\n"
+"\n"
+"    @classmethod\n"
+"    def __subclasshook__(cls, C):\n"
+"        if cls is MyIterable:\n"
+"            if any(\"__iter__\" in B.__dict__ for B in C.__mro__):\n"
+"                return True\n"
+"        return NotImplemented\n"
+"\n"
+"MyIterable.register(Foo)"
+msgstr ""
 
 #: ../../library/abc.rst:143
 msgid ""
@@ -228,6 +284,39 @@ msgid ""
 "the following usage examples::"
 msgstr ""
 
+#: ../../library/abc.rst:187
+msgid ""
+"class C(ABC):\n"
+"    @abstractmethod\n"
+"    def my_abstract_method(self, arg1):\n"
+"        ...\n"
+"    @classmethod\n"
+"    @abstractmethod\n"
+"    def my_abstract_classmethod(cls, arg2):\n"
+"        ...\n"
+"    @staticmethod\n"
+"    @abstractmethod\n"
+"    def my_abstract_staticmethod(arg3):\n"
+"        ...\n"
+"\n"
+"    @property\n"
+"    @abstractmethod\n"
+"    def my_abstract_property(self):\n"
+"        ...\n"
+"    @my_abstract_property.setter\n"
+"    @abstractmethod\n"
+"    def my_abstract_property(self, val):\n"
+"        ...\n"
+"\n"
+"    @abstractmethod\n"
+"    def _get_x(self):\n"
+"        ...\n"
+"    @abstractmethod\n"
+"    def _set_x(self, val):\n"
+"        ...\n"
+"    x = property(_get_x, _set_x)"
+msgstr ""
+
 #: ../../library/abc.rst:217
 msgid ""
 "In order to correctly interoperate with the abstract base class machinery, "
@@ -235,6 +324,16 @@ msgid ""
 "__isabstractmethod__`. In general, this attribute should be ``True`` if any "
 "of the methods used to compose the descriptor are abstract. For example, "
 "Python's built-in :class:`property` does the equivalent of::"
+msgstr ""
+
+#: ../../library/abc.rst:223
+msgid ""
+"class Descriptor:\n"
+"    ...\n"
+"    @property\n"
+"    def __isabstractmethod__(self):\n"
+"        return any(getattr(f, '__isabstractmethod__', False) for\n"
+"                   f in (self._fget, self._fset, self._fdel))"
 msgstr ""
 
 #: ../../library/abc.rst:232
@@ -279,6 +378,15 @@ msgstr ""
 "`classmethod` está agora corretamente identificado como abstrato quando "
 "aplicado a um método abstrato::"
 
+#: ../../library/abc.rst:255
+msgid ""
+"class C(ABC):\n"
+"    @classmethod\n"
+"    @abstractmethod\n"
+"    def my_abstract_classmethod(cls, arg):\n"
+"        ..."
+msgstr ""
+
 #: ../../library/abc.rst:265
 msgid ""
 "It is now possible to use :class:`staticmethod` with :func:`abstractmethod`, "
@@ -303,6 +411,15 @@ msgstr ""
 "Este caso especial está descontinuado, pois o decorador da :func:"
 "`staticmethod` está agora corretamente identificado como abstrato quando "
 "aplicado a um método abstrato::"
+
+#: ../../library/abc.rst:276
+msgid ""
+"class C(ABC):\n"
+"    @staticmethod\n"
+"    @abstractmethod\n"
+"    def my_abstract_staticmethod(arg):\n"
+"        ..."
+msgstr ""
 
 #: ../../library/abc.rst:285
 msgid ""
@@ -330,6 +447,15 @@ msgstr ""
 "está agora corretamente identificado como abstrato quando aplicado a um "
 "método abstrato::"
 
+#: ../../library/abc.rst:297
+msgid ""
+"class C(ABC):\n"
+"    @property\n"
+"    @abstractmethod\n"
+"    def my_abstract_property(self):\n"
+"        ..."
+msgstr ""
+
 #: ../../library/abc.rst:303
 msgid ""
 "The above example defines a read-only property; you can also define a read-"
@@ -340,6 +466,19 @@ msgstr ""
 "definir uma propriedade abstrata de leitura e escrita marcando "
 "apropriadamente um ou mais dos métodos subjacentes como abstratos::"
 
+#: ../../library/abc.rst:307
+msgid ""
+"class C(ABC):\n"
+"    @property\n"
+"    def x(self):\n"
+"        ...\n"
+"\n"
+"    @x.setter\n"
+"    @abstractmethod\n"
+"    def x(self, val):\n"
+"        ..."
+msgstr ""
+
 #: ../../library/abc.rst:317
 msgid ""
 "If only some components are abstract, only those components need to be "
@@ -348,6 +487,14 @@ msgstr ""
 "Se apenas alguns componentes são abstratos, apenas estes componentes "
 "precisam ser atualizados para criar uma propriedade concreta em uma "
 "subclasse::"
+
+#: ../../library/abc.rst:320
+msgid ""
+"class D(C):\n"
+"    @C.x.setter\n"
+"    def x(self, val):\n"
+"        ..."
+msgstr ""
 
 #: ../../library/abc.rst:326
 msgid "The :mod:`!abc` module also provides the following functions:"

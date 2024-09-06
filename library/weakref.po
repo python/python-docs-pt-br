@@ -4,9 +4,6 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2021
-# And Past <andrepgs@gmail.com>, 2021
-# i17obot <i17obot@rougeth.com>, 2021
 # Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
@@ -14,15 +11,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-03 14:14+0000\n"
-"PO-Revision-Date: 2021-06-28 01:17+0000\n"
+"POT-Creation-Date: 2024-08-31 11:30+0000\n"
+"PO-Revision-Date: 2024-05-11 00:34+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -175,6 +172,14 @@ msgstr ""
 "Vários tipos embutidos como :class:`list` e :class:`dict` não oferecem "
 "suporta diretamente a referências fracas, mas podem adicionar suporte "
 "através de subclasses::"
+
+#: ../../library/weakref.rst:80
+msgid ""
+"class Dict(dict):\n"
+"    pass\n"
+"\n"
+"obj = Dict(red=1, green=2, blue=3)   # this object is weak referenceable"
+msgstr ""
 
 #: ../../library/weakref.rst:87
 msgid ""
@@ -373,15 +378,39 @@ msgstr ""
 "substitui a chave existente. Devido a isso, quando a referência à chave "
 "original é excluída, ela também exclui a entrada no dicionário::"
 
+#: ../../library/weakref.rst:180
+msgid ""
+">>> class T(str): pass\n"
+"...\n"
+">>> k1, k2 = T(), T()\n"
+">>> d = weakref.WeakKeyDictionary()\n"
+">>> d[k1] = 1   # d = {k1: 1}\n"
+">>> d[k2] = 2   # d = {k1: 2}\n"
+">>> del k1      # d = {}"
+msgstr ""
+
 #: ../../library/weakref.rst:188
 msgid "A workaround would be to remove the key prior to reassignment::"
 msgstr "Uma solução alternativa seria remover a chave antes da reatribuição::"
 
-#: ../../library/weakref.rst:199
-msgid "Added support for ``|`` and ``|=`` operators, specified in :pep:`584`."
+#: ../../library/weakref.rst:190
+msgid ""
+">>> class T(str): pass\n"
+"...\n"
+">>> k1, k2 = T(), T()\n"
+">>> d = weakref.WeakKeyDictionary()\n"
+">>> d[k1] = 1   # d = {k1: 1}\n"
+">>> del d[k1]\n"
+">>> d[k2] = 2   # d = {k2: 2}\n"
+">>> del k1      # d = {k2: 2}"
 msgstr ""
-"Adicionado suporte para os operadores ``|`` e ``|=``, especificados na :pep:"
-"`584`."
+
+#: ../../library/weakref.rst:199 ../../library/weakref.rst:220
+msgid ""
+"Added support for ``|`` and ``|=`` operators, as specified in :pep:`584`."
+msgstr ""
+"Adicionado suporte para operadores ``|`` e ``|=``, conforme especificado na :"
+"pep:`584`."
 
 #: ../../library/weakref.rst:202
 msgid ""
@@ -411,13 +440,6 @@ msgstr ""
 "Classe de mapeamento que faz referência fraca a valores. Entradas no "
 "dicionário serão descartadas quando nenhuma referência forte ao valor "
 "existir mais."
-
-#: ../../library/weakref.rst:220
-msgid ""
-"Added support for ``|`` and ``|=`` operators, as specified in :pep:`584`."
-msgstr ""
-"Adicionado suporte para operadores ``|`` e ``|=``, conforme especificado na :"
-"pep:`584`."
 
 #: ../../library/weakref.rst:223
 msgid ""
@@ -453,6 +475,27 @@ msgstr ""
 "referência fraca padrão não pode mantê-lo. :class:`WeakMethod` tem um código "
 "especial para recriar o método vinculado até que o objeto ou a função "
 "original morra::"
+
+#: ../../library/weakref.rst:246
+msgid ""
+">>> class C:\n"
+"...     def method(self):\n"
+"...         print(\"method called!\")\n"
+"...\n"
+">>> c = C()\n"
+">>> r = weakref.ref(c.method)\n"
+">>> r()\n"
+">>> r = weakref.WeakMethod(c.method)\n"
+">>> r()\n"
+"<bound method C.method of <__main__.C object at 0x7fc859830220>>\n"
+">>> r()()\n"
+"method called!\n"
+">>> del c\n"
+">>> gc.collect()\n"
+"0\n"
+">>> r()\n"
+">>>"
+msgstr ""
 
 #: ../../library/weakref.rst:264
 msgid ""
@@ -638,6 +681,18 @@ msgstr ""
 "usando a expressão ``ref() is not None``. Normalmente, o código da aplicação "
 "que precisa usar um objeto de referência deve seguir este padrão::"
 
+#: ../../library/weakref.rst:391
+msgid ""
+"# r is a weak reference object\n"
+"o = r()\n"
+"if o is None:\n"
+"    # referent has been garbage collected\n"
+"    print(\"Object has been deallocated; can't frobnicate.\")\n"
+"else:\n"
+"    print(\"Object is still live!\")\n"
+"    o.do_something_useful()"
+msgstr ""
+
 #: ../../library/weakref.rst:400
 msgid ""
 "Using a separate test for \"liveness\" creates race conditions in threaded "
@@ -677,6 +732,28 @@ msgstr ""
 "armazenar informações adicionais sobre um objeto e afetar o valor retornado "
 "quando o referente é acessado::"
 
+#: ../../library/weakref.rst:415
+msgid ""
+"import weakref\n"
+"\n"
+"class ExtendedRef(weakref.ref):\n"
+"    def __init__(self, ob, callback=None, /, **annotations):\n"
+"        super().__init__(ob, callback)\n"
+"        self.__counter = 0\n"
+"        for k, v in annotations.items():\n"
+"            setattr(self, k, v)\n"
+"\n"
+"    def __call__(self):\n"
+"        \"\"\"Return a pair containing the referent and the number of\n"
+"        times the reference has been called.\n"
+"        \"\"\"\n"
+"        ob = super().__call__()\n"
+"        if ob is not None:\n"
+"            self.__counter += 1\n"
+"            ob = (ob, self.__counter)\n"
+"        return ob"
+msgstr ""
+
 #: ../../library/weakref.rst:438
 msgid "Example"
 msgstr "Exemplo"
@@ -692,6 +769,21 @@ msgstr ""
 "recuperar objetos que ele viu antes. Os IDs dos objetos podem então ser "
 "usados ​​em outras estruturas de dados sem forçar os objetos a permanecerem "
 "vivos, mas os objetos ainda podem ser recuperados por ID se o fizerem."
+
+#: ../../library/weakref.rst:449
+msgid ""
+"import weakref\n"
+"\n"
+"_id2obj_dict = weakref.WeakValueDictionary()\n"
+"\n"
+"def remember(obj):\n"
+"    oid = id(obj)\n"
+"    _id2obj_dict[oid] = obj\n"
+"    return oid\n"
+"\n"
+"def id2obj(oid):\n"
+"    return _id2obj_dict[oid]"
+msgstr ""
 
 #: ../../library/weakref.rst:465
 msgid "Finalizer Objects"
@@ -735,6 +827,15 @@ msgstr ""
 "`False`, um finalizador será chamado quando o programa sair se ele ainda "
 "estiver vivo. Por exemplo"
 
+#: ../../library/weakref.rst:515
+msgid ""
+">>> obj = Object()\n"
+">>> weakref.finalize(obj, print, \"obj dead or exiting\")\n"
+"<finalize object at ...; for 'Object' at ...>\n"
+">>> exit()\n"
+"obj dead or exiting"
+msgstr ""
+
 #: ../../library/weakref.rst:526
 msgid "Comparing finalizers with :meth:`~object.__del__` methods"
 msgstr "Comparando finalizadores com métodos :meth:`~object.__del__`"
@@ -769,6 +870,25 @@ msgstr ""
 "Podemos tentar implementar a classe usando um método :meth:`~object.__del__` "
 "da seguinte maneira::"
 
+#: ../../library/weakref.rst:539
+msgid ""
+"class TempDir:\n"
+"    def __init__(self):\n"
+"        self.name = tempfile.mkdtemp()\n"
+"\n"
+"    def remove(self):\n"
+"        if self.name is not None:\n"
+"            shutil.rmtree(self.name)\n"
+"            self.name = None\n"
+"\n"
+"    @property\n"
+"    def removed(self):\n"
+"        return self.name is None\n"
+"\n"
+"    def __del__(self):\n"
+"        self.remove()"
+msgstr ""
+
 #: ../../library/weakref.rst:555
 msgid ""
 "Starting with Python 3.4, :meth:`~object.__del__` methods no longer prevent "
@@ -801,6 +921,21 @@ msgstr ""
 "referência apenas às funções e objetos específicos de que necessita, em vez "
 "de ter acesso ao estado completo do objeto::"
 
+#: ../../library/weakref.rst:568
+msgid ""
+"class TempDir:\n"
+"    def __init__(self):\n"
+"        self.name = tempfile.mkdtemp()\n"
+"        self._finalizer = weakref.finalize(self, shutil.rmtree, self.name)\n"
+"\n"
+"    def remove(self):\n"
+"        self._finalizer()\n"
+"\n"
+"    @property\n"
+"    def removed(self):\n"
+"        return not self._finalizer.alive"
+msgstr ""
+
 #: ../../library/weakref.rst:580
 msgid ""
 "Defined like this, our finalizer only receives a reference to the details it "
@@ -821,6 +956,14 @@ msgstr ""
 "podem ser usados ​​para registrar finalizadores para classes onde a definição "
 "é controlada por terceiros, como executar código quando um módulo é "
 "descarregado::"
+
+#: ../../library/weakref.rst:588
+msgid ""
+"import weakref, sys\n"
+"def unloading_module():\n"
+"    # implicit reference to the module globals from the function body\n"
+"weakref.finalize(sys.modules[__name__], unloading_module)"
+msgstr ""
 
 #: ../../library/weakref.rst:596
 msgid ""

@@ -4,24 +4,22 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2021
-# Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2021
-# i17obot <i17obot@rougeth.com>, 2021
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-10 14:14+0000\n"
-"PO-Revision-Date: 2021-06-28 01:16+0000\n"
-"Last-Translator: i17obot <i17obot@rougeth.com>, 2021\n"
+"POT-Creation-Date: 2024-08-31 11:30+0000\n"
+"PO-Revision-Date: 2024-05-11 00:34+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -159,6 +157,19 @@ msgid ""
 "class ``Foo`` with a mock. The ``Foo`` instance is the result of calling the "
 "mock, so it is configured by modifying the mock :attr:`~Mock."
 "return_value`. ::"
+msgstr ""
+
+#: ../../library/unittest.mock-examples.rst:118
+msgid ""
+">>> def some_function():\n"
+"...     instance = module.Foo()\n"
+"...     return instance.method()\n"
+"...\n"
+">>> with patch('module.Foo') as mock:\n"
+"...     instance = mock.return_value\n"
+"...     instance.method.return_value = 'the result'\n"
+"...     result = some_function()\n"
+"...     assert result == 'the result'"
 msgstr ""
 
 #: ../../library/unittest.mock-examples.rst:130
@@ -333,6 +344,16 @@ msgid ""
 "named arguments::"
 msgstr ""
 
+#: ../../library/unittest.mock-examples.rst:348
+msgid ""
+">>> def f(a, b, c): pass\n"
+"...\n"
+">>> mock = Mock(spec=f)\n"
+">>> mock(1, 2, 3)\n"
+"<Mock name='mock()' id='140161580456576'>\n"
+">>> mock.assert_called_with(a=1, b=2, c=3)"
+msgstr ""
+
 #: ../../library/unittest.mock-examples.rst:355
 msgid ""
 "If you want this smarter matching to also work with method calls on the "
@@ -355,6 +376,26 @@ msgid ""
 ":func:`mock_open` is used to patch :func:`open` method. :attr:`~Mock."
 "side_effect` can be used to return a new Mock object per call. This can be "
 "used to return different contents per file stored in a dictionary::"
+msgstr ""
+
+#: ../../library/unittest.mock-examples.rst:370
+msgid ""
+"DEFAULT = \"default\"\n"
+"data_dict = {\"file1\": \"data1\",\n"
+"             \"file2\": \"data2\"}\n"
+"\n"
+"def open_side_effect(name):\n"
+"    return mock_open(read_data=data_dict.get(name, DEFAULT))()\n"
+"\n"
+"with patch(\"builtins.open\", side_effect=open_side_effect):\n"
+"    with open(\"file1\") as file1:\n"
+"        assert file1.read() == \"data1\"\n"
+"\n"
+"    with open(\"file2\") as file2:\n"
+"        assert file2.read() == \"data2\"\n"
+"\n"
+"    with open(\"file3\") as file2:\n"
+"        assert file2.read() == \"default\""
 msgstr ""
 
 #: ../../library/unittest.mock-examples.rst:389
@@ -395,6 +436,24 @@ msgstr ""
 msgid "``patch.object``::"
 msgstr ""
 
+#: ../../library/unittest.mock-examples.rst:414
+msgid ""
+">>> original = SomeClass.attribute\n"
+">>> @patch.object(SomeClass, 'attribute', sentinel.attribute)\n"
+"... def test():\n"
+"...     assert SomeClass.attribute == sentinel.attribute\n"
+"...\n"
+">>> test()\n"
+">>> assert SomeClass.attribute == original\n"
+"\n"
+">>> @patch('package.module.attribute', sentinel.attribute)\n"
+"... def test():\n"
+"...     from package.module import attribute\n"
+"...     assert attribute is sentinel.attribute\n"
+"...\n"
+">>> test()"
+msgstr ""
+
 #: ../../library/unittest.mock-examples.rst:429
 msgid ""
 "If you are patching a module (including :mod:`builtins`) then use :func:"
@@ -404,6 +463,16 @@ msgstr ""
 #: ../../library/unittest.mock-examples.rst:439
 msgid ""
 "The module name can be 'dotted', in the form ``package.module`` if needed::"
+msgstr ""
+
+#: ../../library/unittest.mock-examples.rst:441
+msgid ""
+">>> @patch('package.module.ClassName.attribute', sentinel.attribute)\n"
+"... def test():\n"
+"...     from package.module import ClassName\n"
+"...     assert ClassName.attribute == sentinel.attribute\n"
+"...\n"
+">>> test()"
 msgstr ""
 
 #: ../../library/unittest.mock-examples.rst:448
@@ -419,6 +488,18 @@ msgstr ""
 
 #: ../../library/unittest.mock-examples.rst:471
 msgid "You can stack up multiple patch decorators using this pattern::"
+msgstr ""
+
+#: ../../library/unittest.mock-examples.rst:473
+msgid ""
+">>> class MyTest(unittest.TestCase):\n"
+"...     @patch('package.module.ClassName1')\n"
+"...     @patch('package.module.ClassName2')\n"
+"...     def test_something(self, MockClass2, MockClass1):\n"
+"...         self.assertIs(package.module.ClassName1, MockClass1)\n"
+"...         self.assertIs(package.module.ClassName2, MockClass2)\n"
+"...\n"
+">>> MyTest('test_something').test_something()"
 msgstr ""
 
 #: ../../library/unittest.mock-examples.rst:482
@@ -519,10 +600,26 @@ msgid ""
 "final ``start_call`` we could do this::"
 msgstr ""
 
+#: ../../library/unittest.mock-examples.rst:573
+msgid ""
+"mock_backend.get_endpoint.return_value.create_call.return_value.start_call."
+"return_value = mock_response"
+msgstr ""
+
 #: ../../library/unittest.mock-examples.rst:575
 msgid ""
 "We can do that in a slightly nicer way using the :meth:`~Mock."
 "configure_mock` method to directly set the return value for us::"
+msgstr ""
+
+#: ../../library/unittest.mock-examples.rst:578
+msgid ""
+">>> something = Something()\n"
+">>> mock_response = Mock(spec=open)\n"
+">>> mock_backend = Mock()\n"
+">>> config = {'get_endpoint.return_value.create_call.return_value.start_call."
+"return_value': mock_response}\n"
+">>> mock_backend.configure_mock(**config)"
 msgstr ""
 
 #: ../../library/unittest.mock-examples.rst:584
@@ -531,12 +628,26 @@ msgid ""
 "real call::"
 msgstr ""
 
+#: ../../library/unittest.mock-examples.rst:587
+msgid ""
+">>> something.backend = mock_backend\n"
+">>> something.method()"
+msgstr ""
+
 #: ../../library/unittest.mock-examples.rst:590
 msgid ""
 "Using :attr:`~Mock.mock_calls` we can check the chained call with a single "
 "assert. A chained call is several calls in one line of code, so there will "
 "be several entries in ``mock_calls``. We can use :meth:`call.call_list` to "
 "create this list of calls for us::"
+msgstr ""
+
+#: ../../library/unittest.mock-examples.rst:595
+msgid ""
+">>> chained = call.get_endpoint('foobar').create_call('spam', 'eggs')."
+"start_call()\n"
+">>> call_list = chained.call_list()\n"
+">>> assert mock_backend.mock_calls == call_list"
 msgstr ""
 
 #: ../../library/unittest.mock-examples.rst:601
@@ -566,6 +677,17 @@ msgid ""
 "the mock date class is then set to a lambda function that returns a real "
 "date. When the mock date class is called a real date will be constructed and "
 "returned by ``side_effect``. ::"
+msgstr ""
+
+#: ../../library/unittest.mock-examples.rst:618
+msgid ""
+">>> from datetime import date\n"
+">>> with patch('mymodule.date') as mock_date:\n"
+"...     mock_date.today.return_value = date(2010, 10, 8)\n"
+"...     mock_date.side_effect = lambda *args, **kw: date(*args, **kw)\n"
+"...\n"
+"...     assert mymodule.date.today() == date(2010, 10, 8)\n"
+"...     assert mymodule.date(2009, 6, 8) == date(2009, 6, 8)"
 msgstr ""
 
 #: ../../library/unittest.mock-examples.rst:626
@@ -655,11 +777,47 @@ msgid ""
 "start with ``test``::"
 msgstr ""
 
+#: ../../library/unittest.mock-examples.rst:692
+msgid ""
+">>> @patch('mymodule.SomeClass')\n"
+"... class MyTest(unittest.TestCase):\n"
+"...\n"
+"...     def test_one(self, MockSomeClass):\n"
+"...         self.assertIs(mymodule.SomeClass, MockSomeClass)\n"
+"...\n"
+"...     def test_two(self, MockSomeClass):\n"
+"...         self.assertIs(mymodule.SomeClass, MockSomeClass)\n"
+"...\n"
+"...     def not_a_test(self):\n"
+"...         return 'something'\n"
+"...\n"
+">>> MyTest('test_one').test_one()\n"
+">>> MyTest('test_two').test_two()\n"
+">>> MyTest('test_two').not_a_test()\n"
+"'something'"
+msgstr ""
+
 #: ../../library/unittest.mock-examples.rst:709
 msgid ""
 "An alternative way of managing patches is to use the :ref:`start-and-stop`. "
 "These allow you to move the patching into your ``setUp`` and ``tearDown`` "
 "methods. ::"
+msgstr ""
+
+#: ../../library/unittest.mock-examples.rst:713
+msgid ""
+">>> class MyTest(unittest.TestCase):\n"
+"...     def setUp(self):\n"
+"...         self.patcher = patch('mymodule.foo')\n"
+"...         self.mock_foo = self.patcher.start()\n"
+"...\n"
+"...     def test_foo(self):\n"
+"...         self.assertIs(mymodule.foo, self.mock_foo)\n"
+"...\n"
+"...     def tearDown(self):\n"
+"...         self.patcher.stop()\n"
+"...\n"
+">>> MyTest('test_foo').run()"
 msgstr ""
 
 #: ../../library/unittest.mock-examples.rst:726
@@ -668,6 +826,20 @@ msgid ""
 "calling ``stop``. This can be fiddlier than you might think, because if an "
 "exception is raised in the setUp then tearDown is not called. :meth:"
 "`unittest.TestCase.addCleanup` makes this easier::"
+msgstr ""
+
+#: ../../library/unittest.mock-examples.rst:731
+msgid ""
+">>> class MyTest(unittest.TestCase):\n"
+"...     def setUp(self):\n"
+"...         patcher = patch('mymodule.foo')\n"
+"...         self.addCleanup(patcher.stop)\n"
+"...         self.mock_foo = patcher.start()\n"
+"...\n"
+"...     def test_foo(self):\n"
+"...         self.assertIs(mymodule.foo, self.mock_foo)\n"
+"...\n"
+">>> MyTest('test_foo').run()"
 msgstr ""
 
 #: ../../library/unittest.mock-examples.rst:744
@@ -758,10 +930,36 @@ msgid ""
 "functions defined in 'mymodule'::"
 msgstr ""
 
+#: ../../library/unittest.mock-examples.rst:835
+msgid ""
+"def frob(val):\n"
+"    pass\n"
+"\n"
+"def grob(val):\n"
+"    \"First frob and then clear val\"\n"
+"    frob(val)\n"
+"    val.clear()"
+msgstr ""
+
 #: ../../library/unittest.mock-examples.rst:843
 msgid ""
 "When we try to test that ``grob`` calls ``frob`` with the correct argument "
 "look what happens::"
+msgstr ""
+
+#: ../../library/unittest.mock-examples.rst:846
+msgid ""
+">>> with patch('mymodule.frob') as mock_frob:\n"
+"...     val = {6}\n"
+"...     mymodule.grob(val)\n"
+"...\n"
+">>> val\n"
+"set()\n"
+">>> mock_frob.assert_called_with({6})\n"
+"Traceback (most recent call last):\n"
+"    ...\n"
+"AssertionError: Expected: (({6},), {})\n"
+"Called with: ((set(),), {})"
 msgstr ""
 
 #: ../../library/unittest.mock-examples.rst:858
@@ -780,6 +978,30 @@ msgid ""
 "I'm using *another* mock to store the arguments so that I can use the mock "
 "methods for doing the assertion. Again a helper function sets this up for "
 "me. ::"
+msgstr ""
+
+#: ../../library/unittest.mock-examples.rst:870
+msgid ""
+">>> from copy import deepcopy\n"
+">>> from unittest.mock import Mock, patch, DEFAULT\n"
+">>> def copy_call_args(mock):\n"
+"...     new_mock = Mock()\n"
+"...     def side_effect(*args, **kwargs):\n"
+"...         args = deepcopy(args)\n"
+"...         kwargs = deepcopy(kwargs)\n"
+"...         new_mock(*args, **kwargs)\n"
+"...         return DEFAULT\n"
+"...     mock.side_effect = side_effect\n"
+"...     return new_mock\n"
+"...\n"
+">>> with patch('mymodule.frob') as mock_frob:\n"
+"...     new_mock = copy_call_args(mock_frob)\n"
+"...     val = {6}\n"
+"...     mymodule.grob(val)\n"
+"...\n"
+">>> new_mock.assert_called_with({6})\n"
+">>> new_mock.call_args\n"
+"call({6})"
 msgstr ""
 
 #: ../../library/unittest.mock-examples.rst:891
@@ -822,12 +1044,53 @@ msgid ""
 "right::"
 msgstr ""
 
+#: ../../library/unittest.mock-examples.rst:947
+msgid ""
+">>> class MyTest(unittest.TestCase):\n"
+"...\n"
+"...     def test_foo(self):\n"
+"...         with patch('mymodule.Foo') as mock_foo:\n"
+"...             with patch('mymodule.Bar') as mock_bar:\n"
+"...                 with patch('mymodule.Spam') as mock_spam:\n"
+"...                     assert mymodule.Foo is mock_foo\n"
+"...                     assert mymodule.Bar is mock_bar\n"
+"...                     assert mymodule.Spam is mock_spam\n"
+"...\n"
+">>> original = mymodule.Foo\n"
+">>> MyTest('test_foo').test_foo()\n"
+">>> assert mymodule.Foo is original"
+msgstr ""
+
 #: ../../library/unittest.mock-examples.rst:961
 msgid ""
 "With unittest ``cleanup`` functions and the :ref:`start-and-stop` we can "
 "achieve the same effect without the nested indentation. A simple helper "
 "method, ``create_patch``, puts the patch in place and returns the created "
 "mock for us::"
+msgstr ""
+
+#: ../../library/unittest.mock-examples.rst:966
+msgid ""
+">>> class MyTest(unittest.TestCase):\n"
+"...\n"
+"...     def create_patch(self, name):\n"
+"...         patcher = patch(name)\n"
+"...         thing = patcher.start()\n"
+"...         self.addCleanup(patcher.stop)\n"
+"...         return thing\n"
+"...\n"
+"...     def test_foo(self):\n"
+"...         mock_foo = self.create_patch('mymodule.Foo')\n"
+"...         mock_bar = self.create_patch('mymodule.Bar')\n"
+"...         mock_spam = self.create_patch('mymodule.Spam')\n"
+"...\n"
+"...         assert mymodule.Foo is mock_foo\n"
+"...         assert mymodule.Bar is mock_bar\n"
+"...         assert mymodule.Spam is mock_spam\n"
+"...\n"
+">>> original = mymodule.Foo\n"
+">>> MyTest('test_foo').run()\n"
+">>> assert mymodule.Foo is original"
 msgstr ""
 
 #: ../../library/unittest.mock-examples.rst:989
@@ -1020,6 +1283,24 @@ msgid ""
 "If ``patch`` is creating, and putting in place, your mocks then you can "
 "attach them to a manager mock using the :meth:`~Mock.attach_mock` method. "
 "After attaching calls will be recorded in ``mock_calls`` of the manager. ::"
+msgstr ""
+
+#: ../../library/unittest.mock-examples.rst:1227
+msgid ""
+">>> manager = MagicMock()\n"
+">>> with patch('mymodule.Class1') as MockClass1:\n"
+"...     with patch('mymodule.Class2') as MockClass2:\n"
+"...         manager.attach_mock(MockClass1, 'MockClass1')\n"
+"...         manager.attach_mock(MockClass2, 'MockClass2')\n"
+"...         MockClass1().foo()\n"
+"...         MockClass2().bar()\n"
+"<MagicMock name='mock.MockClass1().foo()' id='...'>\n"
+"<MagicMock name='mock.MockClass2().bar()' id='...'>\n"
+">>> manager.mock_calls\n"
+"[call.MockClass1(),\n"
+"call.MockClass1().foo(),\n"
+"call.MockClass2(),\n"
+"call.MockClass2().bar()]"
 msgstr ""
 
 #: ../../library/unittest.mock-examples.rst:1242

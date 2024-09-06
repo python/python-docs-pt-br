@@ -4,26 +4,22 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2021
-# Misael borges <misael@planosassessoria.com.br>, 2021
-# Adorilson Bezerra <adorilson@gmail.com>, 2022
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2023
-# Vitor Buxbaum Orlandi, 2023
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-10 14:14+0000\n"
-"PO-Revision-Date: 2021-06-28 01:10+0000\n"
-"Last-Translator: Vitor Buxbaum Orlandi, 2023\n"
+"POT-Creation-Date: 2024-08-31 11:30+0000\n"
+"PO-Revision-Date: 2024-05-11 00:33+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -320,6 +316,26 @@ msgstr ""
 msgid "Equivalent to::"
 msgstr "Equivalente a::"
 
+#: ../../library/operator.rst:287
+msgid ""
+"def attrgetter(*items):\n"
+"    if any(not isinstance(item, str) for item in items):\n"
+"        raise TypeError('attribute name must be a string')\n"
+"    if len(items) == 1:\n"
+"        attr = items[0]\n"
+"        def g(obj):\n"
+"            return resolve_attr(obj, attr)\n"
+"    else:\n"
+"        def g(obj):\n"
+"            return tuple(resolve_attr(obj, attr) for attr in items)\n"
+"    return g\n"
+"\n"
+"def resolve_attr(obj, attr):\n"
+"    for name in attr.split(\".\"):\n"
+"        obj = getattr(obj, name)\n"
+"    return obj"
+msgstr ""
+
 #: ../../library/operator.rst:308
 msgid ""
 "Return a callable object that fetches *item* from its operand using the "
@@ -342,6 +358,19 @@ msgid ""
 msgstr ""
 "Depois de ``g = itemgetter(2, 5, 3)``, a chamada a ``g(r)`` retorna ``(r[2], "
 "r[5], r[3])``."
+
+#: ../../library/operator.rst:319
+msgid ""
+"def itemgetter(*items):\n"
+"    if len(items) == 1:\n"
+"        item = items[0]\n"
+"        def g(obj):\n"
+"            return obj[item]\n"
+"    else:\n"
+"        def g(obj):\n"
+"            return tuple(obj[item] for item in items)\n"
+"    return g"
+msgstr ""
 
 #: ../../library/operator.rst:329
 msgid ""
@@ -385,6 +414,14 @@ msgid ""
 msgstr ""
 "Depois de ``f = methodcaller('name', 'foo', bar=1)``, a chamada ``f(b)`` "
 "retorna ``b.name('foo', bar=1)``."
+
+#: ../../library/operator.rst:367
+msgid ""
+"def methodcaller(name, /, *args, **kwargs):\n"
+"    def caller(obj):\n"
+"        return getattr(obj, name)(*args, **kwargs)\n"
+"    return caller"
+msgstr ""
 
 #: ../../library/operator.rst:376
 msgid "Mapping Operators to Functions"

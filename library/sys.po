@@ -4,17 +4,6 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Hildeberto Abreu Magalhães <hildeberto@gmail.com>, 2021
-# Rogério Araújo <rogerioaraujo16@hotmail.com>, 2021
-# Welington Carlos <wcarlos3@gmail.com>, 2021
-# felipe caridade fernandes <caridade500@gmail.com>, 2021
-# a76d6fb6142d7607ab0526dcbddb02d7_7bf0da0 <3b5fb0f281c8dfb4c0170f2ee2a6cfcf_843623>, 2021
-# i17obot <i17obot@rougeth.com>, 2021
-# yyyyyyyan <contact@yyyyyyyan.tech>, 2021
-# Raphael Mendonça, 2023
-# Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2023
-# Marco Rougeth <marco@rougeth.com>, 2023
-# mvpetri <mvpetri@gmail.com>, 2023
 # Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
@@ -22,15 +11,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-10 14:14+0000\n"
-"PO-Revision-Date: 2021-06-28 01:14+0000\n"
+"POT-Creation-Date: 2024-08-31 11:30+0000\n"
+"PO-Revision-Date: 2024-05-11 00:33+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -115,13 +104,7 @@ msgstr ""
 "quaisquer módulos que permitam modificação arbitrária da memória (como :mod:"
 "`ctypes`) devem ser completamente removidos ou monitorados de perto."
 
-#: ../../library/sys.rst:49
-msgid ""
-"Raises an :ref:`auditing event <auditing>` ``sys.addaudithook`` with no "
-"arguments."
-msgstr " "
-
-#: ../../library/sys.rst:51
+#: ../../library/sys.rst:49 ../../library/sys.rst:51
 msgid ""
 "Calling :func:`sys.addaudithook` will itself raise an auditing event named "
 "``sys.addaudithook`` with no arguments. If any existing hooks raise an "
@@ -575,6 +558,27 @@ msgstr ""
 msgid "Pseudo-code::"
 msgstr "Pseudocódigo::"
 
+#: ../../library/sys.rst:305
+msgid ""
+"def displayhook(value):\n"
+"    if value is None:\n"
+"        return\n"
+"    # Set '_' to None to avoid recursion\n"
+"    builtins._ = None\n"
+"    text = repr(value)\n"
+"    try:\n"
+"        sys.stdout.write(text)\n"
+"    except UnicodeEncodeError:\n"
+"        bytes = text.encode(sys.stdout.encoding, 'backslashreplace')\n"
+"        if hasattr(sys.stdout, 'buffer'):\n"
+"            sys.stdout.buffer.write(bytes)\n"
+"        else:\n"
+"            text = bytes.decode(sys.stdout.encoding, 'strict')\n"
+"            sys.stdout.write(text)\n"
+"    sys.stdout.write(\"\\n\")\n"
+"    builtins._ = value"
+msgstr ""
+
 #: ../../library/sys.rst:323
 msgid "Use ``'backslashreplace'`` error handler on :exc:`UnicodeEncodeError`."
 msgstr ""
@@ -696,15 +700,7 @@ msgstr ""
 "manipulação de tais exceções de nível superior pode ser personalizada "
 "atribuindo outra função de três argumentos a ``sys.excepthook``."
 
-#: ../../library/sys.rst:394
-msgid ""
-"Raises an :ref:`auditing event <auditing>` ``sys.excepthook`` with arguments "
-"``hook``, ``type``, ``value``, ``traceback``."
-msgstr ""
-"Levanta um :ref:`evento de auditoria <auditing>` ``sys.excepthook`` com "
-"argumentos ``hook``, ``type``, ``value``, ``traceback``."
-
-#: ../../library/sys.rst:396
+#: ../../library/sys.rst:394 ../../library/sys.rst:396
 msgid ""
 "Raise an auditing event ``sys.excepthook`` with arguments ``hook``, "
 "``type``, ``value``, ``traceback`` when an uncaught exception occurs. If no "
@@ -1244,6 +1240,16 @@ msgstr ""
 "flutuante e vice-versa recuperará uma string representando o mesmo decimal "
 "valor::"
 
+#: ../../library/sys.rst:694
+msgid ""
+">>> import sys\n"
+">>> sys.float_info.dig\n"
+"15\n"
+">>> s = '3.14159265358979'    # decimal string with 15 significant digits\n"
+">>> format(float(s), '.15g')  # convert to float and back -> same value\n"
+"'3.14159265358979'"
+msgstr ""
+
 #: ../../library/sys.rst:701
 msgid ""
 "But for strings with more than :attr:`sys.float_info.dig` significant "
@@ -1251,6 +1257,13 @@ msgid ""
 msgstr ""
 "Mas para strings com mais de :attr:`sys.float_info.dig` dígitos "
 "significativos, isso nem sempre é verdade::"
+
+#: ../../library/sys.rst:704
+msgid ""
+">>> s = '9876543211234567'    # 16 significant digits is too many!\n"
+">>> format(float(s), '.16g')  # conversion changes value\n"
+"'9876543211234568'"
+msgstr ""
 
 #: ../../library/sys.rst:710
 msgid ""
@@ -1275,24 +1288,14 @@ msgid ""
 "regardless of their size.  This function is mainly useful for tracking and "
 "debugging memory leaks.  Because of the interpreter's internal caches, the "
 "result can vary from call to call; you may have to call :func:"
-"`_clear_type_cache()` and :func:`gc.collect()` to get more predictable "
-"results."
+"`_clear_type_cache` and :func:`gc.collect` to get more predictable results."
 msgstr ""
-"Retorna o número de blocos de memória atualmente alocados pelo "
-"interpretador, independentemente de seu tamanho. Esta função é útil "
-"principalmente para rastrear e depurar vazamentos de memória. Devido aos "
-"caches internos do interpretador, o resultado pode variar de chamada para "
-"chamada; você pode ter que chamar :func:`_clear_type_cache()` e :func:`gc."
-"collect()` para obter resultados mais previsíveis."
 
 #: ../../library/sys.rst:730
 msgid ""
 "If a Python build or implementation cannot reasonably compute this "
-"information, :func:`getallocatedblocks()` is allowed to return 0 instead."
+"information, :func:`getallocatedblocks` is allowed to return 0 instead."
 msgstr ""
-"Se uma construção ou implementação do Python não puder computar "
-"razoavelmente essas informações, :func:`getallocatedblocks()` poderá "
-"retornar 0 em seu lugar."
 
 #: ../../library/sys.rst:738
 msgid "Return the number of unicode objects that have been interned."
@@ -1301,8 +1304,6 @@ msgstr "Retorna o número de objetos unicode que foram internalizados."
 #: ../../library/sys.rst:745
 msgid "Return the build time API version of Android as an integer."
 msgstr ""
-"Retorna a versão da API de tempo de compilação do Android como um número "
-"inteiro."
 
 #: ../../library/sys.rst:747
 msgid ":ref:`Availability <availability>`: Android."
@@ -1793,6 +1794,16 @@ msgstr ""
 "produção. Por exemplo, para testar se o interpretador Python é pelo menos a "
 "versão 1.5.2, use::"
 
+#: ../../library/sys.rst:1067
+msgid ""
+"if sys.hexversion >= 0x010502F0:\n"
+"    # use some advanced feature\n"
+"    ...\n"
+"else:\n"
+"    # use an alternative implementation or warn the user\n"
+"    ..."
+msgstr ""
+
 #: ../../library/sys.rst:1074
 msgid ""
 "This is called ``hexversion`` since it only really looks meaningful when "
@@ -1957,13 +1968,7 @@ msgstr ""
 "para que você possa definir esse gancho lá. O módulo :mod:`site` :ref:"
 "`define isso <rlcompleter-config>`."
 
-#: ../../library/sys.rst:1166
-msgid ""
-"Raises an :ref:`auditing event <auditing>` ``cpython.run_interactivehook`` "
-"with argument ``hook``."
-msgstr ""
-
-#: ../../library/sys.rst:1168
+#: ../../library/sys.rst:1166 ../../library/sys.rst:1168
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``cpython.run_interactivehook`` "
 "with the hook object as the argument when the hook is called on startup."
@@ -2275,6 +2280,16 @@ msgid ""
 "``uname -r`` appended, e.g. ``'sunos5'`` or ``'freebsd8'``, *at the time "
 "when Python was built*.  Unless you want to test for a specific system "
 "version, it is therefore recommended to use the following idiom::"
+msgstr ""
+
+#: ../../library/sys.rst:1354
+msgid ""
+"if sys.platform.startswith('freebsd'):\n"
+"    # FreeBSD-specific code here...\n"
+"elif sys.platform.startswith('linux'):\n"
+"    # Linux-specific code here...\n"
+"elif sys.platform.startswith('aix'):\n"
+"    # AIX-specific code here..."
 msgstr ""
 
 #: ../../library/sys.rst:1361
@@ -3380,13 +3395,7 @@ msgstr ""
 "armazenar :attr:`!object` após o gancho personalizado ser concluído para "
 "evitar ressuscitar objetos."
 
-#: ../../library/sys.rst:1929
-msgid ""
-"Raises an :ref:`auditing event <auditing>` ``sys.unraisablehook`` with "
-"arguments ``hook``, ``unraisable``."
-msgstr ""
-
-#: ../../library/sys.rst:1931
+#: ../../library/sys.rst:1929 ../../library/sys.rst:1931
 msgid ""
 "Raise an auditing event ``sys.unraisablehook`` with arguments *hook*, "
 "*unraisable* when an exception that cannot be handled occurs. The "
@@ -3486,6 +3495,18 @@ msgstr ""
 "pela opção de linha de comando :option:`-X`. Os nomes de opção são mapeados "
 "para seus valores, se fornecidos explicitamente, ou para :const:`True`. "
 "Exemplo:"
+
+#: ../../library/sys.rst:1997
+msgid ""
+"$ ./python -Xa=b -Xc\n"
+"Python 3.2a3+ (py3k, Oct 16 2010, 20:14:50)\n"
+"[GCC 4.4.3] on linux2\n"
+"Type \"help\", \"copyright\", \"credits\" or \"license\" for more "
+"information.\n"
+">>> import sys\n"
+">>> sys._xoptions\n"
+"{'a': 'b', 'c': True}"
+msgstr ""
 
 #: ../../library/sys.rst:2009
 msgid ""

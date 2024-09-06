@@ -4,25 +4,22 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Sheila Gomes <sheilagomes1@gmail.com>, 2021
-# Vinicius Gubiani Ferreira <vini.g.fer@gmail.com>, 2021
-# Adorilson Bezerra <adorilson@gmail.com>, 2022
-# Vitor Buxbaum Orlandi, 2023
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-05 14:14+0000\n"
-"PO-Revision-Date: 2021-06-28 00:55+0000\n"
-"Last-Translator: Vitor Buxbaum Orlandi, 2023\n"
+"POT-Creation-Date: 2024-08-31 11:30+0000\n"
+"PO-Revision-Date: 2024-05-11 00:33+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -193,7 +190,7 @@ msgstr ""
 
 #: ../../library/asyncio-future.rst:122
 msgid ""
-"If the Future's result isn't yet available, this method raises a :exc:"
+"If the Future's result isn't yet available, this method raises an :exc:"
 "`InvalidStateError` exception."
 msgstr ""
 
@@ -203,7 +200,7 @@ msgstr ""
 
 #: ../../library/asyncio-future.rst:129 ../../library/asyncio-future.rst:136
 msgid ""
-"Raises a :exc:`InvalidStateError` error if the Future is already *done*."
+"Raises an :exc:`InvalidStateError` error if the Future is already *done*."
 msgstr ""
 
 #: ../../library/asyncio-future.rst:134
@@ -228,6 +225,12 @@ msgstr ""
 msgid ""
 "The method is usually used to check if a Future is not *cancelled* before "
 "setting a result or an exception for it::"
+msgstr ""
+
+#: ../../library/asyncio-future.rst:154
+msgid ""
+"if not fut.cancelled():\n"
+"    fut.set_result(42)"
 msgstr ""
 
 #: ../../library/asyncio-future.rst:159
@@ -258,6 +261,13 @@ msgstr ""
 msgid ""
 ":func:`functools.partial` can be used to pass parameters to the callback, e."
 "g.::"
+msgstr ""
+
+#: ../../library/asyncio-future.rst:174
+msgid ""
+"# Call 'print(\"Future:\", fut)' when \"fut\" is done.\n"
+"fut.add_done_callback(\n"
+"    functools.partial(print, \"Future:\"))"
 msgstr ""
 
 #: ../../library/asyncio-future.rst:178
@@ -317,6 +327,37 @@ msgstr ""
 msgid ""
 "This example creates a Future object, creates and schedules an asynchronous "
 "Task to set result for the Future, and waits until the Future has a result::"
+msgstr ""
+
+#: ../../library/asyncio-future.rst:226
+msgid ""
+"async def set_after(fut, delay, value):\n"
+"    # Sleep for *delay* seconds.\n"
+"    await asyncio.sleep(delay)\n"
+"\n"
+"    # Set *value* as a result of *fut* Future.\n"
+"    fut.set_result(value)\n"
+"\n"
+"async def main():\n"
+"    # Get the current event loop.\n"
+"    loop = asyncio.get_running_loop()\n"
+"\n"
+"    # Create a new Future object.\n"
+"    fut = loop.create_future()\n"
+"\n"
+"    # Run \"set_after()\" coroutine in a parallel Task.\n"
+"    # We are using the low-level \"loop.create_task()\" API here because\n"
+"    # we already have a reference to the event loop at hand.\n"
+"    # Otherwise we could have just used \"asyncio.create_task()\".\n"
+"    loop.create_task(\n"
+"        set_after(fut, 1, '... world'))\n"
+"\n"
+"    print('hello ...')\n"
+"\n"
+"    # Wait until *fut* has a result (1 second) and print it.\n"
+"    print(await fut)\n"
+"\n"
+"asyncio.run(main())"
 msgstr ""
 
 #: ../../library/asyncio-future.rst:257

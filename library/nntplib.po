@@ -4,24 +4,22 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2021
-# i17obot <i17obot@rougeth.com>, 2021
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2023
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-26 14:13+0000\n"
-"PO-Revision-Date: 2021-06-28 01:10+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2023\n"
+"POT-Creation-Date: 2024-08-31 11:30+0000\n"
+"PO-Revision-Date: 2024-05-11 00:33+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -65,10 +63,46 @@ msgid ""
 "about a newsgroup and print the subjects of the last 10 articles::"
 msgstr ""
 
+#: ../../library/nntplib.rst:46
+msgid ""
+">>> s = nntplib.NNTP('news.gmane.io')\n"
+">>> resp, count, first, last, name = s.group('gmane.comp.python."
+"committers')\n"
+">>> print('Group', name, 'has', count, 'articles, range', first, 'to', "
+"last)\n"
+"Group gmane.comp.python.committers has 1096 articles, range 1 to 1096\n"
+">>> resp, overviews = s.over((last - 9, last))\n"
+">>> for id, over in overviews:\n"
+"...     print(id, nntplib.decode_header(over['subject']))\n"
+"...\n"
+"1087 Re: Commit privileges for Łukasz Langa\n"
+"1088 Re: 3.2 alpha 2 freeze\n"
+"1089 Re: 3.2 alpha 2 freeze\n"
+"1090 Re: Commit privileges for Łukasz Langa\n"
+"1091 Re: Commit privileges for Łukasz Langa\n"
+"1092 Updated ssh key\n"
+"1093 Re: Updated ssh key\n"
+"1094 Re: Updated ssh key\n"
+"1095 Hello fellow committers!\n"
+"1096 Re: Hello fellow committers!\n"
+">>> s.quit()\n"
+"'205 Bye!'"
+msgstr ""
+
 #: ../../library/nntplib.rst:67
 msgid ""
 "To post an article from a binary file (this assumes that the article has "
 "valid headers, and that you have right to post on the particular newsgroup)::"
+msgstr ""
+
+#: ../../library/nntplib.rst:70
+msgid ""
+">>> s = nntplib.NNTP('news.gmane.io')\n"
+">>> f = open('article.txt', 'rb')\n"
+">>> s.post(f)\n"
+"'240 Article posted successfully.'\n"
+">>> s.quit()\n"
+"'205 Bye!'"
 msgstr ""
 
 #: ../../library/nntplib.rst:77
@@ -93,19 +127,14 @@ msgid ""
 "close the NNTP connection when done, e.g.:"
 msgstr ""
 
-#: ../../library/nntplib.rst:116 ../../library/nntplib.rst:148
+#: ../../library/nntplib.rst:105 ../../library/nntplib.rst:137
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``nntplib.connect`` with "
 "arguments ``self``, ``host``, ``port``."
 msgstr ""
 
-#: ../../library/nntplib.rst:118 ../../library/nntplib.rst:150
-msgid ""
-"Raises an :ref:`auditing event <auditing>` ``nntplib.putline`` with "
-"arguments ``self``, ``line``."
-msgstr ""
-
-#: ../../library/nntplib.rst:109 ../../library/nntplib.rst:141
+#: ../../library/nntplib.rst:107 ../../library/nntplib.rst:109
+#: ../../library/nntplib.rst:139 ../../library/nntplib.rst:141
 msgid ""
 "All commands will raise an :ref:`auditing event <auditing>` ``nntplib."
 "putline`` with arguments ``self`` and ``line``, where ``line`` is the bytes "
@@ -445,6 +474,22 @@ msgid ""
 "when they may contain non-ASCII characters::"
 msgstr ""
 
+#: ../../library/nntplib.rst:415
+msgid ""
+">>> _, _, first, last, _ = s.group('gmane.comp.python.devel')\n"
+">>> resp, overviews = s.over((last, last))\n"
+">>> art_num, over = overviews[0]\n"
+">>> art_num\n"
+"117216\n"
+">>> list(over.keys())\n"
+"['xref', 'from', ':lines', ':bytes', 'references', 'date', 'message-id', "
+"'subject']\n"
+">>> over['from']\n"
+"'=?UTF-8?B?Ik1hcnRpbiB2LiBMw7Z3aXMi?= <martin@v.loewis.de>'\n"
+">>> nntplib.decode_header(over['from'])\n"
+"'\"Martin v. Löwis\" <martin@v.loewis.de>'"
+msgstr ""
+
 #: ../../library/nntplib.rst:432
 msgid ""
 "Send a ``HELP`` command.  Return a pair ``(response, list)`` where *list* is "
@@ -579,6 +624,16 @@ msgid ""
 "*header_str* must be a :class:`str` object.  The unescaped value is "
 "returned.  Using this function is recommended to display some headers in a "
 "human readable form::"
+msgstr ""
+
+#: ../../library/nntplib.rst:581
+msgid ""
+">>> decode_header(\"Some subject\")\n"
+"'Some subject'\n"
+">>> decode_header(\"=?ISO-8859-15?Q?D=E9buter_en_Python?=\")\n"
+"'Débuter en Python'\n"
+">>> decode_header(\"Re: =?UTF-8?B?cHJvYmzDqG1lIGRlIG1hdHJpY2U=?=\")\n"
+"'Re: problème de matrice'"
 msgstr ""
 
 #: ../../library/nntplib.rst:10

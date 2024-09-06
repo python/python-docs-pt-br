@@ -4,29 +4,22 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Raphael Mendonça, 2021
-# Marco Rougeth <marco@rougeth.com>, 2021
-# Welington Carlos <wcarlos3@gmail.com>, 2021
-# Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2021
-# Ruan Aragão <ruanaragao2@gmail.com>, 2021
-# Hemílio Lauro <hemilioaraujo@gmail.com>, 2021
-# i17obot <i17obot@rougeth.com>, 2021
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2022
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-10 14:14+0000\n"
-"PO-Revision-Date: 2021-06-28 01:12+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2022\n"
+"POT-Creation-Date: 2024-08-31 11:30+0000\n"
+"PO-Revision-Date: 2024-05-11 00:33+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -102,6 +95,16 @@ msgstr "Classes"
 
 #: ../../library/selectors.rst:46
 msgid "Classes hierarchy::"
+msgstr ""
+
+#: ../../library/selectors.rst:48
+msgid ""
+"BaseSelector\n"
+"+-- SelectSelector\n"
+"+-- PollSelector\n"
+"+-- EpollSelector\n"
+"+-- DevpollSelector\n"
+"+-- KqueueSelector"
 msgstr ""
 
 #: ../../library/selectors.rst:56
@@ -341,4 +344,40 @@ msgstr "Exemplos"
 
 #: ../../library/selectors.rst:245
 msgid "Here is a simple echo server implementation::"
+msgstr ""
+
+#: ../../library/selectors.rst:247
+msgid ""
+"import selectors\n"
+"import socket\n"
+"\n"
+"sel = selectors.DefaultSelector()\n"
+"\n"
+"def accept(sock, mask):\n"
+"    conn, addr = sock.accept()  # Should be ready\n"
+"    print('accepted', conn, 'from', addr)\n"
+"    conn.setblocking(False)\n"
+"    sel.register(conn, selectors.EVENT_READ, read)\n"
+"\n"
+"def read(conn, mask):\n"
+"    data = conn.recv(1000)  # Should be ready\n"
+"    if data:\n"
+"        print('echoing', repr(data), 'to', conn)\n"
+"        conn.send(data)  # Hope it won't block\n"
+"    else:\n"
+"        print('closing', conn)\n"
+"        sel.unregister(conn)\n"
+"        conn.close()\n"
+"\n"
+"sock = socket.socket()\n"
+"sock.bind(('localhost', 1234))\n"
+"sock.listen(100)\n"
+"sock.setblocking(False)\n"
+"sel.register(sock, selectors.EVENT_READ, accept)\n"
+"\n"
+"while True:\n"
+"    events = sel.select()\n"
+"    for key, mask in events:\n"
+"        callback = key.data\n"
+"        callback(key.fileobj, mask)"
 msgstr ""

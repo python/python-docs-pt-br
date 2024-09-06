@@ -4,12 +4,6 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Ruan Aragão <ruanaragao2@gmail.com>, 2021
-# Leticia Portella <leportella@gmail.com>, 2021
-# Italo Penaforte <italo.penaforte@gmail.com>, 2021
-# felipe caridade fernandes <caridade500@gmail.com>, 2021
-# Marco Rougeth <marco@rougeth.com>, 2023
-# Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2023
 # Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
@@ -17,15 +11,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-25 01:09+0000\n"
-"PO-Revision-Date: 2021-06-28 00:49+0000\n"
+"POT-Creation-Date: 2024-08-31 11:30+0000\n"
+"PO-Revision-Date: 2024-05-11 00:32+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -114,6 +108,12 @@ msgid ""
 msgstr ""
 "Todas as definições de função, tipo e macro necessárias para usar a API "
 "Python/C estão incluídas em seu código pela seguinte linha::"
+
+#: ../../c-api/intro.rst:51
+msgid ""
+"#define PY_SSIZE_T_CLEAN\n"
+"#include <Python.h>"
+msgstr ""
 
 #: ../../c-api/intro.rst:54
 msgid ""
@@ -255,6 +255,21 @@ msgstr ""
 "*name* é o nome do módulo, e deve ser o único item não-\\ ``static`` "
 "definido no arquivo do módulo. Exemplo::"
 
+#: ../../c-api/intro.rst:119
+msgid ""
+"static struct PyModuleDef spam_module = {\n"
+"    PyModuleDef_HEAD_INIT,\n"
+"    .m_name = \"spam\",\n"
+"    ...\n"
+"};\n"
+"\n"
+"PyMODINIT_FUNC\n"
+"PyInit_spam(void)\n"
+"{\n"
+"    return PyModule_Create(&spam_module);\n"
+"}"
+msgstr ""
+
 #: ../../c-api/intro.rst:134
 msgid "Return the absolute value of ``x``."
 msgstr "Retorna o valor absoluto de ``x``."
@@ -303,6 +318,10 @@ msgstr ""
 msgid "It must be specified before the function return type. Usage::"
 msgstr "Deve ser especificado antes do tipo de retorno da função. Uso::"
 
+#: ../../c-api/intro.rst:156
+msgid "static inline Py_ALWAYS_INLINE int random(void) { return 4; }"
+msgstr ""
+
 #: ../../c-api/intro.rst:162
 msgid ""
 "Argument must be a character or an integer in the range [-128, 127] or [0, "
@@ -324,6 +343,10 @@ msgstr ""
 #: ../../c-api/intro.rst:274
 msgid "Example::"
 msgstr "Exemplo::"
+
+#: ../../c-api/intro.rst:172
+msgid "Py_DEPRECATED(3.8) PyAPI_FUNC(int) Py_OldFunction(void);"
+msgstr ""
 
 #: ../../c-api/intro.rst:174
 msgid "MSVC support was added."
@@ -362,6 +385,10 @@ msgstr ""
 #: ../../c-api/intro.rst:206
 msgid "Usage::"
 msgstr "Uso::"
+
+#: ../../c-api/intro.rst:208
+msgid "Py_NO_INLINE static int random(void) { return 4; }"
+msgstr ""
 
 #: ../../c-api/intro.rst:214
 msgid ""
@@ -441,6 +468,17 @@ msgstr ""
 "Use :c:macro:`PyDoc_STRVAR` para docstrings para ter suporte à compilação do "
 "Python sem docstrings, conforme especificado em :pep:`7`."
 
+#: ../../c-api/intro.rst:258
+msgid ""
+"PyDoc_STRVAR(pop_doc, \"Remove and return the rightmost element.\");\n"
+"\n"
+"static PyMethodDef deque_methods[] = {\n"
+"    // ...\n"
+"    {\"pop\", (PyCFunction)deque_pop, METH_NOARGS, pop_doc},\n"
+"    // ...\n"
+"}"
+msgstr ""
+
 #: ../../c-api/intro.rst:268
 msgid ""
 "Creates a docstring for the given input string or an empty string if "
@@ -456,6 +494,15 @@ msgid ""
 msgstr ""
 "Use :c:macro:`PyDoc_STR` ao especificar docstrings para ter suporte à "
 "compilação do Python sem docstrings, conforme especificado em :pep:`7`."
+
+#: ../../c-api/intro.rst:276
+msgid ""
+"static PyMethodDef pysqlite_row_methods[] = {\n"
+"    {\"keys\", (PyCFunction)pysqlite_row_keys, METH_NOARGS,\n"
+"        PyDoc_STR(\"Returns the keys of the row.\")},\n"
+"    {NULL, NULL}\n"
+"};"
+msgstr ""
 
 #: ../../c-api/intro.rst:286
 msgid "Objects, Types and Reference Counts"
@@ -638,6 +685,16 @@ msgstr ""
 "(esquecendo o tratamento de erros por enquanto; uma maneira melhor de "
 "codificar isso é mostrada abaixo)::"
 
+#: ../../c-api/intro.rst:415
+msgid ""
+"PyObject *t;\n"
+"\n"
+"t = PyTuple_New(3);\n"
+"PyTuple_SetItem(t, 0, PyLong_FromLong(1L));\n"
+"PyTuple_SetItem(t, 1, PyLong_FromLong(2L));\n"
+"PyTuple_SetItem(t, 2, PyUnicode_FromString(\"three\"));"
+msgstr ""
+
 #: ../../c-api/intro.rst:422
 msgid ""
 "Here, :c:func:`PyLong_FromLong` returns a new reference which is immediately "
@@ -686,6 +743,14 @@ msgstr ""
 "código acima podem ser substituídos pelos seguintes (que também cuidam da "
 "verificação de erros)::"
 
+#: ../../c-api/intro.rst:441
+msgid ""
+"PyObject *tuple, *list;\n"
+"\n"
+"tuple = Py_BuildValue(\"(iis)\", 1, 2, \"three\");\n"
+"list = Py_BuildValue(\"[iis]\", 1, 2, \"three\");"
+msgstr ""
+
 #: ../../c-api/intro.rst:446
 msgid ""
 "It is much more common to use :c:func:`PyObject_SetItem` and friends with "
@@ -695,6 +760,30 @@ msgid ""
 "reference just so you can give that reference away (\"have it be stolen\").  "
 "For example, this function sets all items of a list (actually, any mutable "
 "sequence) to a given item::"
+msgstr ""
+
+#: ../../c-api/intro.rst:453
+msgid ""
+"int\n"
+"set_all(PyObject *target, PyObject *item)\n"
+"{\n"
+"    Py_ssize_t i, n;\n"
+"\n"
+"    n = PyObject_Length(target);\n"
+"    if (n < 0)\n"
+"        return -1;\n"
+"    for (i = 0; i < n; i++) {\n"
+"        PyObject *index = PyLong_FromSsize_t(i);\n"
+"        if (!index)\n"
+"            return -1;\n"
+"        if (PyObject_SetItem(target, index, item) < 0) {\n"
+"            Py_DECREF(index);\n"
+"            return -1;\n"
+"        }\n"
+"        Py_DECREF(index);\n"
+"    }\n"
+"    return 0;\n"
+"}"
 msgstr ""
 
 #: ../../c-api/intro.rst:476
@@ -746,6 +835,62 @@ msgstr ""
 "Aqui está um exemplo de como você poderia escrever uma função que calcula a "
 "soma dos itens em uma lista de inteiros; uma vez usando :c:func:"
 "`PyList_GetItem`, e uma vez usando :c:func:`PySequence_GetItem`. ::"
+
+#: ../../c-api/intro.rst:501
+msgid ""
+"long\n"
+"sum_list(PyObject *list)\n"
+"{\n"
+"    Py_ssize_t i, n;\n"
+"    long total = 0, value;\n"
+"    PyObject *item;\n"
+"\n"
+"    n = PyList_Size(list);\n"
+"    if (n < 0)\n"
+"        return -1; /* Not a list */\n"
+"    for (i = 0; i < n; i++) {\n"
+"        item = PyList_GetItem(list, i); /* Can't fail */\n"
+"        if (!PyLong_Check(item)) continue; /* Skip non-integers */\n"
+"        value = PyLong_AsLong(item);\n"
+"        if (value == -1 && PyErr_Occurred())\n"
+"            /* Integer too big to fit in a C long, bail out */\n"
+"            return -1;\n"
+"        total += value;\n"
+"    }\n"
+"    return total;\n"
+"}"
+msgstr ""
+
+#: ../../c-api/intro.rst:527
+msgid ""
+"long\n"
+"sum_sequence(PyObject *sequence)\n"
+"{\n"
+"    Py_ssize_t i, n;\n"
+"    long total = 0, value;\n"
+"    PyObject *item;\n"
+"    n = PySequence_Length(sequence);\n"
+"    if (n < 0)\n"
+"        return -1; /* Has no length */\n"
+"    for (i = 0; i < n; i++) {\n"
+"        item = PySequence_GetItem(sequence, i);\n"
+"        if (item == NULL)\n"
+"            return -1; /* Not a sequence, or other failure */\n"
+"        if (PyLong_Check(item)) {\n"
+"            value = PyLong_AsLong(item);\n"
+"            Py_DECREF(item);\n"
+"            if (value == -1 && PyErr_Occurred())\n"
+"                /* Integer too big to fit in a C long, bail out */\n"
+"                return -1;\n"
+"            total += value;\n"
+"        }\n"
+"        else {\n"
+"            Py_DECREF(item); /* Discard reference ownership */\n"
+"        }\n"
+"    }\n"
+"    return total;\n"
+"}"
+msgstr ""
 
 #: ../../c-api/intro.rst:561
 msgid "Types"
@@ -922,9 +1067,65 @@ msgid ""
 "why you like Python, we show the equivalent Python code::"
 msgstr ""
 
+#: ../../c-api/intro.rst:655
+msgid ""
+"def incr_item(dict, key):\n"
+"    try:\n"
+"        item = dict[key]\n"
+"    except KeyError:\n"
+"        item = 0\n"
+"    dict[key] = item + 1"
+msgstr ""
+
 #: ../../c-api/intro.rst:664
 msgid "Here is the corresponding C code, in all its glory::"
 msgstr "Aqui está o código C correspondente, em toda sua glória::"
+
+#: ../../c-api/intro.rst:666
+msgid ""
+"int\n"
+"incr_item(PyObject *dict, PyObject *key)\n"
+"{\n"
+"    /* Objects all initialized to NULL for Py_XDECREF */\n"
+"    PyObject *item = NULL, *const_one = NULL, *incremented_item = NULL;\n"
+"    int rv = -1; /* Return value initialized to -1 (failure) */\n"
+"\n"
+"    item = PyObject_GetItem(dict, key);\n"
+"    if (item == NULL) {\n"
+"        /* Handle KeyError only: */\n"
+"        if (!PyErr_ExceptionMatches(PyExc_KeyError))\n"
+"            goto error;\n"
+"\n"
+"        /* Clear the error and use zero: */\n"
+"        PyErr_Clear();\n"
+"        item = PyLong_FromLong(0L);\n"
+"        if (item == NULL)\n"
+"            goto error;\n"
+"    }\n"
+"    const_one = PyLong_FromLong(1L);\n"
+"    if (const_one == NULL)\n"
+"        goto error;\n"
+"\n"
+"    incremented_item = PyNumber_Add(item, const_one);\n"
+"    if (incremented_item == NULL)\n"
+"        goto error;\n"
+"\n"
+"    if (PyObject_SetItem(dict, key, incremented_item) < 0)\n"
+"        goto error;\n"
+"    rv = 0; /* Success */\n"
+"    /* Continue with cleanup code */\n"
+"\n"
+" error:\n"
+"    /* Cleanup code, shared by success and failure path */\n"
+"\n"
+"    /* Use Py_XDECREF() to ignore NULL references */\n"
+"    Py_XDECREF(item);\n"
+"    Py_XDECREF(const_one);\n"
+"    Py_XDECREF(incremented_item);\n"
+"\n"
+"    return rv; /* -1 for error, 0 for success */\n"
+"}"
+msgstr ""
 
 #: ../../c-api/intro.rst:716
 msgid ""

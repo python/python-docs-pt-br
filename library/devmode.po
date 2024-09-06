@@ -4,24 +4,22 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# a76d6fb6142d7607ab0526dcbddb02d7_7bf0da0 <3b5fb0f281c8dfb4c0170f2ee2a6cfcf_843623>, 2021
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2023
-# Vitor Buxbaum Orlandi, 2023
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-12 14:14+0000\n"
-"PO-Revision-Date: 2021-06-28 01:04+0000\n"
-"Last-Translator: Vitor Buxbaum Orlandi, 2023\n"
+"POT-Creation-Date: 2024-08-31 11:30+0000\n"
+"PO-Revision-Date: 2024-05-11 00:33+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -65,6 +63,11 @@ msgid ""
 msgstr ""
 "A ativação do Modo de Desenvolvimento do Python é semelhante ao comando a "
 "seguir, mas com efeitos adicionais descritos abaixo::"
+
+#: ../../library/devmode.rst:24
+msgid ""
+"PYTHONMALLOC=debug PYTHONASYNCIODEBUG=1 python -W default -X faulthandler"
+msgstr ""
 
 #: ../../library/devmode.rst:26
 msgid "Effects of the Python Development Mode:"
@@ -294,6 +297,20 @@ msgstr ""
 "Exemplo de um script que conta o número de linhas do arquivo texto "
 "especificado na linha de comando::"
 
+#: ../../library/devmode.rst:116
+msgid ""
+"import sys\n"
+"\n"
+"def main():\n"
+"    fp = open(sys.argv[1])\n"
+"    nlines = len(fp.readlines())\n"
+"    print(nlines)\n"
+"    # The file is closed implicitly\n"
+"\n"
+"if __name__ == \"__main__\":\n"
+"    main()"
+msgstr ""
+
 #: ../../library/devmode.rst:127
 msgid ""
 "The script does not close the file explicitly. By default, Python does not "
@@ -301,6 +318,12 @@ msgid ""
 msgstr ""
 "O script não fecha o arquivo explicitamente. Por padrão, o Python não emite "
 "nenhum aviso. Exemplo usando README.txt, que possui 269 linhas:"
+
+#: ../../library/devmode.rst:130
+msgid ""
+"$ python script.py README.txt\n"
+"269"
+msgstr ""
 
 #: ../../library/devmode.rst:135
 msgid ""
@@ -310,6 +333,16 @@ msgstr ""
 "A ativação do Modo de Desenvolvimento do Python exibe um aviso :exc:"
 "`ResourceWarning`:"
 
+#: ../../library/devmode.rst:137
+msgid ""
+"$ python -X dev script.py README.txt\n"
+"269\n"
+"script.py:10: ResourceWarning: unclosed file <_io.TextIOWrapper name='README."
+"rst' mode='r' encoding='UTF-8'>\n"
+"  main()\n"
+"ResourceWarning: Enable tracemalloc to get the object allocation traceback"
+msgstr ""
+
 #: ../../library/devmode.rst:145
 msgid ""
 "In addition, enabling :mod:`tracemalloc` shows the line where the file was "
@@ -318,12 +351,35 @@ msgstr ""
 "Além disso, ativar :mod:`tracemalloc` mostra a linha em que o arquivo foi "
 "aberto:"
 
+#: ../../library/devmode.rst:148
+msgid ""
+"$ python -X dev -X tracemalloc=5 script.py README.rst\n"
+"269\n"
+"script.py:10: ResourceWarning: unclosed file <_io.TextIOWrapper name='README."
+"rst' mode='r' encoding='UTF-8'>\n"
+"  main()\n"
+"Object allocated at (most recent call last):\n"
+"  File \"script.py\", lineno 10\n"
+"    main()\n"
+"  File \"script.py\", lineno 4\n"
+"    fp = open(sys.argv[1])"
+msgstr ""
+
 #: ../../library/devmode.rst:160
 msgid ""
 "The fix is to close explicitly the file. Example using a context manager::"
 msgstr ""
 "A correção é fechar explicitamente o arquivo. Exemplo usando um gerenciador "
 "de contexto::"
+
+#: ../../library/devmode.rst:162
+msgid ""
+"def main():\n"
+"    # Close the file explicitly when exiting the with block\n"
+"    with open(sys.argv[1]) as fp:\n"
+"        nlines = len(fp.readlines())\n"
+"    print(nlines)"
+msgstr ""
 
 #: ../../library/devmode.rst:168
 msgid ""
@@ -345,9 +401,29 @@ msgstr "Exemplo de erro de descritor de arquivo inválido"
 msgid "Script displaying the first line of itself::"
 msgstr "Script exibindo sua própria primeira linha::"
 
+#: ../../library/devmode.rst:179
+msgid ""
+"import os\n"
+"\n"
+"def main():\n"
+"    fp = open(__file__)\n"
+"    firstline = fp.readline()\n"
+"    print(firstline.rstrip())\n"
+"    os.close(fp.fileno())\n"
+"    # The file is closed implicitly\n"
+"\n"
+"main()"
+msgstr ""
+
 #: ../../library/devmode.rst:190
 msgid "By default, Python does not emit any warning:"
 msgstr "Por padrão, o Python não emite qualquer aviso:"
+
+#: ../../library/devmode.rst:192
+msgid ""
+"$ python script.py\n"
+"import os"
+msgstr ""
 
 #: ../../library/devmode.rst:197
 msgid ""
@@ -356,6 +432,22 @@ msgid ""
 msgstr ""
 "O Modo de Desenvolvimento do Python mostra uma :exc:`ResourceWarning` e "
 "registra um erro \"Bad file descriptor\" ao finalizar o objeto arquivo:"
+
+#: ../../library/devmode.rst:200
+msgid ""
+"$ python -X dev script.py\n"
+"import os\n"
+"script.py:10: ResourceWarning: unclosed file <_io.TextIOWrapper name='script."
+"py' mode='r' encoding='UTF-8'>\n"
+"  main()\n"
+"ResourceWarning: Enable tracemalloc to get the object allocation traceback\n"
+"Exception ignored in: <_io.TextIOWrapper name='script.py' mode='r' "
+"encoding='UTF-8'>\n"
+"Traceback (most recent call last):\n"
+"  File \"script.py\", line 10, in <module>\n"
+"    main()\n"
+"OSError: [Errno 9] Bad file descriptor"
+msgstr ""
 
 #: ../../library/devmode.rst:213
 msgid ""

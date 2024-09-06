@@ -4,23 +4,22 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2021
-# Raphael Mendonça, 2021
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-10 14:14+0000\n"
-"PO-Revision-Date: 2021-06-28 01:07+0000\n"
-"Last-Translator: Raphael Mendonça, 2021\n"
+"POT-Creation-Date: 2024-08-31 11:30+0000\n"
+"PO-Revision-Date: 2024-05-11 00:33+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -84,8 +83,43 @@ msgid ""
 "encountered::"
 msgstr ""
 
+#: ../../library/html.parser.rst:48
+msgid ""
+"from html.parser import HTMLParser\n"
+"\n"
+"class MyHTMLParser(HTMLParser):\n"
+"    def handle_starttag(self, tag, attrs):\n"
+"        print(\"Encountered a start tag:\", tag)\n"
+"\n"
+"    def handle_endtag(self, tag):\n"
+"        print(\"Encountered an end tag :\", tag)\n"
+"\n"
+"    def handle_data(self, data):\n"
+"        print(\"Encountered some data  :\", data)\n"
+"\n"
+"parser = MyHTMLParser()\n"
+"parser.feed('<html><head><title>Test</title></head>'\n"
+"            '<body><h1>Parse me!</h1></body></html>')"
+msgstr ""
+
 #: ../../library/html.parser.rst:64
 msgid "The output will then be:"
+msgstr ""
+
+#: ../../library/html.parser.rst:66
+msgid ""
+"Encountered a start tag: html\n"
+"Encountered a start tag: head\n"
+"Encountered a start tag: title\n"
+"Encountered some data  : Test\n"
+"Encountered an end tag : title\n"
+"Encountered an end tag : head\n"
+"Encountered a start tag: body\n"
+"Encountered a start tag: h1\n"
+"Encountered some data  : Parse me!\n"
+"Encountered an end tag : h1\n"
+"Encountered an end tag : body\n"
+"Encountered an end tag : html"
 msgstr ""
 
 #: ../../library/html.parser.rst:83
@@ -275,12 +309,70 @@ msgid ""
 "examples::"
 msgstr ""
 
+#: ../../library/html.parser.rst:235
+msgid ""
+"from html.parser import HTMLParser\n"
+"from html.entities import name2codepoint\n"
+"\n"
+"class MyHTMLParser(HTMLParser):\n"
+"    def handle_starttag(self, tag, attrs):\n"
+"        print(\"Start tag:\", tag)\n"
+"        for attr in attrs:\n"
+"            print(\"     attr:\", attr)\n"
+"\n"
+"    def handle_endtag(self, tag):\n"
+"        print(\"End tag  :\", tag)\n"
+"\n"
+"    def handle_data(self, data):\n"
+"        print(\"Data     :\", data)\n"
+"\n"
+"    def handle_comment(self, data):\n"
+"        print(\"Comment  :\", data)\n"
+"\n"
+"    def handle_entityref(self, name):\n"
+"        c = chr(name2codepoint[name])\n"
+"        print(\"Named ent:\", c)\n"
+"\n"
+"    def handle_charref(self, name):\n"
+"        if name.startswith('x'):\n"
+"            c = chr(int(name[1:], 16))\n"
+"        else:\n"
+"            c = chr(int(name))\n"
+"        print(\"Num ent  :\", c)\n"
+"\n"
+"    def handle_decl(self, data):\n"
+"        print(\"Decl     :\", data)\n"
+"\n"
+"parser = MyHTMLParser()"
+msgstr ""
+
 #: ../../library/html.parser.rst:269
 msgid "Parsing a doctype::"
 msgstr ""
 
+#: ../../library/html.parser.rst:271
+msgid ""
+">>> parser.feed('<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" '\n"
+"...             '\"http://www.w3.org/TR/html4/strict.dtd\">')\n"
+"Decl     : DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3."
+"org/TR/html4/strict.dtd\""
+msgstr ""
+
 #: ../../library/html.parser.rst:275
 msgid "Parsing an element with a few attributes and a title::"
+msgstr ""
+
+#: ../../library/html.parser.rst:277
+msgid ""
+">>> parser.feed('<img src=\"python-logo.png\" alt=\"The Python logo\">')\n"
+"Start tag: img\n"
+"     attr: ('src', 'python-logo.png')\n"
+"     attr: ('alt', 'The Python logo')\n"
+">>>\n"
+">>> parser.feed('<h1>Python</h1>')\n"
+"Start tag: h1\n"
+"Data     : Python\n"
+"End tag  : h1"
 msgstr ""
 
 #: ../../library/html.parser.rst:287
@@ -289,14 +381,47 @@ msgid ""
 "further parsing::"
 msgstr ""
 
+#: ../../library/html.parser.rst:290
+msgid ""
+">>> parser.feed('<style type=\"text/css\">#python { color: green }</"
+"style>')\n"
+"Start tag: style\n"
+"     attr: ('type', 'text/css')\n"
+"Data     : #python { color: green }\n"
+"End tag  : style\n"
+"\n"
+">>> parser.feed('<script type=\"text/javascript\">'\n"
+"...             'alert(\"<strong>hello!</strong>\");</script>')\n"
+"Start tag: script\n"
+"     attr: ('type', 'text/javascript')\n"
+"Data     : alert(\"<strong>hello!</strong>\");\n"
+"End tag  : script"
+msgstr ""
+
 #: ../../library/html.parser.rst:303
 msgid "Parsing comments::"
+msgstr ""
+
+#: ../../library/html.parser.rst:305
+msgid ""
+">>> parser.feed('<!-- a comment -->'\n"
+"...             '<!--[if IE 9]>IE-specific content<![endif]-->')\n"
+"Comment  :  a comment\n"
+"Comment  : [if IE 9]>IE-specific content<![endif]"
 msgstr ""
 
 #: ../../library/html.parser.rst:310
 msgid ""
 "Parsing named and numeric character references and converting them to the "
 "correct char (note: these 3 references are all equivalent to ``'>'``)::"
+msgstr ""
+
+#: ../../library/html.parser.rst:313
+msgid ""
+">>> parser.feed('&gt;&#62;&#x3E;')\n"
+"Named ent: >\n"
+"Num ent  : >\n"
+"Num ent  : >"
 msgstr ""
 
 #: ../../library/html.parser.rst:318
@@ -306,8 +431,32 @@ msgid ""
 "*convert_charrefs* is set to ``True``)::"
 msgstr ""
 
+#: ../../library/html.parser.rst:322
+msgid ""
+">>> for chunk in ['<sp', 'an>buff', 'ered ', 'text</s', 'pan>']:\n"
+"...     parser.feed(chunk)\n"
+"...\n"
+"Start tag: span\n"
+"Data     : buff\n"
+"Data     : ered\n"
+"Data     : text\n"
+"End tag  : span"
+msgstr ""
+
 #: ../../library/html.parser.rst:331
 msgid "Parsing invalid HTML (e.g. unquoted attributes) also works::"
+msgstr ""
+
+#: ../../library/html.parser.rst:333
+msgid ""
+">>> parser.feed('<p><a class=link href=#main>tag soup</p ></a>')\n"
+"Start tag: p\n"
+"Start tag: a\n"
+"     attr: ('class', 'link')\n"
+"     attr: ('href', '#main')\n"
+"Data     : tag soup\n"
+"End tag  : p\n"
+"End tag  : a"
 msgstr ""
 
 #: ../../library/html.parser.rst:9

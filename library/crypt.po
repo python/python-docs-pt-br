@@ -4,25 +4,22 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Raphael Mendonça, 2021
-# i17obot <i17obot@rougeth.com>, 2021
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2022
-# Vitor Buxbaum Orlandi, 2023
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-19 14:13+0000\n"
-"PO-Revision-Date: 2021-06-28 01:03+0000\n"
-"Last-Translator: Vitor Buxbaum Orlandi, 2023\n"
+"POT-Creation-Date: 2024-08-31 11:30+0000\n"
+"PO-Revision-Date: 2024-05-11 00:33+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -34,7 +31,7 @@ msgstr ""
 msgid "**Source code:** :source:`Lib/crypt.py`"
 msgstr "**Código-fonte:** :source:`Lib/crypt.py`"
 
-#: ../../library/crypt.rst:24
+#: ../../library/crypt.rst:19
 msgid ""
 "The :mod:`crypt` module is deprecated (see :pep:`PEP 594 <594#crypt>` for "
 "details and alternatives). The :mod:`hashlib` module is a potential "
@@ -61,7 +58,7 @@ msgstr ""
 
 #: ../../library/crypt.rst:40
 msgid ":ref:`Availability <availability>`: Unix, not VxWorks."
-msgstr ":ref:`Disponibilidade <availability>`: Unix, not VxWorks."
+msgstr ":ref:`Disponibilidade <availability>`: Unix, não VxWorks."
 
 #: ../../includes/wasm-notavail.rst:3
 msgid ":ref:`Availability <availability>`: not Emscripten, not WASI."
@@ -215,10 +212,40 @@ msgid ""
 "compare_digest` is suitable for this purpose)::"
 msgstr ""
 
+#: ../../library/crypt.rst:159
+msgid ""
+"import pwd\n"
+"import crypt\n"
+"import getpass\n"
+"from hmac import compare_digest as compare_hash\n"
+"\n"
+"def login():\n"
+"    username = input('Python login: ')\n"
+"    cryptedpasswd = pwd.getpwnam(username)[1]\n"
+"    if cryptedpasswd:\n"
+"        if cryptedpasswd == 'x' or cryptedpasswd == '*':\n"
+"            raise ValueError('no support for shadow passwords')\n"
+"        cleartext = getpass.getpass()\n"
+"        return compare_hash(crypt.crypt(cleartext, cryptedpasswd), "
+"cryptedpasswd)\n"
+"    else:\n"
+"        return True"
+msgstr ""
+
 #: ../../library/crypt.rst:175
 msgid ""
 "To generate a hash of a password using the strongest available method and "
 "check it against the original::"
+msgstr ""
+
+#: ../../library/crypt.rst:178
+msgid ""
+"import crypt\n"
+"from hmac import compare_digest as compare_hash\n"
+"\n"
+"hashed = crypt.crypt(plaintext)\n"
+"if not compare_hash(hashed, crypt.crypt(plaintext, hashed)):\n"
+"    raise ValueError(\"hashed version doesn't validate against original\")"
 msgstr ""
 
 #: ../../library/crypt.rst:15 ../../library/crypt.rst:33

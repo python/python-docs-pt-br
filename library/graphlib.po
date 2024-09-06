@@ -4,24 +4,22 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Hildeberto Abreu Magalhães <hildeberto@gmail.com>, 2021
-# Leticia Portella <leportella@gmail.com>, 2021
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2023
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-10 14:14+0000\n"
-"PO-Revision-Date: 2021-06-28 01:06+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2023\n"
+"POT-Creation-Date: 2024-08-31 11:30+0000\n"
+"PO-Revision-Date: 2024-05-11 00:33+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -124,6 +122,14 @@ msgstr ""
 "nenhum paralelismo esteja envolvido, o método de conveniência :meth:"
 "`TopologicalSorter.static_order` pode ser usado diretamente:"
 
+#: ../../library/graphlib.rst:53
+msgid ""
+">>> graph = {\"D\": {\"B\", \"C\"}, \"C\": {\"A\"}, \"B\": {\"A\"}}\n"
+">>> ts = TopologicalSorter(graph)\n"
+">>> tuple(ts.static_order())\n"
+"('A', 'C', 'B', 'D')"
+msgstr ""
+
 #: ../../library/graphlib.rst:60
 msgid ""
 "The class is designed to easily support parallel processing of the nodes as "
@@ -131,6 +137,31 @@ msgid ""
 msgstr ""
 "A classe foi projetada para suportar facilmente o processamento paralelo dos "
 "nós à medida que eles se tornam prontos. Por exemplo::"
+
+#: ../../library/graphlib.rst:63
+msgid ""
+"topological_sorter = TopologicalSorter()\n"
+"\n"
+"# Add nodes to 'topological_sorter'...\n"
+"\n"
+"topological_sorter.prepare()\n"
+"while topological_sorter.is_active():\n"
+"    for node in topological_sorter.get_ready():\n"
+"        # Worker threads or processes take nodes to work on off the\n"
+"        # 'task_queue' queue.\n"
+"        task_queue.put(node)\n"
+"\n"
+"    # When the work for a node is done, workers put the node in\n"
+"    # 'finalized_tasks_queue' so we can get more nodes to work on.\n"
+"    # The definition of 'is_active()' guarantees that, at this point, at\n"
+"    # least one node has been placed on 'task_queue' that hasn't yet\n"
+"    # been passed to 'done()', so this blocking 'get()' must (eventually)\n"
+"    # succeed.  After calling 'done()', we loop back to call 'get_ready()'\n"
+"    # again, so put newly freed nodes on 'task_queue' as soon as\n"
+"    # logically possible.\n"
+"    node = finalized_tasks_queue.get()\n"
+"    topological_sorter.done(node)"
+msgstr ""
 
 #: ../../library/graphlib.rst:87
 msgid ""
@@ -206,9 +237,21 @@ msgstr ""
 "O método :meth:`~object.__bool__` desta classe adia para essa função, então, "
 "em vez de::"
 
+#: ../../library/graphlib.rst:121
+msgid ""
+"if ts.is_active():\n"
+"    ..."
+msgstr ""
+
 #: ../../library/graphlib.rst:124
 msgid "it is possible to simply do::"
 msgstr "é possível simplesmente fazer::"
+
+#: ../../library/graphlib.rst:126
+msgid ""
+"if ts:\n"
+"    ..."
+msgstr ""
 
 #: ../../library/graphlib.rst:129 ../../library/graphlib.rst:152
 msgid ""
@@ -269,6 +312,16 @@ msgstr ""
 "`~TopologicalSorter.done` não devem ser chamados. Este método é equivalente "
 "a::"
 
+#: ../../library/graphlib.rst:162
+msgid ""
+"def static_order(self):\n"
+"    self.prepare()\n"
+"    while self.is_active():\n"
+"        node_group = self.get_ready()\n"
+"        yield from node_group\n"
+"        self.done(*node_group)"
+msgstr ""
+
 #: ../../library/graphlib.rst:169
 msgid ""
 "The particular order that is returned may depend on the specific order in "
@@ -276,6 +329,21 @@ msgid ""
 msgstr ""
 "A ordem específica retornada pode depender da ordem específica em que os "
 "itens foram inseridos no grafo. Por exemplo:"
+
+#: ../../library/graphlib.rst:172
+msgid ""
+">>> ts = TopologicalSorter()\n"
+">>> ts.add(3, 2, 1)\n"
+">>> ts.add(1, 0)\n"
+">>> print([*ts.static_order()])\n"
+"[2, 0, 1, 3]\n"
+"\n"
+">>> ts2 = TopologicalSorter()\n"
+">>> ts2.add(1, 0)\n"
+">>> ts2.add(3, 2, 1)\n"
+">>> print([*ts2.static_order()])\n"
+"[0, 2, 1, 3]"
+msgstr ""
 
 #: ../../library/graphlib.rst:186
 msgid ""

@@ -4,12 +4,6 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Hildeberto Abreu Magalhães <hildeberto@gmail.com>, 2021
-# Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2021
-# Adson Rodrigues <adson.develop@gmail.com>, 2021
-# Alexandre B A Villares, 2021
-# Mariana Costa <mrncstt@gmail.com>, 2021
-# a76d6fb6142d7607ab0526dcbddb02d7_7bf0da0 <3b5fb0f281c8dfb4c0170f2ee2a6cfcf_843623>, 2021
 # Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
@@ -17,15 +11,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-26 14:13+0000\n"
-"PO-Revision-Date: 2021-06-28 00:52+0000\n"
+"POT-Creation-Date: 2024-08-31 11:30+0000\n"
+"PO-Revision-Date: 2024-05-11 00:32+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -108,6 +102,12 @@ msgstr ""
 "módulos escritos em C e vinculados ao interpretador; para obter uma dessas "
 "listas, digite::"
 
+#: ../../faq/library.rst:42
+msgid ""
+"import sys\n"
+"print(sys.builtin_module_names)"
+msgstr ""
+
 #: ../../faq/library.rst:47
 msgid "How do I make a Python script executable on Unix?"
 msgstr "Como tornar um script Python executável no Unix?"
@@ -138,6 +138,10 @@ msgstr ""
 "A segunda coisa pode ser feita de várias maneiras. A maneira mais direta é "
 "escrever ::"
 
+#: ../../faq/library.rst:59
+msgid "#!/usr/local/bin/python"
+msgstr ""
+
 #: ../../faq/library.rst:61
 msgid ""
 "as the very first line of your file, using the pathname for where the Python "
@@ -157,6 +161,10 @@ msgstr ""
 "mora, você pode usar o programa :program:`env`. Quase todas as variantes do "
 "Unix suportam o seguinte, presumindo que o interpretador Python esteja em um "
 "diretório no :envvar:`PATH` do usuário::"
+
+#: ../../faq/library.rst:69
+msgid "#!/usr/bin/env python"
+msgstr ""
 
 #: ../../faq/library.rst:71
 msgid ""
@@ -178,6 +186,14 @@ msgstr ""
 "program:`/usr/bin/env` falha; ou não há nenhum programa env. Nesse caso, "
 "você pode tentar o seguinte hack (graças a Alex Rezinsky):"
 
+#: ../../faq/library.rst:79
+msgid ""
+"#! /bin/sh\n"
+"\"\"\":\"\n"
+"exec python $0 ${1+\"$@\"}\n"
+"\"\"\""
+msgstr ""
+
 #: ../../faq/library.rst:86
 msgid ""
 "The minor disadvantage is that this defines the script's __doc__ string. "
@@ -185,6 +201,10 @@ msgid ""
 msgstr ""
 "Uma pequena desvantagem é que isso define o script's __doc__ string. "
 "Entretanto, você pode corrigir isso adicionando ::"
+
+#: ../../faq/library.rst:89
+msgid "__doc__ = \"\"\"...Whatever...\"\"\""
+msgstr ""
 
 #: ../../faq/library.rst:94
 msgid "Is there a curses/termcap package for Python?"
@@ -242,9 +262,19 @@ msgstr ""
 "O maior problema é que o manipulador de sinal é declarado com uma lista de "
 "argumentos incorretos. Isso é chamado como ::"
 
+#: ../../faq/library.rst:123
+msgid "handler(signum, frame)"
+msgstr ""
+
 #: ../../faq/library.rst:125
 msgid "so it should be declared with two parameters::"
 msgstr "portanto, isso deve ser declarado com dois parâmetros::"
+
+#: ../../faq/library.rst:127
+msgid ""
+"def handler(signum, frame):\n"
+"    ..."
+msgstr ""
 
 #: ../../faq/library.rst:132
 msgid "Common tasks"
@@ -294,6 +324,12 @@ msgstr ""
 msgid "The \"global main logic\" of your program may be as simple as ::"
 msgstr "A lógica principal do seu programa pode tão simples quanto ::"
 
+#: ../../faq/library.rst:154
+msgid ""
+"if __name__ == \"__main__\":\n"
+"    main_logic()"
+msgstr ""
+
 #: ../../faq/library.rst:157
 msgid "at the bottom of the main module of your program."
 msgstr "no botão do módulo principal do seus programa."
@@ -326,6 +362,12 @@ msgid ""
 msgstr ""
 "Os \"módulos de suporte\" que não se destinam a ser o módulo principal de um "
 "programa podem incluir um autoteste do módulo. ::"
+
+#: ../../faq/library.rst:170
+msgid ""
+"if __name__ == \"__main__\":\n"
+"    self_test()"
+msgstr ""
 
 #: ../../faq/library.rst:173
 msgid ""
@@ -405,6 +447,21 @@ msgstr ""
 "Uma solução simples é adicionar um tempo de espera no final do programa até "
 "que todos os threads sejam concluídos::"
 
+#: ../../faq/library.rst:253
+msgid ""
+"import threading, time\n"
+"\n"
+"def thread_task(name, n):\n"
+"    for i in range(n):\n"
+"        print(name, i)\n"
+"\n"
+"for i in range(10):\n"
+"    T = threading.Thread(target=thread_task, args=(str(i), i))\n"
+"    T.start()\n"
+"\n"
+"time.sleep(10)  # <---------------------------!"
+msgstr ""
+
 #: ../../faq/library.rst:265
 msgid ""
 "But now (on many platforms) the threads don't run in parallel, but appear to "
@@ -421,6 +478,20 @@ msgid "A simple fix is to add a tiny sleep to the start of the run function::"
 msgstr ""
 "Uma solução simples é adicionar um pequeno tempo de espera no início da "
 "função::"
+
+#: ../../faq/library.rst:271
+msgid ""
+"def thread_task(name, n):\n"
+"    time.sleep(0.001)  # <--------------------!\n"
+"    for i in range(n):\n"
+"        print(name, i)\n"
+"\n"
+"for i in range(10):\n"
+"    T = threading.Thread(target=thread_task, args=(str(i), i))\n"
+"    T.start()\n"
+"\n"
+"time.sleep(10)"
+msgstr ""
 
 #: ../../faq/library.rst:282
 msgid ""
@@ -469,9 +540,65 @@ msgstr ""
 msgid "Here's a trivial example::"
 msgstr "Aqui está um exemplo simples::"
 
+#: ../../faq/library.rst:304
+msgid ""
+"import threading, queue, time\n"
+"\n"
+"# The worker thread gets jobs off the queue.  When the queue is empty, it\n"
+"# assumes there will be no more work and exits.\n"
+"# (Realistically workers will run until terminated.)\n"
+"def worker():\n"
+"    print('Running worker')\n"
+"    time.sleep(0.1)\n"
+"    while True:\n"
+"        try:\n"
+"            arg = q.get(block=False)\n"
+"        except queue.Empty:\n"
+"            print('Worker', threading.current_thread(), end=' ')\n"
+"            print('queue empty')\n"
+"            break\n"
+"        else:\n"
+"            print('Worker', threading.current_thread(), end=' ')\n"
+"            print('running with argument', arg)\n"
+"            time.sleep(0.5)\n"
+"\n"
+"# Create queue\n"
+"q = queue.Queue()\n"
+"\n"
+"# Start a pool of 5 workers\n"
+"for i in range(5):\n"
+"    t = threading.Thread(target=worker, name='worker %i' % (i+1))\n"
+"    t.start()\n"
+"\n"
+"# Begin adding work to the queue\n"
+"for i in range(50):\n"
+"    q.put(i)\n"
+"\n"
+"# Give threads time to run\n"
+"print('Main thread sleeping')\n"
+"time.sleep(5)"
+msgstr ""
+
 #: ../../faq/library.rst:340
 msgid "When run, this will produce the following output:"
 msgstr "Quando executado, isso produzirá a seguinte saída:"
+
+#: ../../faq/library.rst:342
+msgid ""
+"Running worker\n"
+"Running worker\n"
+"Running worker\n"
+"Running worker\n"
+"Running worker\n"
+"Main thread sleeping\n"
+"Worker <Thread(worker 1, started 130283832797456)> running with argument 0\n"
+"Worker <Thread(worker 2, started 130283824404752)> running with argument 1\n"
+"Worker <Thread(worker 3, started 130283816012048)> running with argument 2\n"
+"Worker <Thread(worker 4, started 130283807619344)> running with argument 3\n"
+"Worker <Thread(worker 5, started 130283799226640)> running with argument 4\n"
+"Worker <Thread(worker 1, started 130283832797456)> running with argument 5\n"
+"..."
+msgstr ""
 
 #: ../../faq/library.rst:358
 msgid ""
@@ -522,9 +649,32 @@ msgstr ""
 "Por exemplo, as seguintes operações são todas atômicas (L, L1, L2 são "
 "listas, D, D1, D2 são dicionários, x, y são objetos, i, j são inteiros)::"
 
+#: ../../faq/library.rst:380
+msgid ""
+"L.append(x)\n"
+"L1.extend(L2)\n"
+"x = L[i]\n"
+"x = L.pop()\n"
+"L1[i:j] = L2\n"
+"L.sort()\n"
+"x = y\n"
+"x.field = y\n"
+"D[x] = y\n"
+"D1.update(D2)\n"
+"D.keys()"
+msgstr ""
+
 #: ../../faq/library.rst:392
 msgid "These aren't::"
 msgstr "Esses não são::"
+
+#: ../../faq/library.rst:394
+msgid ""
+"i = i+1\n"
+"L.append(L[-1])\n"
+"L[i] = L[j]\n"
+"D[x] = D[x] + 1"
+msgstr ""
 
 #: ../../faq/library.rst:399
 msgid ""
@@ -754,6 +904,15 @@ msgstr ""
 "Por exemplo, o código a seguir lê dois inteiros de 2 bytes e um inteiro de 4 "
 "bytes no formato big-endian de um arquivo:"
 
+#: ../../faq/library.rst:506
+msgid ""
+"import struct\n"
+"\n"
+"with open(filename, \"rb\") as f:\n"
+"    s = f.read(8)\n"
+"    x, y, z = struct.unpack(\">hhl\", s)"
+msgstr ""
+
 #: ../../faq/library.rst:512
 msgid ""
 "The '>' in the format string forces big-endian data; the letter 'h' reads "
@@ -871,6 +1030,13 @@ msgstr ""
 "exemplo, você pode confundir módulos de extensão tentando fazer E/S). Se "
 "for, use :func:`os.close`::"
 
+#: ../../faq/library.rst:649
+msgid ""
+"os.close(stdin.fileno())\n"
+"os.close(stdout.fileno())\n"
+"os.close(stderr.fileno())"
+msgstr ""
+
 #: ../../faq/library.rst:653
 msgid "Or you can use the numeric constants 0, 1 and 2, respectively."
 msgstr "Ou você pode usar as constantes numéricas 0, 1 e 2, respectivamente."
@@ -924,11 +1090,34 @@ msgstr ""
 msgid "Yes. Here's a simple example that uses :mod:`urllib.request`::"
 msgstr ""
 
+#: ../../faq/library.rst:683
+msgid ""
+"#!/usr/local/bin/python\n"
+"\n"
+"import urllib.request\n"
+"\n"
+"# build the query string\n"
+"qs = \"First=Josephine&MI=Q&Last=Public\"\n"
+"\n"
+"# connect and send the server a path\n"
+"req = urllib.request.urlopen('http://www.some-server.out-there'\n"
+"                             '/cgi-bin/some-cgi-script', data=qs)\n"
+"with req:\n"
+"    msg, hdrs = req.read(), req.info()"
+msgstr ""
+
 #: ../../faq/library.rst:696
 msgid ""
 "Note that in general for percent-encoded POST operations, query strings must "
 "be quoted using :func:`urllib.parse.urlencode`.  For example, to send "
 "``name=Guy Steele, Jr.``::"
+msgstr ""
+
+#: ../../faq/library.rst:700
+msgid ""
+">>> import urllib.parse\n"
+">>> urllib.parse.urlencode({'name': 'Guy Steele, Jr.'})\n"
+"'name=Guy+Steele%2C+Jr.'"
 msgstr ""
 
 #: ../../faq/library.rst:704
@@ -963,6 +1152,26 @@ msgstr ""
 "Aqui está um remetente de e-mail interativo muito simples. Este método "
 "funcionará em qualquer host que suporte o protocolo SMTP. ::"
 
+#: ../../faq/library.rst:724
+msgid ""
+"import sys, smtplib\n"
+"\n"
+"fromaddr = input(\"From: \")\n"
+"toaddrs  = input(\"To: \").split(',')\n"
+"print(\"Enter message, end with ^D:\")\n"
+"msg = ''\n"
+"while True:\n"
+"    line = sys.stdin.readline()\n"
+"    if not line:\n"
+"        break\n"
+"    msg += line\n"
+"\n"
+"# The actual mail send\n"
+"server = smtplib.SMTP('localhost')\n"
+"server.sendmail(fromaddr, toaddrs, msg)\n"
+"server.quit()"
+msgstr ""
+
 #: ../../faq/library.rst:741
 msgid ""
 "A Unix-only alternative uses sendmail.  The location of the sendmail program "
@@ -974,6 +1183,22 @@ msgstr ""
 "sendmail varia entre os sistemas; às vezes é ``/usr/lib/sendmail``, às vezes "
 "``/usr/sbin/sendmail``. A página de manual do sendmail vai ajudar você. Aqui "
 "está um código de exemplo::"
+
+#: ../../faq/library.rst:746
+msgid ""
+"import os\n"
+"\n"
+"SENDMAIL = \"/usr/sbin/sendmail\"  # sendmail location\n"
+"p = os.popen(\"%s -t -i\" % SENDMAIL, \"w\")\n"
+"p.write(\"To: receiver@example.com\\n\")\n"
+"p.write(\"Subject: test\\n\")\n"
+"p.write(\"\\n\")  # blank line separating headers from body\n"
+"p.write(\"Some text\\n\")\n"
+"p.write(\"some more text\\n\")\n"
+"sts = p.close()\n"
+"if sts != 0:\n"
+"    print(\"Sendmail exit status\", sts)"
+msgstr ""
 
 #: ../../faq/library.rst:761
 msgid "How do I avoid blocking in the connect() method of a socket?"
@@ -1098,8 +1323,14 @@ msgstr ""
 "O módulo padrão :mod:`random` implementa um gerador de números aleatórios. O "
 "uso é simples::"
 
+#: ../../faq/library.rst:825
+msgid ""
+"import random\n"
+"random.random()"
+msgstr ""
+
 #: ../../faq/library.rst:828
-msgid "This returns a random floating point number in the range [0, 1)."
+msgid "This returns a random floating-point number in the range [0, 1)."
 msgstr "Isso retorna um número flutuante aleatório no intervalo [0, 1)."
 
 #: ../../faq/library.rst:830
@@ -1113,8 +1344,9 @@ msgstr ""
 "``randrange(a, b)`` escolhe um número inteiro no intervalo entre [a, b)."
 
 #: ../../faq/library.rst:833
-msgid "``uniform(a, b)`` chooses a floating point number in the range [a, b)."
-msgstr "``uniform(a, b)`` escolhe um número float no intervalo [a, b)."
+msgid "``uniform(a, b)`` chooses a floating-point number in the range [a, b)."
+msgstr ""
+"``uniform(a, b)`` escolhe um número de ponto flutuante no intervalo [a, b)."
 
 #: ../../faq/library.rst:834
 msgid ""

@@ -4,26 +4,22 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2021
-# Raphael Mendonça, 2021
-# Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2021
-# Vinicius Gubiani Ferreira <vini.g.fer@gmail.com>, 2021
-# i17obot <i17obot@rougeth.com>, 2021
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-10 14:14+0000\n"
-"PO-Revision-Date: 2021-06-28 01:07+0000\n"
-"Last-Translator: i17obot <i17obot@rougeth.com>, 2021\n"
+"POT-Creation-Date: 2024-08-31 11:30+0000\n"
+"PO-Revision-Date: 2024-05-11 00:33+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -616,6 +612,19 @@ msgid ""
 "additional checks::"
 msgstr ""
 
+#: ../../library/http.cookiejar.rst:451
+msgid ""
+"import http.cookiejar\n"
+"class MyCookiePolicy(http.cookiejar.DefaultCookiePolicy):\n"
+"    def set_ok(self, cookie, request):\n"
+"        if not http.cookiejar.DefaultCookiePolicy.set_ok(self, cookie, "
+"request):\n"
+"            return False\n"
+"        if i_dont_want_to_store_this_cookie(cookie):\n"
+"            return False\n"
+"        return True"
+msgstr ""
+
 #: ../../library/http.cookiejar.rst:460
 msgid ""
 "In addition to the features required to implement the :class:`CookiePolicy` "
@@ -933,11 +942,31 @@ msgid ""
 "The first example shows the most common usage of :mod:`http.cookiejar`::"
 msgstr ""
 
+#: ../../library/http.cookiejar.rst:749
+msgid ""
+"import http.cookiejar, urllib.request\n"
+"cj = http.cookiejar.CookieJar()\n"
+"opener = urllib.request.build_opener(urllib.request."
+"HTTPCookieProcessor(cj))\n"
+"r = opener.open(\"http://example.com/\")"
+msgstr ""
+
 #: ../../library/http.cookiejar.rst:754
 msgid ""
 "This example illustrates how to open a URL using your Netscape, Mozilla, or "
 "Lynx cookies (assumes Unix/Netscape convention for location of the cookies "
 "file)::"
+msgstr ""
+
+#: ../../library/http.cookiejar.rst:757
+msgid ""
+"import os, http.cookiejar, urllib.request\n"
+"cj = http.cookiejar.MozillaCookieJar()\n"
+"cj.load(os.path.join(os.path.expanduser(\"~\"), \".netscape\", \"cookies."
+"txt\"))\n"
+"opener = urllib.request.build_opener(urllib.request."
+"HTTPCookieProcessor(cj))\n"
+"r = opener.open(\"http://example.com/\")"
 msgstr ""
 
 #: ../../library/http.cookiejar.rst:763
@@ -946,4 +975,17 @@ msgid ""
 "on :rfc:`2965` cookies, be more strict about domains when setting and "
 "returning Netscape cookies, and block some domains from setting cookies or "
 "having them returned::"
+msgstr ""
+
+#: ../../library/http.cookiejar.rst:768
+msgid ""
+"import urllib.request\n"
+"from http.cookiejar import CookieJar, DefaultCookiePolicy\n"
+"policy = DefaultCookiePolicy(\n"
+"    rfc2965=True, strict_ns_domain=Policy.DomainStrict,\n"
+"    blocked_domains=[\"ads.net\", \".ads.net\"])\n"
+"cj = CookieJar(policy)\n"
+"opener = urllib.request.build_opener(urllib.request."
+"HTTPCookieProcessor(cj))\n"
+"r = opener.open(\"http://example.com/\")"
 msgstr ""

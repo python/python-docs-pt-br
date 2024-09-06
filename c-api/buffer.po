@@ -4,19 +4,6 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2021
-# (Douglas da Silva) <dementikovalev@yandex.ru>, 2021
-# Julio Gadioli Soares <jugaso@gmail.com>, 2021
-# felipe caridade fernandes <caridade500@gmail.com>, 2021
-# Danielle Farias <danielle8farias@gmail.com>, 2021
-# Julia Rizza <contato@juliarizza.com>, 2021
-# Nícolas Prado <nfraprado@protonmail.com>, 2021
-# Leandro Braga <leandrobbraga@gmail.com>, 2021
-# Ana Carolina Dias, 2022
-# Marco Rougeth <marco@rougeth.com>, 2023
-# Julio Biason, 2023
-# Victor D. G., 2023
-# Adorilson Bezerra <adorilson@gmail.com>, 2024
 # Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
@@ -24,15 +11,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-19 14:13+0000\n"
-"PO-Revision-Date: 2021-06-28 00:47+0000\n"
+"POT-Creation-Date: 2024-08-31 11:30+0000\n"
+"PO-Revision-Date: 2024-05-11 00:32+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -322,13 +309,13 @@ msgstr ""
 
 #: ../../c-api/buffer.rst:152
 msgid ""
-"A *NUL* terminated string in :mod:`struct` module style syntax describing "
+"A *NULL* terminated string in :mod:`struct` module style syntax describing "
 "the contents of a single item. If this is ``NULL``, ``\"B\"`` (unsigned "
 "bytes) is assumed."
 msgstr ""
-"Uma string terminada por *NUL* no estilo de sintaxe de módulo :mod:`struct` "
+"Uma string terminada por *NULL* no estilo de sintaxe de módulo :mod:`struct` "
 "descrevendo os conteúdos de um único item. Se isso é ``NULL``, ``\"B\"`` "
-"(unsigned bytes) é assumido."
+"(unsigned bytes) é presumido."
 
 #: ../../c-api/buffer.rst:156
 msgid "This field is controlled by the :c:macro:`PyBUF_FORMAT` flag."
@@ -729,6 +716,13 @@ msgstr ""
 "vetor C n-dimensional padrão. Caso contrário, o consumidor deve acessar um "
 "vetor n-dimensional como a seguir:"
 
+#: ../../c-api/buffer.rst:368
+msgid ""
+"ptr = (char *)buf + indices[0] * strides[0] + ... + indices[n-1] * "
+"strides[n-1];\n"
+"item = *((typeof(item) *)ptr);"
+msgstr ""
+
 #: ../../c-api/buffer.rst:374
 msgid ""
 "As noted above, :c:member:`~Py_buffer.buf` can point to any location within "
@@ -738,6 +732,35 @@ msgstr ""
 "Como notado acima, :c:member:`~Py_buffer.buf` pode apontar para qualquer "
 "localização dentro do bloco de memória em si. Um exportador pode verificar a "
 "validade de um buffer com essa função:"
+
+#: ../../c-api/buffer.rst:378
+msgid ""
+"def verify_structure(memlen, itemsize, ndim, shape, strides, offset):\n"
+"    \"\"\"Verify that the parameters represent a valid array within\n"
+"       the bounds of the allocated memory:\n"
+"           char *mem: start of the physical memory block\n"
+"           memlen: length of the physical memory block\n"
+"           offset: (char *)buf - mem\n"
+"    \"\"\"\n"
+"    if offset % itemsize:\n"
+"        return False\n"
+"    if offset < 0 or offset+itemsize > memlen:\n"
+"        return False\n"
+"    if any(v % itemsize for v in strides):\n"
+"        return False\n"
+"\n"
+"    if ndim <= 0:\n"
+"        return ndim == 0 and not shape and not strides\n"
+"    if 0 in shape:\n"
+"        return True\n"
+"\n"
+"    imin = sum(strides[j]*(shape[j]-1) for j in range(ndim)\n"
+"               if strides[j] <= 0)\n"
+"    imax = sum(strides[j]*(shape[j]-1) for j in range(ndim)\n"
+"               if strides[j] > 0)\n"
+"\n"
+"    return 0 <= offset+imin and offset+imax+itemsize <= memlen"
+msgstr ""
 
 #: ../../c-api/buffer.rst:408
 msgid "PIL-style: shape, strides and suboffsets"
@@ -771,6 +794,22 @@ msgstr ""
 "Esta é uma função que retorna um ponteiro para o elemento em uma matriz N-D "
 "apontada por um índice N-dimensional onde existem ambos passos e "
 "subconjuntos não-``NULL``::"
+
+#: ../../c-api/buffer.rst:423
+msgid ""
+"void *get_item_pointer(int ndim, void *buf, Py_ssize_t *strides,\n"
+"                       Py_ssize_t *suboffsets, Py_ssize_t *indices) {\n"
+"    char *pointer = (char*)buf;\n"
+"    int i;\n"
+"    for (i = 0; i < ndim; i++) {\n"
+"        pointer += strides[i] * indices[i];\n"
+"        if (suboffsets[i] >=0 ) {\n"
+"            pointer = *((char**)pointer) + suboffsets[i];\n"
+"        }\n"
+"    }\n"
+"    return (void*)pointer;\n"
+"}"
+msgstr ""
 
 #: ../../c-api/buffer.rst:438
 msgid "Buffer-related functions"

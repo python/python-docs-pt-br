@@ -4,24 +4,22 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Raphael Mendonça, 2023
 # Rafael Fontenelle <rffontenelle@gmail.com>, 2024
-# Adorilson Bezerra <adorilson@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-10 14:14+0000\n"
-"PO-Revision-Date: 2021-06-28 01:16+0000\n"
-"Last-Translator: Adorilson Bezerra <adorilson@gmail.com>, 2024\n"
+"POT-Creation-Date: 2024-08-31 11:30+0000\n"
+"PO-Revision-Date: 2024-05-11 00:33+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -196,6 +194,33 @@ msgstr ""
 #: ../../library/types.rst:97
 msgid "Examples::"
 msgstr "Exemplos::"
+
+#: ../../library/types.rst:99
+msgid ""
+"from typing import TypeVar, Generic, NamedTuple, TypedDict\n"
+"\n"
+"T = TypeVar(\"T\")\n"
+"class Foo(Generic[T]): ...\n"
+"class Bar(Foo[int], float): ...\n"
+"class Baz(list[str]): ...\n"
+"Eggs = NamedTuple(\"Eggs\", [(\"a\", int), (\"b\", str)])\n"
+"Spam = TypedDict(\"Spam\", {\"a\": int, \"b\": str})\n"
+"\n"
+"assert Bar.__bases__ == (Foo, float)\n"
+"assert get_original_bases(Bar) == (Foo[int], float)\n"
+"\n"
+"assert Baz.__bases__ == (list,)\n"
+"assert get_original_bases(Baz) == (list[str],)\n"
+"\n"
+"assert Eggs.__bases__ == (tuple,)\n"
+"assert get_original_bases(Eggs) == (NamedTuple,)\n"
+"\n"
+"assert Spam.__bases__ == (dict,)\n"
+"assert get_original_bases(Spam) == (TypedDict,)\n"
+"\n"
+"assert int.__bases__ == (object,)\n"
+"assert get_original_bases(int) == (object,)"
+msgstr ""
 
 #: ../../library/types.rst:127
 msgid ":pep:`560` - Core support for typing module and generic types"
@@ -494,6 +519,16 @@ msgstr ""
 "``tuple`` ou ``dict``.  ``t_args`` deve ser uma :class:`tuple` "
 "(possivelmente com comprimento 1) de tipos que parametrizam ``t_origin``::"
 
+#: ../../library/types.rst:336
+msgid ""
+">>> from types import GenericAlias\n"
+"\n"
+">>> list[int] == GenericAlias(list, (int,))\n"
+"True\n"
+">>> dict[str, int] == GenericAlias(dict, (str, int))\n"
+"True"
+msgstr ""
+
 #: ../../library/types.rst:345
 msgid "This type can now be subclassed."
 msgstr "Este tipo pode agora ter uma subclasse."
@@ -693,14 +728,31 @@ msgid ""
 "attributes.  If a ``SimpleNamespace`` object is initialized with keyword "
 "arguments, those are directly added to the underlying namespace."
 msgstr ""
-"Diferentemente de :class:`object`, com ``SimpleNamespace`` você pode "
-"adicionar e remover atributos. Se um objeto ``SimpleNamespace`` é "
-"inicializado com argumentos nomeados, eles são adicionados diretamente ao "
-"espaço de nomes subjacente."
+"Ao contrário de :class:`object`, com ``SimpleNamespace`` você pode adicionar "
+"e remover atributos. Se um objeto ``SimpleNamespace`` for inicializado com "
+"argumentos nomeados, eles serão adicionados diretamente ao espaço de nomes "
+"subjacente."
 
 #: ../../library/types.rst:482
 msgid "The type is roughly equivalent to the following code::"
 msgstr "O tipo é aproximadamente equivalente ao seguinte código::"
+
+#: ../../library/types.rst:484
+msgid ""
+"class SimpleNamespace:\n"
+"    def __init__(self, /, **kwargs):\n"
+"        self.__dict__.update(kwargs)\n"
+"\n"
+"    def __repr__(self):\n"
+"        items = (f\"{k}={v!r}\" for k, v in self.__dict__.items())\n"
+"        return \"{}({})\".format(type(self).__name__, \", \".join(items))\n"
+"\n"
+"    def __eq__(self, other):\n"
+"        if isinstance(self, SimpleNamespace) and isinstance(other, "
+"SimpleNamespace):\n"
+"           return self.__dict__ == other.__dict__\n"
+"        return NotImplemented"
+msgstr ""
 
 #: ../../library/types.rst:497
 msgid ""

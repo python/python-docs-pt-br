@@ -4,11 +4,6 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Raphael Mendonça, 2021
-# Cássio Nomura <cassionomura@gmail.com>, 2021
-# i17obot <i17obot@rougeth.com>, 2021
-# Adorilson Bezerra <adorilson@gmail.com>, 2022
-# Vinicius Gubiani Ferreira <vini.g.fer@gmail.com>, 2022
 # Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
@@ -16,15 +11,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-26 14:13+0000\n"
-"PO-Revision-Date: 2021-06-28 00:55+0000\n"
+"POT-Creation-Date: 2024-08-31 11:30+0000\n"
+"PO-Revision-Date: 2024-05-11 00:33+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -51,6 +46,28 @@ msgid "Here is an example of a TCP echo client written using asyncio streams::"
 msgstr ""
 "Aqui está um exemplo de um cliente TCP realizando eco, escrito usando "
 "streams asyncio::"
+
+#: ../../library/asyncio-stream.rst:22 ../../library/asyncio-stream.rst:404
+msgid ""
+"import asyncio\n"
+"\n"
+"async def tcp_echo_client(message):\n"
+"    reader, writer = await asyncio.open_connection(\n"
+"        '127.0.0.1', 8888)\n"
+"\n"
+"    print(f'Send: {message!r}')\n"
+"    writer.write(message.encode())\n"
+"    await writer.drain()\n"
+"\n"
+"    data = await reader.read(100)\n"
+"    print(f'Received: {data.decode()!r}')\n"
+"\n"
+"    print('Close the connection')\n"
+"    writer.close()\n"
+"    await writer.wait_closed()\n"
+"\n"
+"asyncio.run(tcp_echo_client('Hello World!'))"
+msgstr ""
 
 #: ../../library/asyncio-stream.rst:42
 msgid "See also the `Examples`_ section below."
@@ -370,6 +387,12 @@ msgstr ""
 msgid "The method should be used along with the ``drain()`` method::"
 msgstr "O método deve ser usado juntamente com o método ``drain()``::"
 
+#: ../../library/asyncio-stream.rst:291
+msgid ""
+"stream.write(data)\n"
+"await stream.drain()"
+msgstr ""
+
 #: ../../library/asyncio-stream.rst:296
 msgid ""
 "The method writes a list (or any iterable) of bytes to the underlying socket "
@@ -380,6 +403,12 @@ msgstr ""
 "o soquete subjacente. Se isso falhar, os dados são enfileirados em um buffer "
 "de escrita interno até que possam ser enviados."
 
+#: ../../library/asyncio-stream.rst:303
+msgid ""
+"stream.writelines(lines)\n"
+"await stream.drain()"
+msgstr ""
+
 #: ../../library/asyncio-stream.rst:308
 msgid "The method closes the stream and the underlying socket."
 msgstr "O método fecha o stream e o soquete subjacente."
@@ -388,6 +417,12 @@ msgstr "O método fecha o stream e o soquete subjacente."
 msgid ""
 "The method should be used, though not mandatory, along with the "
 "``wait_closed()`` method::"
+msgstr ""
+
+#: ../../library/asyncio-stream.rst:313
+msgid ""
+"stream.close()\n"
+"await stream.wait_closed()"
 msgstr ""
 
 #: ../../library/asyncio-stream.rst:318
@@ -421,6 +456,12 @@ msgstr ""
 msgid "Wait until it is appropriate to resume writing to the stream. Example::"
 msgstr ""
 "Aguarda até que seja apropriado continuar escrevendo no stream. Exemplo::"
+
+#: ../../library/asyncio-stream.rst:340
+msgid ""
+"writer.write(data)\n"
+"await writer.drain()"
+msgstr ""
 
 #: ../../library/asyncio-stream.rst:343
 msgid ""
@@ -517,6 +558,38 @@ msgstr "Servidor eco TCP usando streams"
 msgid "TCP echo server using the :func:`asyncio.start_server` function::"
 msgstr "Servidor eco TCP usando a função :func:`asyncio.start_server`::"
 
+#: ../../library/asyncio-stream.rst:437
+msgid ""
+"import asyncio\n"
+"\n"
+"async def handle_echo(reader, writer):\n"
+"    data = await reader.read(100)\n"
+"    message = data.decode()\n"
+"    addr = writer.get_extra_info('peername')\n"
+"\n"
+"    print(f\"Received {message!r} from {addr!r}\")\n"
+"\n"
+"    print(f\"Send: {message!r}\")\n"
+"    writer.write(data)\n"
+"    await writer.drain()\n"
+"\n"
+"    print(\"Close the connection\")\n"
+"    writer.close()\n"
+"    await writer.wait_closed()\n"
+"\n"
+"async def main():\n"
+"    server = await asyncio.start_server(\n"
+"        handle_echo, '127.0.0.1', 8888)\n"
+"\n"
+"    addrs = ', '.join(str(sock.getsockname()) for sock in server.sockets)\n"
+"    print(f'Serving on {addrs}')\n"
+"\n"
+"    async with server:\n"
+"        await server.serve_forever()\n"
+"\n"
+"asyncio.run(main())"
+msgstr ""
+
 #: ../../library/asyncio-stream.rst:469
 msgid ""
 "The :ref:`TCP echo server protocol "
@@ -538,13 +611,60 @@ msgstr ""
 "Exemplo simples consultando cabeçalhos HTTP da URL passada na linha de "
 "comando::"
 
+#: ../../library/asyncio-stream.rst:478
+msgid ""
+"import asyncio\n"
+"import urllib.parse\n"
+"import sys\n"
+"\n"
+"async def print_http_headers(url):\n"
+"    url = urllib.parse.urlsplit(url)\n"
+"    if url.scheme == 'https':\n"
+"        reader, writer = await asyncio.open_connection(\n"
+"            url.hostname, 443, ssl=True)\n"
+"    else:\n"
+"        reader, writer = await asyncio.open_connection(\n"
+"            url.hostname, 80)\n"
+"\n"
+"    query = (\n"
+"        f\"HEAD {url.path or '/'} HTTP/1.0\\r\\n\"\n"
+"        f\"Host: {url.hostname}\\r\\n\"\n"
+"        f\"\\r\\n\"\n"
+"    )\n"
+"\n"
+"    writer.write(query.encode('latin-1'))\n"
+"    while True:\n"
+"        line = await reader.readline()\n"
+"        if not line:\n"
+"            break\n"
+"\n"
+"        line = line.decode('latin1').rstrip()\n"
+"        if line:\n"
+"            print(f'HTTP header> {line}')\n"
+"\n"
+"    # Ignore the body, close the socket\n"
+"    writer.close()\n"
+"    await writer.wait_closed()\n"
+"\n"
+"url = sys.argv[1]\n"
+"asyncio.run(print_http_headers(url))"
+msgstr ""
+
 #: ../../library/asyncio-stream.rst:515
 msgid "Usage::"
 msgstr "Uso::"
 
+#: ../../library/asyncio-stream.rst:517
+msgid "python example.py http://example.com/path/page.html"
+msgstr ""
+
 #: ../../library/asyncio-stream.rst:519
 msgid "or with HTTPS::"
 msgstr "ou com HTTPS::"
+
+#: ../../library/asyncio-stream.rst:521
+msgid "python example.py https://example.com/path/page.html"
+msgstr ""
 
 #: ../../library/asyncio-stream.rst:527
 msgid "Register an open socket to wait for data using streams"
@@ -557,6 +677,39 @@ msgid ""
 msgstr ""
 "Corrotina aguardando até que um soquete receba dados usando a função :func:"
 "`open_connection`::"
+
+#: ../../library/asyncio-stream.rst:532
+msgid ""
+"import asyncio\n"
+"import socket\n"
+"\n"
+"async def wait_for_data():\n"
+"    # Get a reference to the current event loop because\n"
+"    # we want to access low-level APIs.\n"
+"    loop = asyncio.get_running_loop()\n"
+"\n"
+"    # Create a pair of connected sockets.\n"
+"    rsock, wsock = socket.socketpair()\n"
+"\n"
+"    # Register the open socket to wait for data.\n"
+"    reader, writer = await asyncio.open_connection(sock=rsock)\n"
+"\n"
+"    # Simulate the reception of data from the network\n"
+"    loop.call_soon(wsock.send, 'abc'.encode())\n"
+"\n"
+"    # Wait for data\n"
+"    data = await reader.read(100)\n"
+"\n"
+"    # Got data, we are done: close the socket\n"
+"    print(\"Received:\", data.decode())\n"
+"    writer.close()\n"
+"    await writer.wait_closed()\n"
+"\n"
+"    # Close the second socket\n"
+"    wsock.close()\n"
+"\n"
+"asyncio.run(wait_for_data())"
+msgstr ""
 
 #: ../../library/asyncio-stream.rst:564
 msgid ""

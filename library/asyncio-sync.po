@@ -4,11 +4,6 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Marco Rougeth <marco@rougeth.com>, 2021
-# Italo Penaforte <italo.penaforte@gmail.com>, 2021
-# i17obot <i17obot@rougeth.com>, 2021
-# Adorilson Bezerra <adorilson@gmail.com>, 2022
-# Vitor Buxbaum Orlandi, 2023
 # Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
@@ -16,15 +11,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-04 01:27+0000\n"
-"PO-Revision-Date: 2021-06-28 00:55+0000\n"
+"POT-Creation-Date: 2024-08-31 11:30+0000\n"
+"PO-Revision-Date: 2024-05-11 00:33+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -101,9 +96,30 @@ msgstr ""
 msgid "The preferred way to use a Lock is an :keyword:`async with` statement::"
 msgstr ""
 
+#: ../../library/asyncio-sync.rst:50
+msgid ""
+"lock = asyncio.Lock()\n"
+"\n"
+"# ... later\n"
+"async with lock:\n"
+"    # access shared state"
+msgstr ""
+
 #: ../../library/asyncio-sync.rst:56 ../../library/asyncio-sync.rst:199
 #: ../../library/asyncio-sync.rst:298
 msgid "which is equivalent to::"
+msgstr ""
+
+#: ../../library/asyncio-sync.rst:58
+msgid ""
+"lock = asyncio.Lock()\n"
+"\n"
+"# ... later\n"
+"await lock.acquire()\n"
+"try:\n"
+"    # access shared state\n"
+"finally:\n"
+"    lock.release()"
 msgstr ""
 
 #: ../../library/asyncio-sync.rst:67 ../../library/asyncio-sync.rst:112
@@ -176,6 +192,30 @@ msgstr ""
 msgid "Example::"
 msgstr "Exemplo::"
 
+#: ../../library/asyncio-sync.rst:119
+msgid ""
+"async def waiter(event):\n"
+"    print('waiting for it ...')\n"
+"    await event.wait()\n"
+"    print('... got it!')\n"
+"\n"
+"async def main():\n"
+"    # Create an Event object.\n"
+"    event = asyncio.Event()\n"
+"\n"
+"    # Spawn a Task to wait until 'event' is set.\n"
+"    waiter_task = asyncio.create_task(waiter(event))\n"
+"\n"
+"    # Sleep for 1 second and set the event.\n"
+"    await asyncio.sleep(1)\n"
+"    event.set()\n"
+"\n"
+"    # Wait until the waiter task is finished.\n"
+"    await waiter_task\n"
+"\n"
+"asyncio.run(main())"
+msgstr ""
+
 #: ../../library/asyncio-sync.rst:142
 msgid "Wait until the event is set."
 msgstr ""
@@ -240,6 +280,27 @@ msgstr ""
 #: ../../library/asyncio-sync.rst:190
 msgid ""
 "The preferred way to use a Condition is an :keyword:`async with` statement::"
+msgstr ""
+
+#: ../../library/asyncio-sync.rst:193
+msgid ""
+"cond = asyncio.Condition()\n"
+"\n"
+"# ... later\n"
+"async with cond:\n"
+"    await cond.wait()"
+msgstr ""
+
+#: ../../library/asyncio-sync.rst:201
+msgid ""
+"cond = asyncio.Condition()\n"
+"\n"
+"# ... later\n"
+"await cond.acquire()\n"
+"try:\n"
+"    await cond.wait()\n"
+"finally:\n"
+"    cond.release()"
 msgstr ""
 
 #: ../../library/asyncio-sync.rst:212
@@ -340,6 +401,27 @@ msgid ""
 "The preferred way to use a Semaphore is an :keyword:`async with` statement::"
 msgstr ""
 
+#: ../../library/asyncio-sync.rst:292
+msgid ""
+"sem = asyncio.Semaphore(10)\n"
+"\n"
+"# ... later\n"
+"async with sem:\n"
+"    # work with shared resource"
+msgstr ""
+
+#: ../../library/asyncio-sync.rst:300
+msgid ""
+"sem = asyncio.Semaphore(10)\n"
+"\n"
+"# ... later\n"
+"await sem.acquire()\n"
+"try:\n"
+"    # work with shared resource\n"
+"finally:\n"
+"    sem.release()"
+msgstr ""
+
 #: ../../library/asyncio-sync.rst:311
 msgid "Acquire a semaphore."
 msgstr ""
@@ -409,8 +491,40 @@ msgstr ""
 msgid "The barrier can be reused any number of times."
 msgstr ""
 
+#: ../../library/asyncio-sync.rst:367
+msgid ""
+"async def example_barrier():\n"
+"   # barrier with 3 parties\n"
+"   b = asyncio.Barrier(3)\n"
+"\n"
+"   # create 2 new waiting tasks\n"
+"   asyncio.create_task(b.wait())\n"
+"   asyncio.create_task(b.wait())\n"
+"\n"
+"   await asyncio.sleep(0)\n"
+"   print(b)\n"
+"\n"
+"   # The third .wait() call passes the barrier\n"
+"   await b.wait()\n"
+"   print(b)\n"
+"   print(\"barrier passed\")\n"
+"\n"
+"   await asyncio.sleep(0)\n"
+"   print(b)\n"
+"\n"
+"asyncio.run(example_barrier())"
+msgstr ""
+
 #: ../../library/asyncio-sync.rst:388
 msgid "Result of this example is::"
+msgstr ""
+
+#: ../../library/asyncio-sync.rst:390
+msgid ""
+"<asyncio.locks.Barrier object at 0x... [filling, waiters:2/3]>\n"
+"<asyncio.locks.Barrier object at 0x... [draining, waiters:0/3]>\n"
+"barrier passed\n"
+"<asyncio.locks.Barrier object at 0x... [filling, waiters:0/3]>"
 msgstr ""
 
 #: ../../library/asyncio-sync.rst:399
@@ -431,6 +545,15 @@ msgid ""
 "The return value is an integer in the range of 0 to ``parties-1``, different "
 "for each task. This can be used to select a task to do some special "
 "housekeeping, e.g.::"
+msgstr ""
+
+#: ../../library/asyncio-sync.rst:411
+msgid ""
+"...\n"
+"async with barrier as position:\n"
+"   if position == 0:\n"
+"      # Only one task prints this\n"
+"      print('End of *draining phase*')"
 msgstr ""
 
 #: ../../library/asyncio-sync.rst:417

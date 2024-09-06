@@ -4,9 +4,6 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Leticia Portella <leportella@gmail.com>, 2021
-# Adorilson Bezerra <adorilson@gmail.com>, 2023
-# Marco Rougeth <marco@rougeth.com>, 2023
 # Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
@@ -14,15 +11,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-26 14:13+0000\n"
-"PO-Revision-Date: 2021-06-28 01:19+0000\n"
+"POT-Creation-Date: 2024-08-31 11:30+0000\n"
+"PO-Revision-Date: 2024-05-11 00:34+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -343,9 +340,25 @@ msgstr ""
 "inclui :ref:`escopos de anotação <annotation-scopes>`, que têm acesso a seus "
 "escopos de classe delimitadores. Isso significa que o seguinte falhará::"
 
+#: ../../reference/executionmodel.rst:176
+msgid ""
+"class A:\n"
+"    a = 42\n"
+"    b = list(a + i for i in range(10))"
+msgstr ""
+
 #: ../../reference/executionmodel.rst:180
 msgid "However, the following will succeed::"
 msgstr "Porém, o seguinte vai funcionar::"
+
+#: ../../reference/executionmodel.rst:182
+msgid ""
+"class A:\n"
+"    type Alias = Nested\n"
+"    class Nested: pass\n"
+"\n"
+"print(A.Alias.__value__)  # <type 'A.Nested'>"
+msgstr ""
 
 #: ../../reference/executionmodel.rst:191
 msgid "Annotation scopes"
@@ -402,8 +415,8 @@ msgid ""
 "The bounds and constraints for type variables (:ref:`lazily evaluated <lazy-"
 "evaluation>`)."
 msgstr ""
-"Os limites e restrições para variáveis de tipo (:ref:`avaliadas de forma "
-"preguiçosa <lazy-evaluation>`)."
+"Os limites e restrições para variáveis de tipo (:ref:`avaliado "
+"preguiçosamente <lazy-evaluation>`)."
 
 #: ../../reference/executionmodel.rst:210
 msgid "The value of type aliases (:ref:`lazily evaluated <lazy-evaluation>`)."
@@ -488,16 +501,31 @@ msgid ""
 "is created. Instead, they are only evaluated when doing so is necessary to "
 "resolve an attribute access."
 msgstr ""
-"Os valores dos apelidos de tipo criados através da instrução :keyword:`type` "
+"Os valores de apelidos de tipo criados por meio da instrução :keyword:`type` "
 "são *avaliados preguiçosamente*. O mesmo se aplica aos limites e restrições "
-"das variáveis de tipo criadas através da :ref:`sintaxe do parâmetros de tipo "
+"de variáveis ​​de tipo criadas por meio da :ref:`sintaxe de parâmetro de tipo "
 "<type-params>`. Isso significa que eles não são avaliados quando o apelido "
-"de tipo ou a variável de tipo é criado. Em vez disso, eles são avaliados "
+"de tipo ou a variável de tipo é criada. Em vez disso, eles são avaliados "
 "apenas quando isso é necessário para resolver um acesso de atributo."
 
 #: ../../reference/executionmodel.rst:247
 msgid "Example:"
 msgstr "Exemplo:"
+
+#: ../../reference/executionmodel.rst:249
+msgid ""
+">>> type Alias = 1/0\n"
+">>> Alias.__value__\n"
+"Traceback (most recent call last):\n"
+"  ...\n"
+"ZeroDivisionError: division by zero\n"
+">>> def func[T: 1/0](): pass\n"
+">>> T = func.__type_params__[0]\n"
+">>> T.__bound__\n"
+"Traceback (most recent call last):\n"
+"  ...\n"
+"ZeroDivisionError: division by zero"
+msgstr ""
 
 #: ../../reference/executionmodel.rst:263
 msgid ""
@@ -517,6 +545,15 @@ msgstr ""
 "não foram definidos quando o alias de tipo ou variável de tipo é criado. Por "
 "exemplo, a avaliação preguiçosa permite a criação de apelidos de tipo "
 "mutuamente recursivos::"
+
+#: ../../reference/executionmodel.rst:271
+msgid ""
+"from typing import Literal\n"
+"\n"
+"type SimpleExpr = int | Parenthesized\n"
+"type Parenthesized = tuple[Literal[\"(\"], Expr, Literal[\")\"]]\n"
+"type Expr = SimpleExpr | tuple[SimpleExpr, Literal[\"+\", \"-\"], Expr]"
+msgstr ""
 
 #: ../../reference/executionmodel.rst:277
 msgid ""
@@ -574,6 +611,15 @@ msgid ""
 msgstr ""
 "A resolução de nome de variáveis livres ocorre em tempo de execução, não em "
 "tempo de compilação. Isso significa que o código a seguir imprimirá 42::"
+
+#: ../../reference/executionmodel.rst:314
+msgid ""
+"i = 10\n"
+"def f():\n"
+"    print(i)\n"
+"i = 42\n"
+"f()"
+msgstr ""
 
 #: ../../reference/executionmodel.rst:322
 msgid ""

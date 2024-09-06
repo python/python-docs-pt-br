@@ -4,9 +4,6 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Raphael Mendonça, 2021
-# i17obot <i17obot@rougeth.com>, 2021
-# Adorilson Bezerra <adorilson@gmail.com>, 2024
 # Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
@@ -14,15 +11,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-10 14:14+0000\n"
-"PO-Revision-Date: 2021-06-28 01:03+0000\n"
+"POT-Creation-Date: 2024-08-31 11:30+0000\n"
+"PO-Revision-Date: 2024-05-11 00:33+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -146,6 +143,17 @@ msgstr ""
 msgid "A short usage example::"
 msgstr "Um pequeno exemplo de uso::"
 
+#: ../../library/csv.rst:78
+msgid ""
+">>> import csv\n"
+">>> with open('eggs.csv', newline='') as csvfile:\n"
+"...     spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')\n"
+"...     for row in spamreader:\n"
+"...         print(', '.join(row))\n"
+"Spam, Spam, Spam, Spam, Spam, Baked Beans\n"
+"Spam, Lovely Spam, Wonderful Spam"
+msgstr ""
+
 #: ../../library/csv.rst:89
 msgid ""
 "Return a writer object responsible for converting the user's data into "
@@ -182,6 +190,16 @@ msgstr ""
 "valores de dados SQL NULL em arquivos CSV sem preprocessar os dados "
 "retornados de uma chamada ``cursor.fetch*``. Todos os outros dados que não "
 "são de strings são codificados com :func:`str` antes de serem escritos."
+
+#: ../../library/csv.rst:108
+msgid ""
+"import csv\n"
+"with open('eggs.csv', 'w', newline='') as csvfile:\n"
+"    spamwriter = csv.writer(csvfile, delimiter=' ',\n"
+"                            quotechar='|', quoting=csv.QUOTE_MINIMAL)\n"
+"    spamwriter.writerow(['Spam'] * 5 + ['Baked Beans'])\n"
+"    spamwriter.writerow(['Spam', 'Lovely Spam', 'Wonderful Spam'])"
+msgstr ""
 
 #: ../../library/csv.rst:118
 msgid ""
@@ -295,6 +313,21 @@ msgstr "Linhas retornadas agora são do tipo :class:`OrderedDict`."
 msgid "Returned rows are now of type :class:`dict`."
 msgstr "As linhas retornadas agora são do tipo :class:`dict`."
 
+#: ../../library/csv.rst:183
+msgid ""
+">>> import csv\n"
+">>> with open('names.csv', newline='') as csvfile:\n"
+"...     reader = csv.DictReader(csvfile)\n"
+"...     for row in reader:\n"
+"...         print(row['first_name'], row['last_name'])\n"
+"...\n"
+"Eric Idle\n"
+"John Cleese\n"
+"\n"
+">>> print(row)\n"
+"{'first_name': 'John', 'last_name': 'Cleese'}"
+msgstr ""
+
 #: ../../library/csv.rst:199
 msgid ""
 "Create an object which operates like a regular writer but maps dictionaries "
@@ -332,6 +365,20 @@ msgstr ""
 "Observe que, diferentemente da classe :class:`DictReader`, o parâmetro "
 "*fieldnames* da classe :class:`DictWriter` não é opcional."
 
+#: ../../library/csv.rst:221
+msgid ""
+"import csv\n"
+"\n"
+"with open('names.csv', 'w', newline='') as csvfile:\n"
+"    fieldnames = ['first_name', 'last_name']\n"
+"    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)\n"
+"\n"
+"    writer.writeheader()\n"
+"    writer.writerow({'first_name': 'Baked', 'last_name': 'Beans'})\n"
+"    writer.writerow({'first_name': 'Lovely', 'last_name': 'Spam'})\n"
+"    writer.writerow({'first_name': 'Wonderful', 'last_name': 'Spam'})"
+msgstr ""
+
 #: ../../library/csv.rst:235
 msgid ""
 "The :class:`Dialect` class is a container class whose attributes contain "
@@ -357,6 +404,14 @@ msgstr ""
 "`list_dialects`, e eles podem ser registrados com classes :class:`reader` e :"
 "class:`writer` específicas através de suas funções inicializadoras "
 "(``__init__``) como esta::"
+
+#: ../../library/csv.rst:245
+msgid ""
+"import csv\n"
+"\n"
+"with open('students.csv', 'w', newline='') as csvfile:\n"
+"    writer = csv.writer(csvfile, dialect='unix')"
+msgstr ""
 
 #: ../../library/csv.rst:253
 msgid ""
@@ -450,6 +505,15 @@ msgstr ""
 #: ../../library/csv.rst:305
 msgid "An example for :class:`Sniffer` use::"
 msgstr "Um exemplo para uso de :class:`Sniffer`::"
+
+#: ../../library/csv.rst:307
+msgid ""
+"with open('example.csv', newline='') as csvfile:\n"
+"    dialect = csv.Sniffer().sniff(csvfile.read(1024))\n"
+"    csvfile.seek(0)\n"
+"    reader = csv.reader(csvfile, dialect)\n"
+"    # ... process CSV file contents here ..."
+msgstr ""
 
 #: ../../library/csv.rst:316
 msgid "The :mod:`csv` module defines the following constants:"
@@ -821,13 +885,39 @@ msgstr "Exemplos"
 msgid "The simplest example of reading a CSV file::"
 msgstr "O exemplo mais simples de leitura de um arquivo CSV::"
 
+#: ../../library/csv.rst:554
+msgid ""
+"import csv\n"
+"with open('some.csv', newline='') as f:\n"
+"    reader = csv.reader(f)\n"
+"    for row in reader:\n"
+"        print(row)"
+msgstr ""
+
 #: ../../library/csv.rst:560
 msgid "Reading a file with an alternate format::"
 msgstr "Lendo um arquivo com um formato alternativo::"
 
+#: ../../library/csv.rst:562
+msgid ""
+"import csv\n"
+"with open('passwd', newline='') as f:\n"
+"    reader = csv.reader(f, delimiter=':', quoting=csv.QUOTE_NONE)\n"
+"    for row in reader:\n"
+"        print(row)"
+msgstr ""
+
 #: ../../library/csv.rst:568
 msgid "The corresponding simplest possible writing example is::"
 msgstr "O exemplo de escrita possível mais simples possível é::"
+
+#: ../../library/csv.rst:570
+msgid ""
+"import csv\n"
+"with open('some.csv', 'w', newline='') as f:\n"
+"    writer = csv.writer(f)\n"
+"    writer.writerows(someiterable)"
+msgstr ""
 
 #: ../../library/csv.rst:575
 msgid ""
@@ -841,6 +931,15 @@ msgstr ""
 "sistema (consulte :func:`locale.getencoding`). Para decodificar um arquivo "
 "usando uma codificação diferente, use o argumento ``encoding`` do open::"
 
+#: ../../library/csv.rst:580
+msgid ""
+"import csv\n"
+"with open('some.csv', newline='', encoding='utf-8') as f:\n"
+"    reader = csv.reader(f)\n"
+"    for row in reader:\n"
+"        print(row)"
+msgstr ""
+
 #: ../../library/csv.rst:586
 msgid ""
 "The same applies to writing in something other than the system default "
@@ -853,12 +952,33 @@ msgstr ""
 msgid "Registering a new dialect::"
 msgstr "Registrando um novo dialeto::"
 
+#: ../../library/csv.rst:591
+msgid ""
+"import csv\n"
+"csv.register_dialect('unixpwd', delimiter=':', quoting=csv.QUOTE_NONE)\n"
+"with open('passwd', newline='') as f:\n"
+"    reader = csv.reader(f, 'unixpwd')"
+msgstr ""
+
 #: ../../library/csv.rst:596
 msgid ""
 "A slightly more advanced use of the reader --- catching and reporting "
 "errors::"
 msgstr ""
 "Um uso um pouco mais avançado do leitor --- capturando e relatando erros::"
+
+#: ../../library/csv.rst:598
+msgid ""
+"import csv, sys\n"
+"filename = 'some.csv'\n"
+"with open(filename, newline='') as f:\n"
+"    reader = csv.reader(f)\n"
+"    try:\n"
+"        for row in reader:\n"
+"            print(row)\n"
+"    except csv.Error as e:\n"
+"        sys.exit('file {}, line {}: {}'.format(filename, reader.line_num, e))"
+msgstr ""
 
 #: ../../library/csv.rst:608
 msgid ""
@@ -867,6 +987,13 @@ msgid ""
 msgstr ""
 "E embora o módulo não tenha suporte diretamente à análise sintática de "
 "strings, isso pode ser feito facilmente::"
+
+#: ../../library/csv.rst:611
+msgid ""
+"import csv\n"
+"for row in csv.reader(['one,two,three']):\n"
+"    print(row)"
+msgstr ""
 
 #: ../../library/csv.rst:617
 msgid "Footnotes"

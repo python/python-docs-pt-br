@@ -4,9 +4,6 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# And Past <andrepgs@gmail.com>, 2021
-# i17obot <i17obot@rougeth.com>, 2021
-# Marco Rougeth <marco@rougeth.com>, 2023
 # Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
@@ -14,15 +11,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-10 14:14+0000\n"
-"PO-Revision-Date: 2021-06-28 01:12+0000\n"
+"POT-Creation-Date: 2024-08-31 11:30+0000\n"
+"PO-Revision-Date: 2024-05-11 00:33+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -147,6 +144,16 @@ msgstr ""
 "Por exemplo, se *namespace_separator* for definido como um caractere de "
 "espaço (``' '``) e o seguinte documento for analisado:"
 
+#: ../../library/pyexpat.rst:91
+msgid ""
+"<?xml version=\"1.0\"?>\n"
+"<root xmlns    = \"http://default-namespace.org/\"\n"
+"      xmlns:py = \"http://www.python.org/ns/\">\n"
+"  <py:elem1 />\n"
+"  <elem2 xmlns=\"\" />\n"
+"</root>"
+msgstr ""
+
 #: ../../library/pyexpat.rst:100
 msgid ""
 ":attr:`StartElementHandler` will receive the following strings for each "
@@ -154,6 +161,13 @@ msgid ""
 msgstr ""
 ":attr:`StartElementHandler` receberá as seguintes strings para cada "
 "elemento::"
+
+#: ../../library/pyexpat.rst:103
+msgid ""
+"http://default-namespace.org/ root\n"
+"http://www.python.org/ns/ elem1\n"
+"elem2"
+msgstr ""
 
 #: ../../library/pyexpat.rst:107
 msgid ""
@@ -610,6 +624,17 @@ msgid ""
 "numbers to Expat's error messages.  For example::"
 msgstr ""
 
+#: ../../library/pyexpat.rst:541
+msgid ""
+"from xml.parsers.expat import ParserCreate, ExpatError, errors\n"
+"\n"
+"p = ParserCreate()\n"
+"try:\n"
+"    p.Parse(some_xml_document)\n"
+"except ExpatError as err:\n"
+"    print(\"Error:\", errors.messages[err.code])"
+msgstr ""
+
 #: ../../library/pyexpat.rst:549
 msgid ""
 "The :mod:`~xml.parsers.expat.errors` module also provides error message "
@@ -639,8 +664,46 @@ msgid ""
 "arguments. ::"
 msgstr ""
 
+#: ../../library/pyexpat.rst:573
+msgid ""
+"import xml.parsers.expat\n"
+"\n"
+"# 3 handler functions\n"
+"def start_element(name, attrs):\n"
+"    print('Start element:', name, attrs)\n"
+"def end_element(name):\n"
+"    print('End element:', name)\n"
+"def char_data(data):\n"
+"    print('Character data:', repr(data))\n"
+"\n"
+"p = xml.parsers.expat.ParserCreate()\n"
+"\n"
+"p.StartElementHandler = start_element\n"
+"p.EndElementHandler = end_element\n"
+"p.CharacterDataHandler = char_data\n"
+"\n"
+"p.Parse(\"\"\"<?xml version=\"1.0\"?>\n"
+"<parent id=\"top\"><child1 name=\"paul\">Text goes here</child1>\n"
+"<child2 name=\"fred\">More text</child2>\n"
+"</parent>\"\"\", 1)"
+msgstr ""
+
 #: ../../library/pyexpat.rst:594
 msgid "The output from this program is::"
+msgstr ""
+
+#: ../../library/pyexpat.rst:596
+msgid ""
+"Start element: parent {'id': 'top'}\n"
+"Start element: child1 {'name': 'paul'}\n"
+"Character data: 'Text goes here'\n"
+"End element: child1\n"
+"Character data: '\\n'\n"
+"Start element: child2 {'name': 'fred'}\n"
+"Character data: 'More text'\n"
+"End element: child2\n"
+"Character data: '\\n'\n"
+"End element: parent"
 msgstr ""
 
 #: ../../library/pyexpat.rst:611
