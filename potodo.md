@@ -1,11 +1,12 @@
 
 
-# 3.13 (78.51% done)
+# 3.13 (94.43% done)
 
+- glossary.po                    380 / 382 ( 99.0% translated).
 - license.po                      95 / 121 ( 78.0% translated).
 
 
-# c-api (42.91% done)
+# c-api (42.84% done)
 
 - arg.po                         191 / 195 ( 97.0% translated).
 - buffer.po                      114 / 117 ( 97.0% translated).
@@ -13,7 +14,7 @@
 - capsule.po                      32 /  33 ( 96.0% translated).
 - complex.po                      33 /  34 ( 97.0% translated).
 - contextvars.po                  30 /  31 ( 96.0% translated).
-- datetime.po                     33 /  52 ( 63.0% translated).
+- datetime.po                     31 /  52 ( 59.0% translated).
 - dict.po                         63 /  67 ( 94.0% translated).
 - exceptions.po                  194 / 367 ( 52.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
@@ -22,7 +23,7 @@
 - gcsupport.po                     9 /  52 ( 17.0% translated).
 - import.po                       35 /  62 ( 56.0% translated).
 - init.po                        106 / 450 ( 23.0% translated).
-- init_config.po                 137 / 423 ( 32.0% translated).
+- init_config.po                 136 / 423 ( 32.0% translated).
 - intro.po                        93 / 140 ( 66.0% translated).
 - iter.po                         11 /  12 ( 91.0% translated).
 - long.po                         37 / 102 ( 36.0% translated).
@@ -54,17 +55,17 @@
 - windows.po                      21 /  22 ( 95.0% translated).
 
 
-# faq (65.72% done)
+# faq (65.62% done)
 
 - design.po                      143 / 172 ( 83.0% translated).
 - extending.po                    13 /  66 ( 19.0% translated).
 - general.po                      97 /  98 ( 98.0% translated).
 - library.po                     133 / 153 ( 86.0% translated).
-- programming.po                 258 / 506 ( 50.0% translated).
+- programming.po                 257 / 506 ( 50.0% translated).
 - windows.po                      48 /  58 ( 82.0% translated).
 
 
-# howto (45.10% done)
+# howto (45.07% done)
 
 - annotations.po                  45 /  48 ( 93.0% translated).
 - argparse.po                     95 / 135 ( 70.0% translated).
@@ -76,7 +77,7 @@
 - gdb_helpers.po                  66 /  86 ( 76.0% translated).
 - instrumentation.po               8 /  77 ( 10.0% translated).
 - ipaddress.po                    35 /  65 ( 53.0% translated).
-- isolating-extensions.po        119 / 133 ( 89.0% translated).
+- isolating-extensions.po        118 / 133 ( 88.0% translated).
 - logging-cookbook.po             23 / 418 (  5.0% translated).
 - logging.po                     102 / 250 ( 40.0% translated).
 - mro.po                          93 / 120 ( 77.0% translated).
@@ -94,7 +95,7 @@
 - index.po                        53 /  59 ( 89.0% translated).
 
 
-# library (49.03% done)
+# library (49.25% done)
 
 - __future__.po                   56 /  58 ( 96.0% translated).
 - __main__.po                     54 /  73 ( 73.0% translated).
@@ -104,13 +105,14 @@
 - array.po                        66 /  86 ( 76.0% translated).
 - ast.po                         243 / 314 ( 77.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
-- asyncio-eventloop.po           313 / 402 ( 77.0% translated).
+- asyncio-eventloop.po           310 / 402 ( 77.0% translated).
 - asyncio-extending.po            14 /  27 ( 51.0% translated).
 - asyncio-future.po                9 /  64 ( 14.0% translated).
+- asyncio-llapi-index.po         236 / 238 ( 99.0% translated).
 - asyncio-platforms.po             6 /  26 ( 23.0% translated).
 - asyncio-policy.po               10 /  68 ( 14.0% translated).
 - asyncio-protocol.po             25 / 194 ( 12.0% translated).
-- asyncio-queue.po                44 /  45 ( 97.0% translated).
+- asyncio-queue.po                43 /  45 ( 95.0% translated).
 - asyncio-runner.po                5 /  37 ( 13.0% translated).
 - asyncio-stream.po               71 / 100 ( 71.0% translated).
 - asyncio-subprocess.po           77 /  81 ( 95.0% translated).
@@ -132,7 +134,8 @@
 - colorsys.po                     12 /  13 ( 92.0% translated).
 - compileall.po                   58 /  60 ( 96.0% translated).
 - concurrent.futures.po           14 / 100 ( 14.0% translated).
-- configparser.po                188 / 218 ( 86.0% translated).
+- configparser.po                186 / 218 ( 85.0% translated).
+- constants.po                    20 /  21 ( 95.0% translated).
 - contextlib.po                    8 / 172 (  4.0% translated).
 - contextvars.po                  44 /  51 ( 86.0% translated).
 - csv.po                         104 / 117 ( 88.0% translated).
@@ -140,8 +143,8 @@
 - curses.ascii.po                  7 /  69 ( 10.0% translated).
 - curses.panel.po                  6 /  23 ( 26.0% translated).
 - curses.po                       65 / 486 ( 13.0% translated).
-- dataclasses.po                  48 / 150 ( 32.0% translated).
-- datetime.po                    586 / 648 ( 90.0% translated).
+- dataclasses.po                  47 / 152 ( 30.0% translated).
+- datetime.po                    576 / 643 ( 89.0% translated).
 - dbm.po                           6 / 101 (  5.0% translated).
 - decimal.po                     344 / 378 ( 91.0% translated).
 - devmode.po                      49 /  58 ( 84.0% translated).
@@ -174,9 +177,9 @@
 - fnmatch.po                      35 /  36 ( 97.0% translated).
 - fractions.po                    33 /  36 ( 91.0% translated).
 - ftplib.po                       10 /  99 ( 10.0% translated).
-- functions.po                   479 / 507 ( 94.0% translated).
+- functions.po                   478 / 507 ( 94.0% translated).
 - functools.po                    21 / 112 ( 18.0% translated).
-- gc.po                           57 /  59 ( 96.0% translated).
+- gc.po                           54 /  72 ( 75.0% translated).
 - getopt.po                       20 /  22 ( 90.0% translated).
 - getpass.po                      12 /  13 ( 92.0% translated).
 - gettext.po                     116 / 129 ( 89.0% translated).
@@ -203,7 +206,7 @@
 - io.po                           21 / 271 (  7.0% translated).
 - ipaddress.po                   155 / 165 ( 93.0% translated).
 - itertools.po                    85 / 196 ( 43.0% translated).
-- json.po                        147 / 162 ( 90.0% translated).
+- json.po                        141 / 162 ( 87.0% translated).
 - linecache.po                    14 /  15 ( 93.0% translated).
 - locale.po                      146 / 148 ( 98.0% translated).
 - logging.config.po               12 / 171 (  7.0% translated).
@@ -223,7 +226,7 @@
 - optparse.po                     37 / 507 (  7.0% translated).
 - os.path.po                      90 /  98 ( 91.0% translated).
 - os.po                          1043 / 1065 ( 97.0% translated).
-- pathlib.po                     249 / 418 ( 59.0% translated).
+- pathlib.po                     247 / 418 ( 59.0% translated).
 - pdb.po                         132 / 150 ( 88.0% translated).
 - pickle.po                      228 / 245 ( 93.0% translated).
 - pickletools.po                  17 /  18 ( 94.0% translated).
@@ -239,7 +242,7 @@
 - pyexpat.po                      21 / 144 ( 14.0% translated).
 - queue.po                         7 /  53 ( 13.0% translated).
 - random.po                      125 / 137 ( 91.0% translated).
-- re.po                          401 / 437 ( 91.0% translated).
+- re.po                          400 / 437 ( 91.0% translated).
 - readline.po                     52 /  56 ( 92.0% translated).
 - reprlib.po                       9 /  39 ( 23.0% translated).
 - resource.po                     46 / 116 ( 39.0% translated).
@@ -257,11 +260,11 @@
 - smtplib.po                      18 / 116 ( 15.0% translated).
 - socket.po                       67 / 381 ( 17.0% translated).
 - socketserver.po                  9 /  98 (  9.0% translated).
-- sqlite3.po                      98 / 476 ( 20.0% translated).
-- ssl.po                          53 / 545 (  9.0% translated).
+- sqlite3.po                      97 / 476 ( 20.0% translated).
+- ssl.po                          41 / 545 (  7.0% translated).
 - stat.po                         91 /  92 ( 98.0% translated).
 - statistics.po                  176 / 248 ( 70.0% translated).
-- stdtypes.po                    1219 / 1338 ( 91.0% translated).
+- stdtypes.po                    1218 / 1338 ( 91.0% translated).
 - string.po                      198 / 213 ( 92.0% translated).
 - stringprep.po                    1 /  25 (  4.0% translated).
 - struct.po                       96 / 195 ( 49.0% translated).
@@ -279,7 +282,7 @@
 - threading.po                    36 / 243 ( 14.0% translated).
 - time.po                        273 / 279 ( 97.0% translated).
 - timeit.po                       45 /  68 ( 66.0% translated).
-- tkinter.po                     307 / 327 ( 93.0% translated).
+- tkinter.po                     306 / 327 ( 93.0% translated).
 - tkinter.ttk.po                 111 / 429 ( 25.0% translated).
 - token.po                        66 /  67 ( 98.0% translated).
 - tokenize.po                      7 /  52 ( 13.0% translated).
@@ -302,7 +305,7 @@
 - warnings.po                     62 / 132 ( 46.0% translated).
 - wave.po                         17 /  54 ( 31.0% translated).
 - weakref.po                      84 /  95 ( 88.0% translated).
-- webbrowser.po                   33 /  88 ( 37.0% translated).
+- webbrowser.po                   33 /  89 ( 37.0% translated).
 - winreg.po                       30 / 176 ( 17.0% translated).
 - winsound.po                      8 /  35 ( 22.0% translated).
 - wsgiref.po                       8 / 132 (  6.0% translated).
@@ -322,14 +325,14 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (81.79% done)
+# reference (81.64% done)
 
 - compound_stmts.po              193 / 466 ( 41.0% translated).
-- datamodel.po                   651 / 827 ( 78.0% translated).
+- datamodel.po                   650 / 827 ( 78.0% translated).
 - executionmodel.po               99 / 104 ( 95.0% translated).
-- expressions.po                 527 / 534 ( 98.0% translated).
+- expressions.po                 526 / 534 ( 98.0% translated).
 - grammar.po                       3 /   4 ( 75.0% translated).
-- import.po                      212 / 220 ( 96.0% translated).
+- import.po                      210 / 220 ( 95.0% translated).
 - lexical_analysis.po            305 / 326 ( 93.0% translated).
 - simple_stmts.po                278 / 292 ( 95.0% translated).
 
@@ -347,16 +350,16 @@
 - stdlib2.po                      51 /  65 ( 78.0% translated).
 
 
-# using (92.57% done)
+# using (92.31% done)
 
-- cmdline.po                     236 / 245 ( 96.0% translated).
-- configure.po                   391 / 398 ( 98.0% translated).
+- cmdline.po                     233 / 244 ( 95.0% translated).
+- configure.po                   390 / 398 ( 97.0% translated).
 - ios.po                          70 /  74 ( 94.0% translated).
 - unix.po                         44 /  52 ( 84.0% translated).
 - windows.po                     331 / 389 ( 85.0% translated).
 
 
-# whatsnew (71.48% done)
+# whatsnew (73.19% done)
 
 - 2.0.po                         183 / 207 ( 88.0% translated).
 - 2.1.po                         139 / 154 ( 90.0% translated).
@@ -364,20 +367,21 @@
 - 2.3.po                         326 / 387 ( 84.0% translated).
 - 2.4.po                         268 / 319 ( 84.0% translated).
 - 2.5.po                         388 / 452 ( 85.0% translated).
-- 2.6.po                         547 / 626 ( 87.0% translated).
-- 2.7.po                         453 / 498 ( 90.0% translated).
+- 2.6.po                         544 / 626 ( 86.0% translated).
+- 2.7.po                         452 / 498 ( 90.0% translated).
 - 3.0.po                         205 / 212 ( 96.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
 - 3.10.po                        503 / 550 ( 91.0% translated).
-- 3.11.po                        765 / 776 ( 98.0% translated).
-- 3.12.po                        812 / 820 ( 99.0% translated).
+- 3.11.po                        764 / 776 ( 98.0% translated).
+- 3.12.po                        818 / 820 ( 99.0% translated).
+- 3.13.po                        731 / 776 ( 94.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         132 / 682 ( 19.0% translated).
 - 3.4.po                         509 / 517 ( 98.0% translated).
 - 3.5.po                         123 / 578 ( 21.0% translated).
 - 3.6.po                         234 / 544 ( 43.0% translated).
-- 3.7.po                         247 / 568 ( 43.0% translated).
-- 3.8.po                         463 / 513 ( 90.0% translated).
+- 3.7.po                         246 / 568 ( 43.0% translated).
+- 3.8.po                         459 / 513 ( 89.0% translated).
 
 
 
