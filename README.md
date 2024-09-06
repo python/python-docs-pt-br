@@ -9,7 +9,7 @@ See list of incomplete translations in the [potodo.md][potodo] file.
 
 See [main][main] branch for scripts, docs, license and more info.
 
-[main]: https://github.com/python/python-docs-pt-br/tree/3.13
+[main]: https://github.com/python/python-docs-pt-br/tree/main
 [potodo]: potodo.md?plain=1
 [docs_url]: https://docs.python.org/pt-br/3.13/
 [workflow_badge]: https://github.com/python/python-docs-pt-br/workflows/python-313/badge.svg
