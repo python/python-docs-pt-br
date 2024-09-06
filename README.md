@@ -1,22 +1,19 @@
 # Brazilian Portuguese Translation of the Python Documentation
 
-## Documentation Contribution Agreement
+[![Workflow status badge][workflow_badge]][workflow_url]
+[![Translation statistics badge][stats_badge]][transifex_url]
 
-NOTE REGARDING THE LICENSE FOR TRANSLATIONS: Python's documentation is
-maintained using a global network of volunteers. By posting this
-project on Transifex, GitHub, and other public places, and inviting
-you to participate, we are proposing an agreement that you will
-provide your improvements to Python's documentation or the translation
-of Python's documentation for the PSF's use under the CC0 license
-(available at
-https://creativecommons.org/publicdomain/zero/1.0/legalcode). In
-return, you may publicly claim credit for the portion of the
-translation you contributed and if your translation is accepted by the
-PSF, you may (but are not required to) submit a patch including an
-appropriate annotation in the Misc/ACKS or TRANSLATORS file. Although
-nothing in this Documentation Contribution Agreement obligates the PSF
-to incorporate your textual contribution, your participation in the
-Python community is welcomed and appreciated.
+Translation files for [Python 3.7 docs][docs_url].
 
-You signify acceptance of this agreement by submitting your work to
-the PSF for inclusion in the documentation.
+See list of incomplete translations in the [potodo.md][potodo] file.
+
+See [main][main] branch for scripts, docs, license and more info.
+
+[main]: https://github.com/python/python-docs-pt-br/tree/3.7
+[potodo]: potodo.md?plain=1
+[docs_url]: https://docs.python.org/pt-br/3.7/
+[workflow_badge]: https://github.com/python/python-docs-pt-br/workflows/python-37/badge.svg
+[workflow_url]: https://github.com/python/python-docs-pt-br/actions?workflow=python-37
+[stats_badge]: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fpython%2Fpython-docs-pt-br%2Fraw%2F3.7%2Fstats.json&query=translation&label=pt_BR
+[transifex_url]: https://app.transifex.com/python-doc/python-newest/
+
