@@ -23,7 +23,10 @@ git status -s | grep '^ D ' | cut -d' ' -f3 | xargs -r git rm
 git diff -I'^"POT-Creation-Date: ' --numstat *.po **/*.po | cut -f3 | xargs -r git add -v
 
 # Add currently untracked PO files, and update other helper files
-git add -v $(git ls-files -o --exclude-standard *.po **/*.po)
+untracked_files=$(git ls-files -o --exclude-standard *.po **/*.po)
+if [ -n "${untracked_files+x}" ]; then
+  git add -v $untracked_files
+fi
 
 # Commit only if there is any cached file
 git diff-index --cached --quiet HEAD || { git add -v $extra_files; git commit -vm "Update translations"; }
