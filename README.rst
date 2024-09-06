@@ -28,7 +28,7 @@ Maintained versions:
      - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fpython%2Fpython-docs-pt-br%2Fraw%2F3.13%2Fstats.json&query=translation&label=pt_BR
           :alt: Brazilian Portuguese translation status for Python 3.13
           :target: https://app.transifex.com/python-doc/python-newest/
-     - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Frffontenelle%2Fpython-docs-pt-br%2Fraw%2F3.13%2Fstats.json&query=total&label=3.13
+     - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fpython%2Fpython-docs-pt-br%2Fraw%2F3.13%2Fstats.json&query=total&label=3.13
           :alt: Total strings for Python 3.13
           :target: https://app.transifex.com/python-doc/python-newest/
    * - `3.12 <https://github.com/python/python-docs-pt-br/tree/3.12>`_
@@ -37,7 +37,7 @@ Maintained versions:
      - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fpython%2Fpython-docs-pt-br%2Fraw%2F3.12%2Fstats.json&query=translation&label=pt_BR
           :alt: Brazilian Portuguese translation status for Python 3.12
           :target: https://app.transifex.com/python-doc/python-312/
-     - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Frffontenelle%2Fpython-docs-pt-br%2Fraw%2F3.12%2Fstats.json&query=total&label=3.12
+     - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fpython%2Fpython-docs-pt-br%2Fraw%2F3.12%2Fstats.json&query=total&label=3.12
           :alt: Total strings for Python 3.12
           :target: https://app.transifex.com/python-doc/python-312/
    * - `3.11 <https://github.com/python/python-docs-pt-br/tree/3.11>`_
@@ -46,7 +46,7 @@ Maintained versions:
      - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fpython%2Fpython-docs-pt-br%2Fraw%2F3.11%2Fstats.json&query=translation&label=pt_BR
           :alt: Brazilian Portuguese translation status for Python 3.11
           :target: https://app.transifex.com/python-doc/python-311/
-     - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Frffontenelle%2Fpython-docs-pt-br%2Fraw%2F3.11%2Fstats.json&query=total&label=3.11
+     - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fpython%2Fpython-docs-pt-br%2Fraw%2F3.11%2Fstats.json&query=total&label=3.11
           :alt: Total strings for Python 3.11
           :target: https://app.transifex.com/python-doc/python-311/
    * - `3.10 <https://github.com/python/python-docs-pt-br/tree/3.10>`_
@@ -55,7 +55,7 @@ Maintained versions:
      - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fpython%2Fpython-docs-pt-br%2Fraw%2F3.10%2Fstats.json&query=translation&label=pt_BR
           :alt: Brazilian Portuguese translation status for Python 3.10
           :target: https://app.transifex.com/python-doc/python-310/
-     - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Frffontenelle%2Fpython-docs-pt-br%2Fraw%2F3.10%2Fstats.json&query=total&label=3.10
+     - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fpython%2Fpython-docs-pt-br%2Fraw%2F3.10%2Fstats.json&query=total&label=3.10
           :alt: Total strings for Python 3.10
           :target: https://app.transifex.com/python-doc/python-310/
    * - `3.9 <https://github.com/python/python-docs-pt-br/tree/3.9>`_
@@ -64,7 +64,7 @@ Maintained versions:
      - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fpython%2Fpython-docs-pt-br%2Fraw%2F3.9%2Fstats.json&query=translation&label=pt_BR
           :alt: Brazilian Portuguese translation status for Python 3.9
           :target: https://app.transifex.com/python-doc/python-39/
-     - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Frffontenelle%2Fpython-docs-pt-br%2Fraw%2F3.9%2Fstats.json&query=total&label=3.9
+     - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fpython%2Fpython-docs-pt-br%2Fraw%2F3.9%2Fstats.json&query=total&label=3.9
           :alt: Total strings for Python 3.9
           :target: https://app.transifex.com/python-doc/python-39/
    * - `3.8 <https://github.com/python/python-docs-pt-br/tree/3.8>`_
@@ -73,7 +73,7 @@ Maintained versions:
      - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fpython%2Fpython-docs-pt-br%2Fraw%2F3.8%2Fstats.json&query=translation&label=pt_BR
           :alt: Brazilian Portuguese translation status for Python 3.8
           :target: https://app.transifex.com/python-doc/python-38/
-     - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Frffontenelle%2Fpython-docs-pt-br%2Fraw%2F3.8%2Fstats.json&query=total&label=3.8
+     - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fpython%2Fpython-docs-pt-br%2Fraw%2F3.8%2Fstats.json&query=total&label=3.8
           :alt: Total strings for Python 3.8
           :target: https://app.transifex.com/python-doc/python-38/
 
@@ -92,7 +92,7 @@ EOL versions:
      - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fpython%2Fpython-docs-pt-br%2Fraw%2F3.7%2Fstats.json&query=translation&label=pt_BR
           :alt: Brazilian Portuguese translation status for Python 3.7
           :target: https://app.transifex.com/python-doc/python-37/
-     - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Frffontenelle%2Fpython-docs-pt-br%2Fraw%2F3.7%2Fstats.json&query=total&label=3.7
+     - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fpython%2Fpython-docs-pt-br%2Fraw%2F3.7%2Fstats.json&query=total&label=3.7
           :alt: Total strings for Python 3.7
           :target: https://app.transifex.com/python-doc/python-37/
 
