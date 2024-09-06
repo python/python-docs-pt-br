@@ -17,7 +17,7 @@ fi
 set -u
 
 # Set for removal the deleted obsolete PO files
-git status -s | grep '^ D ' | cut -d' ' -f3 | xargs -r git rm -v
+git status -s | grep '^ D ' | cut -d' ' -f3 | xargs -r git rm
 
 # Add only updates that do not consist only of 'POT-Creation-Date' header change
 git diff -I'^"POT-Creation-Date: ' --numstat *.po **/*.po | cut -f3 | xargs -r git add -v
