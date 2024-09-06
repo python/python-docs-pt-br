@@ -1,0 +1,27 @@
+name: python-312
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - '3.12'
+  push:
+    branches:
+      - '3.12'
+  schedule:
+    - cron: '15 23 * * *'
+
+jobs:
+  sync:
+    uses: ./.github/workflows/sync.yml
+    with:
+      tx_project: ${{ github.workflow }}
+      version: '3.12'
+    secrets: inherit
+  check:
+    uses: ./.github/workflows/check.yml
+    needs: sync
+    with:
+      tx_project: ${{ github.workflow }}
+      version: '3.12'
+    secrets: inherit

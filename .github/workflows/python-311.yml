@@ -1,0 +1,21 @@
+name: python-311
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 23 * * *'
+
+jobs:
+  sync:
+    uses: ./.github/workflows/sync.yml
+    with:
+      tx_project: ${{ github.workflow }}
+      version: '3.11'
+    secrets: inherit
+  check:
+    uses: ./.github/workflows/check.yml
+    needs: sync
+    with:
+      tx_project: ${{ github.workflow }}
+      version: '3.11'
+    secrets: inherit

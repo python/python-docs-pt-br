@@ -1,0 +1,21 @@
+name: python-38
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '15 0 * * *'
+
+jobs:
+  sync:
+    uses: ./.github/workflows/sync.yml
+    with:
+      tx_project: ${{ github.workflow }}
+      version: 3.8
+    secrets: inherit
+  check:
+    uses: ./.github/workflows/check.yml
+    needs: sync
+    with:
+      tx_project: ${{ github.workflow }}
+      version: 3.8
+    secrets: inherit

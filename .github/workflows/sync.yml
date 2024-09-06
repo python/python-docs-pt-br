@@ -1,0 +1,118 @@
+name: Sync
+
+on:
+  workflow_call:
+    inputs:
+      version:
+        description: "Branch name corresponding to a Python version"
+        required: true
+        type: string
+      tx_project:
+        description: "Name of the Transifex translation project"
+        required: true
+        type: string
+    secrets:
+      TX_TOKEN:
+        description: "Token required for interacting with Transifex API"
+        required: true
+
+env:
+  PYDOC_LANGUAGE: pt_BR
+  PYDOC_TX_PROJECT: ${{ inputs.tx_project }}
+  PYDOC_VERSION: ${{ inputs.version }}
+  TX_CLI_VERSION: '1.6.16'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+
+      # 1- Set up environment
+
+      - name: Check out this repository
+        uses: actions/checkout@v4
+
+      - name: Checkout CPython ${{ env.PYDOC_VERSION }}
+        uses: actions/checkout@v4
+        with:
+          repository: 'python/cpython'
+          ref: ${{ env.PYDOC_VERSION }}
+          path: cpython
+
+      - name: Checkout this repository ${{ env.PYDOC_VERSION }}
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.PYDOC_VERSION }}
+          path: cpython/Doc/locale/${{ env.PYDOC_LANGUAGE }}/LC_MESSAGES
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ inputs.version }}
+          allow-prereleases: true
+          cache: 'pip'
+          cache-dependency-path: |
+            requirements.txt
+            cpython/Doc/requirements.txt
+
+      # 2- Install dependencies
+
+      - name: Install Transifex CLI tool
+        run: |
+          cd /usr/local/bin
+          curl -o- https://raw.githubusercontent.com/transifex/cli/master/install.sh | bash -s -- v$TX_CLI_VERSION
+
+      - name: Install APT dependencies
+        run: sudo apt update -y && sudo apt install gettext -y
+
+      - name: Install Python dependencies
+        run: |
+          pip install -r requirements.txt
+          make -C cpython/Doc venv
+
+      # 3- Pull translations
+
+      - name: Generate template files and Transifex config file
+        run: ./scripts/generate_templates.sh
+
+      - name: Pull translations from Transifex
+        id: pull
+        if: ${{ contains(fromJSON('["schedule", "workflow_dispatch"]'), github.event_name) }}
+        run: |
+          # Clean up obsolete files
+          find cpython/Doc/locale/$PYDOC_LANGUAGE/LC_MESSAGES -name '*.po' -exec rm {} \;
+          ./scripts/pull_translations.sh
+        env:
+          TX_TOKEN: ${{ secrets.TX_TOKEN }}
+
+      - name: powrap
+        if: steps.pull.outcome == 'success'
+        run: |
+          cd cpython/Doc/locale/${{ env.PYDOC_LANGUAGE }}/LC_MESSAGES
+          powrap *.po **/*.po
+
+      - name: Update statistics
+        if: always()
+        run: |
+          python ./scripts/tx_stats.py > cpython/Doc/locale/${{ env.PYDOC_LANGUAGE }}/LC_MESSAGES/stats.json
+          git -C cpython/Doc/locale/${{ env.PYDOC_LANGUAGE }}/LC_MESSAGES/ diff stats.json
+        env:
+          TX_TOKEN: ${{ secrets.TX_TOKEN }}
+
+      - name: Update potodo.md
+        if: always()
+        run: |
+          ./scripts/potodo.sh
+          git diff cpython/Doc/locale/${{ env.PYDOC_LANGUAGE }}/LC_MESSAGES/potodo.md
+
+      # 4- Commit and push translations
+
+      - name: Commit
+        run: ./scripts/commit.sh
+
+      - name: Push
+        if: ${{ contains(fromJSON('["schedule", "workflow_dispatch"]'), github.event_name) }}
+        run: |
+          cd cpython/Doc/locale/${{ env.PYDOC_LANGUAGE}}/LC_MESSAGES
+          git push
+
+
