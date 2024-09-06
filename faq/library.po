@@ -1,31 +1,25 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2022, Python Software Foundation
+# Copyright (C) 2001-2024, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2021
-# Hildeberto Abreu Magalhães <hildeberto@gmail.com>, 2021
-# Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2021
-# Adson Rodrigues <adson.develop@gmail.com>, 2021
-# Alexandre B A Villares, 2021
-# Mariana Costa <mrncstt@gmail.com>, 2021
-# Willian C Lopes <willclbr@gmail.com>, 2021
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-04 16:29+0000\n"
-"PO-Revision-Date: 2021-06-28 00:52+0000\n"
-"Last-Translator: Willian C Lopes <willclbr@gmail.com>, 2021\n"
-"Language-Team: Portuguese (Brazil) (https://www.transifex.com/python-doc/"
+"POT-Creation-Date: 2024-08-30 16:14+0000\n"
+"PO-Revision-Date: 2022-11-05 17:21+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
+"Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -119,7 +113,7 @@ msgid ""
 "interpreter."
 msgstr ""
 "Você precisa fazer duas coisas: o arquivo do script deve ser executável e a "
-"primeira linha deve começar com \"#!\" seguido do caminho do interpretador "
+"primeira linha deve começar com ``#!`` seguido do caminho do interpretador "
 "Python."
 
 #: ../../faq/library.rst:53
@@ -155,7 +149,7 @@ msgid ""
 msgstr ""
 "Se você deseja que o script seja independente de onde o interpretador Python "
 "mora, você pode usar o programa :program:`env`. Quase todas as variantes do "
-"Unix suportam o seguinte, assumindo que o interpretador Python esteja em um "
+"Unix suportam o seguinte, presumindo que o interpretador Python esteja em um "
 "diretório no :envvar:`PATH` do usuário::"
 
 #: ../../faq/library.rst:71
@@ -260,7 +254,7 @@ msgid ""
 "examples in the docstrings for a module and runs them, comparing the output "
 "with the expected output given in the docstring."
 msgstr ""
-"A Python vem com dois frameworks de teste. O :mod:`doctest` busca por "
+"A Python vem com dois frameworks de teste. O módulo :mod:`doctest` busca por "
 "exemplos nas docstrings de um módulo e os executa, comparando o resultado "
 "com a saída esperada informada na docstring."
 
@@ -386,7 +380,7 @@ msgstr ""
 
 #: ../../faq/library.rst:245
 msgid "None of my threads seem to run: why?"
-msgstr "Nenhuma de minhas threads parece funcionar, por quê?"
+msgstr "Nenhuma de minhas threads parece funcionar, por que?"
 
 #: ../../faq/library.rst:247
 msgid ""
@@ -478,7 +472,7 @@ msgid ""
 "Consult the module's documentation for more details; the :class:`~queue."
 "Queue` class provides a featureful interface."
 msgstr ""
-"Consulte a documentação dos módulos para mais detalhes; a classe :class:"
+"Consulte a documentação do módulo para mais detalhes; a classe :class:"
 "`~queue.Queue` fornece uma interface com recursos."
 
 #: ../../faq/library.rst:363
@@ -536,7 +530,7 @@ msgstr ""
 
 #: ../../faq/library.rst:406
 msgid "Can't we get rid of the Global Interpreter Lock?"
-msgstr "Não podemos remover o Bloqueio Global do interpretador?"
+msgstr "Não podemos remover a Trava Global do interpretador?"
 
 #: ../../faq/library.rst:410
 msgid ""
@@ -562,6 +556,14 @@ msgid ""
 "due to the amount of fine-grained locking necessary to compensate for the "
 "removal of the GIL."
 msgstr ""
+"Na época do Python 1.5, Greg Stein implementou um conjunto abrangente de "
+"patches (os patches de \"threading livre\") que removeu o GIL e o substituiu "
+"por bloqueio refinado. Adam Olsen recentemente fez um experimento semelhante "
+"em seu projeto `python-safethread <https://code.google.com/archive/p/python-"
+"safethread>`_. Infelizmente, ambos os experimentos exibiram uma queda "
+"acentuada no desempenho de thread único (pelo menos 30% mais lento), devido "
+"à quantidade de bloqueio de granulação fina necessária para compensar a "
+"remoção do GIL."
 
 #: ../../faq/library.rst:423
 msgid ""
@@ -573,6 +575,13 @@ msgid ""
 "module provides a lower-level API in case you want more control over "
 "dispatching of tasks."
 msgstr ""
+"Isso não significa que você não possa fazer bom uso do Python em máquinas "
+"com várias CPUs! Você só precisa ser criativo ao dividir o trabalho entre "
+"vários *processos* em vez de vários *threads*. A classe :class:`~concurrent."
+"futures.ProcessPoolExecutor` no novo módulo :mod:`concurrent.futures` "
+"fornece uma maneira fácil de fazer isso; o módulo :mod:`multiprocessing` "
+"fornece uma API de nível inferior caso você queira mais controle sobre o "
+"envio de tarefas."
 
 #: ../../faq/library.rst:431
 msgid ""
@@ -599,6 +608,15 @@ msgid ""
 "types have their own free list; these free lists would have to be moved to "
 "the interpreter state. And so on."
 msgstr ""
+"Foi sugerido que o GIL deveria ser um bloqueio por estado por interpretador, "
+"em vez de verdadeiramente global; os interpretadores não seriam capazes de "
+"compartilhar objetos. Infelizmente, isso também não é provável que aconteça. "
+"Seria uma quantidade enorme de trabalho, porque muitas implementações de "
+"objetos atualmente possuem estado global. Por exemplo, inteiros pequenos e "
+"strings curtas são armazenados em cache; esses caches teriam que ser movidos "
+"para o estado de interpretador. Outros tipos de objetos possuem sua própria "
+"lista livre; essas listas livres teriam que ser movidas para o estado de "
+"interpretador. E assim por diante."
 
 #: ../../faq/library.rst:446
 msgid ""
@@ -607,6 +625,10 @@ msgid ""
 "extensions are being written at a faster rate than you can convert them to "
 "store all their global state in the interpreter state."
 msgstr ""
+"E duvido que isso possa ser feito em tempo finito, porque o mesmo problema "
+"existe para extensões de terceiros. É provável que extensões de terceiros "
+"estejam sendo gravadas em uma taxa mais rápida do que você pode convertê-las "
+"para armazenar todo o seu estado global no estado do interpretador."
 
 #: ../../faq/library.rst:451
 msgid ""
@@ -631,7 +653,7 @@ msgid ""
 "see the :mod:`os` module.  The two functions are identical; :func:`~os."
 "unlink` is simply the name of the Unix system call for this function."
 msgstr ""
-"Use ``os.remove(filename)`` ou ``os.unlink(filename)``;para documentação, "
+"Use ``os.remove(arquivo)`` ou ``os.unlink(arquivo)``; para documentação, "
 "veja o módulo :mod:`os`. As duas funções são idênticas; :func:`~os.unlink` é "
 "simplesmente o nome da chamada do sistema para esta função no Unix."
 
@@ -652,7 +674,8 @@ msgstr ""
 
 #: ../../faq/library.rst:471
 msgid "To rename a file, use ``os.rename(old_path, new_path)``."
-msgstr "Para renomear um arquivos, use ``os.rename(old_path, new_path)``."
+msgstr ""
+"Para renomear um arquivos, use ``os.rename(caminho_antigo, caminho_novo)``."
 
 #: ../../faq/library.rst:473
 msgid ""
@@ -839,7 +862,7 @@ msgstr ""
 
 #: ../../faq/library.rst:654
 msgid "Or you can use the numeric constants 0, 1 and 2, respectively."
-msgstr "Ou você pode usar as constantes numérias 0, 1 e 2, respectivamente."
+msgstr "Ou você pode usar as constantes numéricas 0, 1 e 2, respectivamente."
 
 #: ../../faq/library.rst:658
 msgid "Network/Internet Programming"
@@ -847,7 +870,7 @@ msgstr "Programação Rede / Internet"
 
 #: ../../faq/library.rst:661
 msgid "What WWW tools are there for Python?"
-msgstr "Quais ferramentas WWW existem no Python?"
+msgstr "Quais ferramentas para WWW existem no Python?"
 
 #: ../../faq/library.rst:663
 msgid ""
@@ -943,7 +966,7 @@ msgstr ""
 
 #: ../../faq/library.rst:762
 msgid "How do I avoid blocking in the connect() method of a socket?"
-msgstr "Como evito o bloqueio no método connect() de um soquete?"
+msgstr "Como evito um bloqueio no método connect() de um soquete?"
 
 #: ../../faq/library.rst:764
 msgid ""

@@ -1,29 +1,25 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2022, Python Software Foundation
+# Copyright (C) 2001-2024, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Ruan Aragão <ruanaragao2@gmail.com>, 2021
-# Leticia Portella <leportella@gmail.com>, 2021
-# Italo Penaforte <italo.penaforte@gmail.com>, 2021
-# felipe caridade <caridade500@gmail.com>, 2021
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2022
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-04 16:29+0000\n"
-"PO-Revision-Date: 2021-06-28 00:49+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2022\n"
-"Language-Team: Portuguese (Brazil) (https://www.transifex.com/python-doc/"
+"POT-Creation-Date: 2024-08-30 16:14+0000\n"
+"PO-Revision-Date: 2022-11-05 17:21+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
+"Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
 "1000000 == 0 ? 1 : 2;\n"
 
@@ -171,21 +167,21 @@ msgstr ""
 msgid ""
 "The header files are typically installed with Python.  On Unix, these  are "
 "located in the directories :file:`{prefix}/include/pythonversion/` and :file:"
-"`{exec_prefix}/include/pythonversion/`, where :envvar:`prefix` and :envvar:"
-"`exec_prefix` are defined by the corresponding parameters to Python's :"
-"program:`configure` script and *version* is ``'%d.%d' % sys."
-"version_info[:2]``.  On Windows, the headers are installed in :file:"
-"`{prefix}/include`, where :envvar:`prefix` is the installation directory "
+"`{exec_prefix}/include/pythonversion/`, where :option:`prefix <--prefix>` "
+"and :option:`exec_prefix <--exec-prefix>` are defined by the corresponding "
+"parameters to Python's :program:`configure` script and *version* is ``'%d."
+"%d' % sys.version_info[:2]``.  On Windows, the headers are installed in :"
+"file:`{prefix}/include`, where ``prefix`` is the installation directory "
 "specified to the installer."
 msgstr ""
 "Os arquivos de cabeçalho são normalmente instalados com Python. No Unix, "
 "eles estão localizados nos diretórios :file:`{prefix}/include/pythonversion/"
-"` e :file:`{exec_prefix}/include/pythonversion/`, onde :envvar:`prefix` e :"
-"envvar:`exec_prefix` são definidos pelos parâmetros correspondentes ao "
-"script :program:`configure` e *version* do Python é ``'%d.%d' % sys."
-"version_info[:2]``. No Windows, os cabeçalhos são instalados em :file:"
-"`{prefix}/include`, onde :envvar:`prefix` é o diretório de instalação "
-"especificado para o instalador."
+"` e :file:`{exec_prefix}/include/pythonversion/`, onde :option:`prefix <--"
+"prefix>` e :option:`exec_prefix <--exec-prefix>` são definidos pelos "
+"parâmetros correspondentes ao script :program:`configure` e *version* do "
+"Python é ``'%d.%d' % sys.version_info[:2]``. No Windows, os cabeçalhos são "
+"instalados em :file:`{prefix}/include`, onde ``prefix`` é o diretório de "
+"instalação especificado para o instalador."
 
 #: ../../c-api/intro.rst:88
 msgid ""
@@ -193,15 +189,16 @@ msgid ""
 "compiler's search path for includes.  Do *not* place the parent directories "
 "on the search path and then use ``#include <pythonX.Y/Python.h>``; this will "
 "break on multi-platform builds since the platform independent headers under :"
-"envvar:`prefix` include the platform specific headers from :envvar:"
-"`exec_prefix`."
+"option:`prefix <--prefix>` include the platform specific headers from :"
+"option:`exec_prefix <--exec-prefix>`."
 msgstr ""
 "Para incluir os cabeçalhos, coloque os dois diretórios (se diferentes) no "
 "caminho de pesquisa do compilador para as inclusões. *Não* coloque os "
 "diretórios pais no caminho de busca e então use ``#include <pythonX.Y/Python."
 "h>``; isto irá quebrar em compilações multiplataforma, uma vez que os "
-"cabeçalhos independentes da plataforma em :envvar:`prefix` incluem os "
-"cabeçalhos específicos da plataforma de :envvar:`exec_prefix`."
+"cabeçalhos independentes da plataforma em :option:`prefix <--prefix>` "
+"incluem os cabeçalhos específicos da plataforma de :option:`exec_prefix <--"
+"exec-prefix>`."
 
 #: ../../c-api/intro.rst:95
 msgid ""
@@ -430,132 +427,81 @@ msgstr "Contagens de referências"
 #: ../../c-api/intro.rst:255
 msgid ""
 "The reference count is important because today's computers have a  finite "
-"(and often severely limited) memory size; it counts how many  different "
-"places there are that have a reference to an object.  Such a  place could be "
-"another object, or a global (or static) C variable, or  a local variable in "
-"some C function. When an object's reference count  becomes zero, the object "
-"is deallocated.  If it contains references to  other objects, their "
-"reference count is decremented. Those other  objects may be deallocated in "
-"turn, if this decrement makes their reference count become zero, and so on.  "
-"(There's an obvious problem  with objects that reference each other here; "
-"for now, the solution is  \"don't do that.\")"
+"(and often severely limited) memory size; it counts how many different "
+"places there are that have a :term:`strong reference` to an object. Such a "
+"place could be another object, or a global (or static) C variable, or a "
+"local variable in some C function. When the last :term:`strong reference` to "
+"an object is released (i.e. its reference count becomes zero), the object is "
+"deallocated. If it contains references to other objects, those references "
+"are released. Those other objects may be deallocated in turn, if there are "
+"no more references to them, and so on.  (There's an obvious problem  with "
+"objects that reference each other here; for now, the solution is \"don't do "
+"that.\")"
 msgstr ""
-"A contagem de referência é importante porque os computadores de hoje têm um "
-"tamanho de memória finito (e geralmente muito limitado); Conta quantos "
-"lugares diferentes existem que têm uma referência a um objeto. Esse local "
-"poderia ser outro objeto, uma variável C global (ou estática) ou uma "
-"variável local em alguma função C. Quando a contagem de referência de um "
-"objeto se torna zero, o objeto é desalocado. Se contiver referências a "
-"outros objetos, sua contagem de referência será diminuída. Esses outros "
-"objetos podem ser desalocados, por sua vez, se esse decremento fizer com que "
-"sua contagem de referência se torne zero e assim por diante. (Há um problema "
-"óbvio com objetos que fazem referência um ao outro aqui; por enquanto, a "
-"solução é \"não faça isso\")."
 
-#: ../../c-api/intro.rst:270
+#: ../../c-api/intro.rst:272
 msgid ""
-"Reference counts are always manipulated explicitly.  The normal way is  to "
-"use the macro :c:func:`Py_INCREF` to increment an object's reference count "
-"by one, and :c:func:`Py_DECREF` to decrement it by   one.  The :c:func:"
+"Reference counts are always manipulated explicitly.  The normal way is to "
+"use the macro :c:func:`Py_INCREF` to take a new reference to an object (i.e. "
+"increment its reference count by one), and :c:func:`Py_DECREF` to release "
+"that reference (i.e. decrement the reference count by one).  The :c:func:"
 "`Py_DECREF` macro is considerably more complex than the incref one, since it "
 "must check whether the reference count becomes zero and then cause the "
-"object's deallocator to be called. The deallocator is a function pointer "
+"object's deallocator to be called.  The deallocator is a function pointer "
 "contained in the object's type structure.  The type-specific deallocator "
-"takes care of decrementing the reference counts for other objects contained "
-"in the object if this is a compound object type, such as a list, as well as "
-"performing any additional finalization that's needed.  There's no chance "
-"that the reference count can overflow; at least as many bits are used to "
-"hold the reference count as there are distinct memory locations in virtual "
-"memory (assuming ``sizeof(Py_ssize_t) >= sizeof(void*)``). Thus, the "
-"reference count increment is a simple operation."
+"takes care of releasing references for other objects contained in the object "
+"if this is a compound object type, such as a list, as well as performing any "
+"additional finalization that's needed.  There's no chance that the reference "
+"count can overflow; at least as many bits are used to hold the reference "
+"count as there are distinct memory locations in virtual memory (assuming "
+"``sizeof(Py_ssize_t) >= sizeof(void*)``). Thus, the reference count "
+"increment is a simple operation."
 msgstr ""
-"As contagens de referências são sempre manipuladas explicitamente. A maneira "
-"normal é usar a macro :c:func:`Py_INCREF` para incrementar a contagem de "
-"referências de um objeto em um, e :c:func:`Py_DECREF` para diminuí-la em um. "
-"A macro :c:func:`Py_DECREF` é consideravelmente mais complexa que a "
-"\"incref\", uma vez que deve verificar se a contagem de referências torna-se "
-"zero e então fazer com que o desalocador do objeto seja chamado. O "
-"desalocador é um ponteiro de função contido na estrutura de tipo do objeto. "
-"O desalocador específico do tipo se encarrega de diminuir as contagens de "
-"referências para outros objetos contidos no objeto se este for um tipo de "
-"objeto composto, como uma lista, bem como realizar qualquer finalização "
-"adicional necessária. Não há chance de que a contagem de referências possa "
-"estourar; pelo menos tantos bits são usados ​​para manter a contagem de "
-"referência quanto há locais de memória distintos na memória virtual "
-"(assumindo ``sizeof(Py_ssize_t) >= sizeof(void*)``). Portanto, o incremento "
-"da contagem de referências é uma operação simples."
 
-#: ../../c-api/intro.rst:284
+#: ../../c-api/intro.rst:288
 msgid ""
-"It is not necessary to increment an object's reference count for every  "
-"local variable that contains a pointer to an object.  In theory, the  "
-"object's reference count goes up by one when the variable is made to  point "
-"to it and it goes down by one when the variable goes out of  scope.  "
-"However, these two cancel each other out, so at the end the  reference count "
-"hasn't changed.  The only real reason to use the  reference count is to "
-"prevent the object from being deallocated as  long as our variable is "
-"pointing to it.  If we know that there is at  least one other reference to "
-"the object that lives at least as long as our variable, there is no need to "
-"increment the reference count  temporarily. An important situation where "
-"this arises is in objects  that are passed as arguments to C functions in an "
-"extension module  that are called from Python; the call mechanism guarantees "
-"to hold a  reference to every argument for the duration of the call."
+"It is not necessary to hold a :term:`strong reference` (i.e. increment the "
+"reference count) for every local variable that contains a pointer to an "
+"object.  In theory, the  object's reference count goes up by one when the "
+"variable is made to  point to it and it goes down by one when the variable "
+"goes out of  scope.  However, these two cancel each other out, so at the end "
+"the  reference count hasn't changed.  The only real reason to use the  "
+"reference count is to prevent the object from being deallocated as  long as "
+"our variable is pointing to it.  If we know that there is at  least one "
+"other reference to the object that lives at least as long as our variable, "
+"there is no need to take a new :term:`strong reference` (i.e. increment the "
+"reference count) temporarily. An important situation where this arises is in "
+"objects  that are passed as arguments to C functions in an extension module  "
+"that are called from Python; the call mechanism guarantees to hold a  "
+"reference to every argument for the duration of the call."
 msgstr ""
-"Não é necessário incrementar a contagem de referências de um objeto para "
-"cada variável local que contém um ponteiro para um objeto. Em teoria, a "
-"contagem de referências do objeto aumenta em um quando a variável é feita "
-"para apontar para ele e diminui em um quando a variável sai do escopo. No "
-"entanto, esses dois se cancelam, portanto, no final, a contagem de "
-"referências não mudou. A única razão real para usar a contagem de "
-"referências é evitar que o objeto seja desalocado enquanto nossa variável "
-"estiver apontando para ele. Se sabemos que existe pelo menos uma outra "
-"referência ao objeto que vive pelo menos tanto quanto nossa variável, não há "
-"necessidade de incrementar a contagem de referências temporariamente. Uma "
-"situação importante em que isso ocorre é em objetos que são passados como "
-"argumentos para funções C em um módulo de extensão que são chamados de "
-"Python; o mecanismo de chamada garante manter uma referência a todos os "
-"argumentos durante a chamada."
 
-#: ../../c-api/intro.rst:298
+#: ../../c-api/intro.rst:304
 msgid ""
 "However, a common pitfall is to extract an object from a list and hold on to "
-"it for a while without incrementing its reference count. Some other "
-"operation might conceivably remove the object from the list, decrementing "
-"its reference count and possibly deallocating it. The real danger is that "
-"innocent-looking operations may invoke arbitrary Python code which could do "
-"this; there is a code path which allows control to flow back to the user "
-"from a :c:func:`Py_DECREF`, so almost any operation is potentially dangerous."
+"it for a while without taking a new reference.  Some other operation might "
+"conceivably remove the object from the list, releasing that reference, and "
+"possibly deallocating it. The real danger is that innocent-looking "
+"operations may invoke arbitrary Python code which could do this; there is a "
+"code path which allows control to flow back to the user from a :c:func:"
+"`Py_DECREF`, so almost any operation is potentially dangerous."
 msgstr ""
-"No entanto, uma armadilha comum é extrair um objeto de uma lista e mantê-lo "
-"por um tempo, sem incrementar sua contagem de referências. Alguma outra "
-"operação poderia remover o objeto da lista, diminuindo sua contagem de "
-"referências e possivelmente desalocando-o. O perigo real é que operações "
-"aparentemente inocentes podem invocar código Python arbitrário que poderia "
-"fazer isso; existe um caminho de código que permite que o controle flua de "
-"volta para o usuário a partir de um :c:func:`Py_DECREF`, então quase "
-"qualquer operação é potencialmente perigosa."
 
-#: ../../c-api/intro.rst:306
+#: ../../c-api/intro.rst:312
 msgid ""
 "A safe approach is to always use the generic operations (functions  whose "
 "name begins with ``PyObject_``, ``PyNumber_``, ``PySequence_`` or "
-"``PyMapping_``). These operations always increment the reference count of "
-"the object they return. This leaves the caller with the responsibility to "
-"call :c:func:`Py_DECREF` when they are done with the result; this soon "
-"becomes second nature."
+"``PyMapping_``). These operations always create a new :term:`strong "
+"reference` (i.e. increment the reference count) of the object they return. "
+"This leaves the caller with the responsibility to call :c:func:`Py_DECREF` "
+"when they are done with the result; this soon becomes second nature."
 msgstr ""
-"Uma abordagem segura é sempre usar as operações genéricas (funções cujo nome "
-"começa com ``PyObject_``, ``PyNumber_``, ``PySequence_`` ou ``PyMapping_``). "
-"Essas operações sempre incrementam a contagem de referências do objeto que "
-"retornam. Isso deixa o chamador com a responsabilidade de chamar :c:func:"
-"`Py_DECREF` quando terminar com o resultado; isso logo se torna uma segunda "
-"natureza."
 
-#: ../../c-api/intro.rst:316
+#: ../../c-api/intro.rst:323
 msgid "Reference Count Details"
 msgstr "Detalhes da contagem de referências"
 
-#: ../../c-api/intro.rst:318
+#: ../../c-api/intro.rst:325
 msgid ""
 "The reference count behavior of functions in the Python/C API is best  "
 "explained in terms of *ownership of references*.  Ownership pertains to "
@@ -563,30 +509,16 @@ msgid ""
 "shared).  \"Owning a reference\" means being responsible for calling "
 "Py_DECREF on it when the reference is no longer needed.  Ownership can also "
 "be transferred, meaning that the code that receives ownership of the "
-"reference then becomes responsible for eventually decref'ing it by calling :"
-"c:func:`Py_DECREF` or :c:func:`Py_XDECREF` when it's no longer needed---or "
+"reference then becomes responsible for eventually releasing it by calling :c:"
+"func:`Py_DECREF` or :c:func:`Py_XDECREF` when it's no longer needed---or "
 "passing on this responsibility (usually to its caller). When a function "
 "passes ownership of a reference on to its caller, the caller is said to "
 "receive a *new* reference.  When no ownership is transferred, the caller is "
 "said to *borrow* the reference. Nothing needs to be done for a :term:"
 "`borrowed reference`."
 msgstr ""
-"O comportamento da contagem de referências de funções na API Python/C é "
-"melhor explicado em termos de *propriedade de referências*. A propriedade "
-"pertence às referências, nunca aos objetos (os objetos não são possuídos: "
-"eles são sempre compartilhados). \"Possuir uma referência\" significa ser "
-"responsável por chamar Py_DECREF nela quando a referência não for mais "
-"necessária. A propriedade também pode ser transferida, o que significa que o "
-"código que recebe a propriedade da referência torna-se responsável por "
-"eventualmente efetuar um decref nela chamando :c:func:`Py_DECREF` ou :c:func:"
-"`Py_XDECREF` quando não é mais necessário -- ou passando essa "
-"responsabilidade (geralmente para o responsável pela chamada). Quando uma "
-"função passa a propriedade de uma referência para seu chamador, diz-se que o "
-"chamador recebe uma *nova* referência. Quando nenhuma propriedade é "
-"transferida, diz-se que o chamador *toma emprestado* a referência. Nada "
-"precisa ser feito para uma :term:`referência emprestada`."
 
-#: ../../c-api/intro.rst:331
+#: ../../c-api/intro.rst:338
 msgid ""
 "Conversely, when a calling function passes in a reference to an  object, "
 "there are two possibilities: the function *steals* a  reference to the "
@@ -597,10 +529,10 @@ msgstr ""
 "Por outro lado, quando uma função de chamada passa uma referência a um "
 "objeto, há duas possibilidades: a função *rouba* uma referência ao objeto, "
 "ou não. *Roubar uma referência* significa que quando você passa uma "
-"referência para uma função, essa função assume que agora ela possui essa "
+"referência para uma função, essa função presume que agora ela possui essa "
 "referência e você não é mais responsável por ela."
 
-#: ../../c-api/intro.rst:341
+#: ../../c-api/intro.rst:348
 msgid ""
 "Few functions steal references; the two notable exceptions are :c:func:"
 "`PyList_SetItem` and :c:func:`PyTuple_SetItem`, which  steal a reference to "
@@ -620,7 +552,7 @@ msgstr ""
 "(esquecendo o tratamento de erros por enquanto; uma maneira melhor de "
 "codificar isso é mostrada abaixo)::"
 
-#: ../../c-api/intro.rst:356
+#: ../../c-api/intro.rst:363
 msgid ""
 "Here, :c:func:`PyLong_FromLong` returns a new reference which is immediately "
 "stolen by :c:func:`PyTuple_SetItem`.  When you want to keep using an object "
@@ -633,7 +565,7 @@ msgstr ""
 "func:`Py_INCREF` para obter outra referência antes de chamar a função de "
 "roubo de referência."
 
-#: ../../c-api/intro.rst:361
+#: ../../c-api/intro.rst:368
 msgid ""
 "Incidentally, :c:func:`PyTuple_SetItem` is the *only* way to set tuple "
 "items; :c:func:`PySequence_SetItem` and :c:func:`PyObject_SetItem` refuse to "
@@ -645,7 +577,7 @@ msgstr ""
 "recusam a fazer isso, pois tuplas são um tipo de dados imutável. Você só "
 "deve usar :c:func:`PyTuple_SetItem` para tuplas que você mesmo está criando."
 
-#: ../../c-api/intro.rst:366
+#: ../../c-api/intro.rst:373
 msgid ""
 "Equivalent code for populating a list can be written using :c:func:"
 "`PyList_New` and :c:func:`PyList_SetItem`."
@@ -653,7 +585,7 @@ msgstr ""
 "O código equivalente para preencher uma lista pode ser escrita usando :c:"
 "func:`PyList_New` e :c:func:`PyList_SetItem`."
 
-#: ../../c-api/intro.rst:369
+#: ../../c-api/intro.rst:376
 msgid ""
 "However, in practice, you will rarely use these ways of creating and "
 "populating a tuple or list.  There's a generic function, :c:func:"
@@ -668,26 +600,18 @@ msgstr ""
 "código acima podem ser substituídos pelos seguintes (que também cuidam da "
 "verificação de erros)::"
 
-#: ../../c-api/intro.rst:380
+#: ../../c-api/intro.rst:387
 msgid ""
 "It is much more common to use :c:func:`PyObject_SetItem` and friends with "
 "items whose references you are only borrowing, like arguments that were "
 "passed in to the function you are writing.  In that case, their behaviour "
-"regarding reference counts is much saner, since you don't have to increment "
-"a reference count so you can give a reference away (\"have it be stolen\").  "
+"regarding references is much saner, since you don't have to take a new "
+"reference just so you can give that reference away (\"have it be stolen\").  "
 "For example, this function sets all items of a list (actually, any mutable "
 "sequence) to a given item::"
 msgstr ""
-"É muito mais comum usar :c:func:`PyObject_SetItem` e amigos com itens cujas "
-"referências você está apenas pegando emprestado, como argumentos que foram "
-"passados para a função que você está escrevendo. Nesse caso, o comportamento "
-"deles em relação às contagens de referência é muito mais são, já que você "
-"não precisa incrementar uma contagem de referências para que possa dar uma "
-"referência (\"mande-a ser roubada\"). Por exemplo, esta função define todos "
-"os itens de uma lista (na verdade, qualquer sequência mutável) para um "
-"determinado item::"
 
-#: ../../c-api/intro.rst:410
+#: ../../c-api/intro.rst:417
 msgid ""
 "The situation is slightly different for function return values.   While "
 "passing a reference to most functions does not change your  ownership "
@@ -709,7 +633,7 @@ msgstr ""
 "como :c:func:`PyObject_GetItem` e :c:func:`PySequence_GetItem`, sempre "
 "retornam uma nova referência (o chamador torna-se o dono da referência)."
 
-#: ../../c-api/intro.rst:419
+#: ../../c-api/intro.rst:426
 msgid ""
 "It is important to realize that whether you own a reference returned  by a "
 "function depends on which function you call only --- *the plumage* (the type "
@@ -727,7 +651,7 @@ msgstr ""
 "func:`PySequence_GetItem` (que leva exatamente os mesmos argumentos), você "
 "possui uma referência ao objeto retornado."
 
-#: ../../c-api/intro.rst:431
+#: ../../c-api/intro.rst:438
 msgid ""
 "Here is an example of how you could write a function that computes the sum "
 "of the items in a list of integers; once using  :c:func:`PyList_GetItem`, "
@@ -737,11 +661,11 @@ msgstr ""
 "soma dos itens em uma lista de inteiros; uma vez usando :c:func:"
 "`PyList_GetItem`, e uma vez usando :c:func:`PySequence_GetItem`. ::"
 
-#: ../../c-api/intro.rst:495
+#: ../../c-api/intro.rst:502
 msgid "Types"
 msgstr "Tipos"
 
-#: ../../c-api/intro.rst:497
+#: ../../c-api/intro.rst:504
 msgid ""
 "There are few other data types that play a significant role in  the Python/C "
 "API; most are simple C types such as :c:expr:`int`,  :c:expr:`long`, :c:expr:"
@@ -759,7 +683,7 @@ msgstr ""
 "e outro é usado para descrever o valor de um número complexo. Eles serão "
 "discutidos junto com as funções que os utilizam."
 
-#: ../../c-api/intro.rst:507
+#: ../../c-api/intro.rst:514
 msgid ""
 "A signed integral type such that ``sizeof(Py_ssize_t) == sizeof(size_t)``. "
 "C99 doesn't define such a thing directly (size_t is an unsigned integral "
@@ -771,11 +695,11 @@ msgstr ""
 "assinado). Veja :pep:`353` para mais detalhes. ``PY_SSIZE_T_MAX`` é o maior "
 "valor positivo do tipo :c:type:`Py_ssize_t`."
 
-#: ../../c-api/intro.rst:516
+#: ../../c-api/intro.rst:523
 msgid "Exceptions"
 msgstr "Exceções"
 
-#: ../../c-api/intro.rst:518
+#: ../../c-api/intro.rst:525
 msgid ""
 "The Python programmer only needs to deal with exceptions if specific  error "
 "handling is required; unhandled exceptions are automatically  propagated to "
@@ -789,7 +713,7 @@ msgstr ""
 "até chegarem ao interpretador de nível superior, onde são relatadas ao "
 "usuário acompanhadas por um traceback (situação da pilha de execução)."
 
-#: ../../c-api/intro.rst:526
+#: ../../c-api/intro.rst:533
 msgid ""
 "For C programmers, however, error checking always has to be explicit.  All "
 "functions in the Python/C API can raise exceptions, unless an explicit claim "
@@ -816,7 +740,7 @@ msgstr ""
 "para erros com :c:func:`PyErr_Occurred`. Essas exceções são sempre "
 "documentadas explicitamente."
 
-#: ../../c-api/intro.rst:541
+#: ../../c-api/intro.rst:548
 msgid ""
 "Exception state is maintained in per-thread storage (this is  equivalent to "
 "using global storage in an unthreaded application).  A  thread can be in one "
@@ -838,7 +762,7 @@ msgstr ""
 "(embora não a mais geral) para definir o estado de exceção, e :c:func:"
 "`PyErr_Clear` limpa o estado da exceção."
 
-#: ../../c-api/intro.rst:551
+#: ../../c-api/intro.rst:558
 msgid ""
 "The full exception state consists of three objects (all of which can  be "
 "``NULL``): the exception type, the corresponding exception  value, and the "
@@ -860,7 +784,7 @@ msgstr ""
 "atingir o loop principal do interpretador de bytecode Python, que se "
 "encarrega de transferi-lo para ``sys.exc_info()`` e amigos."
 
-#: ../../c-api/intro.rst:563
+#: ../../c-api/intro.rst:570
 msgid ""
 "Note that starting with Python 1.5, the preferred, thread-safe way to access "
 "the exception state from Python code is to call the function :func:`sys."
@@ -885,7 +809,7 @@ msgstr ""
 "indesejada para objetos que são referenciados pelos quadros de pilha no "
 "traceback."
 
-#: ../../c-api/intro.rst:574
+#: ../../c-api/intro.rst:581
 msgid ""
 "As a general principle, a function that calls another function to  perform "
 "some task should check whether the called function raised an  exception, and "
@@ -903,7 +827,7 @@ msgstr ""
 "acabou de ser gerada e perderia informações importantes sobre a causa exata "
 "do erro."
 
-#: ../../c-api/intro.rst:583
+#: ../../c-api/intro.rst:590
 msgid ""
 "A simple example of detecting exceptions and passing them on is shown in "
 "the :c:func:`sum_sequence` example above.  It so happens that this example "
@@ -917,11 +841,11 @@ msgstr ""
 "exemplo a seguir mostra alguma limpeza de erro. Primeiro, para lembrar por "
 "que você gosta de Python, mostramos o código Python equivalente::"
 
-#: ../../c-api/intro.rst:598
+#: ../../c-api/intro.rst:605
 msgid "Here is the corresponding C code, in all its glory::"
 msgstr "Aqui está o código C correspondente, em toda sua glória::"
 
-#: ../../c-api/intro.rst:650
+#: ../../c-api/intro.rst:657
 msgid ""
 "This example represents an endorsed use of the ``goto`` statement  in C! It "
 "illustrates the use of :c:func:`PyErr_ExceptionMatches` and :c:func:"
@@ -944,11 +868,11 @@ msgstr ""
 "``-1`` (falha) e apenas definido para sucesso após a chamada final feita ser "
 "bem sucedida."
 
-#: ../../c-api/intro.rst:664
+#: ../../c-api/intro.rst:671
 msgid "Embedding Python"
 msgstr "Incorporando Python"
 
-#: ../../c-api/intro.rst:666
+#: ../../c-api/intro.rst:673
 msgid ""
 "The one important task that only embedders (as opposed to extension writers) "
 "of the Python interpreter have to worry about is the initialization, and "
@@ -961,7 +885,7 @@ msgstr ""
 "maior parte da funcionalidade do interpretador só pode ser usada após a "
 "inicialização do interpretador."
 
-#: ../../c-api/intro.rst:679
+#: ../../c-api/intro.rst:686
 msgid ""
 "The basic initialization function is :c:func:`Py_Initialize`. This "
 "initializes the table of loaded modules, and creates the fundamental "
@@ -973,7 +897,7 @@ msgstr ""
 "`builtins`, :mod:`__main__` e :mod:`sys`. Ela também inicializa o caminho de "
 "pesquisa de módulos (``sys.path``)."
 
-#: ../../c-api/intro.rst:686
+#: ../../c-api/intro.rst:693
 msgid ""
 ":c:func:`Py_Initialize` does not set the \"script argument list\"  (``sys."
 "argv``). If this variable is needed by Python code that will be executed "
@@ -986,7 +910,7 @@ msgstr ""
 "explicitamente com uma chamada com ``PySys_SetArgvEx(argc, argv, "
 "updatepath)`` após a chamada de :c:func:`Py_Initialize`."
 
-#: ../../c-api/intro.rst:691
+#: ../../c-api/intro.rst:698
 msgid ""
 "On most systems (in particular, on Unix and Windows, although the details "
 "are slightly different), :c:func:`Py_Initialize` calculates the module "
@@ -999,15 +923,15 @@ msgid ""
 msgstr ""
 "Na maioria dos sistemas (em particular, no Unix e no Windows, embora os "
 "detalhes sejam ligeiramente diferentes), :c:func:`Py_Initialize` calcula o "
-"caminho de pesquisa do módulo com base em sua melhor estimativa para a "
-"localização do executável do interpretador Python padrão, assumindo que a "
+"caminho de pesquisa de módulos com base em sua melhor estimativa para a "
+"localização do executável do interpretador Python padrão, presumindo que a "
 "biblioteca Python é encontrada em um local fixo em relação ao executável do "
 "interpretador Python. Em particular, ele procura por um diretório chamado :"
 "file:`lib/python{X.Y}` relativo ao diretório pai onde o executável chamado :"
 "file:`python` é encontrado no caminho de pesquisa de comandos do shell (a "
 "variável de ambiente :envvar:`PATH`)."
 
-#: ../../c-api/intro.rst:700
+#: ../../c-api/intro.rst:707
 msgid ""
 "For instance, if the Python executable is found in :file:`/usr/local/bin/"
 "python`, it will assume that the libraries are in :file:`/usr/local/lib/"
@@ -1025,7 +949,7 @@ msgstr ""
 "definindo a variável de ambiente :envvar:`PYTHONHOME`, ou insira diretórios "
 "adicionais na frente do caminho padrão definindo :envvar:`PYTHONPATH`."
 
-#: ../../c-api/intro.rst:715
+#: ../../c-api/intro.rst:722
 msgid ""
 "The embedding application can steer the search by calling "
 "``Py_SetProgramName(file)`` *before* calling  :c:func:`Py_Initialize`.  Note "
@@ -1043,7 +967,7 @@ msgstr ""
 "`Py_GetPath`, :c:func:`Py_GetPrefix`, :c:func:`Py_GetExecPrefix` e :c:func:"
 "`Py_GetProgramFullPath` (todas definidas em :file:`Modules/getpath.c`)."
 
-#: ../../c-api/intro.rst:725
+#: ../../c-api/intro.rst:732
 msgid ""
 "Sometimes, it is desirable to \"uninitialize\" Python.  For instance,  the "
 "application may want to start over (make another call to :c:func:"
@@ -1067,11 +991,11 @@ msgstr ""
 "Python, por exemplo, a memória alocada por módulos de extensão atualmente "
 "não pode ser liberada."
 
-#: ../../c-api/intro.rst:739
+#: ../../c-api/intro.rst:746
 msgid "Debugging Builds"
 msgstr "Compilações de depuração"
 
-#: ../../c-api/intro.rst:741
+#: ../../c-api/intro.rst:748
 msgid ""
 "Python can be built with several macros to enable extra checks of the "
 "interpreter and extension modules.  These checks tend to add a large amount "
@@ -1082,7 +1006,7 @@ msgstr ""
 "adicionar uma grande quantidade de sobrecarga ao tempo de execução, "
 "portanto, não são habilitadas por padrão."
 
-#: ../../c-api/intro.rst:745
+#: ../../c-api/intro.rst:752
 msgid ""
 "A full list of the various types of debugging builds is in the file :file:"
 "`Misc/SpecialBuilds.txt` in the Python source distribution. Builds are "
@@ -1099,7 +1023,7 @@ msgstr ""
 "compilações usadas com mais frequência serão descritas no restante desta "
 "seção."
 
-#: ../../c-api/intro.rst:751
+#: ../../c-api/intro.rst:758
 msgid ""
 "Compiling the interpreter with the :c:macro:`Py_DEBUG` macro defined "
 "produces what is generally meant by :ref:`a debug build of Python <debug-"
@@ -1117,7 +1041,7 @@ msgstr ""
 "`_DEBUG`. Quando :c:macro:`Py_DEBUG` está habilitado na compilação do Unix, "
 "a otimização do compilador é desabilitada."
 
-#: ../../c-api/intro.rst:759
+#: ../../c-api/intro.rst:766
 msgid ""
 "In addition to the reference count debugging described below, extra checks "
 "are performed, see :ref:`Python Debug Build <debug-build>`."
@@ -1126,7 +1050,7 @@ msgstr ""
 "extras são realizadas, consulte :ref:`Compilação de Depuração do Python "
 "<debug-build>`."
 
-#: ../../c-api/intro.rst:762
+#: ../../c-api/intro.rst:769
 msgid ""
 "Defining :c:macro:`Py_TRACE_REFS` enables reference tracing (see the :option:"
 "`configure --with-trace-refs option <--with-trace-refs>`). When defined, a "
@@ -1143,7 +1067,7 @@ msgstr ""
 "existentes são impressas. (No modo interativo, isso acontece após cada "
 "instrução executada pelo interpretador.)"
 
-#: ../../c-api/intro.rst:769
+#: ../../c-api/intro.rst:776
 msgid ""
 "Please refer to :file:`Misc/SpecialBuilds.txt` in the Python source "
 "distribution for more detailed information."
