@@ -5,7 +5,7 @@
 - license.po                      95 /  99 ( 95.0% translated).
 
 
-# c-api (39.11% done)
+# c-api (39.34% done)
 
 - datetime.po                     33 /  52 ( 63.0% translated).
 - exceptions.po                  193 / 347 ( 55.0% translated).
@@ -26,7 +26,7 @@
 - refcounting.po                   4 /  28 ( 14.0% translated).
 - sequence.po                     15 /  30 ( 50.0% translated).
 - stable.po                       33 /  35 ( 94.0% translated).
-- structures.po                   49 / 150 ( 32.0% translated).
+- structures.po                   57 / 150 ( 38.0% translated).
 - sys.po                          26 /  77 ( 33.0% translated).
 - tuple.po                        33 /  40 ( 82.0% translated).
 - type.po                         26 /  68 ( 38.0% translated).
@@ -59,10 +59,10 @@
 - programming.po                 257 / 393 ( 65.0% translated).
 
 
-# howto (47.85% done)
+# howto (48.57% done)
 
 - curses.po                       59 / 105 ( 56.0% translated).
-- descriptor.po                   45 / 177 ( 25.0% translated).
+- descriptor.po                   60 / 177 ( 33.0% translated).
 - enum.po                         66 / 224 ( 29.0% translated).
 - functional.po                  136 / 206 ( 66.0% translated).
 - instrumentation.po               8 /  59 ( 13.0% translated).
@@ -82,7 +82,7 @@
 - index.po                       166 / 226 ( 73.0% translated).
 
 
-# library (44.61% done)
+# library (44.65% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          33 /  49 ( 67.0% translated).
@@ -121,7 +121,7 @@
 - contextlib.po                    8 / 130 (  6.0% translated).
 - crypt.po                         7 /  35 ( 20.0% translated).
 - csv.po                          97 /  99 ( 97.0% translated).
-- ctypes.po                       77 / 436 ( 17.0% translated).
+- ctypes.po                       85 / 436 ( 19.0% translated).
 - curses.ascii.po                  7 /  69 ( 10.0% translated).
 - curses.panel.po                  6 /  23 ( 26.0% translated).
 - curses.po                       63 / 485 ( 12.0% translated).
@@ -279,17 +279,17 @@
 - xml.sax.po                       2 /  32 (  6.0% translated).
 - xml.sax.reader.po                2 /  75 (  2.0% translated).
 - xml.sax.utils.po                 1 /  13 (  7.0% translated).
-- xmlrpc.client.po                56 / 100 ( 56.0% translated).
+- xmlrpc.client.po                57 / 100 ( 57.0% translated).
 - zipapp.po                        6 /  79 (  7.0% translated).
 - zipfile.po                     192 / 193 ( 99.0% translated).
 - zipimport.po                     6 /  38 ( 15.0% translated).
 - zoneinfo.po                      8 /  75 ( 10.0% translated).
 
 
-# reference (78.59% done)
+# reference (78.64% done)
 
 - compound_stmts.po              188 / 389 ( 48.0% translated).
-- datamodel.po                   640 / 786 ( 81.0% translated).
+- datamodel.po                   641 / 786 ( 81.0% translated).
 - executionmodel.po               73 /  75 ( 97.0% translated).
 - import.po                      192 / 207 ( 92.0% translated).
 - lexical_analysis.po            287 / 299 ( 95.0% translated).
@@ -304,7 +304,7 @@
 - windows.po                     314 / 343 ( 91.0% translated).
 
 
-# whatsnew (73.37% done)
+# whatsnew (73.40% done)
 
 - 2.0.po                         181 / 183 ( 98.0% translated).
 - 2.1.po                         138 / 139 ( 99.0% translated).
@@ -316,7 +316,7 @@
 - 2.7.po                         451 / 453 ( 99.0% translated).
 - 3.0.po                         204 / 205 ( 99.0% translated).
 - 3.10.po                        498 / 506 ( 98.0% translated).
-- 3.11.po                        746 / 765 ( 97.0% translated).
+- 3.11.po                        748 / 765 ( 97.0% translated).
 - 3.2.po                          64 / 518 ( 12.0% translated).
 - 3.3.po                         130 / 662 ( 19.0% translated).
 - 3.4.po                         503 / 511 ( 98.0% translated).
