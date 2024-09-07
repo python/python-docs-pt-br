@@ -52,7 +52,7 @@
 - programming.po                 259 / 388 ( 66.0% translated).
 
 
-# howto (43.96% done)
+# howto (45.39% done)
 
 - annotations.po                  44 /  45 ( 97.0% translated).
 - argparse.po                     81 /  84 ( 96.0% translated).
@@ -65,7 +65,7 @@
 - logging-cookbook.po             25 / 306 (  8.0% translated).
 - logging.po                     114 / 221 ( 51.0% translated).
 - pyporting.po                    35 /  86 ( 40.0% translated).
-- regex.po                       231 / 286 ( 80.0% translated).
+- regex.po                       264 / 286 ( 92.0% translated).
 - sockets.po                      35 /  58 ( 60.0% translated).
 - unicode.po                      30 / 121 ( 24.0% translated).
 - urllib2.po                      24 /  85 ( 28.0% translated).
@@ -76,7 +76,7 @@
 - index.po                       168 / 226 ( 74.0% translated).
 
 
-# library (44.31% done)
+# library (44.56% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    190 / 290 ( 65.0% translated).
@@ -212,16 +212,16 @@
 - smtplib.po                      15 / 109 ( 13.0% translated).
 - socket.po                       54 / 324 ( 16.0% translated).
 - socketserver.po                  7 /  78 (  8.0% translated).
-- sqlite3.po                      71 / 287 ( 24.0% translated).
+- sqlite3.po                      72 / 287 ( 25.0% translated).
 - ssl.po                          49 / 493 (  9.0% translated).
 - stat.po                         78 /  81 ( 96.0% translated).
-- statistics.po                  157 / 172 ( 91.0% translated).
+- statistics.po                  158 / 172 ( 91.0% translated).
 - stdtypes.po                    1022 / 1026 ( 99.0% translated).
 - stringprep.po                    1 /  25 (  4.0% translated).
-- struct.po                       77 / 168 ( 45.0% translated).
+- struct.po                       84 / 168 ( 50.0% translated).
 - subprocess.po                  123 / 275 ( 44.0% translated).
 - symtable.po                      3 /  44 (  6.0% translated).
-- sys.po                         321 / 413 ( 77.0% translated).
+- sys.po                         358 / 413 ( 86.0% translated).
 - sysconfig.po                    75 /  81 ( 92.0% translated).
 - tarfile.po                      96 / 297 ( 32.0% translated).
 - telnetlib.po                     6 /  47 ( 12.0% translated).
@@ -233,7 +233,7 @@
 - tkinter.font.po                 34 /  35 ( 97.0% translated).
 - tkinter.po                     303 / 304 ( 99.0% translated).
 - tkinter.tix.po                   4 /  71 (  5.0% translated).
-- tkinter.ttk.po                  76 / 408 ( 18.0% translated).
+- tkinter.ttk.po                  94 / 408 ( 23.0% translated).
 - tokenize.po                      7 /  44 ( 15.0% translated).
 - traceback.po                     7 /  78 (  8.0% translated).
 - tracemalloc.po                  21 / 144 ( 14.0% translated).
