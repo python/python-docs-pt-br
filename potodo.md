@@ -116,14 +116,14 @@
 - email.compat32-message.po        5 / 104 (  4.0% translated).
 - email.contentmanager.po          4 /  41 (  9.0% translated).
 - email.encoders.po                2 /  15 ( 13.0% translated).
-- email.errors.po                  6 /  23 ( 26.0% translated).
+- email.errors.po                  6 /  24 ( 25.0% translated).
 - email.generator.po               2 /  41 (  4.0% translated).
 - email.header.po                  3 /  38 (  7.0% translated).
 - email.headerregistry.po         13 / 103 ( 12.0% translated).
 - email.message.po                 6 / 103 (  5.0% translated).
 - email.mime.po                   29 /  38 ( 76.0% translated).
 - email.parser.po                  2 /  47 (  4.0% translated).
-- email.policy.po                 12 / 101 ( 11.0% translated).
+- email.policy.po                 12 / 103 ( 11.0% translated).
 - enum.po                         49 / 188 ( 26.0% translated).
 - errno.po                         7 / 127 (  5.0% translated).
 - exceptions.po                  139 / 140 ( 99.0% translated).
@@ -271,7 +271,7 @@
 - windows.po                     295 / 303 ( 97.0% translated).
 
 
-# whatsnew (62.65% done)
+# whatsnew (62.66% done)
 
 - 2.0.po                         135 / 182 ( 74.0% translated).
 - 2.2.po                         136 / 192 ( 70.0% translated).
@@ -286,7 +286,7 @@
 - 3.5.po                         123 / 541 ( 22.0% translated).
 - 3.6.po                         240 / 517 ( 46.0% translated).
 - 3.7.po                         241 / 555 ( 43.0% translated).
-- 3.9.po                         378 / 382 ( 98.0% translated).
+- 3.9.po                         381 / 386 ( 98.0% translated).
 
 
 
