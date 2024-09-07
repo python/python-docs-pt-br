@@ -1,9 +1,8 @@
 
 
-# 3.13 (94.43% done)
+# 3.13 (99.48% done)
 
 - glossary.po                    380 / 382 ( 99.0% translated).
-- license.po                      95 / 121 ( 78.0% translated).
 
 
 # c-api (42.84% done)
@@ -95,7 +94,7 @@
 - index.po                        53 /  59 ( 89.0% translated).
 
 
-# library (49.25% done)
+# library (49.34% done)
 
 - __future__.po                   56 /  58 ( 96.0% translated).
 - __main__.po                     54 /  73 ( 73.0% translated).
@@ -144,7 +143,7 @@
 - curses.panel.po                  6 /  23 ( 26.0% translated).
 - curses.po                       65 / 486 ( 13.0% translated).
 - dataclasses.po                  47 / 152 ( 30.0% translated).
-- datetime.po                    576 / 643 ( 89.0% translated).
+- datetime.po                    595 / 643 ( 92.0% translated).
 - dbm.po                           6 / 101 (  5.0% translated).
 - decimal.po                     344 / 378 ( 91.0% translated).
 - devmode.po                      49 /  58 ( 84.0% translated).
@@ -177,7 +176,7 @@
 - fnmatch.po                      35 /  36 ( 97.0% translated).
 - fractions.po                    33 /  36 ( 91.0% translated).
 - ftplib.po                       10 /  99 ( 10.0% translated).
-- functions.po                   478 / 507 ( 94.0% translated).
+- functions.po                   489 / 507 ( 96.0% translated).
 - functools.po                    21 / 112 ( 18.0% translated).
 - gc.po                           54 /  72 ( 75.0% translated).
 - getopt.po                       20 /  22 ( 90.0% translated).
