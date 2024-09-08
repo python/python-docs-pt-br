@@ -1,10 +1,5 @@
 
 
-# 3.13 (99.48% done)
-
-- glossary.po                    380 / 382 ( 99.0% translated).
-
-
 # c-api (42.84% done)
 
 - arg.po                         191 / 195 ( 97.0% translated).
@@ -94,7 +89,7 @@
 - index.po                        53 /  59 ( 89.0% translated).
 
 
-# library (49.34% done)
+# library (49.35% done)
 
 - __future__.po                   56 /  58 ( 96.0% translated).
 - __main__.po                     54 /  73 ( 73.0% translated).
@@ -241,7 +236,7 @@
 - pyexpat.po                      21 / 144 ( 14.0% translated).
 - queue.po                         7 /  53 ( 13.0% translated).
 - random.po                      125 / 137 ( 91.0% translated).
-- re.po                          400 / 437 ( 91.0% translated).
+- re.po                          402 / 437 ( 91.0% translated).
 - readline.po                     52 /  56 ( 92.0% translated).
 - reprlib.po                       9 /  39 ( 23.0% translated).
 - resource.po                     46 / 116 ( 39.0% translated).
@@ -336,7 +331,7 @@
 - simple_stmts.po                278 / 292 ( 95.0% translated).
 
 
-# tutorial (74.98% done)
+# tutorial (75.66% done)
 
 - classes.po                     130 / 149 ( 87.0% translated).
 - controlflow.po                 164 / 220 ( 74.0% translated).
@@ -345,7 +340,7 @@
 - floatingpoint.po                47 /  76 ( 61.0% translated).
 - inputoutput.po                  76 / 105 ( 72.0% translated).
 - modules.po                      89 / 117 ( 76.0% translated).
-- stdlib.po                       48 /  67 ( 71.0% translated).
+- stdlib.po                       55 /  67 ( 82.0% translated).
 - stdlib2.po                      51 /  65 ( 78.0% translated).
 
 
