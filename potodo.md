@@ -71,7 +71,7 @@
 - index.po                       173 / 225 ( 76.0% translated).
 
 
-# library (42.46% done)
+# library (42.47% done)
 
 - argparse.po                    167 / 277 ( 60.0% translated).
 - array.po                        82 /  83 ( 98.0% translated).
@@ -97,7 +97,7 @@
 - chunk.po                        10 /  33 ( 30.0% translated).
 - cmath.po                        41 /  52 ( 78.0% translated).
 - cmd.po                           4 /  42 (  9.0% translated).
-- code.po                         28 /  31 ( 90.0% translated).
+- code.po                         29 /  31 ( 93.0% translated).
 - codecs.po                      232 / 503 ( 46.0% translated).
 - collections.po                 193 / 199 ( 96.0% translated).
 - concurrent.futures.po           15 /  84 ( 17.0% translated).
@@ -182,7 +182,7 @@
 - pipes.po                         4 /  18 ( 22.0% translated).
 - pkgutil.po                       6 /  40 ( 15.0% translated).
 - platform.po                      5 /  51 (  9.0% translated).
-- plistlib.po                     33 /  55 ( 60.0% translated).
+- plistlib.po                     35 /  55 ( 63.0% translated).
 - poplib.po                        7 /  49 ( 14.0% translated).
 - pprint.po                       20 /  31 ( 64.0% translated).
 - profile.po                      23 / 153 ( 15.0% translated).
@@ -281,12 +281,12 @@
 - windows.po                     310 / 311 ( 99.0% translated).
 
 
-# whatsnew (63.10% done)
+# whatsnew (63.12% done)
 
 - 2.0.po                         134 / 182 ( 73.0% translated).
 - 2.2.po                         136 / 192 ( 70.0% translated).
 - 2.3.po                         229 / 324 ( 70.0% translated).
-- 2.4.po                         240 / 266 ( 90.0% translated).
+- 2.4.po                         241 / 266 ( 90.0% translated).
 - 2.5.po                         340 / 386 ( 88.0% translated).
 - 2.6.po                         536 / 539 ( 99.0% translated).
 - 2.7.po                         444 / 454 ( 97.0% translated).
