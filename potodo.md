@@ -89,7 +89,7 @@
 - index.po                        53 /  59 ( 89.0% translated).
 
 
-# library (49.35% done)
+# library (48.65% done)
 
 - __future__.po                   56 /  58 ( 96.0% translated).
 - __main__.po                     54 /  73 ( 73.0% translated).
@@ -171,7 +171,6 @@
 - fnmatch.po                      35 /  36 ( 97.0% translated).
 - fractions.po                    33 /  36 ( 91.0% translated).
 - ftplib.po                       10 /  99 ( 10.0% translated).
-- functions.po                   489 / 507 ( 96.0% translated).
 - functools.po                    21 / 112 ( 18.0% translated).
 - gc.po                           54 /  72 ( 75.0% translated).
 - getopt.po                       20 /  22 ( 90.0% translated).
