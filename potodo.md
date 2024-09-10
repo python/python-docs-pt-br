@@ -330,12 +330,11 @@
 - simple_stmts.po                278 / 292 ( 95.0% translated).
 
 
-# tutorial (75.66% done)
+# tutorial (75.97% done)
 
 - classes.po                     130 / 149 ( 87.0% translated).
 - controlflow.po                 164 / 220 ( 74.0% translated).
 - datastructures.po               90 / 125 ( 72.0% translated).
-- errors.po                       69 /  95 ( 72.0% translated).
 - floatingpoint.po                47 /  76 ( 61.0% translated).
 - inputoutput.po                  76 / 105 ( 72.0% translated).
 - modules.po                      89 / 117 ( 76.0% translated).
