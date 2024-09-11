@@ -89,7 +89,7 @@
 - index.po                        53 /  59 ( 89.0% translated).
 
 
-# library (48.65% done)
+# library (48.66% done)
 
 - __future__.po                   56 /  58 ( 96.0% translated).
 - __main__.po                     54 /  73 ( 73.0% translated).
@@ -235,7 +235,7 @@
 - pyexpat.po                      21 / 144 ( 14.0% translated).
 - queue.po                         7 /  53 ( 13.0% translated).
 - random.po                      125 / 137 ( 91.0% translated).
-- re.po                          402 / 437 ( 91.0% translated).
+- re.po                          404 / 437 ( 92.0% translated).
 - readline.po                     52 /  56 ( 92.0% translated).
 - reprlib.po                       9 /  39 ( 23.0% translated).
 - resource.po                     46 / 116 ( 39.0% translated).
@@ -278,7 +278,7 @@
 - tkinter.po                     306 / 327 ( 93.0% translated).
 - tkinter.ttk.po                 111 / 429 ( 25.0% translated).
 - token.po                        66 /  67 ( 98.0% translated).
-- tokenize.po                      7 /  52 ( 13.0% translated).
+- tokenize.po                      8 /  52 ( 15.0% translated).
 - tomllib.po                      42 /  44 ( 95.0% translated).
 - trace.po                        41 /  43 ( 95.0% translated).
 - traceback.po                     9 / 105 (  8.0% translated).
@@ -351,7 +351,7 @@
 - windows.po                     331 / 389 ( 85.0% translated).
 
 
-# whatsnew (73.19% done)
+# whatsnew (70.84% done)
 
 - 2.0.po                         183 / 207 ( 88.0% translated).
 - 2.1.po                         139 / 154 ( 90.0% translated).
@@ -365,7 +365,6 @@
 - 3.1.po                         114 / 132 ( 86.0% translated).
 - 3.10.po                        503 / 550 ( 91.0% translated).
 - 3.11.po                        764 / 776 ( 98.0% translated).
-- 3.12.po                        818 / 820 ( 99.0% translated).
 - 3.13.po                        731 / 776 ( 94.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         132 / 682 ( 19.0% translated).
