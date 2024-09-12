@@ -89,7 +89,7 @@
 - index.po                        53 /  59 ( 89.0% translated).
 
 
-# library (48.66% done)
+# library (48.64% done)
 
 - __future__.po                   56 /  58 ( 96.0% translated).
 - __main__.po                     54 /  73 ( 73.0% translated).
@@ -160,7 +160,6 @@
 - email.parser.po                  2 /  48 (  4.0% translated).
 - email.policy.po                 11 / 107 ( 10.0% translated).
 - email.utils.po                  34 /  36 ( 94.0% translated).
-- ensurepip.po                    37 /  39 ( 94.0% translated).
 - enum.po                         16 / 238 (  6.0% translated).
 - errno.po                         8 / 134 (  5.0% translated).
 - exceptions.po                  190 / 195 ( 97.0% translated).
@@ -235,7 +234,7 @@
 - pyexpat.po                      21 / 144 ( 14.0% translated).
 - queue.po                         7 /  53 ( 13.0% translated).
 - random.po                      125 / 137 ( 91.0% translated).
-- re.po                          404 / 437 ( 92.0% translated).
+- re.po                          417 / 437 ( 95.0% translated).
 - readline.po                     52 /  56 ( 92.0% translated).
 - reprlib.po                       9 /  39 ( 23.0% translated).
 - resource.po                     46 / 116 ( 39.0% translated).
