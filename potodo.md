@@ -59,14 +59,14 @@
 - windows.po                      48 /  58 ( 82.0% translated).
 
 
-# howto (45.07% done)
+# howto (45.05% done)
 
 - annotations.po                  45 /  48 ( 93.0% translated).
 - argparse.po                     95 / 135 ( 70.0% translated).
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                   60 / 230 ( 26.0% translated).
 - enum.po                         57 / 327 ( 17.0% translated).
-- free-threading-extensions.po    66 /  70 ( 94.0% translated).
+- free-threading-extensions.po    66 /  71 ( 92.0% translated).
 - functional.po                  136 / 252 ( 53.0% translated).
 - gdb_helpers.po                  66 /  86 ( 76.0% translated).
 - instrumentation.po               8 /  77 ( 10.0% translated).
@@ -123,7 +123,7 @@
 - cmath.po                        56 /  59 ( 94.0% translated).
 - cmd.po                           5 /  50 ( 10.0% translated).
 - codecs.po                      250 / 532 ( 46.0% translated).
-- collections.abc.po              87 / 131 ( 66.0% translated).
+- collections.abc.po              87 / 135 ( 64.0% translated).
 - collections.po                 213 / 241 ( 88.0% translated).
 - colorsys.po                     12 /  13 ( 92.0% translated).
 - compileall.po                   58 /  60 ( 96.0% translated).
@@ -284,7 +284,7 @@
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
 - turtle.po                      561 / 661 ( 84.0% translated).
 - types.po                       107 / 110 ( 97.0% translated).
-- typing.po                      183 / 793 ( 23.0% translated).
+- typing.po                      181 / 787 ( 22.0% translated).
 - unicodedata.po                   5 /  32 ( 15.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               104 / 442 ( 23.0% translated).
@@ -350,7 +350,7 @@
 - windows.po                     331 / 389 ( 85.0% translated).
 
 
-# whatsnew (70.84% done)
+# whatsnew (70.83% done)
 
 - 2.0.po                         183 / 207 ( 88.0% translated).
 - 2.1.po                         139 / 154 ( 90.0% translated).
@@ -364,7 +364,7 @@
 - 3.1.po                         114 / 132 ( 86.0% translated).
 - 3.10.po                        503 / 550 ( 91.0% translated).
 - 3.11.po                        764 / 776 ( 98.0% translated).
-- 3.13.po                        731 / 776 ( 94.0% translated).
+- 3.13.po                        731 / 777 ( 94.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         132 / 682 ( 19.0% translated).
 - 3.4.po                         509 / 517 ( 98.0% translated).
