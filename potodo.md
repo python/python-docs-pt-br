@@ -52,13 +52,13 @@
 - programming.po                 259 / 388 ( 66.0% translated).
 
 
-# howto (45.39% done)
+# howto (45.86% done)
 
 - annotations.po                  44 /  45 ( 97.0% translated).
 - argparse.po                     81 /  84 ( 96.0% translated).
 - clinic.po                      101 / 424 ( 23.0% translated).
 - curses.po                       69 / 105 ( 65.0% translated).
-- descriptor.po                   46 / 175 ( 26.0% translated).
+- descriptor.po                   57 / 175 ( 32.0% translated).
 - functional.po                  137 / 206 ( 66.0% translated).
 - instrumentation.po               8 /  59 ( 13.0% translated).
 - ipaddress.po                    35 /  48 ( 72.0% translated).
@@ -76,7 +76,7 @@
 - index.po                       168 / 226 ( 74.0% translated).
 
 
-# library (44.56% done)
+# library (44.59% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    190 / 290 ( 65.0% translated).
@@ -115,7 +115,7 @@
 - contextlib.po                    8 / 125 (  6.0% translated).
 - copyreg.po                       8 /   9 ( 88.0% translated).
 - crypt.po                         3 /  30 ( 10.0% translated).
-- ctypes.po                       75 / 434 ( 17.0% translated).
+- ctypes.po                       82 / 434 ( 18.0% translated).
 - curses.ascii.po                 41 / 102 ( 40.0% translated).
 - curses.panel.po                  6 /  23 ( 26.0% translated).
 - curses.po                      230 / 639 ( 35.0% translated).
@@ -265,7 +265,7 @@
 - xml.sax.po                       2 /  32 (  6.0% translated).
 - xml.sax.reader.po                2 /  75 (  2.0% translated).
 - xml.sax.utils.po                 1 /  13 (  7.0% translated).
-- xmlrpc.client.po                53 /  98 ( 54.0% translated).
+- xmlrpc.client.po                54 /  98 ( 55.0% translated).
 - zipapp.po                        6 /  79 (  7.0% translated).
 - zipimport.po                     6 /  38 ( 15.0% translated).
 - zlib.po                         62 /  64 ( 96.0% translated).
@@ -292,7 +292,7 @@
 - windows.po                     300 / 309 ( 97.0% translated).
 
 
-# whatsnew (63.89% done)
+# whatsnew (63.92% done)
 
 - 2.0.po                         137 / 182 ( 75.0% translated).
 - 2.2.po                         138 / 192 ( 71.0% translated).
@@ -301,7 +301,7 @@
 - 2.5.po                         359 / 386 ( 93.0% translated).
 - 2.6.po                         535 / 539 ( 99.0% translated).
 - 2.7.po                         442 / 453 ( 97.0% translated).
-- 3.10.po                        510 / 517 ( 98.0% translated).
+- 3.10.po                        512 / 517 ( 99.0% translated).
 - 3.2.po                          69 / 518 ( 13.0% translated).
 - 3.3.po                         154 / 660 ( 23.0% translated).
 - 3.4.po                         510 / 511 ( 99.0% translated).
