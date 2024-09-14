@@ -59,14 +59,13 @@
 - windows.po                      48 /  58 ( 82.0% translated).
 
 
-# howto (45.05% done)
+# howto (43.93% done)
 
 - annotations.po                  45 /  48 ( 93.0% translated).
 - argparse.po                     95 / 135 ( 70.0% translated).
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                   60 / 230 ( 26.0% translated).
 - enum.po                         57 / 327 ( 17.0% translated).
-- free-threading-extensions.po    66 /  71 ( 92.0% translated).
 - functional.po                  136 / 252 ( 53.0% translated).
 - gdb_helpers.po                  66 /  86 ( 76.0% translated).
 - instrumentation.po               8 /  77 ( 10.0% translated).
@@ -350,7 +349,7 @@
 - windows.po                     331 / 389 ( 85.0% translated).
 
 
-# whatsnew (70.83% done)
+# whatsnew (71.12% done)
 
 - 2.0.po                         183 / 207 ( 88.0% translated).
 - 2.1.po                         139 / 154 ( 90.0% translated).
@@ -364,7 +363,7 @@
 - 3.1.po                         114 / 132 ( 86.0% translated).
 - 3.10.po                        503 / 550 ( 91.0% translated).
 - 3.11.po                        764 / 776 ( 98.0% translated).
-- 3.13.po                        731 / 777 ( 94.0% translated).
+- 3.13.po                        758 / 777 ( 97.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         132 / 682 ( 19.0% translated).
 - 3.4.po                         509 / 517 ( 98.0% translated).
