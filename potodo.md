@@ -88,7 +88,7 @@
 - index.po                        53 /  59 ( 89.0% translated).
 
 
-# library (48.64% done)
+# library (48.67% done)
 
 - __future__.po                   56 /  58 ( 96.0% translated).
 - __main__.po                     54 /  73 ( 73.0% translated).
@@ -118,7 +118,7 @@
 - binascii.po                      8 /  38 ( 21.0% translated).
 - bisect.po                       18 /  35 ( 51.0% translated).
 - builtins.po                      4 /   5 ( 80.0% translated).
-- calendar.po                     23 / 104 ( 22.0% translated).
+- calendar.po                     35 / 104 ( 33.0% translated).
 - cmath.po                        56 /  59 ( 94.0% translated).
 - cmd.po                           5 /  50 ( 10.0% translated).
 - codecs.po                      250 / 532 ( 46.0% translated).
@@ -349,7 +349,7 @@
 - windows.po                     331 / 389 ( 85.0% translated).
 
 
-# whatsnew (71.12% done)
+# whatsnew (68.71% done)
 
 - 2.0.po                         183 / 207 ( 88.0% translated).
 - 2.1.po                         139 / 154 ( 90.0% translated).
@@ -363,7 +363,6 @@
 - 3.1.po                         114 / 132 ( 86.0% translated).
 - 3.10.po                        503 / 550 ( 91.0% translated).
 - 3.11.po                        764 / 776 ( 98.0% translated).
-- 3.13.po                        758 / 777 ( 97.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         132 / 682 ( 19.0% translated).
 - 3.4.po                         509 / 517 ( 98.0% translated).
