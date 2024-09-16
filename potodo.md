@@ -88,7 +88,7 @@
 - index.po                        53 /  59 ( 89.0% translated).
 
 
-# library (48.67% done)
+# library (48.68% done)
 
 - __future__.po                   56 /  58 ( 96.0% translated).
 - __main__.po                     54 /  73 ( 73.0% translated).
@@ -283,7 +283,7 @@
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
 - turtle.po                      561 / 661 ( 84.0% translated).
 - types.po                       107 / 110 ( 97.0% translated).
-- typing.po                      181 / 787 ( 22.0% translated).
+- typing.po                      182 / 787 ( 23.0% translated).
 - unicodedata.po                   5 /  32 ( 15.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               104 / 442 ( 23.0% translated).
