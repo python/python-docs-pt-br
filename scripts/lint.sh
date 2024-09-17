@@ -8,6 +8,9 @@ set -xeu
 # Fail earlier if required variables are not set
 test -n ${PYDOC_LANGUAGE+x}
 
+# Fail earlier if sphinx-lint is not installed
+sphinx-lint --help >/dev/null
+
 rootdir=$(realpath $(dirname $0)/..)
 
 cd "$rootdir"
