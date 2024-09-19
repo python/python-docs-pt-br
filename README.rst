@@ -82,6 +82,8 @@ Maintained versions:
           :target: https://app.transifex.com/python-doc/python-38/
 
 EOL versions:
+-------------
+
 
 .. list-table::
    :header-rows: 1
