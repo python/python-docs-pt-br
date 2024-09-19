@@ -1,9 +1,9 @@
 
 
-# c-api (42.84% done)
+# c-api (42.88% done)
 
 - arg.po                         191 / 195 ( 97.0% translated).
-- buffer.po                      114 / 117 ( 97.0% translated).
+- buffer.po                      116 / 117 ( 99.0% translated).
 - call.po                         95 /  97 ( 97.0% translated).
 - capsule.po                      32 /  33 ( 96.0% translated).
 - complex.po                      33 /  34 ( 97.0% translated).
@@ -39,14 +39,13 @@
 - veryhigh.po                      2 /  57 (  3.0% translated).
 
 
-# extending (13.37% done)
+# extending (10.19% done)
 
 - building.po                      9 /  10 ( 90.0% translated).
 - embedding.po                     2 /  59 (  3.0% translated).
 - extending.po                    14 / 206 (  6.0% translated).
 - newtypes.po                      8 / 117 (  6.0% translated).
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
-- windows.po                      21 /  22 ( 95.0% translated).
 
 
 # faq (65.62% done)
@@ -83,12 +82,7 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# installing (89.83% done)
-
-- index.po                        53 /  59 ( 89.0% translated).
-
-
-# library (48.68% done)
+# library (48.16% done)
 
 - __future__.po                   56 /  58 ( 96.0% translated).
 - __main__.po                     54 /  73 ( 73.0% translated).
@@ -101,7 +95,6 @@
 - asyncio-eventloop.po           310 / 402 ( 77.0% translated).
 - asyncio-extending.po            14 /  27 ( 51.0% translated).
 - asyncio-future.po                9 /  64 ( 14.0% translated).
-- asyncio-llapi-index.po         236 / 238 ( 99.0% translated).
 - asyncio-platforms.po             6 /  26 ( 23.0% translated).
 - asyncio-policy.po               10 /  68 ( 14.0% translated).
 - asyncio-protocol.po             25 / 194 ( 12.0% translated).
@@ -275,9 +268,7 @@
 - timeit.po                       45 /  68 ( 66.0% translated).
 - tkinter.po                     306 / 327 ( 93.0% translated).
 - tkinter.ttk.po                 111 / 429 ( 25.0% translated).
-- token.po                        66 /  67 ( 98.0% translated).
 - tokenize.po                      8 /  52 ( 15.0% translated).
-- tomllib.po                      42 /  44 ( 95.0% translated).
 - trace.po                        41 /  43 ( 95.0% translated).
 - traceback.po                     9 / 105 (  8.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
