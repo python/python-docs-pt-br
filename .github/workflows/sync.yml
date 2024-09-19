@@ -14,7 +14,7 @@ on:
     secrets:
       TX_TOKEN:
         description: "Token required for interacting with Transifex API"
-        required: true
+        required: false
 
 env:
   PYDOC_LANGUAGE: pt_BR
@@ -91,7 +91,7 @@ jobs:
           powrap *.po **/*.po
 
       - name: Update statistics
-        if: always()
+        if: always() && inputs.secrets.TX_TOKEN != 0
         run: |
           python ./scripts/tx_stats.py > cpython/Doc/locale/${{ env.PYDOC_LANGUAGE }}/LC_MESSAGES/stats.json
           git -C cpython/Doc/locale/${{ env.PYDOC_LANGUAGE }}/LC_MESSAGES/ diff stats.json
