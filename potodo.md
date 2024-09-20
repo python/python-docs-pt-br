@@ -1,10 +1,9 @@
 
 
-# c-api (42.88% done)
+# c-api (41.64% done)
 
 - arg.po                         191 / 195 ( 97.0% translated).
 - buffer.po                      116 / 117 ( 99.0% translated).
-- call.po                         95 /  97 ( 97.0% translated).
 - capsule.po                      32 /  33 ( 96.0% translated).
 - complex.po                      33 /  34 ( 97.0% translated).
 - contextvars.po                  30 /  31 ( 96.0% translated).
@@ -319,9 +318,9 @@
 - simple_stmts.po                278 / 292 ( 95.0% translated).
 
 
-# tutorial (73.81% done)
+# tutorial (74.19% done)
 
-- controlflow.po                 164 / 220 ( 74.0% translated).
+- controlflow.po                 167 / 220 ( 75.0% translated).
 - datastructures.po               90 / 125 ( 72.0% translated).
 - floatingpoint.po                47 /  76 ( 61.0% translated).
 - inputoutput.po                  76 / 105 ( 72.0% translated).
