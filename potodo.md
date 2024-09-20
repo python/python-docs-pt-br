@@ -76,7 +76,7 @@
 - index.po                       168 / 226 ( 74.0% translated).
 
 
-# library (44.59% done)
+# library (44.60% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    190 / 290 ( 65.0% translated).
@@ -137,7 +137,6 @@
 - email.mime.po                   26 /  38 ( 68.0% translated).
 - email.parser.po                  2 /  47 (  4.0% translated).
 - email.policy.po                 12 / 103 ( 11.0% translated).
-- email.utils.po                  29 /  33 ( 87.0% translated).
 - enum.po                         49 / 188 ( 26.0% translated).
 - errno.po                         7 / 127 (  5.0% translated).
 - exceptions.po                  136 / 149 ( 91.0% translated).
@@ -233,7 +232,7 @@
 - tkinter.font.po                 34 /  35 ( 97.0% translated).
 - tkinter.po                     303 / 304 ( 99.0% translated).
 - tkinter.tix.po                   4 /  71 (  5.0% translated).
-- tkinter.ttk.po                  94 / 408 ( 23.0% translated).
+- tkinter.ttk.po                 109 / 408 ( 26.0% translated).
 - tokenize.po                      7 /  44 ( 15.0% translated).
 - traceback.po                     7 /  78 (  8.0% translated).
 - tracemalloc.po                  21 / 144 ( 14.0% translated).
