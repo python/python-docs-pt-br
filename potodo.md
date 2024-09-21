@@ -81,7 +81,7 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (48.16% done)
+# library (48.19% done)
 
 - __future__.po                   56 /  58 ( 96.0% translated).
 - __main__.po                     54 /  73 ( 73.0% translated).
@@ -114,7 +114,7 @@
 - cmath.po                        56 /  59 ( 94.0% translated).
 - cmd.po                           5 /  50 ( 10.0% translated).
 - codecs.po                      250 / 532 ( 46.0% translated).
-- collections.abc.po              87 / 135 ( 64.0% translated).
+- collections.abc.po              96 / 135 ( 71.0% translated).
 - collections.po                 213 / 241 ( 88.0% translated).
 - colorsys.po                     12 /  13 ( 92.0% translated).
 - compileall.po                   58 /  60 ( 96.0% translated).
