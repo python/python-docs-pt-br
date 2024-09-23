@@ -318,9 +318,9 @@
 - simple_stmts.po                278 / 292 ( 95.0% translated).
 
 
-# tutorial (73.86% done)
+# tutorial (75.68% done)
 
-- controlflow.po                 167 / 220 ( 75.0% translated).
+- controlflow.po                 179 / 220 ( 81.0% translated).
 - datastructures.po               90 / 125 ( 72.0% translated).
 - floatingpoint.po                47 /  76 ( 61.0% translated).
 - inputoutput.po                  76 / 105 ( 72.0% translated).
@@ -337,7 +337,7 @@
 - windows.po                     331 / 389 ( 85.0% translated).
 
 
-# whatsnew (68.72% done)
+# whatsnew (68.74% done)
 
 - 2.0.po                         183 / 207 ( 88.0% translated).
 - 2.1.po                         139 / 154 ( 90.0% translated).
@@ -349,7 +349,7 @@
 - 2.7.po                         452 / 498 ( 90.0% translated).
 - 3.0.po                         205 / 212 ( 96.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
-- 3.10.po                        503 / 550 ( 91.0% translated).
+- 3.10.po                        505 / 550 ( 91.0% translated).
 - 3.11.po                        765 / 776 ( 98.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         132 / 682 ( 19.0% translated).
