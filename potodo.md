@@ -1,6 +1,6 @@
 
 
-# c-api (41.64% done)
+# c-api (41.71% done)
 
 - arg.po                         191 / 195 ( 97.0% translated).
 - buffer.po                      116 / 117 ( 99.0% translated).
@@ -22,7 +22,7 @@
 - long.po                         37 / 102 ( 36.0% translated).
 - memory.po                       53 / 198 ( 26.0% translated).
 - module.po                       55 / 132 ( 41.0% translated).
-- number.po                       11 /  48 ( 22.0% translated).
+- number.po                       14 /  48 ( 29.0% translated).
 - object.po                       42 / 117 ( 35.0% translated).
 - perfmaps.po                      9 /  10 ( 90.0% translated).
 - refcounting.po                   4 /  47 (  8.0% translated).
@@ -81,7 +81,7 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (48.19% done)
+# library (48.20% done)
 
 - __future__.po                   56 /  58 ( 96.0% translated).
 - __main__.po                     54 /  73 ( 73.0% translated).
@@ -225,7 +225,7 @@
 - pyexpat.po                      21 / 144 ( 14.0% translated).
 - queue.po                         7 /  53 ( 13.0% translated).
 - random.po                      125 / 137 ( 91.0% translated).
-- re.po                          417 / 437 ( 95.0% translated).
+- re.po                          421 / 437 ( 96.0% translated).
 - readline.po                     52 /  56 ( 92.0% translated).
 - reprlib.po                       9 /  39 ( 23.0% translated).
 - resource.po                     46 / 116 ( 39.0% translated).
@@ -306,10 +306,10 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (81.64% done)
+# reference (81.75% done)
 
 - compound_stmts.po              193 / 466 ( 41.0% translated).
-- datamodel.po                   650 / 827 ( 78.0% translated).
+- datamodel.po                   653 / 827 ( 78.0% translated).
 - executionmodel.po               99 / 104 ( 95.0% translated).
 - expressions.po                 526 / 534 ( 98.0% translated).
 - grammar.po                       3 /   4 ( 75.0% translated).
