@@ -20,17 +20,17 @@
 # Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2023
 # Ana Carolina Gomes, 2023
 # Pedro Fonini, 2024
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 # Adorilson Bezerra <adorilson@gmail.com>, 2024
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-31 10:59+0000\n"
+"POT-Creation-Date: 2024-09-20 14:17+0000\n"
 "PO-Revision-Date: 2021-06-28 01:10+0000\n"
-"Last-Translator: Adorilson Bezerra <adorilson@gmail.com>, 2024\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -256,13 +256,15 @@ msgstr ""
 
 #: ../../library/os.rst:116
 msgid ":func:`sys.getfilesystemencoding` returns ``'utf-8'``."
-msgstr ""
+msgstr ":func:`sys.getfilesystemencoding` retorna ``'utf-8'``."
 
 #: ../../library/os.rst:117
 msgid ""
 ":func:`locale.getpreferredencoding` returns ``'utf-8'`` (the *do_setlocale* "
 "argument has no effect)."
 msgstr ""
+":func:`locale.getpreferredencoding` retorna ``'utf-8'`` (o argumento "
+"*do_setlocale* não causa efeito)."
 
 #: ../../library/os.rst:119
 msgid ""
@@ -314,7 +316,7 @@ msgstr ""
 
 #: ../../library/os.rst:136
 msgid ":func:`os.fsdecode` and :func:`os.fsencode` use the UTF-8 encoding."
-msgstr ""
+msgstr ":func:`os.fsdecode` e :func:`os.fsencode` usam a codificação UTF-8."
 
 #: ../../library/os.rst:137
 msgid ""
@@ -323,6 +325,10 @@ msgid ""
 "default so that attempting to open a binary file in text mode is likely to "
 "raise an exception rather than producing nonsense data."
 msgstr ""
+":func:`open`, :func:`io.open` e :func:`codecs.open` usam a codificação UTF-8 "
+"por padrão. No entanto, elas ainda usam o tratador de erros estrito por "
+"padrão, de modo que a tentativa de abrir um arquivo binário no modo de texto "
+"provavelmente levantará uma exceção em vez de produzir dados sem sentido."
 
 #: ../../library/os.rst:142
 msgid ""
@@ -1028,6 +1034,9 @@ msgid ""
 "os.setns(fd, os.CLONE_NEWNET)\n"
 "os.close(fd)"
 msgstr ""
+"fd = os.open(\"/proc/1/ns/net\", os.O_RDONLY)\n"
+"os.setns(fd, os.CLONE_NEWNET)\n"
+"os.close(fd)"
 
 #: ../../library/os.rst:639
 msgid ":ref:`Availability <availability>`: Linux >= 3.0 with glibc >= 2.14."
@@ -1194,6 +1203,10 @@ msgid ""
 "uname` can be used to get the user-facing operating system name and version "
 "on iOS and Android."
 msgstr ""
+"No macOS, iOS e Android, retorna o nome e a versão do *kernel* (ou seja, "
+"``'Darwin'`` no macOS e iOS; ``'Linux'`` no Android). :func:`platform.uname` "
+"pode ser usada para obter o nome e a versão do sistema operacional voltado "
+"para o usuário no iOS e Android."
 
 #: ../../library/os.rst:794 ../../library/os.rst:5001
 msgid ""
@@ -1371,6 +1384,11 @@ msgid ""
 "    except OSError:\n"
 "        pass"
 msgstr ""
+"for fd in range(fd_low, fd_high):\n"
+"    try:\n"
+"        os.close(fd)\n"
+"    except OSError:\n"
+"        pass"
 
 #: ../../library/os.rst:924
 msgid ""
@@ -2924,6 +2942,10 @@ msgid ""
 "        return fp.read()\n"
 "return \"some default data\""
 msgstr ""
+"if os.access(\"meuarquivo\", os.R_OK):\n"
+"    with open(\"meuarquivo\") as fp:\n"
+"        return fp.read()\n"
+"return \"algum dado padrão\""
 
 #: ../../library/os.rst:2010
 msgid "is better written as::"
@@ -2939,6 +2961,13 @@ msgid ""
 "    with fp:\n"
 "        return fp.read()"
 msgstr ""
+"try:\n"
+"    fp = open(\"meuarquivo\")\n"
+"except PermissionError:\n"
+"    return \"algum dado padrão\"\n"
+"else:\n"
+"    with fp:\n"
+"        return fp.read()"
 
 #: ../../library/os.rst:2022
 msgid ""
@@ -4138,7 +4167,7 @@ msgid ""
 msgstr ""
 "O exemplo a seguir mostra um uso simples de :func:`scandir` para exibir "
 "todos os arquivos (excluindo diretórios) no *path* fornecido que não começa "
-"com ``'.'``. A chamada ``entry.is_file()`` geralmente não fará uma chamada "
+"com ``'.'``. A chamada ``entrada.is_file()`` geralmente não fará uma chamada "
 "de sistema adicional::"
 
 #: ../../library/os.rst:2812
@@ -4148,6 +4177,10 @@ msgid ""
 "        if not entry.name.startswith('.') and entry.is_file():\n"
 "            print(entry.name)"
 msgstr ""
+"with os.scandir(caminho) as coisa:\n"
+"    for entrada in coisa:\n"
+"        if not entrada.name.startswith('.') and entrada.is_file():\n"
+"            print(entrada.name)"
 
 #: ../../library/os.rst:2819
 msgid ""
@@ -4174,6 +4207,10 @@ msgid ""
 "nor explicitly closed a :exc:`ResourceWarning` will be emitted in its "
 "destructor."
 msgstr ""
+"Adicionado suporte para o protocolo de :term:`gerenciador de contexto` e o "
+"método :func:`~scandir.close`. Se um iterador :func:`scandir` não estiver "
+"esgotado nem explicitamente fechado, uma :exc:`ResourceWarning` será emitida "
+"em seu destrutor."
 
 #: ../../library/os.rst:2837
 msgid "The function accepts a :term:`path-like object`."
@@ -4583,6 +4620,14 @@ msgid ""
 ">>> statinfo.st_size\n"
 "264"
 msgstr ""
+">>> import os\n"
+">>> statinfo = os.stat('algumarquivo.txt')\n"
+">>> statinfo\n"
+"os.stat_result(st_mode=33188, st_ino=7876932, st_dev=234881026,\n"
+"st_nlink=1, st_uid=501, st_gid=501, st_size=264, st_atime=1297230295,\n"
+"st_mtime=1297230027, st_ctime=1297230027)\n"
+">>> statinfo.st_size\n"
+"264"
 
 #: ../../library/os.rst:3043
 msgid ":func:`fstat` and :func:`lstat` functions."
@@ -5095,7 +5140,7 @@ msgstr ""
 
 #: ../../library/os.rst:3360
 msgid "os.stat in os.supports_dir_fd"
-msgstr ""
+msgstr "os.stat in os.supports_dir_fd"
 
 #: ../../library/os.rst:3362
 msgid ""
@@ -5129,7 +5174,7 @@ msgstr ""
 
 #: ../../library/os.rst:3379
 msgid "os.access in os.supports_effective_ids"
-msgstr ""
+msgstr "os.access in os.supports_effective_ids"
 
 #: ../../library/os.rst:3381
 msgid ""
@@ -5170,7 +5215,7 @@ msgstr ""
 
 #: ../../library/os.rst:3402
 msgid "os.chdir in os.supports_fd"
-msgstr ""
+msgstr "os.chdir in os.supports_fd"
 
 #: ../../library/os.rst:3409
 msgid ""
@@ -5211,7 +5256,7 @@ msgstr ""
 
 #: ../../library/os.rst:3425
 msgid "os.stat in os.supports_follow_symlinks"
-msgstr ""
+msgstr "os.stat in os.supports_follow_symlinks"
 
 #: ../../library/os.rst:3432
 msgid "Create a symbolic link pointing to *src* named *dst*."
@@ -5525,6 +5570,14 @@ msgid ""
 "    if 'CVS' in dirs:\n"
 "        dirs.remove('CVS')  # don't visit CVS directories"
 msgstr ""
+"import os\n"
+"from os.path import join, getsize\n"
+"for root, dirs, files in os.walk('python/Lib/email'):\n"
+"    print(root, \"consome\", end=\" \")\n"
+"    print(sum(getsize(join(root, name)) for name in files), end=\" \")\n"
+"    print(\"bytes em\", len(files), \"arquivos que não são diretórios\")\n"
+"    if 'CVS' in dirs:\n"
+"        dirs.remove('CVS')  # não visita diretórios de CVS"
 
 #: ../../library/os.rst:3634
 msgid ""
@@ -5549,6 +5602,16 @@ msgid ""
 "    for name in dirs:\n"
 "        os.rmdir(os.path.join(root, name))"
 msgstr ""
+"# Exclui tudo que for acessível do diretório nomeado em \"top\",\n"
+"# presumindo que não há links simbólicos.\n"
+"# CUIDADO: Isso é perigoso! Por exemplo, se top == '/',\n"
+"# ele pode excluir todos os seus arquivos de disco.\n"
+"import os\n"
+"for root, dirs, files in os.walk(top, topdown=False):\n"
+"    for name in files:\n"
+"        os.remove(os.path.join(root, name))\n"
+"    for name in dirs:\n"
+"        os.rmdir(os.path.join(root, name))"
 
 #: ../../library/os.rst:3649
 msgid ""
@@ -5616,6 +5679,14 @@ msgid ""
 "    if 'CVS' in dirs:\n"
 "        dirs.remove('CVS')  # don't visit CVS directories"
 msgstr ""
+"import os\n"
+"for root, dirs, files, rootfd in os.fwalk('python/Lib/email'):\n"
+"    print(root, \"consome\", end=\"\")\n"
+"    print(sum([os.stat(name, dir_fd=rootfd).st_size for name in files]),\n"
+"          end=\"\")\n"
+"    print(\"bytes em\", len(files), \"arquivos que não são diretórios\")\n"
+"    if 'CVS' in dirs:\n"
+"        dirs.remove('CVS')  # não visita diretórios de CVS"
 
 #: ../../library/os.rst:3695
 msgid ""
@@ -5638,6 +5709,16 @@ msgid ""
 "    for name in dirs:\n"
 "        os.rmdir(name, dir_fd=rootfd)"
 msgstr ""
+"# Exclui tudo que for acessível do diretório nomeado em \"top\",\n"
+"# presumindo que não há links simbólicos.\n"
+"# CUIDADO: Isso é perigoso! Por exemplo, se top == '/',\n"
+"# ele pode excluir todos os seus arquivos de disco.\n"
+"import os\n"
+"for root, dirs, files, rootfd in os.fwalk(top, topdown=False):\n"
+"    for name in files:\n"
+"        os.unlink(name, dir_fd=rootfd)\n"
+"    for name in dirs:\n"
+"        os.rmdir(name, dir_fd=rootfd)"
 
 #: ../../library/os.rst:3710
 msgid ""
@@ -5787,6 +5868,20 @@ msgid ""
 "finally:\n"
 "    os.close(fd)"
 msgstr ""
+"import os\n"
+"\n"
+"# semáforo com valor inicial '1'\n"
+"fd = os.eventfd(1, os.EFD_SEMAPHORE | os.EFC_CLOEXEC)\n"
+"try:\n"
+"    # adquire o semário\n"
+"    v = os.eventfd_read(fd)\n"
+"    try:\n"
+"        faz_o_trabalho()\n"
+"    finally:\n"
+"        # libera o semáforo\n"
+"        os.eventfd_write(fd, v)\n"
+"finally:\n"
+"    os.close(fd)"
 
 #: ../../library/os.rst:3816 ../../library/os.rst:3932
 #: ../../library/os.rst:3995 ../../library/os.rst:4005
@@ -7457,6 +7552,11 @@ msgid ""
 "L = ['cp', 'index.html', '/dev/null']\n"
 "os.spawnvpe(os.P_WAIT, 'cp', L, os.environ)"
 msgstr ""
+"import os\n"
+"os.spawnlp(os.P_WAIT, 'cp', 'cp', 'index.html', '/dev/null')\n"
+"\n"
+"L = ['cp', 'index.html', '/dev/null']\n"
+"os.spawnvpe(os.P_WAIT, 'cp', L, os.environ)"
 
 #: ../../library/os.rst:4850
 msgid ""

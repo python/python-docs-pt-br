@@ -81,7 +81,7 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (48.20% done)
+# library (46.44% done)
 
 - __future__.po                   56 /  58 ( 96.0% translated).
 - __main__.po                     54 /  73 ( 73.0% translated).
@@ -207,8 +207,6 @@
 - numbers.po                      30 /  34 ( 88.0% translated).
 - operator.po                    180 / 183 ( 98.0% translated).
 - optparse.po                     37 / 507 (  7.0% translated).
-- os.path.po                      90 /  98 ( 91.0% translated).
-- os.po                          1043 / 1065 ( 97.0% translated).
 - pathlib.po                     247 / 418 ( 59.0% translated).
 - pdb.po                         132 / 150 ( 88.0% translated).
 - pickle.po                      228 / 245 ( 93.0% translated).
@@ -337,7 +335,7 @@
 - windows.po                     331 / 389 ( 85.0% translated).
 
 
-# whatsnew (68.83% done)
+# whatsnew (68.84% done)
 
 - 2.0.po                         183 / 207 ( 88.0% translated).
 - 2.1.po                         139 / 154 ( 90.0% translated).
@@ -354,7 +352,7 @@
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         132 / 682 ( 19.0% translated).
 - 3.4.po                         509 / 517 ( 98.0% translated).
-- 3.5.po                         123 / 578 ( 21.0% translated).
+- 3.5.po                         124 / 578 ( 21.0% translated).
 - 3.6.po                         234 / 544 ( 43.0% translated).
 - 3.7.po                         246 / 568 ( 43.0% translated).
 - 3.8.po                         459 / 513 ( 89.0% translated).
