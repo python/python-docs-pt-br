@@ -82,7 +82,7 @@
 - index.po                       166 / 226 ( 73.0% translated).
 
 
-# library (44.72% done)
+# library (44.76% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          33 /  49 ( 67.0% translated).
@@ -108,7 +108,7 @@
 - bdb.po                           8 / 110 (  7.0% translated).
 - binascii.po                     10 /  40 ( 25.0% translated).
 - bisect.po                       16 /  30 ( 53.0% translated).
-- calendar.po                     22 /  93 ( 23.0% translated).
+- calendar.po                     34 /  93 ( 36.0% translated).
 - cgi.po                          27 / 109 ( 24.0% translated).
 - chunk.po                        14 /  39 ( 35.0% translated).
 - cmath.po                        54 /  56 ( 96.0% translated).
