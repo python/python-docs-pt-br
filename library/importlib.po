@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-06 14:16+0000\n"
+"POT-Creation-Date: 2024-09-27 14:17+0000\n"
 "PO-Revision-Date: 2021-06-28 01:08+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -2348,34 +2348,53 @@ msgid "Importing a source file directly"
 msgstr "Importa o arquivo de origem diretamente"
 
 #: ../../library/importlib.rst:1587
-msgid "To import a Python source file directly, use the following recipe::"
+msgid ""
+"This recipe should be used with caution: it is an approximation of an import "
+"statement where the file path is specified directly, rather than :data:`sys."
+"path` being searched. Alternatives should first be considered first, such as "
+"modifying :data:`sys.path` when a proper module is required, or using :func:"
+"`runpy.run_path` when the global namespace resulting from running a Python "
+"file is appropriate."
 msgstr ""
 
-#: ../../library/importlib.rst:1589
+#: ../../library/importlib.rst:1594
+msgid ""
+"To import a Python source file directly from a path, use the following "
+"recipe::"
+msgstr ""
+
+#: ../../library/importlib.rst:1596
 msgid ""
 "import importlib.util\n"
 "import sys\n"
 "\n"
-"# For illustrative purposes.\n"
-"import tokenize\n"
-"file_path = tokenize.__file__\n"
-"module_name = tokenize.__name__\n"
 "\n"
-"spec = importlib.util.spec_from_file_location(module_name, file_path)\n"
-"module = importlib.util.module_from_spec(spec)\n"
-"sys.modules[module_name] = module\n"
-"spec.loader.exec_module(module)"
+"def import_from_path(module_name, file_path):\n"
+"    spec = importlib.util.spec_from_file_location(module_name, file_path)\n"
+"    module = importlib.util.module_from_spec(spec)\n"
+"    sys.modules[module_name] = module\n"
+"    spec.loader.exec_module(module)\n"
+"    return module\n"
+"\n"
+"\n"
+"# For illustrative purposes only (use of `json` is arbitrary).\n"
+"import json\n"
+"file_path = json.__file__\n"
+"module_name = json.__name__\n"
+"\n"
+"# Similar outcome as `import json`.\n"
+"json = import_from_path(module_name, file_path)"
 msgstr ""
 
-#: ../../library/importlib.rst:1604
+#: ../../library/importlib.rst:1618
 msgid "Implementing lazy imports"
 msgstr ""
 
-#: ../../library/importlib.rst:1606
+#: ../../library/importlib.rst:1620
 msgid "The example below shows how to implement lazy imports::"
 msgstr ""
 
-#: ../../library/importlib.rst:1608
+#: ../../library/importlib.rst:1622
 msgid ""
 ">>> import importlib.util\n"
 ">>> import sys\n"
@@ -2395,11 +2414,11 @@ msgid ""
 "False"
 msgstr ""
 
-#: ../../library/importlib.rst:1628
+#: ../../library/importlib.rst:1641
 msgid "Setting up an importer"
 msgstr ""
 
-#: ../../library/importlib.rst:1630
+#: ../../library/importlib.rst:1643
 msgid ""
 "For deep customizations of import, you typically want to implement an :term:"
 "`importer`. This means managing both the :term:`finder` and :term:`loader` "
@@ -2413,7 +2432,7 @@ msgid ""
 "for the appropriate classes defined within this package)::"
 msgstr ""
 
-#: ../../library/importlib.rst:1641
+#: ../../library/importlib.rst:1654
 msgid ""
 "import importlib.machinery\n"
 "import sys\n"
@@ -2437,11 +2456,11 @@ msgid ""
 "sys.path_hooks.append(SpamPathEntryFinder.path_hook(loader_details))"
 msgstr ""
 
-#: ../../library/importlib.rst:1662
+#: ../../library/importlib.rst:1675
 msgid "Approximating :func:`importlib.import_module`"
 msgstr ""
 
-#: ../../library/importlib.rst:1664
+#: ../../library/importlib.rst:1677
 msgid ""
 "Import itself is implemented in Python code, making it possible to expose "
 "most of the import machinery through importlib. The following helps "
@@ -2449,7 +2468,7 @@ msgid ""
 "approximate implementation of :func:`importlib.import_module`::"
 msgstr ""
 
-#: ../../library/importlib.rst:1670
+#: ../../library/importlib.rst:1683
 msgid ""
 "import importlib.util\n"
 "import sys\n"
