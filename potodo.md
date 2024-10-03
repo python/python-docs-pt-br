@@ -83,7 +83,7 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (48.17% done)
+# library (46.51% done)
 
 - __future__.po                   56 /  58 ( 96.0% translated).
 - __main__.po                     54 /  73 ( 73.0% translated).
@@ -172,7 +172,7 @@
 - gettext.po                     116 / 129 ( 89.0% translated).
 - glob.po                         42 /  44 ( 95.0% translated).
 - graphlib.po                     32 /  38 ( 84.0% translated).
-- grp.po                          14 /  27 ( 51.0% translated).
+- grp.po                          15 /  27 ( 55.0% translated).
 - gzip.po                         10 /  68 ( 14.0% translated).
 - hashlib.po                      11 / 168 (  6.0% translated).
 - heapq.po                        52 /  57 ( 91.0% translated).
@@ -212,7 +212,6 @@
 - numbers.po                      30 /  34 ( 88.0% translated).
 - operator.po                    180 / 183 ( 98.0% translated).
 - optparse.po                     37 / 507 (  7.0% translated).
-- os.po                          1061 / 1068 ( 99.0% translated).
 - pathlib.po                     247 / 418 ( 59.0% translated).
 - pdb.po                         132 / 150 ( 88.0% translated).
 - pickle.po                      228 / 245 ( 93.0% translated).
@@ -323,9 +322,9 @@
 - simple_stmts.po                278 / 292 ( 95.0% translated).
 
 
-# tutorial (77.12% done)
+# tutorial (79.37% done)
 
-- controlflow.po                 171 / 223 ( 76.0% translated).
+- controlflow.po                 188 / 223 ( 84.0% translated).
 - datastructures.po               90 / 125 ( 72.0% translated).
 - errors.po                       88 /  95 ( 92.0% translated).
 - floatingpoint.po                47 /  76 ( 61.0% translated).
@@ -343,7 +342,7 @@
 - windows.po                     329 / 389 ( 84.0% translated).
 
 
-# whatsnew (69.67% done)
+# whatsnew (69.70% done)
 
 - 2.0.po                         183 / 207 ( 88.0% translated).
 - 2.1.po                         138 / 154 ( 89.0% translated).
@@ -355,7 +354,7 @@
 - 2.7.po                         450 / 498 ( 90.0% translated).
 - 3.0.po                         205 / 212 ( 96.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
-- 3.10.po                        505 / 550 ( 91.0% translated).
+- 3.10.po                        508 / 550 ( 92.0% translated).
 - 3.11.po                        772 / 776 ( 99.0% translated).
 - 3.13.po                        670 / 842 ( 79.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
