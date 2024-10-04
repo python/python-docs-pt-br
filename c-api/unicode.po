@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-27 14:50+0000\n"
+"POT-Creation-Date: 2024-10-04 14:53+0000\n"
 "PO-Revision-Date: 2024-05-11 00:32+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -1753,16 +1753,53 @@ msgid ""
 "`*p_unicode`, it sets :c:expr:`*p_unicode` to it (releasing the reference to "
 "the old string object and creating a new :term:`strong reference` to the "
 "interned string object), otherwise it leaves :c:expr:`*p_unicode` alone and "
-"interns it (creating a new :term:`strong reference`). (Clarification: even "
-"though there is a lot of talk about references, think of this function as "
-"reference-neutral; you own the object after the call if and only if you "
-"owned it before the call.)"
+"interns it."
 msgstr ""
 
-#: ../../c-api/unicode.rst:1472
+#: ../../c-api/unicode.rst:1466
+msgid ""
+"(Clarification: even though there is a lot of talk about references, think "
+"of this function as reference-neutral. You must own the object you pass in; "
+"after the call you no longer own the passed-in reference, but you newly own "
+"the result.)"
+msgstr ""
+
+#: ../../c-api/unicode.rst:1471
+msgid ""
+"This function never raises an exception. On error, it leaves its argument "
+"unchanged without interning it."
+msgstr ""
+
+#: ../../c-api/unicode.rst:1474
+msgid ""
+"Instances of subclasses of :py:class:`str` may not be interned, that is, :c:"
+"expr:`PyUnicode_CheckExact(*p_unicode)` must be true. If it is not, then -- "
+"as with any other error -- the argument is left unchanged."
+msgstr ""
+
+#: ../../c-api/unicode.rst:1478
+msgid ""
+"Note that interned strings are not “immortal”. You must keep a reference to "
+"the result to benefit from interning."
+msgstr ""
+
+#: ../../c-api/unicode.rst:1484
 msgid ""
 "A combination of :c:func:`PyUnicode_FromString` and :c:func:"
-"`PyUnicode_InternInPlace`, returning either a new Unicode string object that "
-"has been interned, or a new (\"owned\") reference to an earlier interned "
-"string object with the same value."
+"`PyUnicode_InternInPlace`, meant for statically allocated strings."
+msgstr ""
+
+#: ../../c-api/unicode.rst:1487
+msgid ""
+"Return a new (\"owned\") reference to either a new Unicode string object "
+"that has been interned, or an earlier interned string object with the same "
+"value."
+msgstr ""
+
+#: ../../c-api/unicode.rst:1491
+msgid ""
+"Python may keep a reference to the result, or prevent it from being garbage-"
+"collected promptly. For interning an unbounded number of different strings, "
+"such as ones coming from user input, prefer calling :c:func:"
+"`PyUnicode_FromString` and :c:func:`PyUnicode_InternInPlace` directly."
 msgstr ""
