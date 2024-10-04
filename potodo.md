@@ -5,7 +5,7 @@
 - license.po                      95 /  99 ( 95.0% translated).
 
 
-# c-api (39.34% done)
+# c-api (39.43% done)
 
 - datetime.po                     33 /  52 ( 63.0% translated).
 - exceptions.po                  193 / 347 ( 55.0% translated).
@@ -21,7 +21,7 @@
 - long.po                         30 /  59 ( 50.0% translated).
 - memory.po                       53 / 189 ( 28.0% translated).
 - module.po                       53 / 109 ( 48.0% translated).
-- number.po                       11 /  48 ( 22.0% translated).
+- number.po                       14 /  48 ( 29.0% translated).
 - object.po                       12 /  67 ( 17.0% translated).
 - refcounting.po                   4 /  28 ( 14.0% translated).
 - sequence.po                     15 /  30 ( 50.0% translated).
@@ -82,7 +82,7 @@
 - index.po                       166 / 226 ( 73.0% translated).
 
 
-# library (44.76% done)
+# library (44.78% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          33 /  49 ( 67.0% translated).
@@ -115,7 +115,7 @@
 - cmd.po                           6 /  46 ( 13.0% translated).
 - code.po                         30 /  31 ( 96.0% translated).
 - codecs.po                      250 / 533 ( 46.0% translated).
-- collections.abc.po              86 / 119 ( 72.0% translated).
+- collections.abc.po              90 / 119 ( 75.0% translated).
 - concurrent.futures.po           15 /  90 ( 16.0% translated).
 - configparser.po                178 / 186 ( 95.0% translated).
 - contextlib.po                    8 / 130 (  6.0% translated).
@@ -286,10 +286,10 @@
 - zoneinfo.po                      8 /  75 ( 10.0% translated).
 
 
-# reference (78.64% done)
+# reference (78.82% done)
 
 - compound_stmts.po              188 / 389 ( 48.0% translated).
-- datamodel.po                   641 / 786 ( 81.0% translated).
+- datamodel.po                   644 / 786 ( 81.0% translated).
 - executionmodel.po               73 /  75 ( 97.0% translated).
 - import.po                      192 / 207 ( 92.0% translated).
 - lexical_analysis.po            287 / 299 ( 95.0% translated).
