@@ -167,7 +167,7 @@
 - fractions.po                    33 /  36 ( 91.0% translated).
 - ftplib.po                       10 /  99 ( 10.0% translated).
 - functools.po                    20 / 115 ( 17.0% translated).
-- gc.po                           56 /  59 ( 94.0% translated).
+- gc.po                           58 /  59 ( 98.0% translated).
 - getopt.po                       20 /  22 ( 90.0% translated).
 - getpass.po                      12 /  13 ( 92.0% translated).
 - gettext.po                     116 / 129 ( 89.0% translated).
