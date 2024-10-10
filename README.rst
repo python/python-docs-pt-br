@@ -71,15 +71,7 @@ Maintained versions:
      - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fpython%2Fpython-docs-pt-br%2Fraw%2F3.9%2Fstats.json&query=total&label=3.9
           :alt: Total strings for Python 3.9
           :target: https://app.transifex.com/python-doc/python-39/
-   * - `3.8 <https://github.com/python/python-docs-pt-br/tree/3.8>`_
-     - .. image:: https://github.com/python/python-docs-pt-br/workflows/python-38/badge.svg
-          :target: https://github.com/python/python-docs-pt-br/actions?workflow=python-38
-     - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fpython%2Fpython-docs-pt-br%2Fraw%2F3.8%2Fstats.json&query=translation&label=pt_BR
-          :alt: Brazilian Portuguese translation status for Python 3.8
-          :target: https://app.transifex.com/python-doc/python-38/
-     - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fpython%2Fpython-docs-pt-br%2Fraw%2F3.8%2Fstats.json&query=total&label=3.8
-          :alt: Total strings for Python 3.8
-          :target: https://app.transifex.com/python-doc/python-38/
+
 
 EOL versions:
 -------------
@@ -92,6 +84,15 @@ EOL versions:
      - Sync status
      - Translation progress
      - Total strings
+   * - `3.8 <https://github.com/python/python-docs-pt-br/tree/3.8>`_
+     - .. image:: https://github.com/python/python-docs-pt-br/workflows/python-38/badge.svg
+          :target: https://github.com/python/python-docs-pt-br/actions?workflow=python-38
+     - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fpython%2Fpython-docs-pt-br%2Fraw%2F3.8%2Fstats.json&query=translation&label=pt_BR
+          :alt: Brazilian Portuguese translation status for Python 3.8
+          :target: https://app.transifex.com/python-doc/python-38/
+     - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fpython%2Fpython-docs-pt-br%2Fraw%2F3.8%2Fstats.json&query=total&label=3.8
+          :alt: Total strings for Python 3.8
+          :target: https://app.transifex.com/python-doc/python-38/
    * - `3.7 <https://github.com/python/python-docs-pt-br/tree/3.7>`_
      - .. image:: https://github.com/python/python-docs-pt-br/workflows/python-37/badge.svg
           :target: https://github.com/python/python-docs-pt-br/actions?workflow=python-37
