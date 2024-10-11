@@ -76,7 +76,7 @@
 - index.po                       168 / 226 ( 74.0% translated).
 
 
-# library (44.64% done)
+# library (44.66% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    190 / 290 ( 65.0% translated).
@@ -107,7 +107,7 @@
 - code.po                         29 /  31 ( 93.0% translated).
 - codecs.po                      237 / 511 ( 46.0% translated).
 - codeop.po                       13 /  14 ( 92.0% translated).
-- collections.abc.po             106 / 119 ( 89.0% translated).
+- collections.abc.po             109 / 119 ( 91.0% translated).
 - collections.po                 210 / 211 ( 99.0% translated).
 - concurrent.futures.po           16 /  88 ( 18.0% translated).
 - configparser.po                152 / 176 ( 86.0% translated).
