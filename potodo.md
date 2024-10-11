@@ -5,11 +5,10 @@
 - license.po                      95 /  99 ( 95.0% translated).
 
 
-# c-api (39.43% done)
+# c-api (39.08% done)
 
 - datetime.po                     33 /  52 ( 63.0% translated).
 - exceptions.po                  193 / 347 ( 55.0% translated).
-- file.po                         20 /  21 ( 95.0% translated).
 - float.po                        14 /  35 ( 40.0% translated).
 - frame.po                        20 /  24 ( 83.0% translated).
 - function.po                     18 /  22 ( 81.0% translated).
@@ -304,7 +303,7 @@
 - windows.po                     314 / 343 ( 91.0% translated).
 
 
-# whatsnew (73.40% done)
+# whatsnew (73.42% done)
 
 - 2.0.po                         181 / 183 ( 98.0% translated).
 - 2.1.po                         138 / 139 ( 99.0% translated).
@@ -320,8 +319,8 @@
 - 3.2.po                          64 / 518 ( 12.0% translated).
 - 3.3.po                         130 / 662 ( 19.0% translated).
 - 3.4.po                         503 / 511 ( 98.0% translated).
-- 3.5.po                         123 / 541 ( 22.0% translated).
-- 3.6.po                         237 / 524 ( 45.0% translated).
+- 3.5.po                         124 / 541 ( 22.0% translated).
+- 3.6.po                         238 / 524 ( 45.0% translated).
 - 3.7.po                         246 / 563 ( 43.0% translated).
 - 3.8.po                         468 / 469 ( 99.0% translated).
 
