@@ -18,9 +18,23 @@ cd "$rootdir"
 mkdir -p logs
 touch logs/sphinxlint.txt
 
-cd cpython/Doc/locale/${PYDOC_LANGUAGE}/LC_MESSAGES
+cd cpython/Doc
+
+# Disable literal blocks and update PO
+sed -i "/^\s*'literal-block',/s/ '/ #'/" conf.py
+# TODO: use `make -C .. gettext` when there are only Python >= 3.12
+opts='-E -b gettext -q -D gettext_compact=0 -d build/.doctrees . build/gettext' 
+make build ALLSPHINXOPTS="$opts"
+# Update translation files with latest POT
+sphinx-intl update -d locale -p build/gettext -l pt_BR > /dev/null
+
+cd locale/${PYDOC_LANGUAGE}/LC_MESSAGES
 sphinx-lint | tee $(realpath "$rootdir/logs/sphinxlint.txt")
-cd $OLDPWD
+
+# Undo changes that disabled literal blocks
+git checkout *.po
+
+cd "$rootdir"
 
 # Remove empty file
 if [ ! -s logs/sphinxlint.txt ]; then
