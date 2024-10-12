@@ -1,11 +1,11 @@
 
 
-# c-api (42.37% done)
+# c-api (42.46% done)
 
 - arg.po                         191 / 195 ( 97.0% translated).
 - buffer.po                      114 / 117 ( 97.0% translated).
 - capsule.po                      32 /  33 ( 96.0% translated).
-- code.po                         55 /  59 ( 93.0% translated).
+- code.po                         58 /  59 ( 98.0% translated).
 - complex.po                      33 /  34 ( 97.0% translated).
 - contextvars.po                  30 /  31 ( 96.0% translated).
 - datetime.po                     31 /  52 ( 59.0% translated).
@@ -37,7 +37,7 @@
 - typehints.po                     6 /   7 ( 85.0% translated).
 - typeobj.po                     228 / 670 ( 34.0% translated).
 - unicode.po                      28 / 323 (  8.0% translated).
-- veryhigh.po                      2 /  54 (  3.0% translated).
+- veryhigh.po                      3 /  54 (  5.0% translated).
 
 
 # deprecations (96.69% done)
@@ -91,7 +91,7 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (47.83% done)
+# library (47.84% done)
 
 - __future__.po                   56 /  58 ( 96.0% translated).
 - __main__.po                     54 /  73 ( 73.0% translated).
@@ -132,7 +132,7 @@
 - concurrent.futures.po           13 / 100 ( 13.0% translated).
 - configparser.po                186 / 218 ( 85.0% translated).
 - constants.po                    20 /  21 ( 95.0% translated).
-- contextlib.po                    8 / 172 (  4.0% translated).
+- contextlib.po                    9 / 172 (  5.0% translated).
 - contextvars.po                  44 /  51 ( 86.0% translated).
 - csv.po                         104 / 117 ( 88.0% translated).
 - ctypes.po                       88 / 523 ( 16.0% translated).
@@ -334,13 +334,11 @@
 - simple_stmts.po                278 / 292 ( 95.0% translated).
 
 
-# tutorial (84.58% done)
+# tutorial (73.97% done)
 
-- controlflow.po                 218 / 223 ( 97.0% translated).
 - datastructures.po               90 / 125 ( 72.0% translated).
 - floatingpoint.po                47 /  76 ( 61.0% translated).
 - inputoutput.po                  81 / 105 ( 77.0% translated).
-- modules.po                     116 / 117 ( 99.0% translated).
 - stdlib.po                       55 /  67 ( 82.0% translated).
 - stdlib2.po                      51 /  65 ( 78.0% translated).
 
@@ -355,7 +353,7 @@
 - windows.po                     329 / 389 ( 84.0% translated).
 
 
-# whatsnew (70.99% done)
+# whatsnew (71.01% done)
 
 - 2.0.po                         183 / 207 ( 88.0% translated).
 - 2.1.po                         138 / 154 ( 89.0% translated).
@@ -369,7 +367,7 @@
 - 3.1.po                         114 / 132 ( 86.0% translated).
 - 3.10.po                        508 / 550 ( 92.0% translated).
 - 3.12.po                        829 / 836 ( 99.0% translated).
-- 3.13.po                        776 / 836 ( 92.0% translated).
+- 3.13.po                        778 / 836 ( 93.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         132 / 682 ( 19.0% translated).
 - 3.4.po                         506 / 517 ( 97.0% translated).
