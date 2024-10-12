@@ -68,9 +68,9 @@
 - index.po                       172 / 225 ( 76.0% translated).
 
 
-# library (38.23% done)
+# library (38.29% done)
 
-- argparse.po                    187 / 290 ( 64.0% translated).
+- argparse.po                    201 / 290 ( 69.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
 - ast.po                         178 / 191 ( 93.0% translated).
 - asynchat.po                      4 /  33 ( 12.0% translated).
