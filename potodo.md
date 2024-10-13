@@ -1,6 +1,6 @@
 
 
-# c-api (39.53% done)
+# c-api (39.57% done)
 
 - exceptions.po                  196 / 266 ( 73.0% translated).
 - gcsupport.po                    10 /  33 ( 30.0% translated).
@@ -17,7 +17,7 @@
 - type.po                         29 /  63 ( 46.0% translated).
 - typeobj.po                     232 / 578 ( 40.0% translated).
 - unicode.po                      51 / 335 ( 15.0% translated).
-- veryhigh.po                      2 /  61 (  3.0% translated).
+- veryhigh.po                      3 /  61 (  4.0% translated).
 
 
 # distutils (28.99% done)
@@ -101,7 +101,7 @@
 - concurrent.futures.po           16 /  87 ( 18.0% translated).
 - configparser.po                151 / 174 ( 86.0% translated).
 - constants.po                    15 /  18 ( 83.0% translated).
-- contextlib.po                    8 / 113 (  7.0% translated).
+- contextlib.po                    9 / 113 (  7.0% translated).
 - crypt.po                         3 /  30 ( 10.0% translated).
 - ctypes.po                       84 / 429 ( 19.0% translated).
 - curses.ascii.po                 41 / 101 ( 40.0% translated).
