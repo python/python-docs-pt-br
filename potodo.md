@@ -74,7 +74,7 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (45.40% done)
+# library (45.42% done)
 
 - __future__.po                   56 /  58 ( 96.0% translated).
 - __main__.po                     54 /  73 ( 73.0% translated).
@@ -246,7 +246,7 @@
 - time.po                        264 / 270 ( 97.0% translated).
 - timeit.po                       45 /  68 ( 66.0% translated).
 - tkinter.po                     305 / 327 ( 93.0% translated).
-- tkinter.ttk.po                 111 / 429 ( 25.0% translated).
+- tkinter.ttk.po                 118 / 429 ( 27.0% translated).
 - tokenize.po                      8 /  52 ( 15.0% translated).
 - trace.po                        41 /  43 ( 95.0% translated).
 - traceback.po                     8 / 111 (  7.0% translated).
@@ -286,9 +286,9 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (78.74% done)
+# reference (78.77% done)
 
-- compound_stmts.po              193 / 467 ( 41.0% translated).
+- compound_stmts.po              194 / 467 ( 41.0% translated).
 - datamodel.po                   620 / 863 ( 71.0% translated).
 - executionmodel.po               97 / 104 ( 93.0% translated).
 - expressions.po                 521 / 537 ( 97.0% translated).
@@ -316,7 +316,7 @@
 - windows.po                     329 / 389 ( 84.0% translated).
 
 
-# whatsnew (71.37% done)
+# whatsnew (71.45% done)
 
 - 2.0.po                         183 / 207 ( 88.0% translated).
 - 2.1.po                         138 / 154 ( 89.0% translated).
@@ -330,7 +330,7 @@
 - 3.1.po                         114 / 132 ( 86.0% translated).
 - 3.10.po                        508 / 550 ( 92.0% translated).
 - 3.12.po                        833 / 836 ( 99.0% translated).
-- 3.13.po                        808 / 836 ( 96.0% translated).
+- 3.13.po                        815 / 836 ( 97.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         132 / 682 ( 19.0% translated).
 - 3.4.po                         506 / 517 ( 97.0% translated).
