@@ -68,7 +68,7 @@
 - index.po                       172 / 225 ( 76.0% translated).
 
 
-# library (38.29% done)
+# library (38.33% done)
 
 - argparse.po                    201 / 290 ( 69.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
@@ -216,7 +216,7 @@
 - timeit.po                       42 /  53 ( 79.0% translated).
 - tkinter.font.po                 33 /  34 ( 97.0% translated).
 - tkinter.tix.po                   4 /  71 (  5.0% translated).
-- tkinter.ttk.po                 108 / 408 ( 26.0% translated).
+- tkinter.ttk.po                 116 / 408 ( 28.0% translated).
 - tokenize.po                      7 /  43 ( 16.0% translated).
 - traceback.po                     4 /  66 (  6.0% translated).
 - tracemalloc.po                  21 / 144 ( 14.0% translated).
