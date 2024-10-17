@@ -297,11 +297,10 @@
 - simple_stmts.po                278 / 292 ( 95.0% translated).
 
 
-# tutorial (73.97% done)
+# tutorial (86.74% done)
 
-- datastructures.po               90 / 125 ( 72.0% translated).
-- floatingpoint.po                47 /  76 ( 61.0% translated).
-- inputoutput.po                  81 / 105 ( 77.0% translated).
+- datastructures.po              124 / 125 ( 99.0% translated).
+- inputoutput.po                  84 / 105 ( 80.0% translated).
 - stdlib.po                       55 /  67 ( 82.0% translated).
 - stdlib2.po                      51 /  65 ( 78.0% translated).
 
