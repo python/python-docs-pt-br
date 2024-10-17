@@ -11,7 +11,7 @@ test -n ${PYDOC_LANGUAGE+x}
 
 rootdir=$(realpath $(dirname $0)/..)
 
-cd "$rootdir"/cpython/Doc/locale/${PYDOC_LANGUAGE}/LC_MESSAGES
+cd "$rootdir"/cpython/Doc/locales/${PYDOC_LANGUAGE}/LC_MESSAGES
 
 potodo --no-cache > potodo.md
 

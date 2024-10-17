@@ -19,7 +19,7 @@ rm -rf cpython
 
 # Check out needed repositories
 git clone --depth 1 --single-branch --branch ${PYDOC_VERSION} https://github.com/python/cpython cpython
-git clone --depth 1 --single-branch --branch ${PYDOC_VERSION} ${PYDOC_REPO} cpython/Doc/locale/${PYDOC_LANGUAGE}/LC_MESSAGES
+git clone --depth 1 --single-branch --branch ${PYDOC_VERSION} ${PYDOC_REPO} cpython/Doc/locales/${PYDOC_LANGUAGE}/LC_MESSAGES
 
 # Install dependencies; Require being in a VENV or in GitHub Actions
 set +u

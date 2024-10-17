@@ -26,9 +26,9 @@ sed -i "/^\s*'literal-block',/s/ '/ #'/" conf.py
 opts='-E -b gettext -q -D gettext_compact=0 -d build/.doctrees . build/gettext' 
 make build ALLSPHINXOPTS="$opts"
 # Update translation files with latest POT
-sphinx-intl update -d locale -p build/gettext -l ${PYDOC_LANGUAGE} > /dev/null
+sphinx-intl update -p build/gettext -l ${PYDOC_LANGUAGE} > /dev/null
 
-cd locale/${PYDOC_LANGUAGE}/LC_MESSAGES
+cd locales/${PYDOC_LANGUAGE}/LC_MESSAGES
 sphinx-lint 2> $(realpath "$rootdir/logs/sphinxlint.txt")
 
 # Undo changes to undo literal blocks disabling
