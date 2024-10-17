@@ -26,17 +26,21 @@ sed -i "/^\s*'literal-block',/s/ '/ #'/" conf.py
 opts='-E -b gettext -q -D gettext_compact=0 -d build/.doctrees . build/gettext' 
 make build ALLSPHINXOPTS="$opts"
 # Update translation files with latest POT
-sphinx-intl update -d locale -p build/gettext -l pt_BR > /dev/null
+sphinx-intl update -d locale -p build/gettext -l ${PYDOC_LANGUAGE} > /dev/null
 
 cd locale/${PYDOC_LANGUAGE}/LC_MESSAGES
-sphinx-lint | tee $(realpath "$rootdir/logs/sphinxlint.txt")
+sphinx-lint 2> >(tee -a $(realpath "$rootdir/logs/sphinxlint.txt") >&2)
 
-# Undo changes that disabled literal blocks
-git checkout *.po
+# Undo changes to undo literal blocks disabling
+git checkout .
 
 cd "$rootdir"
 
-# Remove empty file
+# Check of logfile is empty
 if [ ! -s logs/sphinxlint.txt ]; then
+  # OK, it is empty. Remove it.
   rm logs/sphinxlint.txt
+else
+  # has contents, exit with error status (to trigger notification in CI)
+  exit 1
 fi
