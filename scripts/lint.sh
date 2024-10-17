@@ -29,7 +29,7 @@ make build ALLSPHINXOPTS="$opts"
 sphinx-intl update -d locale -p build/gettext -l ${PYDOC_LANGUAGE} > /dev/null
 
 cd locale/${PYDOC_LANGUAGE}/LC_MESSAGES
-sphinx-lint 2> >(tee -a $(realpath "$rootdir/logs/sphinxlint.txt") >&2)
+sphinx-lint 2> $(realpath "$rootdir/logs/sphinxlint.txt")
 
 # Undo changes to undo literal blocks disabling
 git checkout .
@@ -41,6 +41,7 @@ if [ ! -s logs/sphinxlint.txt ]; then
   # OK, it is empty. Remove it.
   rm logs/sphinxlint.txt
 else
-  # has contents, exit with error status (to trigger notification in CI)
+  # print contents and exit with error status (to trigger notification in CI)
+  cat logs/sphinxlint.txt
   exit 1
 fi
