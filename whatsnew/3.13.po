@@ -4976,6 +4976,8 @@ msgstr ""
 msgid ""
 "Add the :ref:`PyTime C API <c-api-time>` to provide access to system clocks:"
 msgstr ""
+"Adiciona a :doc:`API C PyTime </c-api/time>`, fornecendo acesso aos relógios "
+"do sistema."
 
 #: ../../whatsnew/3.13.rst:2003
 msgid ":c:type:`PyTime_t`."
@@ -5153,6 +5155,11 @@ msgid ""
 "``Py_GetConstant(Py_CONSTANT_ZERO)`` returns a strong reference to the "
 "constant zero. (Contributed by Victor  Stinner in :gh:`115754`.)"
 msgstr ""
+"Adiciona as funções :c:func:`Py_GetConstant` e :c:func:"
+"`Py_GetConstantBorrowed` para referências :term:`fortes <strong reference>` "
+"ou :term:`emprestadas <borrowed reference>` para constantes. Por exemplo, "
+"``Py_GetConstant(Py_CONSTANT_ZERO)`` retorna uma :term:`referência forte` "
+"para a constante zero. (Contribuição de Victor Stinner em :gh:`115754`.)"
 
 #: ../../whatsnew/3.13.rst:2086
 msgid ""
@@ -5269,6 +5276,10 @@ msgid ""
 "way that the :mod:`tracemalloc` module does. (Contributed by Pablo Galindo "
 "in :gh:`93502`.)"
 msgstr ""
+"Adiciona as funções :c:func:`PyRefTracer_SetTracer` e :c:func:"
+"`PyRefTracer_GetTracer`, que permitem rastrear a criação e destruição de "
+"objetos da mesma forma que o módulo :mod:`tracemalloc`. (Contribuição de "
+"Pablo Galindo em :gh:`93502`.)"
 
 #: ../../whatsnew/3.13.rst:2142
 msgid ""
@@ -5287,6 +5298,10 @@ msgid ""
 "error if it is ``NULL``. The caller is responsible for checking if the "
 "result is ``NULL``. (Contributed by Victor Stinner in :gh:`108867`.)"
 msgstr ""
+"Adiciona a função :c:func:`PyThreadState_GetUnchecked()` como uma "
+"alternativa a :c:func:`PyThreadState_Get()` que não mata o processo com um "
+"erro fatal se for ``NULL``. O chamador é responsável por verificar se o "
+"resultado é ``NULL``. (Contribuição de Victor Stinner em :gh:`108867`.)"
 
 #: ../../whatsnew/3.13.rst:2153
 msgid ""
@@ -5295,6 +5310,10 @@ msgid ""
 "__module__` is a string and is not equal to either ``'builtins'`` or "
 "``'__main__'``. (Contributed by Victor Stinner in :gh:`111696`.)"
 msgstr ""
+"Adiciona a função :c:func:`PyType_GetFullyQualifiedName` para obter o nome "
+"totalmente qualificado do tipo. O nome do módulo é prefixado se :attr:`type."
+"__module__` for uma string e não for igual a ``'builtins'`` ou "
+"``'__main__'``. (Contribuição de Victor Stinner em :gh:`111696`.)"
 
 #: ../../whatsnew/3.13.rst:2159
 msgid ""
@@ -5369,6 +5388,8 @@ msgid ""
 "The new functions return ``-1`` for errors and the standard ``1`` for true "
 "and ``0`` for false."
 msgstr ""
+"As novas funções retornam ``-1`` para erros e o padrão ``1`` para verdadeiro "
+"e ``0`` para falso."
 
 #: ../../whatsnew/3.13.rst:2189
 msgid "(Contributed by Serhiy Storchaka in :gh:`108511`.)"
@@ -5442,22 +5463,24 @@ msgid ""
 "Add support for the ``%T``, ``%#T``, ``%N`` and ``%#N`` formats to :c:func:"
 "`PyUnicode_FromFormat`:"
 msgstr ""
+"Adiciona suporte para os formatos ``%T``, ``%#T``, ``%N`` e ``%#N`` a :c:"
+"func:`PyUnicode_FromFormat`:"
 
 #: ../../whatsnew/3.13.rst:2227
 msgid "``%T``: Get the fully qualified name of an object type"
-msgstr ""
+msgstr "``%T``: Obtém o nome totalmente qualificado de um tipo de objeto"
 
 #: ../../whatsnew/3.13.rst:2228
 msgid "``%#T``: As above, but use a colon as the separator"
-msgstr ""
+msgstr "``%#T``: Como acima, mas usa dois pontos como separador"
 
 #: ../../whatsnew/3.13.rst:2229
 msgid "``%N``: Get the fully qualified name of a type"
-msgstr ""
+msgstr "``%N``: Obtém o nome totalmente qualificado de um tipo"
 
 #: ../../whatsnew/3.13.rst:2230
 msgid "``%#N``: As above, but use a colon as the separator"
-msgstr ""
+msgstr "``%#N``: Como acima, mas usa dois pontos como separador"
 
 #: ../../whatsnew/3.13.rst:2232
 msgid ""
@@ -5499,7 +5522,7 @@ msgstr "Mudanças na API C Limitada"
 
 #: ../../whatsnew/3.13.rst:2251
 msgid "The following functions are now included in the Limited C API:"
-msgstr ""
+msgstr "As seguintes funções agora estão incluídas na API C limitada:"
 
 #: ../../whatsnew/3.13.rst:2253
 msgid ":c:func:`PyMem_RawMalloc`"
@@ -5665,6 +5688,13 @@ msgid ""
 "`PyObject_Call`, pass an empty tuple as positional arguments using :c:func:"
 "`PyTuple_New(0) <PyTuple_New>`."
 msgstr ""
+"Os argumentos posicionais de :c:func:`PyObject_Call` devem ser uma :class:"
+"`tuple` e não podem ser ``NULL``, os argumentos nomeados devem ser :class:"
+"`dict` ou ``NULL``, enquanto funções removidas verificavam o tipo de "
+"argumentos e aceitavam argumentos posicionais e nomeados ``NULL``. Para "
+"substituir ``PyEval_CallObjectWithKeywords(func, NULL, kwargs)`` por :c:func:"
+"`PyObject_Call`, passe uma tupla vazia como argumentos posicionais usando :c:"
+"func:`PyTuple_New(0) <PyTuple_New>`."
 
 #: ../../whatsnew/3.13.rst:2334
 msgid ""
@@ -5843,6 +5873,10 @@ msgid ""
 "``Py_TRASHCAN_BEGIN`` and ``Py_TRASHCAN_END``. (Contributed by Irit Katriel "
 "in :gh:`105111`.)"
 msgstr ""
+"Remove as antigas macros de trashcan ``Py_TRASHCAN_SAFE_BEGIN`` e "
+"``Py_TRASHCAN_SAFE_END``. Substitua ambas pelas novas macros "
+"``Py_TRASHCAN_BEGIN`` e ``Py_TRASHCAN_END``. (Contribuição de Irit Katriel "
+"em :gh:`105111`.)"
 
 #: ../../whatsnew/3.13.rst:2412
 msgid "Deprecated C APIs"
@@ -5905,6 +5939,10 @@ msgid ""
 "c:func:`PyEval_GetGlobals`, and :c:func:`PyEval_GetLocals` functions, which "
 "return a :term:`borrowed reference`. (Soft deprecated as part of :pep:`667`.)"
 msgstr ""
+":term:`Descontinua suavemente <soft deprecated>` as funções :c:func:"
+"`PyEval_GetBuiltins`, :c:func:`PyEval_GetGlobals` e :c:func:"
+"`PyEval_GetLocals`, que retornam uma :term:`referência emprestada`. "
+"(Suavemente descontinuadas como parte da :pep:`667`.)"
 
 #: ../../whatsnew/3.13.rst:2440
 msgid ""
@@ -5922,6 +5960,10 @@ msgid ""
 "function. It should be replaced with :c:func:`PyModule_Add` or :c:func:"
 "`PyModule_AddObjectRef`. (Contributed by Serhiy Storchaka in :gh:`86493`.)"
 msgstr ""
+":term:`Descontinua suavemente <soft deprecated>` a função :c:func:"
+"`PyModule_AddObject`. Ela deve ser substituída por :c:func:`PyModule_Add` "
+"ou :c:func:`PyModule_AddObjectRef`. (Contribuição de Serhiy Storchaka em :gh:"
+"`86493`.)"
 
 #: ../../whatsnew/3.13.rst:2450
 msgid ""
@@ -6308,6 +6350,10 @@ msgid ""
 "tier 3 platforms. (:ref:`PEP 730 <whatsnew313-platform-support>` written and "
 "implementation contributed by Russell Keith-Magee in :gh:`114099`.)"
 msgstr ""
+"``arm64-apple-ios`` e ``arm64-apple-ios-simulator`` são agora plataformas de "
+"nível 3 da :pep:`11`. (Escrita e implementação da :ref:`PEP 730 <whatsnew313-"
+"platform-support>` foi uma contribuição de Russell Keith-Magee em :gh:"
+"`114099`.)"
 
 #: ../../whatsnew/3.13.rst:2484
 msgid ""
@@ -6315,6 +6361,10 @@ msgid ""
 "`11` tier 3 platforms. (:ref:`PEP 738 <whatsnew313-platform-support>` "
 "written and implementation contributed by Malcolm Smith in :gh:`116622`.)"
 msgstr ""
+"``aarch64-linux-android`` e ``x86_64-linux-android`` são agora plataformas "
+"de nível 3 da :pep:`11`. (Escrita e implementação da :ref:`PEP 738 "
+"<whatsnew313-platform-support>` foi uma contribuição de Malcolm Smith em :gh:"
+"`116622`.)"
 
 #: ../../whatsnew/3.13.rst:2489
 msgid ""
@@ -6438,6 +6488,8 @@ msgid ""
 ":ref:`PEP 667 <whatsnew313-locals-semantics>` introduces several changes to "
 "the semantics of :func:`locals` and :attr:`f_locals <frame.f_locals>`:"
 msgstr ""
+":ref:`PEP 667 <whatsnew313-locals-semantics>` introduz várias mudanças na "
+"semântica de :func:`locals` e :attr:`f_locals <frame.f_locals>`:"
 
 #: ../../whatsnew/3.13.rst:2549
 msgid ""
@@ -6521,6 +6573,11 @@ msgid ""
 "returned by :meth:`zipfile.ZipFile.open` is now ``'rb'`` instead of ``'r'``. "
 "(Contributed by Serhiy Storchaka in :gh:`115961`.)"
 msgstr ""
+"O valor do atributo :attr:`!mode` de :class:`gzip.GzipFile` agora é uma "
+"string (``'rb'`` ou ``'wb'``) e não mais um inteiro (``1`` ou ``2``). O "
+"valor do atributo :attr:`!mode` do objeto arquivo ou similar legível "
+"retornado por :meth:`zipfile.ZipFile.open` é agora ``'rb'`` e não mais "
+"``'r'``. (Contribuição de Serhiy Storchaka em :gh:`115961`.)"
 
 #: ../../whatsnew/3.13.rst:2588
 msgid ""
@@ -6702,6 +6759,8 @@ msgid ""
 ":ref:`PEP 667 <whatsnew313-locals-semantics>` introduces several changes to "
 "frame-related functions:"
 msgstr ""
+":ref:`PEP 667 <whatsnew313-locals-semantics>` introduz várias mudanças em "
+"funções relacionadas a quadro:"
 
 #: ../../whatsnew/3.13.rst:2672
 msgid ""
