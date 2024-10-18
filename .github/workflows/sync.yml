@@ -38,12 +38,16 @@ jobs:
           repository: 'python/cpython'
           ref: ${{ env.PYDOC_VERSION }}
           path: cpython
+          
+      - name: Set language dir variable
+        run:
+          echo "LANGUAGE_DIR=cpython/Doc/locales/${{ env.PYDOC_LANGUAGE }}/LC_MESSAGES" >> $GITHUB_ENV
 
       - name: Checkout this repository ${{ env.PYDOC_VERSION }}
         uses: actions/checkout@v4
         with:
           ref: ${{ env.PYDOC_VERSION }}
-          path: cpython/Doc/locale/${{ env.PYDOC_LANGUAGE }}/LC_MESSAGES
+          path: ${{ env.LANGUAGE_DIR }}
 
       - uses: actions/setup-python@v5
         with:
@@ -79,7 +83,7 @@ jobs:
         if: ${{ contains(fromJSON('["schedule", "workflow_dispatch"]'), github.event_name) }}
         run: |
           # Clean up obsolete files
-          find cpython/Doc/locale/$PYDOC_LANGUAGE/LC_MESSAGES -name '*.po' -exec rm {} \;
+          find ./${{ env.LANGUAGE_DIR }} -name '*.po' -exec rm {} \;
           ./scripts/pull_translations.sh
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
@@ -87,14 +91,14 @@ jobs:
       - name: powrap
         if: steps.pull.outcome == 'success'
         run: |
-          cd cpython/Doc/locale/${{ env.PYDOC_LANGUAGE }}/LC_MESSAGES
+          cd ./${{ env.LANGUAGE_DIR }}
           powrap *.po **/*.po
 
       - name: Update statistics
         if: always() && inputs.secrets.TX_TOKEN != 0
         run: |
-          python ./scripts/tx_stats.py > cpython/Doc/locale/${{ env.PYDOC_LANGUAGE }}/LC_MESSAGES/stats.json
-          git -C cpython/Doc/locale/${{ env.PYDOC_LANGUAGE }}/LC_MESSAGES/ diff stats.json
+          python ./scripts/tx_stats.py > ./${{ env.LANGUAGE_DIR }}/stats.json
+          git -C ./${{ env.LANGUAGE_DIR }} diff stats.json
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
 
@@ -102,7 +106,7 @@ jobs:
         if: always()
         run: |
           ./scripts/potodo.sh
-          git diff cpython/Doc/locale/${{ env.PYDOC_LANGUAGE }}/LC_MESSAGES/potodo.md
+          git diff ./${{ env.LANGUAGE_DIR }}/potodo.md
 
       # 4- Commit and push translations
 
@@ -112,7 +116,7 @@ jobs:
       - name: Push
         if: ${{ contains(fromJSON('["schedule", "workflow_dispatch"]'), github.event_name) }}
         run: |
-          cd cpython/Doc/locale/${{ env.PYDOC_LANGUAGE}}/LC_MESSAGES
+          cd ./${{ env.LANGUAGE_DIR }}
           git push
 
 

@@ -14,8 +14,8 @@ set -xeu
 test -n ${PYDOC_TX_PROJECT+x}
 test -n ${PYDOC_LANGUAGE+x}
 
-# Make sure to run all commands from CPython docs locale directory
-cd $(dirname $0)/../cpython/Doc/locale
+# Make sure to run all commands from CPython docs locales directory
+cd $(dirname $0)/../cpython/Doc/locales
 
 # Generate message catalog template (.pot) files
 # TODO: use `make -C .. gettext` when there are only Python >= 3.12

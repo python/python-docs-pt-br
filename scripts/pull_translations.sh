@@ -21,7 +21,7 @@ set -xeu
 
 test -n ${PYDOC_TX_PROJECT+x}
 
-cd "$(dirname $0)/../cpython/Doc/locale/${PYDOC_LANGUAGE}/LC_MESSAGES/"
+cd "$(dirname $0)/../cpython/Doc/locales/${PYDOC_LANGUAGE}/LC_MESSAGES/"
 
 # If a PO file is provided as input, convert it into Transifex resource
 # and add it be pulled (instead of pulling all translations files).
