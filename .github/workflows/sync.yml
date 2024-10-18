@@ -21,8 +21,6 @@ env:
   PYDOC_TX_PROJECT: ${{ inputs.tx_project }}
   PYDOC_VERSION: ${{ inputs.version }}
   TX_CLI_VERSION: '1.6.16'
-  LANGUAGE_DIR: cpython/Doc/locales/${{ env.PYDOC_LANGUAGE }}/LC_MESSAGES
-  
 
 jobs:
   sync:
@@ -40,6 +38,10 @@ jobs:
           repository: 'python/cpython'
           ref: ${{ env.PYDOC_VERSION }}
           path: cpython
+          
+      - name: Set language dir variable
+        run:
+          echo "LANGUAGE_DIR=cpython/Doc/locales/$PYDOC_LANGUAGE/LC_MESSAGES" >> $GITHUB_ENV
 
       - name: Checkout this repository ${{ env.PYDOC_VERSION }}
         uses: actions/checkout@v4
