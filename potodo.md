@@ -271,7 +271,7 @@
 - zoneinfo.po                      6 /  73 (  8.0% translated).
 
 
-# reference (84.16% done)
+# reference (82.80% done)
 
 - compound_stmts.po              103 / 294 ( 35.0% translated).
 - datamodel.po                   483 / 504 ( 95.0% translated).
@@ -279,7 +279,6 @@
 - expressions.po                 303 / 332 ( 91.0% translated).
 - import.po                      165 / 184 ( 89.0% translated).
 - introduction.po                 24 /  25 ( 96.0% translated).
-- lexical_analysis.po            185 / 195 ( 94.0% translated).
 - simple_stmts.po                153 / 154 ( 99.0% translated).
 
 
@@ -291,7 +290,7 @@
 - windows.po                     300 / 309 ( 97.0% translated).
 
 
-# whatsnew (63.92% done)
+# whatsnew (63.95% done)
 
 - 2.0.po                         137 / 182 ( 75.0% translated).
 - 2.2.po                         138 / 192 ( 71.0% translated).
@@ -304,8 +303,8 @@
 - 3.2.po                          69 / 518 ( 13.0% translated).
 - 3.3.po                         154 / 660 ( 23.0% translated).
 - 3.4.po                         510 / 511 ( 99.0% translated).
-- 3.5.po                         123 / 541 ( 22.0% translated).
-- 3.6.po                         238 / 517 ( 46.0% translated).
+- 3.5.po                         124 / 541 ( 22.0% translated).
+- 3.6.po                         239 / 517 ( 46.0% translated).
 - 3.7.po                         242 / 555 ( 43.0% translated).
 
 
