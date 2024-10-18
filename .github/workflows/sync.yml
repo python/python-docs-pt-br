@@ -41,7 +41,7 @@ jobs:
           
       - name: Set language dir variable
         run:
-          echo "LANGUAGE_DIR=cpython/Doc/locales/$PYDOC_LANGUAGE/LC_MESSAGES" >> $GITHUB_ENV
+          echo "LANGUAGE_DIR=cpython/Doc/locales/${{ env.PYDOC_LANGUAGE }}/LC_MESSAGES" >> $GITHUB_ENV
 
       - name: Checkout this repository ${{ env.PYDOC_VERSION }}
         uses: actions/checkout@v4
@@ -83,7 +83,7 @@ jobs:
         if: ${{ contains(fromJSON('["schedule", "workflow_dispatch"]'), github.event_name) }}
         run: |
           # Clean up obsolete files
-          find ./${LANGUAGE_DIR} -name '*.po' -exec rm {} \;
+          find ./${{ env.LANGUAGE_DIR }} -name '*.po' -exec rm {} \;
           ./scripts/pull_translations.sh
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
@@ -91,14 +91,14 @@ jobs:
       - name: powrap
         if: steps.pull.outcome == 'success'
         run: |
-          cd ./${LANGUAGE_DIR}
+          cd ./${{ env.LANGUAGE_DIR }}
           powrap *.po **/*.po
 
       - name: Update statistics
         if: always() && inputs.secrets.TX_TOKEN != 0
         run: |
-          python ./scripts/tx_stats.py > ./${LANGUAGE_DIR}/stats.json
-          git -C ./${LANGUAGE_DIR} diff stats.json
+          python ./scripts/tx_stats.py > ./${{ env.LANGUAGE_DIR }}/stats.json
+          git -C ./${{ env.LANGUAGE_DIR }} diff stats.json
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
 
@@ -106,7 +106,7 @@ jobs:
         if: always()
         run: |
           ./scripts/potodo.sh
-          git diff ./${LANGUAGE_DIR}/potodo.md
+          git diff ./${{ env.LANGUAGE_DIR }}/potodo.md
 
       # 4- Commit and push translations
 
@@ -116,7 +116,7 @@ jobs:
       - name: Push
         if: ${{ contains(fromJSON('["schedule", "workflow_dispatch"]'), github.event_name) }}
         run: |
-          cd ./${LANGUAGE_DIR}
+          cd ./${{ env.LANGUAGE_DIR }}
           git push
 
 
