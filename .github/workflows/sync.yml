@@ -21,6 +21,8 @@ env:
   PYDOC_TX_PROJECT: ${{ inputs.tx_project }}
   PYDOC_VERSION: ${{ inputs.version }}
   TX_CLI_VERSION: '1.6.16'
+  LANGUAGE_DIR: cpython/Doc/locales/${{ env.PYDOC_LANGUAGE }}/LC_MESSAGES
+  
 
 jobs:
   sync:
@@ -43,7 +45,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ env.PYDOC_VERSION }}
-          path: cpython/Doc/locales/${{ env.PYDOC_LANGUAGE }}/LC_MESSAGES
+          path: ${{ env.LANGUAGE_DIR }}
 
       - uses: actions/setup-python@v5
         with:
@@ -79,7 +81,7 @@ jobs:
         if: ${{ contains(fromJSON('["schedule", "workflow_dispatch"]'), github.event_name) }}
         run: |
           # Clean up obsolete files
-          find cpython/Doc/locales/$PYDOC_LANGUAGE/LC_MESSAGES -name '*.po' -exec rm {} \;
+          find ./${LANGUAGE_DIR} -name '*.po' -exec rm {} \;
           ./scripts/pull_translations.sh
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
@@ -87,14 +89,14 @@ jobs:
       - name: powrap
         if: steps.pull.outcome == 'success'
         run: |
-          cd cpython/Doc/locales/${{ env.PYDOC_LANGUAGE }}/LC_MESSAGES
+          cd ./${LANGUAGE_DIR}
           powrap *.po **/*.po
 
       - name: Update statistics
         if: always() && inputs.secrets.TX_TOKEN != 0
         run: |
-          python ./scripts/tx_stats.py > cpython/Doc/locales/${{ env.PYDOC_LANGUAGE }}/LC_MESSAGES/stats.json
-          git -C cpython/Doc/locales/${{ env.PYDOC_LANGUAGE }}/LC_MESSAGES/ diff stats.json
+          python ./scripts/tx_stats.py > ./${LANGUAGE_DIR}/stats.json
+          git -C ./${LANGUAGE_DIR} diff stats.json
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
 
@@ -102,7 +104,7 @@ jobs:
         if: always()
         run: |
           ./scripts/potodo.sh
-          git diff cpython/Doc/locales/${{ env.PYDOC_LANGUAGE }}/LC_MESSAGES/potodo.md
+          git diff ./${LANGUAGE_DIR}/potodo.md
 
       # 4- Commit and push translations
 
@@ -112,7 +114,7 @@ jobs:
       - name: Push
         if: ${{ contains(fromJSON('["schedule", "workflow_dispatch"]'), github.event_name) }}
         run: |
-          cd cpython/Doc/locales/${{ env.PYDOC_LANGUAGE}}/LC_MESSAGES
+          cd ./${LANGUAGE_DIR}
           git push
 
 
