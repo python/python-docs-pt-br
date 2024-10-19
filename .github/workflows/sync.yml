@@ -58,6 +58,16 @@ jobs:
             requirements.txt
             cpython/Doc/requirements.txt
 
+      - name: Check for Transifex API Token availability
+        id: secret-check
+        # perform secret check & put boolean result as an output
+        shell: bash
+        run: |
+          available=false
+          [ "${{ secrets.TX_TOKEN }}" != '' ] && available=true
+          echo "available=$available" >> $GITHUB_OUTPUT
+          echo "available=$available"
+
       # 2- Install dependencies
 
       - name: Install Transifex CLI tool
@@ -95,7 +105,7 @@ jobs:
           powrap *.po **/*.po
 
       - name: Update statistics
-        if: always() && inputs.secrets.TX_TOKEN != 0
+        if: always() && ${{ steps.secret-check.outputs.available != 'true' }}
         run: |
           python ./scripts/tx_stats.py > ./${{ env.LANGUAGE_DIR }}/stats.json
           git -C ./${{ env.LANGUAGE_DIR }} diff stats.json
