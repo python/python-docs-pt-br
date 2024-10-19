@@ -317,7 +317,6 @@
 - datamodel.po                   618 / 853 ( 72.0% translated).
 - executionmodel.po               97 / 103 ( 94.0% translated).
 - expressions.po                 519 / 535 ( 97.0% translated).
-- grammar.po                       3 /   4 ( 75.0% translated).
 - import.po                      182 / 200 ( 91.0% translated).
 - lexical_analysis.po            308 / 325 ( 94.0% translated).
 - simple_stmts.po                278 / 292 ( 95.0% translated).
@@ -330,11 +329,10 @@
 - stdlib2.po                      51 /  65 ( 78.0% translated).
 
 
-# using (91.08% done)
+# using (90.72% done)
 
 - cmdline.po                     201 / 214 ( 93.0% translated).
 - configure.po                   285 / 293 ( 97.0% translated).
-- mac.po                          48 /  49 ( 97.0% translated).
 - unix.po                         44 /  52 ( 84.0% translated).
 - windows.po                     320 / 378 ( 84.0% translated).
 
