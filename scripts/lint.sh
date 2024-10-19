@@ -29,7 +29,9 @@ make build ALLSPHINXOPTS="$opts"
 sphinx-intl update -p build/gettext -l ${PYDOC_LANGUAGE} > /dev/null
 
 cd locales/${PYDOC_LANGUAGE}/LC_MESSAGES
+set +e
 sphinx-lint 2> $(realpath "$rootdir/logs/sphinxlint.txt")
+set -e
 
 # Undo changes to undo literal blocks disabling
 git checkout .
