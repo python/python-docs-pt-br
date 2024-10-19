@@ -44,7 +44,7 @@
 - programming.po                 276 / 372 ( 74.0% translated).
 
 
-# howto (47.88% done)
+# howto (47.33% done)
 
 - argparse.po                     83 /  84 ( 98.0% translated).
 - clinic.po                      101 / 415 ( 24.0% translated).
@@ -52,7 +52,6 @@
 - descriptor.po                   59 / 174 ( 33.0% translated).
 - functional.po                  139 / 206 ( 67.0% translated).
 - instrumentation.po               8 /  59 ( 13.0% translated).
-- ipaddress.po                    35 /  48 ( 72.0% translated).
 - logging-cookbook.po             15 / 237 (  6.0% translated).
 - logging.po                     117 / 219 ( 53.0% translated).
 - pyporting.po                    35 /  86 ( 40.0% translated).
