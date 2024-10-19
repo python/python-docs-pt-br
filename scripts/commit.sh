@@ -28,5 +28,17 @@ if [ -n "${untracked_files+x}" ]; then
   git add -v $untracked_files
 fi
 
+# Debug in GitHub Actions
+set +u
+if [ -n "${CI+x}" ]; then
+  echo "::group::status"
+  git status
+  echo "::endgroup::"
+  echo "::group::diff"
+  git diff
+  echo "::endgroup::"
+fi
+set -u
+
 # Commit only if there is any cached file
 git diff-index --cached --quiet HEAD || { git add -v $extra_files; git commit -vm "Update translations"; }
