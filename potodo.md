@@ -73,7 +73,7 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (45.35% done)
+# library (45.36% done)
 
 - __future__.po                   56 /  58 ( 96.0% translated).
 - __main__.po                     54 /  73 ( 73.0% translated).
@@ -228,7 +228,7 @@
 - ssl.po                          40 / 544 (  7.0% translated).
 - statistics.po                  176 / 248 ( 70.0% translated).
 - stdtypes.po                    1208 / 1332 ( 90.0% translated).
-- string.po                      195 / 213 ( 91.0% translated).
+- string.po                      196 / 213 ( 92.0% translated).
 - stringprep.po                    1 /  25 (  4.0% translated).
 - struct.po                       96 / 195 ( 49.0% translated).
 - subprocess.po                  121 / 323 ( 37.0% translated).
@@ -248,7 +248,7 @@
 - tkinter.ttk.po                 118 / 429 ( 27.0% translated).
 - tokenize.po                      8 /  52 ( 15.0% translated).
 - trace.po                        41 /  43 ( 95.0% translated).
-- traceback.po                     8 / 111 (  7.0% translated).
+- traceback.po                     9 / 111 (  8.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
 - turtle.po                      561 / 661 ( 84.0% translated).
 - types.po                        93 / 103 ( 90.0% translated).
