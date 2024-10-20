@@ -438,6 +438,13 @@ msgid ""
 "                r.append(l[i:i+1] + x)\n"
 "            return r                # error: inconsistent dedent"
 msgstr ""
+" def perm(l):                       # erro: primeira linha indentada\n"
+"for i in range(len(l)):             # erro: não indentada\n"
+"    s = l[:i] + l[i+1:]\n"
+"        p = perm(l[:i] + l[i+1:])   # erro: indentação inesperada\n"
+"        for x in p:\n"
+"                r.append(l[i:i+1] + x)\n"
+"            return r                # erro: desindentação inconsistente"
 
 #: ../../reference/lexical_analysis.rst:243
 msgid ""
@@ -519,6 +526,13 @@ msgid ""
 "uses the version of the Unicode Character Database as included in the :mod:"
 "`unicodedata` module."
 msgstr ""
+"Dentro do intervalo ASCII (U+0001..U+007F), os caracteres válidos para "
+"identificadores incluem as letras maiúsculas e minúsculas ``A`` a ``Z``, o "
+"sublinhado ``_`` e, exceto pelo primeiro caractere, os dígitos ``0`` a "
+"``9``. O Python 3.0 introduziu caracteres adicionais de fora do intervalo "
+"ASCII (veja :pep:`3131`). Para esses caracteres, a classificação usa a "
+"versão do Unicode Character Database conforme incluído no módulo :mod:"
+"`unicodedata`."
 
 #: ../../reference/lexical_analysis.rst:294
 msgid "Identifiers are unlimited in length.  Case is significant."
@@ -626,6 +640,13 @@ msgid ""
 "assert     del        global     not        with\n"
 "async      elif       if         or         yield"
 msgstr ""
+"False      await      else       import     pass\n"
+"None       break      except     in         raise\n"
+"True       class      finally    is         return\n"
+"and        continue   for        lambda     try\n"
+"as         def        from       nonlocal   while\n"
+"assert     del        global     not        with\n"
+"async      elif       if         or         yield"
 
 #: ../../reference/lexical_analysis.rst:355
 msgid "Soft Keywords"
@@ -1098,6 +1119,9 @@ msgid ""
 "... backslashes or newline characters.'\n"
 "'This string will not include backslashes or newline characters.'"
 msgstr ""
+">>> 'Esta string não vai incluir \\\n"
+"... contrabarras e caracteres de nova linha.'\n"
+"'Esta string não vai incluir contrabarras e caracteres de nova linha.'"
 
 #: ../../reference/lexical_analysis.rst:611
 msgid ""
@@ -1243,6 +1267,9 @@ msgid ""
 "           \"[A-Za-z0-9_]*\"   # letter, digit or underscore\n"
 "          )"
 msgstr ""
+"re.compile(\"[A-Za-z_]\"       # letra ou sublinhado\n"
+"           \"[A-Za-z0-9_]*\"   # letra, dígito ou sublinhado\n"
+"          )"
 
 #: ../../reference/lexical_analysis.rst:689
 msgid ""
@@ -1342,6 +1369,9 @@ msgid ""
 "... + 3}\"\n"
 "'abc5'"
 msgstr ""
+">>> f\"abc{a # Este é um comentário }\"\n"
+"... + 3}\"\n"
+"'abc5'"
 
 #: ../../reference/lexical_analysis.rst:763
 msgid ""
@@ -1465,6 +1495,36 @@ msgid ""
 ">>> f\"{line = !r:20}\"\n"
 "'line = \"The mill\\'s closed\" '"
 msgstr ""
+">>> nome = \"Fred\"\n"
+">>> f\"Ele falou que o nome dele é {nome!r}.\"\n"
+"\"Ele falou que o nome dele é 'Fred'.\"\n"
+">>> f\"Ele falou que o nome dele é {repr(nome)}.\"  # repr() é um "
+"equivalente a !r\n"
+"\"Ele falou que o nome dele é 'Fred'.\"\n"
+">>> largura = 10\n"
+">>> precisão = 4\n"
+">>> valor = decimal.Decimal(\"12.34567\")\n"
+">>> f\"resultado: {valor:{largura}.{precisão}}\"  # campos aninhados\n"
+"'resultado: 12.35'\n"
+">>> hoje = datetime(year=2017, month=1, day=27)\n"
+">>> f\"{hoje:%B %d, %Y}\"  # usando especificador de formato de data\n"
+"'January 27, 2017'\n"
+">>> f\"{hoje=:%B %d, %Y}\"  # usando especificador de formato de data e "
+"depuração\n"
+"'hoje=January 27, 2017'\n"
+">>> número = 1024\n"
+">>> f\"{número:#0x}\"  # usando especificador de formato de número inteiro\n"
+"'0x400'\n"
+">>> foo = \"bar\"\n"
+">>> f\"{ foo = }\"  # preserva espaço em branco\n"
+"\" foo = 'bar'\"\n"
+">>> linha = \"Olha a caixa d'água\"\n"
+">>> f\"{linha = }\"\n"
+"'linha = \"Olha a caixa d\\'água\"'\n"
+">>> f\"{linha = :20}\"\n"
+"\"linha = Olha a caixa d'água \"\n"
+">>> f\"{linha = !r:20}\"\n"
+"'linha = \"Olha a caixa d\\'água\"'"
 
 #: ../../reference/lexical_analysis.rst:834
 msgid ""
@@ -1480,6 +1540,9 @@ msgid ""
 ">>> f\"abc {a[\"x\"]} def\"\n"
 "'abc 2 def'"
 msgstr ""
+">>> a = dict(x=2)\n"
+">>> f\"abc {a[\"x\"]} def\"\n"
+"'abc 2 def'"
 
 #: ../../reference/lexical_analysis.rst:841
 msgid ""
@@ -1506,6 +1569,12 @@ msgid ""
 "b\n"
 "c"
 msgstr ""
+">>> a = [\"a\", \"b\", \"c\"]\n"
+">>> print(f\"A lista a contém:\\n{\"\\n\".join(a)}\")\n"
+"A lista a contém:\n"
+"a\n"
+"b\n"
+"c"
 
 #: ../../reference/lexical_analysis.rst:855
 msgid ""
@@ -1531,6 +1600,11 @@ msgid ""
 ">>> foo.__doc__ is None\n"
 "True"
 msgstr ""
+">>> def foo():\n"
+"...     f\"Não é uma docstring\"\n"
+"...\n"
+">>> foo.__doc__ is None\n"
+"True"
 
 #: ../../reference/lexical_analysis.rst:870
 msgid ""
@@ -1613,6 +1687,9 @@ msgid ""
 "3     79228162514264337593543950336     0o377    0xdeadbeef\n"
 "      100_000_000_000                   0b_1110_0101"
 msgstr ""
+"7     2147483647                        0o177    0b100110111\n"
+"3     79228162514264337593543950336     0o377    0xdeadbeef\n"
+"      100_000_000_000                   0b_1110_0101"
 
 #: ../../reference/lexical_analysis.rst:934
 #: ../../reference/lexical_analysis.rst:966
@@ -1650,7 +1727,7 @@ msgstr "Alguns exemplos de literais de ponto flutuante::"
 
 #: ../../reference/lexical_analysis.rst:964
 msgid "3.14    10.    .001    1e100    3.14e-10    0e0    3.14_15_93"
-msgstr ""
+msgstr "3.14    10.    .001    1e100    3.14e-10    0e0    3.14_15_93"
 
 #: ../../reference/lexical_analysis.rst:975
 msgid "Imaginary literals"
@@ -1678,7 +1755,7 @@ msgstr ""
 
 #: ../../reference/lexical_analysis.rst:988
 msgid "3.14j   10.j    10j     .001j   1e100j   3.14e-10j   3.14_15_93j"
-msgstr ""
+msgstr "3.14j   10.j    10j     .001j   1e100j   3.14e-10j   3.14_15_93j"
 
 #: ../../reference/lexical_analysis.rst:994
 msgid "Operators"
@@ -1694,6 +1771,9 @@ msgid ""
 "<<      >>      &       |       ^       ~       :=\n"
 "<       >       <=      >=      ==      !="
 msgstr ""
+"+       -       *       **      /       //      %      @\n"
+"<<      >>      &       |       ^       ~       :=\n"
+"<       >       <=      >=      ==      !="
 
 #: ../../reference/lexical_analysis.rst:1011
 msgid "Delimiters"
@@ -1710,6 +1790,10 @@ msgid ""
 "->      +=      -=      *=      /=      //=     %=\n"
 "@=      &=      |=      ^=      >>=     <<=     **="
 msgstr ""
+"(       )       [       ]       {       }\n"
+",       :       !       .       ;       @       =\n"
+"->      +=      -=      *=      /=      //=     %=\n"
+"@=      &=      |=      ^=      >>=     <<=     **="
 
 #: ../../reference/lexical_analysis.rst:1024
 msgid ""
@@ -1734,7 +1818,7 @@ msgstr ""
 
 #: ../../reference/lexical_analysis.rst:1032
 msgid "'       \"       #       \\"
-msgstr ""
+msgstr "'       \"       #       \\"
 
 #: ../../reference/lexical_analysis.rst:1036
 msgid ""
@@ -1746,7 +1830,7 @@ msgstr ""
 
 #: ../../reference/lexical_analysis.rst:1039
 msgid "$       ?       `"
-msgstr ""
+msgstr "$       ?       `"
 
 #: ../../reference/lexical_analysis.rst:1045
 msgid "Footnotes"

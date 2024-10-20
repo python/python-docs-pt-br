@@ -311,14 +311,13 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (79.19% done)
+# reference (77.12% done)
 
 - compound_stmts.po              194 / 465 ( 41.0% translated).
 - datamodel.po                   618 / 853 ( 72.0% translated).
 - executionmodel.po               97 / 103 ( 94.0% translated).
 - expressions.po                 519 / 535 ( 97.0% translated).
 - import.po                      182 / 200 ( 91.0% translated).
-- lexical_analysis.po            308 / 325 ( 94.0% translated).
 - simple_stmts.po                278 / 292 ( 95.0% translated).
 
 
