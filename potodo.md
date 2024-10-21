@@ -5,7 +5,7 @@
 - license.po                     112 / 123 ( 91.0% translated).
 
 
-# c-api (40.28% done)
+# c-api (40.30% done)
 
 - arg.po                         187 / 190 ( 98.0% translated).
 - buffer.po                      116 / 117 ( 99.0% translated).
@@ -17,7 +17,7 @@
 - function.po                     20 /  34 ( 58.0% translated).
 - gcsupport.po                     9 /  52 ( 17.0% translated).
 - import.po                       36 /  57 ( 63.0% translated).
-- init.po                        111 / 434 ( 25.0% translated).
+- init.po                        112 / 434 ( 25.0% translated).
 - init_config.po                 133 / 410 ( 32.0% translated).
 - intro.po                        94 / 141 ( 66.0% translated).
 - long.po                         30 /  67 ( 44.0% translated).
