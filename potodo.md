@@ -1,10 +1,8 @@
 
 
-# c-api (38.61% done)
+# c-api (34.59% done)
 
-- arg.po                         191 / 195 ( 97.0% translated).
 - datetime.po                     31 /  52 ( 59.0% translated).
-- dict.po                         66 /  67 ( 98.0% translated).
 - exceptions.po                  194 / 370 ( 52.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
 - frame.po                        20 /  37 ( 54.0% translated).
@@ -40,9 +38,9 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (62.40% done)
+# faq (63.53% done)
 
-- extending.po                    17 /  66 ( 25.0% translated).
+- extending.po                    27 /  66 ( 40.0% translated).
 - general.po                      96 /  98 ( 97.0% translated).
 - library.po                     133 / 153 ( 86.0% translated).
 - programming.po                 257 / 508 ( 50.0% translated).
@@ -70,7 +68,7 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (45.48% done)
+# library (45.53% done)
 
 - __future__.po                   56 /  58 ( 96.0% translated).
 - __main__.po                     54 /  73 ( 73.0% translated).
@@ -168,7 +166,7 @@
 - importlib.resources.abc.po      34 /  36 ( 94.0% translated).
 - importlib.resources.po          42 /  53 ( 79.0% translated).
 - inspect.po                      78 / 390 ( 20.0% translated).
-- intro.po                        20 /  32 ( 62.0% translated).
+- intro.po                        26 /  32 ( 81.0% translated).
 - io.po                           21 / 271 (  7.0% translated).
 - ipaddress.po                   155 / 165 ( 93.0% translated).
 - itertools.po                    82 / 201 ( 40.0% translated).
@@ -224,7 +222,7 @@
 - sqlite3.po                     105 / 476 ( 22.0% translated).
 - ssl.po                          40 / 544 (  7.0% translated).
 - statistics.po                  176 / 248 ( 70.0% translated).
-- stdtypes.po                    1219 / 1332 ( 91.0% translated).
+- stdtypes.po                    1226 / 1332 ( 92.0% translated).
 - string.po                      196 / 213 ( 92.0% translated).
 - stringprep.po                    1 /  25 (  4.0% translated).
 - struct.po                       96 / 195 ( 49.0% translated).
