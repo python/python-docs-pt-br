@@ -21,8 +21,8 @@
 # Patricia Mortada, 2023
 # Lucas Gonçalves Cordeiro <lucasgon192@gmail.com>, 2023
 # Leandro Cavalcante Damascena <leandro.damascena@gmail.com>, 2024
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 # Adorilson Bezerra <adorilson@gmail.com>, 2024
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
@@ -31,7 +31,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-18 14:17+0000\n"
 "PO-Revision-Date: 2021-06-28 01:13+0000\n"
-"Last-Translator: Adorilson Bezerra <adorilson@gmail.com>, 2024\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -943,6 +943,11 @@ msgid ""
 ">>> n.bit_length()\n"
 "6"
 msgstr ""
+">>> n = -37\n"
+">>> bin(n)\n"
+"'-0b100101'\n"
+">>> n.bit_length()\n"
+"6"
 
 #: ../../library/stdtypes.rst:469
 msgid ""
@@ -970,6 +975,10 @@ msgid ""
 "    s = s.lstrip('-0b') # remove leading zeros and minus sign\n"
 "    return len(s)       # len('100101') --> 6"
 msgstr ""
+"def bit_length(self):\n"
+"    s = bin(self)       # representação binária:  bin(-37) --> '-0b100101'\n"
+"    s = s.lstrip('-0b') # remove zeros no início e sinal negativo\n"
+"    return len(s)       # len('100101') --> 6"
 
 #: ../../library/stdtypes.rst:486
 msgid ""
@@ -989,12 +998,21 @@ msgid ""
 ">>> (-n).bit_count()\n"
 "3"
 msgstr ""
+">>> n = 19\n"
+">>> bin(n)\n"
+"'0b10011'\n"
+">>> n.bit_count()\n"
+"3\n"
+">>> (-n).bit_count()\n"
+"3"
 
 #: ../../library/stdtypes.rst:500
 msgid ""
 "def bit_count(self):\n"
 "    return bin(self).count(\"1\")"
 msgstr ""
+"def bit_count(self):\n"
+"    return bin(self).count(\"1\")"
 
 #: ../../library/stdtypes.rst:507
 msgid "Return an array of bytes representing an integer."
@@ -1047,6 +1065,8 @@ msgid ""
 ">>> (65).to_bytes()\n"
 "b'A'"
 msgstr ""
+">>> (65).to_bytes()\n"
+"b'A'"
 
 #: ../../library/stdtypes.rst:540
 msgid ""
@@ -1068,6 +1088,15 @@ msgid ""
 "\n"
 "    return bytes((n >> i*8) & 0xff for i in order)"
 msgstr ""
+"def to_bytes(n, length=1, byteorder='big', signed=False):\n"
+"    if byteorder == 'little':\n"
+"        order = range(length)\n"
+"    elif byteorder == 'big':\n"
+"        order = reversed(range(length))\n"
+"    else:\n"
+"        raise ValueError(\"byteorder must be either 'little' or 'big'\")\n"
+"\n"
+"    return bytes((n >> i*8) & 0xff for i in order)"
 
 #: ../../library/stdtypes.rst:556
 msgid "Added default argument values for ``length`` and ``byteorder``."
@@ -1126,6 +1155,19 @@ msgid ""
 "\n"
 "    return n"
 msgstr ""
+"def from_bytes(bytes, byteorder='big', signed=False):\n"
+"    if byteorder == 'little':\n"
+"        little_ordered = list(bytes)\n"
+"    elif byteorder == 'big':\n"
+"        little_ordered = list(reversed(bytes))\n"
+"    else:\n"
+"        raise ValueError(\"byteorder must be either 'little' or 'big'\")\n"
+"\n"
+"    n = sum(b << i*8 for i, b in enumerate(little_ordered))\n"
+"    if signed and little_ordered and (little_ordered[-1] & 0x80):\n"
+"        n -= 1 << 8*len(little_ordered)\n"
+"\n"
+"    return n"
 
 #: ../../library/stdtypes.rst:604
 msgid "Added default argument value for ``byteorder``."
@@ -1188,6 +1230,10 @@ msgid ""
 ">>> (3.2).is_integer()\n"
 "False"
 msgstr ""
+">>> (-2.0).is_integer()\n"
+"True\n"
+">>> (3.2).is_integer()\n"
+"False"
 
 #: ../../library/stdtypes.rst:645
 msgid ""
@@ -1239,7 +1285,7 @@ msgstr "Uma string hexadecimal toma a forma::"
 
 #: ../../library/stdtypes.rst:674
 msgid "[sign] ['0x'] integer ['.' fraction] ['p' exponent]"
-msgstr ""
+msgstr "[sign] ['0x'] integer ['.' fraction] ['p' exponent]"
 
 #: ../../library/stdtypes.rst:676
 msgid ""
@@ -1282,6 +1328,8 @@ msgid ""
 ">>> float.fromhex('0x3.a7p10')\n"
 "3740.0"
 msgstr ""
+">>> float.fromhex('0x3.a7p10')\n"
+"3740.0"
 
 #: ../../library/stdtypes.rst:699
 msgid ""
@@ -1296,6 +1344,8 @@ msgid ""
 ">>> float.hex(3740.0)\n"
 "'0x1.d380000000000p+11'"
 msgstr ""
+">>> float.hex(3740.0)\n"
+"'0x1.d380000000000p+11'"
 
 #: ../../library/stdtypes.rst:709
 msgid "Hashing of numeric types"

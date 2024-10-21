@@ -8,15 +8,16 @@
 # Aline Balogh <linecrist@hotmail.com>, 2021
 # felipe caridade fernandes <caridade500@gmail.com>, 2023
 # Rafael Fontenelle <rffontenelle@gmail.com>, 2024
+# Karen Tinoco, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-31 10:59+0000\n"
+"POT-Creation-Date: 2024-10-18 14:17+0000\n"
 "PO-Revision-Date: 2021-06-28 00:48+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
+"Last-Translator: Karen Tinoco, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -402,6 +403,13 @@ msgid ""
 "    ...\n"
 "}"
 msgstr ""
+"PyObject *key, *value;\n"
+"Py_ssize_t pos = 0;\n"
+"\n"
+"while (PyDict_Next(self->dict, &pos, &key, &value)) {\n"
+"    /* fazer algo de interessante com os valores... */\n"
+"    ...\n"
+"}"
 
 #: ../../c-api/dict.rst:271
 msgid ""
@@ -433,6 +441,23 @@ msgid ""
 "    Py_DECREF(o);\n"
 "}"
 msgstr ""
+"PyObject *key, *value;\n"
+"Py_ssize_t pos = 0;\n"
+"\n"
+"while (PyDict_Next(self->dict, &pos, &key, &value)) {\n"
+"    long i = PyLong_AsLong(value);\n"
+"    if (i == -1 && PyErr_Occurred()) {\n"
+"        return -1;\n"
+"    }\n"
+"    PyObject *o = PyLong_FromLong(i + 1);\n"
+"    if (o == NULL)\n"
+"        return -1;\n"
+"    if (PyDict_SetItem(self->dict, key, o) < 0) {\n"
+"        Py_DECREF(o);\n"
+"        return -1;\n"
+"    }\n"
+"    Py_DECREF(o);\n"
+"}"
 
 #: ../../c-api/dict.rst:293
 msgid ""
@@ -453,6 +478,11 @@ msgid ""
 "}\n"
 "Py_END_CRITICAL_SECTION();"
 msgstr ""
+"Py_BEGIN_CRITICAL_SECTION(self->dict);\n"
+"while (PyDict_Next(self->dict, &pos, &key, &value)) {\n"
+"    ...\n"
+"}\n"
+"Py_END_CRITICAL_SECTION();"
 
 #: ../../c-api/dict.rst:307
 msgid ""
