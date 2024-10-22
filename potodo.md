@@ -1,6 +1,6 @@
 
 
-# c-api (34.59% done)
+# c-api (34.81% done)
 
 - datetime.po                     31 /  52 ( 59.0% translated).
 - exceptions.po                  194 / 370 ( 52.0% translated).
@@ -9,7 +9,7 @@
 - function.po                     20 /  34 ( 58.0% translated).
 - gcsupport.po                     9 /  52 ( 17.0% translated).
 - import.po                       33 /  62 ( 53.0% translated).
-- init.po                        106 / 476 ( 22.0% translated).
+- init.po                        119 / 476 ( 25.0% translated).
 - init_config.po                 135 / 417 ( 32.0% translated).
 - intro.po                        93 / 140 ( 66.0% translated).
 - long.po                         37 / 104 ( 35.0% translated).
@@ -19,7 +19,6 @@
 - number.po                       14 /  48 ( 29.0% translated).
 - object.po                       42 / 117 ( 35.0% translated).
 - refcounting.po                   4 /  48 (  8.0% translated).
-- sequence.po                     15 /  30 ( 50.0% translated).
 - slice.po                        22 /  24 ( 91.0% translated).
 - structures.po                   71 / 179 ( 39.0% translated).
 - sys.po                          28 /  74 ( 37.0% translated).
@@ -30,18 +29,17 @@
 - veryhigh.po                      3 /  54 (  5.0% translated).
 
 
-# extending (8.77% done)
+# extending (9.12% done)
 
-- embedding.po                     2 /  59 (  3.0% translated).
+- embedding.po                     4 /  59 (  6.0% translated).
 - extending.po                    14 / 206 (  6.0% translated).
 - newtypes.po                      8 / 117 (  6.0% translated).
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (63.53% done)
+# faq (59.62% done)
 
-- extending.po                    27 /  66 ( 40.0% translated).
-- general.po                      96 /  98 ( 97.0% translated).
+- extending.po                    30 /  66 ( 45.0% translated).
 - library.po                     133 / 153 ( 86.0% translated).
 - programming.po                 257 / 508 ( 50.0% translated).
 - windows.po                      48 /  58 ( 82.0% translated).
@@ -68,7 +66,7 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (45.53% done)
+# library (45.55% done)
 
 - __future__.po                   56 /  58 ( 96.0% translated).
 - __main__.po                     54 /  73 ( 73.0% translated).
@@ -166,7 +164,7 @@
 - importlib.resources.abc.po      34 /  36 ( 94.0% translated).
 - importlib.resources.po          42 /  53 ( 79.0% translated).
 - inspect.po                      78 / 390 ( 20.0% translated).
-- intro.po                        26 /  32 ( 81.0% translated).
+- intro.po                        27 /  32 ( 84.0% translated).
 - io.po                           21 / 271 (  7.0% translated).
 - ipaddress.po                   155 / 165 ( 93.0% translated).
 - itertools.po                    82 / 201 ( 40.0% translated).
@@ -226,7 +224,7 @@
 - string.po                      196 / 213 ( 92.0% translated).
 - stringprep.po                    1 /  25 (  4.0% translated).
 - struct.po                       96 / 195 ( 49.0% translated).
-- subprocess.po                  121 / 323 ( 37.0% translated).
+- subprocess.po                  128 / 323 ( 39.0% translated).
 - symtable.po                      6 /  65 (  9.0% translated).
 - sys.monitoring.po              102 / 111 ( 91.0% translated).
 - sys.po                         425 / 437 ( 97.0% translated).
@@ -280,11 +278,10 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (76.82% done)
+# reference (76.09% done)
 
 - compound_stmts.po              194 / 467 ( 41.0% translated).
 - datamodel.po                   620 / 863 ( 71.0% translated).
-- executionmodel.po               97 / 104 ( 93.0% translated).
 - expressions.po                 521 / 537 ( 97.0% translated).
 - import.po                      182 / 200 ( 91.0% translated).
 - simple_stmts.po                278 / 292 ( 95.0% translated).
