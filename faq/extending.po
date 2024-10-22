@@ -9,15 +9,16 @@
 # Alexsandro Matias de Almeida <matiasalexsandro@gmail.com>, 2020
 # mvpetri <mvpetri@gmail.com>, 2021
 # Rafael Fontenelle <rffontenelle@gmail.com>, 2023
+# Pedro Fonini, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-31 13:50+0000\n"
+"POT-Creation-Date: 2024-10-04 17:06+0000\n"
 "PO-Revision-Date: 2020-05-30 11:53+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2023\n"
+"Last-Translator: Pedro Fonini, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -117,10 +118,18 @@ msgid ""
 "func:`PyRun_String`; see the source for :c:func:`PyRun_SimpleString` in "
 "``Python/pythonrun.c``."
 msgstr ""
+"A função mais alto-nível para isso é a :c:func:`PyRun_SimpleString`, que "
+"recebe como único argumento uma string a ser executada no contexto do módulo "
+"``__main__`` e retorna ``0`` para sucesso e ``-1`` quando uma exceção "
+"ocorrer (incluindo :exc:`SyntaxError`).  Se quiser mais controle, use :c:"
+"func:`PyRun_String`; veja o código-fonte de :c:func:`PyRun_SimpleString` em "
+"``Python/pythonrun.c``."
 
 #: ../../faq/extending.rst:72
 msgid "How can I evaluate an arbitrary Python expression from C?"
 msgstr ""
+"Como posso executar e obter o resultado de uma expressão Python arbitrária a "
+"partir de C?"
 
 #: ../../faq/extending.rst:74
 msgid ""
@@ -128,6 +137,9 @@ msgid ""
 "start symbol :c:data:`Py_eval_input`; it parses an expression, evaluates it "
 "and returns its value."
 msgstr ""
+"Chame a função :c:func:`PyRun_String` da pergunta anterior passando :c:data:"
+"`Py_eval_input` como o símbolo de início; ela faz a análise sintática de uma "
+"expressão, a executa, e retorna o seu valor."
 
 #: ../../faq/extending.rst:80
 msgid "How do I extract C values from a Python object?"
@@ -155,6 +167,9 @@ msgid ""
 "use :c:func:`PyBytes_Check`, :c:func:`PyTuple_Check`, :c:func:"
 "`PyList_Check`, etc."
 msgstr ""
+"Para testar o tipo de um objeto, primeiramente se certifique de que ele não "
+"é ``NULL``, e então use :c:func:`PyBytes_Check`, :c:func:`PyTuple_Check`, :c:"
+"func:`PyList_Check`, etc."
 
 #: ../../faq/extending.rst:95
 msgid ""
@@ -165,6 +180,12 @@ msgid ""
 "as many other useful protocols such as numbers (:c:func:`PyNumber_Index` et "
 "al.) and mappings in the PyMapping APIs."
 msgstr ""
+"Também existe uma API alto-nível para objetos Python fornecida pela chamada "
+"interface \"abstrata\" -- leia ``Include/abstract.h`` para mais detalhes.  "
+"Ela permite interagir com qualquer tipo de sequência Python usando chamadas "
+"como :c:func:`PySequence_Length`, :c:func:`PySequence_GetItem`, etc, além de "
+"vários outros protocolos úteis tais como números (:c:func:`PyNumber_Index` e "
+"outros) e mapeamentos nas APIs PyMapping."
 
 #: ../../faq/extending.rst:104
 msgid "How do I use Py_BuildValue() to create a tuple of arbitrary length?"
@@ -174,11 +195,11 @@ msgstr ""
 
 #: ../../faq/extending.rst:106
 msgid "You can't.  Use :c:func:`PyTuple_Pack` instead."
-msgstr ""
+msgstr "Não é possível. Use a função :c:func:`PyTuple_Pack` para isso."
 
 #: ../../faq/extending.rst:110
 msgid "How do I call an object's method from C?"
-msgstr ""
+msgstr "Como eu chamo um método de um objeto a partir do C?"
 
 #: ../../faq/extending.rst:112
 msgid ""
@@ -187,6 +208,10 @@ msgid ""
 "to call, a format string like that used with :c:func:`Py_BuildValue`, and "
 "the argument values::"
 msgstr ""
+"A função :c:func:`PyObject_CallMethod` pode ser usada para chamar um método "
+"arbitrário de um objeto.  Os parâmetros são o objeto, o nome do método a ser "
+"chamado, uma string de formato como a usada na :c:func:`Py_BuildValue`, e os "
+"valores dos argumentos::"
 
 #: ../../faq/extending.rst:121
 msgid ""
@@ -194,6 +219,9 @@ msgid ""
 "defined. You are responsible for eventually :c:func:`Py_DECREF`\\ 'ing the "
 "return value."
 msgstr ""
+"Isso funciona para qualquer objeto que tenha métodos -- sejam eles embutidos "
+"ou definidos por usuário. Você fica então responsável por chamar :c:func:"
+"`Py_DECREF` no valor retornado."
 
 #: ../../faq/extending.rst:124
 msgid ""
