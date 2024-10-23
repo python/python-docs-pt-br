@@ -1,6 +1,6 @@
 
 
-# c-api (34.81% done)
+# c-api (35.43% done)
 
 - datetime.po                     31 /  52 ( 59.0% translated).
 - exceptions.po                  194 / 370 ( 52.0% translated).
@@ -9,7 +9,7 @@
 - function.po                     20 /  34 ( 58.0% translated).
 - gcsupport.po                     9 /  52 ( 17.0% translated).
 - import.po                       33 /  62 ( 53.0% translated).
-- init.po                        119 / 476 ( 25.0% translated).
+- init.po                        143 / 476 ( 30.0% translated).
 - init_config.po                 135 / 417 ( 32.0% translated).
 - intro.po                        93 / 140 ( 66.0% translated).
 - long.po                         37 / 104 ( 35.0% translated).
@@ -66,7 +66,7 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (45.55% done)
+# library (45.61% done)
 
 - __future__.po                   56 /  58 ( 96.0% translated).
 - __main__.po                     54 /  73 ( 73.0% translated).
@@ -111,7 +111,7 @@
 - curses.panel.po                  6 /  23 ( 26.0% translated).
 - curses.po                       65 / 486 ( 13.0% translated).
 - dataclasses.po                  47 / 152 ( 30.0% translated).
-- datetime.po                    582 / 646 ( 90.0% translated).
+- datetime.po                    599 / 646 ( 92.0% translated).
 - dbm.po                           7 / 102 (  6.0% translated).
 - decimal.po                     344 / 378 ( 91.0% translated).
 - devmode.po                      49 /  58 ( 84.0% translated).
@@ -199,7 +199,7 @@
 - pydoc.po                        22 /  24 ( 91.0% translated).
 - pyexpat.po                      21 / 144 ( 14.0% translated).
 - queue.po                         7 /  53 ( 13.0% translated).
-- random.po                      124 / 137 ( 90.0% translated).
+- random.po                      125 / 137 ( 91.0% translated).
 - re.po                          424 / 438 ( 96.0% translated).
 - readline.po                     52 /  56 ( 92.0% translated).
 - reprlib.po                       9 /  39 ( 23.0% translated).
@@ -227,7 +227,7 @@
 - subprocess.po                  128 / 323 ( 39.0% translated).
 - symtable.po                      6 /  65 (  9.0% translated).
 - sys.monitoring.po              102 / 111 ( 91.0% translated).
-- sys.po                         425 / 437 ( 97.0% translated).
+- sys.po                         426 / 437 ( 97.0% translated).
 - sysconfig.po                   135 / 138 ( 97.0% translated).
 - syslog.po                       29 /  31 ( 93.0% translated).
 - tarfile.po                     103 / 337 ( 30.0% translated).
