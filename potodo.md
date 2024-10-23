@@ -1,6 +1,6 @@
 
 
-# c-api (39.57% done)
+# c-api (40.13% done)
 
 - exceptions.po                  196 / 266 ( 73.0% translated).
 - gcsupport.po                    10 /  33 ( 30.0% translated).
@@ -11,7 +11,7 @@
 - module.po                       46 /  92 ( 50.0% translated).
 - number.po                        7 /  41 ( 17.0% translated).
 - object.po                        4 /  47 (  8.0% translated).
-- sequence.po                     12 /  27 ( 44.0% translated).
+- sequence.po                     26 /  27 ( 96.0% translated).
 - structures.po                   50 / 126 ( 39.0% translated).
 - sys.po                          20 /  72 ( 27.0% translated).
 - type.po                         29 /  63 ( 46.0% translated).
@@ -28,18 +28,18 @@
 - sourcedist.po                   27 /  74 ( 36.0% translated).
 
 
-# extending (13.16% done)
+# extending (13.64% done)
 
-- embedding.po                     2 /  45 (  4.0% translated).
+- embedding.po                     4 /  45 (  8.0% translated).
 - extending.po                    15 / 158 (  9.0% translated).
 - newtypes.po                     10 /  92 ( 10.0% translated).
 - newtypes_tutorial.po            28 / 123 ( 22.0% translated).
 
 
-# faq (77.50% done)
+# faq (77.78% done)
 
 - design.po                      123 / 141 ( 87.0% translated).
-- extending.po                    22 /  58 ( 37.0% translated).
+- extending.po                    24 /  58 ( 41.0% translated).
 - library.po                     130 / 140 ( 92.0% translated).
 - programming.po                 276 / 372 ( 74.0% translated).
 
@@ -67,7 +67,7 @@
 - index.po                       172 / 225 ( 76.0% translated).
 
 
-# library (38.35% done)
+# library (38.36% done)
 
 - argparse.po                    201 / 290 ( 69.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
@@ -202,7 +202,7 @@
 - stat.po                         78 /  81 ( 96.0% translated).
 - stringprep.po                    1 /  25 (  4.0% translated).
 - struct.po                       83 / 150 ( 55.0% translated).
-- subprocess.po                  125 / 273 ( 45.0% translated).
+- subprocess.po                  128 / 273 ( 46.0% translated).
 - symtable.po                      3 /  44 (  6.0% translated).
 - sys.po                         326 / 403 ( 80.0% translated).
 - sysconfig.po                    69 /  74 ( 93.0% translated).
