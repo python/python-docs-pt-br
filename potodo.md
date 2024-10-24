@@ -1,13 +1,13 @@
 
 
-# c-api (45.78% done)
+# c-api (45.82% done)
 
 - buffer.po                      102 / 103 ( 99.0% translated).
 - contextvars.po                  30 /  31 ( 96.0% translated).
 - exceptions.po                  197 / 264 ( 74.0% translated).
 - float.po                        13 /  14 ( 92.0% translated).
 - gcsupport.po                    10 /  25 ( 40.0% translated).
-- init.po                        113 / 287 ( 39.0% translated).
+- init.po                        114 / 287 ( 39.0% translated).
 - init_config.po                 124 / 274 ( 45.0% translated).
 - intro.po                        91 /  92 ( 98.0% translated).
 - long.po                         49 /  52 ( 94.0% translated).
@@ -70,7 +70,7 @@
 - index.po                       173 / 225 ( 76.0% translated).
 
 
-# library (42.65% done)
+# library (42.77% done)
 
 - argparse.po                    181 / 277 ( 65.0% translated).
 - array.po                        82 /  83 ( 98.0% translated).
@@ -140,13 +140,13 @@
 - functools.po                    28 /  70 ( 40.0% translated).
 - gc.po                           53 /  54 ( 98.0% translated).
 - grp.po                          16 /  28 ( 57.0% translated).
-- gzip.po                          9 /  56 ( 16.0% translated).
+- gzip.po                         21 /  56 ( 37.0% translated).
 - hashlib.po                       8 / 137 (  5.0% translated).
 - heapq.po                        49 /  51 ( 96.0% translated).
 - hmac.po                          3 /  25 ( 12.0% translated).
 - html.parser.po                   2 /  48 (  4.0% translated).
 - http.client.po                  50 /  91 ( 54.0% translated).
-- http.cookiejar.po                8 / 153 (  5.0% translated).
+- http.cookiejar.po                9 / 153 (  5.0% translated).
 - http.cookies.po                 17 /  56 ( 30.0% translated).
 - http.server.po                   8 /  89 (  8.0% translated).
 - idle.po                         14 / 272 (  5.0% translated).
@@ -184,7 +184,7 @@
 - plistlib.po                     35 /  55 ( 63.0% translated).
 - poplib.po                        7 /  49 ( 14.0% translated).
 - pprint.po                       20 /  31 ( 64.0% translated).
-- profile.po                      23 / 153 ( 15.0% translated).
+- profile.po                      34 / 153 ( 22.0% translated).
 - pty.po                          13 /  16 ( 81.0% translated).
 - pyexpat.po                      21 / 132 ( 15.0% translated).
 - queue.po                         4 /  42 (  9.0% translated).
@@ -236,7 +236,7 @@
 - unittest.mock.po               108 / 373 ( 28.0% translated).
 - unittest.po                    307 / 499 ( 61.0% translated).
 - urllib.parse.po                 65 / 153 ( 42.0% translated).
-- urllib.request.po               39 / 271 ( 14.0% translated).
+- urllib.request.po               43 / 271 ( 15.0% translated).
 - urllib.robotparser.po            2 /  14 ( 14.0% translated).
 - uuid.po                         16 /  59 ( 27.0% translated).
 - warnings.po                     64 / 109 ( 58.0% translated).
