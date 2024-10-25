@@ -1,8 +1,7 @@
 
 
-# c-api (35.56% done)
+# c-api (34.88% done)
 
-- datetime.po                     44 /  52 ( 84.0% translated).
 - exceptions.po                  194 / 370 ( 52.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
 - frame.po                        20 /  37 ( 54.0% translated).
@@ -65,7 +64,7 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (45.50% done)
+# library (45.28% done)
 
 - __future__.po                   56 /  58 ( 96.0% translated).
 - __main__.po                     54 /  73 ( 73.0% translated).
@@ -165,14 +164,13 @@
 - ipaddress.po                   155 / 165 ( 93.0% translated).
 - itertools.po                    82 / 201 ( 40.0% translated).
 - json.po                        139 / 162 ( 85.0% translated).
-- locale.po                      144 / 148 ( 97.0% translated).
 - logging.config.po               12 / 171 (  7.0% translated).
 - logging.handlers.po             48 / 270 ( 17.0% translated).
 - logging.po                      91 / 368 ( 24.0% translated).
 - lzma.po                         66 / 115 ( 57.0% translated).
 - mailbox.po                      10 / 306 (  3.0% translated).
 - math.po                        128 / 131 ( 97.0% translated).
-- mimetypes.po                    15 /  54 ( 27.0% translated).
+- mimetypes.po                    20 /  54 ( 37.0% translated).
 - mmap.po                         12 /  65 ( 18.0% translated).
 - modulefinder.po                 13 /  16 ( 81.0% translated).
 - msvcrt.po                       22 /  46 ( 47.0% translated).
@@ -281,12 +279,10 @@
 - simple_stmts.po                286 / 292 ( 97.0% translated).
 
 
-# using (75.78% done)
+# using (52.94% done)
 
 - ios.po                          69 /  74 ( 93.0% translated).
 - mac.po                          21 /  96 ( 21.0% translated).
-- unix.po                         44 /  52 ( 84.0% translated).
-- windows.po                     329 / 389 ( 84.0% translated).
 
 
 # whatsnew (65.66% done)
