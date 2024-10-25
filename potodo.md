@@ -1,6 +1,6 @@
 
 
-# c-api (45.00% done)
+# c-api (45.04% done)
 
 - allocation.po                    8 /   9 ( 88.0% translated).
 - arg.po                         193 / 195 ( 98.0% translated).
@@ -25,7 +25,7 @@
 - type.po                         27 /  63 ( 42.0% translated).
 - typeobj.po                     233 / 604 ( 38.0% translated).
 - unicode.po                      51 / 334 ( 15.0% translated).
-- veryhigh.po                      2 /  56 (  3.0% translated).
+- veryhigh.po                      3 /  56 (  5.0% translated).
 
 
 # distutils (29.27% done)
@@ -52,7 +52,7 @@
 - programming.po                 259 / 388 ( 66.0% translated).
 
 
-# howto (45.86% done)
+# howto (45.29% done)
 
 - annotations.po                  44 /  45 ( 97.0% translated).
 - argparse.po                     81 /  84 ( 96.0% translated).
@@ -61,7 +61,6 @@
 - descriptor.po                   57 / 175 ( 32.0% translated).
 - functional.po                  137 / 206 ( 66.0% translated).
 - instrumentation.po               8 /  59 ( 13.0% translated).
-- ipaddress.po                    35 /  48 ( 72.0% translated).
 - logging-cookbook.po             25 / 306 (  8.0% translated).
 - logging.po                     114 / 221 ( 51.0% translated).
 - pyporting.po                    35 /  86 ( 40.0% translated).
@@ -76,10 +75,10 @@
 - index.po                       168 / 226 ( 74.0% translated).
 
 
-# library (44.66% done)
+# library (44.74% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
-- argparse.po                    190 / 290 ( 65.0% translated).
+- argparse.po                    204 / 290 ( 70.0% translated).
 - array.po                        72 /  82 ( 87.0% translated).
 - ast.po                         200 / 212 ( 94.0% translated).
 - asynchat.po                      4 /  33 ( 12.0% translated).
@@ -112,7 +111,7 @@
 - concurrent.futures.po           16 /  88 ( 18.0% translated).
 - configparser.po                152 / 176 ( 86.0% translated).
 - constants.po                    16 /  18 ( 88.0% translated).
-- contextlib.po                    8 / 125 (  6.0% translated).
+- contextlib.po                    9 / 125 (  7.0% translated).
 - copyreg.po                       8 /   9 ( 88.0% translated).
 - crypt.po                         3 /  30 ( 10.0% translated).
 - ctypes.po                       82 / 434 ( 18.0% translated).
@@ -232,7 +231,7 @@
 - tkinter.font.po                 34 /  35 ( 97.0% translated).
 - tkinter.po                     303 / 304 ( 99.0% translated).
 - tkinter.tix.po                   4 /  71 (  5.0% translated).
-- tkinter.ttk.po                 109 / 408 ( 26.0% translated).
+- tkinter.ttk.po                 116 / 408 ( 28.0% translated).
 - tokenize.po                      7 /  44 ( 15.0% translated).
 - traceback.po                     7 /  78 (  8.0% translated).
 - tracemalloc.po                  21 / 144 ( 14.0% translated).
@@ -271,7 +270,7 @@
 - zoneinfo.po                      6 /  73 (  8.0% translated).
 
 
-# reference (82.80% done)
+# reference (84.16% done)
 
 - compound_stmts.po              103 / 294 ( 35.0% translated).
 - datamodel.po                   483 / 504 ( 95.0% translated).
@@ -279,6 +278,7 @@
 - expressions.po                 303 / 332 ( 91.0% translated).
 - import.po                      165 / 184 ( 89.0% translated).
 - introduction.po                 24 /  25 ( 96.0% translated).
+- lexical_analysis.po            185 / 195 ( 94.0% translated).
 - simple_stmts.po                153 / 154 ( 99.0% translated).
 
 
