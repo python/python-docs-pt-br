@@ -48,16 +48,16 @@
 - programming.po                 269 / 350 ( 76.0% translated).
 
 
-# howto (46.77% done)
+# howto (47.06% done)
 
 - argparse.po                     83 /  84 ( 98.0% translated).
 - clinic.po                      101 / 415 ( 24.0% translated).
 - curses.po                       70 / 105 ( 66.0% translated).
 - descriptor.po                   24 /  73 ( 32.0% translated).
-- functional.po                  139 / 206 ( 67.0% translated).
+- functional.po                  140 / 206 ( 67.0% translated).
 - instrumentation.po               8 /  59 ( 13.0% translated).
 - logging-cookbook.po             15 / 216 (  6.0% translated).
-- logging.po                     117 / 218 ( 53.0% translated).
+- logging.po                     122 / 218 ( 55.0% translated).
 - pyporting.po                    26 /  85 ( 30.0% translated).
 - regex.po                       265 / 286 ( 92.0% translated).
 - sockets.po                      37 /  57 ( 64.0% translated).
@@ -70,7 +70,7 @@
 - index.po                       173 / 225 ( 76.0% translated).
 
 
-# library (42.77% done)
+# library (42.80% done)
 
 - argparse.po                    181 / 277 ( 65.0% translated).
 - array.po                        82 /  83 ( 98.0% translated).
@@ -202,7 +202,7 @@
 - signal.po                       11 / 119 (  9.0% translated).
 - site.po                         18 /  39 ( 46.0% translated).
 - smtpd.po                        10 /  78 ( 12.0% translated).
-- smtplib.po                      15 / 107 ( 14.0% translated).
+- smtplib.po                      24 / 107 ( 22.0% translated).
 - socket.po                       50 / 307 ( 16.0% translated).
 - socketserver.po                  7 /  79 (  8.0% translated).
 - sqlite3.po                      33 / 202 ( 16.0% translated).
@@ -280,7 +280,7 @@
 - windows.po                     310 / 311 ( 99.0% translated).
 
 
-# whatsnew (63.15% done)
+# whatsnew (63.23% done)
 
 - 2.0.po                         134 / 182 ( 73.0% translated).
 - 2.2.po                         136 / 192 ( 70.0% translated).
@@ -290,7 +290,7 @@
 - 2.6.po                         536 / 539 ( 99.0% translated).
 - 2.7.po                         444 / 454 ( 97.0% translated).
 - 3.2.po                          69 / 518 ( 13.0% translated).
-- 3.3.po                         154 / 660 ( 23.0% translated).
+- 3.3.po                         159 / 660 ( 24.0% translated).
 - 3.4.po                         509 / 511 ( 99.0% translated).
 - 3.5.po                         124 / 541 ( 22.0% translated).
 - 3.6.po                         241 / 517 ( 46.0% translated).
