@@ -80,7 +80,7 @@
 - index.po                       166 / 226 ( 73.0% translated).
 
 
-# library (44.86% done)
+# library (45.43% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          33 /  49 ( 67.0% translated).
@@ -192,13 +192,11 @@
 - multiprocessing.po              64 / 529 ( 12.0% translated).
 - multiprocessing.shared_memory.po  15 /  48 ( 31.0% translated).
 - nntplib.po                       9 /  89 ( 10.0% translated).
-- optparse.po                     37 / 416 (  8.0% translated).
 - os.path.po                      77 /  78 ( 98.0% translated).
 - os.po                          918 / 931 ( 98.0% translated).
 - ossaudiodev.po                  18 /  98 ( 18.0% translated).
 - pathlib.po                     216 / 230 ( 93.0% translated).
 - pdb.po                         114 / 115 ( 99.0% translated).
-- pipes.po                         5 /  20 ( 25.0% translated).
 - pkgutil.po                       7 /  51 ( 13.0% translated).
 - platform.po                      4 /  57 (  7.0% translated).
 - plistlib.po                     42 /  43 ( 97.0% translated).
