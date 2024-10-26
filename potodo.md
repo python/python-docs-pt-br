@@ -264,10 +264,10 @@
 - simple_stmts.po                150 / 154 ( 97.0% translated).
 
 
-# using (98.22% done)
+# using (99.21% done)
 
 - cmdline.po                     201 / 202 ( 99.0% translated).
-- windows.po                     295 / 303 ( 97.0% translated).
+- windows.po                     300 / 303 ( 99.0% translated).
 
 
 # whatsnew (62.79% done)
