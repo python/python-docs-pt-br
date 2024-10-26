@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-25 14:54+0000\n"
+"POT-Creation-Date: 2024-10-26 20:45+0000\n"
 "PO-Revision-Date: 2024-05-11 00:32+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -70,7 +70,7 @@ msgstr ""
 
 #: ../../faq/extending.rst:37
 msgid "Writing C is hard; are there any alternatives?"
-msgstr "A escrita em C é difícil, Há algumas alternativas?"
+msgstr "Escrever C é difícil; há alguma alternativa?"
 
 #: ../../faq/extending.rst:39
 msgid ""
@@ -291,6 +291,8 @@ msgid ""
 "How do I catch the output from PyErr_Print() (or anything that prints to "
 "stdout/stderr)?"
 msgstr ""
+"Como posso capturar a saída da função PyErr_Print() (ou qualquer outra coisa "
+"que escreva para stdout/stderr)?"
 
 #: ../../faq/extending.rst:144
 msgid ""
@@ -299,10 +301,15 @@ msgid ""
 "print_error, or just allow the standard traceback mechanism to work. Then, "
 "the output will go wherever your ``write()`` method sends it."
 msgstr ""
+"Com código Python, defina um objeto que suporte o método ``write()``.  "
+"Atribua esse objeto a :data:`sys.stdout` e :data:`sys.stderr`.  Chame "
+"print_error, or simplesmente deixe o mecanismo padrão de traceback "
+"acontecer. Assim, a saída irá para onde quer que o seu método ``write()`` a "
+"envie."
 
 #: ../../faq/extending.rst:149
 msgid "The easiest way to do this is to use the :class:`io.StringIO` class:"
-msgstr ""
+msgstr "O jeito mais fácil de fazer isso é usar a classe :class:`io.StringIO`:"
 
 #: ../../faq/extending.rst:151
 msgid ""
@@ -314,6 +321,13 @@ msgid ""
 "foo\n"
 "hello world!"
 msgstr ""
+">>> import io, sys\n"
+">>> sys.stdout = io.StringIO()\n"
+">>> print('foo')\n"
+">>> print('hello world!')\n"
+">>> sys.stderr.write(sys.stdout.getvalue())\n"
+"foo\n"
+"hello world!"
 
 #: ../../faq/extending.rst:161
 msgid "A custom object to do the same would look like this:"
@@ -336,18 +350,33 @@ msgid ""
 "foo\n"
 "hello world!"
 msgstr ""
+">>> import io, sys\n"
+">>> class StdoutCatcher(io.TextIOBase):\n"
+"...     def __init__(self):\n"
+"...         self.data = []\n"
+"...     def write(self, stuff):\n"
+"...         self.data.append(stuff)\n"
+"...\n"
+">>> import sys\n"
+">>> sys.stdout = StdoutCatcher()\n"
+">>> print('foo')\n"
+">>> print('hello world!')\n"
+">>> sys.stderr.write(''.join(sys.stdout.data))\n"
+"foo\n"
+"hello world!"
 
 #: ../../faq/extending.rst:182
 msgid "How do I access a module written in Python from C?"
-msgstr ""
+msgstr "Como faço para acessar a partir do C um módulo escrito em Python?"
 
 #: ../../faq/extending.rst:184
 msgid "You can get a pointer to the module object as follows::"
 msgstr ""
+"Você pode obter um pointeiro para o objeto de módulo da seguinte maneira::"
 
 #: ../../faq/extending.rst:186
 msgid "module = PyImport_ImportModule(\"<modulename>\");"
-msgstr ""
+msgstr "module = PyImport_ImportModule(\"<modulename>\");"
 
 #: ../../faq/extending.rst:188
 msgid ""
@@ -357,26 +386,35 @@ msgid ""
 "module into any namespace -- it only ensures it has been initialized and is "
 "stored in :data:`sys.modules`."
 msgstr ""
+"Se o módulo ainda não foi importado (isto é, ainda não aparece no :data:`sys."
+"modules`), essa função vai inicializar o módulo; caso contrário, ela vai "
+"simplesmente retornar o valor de ``sys.modules[\"<modulename>\"]``.  Note "
+"que ela não adiciona o módulo a nenhum espaço de nomes -- ela simplesmente "
+"garante que ele foi inicializado e colocado no :data:`sys.modules`."
 
 #: ../../faq/extending.rst:194
 msgid ""
 "You can then access the module's attributes (i.e. any name defined in the "
 "module) as follows::"
 msgstr ""
+"Você pode então acessar os atributos do módulo (isto é, qualquer nome "
+"definido no módulo) assim::"
 
 #: ../../faq/extending.rst:197
 msgid "attr = PyObject_GetAttrString(module, \"<attrname>\");"
-msgstr ""
+msgstr "attr = PyObject_GetAttrString(module, \"<attrname>\");"
 
 #: ../../faq/extending.rst:199
 msgid ""
 "Calling :c:func:`PyObject_SetAttrString` to assign to variables in the "
 "module also works."
 msgstr ""
+"Chamar :c:func:`PyObject_SetAttrString` para definir variáveis no módulo "
+"também funciona."
 
 #: ../../faq/extending.rst:204
 msgid "How do I interface to C++ objects from Python?"
-msgstr ""
+msgstr "Como posso interagir com objetos C++ a partir do Python?"
 
 #: ../../faq/extending.rst:206
 msgid ""
@@ -387,14 +425,20 @@ msgid ""
 "building a new Python type around a C structure (pointer) type will also "
 "work for C++ objects."
 msgstr ""
+"Dependendo das suas necessidades, há diversas abordagens.  Para fazer isso "
+"manualmente, comece lendo :ref:`o documento \"Estendendo e Incorporando\" "
+"<extending-index>`.  Note que, para o sistema Python em tempo de execução, "
+"não há muita diferença entre C e C++ -- de forma que a estratégia de "
+"construir um novo tipo Python ao redor de uma estrutura C (ou ponteiro para "
+"uma) também funciona para objetos C++."
 
 #: ../../faq/extending.rst:212
 msgid "For C++ libraries, see :ref:`c-wrapper-software`."
-msgstr ""
+msgstr "Para bibliotecas C++, veja :ref:`c-wrapper-software`."
 
 #: ../../faq/extending.rst:216
 msgid "I added a module using the Setup file and the make fails; why?"
-msgstr ""
+msgstr "Adicionei um módulo usando o arquivo de Setup e o make falha; por quê?"
 
 #: ../../faq/extending.rst:218
 msgid ""
@@ -402,28 +446,35 @@ msgid ""
 "fails.  (Fixing this requires some ugly shell script hackery, and this bug "
 "is so minor that it doesn't seem worth the effort.)"
 msgstr ""
+"O Setup deve terminar com uma quebra de linha; se não houver uma quebra de "
+"linha no final, o processo de compilação falha.  (Consertar isso requer umas "
+"gambiarras feias em shell script, e esse bug é tão pequeno que o esforço não "
+"parece valer a pena.)"
 
 #: ../../faq/extending.rst:224
 msgid "How do I debug an extension?"
-msgstr ""
+msgstr "Como eu depuro uma extensão?"
 
 #: ../../faq/extending.rst:226
 msgid ""
 "When using GDB with dynamically loaded extensions, you can't set a "
 "breakpoint in your extension until your extension is loaded."
 msgstr ""
+"Ao usar o GDB com extensões carregadas dinamicamente, você não consegue "
+"definir um ponto de interrupção antes da sua extensão ser carregada."
 
 #: ../../faq/extending.rst:229
 msgid "In your ``.gdbinit`` file (or interactively), add the command:"
 msgstr ""
+"No seu arquivo ``.gdbinit`` (ou então interativamente), adicione o comando:"
 
 #: ../../faq/extending.rst:231
 msgid "br _PyImport_LoadDynamicModule"
-msgstr ""
+msgstr "br _PyImport_LoadDynamicModule"
 
 #: ../../faq/extending.rst:235
 msgid "Then, when you run GDB:"
-msgstr ""
+msgstr "Então, ao executar o GDB:"
 
 #: ../../faq/extending.rst:237
 msgid ""
@@ -434,30 +485,42 @@ msgid ""
 "gdb) br myfunction.c:50\n"
 "gdb) continue"
 msgstr ""
+"$ gdb /local/bin/python\n"
+"gdb) run myscript.py\n"
+"gdb) continue # repita até que a sua extensão seja carregada\n"
+"gdb) finish   # para que a sua extensão seja carregada\n"
+"gdb) br myfunction.c:50\n"
+"gdb) continue"
 
 #: ../../faq/extending.rst:247
 msgid ""
 "I want to compile a Python module on my Linux system, but some files are "
 "missing. Why?"
 msgstr ""
+"Quero compilar um módulo Python no meu sistema Linux, mas alguns arquivos "
+"estão faltando. Por quê?"
 
 #: ../../faq/extending.rst:249
 msgid ""
 "Most packaged versions of Python omit some files required for compiling "
 "Python extensions."
 msgstr ""
+"A maioria das versões empacotadas de Python omitem alguns arquivos "
+"necessários para compilar extensões do Python."
 
 #: ../../faq/extending.rst:252
 msgid "For Red Hat, install the python3-devel RPM to get the necessary files."
 msgstr ""
+"Em sistemas Red Hat, instale o RPM python3-devel para obter os arquivos "
+"necessários."
 
 #: ../../faq/extending.rst:254
 msgid "For Debian, run ``apt-get install python3-dev``."
-msgstr ""
+msgstr "Para Debian, execute ``apt-get install python3-dev``."
 
 #: ../../faq/extending.rst:257
 msgid "How do I tell \"incomplete input\" from \"invalid input\"?"
-msgstr ""
+msgstr "Como posso distinguir \"entrada incompleta\" de \"entrada inválida\"?"
 
 #: ../../faq/extending.rst:259
 msgid ""
