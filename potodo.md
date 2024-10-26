@@ -35,17 +35,17 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (59.62% done)
+# faq (63.95% done)
 
-- extending.po                    30 /  66 ( 45.0% translated).
+- extending.po                    58 /  66 ( 87.0% translated).
 - library.po                     133 / 153 ( 86.0% translated).
-- programming.po                 257 / 508 ( 50.0% translated).
+- programming.po                 263 / 508 ( 51.0% translated).
 - windows.po                      48 /  58 ( 82.0% translated).
 
 
-# howto (41.30% done)
+# howto (41.37% done)
 
-- annotations.po                  43 /  48 ( 89.0% translated).
+- annotations.po                  45 /  48 ( 93.0% translated).
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                   60 / 230 ( 26.0% translated).
 - enum.po                         63 / 327 ( 19.0% translated).
@@ -70,7 +70,7 @@
 - __main__.po                     54 /  73 ( 73.0% translated).
 - _thread.po                      49 /  52 ( 94.0% translated).
 - abc.po                          31 /  60 ( 51.0% translated).
-- argparse.po                    169 / 373 ( 45.0% translated).
+- argparse.po                    168 / 373 ( 45.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
 - ast.po                         235 / 314 ( 74.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -230,7 +230,7 @@
 - textwrap.po                     48 /  57 ( 84.0% translated).
 - threading.po                    33 / 240 ( 13.0% translated).
 - time.po                        264 / 270 ( 97.0% translated).
-- timeit.po                       45 /  68 ( 66.0% translated).
+- timeit.po                       47 /  68 ( 69.0% translated).
 - tkinter.po                     305 / 327 ( 93.0% translated).
 - tkinter.ttk.po                 118 / 429 ( 27.0% translated).
 - tokenize.po                      8 /  52 ( 15.0% translated).
@@ -279,10 +279,14 @@
 - simple_stmts.po                286 / 292 ( 97.0% translated).
 
 
-# using (52.94% done)
+# tutorial (98.95% done)
+
+- errors.po                       94 /  95 ( 98.0% translated).
+
+
+# using (93.24% done)
 
 - ios.po                          69 /  74 ( 93.0% translated).
-- mac.po                          21 /  96 ( 21.0% translated).
 
 
 # whatsnew (65.66% done)
