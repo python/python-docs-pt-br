@@ -64,13 +64,13 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (45.28% done)
+# library (45.33% done)
 
 - __future__.po                   56 /  58 ( 96.0% translated).
 - __main__.po                     54 /  73 ( 73.0% translated).
 - _thread.po                      49 /  52 ( 94.0% translated).
 - abc.po                          31 /  60 ( 51.0% translated).
-- argparse.po                    168 / 373 ( 45.0% translated).
+- argparse.po                    184 / 373 ( 49.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
 - ast.po                         235 / 314 ( 74.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -277,11 +277,6 @@
 - datamodel.po                   620 / 863 ( 71.0% translated).
 - import.po                      182 / 200 ( 91.0% translated).
 - simple_stmts.po                286 / 292 ( 97.0% translated).
-
-
-# tutorial (98.95% done)
-
-- errors.po                       94 /  95 ( 98.0% translated).
 
 
 # using (93.24% done)
