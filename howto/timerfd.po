@@ -5,17 +5,17 @@
 #
 # Translators:
 # Raphael Mendonça, 2024
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 # Adorilson Bezerra <adorilson@gmail.com>, 2024
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-31 10:59+0000\n"
+"POT-Creation-Date: 2024-10-26 20:15+0000\n"
 "PO-Revision-Date: 2024-05-11 01:08+0000\n"
-"Last-Translator: Adorilson Bezerra <adorilson@gmail.com>, 2024\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -78,6 +78,25 @@ msgid ""
 "    # Remember to close the timer file descriptor!\n"
 "    os.close(fd)"
 msgstr ""
+"# Scripts práticos devem realmente usar um timer sem bloqueio.\n"
+"# Usamos um timer com bloqueio aqui para simplificar.\n"
+"import os, time\n"
+"\n"
+"# Cria um descritor de arquivo de temporizador\n"
+"fd = os.timerfd_create(time.CLOCK_REALTIME)\n"
+"\n"
+"# Inicia o temporizador em 1 segundo, com um intervalo de meio segundo\n"
+"os.timerfd_settime(fd, initial=1, interval=0.5)\n"
+"\n"
+"try:\n"
+"    # Processa eventos do temporizador quatro vezes.\n"
+"    for _ in range(4):\n"
+"        # read() ser bloqueado até o temporizador expirar\n"
+"        _ = os.read(fd, 8)\n"
+"        print(\"Timer expired\")\n"
+"finally:\n"
+"    # Lembre-se de fechar o descritor de arquivo de temporizador!\n"
+"    os.close(fd)"
 
 #: ../../howto/timerfd.rst:40
 msgid ""

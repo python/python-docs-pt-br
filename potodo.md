@@ -43,34 +43,30 @@
 - windows.po                      48 /  58 ( 82.0% translated).
 
 
-# howto (41.37% done)
+# howto (37.30% done)
 
-- annotations.po                  45 /  48 ( 93.0% translated).
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                   60 / 230 ( 26.0% translated).
 - enum.po                         63 / 327 ( 19.0% translated).
 - functional.po                  137 / 252 ( 54.0% translated).
 - gdb_helpers.po                  66 /  86 ( 76.0% translated).
 - instrumentation.po               8 /  77 ( 10.0% translated).
-- isolating-extensions.po        118 / 133 ( 88.0% translated).
 - logging-cookbook.po             23 / 418 (  5.0% translated).
 - logging.po                     108 / 250 ( 43.0% translated).
-- perf_profiling.po               32 /  43 ( 74.0% translated).
 - regex.po                       263 / 332 ( 79.0% translated).
 - sockets.po                      35 /  63 ( 55.0% translated).
 - sorting.po                      43 /  75 ( 57.0% translated).
-- timerfd.po                       9 /  12 ( 75.0% translated).
+- timerfd.po                      10 /  12 ( 83.0% translated).
 - unicode.po                      30 / 145 ( 20.0% translated).
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (45.33% done)
+# library (44.98% done)
 
 - __future__.po                   56 /  58 ( 96.0% translated).
 - __main__.po                     54 /  73 ( 73.0% translated).
 - _thread.po                      49 /  52 ( 94.0% translated).
 - abc.po                          31 /  60 ( 51.0% translated).
-- argparse.po                    184 / 373 ( 49.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
 - ast.po                         235 / 314 ( 74.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -177,7 +173,6 @@
 - multiprocessing.po              63 / 596 ( 10.0% translated).
 - multiprocessing.shared_memory.po  14 /  56 ( 25.0% translated).
 - numbers.po                      30 /  34 ( 88.0% translated).
-- operator.po                    180 / 183 ( 98.0% translated).
 - optparse.po                     37 / 507 (  7.0% translated).
 - pathlib.po                     252 / 418 ( 60.0% translated).
 - pdb.po                         132 / 150 ( 88.0% translated).
@@ -194,7 +189,7 @@
 - pyexpat.po                      21 / 144 ( 14.0% translated).
 - queue.po                         7 /  53 ( 13.0% translated).
 - random.po                      125 / 137 ( 91.0% translated).
-- re.po                          424 / 438 ( 96.0% translated).
+- re.po                          426 / 438 ( 97.0% translated).
 - readline.po                     52 /  56 ( 92.0% translated).
 - reprlib.po                       9 /  39 ( 23.0% translated).
 - resource.po                     40 / 110 ( 36.0% translated).
