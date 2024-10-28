@@ -40,10 +40,10 @@
 - newtypes_tutorial.po            28 / 123 ( 22.0% translated).
 
 
-# faq (78.58% done)
+# faq (81.33% done)
 
 - design.po                      119 / 139 ( 85.0% translated).
-- extending.po                    24 /  60 ( 40.0% translated).
+- extending.po                    43 /  60 ( 71.0% translated).
 - library.po                     131 / 142 ( 92.0% translated).
 - programming.po                 269 / 350 ( 76.0% translated).
 
@@ -70,7 +70,7 @@
 - index.po                       173 / 225 ( 76.0% translated).
 
 
-# library (42.80% done)
+# library (42.81% done)
 
 - argparse.po                    181 / 277 ( 65.0% translated).
 - array.po                        82 /  83 ( 98.0% translated).
@@ -221,7 +221,7 @@
 - test.po                         94 / 251 ( 37.0% translated).
 - textwrap.po                     40 /  46 ( 86.0% translated).
 - threading.po                    30 / 198 ( 15.0% translated).
-- timeit.po                       40 /  52 ( 76.0% translated).
+- timeit.po                       42 /  52 ( 80.0% translated).
 - tkinter.po                     267 / 268 ( 99.0% translated).
 - tkinter.tix.po                   4 /  71 (  5.0% translated).
 - tkinter.ttk.po                 116 / 408 ( 28.0% translated).
