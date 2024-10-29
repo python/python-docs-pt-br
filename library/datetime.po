@@ -22,16 +22,16 @@
 # Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2024
 # Adorilson Bezerra <adorilson@gmail.com>, 2024
 # Rafael Fontenelle <rffontenelle@gmail.com>, 2024
-# Eliel Martins <elielmartinsbr@gmail.com>, 2024
+# elielmartinsbr <elielmartinsbr@gmail.com>, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-18 14:17+0000\n"
+"POT-Creation-Date: 2024-10-26 20:15+0000\n"
 "PO-Revision-Date: 2021-06-28 01:04+0000\n"
-"Last-Translator: Eliel Martins <elielmartinsbr@gmail.com>, 2024\n"
+"Last-Translator: elielmartinsbr <elielmartinsbr@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -4365,6 +4365,19 @@ msgid ""
 "attribute set to 0 and the later times have it set to 1. For example, at the "
 "Fall back transition of 2016, we get::"
 msgstr ""
+"Quando o horário de verão termina (a linha \"end\"), há um problema "
+"potencialmente pior: existe uma hora que não pode ser expressa de forma "
+"inequívoca no horário local: a última hora do horário de verão. No fuso "
+"Eastern, isso corresponde a horários no formato 5:MM UTC no dia em que o "
+"horário de verão termina. O relógio de parede local salta de 1:59 (horário "
+"de verão) para 1:00 (horário padrão) novamente. Horários locais no formato 1:"
+"MM são ambíguos. :meth:`~.datetime.astimezone` imita o comportamento do "
+"relógio local mapeando então duas horas UTC adjacentes para a mesma hora "
+"local. No exemplo do fuso Eastern, horários UTC no formato 5:MM e 6:MM ambos "
+"se transformam em 1:MM quando convertidos para o fuso Eastern, mas os "
+"horários anteriores têm o atributo :attr:`~.datetime.fold` definido como 0 e "
+"os horários posteriores têm o atributo definido como 1. Por exemplo, na "
+"transição de retorno de 2016, obtemos::"
 
 #: ../../library/datetime.rst:2265
 msgid ""
@@ -4385,6 +4398,9 @@ msgid ""
 "Note that the :class:`.datetime` instances that differ only by the value of "
 "the :attr:`~.datetime.fold` attribute are considered equal in comparisons."
 msgstr ""
+"Observe que as instâncias de :class:`.datetime` que diferem apenas pelo "
+"valor do atributo :attr:`~.datetime.fold` são consideradas iguais nas "
+"comparações."
 
 #: ../../library/datetime.rst:2279
 msgid ""
@@ -4395,6 +4411,12 @@ msgid ""
 "class representing only EST (fixed offset -5 hours), or only EDT (fixed "
 "offset -4 hours))."
 msgstr ""
+"Aplicações que não suportam ambiguidades de tempo devem verificar "
+"explicitamente o valor do atributo :attr:`~.datetime.fold` ou evitar "
+"utilizar subclasses híbridas :class:`tzinfo`; não há ambiguidades ao usar :"
+"class:`timezone` ou qualquer outra subclasse :class:`tzinfo` de deslocamento "
+"fixo (como uma classe que representa apenas EST (deslocamento fixo de -5 "
+"horas) ou apenas EDT (deslocamento fixo de -4 horas))."
 
 #: ../../library/datetime.rst:2287
 msgid ":mod:`zoneinfo`"
@@ -4406,16 +4428,22 @@ msgid ""
 "handling arbitrary fixed offsets from UTC) and its :attr:`timezone.utc` "
 "attribute (a UTC :class:`!timezone` instance)."
 msgstr ""
+"O módulo :mod:`!datetime` possui uma classe básica :class:`timezone` (para "
+"lidar com deslocamentos fixos arbitrários do UTC) e seu atributo :attr:"
+"`timezone.utc` (uma instância UTC :class:`!timezone` )."
 
 #: ../../library/datetime.rst:2292
 msgid ""
 "``zoneinfo`` brings the *IANA time zone database* (also known as the Olson "
 "database) to Python, and its usage is recommended."
 msgstr ""
+"``zoneinfo`` traz o *banco de dados de fuso horário IANA* (também conhecido "
+"como banco de dados Olson) para Python, e seu uso é recomendado."
 
 #: ../../library/datetime.rst:2295
 msgid "`IANA time zone database <https://www.iana.org/time-zones>`_"
 msgstr ""
+"`Banco de dados de fuso horário da IANA <https://www.iana.org/time-zones>`_"
 
 #: ../../library/datetime.rst:2296
 msgid ""
@@ -4440,6 +4468,9 @@ msgid ""
 "The :class:`timezone` class is a subclass of :class:`tzinfo`, each instance "
 "of which represents a time zone defined by a fixed offset from UTC."
 msgstr ""
+"A classe :class:`timezone` é uma subclasse de :class:`tzinfo`, cada "
+"instância da qual representa um fuso horário definido por um deslocamento "
+"fixo do UTC."
 
 #: ../../library/datetime.rst:2312
 msgid ""
@@ -4447,6 +4478,10 @@ msgid ""
 "the locations where different offsets are used in different days of the year "
 "or where historical changes have been made to civil time."
 msgstr ""
+"Objetos desta classe não podem ser usados ​​para representar informações de "
+"fuso horário em locais onde diferentes deslocamentos são usados ​​em "
+"diferentes dias do ano ou onde mudanças históricas foram feitas no horário "
+"civil."
 
 #: ../../library/datetime.rst:2319
 msgid ""
@@ -4520,11 +4555,12 @@ msgstr ""
 
 #: ../../library/datetime.rst:2373
 msgid "The UTC time zone, ``timezone(timedelta(0))``."
-msgstr ""
+msgstr "O fuso horário UTC, ``timezone(timedelta(0))``."
 
 #: ../../library/datetime.rst:2382
 msgid ":meth:`~.datetime.strftime` and :meth:`~.datetime.strptime` Behavior"
 msgstr ""
+"Comportamento de :meth:`~.datetime.strftime` e :meth:`~.datetime.strptime`"
 
 #: ../../library/datetime.rst:2384
 msgid ""
@@ -4551,6 +4587,8 @@ msgid ""
 "The table below provides a high-level comparison of :meth:`~.datetime."
 "strftime` versus :meth:`~.datetime.strptime`:"
 msgstr ""
+"A tabela abaixo fornece uma comparação de alto nível entre :meth:`~.datetime."
+"strftime` e :meth:`~.datetime.strptime`:"
 
 #: ../../library/datetime.rst:2396
 msgid "``strftime``"
@@ -4615,6 +4653,7 @@ msgstr "``strptime(date_string, format)``"
 msgid ""
 ":meth:`~.datetime.strftime` and :meth:`~.datetime.strptime` Format Codes"
 msgstr ""
+"Códigos de formato :meth:`~.datetime.strftime` e :meth:`~.datetime.strptime`"
 
 #: ../../library/datetime.rst:2413
 msgid ""
@@ -5100,6 +5139,11 @@ msgid ""
 "Calling :meth:`~.datetime.strptime` with incomplete or ambiguous ISO 8601 "
 "directives will raise a :exc:`ValueError`."
 msgstr ""
+"Eles podem não estar disponíveis em todas as plataformas quando usados ​​com o "
+"método :meth:`~.datetime.strftime`. As diretivas de ano e semana da ISO 8601 "
+"e ISO 8601 não são intercambiáveis ​​com as diretivas ano e número da semana "
+"acima. Chamar :meth:`~.datetime.strptime` com diretivas ISO 8601 incompletas "
+"ou ambíguas levantará um :exc:`ValueError`."
 
 #: ../../library/datetime.rst:2555
 msgid ""
@@ -5110,6 +5154,12 @@ msgid ""
 "documentation. There are also differences between platforms in handling of "
 "unsupported format specifiers."
 msgstr ""
+"O conjunto completo de códigos de formato suportados varia entre as "
+"plataformas, porque o Python chama a função :c:func:`strftime` da biblioteca "
+"C da plataforma, e variações de plataforma são comuns. Para ver o conjunto "
+"completo de códigos de formato suportados em sua plataforma, consulte a "
+"documentação :manpage:`strftime(3)`. Também existem diferenças entre "
+"plataformas no tratamento de especificadores de formato não suportados."
 
 #: ../../library/datetime.rst:2561
 msgid "``%G``, ``%u`` and ``%V`` were added."

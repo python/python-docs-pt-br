@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-25 14:17+0000\n"
+"POT-Creation-Date: 2024-10-26 20:15+0000\n"
 "PO-Revision-Date: 2024-05-11 01:07+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -27,7 +27,7 @@ msgstr ""
 
 #: ../../c-api/monitoring.rst:6
 msgid "Monitoring C API"
-msgstr "API C de Monitoramento"
+msgstr "API C de monitoramento"
 
 #: ../../c-api/monitoring.rst:8
 msgid "Added in version 3.13."
@@ -45,7 +45,7 @@ msgstr ""
 
 #: ../../c-api/monitoring.rst:15
 msgid "Generating Execution Events"
-msgstr "Gerando Eventos de Execução"
+msgstr "Gerando eventos de execução"
 
 #: ../../c-api/monitoring.rst:17
 msgid ""
@@ -225,6 +225,15 @@ msgid ""
 "state of the event. The size of ``event_types`` (and hence also of "
 "``state_array``) is given in ``length``."
 msgstr ""
+"Insere um escopo monitorado. ``event_types`` é um vetor de IDs de eventos "
+"para eventos que podem ser disparados do escopo. Por exemplo, a ID de um "
+"evento ``PY_START`` é o valor ``PY_MONITORING_EVENT_PY_START``, que é "
+"numericamente igual ao logaritmo de base 2 de ``sys.monitoring.events."
+"PY_START``. ``state_array`` é um vetor com uma entrada de estado de "
+"monitoramento para cada evento em ``event_types``, é alocado pelo usuário, "
+"mas preenchido por :c:func:`!PyMonitoring_EnterScope` com informações sobre "
+"o estado de ativação do evento. O tamanho de ``event_types`` (e, portanto, "
+"também de ``state_array``) é fornecido em ``length``."
 
 #: ../../c-api/monitoring.rst:148
 msgid ""
@@ -234,6 +243,11 @@ msgid ""
 "to determine whether event states have changed since the previous call, and "
 "to return quickly if they have not."
 msgstr ""
+"O argumento ``version`` é um ponteiro para um valor que deve ser alocado "
+"pelo usuário junto com ``state_array`` e inicializado como 0, e então "
+"definido somente pelo próprio :c:func:`!PyMonitoring_EnterScope`. Ele "
+"permite que esta função determine se os estados de eventos mudaram desde a "
+"chamada anterior, e retorne rapidamente se não mudaram."
 
 #: ../../c-api/monitoring.rst:154
 msgid ""
@@ -244,14 +258,21 @@ msgid ""
 "Python function. When a code-like's execution is paused, such as when "
 "emulating a generator, the scope needs to be exited and re-entered."
 msgstr ""
+"Os escopos mencionados aqui são escopos lexicais: uma função, classe ou "
+"método. :c:func:`!PyMonitoring_EnterScope` deve ser chamada sempre que o "
+"escopo lexical for inserido. Os escopos podem ser inseridos novamente, "
+"reutilizando o mesmo *state_array* e *version*, em situações como ao emular "
+"uma função Python recursiva. Quando a execução de um código semelhante é "
+"pausada, como ao emular um gerador, o escopo precisa ser encerrado e "
+"inserido novamente."
 
 #: ../../c-api/monitoring.rst:161
 msgid "The macros for *event_types* are:"
-msgstr ""
+msgstr "As macros para *event_types* são:"
 
 #: ../../c-api/monitoring.rst:169
 msgid "Macro"
-msgstr ""
+msgstr "Macro"
 
 #: ../../c-api/monitoring.rst:169
 msgid "Event"
@@ -319,7 +340,7 @@ msgstr ":monitoring-event:`RAISE`"
 
 #: ../../c-api/monitoring.rst:186
 msgid ":monitoring-event:`RERAISE`"
-msgstr ""
+msgstr ":monitoring-event:`RERAISE`"
 
 #: ../../c-api/monitoring.rst:187
 msgid ":monitoring-event:`STOP_ITERATION`"
@@ -329,3 +350,5 @@ msgstr ":monitoring-event:`STOP_ITERATION`"
 msgid ""
 "Exit the last scope that was entered with :c:func:`!PyMonitoring_EnterScope`."
 msgstr ""
+"Sai do último escopo no qual se entrou com :c:func:`!"
+"PyMonitoring_EnterScope`."

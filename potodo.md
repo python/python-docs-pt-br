@@ -1,6 +1,6 @@
 
 
-# c-api (34.88% done)
+# c-api (34.16% done)
 
 - exceptions.po                  194 / 370 ( 52.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
@@ -13,7 +13,6 @@
 - long.po                         37 / 104 ( 35.0% translated).
 - memory.po                       53 / 200 ( 26.0% translated).
 - module.po                       51 / 132 ( 38.0% translated).
-- monitoring.po                   45 /  52 ( 86.0% translated).
 - number.po                       14 /  48 ( 29.0% translated).
 - object.po                       42 / 117 ( 35.0% translated).
 - refcounting.po                   4 /  48 (  8.0% translated).
@@ -61,11 +60,8 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (44.98% done)
+# library (44.71% done)
 
-- __future__.po                   56 /  58 ( 96.0% translated).
-- __main__.po                     54 /  73 ( 73.0% translated).
-- _thread.po                      49 /  52 ( 94.0% translated).
 - abc.po                          31 /  60 ( 51.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
 - ast.po                         235 / 314 ( 74.0% translated).
@@ -75,7 +71,6 @@
 - asyncio-platforms.po             6 /  26 ( 23.0% translated).
 - asyncio-policy.po               10 /  68 ( 14.0% translated).
 - asyncio-protocol.po             25 / 194 ( 12.0% translated).
-- asyncio-queue.po                43 /  45 ( 95.0% translated).
 - asyncio-runner.po                5 /  37 ( 13.0% translated).
 - asyncio-stream.po               71 / 100 ( 71.0% translated).
 - asyncio-subprocess.po           77 /  81 ( 95.0% translated).
@@ -102,7 +97,7 @@
 - curses.panel.po                  6 /  23 ( 26.0% translated).
 - curses.po                       65 / 486 ( 13.0% translated).
 - dataclasses.po                  47 / 152 ( 30.0% translated).
-- datetime.po                    603 / 646 ( 93.0% translated).
+- datetime.po                    617 / 646 ( 95.0% translated).
 - dbm.po                           7 / 102 (  6.0% translated).
 - decimal.po                     344 / 378 ( 91.0% translated).
 - devmode.po                      49 /  58 ( 84.0% translated).
@@ -225,7 +220,7 @@
 - textwrap.po                     48 /  57 ( 84.0% translated).
 - threading.po                    33 / 240 ( 13.0% translated).
 - time.po                        264 / 270 ( 97.0% translated).
-- timeit.po                       47 /  68 ( 69.0% translated).
+- timeit.po                       50 /  68 ( 73.0% translated).
 - tkinter.po                     305 / 327 ( 93.0% translated).
 - tkinter.ttk.po                 118 / 429 ( 27.0% translated).
 - tokenize.po                      8 /  52 ( 15.0% translated).
