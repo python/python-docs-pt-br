@@ -67,7 +67,7 @@
 - index.po                       172 / 225 ( 76.0% translated).
 
 
-# library (38.80% done)
+# library (38.81% done)
 
 - argparse.po                    260 / 290 ( 89.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
@@ -204,7 +204,7 @@
 - struct.po                       83 / 150 ( 55.0% translated).
 - subprocess.po                  128 / 273 ( 46.0% translated).
 - symtable.po                      3 /  44 (  6.0% translated).
-- sys.po                         326 / 403 ( 80.0% translated).
+- sys.po                         327 / 403 ( 81.0% translated).
 - sysconfig.po                    69 /  74 ( 93.0% translated).
 - tarfile.po                      96 / 297 ( 32.0% translated).
 - telnetlib.po                     6 /  47 ( 12.0% translated).
@@ -212,7 +212,7 @@
 - test.po                        112 / 282 ( 39.0% translated).
 - textwrap.po                     41 /  46 ( 89.0% translated).
 - threading.po                    30 / 199 ( 15.0% translated).
-- timeit.po                       44 /  53 ( 83.0% translated).
+- timeit.po                       45 /  53 ( 84.0% translated).
 - tkinter.font.po                 33 /  34 ( 97.0% translated).
 - tkinter.tix.po                   4 /  71 (  5.0% translated).
 - tkinter.ttk.po                 116 / 408 ( 28.0% translated).
