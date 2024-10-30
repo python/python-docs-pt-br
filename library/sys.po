@@ -16,15 +16,16 @@
 # Marco Rougeth <marco@rougeth.com>, 2023
 # Adorilson Bezerra <adorilson@gmail.com>, 2024
 # Rafael Fontenelle <rffontenelle@gmail.com>, 2024
+# Jones Martins, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-18 14:17+0000\n"
+"POT-Creation-Date: 2024-10-26 20:15+0000\n"
 "PO-Revision-Date: 2021-06-28 01:14+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
+"Last-Translator: Jones Martins, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -601,6 +602,23 @@ msgid ""
 "    sys.stdout.write(\"\\n\")\n"
 "    builtins._ = value"
 msgstr ""
+"def displayhook(value):\n"
+"    if value is None:\n"
+"        return\n"
+"    # Define '_' como None para evitar recursão\n"
+"    builtins._ = None\n"
+"    text = repr(value)\n"
+"    try:\n"
+"        sys.stdout.write(text)\n"
+"    except UnicodeEncodeError:\n"
+"        bytes = text.encode(sys.stdout.encoding, 'backslashreplace')\n"
+"        if hasattr(sys.stdout, 'buffer'):\n"
+"            sys.stdout.buffer.write(bytes)\n"
+"        else:\n"
+"            text = bytes.decode(sys.stdout.encoding, 'strict')\n"
+"            sys.stdout.write(text)\n"
+"    sys.stdout.write(\"\\n\")\n"
+"    builtins._ = value"
 
 #: ../../library/sys.rst:334
 msgid "Use ``'backslashreplace'`` error handler on :exc:`UnicodeEncodeError`."
@@ -1268,6 +1286,14 @@ msgid ""
 ">>> format(float(s), '.15g')  # convert to float and back -> same value\n"
 "'3.14159265358979'"
 msgstr ""
+">>> import sys\n"
+">>> sys.float_info.dig\n"
+"15\n"
+">>> s = '3.14159265358979'    # string decimal com 15 dígitos "
+"significativos\n"
+">>> format(float(s), '.15g')  # converter para float e desconverter retorna "
+"mesmo valor\n"
+"'3.14159265358979'"
 
 #: ../../library/sys.rst:712
 msgid ""
@@ -1283,6 +1309,9 @@ msgid ""
 ">>> format(float(s), '.16g')  # conversion changes value\n"
 "'9876543211234568'"
 msgstr ""
+">>> s = '9876543211234567'    # 16 dígitos significativos é muito!\n"
+">>> format(float(s), '.16g')  # a conversão muda o valor\n"
+"'9876543211234568'"
 
 #: ../../library/sys.rst:721
 msgid ""
@@ -1310,6 +1339,12 @@ msgid ""
 "`_clear_internal_caches` and :func:`gc.collect` to get more predictable "
 "results."
 msgstr ""
+"Retorna a quantidade de blocos de memória alocados atualmente pelo "
+"interpretador, independentemente do tamanho. Esta função é útil "
+"principalmente ao acompanhar e depurar vazamentos de memória. Devido aos "
+"caches internos do interpretador, o resultado pode variar de chamada a "
+"chamada; você pode ter que chamar :func:`_clear_internal_caches` e :func:`gc."
+"collect` para obter resultados mais previsíveis. "
 
 #: ../../library/sys.rst:741
 msgid ""
@@ -1834,6 +1869,12 @@ msgid ""
 "    # use an alternative implementation or warn the user\n"
 "    ..."
 msgstr ""
+"if sys.hexversion >= 0x010502F0:\n"
+"    # usa algum recurso avançado\n"
+"    ...\n"
+"else:\n"
+"    # usa uma implementação alternativa ou adverte o usuário \n"
+"    ..."
 
 #: ../../library/sys.rst:1087
 msgid ""
@@ -2137,6 +2178,15 @@ msgid ""
 "passed in as a second argument. The method returns a :term:`module spec`, or "
 "``None`` if the module cannot be found."
 msgstr ""
+"Uma lista de objetos :term:`localizadores de metacaminho` que têm seus "
+"métodos :meth:`~importlib.abc.MetaPathFinder.find_spec` chamados para que "
+"algum deles localize o módulo a ser importado. Por padrão, armazena entradas "
+"que implementam a semântica de importação padrão de Python. O método :meth:"
+"`~importlib.abc.MetaPathFinder.find_spec` é chamado com pelo menos o nome "
+"absoluto do módulo a ser importado. Se o módulo a ser importado estiver "
+"contido num pacote, o atributo :attr:`~module.__path__` do pacote pai é "
+"passado como segundo argumento. O método retorna uma :term:`especificação de "
+"módulo`, ou ``None`` se o módulo não for encontrado."
 
 #: ../../library/sys.rst:1284
 msgid ":class:`importlib.abc.MetaPathFinder`"
@@ -2422,6 +2472,8 @@ msgid ""
 "if sys.platform.startswith('freebsd'):\n"
 "    # FreeBSD-specific code here..."
 msgstr ""
+"if sys.platform.startswith('freebsd'):\n"
+"    # Código para FreeBSD aqui..."
 
 #: ../../library/sys.rst:1406
 msgid ""
@@ -3344,6 +3396,8 @@ msgid ""
 "``\"pthread-stubs\"``: stub POSIX threads (on WebAssembly platforms without "
 "threading support)"
 msgstr ""
+"``\"pthread-stubs\"``: stubs de threads POSIX (em plataformas WebAssembly "
+"que não implementam threads)."
 
 #: ../../library/sys.rst:1899
 msgid "``\"solaris\"``: Solaris threads"
@@ -3522,7 +3576,7 @@ msgstr ""
 
 #: ../../library/sys.rst:1996
 msgid "Added named component attributes."
-msgstr ""
+msgstr "Adiciona componentes nomeados como atributos."
 
 #: ../../library/sys.rst:2001
 msgid ""
@@ -3580,6 +3634,14 @@ msgid ""
 ">>> sys._xoptions\n"
 "{'a': 'b', 'c': True}"
 msgstr ""
+"$ ./python -Xa=b -Xc\n"
+"Python 3.2a3+ (py3k, Oct 16 2010, 20:14:50)\n"
+"[GCC 4.4.3] on linux2\n"
+"Type \"help\", \"copyright\", \"credits\" or \"license\" for more "
+"information.\n"
+">>> import sys\n"
+">>> sys._xoptions\n"
+"{'a': 'b', 'c': True}"
 
 #: ../../library/sys.rst:2042
 msgid ""
@@ -3627,7 +3689,7 @@ msgstr "perfilador"
 
 #: ../../library/sys.rst:934 ../../library/sys.rst:1585
 msgid "trace function"
-msgstr ""
+msgstr "função de rastreamento"
 
 #: ../../library/sys.rst:934 ../../library/sys.rst:1585
 msgid "debugger"
