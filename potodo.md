@@ -213,7 +213,7 @@
 - subprocess.po                  126 / 263 ( 47.0% translated).
 - sunau.po                        69 /  70 ( 98.0% translated).
 - symtable.po                      3 /  45 (  6.0% translated).
-- sys.po                         313 / 398 ( 78.0% translated).
+- sys.po                         314 / 398 ( 78.0% translated).
 - sysconfig.po                    66 /  72 ( 91.0% translated).
 - tarfile.po                      95 / 295 ( 32.0% translated).
 - telnetlib.po                     6 /  46 ( 13.0% translated).
@@ -221,7 +221,7 @@
 - test.po                         94 / 251 ( 37.0% translated).
 - textwrap.po                     40 /  46 ( 86.0% translated).
 - threading.po                    30 / 198 ( 15.0% translated).
-- timeit.po                       42 /  52 ( 80.0% translated).
+- timeit.po                       43 /  52 ( 82.0% translated).
 - tkinter.po                     267 / 268 ( 99.0% translated).
 - tkinter.tix.po                   4 /  71 (  5.0% translated).
 - tkinter.ttk.po                 116 / 408 ( 28.0% translated).
