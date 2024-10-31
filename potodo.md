@@ -33,9 +33,9 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (63.95% done)
+# faq (64.46% done)
 
-- extending.po                    58 /  66 ( 87.0% translated).
+- extending.po                    62 /  66 ( 93.0% translated).
 - library.po                     133 / 153 ( 86.0% translated).
 - programming.po                 263 / 508 ( 51.0% translated).
 - windows.po                      48 /  58 ( 82.0% translated).
@@ -59,7 +59,7 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (45.60% done)
+# library (45.93% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
@@ -96,7 +96,7 @@
 - curses.panel.po                  6 /  23 ( 26.0% translated).
 - curses.po                       65 / 486 ( 13.0% translated).
 - dataclasses.po                  47 / 152 ( 30.0% translated).
-- datetime.po                    640 / 646 ( 99.0% translated).
+- datetime.po                    641 / 646 ( 99.0% translated).
 - dbm.po                           7 / 102 (  6.0% translated).
 - decimal.po                     344 / 378 ( 91.0% translated).
 - devmode.po                      49 /  58 ( 84.0% translated).
@@ -149,7 +149,6 @@
 - importlib.resources.abc.po      34 /  36 ( 94.0% translated).
 - importlib.resources.po          42 /  53 ( 79.0% translated).
 - inspect.po                      78 / 390 ( 20.0% translated).
-- intro.po                        27 /  32 ( 84.0% translated).
 - io.po                           21 / 271 (  7.0% translated).
 - ipaddress.po                   155 / 165 ( 93.0% translated).
 - itertools.po                    82 / 201 ( 40.0% translated).
@@ -202,7 +201,7 @@
 - sqlite3.po                     105 / 476 ( 22.0% translated).
 - ssl.po                          40 / 544 (  7.0% translated).
 - statistics.po                  176 / 248 ( 70.0% translated).
-- stdtypes.po                    1226 / 1332 ( 92.0% translated).
+- stdtypes.po                    1257 / 1332 ( 94.0% translated).
 - string.po                      196 / 213 ( 92.0% translated).
 - stringprep.po                    1 /  25 (  4.0% translated).
 - struct.po                       96 / 195 ( 49.0% translated).
@@ -226,7 +225,7 @@
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
 - turtle.po                      561 / 661 ( 84.0% translated).
 - types.po                        93 / 103 ( 90.0% translated).
-- typing.po                      663 / 791 ( 83.0% translated).
+- typing.po                      733 / 791 ( 92.0% translated).
 - unicodedata.po                   5 /  32 ( 15.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               103 / 442 ( 23.0% translated).
@@ -235,7 +234,7 @@
 - urllib.request.po               40 / 295 ( 13.0% translated).
 - urllib.robotparser.po            5 /  19 ( 26.0% translated).
 - uuid.po                          7 /  69 ( 10.0% translated).
-- venv.po                         91 / 127 ( 71.0% translated).
+- venv.po                        103 / 127 ( 81.0% translated).
 - warnings.po                     62 / 133 ( 46.0% translated).
 - wave.po                         17 /  54 ( 31.0% translated).
 - webbrowser.po                   32 /  88 ( 36.0% translated).
