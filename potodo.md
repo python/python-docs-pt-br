@@ -40,10 +40,10 @@
 - newtypes_tutorial.po            28 / 123 ( 22.0% translated).
 
 
-# faq (81.33% done)
+# faq (81.62% done)
 
 - design.po                      119 / 139 ( 85.0% translated).
-- extending.po                    43 /  60 ( 71.0% translated).
+- extending.po                    45 /  60 ( 75.0% translated).
 - library.po                     131 / 142 ( 92.0% translated).
 - programming.po                 269 / 350 ( 76.0% translated).
 
@@ -70,7 +70,7 @@
 - index.po                       173 / 225 ( 76.0% translated).
 
 
-# library (43.06% done)
+# library (43.23% done)
 
 - argparse.po                    239 / 277 ( 86.0% translated).
 - array.po                        82 /  83 ( 98.0% translated).
@@ -221,7 +221,7 @@
 - test.po                         94 / 251 ( 37.0% translated).
 - textwrap.po                     40 /  46 ( 86.0% translated).
 - threading.po                    30 / 198 ( 15.0% translated).
-- timeit.po                       43 /  52 ( 82.0% translated).
+- timeit.po                       44 /  52 ( 84.0% translated).
 - tkinter.po                     267 / 268 ( 99.0% translated).
 - tkinter.tix.po                   4 /  71 (  5.0% translated).
 - tkinter.ttk.po                 116 / 408 ( 28.0% translated).
@@ -230,11 +230,11 @@
 - tracemalloc.po                  21 / 134 ( 15.0% translated).
 - turtle.po                      494 / 514 ( 96.0% translated).
 - types.po                        83 /  84 ( 98.0% translated).
-- typing.po                       56 / 208 ( 26.0% translated).
+- typing.po                       93 / 208 ( 44.0% translated).
 - unicodedata.po                   2 /  29 (  6.0% translated).
 - unittest.mock-examples.po       22 / 160 ( 13.0% translated).
 - unittest.mock.po               108 / 373 ( 28.0% translated).
-- unittest.po                    307 / 499 ( 61.0% translated).
+- unittest.po                    308 / 499 ( 61.0% translated).
 - urllib.parse.po                 65 / 153 ( 42.0% translated).
 - urllib.request.po               43 / 271 ( 15.0% translated).
 - urllib.robotparser.po            2 /  14 ( 14.0% translated).
