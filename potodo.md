@@ -67,7 +67,7 @@
 - index.po                       172 / 225 ( 76.0% translated).
 
 
-# library (38.81% done)
+# library (39.04% done)
 
 - argparse.po                    260 / 290 ( 89.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
@@ -212,7 +212,7 @@
 - test.po                        112 / 282 ( 39.0% translated).
 - textwrap.po                     41 /  46 ( 89.0% translated).
 - threading.po                    30 / 199 ( 15.0% translated).
-- timeit.po                       45 /  53 ( 84.0% translated).
+- timeit.po                       46 /  53 ( 86.0% translated).
 - tkinter.font.po                 33 /  34 ( 97.0% translated).
 - tkinter.tix.po                   4 /  71 (  5.0% translated).
 - tkinter.ttk.po                 116 / 408 ( 28.0% translated).
@@ -220,11 +220,11 @@
 - traceback.po                     4 /  66 (  6.0% translated).
 - tracemalloc.po                  21 / 144 ( 14.0% translated).
 - turtle.po                      494 / 514 ( 96.0% translated).
-- typing.po                       79 / 323 ( 24.0% translated).
+- typing.po                      127 / 323 ( 39.0% translated).
 - unicodedata.po                   2 /  29 (  6.0% translated).
 - unittest.mock-examples.po       22 / 160 ( 13.0% translated).
 - unittest.mock.po               108 / 373 ( 28.0% translated).
-- unittest.po                    308 / 499 ( 61.0% translated).
+- unittest.po                    309 / 499 ( 61.0% translated).
 - urllib.parse.po                 67 / 154 ( 43.0% translated).
 - urllib.request.po               43 / 274 ( 15.0% translated).
 - urllib.robotparser.po            2 /  14 ( 14.0% translated).
