@@ -230,7 +230,7 @@
 - tracemalloc.po                  21 / 134 ( 15.0% translated).
 - turtle.po                      494 / 514 ( 96.0% translated).
 - types.po                        83 /  84 ( 98.0% translated).
-- typing.po                       93 / 208 ( 44.0% translated).
+- typing.po                       94 / 208 ( 45.0% translated).
 - unicodedata.po                   2 /  29 (  6.0% translated).
 - unittest.mock-examples.po       22 / 160 ( 13.0% translated).
 - unittest.mock.po               108 / 373 ( 28.0% translated).
