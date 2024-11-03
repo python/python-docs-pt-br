@@ -36,10 +36,10 @@
 - newtypes_tutorial.po            28 / 123 ( 22.0% translated).
 
 
-# faq (81.01% done)
+# faq (81.43% done)
 
 - design.po                      123 / 141 ( 87.0% translated).
-- extending.po                    47 /  58 ( 81.0% translated).
+- extending.po                    50 /  58 ( 86.0% translated).
 - library.po                     130 / 140 ( 92.0% translated).
 - programming.po                 276 / 372 ( 74.0% translated).
 
@@ -67,7 +67,7 @@
 - index.po                       172 / 225 ( 76.0% translated).
 
 
-# library (39.04% done)
+# library (39.05% done)
 
 - argparse.po                    260 / 290 ( 89.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
@@ -220,7 +220,7 @@
 - traceback.po                     4 /  66 (  6.0% translated).
 - tracemalloc.po                  21 / 144 ( 14.0% translated).
 - turtle.po                      494 / 514 ( 96.0% translated).
-- typing.po                      129 / 323 ( 39.0% translated).
+- typing.po                      131 / 323 ( 40.0% translated).
 - unicodedata.po                   2 /  29 (  6.0% translated).
 - unittest.mock-examples.po       22 / 160 ( 13.0% translated).
 - unittest.mock.po               108 / 373 ( 28.0% translated).
