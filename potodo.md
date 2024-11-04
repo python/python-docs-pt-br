@@ -40,7 +40,7 @@
 - windows.po                      48 /  58 ( 82.0% translated).
 
 
-# howto (38.22% done)
+# howto (39.27% done)
 
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                   60 / 230 ( 26.0% translated).
@@ -50,7 +50,7 @@
 - instrumentation.po               8 /  77 ( 10.0% translated).
 - logging-cookbook.po             23 / 418 (  5.0% translated).
 - logging.po                     121 / 250 ( 48.0% translated).
-- regex.po                       263 / 332 ( 79.0% translated).
+- regex.po                       289 / 332 ( 87.0% translated).
 - sockets.po                      35 /  63 ( 55.0% translated).
 - sorting.po                      43 /  75 ( 57.0% translated).
 - timerfd.po                      10 /  12 ( 83.0% translated).
@@ -58,7 +58,7 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (45.60% done)
+# library (44.82% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
@@ -178,7 +178,6 @@
 - pyexpat.po                      21 / 144 ( 14.0% translated).
 - queue.po                         7 /  53 ( 13.0% translated).
 - random.po                      125 / 137 ( 91.0% translated).
-- re.po                          431 / 438 ( 98.0% translated).
 - readline.po                     54 /  56 ( 96.0% translated).
 - reprlib.po                       9 /  39 ( 23.0% translated).
 - resource.po                     40 / 110 ( 36.0% translated).
@@ -253,10 +252,10 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (69.81% done)
+# reference (71.56% done)
 
 - compound_stmts.po              194 / 467 ( 41.0% translated).
-- datamodel.po                   612 / 866 ( 70.0% translated).
+- datamodel.po                   644 / 866 ( 74.0% translated).
 - import.po                      182 / 200 ( 91.0% translated).
 - simple_stmts.po                286 / 292 ( 97.0% translated).
 
