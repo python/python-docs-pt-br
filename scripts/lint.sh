@@ -20,13 +20,14 @@ touch logs/sphinxlint.txt
 
 cd cpython/Doc
 
-# Disable literal blocks and update PO
-sed -i "/^\s*'literal-block',/s/ '/ #'/" conf.py
-# TODO: use `make -C .. gettext` when there are only Python >= 3.12
-opts='-E -b gettext -q -D gettext_compact=0 -d build/.doctrees . build/gettext' 
-make build ALLSPHINXOPTS="$opts"
-# Update translation files with latest POT
-sphinx-intl update -p build/gettext -l ${PYDOC_LANGUAGE} > /dev/null
+# If version is 3.12 or newer, then disable literal-block, generate POT and
+# update translations with fresh POT files. 
+minor_version=$(git branch --show-current | sed 's|^3\.||')
+if [ $minor_version -ge 12 ]; then
+  sed -i "/^\s*'literal-block',/s/ '/ #'/" conf.py
+  make gettext
+  sphinx-intl update -p build/gettext -l ${PYDOC_LANGUAGE} > /dev/null
+fi
 
 cd locales/${PYDOC_LANGUAGE}/LC_MESSAGES
 set +e
