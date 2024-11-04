@@ -22,11 +22,11 @@ cd cpython/Doc
 
 # If version is 3.12 or newer, then disable literal-block, generate POT and
 # update translations with fresh POT files. If version 3.11 or older,
-# disable new 'unnecessary-parentheses' check, not fix before these versions.
+# disable new 'unnecessary-parentheses' check, not fixed before these versions.
 minor_version=$(git branch --show-current | sed 's|^3\.||')
 if [ $minor_version -ge 12 ]; then
   sed -i "/^\s*'literal-block',/s/ '/ #'/" conf.py
-  make gettext
+  make gettext SPHINXOPTS='-q'
   sphinx-intl update -p build/gettext -l ${PYDOC_LANGUAGE} > /dev/null
 else
   alias sphinx-lint='sphinx-lint --disable unnecessary-parentheses'
