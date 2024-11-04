@@ -5,7 +5,7 @@
 - license.po                      95 /  99 ( 95.0% translated).
 
 
-# c-api (39.31% done)
+# c-api (39.27% done)
 
 - datetime.po                     47 /  52 ( 90.0% translated).
 - exceptions.po                  193 / 347 ( 55.0% translated).
@@ -24,7 +24,7 @@
 - refcounting.po                   4 /  28 ( 14.0% translated).
 - stable.po                       33 /  35 ( 94.0% translated).
 - structures.po                   57 / 150 ( 38.0% translated).
-- sys.po                          26 /  77 ( 33.0% translated).
+- sys.po                          25 /  77 ( 32.0% translated).
 - tuple.po                        33 /  40 ( 82.0% translated).
 - type.po                         26 /  68 ( 38.0% translated).
 - typeobj.po                     230 / 600 ( 38.0% translated).
@@ -231,7 +231,7 @@
 - struct.po                       95 / 184 ( 51.0% translated).
 - subprocess.po                  130 / 291 ( 44.0% translated).
 - symtable.po                      3 /  44 (  6.0% translated).
-- sys.po                         395 / 414 ( 95.0% translated).
+- sys.po                         394 / 414 ( 95.0% translated).
 - sysconfig.po                   135 / 136 ( 99.0% translated).
 - tarfile.po                     102 / 314 ( 32.0% translated).
 - telnetlib.po                     9 /  51 ( 17.0% translated).
