@@ -40,16 +40,16 @@
 - windows.po                      48 /  58 ( 82.0% translated).
 
 
-# howto (37.70% done)
+# howto (38.22% done)
 
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                   60 / 230 ( 26.0% translated).
-- enum.po                         63 / 327 ( 19.0% translated).
+- enum.po                         73 / 327 ( 22.0% translated).
 - functional.po                  137 / 252 ( 54.0% translated).
 - gdb_helpers.po                  66 /  86 ( 76.0% translated).
 - instrumentation.po               8 /  77 ( 10.0% translated).
 - logging-cookbook.po             23 / 418 (  5.0% translated).
-- logging.po                     118 / 250 ( 47.0% translated).
+- logging.po                     121 / 250 ( 48.0% translated).
 - regex.po                       263 / 332 ( 79.0% translated).
 - sockets.po                      35 /  63 ( 55.0% translated).
 - sorting.po                      43 /  75 ( 57.0% translated).
@@ -58,7 +58,7 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (45.55% done)
+# library (45.60% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
@@ -153,7 +153,7 @@
 - json.po                        139 / 162 ( 85.0% translated).
 - logging.config.po               12 / 171 (  7.0% translated).
 - logging.handlers.po             48 / 270 ( 17.0% translated).
-- logging.po                      91 / 368 ( 24.0% translated).
+- logging.po                      93 / 368 ( 25.0% translated).
 - lzma.po                         66 / 115 ( 57.0% translated).
 - mailbox.po                      10 / 306 (  3.0% translated).
 - mimetypes.po                    20 /  54 ( 37.0% translated).
@@ -178,7 +178,7 @@
 - pyexpat.po                      21 / 144 ( 14.0% translated).
 - queue.po                         7 /  53 ( 13.0% translated).
 - random.po                      125 / 137 ( 91.0% translated).
-- re.po                          428 / 438 ( 97.0% translated).
+- re.po                          431 / 438 ( 98.0% translated).
 - readline.po                     54 /  56 ( 96.0% translated).
 - reprlib.po                       9 /  39 ( 23.0% translated).
 - resource.po                     40 / 110 ( 36.0% translated).
@@ -195,7 +195,7 @@
 - smtplib.po                      30 / 116 ( 25.0% translated).
 - socket.po                       46 / 358 ( 12.0% translated).
 - socketserver.po                  9 /  98 (  9.0% translated).
-- sqlite3.po                     105 / 476 ( 22.0% translated).
+- sqlite3.po                     115 / 476 ( 24.0% translated).
 - ssl.po                          40 / 544 (  7.0% translated).
 - statistics.po                  176 / 248 ( 70.0% translated).
 - stdtypes.po                    1321 / 1332 ( 99.0% translated).
