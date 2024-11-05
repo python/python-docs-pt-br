@@ -1523,6 +1523,11 @@ msgid ""
 "mitigation for :cve:`2024-4030`. Other values for *mode* continue to be "
 "ignored. (Contributed by Steve Dower in :gh:`118486`.)"
 msgstr ""
+"A partir da versão 3.12.4, :func:`os.mkdir` e :func:`os.makedirs` no Windows "
+"agora suportam passar um valor *mode* de ``0o700`` para aplicar controle de "
+"acesso ao novo diretório. Isso afeta implicitamente :func:`tempfile.mkdtemp` "
+"e é uma mitigação para :cve:`2024-4030`. Outros valores para *mode* "
+"continuam sendo ignorados. (Contribuição de Steve Dower em :gh:`118486`.)"
 
 #: ../../whatsnew/3.12.rst:789
 msgid "os.path"
@@ -1853,6 +1858,10 @@ msgid ""
 "mkdir`. This is a mitigation for :cve:`2024-4030`. (Contributed by Steve "
 "Dower in :gh:`118486`.)"
 msgstr ""
+"A partir da versão 3.12.4 no Windows, o modo padrão ``0o700`` usado por :"
+"func:`tempfile.mkdtemp` agora limita o acesso ao novo diretório devido a "
+"alterações em :func:`os.mkdir`. Esta é uma mitigação para :cve:`2024-4030`. "
+"(Contribuição de Steve Dower em :gh:`118486`.)"
 
 #: ../../whatsnew/3.12.rst:941
 msgid "threading"
@@ -5424,6 +5433,16 @@ msgid ""
 "traverse and clear their instance's dictionaries. To clear weakrefs, call :c:"
 "func:`PyObject_ClearWeakRefs`, as before."
 msgstr ""
+"Classes de extensão que desejam adicionar um :attr:`~object.__dict__` ou "
+"slot de referência fraca devem usar :c:macro:`Py_TPFLAGS_MANAGED_DICT` e :c:"
+"macro:`Py_TPFLAGS_MANAGED_WEAKREF` em vez de ``tp_dictoffset`` e "
+"``tp_weaklistoffset``, respectivamente. O uso de ``tp_dictoffset`` e "
+"``tp_weaklistoffset`` ainda é aceitado, mas não oferece suporte totalmente  "
+"a herança múltipla (:gh:`95589`), e o desempenho pode ser pior. Classes que "
+"declaram :c:macro:`Py_TPFLAGS_MANAGED_DICT` devem chamar :c:func:`!"
+"_PyObject_VisitManagedDict` e :c:func:`!_PyObject_ClearManagedDict` para "
+"percorrer e limpar os dicionários de sua instância. Para limpar weakrefs "
+"(referências fracas), chame :c:func:`PyObject_ClearWeakRefs`, como antes."
 
 #: ../../whatsnew/3.12.rst:2052
 msgid ""
@@ -6119,6 +6138,8 @@ msgid ""
 ":c:func:`PyWeakref_GetObject` and :c:func:`PyWeakref_GET_OBJECT`: Use :c:"
 "func:`!PyWeakref_GetRef` instead."
 msgstr ""
+":c:func:`PyWeakref_GetObject` e :c:func:`PyWeakref_GET_OBJECT`: use :c:func:"
+"`!PyWeakref_GetRef`."
 
 #: ../../deprecations/c-api-pending-removal-in-3.15.rst:9
 msgid ""
@@ -6373,7 +6394,7 @@ msgstr ""
 
 #: ../../whatsnew/3.12.rst:2267
 msgid "Notable changes in 3.12.5"
-msgstr ""
+msgstr "Alterações notáveis no 3.12.5"
 
 #: ../../whatsnew/3.12.rst:2270 ../../whatsnew/3.12.rst:2287
 msgid "email"
@@ -6403,7 +6424,7 @@ msgstr ""
 
 #: ../../whatsnew/3.12.rst:2284
 msgid "Notable changes in 3.12.6"
-msgstr ""
+msgstr "Alterações notáveis no 3.12.6"
 
 #: ../../whatsnew/3.12.rst:2289
 msgid ""
@@ -6416,3 +6437,12 @@ msgid ""
 "check if the *strict* paramater is available. (Contributed by Thomas Dwyer "
 "and Victor Stinner for :gh:`102988` to improve the CVE-2023-27043 fix.)"
 msgstr ""
+":func:`email.utils.getaddresses` e :func:`email.utils.parseaddr` agora "
+"retornam tuplas de 2 elementos ``('', '')`` em mais situações onde endereços "
+"de e-mail inválidos são encontrados, em vez de valores potencialmente "
+"imprecisos. Um parâmetro *strict* opcional foi adicionado a essas duas "
+"funções: use ``strict=False`` para obter o comportamento antigo, aceitando "
+"entradas malformadas. ``getattr(email.utils, 'supports_strict_parsing', "
+"False)`` pode ser usado para verificar se o parâmetro *strict* está "
+"disponível. (Contribuição de Thomas Dwyer e Victor Stinner para :gh:`102988` "
+"para melhorar a correção de CVE-2023-27043.)"

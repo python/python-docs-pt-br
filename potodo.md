@@ -31,12 +31,6 @@
 - veryhigh.po                      3 /  57 (  5.0% translated).
 
 
-# deprecations (99.19% done)
-
-- c-api-pending-removal-in-3.15.po  12 /  13 ( 92.0% translated).
-- index.po                       234 / 235 ( 99.0% translated).
-
-
 # extending (9.30% done)
 
 - embedding.po                     4 /  58 (  6.0% translated).
@@ -308,9 +302,8 @@
 - simple_stmts.po                286 / 292 ( 97.0% translated).
 
 
-# tutorial (96.90% done)
+# tutorial (96.97% done)
 
-- datastructures.po              121 / 125 ( 96.0% translated).
 - interpreter.po                  31 /  33 ( 93.0% translated).
 - stdlib.po                       65 /  67 ( 97.0% translated).
 - stdlib2.po                      64 /  65 ( 98.0% translated).
@@ -323,7 +316,7 @@
 - windows.po                     374 / 378 ( 98.0% translated).
 
 
-# whatsnew (68.80% done)
+# whatsnew (65.55% done)
 
 - 2.0.po                         183 / 207 ( 88.0% translated).
 - 2.1.po                         138 / 154 ( 89.0% translated).
@@ -336,7 +329,6 @@
 - 3.0.po                         204 / 212 ( 96.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
 - 3.10.po                        508 / 550 ( 92.0% translated).
-- 3.12.po                        823 / 830 ( 99.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
 - 3.4.po                         507 / 518 ( 97.0% translated).
