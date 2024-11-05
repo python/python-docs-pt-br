@@ -40,19 +40,17 @@
 - windows.po                      48 /  58 ( 82.0% translated).
 
 
-# howto (39.27% done)
+# howto (39.05% done)
 
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                   60 / 230 ( 26.0% translated).
 - enum.po                         73 / 327 ( 22.0% translated).
 - functional.po                  137 / 252 ( 54.0% translated).
-- gdb_helpers.po                  66 /  86 ( 76.0% translated).
-- instrumentation.po               8 /  77 ( 10.0% translated).
 - logging-cookbook.po             23 / 418 (  5.0% translated).
 - logging.po                     121 / 250 ( 48.0% translated).
-- regex.po                       289 / 332 ( 87.0% translated).
+- regex.po                       291 / 332 ( 87.0% translated).
 - sockets.po                      35 /  63 ( 55.0% translated).
-- sorting.po                      43 /  75 ( 57.0% translated).
+- sorting.po                      46 /  75 ( 61.0% translated).
 - timerfd.po                      10 /  12 ( 83.0% translated).
 - unicode.po                      30 / 145 ( 20.0% translated).
 - urllib2.po                      24 / 100 ( 24.0% translated).
@@ -260,7 +258,7 @@
 - simple_stmts.po                286 / 292 ( 97.0% translated).
 
 
-# whatsnew (65.68% done)
+# whatsnew (65.94% done)
 
 - 2.0.po                         183 / 207 ( 88.0% translated).
 - 2.1.po                         138 / 154 ( 89.0% translated).
@@ -272,7 +270,7 @@
 - 2.7.po                         450 / 498 ( 90.0% translated).
 - 3.0.po                         204 / 212 ( 96.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
-- 3.10.po                        509 / 550 ( 92.0% translated).
+- 3.10.po                        529 / 550 ( 96.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
 - 3.4.po                         506 / 517 ( 97.0% translated).
