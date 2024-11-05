@@ -1,6 +1,6 @@
 
 
-# c-api (40.17% done)
+# c-api (40.13% done)
 
 - exceptions.po                  196 / 266 ( 73.0% translated).
 - gcsupport.po                    10 /  33 ( 30.0% translated).
@@ -13,7 +13,7 @@
 - object.po                        4 /  47 (  8.0% translated).
 - sequence.po                     26 /  27 ( 96.0% translated).
 - structures.po                   50 / 126 ( 39.0% translated).
-- sys.po                          20 /  72 ( 27.0% translated).
+- sys.po                          19 /  72 ( 26.0% translated).
 - type.po                         29 /  63 ( 46.0% translated).
 - typeobj.po                     232 / 578 ( 40.0% translated).
 - unicode.po                      51 / 335 ( 15.0% translated).
@@ -44,7 +44,7 @@
 - programming.po                 276 / 372 ( 74.0% translated).
 
 
-# howto (47.60% done)
+# howto (48.20% done)
 
 - argparse.po                     83 /  84 ( 98.0% translated).
 - clinic.po                      101 / 415 ( 24.0% translated).
@@ -53,9 +53,9 @@
 - functional.po                  140 / 206 ( 67.0% translated).
 - instrumentation.po               8 /  59 ( 13.0% translated).
 - logging-cookbook.po             15 / 237 (  6.0% translated).
-- logging.po                     122 / 219 ( 55.0% translated).
+- logging.po                     125 / 219 ( 57.0% translated).
 - pyporting.po                    35 /  86 ( 40.0% translated).
-- regex.po                       264 / 286 ( 92.0% translated).
+- regex.po                       274 / 286 ( 95.0% translated).
 - sockets.po                      37 /  57 ( 64.0% translated).
 - sorting.po                      54 /  55 ( 98.0% translated).
 - unicode.po                      30 / 121 ( 24.0% translated).
@@ -67,7 +67,7 @@
 - index.po                       172 / 225 ( 76.0% translated).
 
 
-# library (39.05% done)
+# library (39.08% done)
 
 - argparse.po                    260 / 290 ( 89.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
@@ -123,7 +123,7 @@
 - email.mime.po                   29 /  38 ( 76.0% translated).
 - email.parser.po                  2 /  47 (  4.0% translated).
 - email.policy.po                 12 / 103 ( 11.0% translated).
-- enum.po                         53 / 188 ( 28.0% translated).
+- enum.po                         59 / 188 ( 31.0% translated).
 - errno.po                         7 / 127 (  5.0% translated).
 - exceptions.po                  139 / 140 ( 99.0% translated).
 - faulthandler.po                  2 /  36 (  5.0% translated).
@@ -158,7 +158,7 @@
 - itertools.po                   122 / 148 ( 82.0% translated).
 - logging.config.po               12 / 119 ( 10.0% translated).
 - logging.handlers.po             49 / 261 ( 18.0% translated).
-- logging.po                      92 / 321 ( 28.0% translated).
+- logging.po                      94 / 321 ( 29.0% translated).
 - lzma.po                         67 / 107 ( 62.0% translated).
 - mailbox.po                      20 / 282 (  7.0% translated).
 - mailcap.po                       2 /  15 ( 13.0% translated).
@@ -204,7 +204,7 @@
 - struct.po                       83 / 150 ( 55.0% translated).
 - subprocess.po                  128 / 273 ( 46.0% translated).
 - symtable.po                      3 /  44 (  6.0% translated).
-- sys.po                         327 / 403 ( 81.0% translated).
+- sys.po                         326 / 403 ( 80.0% translated).
 - sysconfig.po                    69 /  74 ( 93.0% translated).
 - tarfile.po                      96 / 297 ( 32.0% translated).
 - telnetlib.po                     6 /  47 ( 12.0% translated).
