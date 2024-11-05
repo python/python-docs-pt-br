@@ -48,7 +48,7 @@
 - programming.po                 269 / 350 ( 76.0% translated).
 
 
-# howto (47.06% done)
+# howto (47.66% done)
 
 - argparse.po                     83 /  84 ( 98.0% translated).
 - clinic.po                      101 / 415 ( 24.0% translated).
@@ -57,9 +57,9 @@
 - functional.po                  140 / 206 ( 67.0% translated).
 - instrumentation.po               8 /  59 ( 13.0% translated).
 - logging-cookbook.po             15 / 216 (  6.0% translated).
-- logging.po                     122 / 218 ( 55.0% translated).
+- logging.po                     125 / 218 ( 57.0% translated).
 - pyporting.po                    26 /  85 ( 30.0% translated).
-- regex.po                       265 / 286 ( 92.0% translated).
+- regex.po                       274 / 286 ( 95.0% translated).
 - sockets.po                      37 /  57 ( 64.0% translated).
 - unicode.po                      30 / 121 ( 24.0% translated).
 - urllib2.po                      25 /  85 ( 29.0% translated).
@@ -70,7 +70,7 @@
 - index.po                       173 / 225 ( 76.0% translated).
 
 
-# library (43.23% done)
+# library (43.27% done)
 
 - argparse.po                    239 / 277 ( 86.0% translated).
 - array.po                        82 /  83 ( 98.0% translated).
@@ -127,7 +127,7 @@
 - email.mime.po                   29 /  38 ( 76.0% translated).
 - email.parser.po                  2 /  47 (  4.0% translated).
 - email.policy.po                 12 / 103 ( 11.0% translated).
-- enum.po                         52 / 184 ( 28.0% translated).
+- enum.po                         58 / 184 ( 31.0% translated).
 - errno.po                         8 / 128 (  6.0% translated).
 - exceptions.po                  129 / 131 ( 98.0% translated).
 - faulthandler.po                  2 /  35 (  5.0% translated).
@@ -162,7 +162,7 @@
 - json.po                        143 / 145 ( 98.0% translated).
 - logging.config.po               11 / 117 (  9.0% translated).
 - logging.handlers.po             49 / 255 ( 19.0% translated).
-- logging.po                      91 / 314 ( 28.0% translated).
+- logging.po                      93 / 314 ( 29.0% translated).
 - lzma.po                         67 / 107 ( 62.0% translated).
 - mailbox.po                      20 / 282 (  7.0% translated).
 - mailcap.po                       2 /  14 ( 14.0% translated).
