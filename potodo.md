@@ -1,6 +1,6 @@
 
 
-# c-api (33.79% done)
+# c-api (33.81% done)
 
 - exceptions.po                  194 / 370 ( 52.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
@@ -9,7 +9,7 @@
 - import.po                       33 /  62 ( 53.0% translated).
 - init.po                        143 / 476 ( 30.0% translated).
 - init_config.po                 135 / 417 ( 32.0% translated).
-- intro.po                        93 / 140 ( 66.0% translated).
+- intro.po                        94 / 140 ( 67.0% translated).
 - long.po                         37 / 104 ( 35.0% translated).
 - memory.po                       53 / 200 ( 26.0% translated).
 - module.po                       51 / 132 ( 38.0% translated).
@@ -40,12 +40,12 @@
 - windows.po                      48 /  58 ( 82.0% translated).
 
 
-# howto (39.05% done)
+# howto (39.10% done)
 
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                   60 / 230 ( 26.0% translated).
 - enum.po                         73 / 327 ( 22.0% translated).
-- functional.po                  137 / 252 ( 54.0% translated).
+- functional.po                  138 / 252 ( 54.0% translated).
 - logging-cookbook.po             23 / 418 (  5.0% translated).
 - logging.po                     121 / 250 ( 48.0% translated).
 - regex.po                       291 / 332 ( 87.0% translated).
@@ -56,13 +56,13 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (45.41% done)
+# library (46.18% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
 - ast.po                         235 / 314 ( 74.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
-- asyncio-eventloop.po           308 / 400 ( 77.0% translated).
+- asyncio-eventloop.po           309 / 400 ( 77.0% translated).
 - asyncio-future.po                9 /  64 ( 14.0% translated).
 - asyncio-platforms.po             6 /  26 ( 23.0% translated).
 - asyncio-policy.po               10 /  68 ( 14.0% translated).
@@ -158,10 +158,10 @@
 - mmap.po                         12 /  65 ( 18.0% translated).
 - modulefinder.po                 13 /  16 ( 81.0% translated).
 - msvcrt.po                       22 /  46 ( 47.0% translated).
-- multiprocessing.po              63 / 596 ( 10.0% translated).
+- multiprocessing.po              64 / 596 ( 10.0% translated).
 - multiprocessing.shared_memory.po  14 /  56 ( 25.0% translated).
 - numbers.po                      30 /  34 ( 88.0% translated).
-- optparse.po                    211 / 507 ( 41.0% translated).
+- optparse.po                    437 / 507 ( 86.0% translated).
 - pathlib.po                     252 / 418 ( 60.0% translated).
 - pdb.po                         132 / 150 ( 88.0% translated).
 - pickle.po                      228 / 245 ( 93.0% translated).
@@ -258,26 +258,19 @@
 - simple_stmts.po                286 / 292 ( 97.0% translated).
 
 
-# whatsnew (65.94% done)
+# whatsnew (55.04% done)
 
-- 2.0.po                         183 / 207 ( 88.0% translated).
-- 2.1.po                         138 / 154 ( 89.0% translated).
-- 2.2.po                         189 / 216 ( 87.0% translated).
-- 2.3.po                         325 / 387 ( 83.0% translated).
+- 2.3.po                         328 / 387 ( 84.0% translated).
 - 2.4.po                         265 / 319 ( 83.0% translated).
 - 2.5.po                         388 / 452 ( 85.0% translated).
 - 2.6.po                         542 / 626 ( 86.0% translated).
-- 2.7.po                         450 / 498 ( 90.0% translated).
-- 3.0.po                         204 / 212 ( 96.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
 - 3.10.po                        529 / 550 ( 96.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
-- 3.4.po                         506 / 517 ( 97.0% translated).
 - 3.5.po                         125 / 578 ( 21.0% translated).
 - 3.6.po                         235 / 544 ( 43.0% translated).
-- 3.7.po                         245 / 568 ( 43.0% translated).
-- 3.8.po                         458 / 513 ( 89.0% translated).
+- 3.7.po                         252 / 568 ( 44.0% translated).
 
 
 
