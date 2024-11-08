@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-01 14:52+0000\n"
+"POT-Creation-Date: 2024-11-08 14:48+0000\n"
 "PO-Revision-Date: 2024-05-11 00:34+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -620,6 +620,11 @@ msgid ""
 "bytes objects.  Also, bytes objects can be decoded to strings via the :meth:"
 "`~bytes.decode` method."
 msgstr ""
+"Um objeto bytes é um vetor imutável. Os itens são bytes de 8 bits, "
+"representados por inteiros no intervalo 0 <= x < 256. Literais de bytes "
+"(como ``b'abc'``) e o construtor embutido :func:`bytes` podem ser usados "
+"para criar objetos bytes. Além disso, os objetos bytes podem ser "
+"decodificados em strings através do método :meth:`~bytes.decode`."
 
 #: ../../reference/datamodel.rst:386
 msgid "Mutable sequences"
@@ -809,6 +814,8 @@ msgid ""
 "Dictionaries are mutable; they can be created by the ``{}`` notation (see "
 "section :ref:`dict`)."
 msgstr ""
+"Os dicionários são mutáveis; eles podem ser criados pela notação ``{}`` "
+"(veja a seção :ref:`dict`)."
 
 #: ../../reference/datamodel.rst:506
 msgid ""
@@ -907,7 +914,7 @@ msgstr "A maioria desses atributos verifica o tipo do valor atribuído:"
 
 #: ../../reference/datamodel.rst:593
 msgid "The function's documentation string, or ``None`` if unavailable."
-msgstr ""
+msgstr "A string de documentação da função, ou ``None`` se indisponível."
 
 #: ../../reference/datamodel.rst:596
 msgid ""
@@ -1367,7 +1374,7 @@ msgstr ""
 
 #: ../../reference/datamodel.rst:892
 msgid "Import-related attributes on module objects"
-msgstr ""
+msgstr "Atributos relacionados à importação em objetos de módulo"
 
 #: ../../reference/datamodel.rst:894
 msgid ""
@@ -1377,6 +1384,11 @@ msgid ""
 "the module's :term:`spec <module spec>`, before the :term:`loader` executes "
 "and loads the module."
 msgstr ""
+"Objetos de módulo têm os seguintes atributos que se relacionam ao :ref:"
+"`sistema de importação <importsystem>`. Quando um módulo é criado usando o "
+"maquinário associado ao sistema de importação, esses atributos são "
+"preenchidos com base no :term:`spec <module spec>` do módulo, antes que o :"
+"term:`carregador` execute e carregue o módulo."
 
 #: ../../reference/datamodel.rst:900
 msgid ""
@@ -1388,6 +1400,13 @@ msgid ""
 "manually set on the module object after it has been created when using this "
 "approach."
 msgstr ""
+"Para criar um módulo dinamicamente em vez de usar o sistema de importação, é "
+"recomendado usar :func:`importlib.util.module_from_spec`, que definirá os "
+"vários atributos controlados pela importação para valores apropriados. "
+"Também é possível usar o construtor :class:`types.ModuleType` para criar "
+"módulos diretamente, mas essa técnica é mais propensa a erros, pois a "
+"maioria dos atributos deve ser definida manualmente no objeto do módulo após "
+"ele ter sido criado ao usar essa abordagem."
 
 #: ../../reference/datamodel.rst:910
 msgid ""
@@ -1397,6 +1416,11 @@ msgid ""
 "Note that updating an attribute on :attr:`!__spec__` will not update the "
 "corresponding attribute on the module itself:"
 msgstr ""
+"Com exceção de :attr:`~module.__name__`, é **fortemente** recomendado que "
+"você confie no :attr:`~module.__spec__` e seus atributos em vez de qualquer "
+"um dos outros atributos individuais listados nesta subseção. Observe que "
+"atualizar um atributo em :attr:`!__spec__` não atualizará o atributo "
+"correspondente no próprio módulo:"
 
 #: ../../reference/datamodel.rst:916
 msgid ""
@@ -1410,12 +1434,24 @@ msgid ""
 ">>> typing.__name__, typing.__spec__.name\n"
 "('keyboard_smashing', 'spelling')"
 msgstr ""
+">>> import typing\n"
+">>> typing.__name__, typing.__spec__.name\n"
+"('typing', 'typing')\n"
+">>> typing.__spec__.name = 'spelling'\n"
+">>> typing.__name__, typing.__spec__.name\n"
+"('typing', 'spelling')\n"
+">>> typing.__name__ = 'keyboard_smashing'\n"
+">>> typing.__name__, typing.__spec__.name\n"
+"('keyboard_smashing', 'spelling')"
 
 #: ../../reference/datamodel.rst:930
 msgid ""
 "The name used to uniquely identify the module in the import system. For a "
 "directly executed module, this will be set to ``\"__main__\"``."
 msgstr ""
+"O nome usado para identificar exclusivamente o módulo no sistema de "
+"importação. Para um módulo executado diretamente, isso será definido como "
+"``\"__main__\"``."
 
 #: ../../reference/datamodel.rst:933
 msgid ""
@@ -1426,17 +1462,19 @@ msgstr ""
 
 #: ../../reference/datamodel.rst:939
 msgid "A record of the module's import-system-related state."
-msgstr ""
+msgstr "Um registro do estado relacionado ao sistema de importação do módulo."
 
 #: ../../reference/datamodel.rst:941
 msgid ""
 "Set to the :class:`module spec <importlib.machinery.ModuleSpec>` that was "
 "used when importing the module. See :ref:`module-specs` for more details."
 msgstr ""
+"Defina como :class:`spec do módulo <importlib.machinery.ModuleSpec>` que foi "
+"usado ao importar o módulo. Veja :ref:`module-specs` para mais detalhes."
 
 #: ../../reference/datamodel.rst:948
 msgid "The :term:`package` a module belongs to."
-msgstr ""
+msgstr "O :term:`pacote` ao qual um módulo pertence."
 
 #: ../../reference/datamodel.rst:950
 msgid ""
@@ -1446,6 +1484,11 @@ msgid ""
 "attr:`module.__name__` if the module itself is a package). See :pep:`366` "
 "for further details."
 msgstr ""
+"Se o módulo for de nível superior (ou seja, não fizer parte de nenhum pacote "
+"específico), o atributo deve ser definido como ``''`` (a string vazia). Caso "
+"contrário, deve ser definido como o nome do pacote do módulo (que pode ser "
+"igual a :attr:`module.__name__` se o módulo em si for um pacote). Veja :pep:"
+"`366` para mais detalhes."
 
 #: ../../reference/datamodel.rst:956
 msgid ""
@@ -1455,6 +1498,11 @@ msgid ""
 "use :func:`importlib.util.module_from_spec` instead to ensure the attribute "
 "is set to a :class:`str`."
 msgstr ""
+"Este atributo é usado em vez de :attr:`~module.__name__` para calcular "
+"importações relativas explícitas para módulos principais. O padrão é "
+"``None`` para módulos criados dinamicamente usando o construtor :class:"
+"`types.ModuleType`; use :func:`importlib.util.module_from_spec` em vez disso "
+"para garantir que o atributo seja definido como :class:`str`."
 
 #: ../../reference/datamodel.rst:962
 msgid ""
@@ -1463,6 +1511,11 @@ msgid ""
 "__package__`. :attr:`__package__` is now only used as a fallback if :attr:`!"
 "__spec__.parent` is not set, and this fallback path is deprecated."
 msgstr ""
+"É **fortemente** recomendado que você use :attr:`module.__spec__.parent "
+"<importlib.machinery.ModuleSpec.parent>` em vez de :attr:`!module."
+"__package__`. :attr:`__package__` agora só é usado como fallback se :attr:`!"
+"__spec__.parent` não estiver definido, e esse caminho de fallback está "
+"descontinuado."
 
 #: ../../reference/datamodel.rst:968 ../../reference/datamodel.rst:1005
 msgid ""
@@ -1470,6 +1523,9 @@ msgid ""
 "using the :class:`types.ModuleType` constructor. Previously the attribute "
 "was optional."
 msgstr ""
+"Este atributo agora presume o padrão ``None`` para módulos criados "
+"dinamicamente usando o construtor :class:`types.ModuleType`. Anteriormente, "
+"o atributo era opcional."
 
 #: ../../reference/datamodel.rst:973
 msgid ""
@@ -1478,6 +1534,10 @@ msgid ""
 "`__package__` is now only used as a fallback during import resolution if :"
 "attr:`!__spec__.parent` is not defined."
 msgstr ""
+"Espera-se que o valor de :attr:`!__package__` seja o mesmo que :attr:"
+"`__spec__.parent <importlib.machinery.ModuleSpec.parent>`. :attr:"
+"`__package__` agora é usado apenas como fallback durante a resolução de "
+"importação se :attr:`!__spec__.parent` não estiver definido."
 
 #: ../../reference/datamodel.rst:979
 msgid ""
@@ -1485,17 +1545,24 @@ msgid ""
 "__package__` instead of :attr:`__spec__.parent <importlib.machinery."
 "ModuleSpec.parent>`."
 msgstr ""
+":exc:`ImportWarning` é levantada se uma resolução de importação retorna "
+"para :attr:`!__package__` em vez de :attr:`__spec__.parent <importlib."
+"machinery.ModuleSpec.parent>`."
 
 #: ../../reference/datamodel.rst:984
 msgid ""
 "Raise :exc:`DeprecationWarning` instead of :exc:`ImportWarning` when falling "
 "back to :attr:`!__package__` during import resolution."
 msgstr ""
+"Levanta :exc:`DeprecationWarning` em vez de :exc:`ImportWarning` ao retornar "
+"para :attr:`!__package__` durante a resolução de importação."
 
 #: ../../reference/datamodel.rst:990
 msgid ""
 "The :term:`loader` object that the import machinery used to load the module."
 msgstr ""
+"O objeto :term:`carregador` que o maquinário de importação usou para "
+"carregar o módulo."
 
 #: ../../reference/datamodel.rst:992
 msgid ""
@@ -1503,6 +1570,9 @@ msgid ""
 "additional loader-specific functionality, for example getting data "
 "associated with a loader."
 msgstr ""
+"Este atributo é útil principalmente para introspecção, mas pode ser usado "
+"para funcionalidades adicionais específicas do carregador, por exemplo, para "
+"obter dados associados a um carregador."
 
 #: ../../reference/datamodel.rst:996
 msgid ""
@@ -1511,6 +1581,10 @@ msgid ""
 "module_from_spec` instead to ensure the attribute is set to a :term:`loader` "
 "object."
 msgstr ""
+":attr:`!__loader__` assume como padrão ``None`` para módulos criados "
+"dinamicamente usando o construtor :class:`types.ModuleType`; use :func:"
+"`importlib.util.module_from_spec` para garantir que o atributo seja definido "
+"como um objeto :term:`carregador`."
 
 #: ../../reference/datamodel.rst:1001
 msgid ""
@@ -1518,6 +1592,9 @@ msgid ""
 "<importlib.machinery.ModuleSpec.loader>` instead of :attr:`!module."
 "__loader__`."
 msgstr ""
+"É **fortemetne** recomendado que você use :attr:`module.__spec__.loader "
+"<importlib.machinery.ModuleSpec.loader>` em vez de :attr:`!module."
+"__loader__`."
 
 #: ../../reference/datamodel.rst:1010
 msgid ""
@@ -1526,6 +1603,10 @@ msgid ""
 "cease to be set or taken into consideration by the import system or the "
 "standard library."
 msgstr ""
+"A definição :attr:`!__loader__` em um módulo enquanto falha na definição de :"
+"attr:`!__spec__.loader` está descontinuado. No Python 3.14, :attr:`!"
+"__loader__` deixará de ser definido ou levado em consideração pelo sistema "
+"de importação ou pela biblioteca padrão."
 
 #: ../../reference/datamodel.rst:1018
 msgid ""
@@ -1534,6 +1615,10 @@ msgid ""
 "have a :attr:`!__path__` attribute. See :ref:`package-path-rules` for more "
 "details."
 msgstr ""
+"Uma :term:`sequência` (possivelmente vazia) de strings enumerando os locais "
+"onde os submódulos do pacote serão encontrados. Módulos que não sejam de "
+"pacote não devem ter um atributo :attr:`!__path__`. Veja :ref:`package-path-"
+"rules` para mais detalhes."
 
 #: ../../reference/datamodel.rst:1023
 msgid ""
@@ -1541,6 +1626,9 @@ msgid ""
 "submodule_search_locations <importlib.machinery.ModuleSpec."
 "submodule_search_locations>` instead of :attr:`!module.__path__`."
 msgstr ""
+"É **fortemente** recomendado que você use :attr:`module.__spec__."
+"submodule_search_locations <importlib.machinery.ModuleSpec."
+"submodule_search_locations>` em vez de :attr:`!module.__path__`."
 
 #: ../../reference/datamodel.rst:1030
 msgid ""
@@ -1548,6 +1636,9 @@ msgid ""
 "may or may not be set. Both attributes should be a :class:`str` when they "
 "are available."
 msgstr ""
+":attr:`!__file__` e :attr:`!__cached__` são atributos opcionais que podem ou "
+"não ser definidos. Ambos os atributos devem ser um :class:`str` quando "
+"estiverem disponíveis."
 
 #: ../../reference/datamodel.rst:1034
 msgid ""
@@ -1559,6 +1650,14 @@ msgid ""
 "<importsystem>` may opt to leave it unset if it has no semantic meaning (for "
 "example, a module loaded from a database)."
 msgstr ""
+":attr:`!__file__` indica o nome do caminho do arquivo do qual o módulo foi "
+"carregado (se carregado de um arquivo) ou o nome do caminho do arquivo da "
+"biblioteca compartilhada para módulos de extensão carregados dinamicamente "
+"de uma biblioteca compartilhada. Pode estar faltando para certos tipos de "
+"módulos, como módulos C que estão estaticamente vinculados ao interpretador, "
+"e o :ref:`sistema de importação  <importsystem>` pode optar por deixá-lo sem "
+"definição se não tiver significado semântico (por exemplo, um módulo "
+"carregado de um banco de dados)."
 
 #: ../../reference/datamodel.rst:1042
 msgid ""
@@ -1568,6 +1667,11 @@ msgid ""
 "attribute; the path can simply point to where the compiled file *would* "
 "exist (see :pep:`3147`)."
 msgstr ""
+"Se :attr:`!__file__` estiver definido então o atributo :attr:`!__cached__` "
+"também pode ser definido, que é o caminho para qualquer versão compilada do "
+"código (por exemplo, um arquivo compilado por byte). O arquivo não precisa "
+"existir para configurar esse atributo; o caminho pode simplesmente apontar "
+"para onde o arquivo compilado existiria (veja :pep:`3147`)."
 
 #: ../../reference/datamodel.rst:1048
 msgid ""
@@ -1578,6 +1682,13 @@ msgid ""
 "loader can load from a cached module but otherwise does not load from a "
 "file, that atypical scenario may be appropriate."
 msgstr ""
+"Observe que :attr:`!__cached__` pode ser definido mesmo se :attr:`!__file__` "
+"não estiver definido. No entanto, esse cenário é bastante atípico. Em última "
+"análise, o :term:`carregador` é o que faz uso do spec do módulo fornecido "
+"pelo :term:`localizador` (do qual :attr:`!__file__` e :attr:`!__cached__` "
+"são derivados). Portanto, se um carregador puder carregar a partir de um "
+"módulo em cache, mas não carregar a partir de um arquivo, esse cenário "
+"atípico poderá ser apropriado."
 
 #: ../../reference/datamodel.rst:1055
 msgid ""
@@ -1585,6 +1696,9 @@ msgid ""
 "<importlib.machinery.ModuleSpec.cached>` instead of :attr:`!module."
 "__cached__`."
 msgstr ""
+"É **fortemente** recomendado que você use :attr:`module.__spec__.cached "
+"<importlib.machinery.ModuleSpec.cached>` em vez de :attr:`!module."
+"__cached__`."
 
 #: ../../reference/datamodel.rst:1060
 msgid "Other writable attributes on module objects"
@@ -2044,10 +2158,8 @@ msgstr ""
 #: ../../reference/datamodel.rst:1429
 msgid ""
 "This attribute of code objects is deprecated, and may be removed in Python "
-"3.14."
+"3.15."
 msgstr ""
-"Este atributo de objetos código está descontinuado e pode ser removido no "
-"Python 3.14."
 
 #: ../../reference/datamodel.rst:1434
 msgid "The required stack size of the code object"
