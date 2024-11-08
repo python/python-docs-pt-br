@@ -56,7 +56,7 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (46.18% done)
+# library (43.62% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
@@ -78,13 +78,12 @@
 - binascii.po                      8 /  38 ( 21.0% translated).
 - bisect.po                       18 /  35 ( 51.0% translated).
 - calendar.po                     35 / 104 ( 33.0% translated).
-- cmath.po                        56 /  59 ( 94.0% translated).
 - cmd.po                           5 /  50 ( 10.0% translated).
 - codecs.po                      250 / 532 ( 46.0% translated).
 - collections.abc.po              96 / 135 ( 71.0% translated).
 - collections.po                 211 / 242 ( 87.0% translated).
 - concurrent.futures.po           14 / 100 ( 14.0% translated).
-- configparser.po                186 / 218 ( 85.0% translated).
+- configparser.po                197 / 220 ( 89.0% translated).
 - contextlib.po                    9 / 172 (  5.0% translated).
 - contextvars.po                  54 /  56 ( 96.0% translated).
 - csv.po                         104 / 117 ( 88.0% translated).
@@ -124,7 +123,6 @@
 - fractions.po                    33 /  36 ( 91.0% translated).
 - ftplib.po                       11 /  99 ( 11.0% translated).
 - functools.po                    20 / 115 ( 17.0% translated).
-- getopt.po                       20 /  22 ( 90.0% translated).
 - gettext.po                     116 / 129 ( 89.0% translated).
 - glob.po                         42 /  44 ( 95.0% translated).
 - graphlib.po                     32 /  38 ( 84.0% translated).
@@ -154,6 +152,7 @@
 - logging.po                      93 / 368 ( 25.0% translated).
 - lzma.po                         66 / 115 ( 57.0% translated).
 - mailbox.po                      10 / 306 (  3.0% translated).
+- math.po                        129 / 261 ( 49.0% translated).
 - mimetypes.po                    20 /  54 ( 37.0% translated).
 - mmap.po                         12 /  65 ( 18.0% translated).
 - modulefinder.po                 13 /  16 ( 81.0% translated).
@@ -195,8 +194,7 @@
 - sqlite3.po                     115 / 476 ( 24.0% translated).
 - ssl.po                          40 / 544 (  7.0% translated).
 - statistics.po                  176 / 248 ( 70.0% translated).
-- stdtypes.po                    1321 / 1332 ( 99.0% translated).
-- string.po                      196 / 213 ( 92.0% translated).
+- string.po                      194 / 214 ( 90.0% translated).
 - stringprep.po                    1 /  25 (  4.0% translated).
 - struct.po                       96 / 195 ( 49.0% translated).
 - subprocess.po                  128 / 323 ( 39.0% translated).
@@ -228,7 +226,7 @@
 - urllib.robotparser.po            5 /  19 ( 26.0% translated).
 - uuid.po                          7 /  69 ( 10.0% translated).
 - venv.po                        103 / 127 ( 81.0% translated).
-- warnings.po                     62 / 133 ( 46.0% translated).
+- warnings.po                     64 / 138 ( 46.0% translated).
 - wave.po                         17 /  54 ( 31.0% translated).
 - webbrowser.po                   32 /  88 ( 36.0% translated).
 - winreg.po                       30 / 176 ( 17.0% translated).
@@ -250,10 +248,10 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (71.56% done)
+# reference (71.51% done)
 
 - compound_stmts.po              194 / 467 ( 41.0% translated).
-- datamodel.po                   644 / 866 ( 74.0% translated).
+- datamodel.po                   643 / 866 ( 74.0% translated).
 - import.po                      182 / 200 ( 91.0% translated).
 - simple_stmts.po                286 / 292 ( 97.0% translated).
 
