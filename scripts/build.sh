@@ -10,7 +10,16 @@ test -n ${PYDOC_LANGUAGE+x}
 
 cd "$(dirname $0)/.."
 mkdir -p logs
-opts="-D gettext_compact=False -D language=${PYDOC_LANGUAGE} --keep-going -w ../../logs/sphinxwarnings.txt"
+
+# If version is 3.12 or older, set gettext_compact.
+# This confval is not needed since 3.12.
+# In 3.13, its presence messes 3.13's syntax checking (?)
+opts="-D language=${PYDOC_LANGUAGE} --keep-going -w ../../logs/sphinxwarnings.txt"
+minor_version=$(git branch --show-current | sed 's|^3\.||')
+if [ $minor_version -lt 12 ]; then
+  opts += '-D gettext_compact=False'
+fi
+
 make -C cpython/Doc html SPHINXOPTS="${opts}"
 
 # Remove empty file
