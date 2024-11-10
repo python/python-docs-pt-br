@@ -16,15 +16,16 @@
 # Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 # Adorilson Bezerra <adorilson@gmail.com>, 2024
 # José Carlos <josecarlosbarbt@gmail.com>, 2024
+# Pedro Fonini, 2024
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-11 14:17+0000\n"
+"POT-Creation-Date: 2024-11-08 14:16+0000\n"
 "PO-Revision-Date: 2021-06-28 01:19+0000\n"
-"Last-Translator: José Carlos <josecarlosbarbt@gmail.com>, 2024\n"
+"Last-Translator: Pedro Fonini, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -97,7 +98,7 @@ msgstr ""
 
 #: ../../reference/compound_stmts.rst:37
 msgid "if test1: if test2: print(x)"
-msgstr ""
+msgstr "if test1: if test2: print(x)"
 
 #: ../../reference/compound_stmts.rst:39
 msgid ""
@@ -111,7 +112,7 @@ msgstr ""
 
 #: ../../reference/compound_stmts.rst:43
 msgid "if x < y < z: print(x); print(y); print(z)"
-msgstr ""
+msgstr "if x < y < z: print(x); print(y); print(z)"
 
 #: ../../reference/compound_stmts.rst:45
 msgid "Summarizing:"
@@ -262,6 +263,10 @@ msgid ""
 "                      # because i will be overwritten with the next\n"
 "                      # index in the range"
 msgstr ""
+"for i in range(10):\n"
+"    print(i)\n"
+"    i = 5             # não afeta o laço for, porque i será\n"
+"                      # substituída pelo índice seguinte no range"
 
 #: ../../reference/compound_stmts.rst:193
 msgid ""
@@ -400,6 +405,8 @@ msgid ""
 "except E as N:\n"
 "    foo"
 msgstr ""
+"except E as N:\n"
+"    foo"
 
 #: ../../reference/compound_stmts.rst:284
 msgid "was translated to ::"
@@ -413,6 +420,11 @@ msgid ""
 "    finally:\n"
 "        del N"
 msgstr ""
+"except E as N:\n"
+"    try:\n"
+"        foo\n"
+"    finally:\n"
+"        del N"
 
 #: ../../reference/compound_stmts.rst:292
 msgid ""
@@ -462,6 +474,23 @@ msgid ""
 ">>> print(sys.exception())\n"
 "None"
 msgstr ""
+">>> print(sys.exception())\n"
+"None\n"
+">>> try:\n"
+"...     raise TypeError\n"
+"... except:\n"
+"...     print(repr(sys.exception()))\n"
+"...     try:\n"
+"...          raise ValueError\n"
+"...     except:\n"
+"...         print(repr(sys.exception()))\n"
+"...     print(repr(sys.exception()))\n"
+"...\n"
+"TypeError()\n"
+"ValueError()\n"
+"TypeError()\n"
+">>> print(sys.exception())\n"
+"None"
 
 #: ../../reference/compound_stmts.rst:333
 msgid ":keyword:`!except*` clause"
@@ -508,6 +537,22 @@ msgid ""
 "    | ValueError: 1\n"
 "    +------------------------------------"
 msgstr ""
+">>> try:\n"
+"...     raise ExceptionGroup(\"eg\",\n"
+"...         [ValueError(1), TypeError(2), OSError(3), OSError(4)])\n"
+"... except* TypeError as e:\n"
+"...     print(f'caught {type(e)} with nested {e.exceptions}')\n"
+"... except* OSError as e:\n"
+"...     print(f'caught {type(e)} with nested {e.exceptions}')\n"
+"...\n"
+"caught <class 'ExceptionGroup'> with nested (TypeError(2),)\n"
+"caught <class 'ExceptionGroup'> with nested (OSError(3), OSError(4))\n"
+"  + Exception Group Traceback (most recent call last):\n"
+"  |   File \"<stdin>\", line 2, in <module>\n"
+"  | ExceptionGroup: eg\n"
+"  +-+---------------- 1 ----------------\n"
+"    | ValueError: 1\n"
+"    +------------------------------------"
 
 #: ../../reference/compound_stmts.rst:363
 msgid ""
@@ -541,6 +586,12 @@ msgid ""
 "...\n"
 "ExceptionGroup('', (BlockingIOError()))"
 msgstr ""
+">>> try:\n"
+"...     raise BlockingIOError\n"
+"... except* BlockingIOError as e:\n"
+"...     print(repr(e))\n"
+"...\n"
+"ExceptionGroup('', (BlockingIOError()))"
 
 #: ../../reference/compound_stmts.rst:380
 msgid ""
@@ -619,6 +670,14 @@ msgid ""
 ">>> f()\n"
 "42"
 msgstr ""
+">>> def f():\n"
+"...     try:\n"
+"...         1/0\n"
+"...     finally:\n"
+"...         return 42\n"
+"...\n"
+">>> f()\n"
+"42"
 
 #: ../../reference/compound_stmts.rst:434
 msgid ""
@@ -663,6 +722,14 @@ msgid ""
 ">>> foo()\n"
 "'finally'"
 msgstr ""
+">>> def foo():\n"
+"...     try:\n"
+"...         return 'try'\n"
+"...     finally:\n"
+"...         return 'finally'\n"
+"...\n"
+">>> foo()\n"
+"'finally'"
 
 #: ../../reference/compound_stmts.rst:460
 msgid ""
@@ -794,6 +861,8 @@ msgid ""
 "with EXPRESSION as TARGET:\n"
 "    SUITE"
 msgstr ""
+"with EXPRESSION as TARGET:\n"
+"    SUITE"
 
 #: ../../reference/compound_stmts.rst:531
 #: ../../reference/compound_stmts.rst:556
@@ -820,6 +889,22 @@ msgid ""
 "    if not hit_except:\n"
 "        exit(manager, None, None, None)"
 msgstr ""
+"manager = (EXPRESSION)\n"
+"enter = type(manager).__enter__\n"
+"exit = type(manager).__exit__\n"
+"value = enter(manager)\n"
+"hit_except = False\n"
+"\n"
+"try:\n"
+"    TARGET = value\n"
+"    SUITE\n"
+"except:\n"
+"    hit_except = True\n"
+"    if not exit(manager, *sys.exc_info()):\n"
+"        raise\n"
+"finally:\n"
+"    if not hit_except:\n"
+"        exit(manager, None, None, None)"
 
 #: ../../reference/compound_stmts.rst:550
 msgid ""
@@ -834,6 +919,8 @@ msgid ""
 "with A() as a, B() as b:\n"
 "    SUITE"
 msgstr ""
+"with A() as a, B() as b:\n"
+"    SUITE"
 
 #: ../../reference/compound_stmts.rst:558
 msgid ""
@@ -841,6 +928,9 @@ msgid ""
 "    with B() as b:\n"
 "        SUITE"
 msgstr ""
+"with A() as a:\n"
+"    with B() as b:\n"
+"        SUITE"
 
 #: ../../reference/compound_stmts.rst:562
 msgid ""
@@ -858,6 +948,11 @@ msgid ""
 "):\n"
 "    SUITE"
 msgstr ""
+"with (\n"
+"    A() as a,\n"
+"    B() as b,\n"
+"):\n"
+"    SUITE"
 
 #: ../../reference/compound_stmts.rst:571
 msgid "Support for multiple context expressions."
@@ -1046,6 +1141,19 @@ msgid ""
 "...\n"
 "Case 3, y: 200"
 msgstr ""
+">>> flag = False\n"
+">>> match (100, 200):\n"
+"...    case (100, 300):  # Não corresponde: 200 != 300\n"
+"...        print('Case 1')\n"
+"...    case (100, 200) if flag:  # Corresponde com sucesso, mas o guard "
+"falha...\n"
+"        print('Case 2')\n"
+"...    case (100, y):  # Corresponde e vincula y a 200\n"
+"...        print(f'Case 3, y: {y}')\n"
+"...    case _:  # Padrão não testado\n"
+"...        print('Case 4, I match anything!')\n"
+"...\n"
+"Case 3, y: 200"
 
 #: ../../reference/compound_stmts.rst:687
 msgid ""
@@ -1185,7 +1293,7 @@ msgstr ""
 
 #: ../../reference/compound_stmts.rst:767
 msgid "The top-level syntax for ``patterns`` is:"
-msgstr ""
+msgstr "Esta é a sintaxe de nível superior para ``patterns`` (padrões):"
 
 #: ../../reference/compound_stmts.rst:781
 msgid ""
@@ -1196,22 +1304,33 @@ msgid ""
 "the underlying implementation.  Furthermore, they do not cover all valid "
 "forms."
 msgstr ""
+"As descrições abaixo incluirão uma descrição \"em termos simples\" de o que "
+"o padrão faz para fins ilustrativos (créditos a Raymond Hettinger pelo "
+"documento que inspirou a maioria das descrições). Note que essas descrições "
+"são puramente para fins ilustrativos, e **não necessariamente** refletem a "
+"implementação subjacente.  Além disso, elas não cobrem todas as formas "
+"válidas."
 
 #: ../../reference/compound_stmts.rst:791
 msgid "OR Patterns"
-msgstr ""
+msgstr "Padrões OR"
 
 #: ../../reference/compound_stmts.rst:793
 msgid ""
 "An OR pattern is two or more patterns separated by vertical bars ``|``.  "
 "Syntax:"
 msgstr ""
+"Um padrão OR é composto por dois ou mais padrões separados por barras "
+"verticais ``|``.  Sintaxe:"
 
 #: ../../reference/compound_stmts.rst:799
 msgid ""
 "Only the final subpattern may be :ref:`irrefutable <irrefutable_case>`, and "
 "each subpattern must bind the same set of names to avoid ambiguity."
 msgstr ""
+"Somente o último subpadrão pode ser :ref:`irrefutável <irrefutable_case>`, e "
+"cada subpadrão deve vincular o mesmo conjunto de nomes para evitar "
+"ambiguidades."
 
 #: ../../reference/compound_stmts.rst:802
 msgid ""
@@ -1219,6 +1338,10 @@ msgid ""
 "until one succeeds.  The OR pattern is then considered successful.  "
 "Otherwise, if none of the subpatterns succeed, the OR pattern fails."
 msgstr ""
+"Um padrão OR testa a correspondência de cada um dos seus subpadrões, em "
+"sequência, ao valor do sujeito, até que uma delas seja bem sucedida.  O "
+"padrão OR é então considerado bem sucedido.  Caso contrário, se todas elas "
+"falharam, o padrão OR falhou."
 
 #: ../../reference/compound_stmts.rst:806
 msgid ""
@@ -1226,10 +1349,13 @@ msgid ""
 "will try to match ``P2``, succeeding immediately if any succeeds, failing "
 "otherwise."
 msgstr ""
+"Em termos simples, ``P1 | P2 | ...`` vai tentar fazer corresponder ``P1``, "
+"se falhar vai tentar ``P2``, declarando sucesso se houver sucesso em "
+"qualquer uma das tentativas, e falhando caso contrário."
 
 #: ../../reference/compound_stmts.rst:812
 msgid "AS Patterns"
-msgstr ""
+msgstr "Padrões AS"
 
 #: ../../reference/compound_stmts.rst:814
 msgid ""

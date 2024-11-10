@@ -56,7 +56,7 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (43.62% done)
+# library (43.31% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
@@ -115,7 +115,6 @@
 - email.utils.po                  34 /  36 ( 94.0% translated).
 - enum.po                         16 / 238 (  6.0% translated).
 - errno.po                         8 / 134 (  5.0% translated).
-- exceptions.po                  190 / 195 ( 97.0% translated).
 - faulthandler.po                  4 /  43 (  9.0% translated).
 - fcntl.po                        10 /  49 ( 20.0% translated).
 - filecmp.po                       3 /  42 (  7.0% translated).
@@ -160,7 +159,7 @@
 - multiprocessing.po              64 / 596 ( 10.0% translated).
 - multiprocessing.shared_memory.po  14 /  56 ( 25.0% translated).
 - numbers.po                      30 /  34 ( 88.0% translated).
-- optparse.po                    437 / 507 ( 86.0% translated).
+- optparse.po                    455 / 507 ( 89.0% translated).
 - pathlib.po                     252 / 418 ( 60.0% translated).
 - pdb.po                         132 / 150 ( 88.0% translated).
 - pickle.po                      228 / 245 ( 93.0% translated).
@@ -248,12 +247,10 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (71.51% done)
+# reference (64.59% done)
 
-- compound_stmts.po              194 / 467 ( 41.0% translated).
+- compound_stmts.po              218 / 467 ( 46.0% translated).
 - datamodel.po                   643 / 866 ( 74.0% translated).
-- import.po                      182 / 200 ( 91.0% translated).
-- simple_stmts.po                286 / 292 ( 97.0% translated).
 
 
 # whatsnew (55.04% done)
