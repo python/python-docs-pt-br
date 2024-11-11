@@ -70,7 +70,7 @@
 - index.po                       173 / 225 ( 76.0% translated).
 
 
-# library (44.50% done)
+# library (44.58% done)
 
 - argparse.po                    239 / 277 ( 86.0% translated).
 - array.po                        82 /  83 ( 98.0% translated).
@@ -173,7 +173,7 @@
 - multiprocessing.po              69 / 514 ( 13.0% translated).
 - nntplib.po                       6 /  84 (  7.0% translated).
 - numbers.po                      26 /  29 ( 89.0% translated).
-- optparse.po                    328 / 406 ( 80.0% translated).
+- optparse.po                    349 / 406 ( 85.0% translated).
 - os.po                          761 / 768 ( 99.0% translated).
 - ossaudiodev.po                  18 /  97 ( 18.0% translated).
 - othergui.po                     10 /  13 ( 76.0% translated).
