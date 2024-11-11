@@ -56,7 +56,7 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (43.31% done)
+# library (43.39% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
@@ -159,7 +159,7 @@
 - multiprocessing.po              64 / 596 ( 10.0% translated).
 - multiprocessing.shared_memory.po  14 /  56 ( 25.0% translated).
 - numbers.po                      30 /  34 ( 88.0% translated).
-- optparse.po                    455 / 507 ( 89.0% translated).
+- optparse.po                    476 / 507 ( 93.0% translated).
 - pathlib.po                     252 / 418 ( 60.0% translated).
 - pdb.po                         132 / 150 ( 88.0% translated).
 - pickle.po                      228 / 245 ( 93.0% translated).
