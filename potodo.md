@@ -1,6 +1,6 @@
 
 
-# c-api (45.50% done)
+# c-api (45.49% done)
 
 - allocation.po                    8 /   9 ( 88.0% translated).
 - arg.po                         193 / 195 ( 98.0% translated).
@@ -20,7 +20,7 @@
 - sequence.po                     26 /  27 ( 96.0% translated).
 - stable.po                       23 /  32 ( 71.0% translated).
 - structures.po                   46 / 129 ( 35.0% translated).
-- sys.po                          24 /  68 ( 35.0% translated).
+- sys.po                          23 /  67 ( 34.0% translated).
 - tuple.po                        47 /  48 ( 97.0% translated).
 - type.po                         27 /  63 ( 42.0% translated).
 - typeobj.po                     233 / 604 ( 38.0% translated).
@@ -44,15 +44,15 @@
 - newtypes_tutorial.po            27 / 123 ( 21.0% translated).
 
 
-# faq (77.58% done)
+# faq (78.13% done)
 
 - design.po                      125 / 141 ( 88.0% translated).
-- extending.po                    43 /  58 ( 74.0% translated).
+- extending.po                    47 /  58 ( 81.0% translated).
 - library.po                     132 / 140 ( 94.0% translated).
 - programming.po                 264 / 388 ( 68.0% translated).
 
 
-# howto (45.56% done)
+# howto (45.60% done)
 
 - annotations.po                  44 /  45 ( 97.0% translated).
 - argparse.po                     81 /  84 ( 96.0% translated).
@@ -62,7 +62,7 @@
 - functional.po                  138 / 206 ( 66.0% translated).
 - instrumentation.po               8 /  59 ( 13.0% translated).
 - logging-cookbook.po             25 / 306 (  8.0% translated).
-- logging.po                     119 / 221 ( 53.0% translated).
+- logging.po                     120 / 221 ( 54.0% translated).
 - pyporting.po                    35 /  86 ( 40.0% translated).
 - regex.po                       264 / 286 ( 92.0% translated).
 - sockets.po                      35 /  58 ( 60.0% translated).
@@ -75,10 +75,10 @@
 - index.po                       168 / 226 ( 74.0% translated).
 
 
-# library (44.95% done)
+# library (45.57% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
-- argparse.po                    204 / 290 ( 70.0% translated).
+- argparse.po                    254 / 290 ( 87.0% translated).
 - array.po                        72 /  82 ( 87.0% translated).
 - ast.po                         200 / 212 ( 94.0% translated).
 - asynchat.po                      4 /  33 ( 12.0% translated).
@@ -219,7 +219,7 @@
 - struct.po                       84 / 168 ( 50.0% translated).
 - subprocess.po                  128 / 275 ( 46.0% translated).
 - symtable.po                      3 /  44 (  6.0% translated).
-- sys.po                         358 / 413 ( 86.0% translated).
+- sys.po                         358 / 412 ( 86.0% translated).
 - sysconfig.po                    75 /  81 ( 92.0% translated).
 - tarfile.po                      96 / 297 ( 32.0% translated).
 - telnetlib.po                     6 /  47 ( 12.0% translated).
@@ -227,7 +227,7 @@
 - test.po                        114 / 295 ( 38.0% translated).
 - textwrap.po                     41 /  46 ( 89.0% translated).
 - threading.po                    30 / 210 ( 14.0% translated).
-- timeit.po                       44 /  53 ( 83.0% translated).
+- timeit.po                       46 /  53 ( 86.0% translated).
 - tkinter.font.po                 34 /  35 ( 97.0% translated).
 - tkinter.po                     303 / 304 ( 99.0% translated).
 - tkinter.tix.po                   4 /  71 (  5.0% translated).
@@ -236,11 +236,11 @@
 - traceback.po                     7 /  78 (  8.0% translated).
 - tracemalloc.po                  21 / 144 ( 14.0% translated).
 - turtle.po                      508 / 514 ( 98.0% translated).
-- typing.po                       88 / 374 ( 23.0% translated).
+- typing.po                      194 / 374 ( 51.0% translated).
 - unicodedata.po                   2 /  29 (  6.0% translated).
 - unittest.mock-examples.po       22 / 160 ( 13.0% translated).
 - unittest.mock.po               110 / 373 ( 29.0% translated).
-- unittest.po                    315 / 506 ( 62.0% translated).
+- unittest.po                    316 / 506 ( 62.0% translated).
 - urllib.parse.po                 64 / 154 ( 41.0% translated).
 - urllib.request.po               43 / 275 ( 15.0% translated).
 - urllib.robotparser.po            2 /  14 ( 14.0% translated).
@@ -290,7 +290,7 @@
 - windows.po                     307 / 309 ( 99.0% translated).
 
 
-# whatsnew (64.03% done)
+# whatsnew (64.05% done)
 
 - 2.0.po                         137 / 182 ( 75.0% translated).
 - 2.2.po                         138 / 192 ( 71.0% translated).
@@ -299,7 +299,7 @@
 - 2.5.po                         359 / 386 ( 93.0% translated).
 - 2.6.po                         535 / 539 ( 99.0% translated).
 - 2.7.po                         442 / 453 ( 97.0% translated).
-- 3.10.po                        512 / 517 ( 99.0% translated).
+- 3.10.po                        513 / 517 ( 99.0% translated).
 - 3.2.po                          69 / 518 ( 13.0% translated).
 - 3.3.po                         159 / 660 ( 24.0% translated).
 - 3.4.po                         510 / 511 ( 99.0% translated).
