@@ -67,7 +67,7 @@
 - index.po                       172 / 225 ( 76.0% translated).
 
 
-# library (40.49% done)
+# library (40.52% done)
 
 - argparse.po                    260 / 290 ( 89.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
@@ -167,7 +167,7 @@
 - msilib.po                        7 /  96 (  7.0% translated).
 - multiprocessing.po              69 / 518 ( 13.0% translated).
 - nntplib.po                       6 /  84 (  7.0% translated).
-- optparse.po                    350 / 406 ( 86.0% translated).
+- optparse.po                    358 / 406 ( 88.0% translated).
 - ossaudiodev.po                  18 /  98 ( 18.0% translated).
 - parser.po                        7 /  49 ( 14.0% translated).
 - pathlib.po                     204 / 205 ( 99.0% translated).
