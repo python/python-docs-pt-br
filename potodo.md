@@ -56,13 +56,13 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (43.39% done)
+# library (43.37% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
 - ast.po                         235 / 314 ( 74.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
-- asyncio-eventloop.po           309 / 400 ( 77.0% translated).
+- asyncio-eventloop.po           308 / 400 ( 77.0% translated).
 - asyncio-future.po                9 /  64 ( 14.0% translated).
 - asyncio-platforms.po             6 /  26 ( 23.0% translated).
 - asyncio-policy.po               10 /  68 ( 14.0% translated).
@@ -215,7 +215,7 @@
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
 - turtle.po                      561 / 661 ( 84.0% translated).
 - types.po                        93 / 103 ( 90.0% translated).
-- typing.po                      759 / 791 ( 95.0% translated).
+- typing.po                      755 / 791 ( 95.0% translated).
 - unicodedata.po                   5 /  32 ( 15.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               103 / 442 ( 23.0% translated).
@@ -247,10 +247,10 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (64.59% done)
+# reference (64.74% done)
 
-- compound_stmts.po              218 / 467 ( 46.0% translated).
-- datamodel.po                   643 / 866 ( 74.0% translated).
+- compound_stmts.po              217 / 467 ( 46.0% translated).
+- datamodel.po                   646 / 866 ( 74.0% translated).
 
 
 # whatsnew (55.04% done)
