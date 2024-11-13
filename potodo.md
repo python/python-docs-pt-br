@@ -1,6 +1,6 @@
 
 
-# c-api (40.17% done)
+# c-api (40.14% done)
 
 - exceptions.po                  196 / 266 ( 73.0% translated).
 - gcsupport.po                    10 /  33 ( 30.0% translated).
@@ -13,7 +13,7 @@
 - object.po                        4 /  47 (  8.0% translated).
 - sequence.po                     26 /  27 ( 96.0% translated).
 - structures.po                   50 / 126 ( 39.0% translated).
-- sys.po                          20 /  72 ( 27.0% translated).
+- sys.po                          19 /  71 ( 26.0% translated).
 - type.po                         29 /  63 ( 46.0% translated).
 - typeobj.po                     232 / 578 ( 40.0% translated).
 - unicode.po                      51 / 335 ( 15.0% translated).
@@ -204,7 +204,7 @@
 - struct.po                       83 / 150 ( 55.0% translated).
 - subprocess.po                  128 / 273 ( 46.0% translated).
 - symtable.po                      3 /  44 (  6.0% translated).
-- sys.po                         327 / 403 ( 81.0% translated).
+- sys.po                         326 / 402 ( 81.0% translated).
 - sysconfig.po                    69 /  74 ( 93.0% translated).
 - tarfile.po                      96 / 297 ( 32.0% translated).
 - telnetlib.po                     6 /  47 ( 12.0% translated).
