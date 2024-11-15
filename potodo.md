@@ -33,10 +33,10 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (62.45% done)
+# faq (62.87% done)
 
 - library.po                     133 / 153 ( 86.0% translated).
-- programming.po                 268 / 508 ( 52.0% translated).
+- programming.po                 271 / 508 ( 53.0% translated).
 - windows.po                      48 /  58 ( 82.0% translated).
 
 
@@ -168,7 +168,7 @@
 - plistlib.po                     47 /  49 ( 95.0% translated).
 - poplib.po                       10 /  53 ( 18.0% translated).
 - posix.po                        19 /  21 ( 90.0% translated).
-- pprint.po                       47 /  51 ( 92.0% translated).
+- pprint.po                       48 /  51 ( 94.0% translated).
 - profile.po                      34 / 181 ( 18.0% translated).
 - pty.po                          20 /  21 ( 95.0% translated).
 - pyexpat.po                      21 / 144 ( 14.0% translated).
@@ -188,7 +188,7 @@
 - signal.po                       13 / 137 (  9.0% translated).
 - site.po                         26 /  60 ( 43.0% translated).
 - smtplib.po                      30 / 116 ( 25.0% translated).
-- socket.po                       46 / 358 ( 12.0% translated).
+- socket.po                       46 / 364 ( 12.0% translated).
 - socketserver.po                  9 /  98 (  9.0% translated).
 - sqlite3.po                     115 / 476 ( 24.0% translated).
 - ssl.po                          40 / 544 (  7.0% translated).
