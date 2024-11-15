@@ -44,15 +44,15 @@
 - newtypes_tutorial.po            27 / 123 ( 21.0% translated).
 
 
-# faq (78.13% done)
+# faq (78.68% done)
 
 - design.po                      125 / 141 ( 88.0% translated).
-- extending.po                    47 /  58 ( 81.0% translated).
+- extending.po                    51 /  58 ( 87.0% translated).
 - library.po                     132 / 140 ( 94.0% translated).
 - programming.po                 264 / 388 ( 68.0% translated).
 
 
-# howto (45.60% done)
+# howto (48.25% done)
 
 - annotations.po                  44 /  45 ( 97.0% translated).
 - argparse.po                     81 /  84 ( 96.0% translated).
@@ -60,11 +60,11 @@
 - curses.po                       69 / 105 ( 65.0% translated).
 - descriptor.po                   57 / 175 ( 32.0% translated).
 - functional.po                  138 / 206 ( 66.0% translated).
-- instrumentation.po               8 /  59 ( 13.0% translated).
+- instrumentation.po              55 /  59 ( 93.0% translated).
 - logging-cookbook.po             25 / 306 (  8.0% translated).
-- logging.po                     120 / 221 ( 54.0% translated).
+- logging.po                     123 / 221 ( 55.0% translated).
 - pyporting.po                    35 /  86 ( 40.0% translated).
-- regex.po                       264 / 286 ( 92.0% translated).
+- regex.po                       274 / 286 ( 95.0% translated).
 - sockets.po                      35 /  58 ( 60.0% translated).
 - unicode.po                      30 / 121 ( 24.0% translated).
 - urllib2.po                      24 /  85 ( 28.0% translated).
@@ -75,7 +75,7 @@
 - index.po                       168 / 226 ( 74.0% translated).
 
 
-# library (45.57% done)
+# library (46.77% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    254 / 290 ( 87.0% translated).
@@ -136,7 +136,7 @@
 - email.mime.po                   26 /  38 ( 68.0% translated).
 - email.parser.po                  2 /  47 (  4.0% translated).
 - email.policy.po                 12 / 103 ( 11.0% translated).
-- enum.po                         53 / 188 ( 28.0% translated).
+- enum.po                         59 / 188 ( 31.0% translated).
 - errno.po                         7 / 127 (  5.0% translated).
 - exceptions.po                  136 / 149 ( 91.0% translated).
 - faulthandler.po                  4 /  42 (  9.0% translated).
@@ -170,7 +170,7 @@
 - itertools.po                   125 / 153 ( 81.0% translated).
 - logging.config.po               12 / 133 (  9.0% translated).
 - logging.handlers.po             49 / 268 ( 18.0% translated).
-- logging.po                      93 / 334 ( 27.0% translated).
+- logging.po                      95 / 334 ( 28.0% translated).
 - lzma.po                         68 / 107 ( 63.0% translated).
 - mailbox.po                      20 / 282 (  7.0% translated).
 - mailcap.po                       2 /  15 ( 13.0% translated).
@@ -178,9 +178,9 @@
 - mimetypes.po                    16 /  45 ( 35.0% translated).
 - mmap.po                         13 /  50 ( 26.0% translated).
 - msilib.po                        7 /  96 (  7.0% translated).
-- multiprocessing.po              68 / 519 ( 13.0% translated).
+- multiprocessing.po              69 / 519 ( 13.0% translated).
 - nntplib.po                       6 /  84 (  7.0% translated).
-- optparse.po                     36 / 406 (  8.0% translated).
+- optparse.po                    334 / 406 ( 82.0% translated).
 - os.po                          841 / 843 ( 99.0% translated).
 - ossaudiodev.po                  18 /  98 ( 18.0% translated).
 - pdb.po                          98 /  99 ( 98.0% translated).
@@ -236,7 +236,7 @@
 - traceback.po                     7 /  78 (  8.0% translated).
 - tracemalloc.po                  21 / 144 ( 14.0% translated).
 - turtle.po                      508 / 514 ( 98.0% translated).
-- typing.po                      194 / 374 ( 51.0% translated).
+- typing.po                      195 / 374 ( 52.0% translated).
 - unicodedata.po                   2 /  29 (  6.0% translated).
 - unittest.mock-examples.po       22 / 160 ( 13.0% translated).
 - unittest.mock.po               110 / 373 ( 29.0% translated).
@@ -290,7 +290,7 @@
 - windows.po                     307 / 309 ( 99.0% translated).
 
 
-# whatsnew (64.05% done)
+# whatsnew (64.06% done)
 
 - 2.0.po                         137 / 182 ( 75.0% translated).
 - 2.2.po                         138 / 192 ( 71.0% translated).
@@ -305,7 +305,7 @@
 - 3.4.po                         510 / 511 ( 99.0% translated).
 - 3.5.po                         124 / 541 ( 22.0% translated).
 - 3.6.po                         239 / 517 ( 46.0% translated).
-- 3.7.po                         242 / 555 ( 43.0% translated).
+- 3.7.po                         243 / 555 ( 43.0% translated).
 
 
 
