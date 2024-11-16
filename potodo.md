@@ -70,7 +70,7 @@
 - index.po                       173 / 225 ( 76.0% translated).
 
 
-# library (44.62% done)
+# library (44.66% done)
 
 - argparse.po                    239 / 277 ( 86.0% translated).
 - array.po                        82 /  83 ( 98.0% translated).
@@ -173,7 +173,7 @@
 - multiprocessing.po              69 / 514 ( 13.0% translated).
 - nntplib.po                       6 /  84 (  7.0% translated).
 - numbers.po                      26 /  29 ( 89.0% translated).
-- optparse.po                    357 / 406 ( 87.0% translated).
+- optparse.po                    367 / 406 ( 90.0% translated).
 - os.po                          761 / 768 ( 99.0% translated).
 - ossaudiodev.po                  18 /  97 ( 18.0% translated).
 - othergui.po                     10 /  13 ( 76.0% translated).
@@ -280,7 +280,7 @@
 - windows.po                     310 / 311 ( 99.0% translated).
 
 
-# whatsnew (63.25% done)
+# whatsnew (63.27% done)
 
 - 2.0.po                         134 / 182 ( 73.0% translated).
 - 2.2.po                         136 / 192 ( 70.0% translated).
@@ -295,7 +295,7 @@
 - 3.5.po                         124 / 541 ( 22.0% translated).
 - 3.6.po                         241 / 517 ( 46.0% translated).
 - 3.7.po                         239 / 555 ( 43.0% translated).
-- 3.8.po                         473 / 480 ( 98.0% translated).
+- 3.8.po                         474 / 480 ( 98.0% translated).
 
 
 
