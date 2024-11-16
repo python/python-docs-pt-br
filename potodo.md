@@ -67,7 +67,7 @@
 - index.po                       172 / 225 ( 76.0% translated).
 
 
-# library (40.52% done)
+# library (40.57% done)
 
 - argparse.po                    260 / 290 ( 89.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
@@ -167,7 +167,7 @@
 - msilib.po                        7 /  96 (  7.0% translated).
 - multiprocessing.po              69 / 518 ( 13.0% translated).
 - nntplib.po                       6 /  84 (  7.0% translated).
-- optparse.po                    358 / 406 ( 88.0% translated).
+- optparse.po                    368 / 406 ( 90.0% translated).
 - ossaudiodev.po                  18 /  98 ( 18.0% translated).
 - parser.po                        7 /  49 ( 14.0% translated).
 - pathlib.po                     204 / 205 ( 99.0% translated).
@@ -270,7 +270,7 @@
 - windows.po                     300 / 303 ( 99.0% translated).
 
 
-# whatsnew (62.81% done)
+# whatsnew (62.83% done)
 
 - 2.0.po                         135 / 182 ( 74.0% translated).
 - 2.2.po                         136 / 192 ( 70.0% translated).
@@ -285,7 +285,7 @@
 - 3.5.po                         124 / 541 ( 22.0% translated).
 - 3.6.po                         241 / 517 ( 46.0% translated).
 - 3.7.po                         242 / 555 ( 43.0% translated).
-- 3.9.po                         381 / 386 ( 98.0% translated).
+- 3.9.po                         382 / 386 ( 98.0% translated).
 
 
 
