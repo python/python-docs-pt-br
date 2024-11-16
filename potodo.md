@@ -56,7 +56,7 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (43.38% done)
+# library (42.51% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
@@ -151,7 +151,7 @@
 - logging.po                      93 / 368 ( 25.0% translated).
 - lzma.po                         66 / 115 ( 57.0% translated).
 - mailbox.po                      10 / 306 (  3.0% translated).
-- math.po                        129 / 261 ( 49.0% translated).
+- math.po                        138 / 261 ( 52.0% translated).
 - mimetypes.po                    20 /  54 ( 37.0% translated).
 - mmap.po                         12 /  65 ( 18.0% translated).
 - modulefinder.po                 13 /  16 ( 81.0% translated).
@@ -159,7 +159,6 @@
 - multiprocessing.po              64 / 596 ( 10.0% translated).
 - multiprocessing.shared_memory.po  14 /  56 ( 25.0% translated).
 - numbers.po                      30 /  34 ( 88.0% translated).
-- optparse.po                    476 / 507 ( 93.0% translated).
 - pathlib.po                     252 / 418 ( 60.0% translated).
 - pdb.po                         132 / 150 ( 88.0% translated).
 - pickle.po                      228 / 245 ( 93.0% translated).
@@ -188,7 +187,7 @@
 - signal.po                       13 / 137 (  9.0% translated).
 - site.po                         26 /  60 ( 43.0% translated).
 - smtplib.po                      30 / 116 ( 25.0% translated).
-- socket.po                       46 / 364 ( 12.0% translated).
+- socket.po                       53 / 364 ( 14.0% translated).
 - socketserver.po                  9 /  98 (  9.0% translated).
 - sqlite3.po                     115 / 476 ( 24.0% translated).
 - ssl.po                          40 / 544 (  7.0% translated).
@@ -247,10 +246,10 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (64.74% done)
+# reference (65.49% done)
 
 - compound_stmts.po              217 / 467 ( 46.0% translated).
-- datamodel.po                   646 / 866 ( 74.0% translated).
+- datamodel.po                   656 / 866 ( 75.0% translated).
 
 
 # whatsnew (55.04% done)
