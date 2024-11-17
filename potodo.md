@@ -67,7 +67,7 @@
 - index.po                       172 / 225 ( 76.0% translated).
 
 
-# library (40.57% done)
+# library (40.64% done)
 
 - argparse.po                    260 / 290 ( 89.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
@@ -167,7 +167,7 @@
 - msilib.po                        7 /  96 (  7.0% translated).
 - multiprocessing.po              69 / 518 ( 13.0% translated).
 - nntplib.po                       6 /  84 (  7.0% translated).
-- optparse.po                    368 / 406 ( 90.0% translated).
+- optparse.po                    379 / 406 ( 93.0% translated).
 - ossaudiodev.po                  18 /  98 ( 18.0% translated).
 - parser.po                        7 /  49 ( 14.0% translated).
 - pathlib.po                     204 / 205 ( 99.0% translated).
@@ -195,7 +195,7 @@
 - site.po                         17 /  39 ( 43.0% translated).
 - smtpd.po                        10 /  79 ( 12.0% translated).
 - smtplib.po                      25 / 109 ( 22.0% translated).
-- socket.po                       53 / 320 ( 16.0% translated).
+- socket.po                       58 / 320 ( 18.0% translated).
 - socketserver.po                  7 /  79 (  8.0% translated).
 - sqlite3.po                      32 / 210 ( 15.0% translated).
 - ssl.po                          49 / 496 (  9.0% translated).
