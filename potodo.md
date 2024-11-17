@@ -56,7 +56,7 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (42.51% done)
+# library (42.58% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
@@ -151,7 +151,7 @@
 - logging.po                      93 / 368 ( 25.0% translated).
 - lzma.po                         66 / 115 ( 57.0% translated).
 - mailbox.po                      10 / 306 (  3.0% translated).
-- math.po                        138 / 261 ( 52.0% translated).
+- math.po                        156 / 261 ( 59.0% translated).
 - mimetypes.po                    20 /  54 ( 37.0% translated).
 - mmap.po                         12 /  65 ( 18.0% translated).
 - modulefinder.po                 13 /  16 ( 81.0% translated).
