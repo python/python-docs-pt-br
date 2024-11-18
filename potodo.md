@@ -56,11 +56,11 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (42.58% done)
+# library (42.76% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
-- ast.po                         235 / 314 ( 74.0% translated).
+- ast.po                         286 / 314 ( 91.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 400 ( 77.0% translated).
 - asyncio-future.po                9 /  64 ( 14.0% translated).
