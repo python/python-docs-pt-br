@@ -62,13 +62,13 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (48.85% done)
+# library (49.16% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - abc.po                          31 /  60 ( 51.0% translated).
 - argparse.po                    363 / 365 ( 99.0% translated).
 - array.po                        64 /  84 ( 76.0% translated).
-- ast.po                         225 / 306 ( 73.0% translated).
+- ast.po                         255 / 306 ( 83.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 388 ( 79.0% translated).
 - asyncio-future.po                9 /  64 ( 14.0% translated).
@@ -178,7 +178,7 @@
 - multiprocessing.shared_memory.po  14 /  53 ( 26.0% translated).
 - nntplib.po                       9 /  92 (  9.0% translated).
 - numbers.po                      30 /  34 ( 88.0% translated).
-- optparse.po                    475 / 507 ( 93.0% translated).
+- optparse.po                    506 / 507 ( 99.0% translated).
 - os.path.po                      88 /  92 ( 95.0% translated).
 - ossaudiodev.po                  18 / 102 ( 17.0% translated).
 - pathlib.po                     209 / 346 ( 60.0% translated).
@@ -190,7 +190,7 @@
 - plistlib.po                     43 /  45 ( 95.0% translated).
 - poplib.po                       10 /  53 ( 18.0% translated).
 - posix.po                        19 /  21 ( 90.0% translated).
-- pprint.po                       47 /  51 ( 92.0% translated).
+- pprint.po                       48 /  51 ( 94.0% translated).
 - profile.po                      34 / 179 ( 18.0% translated).
 - pty.po                          20 /  21 ( 95.0% translated).
 - pyexpat.po                      21 / 144 ( 14.0% translated).
@@ -212,7 +212,7 @@
 - site.po                         26 /  58 ( 44.0% translated).
 - smtplib.po                      30 / 116 ( 25.0% translated).
 - sndhdr.po                       12 /  38 ( 31.0% translated).
-- socket.po                       46 / 363 ( 12.0% translated).
+- socket.po                       53 / 363 ( 14.0% translated).
 - socketserver.po                  9 /  98 (  9.0% translated).
 - sqlite3.po                     113 / 468 ( 24.0% translated).
 - ssl.po                          39 / 520 (  7.0% translated).
@@ -248,7 +248,7 @@
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               103 / 440 ( 23.0% translated).
 - unittest.po                    282 / 536 ( 52.0% translated).
-- urllib.parse.po                 71 / 166 ( 42.0% translated).
+- urllib.parse.po                 71 / 167 ( 42.0% translated).
 - urllib.request.po               43 / 297 ( 14.0% translated).
 - urllib.robotparser.po            5 /  19 ( 26.0% translated).
 - uuid.po                          7 /  69 ( 10.0% translated).
@@ -270,17 +270,15 @@
 - xml.sax.utils.po                 1 /  15 (  6.0% translated).
 - xmlrpc.client.po                56 / 113 ( 49.0% translated).
 - xmlrpc.server.po                49 /  57 ( 85.0% translated).
-- zipapp.po                        6 /  77 (  7.0% translated).
 - zipfile.po                     193 / 202 ( 95.0% translated).
 - zipimport.po                     6 /  37 ( 16.0% translated).
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (75.00% done)
+# reference (65.71% done)
 
 - compound_stmts.po              217 / 465 ( 46.0% translated).
-- datamodel.po                   641 / 856 ( 74.0% translated).
-- expressions.po                 534 / 535 ( 99.0% translated).
+- datamodel.po                   651 / 856 ( 76.0% translated).
 
 
 # tutorial (96.97% done)
