@@ -75,7 +75,7 @@
 - index.po                       168 / 226 ( 74.0% translated).
 
 
-# library (46.77% done)
+# library (46.88% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    254 / 290 ( 87.0% translated).
@@ -180,7 +180,7 @@
 - msilib.po                        7 /  96 (  7.0% translated).
 - multiprocessing.po              69 / 519 ( 13.0% translated).
 - nntplib.po                       6 /  84 (  7.0% translated).
-- optparse.po                    334 / 406 ( 82.0% translated).
+- optparse.po                    363 / 406 ( 89.0% translated).
 - os.po                          841 / 843 ( 99.0% translated).
 - ossaudiodev.po                  18 /  98 ( 18.0% translated).
 - pdb.po                          98 /  99 ( 98.0% translated).
@@ -246,7 +246,7 @@
 - urllib.robotparser.po            2 /  14 ( 14.0% translated).
 - uuid.po                         16 /  59 ( 27.0% translated).
 - venv.po                         99 / 102 ( 97.0% translated).
-- warnings.po                     61 / 109 ( 55.0% translated).
+- warnings.po                     62 / 109 ( 56.0% translated).
 - wave.po                         18 /  49 ( 36.0% translated).
 - weakref.po                      74 /  84 ( 88.0% translated).
 - webbrowser.po                   53 /  82 ( 64.0% translated).
@@ -270,9 +270,9 @@
 - zoneinfo.po                      6 /  73 (  8.0% translated).
 
 
-# reference (84.16% done)
+# reference (84.62% done)
 
-- compound_stmts.po              103 / 294 ( 35.0% translated).
+- compound_stmts.po              111 / 294 ( 37.0% translated).
 - datamodel.po                   483 / 504 ( 95.0% translated).
 - executionmodel.po               45 /  48 ( 93.0% translated).
 - expressions.po                 303 / 332 ( 91.0% translated).
