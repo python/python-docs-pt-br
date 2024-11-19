@@ -77,7 +77,7 @@
 - index.po                       166 / 226 ( 73.0% translated).
 
 
-# library (47.77% done)
+# library (47.78% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          33 /  49 ( 67.0% translated).
@@ -247,7 +247,7 @@
 - traceback.po                     9 /  94 (  9.0% translated).
 - tracemalloc.po                  21 / 144 ( 14.0% translated).
 - tty.po                           8 /  10 ( 80.0% translated).
-- typing.po                      463 / 563 ( 82.0% translated).
+- typing.po                      464 / 563 ( 82.0% translated).
 - unicodedata.po                   4 /  32 ( 12.0% translated).
 - unittest.mock-examples.po       22 / 162 ( 13.0% translated).
 - unittest.mock.po               107 / 388 ( 27.0% translated).
