@@ -56,7 +56,7 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (42.33% done)
+# library (41.69% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - aifc.po                          1 /   3 ( 33.0% translated).
@@ -168,7 +168,7 @@
 - modulefinder.po                 13 /  16 ( 81.0% translated).
 - msilib.po                        1 /   3 ( 33.0% translated).
 - msvcrt.po                       22 /  46 ( 47.0% translated).
-- multiprocessing.po              64 / 596 ( 10.0% translated).
+- multiprocessing.po             106 / 596 ( 17.0% translated).
 - multiprocessing.shared_memory.po  14 /  56 ( 25.0% translated).
 - numbers.po                      30 /  34 ( 88.0% translated).
 - pathlib.po                     252 / 418 ( 60.0% translated).
@@ -218,7 +218,6 @@
 - textwrap.po                     48 /  57 ( 84.0% translated).
 - threading.po                    34 / 240 ( 14.0% translated).
 - timeit.po                       52 /  68 ( 76.0% translated).
-- tkinter.po                     305 / 327 ( 93.0% translated).
 - tkinter.ttk.po                 118 / 429 ( 27.0% translated).
 - tokenize.po                      8 /  52 ( 15.0% translated).
 - trace.po                        41 /  43 ( 95.0% translated).
@@ -235,7 +234,6 @@
 - urllib.request.po               40 / 295 ( 13.0% translated).
 - urllib.robotparser.po            5 /  19 ( 26.0% translated).
 - uuid.po                          7 /  69 ( 10.0% translated).
-- venv.po                        103 / 127 ( 81.0% translated).
 - warnings.po                     64 / 138 ( 46.0% translated).
 - wave.po                         17 /  54 ( 31.0% translated).
 - webbrowser.po                   32 /  88 ( 36.0% translated).
