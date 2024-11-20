@@ -36,12 +36,12 @@
 - newtypes_tutorial.po            28 / 123 ( 22.0% translated).
 
 
-# faq (81.43% done)
+# faq (81.58% done)
 
 - design.po                      123 / 141 ( 87.0% translated).
 - extending.po                    50 /  58 ( 86.0% translated).
 - library.po                     130 / 140 ( 92.0% translated).
-- programming.po                 276 / 372 ( 74.0% translated).
+- programming.po                 277 / 372 ( 74.0% translated).
 
 
 # howto (50.07% done)
@@ -67,7 +67,7 @@
 - index.po                       172 / 225 ( 76.0% translated).
 
 
-# library (40.64% done)
+# library (40.89% done)
 
 - argparse.po                    260 / 290 ( 89.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
@@ -247,7 +247,7 @@
 - xml.sax.reader.po                2 /  75 (  2.0% translated).
 - xml.sax.utils.po                 1 /  13 (  7.0% translated).
 - xmlrpc.client.po                51 /  98 ( 52.0% translated).
-- zipapp.po                        6 /  79 (  7.0% translated).
+- zipapp.po                       63 /  79 ( 79.0% translated).
 - zipfile.po                     173 / 174 ( 99.0% translated).
 - zipimport.po                     6 /  31 ( 19.0% translated).
 - zlib.po                         61 /  64 ( 95.0% translated).
