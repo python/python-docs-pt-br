@@ -56,7 +56,7 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (41.69% done)
+# library (42.03% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - aifc.po                          1 /   3 ( 33.0% translated).
@@ -168,8 +168,8 @@
 - modulefinder.po                 13 /  16 ( 81.0% translated).
 - msilib.po                        1 /   3 ( 33.0% translated).
 - msvcrt.po                       22 /  46 ( 47.0% translated).
-- multiprocessing.po             106 / 596 ( 17.0% translated).
-- multiprocessing.shared_memory.po  14 /  56 ( 25.0% translated).
+- multiprocessing.po             171 / 596 ( 28.0% translated).
+- multiprocessing.shared_memory.po  40 /  56 ( 71.0% translated).
 - numbers.po                      30 /  34 ( 88.0% translated).
 - pathlib.po                     252 / 418 ( 60.0% translated).
 - pdb.po                         132 / 150 ( 88.0% translated).
@@ -216,7 +216,7 @@
 - tempfile.po                      8 /  87 (  9.0% translated).
 - test.po                        113 / 321 ( 35.0% translated).
 - textwrap.po                     48 /  57 ( 84.0% translated).
-- threading.po                    34 / 240 ( 14.0% translated).
+- threading.po                    35 / 240 ( 14.0% translated).
 - timeit.po                       52 /  68 ( 76.0% translated).
 - tkinter.ttk.po                 118 / 429 ( 27.0% translated).
 - tokenize.po                      8 /  52 ( 15.0% translated).
