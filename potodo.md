@@ -77,7 +77,7 @@
 - index.po                       166 / 226 ( 73.0% translated).
 
 
-# library (47.78% done)
+# library (48.11% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          33 /  49 ( 67.0% translated).
@@ -188,7 +188,7 @@
 - multiprocessing.po              65 / 529 ( 12.0% translated).
 - multiprocessing.shared_memory.po  15 /  48 ( 31.0% translated).
 - nntplib.po                       9 /  89 ( 10.0% translated).
-- optparse.po                    385 / 416 ( 92.0% translated).
+- optparse.po                    411 / 416 ( 98.0% translated).
 - os.path.po                      77 /  78 ( 98.0% translated).
 - os.po                          918 / 931 ( 98.0% translated).
 - ossaudiodev.po                  18 /  98 ( 18.0% translated).
@@ -219,7 +219,7 @@
 - smtpd.po                         3 /  78 (  3.0% translated).
 - smtplib.po                      28 / 114 ( 24.0% translated).
 - sndhdr.po                       12 /  37 ( 32.0% translated).
-- socket.po                       69 / 348 ( 19.0% translated).
+- socket.po                       75 / 348 ( 21.0% translated).
 - socketserver.po                  9 /  86 ( 10.0% translated).
 - sqlite3.po                      88 / 371 ( 23.0% translated).
 - ssl.po                          52 / 503 ( 10.0% translated).
@@ -274,7 +274,7 @@
 - xml.sax.reader.po                2 /  75 (  2.0% translated).
 - xml.sax.utils.po                 1 /  13 (  7.0% translated).
 - xmlrpc.client.po                57 / 100 ( 57.0% translated).
-- zipapp.po                        6 /  79 (  7.0% translated).
+- zipapp.po                       66 /  79 ( 83.0% translated).
 - zipfile.po                     192 / 193 ( 99.0% translated).
 - zipimport.po                     6 /  38 ( 15.0% translated).
 - zoneinfo.po                      8 /  75 ( 10.0% translated).
