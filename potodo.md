@@ -38,10 +38,10 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (62.64% done)
+# faq (68.41% done)
 
 - library.po                     137 / 162 ( 84.0% translated).
-- programming.po                 271 / 508 ( 53.0% translated).
+- programming.po                 313 / 508 ( 61.0% translated).
 - windows.po                      48 /  58 ( 82.0% translated).
 
 
@@ -62,11 +62,11 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (49.16% done)
+# library (49.65% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - abc.po                          31 /  60 ( 51.0% translated).
-- argparse.po                    363 / 365 ( 99.0% translated).
+- argparse.po                    361 / 370 ( 97.0% translated).
 - array.po                        64 /  84 ( 76.0% translated).
 - ast.po                         255 / 306 ( 83.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -101,7 +101,7 @@
 - contextvars.po                  48 /  51 ( 94.0% translated).
 - crypt.po                         6 /  36 ( 16.0% translated).
 - csv.po                         104 / 118 ( 88.0% translated).
-- ctypes.po                       88 / 522 ( 16.0% translated).
+- ctypes.po                       89 / 523 ( 17.0% translated).
 - curses.ascii.po                  7 /  69 ( 10.0% translated).
 - curses.panel.po                  6 /  23 ( 26.0% translated).
 - curses.po                       63 / 484 ( 13.0% translated).
@@ -163,6 +163,7 @@
 - ipaddress.po                   154 / 164 ( 93.0% translated).
 - itertools.po                    85 / 193 ( 44.0% translated).
 - json.po                        138 / 160 ( 86.0% translated).
+- locale.po                      148 / 150 ( 98.0% translated).
 - logging.config.po               12 / 171 (  7.0% translated).
 - logging.handlers.po             48 / 270 ( 17.0% translated).
 - logging.po                     100 / 367 ( 27.0% translated).
@@ -174,8 +175,8 @@
 - mmap.po                         12 /  59 ( 20.0% translated).
 - modulefinder.po                 13 /  16 ( 81.0% translated).
 - msilib.po                        7 /  97 (  7.0% translated).
-- multiprocessing.po              66 / 594 ( 11.0% translated).
-- multiprocessing.shared_memory.po  14 /  53 ( 26.0% translated).
+- multiprocessing.po             237 / 594 ( 39.0% translated).
+- multiprocessing.shared_memory.po  51 /  53 ( 96.0% translated).
 - nntplib.po                       9 /  92 (  9.0% translated).
 - numbers.po                      30 /  34 ( 88.0% translated).
 - optparse.po                    506 / 507 ( 99.0% translated).
@@ -194,7 +195,7 @@
 - profile.po                      34 / 179 ( 18.0% translated).
 - pty.po                          20 /  21 ( 95.0% translated).
 - pyexpat.po                      21 / 144 ( 14.0% translated).
-- queue.po                         4 /  44 (  9.0% translated).
+- queue.po                         5 /  44 ( 11.0% translated).
 - random.po                      111 / 121 ( 91.0% translated).
 - re.po                          433 / 436 ( 99.0% translated).
 - readline.po                     51 /  53 ( 96.0% translated).
@@ -232,9 +233,8 @@
 - tempfile.po                      8 /  87 (  9.0% translated).
 - test.po                        112 / 320 ( 35.0% translated).
 - textwrap.po                     48 /  57 ( 84.0% translated).
-- threading.po                    33 / 239 ( 13.0% translated).
+- threading.po                    34 / 239 ( 14.0% translated).
 - timeit.po                       52 /  68 ( 76.0% translated).
-- tkinter.po                     307 / 328 ( 93.0% translated).
 - tkinter.tix.po                   5 /  75 (  6.0% translated).
 - tkinter.ttk.po                 118 / 421 ( 28.0% translated).
 - tokenize.po                      8 /  52 ( 15.0% translated).
@@ -252,7 +252,7 @@
 - urllib.request.po               43 / 297 ( 14.0% translated).
 - urllib.robotparser.po            5 /  19 ( 26.0% translated).
 - uuid.po                          7 /  69 ( 10.0% translated).
-- venv.po                        100 / 121 ( 82.0% translated).
+- venv.po                        120 / 121 ( 99.0% translated).
 - warnings.po                     63 / 131 ( 48.0% translated).
 - wave.po                         17 /  53 ( 32.0% translated).
 - webbrowser.po                   32 /  80 ( 40.0% translated).
