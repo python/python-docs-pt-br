@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-19 01:00+0000\n"
+"POT-Creation-Date: 2024-11-22 14:17+0000\n"
 "PO-Revision-Date: 2021-06-28 01:10+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -571,10 +571,13 @@ msgid ""
 "in a shared memory block. This constrains storable values to the following "
 "built-in data types:"
 msgstr ""
+"Fornece um objeto mutável do tipo lista onde todos os valores armazenados "
+"dentro são armazenados em um bloco de memória compartilhada. Isso restringe "
+"valores armazenáveis ​​aos seguintes tipos de dados embutidos:"
 
 #: ../../library/multiprocessing.shared_memory.rst:292
 msgid ":class:`int` (signed 64-bit)"
-msgstr ""
+msgstr ":class:`int` (com sinal, 64-bit)"
 
 #: ../../library/multiprocessing.shared_memory.rst:293
 msgid ":class:`float`"
@@ -586,11 +589,11 @@ msgstr ":class:`bool`"
 
 #: ../../library/multiprocessing.shared_memory.rst:295
 msgid ":class:`str` (less than 10M bytes each when encoded as UTF-8)"
-msgstr ""
+msgstr ":class:`str` (menos de 10 M bytes cada quando codificado como UTF-8) "
 
 #: ../../library/multiprocessing.shared_memory.rst:296
 msgid ":class:`bytes` (less than 10M bytes each)"
-msgstr ""
+msgstr ":class:`bytes` (menos de 10 M bytes cada) "
 
 #: ../../library/multiprocessing.shared_memory.rst:297
 msgid "``None``"
@@ -603,6 +606,10 @@ msgid ""
 "insert`, etc.) and do not support the dynamic creation of new :class:`!"
 "ShareableList` instances via slicing."
 msgstr ""
+"Ele também difere notavelmente do tipo embutido :class:`list`, pois essas "
+"listas não podem alterar seu comprimento geral (ou seja, sem :meth:`!"
+"append`, :meth:`!insert`, etc.) e não oferecem suporte à criação dinâmica de "
+"novas instâncias :class:`!ShareableList` por meio de fatiamento."
 
 #: ../../library/multiprocessing.shared_memory.rst:305
 msgid ""
@@ -610,6 +617,9 @@ msgid ""
 "values. Set to ``None`` to instead attach to an already existing :class:`!"
 "ShareableList` by its unique shared memory name."
 msgstr ""
+"*sequence* é usado para preencher um :class:`!ShareableList` com valores. "
+"Defina como ``None`` para anexar a uma :class:`!ShareableList` já existente "
+"pelo seu nome único de memória compartilhada."
 
 #: ../../library/multiprocessing.shared_memory.rst:309
 msgid ""
@@ -618,6 +628,10 @@ msgid ""
 "class:`!ShareableList`, specify its shared memory block's unique name while "
 "leaving *sequence* set to ``None``."
 msgstr ""
+"*name* é um nome único para a memória compartilhada requerida, como descrito "
+"na definição de :class:`SharedMemory`. Ao anexar a uma :class:`!"
+"ShareableList` já existente, deve-se especificar o nome único do bloco de "
+"memória compartilhada e definir *sequence* como  ``None``."
 
 #: ../../library/multiprocessing.shared_memory.rst:316
 msgid ""
@@ -627,6 +641,11 @@ msgid ""
 "rstrip(b'\\x00')`` behavior is considered a bug and may go away in the "
 "future. See :gh:`106939`."
 msgstr ""
+"Existe um problema conhecido para os valores :class:`bytes` e :class:`str`. "
+"Se eles terminarem com bytes ou caracteres nulos ``\\x00``, eles podem ser "
+"*silenciosamente removidos* ao buscá-los pelo índice da :class:`!"
+"ShareableList`. Esse comportamento ``.rstrip(b'\\x00')`` é considerado um "
+"bug e pode desaparecer no futuro. Veja :gh:`106939`."
 
 #: ../../library/multiprocessing.shared_memory.rst:322
 msgid ""
@@ -634,6 +653,9 @@ msgid ""
 "around it by always unconditionally appending an extra non-0 byte to the end "
 "of such values when storing and unconditionally removing it when fetching:"
 msgstr ""
+"Para aplicações onde a remoção de nulos finais é um problema, contorne-o "
+"sempre anexando incondicionalmente um byte extra diferente de 0 ao final de "
+"tais valores ao armazená-los e removendo-os incondicionalmente ao buscá-los:"
 
 #: ../../library/multiprocessing.shared_memory.rst:327
 msgid ""
@@ -653,16 +675,33 @@ msgid ""
 "b'\\x03\\x02\\x01\\x00\\x00\\x00'\n"
 ">>> padded.shm.unlink()"
 msgstr ""
+">>> from multiprocessing import shared_memory\n"
+">>> nul_bug_demo = shared_memory.ShareableList(['?\\x00', "
+"b'\\x03\\x02\\x01\\x00\\x00\\x00'])\n"
+">>> nul_bug_demo[0]\n"
+"'?'\n"
+">>> nul_bug_demo[1]\n"
+"b'\\x03\\x02\\x01'\n"
+">>> nul_bug_demo.shm.unlink()\n"
+">>> padded = shared_memory.ShareableList(['?\\x00\\x07', "
+"b'\\x03\\x02\\x01\\x00\\x00\\x00\\x07'])\n"
+">>> padded[0][:-1]\n"
+"'?\\x00'\n"
+">>> padded[1][:-1]\n"
+"b'\\x03\\x02\\x01\\x00\\x00\\x00'\n"
+">>> padded.shm.unlink()"
 
 #: ../../library/multiprocessing.shared_memory.rst:345
 msgid "Return the number of occurrences of *value*."
-msgstr ""
+msgstr "Retorna o número de ocorrências de *value*."
 
 #: ../../library/multiprocessing.shared_memory.rst:349
 msgid ""
 "Return first index position of *value*. Raise :exc:`ValueError` if *value* "
 "is not present."
 msgstr ""
+"Retorna a primeira posição do índice de *value*. Levanta :exc:`ValueError` "
+"se *value* não estiver presente."
 
 #: ../../library/multiprocessing.shared_memory.rst:354
 msgid ""
@@ -703,15 +742,20 @@ msgid ""
 "attached to an existing object with the same name (if the object is still "
 "alive):"
 msgstr ""
+"Os exemplos a seguir demonstram que os objetos  :class:`ShareableList` (e o "
+"subjacente :class:`SharedMemory`) podem ser serializados e desserializados "
+"com pickle, se preciso. Note, ainda será o mesmo objeto compartilhado. Isto "
+"acontece pois o objeto desserializado tem o mesmo nome único e é somente "
+"anexado ao objeto existente com o mesmo nome (se o objeto ainda existe):"
 
 #: ../../library/multiprocessing.shared_memory.rst:11
 msgid "Shared Memory"
-msgstr ""
+msgstr "Memória compartilhada"
 
 #: ../../library/multiprocessing.shared_memory.rst:11
 msgid "POSIX Shared Memory"
-msgstr ""
+msgstr "POSIX, memória compartilhada "
 
 #: ../../library/multiprocessing.shared_memory.rst:11
 msgid "Named Shared Memory"
-msgstr ""
+msgstr "Nomeada, memória compartilhada"

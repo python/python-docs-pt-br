@@ -1,13 +1,13 @@
 
 
-# c-api (33.81% done)
+# c-api (33.80% done)
 
 - exceptions.po                  194 / 370 ( 52.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
 - frame.po                        20 /  37 ( 54.0% translated).
 - gcsupport.po                     9 /  52 ( 17.0% translated).
 - import.po                       33 /  62 ( 53.0% translated).
-- init.po                        143 / 476 ( 30.0% translated).
+- init.po                        143 / 477 ( 29.0% translated).
 - init_config.po                 135 / 417 ( 32.0% translated).
 - intro.po                        94 / 140 ( 67.0% translated).
 - long.po                         37 / 104 ( 35.0% translated).
@@ -33,10 +33,10 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (68.71% done)
+# faq (69.54% done)
 
 - library.po                     133 / 153 ( 86.0% translated).
-- programming.po                 313 / 508 ( 61.0% translated).
+- programming.po                 319 / 508 ( 62.0% translated).
 - windows.po                      48 /  58 ( 82.0% translated).
 
 
@@ -56,7 +56,7 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (42.03% done)
+# library (42.55% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - aifc.po                          1 /   3 ( 33.0% translated).
@@ -94,7 +94,7 @@
 - contextvars.po                  54 /  56 ( 96.0% translated).
 - crypt.po                         1 /   4 ( 25.0% translated).
 - csv.po                         104 / 117 ( 88.0% translated).
-- ctypes.po                       88 / 525 ( 16.0% translated).
+- ctypes.po                       89 / 526 ( 16.0% translated).
 - curses.ascii.po                  7 /  69 ( 10.0% translated).
 - curses.panel.po                  6 /  23 ( 26.0% translated).
 - curses.po                       65 / 486 ( 13.0% translated).
@@ -162,14 +162,13 @@
 - lzma.po                         66 / 115 ( 57.0% translated).
 - mailbox.po                      10 / 306 (  3.0% translated).
 - mailcap.po                       1 /   3 ( 33.0% translated).
-- math.po                        172 / 261 ( 65.0% translated).
+- math.po                        262 / 268 ( 97.0% translated).
 - mimetypes.po                    20 /  54 ( 37.0% translated).
 - mmap.po                         12 /  65 ( 18.0% translated).
 - modulefinder.po                 13 /  16 ( 81.0% translated).
 - msilib.po                        1 /   3 ( 33.0% translated).
 - msvcrt.po                       22 /  46 ( 47.0% translated).
-- multiprocessing.po             171 / 596 ( 28.0% translated).
-- multiprocessing.shared_memory.po  40 /  56 ( 71.0% translated).
+- multiprocessing.po             238 / 596 ( 39.0% translated).
 - numbers.po                      30 /  34 ( 88.0% translated).
 - pathlib.po                     252 / 418 ( 60.0% translated).
 - pdb.po                         132 / 150 ( 88.0% translated).
@@ -183,7 +182,7 @@
 - profile.po                      34 / 181 ( 18.0% translated).
 - pty.po                          20 /  21 ( 95.0% translated).
 - pyexpat.po                      21 / 144 ( 14.0% translated).
-- queue.po                         7 /  53 ( 13.0% translated).
+- queue.po                         8 /  53 ( 15.0% translated).
 - random.po                      125 / 137 ( 91.0% translated).
 - readline.po                     54 /  56 ( 96.0% translated).
 - reprlib.po                       9 /  39 ( 23.0% translated).
