@@ -1,13 +1,13 @@
 
 
-# c-api (33.80% done)
+# c-api (33.88% done)
 
 - exceptions.po                  194 / 370 ( 52.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
 - frame.po                        20 /  37 ( 54.0% translated).
 - gcsupport.po                     9 /  52 ( 17.0% translated).
 - import.po                       33 /  62 ( 53.0% translated).
-- init.po                        143 / 477 ( 29.0% translated).
+- init.po                        146 / 477 ( 30.0% translated).
 - init_config.po                 135 / 417 ( 32.0% translated).
 - intro.po                        94 / 140 ( 67.0% translated).
 - long.po                         37 / 104 ( 35.0% translated).
@@ -56,7 +56,7 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (42.55% done)
+# library (41.99% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - aifc.po                          1 /   3 ( 33.0% translated).
@@ -162,7 +162,6 @@
 - lzma.po                         66 / 115 ( 57.0% translated).
 - mailbox.po                      10 / 306 (  3.0% translated).
 - mailcap.po                       1 /   3 ( 33.0% translated).
-- math.po                        262 / 268 ( 97.0% translated).
 - mimetypes.po                    20 /  54 ( 37.0% translated).
 - mmap.po                         12 /  65 ( 18.0% translated).
 - modulefinder.po                 13 /  16 ( 81.0% translated).
