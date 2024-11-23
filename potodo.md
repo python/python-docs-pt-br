@@ -67,7 +67,7 @@
 - index.po                       172 / 225 ( 76.0% translated).
 
 
-# library (41.19% done)
+# library (41.41% done)
 
 - argparse.po                    260 / 290 ( 89.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
@@ -165,7 +165,7 @@
 - mimetypes.po                    16 /  45 ( 35.0% translated).
 - mmap.po                         12 /  47 ( 25.0% translated).
 - msilib.po                        7 /  96 (  7.0% translated).
-- multiprocessing.po             136 / 518 ( 26.0% translated).
+- multiprocessing.po             185 / 518 ( 35.0% translated).
 - nntplib.po                       6 /  84 (  7.0% translated).
 - optparse.po                    379 / 406 ( 93.0% translated).
 - ossaudiodev.po                  18 /  98 ( 18.0% translated).
@@ -181,7 +181,7 @@
 - profile.po                      34 / 155 ( 21.0% translated).
 - pty.po                          15 /  18 ( 83.0% translated).
 - pyexpat.po                      21 / 132 ( 15.0% translated).
-- queue.po                         4 /  42 (  9.0% translated).
+- queue.po                         5 /  42 ( 11.0% translated).
 - readline.po                     45 /  47 ( 95.0% translated).
 - reprlib.po                       5 /  21 ( 23.0% translated).
 - resource.po                     39 / 112 ( 34.0% translated).
