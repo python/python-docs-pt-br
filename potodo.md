@@ -1,10 +1,10 @@
 
 
-# c-api (40.14% done)
+# c-api (40.18% done)
 
 - exceptions.po                  196 / 266 ( 73.0% translated).
 - gcsupport.po                    10 /  33 ( 30.0% translated).
-- init.po                        115 / 308 ( 37.0% translated).
+- init.po                        116 / 308 ( 37.0% translated).
 - init_config.po                 127 / 281 ( 45.0% translated).
 - long.po                         51 /  52 ( 98.0% translated).
 - memory.po                       50 / 150 ( 33.0% translated).
