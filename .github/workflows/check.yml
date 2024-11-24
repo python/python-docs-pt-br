@@ -13,6 +13,10 @@ on:
         description: "Name of the Transifex translation project"
         required: true
         type: string
+      py_bin_ver:
+        description: "Version of the Python binary to use; Optional, defaults to the current branch name"
+        required: false
+        type: string
   workflow_call:
     inputs:
       version:
@@ -22,6 +26,10 @@ on:
       tx_project:
         description: "Name of the Transifex translation project"
         required: true
+        type: string
+      py_bin_ver:
+        description: "Version of the Python binary to use; Optional, defaults to the current branch name"
+        required: false
         type: string
     secrets:
       TELEGRAM_TOKEN:
@@ -51,10 +59,21 @@ jobs:
         with:
           fetch-depth: 5
 
-      - name: Set up Python 3
-        uses: actions/setup-python@v5
+      - name: Set Python version to use
+        id: pyver
+        shell: bash
+        run: |
+          if [[ "${{ inputs.py_bin_ver }}" != '' ]]
+            pyver=${{ inputs.py_bin_ver }}
+          else
+            pyver=$PYDOC_VERSION
+          fi
+          echo "PYVER=$pyver" >> $GITHUB_OUTPUT
+          echo "PYVER=$pyver"
+
+      - uses: actions/setup-python@v5
         with:
-          python-version: ${{ inputs.version }}
+          python-version: ${{ env.PYVER }}
           cache: pip
           allow-prereleases: true
 
@@ -117,10 +136,21 @@ jobs:
         with:
           fetch-depth: 5
 
-      - name: Set up Python 3
-        uses: actions/setup-python@v5
+      - name: Set Python version to use
+        id: pyver
+        shell: bash
+        run: |
+          if [[ "${{ inputs.py_bin_ver }}" != '' ]]
+            pyver=${{ inputs.py_bin_ver }}
+          else
+            pyver=$PYDOC_VERSION
+          fi
+          echo "PYVER=$pyver" >> $GITHUB_OUTPUT
+          echo "PYVER=$pyver"
+
+      - uses: actions/setup-python@v5
         with:
-          python-version: ${{ inputs.version }}
+          python-version: ${{ env.PYVER }}
           cache: pip
           allow-prereleases: true
 
