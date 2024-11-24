@@ -98,6 +98,14 @@ jobs:
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
 
+      - name: Merge translations from newer branch
+        if: inputs.tx_project != 'python-newest' # python-newest doesn't have a newer branch
+        run: |
+          newer_branch=${PYDOC_VERSION%%.*}.$((${PYDOC_VERSION##*.}+1))
+          git clone --depth 1 --single-branch --branch $newer_branch https://github.com/python/python-docs-pt-br ${newer_branch}-dir
+          pomerge --from ./${newer_branch}-dir/**/*.po --to ./${{ env.LANGUAGE_DIR }}/**/*.po
+          rm -rf ./${newer_branch}-dir
+
       - name: powrap
         if: steps.pull.outcome == 'success'
         run: |
