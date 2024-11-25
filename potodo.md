@@ -1,6 +1,6 @@
 
 
-# c-api (45.49% done)
+# c-api (45.52% done)
 
 - allocation.po                    8 /   9 ( 88.0% translated).
 - arg.po                         193 / 195 ( 98.0% translated).
@@ -8,7 +8,7 @@
 - exceptions.po                  197 / 275 ( 71.0% translated).
 - float.po                        12 /  13 ( 92.0% translated).
 - gcsupport.po                    10 /  40 ( 25.0% translated).
-- init.po                        114 / 310 ( 36.0% translated).
+- init.po                        115 / 310 ( 37.0% translated).
 - init_config.po                 129 / 375 ( 34.0% translated).
 - intro.po                        79 /  86 ( 91.0% translated).
 - long.po                         30 /  51 ( 58.0% translated).
@@ -44,12 +44,12 @@
 - newtypes_tutorial.po            27 / 123 ( 21.0% translated).
 
 
-# faq (78.68% done)
+# faq (79.92% done)
 
 - design.po                      125 / 141 ( 88.0% translated).
 - extending.po                    51 /  58 ( 87.0% translated).
 - library.po                     132 / 140 ( 94.0% translated).
-- programming.po                 264 / 388 ( 68.0% translated).
+- programming.po                 273 / 388 ( 70.0% translated).
 
 
 # howto (48.25% done)
@@ -75,7 +75,7 @@
 - index.po                       168 / 226 ( 74.0% translated).
 
 
-# library (46.88% done)
+# library (47.79% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    254 / 290 ( 87.0% translated).
@@ -178,9 +178,9 @@
 - mimetypes.po                    16 /  45 ( 35.0% translated).
 - mmap.po                         13 /  50 ( 26.0% translated).
 - msilib.po                        7 /  96 (  7.0% translated).
-- multiprocessing.po              69 / 519 ( 13.0% translated).
+- multiprocessing.po             216 / 519 ( 41.0% translated).
 - nntplib.po                       6 /  84 (  7.0% translated).
-- optparse.po                    363 / 406 ( 89.0% translated).
+- optparse.po                    384 / 406 ( 94.0% translated).
 - os.po                          841 / 843 ( 99.0% translated).
 - ossaudiodev.po                  18 /  98 ( 18.0% translated).
 - pdb.po                          98 /  99 ( 98.0% translated).
@@ -193,7 +193,7 @@
 - pprint.po                       31 /  42 ( 73.0% translated).
 - profile.po                      34 / 155 ( 21.0% translated).
 - pyexpat.po                      21 / 132 ( 15.0% translated).
-- queue.po                         4 /  42 (  9.0% translated).
+- queue.po                         5 /  42 ( 11.0% translated).
 - random.po                       94 /  96 ( 97.0% translated).
 - readline.po                     47 /  48 ( 97.0% translated).
 - reprlib.po                       5 /  21 ( 23.0% translated).
@@ -208,7 +208,7 @@
 - site.po                         17 /  39 ( 43.0% translated).
 - smtpd.po                        10 /  79 ( 12.0% translated).
 - smtplib.po                      25 / 109 ( 22.0% translated).
-- socket.po                       54 / 324 ( 16.0% translated).
+- socket.po                       59 / 324 ( 18.0% translated).
 - socketserver.po                  7 /  78 (  8.0% translated).
 - sqlite3.po                      75 / 287 ( 26.0% translated).
 - ssl.po                          49 / 493 (  9.0% translated).
@@ -222,7 +222,7 @@
 - sys.po                         358 / 412 ( 86.0% translated).
 - sysconfig.po                    75 /  81 ( 92.0% translated).
 - tarfile.po                      96 / 297 ( 32.0% translated).
-- telnetlib.po                     6 /  47 ( 12.0% translated).
+- telnetlib.po                     7 /  47 ( 14.0% translated).
 - tempfile.po                      8 /  64 ( 12.0% translated).
 - test.po                        114 / 295 ( 38.0% translated).
 - textwrap.po                     41 /  46 ( 89.0% translated).
@@ -264,7 +264,7 @@
 - xml.sax.reader.po                2 /  75 (  2.0% translated).
 - xml.sax.utils.po                 1 /  13 (  7.0% translated).
 - xmlrpc.client.po                54 /  98 ( 55.0% translated).
-- zipapp.po                        6 /  79 (  7.0% translated).
+- zipapp.po                       64 /  79 ( 81.0% translated).
 - zipimport.po                     6 /  38 ( 15.0% translated).
 - zlib.po                         62 /  64 ( 96.0% translated).
 - zoneinfo.po                      6 /  73 (  8.0% translated).
