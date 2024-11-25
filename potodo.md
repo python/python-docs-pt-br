@@ -5,14 +5,14 @@
 - license.po                     112 / 123 ( 91.0% translated).
 
 
-# c-api (34.19% done)
+# c-api (34.21% done)
 
 - exceptions.po                  194 / 366 ( 53.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
 - frame.po                        20 /  36 ( 55.0% translated).
 - gcsupport.po                     9 /  52 ( 17.0% translated).
 - import.po                       36 /  57 ( 63.0% translated).
-- init.po                        134 / 434 ( 30.0% translated).
+- init.po                        135 / 434 ( 31.0% translated).
 - init_config.po                 133 / 410 ( 32.0% translated).
 - intro.po                        95 / 141 ( 67.0% translated).
 - long.po                         30 /  67 ( 44.0% translated).
@@ -38,10 +38,10 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (68.41% done)
+# faq (69.09% done)
 
 - library.po                     137 / 162 ( 84.0% translated).
-- programming.po                 313 / 508 ( 61.0% translated).
+- programming.po                 318 / 508 ( 62.0% translated).
 - windows.po                      48 /  58 ( 82.0% translated).
 
 
@@ -62,11 +62,11 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (49.65% done)
+# library (49.54% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - abc.po                          31 /  60 ( 51.0% translated).
-- argparse.po                    361 / 370 ( 97.0% translated).
+- argparse.po                    368 / 370 ( 99.0% translated).
 - array.po                        64 /  84 ( 76.0% translated).
 - ast.po                         255 / 306 ( 83.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -163,7 +163,6 @@
 - ipaddress.po                   154 / 164 ( 93.0% translated).
 - itertools.po                    85 / 193 ( 44.0% translated).
 - json.po                        138 / 160 ( 86.0% translated).
-- locale.po                      148 / 150 ( 98.0% translated).
 - logging.config.po               12 / 171 (  7.0% translated).
 - logging.handlers.po             48 / 270 ( 17.0% translated).
 - logging.po                     100 / 367 ( 27.0% translated).
@@ -175,7 +174,7 @@
 - mmap.po                         12 /  59 ( 20.0% translated).
 - modulefinder.po                 13 /  16 ( 81.0% translated).
 - msilib.po                        7 /  97 (  7.0% translated).
-- multiprocessing.po             237 / 594 ( 39.0% translated).
+- multiprocessing.po             269 / 594 ( 45.0% translated).
 - multiprocessing.shared_memory.po  51 /  53 ( 96.0% translated).
 - nntplib.po                       9 /  92 (  9.0% translated).
 - numbers.po                      30 /  34 ( 88.0% translated).
@@ -229,7 +228,7 @@
 - sysconfig.po                   135 / 138 ( 97.0% translated).
 - syslog.po                       24 /  33 ( 72.0% translated).
 - tarfile.po                     103 / 333 ( 30.0% translated).
-- telnetlib.po                     9 /  53 ( 16.0% translated).
+- telnetlib.po                    10 /  53 ( 18.0% translated).
 - tempfile.po                      8 /  87 (  9.0% translated).
 - test.po                        112 / 320 ( 35.0% translated).
 - textwrap.po                     48 /  57 ( 84.0% translated).
