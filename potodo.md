@@ -5,14 +5,14 @@
 - license.po                      95 /  99 ( 95.0% translated).
 
 
-# c-api (38.46% done)
+# c-api (38.49% done)
 
 - exceptions.po                  193 / 347 ( 55.0% translated).
 - float.po                        14 /  35 ( 40.0% translated).
 - frame.po                        20 /  24 ( 83.0% translated).
 - gcsupport.po                     9 /  42 ( 21.0% translated).
 - import.po                       39 /  53 ( 73.0% translated).
-- init.po                        114 / 372 ( 30.0% translated).
+- init.po                        115 / 372 ( 30.0% translated).
 - init_config.po                 135 / 396 ( 34.0% translated).
 - intro.po                        94 / 127 ( 74.0% translated).
 - long.po                         30 /  59 ( 50.0% translated).
@@ -47,12 +47,12 @@
 - newtypes_tutorial.po            27 / 123 ( 21.0% translated).
 
 
-# faq (79.40% done)
+# faq (80.76% done)
 
 - design.po                      128 / 142 ( 90.0% translated).
 - extending.po                    55 /  58 ( 94.0% translated).
 - library.po                     136 / 140 ( 97.0% translated).
-- programming.po                 263 / 393 ( 66.0% translated).
+- programming.po                 273 / 393 ( 69.0% translated).
 
 
 # howto (52.60% done)
@@ -77,7 +77,7 @@
 - index.po                       166 / 226 ( 73.0% translated).
 
 
-# library (48.11% done)
+# library (48.80% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          33 /  49 ( 67.0% translated).
@@ -185,8 +185,8 @@
 - mimetypes.po                    18 /  50 ( 36.0% translated).
 - mmap.po                         13 /  55 ( 23.0% translated).
 - msilib.po                        7 /  97 (  7.0% translated).
-- multiprocessing.po              65 / 529 ( 12.0% translated).
-- multiprocessing.shared_memory.po  15 /  48 ( 31.0% translated).
+- multiprocessing.po             220 / 529 ( 41.0% translated).
+- multiprocessing.shared_memory.po  46 /  48 ( 95.0% translated).
 - nntplib.po                       9 /  89 ( 10.0% translated).
 - optparse.po                    411 / 416 ( 98.0% translated).
 - os.path.po                      77 /  78 ( 98.0% translated).
@@ -202,7 +202,7 @@
 - pprint.po                       46 /  48 ( 95.0% translated).
 - profile.po                      34 / 157 ( 21.0% translated).
 - pyexpat.po                      22 / 139 ( 15.0% translated).
-- queue.po                         4 /  42 (  9.0% translated).
+- queue.po                         5 /  42 ( 11.0% translated).
 - random.po                       98 / 104 ( 94.0% translated).
 - re.po                          382 / 386 ( 98.0% translated).
 - reprlib.po                       8 /  24 ( 33.0% translated).
@@ -233,11 +233,11 @@
 - sys.po                         397 / 413 ( 96.0% translated).
 - sysconfig.po                   135 / 136 ( 99.0% translated).
 - tarfile.po                     102 / 314 ( 32.0% translated).
-- telnetlib.po                     9 /  51 ( 17.0% translated).
+- telnetlib.po                    10 /  51 ( 19.0% translated).
 - tempfile.po                      9 /  69 ( 13.0% translated).
 - test.po                        113 / 296 ( 38.0% translated).
 - textwrap.po                     46 /  48 ( 95.0% translated).
-- threading.po                    37 / 217 ( 17.0% translated).
+- threading.po                    38 / 217 ( 17.0% translated).
 - time.po                        257 / 260 ( 98.0% translated).
 - timeit.po                       51 /  55 ( 92.0% translated).
 - tkinter.font.po                 34 /  35 ( 97.0% translated).
