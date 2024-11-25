@@ -67,7 +67,7 @@
 - index.po                       172 / 225 ( 76.0% translated).
 
 
-# library (41.41% done)
+# library (41.54% done)
 
 - argparse.po                    260 / 290 ( 89.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
@@ -165,7 +165,7 @@
 - mimetypes.po                    16 /  45 ( 35.0% translated).
 - mmap.po                         12 /  47 ( 25.0% translated).
 - msilib.po                        7 /  96 (  7.0% translated).
-- multiprocessing.po             185 / 518 ( 35.0% translated).
+- multiprocessing.po             213 / 518 ( 41.0% translated).
 - nntplib.po                       6 /  84 (  7.0% translated).
 - optparse.po                    379 / 406 ( 93.0% translated).
 - ossaudiodev.po                  18 /  98 ( 18.0% translated).
@@ -197,7 +197,7 @@
 - smtplib.po                      25 / 109 ( 22.0% translated).
 - socket.po                       58 / 320 ( 18.0% translated).
 - socketserver.po                  7 /  79 (  8.0% translated).
-- sqlite3.po                      32 / 210 ( 15.0% translated).
+- sqlite3.po                      33 / 210 ( 15.0% translated).
 - ssl.po                          49 / 496 (  9.0% translated).
 - stat.po                         78 /  81 ( 96.0% translated).
 - stringprep.po                    1 /  25 (  4.0% translated).
@@ -207,7 +207,7 @@
 - sys.po                         326 / 402 ( 81.0% translated).
 - sysconfig.po                    69 /  74 ( 93.0% translated).
 - tarfile.po                      96 / 297 ( 32.0% translated).
-- telnetlib.po                     6 /  47 ( 12.0% translated).
+- telnetlib.po                     7 /  47 ( 14.0% translated).
 - tempfile.po                      8 /  61 ( 13.0% translated).
 - test.po                        112 / 282 ( 39.0% translated).
 - textwrap.po                     41 /  46 ( 89.0% translated).
