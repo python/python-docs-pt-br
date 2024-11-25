@@ -64,7 +64,7 @@ jobs:
         shell: bash
         run: |
           available=false
-          [ "${{ secrets.TX_TOKEN }}" != '' ] && available=true
+          [[ "${{ secrets.TX_TOKEN }}" != '' ]] && available=true
           echo "available=$available" >> $GITHUB_OUTPUT
           echo "available=$available"
 
@@ -113,7 +113,7 @@ jobs:
           powrap *.po **/*.po
 
       - name: Update statistics
-        if: always() && ${{ steps.secret-check.outputs.available != 'true' }}
+        if: always() && steps.secret-check.outputs.available == 'true'
         run: |
           python ./scripts/tx_stats.py > ./${{ env.LANGUAGE_DIR }}/stats.json
           git -C ./${{ env.LANGUAGE_DIR }} diff stats.json
