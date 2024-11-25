@@ -1,6 +1,10 @@
 
 
-# c-api (33.88% done)
+# 3.13 (100.00% done)
+
+
+
+# c-api (52.13% done)
 
 - exceptions.po                  194 / 370 ( 52.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
@@ -25,7 +29,15 @@
 - veryhigh.po                      3 /  54 (  5.0% translated).
 
 
-# extending (9.12% done)
+# deprecations (100.00% done)
+
+
+
+# distributing (100.00% done)
+
+
+
+# extending (15.75% done)
 
 - embedding.po                     4 /  59 (  6.0% translated).
 - extending.po                    14 / 206 (  6.0% translated).
@@ -33,14 +45,14 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (69.54% done)
+# faq (81.23% done)
 
 - library.po                     133 / 153 ( 86.0% translated).
-- programming.po                 319 / 508 ( 62.0% translated).
+- programming.po                 334 / 508 ( 65.0% translated).
 - windows.po                      48 /  58 ( 82.0% translated).
 
 
-# howto (39.10% done)
+# howto (56.00% done)
 
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                   60 / 230 ( 26.0% translated).
@@ -56,7 +68,11 @@
 - urllib2.po                      24 / 100 ( 24.0% translated).
 
 
-# library (42.11% done)
+# installing (100.00% done)
+
+
+
+# library (57.13% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - aifc.po                          1 /   3 ( 33.0% translated).
@@ -167,7 +183,7 @@
 - modulefinder.po                 13 /  16 ( 81.0% translated).
 - msilib.po                        1 /   3 ( 33.0% translated).
 - msvcrt.po                       22 /  46 ( 47.0% translated).
-- multiprocessing.po             270 / 596 ( 45.0% translated).
+- multiprocessing.po             287 / 596 ( 48.0% translated).
 - numbers.po                      30 /  34 ( 88.0% translated).
 - pathlib.po                     252 / 418 ( 60.0% translated).
 - pdb.po                         132 / 150 ( 88.0% translated).
@@ -214,7 +230,7 @@
 - tempfile.po                      8 /  87 (  9.0% translated).
 - test.po                        113 / 321 ( 35.0% translated).
 - textwrap.po                     48 /  57 ( 84.0% translated).
-- threading.po                    35 / 240 ( 14.0% translated).
+- threading.po                    36 / 240 ( 15.0% translated).
 - timeit.po                       52 /  68 ( 76.0% translated).
 - tkinter.ttk.po                 118 / 429 ( 27.0% translated).
 - tokenize.po                      8 /  52 ( 15.0% translated).
@@ -228,7 +244,7 @@
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               103 / 442 ( 23.0% translated).
 - unittest.po                    282 / 537 ( 52.0% translated).
-- urllib.parse.po                 70 / 168 ( 41.0% translated).
+- urllib.parse.po                110 / 168 ( 65.0% translated).
 - urllib.request.po               40 / 295 ( 13.0% translated).
 - urllib.robotparser.po            5 /  19 ( 26.0% translated).
 - uuid.po                          7 /  69 ( 10.0% translated).
@@ -253,13 +269,21 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (65.49% done)
+# reference (83.92% done)
 
 - compound_stmts.po              217 / 467 ( 46.0% translated).
 - datamodel.po                   656 / 866 ( 75.0% translated).
 
 
-# whatsnew (55.04% done)
+# tutorial (100.00% done)
+
+
+
+# using (100.00% done)
+
+
+
+# whatsnew (76.97% done)
 
 - 2.3.po                         328 / 387 ( 84.0% translated).
 - 2.4.po                         265 / 319 ( 83.0% translated).
