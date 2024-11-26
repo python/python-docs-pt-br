@@ -1,13 +1,13 @@
 
 
-# c-api (45.82% done)
+# c-api (45.85% done)
 
 - buffer.po                      102 / 103 ( 99.0% translated).
 - contextvars.po                  30 /  31 ( 96.0% translated).
 - exceptions.po                  197 / 264 ( 74.0% translated).
 - float.po                        13 /  14 ( 92.0% translated).
 - gcsupport.po                    10 /  25 ( 40.0% translated).
-- init.po                        114 / 287 ( 39.0% translated).
+- init.po                        115 / 287 ( 40.0% translated).
 - init_config.po                 124 / 274 ( 45.0% translated).
 - intro.po                        91 /  92 ( 98.0% translated).
 - long.po                         49 /  52 ( 94.0% translated).
@@ -70,7 +70,7 @@
 - index.po                       173 / 225 ( 76.0% translated).
 
 
-# library (44.73% done)
+# library (45.75% done)
 
 - argparse.po                    239 / 277 ( 86.0% translated).
 - array.po                        82 /  83 ( 98.0% translated).
@@ -170,7 +170,7 @@
 - mimetypes.po                    16 /  45 ( 35.0% translated).
 - mmap.po                         12 /  47 ( 25.0% translated).
 - msilib.po                        7 /  95 (  7.0% translated).
-- multiprocessing.po              69 / 514 ( 13.0% translated).
+- multiprocessing.po             222 / 514 ( 43.0% translated).
 - nntplib.po                       6 /  84 (  7.0% translated).
 - numbers.po                      26 /  29 ( 89.0% translated).
 - optparse.po                    378 / 406 ( 93.0% translated).
@@ -187,7 +187,7 @@
 - profile.po                      34 / 153 ( 22.0% translated).
 - pty.po                          13 /  16 ( 81.0% translated).
 - pyexpat.po                      21 / 132 ( 15.0% translated).
-- queue.po                         4 /  42 (  9.0% translated).
+- queue.po                         5 /  42 ( 11.0% translated).
 - random.po                       75 /  76 ( 98.0% translated).
 - readline.po                     45 /  47 ( 95.0% translated).
 - reprlib.po                       5 /  21 ( 23.0% translated).
@@ -205,7 +205,7 @@
 - smtplib.po                      24 / 107 ( 22.0% translated).
 - socket.po                       55 / 307 ( 17.0% translated).
 - socketserver.po                  7 /  79 (  8.0% translated).
-- sqlite3.po                      33 / 202 ( 16.0% translated).
+- sqlite3.po                      34 / 202 ( 16.0% translated).
 - ssl.po                          49 / 496 (  9.0% translated).
 - stat.po                         75 /  81 ( 92.0% translated).
 - stringprep.po                    1 /  25 (  4.0% translated).
@@ -216,11 +216,11 @@
 - sys.po                         314 / 398 ( 78.0% translated).
 - sysconfig.po                    66 /  72 ( 91.0% translated).
 - tarfile.po                      95 / 295 ( 32.0% translated).
-- telnetlib.po                     6 /  46 ( 13.0% translated).
+- telnetlib.po                     7 /  46 ( 15.0% translated).
 - tempfile.po                      8 /  60 ( 13.0% translated).
 - test.po                         94 / 251 ( 37.0% translated).
 - textwrap.po                     40 /  46 ( 86.0% translated).
-- threading.po                    30 / 198 ( 15.0% translated).
+- threading.po                    31 / 198 ( 15.0% translated).
 - timeit.po                       44 /  52 ( 84.0% translated).
 - tkinter.po                     267 / 268 ( 99.0% translated).
 - tkinter.tix.po                   4 /  71 (  5.0% translated).
@@ -235,7 +235,7 @@
 - unittest.mock-examples.po       22 / 160 ( 13.0% translated).
 - unittest.mock.po               108 / 373 ( 28.0% translated).
 - unittest.po                    308 / 499 ( 61.0% translated).
-- urllib.parse.po                 65 / 153 ( 42.0% translated).
+- urllib.parse.po                 93 / 153 ( 60.0% translated).
 - urllib.request.po               43 / 271 ( 15.0% translated).
 - urllib.robotparser.po            2 /  14 ( 14.0% translated).
 - uuid.po                         16 /  59 ( 27.0% translated).
@@ -257,7 +257,7 @@
 - xml.sax.reader.po                2 /  75 (  2.0% translated).
 - xml.sax.utils.po                 1 /  13 (  7.0% translated).
 - xmlrpc.client.po                51 / 100 ( 51.0% translated).
-- zipapp.po                        6 /  79 (  7.0% translated).
+- zipapp.po                       63 /  79 ( 79.0% translated).
 - zipfile.po                     170 / 173 ( 98.0% translated).
 - zipimport.po                     6 /  31 ( 19.0% translated).
 - zlib.po                         63 /  64 ( 98.0% translated).
