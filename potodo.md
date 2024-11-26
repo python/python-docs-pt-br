@@ -45,10 +45,10 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (81.23% done)
+# faq (81.51% done)
 
 - library.po                     133 / 153 ( 86.0% translated).
-- programming.po                 334 / 508 ( 65.0% translated).
+- programming.po                 337 / 508 ( 66.0% translated).
 - windows.po                      48 /  58 ( 82.0% translated).
 
 
@@ -72,7 +72,7 @@
 
 
 
-# library (57.13% done)
+# library (57.19% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - aifc.po                          1 /   3 ( 33.0% translated).
@@ -122,7 +122,7 @@
 - difflib.po                      14 / 140 ( 10.0% translated).
 - dis.po                         203 / 393 ( 51.0% translated).
 - distutils.po                     0 /   3 (  0.0% translated).
-- doctest.po                      72 / 372 ( 19.0% translated).
+- doctest.po                      92 / 372 ( 24.0% translated).
 - email.charset.po                 1 /  44 (  2.0% translated).
 - email.compat32-message.po        5 / 115 (  4.0% translated).
 - email.contentmanager.po          4 /  41 (  9.0% translated).
@@ -298,4 +298,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
+# TOTAL (63.84% done)
 
