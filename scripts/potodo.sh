@@ -18,9 +18,5 @@ potodo --no-cache > potodo.md
 # Show version number instead of the directory name, if present
 sed -i "s|LC_MESSAGES|${PYDOC_VERSION}|" potodo.md
 
-# Remove total for now as it only consider incomplete files.
-# https://git.afpy.org/AFPy/potodo/issues/7
-sed -i "/^# TOTAL /d" potodo.md
-
 # Remove cache directory
 rm -rf .potodo/
