@@ -1,6 +1,10 @@
 
 
-# c-api (40.18% done)
+# 3.9 (100.00% done)
+
+
+
+# c-api (59.42% done)
 
 - exceptions.po                  196 / 266 ( 73.0% translated).
 - gcsupport.po                    10 /  33 ( 30.0% translated).
@@ -20,7 +24,11 @@
 - veryhigh.po                      3 /  61 (  4.0% translated).
 
 
-# distutils (28.99% done)
+# distributing (100.00% done)
+
+
+
+# distutils (41.62% done)
 
 - apiref.po                       88 / 417 ( 21.0% translated).
 - builtdist.po                    55 / 149 ( 36.0% translated).
@@ -28,7 +36,7 @@
 - sourcedist.po                   27 /  74 ( 36.0% translated).
 
 
-# extending (13.64% done)
+# extending (23.84% done)
 
 - embedding.po                     4 /  45 (  8.0% translated).
 - extending.po                    15 / 158 (  9.0% translated).
@@ -36,7 +44,7 @@
 - newtypes_tutorial.po            28 / 123 ( 22.0% translated).
 
 
-# faq (81.58% done)
+# faq (85.13% done)
 
 - design.po                      123 / 141 ( 87.0% translated).
 - extending.po                    50 /  58 ( 86.0% translated).
@@ -44,7 +52,7 @@
 - programming.po                 277 / 372 ( 74.0% translated).
 
 
-# howto (50.07% done)
+# howto (51.31% done)
 
 - argparse.po                     83 /  84 ( 98.0% translated).
 - clinic.po                      101 / 415 ( 24.0% translated).
@@ -67,7 +75,11 @@
 - index.po                       172 / 225 ( 76.0% translated).
 
 
-# library (41.59% done)
+# installing (100.00% done)
+
+
+
+# library (56.86% done)
 
 - argparse.po                    260 / 290 ( 89.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
@@ -165,7 +177,7 @@
 - mimetypes.po                    16 /  45 ( 35.0% translated).
 - mmap.po                         12 /  47 ( 25.0% translated).
 - msilib.po                        7 /  96 (  7.0% translated).
-- multiprocessing.po             223 / 518 ( 43.0% translated).
+- multiprocessing.po             230 / 518 ( 44.0% translated).
 - nntplib.po                       6 /  84 (  7.0% translated).
 - optparse.po                    379 / 406 ( 93.0% translated).
 - ossaudiodev.po                  18 /  98 ( 18.0% translated).
@@ -211,7 +223,7 @@
 - tempfile.po                      8 /  61 ( 13.0% translated).
 - test.po                        112 / 282 ( 39.0% translated).
 - textwrap.po                     41 /  46 ( 89.0% translated).
-- threading.po                    30 / 199 ( 15.0% translated).
+- threading.po                    31 / 199 ( 15.0% translated).
 - timeit.po                       46 /  53 ( 86.0% translated).
 - tkinter.font.po                 33 /  34 ( 97.0% translated).
 - tkinter.tix.po                   4 /  71 (  5.0% translated).
@@ -225,7 +237,7 @@
 - unittest.mock-examples.po       22 / 160 ( 13.0% translated).
 - unittest.mock.po               108 / 373 ( 28.0% translated).
 - unittest.po                    309 / 499 ( 61.0% translated).
-- urllib.parse.po                 67 / 154 ( 43.0% translated).
+- urllib.parse.po                 97 / 154 ( 62.0% translated).
 - urllib.request.po               43 / 274 ( 15.0% translated).
 - urllib.robotparser.po            2 /  14 ( 14.0% translated).
 - uuid.po                         16 /  59 ( 27.0% translated).
@@ -254,7 +266,7 @@
 - zoneinfo.po                      5 /  72 (  6.0% translated).
 
 
-# reference (88.66% done)
+# reference (89.29% done)
 
 - compound_stmts.po               43 / 118 ( 36.0% translated).
 - datamodel.po                   466 / 484 ( 96.0% translated).
@@ -264,13 +276,17 @@
 - simple_stmts.po                150 / 154 ( 97.0% translated).
 
 
-# using (99.21% done)
+# tutorial (100.00% done)
+
+
+
+# using (99.33% done)
 
 - cmdline.po                     201 / 202 ( 99.0% translated).
 - windows.po                     300 / 303 ( 99.0% translated).
 
 
-# whatsnew (62.83% done)
+# whatsnew (67.71% done)
 
 - 2.0.po                         135 / 182 ( 74.0% translated).
 - 2.2.po                         136 / 192 ( 70.0% translated).
