@@ -1,6 +1,10 @@
 
 
-# c-api (45.85% done)
+# 3.8 (100.00% done)
+
+
+
+# c-api (58.74% done)
 
 - buffer.po                      102 / 103 ( 99.0% translated).
 - contextvars.po                  30 /  31 ( 96.0% translated).
@@ -24,7 +28,11 @@
 - veryhigh.po                      3 /  61 (  4.0% translated).
 
 
-# distutils (29.32% done)
+# distributing (100.00% done)
+
+
+
+# distutils (42.00% done)
 
 - apiref.po                       88 / 411 ( 21.0% translated).
 - builtdist.po                    55 / 148 ( 37.0% translated).
@@ -32,7 +40,7 @@
 - sourcedist.po                   27 /  72 ( 37.0% translated).
 
 
-# extending (13.67% done)
+# extending (23.89% done)
 
 - embedding.po                     4 /  45 (  8.0% translated).
 - extending.po                    15 / 158 (  9.0% translated).
@@ -40,7 +48,7 @@
 - newtypes_tutorial.po            28 / 123 ( 22.0% translated).
 
 
-# faq (82.34% done)
+# faq (86.18% done)
 
 - design.po                      119 / 139 ( 85.0% translated).
 - extending.po                    50 /  60 ( 83.0% translated).
@@ -48,7 +56,7 @@
 - programming.po                 269 / 350 ( 76.0% translated).
 
 
-# howto (49.70% done)
+# howto (52.31% done)
 
 - argparse.po                     83 /  84 ( 98.0% translated).
 - clinic.po                      101 / 415 ( 24.0% translated).
@@ -70,7 +78,11 @@
 - index.po                       173 / 225 ( 76.0% translated).
 
 
-# library (45.75% done)
+# installing (100.00% done)
+
+
+
+# library (56.11% done)
 
 - argparse.po                    239 / 277 ( 86.0% translated).
 - array.po                        82 /  83 ( 98.0% translated).
@@ -263,7 +275,7 @@
 - zlib.po                         63 /  64 ( 98.0% translated).
 
 
-# reference (88.68% done)
+# reference (89.04% done)
 
 - compound_stmts.po               43 / 116 ( 37.0% translated).
 - datamodel.po                   459 / 463 ( 99.0% translated).
@@ -274,13 +286,17 @@
 - simple_stmts.po                146 / 153 ( 95.0% translated).
 
 
-# using (98.05% done)
+# tutorial (100.00% done)
+
+
+
+# using (98.34% done)
 
 - cmdline.po                     193 / 202 ( 95.0% translated).
 - windows.po                     310 / 311 ( 99.0% translated).
 
 
-# whatsnew (63.27% done)
+# whatsnew (65.83% done)
 
 - 2.0.po                         134 / 182 ( 73.0% translated).
 - 2.2.po                         136 / 192 ( 70.0% translated).
@@ -298,4 +314,5 @@
 - 3.8.po                         474 / 480 ( 98.0% translated).
 
 
+# TOTAL (60.45% done)
 
