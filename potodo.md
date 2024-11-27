@@ -79,7 +79,7 @@
 
 
 
-# library (56.86% done)
+# library (56.88% done)
 
 - argparse.po                    260 / 290 ( 89.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
@@ -122,7 +122,7 @@
 - dbm.po                          14 /  74 ( 18.0% translated).
 - difflib.po                      14 / 133 ( 10.0% translated).
 - dis.po                          77 / 227 ( 33.0% translated).
-- doctest.po                      60 / 305 ( 19.0% translated).
+- doctest.po                      61 / 305 ( 20.0% translated).
 - email.charset.po                 1 /  44 (  2.0% translated).
 - email.compat32-message.po        5 / 104 (  4.0% translated).
 - email.contentmanager.po          4 /  41 (  9.0% translated).
@@ -177,7 +177,7 @@
 - mimetypes.po                    16 /  45 ( 35.0% translated).
 - mmap.po                         12 /  47 ( 25.0% translated).
 - msilib.po                        7 /  96 (  7.0% translated).
-- multiprocessing.po             230 / 518 ( 44.0% translated).
+- multiprocessing.po             236 / 518 ( 45.0% translated).
 - nntplib.po                       6 /  84 (  7.0% translated).
 - optparse.po                    379 / 406 ( 93.0% translated).
 - ossaudiodev.po                  18 /  98 ( 18.0% translated).
@@ -304,4 +304,5 @@
 - 3.9.po                         382 / 386 ( 98.0% translated).
 
 
+# TOTAL (61.13% done)
 
