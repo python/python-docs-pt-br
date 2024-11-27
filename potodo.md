@@ -52,12 +52,12 @@
 - newtypes_tutorial.po            27 / 123 ( 21.0% translated).
 
 
-# faq (84.79% done)
+# faq (84.90% done)
 
 - design.po                      125 / 141 ( 88.0% translated).
 - extending.po                    51 /  58 ( 87.0% translated).
 - library.po                     132 / 140 ( 94.0% translated).
-- programming.po                 281 / 388 ( 72.0% translated).
+- programming.po                 282 / 388 ( 72.0% translated).
 
 
 # howto (50.67% done)
@@ -87,7 +87,7 @@
 
 
 
-# library (57.11% done)
+# library (57.13% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    254 / 290 ( 87.0% translated).
@@ -135,7 +135,7 @@
 - decimal.po                     328 / 329 ( 99.0% translated).
 - difflib.po                      14 / 133 ( 10.0% translated).
 - dis.po                          78 / 239 ( 32.0% translated).
-- doctest.po                      61 / 304 ( 20.0% translated).
+- doctest.po                      62 / 304 ( 20.0% translated).
 - email.charset.po                 1 /  44 (  2.0% translated).
 - email.compat32-message.po        5 / 104 (  4.0% translated).
 - email.contentmanager.po          4 /  41 (  9.0% translated).
@@ -190,7 +190,7 @@
 - mimetypes.po                    16 /  45 ( 35.0% translated).
 - mmap.po                         13 /  50 ( 26.0% translated).
 - msilib.po                        7 /  96 (  7.0% translated).
-- multiprocessing.po             233 / 519 ( 44.0% translated).
+- multiprocessing.po             239 / 519 ( 46.0% translated).
 - nntplib.po                       6 /  84 (  7.0% translated).
 - optparse.po                    384 / 406 ( 94.0% translated).
 - os.po                          841 / 843 ( 99.0% translated).
@@ -324,4 +324,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
+# TOTAL (61.45% done)
 
