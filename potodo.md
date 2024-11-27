@@ -46,10 +46,10 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (80.86% done)
+# faq (81.13% done)
 
 - library.po                     137 / 162 ( 84.0% translated).
-- programming.po                 333 / 508 ( 65.0% translated).
+- programming.po                 336 / 508 ( 66.0% translated).
 - windows.po                      48 /  58 ( 82.0% translated).
 
 
@@ -74,7 +74,7 @@
 
 
 
-# library (56.19% done)
+# library (56.26% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - abc.po                          31 /  60 ( 51.0% translated).
@@ -124,7 +124,7 @@
 - devmode.po                      49 /  58 ( 84.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
 - dis.po                         180 / 357 ( 50.0% translated).
-- doctest.po                      72 / 363 ( 19.0% translated).
+- doctest.po                      91 / 363 ( 25.0% translated).
 - email.charset.po                 1 /  44 (  2.0% translated).
 - email.compat32-message.po        5 / 115 (  4.0% translated).
 - email.contentmanager.po          4 /  41 (  9.0% translated).
@@ -186,7 +186,7 @@
 - mmap.po                         12 /  59 ( 20.0% translated).
 - modulefinder.po                 13 /  16 ( 81.0% translated).
 - msilib.po                        7 /  97 (  7.0% translated).
-- multiprocessing.po             286 / 594 ( 48.0% translated).
+- multiprocessing.po             292 / 594 ( 49.0% translated).
 - multiprocessing.shared_memory.po  51 /  53 ( 96.0% translated).
 - nntplib.po                       9 /  92 (  9.0% translated).
 - numbers.po                      30 /  34 ( 88.0% translated).
@@ -321,4 +321,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
+# TOTAL (62.47% done)
 
