@@ -85,7 +85,7 @@
 
 
 
-# library (57.84% done)
+# library (57.92% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          33 /  49 ( 67.0% translated).
@@ -193,7 +193,7 @@
 - mimetypes.po                    18 /  50 ( 36.0% translated).
 - mmap.po                         13 /  55 ( 23.0% translated).
 - msilib.po                        7 /  97 (  7.0% translated).
-- multiprocessing.po             243 / 529 ( 45.0% translated).
+- multiprocessing.po             270 / 529 ( 51.0% translated).
 - multiprocessing.shared_memory.po  46 /  48 ( 95.0% translated).
 - nntplib.po                       9 /  89 ( 10.0% translated).
 - optparse.po                    411 / 416 ( 98.0% translated).
@@ -332,5 +332,5 @@
 - 3.8.po                         468 / 469 ( 99.0% translated).
 
 
-# TOTAL (63.24% done)
+# TOTAL (63.29% done)
 

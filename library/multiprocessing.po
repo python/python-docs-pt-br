@@ -285,7 +285,7 @@ msgid ""
 msgstr ""
 "Note que objetos relacionados a um contexto podem não ser compatíveis com "
 "processos para um contexto diferente. Em particular, travas criadas usando o "
-"contexto *fork* não podem ser passados ​​para processos iniciados usando os "
+"contexto *fork* não podem ser passados ​para processos iniciados usando os "
 "métodos de início *spawn* ou *forkserver*."
 
 #: ../../library/multiprocessing.rst:208
@@ -431,7 +431,7 @@ msgid ""
 "double precision float and ``'i'`` indicates a signed integer.  These shared "
 "objects will be process and thread-safe."
 msgstr ""
-"Os argumentos ``'d'`` e ``'i'`` usados ​​ao criar ``num`` e ``arr`` são "
+"Os argumentos ``'d'`` e ``'i'`` usados ​ao criar ``num`` e ``arr`` são "
 "typecodes do tipo usado pelo módulo :mod:`array`: ``'d'`` indica um ponto "
 "flutuante de precisão dupla e ``'i'`` indica um inteiro com sinal. Esses "
 "objetos compartilhados serão seguros para thread e processo."
@@ -510,7 +510,7 @@ msgid ""
 "Note that the methods of a pool should only ever be used by the process "
 "which created it."
 msgstr ""
-"Observe que os métodos de um pool só devem ser usados ​​pelo processo que o "
+"Observe que os métodos de um pool só devem ser usados ​pelo processo que o "
 "criou."
 
 #: ../../library/multiprocessing.rst:444
@@ -585,7 +585,7 @@ msgid ""
 msgstr ""
 "Por padrão, nenhum argumento é passado para *target*. O argumento *args*, "
 "que tem como padrão ``()``, pode ser usado para especificar uma lista ou "
-"tupla de argumentos a serem passados ​​para *target*."
+"tupla de argumentos a serem passados ​para *target*."
 
 #: ../../library/multiprocessing.rst:504
 msgid ""
@@ -1011,7 +1011,7 @@ msgid ""
 msgstr ""
 "Depois de colocar um objeto em uma fila vazia, pode haver um atraso "
 "infinitesimal antes que o método :meth:`~Queue.empty` da fila retorne :const:"
-"`False` e ​​:meth:`~Queue.get_nowait` possa retornar sem levantar :exc:`queue."
+"`False` e :meth:`~Queue.get_nowait` possa retornar sem levantar :exc:`queue."
 "Empty`."
 
 #: ../../library/multiprocessing.rst:758
@@ -1615,7 +1615,7 @@ msgid ""
 "strings.  They can be thought of as message oriented connected sockets."
 msgstr ""
 "Objetos de conexão permitem o envio e recebimento de strings e objetos que "
-"podem ser serializados com pickle. Eles podem ser pensados ​​como sockets "
+"podem ser serializados com pickle. Eles podem ser pensados ​como sockets "
 "conectados orientados a mensagens."
 
 #: ../../library/multiprocessing.rst:1123
@@ -1686,7 +1686,7 @@ msgid ""
 "Note that multiple connection objects may be polled at once by using :func:"
 "`multiprocessing.connection.wait`."
 msgstr ""
-"Observe que vários objetos de conexão podem ser pesquisados ​​ao mesmo tempo "
+"Observe que vários objetos de conexão podem ser pesquisados ​ao mesmo tempo "
 "usando :func:`multiprocessing.connection.wait`."
 
 #: ../../library/multiprocessing.rst:1167
@@ -2082,6 +2082,9 @@ msgid ""
 "acquire`.  Note that some of these behaviors of *timeout* differ from the "
 "implemented behaviors in :meth:`threading.RLock.acquire`."
 msgstr ""
+"O uso e os comportamentos do argumento *timeout* são os mesmos que em :meth:"
+"`Lock.acquire`. Observe que alguns desses comportamentos de *timeout* "
+"diferem dos comportamentos implementados em :meth:`threading.RLock.acquire`."
 
 #: ../../library/multiprocessing.rst:1398
 msgid ""
@@ -2092,6 +2095,13 @@ msgid ""
 "after the decrement the recursion level is still nonzero, the lock remains "
 "locked and owned by the calling process or thread."
 msgstr ""
+"Libera uma trava, decrementando o nível de recursão. Se após o decremento o "
+"nível de recursão for zero, redefine a trava para destravada (não "
+"pertencente a nenhum processo ou thread) e se quaisquer outros processos ou "
+"threads estiverem bloqueados esperando a trava ser destravada, permita que "
+"exatamente um deles prossiga. Se após o decremento o nível de recursão ainda "
+"for diferente de zero, o trava permanece travada e pertencente ao processo "
+"ou thread de chamada."
 
 #: ../../library/multiprocessing.rst:1406
 msgid ""
@@ -2101,16 +2111,26 @@ msgid ""
 "state.  Note that the type of exception raised in this situation differs "
 "from the implemented behavior in :meth:`threading.RLock.release`."
 msgstr ""
+"Somente chame esse método quando o processo ou thread de chamada for "
+"proprietária da trava. Uma :exc:`AssertionError` é levantada se esse método "
+"for chamado por um processo ou thread diferente do proprietário ou se a "
+"trava estiver em um estado destravado (sem proprietário). Observe que o tipo "
+"de exceção levantada nessa situação difere do comportamento implementado em :"
+"meth:`threading.RLock.release`."
 
 #: ../../library/multiprocessing.rst:1415
 msgid "A semaphore object: a close analog of :class:`threading.Semaphore`."
 msgstr ""
+"Um objeto semáforo: um análogo próximo de :class:`threading.Semaphore`."
 
 #: ../../library/multiprocessing.rst:1422
 msgid ""
 "On macOS, ``sem_timedwait`` is unsupported, so calling ``acquire()`` with a "
 "timeout will emulate that function's behavior using a sleeping loop."
 msgstr ""
+"No macOS, não há suporte a ``sem_timedwait``, então chamar ``acquire()`` com "
+"um tempo limite emulará o comportamento dessa função usando um laço de "
+"suspensão."
 
 #: ../../library/multiprocessing.rst:1427
 msgid ""
@@ -2135,16 +2155,23 @@ msgid ""
 "import it will result in an :exc:`ImportError`. See :issue:`3770` for "
 "additional information."
 msgstr ""
+"Algumas das funcionalidades deste pacote exibem uma implementação de "
+"semáforo compartilhado funcional no sistema operacional host. Sem uma, a "
+"módulo :mod:`multiprocessing.synchronize` será desabilitada e as tentativas "
+"de importação dela em uma :class:`Queue` resultarão em um :exc:"
+"`ImportError`. Veja :issue:`3770` para informações adicionais."
 
 #: ../../library/multiprocessing.rst:1446
 msgid "Shared :mod:`ctypes` Objects"
-msgstr ""
+msgstr "Objetos :mod:`ctypes` compartilhados"
 
 #: ../../library/multiprocessing.rst:1448
 msgid ""
 "It is possible to create shared objects using shared memory which can be "
 "inherited by child processes."
 msgstr ""
+"É possível criar objetos compartilhados usando memória compartilhada que "
+"pode ser herdada por processos filhos."
 
 #: ../../library/multiprocessing.rst:1453
 msgid ""
@@ -2152,6 +2179,10 @@ msgid ""
 "return value is actually a synchronized wrapper for the object.  The object "
 "itself can be accessed via the *value* attribute of a :class:`Value`."
 msgstr ""
+"Retorna um objeto :mod:`ctypes` alocado da memória compartilhada. Por "
+"padrão, o valor de retorno é, na verdade, um invólucro sincronizado para o "
+"objeto. O objeto em si pode ser acessado por meio do atributo *value* de um :"
+"class:`Value`."
 
 #: ../../library/multiprocessing.rst:1457
 #: ../../library/multiprocessing.rst:1544
@@ -2160,6 +2191,9 @@ msgid ""
 "a ctypes type or a one character typecode of the kind used by the :mod:"
 "`array` module.  *\\*args* is passed on to the constructor for the type."
 msgstr ""
+"*typecode_or_type* determina o tipo do objeto retornado: é um tipo ctypes ou "
+"um typecode de um caractere do tipo usado pelo módulo :mod:`array`. "
+"*\\*args* é passado para o construtor para o tipo."
 
 #: ../../library/multiprocessing.rst:1461
 msgid ""
@@ -2170,6 +2204,12 @@ msgid ""
 "be automatically protected by a lock, so it will not necessarily be "
 "\"process-safe\"."
 msgstr ""
+"Se *lock* for ``True`` (o padrão), então um novo objeto de trava recursiva é "
+"criado para sincronizar o acesso ao valor. Se *lock* for um objeto :class:"
+"`Lock` ou :class:`RLock`, então ele será usado para sincronizar o acesso ao "
+"valor. Se *lock* for ``False``, então o acesso ao objeto retornado não será "
+"protegido automaticamente por uma trava, então ele não será necessariamente "
+"\"seguro para processo\"."
 
 #: ../../library/multiprocessing.rst:1468
 msgid ""
@@ -2177,24 +2217,31 @@ msgid ""
 "if, for instance, you want to atomically increment a shared value it is "
 "insufficient to just do ::"
 msgstr ""
+"Operações como ``+=`` que envolvem uma leitura e escrita não são atômicas. "
+"Então se, por exemplo, você quiser incrementar atomicamente um valor "
+"compartilhado, não é suficiente apenas fazer ::"
 
 #: ../../library/multiprocessing.rst:1474
 msgid ""
 "Assuming the associated lock is recursive (which it is by default) you can "
 "instead do ::"
 msgstr ""
+"Supondo que a trava associada seja recursiva (o que é por padrão), você pode "
+"fazer ::"
 
 #: ../../library/multiprocessing.rst:1480
 #: ../../library/multiprocessing.rst:1570
 #: ../../library/multiprocessing.rst:1585
 msgid "Note that *lock* is a keyword-only argument."
-msgstr ""
+msgstr "Observe que *lock* é um argumento somente-nomeado."
 
 #: ../../library/multiprocessing.rst:1484
 msgid ""
 "Return a ctypes array allocated from shared memory.  By default the return "
 "value is actually a synchronized wrapper for the array."
 msgstr ""
+"Retorna um vetor de ctypes alocado da memória compartilhada. Por padrão, o "
+"valor de retorno é, na verdade, um invólucro sincronizado para o vetor."
 
 #: ../../library/multiprocessing.rst:1487
 msgid ""
@@ -2205,6 +2252,12 @@ msgid ""
 "zeroed. Otherwise, *size_or_initializer* is a sequence which is used to "
 "initialize the array and whose length determines the length of the array."
 msgstr ""
+"*typecode_or_type* determina o tipo dos elementos do vetor retornado: é um "
+"tipo ctypes ou um typecode de um caractere do tipo usado pelo módulo :mod:"
+"`array`. Se *size_or_initializer* for um inteiro, então ele determina o "
+"comprimento do vetor, e o vetor será inicialmente zerado. Caso contrário, "
+"*size_or_initializer* é uma sequência que é usada para inicializar o vetor e "
+"cujo comprimento determina o comprimento do vetor."
 
 #: ../../library/multiprocessing.rst:1494
 msgid ""
@@ -2215,20 +2268,28 @@ msgid ""
 "automatically protected by a lock, so it will not necessarily be \"process-"
 "safe\"."
 msgstr ""
+"Se *lock* for ``True`` (o padrão), então um novo objeto de trava é criado "
+"para sincronizar o acesso ao valor. Se *lock* for um objeto :class:`Lock` "
+"ou :class:`RLock`, então ele será usado para sincronizar o acesso ao valor. "
+"Se *lock* for ``False``, então o acesso ao objeto retornado não será "
+"protegido automaticamente por uma trava, então ele não será necessariamente "
+"\"seguro para processo\"."
 
 #: ../../library/multiprocessing.rst:1501
 msgid "Note that *lock* is a keyword only argument."
-msgstr ""
+msgstr "Observe que *lock* é um argumento somente-nomeado."
 
 #: ../../library/multiprocessing.rst:1503
 msgid ""
 "Note that an array of :data:`ctypes.c_char` has *value* and *raw* attributes "
 "which allow one to use it to store and retrieve strings."
 msgstr ""
+"Observe que um vetor de :data:`ctypes.c_char` tem atributos *value* e *raw* "
+"que permitem usá-lo para armazenar e recuperar strings."
 
 #: ../../library/multiprocessing.rst:1508
 msgid "The :mod:`multiprocessing.sharedctypes` module"
-msgstr ""
+msgstr "O módulo :mod:`multiprocessing.sharedctypes`"
 
 #: ../../library/multiprocessing.rst:1513
 msgid ""
@@ -2236,6 +2297,9 @@ msgid ""
 "allocating :mod:`ctypes` objects from shared memory which can be inherited "
 "by child processes."
 msgstr ""
+"O módulo :mod:`multiprocessing.sharedctypes` fornece funções para alocar "
+"objetos :mod:`ctypes` da memória compartilhada que podem ser herdados por "
+"processos filhos."
 
 #: ../../library/multiprocessing.rst:1519
 msgid ""
@@ -2245,10 +2309,15 @@ msgid ""
 "second process and trying to dereference the pointer from the second process "
 "may cause a crash."
 msgstr ""
+"Embora seja possível armazenar um ponteiro na memória compartilhada, lembre-"
+"se de que isso se referirá a um local no espaço de endereço de um processo "
+"específico. No entanto, é bem provável que o ponteiro seja inválido no "
+"contexto de um segundo processo e tentar desreferenciar o ponteiro do "
+"segundo processo pode causar um travamento."
 
 #: ../../library/multiprocessing.rst:1527
 msgid "Return a ctypes array allocated from shared memory."
-msgstr ""
+msgstr "Retorna um vetor de ctypes alocado da memória compartilhada."
 
 #: ../../library/multiprocessing.rst:1529
 msgid ""
@@ -2259,6 +2328,12 @@ msgid ""
 "zeroed. Otherwise *size_or_initializer* is a sequence which is used to "
 "initialize the array and whose length determines the length of the array."
 msgstr ""
+"*typecode_or_type* determina o tipo dos elementos do vetor retornado: é um "
+"tipo ctypes ou um typecode de um caractere do tipo usado pelo módulo :mod:"
+"`array`. Se *size_or_initializer* for um inteiro, então ele determina o "
+"comprimento do vetor, e o vetor será inicialmente zerado. Caso contrário, "
+"*size_or_initializer* é uma sequência que é usada para inicializar o vetor e "
+"cujo comprimento determina o comprimento do vetor."
 
 #: ../../library/multiprocessing.rst:1536
 msgid ""
@@ -2266,10 +2341,13 @@ msgid ""
 "func:`Array` instead to make sure that access is automatically synchronized "
 "using a lock."
 msgstr ""
+"Observe que definir e obter um elemento é potencialmente não atômico -- use :"
+"func:`Array` para garantir que o acesso seja sincronizado automaticamente "
+"usando uma trava."
 
 #: ../../library/multiprocessing.rst:1542
 msgid "Return a ctypes object allocated from shared memory."
-msgstr ""
+msgstr "Retorna um objeto ctypes alocado da memória compartilhada."
 
 #: ../../library/multiprocessing.rst:1548
 msgid ""
@@ -2277,6 +2355,9 @@ msgid ""
 "func:`Value` instead to make sure that access is automatically synchronized "
 "using a lock."
 msgstr ""
+"Observe que definir e obter o valor é potencialmente não atômico -- use :"
+"func:`Value` para garantir que o acesso seja sincronizado automaticamente "
+"usando uma trava."
 
 #: ../../library/multiprocessing.rst:1552
 msgid ""
