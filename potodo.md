@@ -45,11 +45,9 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (81.51% done)
+# faq (84.27% done)
 
-- library.po                     133 / 153 ( 86.0% translated).
 - programming.po                 337 / 508 ( 66.0% translated).
-- windows.po                      48 /  58 ( 82.0% translated).
 
 
 # howto (56.00% done)
@@ -72,7 +70,7 @@
 
 
 
-# library (57.20% done)
+# library (57.28% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - aifc.po                          1 /   3 ( 33.0% translated).
@@ -183,7 +181,7 @@
 - modulefinder.po                 13 /  16 ( 81.0% translated).
 - msilib.po                        1 /   3 ( 33.0% translated).
 - msvcrt.po                       22 /  46 ( 47.0% translated).
-- multiprocessing.po             293 / 596 ( 49.0% translated).
+- multiprocessing.po             322 / 596 ( 54.0% translated).
 - numbers.po                      30 /  34 ( 88.0% translated).
 - pathlib.po                     252 / 418 ( 60.0% translated).
 - pdb.po                         132 / 150 ( 88.0% translated).
@@ -298,5 +296,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (63.85% done)
+# TOTAL (63.95% done)
 
