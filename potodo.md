@@ -46,11 +46,10 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (81.13% done)
+# faq (83.87% done)
 
-- library.po                     137 / 162 ( 84.0% translated).
+- library.po                     157 / 162 ( 96.0% translated).
 - programming.po                 336 / 508 ( 66.0% translated).
-- windows.po                      48 /  58 ( 82.0% translated).
 
 
 # howto (53.94% done)
@@ -74,7 +73,7 @@
 
 
 
-# library (56.26% done)
+# library (56.34% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - abc.po                          31 /  60 ( 51.0% translated).
@@ -99,7 +98,7 @@
 - binascii.po                      9 /  41 ( 21.0% translated).
 - bisect.po                       18 /  35 ( 51.0% translated).
 - calendar.po                     35 / 103 ( 33.0% translated).
-- cgi.po                          27 / 126 ( 21.0% translated).
+- cgi.po                          28 / 126 ( 22.0% translated).
 - cgitb.po                        16 /  17 ( 94.0% translated).
 - chunk.po                        14 /  39 ( 35.0% translated).
 - cmd.po                           5 /  48 ( 10.0% translated).
@@ -186,7 +185,7 @@
 - mmap.po                         12 /  59 ( 20.0% translated).
 - modulefinder.po                 13 /  16 ( 81.0% translated).
 - msilib.po                        7 /  97 (  7.0% translated).
-- multiprocessing.po             292 / 594 ( 49.0% translated).
+- multiprocessing.po             321 / 594 ( 54.0% translated).
 - multiprocessing.shared_memory.po  51 /  53 ( 96.0% translated).
 - nntplib.po                       9 /  92 (  9.0% translated).
 - numbers.po                      30 /  34 ( 88.0% translated).
@@ -321,5 +320,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (62.47% done)
+# TOTAL (62.57% done)
 
