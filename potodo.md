@@ -52,12 +52,12 @@
 - programming.po                 336 / 508 ( 66.0% translated).
 
 
-# howto (53.94% done)
+# howto (53.26% done)
 
 - argparse.po                    144 / 145 ( 99.0% translated).
 - curses.po                       58 / 121 ( 47.0% translated).
-- descriptor.po                   60 / 233 ( 25.0% translated).
-- enum.po                         79 / 319 ( 24.0% translated).
+- descriptor.po                   55 / 233 ( 23.0% translated).
+- enum.po                         63 / 319 ( 19.0% translated).
 - functional.po                  138 / 252 ( 54.0% translated).
 - logging-cookbook.po             23 / 418 (  5.0% translated).
 - logging.po                     121 / 250 ( 48.0% translated).
@@ -73,7 +73,7 @@
 
 
 
-# library (56.34% done)
+# library (56.33% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - abc.po                          31 /  60 ( 51.0% translated).
@@ -166,6 +166,7 @@
 - idle.po                         16 / 281 (  5.0% translated).
 - imaplib.po                      13 / 117 ( 11.0% translated).
 - imghdr.po                       20 /  42 ( 47.0% translated).
+- importlib.metadata.po          104 / 105 ( 99.0% translated).
 - importlib.po                   229 / 304 ( 75.0% translated).
 - importlib.resources.abc.po      34 /  36 ( 94.0% translated).
 - importlib.resources.po          40 /  47 ( 85.0% translated).
@@ -185,7 +186,7 @@
 - mmap.po                         12 /  59 ( 20.0% translated).
 - modulefinder.po                 13 /  16 ( 81.0% translated).
 - msilib.po                        7 /  97 (  7.0% translated).
-- multiprocessing.po             321 / 594 ( 54.0% translated).
+- multiprocessing.po             320 / 594 ( 53.0% translated).
 - multiprocessing.shared_memory.po  51 /  53 ( 96.0% translated).
 - nntplib.po                       9 /  92 (  9.0% translated).
 - numbers.po                      30 /  34 ( 88.0% translated).
@@ -218,7 +219,7 @@
 - selectors.po                    13 /  58 ( 22.0% translated).
 - shelve.po                        9 /  40 ( 22.0% translated).
 - shlex.po                         3 /  77 (  3.0% translated).
-- shutil.po                      124 / 183 ( 67.0% translated).
+- shutil.po                      124 / 182 ( 68.0% translated).
 - signal.po                       13 / 137 (  9.0% translated).
 - site.po                         26 /  58 ( 44.0% translated).
 - smtplib.po                      30 / 116 ( 25.0% translated).
@@ -247,6 +248,7 @@
 - timeit.po                       52 /  68 ( 76.0% translated).
 - tkinter.tix.po                   5 /  75 (  6.0% translated).
 - tkinter.ttk.po                 118 / 421 ( 28.0% translated).
+- token.po                        66 /  67 ( 98.0% translated).
 - tokenize.po                      8 /  52 ( 15.0% translated).
 - trace.po                        39 /  41 ( 95.0% translated).
 - traceback.po                     9 / 107 (  8.0% translated).
@@ -259,7 +261,7 @@
 - unittest.mock.po               103 / 440 ( 23.0% translated).
 - unittest.po                    282 / 536 ( 52.0% translated).
 - urllib.parse.po                109 / 167 ( 65.0% translated).
-- urllib.request.po               43 / 297 ( 14.0% translated).
+- urllib.request.po               43 / 299 ( 14.0% translated).
 - urllib.robotparser.po            5 /  19 ( 26.0% translated).
 - uuid.po                          7 /  69 ( 10.0% translated).
 - venv.po                        120 / 121 ( 99.0% translated).
@@ -285,10 +287,10 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (84.08% done)
+# reference (84.50% done)
 
 - compound_stmts.po              217 / 465 ( 46.0% translated).
-- datamodel.po                   651 / 856 ( 76.0% translated).
+- datamodel.po                   663 / 856 ( 77.0% translated).
 
 
 # tutorial (99.61% done)
@@ -305,7 +307,7 @@
 - windows.po                     374 / 378 ( 98.0% translated).
 
 
-# whatsnew (74.87% done)
+# whatsnew (74.85% done)
 
 - 2.3.po                         328 / 387 ( 84.0% translated).
 - 2.4.po                         265 / 319 ( 83.0% translated).
@@ -315,10 +317,12 @@
 - 3.10.po                        529 / 550 ( 96.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
+- 3.4.po                         517 / 518 ( 99.0% translated).
 - 3.5.po                         125 / 578 ( 21.0% translated).
 - 3.6.po                         235 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
+- 3.8.po                         512 / 513 ( 99.0% translated).
 
 
-# TOTAL (62.57% done)
+# TOTAL (62.55% done)
 
