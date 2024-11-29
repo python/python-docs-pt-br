@@ -50,11 +50,11 @@
 - programming.po                 337 / 508 ( 66.0% translated).
 
 
-# howto (56.00% done)
+# howto (55.50% done)
 
 - curses.po                       58 / 121 ( 47.0% translated).
-- descriptor.po                   60 / 230 ( 26.0% translated).
-- enum.po                         73 / 327 ( 22.0% translated).
+- descriptor.po                   55 / 230 ( 23.0% translated).
+- enum.po                         62 / 327 ( 18.0% translated).
 - functional.po                  138 / 252 ( 54.0% translated).
 - logging-cookbook.po             23 / 418 (  5.0% translated).
 - logging.po                     121 / 250 ( 48.0% translated).
@@ -83,7 +83,7 @@
 - asyncio-policy.po               10 /  68 ( 14.0% translated).
 - asyncio-protocol.po             25 / 194 ( 12.0% translated).
 - asyncio-runner.po                5 /  37 ( 13.0% translated).
-- asyncio-stream.po               71 / 100 ( 71.0% translated).
+- asyncio-stream.po               71 / 101 ( 70.0% translated).
 - asyncio-subprocess.po           77 /  81 ( 95.0% translated).
 - asyncio-sync.po                 12 / 100 ( 12.0% translated).
 - asyncio-task.po                142 / 267 ( 53.0% translated).
@@ -118,7 +118,7 @@
 - decimal.po                     344 / 378 ( 91.0% translated).
 - devmode.po                      49 /  58 ( 84.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
-- dis.po                         203 / 393 ( 51.0% translated).
+- dis.po                         204 / 393 ( 51.0% translated).
 - distutils.po                     0 /   3 (  0.0% translated).
 - doctest.po                      92 / 372 ( 24.0% translated).
 - email.charset.po                 1 /  44 (  2.0% translated).
@@ -162,6 +162,7 @@
 - imaplib.po                      13 / 117 ( 11.0% translated).
 - imghdr.po                        1 /   4 ( 25.0% translated).
 - imp.po                           0 /   4 (  0.0% translated).
+- importlib.metadata.po          118 / 119 ( 99.0% translated).
 - importlib.po                   231 / 312 ( 74.0% translated).
 - importlib.resources.abc.po      34 /  36 ( 94.0% translated).
 - importlib.resources.po          42 /  53 ( 79.0% translated).
@@ -181,7 +182,7 @@
 - modulefinder.po                 13 /  16 ( 81.0% translated).
 - msilib.po                        1 /   3 ( 33.0% translated).
 - msvcrt.po                       22 /  46 ( 47.0% translated).
-- multiprocessing.po             322 / 596 ( 54.0% translated).
+- multiprocessing.po             321 / 596 ( 53.0% translated).
 - numbers.po                      30 /  34 ( 88.0% translated).
 - pathlib.po                     252 / 418 ( 60.0% translated).
 - pdb.po                         132 / 150 ( 88.0% translated).
@@ -207,7 +208,7 @@
 - selectors.po                    13 /  58 ( 22.0% translated).
 - shelve.po                        9 /  40 ( 22.0% translated).
 - shlex.po                         3 /  77 (  3.0% translated).
-- shutil.po                      124 / 185 ( 67.0% translated).
+- shutil.po                      124 / 184 ( 67.0% translated).
 - signal.po                       13 / 137 (  9.0% translated).
 - site.po                         26 /  60 ( 43.0% translated).
 - smtplib.po                      30 / 116 ( 25.0% translated).
@@ -243,7 +244,7 @@
 - unittest.mock.po               103 / 442 ( 23.0% translated).
 - unittest.po                    282 / 537 ( 52.0% translated).
 - urllib.parse.po                110 / 168 ( 65.0% translated).
-- urllib.request.po               40 / 295 ( 13.0% translated).
+- urllib.request.po               40 / 297 ( 13.0% translated).
 - urllib.robotparser.po            5 /  19 ( 26.0% translated).
 - uuid.po                          7 /  69 ( 10.0% translated).
 - warnings.po                     64 / 138 ( 46.0% translated).
@@ -267,10 +268,10 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (83.92% done)
+# reference (84.51% done)
 
 - compound_stmts.po              217 / 467 ( 46.0% translated).
-- datamodel.po                   656 / 866 ( 75.0% translated).
+- datamodel.po                   673 / 866 ( 77.0% translated).
 
 
 # tutorial (100.00% done)
@@ -281,7 +282,7 @@
 
 
 
-# whatsnew (76.97% done)
+# whatsnew (76.95% done)
 
 - 2.3.po                         328 / 387 ( 84.0% translated).
 - 2.4.po                         265 / 319 ( 83.0% translated).
@@ -291,10 +292,12 @@
 - 3.10.po                        529 / 550 ( 96.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
+- 3.4.po                         516 / 517 ( 99.0% translated).
 - 3.5.po                         125 / 578 ( 21.0% translated).
 - 3.6.po                         235 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
+- 3.8.po                         512 / 513 ( 99.0% translated).
 
 
-# TOTAL (63.95% done)
+# TOTAL (63.94% done)
 
