@@ -177,7 +177,7 @@
 - mimetypes.po                    16 /  45 ( 35.0% translated).
 - mmap.po                         12 /  47 ( 25.0% translated).
 - msilib.po                        7 /  96 (  7.0% translated).
-- multiprocessing.po             263 / 518 ( 50.0% translated).
+- multiprocessing.po             264 / 518 ( 50.0% translated).
 - nntplib.po                       6 /  84 (  7.0% translated).
 - optparse.po                    379 / 406 ( 93.0% translated).
 - ossaudiodev.po                  18 /  98 ( 18.0% translated).
