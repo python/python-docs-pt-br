@@ -25,7 +25,7 @@ msgstr ""
 
 #: ../../library/shutil.rst:2
 msgid ":mod:`!shutil` --- High-level file operations"
-msgstr ""
+msgstr ":mod:`!shutil` --- Operações de arquivo de alto nível"
 
 #: ../../library/shutil.rst:10
 msgid "**Source code:** :source:`Lib/shutil.py`"
@@ -80,6 +80,14 @@ msgid ""
 "file position of the *fsrc* object is not 0, only the contents from the "
 "current file position to the end of the file will be copied."
 msgstr ""
+"Copia o conteúdo do :term:`objeto arquivo ou similar <file object>` *fsrc* "
+"para o objeto arquivo ou similar *fdst*. O número inteiro *length*, se "
+"fornecido, é o tamanho do buffer. Em particular, um valor negativo *length* "
+"significa copiar os dados sem repetir os dados de origem em pedaços; por "
+"padrão, os dados são lidos em pedaços para evitar o consumo descontrolado de "
+"memória. Observe que, se a posição atual do arquivo do objeto *fsrc* não for "
+"0, apenas o conteúdo da posição atual do arquivo até o final do arquivo será "
+"copiado."
 
 #: ../../library/shutil.rst:53
 msgid ""
@@ -88,6 +96,10 @@ msgid ""
 "are :term:`path-like objects <path-like object>` or path names given as "
 "strings."
 msgstr ""
+"Copia o conteúdo (sem metadados) do arquivo chamado *src* para um arquivo "
+"chamado *dst* e retorna *dst* da maneira mais eficiente possível. *src* e "
+"*dst* são :term:`objetos caminho ou similar <path-like object>` ou nomes de "
+"caminhos dados como strings."
 
 #: ../../library/shutil.rst:57
 msgid ""
@@ -177,6 +189,15 @@ msgid ""
 "links on the local platform, and it is asked to do so, it will do nothing "
 "and return."
 msgstr ""
+"Copia os bits de permissão de *src* para *dst*. O conteúdo do arquivo, o "
+"proprietário e o grupo não são afetados. *src* e *dst* são :term:`objetos "
+"caminho ou similar <path-like object>` ou nomes de caminhos dados como "
+"strings. Se *follow_symlinks* for falso e *src* e *dst* forem links "
+"simbólicos, :func:`copymode` tentará modificar o modo do *dst* (e não o "
+"arquivo para o qual ele aponta). Essa funcionalidade não está disponível em "
+"todas as plataformas; veja :func:`copystat` para mais informações. Se :func:"
+"`copymode` não puder modificar links simbólicos na plataforma local, e for "
+"solicitado a fazê-lo, não fará nada e retornará."
 
 #: ../../library/shutil.rst:106 ../../library/shutil.rst:179
 msgid ""
@@ -198,6 +219,12 @@ msgid ""
 "are unaffected.  *src* and *dst* are :term:`path-like objects <path-like "
 "object>` or path names given as strings."
 msgstr ""
+"Copia os bits de permissão, hora do último acesso, hora da última "
+"modificação e sinalizadores de *src* para *dst*. No Linux, :func:`copystat` "
+"também copia os \"atributos estendidos\" sempre que possível. O conteúdo do "
+"arquivo, o proprietário e o grupo não são afetados. *src* e *dst* são :term:"
+"`objetos caminho ou similar <path-like object>` ou nomes de caminhos dados "
+"como strings."
 
 #: ../../library/shutil.rst:119
 msgid ""
@@ -285,6 +312,11 @@ msgid ""
 "filename from *src*. If *dst* specifies a file that already exists, it will "
 "be replaced. Returns the path to the newly created file."
 msgstr ""
+"Copia o arquivo *src* para o arquivo ou diretório *dst*. *src* e *dst* devem "
+"ser :term:`objetos arquivo ou similares <path-like object>` ou strings. Se "
+"*dst* especificar um diretório, o arquivo será copiado para *dst* usando o "
+"nome de arquivo base de *src*. Se *dst* especifica um arquivo que já existe, "
+"ele será substituído. Retorna o caminho para o arquivo recém-criado."
 
 #: ../../library/shutil.rst:166
 msgid ""
@@ -333,6 +365,13 @@ msgid ""
 "unavailable, :func:`copy2` will preserve all the metadata it can; :func:"
 "`copy2` never raises an exception because it cannot preserve file metadata."
 msgstr ""
+"Quando *follow_symlinks* for falso e *src* for um link simbólico, :func:"
+"`copy2` tenta copiar todos os metadados do link simbólico *src* para o link "
+"simbólico *dst* recém-criado. No entanto, essa funcionalidade não está "
+"disponível em todas as plataformas. Nas plataformas em que algumas ou todas "
+"essas funcionalidades não estão disponíveis, :func:`copy2` preservará todos "
+"os metadados que puder; :func:`copy2` nunca levanta uma exceção porque não "
+"pode preservar os metadados do arquivo."
 
 #: ../../library/shutil.rst:204
 msgid ""
@@ -371,6 +410,10 @@ msgid ""
 "named *dst* and return the destination directory.  All intermediate "
 "directories needed to contain *dst* will also be created by default."
 msgstr ""
+"Copia recursivamente uma árvore de diretórios inteira com raiz em *src* para "
+"um diretório chamado *dst* e retorna o diretório de destino. Todos os "
+"diretórios intermediários necessários para conter *dst* também serão criados "
+"por padrão."
 
 #: ../../library/shutil.rst:237
 msgid ""
@@ -402,6 +445,12 @@ msgid ""
 "exception. Notice that this option has no effect on platforms that don't "
 "support :func:`os.symlink`."
 msgstr ""
+"Quando *symlinks* for falso, se o arquivo apontado pelo link simbólico não "
+"existir, uma exceção será adicionada na lista de erros levantada em uma "
+"exceção :exc:`Error` no final do processo de cópia. Você pode definir o "
+"sinalizador opcional *ignore_dangling_symlinks* como true se desejar "
+"silenciar esta exceção. Observe que esta opção não tem efeito em plataformas "
+"que não possuem suporte a :func:`os.symlink`."
 
 #: ../../library/shutil.rst:252
 msgid ""
@@ -453,6 +502,11 @@ msgid ""
 "within the *dst* tree will be overwritten by corresponding files from the "
 "*src* tree."
 msgstr ""
+"Se *dirs_exist_ok* for false (o padrão) e *dst* já existir, uma :exc:"
+"`FileExistsError` será levantada. Se *dirs_exist_ok* for true, a operação de "
+"cópia continuará se encontrar diretórios existentes, e os arquivos dentro da "
+"árvore *dst* serão sobrescritos pelos arquivos correspondentes da árvore "
+"*src*."
 
 #: ../../library/shutil.rst:275
 msgid ""
@@ -468,6 +522,9 @@ msgid ""
 "function. Added the *ignore_dangling_symlinks* argument to silence dangling "
 "symlinks errors when *symlinks* is false."
 msgstr ""
+"Adicionado o argumento *copy_function* para poder fornecer uma função de "
+"cópia personalizada. Adicionado o argumento *ignore_dangling_symlinks* para "
+"silenciar erros de links simbólicos quando *symlinks* for falso."
 
 #: ../../library/shutil.rst:283
 msgid "Copy metadata when *symlinks* is false. Now returns *dst*."
@@ -475,7 +532,7 @@ msgstr "Copia metadados quando *symlinks* for falso. Agora, retorna *dst*."
 
 #: ../../library/shutil.rst:292
 msgid "Added the *dirs_exist_ok* parameter."
-msgstr ""
+msgstr "Adicionado o parâmetro *dirs_exist_ok*."
 
 #: ../../library/shutil.rst:299
 msgid ""
@@ -485,6 +542,12 @@ msgid ""
 "handled by calling a handler specified by *onexc* or *onerror* or, if both "
 "are omitted, exceptions are propagated to the caller."
 msgstr ""
+"Exclui uma árvore de diretório inteira; *path* deve apontar para um "
+"diretório (mas não um link simbólico para um diretório). Se *ignore_errors* "
+"for verdadeiro, os erros resultantes de remoções com falha serão ignorados; "
+"se falso ou omitido, tais erros são tratados chamando um manipulador "
+"especificado por *onexc* ou *onerror* ou, se ambos forem omitidos, exceções "
+"são propagadas para o chamador."
 
 #: ../../library/shutil.rst:305
 msgid ""
@@ -518,6 +581,8 @@ msgid ""
 "If *onexc* is provided, it must be a callable that accepts three parameters: "
 "*function*, *path*, and *excinfo*."
 msgstr ""
+"Se *onexc* for fornecido, deve ser um chamável que aceite três parâmetros: "
+"*function*, *path*, e *excinfo*."
 
 #: ../../library/shutil.rst:321
 msgid ""
@@ -527,12 +592,19 @@ msgid ""
 "*excinfo*, is the exception that was raised. Exceptions raised by *onexc* "
 "will not be caught."
 msgstr ""
+"O primeiro parâmetro, *function*, é a função que levantou a exceção; depende "
+"da plataforma e da implementação. O segundo parâmetro, *path*, será o nome "
+"do caminho passado para a *função*. O terceiro parâmetro, *excinfo*, é a "
+"exceção que foi levantada. Exceções levantadas por *onexc* não serão "
+"capturadas."
 
 #: ../../library/shutil.rst:327
 msgid ""
 "The deprecated *onerror* is similar to *onexc*, except that the third "
 "parameter it receives is the tuple returned from :func:`sys.exc_info`."
 msgstr ""
+"O descontinuado *onerror* é semelhante ao *onexc*, exceto que o terceiro "
+"parâmetro que ele recebe é a tupla retornada de :func:`sys.exc_info`."
 
 #: ../../library/shutil.rst:330
 msgid ""
@@ -565,7 +637,7 @@ msgstr "Adicionado o parâmetro *dir_fd*."
 
 #: ../../library/shutil.rst:343
 msgid "Added the *onexc* parameter, deprecated *onerror*."
-msgstr ""
+msgstr "Adicionado o parâmetro *onexc*, descontinuado *onerror*."
 
 #: ../../library/shutil.rst:348
 msgid ""
@@ -583,6 +655,8 @@ msgid ""
 "Recursively move a file or directory (*src*) to another location and return "
 "the destination."
 msgstr ""
+"Move recursivamente um arquivo ou diretório (*src*) para outro local e "
+"retorna ao destino."
 
 #: ../../library/shutil.rst:360
 msgid ""
@@ -590,12 +664,17 @@ msgid ""
 "moved inside that directory. The destination path in that directory must not "
 "already exist."
 msgstr ""
+"Se *dst* for um diretório existente ou um symlink para um diretório, então "
+"*src* é movido para dentro desse diretório. O caminho de destino nesse "
+"diretório não deve existir ainda."
 
 #: ../../library/shutil.rst:364
 msgid ""
 "If *dst* already exists but is not a directory, it may be overwritten "
 "depending on :func:`os.rename` semantics."
 msgstr ""
+"Se *dst* já existir, mas não for um diretório, ele poderá ser substituído "
+"dependendo da semântica de :func:`os.rename`."
 
 #: ../../library/shutil.rst:367
 msgid ""
@@ -604,6 +683,11 @@ msgid ""
 "and then removed.  In case of symlinks, a new symlink pointing to the target "
 "of *src* will be created as the destination and *src* will be removed."
 msgstr ""
+"Se o destino está no sistema de arquivos atual, então :func:`os.rename` é "
+"usado. Caso contrário, *src* é copiado para o destino usando *copy_function* "
+"e depois removido. No caso de links simbólicos, um novo link simbólico "
+"apontando para o destino de *src* será criado como o destino e *src* serão "
+"removidos."
 
 #: ../../library/shutil.rst:372
 msgid ""

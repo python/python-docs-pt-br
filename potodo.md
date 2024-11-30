@@ -73,7 +73,7 @@
 
 
 
-# library (56.33% done)
+# library (56.39% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - abc.po                          31 /  60 ( 51.0% translated).
@@ -219,7 +219,7 @@
 - selectors.po                    13 /  58 ( 22.0% translated).
 - shelve.po                        9 /  40 ( 22.0% translated).
 - shlex.po                         3 /  77 (  3.0% translated).
-- shutil.po                      124 / 182 ( 68.0% translated).
+- shutil.po                      145 / 182 ( 79.0% translated).
 - signal.po                       13 / 137 (  9.0% translated).
 - site.po                         26 /  58 ( 44.0% translated).
 - smtplib.po                      30 / 116 ( 25.0% translated).
@@ -307,7 +307,7 @@
 - windows.po                     374 / 378 ( 98.0% translated).
 
 
-# whatsnew (74.85% done)
+# whatsnew (74.87% done)
 
 - 2.3.po                         328 / 387 ( 84.0% translated).
 - 2.4.po                         265 / 319 ( 83.0% translated).
@@ -317,12 +317,10 @@
 - 3.10.po                        529 / 550 ( 96.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
-- 3.4.po                         517 / 518 ( 99.0% translated).
 - 3.5.po                         125 / 578 ( 21.0% translated).
 - 3.6.po                         235 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- 3.8.po                         512 / 513 ( 99.0% translated).
 
 
-# TOTAL (62.55% done)
+# TOTAL (62.58% done)
 
