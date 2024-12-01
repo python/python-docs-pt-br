@@ -70,7 +70,7 @@
 
 
 
-# library (57.34% done)
+# library (57.45% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - aifc.po                          1 /   3 ( 33.0% translated).
@@ -108,7 +108,7 @@
 - contextvars.po                  54 /  56 ( 96.0% translated).
 - crypt.po                         1 /   4 ( 25.0% translated).
 - csv.po                         104 / 117 ( 88.0% translated).
-- ctypes.po                       89 / 526 ( 16.0% translated).
+- ctypes.po                      102 / 526 ( 19.0% translated).
 - curses.ascii.po                  7 /  69 ( 10.0% translated).
 - curses.panel.po                  6 /  23 ( 26.0% translated).
 - curses.po                       65 / 486 ( 13.0% translated).
@@ -163,13 +163,13 @@
 - imghdr.po                        1 /   4 ( 25.0% translated).
 - imp.po                           0 /   4 (  0.0% translated).
 - importlib.metadata.po          118 / 119 ( 99.0% translated).
-- importlib.po                   231 / 312 ( 74.0% translated).
+- importlib.po                   234 / 312 ( 75.0% translated).
 - importlib.resources.abc.po      34 /  36 ( 94.0% translated).
 - importlib.resources.po          42 /  53 ( 79.0% translated).
 - inspect.po                      78 / 390 ( 20.0% translated).
 - io.po                           21 / 271 (  7.0% translated).
 - ipaddress.po                   155 / 165 ( 93.0% translated).
-- itertools.po                    82 / 201 ( 40.0% translated).
+- itertools.po                    97 / 201 ( 48.0% translated).
 - json.po                        139 / 162 ( 85.0% translated).
 - logging.config.po               12 / 171 (  7.0% translated).
 - logging.handlers.po             48 / 270 ( 17.0% translated).
@@ -182,7 +182,7 @@
 - modulefinder.po                 13 /  16 ( 81.0% translated).
 - msilib.po                        1 /   3 ( 33.0% translated).
 - msvcrt.po                       22 /  46 ( 47.0% translated).
-- multiprocessing.po             321 / 596 ( 53.0% translated).
+- multiprocessing.po             328 / 596 ( 55.0% translated).
 - numbers.po                      30 /  34 ( 88.0% translated).
 - pathlib.po                     252 / 418 ( 60.0% translated).
 - pdb.po                         132 / 150 ( 88.0% translated).
@@ -201,7 +201,7 @@
 - readline.po                     54 /  56 ( 96.0% translated).
 - reprlib.po                       9 /  39 ( 23.0% translated).
 - resource.po                     40 / 110 ( 36.0% translated).
-- runpy.po                        24 /  40 ( 60.0% translated).
+- runpy.po                        25 /  40 ( 62.0% translated).
 - sched.po                         4 /  25 ( 16.0% translated).
 - secrets.po                      29 /  37 ( 78.0% translated).
 - select.po                       77 / 206 ( 37.0% translated).
@@ -297,5 +297,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (63.98% done)
+# TOTAL (64.04% done)
 
