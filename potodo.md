@@ -79,7 +79,7 @@
 
 
 
-# library (56.99% done)
+# library (57.03% done)
 
 - argparse.po                    260 / 290 ( 89.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
@@ -114,7 +114,7 @@
 - constants.po                    15 /  18 ( 83.0% translated).
 - contextlib.po                    9 / 113 (  7.0% translated).
 - crypt.po                         3 /  30 ( 10.0% translated).
-- ctypes.po                       84 / 429 ( 19.0% translated).
+- ctypes.po                       91 / 429 ( 21.0% translated).
 - curses.ascii.po                 41 / 101 ( 40.0% translated).
 - curses.panel.po                  6 /  23 ( 26.0% translated).
 - curses.po                      229 / 634 ( 36.0% translated).
@@ -177,7 +177,7 @@
 - mimetypes.po                    16 /  45 ( 35.0% translated).
 - mmap.po                         12 /  47 ( 25.0% translated).
 - msilib.po                        7 /  96 (  7.0% translated).
-- multiprocessing.po             264 / 518 ( 50.0% translated).
+- multiprocessing.po             269 / 518 ( 51.0% translated).
 - nntplib.po                       6 /  84 (  7.0% translated).
 - optparse.po                    379 / 406 ( 93.0% translated).
 - ossaudiodev.po                  18 /  98 ( 18.0% translated).
@@ -304,5 +304,5 @@
 - 3.9.po                         382 / 386 ( 98.0% translated).
 
 
-# TOTAL (61.19% done)
+# TOTAL (61.22% done)
 
