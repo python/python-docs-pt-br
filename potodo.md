@@ -45,9 +45,9 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (84.73% done)
+# faq (85.10% done)
 
-- programming.po                 342 / 508 ( 67.0% translated).
+- programming.po                 346 / 508 ( 68.0% translated).
 
 
 # howto (55.50% done)
@@ -70,7 +70,7 @@
 
 
 
-# library (57.50% done)
+# library (57.52% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - aifc.po                          1 /   3 ( 33.0% translated).
@@ -227,7 +227,7 @@
 - syslog.po                       29 /  31 ( 93.0% translated).
 - tarfile.po                     103 / 337 ( 30.0% translated).
 - tempfile.po                      8 /  87 (  9.0% translated).
-- test.po                        113 / 321 ( 35.0% translated).
+- test.po                        119 / 321 ( 37.0% translated).
 - textwrap.po                     48 /  57 ( 84.0% translated).
 - threading.po                    36 / 240 ( 15.0% translated).
 - timeit.po                       52 /  68 ( 76.0% translated).
@@ -297,5 +297,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (64.08% done)
+# TOTAL (64.10% done)
 
