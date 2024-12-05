@@ -51,12 +51,12 @@
 - newtypes_tutorial.po            27 / 123 ( 21.0% translated).
 
 
-# faq (85.95% done)
+# faq (86.06% done)
 
 - design.po                      128 / 142 ( 90.0% translated).
 - extending.po                    55 /  58 ( 94.0% translated).
 - library.po                     136 / 140 ( 97.0% translated).
-- programming.po                 286 / 393 ( 72.0% translated).
+- programming.po                 287 / 393 ( 73.0% translated).
 
 
 # howto (58.24% done)
@@ -85,7 +85,7 @@
 
 
 
-# library (58.01% done)
+# library (58.02% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          33 /  49 ( 67.0% translated).
@@ -243,7 +243,7 @@
 - tarfile.po                     102 / 314 ( 32.0% translated).
 - telnetlib.po                    10 /  51 ( 19.0% translated).
 - tempfile.po                      9 /  69 ( 13.0% translated).
-- test.po                        113 / 296 ( 38.0% translated).
+- test.po                        115 / 296 ( 38.0% translated).
 - textwrap.po                     46 /  48 ( 95.0% translated).
 - threading.po                    39 / 217 ( 17.0% translated).
 - time.po                        257 / 260 ( 98.0% translated).
