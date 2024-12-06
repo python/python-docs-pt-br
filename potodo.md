@@ -4,7 +4,7 @@
 
 
 
-# c-api (52.13% done)
+# c-api (52.06% done)
 
 - exceptions.po                  194 / 370 ( 52.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
@@ -20,6 +20,7 @@
 - number.po                       14 /  48 ( 29.0% translated).
 - object.po                       42 / 117 ( 35.0% translated).
 - refcounting.po                   4 /  48 (  8.0% translated).
+- stable.po                       41 /  45 ( 91.0% translated).
 - structures.po                   71 / 179 ( 39.0% translated).
 - sys.po                          28 /  74 ( 37.0% translated).
 - tuple.po                        25 /  46 ( 54.0% translated).
@@ -45,17 +46,18 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (85.10% done)
+# faq (86.20% done)
 
-- programming.po                 346 / 508 ( 68.0% translated).
+- programming.po                 358 / 508 ( 70.0% translated).
 
 
-# howto (55.50% done)
+# howto (55.44% done)
 
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                   55 / 230 ( 23.0% translated).
 - enum.po                         62 / 327 ( 18.0% translated).
 - functional.po                  138 / 252 ( 54.0% translated).
+- gdb_helpers.po                  84 /  86 ( 97.0% translated).
 - logging-cookbook.po             23 / 418 (  5.0% translated).
 - logging.po                     121 / 250 ( 48.0% translated).
 - regex.po                       291 / 332 ( 87.0% translated).
@@ -70,7 +72,7 @@
 
 
 
-# library (57.52% done)
+# library (57.51% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - aifc.po                          1 /   3 ( 33.0% translated).
@@ -101,7 +103,7 @@
 - cmd.po                           5 /  50 ( 10.0% translated).
 - codecs.po                      250 / 532 ( 46.0% translated).
 - collections.abc.po              96 / 135 ( 71.0% translated).
-- collections.po                 211 / 242 ( 87.0% translated).
+- collections.po                 210 / 242 ( 86.0% translated).
 - concurrent.futures.po           14 / 100 ( 14.0% translated).
 - configparser.po                197 / 220 ( 89.0% translated).
 - contextlib.po                    9 / 172 (  5.0% translated).
@@ -118,7 +120,7 @@
 - decimal.po                     344 / 378 ( 91.0% translated).
 - devmode.po                      49 /  58 ( 84.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
-- dis.po                         204 / 393 ( 51.0% translated).
+- dis.po                         204 / 396 ( 51.0% translated).
 - distutils.po                     0 /   3 (  0.0% translated).
 - doctest.po                      92 / 372 ( 24.0% translated).
 - email.charset.po                 1 /  44 (  2.0% translated).
@@ -217,7 +219,7 @@
 - sqlite3.po                     115 / 476 ( 24.0% translated).
 - ssl.po                          40 / 544 (  7.0% translated).
 - statistics.po                  176 / 248 ( 70.0% translated).
-- string.po                      194 / 214 ( 90.0% translated).
+- string.po                      194 / 215 ( 90.0% translated).
 - stringprep.po                    1 /  25 (  4.0% translated).
 - struct.po                       96 / 195 ( 49.0% translated).
 - subprocess.po                  128 / 323 ( 39.0% translated).
@@ -232,9 +234,10 @@
 - threading.po                    36 / 240 ( 15.0% translated).
 - timeit.po                       52 /  68 ( 76.0% translated).
 - tkinter.ttk.po                 118 / 429 ( 27.0% translated).
+- token.po                        67 /  68 ( 98.0% translated).
 - tokenize.po                      8 /  52 ( 15.0% translated).
 - trace.po                        41 /  43 ( 95.0% translated).
-- traceback.po                     9 / 111 (  8.0% translated).
+- traceback.po                     9 / 112 (  8.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
 - turtle.po                      561 / 661 ( 84.0% translated).
 - types.po                        93 / 103 ( 90.0% translated).
@@ -268,10 +271,11 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (84.51% done)
+# reference (84.29% done)
 
 - compound_stmts.po              217 / 467 ( 46.0% translated).
 - datamodel.po                   673 / 866 ( 77.0% translated).
+- simple_stmts.po                284 / 290 ( 97.0% translated).
 
 
 # tutorial (100.00% done)
@@ -297,5 +301,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (64.10% done)
+# TOTAL (64.09% done)
 
