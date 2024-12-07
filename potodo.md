@@ -44,12 +44,12 @@
 - newtypes_tutorial.po            28 / 123 ( 22.0% translated).
 
 
-# faq (85.70% done)
+# faq (85.81% done)
 
 - design.po                      123 / 141 ( 87.0% translated).
 - extending.po                    50 /  58 ( 86.0% translated).
 - library.po                     130 / 140 ( 92.0% translated).
-- programming.po                 282 / 372 ( 75.0% translated).
+- programming.po                 283 / 372 ( 76.0% translated).
 
 
 # howto (51.31% done)
@@ -83,7 +83,7 @@
 
 - argparse.po                    260 / 290 ( 89.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
-- ast.po                         178 / 191 ( 93.0% translated).
+- ast.po                         179 / 193 ( 92.0% translated).
 - asynchat.po                      4 /  33 ( 12.0% translated).
 - asyncio-dev.po                  17 /  41 ( 41.0% translated).
 - asyncio-future.po                8 /  58 ( 13.0% translated).
