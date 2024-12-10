@@ -4,7 +4,7 @@
 
 
 
-# c-api (52.06% done)
+# c-api (52.10% done)
 
 - exceptions.po                  194 / 370 ( 52.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
@@ -20,7 +20,7 @@
 - number.po                       14 /  48 ( 29.0% translated).
 - object.po                       42 / 117 ( 35.0% translated).
 - refcounting.po                   4 /  48 (  8.0% translated).
-- stable.po                       41 /  45 ( 91.0% translated).
+- stable.po                       43 /  45 ( 95.0% translated).
 - structures.po                   71 / 179 ( 39.0% translated).
 - sys.po                          28 /  74 ( 37.0% translated).
 - tuple.po                        25 /  46 ( 54.0% translated).
@@ -46,18 +46,17 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (86.66% done)
+# faq (88.04% done)
 
-- programming.po                 363 / 508 ( 71.0% translated).
+- programming.po                 378 / 508 ( 74.0% translated).
 
 
-# howto (55.44% done)
+# howto (55.50% done)
 
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                   55 / 230 ( 23.0% translated).
 - enum.po                         62 / 327 ( 18.0% translated).
 - functional.po                  138 / 252 ( 54.0% translated).
-- gdb_helpers.po                  84 /  86 ( 97.0% translated).
 - logging-cookbook.po             23 / 418 (  5.0% translated).
 - logging.po                     121 / 250 ( 48.0% translated).
 - regex.po                       291 / 332 ( 87.0% translated).
@@ -234,7 +233,6 @@
 - threading.po                    36 / 240 ( 15.0% translated).
 - timeit.po                       52 /  68 ( 76.0% translated).
 - tkinter.ttk.po                 118 / 429 ( 27.0% translated).
-- token.po                        67 /  68 ( 98.0% translated).
 - tokenize.po                      8 /  52 ( 15.0% translated).
 - trace.po                        41 /  43 ( 95.0% translated).
 - traceback.po                     9 / 112 (  8.0% translated).
@@ -271,11 +269,10 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (84.29% done)
+# reference (84.50% done)
 
 - compound_stmts.po              217 / 467 ( 46.0% translated).
 - datamodel.po                   673 / 866 ( 77.0% translated).
-- simple_stmts.po                284 / 290 ( 97.0% translated).
 
 
 # tutorial (100.00% done)
@@ -301,5 +298,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (64.10% done)
+# TOTAL (64.14% done)
 
