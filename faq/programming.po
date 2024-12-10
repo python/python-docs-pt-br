@@ -2866,7 +2866,7 @@ msgstr ""
 msgid ""
 "Why does a_tuple[i] += ['item'] raise an exception when the addition works?"
 msgstr ""
-"Porque a_tuple[i] += ['item'] levanta uma exceção quando a adição funciona?"
+"Porque uma_tupla[i] += ['item'] levanta uma exceção quando a adição funciona?"
 
 #: ../../faq/programming.rst:1348
 msgid ""
@@ -2874,6 +2874,9 @@ msgid ""
 "operators are *assignment* operators, and the difference between mutable and "
 "immutable objects in Python."
 msgstr ""
+"Isso se deve a uma combinação do fato de que os operadores de atribuição "
+"aumentada são operadores de *atribuição* e à diferença entre objetos "
+"mutáveis e imutáveis no Python."
 
 #: ../../faq/programming.rst:1352
 msgid ""
@@ -2881,6 +2884,9 @@ msgid ""
 "applied to elements of a tuple that point to mutable objects, but we'll use "
 "a ``list`` and ``+=`` as our exemplar."
 msgstr ""
+"Essa discussão se aplica em geral quando operadores de atribuição aumentada "
+"são aplicados a elementos de uma tupla que aponta para objetos mutáveis, mas "
+"usaremos uma ``lista``  e ``+=`` como exemplo."
 
 #: ../../faq/programming.rst:1356
 msgid "If you wrote::"
@@ -2894,6 +2900,11 @@ msgid ""
 "   ...\n"
 "TypeError: 'tuple' object does not support item assignment"
 msgstr ""
+">>> a_tuple = (1, 2)\n"
+">>> a_tuple[0] += 1\n"
+"Traceback (most recent call last):\n"
+"   ...\n"
+"TypeError: 'tuple' object does not support item assignment"
 
 #: ../../faq/programming.rst:1364
 msgid ""
@@ -2903,6 +2914,11 @@ msgid ""
 "to element ``0`` of the tuple, we get an error because we can't change what "
 "an element of a tuple points to."
 msgstr ""
+"O motivo da exceção deve ser imediatamente claro: ``1`` é adicionado ao "
+"objeto que ``a_tuple[0]` aponta (``1``), produzindo o objeto de resultado, "
+"``2``, mas quando tentamos atribuir o resultado do cálculo, ``2``, ao "
+"elemento ``0`` da tupla, recebemos um erro porque não podemos alterar o que "
+"um elemento de uma tupla aponta."
 
 #: ../../faq/programming.rst:1370
 msgid ""
@@ -2920,13 +2936,18 @@ msgid ""
 "  ...\n"
 "TypeError: 'tuple' object does not support item assignment"
 msgstr ""
+">>> result = a_tuple[0] + 1\n"
+">>> a_tuple[0] = result\n"
+"Traceback (most recent call last):\n"
+"  ...\n"
+"TypeError: 'tuple' object does not support item assignment"
 
 #: ../../faq/programming.rst:1379
 msgid ""
 "It is the assignment part of the operation that produces the error, since a "
 "tuple is immutable."
 msgstr ""
-"A parte da atribuição da operação que produz o erro, já que a tupla é "
+"Essa é a parte da atribuição da operação que produz o erro, já que a tupla é "
 "imutável."
 
 #: ../../faq/programming.rst:1382
@@ -2941,18 +2962,27 @@ msgid ""
 "  ...\n"
 "TypeError: 'tuple' object does not support item assignment"
 msgstr ""
+">>> a_tuple = (['foo'], 'bar')\n"
+">>> a_tuple[0] += ['item']\n"
+"Traceback (most recent call last):\n"
+"  ...\n"
+"TypeError: 'tuple' object does not support item assignment"
 
 #: ../../faq/programming.rst:1390
 msgid ""
 "The exception is a bit more surprising, and even more surprising is the fact "
 "that even though there was an error, the append worked::"
 msgstr ""
+"A exceção é um pouco mais surpreendente, e ainda mais surpreendente é o fato "
+"de que, embora tenha havido um erro, o acréscimo à lista funcionou::"
 
 #: ../../faq/programming.rst:1393
 msgid ""
 ">>> a_tuple[0]\n"
 "['foo', 'item']"
 msgstr ""
+">>> a_tuple[0]\n"
+"['foo', 'item']"
 
 #: ../../faq/programming.rst:1396
 msgid ""
@@ -2963,6 +2993,13 @@ msgid ""
 "to calling :meth:`!extend` on the list and returning the list.  That's why "
 "we say that for lists, ``+=`` is a \"shorthand\" for :meth:`!list.extend`::"
 msgstr ""
+"Para entender por que isso acontece, você precisa saber que (a) se um objeto "
+"implementa um método mágico :meth:`~object.__iadd__`, ele é chamado quando a "
+"atribuição aumentada ``+=`` é executada, e seu valor de retorno é o que é "
+"usado na instrução de atribuição; e (b) para listas, :meth:`!__iadd__` é "
+"equivalente a chamar :meth:`!extend` na lista e retornar a lista. É por isso "
+"que dizemos que, para listas, ``+=`` é uma “abreviação” para :meth:`!list."
+"extend`::"
 
 #: ../../faq/programming.rst:1404
 msgid ""
@@ -2971,6 +3008,10 @@ msgid ""
 ">>> a_list\n"
 "[1]"
 msgstr ""
+">>> a_list = []\n"
+">>> a_list += [1]\n"
+">>> a_list\n"
+"[1]"
 
 #: ../../faq/programming.rst:1409
 msgid "This is equivalent to::"
@@ -2981,6 +3022,8 @@ msgid ""
 ">>> result = a_list.__iadd__([1])\n"
 ">>> a_list = result"
 msgstr ""
+">>> result = a_list.__iadd__([1])\n"
+">>> a_list = result"
 
 #: ../../faq/programming.rst:1414
 msgid ""
@@ -2989,10 +3032,15 @@ msgid ""
 "assignment is a no-op, since it is a pointer to the same object that "
 "``a_list`` was previously pointing to, but the assignment still happens."
 msgstr ""
+"O objeto apontado por a_list foi alterado e o ponteiro para o objeto "
+"alterado é atribuído novamente a ``a_list``. O resultado final da atribuição "
+"é um no-op, pois é um ponteiro para o mesmo objeto para o qual ``a_list`` "
+"estava apontando anteriormente, mas a atribuição ainda acontece."
 
 #: ../../faq/programming.rst:1419
 msgid "Thus, in our tuple example what is happening is equivalent to::"
 msgstr ""
+"Portanto, em nosso exemplo da tupla, o que está acontecendo é equivalente a:"
 
 #: ../../faq/programming.rst:1421
 msgid ""
@@ -3002,6 +3050,11 @@ msgid ""
 "  ...\n"
 "TypeError: 'tuple' object does not support item assignment"
 msgstr ""
+">>> result = a_tuple[0].__iadd__(['item'])\n"
+">>> a_tuple[0] = result\n"
+"Traceback (most recent call last):\n"
+"  ...\n"
+"TypeError: 'tuple' object does not support item assignment"
 
 #: ../../faq/programming.rst:1427
 msgid ""
@@ -3010,6 +3063,10 @@ msgid ""
 "points to, that final assignment still results in an error, because tuples "
 "are immutable."
 msgstr ""
+"O :meth:`!__iadd__` é bem-sucedido e, portanto, a lista é estendida, mas "
+"mesmo que ``result`` aponte para o mesmo objeto para o qual ``a_tuple[0]`` "
+"já aponta, essa atribuição final ainda resulta em um erro, pois as tuplas "
+"são imutáveis."
 
 #: ../../faq/programming.rst:1433
 msgid ""
