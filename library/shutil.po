@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-29 14:50+0000\n"
+"POT-Creation-Date: 2024-12-06 14:52+0000\n"
 "PO-Revision-Date: 2024-05-11 00:33+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -699,6 +699,14 @@ msgid ""
 "*copy_function* allows the move to succeed when it is not possible to also "
 "copy the metadata, at the expense of not copying any of the metadata."
 msgstr ""
+"Se *copy_function* for fornecido, deve ser um chamável que leva dois "
+"argumentos *src* e a destinação, e será usado para copiar *src* para a "
+"destinação se :func:`os.rename` não puder ser usado. Se a fonte for um "
+"diretório, :func:`copytree` é chamado, passando *copy_function*. A "
+"*copy_function* padrão é :func:`copy2`. Usar :func:`~shutil.copy` como "
+"*copy_function* permite que a movimentação seja bem-sucedida quando não é "
+"possível copiar também os metadados, às custas de não copiar nenhum dos "
+"metadados."
 
 #: ../../library/shutil.rst:380
 msgid ""
@@ -742,6 +750,10 @@ msgid ""
 "filesystem partition. On those platforms, CPython doesn't attempt to "
 "retrieve disk usage information from non-mounted filesystems."
 msgstr ""
+"Em sistemas de arquivos Unix, *path* deve apontar para um caminho dentro de "
+"uma partição de sistema de arquivos **montada**. Nessas plataformas, o "
+"CPython não tenta recuperar informações de uso de disco de sistemas de "
+"arquivos não montados."
 
 #: ../../library/shutil.rst:413
 msgid "On Windows, *path* can now be a file or directory."
@@ -788,6 +800,8 @@ msgid ""
 "*mode* is a permission mask passed to :func:`os.access`, by default "
 "determining if the file exists and is executable."
 msgstr ""
+"*mode* é uma máscara de permissão passada para :func:`os.access`, por padrão "
+"determinando se o arquivo existe e é executável."
 
 #: ../../library/shutil.rst:442
 msgid ""
@@ -796,6 +810,10 @@ msgid ""
 "`PATH` environment variable is read from :data:`os.environ`, falling back "
 "to :data:`os.defpath` if it is not set."
 msgstr ""
+"*path* é uma \"string ``PATH``\" que especifica os diretórios a serem "
+"procurados, delimitados por :data:`os.pathsep`. Quando nenhum *path* é "
+"especificado, a variável de ambiente :envvar:`PATH` é lida de :data:`os."
+"environ`, retornando para :data:`os.defpath` se não estiver definida."
 
 #: ../../library/shutil.rst:447
 msgid ""
@@ -806,6 +824,12 @@ msgid ""
 "consulting the current working directory for executables: set the "
 "environment variable ``NoDefaultCurrentDirectoryInExePath``."
 msgstr ""
+"No Windows, o diretório atual é prefixado ao *path* se o *mode* não incluir "
+"``os.X_OK``. Quando o *mode* inclui ``os.X_OK``, a API do Windows "
+"``NeedCurrentDirectoryForExePathW`` será consultada para determinar se o "
+"diretório atual deve ser prefixado ao *path*. Para evitar consultar o "
+"diretório de trabalho atual para executáveis: defina a variável de ambiente "
+"``NoDefaultCurrentDirectoryInExePath``."
 
 #: ../../library/shutil.rst:454
 msgid ""
@@ -815,24 +839,35 @@ msgid ""
 "to know that it should look for ``python.exe`` within the *path* "
 "directories. For example, on Windows::"
 msgstr ""
+"Também no Windows, a variável de ambiente :envvar:`PATHEXT` é usada para "
+"resolver comandos que podem não incluir uma extensão. Por exemplo, se você "
+"chamar ``shutil.which(\"python\")``, :func:`which` pesquisará ``PATHEXT`` "
+"para saber que deve procurar por ``python.exe`` dentro dos diretórios "
+"*path*. Por exemplo, no Windows::"
 
 #: ../../library/shutil.rst:460
 msgid ""
 ">>> shutil.which(\"python\")\n"
 "'C:\\\\Python33\\\\python.EXE'"
 msgstr ""
+">>> shutil.which(\"python\")\n"
+"'C:\\\\Python33\\\\python.EXE'"
 
 #: ../../library/shutil.rst:463
 msgid ""
 "This is also applied when *cmd* is a path that contains a directory "
 "component::"
 msgstr ""
+"Isso também se aplica quando *cmd* é um caminho que contém um componente de "
+"diretório::"
 
 #: ../../library/shutil.rst:466
 msgid ""
 ">> shutil.which(\"C:\\\\Python33\\\\python\")\n"
 "'C:\\\\Python33\\\\python.EXE'"
 msgstr ""
+">> shutil.which(\"C:\\\\Python33\\\\python\")\n"
+"'C:\\\\Python33\\\\python.EXE'"
 
 #: ../../library/shutil.rst:471
 msgid ""
@@ -852,6 +887,13 @@ msgid ""
 "extension that is in ``PATHEXT``; and filenames that have no extension can "
 "now be found."
 msgstr ""
+"No Windows, o diretório atual não é mais adicionado ao caminho de pesquisa "
+"se *mode* incluir ``os.X_OK`` e WinAPI "
+"``NeedCurrentDirectoryForExePathW(cmd)`` for falso, caso contrário, o "
+"diretório atual será adicionado mesmo se já estiver no caminho de pesquisa; "
+"``PATHEXT`` agora é usado mesmo quando *cmd* inclui um componente de "
+"diretório ou termina com uma extensão que está em ``PATHEXT``; e nomes de "
+"arquivos que não têm extensão agora podem ser encontrados."
 
 #: ../../library/shutil.rst:486
 msgid ""
@@ -920,7 +962,7 @@ msgstr "Exemplo de copytree"
 
 #: ../../library/shutil.rst:522
 msgid "An example that uses the :func:`ignore_patterns` helper::"
-msgstr ""
+msgstr "Um exemplo que usa o auxiliar :func:`ignore_patterns`::"
 
 #: ../../library/shutil.rst:524
 msgid ""
@@ -928,6 +970,9 @@ msgid ""
 "\n"
 "copytree(source, destination, ignore=ignore_patterns('*.pyc', 'tmp*'))"
 msgstr ""
+"from shutil import copytree, ignore_patterns\n"
+"\n"
+"copytree(source, destination, ignore=ignore_patterns('*.pyc', 'tmp*'))"
 
 #: ../../library/shutil.rst:528
 msgid ""
@@ -954,6 +999,14 @@ msgid ""
 "\n"
 "copytree(source, destination, ignore=_logpath)"
 msgstr ""
+"from shutil import copytree\n"
+"import logging\n"
+"\n"
+"def _logpath(path, names):\n"
+"    logging.info('Working in %s', path)\n"
+"    return []   # nada será ignorado\n"
+"\n"
+"copytree(source, destination, ignore=_logpath)"
 
 #: ../../library/shutil.rst:546
 msgid "rmtree example"
@@ -966,6 +1019,10 @@ msgid ""
 "the readonly bit and reattempt the remove. Any subsequent failure will "
 "propagate. ::"
 msgstr ""
+"Este exemplo mostra como remover uma árvore de diretório no Windows onde "
+"alguns dos arquivos têm seu conjunto de bits somente leitura. Ele usa a "
+"função de retorno onexc para limpar o bit somente leitura e tentar remover "
+"novamente. Qualquer falha subsequente se propagará. ::"
 
 #: ../../library/shutil.rst:553
 msgid ""
@@ -979,6 +1036,15 @@ msgid ""
 "\n"
 "shutil.rmtree(directory, onexc=remove_readonly)"
 msgstr ""
+"import os, stat\n"
+"import shutil\n"
+"\n"
+"def remove_readonly(func, path, _):\n"
+"    \"Clear the readonly bit and reattempt the removal\"\n"
+"    os.chmod(path, stat.S_IWRITE)\n"
+"    func(path)\n"
+"\n"
+"shutil.rmtree(directory, onexc=remove_readonly)"
 
 #: ../../library/shutil.rst:566
 msgid "Archiving operations"
@@ -1006,6 +1072,8 @@ msgid ""
 "*base_name* is the name of the file to create, including the path, minus any "
 "format-specific extension."
 msgstr ""
+"*base_name* é o nome do arquivo a ser criado, incluindo o caminho, menos "
+"qualquer extensão específica do formato."
 
 #: ../../library/shutil.rst:584
 msgid ""
@@ -1014,6 +1082,10 @@ msgid ""
 "\"bztar\" (if the :mod:`bz2` module is available), or \"xztar\" (if the :mod:"
 "`lzma` module is available)."
 msgstr ""
+"*format* é o formato do arquivo: um de \"zip\" (se o módulo :mod:`zlib` "
+"estiver disponível), \"tar\", \"gztar\" (se o módulo :mod:`zlib` estiver "
+"disponível), \"bztar\" (se o módulo :mod:`bz2` estiver disponível) ou "
+"\"xztar\" (se o módulo :mod:`lzma` estiver disponível)."
 
 #: ../../library/shutil.rst:589
 msgid ""
@@ -1085,6 +1157,10 @@ msgid ""
 "case it temporarily changes the current working directory of the process to "
 "*root_dir* to perform archiving."
 msgstr ""
+"Esta função não é segura para thread quando arquivadores personalizados "
+"registrados com :func:`register_archive_format` não suportam o argumento "
+"*root_dir*. Neste caso, ele altera temporariamente o diretório de trabalho "
+"atual do processo para *root_dir* para executar o arquivamento."
 
 #: ../../library/shutil.rst:622
 msgid ""
@@ -1099,6 +1175,8 @@ msgid ""
 "This function is now made thread-safe during creation of standard ``.zip`` "
 "and tar archives."
 msgstr ""
+"Esta função agora é segura para thread durante a criação de arquivos ``."
+"zip`` e tar padrão."
 
 #: ../../library/shutil.rst:632
 msgid ""
@@ -1175,6 +1253,11 @@ msgid ""
 "*root_dir* before calling *function*. In this case :func:`make_archive` is "
 "not thread-safe."
 msgstr ""
+"Se *function* tiver o atributo personalizado ``function.supports_root_dir`` "
+"definido como ``True``, o argumento *root_dir* será passado como um "
+"argumento nomeado. Caso contrário, o diretório de trabalho atual do processo "
+"será temporariamente alterado para *root_dir* antes de chamar *function*. "
+"Nesse caso, :func:`make_archive` não é segura para thread."
 
 #: ../../library/shutil.rst:663
 msgid ""
@@ -1195,7 +1278,7 @@ msgstr ""
 
 #: ../../library/shutil.rst:669
 msgid "Added support for functions supporting the *root_dir* argument."
-msgstr ""
+msgstr "Adicionado suporte para funções que suportam o argumento *root_dir*."
 
 #: ../../library/shutil.rst:675
 msgid "Remove the archive format *name* from the list of supported formats."
@@ -1238,6 +1321,12 @@ msgid ""
 "details.) The ``'data'`` filter will become the default for tar files in "
 "Python 3.14."
 msgstr ""
+"O argumento somente-nomeado *filter* é passado para a função de "
+"desempacotamento subjacente. Para arquivos zip, *filter* não é aceito. Para "
+"arquivos tar, é recomendado defini-lo como ``'data'``, a menos que esteja "
+"usando recursos específicos para tar e sistemas de arquivos do tipo UNIX. "
+"(Veja :ref:`tarfile-extraction-filter` para detalhes.) O filtro ``'data'`` "
+"se tornará o padrão para arquivos tar no Python 3.14."
 
 #: ../../library/shutil.rst:700
 msgid ""
@@ -1254,6 +1343,10 @@ msgid ""
 "*extract_dir* argument, e.g. members that have absolute filenames starting "
 "with \"/\" or filenames with two dots \"..\"."
 msgstr ""
+"Nunca extrai arquivos de fontes não confiáveis ​​sem inspeção prévia. É "
+"possível que arquivos sejam criados fora do caminho especificado no "
+"argumento *extract_dir*, por exemplo, membros que têm nomes de arquivo "
+"absolutos começando com \"/\" ou nomes de arquivo com dois pontos \"..\"."
 
 #: ../../library/shutil.rst:709
 msgid "Accepts a :term:`path-like object` for *filename* and *extract_dir*."
@@ -1263,7 +1356,7 @@ msgstr ""
 
 #: ../../library/shutil.rst:712
 msgid "Added the *filter* argument."
-msgstr ""
+msgstr "Adicionado o argumento *filter*."
 
 #: ../../library/shutil.rst:717
 msgid ""
@@ -1280,27 +1373,35 @@ msgid ""
 "*function* is the callable that will be used to unpack archives. The "
 "callable will receive:"
 msgstr ""
+"*function* é o chamável que será usado para desempacotar arquivos. O "
+"chamável receberá:"
 
 #: ../../library/shutil.rst:724
 msgid "the path of the archive, as a positional argument;"
-msgstr ""
+msgstr "o caminho do arquivo, como argumento posicional;"
 
 #: ../../library/shutil.rst:725
 msgid ""
 "the directory the archive must be extracted to, as a positional argument;"
 msgstr ""
+"o diretório para o qual o arquivo deve ser extraído, como um argumento "
+"posicional;"
 
 #: ../../library/shutil.rst:726
 msgid ""
 "possibly a *filter* keyword argument, if it was given to :func:"
 "`unpack_archive`;"
 msgstr ""
+"possivelmente um argumento nomeado *filter*, se foi dado a :func:"
+"`unpack_archive`;"
 
 #: ../../library/shutil.rst:728
 msgid ""
 "additional keyword arguments, specified by *extra_args* as a sequence of "
 "``(name, value)`` tuples."
 msgstr ""
+"argumentos nomeados adicionais, especificados por *extra_args* como uma "
+"sequência de tuplas ``(nome, valor)``."
 
 #: ../../library/shutil.rst:731
 msgid ""
@@ -1366,6 +1467,12 @@ msgid ""
 ">>> make_archive(archive_name, 'gztar', root_dir)\n"
 "'/Users/tarek/myarchive.tar.gz'"
 msgstr ""
+">>> from shutil import make_archive\n"
+">>> import os\n"
+">>> archive_name = os.path.expanduser(os.path.join('~', 'meuarquivo'))\n"
+">>> root_dir = os.path.expanduser(os.path.join('~', '.ssh'))\n"
+">>> make_archive(archive_name, 'gztar', root_dir)\n"
+"'/Users/tarek/meuarquivo.tar.gz'"
 
 #: ../../library/shutil.rst:774
 msgid "The resulting archive contains:"
@@ -1383,6 +1490,15 @@ msgid ""
 "-rw-r--r-- tarek/staff     397 2008-06-09 13:26:54 ./id_rsa.pub\n"
 "-rw-r--r-- tarek/staff   37192 2010-02-06 18:23:10 ./known_hosts"
 msgstr ""
+"$ tar -tzvf /Users/tarek/meuarquivo.tar.gz\n"
+"drwx------ tarek/staff       0 2010-02-01 16:23:40 ./\n"
+"-rw-r--r-- tarek/staff     609 2008-06-09 13:26:54 ./authorized_keys\n"
+"-rwxr-xr-x tarek/staff      65 2008-06-09 13:26:54 ./config\n"
+"-rwx------ tarek/staff     668 2008-06-09 13:26:54 ./id_dsa\n"
+"-rwxr-xr-x tarek/staff     609 2008-06-09 13:26:54 ./id_dsa.pub\n"
+"-rw------- tarek/staff    1675 2008-06-09 13:26:54 ./id_rsa\n"
+"-rw-r--r-- tarek/staff     397 2008-06-09 13:26:54 ./id_rsa.pub\n"
+"-rw-r--r-- tarek/staff   37192 2010-02-06 18:23:10 ./known_hosts"
 
 #: ../../library/shutil.rst:792
 msgid "Archiving example with *base_dir*"
@@ -1408,6 +1524,13 @@ msgid ""
 "            └── please_add.txt\n"
 "        └── do_not_add.txt"
 msgstr ""
+"$ tree tmp\n"
+"tmp\n"
+"└── root\n"
+"    └── estrutura\n"
+"        ├── conteudo\n"
+"            └── por_favor_adicionar.txt\n"
+"        └── nao_adicionar.txt"
 
 #: ../../library/shutil.rst:808
 msgid ""
@@ -1430,6 +1553,16 @@ msgid ""
 "... )\n"
 "'/Users/tarek/my_archive.tar'"
 msgstr ""
+">>> from shutil import make_archive\n"
+">>> import os\n"
+">>> archive_name = os.path.expanduser(os.path.join('~', 'meuarquivo'))\n"
+">>> make_archive(\n"
+"...     archive_name,\n"
+"...     'tar',\n"
+"...     root_dir='tmp/root',\n"
+"...     base_dir='estrutura/conteudo',\n"
+"... )\n"
+"'/Users/tarek/meuarquivo.tar'"
 
 #: ../../library/shutil.rst:822
 msgid "Listing the files in the resulting archive gives us:"
@@ -1441,6 +1574,9 @@ msgid ""
 "structure/content/\n"
 "structure/content/please_add.txt"
 msgstr ""
+"$ python -m tarfile -l /Users/tarek/meuarquivo.tar\n"
+"estrutura/conteudo/\n"
+"estrutura/conteudo/por_favor_adicionar.txt"
 
 #: ../../library/shutil.rst:832
 msgid "Querying the size of the output terminal"
@@ -1502,6 +1638,8 @@ msgid ""
 "The ``fallback`` values are also used if :func:`os.get_terminal_size` "
 "returns zeroes."
 msgstr ""
+"Os valores ``fallback`` também são usados ​​se :func:`os.get_terminal_size` "
+"retornar zeros."
 
 #: ../../library/shutil.rst:12
 msgid "file"
@@ -1509,11 +1647,11 @@ msgstr "arquivo"
 
 #: ../../library/shutil.rst:12
 msgid "copying"
-msgstr ""
+msgstr "cópia"
 
 #: ../../library/shutil.rst:12
 msgid "copying files"
-msgstr ""
+msgstr "cópia de arquivos"
 
 #: ../../library/shutil.rst:297
 msgid "directory"
