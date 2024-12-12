@@ -74,7 +74,7 @@
 
 
 
-# library (56.66% done)
+# library (56.67% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - abc.po                          31 /  60 ( 51.0% translated).
@@ -174,7 +174,7 @@
 - inspect.po                      78 / 383 ( 20.0% translated).
 - io.po                           21 / 271 (  7.0% translated).
 - ipaddress.po                   154 / 164 ( 93.0% translated).
-- itertools.po                   116 / 193 ( 60.0% translated).
+- itertools.po                   117 / 193 ( 60.0% translated).
 - json.po                        138 / 160 ( 86.0% translated).
 - logging.config.po               12 / 171 (  7.0% translated).
 - logging.handlers.po             48 / 270 ( 17.0% translated).
