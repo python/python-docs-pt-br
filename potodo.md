@@ -5,7 +5,7 @@
 - license.po                     112 / 123 ( 91.0% translated).
 
 
-# c-api (51.66% done)
+# c-api (51.65% done)
 
 - exceptions.po                  194 / 366 ( 53.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
@@ -19,7 +19,7 @@
 - memory.po                       53 / 195 ( 27.0% translated).
 - module.po                       51 / 124 ( 41.0% translated).
 - number.po                       14 /  48 ( 29.0% translated).
-- object.po                       13 /  78 ( 16.0% translated).
+- object.po                       13 /  79 ( 16.0% translated).
 - refcounting.po                   2 /  47 (  4.0% translated).
 - stable.po                       43 /  45 ( 95.0% translated).
 - structures.po                   71 / 179 ( 39.0% translated).
@@ -47,13 +47,13 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (87.60% done)
+# faq (88.06% done)
 
 - library.po                     157 / 162 ( 96.0% translated).
-- programming.po                 377 / 508 ( 74.0% translated).
+- programming.po                 382 / 508 ( 75.0% translated).
 
 
-# howto (53.26% done)
+# howto (53.59% done)
 
 - argparse.po                    144 / 145 ( 99.0% translated).
 - curses.po                       58 / 121 ( 47.0% translated).
@@ -307,12 +307,13 @@
 - windows.po                     374 / 378 ( 98.0% translated).
 
 
-# whatsnew (74.87% done)
+# whatsnew (74.49% done)
 
 - 2.3.po                         328 / 387 ( 84.0% translated).
 - 2.4.po                         265 / 319 ( 83.0% translated).
 - 2.5.po                         384 / 452 ( 84.0% translated).
 - 2.6.po                         537 / 626 ( 85.0% translated).
+- 3.0.po                         175 / 212 ( 82.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
 - 3.10.po                        529 / 550 ( 96.0% translated).
 - 3.12.po                        831 / 832 ( 99.0% translated).
@@ -323,5 +324,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (62.80% done)
+# TOTAL (62.76% done)
 
