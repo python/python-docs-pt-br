@@ -4,25 +4,25 @@
 
 
 
-# c-api (52.10% done)
+# c-api (51.98% done)
 
 - exceptions.po                  194 / 370 ( 52.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
-- frame.po                        20 /  37 ( 54.0% translated).
+- frame.po                        20 /  42 ( 47.0% translated).
 - gcsupport.po                     9 /  52 ( 17.0% translated).
 - import.po                       33 /  62 ( 53.0% translated).
-- init.po                        146 / 477 ( 30.0% translated).
-- init_config.po                 135 / 417 ( 32.0% translated).
+- init.po                        146 / 479 ( 30.0% translated).
+- init_config.po                 135 / 420 ( 32.0% translated).
 - intro.po                        94 / 140 ( 67.0% translated).
 - long.po                         37 / 104 ( 35.0% translated).
 - memory.po                       53 / 200 ( 26.0% translated).
 - module.po                       51 / 132 ( 38.0% translated).
 - number.po                       14 /  48 ( 29.0% translated).
-- object.po                       42 / 117 ( 35.0% translated).
+- object.po                       42 / 118 ( 35.0% translated).
 - refcounting.po                   4 /  48 (  8.0% translated).
 - stable.po                       43 /  45 ( 95.0% translated).
 - structures.po                   71 / 179 ( 39.0% translated).
-- sys.po                          28 /  74 ( 37.0% translated).
+- sys.po                          28 /  75 ( 37.0% translated).
 - tuple.po                        25 /  46 ( 54.0% translated).
 - type.po                         19 / 101 ( 18.0% translated).
 - typeobj.po                     228 / 670 ( 34.0% translated).
@@ -46,9 +46,9 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (88.04% done)
+# faq (88.50% done)
 
-- programming.po                 378 / 508 ( 74.0% translated).
+- programming.po                 383 / 508 ( 75.0% translated).
 
 
 # howto (55.50% done)
@@ -274,20 +274,23 @@
 - datamodel.po                   673 / 866 ( 77.0% translated).
 
 
-# tutorial (100.00% done)
+# tutorial (99.77% done)
+
+- datastructures.po              122 / 125 ( 97.0% translated).
 
 
+# using (98.77% done)
 
-# using (100.00% done)
+- ios.po                          70 /  86 ( 81.0% translated).
 
 
-
-# whatsnew (76.97% done)
+# whatsnew (76.62% done)
 
 - 2.3.po                         328 / 387 ( 84.0% translated).
 - 2.4.po                         265 / 319 ( 83.0% translated).
 - 2.5.po                         388 / 452 ( 85.0% translated).
 - 2.6.po                         542 / 626 ( 86.0% translated).
+- 3.0.po                         175 / 212 ( 82.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
 - 3.10.po                        529 / 550 ( 96.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
@@ -297,5 +300,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (64.20% done)
+# TOTAL (64.11% done)
 
