@@ -274,9 +274,8 @@
 - datamodel.po                   673 / 866 ( 77.0% translated).
 
 
-# tutorial (99.77% done)
+# tutorial (100.00% done)
 
-- datastructures.po              122 / 125 ( 97.0% translated).
 
 
 # using (98.77% done)
@@ -300,5 +299,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (64.11% done)
+# TOTAL (64.12% done)
 
