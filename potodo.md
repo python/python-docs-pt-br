@@ -292,9 +292,8 @@
 - datamodel.po                   663 / 856 ( 77.0% translated).
 
 
-# tutorial (99.38% done)
+# tutorial (99.61% done)
 
-- datastructures.po              122 / 125 ( 97.0% translated).
 - interpreter.po                  31 /  33 ( 93.0% translated).
 - stdlib.po                       65 /  67 ( 97.0% translated).
 - stdlib2.po                      64 /  65 ( 98.0% translated).
