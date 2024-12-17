@@ -46,9 +46,9 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (89.70% done)
+# faq (90.52% done)
 
-- programming.po                 396 / 508 ( 77.0% translated).
+- programming.po                 405 / 508 ( 79.0% translated).
 
 
 # howto (55.50% done)
@@ -71,7 +71,7 @@
 
 
 
-# library (57.62% done)
+# library (57.65% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - aifc.po                          1 /   3 ( 33.0% translated).
@@ -120,7 +120,6 @@
 - devmode.po                      49 /  58 ( 84.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
 - dis.po                         204 / 396 ( 51.0% translated).
-- distutils.po                     0 /   3 (  0.0% translated).
 - doctest.po                      92 / 372 ( 24.0% translated).
 - email.charset.po                 1 /  44 (  2.0% translated).
 - email.compat32-message.po        5 / 115 (  4.0% translated).
@@ -161,9 +160,6 @@
 - http.server.po                  13 / 116 ( 11.0% translated).
 - idle.po                         16 / 281 (  5.0% translated).
 - imaplib.po                      13 / 117 ( 11.0% translated).
-- imghdr.po                        1 /   4 ( 25.0% translated).
-- imp.po                           0 /   4 (  0.0% translated).
-- importlib.metadata.po          118 / 119 ( 99.0% translated).
 - importlib.po                   234 / 312 ( 75.0% translated).
 - importlib.resources.abc.po      34 /  36 ( 94.0% translated).
 - importlib.resources.po          42 /  53 ( 79.0% translated).
@@ -181,7 +177,6 @@
 - mimetypes.po                    20 /  54 ( 37.0% translated).
 - mmap.po                         12 /  65 ( 18.0% translated).
 - modulefinder.po                 13 /  16 ( 81.0% translated).
-- msilib.po                        1 /   3 ( 33.0% translated).
 - msvcrt.po                       22 /  46 ( 47.0% translated).
 - multiprocessing.po             328 / 596 ( 55.0% translated).
 - numbers.po                      30 /  34 ( 88.0% translated).
@@ -298,5 +293,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (64.16% done)
+# TOTAL (64.20% done)
 
