@@ -47,10 +47,10 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (89.24% done)
+# faq (90.06% done)
 
 - library.po                     157 / 162 ( 96.0% translated).
-- programming.po                 395 / 508 ( 77.0% translated).
+- programming.po                 404 / 508 ( 79.0% translated).
 
 
 # howto (53.59% done)
@@ -167,7 +167,6 @@
 - idle.po                         16 / 281 (  5.0% translated).
 - imaplib.po                      13 / 117 ( 11.0% translated).
 - imghdr.po                       20 /  42 ( 47.0% translated).
-- importlib.metadata.po          104 / 105 ( 99.0% translated).
 - importlib.po                   231 / 304 ( 75.0% translated).
 - importlib.resources.abc.po      34 /  36 ( 94.0% translated).
 - importlib.resources.po          40 /  47 ( 85.0% translated).
@@ -323,5 +322,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (62.79% done)
+# TOTAL (62.80% done)
 
