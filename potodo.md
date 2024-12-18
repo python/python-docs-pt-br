@@ -46,9 +46,9 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (90.52% done)
+# faq (90.71% done)
 
-- programming.po                 405 / 508 ( 79.0% translated).
+- programming.po                 407 / 508 ( 80.0% translated).
 
 
 # howto (55.50% done)
@@ -71,12 +71,10 @@
 
 
 
-# library (57.65% done)
+# library (57.72% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
-- aifc.po                          1 /   3 ( 33.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
-- asynchat.po                      1 /   4 ( 25.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 400 ( 77.0% translated).
 - asyncio-future.po                9 /  64 ( 14.0% translated).
@@ -88,17 +86,12 @@
 - asyncio-subprocess.po           77 /  81 ( 95.0% translated).
 - asyncio-sync.po                 12 / 100 ( 12.0% translated).
 - asyncio-task.po                142 / 267 ( 53.0% translated).
-- asyncore.po                      1 /   4 ( 25.0% translated).
 - atexit.po                       19 /  22 ( 86.0% translated).
-- audioop.po                       1 /   3 ( 33.0% translated).
 - base64.po                       20 /  62 ( 32.0% translated).
 - bdb.po                           8 / 112 (  7.0% translated).
 - binascii.po                      8 /  38 ( 21.0% translated).
 - bisect.po                       18 /  35 ( 51.0% translated).
 - calendar.po                     35 / 104 ( 33.0% translated).
-- cgi.po                           1 /   4 ( 25.0% translated).
-- cgitb.po                         1 /   4 ( 25.0% translated).
-- chunk.po                         1 /   3 ( 33.0% translated).
 - cmd.po                           5 /  50 ( 10.0% translated).
 - codecs.po                      250 / 532 ( 46.0% translated).
 - collections.abc.po              96 / 135 ( 71.0% translated).
@@ -107,7 +100,6 @@
 - configparser.po                197 / 220 ( 89.0% translated).
 - contextlib.po                    9 / 172 (  5.0% translated).
 - contextvars.po                  54 /  56 ( 96.0% translated).
-- crypt.po                         1 /   4 ( 25.0% translated).
 - csv.po                         104 / 117 ( 88.0% translated).
 - ctypes.po                      102 / 526 ( 19.0% translated).
 - curses.ascii.po                  7 /  69 ( 10.0% translated).
@@ -173,7 +165,6 @@
 - logging.po                      93 / 368 ( 25.0% translated).
 - lzma.po                         66 / 115 ( 57.0% translated).
 - mailbox.po                      10 / 306 (  3.0% translated).
-- mailcap.po                       1 /   3 ( 33.0% translated).
 - mimetypes.po                    20 /  54 ( 37.0% translated).
 - mmap.po                         12 /  65 ( 18.0% translated).
 - modulefinder.po                 13 /  16 ( 81.0% translated).
@@ -293,5 +284,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (64.20% done)
+# TOTAL (64.24% done)
 
