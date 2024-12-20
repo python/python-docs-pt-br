@@ -41,3 +41,9 @@ if [ $# -gt 0 ]; then
 fi
 
 tx pull -f -l "${PYDOC_LANGUAGE}" ${resources_to_pull}
+
+# Drop translation of Python's changelog in python 3.12 or older.
+minor_version=$(git branch --show-current | sed 's|^3\.||')
+if [ $minor_version -le 12 ]; then
+  git checkout whatsnew/changelog.po
+fi
