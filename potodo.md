@@ -71,10 +71,11 @@
 
 
 
-# library (57.72% done)
+# library (57.71% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
+- ast.po                         313 / 314 ( 99.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 400 ( 77.0% translated).
 - asyncio-future.po                9 /  64 ( 14.0% translated).
@@ -158,7 +159,7 @@
 - inspect.po                      78 / 390 ( 20.0% translated).
 - io.po                           21 / 271 (  7.0% translated).
 - ipaddress.po                   155 / 165 ( 93.0% translated).
-- itertools.po                   117 / 201 ( 58.0% translated).
+- itertools.po                   116 / 200 ( 58.0% translated).
 - json.po                        139 / 162 ( 85.0% translated).
 - logging.config.po               12 / 171 (  7.0% translated).
 - logging.handlers.po             48 / 270 ( 17.0% translated).
@@ -203,7 +204,7 @@
 - sqlite3.po                     115 / 476 ( 24.0% translated).
 - ssl.po                          40 / 544 (  7.0% translated).
 - statistics.po                  176 / 248 ( 70.0% translated).
-- string.po                      194 / 215 ( 90.0% translated).
+- string.po                      193 / 215 ( 89.0% translated).
 - stringprep.po                    1 /  25 (  4.0% translated).
 - struct.po                       96 / 195 ( 49.0% translated).
 - subprocess.po                  128 / 323 ( 39.0% translated).
@@ -268,7 +269,7 @@
 
 
 
-# whatsnew (76.62% done)
+# whatsnew (36.59% done)
 
 - 2.3.po                         328 / 387 ( 84.0% translated).
 - 2.4.po                         265 / 319 ( 83.0% translated).
@@ -282,7 +283,8 @@
 - 3.5.po                         125 / 578 ( 21.0% translated).
 - 3.6.po                         235 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
+- changelog.po                   197 / 12102 (  1.0% translated).
 
 
-# TOTAL (64.24% done)
+# TOTAL (54.16% done)
 
