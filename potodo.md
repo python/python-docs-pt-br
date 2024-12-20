@@ -229,7 +229,7 @@
 - ssl.po                          39 / 520 (  7.0% translated).
 - statistics.po                  161 / 241 ( 66.0% translated).
 - stdtypes.po                    1324 / 1330 ( 99.0% translated).
-- string.po                      194 / 215 ( 90.0% translated).
+- string.po                      193 / 215 ( 89.0% translated).
 - stringprep.po                    1 /  25 (  4.0% translated).
 - struct.po                       96 / 194 ( 49.0% translated).
 - subprocess.po                  128 / 321 ( 39.0% translated).
