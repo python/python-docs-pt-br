@@ -3568,7 +3568,7 @@ msgid ""
 "this trick is also handy if you want to decide dynamically (e.g. depending "
 "on availability of resources) which base class to use.  Example::"
 msgstr ""
-"Você poderia atribuir o classe base a um apelido e derivar do apelido. "
+"Você poderia atribuir a classe base a um apelido e derivar do apelido. "
 "Então, tudo o que você precisa alterar é o valor atribuído ao apelido. "
 "Aliás, esse truque também é útil se você quiser decidir dinamicamente (por "
 "exemplo, dependendo do disponibilidade de recursos) qual classe base usar.  "
@@ -3595,18 +3595,24 @@ msgstr ""
 #: ../../faq/programming.rst:1661
 msgid "How do I create static class data and static class methods?"
 msgstr ""
+"Como faço para criar dados de classe estáticos e métodos de classe estáticos?"
 
 #: ../../faq/programming.rst:1663
 msgid ""
 "Both static data and static methods (in the sense of C++ or Java) are "
 "supported in Python."
 msgstr ""
+"Tanto dados estáticos quanto métodos estáticos (no sentido de C++ ou Java) "
+"são possíveis com Python."
 
 #: ../../faq/programming.rst:1666
 msgid ""
 "For static data, simply define a class attribute.  To assign a new value to "
 "the attribute, you have to explicitly use the class name in the assignment::"
 msgstr ""
+"Para dados estáticos, basta definir um atributo de classe. Para atribuir um "
+"novo valor ao atributo, você precisa usar explicitamente o nome da classe na "
+"atribuição::"
 
 #: ../../faq/programming.rst:1669
 msgid ""
@@ -3619,6 +3625,14 @@ msgid ""
 "    def getcount(self):\n"
 "        return C.count  # or return self.count"
 msgstr ""
+"class C:\n"
+"    count = 0 # número de vezes que C.__init__ foi chamado\n"
+"\n"
+"    def __init__(self):\n"
+"        C.count = C.count + 1\n"
+"\n"
+"    def getcount(self):\n"
+"        return C.count # ou return self.count"
 
 #: ../../faq/programming.rst:1678
 msgid ""
@@ -3626,6 +3640,10 @@ msgid ""
 "``isinstance(c, C)`` holds, unless overridden by ``c`` itself or by some "
 "class on the base-class search path from ``c.__class__`` back to ``C``."
 msgstr ""
+"``c.count`` também se refere a ``C.count`` para qualquer ``c`` de modo que "
+"``isinstance(c, C)`` seja válido, a menos que seja substituído pelo próprio "
+"``c`` ou por alguma classe no caminho de busca da classe base de ``c."
+"__class__`` até ``C``."
 
 #: ../../faq/programming.rst:1682
 msgid ""
@@ -3634,10 +3652,14 @@ msgid ""
 "dict.  Rebinding of a class-static data name must always specify the class "
 "whether inside a method or not::"
 msgstr ""
+"Cuidado: em um método de C, uma atribuição como ``self.count = 42`` cria uma "
+"instância nova e não-relacionada chamada \"count\" no próprio dicionário de "
+"``self``.  A revinculação de um nome de dado de classe estático deve sempre "
+"especificar a classe, seja dentro de um método ou não::"
 
 #: ../../faq/programming.rst:1687
 msgid "C.count = 314"
-msgstr ""
+msgstr "C.count = 314"
 
 #: ../../faq/programming.rst:1689
 msgid "Static methods are possible::"
@@ -3651,24 +3673,36 @@ msgid ""
 "        # No 'self' parameter!\n"
 "        ..."
 msgstr ""
+"class C:\n"
+"    @staticmethod\n"
+"    def static(arg1, arg2, arg3):\n"
+"        # Sem paâmetro 'self'!\n"
+"        ..."
 
 #: ../../faq/programming.rst:1697
 msgid ""
 "However, a far more straightforward way to get the effect of a static method "
 "is via a simple module-level function::"
 msgstr ""
+"No entanto, uma maneira muito mais direta de obter o efeito de um método "
+"estático é por meio de uma simples função em nível de módulo::"
 
 #: ../../faq/programming.rst:1700
 msgid ""
 "def getcount():\n"
 "    return C.count"
 msgstr ""
+"def getcount():\n"
+"    return C.count"
 
 #: ../../faq/programming.rst:1703
 msgid ""
 "If your code is structured so as to define one class (or tightly related "
 "class hierarchy) per module, this supplies the desired encapsulation."
 msgstr ""
+"Se o seu código está estruturado de modo a definir uma classe (ou uma "
+"hierarquia de classes estreitamente relacionada) por módulo, isso fornecerá "
+"o encapsulamento desejado."
 
 #: ../../faq/programming.rst:1708
 msgid "How can I overload constructors (or methods) in Python?"

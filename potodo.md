@@ -46,9 +46,9 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (90.89% done)
+# faq (91.90% done)
 
-- programming.po                 409 / 508 ( 80.0% translated).
+- programming.po                 420 / 508 ( 82.0% translated).
 
 
 # howto (55.50% done)
@@ -286,5 +286,5 @@
 - changelog.po                   197 / 12102 (  1.0% translated).
 
 
-# TOTAL (54.17% done)
+# TOTAL (54.18% done)
 
