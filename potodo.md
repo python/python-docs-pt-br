@@ -87,7 +87,7 @@
 
 
 
-# library (57.31% done)
+# library (57.38% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    254 / 290 ( 87.0% translated).
@@ -243,7 +243,7 @@
 - tkinter.font.po                 34 /  35 ( 97.0% translated).
 - tkinter.po                     303 / 304 ( 99.0% translated).
 - tkinter.tix.po                   4 /  71 (  5.0% translated).
-- tkinter.ttk.po                 116 / 408 ( 28.0% translated).
+- tkinter.ttk.po                 135 / 408 ( 33.0% translated).
 - tokenize.po                      7 /  44 ( 15.0% translated).
 - traceback.po                     7 /  78 (  8.0% translated).
 - tracemalloc.po                  21 / 144 ( 14.0% translated).
@@ -258,7 +258,7 @@
 - urllib.robotparser.po            2 /  14 ( 14.0% translated).
 - uuid.po                         16 /  59 ( 27.0% translated).
 - venv.po                         99 / 102 ( 97.0% translated).
-- warnings.po                     62 / 109 ( 56.0% translated).
+- warnings.po                     65 / 109 ( 59.0% translated).
 - wave.po                         18 /  49 ( 36.0% translated).
 - weakref.po                      74 /  84 ( 88.0% translated).
 - webbrowser.po                   53 /  82 ( 64.0% translated).
@@ -324,5 +324,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (61.63% done)
+# TOTAL (61.67% done)
 
