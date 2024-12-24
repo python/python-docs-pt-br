@@ -74,7 +74,7 @@
 
 
 
-# library (56.67% done)
+# library (56.83% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - abc.po                          31 /  60 ( 51.0% translated).
@@ -105,7 +105,7 @@
 - cmd.po                           5 /  48 ( 10.0% translated).
 - codecs.po                      250 / 533 ( 46.0% translated).
 - collections.abc.po              96 / 135 ( 71.0% translated).
-- collections.po                 208 / 240 ( 86.0% translated).
+- collections.po                 237 / 240 ( 98.0% translated).
 - compileall.po                   59 /  60 ( 98.0% translated).
 - concurrent.futures.po           14 /  98 ( 14.0% translated).
 - configparser.po                190 / 211 ( 90.0% translated).
@@ -246,7 +246,7 @@
 - threading.po                    35 / 239 ( 14.0% translated).
 - timeit.po                       52 /  68 ( 76.0% translated).
 - tkinter.tix.po                   5 /  75 (  6.0% translated).
-- tkinter.ttk.po                 118 / 421 ( 28.0% translated).
+- tkinter.ttk.po                 141 / 421 ( 33.0% translated).
 - tokenize.po                      8 /  52 ( 15.0% translated).
 - trace.po                        39 /  41 ( 95.0% translated).
 - traceback.po                     9 / 108 (  8.0% translated).
@@ -263,7 +263,7 @@
 - urllib.robotparser.po            5 /  19 ( 26.0% translated).
 - uuid.po                          7 /  69 ( 10.0% translated).
 - venv.po                        120 / 121 ( 99.0% translated).
-- warnings.po                     63 / 131 ( 48.0% translated).
+- warnings.po                     71 / 131 ( 54.0% translated).
 - wave.po                         17 /  53 ( 32.0% translated).
 - webbrowser.po                   32 /  80 ( 40.0% translated).
 - winreg.po                       30 / 176 ( 17.0% translated).
@@ -322,5 +322,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (62.83% done)
+# TOTAL (62.93% done)
 
