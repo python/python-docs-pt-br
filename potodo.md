@@ -71,11 +71,10 @@
 
 
 
-# library (57.71% done)
+# library (57.89% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
-- ast.po                         313 / 314 ( 99.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 400 ( 77.0% translated).
 - asyncio-future.po                9 /  64 ( 14.0% translated).
@@ -96,7 +95,6 @@
 - cmd.po                           5 /  50 ( 10.0% translated).
 - codecs.po                      250 / 532 ( 46.0% translated).
 - collections.abc.po              96 / 135 ( 71.0% translated).
-- collections.po                 210 / 242 ( 86.0% translated).
 - concurrent.futures.po           14 / 100 ( 14.0% translated).
 - configparser.po                197 / 220 ( 89.0% translated).
 - contextlib.po                    9 / 172 (  5.0% translated).
@@ -218,7 +216,7 @@
 - textwrap.po                     48 /  57 ( 84.0% translated).
 - threading.po                    36 / 240 ( 15.0% translated).
 - timeit.po                       52 /  68 ( 76.0% translated).
-- tkinter.ttk.po                 118 / 429 ( 27.0% translated).
+- tkinter.ttk.po                 141 / 429 ( 32.0% translated).
 - tokenize.po                      8 /  52 ( 15.0% translated).
 - trace.po                        41 /  43 ( 95.0% translated).
 - traceback.po                     9 / 112 (  8.0% translated).
@@ -234,7 +232,7 @@
 - urllib.request.po               40 / 297 ( 13.0% translated).
 - urllib.robotparser.po            5 /  19 ( 26.0% translated).
 - uuid.po                          7 /  69 ( 10.0% translated).
-- warnings.po                     64 / 138 ( 46.0% translated).
+- warnings.po                     72 / 138 ( 52.0% translated).
 - wave.po                         17 /  54 ( 31.0% translated).
 - webbrowser.po                   32 /  88 ( 36.0% translated).
 - winreg.po                       30 / 176 ( 17.0% translated).
@@ -286,5 +284,5 @@
 - changelog.po                   197 / 12102 (  1.0% translated).
 
 
-# TOTAL (54.18% done)
+# TOTAL (54.27% done)
 
