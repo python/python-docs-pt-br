@@ -53,11 +53,11 @@
 - programming.po                 426 / 508 ( 83.0% translated).
 
 
-# howto (53.59% done)
+# howto (57.39% done)
 
 - argparse.po                    144 / 145 ( 99.0% translated).
 - curses.po                       58 / 121 ( 47.0% translated).
-- descriptor.po                   55 / 233 ( 23.0% translated).
+- descriptor.po                  172 / 233 ( 73.0% translated).
 - enum.po                         63 / 319 ( 19.0% translated).
 - functional.po                  138 / 252 ( 54.0% translated).
 - logging-cookbook.po             23 / 418 (  5.0% translated).
@@ -322,5 +322,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (62.93% done)
+# TOTAL (63.12% done)
 
