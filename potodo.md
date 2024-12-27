@@ -285,9 +285,9 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (84.52% done)
+# reference (84.56% done)
 
-- compound_stmts.po              217 / 465 ( 46.0% translated).
+- compound_stmts.po              218 / 465 ( 46.0% translated).
 - datamodel.po                   664 / 856 ( 77.0% translated).
 
 
@@ -322,5 +322,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (63.12% done)
+# TOTAL (63.13% done)
 
