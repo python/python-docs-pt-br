@@ -74,7 +74,7 @@
 
 
 
-# library (56.83% done)
+# library (56.88% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - abc.po                          31 /  60 ( 51.0% translated).
@@ -139,7 +139,7 @@
 - email.parser.po                  2 /  48 (  4.0% translated).
 - email.policy.po                 11 / 107 ( 10.0% translated).
 - email.utils.po                  34 /  36 ( 94.0% translated).
-- enum.po                         18 / 231 (  7.0% translated).
+- enum.po                         35 / 231 ( 15.0% translated).
 - errno.po                         8 / 134 (  5.0% translated).
 - exceptions.po                  188 / 189 ( 99.0% translated).
 - faulthandler.po                  4 /  43 (  9.0% translated).
@@ -285,9 +285,9 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (84.56% done)
+# reference (86.81% done)
 
-- compound_stmts.po              218 / 465 ( 46.0% translated).
+- compound_stmts.po              282 / 465 ( 60.0% translated).
 - datamodel.po                   664 / 856 ( 77.0% translated).
 
 
@@ -305,13 +305,13 @@
 - windows.po                     374 / 378 ( 98.0% translated).
 
 
-# whatsnew (74.49% done)
+# whatsnew (74.66% done)
 
 - 2.3.po                         328 / 387 ( 84.0% translated).
 - 2.4.po                         265 / 319 ( 83.0% translated).
 - 2.5.po                         384 / 452 ( 84.0% translated).
 - 2.6.po                         537 / 626 ( 85.0% translated).
-- 3.0.po                         175 / 212 ( 82.0% translated).
+- 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
 - 3.10.po                        529 / 550 ( 96.0% translated).
 - 3.12.po                        831 / 832 ( 99.0% translated).
@@ -322,5 +322,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (63.13% done)
+# TOTAL (63.28% done)
 
