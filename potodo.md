@@ -44,12 +44,12 @@
 - newtypes_tutorial.po            28 / 123 ( 22.0% translated).
 
 
-# faq (88.88% done)
+# faq (89.10% done)
 
 - design.po                      123 / 141 ( 87.0% translated).
 - extending.po                    50 /  58 ( 86.0% translated).
 - library.po                     130 / 140 ( 92.0% translated).
-- programming.po                 310 / 372 ( 83.0% translated).
+- programming.po                 312 / 372 ( 83.0% translated).
 
 
 # howto (53.63% done)
@@ -79,7 +79,7 @@
 
 
 
-# library (57.12% done)
+# library (57.13% done)
 
 - argparse.po                    260 / 290 ( 89.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
@@ -135,7 +135,7 @@
 - email.mime.po                   29 /  38 ( 76.0% translated).
 - email.parser.po                  2 /  47 (  4.0% translated).
 - email.policy.po                 12 / 103 ( 11.0% translated).
-- enum.po                         60 / 188 ( 31.0% translated).
+- enum.po                         61 / 188 ( 32.0% translated).
 - errno.po                         7 / 127 (  5.0% translated).
 - exceptions.po                  139 / 140 ( 99.0% translated).
 - faulthandler.po                  2 /  36 (  5.0% translated).
