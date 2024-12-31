@@ -74,7 +74,7 @@
 
 
 
-# library (56.95% done)
+# library (56.98% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - abc.po                          31 /  60 ( 51.0% translated).
@@ -139,7 +139,7 @@
 - email.parser.po                  2 /  48 (  4.0% translated).
 - email.policy.po                 11 / 107 ( 10.0% translated).
 - email.utils.po                  34 /  36 ( 94.0% translated).
-- enum.po                         59 / 231 ( 25.0% translated).
+- enum.po                         71 / 231 ( 30.0% translated).
 - errno.po                         8 / 134 (  5.0% translated).
 - exceptions.po                  188 / 189 ( 99.0% translated).
 - faulthandler.po                  4 /  43 (  9.0% translated).
@@ -322,5 +322,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (63.34% done)
+# TOTAL (63.36% done)
 
