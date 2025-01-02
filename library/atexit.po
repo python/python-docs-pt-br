@@ -5,16 +5,16 @@
 #
 # Translators:
 # Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2021
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-01 14:17+0000\n"
+"POT-Creation-Date: 2024-12-27 14:16+0000\n"
 "PO-Revision-Date: 2021-06-28 00:55+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -203,6 +203,23 @@ msgid ""
 "\n"
 "atexit.register(savecounter)"
 msgstr ""
+"try:\n"
+"    with open('counterfile') as infile:\n"
+"        _count = int(infile.read())\n"
+"except FileNotFoundError:\n"
+"    _count = 0\n"
+"\n"
+"def incrcounter(n):\n"
+"    global _count\n"
+"    _count = _count + n\n"
+"\n"
+"def savecounter():\n"
+"    with open('counterfile', 'w') as outfile:\n"
+"        outfile.write('%d' % _count)\n"
+"\n"
+"import atexit\n"
+"\n"
+"atexit.register(savecounter)"
 
 #: ../../library/atexit.rst:107
 msgid ""
@@ -224,6 +241,14 @@ msgid ""
 "# or:\n"
 "atexit.register(goodbye, adjective='nice', name='Donny')"
 msgstr ""
+"def goodbye(name, adjective):\n"
+"    print('Goodbye %s, it was %s to meet you.' % (name, adjective))\n"
+"\n"
+"import atexit\n"
+"\n"
+"atexit.register(goodbye, 'Donny', 'nice')\n"
+"# ou:\n"
+"atexit.register(goodbye, adjective='nice', name='Donny')"
 
 #: ../../library/atexit.rst:119
 msgid "Usage as a :term:`decorator`::"
@@ -237,6 +262,11 @@ msgid ""
 "def goodbye():\n"
 "    print('You are now leaving the Python sector.')"
 msgstr ""
+"import atexit\n"
+"\n"
+"@atexit.register\n"
+"def goodbye():\n"
+"    print('You are now leaving the Python sector.')"
 
 #: ../../library/atexit.rst:127
 msgid "This only works with functions that can be called without arguments."
