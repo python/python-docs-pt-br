@@ -69,7 +69,7 @@
 
 
 
-# library (58.26% done)
+# library (58.25% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
@@ -88,7 +88,7 @@
 - bdb.po                           8 / 112 (  7.0% translated).
 - binascii.po                      8 /  38 ( 21.0% translated).
 - bisect.po                       18 /  35 ( 51.0% translated).
-- calendar.po                     35 / 104 ( 33.0% translated).
+- calendar.po                     35 / 109 ( 32.0% translated).
 - cmd.po                           5 /  50 ( 10.0% translated).
 - codecs.po                      250 / 532 ( 46.0% translated).
 - collections.abc.po              96 / 135 ( 71.0% translated).
@@ -246,7 +246,7 @@
 
 
 
-# whatsnew (37.83% done)
+# whatsnew (37.82% done)
 
 - 2.3.po                         328 / 387 ( 84.0% translated).
 - 2.4.po                         265 / 319 ( 83.0% translated).
@@ -260,8 +260,8 @@
 - 3.5.po                         125 / 578 ( 21.0% translated).
 - 3.6.po                         235 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   462 / 12107 (  3.0% translated).
+- changelog.po                   462 / 12113 (  3.0% translated).
 
 
-# TOTAL (55.09% done)
+# TOTAL (55.08% done)
 
