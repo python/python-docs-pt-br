@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2024, Python Software Foundation
+# Copyright (C) 2001-2025, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -9,16 +9,16 @@
 # Vinicius Gubiani Ferreira <vini.g.fer@gmail.com>, 2021
 # i17obot <i17obot@rougeth.com>, 2021
 # Adorilson Bezerra <adorilson@gmail.com>, 2024
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-31 10:59+0000\n"
+"POT-Creation-Date: 2025-01-03 14:16+0000\n"
 "PO-Revision-Date: 2021-06-28 00:55+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -76,6 +76,23 @@ msgid ""
 "\n"
 "asyncio.run(run('ls /zzz'))"
 msgstr ""
+"import asyncio\n"
+"\n"
+"async def run(cmd):\n"
+"    proc = await asyncio.create_subprocess_shell(\n"
+"        cmd,\n"
+"        stdout=asyncio.subprocess.PIPE,\n"
+"        stderr=asyncio.subprocess.PIPE)\n"
+"\n"
+"    stdout, stderr = await proc.communicate()\n"
+"\n"
+"    print(f'[{cmd!r} exited with {proc.returncode}]')\n"
+"    if stdout:\n"
+"        print(f'[stdout]\\n{stdout.decode()}')\n"
+"    if stderr:\n"
+"        print(f'[stderr]\\n{stderr.decode()}')\n"
+"\n"
+"asyncio.run(run('ls /zzz'))"
 
 #: ../../library/asyncio-subprocess.rst:40
 msgid "will print::"
@@ -87,6 +104,9 @@ msgid ""
 "[stderr]\n"
 "ls: /zzz: No such file or directory"
 msgstr ""
+"['ls /zzz' exited with 1]\n"
+"[stderr]\n"
+"ls: /zzz: No such file or directory"
 
 #: ../../library/asyncio-subprocess.rst:46
 msgid ""
@@ -110,6 +130,12 @@ msgid ""
 "\n"
 "asyncio.run(main())"
 msgstr ""
+"async def main():\n"
+"    await asyncio.gather(\n"
+"        run('ls /zzz'),\n"
+"        run('sleep 1; echo \"hello\"'))\n"
+"\n"
+"asyncio.run(main())"
 
 #: ../../library/asyncio-subprocess.rst:58
 msgid "See also the `Examples`_ subsection."
@@ -635,6 +661,28 @@ msgid ""
 "date = asyncio.run(get_date())\n"
 "print(f\"Current date: {date}\")"
 msgstr ""
+"import asyncio\n"
+"import sys\n"
+"\n"
+"async def get_date():\n"
+"    code = 'import datetime; print(datetime.datetime.now())'\n"
+"\n"
+"    # Cria um subprocesso; redireciona a saída padrão\n"
+"    # para o encadeamento.\n"
+"    proc = await asyncio.create_subprocess_exec(\n"
+"        sys.executable, '-c', code,\n"
+"        stdout=asyncio.subprocess.PIPE)\n"
+"\n"
+"    # Lê uma linha da saída.\n"
+"    data = await proc.stdout.readline()\n"
+"    line = data.decode('ascii').rstrip()\n"
+"\n"
+"    # Espera o subprocesso sair.\n"
+"    await proc.wait()\n"
+"    return line\n"
+"\n"
+"date = asyncio.run(get_date())\n"
+"print(f\"Current date: {date}\")"
 
 #: ../../library/asyncio-subprocess.rst:376
 msgid ""

@@ -69,7 +69,7 @@
 
 
 
-# library (58.25% done)
+# library (58.40% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
@@ -81,14 +81,13 @@
 - asyncio-protocol.po             25 / 194 ( 12.0% translated).
 - asyncio-runner.po                5 /  37 ( 13.0% translated).
 - asyncio-stream.po               71 / 101 ( 70.0% translated).
-- asyncio-subprocess.po           77 /  81 ( 95.0% translated).
 - asyncio-sync.po                 12 / 100 ( 12.0% translated).
 - asyncio-task.po                142 / 267 ( 53.0% translated).
 - base64.po                       20 /  62 ( 32.0% translated).
 - bdb.po                           8 / 112 (  7.0% translated).
 - binascii.po                      8 /  38 ( 21.0% translated).
 - bisect.po                       18 /  35 ( 51.0% translated).
-- calendar.po                     35 / 109 ( 32.0% translated).
+- calendar.po                     53 / 109 ( 48.0% translated).
 - cmd.po                           5 /  50 ( 10.0% translated).
 - codecs.po                      250 / 532 ( 46.0% translated).
 - collections.abc.po              96 / 135 ( 71.0% translated).
@@ -111,7 +110,7 @@
 - email.contentmanager.po          4 /  41 (  9.0% translated).
 - email.encoders.po                2 /  15 ( 13.0% translated).
 - email.errors.po                  5 /  27 ( 18.0% translated).
-- email.examples.po               12 /  20 ( 60.0% translated).
+- email.examples.po               15 /  20 ( 75.0% translated).
 - email.generator.po               2 /  41 (  4.0% translated).
 - email.header.po                  3 /  40 (  7.0% translated).
 - email.headerregistry.po         12 / 111 ( 10.0% translated).
@@ -127,11 +126,9 @@
 - ftplib.po                       11 /  99 ( 11.0% translated).
 - functools.po                    20 / 115 ( 17.0% translated).
 - gettext.po                     116 / 129 ( 89.0% translated).
-- graphlib.po                     32 /  38 ( 84.0% translated).
 - grp.po                          15 /  27 ( 55.0% translated).
 - gzip.po                         24 /  68 ( 35.0% translated).
 - hashlib.po                      11 / 168 (  6.0% translated).
-- heapq.po                        52 /  57 ( 91.0% translated).
 - hmac.po                          3 /  27 ( 11.0% translated).
 - html.parser.po                   3 /  60 (  5.0% translated).
 - http.client.po                  45 / 117 ( 38.0% translated).
@@ -165,13 +162,12 @@
 - poplib.po                       10 /  53 ( 18.0% translated).
 - profile.po                      34 / 181 ( 18.0% translated).
 - pyexpat.po                      21 / 144 ( 14.0% translated).
-- queue.po                         8 /  53 ( 15.0% translated).
+- queue.po                         9 /  53 ( 16.0% translated).
 - random.po                      125 / 137 ( 91.0% translated).
 - reprlib.po                       9 /  39 ( 23.0% translated).
 - resource.po                     40 / 110 ( 36.0% translated).
 - runpy.po                        25 /  40 ( 62.0% translated).
 - sched.po                         4 /  25 ( 16.0% translated).
-- secrets.po                      29 /  37 ( 78.0% translated).
 - select.po                       77 / 206 ( 37.0% translated).
 - selectors.po                    13 /  58 ( 22.0% translated).
 - shelve.po                        9 /  40 ( 22.0% translated).
@@ -226,7 +222,6 @@
 - xml.sax.reader.po                2 /  75 (  2.0% translated).
 - xml.sax.utils.po                 1 /  15 (  6.0% translated).
 - xmlrpc.client.po                56 / 113 ( 49.0% translated).
-- xmlrpc.server.po                49 /  57 ( 85.0% translated).
 - zipfile.po                     198 / 207 ( 95.0% translated).
 - zipimport.po                     6 /  38 ( 15.0% translated).
 - zoneinfo.po                      7 /  83 (  8.0% translated).
@@ -246,7 +241,7 @@
 
 
 
-# whatsnew (37.84% done)
+# whatsnew (38.52% done)
 
 - 2.3.po                         328 / 387 ( 84.0% translated).
 - 2.4.po                         265 / 319 ( 83.0% translated).
@@ -260,8 +255,8 @@
 - 3.5.po                         125 / 578 ( 21.0% translated).
 - 3.6.po                         235 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   468 / 12113 (  3.0% translated).
+- changelog.po                   621 / 12113 (  5.0% translated).
 
 
-# TOTAL (55.11% done)
+# TOTAL (55.39% done)
 
