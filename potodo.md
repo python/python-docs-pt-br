@@ -73,7 +73,7 @@
 
 
 
-# library (57.14% done)
+# library (57.29% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - abc.po                          31 /  60 ( 51.0% translated).
@@ -88,7 +88,6 @@
 - asyncio-protocol.po             25 / 193 ( 12.0% translated).
 - asyncio-runner.po                5 /  37 ( 13.0% translated).
 - asyncio-stream.po               71 /  98 ( 72.0% translated).
-- asyncio-subprocess.po           77 /  81 ( 95.0% translated).
 - asyncio-sync.po                 12 /  99 ( 12.0% translated).
 - asyncio-task.po                142 / 254 ( 55.0% translated).
 - audioop.po                       5 /  53 (  9.0% translated).
@@ -96,7 +95,7 @@
 - bdb.po                           7 / 111 (  6.0% translated).
 - binascii.po                      9 /  41 ( 21.0% translated).
 - bisect.po                       18 /  35 ( 51.0% translated).
-- calendar.po                     35 / 108 ( 32.0% translated).
+- calendar.po                     53 / 108 ( 49.0% translated).
 - cgi.po                          28 / 126 ( 22.0% translated).
 - cgitb.po                        16 /  17 ( 94.0% translated).
 - chunk.po                        14 /  39 ( 35.0% translated).
@@ -127,7 +126,7 @@
 - email.contentmanager.po          4 /  41 (  9.0% translated).
 - email.encoders.po                2 /  15 ( 13.0% translated).
 - email.errors.po                  5 /  27 ( 18.0% translated).
-- email.examples.po               12 /  20 ( 60.0% translated).
+- email.examples.po               15 /  20 ( 75.0% translated).
 - email.generator.po               2 /  41 (  4.0% translated).
 - email.header.po                  3 /  40 (  7.0% translated).
 - email.headerregistry.po         12 / 111 ( 10.0% translated).
@@ -146,11 +145,9 @@
 - functions.po                   491 / 497 ( 98.0% translated).
 - functools.po                    20 / 115 ( 17.0% translated).
 - gettext.po                     116 / 129 ( 89.0% translated).
-- graphlib.po                     32 /  38 ( 84.0% translated).
 - grp.po                          17 /  29 ( 58.0% translated).
 - gzip.po                         22 /  65 ( 33.0% translated).
 - hashlib.po                      11 / 168 (  6.0% translated).
-- heapq.po                        52 /  57 ( 91.0% translated).
 - hmac.po                          3 /  27 ( 11.0% translated).
 - html.parser.po                   3 /  60 (  5.0% translated).
 - http.client.po                  45 / 117 ( 38.0% translated).
@@ -193,14 +190,13 @@
 - poplib.po                       10 /  53 ( 18.0% translated).
 - profile.po                      34 / 179 ( 18.0% translated).
 - pyexpat.po                      21 / 144 ( 14.0% translated).
-- queue.po                         5 /  44 ( 11.0% translated).
+- queue.po                         6 /  44 ( 13.0% translated).
 - random.po                      111 / 121 ( 91.0% translated).
 - re.po                          433 / 436 ( 99.0% translated).
 - reprlib.po                       9 /  39 ( 23.0% translated).
 - resource.po                     40 / 110 ( 36.0% translated).
 - runpy.po                        25 /  40 ( 62.0% translated).
 - sched.po                         4 /  25 ( 16.0% translated).
-- secrets.po                      29 /  37 ( 78.0% translated).
 - select.po                       77 / 206 ( 37.0% translated).
 - selectors.po                    13 /  58 ( 22.0% translated).
 - shelve.po                        9 /  40 ( 22.0% translated).
@@ -263,7 +259,6 @@
 - xml.sax.reader.po                2 /  75 (  2.0% translated).
 - xml.sax.utils.po                 1 /  15 (  6.0% translated).
 - xmlrpc.client.po                56 / 113 ( 49.0% translated).
-- xmlrpc.server.po                49 /  57 ( 85.0% translated).
 - zipfile.po                     193 / 202 ( 95.0% translated).
 - zipimport.po                     6 /  37 ( 16.0% translated).
 - zoneinfo.po                      7 /  83 (  8.0% translated).
@@ -306,5 +301,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (63.48% done)
+# TOTAL (63.56% done)
 
