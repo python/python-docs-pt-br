@@ -1,19 +1,19 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2024, Python Software Foundation
+# Copyright (C) 2001-2025, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-20 14:50+0000\n"
+"POT-Creation-Date: 2025-01-10 14:49+0000\n"
 "PO-Revision-Date: 2024-05-11 00:34+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "Language: pt_BR\n"
@@ -4958,8 +4958,8 @@ msgid ""
 ">>> type(list[int])\n"
 "<class 'types.GenericAlias'>"
 msgstr ""
-">>> # lista tem um \"type\" de classe como sua metaclasse, como a maioria "
-"das classes:\n"
+">>> # lista tem a classe \"type\" como sua metaclasse, como a maioria das "
+"classes:\n"
 ">>> type(list)\n"
 "<class 'type'>\n"
 ">>> type(dict) == type(list) == type(tuple) == type(str) == type(bytes)\n"
@@ -5001,6 +5001,22 @@ msgid ""
 ">>> type(Menu['SPAM'])\n"
 "<enum 'Menu'>"
 msgstr ""
+">>> from enum import Enum\n"
+">>> class Menu(Enum):\n"
+"...     \"\"\"A breakfast menu\"\"\"\n"
+"...     SPAM = 'spam'\n"
+"...     BACON = 'bacon'\n"
+"...\n"
+">>> # Classes Enum têm uma metaclasses personalizada:\n"
+">>> type(Menu)\n"
+"<class 'enum.EnumMeta'>\n"
+">>> # EnumMeta define __getitem__,\n"
+">>> # de forma que __class_getitem__ não é chamado,\n"
+">>> # e o resultado não é um objeto GenericAlias:\n"
+">>> Menu['SPAM']\n"
+"<Menu.SPAM: 'spam'>\n"
+">>> type(Menu['SPAM'])\n"
+"<enum 'Menu'>"
 
 #: ../../reference/datamodel.rst:2996
 msgid ":pep:`560` - Core Support for typing module and generic types"
@@ -5026,6 +5042,10 @@ msgid ""
 "defined, ``x(arg1, arg2, ...)`` roughly translates to ``type(x).__call__(x, "
 "arg1, ...)``. The :class:`object` class itself does not provide this method."
 msgstr ""
+"Chamado quando a instância é \"chamada\" como uma função; se este método for "
+"definido, ``x(arg1, arg2, ...)`` basicamente traduz para ``type(x)."
+"__call__(x, arg1, ...)``. A classe :class:`object` em si não fornece este "
+"método."
 
 #: ../../reference/datamodel.rst:3020
 msgid "Emulating container types"
@@ -5067,6 +5087,40 @@ msgid ""
 "meth:`!__iter__` should iterate through the object's keys; for sequences, it "
 "should iterate through the values."
 msgstr ""
+"Os métodos a seguir podem ser definidos para implementar objetos "
+"contêineres. Nenhum deles são fornecidos pela classe :class:`object` em si. "
+"Os contêineres geralmente são :term:`sequências <sequence>` (tal como :class:"
+"`listas <list>` ou :class:`tuplas <tuple>`) ou :term:`mapeamentos <mapping>` "
+"(com :term:`dicionários <dictionary>`), mas também podem representar outros "
+"contêineres. O primeiro conjunto de métodos é usado para emular uma "
+"sequência ou para emular um mapeamento; a diferença é que, para uma "
+"sequência, as chaves permitidas devem ser os inteiros *k* para os quais ``0 "
+"<= k < N`` onde *N* é o comprimento da sequência, ou objetos :class:`slice`, "
+"que definem um intervalo de itens. Também é recomendado que os mapeamentos "
+"forneçam os métodos :meth:`!keys`, :meth:`!values`, :meth:`!items`, :meth:`!"
+"get`, :meth:`!clear`, :meth:`!setdefault`, :meth:`!pop`, :meth:`!popitem`, :"
+"meth:`!copy` e :meth:`!update` se comportando de forma semelhante aos "
+"objetos :class:`dicionário <dict>` padrão do Python. O módulo :mod:"
+"`collections.abc` fornece uma :term:`classe base abstrata` :class:"
+"`~collections.abc.MutableMapping` para ajudar a criar esses métodos a partir "
+"de um conjunto base de :meth:`~object.__getitem__`, :meth:`~object."
+"__setitem__`, :meth:`~object.__delitem__` e :meth:`!keys`. Sequências "
+"mutáveis ​​devem fornecer métodos :meth:`!append`, :meth:`!count`, :meth:`!"
+"index`, :meth:`!extend`, :meth:`!insert`, :meth:`!pop`, :meth:`!remove`, :"
+"meth:`!reverse` e :meth:`!sort`, como objetos :class:`list` padrão do "
+"Python. Finalmente, os tipos sequência devem implementar adição "
+"(significando concatenação) e multiplicação (significando repetição) "
+"definindo os métodos :meth:`~object.__add__`, :meth:`~object.__radd__`, :"
+"meth:`~object.__iadd__`, :meth:`~object.__mul__`, :meth:`~object.__rmul__` "
+"e :meth:`~object.__imul__` descritos abaixo; eles não devem definir outros "
+"operadores numéricos. É recomendado que ambos os mapeamentos e sequências "
+"implementem o método :meth:`~object.__contains__` para permitir o uso "
+"eficiente do operador ``in``; para mapeamentos, ``in`` deve pesquisar as "
+"chaves do mapeamento; para sequências, ele deve pesquisar os valores. É "
+"ainda recomendado que ambos os mapeamentos e sequências implementem o "
+"método :meth:`~object.__iter__` para permitir a iteração eficiente através "
+"do contêiner; para mapeamentos, :meth:`!__iter__` deve iterar através das "
+"chaves do objeto; para sequências, ele deve iterar por meio dos valores."
 
 #: ../../reference/datamodel.rst:3064
 msgid ""
@@ -5075,6 +5129,10 @@ msgid ""
 "define a :meth:`~object.__bool__` method and whose :meth:`!__len__` method "
 "returns zero is considered to be false in a Boolean context."
 msgstr ""
+"Chamado para implementar a função embutida :func:`len`. Deve retornar o "
+"comprimento do objeto, um inteiro ``>=`` 0. Além disso, um objeto que não "
+"define um método :meth:`~object.__bool__` e cujo método :meth:`!__len__` "
+"retorna zero é considerado como falso em um contexto booleano."
 
 #: ../../reference/datamodel.rst:3071
 msgid ""
@@ -5084,6 +5142,11 @@ msgid ""
 "OverflowError` by truth value testing, an object must define a :meth:"
 "`~object.__bool__` method."
 msgstr ""
+"No CPython, o comprimento deve ser no máximo :data:`sys.maxsize`. Se o "
+"comprimento for maior que :data:`!sys.maxsize`, alguns recursos (como :func:"
+"`len`) podem levantar :exc:`OverflowError`. Para evitar levantar :exc:`!"
+"OverflowError` pelo teste de valor de verdade, um objeto deve definir um "
+"método :meth:`~object.__bool__`."
 
 #: ../../reference/datamodel.rst:3080
 msgid ""
@@ -5094,6 +5157,12 @@ msgid ""
 "method didn't exist at all. This method is purely an optimization and is "
 "never required for correctness."
 msgstr ""
+"Chamado para implementar :func:`operator.length_hint`. Deve retornar um "
+"comprimento estimado para o objeto (que pode ser maior ou menor que o "
+"comprimento real). O comprimento deve ser um inteiro ``>=`` 0. O valor de "
+"retorno também pode ser :data:`NotImplemented`, que é tratado da mesma forma "
+"como se o método ``__length_hint__`` não existisse. Este método é puramente "
+"uma otimização e nunca é necessário para a correção."
 
 #: ../../reference/datamodel.rst:3094
 msgid ""
@@ -5104,7 +5173,7 @@ msgstr ""
 
 #: ../../reference/datamodel.rst:3096
 msgid "a[1:2] = b"
-msgstr ""
+msgstr "a[1:2] = b"
 
 #: ../../reference/datamodel.rst:3098
 msgid "is translated to ::"
@@ -5112,7 +5181,7 @@ msgstr "é traduzida com ::"
 
 #: ../../reference/datamodel.rst:3100
 msgid "a[slice(1, 2, None)] = b"
-msgstr ""
+msgstr "a[slice(1, 2, None)] = b"
 
 #: ../../reference/datamodel.rst:3102
 msgid "and so forth.  Missing slice items are always filled in with ``None``."
@@ -5131,6 +5200,15 @@ msgid ""
 "term:`mapping` types, if *key* is missing (not in the container), :exc:"
 "`KeyError` should be raised."
 msgstr ""
+"Chamado para implementar a avaliação de ``self[key]``. Para tipos de :term:"
+"`sequência`, as chaves aceitas devem ser inteiros. Opcionalmente, eles "
+"também podem oferecer suporte a objetos :class:`slice`. Suporte a índice "
+"negativo também é opcional. Se *key* for de um tipo impróprio, :exc:"
+"`TypeError` pode ser levantada; se *key* for de um valor fora do conjunto de "
+"índices para a sequência (após qualquer interpretação especial de valores "
+"negativos), :exc:`IndexError` deve ser levantada. Para tipos :term:"
+"`mapeamento`, se *key* estiver faltando (não no contêiner), :exc:`KeyError` "
+"deve ser levantada."
 
 #: ../../reference/datamodel.rst:3119
 msgid ""
@@ -5146,6 +5224,10 @@ msgid ""
 "meth:`~object.__class_getitem__` may be called instead of ``__getitem__()``. "
 "See :ref:`classgetitem-versus-getitem` for more details."
 msgstr ""
+"Ao fazer :ref:`subscrição <subscriptions>` de uma *classe*, o método de "
+"classe especial :meth:`~object.__class_getitem__` pode ser chamado em vez de "
+"``__getitem__()``. Veja :ref:`classgetitem-versus-getitem` para mais "
+"detalhes."
 
 #: ../../reference/datamodel.rst:3132
 msgid ""
@@ -5192,6 +5274,10 @@ msgid ""
 "the objects in the container.  For mappings, it should iterate over the keys "
 "of the container."
 msgstr ""
+"Este método é chamado quando um :term:`iterador` é necessário para um "
+"contêiner. Este método deve retornar um novo objeto iterador que pode iterar "
+"sobre todos os objetos no contêiner. Para mapeamentos, ele deve iterar sobre "
+"as chaves do contêiner."
 
 #: ../../reference/datamodel.rst:3164
 msgid ""
@@ -5282,12 +5368,23 @@ msgid ""
 "optional third argument if the ternary version of the built-in :func:`pow` "
 "function is to be supported."
 msgstr ""
+"Esses métodos são chamados para implementar as operações aritméticas "
+"binárias (``+``, ``-``, ``*``, ``@``, ``/``, ``//``, ``%``, :func:`divmod`, :"
+"func:`pow`, ``**``, ``<<``, ``>>``, ``&``, ``^``, ``|``). Por exemplo, para "
+"avaliar a expressão ``x + y``, onde *x* é uma instância de uma classe que "
+"tem um método :meth:`__add__`, ``type(x).__add__(x, y)`` é chamado. O "
+"método :meth:`__divmod__` deve ser equivalente a usar :meth:`__floordiv__` "
+"e :meth:`__mod__`; não deve estar relacionado a :meth:`__truediv__`. Note "
+"que :meth:`__pow__` deve ser definido para aceitar um terceiro argumento "
+"opcional se a versão ternária da função embutida :func:`pow` for suportada."
 
 #: ../../reference/datamodel.rst:3234
 msgid ""
 "If one of those methods does not support the operation with the supplied "
 "arguments, it should return :data:`NotImplemented`."
 msgstr ""
+"Se um desses métodos não suporta a operação com os argumentos fornecidos, "
+"ele deve retornar :data:`NotImplemented`."
 
 #: ../../reference/datamodel.rst:3257
 msgid ""
@@ -5301,6 +5398,15 @@ msgid ""
 "__rsub__(y, x)`` is called if ``type(x).__sub__(x, y)`` returns :data:"
 "`NotImplemented`."
 msgstr ""
+"Esses métodos são chamados para implementar as operações aritméticas "
+"binárias (``+``, ``-``, ``*``, ``@``, ``/``, ``//``, ``%``, :func:`divmod`, :"
+"func:`pow`, ``**``, ``<<``, ``>>``, ``&``, ``^``, ``|``) com operandos "
+"refletidos (trocados). Essas funções são chamadas apenas se o operando "
+"esquerdo não suportar a operação correspondente [#]_ e os operandos forem de "
+"tipos diferentes. [#]_ Por exemplo, para avaliar a expressão ``x - y``, onde "
+"*y* é uma instância de uma classe que tem um método :meth:`__rsub__`, "
+"``type(y).__rsub__(y, x)`` é chamado se ``type(x).__sub__(x, y)`` retorna :"
+"data:`NotImplemented`."
 
 #: ../../reference/datamodel.rst:3269
 msgid ""
@@ -5341,6 +5447,20 @@ msgid ""
 "augmented-assignment-tuple-error`), but this behavior is in fact part of the "
 "data model."
 msgstr ""
+"Esses métodos são chamados para implementar as atribuições aritméticas "
+"aumentadas (``+=``, ``-=``, ``*=``, ``@=``, ``/=``, ``//=``, ``%=``, "
+"``**=``, ``<<=``, ``>>=``, ``&=``, ``^=``, ``|=``). Esses métodos devem "
+"tentar fazer a operação no local (modificando *self*) e retornar o resultado "
+"(que poderia ser, mas não precisa ser, *self*). Se um método específico não "
+"for definido, ou se esse método retorna :data:`NotImplemented`, a atribuição "
+"aumentada volta aos métodos normais. Por exemplo, se *x* é uma instância de "
+"uma classe com um método :meth:`__iadd__`, ``x += y`` equivale a ``x = x."
+"__iadd__(y)``. Se :meth:`__iadd__` não existe, ou se ``x.__iadd__(y)`` "
+"retorna :data:`!NotImplemented`, ``x.__add__(y)`` e ``y.__radd__(x)`` são "
+"considerados, como com a avaliação de ``x + y``. Em certas situações, a "
+"atribuição aumentada pode resultar em erros inesperados (veja :ref:`faq-"
+"augmented-assignment-tuple-error`), mas este comportamento é na verdade "
+"parte do modelo de dados."
 
 #: ../../reference/datamodel.rst:3318
 msgid ""
@@ -5401,10 +5521,12 @@ msgid ""
 "The built-in function :func:`int` falls back to :meth:`__trunc__` if "
 "neither :meth:`__int__` nor :meth:`__index__` is defined."
 msgstr ""
+"A função embutida :func:`int` retorna para :meth:`__trunc__` se nem :meth:"
+"`__int__` nem :meth:`__index__` estiverem definidos."
 
 #: ../../reference/datamodel.rst:3365
 msgid "The delegation of :func:`int` to :meth:`__trunc__` is deprecated."
-msgstr ""
+msgstr "A delegação de :func:`int` para :meth:`__trunc__` foi descontinuada."
 
 #: ../../reference/datamodel.rst:3372
 msgid "With Statement Context Managers"
@@ -5442,6 +5564,9 @@ msgid ""
 "The :class:`object` class itself does not provide the context manager "
 "methods."
 msgstr ""
+"Para mais informações sobre gerenciadores de contexto, veja :ref:"
+"`typecontextmanager`. A classe :class:`object` em si não fornece os métodos "
+"do gerenciador de contexto."
 
 #: ../../reference/datamodel.rst:3394
 msgid ""
@@ -5480,6 +5605,8 @@ msgid ""
 "Note that :meth:`~object.__exit__` methods should not reraise the passed-in "
 "exception; this is the caller's responsibility."
 msgstr ""
+"Observe que os métodos :meth:`~object.__exit__` não devem relançar a exceção "
+"passada; esta é a responsabilidade do chamador."
 
 #: ../../reference/datamodel.rst:3415
 msgid ":pep:`343` - The \"with\" statement"
@@ -5505,6 +5632,10 @@ msgid ""
 "without special support in ``MyClass``. To be able to use that kind of "
 "pattern, the class needs to define a *__match_args__* attribute."
 msgstr ""
+"Ao usar um nome de classe em um padrão, argumentos posicionais não são "
+"permitidos por padrão, ou seja, ``case MyClass(x, y)`` é tipicamente "
+"inválida sem suporte especial em ``MyClass``. Para permitir a utilização "
+"desse tipo de padrão, a classe precisa definir um atributo *__match_args__*"
 
 #: ../../reference/datamodel.rst:3432
 msgid ""
@@ -5546,7 +5677,7 @@ msgstr "A especificação para a instrução Python ``match``"
 
 #: ../../reference/datamodel.rst:3455
 msgid "Emulating buffer types"
-msgstr ""
+msgstr "Emulando tipos buffer"
 
 #: ../../reference/datamodel.rst:3457
 msgid ""
@@ -5555,12 +5686,19 @@ msgid ""
 "implemented by builtin types such as :class:`bytes` and :class:`memoryview`, "
 "and third-party libraries may define additional buffer types."
 msgstr ""
+"O :ref:`protocolo buffer <bufferobjects>` fornece uma maneira para objetos "
+"Python exporem acesso eficiente a um vetor de memória de baixo nível. Este "
+"protocolo é implementado por tipos embutido como :class:`bytes` e :class:"
+"`memoryview`, e bibliotecas de terceiros podem definir tipos de buffer "
+"adicionais."
 
 #: ../../reference/datamodel.rst:3462
 msgid ""
 "While buffer types are usually implemented in C, it is also possible to "
 "implement the protocol in Python."
 msgstr ""
+"Embora os tipos buffer sejam geralmente implementados em C, também é "
+"possível implementar o protocolo em Python."
 
 #: ../../reference/datamodel.rst:3467
 msgid ""
@@ -5571,6 +5709,12 @@ msgid ""
 "convenient way to interpret the flags. The method must return a :class:"
 "`memoryview` object."
 msgstr ""
+"Chamado quando um buffer é solicitado de *self* (por exemplo, pelo "
+"construtor de :class:`memoryview`). O argumento *flags* é um inteiro que "
+"representa o tipo de buffer solicitado, afetando, por exemplo, se o buffer "
+"retornado é somente leitura ou gravável. :class:`inspect.BufferFlags` "
+"fornece uma maneira conveniente de interpretar os sinalizadores. O método "
+"deve retornar um objeto :class:`memoryview`."
 
 #: ../../reference/datamodel.rst:3476
 msgid ""
@@ -5580,23 +5724,28 @@ msgid ""
 "buffer. This method should return ``None``. Buffer objects that do not need "
 "to perform any cleanup are not required to implement this method."
 msgstr ""
+"Chamado quando um buffer não é mais necessário. O argumento *buffer* é um "
+"objeto :class:`memoryview` que foi retornado anteriormente por :meth:"
+"`~object.__buffer__`. O método deve liberar quaisquer recursos associados ao "
+"buffer. Este método deve retornar ``None``. Objetos buffer que não precisam "
+"executar nenhuma limpeza não são necessários para implementar este método."
 
 #: ../../reference/datamodel.rst:3487
 msgid ":pep:`688` - Making the buffer protocol accessible in Python"
-msgstr ""
+msgstr ":pep:`688` - Tornando o protocolo de buffer acessível no Python"
 
 #: ../../reference/datamodel.rst:3488
 msgid ""
 "Introduces the Python ``__buffer__`` and ``__release_buffer__`` methods."
-msgstr ""
+msgstr "Introduz os métodos ``__buffer__`` e ``__release_buffer__`` no Python"
 
 #: ../../reference/datamodel.rst:3490
 msgid ":class:`collections.abc.Buffer`"
-msgstr ""
+msgstr ":class:`collections.abc.Buffer`"
 
 #: ../../reference/datamodel.rst:3491
 msgid "ABC for buffer types."
-msgstr ""
+msgstr "ABC para tipos buffer."
 
 #: ../../reference/datamodel.rst:3496
 msgid "Special method lookup"
@@ -5626,6 +5775,15 @@ msgid ""
 "  File \"<stdin>\", line 1, in <module>\n"
 "TypeError: object of type 'C' has no len()"
 msgstr ""
+">>> class C:\n"
+"...     pass\n"
+"...\n"
+">>> c = C()\n"
+">>> c.__len__ = lambda: 5\n"
+">>> len(c)\n"
+"Traceback (most recent call last):\n"
+"  File \"<stdin>\", line 1, in <module>\n"
+"TypeError: object of type 'C' has no len()"
 
 #: ../../reference/datamodel.rst:3513
 msgid ""
@@ -5635,6 +5793,11 @@ msgid ""
 "of these methods used the conventional lookup process, they would fail when "
 "invoked on the type object itself::"
 msgstr ""
+"A justificativa por trás desse comportamento está em uma série de métodos "
+"especiais como :meth:`~object.__hash__` e :meth:`~object.__repr__` que são "
+"implementados por todos os objetos, incluindo objetos de tipo. Se a pesquisa "
+"implícita desses métodos usasse o processo de pesquisa convencional, eles "
+"falhariam quando invocados no próprio objeto do tipo::"
 
 #: ../../reference/datamodel.rst:3520
 msgid ""
@@ -5645,6 +5808,12 @@ msgid ""
 "  File \"<stdin>\", line 1, in <module>\n"
 "TypeError: descriptor '__hash__' of 'int' object needs an argument"
 msgstr ""
+">>> 1 .__hash__() == hash(1)\n"
+"True\n"
+">>> int.__hash__() == hash(int)\n"
+"Traceback (most recent call last):\n"
+"  File \"<stdin>\", line 1, in <module>\n"
+"TypeError: descriptor '__hash__' of 'int' object needs an argument"
 
 #: ../../reference/datamodel.rst:3527
 msgid ""
@@ -5663,6 +5832,10 @@ msgid ""
 ">>> type(int).__hash__(int) == hash(int)\n"
 "True"
 msgstr ""
+">>> type(1).__hash__(1) == hash(1)\n"
+"True\n"
+">>> type(int).__hash__(int) == hash(int)\n"
+"True"
 
 #: ../../reference/datamodel.rst:3536
 msgid ""
@@ -5670,6 +5843,9 @@ msgid ""
 "correctness, implicit special method lookup generally also bypasses the :"
 "meth:`~object.__getattribute__` method even of the object's metaclass::"
 msgstr ""
+"Além de contornar quaisquer atributos de instância no interesse da correção, "
+"a pesquisa de método especial implícita geralmente também contorna o método :"
+"meth:`~object.__getattribute__` mesmo da metaclasse do objeto::"
 
 #: ../../reference/datamodel.rst:3540
 msgid ""
@@ -5695,6 +5871,27 @@ msgid ""
 ">>> len(c)                      # Implicit lookup\n"
 "10"
 msgstr ""
+">>> class Meta(type):\n"
+"...     def __getattribute__(*args):\n"
+"...         print(\"Metaclass getattribute invoked\")\n"
+"...         return type.__getattribute__(*args)\n"
+"...\n"
+">>> class C(object, metaclass=Meta):\n"
+"...     def __len__(self):\n"
+"...         return 10\n"
+"...     def __getattribute__(*args):\n"
+"...         print(\"Class getattribute invoked\")\n"
+"...         return object.__getattribute__(*args)\n"
+"...\n"
+">>> c = C()\n"
+">>> c.__len__()                 # Explicit lookup via instance\n"
+"Class getattribute invoked\n"
+"10\n"
+">>> type(c).__len__(c)          # Explicit lookup via type\n"
+"Metaclass getattribute invoked\n"
+"10\n"
+">>> len(c)                      # Implicit lookup\n"
+"10"
 
 #: ../../reference/datamodel.rst:3562
 msgid ""
@@ -5704,6 +5901,11 @@ msgid ""
 "special method *must* be set on the class object itself in order to be "
 "consistently invoked by the interpreter)."
 msgstr ""
+"Ignorar a maquinaria de :meth:`~object.__getattribute__` desta forma fornece "
+"um escopo significativo para otimizações de velocidade dentro do "
+"interpretador, ao custo de alguma flexibilidade no tratamento de métodos "
+"especiais (o método especial *deve* ser definido no próprio objeto classe em "
+"ordem ser invocado de forma consistente pelo interpretador)."
 
 #: ../../reference/datamodel.rst:3573
 msgid "Coroutines"
@@ -5719,6 +5921,9 @@ msgid ""
 "__await__` method. :term:`Coroutine objects <coroutine>` returned from :"
 "keyword:`async def` functions are awaitable."
 msgstr ""
+"Um objeto :term:`aguardável` geralmente implementa um método :meth:`~object."
+"__await__`. Os :term:`objetos corrotina <coroutine>` retornados das funções :"
+"keyword:`async def` são aguardáveis."
 
 #: ../../reference/datamodel.rst:3585
 msgid ""
@@ -5726,6 +5931,9 @@ msgid ""
 "with :func:`types.coroutine` are also awaitable, but they do not implement :"
 "meth:`~object.__await__`."
 msgstr ""
+"Os objetos :term:`iteradores geradores <iterador gerador>` retornados de "
+"geradores decorados com :func:`types.coroutine` também são aguardáveis, mas "
+"eles não implementam :meth:`~object.__await__`."
 
 #: ../../reference/datamodel.rst:3591
 msgid ""
@@ -5734,6 +5942,10 @@ msgid ""
 "method to be compatible with the :keyword:`await` expression. The :class:"
 "`object` class itself is not awaitable and does not provide this method."
 msgstr ""
+"Deve retornar um :term:`iterador`. Deve ser usado para implementar objetos :"
+"term:`aguardáveis <aguardável>`. Por exemplo, :class:`asyncio.Future` "
+"implementa este método para ser compatível com a expressão :keyword:`await`. "
+"A classe :class:`object` em si não é aguardável e não fornece este método."
 
 #: ../../reference/datamodel.rst:3599
 msgid ""
@@ -5742,6 +5954,10 @@ msgid ""
 "specific to the implementation of the asynchronous execution framework (e."
 "g. :mod:`asyncio`) that will be managing the :term:`awaitable` object."
 msgstr ""
+"A linguagem não impõe nenhuma restrição ao tipo ou valor dos objetos "
+"produzidos pelo iterador retornado por ``__await__``, pois isso é específico "
+"para a implementação da estrutura de execução assíncrona (por exemplo, :mod:"
+"`asyncio`) que gerenciará o objeto :term:`awaitable`."
 
 #: ../../reference/datamodel.rst:3607
 msgid ":pep:`492` for additional information about awaitable objects."
@@ -5761,6 +5977,14 @@ msgid ""
 "coroutine raises an exception, it is propagated by the iterator.  Coroutines "
 "should not directly raise unhandled :exc:`StopIteration` exceptions."
 msgstr ""
+":term:`Objetos corrotina <coroutine>` são objetos :term:`aguardáveis "
+"<aguardável>`. A execução de uma corrotina pode ser controlada chamando :"
+"meth:`~object.__await__` e iterando sobre o resultado. Quando a corrotina "
+"termina a execução e retorna, o iterador levanta :exc:`StopIteration`, e o "
+"atributo :attr:`~StopIteration.value` da exceção contém o valor de retorno. "
+"Se a corrotina levantar uma exceção, ela será propagada pelo iterador. As "
+"corrotinas não devem levantar exceções :exc:`StopIteration` diretamente não "
+"tratadas."
 
 #: ../../reference/datamodel.rst:3623
 msgid ""
@@ -5786,6 +6010,12 @@ msgid ""
 "exception) is the same as when iterating over the :meth:`!__await__` return "
 "value, described above."
 msgstr ""
+"Inicia ou retoma a execução da corrotina. Se *value* for ``None``, isso "
+"equivale a avançar o iterador retornado por :meth:`~object.__await__`. Se "
+"*value* não for ``None``, este método delega para o método :meth:`~generator."
+"send` do iterador que causou a suspensão da corrotina. O resultado (valor de "
+"retorno, :exc:`StopIteration` ou outra exceção) é o mesmo de iterar sobre o "
+"valor de retorno :meth:`!__await__`, descrito acima."
 
 #: ../../reference/datamodel.rst:3644
 msgid ""
@@ -5797,6 +6027,13 @@ msgid ""
 "meth:`~object.__await__` return value, described above.  If the exception is "
 "not caught in the coroutine, it propagates back to the caller."
 msgstr ""
+"Levanta a exceção especificada na corrotina. Este método delega ao método :"
+"meth:`~generator.throw` do iterador que causou a suspensão da corrotina, se "
+"ela tiver tal método. Caso contrário, a exceção é levantada no ponto de "
+"suspensão. O resultado (valor de retorno, :exc:`StopIteration` ou outra "
+"exceção) é o mesmo de iterar sobre o valor de retorno :meth:`~object."
+"__await__`, descrito acima. Se a exceção não for capturada na corrotina, ela "
+"se propagará de volta para o chamador."
 
 #: ../../reference/datamodel.rst:3655
 msgid ""
@@ -5851,7 +6088,7 @@ msgstr ""
 
 #: ../../reference/datamodel.rst:3681 ../../reference/datamodel.rst:3730
 msgid "The :class:`object` class itself does not provide these methods."
-msgstr ""
+msgstr "A classe :class:`object` em si não fornece estes métodos."
 
 #: ../../reference/datamodel.rst:3686
 msgid "Must return an *asynchronous iterator* object."
@@ -5884,6 +6121,18 @@ msgid ""
 "            raise StopAsyncIteration\n"
 "        return val"
 msgstr ""
+"class Reader:\n"
+"    async def readline(self):\n"
+"        ...\n"
+"\n"
+"    def __aiter__(self):\n"
+"        return self\n"
+"\n"
+"    async def __anext__(self):\n"
+"        val = await self.readline()\n"
+"        if val == b'':\n"
+"            raise StopAsyncIteration\n"
+"        return val"
 
 #: ../../reference/datamodel.rst:3710
 msgid ""
@@ -5891,6 +6140,9 @@ msgid ""
 "that would resolve to an :term:`asynchronous iterator <asynchronous "
 "iterator>`."
 msgstr ""
+"Antes do Python 3.7, :meth:`~object.__aiter__` poderia retornar um "
+"*aguardável* que resolveria para um :term:`iterador assíncrono <asynchronous "
+"iterator>`."
 
 #: ../../reference/datamodel.rst:3715
 msgid ""
@@ -5898,6 +6150,9 @@ msgid ""
 "asynchronous iterator object.  Returning anything else will result in a :exc:"
 "`TypeError` error."
 msgstr ""
+"A partir do Python 3.7, :meth:`~object.__aiter__` deve retornar um objeto "
+"iterador assíncrono. Retornar qualquer outra coisa resultará em um erro :exc:"
+"`TypeError`."
 
 #: ../../reference/datamodel.rst:3723
 msgid "Asynchronous Context Managers"
@@ -5924,12 +6179,16 @@ msgid ""
 "Semantically similar to :meth:`~object.__enter__`, the only difference being "
 "that it must return an *awaitable*."
 msgstr ""
+"Semanticamente semelhante a :meth:`~object.__enter__`, a única diferença é "
+"que ele deve retornar um *aguardável*."
 
 #: ../../reference/datamodel.rst:3739
 msgid ""
 "Semantically similar to :meth:`~object.__exit__`, the only difference being "
 "that it must return an *awaitable*."
 msgstr ""
+"Semanticamente semelhante a :meth:`~object.__exit__`, a única diferença é "
+"que ele deve retornar um *aguardável*."
 
 #: ../../reference/datamodel.rst:3742
 msgid "An example of an asynchronous context manager class::"
@@ -5944,6 +6203,12 @@ msgid ""
 "    async def __aexit__(self, exc_type, exc, tb):\n"
 "        await log('exiting context')"
 msgstr ""
+"class AsyncContextManager:\n"
+"    async def __aenter__(self):\n"
+"        await log('entrando no contexto')\n"
+"\n"
+"    async def __aexit__(self, exc_type, exc, tb):\n"
+"        await log('saindo do contexto')"
 
 #: ../../reference/datamodel.rst:3755
 msgid "Footnotes"
@@ -5974,6 +6239,10 @@ msgid ""
 "you want to force fallback to the right operand's reflected method—that will "
 "instead have the opposite effect of explicitly *blocking* such fallback."
 msgstr ""
+"\"Não suportar\" aqui significa que a classe não possui tal método, ou o "
+"método retorna :data:`NotImplemented`. Não defina o método como ``None`` se "
+"quiser forçar o fallback para o método refletido do operando correto -- isso "
+"terá o efeito oposto de *bloquear* explicitamente esse fallback."
 
 #: ../../reference/datamodel.rst:3772
 msgid ""
@@ -5981,6 +6250,9 @@ msgid ""
 "method -- such as :meth:`~object.__add__` -- fails then the overall "
 "operation is not supported, which is why the reflected method is not called."
 msgstr ""
+"Para operandos do mesmo tipo, presume-se que se o método não refletido -- "
+"como :meth:`~object.__add__` -- falhar, a operação geral não será suportada, "
+"razão pela qual o método refletido não é chamado."
 
 #: ../../reference/datamodel.rst:14 ../../reference/datamodel.rst:152
 #: ../../reference/datamodel.rst:163 ../../reference/datamodel.rst:184
@@ -6030,23 +6302,23 @@ msgstr "tipo"
 
 #: ../../reference/datamodel.rst:23
 msgid "identity of an object"
-msgstr ""
+msgstr "identidade de um objeto"
 
 #: ../../reference/datamodel.rst:23
 msgid "value of an object"
-msgstr ""
+msgstr "valor de um objeto"
 
 #: ../../reference/datamodel.rst:23
 msgid "type of an object"
-msgstr ""
+msgstr "tipo de um objeto"
 
 #: ../../reference/datamodel.rst:23
 msgid "mutable object"
-msgstr ""
+msgstr "objeto mutável"
 
 #: ../../reference/datamodel.rst:23
 msgid "immutable object"
-msgstr ""
+msgstr "objeto imutável"
 
 #: ../../reference/datamodel.rst:60
 msgid "garbage collection"
@@ -6054,11 +6326,11 @@ msgstr "coleta de lixo"
 
 #: ../../reference/datamodel.rst:60
 msgid "reference counting"
-msgstr ""
+msgstr "contagem de referências"
 
 #: ../../reference/datamodel.rst:60
 msgid "unreachable object"
-msgstr ""
+msgstr "objeto inalcançável"
 
 #: ../../reference/datamodel.rst:95 ../../reference/datamodel.rst:1114
 msgid "container"
@@ -6066,11 +6338,11 @@ msgstr "contêiner"
 
 #: ../../reference/datamodel.rst:126
 msgid "hierarchy"
-msgstr ""
+msgstr "hierarquia"
 
 #: ../../reference/datamodel.rst:126
 msgid "extension"
-msgstr ""
+msgstr "extensão"
 
 #: ../../reference/datamodel.rst:126 ../../reference/datamodel.rst:400
 #: ../../reference/datamodel.rst:401 ../../reference/datamodel.rst:502
@@ -6101,7 +6373,7 @@ msgstr "especial"
 
 #: ../../reference/datamodel.rst:139
 msgid "generic"
-msgstr ""
+msgstr "genérico"
 
 #: ../../reference/datamodel.rst:184
 msgid "..."
@@ -6122,7 +6394,7 @@ msgstr "inteiro"
 
 #: ../../reference/datamodel.rst:235
 msgid "representation"
-msgstr ""
+msgstr "representação"
 
 #: ../../reference/datamodel.rst:250
 msgid "Boolean"
@@ -6146,7 +6418,7 @@ msgstr "número"
 
 #: ../../reference/datamodel.rst:265
 msgid "Java"
-msgstr ""
+msgstr "Java"
 
 #: ../../reference/datamodel.rst:283 ../../reference/datamodel.rst:3326
 msgid "complex"
@@ -6163,11 +6435,11 @@ msgstr "sequência"
 
 #: ../../reference/datamodel.rst:296
 msgid "index operation"
-msgstr ""
+msgstr "operação com índice"
 
 #: ../../reference/datamodel.rst:296
 msgid "item selection"
-msgstr ""
+msgstr "seleção item"
 
 #: ../../reference/datamodel.rst:296 ../../reference/datamodel.rst:388
 #: ../../reference/datamodel.rst:466
@@ -6180,7 +6452,7 @@ msgstr "fatiamento"
 
 #: ../../reference/datamodel.rst:328
 msgid "immutable sequence"
-msgstr ""
+msgstr "sequência imutável"
 
 #: ../../reference/datamodel.rst:328
 msgid "immutable"
@@ -6193,15 +6465,15 @@ msgstr "string"
 
 #: ../../reference/datamodel.rst:339
 msgid "immutable sequences"
-msgstr ""
+msgstr "sequências imutáveis"
 
 #: ../../reference/datamodel.rst:343
 msgid "chr"
-msgstr ""
+msgstr "chr"
 
 #: ../../reference/datamodel.rst:343
 msgid "ord"
-msgstr ""
+msgstr "ord"
 
 #: ../../reference/datamodel.rst:343
 msgid "character"
@@ -6217,7 +6489,7 @@ msgstr "tupla"
 
 #: ../../reference/datamodel.rst:363
 msgid "singleton"
-msgstr ""
+msgstr "Singleton"
 
 #: ../../reference/datamodel.rst:363
 msgid "empty"
@@ -6229,7 +6501,7 @@ msgstr "bytes"
 
 #: ../../reference/datamodel.rst:376
 msgid "byte"
-msgstr ""
+msgstr "byte"
 
 #: ../../reference/datamodel.rst:388
 msgid "mutable sequence"
@@ -6268,7 +6540,7 @@ msgstr "bytearray"
 
 #: ../../reference/datamodel.rst:427
 msgid "set type"
-msgstr ""
+msgstr "tipo conjunto"
 
 #: ../../reference/datamodel.rst:447
 msgid "set"
@@ -6289,11 +6561,11 @@ msgstr "dicionário"
 
 #: ../../reference/datamodel.rst:502
 msgid "dbm.ndbm"
-msgstr ""
+msgstr "dbm.ndbm"
 
 #: ../../reference/datamodel.rst:502
 msgid "dbm.gnu"
-msgstr ""
+msgstr "dbm.gnu"
 
 #: ../../reference/datamodel.rst:519
 msgid "callable"
@@ -6312,7 +6584,7 @@ msgstr "chamada"
 
 #: ../../reference/datamodel.rst:519
 msgid "invocation"
-msgstr ""
+msgstr "invocação"
 
 #: ../../reference/datamodel.rst:519
 msgid "argument"
@@ -6332,7 +6604,7 @@ msgstr "__closure__ (atributo de função)"
 
 #: ../../reference/datamodel.rst:547
 msgid "__globals__ (function attribute)"
-msgstr ""
+msgstr "__globals__ (atributo de função)"
 
 #: ../../reference/datamodel.rst:547
 msgid "global"
@@ -6344,39 +6616,39 @@ msgstr "espaço de nomes"
 
 #: ../../reference/datamodel.rst:573
 msgid "__doc__ (function attribute)"
-msgstr ""
+msgstr "__doc__ (atributo de função)"
 
 #: ../../reference/datamodel.rst:573
 msgid "__name__ (function attribute)"
-msgstr ""
+msgstr "__name__ (atributo de função)"
 
 #: ../../reference/datamodel.rst:573
 msgid "__module__ (function attribute)"
-msgstr ""
+msgstr "__module__ (atributo de função)"
 
 #: ../../reference/datamodel.rst:573
 msgid "__dict__ (function attribute)"
-msgstr ""
+msgstr "__dict__ (atributo de função)"
 
 #: ../../reference/datamodel.rst:573
 msgid "__defaults__ (function attribute)"
-msgstr ""
+msgstr "__defaults__ (atributo de função)"
 
 #: ../../reference/datamodel.rst:573
 msgid "__code__ (function attribute)"
-msgstr ""
+msgstr "__code__ (atributo de função)"
 
 #: ../../reference/datamodel.rst:573
 msgid "__annotations__ (function attribute)"
-msgstr ""
+msgstr "__annotations__ (atributo de função)"
 
 #: ../../reference/datamodel.rst:573
 msgid "__kwdefaults__ (function attribute)"
-msgstr ""
+msgstr "__kwdefaults__ (atributo de função)"
 
 #: ../../reference/datamodel.rst:573
 msgid "__type_params__ (function attribute)"
-msgstr ""
+msgstr "__type_params__ (atributo de função)"
 
 #: ../../reference/datamodel.rst:660 ../../reference/datamodel.rst:822
 msgid "method"
@@ -6384,27 +6656,27 @@ msgstr "método"
 
 #: ../../reference/datamodel.rst:660
 msgid "user-defined method"
-msgstr ""
+msgstr "método definido por usuário"
 
 #: ../../reference/datamodel.rst:668
 msgid "__func__ (method attribute)"
-msgstr ""
+msgstr "__func__ (atributo de método)"
 
 #: ../../reference/datamodel.rst:668
 msgid "__self__ (method attribute)"
-msgstr ""
+msgstr "__self__ (atributo de método)"
 
 #: ../../reference/datamodel.rst:668
 msgid "__doc__ (method attribute)"
-msgstr ""
+msgstr "__doc__ (atributo de método)"
 
 #: ../../reference/datamodel.rst:668
 msgid "__name__ (method attribute)"
-msgstr ""
+msgstr "__name__ (atributo de método)"
 
 #: ../../reference/datamodel.rst:668
 msgid "__module__ (method attribute)"
-msgstr ""
+msgstr "__module__ (atributo de método)"
 
 #: ../../reference/datamodel.rst:742 ../../reference/datamodel.rst:1440
 msgid "generator"
@@ -6440,43 +6712,43 @@ msgstr "import"
 
 #: ../../reference/datamodel.rst:877
 msgid "__name__ (module attribute)"
-msgstr ""
+msgstr "__name__ (atributo de módulo)"
 
 #: ../../reference/datamodel.rst:877
 msgid "__spec__ (module attribute)"
-msgstr ""
+msgstr "__spec__ (atributo de módulo)"
 
 #: ../../reference/datamodel.rst:877
 msgid "__package__ (module attribute)"
-msgstr ""
+msgstr "__package__ (atributo de módulo)"
 
 #: ../../reference/datamodel.rst:877
 msgid "__loader__ (module attribute)"
-msgstr ""
+msgstr "__loader__ (atributo de módulo)"
 
 #: ../../reference/datamodel.rst:877
 msgid "__path__ (module attribute)"
-msgstr ""
+msgstr "__path__ (atributo de módulo)"
 
 #: ../../reference/datamodel.rst:877
 msgid "__file__ (module attribute)"
-msgstr ""
+msgstr "__file__ (atributo de módulo)"
 
 #: ../../reference/datamodel.rst:877
 msgid "__cached__ (module attribute)"
-msgstr ""
+msgstr "__cached__ (atributo de módulo)"
 
 #: ../../reference/datamodel.rst:877
 msgid "__doc__ (module attribute)"
-msgstr ""
+msgstr "__doc__ (atributo de módulo)"
 
 #: ../../reference/datamodel.rst:877
 msgid "__annotations__ (module attribute)"
-msgstr ""
+msgstr "__annotations__ (atributo de módulo)"
 
 #: ../../reference/datamodel.rst:1082
 msgid "__dict__ (module attribute)"
-msgstr ""
+msgstr "__dict__ (atributo de módulo)"
 
 #: ../../reference/datamodel.rst:1114 ../../reference/datamodel.rst:1132
 #: ../../reference/datamodel.rst:1237 ../../reference/datamodel.rst:1849
@@ -6500,39 +6772,39 @@ msgstr "objeto classe"
 
 #: ../../reference/datamodel.rst:1144
 msgid "__name__ (class attribute)"
-msgstr ""
+msgstr "__name__ (atributo de classe)"
 
 #: ../../reference/datamodel.rst:1144
 msgid "__module__ (class attribute)"
-msgstr ""
+msgstr "__module__ (atributo de classe)"
 
 #: ../../reference/datamodel.rst:1144
 msgid "__dict__ (class attribute)"
-msgstr ""
+msgstr "__dict__ (atributo de classe)"
 
 #: ../../reference/datamodel.rst:1144
 msgid "__bases__ (class attribute)"
-msgstr ""
+msgstr "__bases__ (atributo de classe)"
 
 #: ../../reference/datamodel.rst:1144
 msgid "__doc__ (class attribute)"
-msgstr ""
+msgstr "__doc__ (atributo de classe)"
 
 #: ../../reference/datamodel.rst:1144
 msgid "__annotations__ (class attribute)"
-msgstr ""
+msgstr "__annotations__ (atributo de classe)"
 
 #: ../../reference/datamodel.rst:1144
 msgid "__type_params__ (class attribute)"
-msgstr ""
+msgstr "__type_params__ (atributo de classe)"
 
 #: ../../reference/datamodel.rst:1275
 msgid "__dict__ (instance attribute)"
-msgstr ""
+msgstr "__dict__ (atributo de instância)"
 
 #: ../../reference/datamodel.rst:1275
 msgid "__class__ (instance attribute)"
-msgstr ""
+msgstr "__class__ (atributo de instância)"
 
 #: ../../reference/datamodel.rst:1293
 msgid "open"
@@ -6544,47 +6816,47 @@ msgstr "io"
 
 #: ../../reference/datamodel.rst:1293
 msgid "popen() (in module os)"
-msgstr ""
+msgstr "popen() (no módulo os)"
 
 #: ../../reference/datamodel.rst:1293
 msgid "makefile() (socket method)"
-msgstr ""
+msgstr "makefile() (método de socket)"
 
 #: ../../reference/datamodel.rst:1293
 msgid "sys.stdin"
-msgstr ""
+msgstr "sys.stdin"
 
 #: ../../reference/datamodel.rst:1293
 msgid "sys.stdout"
-msgstr ""
+msgstr "sys.stdout"
 
 #: ../../reference/datamodel.rst:1293
 msgid "sys.stderr"
-msgstr ""
+msgstr "sys.stderr"
 
 #: ../../reference/datamodel.rst:1293
 msgid "stdio"
-msgstr ""
+msgstr "stdio"
 
 #: ../../reference/datamodel.rst:1293
 msgid "stdin (in module sys)"
-msgstr ""
+msgstr "stdin (no módulo sys)"
 
 #: ../../reference/datamodel.rst:1293
 msgid "stdout (in module sys)"
-msgstr ""
+msgstr "stdout (no módulo sys)"
 
 #: ../../reference/datamodel.rst:1293
 msgid "stderr (in module sys)"
-msgstr ""
+msgstr "stderr (no módulo sys)"
 
 #: ../../reference/datamodel.rst:1322
 msgid "internal type"
-msgstr ""
+msgstr "tipo interno"
 
 #: ../../reference/datamodel.rst:1322
 msgid "types, internal"
-msgstr ""
+msgstr "tipos, internos"
 
 #: ../../reference/datamodel.rst:1336
 msgid "bytecode"
@@ -6676,43 +6948,43 @@ msgstr "quadro"
 
 #: ../../reference/datamodel.rst:1553
 msgid "f_back (frame attribute)"
-msgstr ""
+msgstr "f_back (atributo de frame)"
 
 #: ../../reference/datamodel.rst:1553
 msgid "f_code (frame attribute)"
-msgstr ""
+msgstr "f_code (atributo de frame)"
 
 #: ../../reference/datamodel.rst:1553
 msgid "f_globals (frame attribute)"
-msgstr ""
+msgstr "f_globals (atributo de frame)"
 
 #: ../../reference/datamodel.rst:1553
 msgid "f_locals (frame attribute)"
-msgstr ""
+msgstr "f_locals (atributo de frame)"
 
 #: ../../reference/datamodel.rst:1553
 msgid "f_lasti (frame attribute)"
-msgstr ""
+msgstr "f_lasti (atributo de frame)"
 
 #: ../../reference/datamodel.rst:1553
 msgid "f_builtins (frame attribute)"
-msgstr ""
+msgstr "f_builtins (atributo de frame)"
 
 #: ../../reference/datamodel.rst:1592
 msgid "f_trace (frame attribute)"
-msgstr ""
+msgstr "f_trace (atributo de frame)"
 
 #: ../../reference/datamodel.rst:1592
 msgid "f_trace_lines (frame attribute)"
-msgstr ""
+msgstr "f_trace_lines (atributo de frame)"
 
 #: ../../reference/datamodel.rst:1592
 msgid "f_trace_opcodes (frame attribute)"
-msgstr ""
+msgstr "f_trace_opcodes (atributo de frame)"
 
 #: ../../reference/datamodel.rst:1592
 msgid "f_lineno (frame attribute)"
-msgstr ""
+msgstr "f_lineno (atributo de frame)"
 
 #: ../../reference/datamodel.rst:1647
 msgid "traceback"
@@ -6720,11 +6992,11 @@ msgstr "traceback"
 
 #: ../../reference/datamodel.rst:1647
 msgid "stack"
-msgstr ""
+msgstr "pilha (stack)"
 
 #: ../../reference/datamodel.rst:1647
 msgid "trace"
-msgstr ""
+msgstr "rastro (trace)"
 
 #: ../../reference/datamodel.rst:1647
 msgid "exception"
@@ -6732,7 +7004,7 @@ msgstr "exceção"
 
 #: ../../reference/datamodel.rst:1647
 msgid "handler"
-msgstr ""
+msgstr "manipulador (handler)"
 
 #: ../../reference/datamodel.rst:1647
 msgid "execution"
@@ -6740,11 +7012,11 @@ msgstr "execução"
 
 #: ../../reference/datamodel.rst:1647
 msgid "exc_info (in module sys)"
-msgstr ""
+msgstr "exc_info (no módulo sys)"
 
 #: ../../reference/datamodel.rst:1647
 msgid "last_traceback (in module sys)"
-msgstr ""
+msgstr "last_traceback (no módulo sys)"
 
 #: ../../reference/datamodel.rst:1647
 msgid "sys.exc_info"
@@ -6760,15 +7032,15 @@ msgstr "sys.last_traceback"
 
 #: ../../reference/datamodel.rst:1684
 msgid "tb_frame (traceback attribute)"
-msgstr ""
+msgstr "tb_frame (atributo de traceback)"
 
 #: ../../reference/datamodel.rst:1684
 msgid "tb_lineno (traceback attribute)"
-msgstr ""
+msgstr "tb_lineno (atributo de traceback)"
 
 #: ../../reference/datamodel.rst:1684
 msgid "tb_lasti (traceback attribute)"
-msgstr ""
+msgstr "tb_lasti (atributo de traceback)"
 
 #: ../../reference/datamodel.rst:1684
 msgid "try"
@@ -6776,7 +7048,7 @@ msgstr "try"
 
 #: ../../reference/datamodel.rst:1714
 msgid "tb_next (traceback attribute)"
-msgstr ""
+msgstr "tb_next (atributo de traceback)"
 
 #: ../../reference/datamodel.rst:1730 ../../reference/datamodel.rst:3090
 msgid "slice"
@@ -6800,23 +7072,23 @@ msgstr "operador"
 
 #: ../../reference/datamodel.rst:1784
 msgid "overloading"
-msgstr ""
+msgstr "sobrecarga"
 
 #: ../../reference/datamodel.rst:1784
 msgid "__getitem__() (mapping object method)"
-msgstr ""
+msgstr "__getitem__() (método de objeto mapeamento)"
 
 #: ../../reference/datamodel.rst:1820
 msgid "subclassing"
-msgstr ""
+msgstr "subclasse"
 
 #: ../../reference/datamodel.rst:1820
 msgid "immutable types"
-msgstr ""
+msgstr "tipos imutáveis"
 
 #: ../../reference/datamodel.rst:1849
 msgid "constructor"
-msgstr ""
+msgstr "construtor"
 
 #: ../../reference/datamodel.rst:1866
 msgid "destructor"
@@ -6824,7 +7096,7 @@ msgstr "destrutor"
 
 #: ../../reference/datamodel.rst:1866
 msgid "finalizer"
-msgstr ""
+msgstr "finalizador"
 
 #: ../../reference/datamodel.rst:1866
 msgid "del"
@@ -6832,15 +7104,15 @@ msgstr "del"
 
 #: ../../reference/datamodel.rst:1930
 msgid "repr() (built-in function)"
-msgstr ""
+msgstr "repr() (função embutida)"
 
 #: ../../reference/datamodel.rst:1930
 msgid "__repr__() (object method)"
-msgstr ""
+msgstr "__repr__() (método de objeto)"
 
 #: ../../reference/datamodel.rst:1948
 msgid "__str__() (object method)"
-msgstr ""
+msgstr "__str__() (método de objeto)"
 
 #: ../../reference/datamodel.rst:1948
 msgid "format() (built-in function)"
@@ -6848,11 +7120,11 @@ msgstr "format() (função embutida)"
 
 #: ../../reference/datamodel.rst:1948
 msgid "print() (built-in function)"
-msgstr ""
+msgstr "print() (função embutida)"
 
 #: ../../reference/datamodel.rst:1979
 msgid "__format__() (object method)"
-msgstr ""
+msgstr "__format__() (método de objeto)"
 
 #: ../../reference/datamodel.rst:1979
 msgid "conversion"
@@ -6860,7 +7132,7 @@ msgstr "conversão"
 
 #: ../../reference/datamodel.rst:1979
 msgid "print"
-msgstr ""
+msgstr "print"
 
 #: ../../reference/datamodel.rst:2021
 msgid "comparisons"
@@ -6872,19 +7144,19 @@ msgstr "hash"
 
 #: ../../reference/datamodel.rst:2153
 msgid "__len__() (mapping object method)"
-msgstr ""
+msgstr "__len__() (método de objeto mapeamento)"
 
 #: ../../reference/datamodel.rst:2258
 msgid "__getattr__ (module attribute)"
-msgstr ""
+msgstr "__getattr__ (atributo de módulo)"
 
 #: ../../reference/datamodel.rst:2258
 msgid "__dir__ (module attribute)"
-msgstr ""
+msgstr "__dir__ (atributo de módulo)"
 
 #: ../../reference/datamodel.rst:2258
 msgid "__class__ (module attribute)"
-msgstr ""
+msgstr "__class__ (atributo de módulo)"
 
 #: ../../reference/datamodel.rst:2629
 msgid "metaclass"
@@ -6896,31 +7168,31 @@ msgstr "= (igual)"
 
 #: ../../reference/datamodel.rst:2629
 msgid "class definition"
-msgstr ""
+msgstr "definição de classe"
 
 #: ../../reference/datamodel.rst:2693
 msgid "metaclass hint"
-msgstr ""
+msgstr "dica de metaclasse"
 
 #: ../../reference/datamodel.rst:2716
 msgid "__prepare__ (metaclass method)"
-msgstr ""
+msgstr "__prepare__ (método de metaclasse)"
 
 #: ../../reference/datamodel.rst:2740
 msgid "body"
-msgstr ""
+msgstr "corpo"
 
 #: ../../reference/datamodel.rst:2760
 msgid "__class__ (method cell)"
-msgstr ""
+msgstr "__class__ (célula de método)"
 
 #: ../../reference/datamodel.rst:2760
 msgid "__classcell__ (class namespace entry)"
-msgstr ""
+msgstr "__classcell__ (entrada de espaço de nomes de classe)"
 
 #: ../../reference/datamodel.rst:3060
 msgid "__bool__() (object method)"
-msgstr ""
+msgstr "__bool__() (método de objeto)"
 
 #: ../../reference/datamodel.rst:3218 ../../reference/datamodel.rst:3253
 msgid "divmod"
@@ -6945,11 +7217,11 @@ msgstr "ponto flutuante"
 
 #: ../../reference/datamodel.rst:3354
 msgid "round"
-msgstr ""
+msgstr "round"
 
 #: ../../reference/datamodel.rst:3381
 msgid "with"
-msgstr ""
+msgstr "with"
 
 #: ../../reference/datamodel.rst:3381
 msgid "context manager"
