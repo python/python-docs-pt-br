@@ -5,19 +5,19 @@
 - license.po                      95 /  99 ( 95.0% translated).
 
 
-# c-api (54.52% done)
+# c-api (54.75% done)
 
 - exceptions.po                  193 / 347 ( 55.0% translated).
 - float.po                        14 /  35 ( 40.0% translated).
 - frame.po                        20 /  24 ( 83.0% translated).
 - gcsupport.po                     9 /  42 ( 21.0% translated).
 - import.po                       39 /  53 ( 73.0% translated).
-- init.po                        115 / 372 ( 30.0% translated).
+- init.po                        118 / 372 ( 31.0% translated).
 - init_config.po                 135 / 396 ( 34.0% translated).
-- intro.po                        94 / 127 ( 74.0% translated).
+- intro.po                        95 / 127 ( 74.0% translated).
 - long.po                         30 /  59 ( 50.0% translated).
 - memory.po                       53 / 189 ( 28.0% translated).
-- module.po                       53 / 109 ( 48.0% translated).
+- module.po                       59 / 109 ( 54.0% translated).
 - number.po                       14 /  48 ( 29.0% translated).
 - object.po                       12 /  67 ( 17.0% translated).
 - refcounting.po                   4 /  28 ( 14.0% translated).
@@ -85,7 +85,7 @@
 
 
 
-# library (58.33% done)
+# library (58.34% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          33 /  49 ( 67.0% translated).
@@ -217,9 +217,9 @@
 - resource.po                     46 / 115 ( 40.0% translated).
 - runpy.po                        30 /  38 ( 78.0% translated).
 - sched.po                         4 /  24 ( 16.0% translated).
-- select.po                       78 / 207 ( 37.0% translated).
+- select.po                       79 / 207 ( 38.0% translated).
 - selectors.po                    13 /  56 ( 23.0% translated).
-- shelve.po                       10 /  38 ( 26.0% translated).
+- shelve.po                       12 /  38 ( 31.0% translated).
 - shlex.po                         4 /  75 (  5.0% translated).
 - shutil.po                      158 / 166 ( 95.0% translated).
 - signal.po                       14 / 137 ( 10.0% translated).
@@ -288,10 +288,10 @@
 - zoneinfo.po                      8 /  75 ( 10.0% translated).
 
 
-# reference (88.62% done)
+# reference (93.93% done)
 
-- compound_stmts.po              261 / 389 ( 67.0% translated).
-- datamodel.po                   647 / 786 ( 82.0% translated).
+- compound_stmts.po              263 / 389 ( 67.0% translated).
+- datamodel.po                   783 / 786 ( 99.0% translated).
 - executionmodel.po               73 /  75 ( 97.0% translated).
 - import.po                      192 / 207 ( 92.0% translated).
 - lexical_analysis.po            287 / 299 ( 95.0% translated).
@@ -332,5 +332,5 @@
 - 3.8.po                         468 / 469 ( 99.0% translated).
 
 
-# TOTAL (63.87% done)
+# TOTAL (64.14% done)
 
