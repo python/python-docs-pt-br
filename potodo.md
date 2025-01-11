@@ -70,7 +70,7 @@
 
 
 
-# library (58.32% done)
+# library (58.68% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
@@ -80,7 +80,6 @@
 - asyncio-platforms.po             6 /  26 ( 23.0% translated).
 - asyncio-policy.po               10 /  68 ( 14.0% translated).
 - asyncio-protocol.po             25 / 194 ( 12.0% translated).
-- asyncio-queue.po                43 /  45 ( 95.0% translated).
 - asyncio-runner.po                5 /  37 ( 13.0% translated).
 - asyncio-stream.po               71 / 101 ( 70.0% translated).
 - asyncio-sync.po                 12 / 100 ( 12.0% translated).
@@ -89,10 +88,9 @@
 - bdb.po                           8 / 112 (  7.0% translated).
 - binascii.po                      8 /  38 ( 21.0% translated).
 - bisect.po                       18 /  35 ( 51.0% translated).
-- calendar.po                     51 / 115 ( 44.0% translated).
+- calendar.po                     87 / 115 ( 75.0% translated).
 - cmd.po                           5 /  50 ( 10.0% translated).
 - codecs.po                      250 / 532 ( 46.0% translated).
-- collections.abc.po              95 / 136 ( 69.0% translated).
 - concurrent.futures.po           14 / 100 ( 14.0% translated).
 - configparser.po                197 / 220 ( 89.0% translated).
 - contextlib.po                    9 / 172 (  5.0% translated).
@@ -102,7 +100,7 @@
 - curses.po                       65 / 486 ( 13.0% translated).
 - dataclasses.po                  47 / 152 ( 30.0% translated).
 - datetime.po                    641 / 646 ( 99.0% translated).
-- dbm.po                           7 / 102 (  6.0% translated).
+- dbm.po                           8 / 102 (  7.0% translated).
 - decimal.po                     344 / 378 ( 91.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
 - dis.po                         204 / 396 ( 51.0% translated).
@@ -146,13 +144,11 @@
 - io.po                           21 / 271 (  7.0% translated).
 - ipaddress.po                   155 / 165 ( 93.0% translated).
 - itertools.po                   116 / 200 ( 58.0% translated).
-- json.po                        128 / 175 ( 73.0% translated).
 - logging.config.po               12 / 171 (  7.0% translated).
 - logging.handlers.po             48 / 270 ( 17.0% translated).
 - logging.po                      93 / 368 ( 25.0% translated).
 - lzma.po                         66 / 115 ( 57.0% translated).
 - mailbox.po                      10 / 306 (  3.0% translated).
-- math.po                        267 / 268 ( 99.0% translated).
 - mimetypes.po                    20 /  54 ( 37.0% translated).
 - mmap.po                         12 /  65 ( 18.0% translated).
 - msvcrt.po                       22 /  46 ( 47.0% translated).
@@ -180,7 +176,7 @@
 - smtplib.po                      30 / 116 ( 25.0% translated).
 - socket.po                       53 / 364 ( 14.0% translated).
 - socketserver.po                  9 /  98 (  9.0% translated).
-- sqlite3.po                     115 / 476 ( 24.0% translated).
+- sqlite3.po                     116 / 476 ( 24.0% translated).
 - ssl.po                          40 / 544 (  7.0% translated).
 - statistics.po                  176 / 248 ( 70.0% translated).
 - string.po                      193 / 215 ( 89.0% translated).
@@ -243,7 +239,7 @@
 
 
 
-# whatsnew (38.83% done)
+# whatsnew (38.87% done)
 
 - 2.3.po                         328 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -257,8 +253,8 @@
 - 3.5.po                         125 / 578 ( 21.0% translated).
 - 3.6.po                         235 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   694 / 12122 (  5.0% translated).
+- changelog.po                   703 / 12122 (  5.0% translated).
 
 
-# TOTAL (55.70% done)
+# TOTAL (55.89% done)
 
