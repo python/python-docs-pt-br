@@ -87,7 +87,7 @@
 
 
 
-# library (57.43% done)
+# library (57.50% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    254 / 290 ( 87.0% translated).
@@ -110,7 +110,7 @@
 - bdb.po                           8 / 109 (  7.0% translated).
 - binascii.po                      5 /  37 ( 13.0% translated).
 - bisect.po                       20 /  30 ( 66.0% translated).
-- calendar.po                     41 /  70 ( 58.0% translated).
+- calendar.po                     57 /  70 ( 81.0% translated).
 - cgi.po                          18 /  90 ( 20.0% translated).
 - chunk.po                        10 /  34 ( 29.0% translated).
 - cmath.po                        51 /  54 ( 94.0% translated).
@@ -118,7 +118,7 @@
 - code.po                         29 /  31 ( 93.0% translated).
 - codecs.po                      237 / 511 ( 46.0% translated).
 - codeop.po                       13 /  14 ( 92.0% translated).
-- collections.abc.po             109 / 119 ( 91.0% translated).
+- collections.abc.po             114 / 119 ( 95.0% translated).
 - collections.po                 210 / 211 ( 99.0% translated).
 - concurrent.futures.po           16 /  88 ( 18.0% translated).
 - configparser.po                152 / 176 ( 86.0% translated).
@@ -222,7 +222,7 @@
 - smtplib.po                      25 / 109 ( 22.0% translated).
 - socket.po                       59 / 324 ( 18.0% translated).
 - socketserver.po                  7 /  78 (  8.0% translated).
-- sqlite3.po                      75 / 287 ( 26.0% translated).
+- sqlite3.po                      76 / 287 ( 26.0% translated).
 - ssl.po                          49 / 493 (  9.0% translated).
 - stat.po                         78 /  81 ( 96.0% translated).
 - statistics.po                  158 / 172 ( 91.0% translated).
@@ -324,5 +324,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (62.00% done)
+# TOTAL (62.04% done)
 
