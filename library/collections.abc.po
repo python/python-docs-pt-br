@@ -152,12 +152,19 @@ msgid ""
 "`reversed` function automatically fall back to using ``__getitem__`` and "
 "``__len__``."
 msgstr ""
+"Neste exemplo, a classe :class:`!D` não precisa definir ``__contains__``, "
+"``__iter__`` e ``__reversed__`` porque o :ref:`operador in <comparisons>`, a "
+"lógica :term:`iteration <iterable>` e a função :func:`reversed` retornam "
+"automaticamente para o uso de ``__getitem__`` e ``__len__``."
 
 #: ../../library/collections.abc.rst:82
 msgid ""
 "3) Some simple interfaces are directly recognizable by the presence of the "
 "required methods (unless those methods have been set to :const:`None`):"
 msgstr ""
+"3) Algumas interfaces simples são diretamente reconhecíveis pela presença "
+"dos métodos necessários (a menos que esses métodos tenham sido definidos "
+"como :const:`None`):"
 
 #: ../../library/collections.abc.rst:86
 msgid ""
@@ -165,6 +172,9 @@ msgid ""
 "    def __iter__(self): ...\n"
 "    def __next__(self): ..."
 msgstr ""
+"class E:\n"
+"    def __iter__(self): ...\n"
+"    def __next__(self): ..."
 
 #: ../../library/collections.abc.rst:92
 msgid ""
@@ -173,6 +183,10 @@ msgid ""
 ">>> isinstance(E(), Iterable)\n"
 "True"
 msgstr ""
+">>> issubclass(E, Iterable)\n"
+"True\n"
+">>> isinstance(E(), Iterable)\n"
+"True"
 
 #: ../../library/collections.abc.rst:99
 msgid ""
@@ -183,12 +197,20 @@ msgid ""
 "class supplies ``__getitem__``, ``__len__``, and ``__iter__`` is "
 "insufficient for distinguishing a :class:`Sequence` from a :class:`Mapping`."
 msgstr ""
+"Interfaces complexas não oferecem suporte a esta última técnica porque uma "
+"interface é mais do que apenas a presença de nomes de métodos. Interfaces "
+"especificam semântica e relacionamentos entre métodos que não podem ser "
+"inferidos somente da presença de nomes de métodos específicos. Por exemplo, "
+"saber que uma classe fornece ``__getitem__``, ``__len__`` e ``__iter__`` é "
+"insuficiente para distinguir uma :class:`Sequence` de uma :class:`Mapping`."
 
 #: ../../library/collections.abc.rst:107
 msgid ""
 "These abstract classes now support ``[]``. See :ref:`types-genericalias` "
 "and :pep:`585`."
 msgstr ""
+"Essas classes abstratas agora oferecem suporte a ``[]``. Veja :ref:`types-"
+"genericalias` e :pep:`585`."
 
 #: ../../library/collections.abc.rst:114
 msgid "Collections Abstract Base Classes"
@@ -211,11 +233,11 @@ msgstr "Herda de"
 
 #: ../../library/collections.abc.rst:121
 msgid "Abstract Methods"
-msgstr "Métodos Abstratos"
+msgstr "Métodos abstratos"
 
 #: ../../library/collections.abc.rst:121
 msgid "Mixin Methods"
-msgstr "Métodos Mixin"
+msgstr "Métodos mixin"
 
 #: ../../library/collections.abc.rst:123
 msgid ":class:`Container` [1]_"
@@ -339,6 +361,8 @@ msgid ""
 "Inherited :class:`Sequence` methods and ``append``, ``clear``, ``reverse``, "
 "``extend``, ``pop``, ``remove``, and ``__iadd__``"
 msgstr ""
+"Herdados métodos de :class:`Sequence` e ``append``, ``clear``, ``reverse``, "
+"``extend``, ``pop``, ``remove`` e ``__iadd__``"
 
 #: ../../library/collections.abc.rst:144
 msgid ":class:`ByteString`"
@@ -346,7 +370,7 @@ msgstr ":class:`ByteString`"
 
 #: ../../library/collections.abc.rst:144
 msgid "Inherited :class:`Sequence` methods"
-msgstr "Herdado :class:`Sequence` métodos"
+msgstr "Herdados métodos de :class:`Sequence`"
 
 #: ../../library/collections.abc.rst:147 ../../library/collections.abc.rst:152
 msgid ":class:`Set`"
@@ -362,6 +386,9 @@ msgid ""
 "``__and__``, ``__or__``, ``__sub__``, ``__rsub__``, ``__xor__``, "
 "``__rxor__`` and ``isdisjoint``"
 msgstr ""
+"``__le__``, ``__lt__``, ``__eq__``, ``__ne__``, ``__gt__``, ``__ge__``, "
+"``__and__``, ``__or__``, ``__sub__``, ``__rsub__``, ``__xor__``, "
+"``__rxor__`` e ``isdisjoint``"
 
 #: ../../library/collections.abc.rst:152
 msgid ":class:`MutableSet`"
@@ -423,7 +450,7 @@ msgstr ":class:`Sized`"
 
 #: ../../library/collections.abc.rst:169
 msgid "``__init__``, ``__len__`` and ``__repr__``"
-msgstr ""
+msgstr "``__init__``, ``__len__`` e ``__repr__``"
 
 #: ../../library/collections.abc.rst:170
 msgid ":class:`ItemsView`"
@@ -525,6 +552,11 @@ msgid ""
 "set to :const:`None`.  This only works for simple interfaces.  More complex "
 "interfaces require registration or direct subclassing."
 msgstr ""
+"Esses ABCs substituem :meth:`~abc.ABCMeta.__subclasshook__` para dar suporte "
+"ao teste de uma interface verificando se os métodos necessários estão "
+"presentes e não foram definidos como :const:`None`. Isso só funciona para "
+"interfaces simples. Interfaces mais complexas exigem registro ou "
+"subclassificação direta."
 
 #: ../../library/collections.abc.rst:193
 msgid ""
@@ -534,36 +566,43 @@ msgid ""
 "method.  The only reliable way to determine whether an object is :term:"
 "`iterable` is to call ``iter(obj)``."
 msgstr ""
+"A verificação ``isinstance(obj, Iterable)`` detecta classes que são "
+"registradas como :class:`Iterable` ou que possuem um método :meth:"
+"`~container.__iter__`, mas que não detecta classes que iteram com o método :"
+"meth:`~object.__getitem__`. A única maneira confiável de determinar se um "
+"objeto é :term:`iterável` é chamar ``iter(obj)``."
 
 #: ../../library/collections.abc.rst:201
 msgid "Collections Abstract Base Classes -- Detailed Descriptions"
-msgstr ""
+msgstr "Classes Base Abstrata de Coleções -- Descrições Detalhadas"
 
 #: ../../library/collections.abc.rst:206
 msgid "ABC for classes that provide the :meth:`~object.__contains__` method."
-msgstr ""
+msgstr "ABC para classes que fornecem o método :meth:`~object.__contains__`."
 
 #: ../../library/collections.abc.rst:210
 msgid "ABC for classes that provide the :meth:`~object.__hash__` method."
-msgstr ""
+msgstr "ABC para classes que fornecem o método :meth:`~object.__hash__`."
 
 #: ../../library/collections.abc.rst:214
 msgid "ABC for classes that provide the :meth:`~object.__len__` method."
-msgstr ""
+msgstr "ABC para classes que fornecem o método :meth:`~object.__len__`."
 
 #: ../../library/collections.abc.rst:218
 msgid "ABC for classes that provide the :meth:`~object.__call__` method."
-msgstr ""
+msgstr "ABC para classes que fornecem o método :meth:`~object.__call__`."
 
 #: ../../library/collections.abc.rst:220
 msgid ""
 "See :ref:`annotating-callables` for details on how to use :class:`!Callable` "
 "in type annotations."
 msgstr ""
+"Veja :ref:`annotating-callables` para detalhes sobre como usar :class:`!"
+"Callable` em anotações de tipos."
 
 #: ../../library/collections.abc.rst:225
 msgid "ABC for classes that provide the :meth:`~container.__iter__` method."
-msgstr ""
+msgstr "ABC para classes que fornecem o método :meth:`~container.__iter__`."
 
 #: ../../library/collections.abc.rst:227
 msgid ""
@@ -573,6 +612,11 @@ msgid ""
 "method. The only reliable way to determine whether an object is :term:"
 "`iterable` is to call ``iter(obj)``."
 msgstr ""
+"A verificação ``isinstance(obj, Iterable)`` detecta classes que são "
+"registradas como :class:`Iterable` ou que possuem um método :meth:"
+"`~container.__iter__`, mas que não detecta classes que iteram com o método :"
+"meth:`~object.__getitem__`. A única maneira confiável de determinar se um "
+"objeto é :term:`iterável` é chamar ``iter(obj)``."
 
 #: ../../library/collections.abc.rst:236
 msgid "ABC for sized iterable container classes."
@@ -592,6 +636,8 @@ msgid ""
 "ABC for iterable classes that also provide the :meth:`~object.__reversed__` "
 "method."
 msgstr ""
+"ABC para classes iteráveis que também fornecem o método :meth:`~object."
+"__reversed__`."
 
 #: ../../library/collections.abc.rst:255
 msgid ""
@@ -600,12 +646,18 @@ msgid ""
 "`~generator.send`, :meth:`~generator.throw` and :meth:`~generator.close` "
 "methods."
 msgstr ""
+"ABC para classes :term:`geradores <gerador>` que implementam o protocolo "
+"definido em :pep:`342` que estende os :term:`iteradores <iterador>` com os "
+"métodos :meth:`~generator.send`, :meth:`~generator.throw` e :meth:"
+"`~generator.close`."
 
 #: ../../library/collections.abc.rst:260
 msgid ""
 "See :ref:`annotating-generators-and-coroutines` for details on using :class:"
 "`!Generator` in type annotations."
 msgstr ""
+"Consulte :ref:`annotating-generators-and-coroutines` para obter detalhes "
+"sobre como usar :class:`!Generator` em anotações de tipos."
 
 #: ../../library/collections.abc.rst:269
 msgid "ABCs for read-only and mutable :term:`sequences <sequence>`."
@@ -621,6 +673,14 @@ msgid ""
 "method is linear (as it would be with a linked list), the mixins will have "
 "quadratic performance and will likely need to be overridden."
 msgstr ""
+"Nota de implementação: Alguns dos métodos mixin, como :meth:`~container."
+"__iter__`, :meth:`~object.__reversed__` e :meth:`index`, fazem chamadas "
+"repetidas para o método subjacente :meth:`~object.__getitem__`. "
+"Consequentemente, se :meth:`~object.__getitem__` for implementado com "
+"velocidade de acesso constante, os métodos mixin terão desempenho linear; no "
+"entanto se o método subjacente for linear (como seria com uma lista "
+"encadeada), os mixins terão desempenho quadrático e provavelmente precisará "
+"ser substituído."
 
 #: ../../library/collections.abc.rst:280
 msgid "The index() method added support for *stop* and *start* arguments."
@@ -633,10 +693,14 @@ msgid ""
 "union, like ``bytes | bytearray``, or :class:`collections.abc.Buffer`. For "
 "use as an ABC, prefer :class:`Sequence` or :class:`collections.abc.Buffer`."
 msgstr ""
+"A ABC :class:`ByteString` foi descontinuada. Para uso em tipagem, prefira "
+"uma união, como ``bytes | bytearray``, ou :class:`collections.abc.Buffer`. "
+"Para uso como uma ABC, prefira :class:`Sequence` ou :class:`collections.abc."
+"Buffer`."
 
 #: ../../library/collections.abc.rst:293
 msgid "ABCs for read-only and mutable :ref:`sets <types-set>`."
-msgstr ""
+msgstr "ABCs para :ref:`conjuntos <types-set>` somente leitura e mutáveis."
 
 #: ../../library/collections.abc.rst:298
 msgid "ABCs for read-only and mutable :term:`mappings <mapping>`."
@@ -655,6 +719,9 @@ msgid ""
 "expressions.  Custom implementations must provide the :meth:`~object."
 "__await__` method."
 msgstr ""
+"ABC para objetos :term:`aguardáveis <awaitable>`, que podem ser usados em "
+"expressões de :keyword:`await`. Implementações personalizadas devem fornecer "
+"o método :meth:`~object.__await__`."
 
 #: ../../library/collections.abc.rst:313
 msgid ""
@@ -672,6 +739,11 @@ msgid ""
 "``isinstance(gencoro, Awaitable)`` for them will return ``False``. Use :func:"
 "`inspect.isawaitable` to detect them."
 msgstr ""
+"No CPython, as corrotinas baseados em gerador (:term:`geradores <gerador>` "
+"decorados com :func:`@types.coroutine <types.coroutine>`) são *aguardáveis*, "
+"embora não possuam o método :meth:`~object.__await__`. Usar "
+"``isinstance(gencoro, Awaitable)`` para eles retornará ``False``. Use :func:"
+"`inspect.isawaitable` para detectá-los."
 
 #: ../../library/collections.abc.rst:327
 msgid ""
@@ -681,6 +753,11 @@ msgid ""
 "must also implement :meth:`~object.__await__`.  All :class:`Coroutine` "
 "instances are also instances of :class:`Awaitable`."
 msgstr ""
+"ABC para classes compatíveis com :term:`corrotina`. Eles implementam os "
+"seguintes métodos, definidos em :ref:`coroutine-objects`: :meth:`~coroutine."
+"send`, :meth:`~coroutine.throw`, e :meth:`~coroutine.close`. Implementações "
+"personalizadas também devem implementar :meth:`~object.__await__`. Todas as "
+"instâncias :class:`Coroutine` também são instâncias de :class:`Awaitable`."
 
 #: ../../library/collections.abc.rst:335
 msgid ""
@@ -690,6 +767,11 @@ msgid ""
 "``isinstance(gencoro, Coroutine)`` for them will return ``False``. Use :func:"
 "`inspect.isawaitable` to detect them."
 msgstr ""
+"No CPython, as corrotinas baseados em gerador (:term:`geradores <gerador>` "
+"decorados com :func:`@types.coroutine <types.coroutine>`) são *aguardáveis*, "
+"embora não possuam o método :meth:`~object.__await__`. Usar "
+"``isinstance(gencoro, Coroutine)`` para eles retornará ``False``. Use :func:"
+"`inspect.isawaitable` para detectá-los."
 
 #: ../../library/collections.abc.rst:341
 msgid ""
@@ -697,12 +779,17 @@ msgid ""
 "`!Coroutine` in type annotations. The variance and order of type parameters "
 "correspond to those of :class:`Generator`."
 msgstr ""
+"Consulte :ref:`annotating-generators-and-coroutines` para obter detalhes "
+"sobre como usar :class:`!Coroutine` em anotações de tipos. A variância e a "
+"ordem dos parâmetros de tipo correspondem às de :class:`Generator`."
 
 #: ../../library/collections.abc.rst:350
 msgid ""
 "ABC for classes that provide an ``__aiter__`` method.  See also the "
 "definition of :term:`asynchronous iterable`."
 msgstr ""
+"ABC para classes que fornecem um método ``__aiter__``. Veja também a "
+"definição de :term:`iterável assíncrono`."
 
 #: ../../library/collections.abc.rst:357
 msgid ""
@@ -717,18 +804,24 @@ msgid ""
 "ABC for :term:`asynchronous generator` classes that implement the protocol "
 "defined in :pep:`525` and :pep:`492`."
 msgstr ""
+"ABC para classes de :term:`gerador assíncrono` que implementam o protocolo "
+"definido em :pep:`525` e :pep:`492`."
 
 #: ../../library/collections.abc.rst:367
 msgid ""
 "See :ref:`annotating-generators-and-coroutines` for details on using :class:"
 "`!AsyncGenerator` in type annotations."
 msgstr ""
+"Consulte :ref:`annotating-generators-and-coroutines` para obter detalhes "
+"sobre como usar :class:`!AsyncGenerator` em anotações de tipos."
 
 #: ../../library/collections.abc.rst:374
 msgid ""
 "ABC for classes that provide the :meth:`~object.__buffer__` method, "
 "implementing the :ref:`buffer protocol <bufferobjects>`. See :pep:`688`."
 msgstr ""
+"ABC para classes que fornecem o método :meth:`~object.__buffer__`, "
+"implementando o :ref:`protocolo buffer <bufferobjects>`. Veja :pep:`688`."
 
 #: ../../library/collections.abc.rst:380
 msgid "Examples and Recipes"
@@ -739,6 +832,8 @@ msgid ""
 "ABCs allow us to ask classes or instances if they provide particular "
 "functionality, for example::"
 msgstr ""
+"ABCs nos permitem perguntar a classes ou instâncias se elas fornecem "
+"funcionalidades específicas, por exemplo::"
 
 #: ../../library/collections.abc.rst:385
 msgid ""
@@ -746,6 +841,9 @@ msgid ""
 "if isinstance(myvar, collections.abc.Sized):\n"
 "    size = len(myvar)"
 msgstr ""
+"size = None\n"
+"if isinstance(myvar, collections.abc.Sized):\n"
+"    size = len(myvar)"
 
 #: ../../library/collections.abc.rst:389
 msgid ""
@@ -756,6 +854,13 @@ msgid ""
 "__iter__`, and :meth:`~object.__len__`. The ABC supplies the remaining "
 "methods such as :meth:`!__and__` and :meth:`~frozenset.isdisjoint`::"
 msgstr ""
+"Vários ABCs também são também úteis como mixins que facilitam o "
+"desenvolvimento de classes que suportam APIs de contêiner. Por exemplo, para "
+"escrever uma classe que suporte toda a API :class:`Set` , é necessário "
+"fornecer apenas os três métodos abstratos subjacentes: :meth:`~object."
+"__contains__`, :meth:`~container.__iter__`, e :meth:`~object.__len__`. O ABC "
+"fornece os métodos restantes, como :meth:`!__and__` e :meth:`~frozenset."
+"isdisjoint`::"
 
 #: ../../library/collections.abc.rst:396
 msgid ""
@@ -782,6 +887,27 @@ msgid ""
 "overlap = s1 & s2            # The __and__() method is supported "
 "automatically"
 msgstr ""
+"class ListBasedSet(collections.abc.Set):\n"
+"    ''' Alternate set implementation favoring space over speed\n"
+"        and not requiring the set elements to be hashable. '''\n"
+"    def __init__(self, iterable):\n"
+"        self.elements = lst = []\n"
+"        for value in iterable:\n"
+"            if value not in lst:\n"
+"                lst.append(value)\n"
+"\n"
+"    def __iter__(self):\n"
+"        return iter(self.elements)\n"
+"\n"
+"    def __contains__(self, value):\n"
+"        return value in self.elements\n"
+"\n"
+"    def __len__(self):\n"
+"        return len(self.elements)\n"
+"\n"
+"s1 = ListBasedSet('abcdef')\n"
+"s2 = ListBasedSet('defghi')\n"
+"overlap = s1 & s2            # O método __and__() é automaticamente suportado"
 
 #: ../../library/collections.abc.rst:418
 msgid "Notes on using :class:`Set` and :class:`MutableSet` as a mixin:"
@@ -799,6 +925,16 @@ msgid ""
 "classmethod or regular method that can construct new instances from an "
 "iterable argument."
 msgstr ""
+"Como algumas operações de conjunto criam novos conjuntos, os métodos de "
+"mixin padrão precisam de uma maneira de criar novas instâncias a partir de "
+"um :term:`iterável`. Supõe-se que a classe construtor tenha uma assinatura "
+"no formato ``ClassName(iterable)``. Essa suposição é fatorada em um :class:"
+"`classmethod` interno chamado :meth:`!_from_iterable` que chama "
+"``cls(iterable)`` para produzir um novo conjunto. Se o mixin :class:`Set` "
+"estiver sendo usado em uma classe com uma assinatura de construtor "
+"diferente, você precisará substituir :meth:`!_from_iterable` por um método "
+"de classe ou um método regular que possa construir novas instâncias a partir "
+"de um argumento iterável."
 
 #: ../../library/collections.abc.rst:432
 msgid ""
@@ -806,6 +942,9 @@ msgid ""
 "fixed), redefine :meth:`~object.__le__` and :meth:`~object.__ge__`, then the "
 "other operations will automatically follow suit."
 msgstr ""
+"Para substituir as comparações (presumivelmente para velocidade, já que a "
+"semântica é fixa), redefina :meth:`~object.__le__` e :meth:`~object.__ge__`, "
+"então as outras operações seguirão o exemplo automaticamente."
 
 #: ../../library/collections.abc.rst:438
 msgid ""
@@ -815,6 +954,12 @@ msgid ""
 "using mixins, inherit from both :meth:`Set` and :meth:`Hashable`, then "
 "define ``__hash__ = Set._hash``."
 msgstr ""
+"O mixin :class:`Set` fornece um método :meth:`!_hash` para calcular um valor "
+"de hash para o conjunto; no entanto, :meth:`~object.__hash__` não é definido "
+"porque nem todos os conjuntos são :term:`hasheáveis <hasheável>` ou "
+"imutáveis. Para adicionar hasheabilidade em conjuntos usando mixin, herde de "
+"ambos :meth:`Set` e :meth:`Hashable`, e então defina ``__hash__ = Set."
+"_hash``."
 
 #: ../../library/collections.abc.rst:446
 msgid ""
