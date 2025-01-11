@@ -85,7 +85,7 @@
 
 
 
-# library (58.34% done)
+# library (58.49% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          33 /  49 ( 67.0% translated).
@@ -110,14 +110,13 @@
 - bdb.po                           8 / 110 (  7.0% translated).
 - binascii.po                     10 /  40 ( 25.0% translated).
 - bisect.po                       16 /  30 ( 53.0% translated).
-- calendar.po                     45 /  93 ( 48.0% translated).
+- calendar.po                     66 /  93 ( 70.0% translated).
 - cgi.po                          27 / 109 ( 24.0% translated).
 - chunk.po                        14 /  39 ( 35.0% translated).
 - cmath.po                        54 /  56 ( 96.0% translated).
 - cmd.po                           6 /  46 ( 13.0% translated).
 - code.po                         30 /  31 ( 96.0% translated).
 - codecs.po                      250 / 533 ( 46.0% translated).
-- collections.abc.po              90 / 119 ( 75.0% translated).
 - concurrent.futures.po           15 /  90 ( 16.0% translated).
 - configparser.po                178 / 186 ( 95.0% translated).
 - contextlib.po                    9 / 130 (  6.0% translated).
@@ -129,7 +128,7 @@
 - curses.po                       63 / 485 ( 12.0% translated).
 - dataclasses.po                  62 / 124 ( 50.0% translated).
 - datetime.po                    574 / 586 ( 97.0% translated).
-- dbm.po                           4 /  85 (  4.0% translated).
+- dbm.po                           5 /  85 (  5.0% translated).
 - difflib.po                      14 / 134 ( 10.0% translated).
 - dis.po                         109 / 265 ( 41.0% translated).
 - distutils.po                     0 /  13 (  0.0% translated).
@@ -229,7 +228,7 @@
 - sndhdr.po                       12 /  37 ( 32.0% translated).
 - socket.po                       75 / 348 ( 21.0% translated).
 - socketserver.po                  9 /  86 ( 10.0% translated).
-- sqlite3.po                      88 / 371 ( 23.0% translated).
+- sqlite3.po                      89 / 371 ( 23.0% translated).
 - ssl.po                          52 / 503 ( 10.0% translated).
 - stat.po                         80 /  81 ( 98.0% translated).
 - statistics.po                  160 / 177 ( 90.0% translated).
@@ -332,5 +331,5 @@
 - 3.8.po                         468 / 469 ( 99.0% translated).
 
 
-# TOTAL (64.14% done)
+# TOTAL (64.23% done)
 
