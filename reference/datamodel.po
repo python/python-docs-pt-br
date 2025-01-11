@@ -10,16 +10,16 @@
 # Welington Carlos <wcarlos3@gmail.com>, 2019
 # Marco Rougeth <marco@rougeth.com>, 2020
 # Adorilson Bezerra <adorilson@gmail.com>, 2023
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-03 16:35+0000\n"
+"POT-Creation-Date: 2025-01-10 16:41+0000\n"
 "PO-Revision-Date: 2017-02-16 23:38+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "Language: pt_BR\n"
@@ -4075,6 +4075,10 @@ msgid ""
 "meth:`~object.__class_getitem__` may be called instead of ``__getitem__()``. "
 "See :ref:`classgetitem-versus-getitem` for more details."
 msgstr ""
+"Ao fazer :ref:`subscrição <subscriptions>` de uma *classe*, o método de "
+"classe especial :meth:`~object.__class_getitem__` pode ser chamado em vez de "
+"``__getitem__()``. Veja :ref:`classgetitem-versus-getitem` para mais "
+"detalhes."
 
 #: ../../reference/datamodel.rst:2429
 msgid ""
@@ -4382,6 +4386,8 @@ msgid ""
 "The built-in function :func:`int` falls back to :meth:`__trunc__` if "
 "neither :meth:`__int__` nor :meth:`__index__` is defined."
 msgstr ""
+"A função embutida :func:`int` retorna para :meth:`__trunc__` se nem :meth:"
+"`__int__` nem :meth:`__index__` estiverem definidos."
 
 #: ../../reference/datamodel.rst:2672
 msgid "With Statement Context Managers"
@@ -4496,6 +4502,11 @@ msgid ""
 "of these methods used the conventional lookup process, they would fail when "
 "invoked on the type object itself::"
 msgstr ""
+"A justificativa por trás desse comportamento está em uma série de métodos "
+"especiais como :meth:`~object.__hash__` e :meth:`~object.__repr__` que são "
+"implementados por todos os objetos, incluindo objetos de tipo. Se a pesquisa "
+"implícita desses métodos usasse o processo de pesquisa convencional, eles "
+"falhariam quando invocados no próprio objeto do tipo::"
 
 #: ../../reference/datamodel.rst:2753
 msgid ""
@@ -4513,6 +4524,9 @@ msgid ""
 "correctness, implicit special method lookup generally also bypasses the :"
 "meth:`~object.__getattribute__` method even of the object's metaclass::"
 msgstr ""
+"Além de contornar quaisquer atributos de instância no interesse da correção, "
+"a pesquisa de método especial implícita geralmente também contorna o método :"
+"meth:`~object.__getattribute__` mesmo da metaclasse do objeto::"
 
 #: ../../reference/datamodel.rst:2788
 msgid ""
@@ -4522,6 +4536,11 @@ msgid ""
 "special method *must* be set on the class object itself in order to be "
 "consistently invoked by the interpreter)."
 msgstr ""
+"Ignorar a maquinaria de :meth:`~object.__getattribute__` desta forma fornece "
+"um escopo significativo para otimizações de velocidade dentro do "
+"interpretador, ao custo de alguma flexibilidade no tratamento de métodos "
+"especiais (o método especial *deve* ser definido no próprio objeto classe em "
+"ordem ser invocado de forma consistente pelo interpretador)."
 
 #: ../../reference/datamodel.rst:2799
 msgid "Coroutines"
@@ -4537,6 +4556,9 @@ msgid ""
 "__await__` method. :term:`Coroutine objects <coroutine>` returned from :"
 "keyword:`async def` functions are awaitable."
 msgstr ""
+"Um objeto :term:`aguardável` geralmente implementa um método :meth:`~object."
+"__await__`. Os :term:`objetos corrotina <coroutine>` retornados das funções :"
+"keyword:`async def` são aguardáveis."
 
 #: ../../reference/datamodel.rst:2811
 msgid ""
@@ -4573,6 +4595,14 @@ msgid ""
 "coroutine raises an exception, it is propagated by the iterator.  Coroutines "
 "should not directly raise unhandled :exc:`StopIteration` exceptions."
 msgstr ""
+":term:`Objetos corrotina <coroutine>` são objetos :term:`aguardáveis "
+"<aguardável>`. A execução de uma corrotina pode ser controlada chamando :"
+"meth:`~object.__await__` e iterando sobre o resultado. Quando a corrotina "
+"termina a execução e retorna, o iterador levanta :exc:`StopIteration`, e o "
+"atributo :attr:`~StopIteration.value` da exceção contém o valor de retorno. "
+"Se a corrotina levantar uma exceção, ela será propagada pelo iterador. As "
+"corrotinas não devem levantar exceções :exc:`StopIteration` diretamente não "
+"tratadas."
 
 #: ../../reference/datamodel.rst:2839
 msgid ""
@@ -4609,6 +4639,13 @@ msgid ""
 "meth:`~object.__await__` return value, described above.  If the exception is "
 "not caught in the coroutine, it propagates back to the caller."
 msgstr ""
+"Levanta a exceção especificada na corrotina. Este método delega ao método :"
+"meth:`~generator.throw` do iterador que causou a suspensão da corrotina, se "
+"ela tiver tal método. Caso contrário, a exceção é levantada no ponto de "
+"suspensão. O resultado (valor de retorno, :exc:`StopIteration` ou outra "
+"exceção) é o mesmo de iterar sobre o valor de retorno :meth:`~object."
+"__await__`, descrito acima. Se a exceção não for capturada na corrotina, ela "
+"se propagará de volta para o chamador."
 
 #: ../../reference/datamodel.rst:2871
 msgid ""
@@ -4675,6 +4712,9 @@ msgid ""
 "that would resolve to an :term:`asynchronous iterator <asynchronous "
 "iterator>`."
 msgstr ""
+"Antes do Python 3.7, :meth:`~object.__aiter__` poderia retornar um "
+"*aguardável* que resolveria para um :term:`iterador assíncrono <asynchronous "
+"iterator>`."
 
 #: ../../reference/datamodel.rst:2923
 msgid ""
@@ -4682,6 +4722,9 @@ msgid ""
 "asynchronous iterator object.  Returning anything else will result in a :exc:"
 "`TypeError` error."
 msgstr ""
+"A partir do Python 3.7, :meth:`~object.__aiter__` deve retornar um objeto "
+"iterador assíncrono. Retornar qualquer outra coisa resultará em um erro :exc:"
+"`TypeError`."
 
 #: ../../reference/datamodel.rst:2931
 msgid "Asynchronous Context Managers"
@@ -4763,3 +4806,6 @@ msgid ""
 "method -- such as :meth:`~object.__add__` -- fails then the overall "
 "operation is not supported, which is why the reflected method is not called."
 msgstr ""
+"Para operandos do mesmo tipo, presume-se que se o método não refletido -- "
+"como :meth:`~object.__add__` -- falhar, a operação geral não será suportada, "
+"razão pela qual o método refletido não é chamado."
