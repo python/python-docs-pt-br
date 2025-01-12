@@ -51,12 +51,12 @@
 - newtypes_tutorial.po            27 / 123 ( 21.0% translated).
 
 
-# faq (92.76% done)
+# faq (93.19% done)
 
 - design.po                      128 / 142 ( 90.0% translated).
 - extending.po                    55 /  58 ( 94.0% translated).
 - library.po                     136 / 140 ( 97.0% translated).
-- programming.po                 348 / 393 ( 88.0% translated).
+- programming.po                 352 / 393 ( 89.0% translated).
 
 
 # howto (60.73% done)
@@ -287,9 +287,9 @@
 - zoneinfo.po                      8 /  75 ( 10.0% translated).
 
 
-# reference (93.93% done)
+# reference (95.50% done)
 
-- compound_stmts.po              263 / 389 ( 67.0% translated).
+- compound_stmts.po              304 / 389 ( 78.0% translated).
 - datamodel.po                   783 / 786 ( 99.0% translated).
 - executionmodel.po               73 /  75 ( 97.0% translated).
 - import.po                      192 / 207 ( 92.0% translated).
@@ -331,5 +331,5 @@
 - 3.8.po                         468 / 469 ( 99.0% translated).
 
 
-# TOTAL (64.23% done)
+# TOTAL (64.32% done)
 
