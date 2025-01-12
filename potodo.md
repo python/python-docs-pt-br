@@ -4,9 +4,8 @@
 
 
 
-# c-api (52.06% done)
+# c-api (52.22% done)
 
-- arg.po                         190 / 198 ( 95.0% translated).
 - exceptions.po                  194 / 370 ( 52.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
 - frame.po                        20 /  42 ( 47.0% translated).
@@ -46,9 +45,9 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (94.76% done)
+# faq (95.31% done)
 
-- programming.po                 451 / 508 ( 88.0% translated).
+- programming.po                 457 / 508 ( 89.0% translated).
 
 
 # howto (59.41% done)
@@ -226,9 +225,9 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (93.60% done)
+# reference (95.17% done)
 
-- compound_stmts.po              284 / 467 ( 60.0% translated).
+- compound_stmts.po              329 / 467 ( 70.0% translated).
 
 
 # tutorial (100.00% done)
@@ -256,5 +255,5 @@
 - changelog.po                   703 / 12122 (  5.0% translated).
 
 
-# TOTAL (55.89% done)
+# TOTAL (55.97% done)
 

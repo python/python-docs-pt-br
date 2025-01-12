@@ -11,17 +11,17 @@
 # Rodrigo Cendamore, 2023
 # Vitor Buxbaum Orlandi, 2023
 # Jones Martins, 2024
-# Adorilson Bezerra <adorilson@gmail.com>, 2025
 # Rafael Fontenelle <rffontenelle@gmail.com>, 2025
+# Adorilson Bezerra <adorilson@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-03 14:16+0000\n"
+"POT-Creation-Date: 2025-01-10 14:17+0000\n"
 "PO-Revision-Date: 2021-06-28 00:52+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
+"Last-Translator: Adorilson Bezerra <adorilson@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -4189,6 +4189,8 @@ msgstr ""
 msgid ""
 "How can a subclass control what data is stored in an immutable instance?"
 msgstr ""
+"Como uma subclasse pode controlar quais dados são armazenados em um "
+"instância imutável?"
 
 #: ../../faq/programming.rst:1945
 msgid ""
@@ -4197,12 +4199,17 @@ msgid ""
 "*after* an instance is created, which is too late to alter data in an "
 "immutable instance."
 msgstr ""
+"Quando estender um tipo imutável, sobrescreva o método :meth:`~object."
+"__new__` em vez do método :meth:`~object.__init__`.  O último só é executado "
+"*depois* que um instância é criada, o que é tarde demais para alterar os "
+"dados em um instância imutável."
 
 #: ../../faq/programming.rst:1950
 msgid ""
 "All of these immutable classes have a different signature than their parent "
 "class:"
 msgstr ""
+"Todas essas classes imutáveis têm um assinatura diferente da sua classe base:"
 
 #: ../../faq/programming.rst:1953
 msgid ""
@@ -4227,10 +4234,30 @@ msgid ""
 "        s = ''.join([c for c in s if c.isalnum() or c == '-'])\n"
 "        return super().__new__(cls, s)"
 msgstr ""
+"from datetime import date\n"
+"\n"
+"class FirstOfMonthDate(date):\n"
+"    \"Usa sempre o primeiro dia do mês\"\n"
+"    def __new__(cls, year, month, day):\n"
+"        return super().__new__(cls, year, month, 1)\n"
+"\n"
+"class NamedInt(int):\n"
+"    \"Permite o nome em texto para alguns números\"\n"
+"    xlat = {'zero': 0, 'one': 1, 'ten': 10}\n"
+"    def __new__(cls, value):\n"
+"        value = cls.xlat.get(value, value)\n"
+"        return super().__new__(cls, value)\n"
+"\n"
+"class TitleStr(str):\n"
+"    \"Converte string para um nome adequado para uma URL\"\n"
+"    def __new__(cls, s):\n"
+"        s = s.lower().replace(' ', '-')\n"
+"        s = ''.join([c for c in s if c.isalnum() or c == '-'])\n"
+"        return super().__new__(cls, s)"
 
 #: ../../faq/programming.rst:1976
 msgid "The classes can be used like this:"
-msgstr ""
+msgstr "As classes podem ser usadas da seguinte forma:"
 
 #: ../../faq/programming.rst:1978
 msgid ""
@@ -4243,6 +4270,14 @@ msgid ""
 ">>> TitleStr('Blog: Why Python Rocks')\n"
 "'blog-why-python-rocks'"
 msgstr ""
+">>> FirstOfMonthDate(2012, 2, 14)\n"
+"FirstOfMonthDate(2012, 2, 1)\n"
+">>> NamedInt('ten')\n"
+"10\n"
+">>> NamedInt(20)\n"
+"20\n"
+">>> TitleStr('Blog: Porque Python domina')\n"
+"'blog-porque-python-domina'"
 
 #: ../../faq/programming.rst:1993
 msgid "How do I cache method calls?"
