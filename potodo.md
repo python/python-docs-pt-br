@@ -79,7 +79,7 @@
 
 
 
-# library (57.17% done)
+# library (57.22% done)
 
 - argparse.po                    260 / 290 ( 89.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
@@ -100,14 +100,13 @@
 - bdb.po                           5 /  92 (  5.0% translated).
 - binascii.po                      5 /  37 ( 13.0% translated).
 - bz2.po                          64 /  65 ( 98.0% translated).
-- calendar.po                     40 /  69 ( 57.0% translated).
+- calendar.po                     56 /  69 ( 81.0% translated).
 - cgi.po                          19 /  90 ( 21.0% translated).
 - chunk.po                        10 /  34 ( 29.0% translated).
 - cmath.po                        41 /  52 ( 78.0% translated).
 - cmd.po                           4 /  42 (  9.0% translated).
 - code.po                         29 /  31 ( 93.0% translated).
 - codecs.po                      237 / 511 ( 46.0% translated).
-- collections.abc.po             100 / 101 ( 99.0% translated).
 - collections.po                 199 / 202 ( 98.0% translated).
 - concurrent.futures.po           16 /  87 ( 18.0% translated).
 - configparser.po                151 / 174 ( 86.0% translated).
@@ -266,9 +265,9 @@
 - zoneinfo.po                      5 /  72 (  6.0% translated).
 
 
-# reference (90.01% done)
+# reference (90.40% done)
 
-- compound_stmts.po               43 / 118 ( 36.0% translated).
+- compound_stmts.po               49 / 118 ( 41.0% translated).
 - datamodel.po                   477 / 484 ( 98.0% translated).
 - expressions.po                 295 / 329 ( 89.0% translated).
 - import.po                      163 / 186 ( 87.0% translated).
@@ -304,5 +303,5 @@
 - 3.9.po                         382 / 386 ( 98.0% translated).
 
 
-# TOTAL (61.53% done)
+# TOTAL (61.57% done)
 
