@@ -5,9 +5,8 @@
 - license.po                     112 / 123 ( 91.0% translated).
 
 
-# c-api (51.75% done)
+# c-api (51.92% done)
 
-- arg.po                         185 / 193 ( 95.0% translated).
 - exceptions.po                  194 / 366 ( 53.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
 - frame.po                        20 /  36 ( 55.0% translated).
@@ -47,10 +46,10 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (94.26% done)
+# faq (94.80% done)
 
 - library.po                     157 / 162 ( 96.0% translated).
-- programming.po                 450 / 508 ( 88.0% translated).
+- programming.po                 456 / 508 ( 89.0% translated).
 
 
 # howto (57.39% done)
@@ -264,9 +263,9 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (93.49% done)
+# reference (95.08% done)
 
-- compound_stmts.po              284 / 465 ( 61.0% translated).
+- compound_stmts.po              329 / 465 ( 70.0% translated).
 - datamodel.po                   852 / 856 ( 99.0% translated).
 
 
@@ -301,5 +300,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (64.04% done)
+# TOTAL (64.13% done)
 
