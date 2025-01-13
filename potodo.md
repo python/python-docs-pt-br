@@ -69,7 +69,7 @@
 
 
 
-# library (58.68% done)
+# library (58.93% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
@@ -125,7 +125,6 @@
 - ftplib.po                       11 /  99 ( 11.0% translated).
 - functools.po                    20 / 115 ( 17.0% translated).
 - gettext.po                     116 / 129 ( 89.0% translated).
-- grp.po                          15 /  27 ( 55.0% translated).
 - gzip.po                         24 /  68 ( 35.0% translated).
 - hashlib.po                      11 / 168 (  6.0% translated).
 - hmac.po                          3 /  27 ( 11.0% translated).
@@ -156,7 +155,6 @@
 - pdb.po                         132 / 150 ( 88.0% translated).
 - pickle.po                      228 / 245 ( 93.0% translated).
 - pkgutil.po                       6 /  50 ( 12.0% translated).
-- platform.po                      4 /  80 (  5.0% translated).
 - poplib.po                       10 /  53 ( 18.0% translated).
 - profile.po                      34 / 181 ( 18.0% translated).
 - pyexpat.po                      21 / 144 ( 14.0% translated).
@@ -238,7 +236,7 @@
 
 
 
-# whatsnew (38.87% done)
+# whatsnew (39.22% done)
 
 - 2.3.po                         328 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -252,8 +250,8 @@
 - 3.5.po                         125 / 578 ( 21.0% translated).
 - 3.6.po                         235 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   703 / 12122 (  5.0% translated).
+- changelog.po                   783 / 12122 (  6.0% translated).
 
 
-# TOTAL (55.97% done)
+# TOTAL (56.19% done)
 
