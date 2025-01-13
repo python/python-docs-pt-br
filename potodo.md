@@ -73,7 +73,7 @@
 
 
 
-# library (57.57% done)
+# library (57.76% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - abc.po                          31 /  60 ( 51.0% translated).
@@ -144,7 +144,6 @@
 - functions.po                   491 / 497 ( 98.0% translated).
 - functools.po                    20 / 115 ( 17.0% translated).
 - gettext.po                     116 / 129 ( 89.0% translated).
-- grp.po                          17 /  29 ( 58.0% translated).
 - gzip.po                         22 /  65 ( 33.0% translated).
 - hashlib.po                      11 / 168 (  6.0% translated).
 - hmac.po                          3 /  27 ( 11.0% translated).
@@ -185,7 +184,6 @@
 - pickle.po                      226 / 243 ( 93.0% translated).
 - pipes.po                         5 /  21 ( 23.0% translated).
 - pkgutil.po                       6 /  50 ( 12.0% translated).
-- platform.po                      4 /  61 (  6.0% translated).
 - poplib.po                       10 /  53 ( 18.0% translated).
 - profile.po                      34 / 179 ( 18.0% translated).
 - pyexpat.po                      21 / 144 ( 14.0% translated).
@@ -300,5 +298,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (64.13% done)
+# TOTAL (64.25% done)
 
