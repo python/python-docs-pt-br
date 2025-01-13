@@ -85,7 +85,7 @@
 
 
 
-# library (58.49% done)
+# library (58.68% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          33 /  49 ( 67.0% translated).
@@ -158,7 +158,7 @@
 - functools.po                    23 /  86 ( 26.0% translated).
 - gc.po                           56 /  57 ( 98.0% translated).
 - glob.po                         32 /  33 ( 96.0% translated).
-- grp.po                          17 /  29 ( 58.0% translated).
+- grp.po                          28 /  29 ( 96.0% translated).
 - gzip.po                         22 /  60 ( 36.0% translated).
 - hashlib.po                      11 / 161 (  6.0% translated).
 - heapq.po                        50 /  51 ( 98.0% translated).
@@ -203,7 +203,7 @@
 - pdb.po                         114 / 115 ( 99.0% translated).
 - pipes.po                         5 /  20 ( 25.0% translated).
 - pkgutil.po                       7 /  51 ( 13.0% translated).
-- platform.po                      4 /  57 (  7.0% translated).
+- platform.po                     54 /  57 ( 94.0% translated).
 - plistlib.po                     42 /  43 ( 97.0% translated).
 - poplib.po                       10 /  54 ( 18.0% translated).
 - pprint.po                       46 /  48 ( 95.0% translated).
@@ -331,5 +331,5 @@
 - 3.8.po                         468 / 469 ( 99.0% translated).
 
 
-# TOTAL (64.32% done)
+# TOTAL (64.42% done)
 
