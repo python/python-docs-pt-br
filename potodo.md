@@ -79,7 +79,7 @@
 
 
 
-# library (57.22% done)
+# library (57.40% done)
 
 - argparse.po                    260 / 290 ( 89.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
@@ -147,7 +147,7 @@
 - functions.po                   377 / 379 ( 99.0% translated).
 - functools.po                    31 /  80 ( 38.0% translated).
 - gc.po                           54 /  55 ( 98.0% translated).
-- grp.po                          16 /  28 ( 57.0% translated).
+- grp.po                          26 /  28 ( 92.0% translated).
 - gzip.po                         21 /  57 ( 36.0% translated).
 - hashlib.po                       8 / 139 (  5.0% translated).
 - heapq.po                        49 /  51 ( 96.0% translated).
@@ -185,7 +185,7 @@
 - pickle.po                      202 / 206 ( 98.0% translated).
 - pipes.po                         4 /  19 ( 21.0% translated).
 - pkgutil.po                       6 /  51 ( 11.0% translated).
-- platform.po                      3 /  51 (  5.0% translated).
+- platform.po                     46 /  51 ( 90.0% translated).
 - plistlib.po                     38 /  40 ( 95.0% translated).
 - poplib.po                        7 /  50 ( 14.0% translated).
 - pprint.po                       21 /  32 ( 65.0% translated).
@@ -303,5 +303,5 @@
 - 3.9.po                         382 / 386 ( 98.0% translated).
 
 
-# TOTAL (61.58% done)
+# TOTAL (61.69% done)
 
