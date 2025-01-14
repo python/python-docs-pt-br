@@ -87,7 +87,7 @@
 
 
 
-# library (57.50% done)
+# library (57.71% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    254 / 290 ( 87.0% translated).
@@ -108,7 +108,7 @@
 - audioop.po                       1 /  46 (  2.0% translated).
 - base64.po                       18 /  55 ( 32.0% translated).
 - bdb.po                           8 / 109 (  7.0% translated).
-- binascii.po                      5 /  37 ( 13.0% translated).
+- binascii.po                     12 /  37 ( 32.0% translated).
 - bisect.po                       20 /  30 ( 66.0% translated).
 - calendar.po                     57 /  70 ( 81.0% translated).
 - cgi.po                          18 /  90 ( 20.0% translated).
@@ -160,7 +160,7 @@
 - functools.po                    27 /  83 ( 32.0% translated).
 - gc.po                           53 /  55 ( 96.0% translated).
 - glob.po                         20 /  21 ( 95.0% translated).
-- grp.po                          16 /  28 ( 57.0% translated).
+- grp.po                          27 /  28 ( 96.0% translated).
 - gzip.po                         21 /  58 ( 36.0% translated).
 - hashlib.po                       8 / 141 (  5.0% translated).
 - heapq.po                        49 /  51 ( 96.0% translated).
@@ -199,7 +199,7 @@
 - pickle.po                      205 / 206 ( 99.0% translated).
 - pipes.po                         4 /  20 ( 20.0% translated).
 - pkgutil.po                       6 /  51 ( 11.0% translated).
-- platform.po                      4 /  57 (  7.0% translated).
+- platform.po                     53 /  57 ( 92.0% translated).
 - plistlib.po                     38 /  40 ( 95.0% translated).
 - poplib.po                        7 /  50 ( 14.0% translated).
 - pprint.po                       31 /  42 ( 73.0% translated).
@@ -324,5 +324,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (62.12% done)
+# TOTAL (62.25% done)
 
