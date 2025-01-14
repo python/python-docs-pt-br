@@ -69,7 +69,7 @@
 
 
 
-# library (58.93% done)
+# library (59.24% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
@@ -85,7 +85,7 @@
 - asyncio-task.po                142 / 267 ( 53.0% translated).
 - base64.po                       20 /  62 ( 32.0% translated).
 - bdb.po                           8 / 112 (  7.0% translated).
-- binascii.po                      8 /  38 ( 21.0% translated).
+- binascii.po                     23 /  38 ( 60.0% translated).
 - bisect.po                       18 /  35 ( 51.0% translated).
 - calendar.po                     87 / 115 ( 75.0% translated).
 - cmd.po                           5 /  50 ( 10.0% translated).
@@ -192,7 +192,7 @@
 - tokenize.po                      8 /  52 ( 15.0% translated).
 - traceback.po                     9 / 112 (  8.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
-- turtle.po                      561 / 661 ( 84.0% translated).
+- turtle.po                      660 / 661 ( 99.0% translated).
 - types.po                        93 / 103 ( 90.0% translated).
 - typing.po                      759 / 791 ( 95.0% translated).
 - unicodedata.po                   5 /  32 ( 15.0% translated).
@@ -253,5 +253,5 @@
 - changelog.po                   783 / 12122 (  6.0% translated).
 
 
-# TOTAL (56.19% done)
+# TOTAL (56.34% done)
 
