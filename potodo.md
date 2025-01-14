@@ -73,7 +73,7 @@
 
 
 
-# library (57.76% done)
+# library (58.07% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - abc.po                          31 /  60 ( 51.0% translated).
@@ -93,7 +93,7 @@
 - audioop.po                       5 /  53 (  9.0% translated).
 - base64.po                       20 /  60 ( 33.0% translated).
 - bdb.po                           7 / 111 (  6.0% translated).
-- binascii.po                      9 /  41 ( 21.0% translated).
+- binascii.po                     23 /  41 ( 56.0% translated).
 - bisect.po                       18 /  35 ( 51.0% translated).
 - calendar.po                     87 / 114 ( 76.0% translated).
 - cgi.po                          28 / 126 ( 22.0% translated).
@@ -228,7 +228,7 @@
 - tokenize.po                      8 /  52 ( 15.0% translated).
 - traceback.po                     9 / 108 (  8.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
-- turtle.po                      561 / 662 ( 84.0% translated).
+- turtle.po                      660 / 662 ( 99.0% translated).
 - types.po                        90 /  99 ( 90.0% translated).
 - typing.po                      694 / 745 ( 93.0% translated).
 - unicodedata.po                   5 /  32 ( 15.0% translated).
@@ -298,5 +298,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (64.25% done)
+# TOTAL (64.43% done)
 
