@@ -69,7 +69,7 @@
 
 
 
-# library (59.24% done)
+# library (59.58% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
@@ -88,7 +88,6 @@
 - binascii.po                     23 /  38 ( 60.0% translated).
 - bisect.po                       18 /  35 ( 51.0% translated).
 - calendar.po                     87 / 115 ( 75.0% translated).
-- cmd.po                           5 /  50 ( 10.0% translated).
 - codecs.po                      250 / 532 ( 46.0% translated).
 - concurrent.futures.po           14 / 100 ( 14.0% translated).
 - configparser.po                197 / 220 ( 89.0% translated).
@@ -100,7 +99,7 @@
 - dataclasses.po                  47 / 152 ( 30.0% translated).
 - datetime.po                    641 / 646 ( 99.0% translated).
 - dbm.po                           8 / 102 (  7.0% translated).
-- decimal.po                     344 / 378 ( 91.0% translated).
+- decimal.po                     370 / 378 ( 97.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
 - dis.po                         204 / 396 ( 51.0% translated).
 - doctest.po                      92 / 372 ( 24.0% translated).
@@ -145,7 +144,6 @@
 - logging.config.po               12 / 171 (  7.0% translated).
 - logging.handlers.po             48 / 270 ( 17.0% translated).
 - logging.po                      93 / 368 ( 25.0% translated).
-- lzma.po                         66 / 115 ( 57.0% translated).
 - mailbox.po                      10 / 306 (  3.0% translated).
 - mimetypes.po                    20 /  54 ( 37.0% translated).
 - mmap.po                         12 /  65 ( 18.0% translated).
@@ -236,7 +234,7 @@
 
 
 
-# whatsnew (39.22% done)
+# whatsnew (39.97% done)
 
 - 2.3.po                         328 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -248,10 +246,10 @@
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
 - 3.5.po                         125 / 578 ( 21.0% translated).
-- 3.6.po                         235 / 544 ( 43.0% translated).
+- 3.6.po                         236 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   783 / 12122 (  6.0% translated).
+- changelog.po                   952 / 12122 (  7.0% translated).
 
 
-# TOTAL (56.34% done)
+# TOTAL (56.73% done)
 

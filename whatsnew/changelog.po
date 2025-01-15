@@ -5554,7 +5554,7 @@ msgstr ""
 
 #: ../../../build/NEWS:2207
 msgid "Python 3.13.0 beta 1"
-msgstr ""
+msgstr "Python 3.13.0 beta 1"
 
 #: ../../../build/NEWS:2209
 msgid "*Release date: 2024-05-08*"
@@ -5562,7 +5562,7 @@ msgstr "*Data de lançamento: 2024-05-08*"
 
 #: ../../../build/NEWS:2214
 msgid ":gh:`116741`: Update bundled libexpat to 2.6.2"
-msgstr ""
+msgstr ":gh:`116741`: Atualiza libexpat empacotado para 2.6.2"
 
 #: ../../../build/NEWS:2216
 msgid ""
@@ -5571,12 +5571,18 @@ msgid ""
 "be used with libraries that do not to support every algorithm that upstream "
 "OpenSSL does."
 msgstr ""
+":gh:`117233`: Detecta suporte a BLAKE2, SHA3, Shake e SHA512 truncado na "
+"biblioteca libcrypto do OpenSSL no momento da construção. Isso permite que :"
+"mod:`hashlib` seja usado com bibliotecas que não suportam todos os "
+"algoritmos que o OpenSSL upstream suporta."
 
 #: ../../../build/NEWS:2224
 msgid ""
 ":gh:`118414`: Add instrumented opcodes to YIELD_VALUE assertion for tracing "
 "cases."
 msgstr ""
+":gh:`118414`: Adiciona opcodes instrumentados à asserção YIELD_VALUE para "
+"rastrear casos."
 
 #: ../../../build/NEWS:2227
 msgid ""
@@ -5589,6 +5595,15 @@ msgid ""
 "failing, potentially leaving behind global state and callbacks and otherwise "
 "leaving the module in an inconsistent state."
 msgstr ""
+":gh:`117953`: Quando um módulo embutido ou de extensão é importado pela "
+"primeira vez, enquanto um subinterpretador está ativo, a função init do "
+"módulo agora é executada pelo interpretador principal antes que a importação "
+"continue no subinterpretador. Consequentemente, os módulos init de fase "
+"única agora falham em um subinterpretador isolado sem a função init em "
+"execução sob esse interpretador, enquanto antes ele seria executado sob o "
+"subinterpretador *antes* de falhar, potencialmente deixando para trás o "
+"estado global e os retornos de chamada e, de outra forma, deixando o módulo "
+"em um estado inconsistente."
 
 #: ../../../build/NEWS:2236
 msgid ""
@@ -5598,6 +5613,11 @@ msgid ""
 "included (indirectly, via pycore_code.h) by some key 3rd party software that "
 "does so for speed."
 msgstr ""
+":gh:`117549`: Não usa a sintaxe do inicializador designado em funções inline "
+"em cabeçalhos internos. Eles causam problemas para usuários de C++ ou MSVC "
+"que ainda não estão usando o padrão C++ mais recente (C++20). Enquanto "
+"interno, pycore_backoff.h, é incluído (indiretamente, via pycore_code.h) por "
+"algum software de terceiros importante que faz isso para velocidade."
 
 #: ../../../build/NEWS:2242
 msgid ""
@@ -5605,6 +5625,9 @@ msgid ""
 "when using the argument *indent*. Depending on the data the encoding using :"
 "func:`json.dumps` with *indent* can be up to 2 to 3 times faster."
 msgstr ""
+":gh:`95382`: Melhora o desempenho de :func:`json.dumps` e :func:`json.dump` "
+"ao usar o argumento *indent*. Dependendo dos dados, a codificação usando :"
+"func:`json.dumps` com *indent* pode ser de 2 a 3 vezes mais rápida."
 
 #: ../../../build/NEWS:2246
 msgid ""
@@ -5615,6 +5638,13 @@ msgid ""
 "interpreter's lifetime. This behavior does not apply if the GIL has been "
 "explicitly enabled or disabled with ``PYTHON_GIL`` or ``-Xgil``."
 msgstr ""
+":gh:`116322`: Em construções com ``--disable-gil``, a GIL será habilitada "
+"durante o carregamento de módulos de extensão C. Se o módulo indicar que "
+"suporta execução sem a GIL, a GIL será desabilitada quando o carregamento "
+"for concluído. Caso contrário, a GIL permanecerá habilitada pelo restante da "
+"vida útil do interpretador. Esse comportamento não se aplica se a GIL tiver "
+"sido explicitamente habilitada ou desabilitada com ``PYTHON_GIL`` ou ``-"
+"Xgil``."
 
 #: ../../../build/NEWS:2253
 msgid ""
@@ -5622,6 +5652,9 @@ msgid ""
 "in the same function both reference the same name, and in one comprehension "
 "the name is bound while in the other it's an implicit global."
 msgstr ""
+":gh:`118513`: Corrige :exc:`UnboundLocalError` incorreta quando duas "
+"compreensões na mesma função referenciam o mesmo nome e, em uma compreensão, "
+"o nome é vinculado, enquanto na outra é um global implícito."
 
 #: ../../../build/NEWS:2258
 msgid ""
@@ -5630,6 +5663,10 @@ msgid ""
 "``PYTHON_PERF_JIT_SUPPORT`` environment variable or when running Python with "
 "``-Xperf_jit``. Patch by Pablo Galindo."
 msgstr ""
+":gh:`118518`: Permite que o suporte Linux perf funcione sem ponteiros de "
+"quadro usando o suporte JIT avançado do perf. O recurso é ativado ao usar a "
+"variável de ambiente ``PYTHON_PERF_JIT_SUPPORT`` ou ao executar Python com "
+"``-Xperf_jit``. Patch por Pablo Galindo."
 
 #: ../../../build/NEWS:2263
 msgid ""
@@ -5638,6 +5675,10 @@ msgid ""
 "``True`` because the GIL is always enabled.  In the free-threaded build, it "
 "may return ``True`` or ``False``."
 msgstr ""
+":gh:`117514`: Adiciona a função ``sys._is_gil_enabled()`` que retorna se a "
+"GIL está habilitada no momento. Na construção padrão, ela sempre retorna "
+"``True`` porque a GIL está sempre habilitada. Na construção de threads "
+"livres, ela pode retornar ``True`` ou ``False``."
 
 #: ../../../build/NEWS:2268
 msgid ""
@@ -5646,24 +5687,34 @@ msgid ""
 "optimize integer to string conversion for values in the range from 9_000 to "
 "135_000 decimal digits."
 msgstr ""
+":gh:`118164`: Interrompe um laço entre a implementação Python do módulo :mod:"
+"`decimal` e o código Python para conversão de inteiro para string. Também "
+"otimize a conversão de inteiro para string para valores no intervalo de "
+"9_000 a 135_000 dígitos decimais."
 
 #: ../../../build/NEWS:2273
 msgid ""
 ":gh:`118473`: Fix :func:`sys.set_asyncgen_hooks` not to be partially set "
 "when raising :exc:`TypeError`."
 msgstr ""
+":gh:`118473`: Corrige :func:`sys.set_asyncgen_hooks` para não ser "
+"parcialmente definido ao levantar :exc:`TypeError`."
 
 #: ../../../build/NEWS:2276
 msgid ""
 ":gh:`118465`: Compiler populates the new ``__firstlineno__`` field on a "
 "class with the line number of the first line of the class definition."
 msgstr ""
+":gh:`118465`: O compilador preenche o novo campo ``__firstlineno__`` em uma "
+"classe com o número da linha da primeira linha da definição da classe."
 
 #: ../../../build/NEWS:2279
 msgid ""
 ":gh:`118492`: Fix an issue where the type cache can expose a previously "
 "accessed attribute when a finalizer is run."
 msgstr ""
+":gh:`118492`: Corrige um problema em que o cache de tipos pode expor um "
+"atributo acessado anteriormente quando um finalizador é executado."
 
 #: ../../../build/NEWS:2282
 msgid ""
@@ -5671,6 +5722,9 @@ msgid ""
 "``async_generator.asend().close()`` to close their section of the underlying "
 "async generator"
 msgstr ""
+":gh:`117714`: atualiza ``async_generator.athrow().close()`` e "
+"``async_generator.asend().close()`` para fechar sua seção do gerador "
+"assíncrono subjacente"
 
 #: ../../../build/NEWS:2286
 msgid ""
@@ -5679,6 +5733,11 @@ msgid ""
 "input, history viewing, and paste mode. Contributed by Pablo Galindo, Łukasz "
 "Langa and Lysandros Nikolaou based on code from the PyPy project."
 msgstr ""
+":gh:`111201`: O interpretador :term:`interativo` agora é implementado em "
+"Python, o que permite uma série de novos recursos como cores, entrada "
+"multilinha, visualização de histórico e modo de colagem. Contribuído por "
+"Pablo Galindo, Łukasz Langa e Lysandros Nikolaou com base no código do "
+"projeto PyPy."
 
 #: ../../../build/NEWS:2291
 msgid ""
@@ -5686,12 +5745,17 @@ msgid ""
 "f_locals>` and :c:func:`PyFrame_GetLocals` to return a write-through proxy "
 "object when the frame refers to a function or comprehension."
 msgstr ""
+":gh:`74929`: Implementa PEP 667: convertido :attr:`FrameType.f_locals <frame."
+"f_locals>` e :c:func:`PyFrame_GetLocals` para retornar um objeto proxy de "
+"gravação quando o quadro se refere a uma função ou compreensão."
 
 #: ../../../build/NEWS:2296
 msgid ""
 ":gh:`116767`: Fix crash in compiler on 'async with' that has many context "
 "managers."
 msgstr ""
+":gh:`116767`: Corrige travamento no compilador em 'async with' que tem "
+"muitos gerenciadores de contexto."
 
 #: ../../../build/NEWS:2299
 msgid ""
@@ -5700,16 +5764,23 @@ msgid ""
 "``PYTHON_UOPS=1``, this choice is now made at build time by configuring with "
 "``--enable-experimental-jit=interpreter``."
 msgstr ""
+":gh:`118335`: Altera como usar o interpretador de nível 2. Em vez de "
+"executar Python com ``-X uops`` ou definir a variável de ambiente "
+"``PYTHON_UOPS=1``, essa escolha agora é feita em tempo de construção "
+"configurando com ``--enable-experimental-jit=interpreter``."
 
 #: ../../../build/NEWS:2304
 msgid ""
 "**Beware!** This changes the environment variable to enable or disable micro-"
 "ops to ``PYTHON_JIT``. The old ``PYTHON_UOPS`` is no longer used."
 msgstr ""
+"**Cuidado!** Isso altera a variável de ambiente para habilitar ou "
+"desabilitar micro-ops para ``PYTHON_JIT``. O antigo ``PYTHON_UOPS`` não é "
+"mais usado."
 
 #: ../../../build/NEWS:2307
 msgid ":gh:`118306`: Update JIT compilation to use LLVM 18"
-msgstr ""
+msgstr ":gh:`118306`: Atualiza a compilação JIT para usar LLVM 18"
 
 #: ../../../build/NEWS:2309
 msgid ""
@@ -5717,29 +5788,41 @@ msgid ""
 "can now contain comprehensions. However, such comprehensions are not inlined "
 "into their parent scope at runtime. Patch by Jelle Zijlstra."
 msgstr ""
+":gh:`118160`: :ref:`Escopos de anotação <annotation-scopes>` dentro de "
+"classes agora podem conter compreensões. No entanto, tais compreensões não "
+"são incorporadas em seu escopo pai em tempo de execução. Patch por Jelle "
+"Zijlstra."
 
 #: ../../../build/NEWS:2313
 msgid ""
 ":gh:`118272`: Fix bug where ``generator.close`` does not free the generator "
 "frame's locals."
 msgstr ""
+":gh:`118272`: Corrige bug onde ``generator.close`` não libera os locais do "
+"quadro do gerador."
 
 #: ../../../build/NEWS:2316
 msgid ""
 ":gh:`118216`: Don't consider :mod:`__future__` imports with dots before the "
 "module name."
 msgstr ""
+":gh:`118216`: Não considera importações :mod:`__future__` com pontos antes "
+"do nome do módulo."
 
 #: ../../../build/NEWS:2319
 msgid ""
 ":gh:`118074`: Make sure that the Executor objects in the COLD_EXITS array "
 "aren't assumed to be GC-able (which would access bytes outside the object)."
 msgstr ""
+":gh:`118074`: Garante que os objetos Executor no array COLD_EXITS não sejam "
+"considerados GC-able (o que acessaria bytes fora do objeto)."
 
 #: ../../../build/NEWS:2323
 msgid ""
 ":gh:`107674`: Lazy load frame line number to improve performance of tracing"
 msgstr ""
+":gh:`107674`: Usa carregamento preguiçoso do número da linha do quadro para "
+"melhorar o desempenho do rastreamento"
 
 #: ../../../build/NEWS:2325
 msgid ""
@@ -5747,12 +5830,17 @@ msgid ""
 "like in ``from x import`` and ``import`` cases. It now points out to users "
 "that :keyword:`import` expects at least one name after it."
 msgstr ""
+":gh:`118082`: Melhora a mensagem :exc:`SyntaxError` para importações sem "
+"nomes, como nos casos ``from x import`` e ``import``. Agora, ele indica aos "
+"usuários que :keyword:`import` espera pelo menos um nome depois dele."
 
 #: ../../../build/NEWS:2329
 msgid ""
 ":gh:`118090`: Improve :exc:`SyntaxError` message for empty type param "
 "brackets."
 msgstr ""
+":gh:`118090`: Melhora a mensagem :exc:`SyntaxError` para colchetes de "
+"parâmetros de tipo vazios."
 
 #: ../../../build/NEWS:2332
 msgid ""
@@ -5760,48 +5848,65 @@ msgid ""
 "machine code from the UOp Executor when the experimental JIT is enabled. "
 "Patch by Anthony Shaw."
 msgstr ""
+":gh:`117958`: Adicionado um método ``get_jit_code()`` para acessar o código "
+"de máquina compilado JIT do UOp Executor quando o JIT experimental estiver "
+"habilitado. Patch por Anthony Shaw."
 
 #: ../../../build/NEWS:2336
 msgid ""
 ":gh:`117901`: Add option for compiler's codegen to save nested instruction "
 "sequences for introspection."
 msgstr ""
+":gh:`117901`: Adiciona uma opção para o codegen do compilador para salvar "
+"sequências de instruções aninhadas para introspecção."
 
 #: ../../../build/NEWS:2339
 msgid ""
 ":gh:`116622`: Redirect stdout and stderr to system log when embedded in an "
 "Android app."
 msgstr ""
+":gh:`116622`: Redireciona stdout e stderr para o log do sistema quando "
+"incorporado em um aplicativo Android."
 
 #: ../../../build/NEWS:2342
 msgid ""
 ":gh:`109118`: :ref:`annotation scope <annotation-scopes>` within class "
 "scopes can now contain lambdas."
 msgstr ""
+":gh:`109118`: :ref:`o escopo de anotação <annotation-scopes>` dentro de "
+"escopos de classe agora pode conter lambdas."
 
 #: ../../../build/NEWS:2345
 msgid ""
 ":gh:`117894`: Prevent ``agen.aclose()`` objects being re-used after ``."
 "throw()``."
 msgstr ""
+":gh:`117894`: Impede que objetos ``agen.aclose()`` sejam reutilizados após "
+"``.throw()``."
 
 #: ../../../build/NEWS:2348
 msgid ""
 ":gh:`117881`: prevent concurrent access to an async generator via athrow()."
 "throw() or asend().throw()"
 msgstr ""
+":gh:`117881`: impede acesso simultâneo a um gerador assíncrono via athrow()."
+"throw() ou asend().throw()"
 
 #: ../../../build/NEWS:2351
 msgid ""
 ":gh:`117536`: Fix a :exc:`RuntimeWarning` when calling ``agen.aclose()."
 "throw(Exception)``."
 msgstr ""
+":gh:`117536`: Corrige um :exc:`RuntimeWarning` ao chamar ``agen.aclose()."
+"throw(Exception)``."
 
 #: ../../../build/NEWS:2354
 msgid ""
 ":gh:`117755`: Fix mimalloc allocator for huge memory allocation (around "
 "8,589,934,592 GiB) on s390x. Patch by Victor Stinner."
 msgstr ""
+":gh:`117755`: Corrige alocador mimalloc para alocação de memória enorme (em "
+"torno de 8.589.934.592 GiB) no s390x. Patch por Victor Stinner."
 
 #: ../../../build/NEWS:2357
 msgid ""
@@ -5809,6 +5914,10 @@ msgid ""
 "the object's internal values when being cleared. ``obj.__dict__.clear()`` "
 "now clears the internal values, but leaves the dict attached to the object."
 msgstr ""
+":gh:`117750`: Corrige problema em que o dict de um objeto ficava fora de "
+"sincronia com os valores internos do objeto ao ser limpo. ``obj.__dict__."
+"clear()`` agora limpa os valores internos, mas deixa o dict anexado ao "
+"objeto."
 
 #: ../../../build/NEWS:2361 ../../../build/NEWS:2875
 msgid ""
@@ -5816,26 +5925,29 @@ msgid ""
 "class:`bytearray` methods by adapting them to the :c:macro:`METH_FASTCALL` "
 "calling convention:"
 msgstr ""
+":gh:`117431`: Melhora o desempenho dos seguintes métodos :class:`bytes` e :"
+"class:`bytearray` adaptando-os à convenção de chamada :c:macro:"
+"`METH_FASTCALL`:"
 
 #: ../../../build/NEWS:2365
 msgid ":meth:`!count`"
-msgstr ""
+msgstr ":meth:`!count`"
 
 #: ../../../build/NEWS:2366
 msgid ":meth:`!find`"
-msgstr ""
+msgstr ":meth:`!find`"
 
 #: ../../../build/NEWS:2367
 msgid ":meth:`!index`"
-msgstr ""
+msgstr ":meth:`!index`"
 
 #: ../../../build/NEWS:2368
 msgid ":meth:`!rfind`"
-msgstr ""
+msgstr ":meth:`!rfind`"
 
 #: ../../../build/NEWS:2369
 msgid ":meth:`!rindex`"
-msgstr ""
+msgstr ":meth:`!rindex`"
 
 #: ../../../build/NEWS:2371
 msgid ""
@@ -5843,12 +5955,17 @@ msgid ""
 "by using the :pep:`590` ``vectorcall`` calling convention. Patch by Erlend "
 "Aasland."
 msgstr ""
+":gh:`117709`: Acelera as chamadas para :func:`str` com argumento somente "
+"posicional, usando a convenção de chamada :pep:`590` ``vectorcall``. Patch "
+"por Erlend Aasland."
 
 #: ../../../build/NEWS:2375
 msgid ""
 ":gh:`117680`: Give ``_PyInstructionSequence`` a Python interface and use it "
 "in tests."
 msgstr ""
+":gh:`117680`: Dá a ``_PyInstructionSequence`` uma interface Python e use-a "
+"em testes."
 
 #: ../../../build/NEWS:2378
 msgid ""
@@ -5856,12 +5973,18 @@ msgid ""
 "must be marked as such regardless of whether they are in extension modules "
 "or not."
 msgstr ""
+":gh:`115776`: Objetos alocados estaticamente são, por definição, imortais, "
+"portanto, devem ser marcados como tal, independentemente de estarem em "
+"módulos de extensão ou não."
 
 #: ../../../build/NEWS:2382
 msgid ""
 ":gh:`117385`: Remove unhandled ``PY_MONITORING_EVENT_BRANCH`` and "
 "``PY_MONITORING_EVENT_EXCEPTION_HANDLED`` events from :func:`sys.settrace`."
 msgstr ""
+":gh:`117385`: Remove eventos ``PY_MONITORING_EVENT_BRANCH`` e "
+"``PY_MONITORING_EVENT_EXCEPTION_HANDLED`` não manipulados de :func:`sys."
+"settrace`."
 
 #: ../../../build/NEWS:2386
 msgid ""
@@ -5871,12 +5994,19 @@ msgid ""
 "modules call ``PyUnstable_Module_SetGIL(mod, Py_MOD_GIL_NOT_USED)`` from "
 "their init function."
 msgstr ""
+":gh:`116322`: Módulos de extensão podem indicar ao tempo de execução que "
+"podem ser executados sem a GIL. Módulos init multifásicos fazem isso "
+"chamando o fornecimento de ``Py_MOD_GIL_NOT_USED`` para o slot "
+"``Py_mod_gil``, enquanto módulos init monofásicos chamam "
+"``PyUnstable_Module_SetGIL(mod, Py_MOD_GIL_NOT_USED)`` de sua função init."
 
 #: ../../../build/NEWS:2392
 msgid ""
 ":gh:`116129`: Implement :pep:`696`, adding support for defaults on type "
 "parameters. Patch by Jelle Zijlstra."
 msgstr ""
+":gh:`116129`: Implementa :pep:`696`, adicionando suporte para padrões em "
+"parâmetros de tipo. Patch por Jelle Zijlstra."
 
 #: ../../../build/NEWS:2395
 msgid ""
@@ -5885,11 +6015,16 @@ msgid ""
 "track object creation and destruction the same way the :mod:`tracemalloc` "
 "module does. Patch by Pablo Galindo"
 msgstr ""
+":gh:`93502`: Adiciona duas novas funções à API C, :c:func:"
+"`PyRefTracer_SetTracer` e :c:func:`PyRefTracer_GetTracer`, que permite "
+"rastrear a criação e destruição de objetos da mesma forma que o módulo :mod:"
+"`tracemalloc` faz. Patch por Pablo Galindo"
 
 #: ../../../build/NEWS:2400
 msgid ""
 ":gh:`107674`: Improved the performance of :func:`sys.settrace` significantly"
 msgstr ""
+":gh:`107674`: Melhora significativamente o desempenho de :func:`sys.settrace`"
 
 #: ../../../build/NEWS:2402
 msgid ""
@@ -5899,18 +6034,27 @@ msgid ""
 "attempts to access an attribute from that third party module while still "
 "initialising."
 msgstr ""
+":gh:`95754`: Melhora a mensagem de erro quando um script que faz shadowing "
+"de um módulo da biblioteca padrão faz com que :exc:`AttributeError` seja "
+"levantada. Da mesma forma, melhorar a mensagem de erro quando um script que "
+"faz shadowing de um módulo de terceiros tenta acessar um atributo desse "
+"módulo de terceiros enquanto ainda está inicializando."
 
 #: ../../../build/NEWS:2408
 msgid ""
 ":gh:`99180`: Elide uninformative traceback indicators in ``return`` and "
 "simple ``assignment`` statements. Patch by Pablo Galindo."
 msgstr ""
+":gh:`99180`: Elimina indicadores de traceback não informativos em instruções "
+"``return`` e ``assignment`` simples. Patch por Pablo Galindo."
 
 #: ../../../build/NEWS:2411
 msgid ""
 ":gh:`105879`: Allow the *globals* and *locals* arguments to :func:`exec` "
 "and :func:`eval` to be passed as keywords."
 msgstr ""
+":gh:`105879`: Permite que os argumentos *globals* e *locals* para :func:"
+"`exec` e :func:`eval` sejam passados ​​como nomeados."
 
 #: ../../../build/NEWS:2417
 msgid ""
@@ -5921,6 +6065,12 @@ msgid ""
 "value to the ``type_params`` parameter may lead to incorrect behaviour on "
 "Python 3.12 or newer.)"
 msgstr ""
+":gh:`118418`: Uma :exc:`DeprecationWarning` agora é emitida se você não "
+"passar um valor para o novo parâmetro *type_params* de ``typing."
+"_eval_type()`` ou ``typing.ForwardRef._evaluate()``. (Usar qualquer uma "
+"dessas funções privadas e não documentadas é desencorajado para começar, mas "
+"deixar de passar um valor para o parâmetro ``type_params`` pode levar a um "
+"comportamento incorreto no Python 3.12 ou mais recente.)"
 
 #: ../../../build/NEWS:2424
 msgid ""
@@ -5929,23 +6079,33 @@ msgid ""
 "return types of :meth:`~object.__exit__` and :meth:`~object.__aexit__` "
 "respectively. This parameter defaults to ``bool | None``."
 msgstr ""
+":gh:`118660`: Adiciona um segundo parâmetro de tipo opcional para :class:"
+"`typing.ContextManager` e :class:`typing.AsyncContextManager`, representando "
+"os tipos de retorno de :meth:`~object.__exit__` e :meth:`~object.__aexit__` "
+"respectivamente. Este parâmetro tem como padrão ``bool | None``."
 
 #: ../../../build/NEWS:2430
 msgid ""
 ":gh:`118650`: The ``enum`` module allows method named ``_repr_*`` to be "
 "defined on ``Enum`` types."
 msgstr ""
+":gh:`118650`: O módulo ``enum`` permite que o método chamado ``_repr_*`` "
+"seja definido em tipos ``Enum``."
 
 #: ../../../build/NEWS:2433
 msgid ""
 ":gh:`118648`: Add type parameter defaults to :class:`typing.Generator` and :"
 "class:`typing.AsyncGenerator`."
 msgstr ""
+":gh:`118648`: Adiciona padrões de parâmetros de tipo para :class:`typing."
+"Generator` e :class:`typing.AsyncGenerator`."
 
 #: ../../../build/NEWS:2436
 msgid ""
 ":gh:`101137`: Mime type ``text/x-rst`` is now supported by :mod:`mimetypes`."
 msgstr ""
+":gh:`101137`: O tipo MIME ``text/x-rst`` agora é suportado por :mod:"
+"`mimetypes`."
 
 #: ../../../build/NEWS:2438
 msgid ""
@@ -5955,6 +6115,12 @@ msgid ""
 "exactly representable results is used now that doesn't rely on computing "
 "``10**precision`` (which could be effectively too large to compute)."
 msgstr ""
+":gh:`118164`: A implementação Python do módulo ``decimal`` poderia parecer "
+"travar em casos de potência relativamente pequena (como ``2**117``) se a "
+"precisão do contexto fosse definida como um valor muito alto. Um método "
+"diferente para verificar resultados exatamente representáveis ​​é usado agora "
+"que não depende da computação de ``10**precision`` (que poderia ser "
+"efetivamente muito grande para ser computada)."
 
 #: ../../../build/NEWS:2445
 msgid ""
@@ -5962,36 +6128,48 @@ msgid ""
 "debugger immediately after the call rather than before the next line is "
 "executed."
 msgstr ""
+":gh:`111744`: ``breakpoint()`` e ``pdb.set_trace()`` agora entram no "
+"depurador imediatamente após a chamada, em vez de antes da próxima linha ser "
+"executada."
 
 #: ../../../build/NEWS:2448
 msgid ":gh:`118500`: Add :mod:`pdb` support for zipapps"
-msgstr ""
+msgstr ":gh:`118500`: Adiciona suporte :mod:`pdb` para zipapps"
 
 #: ../../../build/NEWS:2450
 msgid ":gh:`118406`: Add signature for :class:`sqlite3.Connection` objects."
 msgstr ""
+":gh:`118406`: Adiciona assinatura para objetos :class:`sqlite3.Connection`."
 
 #: ../../../build/NEWS:2452
 msgid ""
 ":gh:`101732`: Use a Y2038 compatible openssl time function when available."
 msgstr ""
+":gh:`101732`: Usa uma função de tempo openssl compatível com Y2038 quando "
+"disponível."
 
 #: ../../../build/NEWS:2454
 msgid ""
 ":gh:`118404`: Fix :func:`inspect.signature` for non-comparable callables."
 msgstr ""
+":gh:`118404`: Corrige :func:`inspect.signature` para chamáveis não "
+"comparáveis."
 
 #: ../../../build/NEWS:2456
 msgid ""
 ":gh:`118402`: Fix :func:`inspect.signature` for the result of the :func:"
 "`functools.cmp_to_key` call."
 msgstr ""
+":gh:`118402`: Corrige :func:`inspect.signature` para o resultado da chamada :"
+"func:`functools.cmp_to_key`."
 
 #: ../../../build/NEWS:2459
 msgid ""
 ":gh:`116622`: On Android, :any:`sysconfig.get_platform` now returns the "
 "format specified by :pep:`738`."
 msgstr ""
+":gh:`116622`: No Android, :any:`sysconfig.get_platform` agora retorna o "
+"formato especificado por :pep:`738`."
 
 #: ../../../build/NEWS:2462
 msgid ""
@@ -6000,12 +6178,19 @@ msgid ""
 "of :class:`operator.attrgetter`, :class:`operator.itemgetter`, and :class:"
 "`operator.methodcaller` instances."
 msgstr ""
+":gh:`118285`: Permite especificar a assinatura de instâncias personalizadas "
+"do tipo de extensão pelo atributo ``__text_signature__``. Especifica "
+"assinaturas de instâncias :class:`operator.attrgetter`, :class:`operator."
+"itemgetter` e :class:`operator.methodcaller`."
 
 #: ../../../build/NEWS:2467
 msgid ""
 ":gh:`118314`: Fix an edge case in :func:`binascii.a2b_base64` strict mode, "
 "where excessive padding is not detected when no padding is necessary."
 msgstr ""
+":gh:`118314`: Corrige um caso extremo no modo estrito :func:`binascii."
+"a2b_base64`, onde o preenchimento excessivo não é detectado quando nenhum "
+"preenchimento é necessário."
 
 #: ../../../build/NEWS:2470
 msgid ""
@@ -6013,6 +6198,10 @@ msgid ""
 "image from a file and :meth:`!data` to get the image data. Add *background* "
 "and *grayscale* parameters to :class:`!PhotoImage` method :meth:`!write`."
 msgstr ""
+":gh:`118271`: Adiciona os métodos :class:`!PhotoImage` :meth:`!read` para "
+"ler uma imagem de um arquivo e :meth:`!data` para obter os dados da imagem. "
+"Adiciona os parâmetros *background* e *grayscale* ao método :meth:`!write` "
+"de :class:`!PhotoImage`."
 
 #: ../../../build/NEWS:2475
 msgid ""
@@ -6022,6 +6211,12 @@ msgid ""
 "meth:`!copy`, :meth:`!zoom` and :meth:`!subsample`. Add *zoom* and "
 "*subsample* parameters to :class:`!PhotoImage` method :meth:`!copy`."
 msgstr ""
+":gh:`118225`: Adiciona o método :class:`!PhotoImage` :meth:`!copy_replace` "
+"para copiar uma região de uma imagem para outra, possivelmente com zoom de "
+"pixel e/ou subamostragem. Adicione o parâmetro *from_coords* aos métodos :"
+"meth:`!copy`, :meth:`!zoom` e :meth:`!subsample` da :class:`!PhotoImage`. "
+"Adiciona os parâmetros *zoom* e *subsample* ao método  :meth:`!copy` de :"
+"class:`!PhotoImage`."
 
 #: ../../../build/NEWS:2481
 msgid ""
@@ -6029,6 +6224,9 @@ msgid ""
 "if a custom :attr:`row factory <sqlite3.Connection.row_factory>` was used. "
 "Patch by Erlend Aasland."
 msgstr ""
+":gh:`118221`: Corrige um bug em que :meth:`sqlite3.Connection.iterdump` "
+"poderia falhar se um :attr:`row factory <sqlite3.Connection.row_factory>` "
+"personalizado fosse usado. Patch por Erlend Aasland."
 
 #: ../../../build/NEWS:2485
 msgid ""
@@ -6042,12 +6240,23 @@ msgid ""
 "slowdown in :func:`!getattr_static`, but the function should still be "
 "significantly faster than it was in Python 3.11. Patch by Alex Waygood."
 msgstr ""
+":gh:`118013`: Corrige regressão introduzida em :gh:`103193` que significava "
+"que chamar :func:`inspect.getattr_static` em uma instância faria com que uma "
+"referência forte à classe dessa instância persistisse em um cache interno no "
+"módulo :mod:`inspect`. Isso causava consumo inesperado de memória se a "
+"classe fosse criada dinamicamente, a classe mantivesse referências fortes a "
+"outros objetos que ocupassem uma quantidade significativa de memória e o "
+"cache contivesse a única referência forte à classe. A correção para a "
+"regressão leva a uma lentidão em :func:`!getattr_static`, mas a função ainda "
+"deve ser significativamente mais rápida do que era no Python 3.11. Patch por "
+"Alex Waygood."
 
 #: ../../../build/NEWS:2496
 msgid ""
 ":gh:`118218`: Speed up :func:`itertools.pairwise` in the common case by up "
 "to 1.8x."
 msgstr ""
+":gh:`118218`: Acelera :func:`itertools.pairwise` no caso comum em até 1,8x."
 
 #: ../../../build/NEWS:2499
 msgid ""
@@ -6056,12 +6265,18 @@ msgid ""
 "with the behavior changes of the :mod:`ast` module in Python 3.13. Patch by "
 "Jelle Zijlstra."
 msgstr ""
+":gh:`117486`: Melhora o comportamento das subclasses definidas pelo usuário "
+"de :class:`ast.AST`. Essas classes agora não exigirão alterações no caso "
+"usual para estar em conformidade com as alterações de comportamento do "
+"módulo :mod:`ast` no Python 3.13. Patch por Jelle Zijlstra."
 
 #: ../../../build/NEWS:2504
 msgid ""
 ":gh:`90848`: Fixed :func:`unittest.mock.create_autospec` to configure parent "
 "mock with keyword arguments."
 msgstr ""
+":gh:`90848`: Corrigida :func:`unittest.mock.create_autospec` para configurar "
+"o mock pai com argumentos nomeados."
 
 #: ../../../build/NEWS:2507
 msgid ""
@@ -6070,30 +6285,42 @@ msgid ""
 "exc:`TypeError` when used with certain invalid types. Patch by Jelle "
 "Zijlstra."
 msgstr ""
+":gh:`118168`: Corrige a substituição incorreta de argumentos quando :data:"
+"`typing.Unpack` é usado com a :class:`tuple` embutido. :data:`!typing."
+"Unpack` agora levanta :exc:`TypeError` quando usado com certos tipos "
+"inválidos. Patch por Jelle Zijlstra."
 
 #: ../../../build/NEWS:2512
 msgid ""
 ":gh:`118131`: Add command-line interface for the :mod:`random` module. Patch "
 "by Hugo van Kemenade."
 msgstr ""
+":gh:`118131`: Adiciona a interface de linha de comando para o módulo :mod:"
+"`random`. Patch por Hugo van Kemenade."
 
 #: ../../../build/NEWS:2515
 msgid ""
 ":gh:`118107`: Fix :mod:`zipimport` reading of ZIP64 files with file entries "
 "that are too big or offset too far."
 msgstr ""
+":gh:`118107`: Corrige :mod:`zipimport` leitura de arquivos ZIP64 com "
+"entradas de arquivo muito grandes ou muito deslocadas."
 
 #: ../../../build/NEWS:2518
 msgid ""
 ":gh:`102511`: Fix :func:`os.path.normpath` for UNC paths on Windows. Speed "
 "up :func:`os.path.splitroot` with a native implementation."
 msgstr ""
+":gh:`102511`: Corrige :func:`os.path.normpath` para caminhos UNC no Windows. "
+"Acelera :func:`os.path.splitroot` com uma implementação nativa."
 
 #: ../../../build/NEWS:2521
 msgid ""
 ":gh:`117535`: Change the unknown filename of :mod:`warnings` from ``sys`` to "
 "``<sys>`` to clarify that it's not a real filename."
 msgstr ""
+":gh:`117535`: Altera o nome de arquivo desconhecido de :mod:`warnings` de "
+"``sys`` para ``<sys>`` para esclarecer que não é um nome de arquivo real."
 
 #: ../../../build/NEWS:2524
 msgid ""
@@ -6102,12 +6329,18 @@ msgid ""
 "module that had ``from __future__ import annotations`` at the top of the "
 "file. Patch by Alex Waygood."
 msgstr ""
+":gh:`114053`: Corrige :exc:`NameError` errôneo ao chamar :func:`typing."
+"get_type_hints` em uma classe que fazia uso de parâmetros de tipo :pep:`695` "
+"em um módulo que tinha ``from __future__ import annotations`` no topo do "
+"arquivo. Patch por Alex Waygood."
 
 #: ../../../build/NEWS:2529
 msgid ""
 ":gh:`116931`: Add parameter *fileobj* check for :func:`tarfile.TarFile."
 "addfile`"
 msgstr ""
+":gh:`116931`: Adiciona verificação do parâmetro *fileobj* para :func:"
+"`tarfile.TarFile.addfile`"
 
 #: ../../../build/NEWS:2532
 msgid ""
@@ -6115,18 +6348,25 @@ msgid ""
 "of parameters is used to bind indexed, nameless placeholders. See also :gh:"
 "`100668`."
 msgstr ""
+":gh:`117995`: Não levanta :exc:`DeprecationWarning` quando uma :term:"
+"`sequência` de parâmetros for usada para vincular marcadores de posição "
+"indexados e sem nome. Veja também :gh:`100668`."
 
 #: ../../../build/NEWS:2536
 msgid ""
 ":gh:`80361`: Fix TypeError in :func:`email.message.Message.get_payload` when "
 "the charset is :rfc:`2231` encoded."
 msgstr ""
+":gh:`80361`: Corrige TypeError em :func:`email.message.Message.get_payload` "
+"quando o charset é codificado em :rfc:`2231`."
 
 #: ../../../build/NEWS:2539
 msgid ""
 ":gh:`86650`: Fix IndexError when parse some emails with invalid Message-ID "
 "(including one-off addresses generated by Microsoft Outlook)."
 msgstr ""
+":gh:`86650`: Corrige IndexError ao analisar alguns e-mails com Message-ID "
+"inválido (incluindo endereços únicos gerados pelo Microsoft Outlook)."
 
 #: ../../../build/NEWS:2542
 msgid ""
@@ -6136,12 +6376,19 @@ msgid ""
 "points to the line in the user's code where the relevant function was "
 "called. Patch by Alex Waygood."
 msgstr ""
+":gh:`117691`: Melhora as mensagens de erro emitidas pelos avisos de "
+"descontinuação de :mod:`tarfile` relacionados ao PEP 706. Se um argumento "
+"``filter`` não for fornecido para ``extract()`` ou ``extractall``, o aviso "
+"de descontinuação agora aponta para a linha no código do usuário onde a "
+"função relevante foi chamada. Patch por Alex Waygood."
 
 #: ../../../build/NEWS:2548
 msgid ""
 ":gh:`115874`: Fixed a possible segfault during garbage collection of "
 "``_asyncio.FutureIter`` objects. Patch by Savannah Ostrowski."
 msgstr ""
+":gh:`115874`: Corrige um possível segfault durante a coleta de lixo de "
+"objetos ``_asyncio.FutureIter``. Patch por Savannah Ostrowski."
 
 #: ../../../build/NEWS:2551
 msgid ""
@@ -6149,6 +6396,9 @@ msgid ""
 "meth:`~pathlib.Path.is_dir` call. As a result of this change, :meth:"
 "`~pathlib.Path.glob` can no longer raise :exc:`OSError`."
 msgstr ""
+":gh:`115060`: Acelera :meth:`pathlib.Path.glob` omitindo uma chamada "
+"inicial :meth:`~pathlib.Path.is_dir`. Como resultado dessa alteração, :meth:"
+"`~pathlib.Path.glob` não pode mais levantar :exc:`OSError`."
 
 #: ../../../build/NEWS:2555
 msgid ""
@@ -6156,6 +6406,9 @@ msgid ""
 "and :term:`locale encoding` if ``UnicodeDecodeError`` happened. It supported "
 "only locale encoding before."
 msgstr ""
+":gh:`77102`: O módulo :mod:`site` agora analisa o arquivo ``.pth`` com UTF-8 "
+"primeiro, e :term:`codificação da localidade` se ``UnicodeDecodeError`` "
+"acontecer. Ele suportava apenas codificação da localidade antes."
 
 #: ../../../build/NEWS:2559
 msgid ""
@@ -6166,24 +6419,36 @@ msgid ""
 "module, like :mod:`!_thread` and :mod:`!_imp`. See https://discuss.python."
 "org/t/pep-734-multiple-interpreters-in-the-stdlib/41147/26."
 msgstr ""
+":gh:`76785`: Nós expusemos o módulo de baixo nível :mod:`!_interpreters` "
+"para o bem da implementação PyPI de :pep:`734`. Às vezes, ele estava "
+"disponível como o módulo :mod:`!_xxsubinterpreters` e era usado "
+"anteriormente apenas para testes. Na maior parte, ele deve ser considerado "
+"um módulo interno, como :mod:`!_thread` e :mod:`!_imp`. Veja https://discuss."
+"python.org/t/pep-734-multiple-interpreters-in-the-stdlib/41147/26."
 
 #: ../../../build/NEWS:2566
 msgid ""
 ":gh:`115060`: Speed up :meth:`pathlib.Path.glob` by not scanning directories "
 "for non-wildcard pattern segments."
 msgstr ""
+":gh:`115060`: Acelera :meth:`pathlib.Path.glob` não escaneando diretórios "
+"para segmentos de padrões não curinga."
 
 #: ../../../build/NEWS:2569
 msgid ""
 ":gh:`117727`: Speed up :meth:`pathlib.Path.iterdir` by using :func:`os."
 "scandir` internally."
 msgstr ""
+":gh:`117727`: Acelera :meth:`pathlib.Path.iterdir` usando :func:`os.scandir` "
+"internamente."
 
 #: ../../../build/NEWS:2572
 msgid ""
 ":gh:`117586`: Speed up :meth:`pathlib.Path.walk` by working with strings "
 "internally."
 msgstr ""
+":gh:`117586`: Acelera :meth:`pathlib.Path.walk` trabalhando com strings "
+"internamente."
 
 #: ../../../build/NEWS:2575
 msgid ""
@@ -6191,38 +6456,49 @@ msgid ""
 "StreamReader.readuntil` to only accept tuples of separators rather than "
 "arbitrary iterables."
 msgstr ""
+":gh:`117722`: Altera o novo suporte a múltiplos separadores em :meth:"
+"`asyncio.StreamReader.readuntil` para aceitar apenas tuplas de separadores "
+"em vez de iteráveis ​​arbitrários."
 
 #: ../../../build/NEWS:2579
 msgid ""
 ":gh:`117692`: Fixes a bug when :class:`doctest.DocTestFinder` was failing on "
 "wrapped ``builtin_function_or_method``."
 msgstr ""
+":gh:`117692`: Corrige um bug quando :class:`doctest.DocTestFinder` estava "
+"falhando em ``builtin_function_or_method`` encapsulado."
 
 #: ../../../build/NEWS:2582
 msgid ""
 ":gh:`117348`: Largely restored import time performance of configparser by "
 "avoiding dataclasses."
 msgstr ""
+":gh:`117348`: Desempenho de tempo de importação amplamente restaurado do "
+"configparser evitando dataclasses."
 
 #: ../../../build/NEWS:2585
 msgid ":gh:`117641`: Speedup :func:`os.path.commonpath` on Unix."
-msgstr ""
+msgstr ":gh:`117641`: Aceleração de :func:`os.path.commonpath` no Unix."
 
 #: ../../../build/NEWS:2587
 msgid ""
 ":gh:`117663`: Fix ``_simple_enum`` to detect aliases when multiple arguments "
 "are present but only one is the member value."
 msgstr ""
+":gh:`117663`: Corrige ``_simple_enum`` para detectar apelidos quando vários "
+"argumentos estão presentes, mas apenas um é o valor do membro."
 
 #: ../../../build/NEWS:2590
 msgid ":gh:`117636`: Speedup :func:`os.path.join`."
-msgstr ""
+msgstr ":gh:`117636`: Aceleração de :func:`os.path.join`."
 
 #: ../../../build/NEWS:2592
 msgid ""
 ":gh:`117618`: Support ``package.module`` as ``filename`` for ``break`` "
 "command of :mod:`pdb`"
 msgstr ""
+":gh:`117618`: Suporte a ``package.module`` como ``filename`` para o comando "
+"``break`` de :mod:`pdb`"
 
 #: ../../../build/NEWS:2595
 msgid ""
@@ -6231,24 +6507,31 @@ msgid ""
 "statuses previously only used for WEBDAV and assigns more generic names to "
 "them."
 msgstr ""
+":gh:`102247`: os códigos de status enum com constantes em http.HTTPStatus "
+"são atualizados para incluir os nomes do RFC9110. Este RFC inclui alguns "
+"status HTTP usados ​​anteriormente apenas para WEBDAV e atribui nomes mais "
+"genéricos a eles."
 
 #: ../../../build/NEWS:2600
 msgid "The old constants are preserved for backwards compatibility."
-msgstr ""
+msgstr "As constantes antigas são preservadas para retrocompatibilidade."
 
 #: ../../../build/NEWS:2602
 msgid ":gh:`117607`: Speedup :func:`os.path.relpath`."
-msgstr ""
+msgstr ":gh:`117607`: Aceleração de :func:`os.path.relpath`."
 
 #: ../../../build/NEWS:2604
 msgid ""
 ":gh:`117586`: Speed up :meth:`pathlib.Path.glob` by working with strings "
 "internally."
 msgstr ""
+":gh:`117586`: Aceleração de :meth:`pathlib.Path.glob` trabalhando com "
+"strings internamente."
 
 #: ../../../build/NEWS:2607
 msgid ":gh:`117225`: Add colour to doctest output. Patch by Hugo van Kemenade."
 msgstr ""
+":gh:`117225`: Adiciona cor à saída do doctest. Patch por Hugo van Kemenade."
 
 #: ../../../build/NEWS:2609
 msgid ""
@@ -6256,12 +6539,18 @@ msgid ""
 "``True`` for IPv4-mapped loopback addresses, i.e. addresses in the ``::"
 "ffff:127.0.0.0/104`` address space."
 msgstr ""
+":gh:`117566`: :meth:`ipaddress.IPv6Address.is_loopback` agora retornará "
+"``True`` para endereços de loopback mapeados em IPv4, ou seja, endereços no "
+"espaço de endereço ``::ffff:127.0.0.0/104``."
 
 #: ../../../build/NEWS:2613
 msgid ""
 ":gh:`117546`: Fix issue where :func:`os.path.realpath` stopped resolving "
 "symlinks after encountering a symlink loop on POSIX."
 msgstr ""
+":gh:`117546`: Corrige o problema em que :func:`os.path.realpath` parou de "
+"resolver links simbólicos após encontrar um loop de links simbólicos no "
+"POSIX."
 
 #: ../../../build/NEWS:2616
 msgid ""
@@ -6272,6 +6561,12 @@ msgid ""
 "misbehave, because its internal cancellation was swallowed by the inner task "
 "group."
 msgstr ""
+":gh:`116720`: Comportamento aprimorado de :class:`asyncio.TaskGroup` quando "
+"um cancelamento externo colide com um cancelamento interno. Por exemplo, "
+"quando dois grupos de tarefas são aninhados e ambos experimentam uma exceção "
+"em uma tarefa filha simultaneamente, era possível que o grupo de tarefas "
+"externo se comportasse mal, porque seu cancelamento interno foi engolido "
+"pelo grupo de tarefas interno."
 
 #: ../../../build/NEWS:2623
 msgid ""
@@ -6280,6 +6575,11 @@ msgid ""
 "Task.cancel` method. This ensures that a :exc:`asyncio.CancelledError` will "
 "be raised at the next :keyword:`await`, so the cancellation is not lost."
 msgstr ""
+"No caso em que um grupo de tarefas é cancelado externamente e também deve "
+"levantar uma :exc:`ExceptionGroup`, ele agora chamará o método :meth:"
+"`~asyncio.Task.cancel` da tarefa pai. Isso garante que uma :exc:`asyncio."
+"CancelledError` será levantada no próximo :keyword:`await`, para que o "
+"cancelamento não seja perdido."
 
 #: ../../../build/NEWS:2629
 msgid ""
@@ -6304,18 +6604,24 @@ msgid ""
 ":gh:`117516`: Add :data:`typing.TypeIs`, implementing :pep:`742`. Patch by "
 "Jelle Zijlstra."
 msgstr ""
+":gh:`117516`: Adiciona :data:`typing.TypeIs`, implementando :pep:`742`. "
+"Patch por Jelle Zijlstra."
 
 #: ../../../build/NEWS:2639
 msgid ""
 ":gh:`117503`: Fix support of non-ASCII user names in bytes paths in :func:"
 "`os.path.expanduser` on Posix."
 msgstr ""
+":gh:`117503`: Corrige suporte de nomes de usuários não-ASCII em caminhos de "
+"bytes em :func:`os.path.expanduser` no Posix."
 
 #: ../../../build/NEWS:2642
 msgid ""
 ":gh:`117394`: :func:`os.path.ismount` is now 2-3 times faster if the user "
 "has permissions."
 msgstr ""
+":gh:`117394`: :func:`os.path.ismount` agora é 2-3 vezes mais rápido se o "
+"usuário tiver permissões."
 
 #: ../../../build/NEWS:2645
 msgid ""
@@ -6325,12 +6631,19 @@ msgid ""
 "and Unicode line separators ``'\\x85'``, ``'\\u2028'`` and ``'\\u2029'`` as "
 "is."
 msgstr ""
+":gh:`117313`: Trata apenas ``'\\\\n'``, ``'\\\\r'`` e ``'\\\\r\\\\n'`` como "
+"separadores de linha ao redobrar as mensagens :mod:`email`. Preserva os "
+"caracteres de controle ``'\\\\v'``, ``'\\\\f'``, ``'\\\\x1c'``, ``'\\"
+"\\x1d'`` e ``'\\\\x1e'`` e os separadores de linha Unicode ``'\\\\x85'``, "
+"``'\\\\u2028'`` e ``'\\\\u2029'`` como estão."
 
 #: ../../../build/NEWS:2650
 msgid ""
 ":gh:`117142`: Convert :mod:`!_ctypes` to multi-phase initialisation (:pep:"
 "`489`)."
 msgstr ""
+":gh:`117142`: Converte :mod:`!_ctypes` para inicialização multifásica (:pep:"
+"`489`)."
 
 #: ../../../build/NEWS:2653
 msgid ""
@@ -6338,12 +6651,17 @@ msgid ""
 "with file path. Passing file path instead of URL in :func:`~mimetypes."
 "guess_type` is :term:`soft deprecated`."
 msgstr ""
+":gh:`66543`: Adiciona a função :func:`mimetypes.guess_file_type` que "
+"funciona com o caminho do arquivo. Passar o caminho do arquivo em vez da URL "
+"em :func:`~mimetypes.guess_type` está :term:`suavemente descontinuado`."
 
 #: ../../../build/NEWS:2657
 msgid ""
 ":gh:`68583`: webbrowser CLI: replace getopt with argparse, add long options. "
 "Patch by Hugo van Kemenade."
 msgstr ""
+":gh:`68583`: CLI de webbrowser: substitui getopt por argparse, adiciona "
+"opções longas. Patch de Hugo van Kemenade."
 
 #: ../../../build/NEWS:2660
 msgid ""
@@ -6351,6 +6669,9 @@ msgid ""
 "`ImportError` now only include underscored names if the original name was "
 "underscored."
 msgstr ""
+":gh:`116871`: Sugestões de nome para :exc:`AttributeError` e :exc:"
+"`ImportError` agora incluem apenas nomes sublinhados se o nome original "
+"estiver sublinhado."
 
 #: ../../../build/NEWS:2664
 msgid ""
@@ -6358,6 +6679,9 @@ msgid ""
 "`ast.dump` by default. Add ``show_empty=False`` parameter to optionally show "
 "them."
 msgstr ""
+":gh:`116023`: Não mostra campos vazios (valor ``None`` ou ``[]``) em :func:"
+"`ast.dump` por padrão. Adiciona o parâmetro ``show_empty=False`` para mostrá-"
+"los opcionalmente."
 
 #: ../../../build/NEWS:2668
 msgid ""
@@ -6369,6 +6693,13 @@ msgid ""
 "attribute of the readable file-like object returned by :meth:`zipfile."
 "ZipFile.open` was changed from ``'r'`` to ``'rb'``."
 msgstr ""
+":gh:`115961`: Adicionados atributos :attr:`!name` e :attr:`!mode` para "
+"objetos compactados e arquivados do tipo arquivo nos módulos :mod:`bz2`, :"
+"mod:`lzma`, :mod:`tarfile` e :mod:`zipfile`. O valor do atributo :attr:`!"
+"mode` de :class:`gzip.GzipFile` foi alterado de inteiro (``1`` ou ``2``) "
+"para string (``'rb'`` ou ``'wb'``). O valor do atributo :attr:`!mode` do "
+"objeto arquivo ou similar legível retornado por :meth:`zipfile.ZipFile.open` "
+"foi alterado de ``'r'`` para ``'rb'``."
 
 #: ../../../build/NEWS:2676
 msgid ""
@@ -6376,33 +6707,44 @@ msgid ""
 "defaults on methods in extension modules that use names defined in the "
 "module namespace."
 msgstr ""
+":gh:`82062`: Corrige :func:`inspect.signature` para manipular corretamente "
+"os padrões de parâmetros em métodos em módulos de extensão que usam nomes "
+"definidos no espaço de nomes do módulo."
 
 #: ../../../build/NEWS:2680
 msgid ""
 ":gh:`83856`: Honor :mod:`atexit` for all :mod:`multiprocessing` start methods"
 msgstr ""
+":gh:`83856`: Honra :mod:`atexit` para todos os métodos de inicialização :mod:"
+"`multiprocessing`"
 
 #: ../../../build/NEWS:2682
 msgid ""
 ":gh:`113081`: Print colorized exception just like built-in traceback in :mod:"
 "`pdb`"
 msgstr ""
+":gh:`113081`: Imprime exceção colorida assim como o traceback embutido em :"
+"mod:`pdb`"
 
 #: ../../../build/NEWS:2685
 msgid ""
 ":gh:`112855`: Speed up pickling of :class:`pathlib.PurePath` objects. Patch "
 "by Barney Gale."
 msgstr ""
+":gh:`112855`: Acelera a serialização com pickle de objetos :class:`pathlib."
+"PurePath`. Patch por Barney Gale."
 
 #: ../../../build/NEWS:2688
 msgid ":gh:`111744`: Support opcode events in :mod:`bdb`"
-msgstr ""
+msgstr ":gh:`111744`: Suporte a eventos de opcode em :mod:`bdb`"
 
 #: ../../../build/NEWS:2690
 msgid ""
 ":gh:`109617`: :mod:`!ncurses`: fixed a crash that could occur on macOS 13 or "
 "earlier when Python was built with Apple Xcode 15's SDK."
 msgstr ""
+":gh:`109617`: :mod:`!ncurses`: corrigiu uma falha que poderia ocorrer no "
+"macOS 13 ou anterior quando o Python era criado com o SDK do Apple Xcode 15."
 
 #: ../../../build/NEWS:2693
 msgid ""
@@ -6410,6 +6752,10 @@ msgid ""
 "shell to access the local variables of the current frame, which made it "
 "possible for multi-scope code like generators or nested function to work."
 msgstr ""
+":gh:`83151`: Ativadas declarações e avaliações arbitrárias no shell :mod:"
+"`pdb` para acessar as variáveis ​​locais do quadro atual, o que tornou "
+"possível que códigos multiescopo, como geradores ou funções aninhadas, "
+"funcionassem."
 
 #: ../../../build/NEWS:2697
 msgid ""
@@ -6417,6 +6763,9 @@ msgid ""
 "GeneratorType` and :class:`types.CoroutineType` for type hinting purposes. "
 "Patch by James Hilton-Balfe."
 msgstr ""
+":gh:`110209`: Adicionado :meth:`~object.__class_getitem__` a :class:`types."
+"GeneratorType` e :class:`types.CoroutineType` para fins de dicas de tipo. "
+"Patch por James Hilton-Balfe."
 
 #: ../../../build/NEWS:2701
 msgid ""
@@ -6424,6 +6773,9 @@ msgid ""
 "positional argument which specifies initial values of attributes as a dict "
 "or an iterable of key-value pairs."
 msgstr ""
+":gh:`108191`: O :class:`types.SimpleNamespace` agora aceita um argumento "
+"posicional opcional que especifica valores iniciais de atributos como um "
+"dict ou um iterável de pares de chave-valor."
 
 #: ../../../build/NEWS:2705
 msgid ""
@@ -6431,12 +6783,17 @@ msgid ""
 "``SUPPRESS``-ed groups in :mod:`argparse` by simplifying usage formatting. "
 "Patch by Ali Hamdan."
 msgstr ""
+":gh:`62090`: Corrige erros de asserção causados ​​por espaços em branco em "
+"metavars ou grupos suprimidos com ``SUPPRESS`` em :mod:`argparse` "
+"simplificando a formatação de uso. Patch por Ali Hamdan."
 
 #: ../../../build/NEWS:2709
 msgid ""
 ":gh:`102402`: Adjust ``logging.LogRecord`` to use ``time.time_ns()`` and fix "
 "minor bug related to floating-point math."
 msgstr ""
+":gh:`102402`: Ajusta ``logging.LogRecord`` para usar ``time.time_ns()`` e "
+"corrige um pequeno bug relacionado à matemática de ponto flutuante."
 
 #: ../../../build/NEWS:2712
 msgid ""
@@ -6446,12 +6803,19 @@ msgid ""
 "Instead, both the Python version and the C version perform an "
 "``isinstance(func, partial)`` check on the first argument of ``partial``."
 msgstr ""
+":gh:`100242`: Traz a implementação Python pura ``functools.partial.__new__`` "
+"mais alinhada com a implementação C ao não apenas verificar sempre a "
+"presença do atributo ``'func'`` no primeiro argumento de ``partial``. Em vez "
+"disso, tanto a versão Python quanto a versão C realizam uma verificação "
+"``isinstance(func, partial)`` no primeiro argumento de ``partial``."
 
 #: ../../../build/NEWS:2718
 msgid ""
 ":gh:`99730`: HEAD requests are no longer upgraded to GET request during "
 "redirects in urllib."
 msgstr ""
+":gh:`99730`: Solicitações HEAD não são mais atualizadas para solicitações "
+"GET durante redirecionamentos em urllib."
 
 #: ../../../build/NEWS:2721
 msgid ""
@@ -6463,44 +6827,65 @@ msgid ""
 "depending on their internal representation in Tcl, instead of always "
 "``str``. :data:`!tkinter.wantobjects` is now set to ``2`` by default."
 msgstr ""
+":gh:`66410`: Define o módulo global :data:`!wantobjects` :mod:`!tkinter` "
+"como ``2`` antes de criar o objeto :class:`~tkinter.Tk` ou chamar o método :"
+"meth:`!wantobjects` do objeto :class:`!Tk` com o argumento ``2`` agora faz "
+"com que argumentos para retornos de chamada registrados no módulo :mod:"
+"`tkinter` sejam passados ​​como vários objetos Python (``int``, ``float``, "
+"``bytes``, ``tuple``), dependendo de sua representação interna em Tcl, em "
+"vez de sempre ``str``. :data:`!tkinter.wantobjects` agora está definido como "
+"``2`` por padrão."
 
 #: ../../../build/NEWS:2730
 msgid ""
 ":issue:`40943`: Fix several IndexError when parse emails with truncated "
 "Message-ID, address, routes, etc, e.g. ``example@``."
 msgstr ""
+":issue:`40943`: Corrige vários IndexError ao analisar e-mails com Message-"
+"ID, endereço, rotas, etc. truncados, por exemplo, ``example@``."
 
 #: ../../../build/NEWS:2733
 msgid ":issue:`39324`: Add mime type mapping for .md <-> text/markdown"
 msgstr ""
+":issue:`39324`: Adiciona mapeamento de tipo mime para .md <-> text/markdown"
 
 #: ../../../build/NEWS:2735
 msgid ""
 ":issue:`18108`: :func:`shutil.chown` now supports *dir_fd* and "
 "*follow_symlinks* keyword arguments."
 msgstr ""
+":issue:`18108`: :func:`shutil.chown` agora suporta argumentos nomeados "
+"*dir_fd* e *follow_symlinks*."
 
 #: ../../../build/NEWS:2738
 msgid ""
 ":issue:`30988`: Fix parsing of emails with invalid address headers having a "
 "leading or trailing dot. Patch by tsufeki."
 msgstr ""
+":issue:`30988`: Corrige análise de e-mails com cabeçalhos de endereço "
+"inválidos com um ponto inicial ou final. Patch por tsufeki."
 
 #: ../../../build/NEWS:2741
 msgid ":issue:`32839`: Add the :meth:`!after_info` method for Tkinter widgets."
 msgstr ""
+":issue:`32839`: Adiciona o método :meth:`!after_info` para widgets Tkinter."
 
 #: ../../../build/NEWS:2746
 msgid ""
 ":gh:`117928`: The minimum Sphinx version required for the documentation is "
 "now 6.2.1."
 msgstr ""
+":gh:`117928`: A versão mínima do Sphinx necessária para a documentação agora "
+"é 6.2.1."
 
 #: ../../../build/NEWS:2752
 msgid ""
 ":gh:`118734`: Fixes Windows build when invoked directly (not through the :"
 "file:`build.bat` script) without specifying a value for ``UseTIER2``."
 msgstr ""
+":gh:`118734`: Corrige a construção do Windows quando invocada diretamente "
+"(não por meio do script :file:`build.bat`) sem especificar um valor para "
+"``UseTIER2``."
 
 #: ../../../build/NEWS:2755
 msgid ""
@@ -6508,23 +6893,32 @@ msgid ""
 "now defaults to ``yes``. The bundled copy of ``libmpdecimal`` will be "
 "removed in Python 3.15."
 msgstr ""
+":gh:`115119`: A opção :file:`configure` :option:`--with-system-libmpdec` "
+"agora tem como padrão ``yes``. A cópia empacotada de ``libmpdecimal`` será "
+"removida no Python 3.15."
 
 #: ../../../build/NEWS:2759
 msgid ""
 ":gh:`117845`: Fix building against recent libedit versions by detecting "
 "readline hook signatures in :program:`configure`."
 msgstr ""
+":gh:`117845`: Corrige a construção em versões recentes do libedit detectando "
+"assinaturas de hook readline em :program:`configure`."
 
 #: ../../../build/NEWS:2762
 msgid ""
 ":gh:`116622`: A testbed project was added to run the test suite on Android."
 msgstr ""
+":gh:`116622`: Um projeto de testbed foi adicionado para executar o conjunto "
+"de testes no Android."
 
 #: ../../../build/NEWS:2764
 msgid ""
 ":gh:`117645`: Increase WASI stack size from 512 KiB to 8 MiB and the initial "
 "memory from 10 MiB to 20 MiB. Patch by Victor Stinner."
 msgstr ""
+":gh:`117645`: Aumenta o tamanho da pilha WASI de 512 KiB para 8 MiB e a "
+"memória inicial de 10 MiB para 20 MiB. Patch por Victor Stinner."
 
 #: ../../../build/NEWS:2767
 msgid ""
@@ -6532,20 +6926,27 @@ msgid ""
 "mod:`decimal` dependencies if the :option:`--with-system-libmpdec` option is "
 "given."
 msgstr ""
+":gh:`115119`: :program:`configure` agora usa :program:`pkg-config` para "
+"detectar dependências :mod:`decimal` se a opção :option:`--with-system-"
+"libmpdec` for fornecida."
 
 #: ../../../build/NEWS:2774
 msgid ":gh:`115119`: Update Windows installer to use libmpdecimal 4.0.0."
 msgstr ""
+":gh:`115119`: Atualiza o instalador do Windows para usar libmpdecimal 4.0.0."
 
 #: ../../../build/NEWS:2776
 msgid ""
 ":gh:`118486`: :func:`os.mkdir` now accepts *mode* of ``0o700`` to restrict "
 "the new directory to the current user."
 msgstr ""
+":gh:`118486`: :func:`os.mkdir` agora aceita *modo* de ``0o700`` para "
+"restringir o novo diretório ao usuário atual."
 
 #: ../../../build/NEWS:2779
 msgid ":gh:`118347`: Fixes launcher updates not being installed."
 msgstr ""
+":gh:`118347`: Corrige atualizações do iniciador que não sendo instaladas."
 
 #: ../../../build/NEWS:2781
 msgid ""
@@ -6553,10 +6954,14 @@ msgid ""
 "``STARTF_FORCEOFFFEEDBACK`` flag when spawning processes to tell Windows not "
 "to change the mouse cursor."
 msgstr ""
+":gh:`118293`: O módulo ``multiprocessing`` agora passa o sinalizador "
+"``STARTF_FORCEOFFFEEDBACK`` ao gerar processos para informar ao Windows para "
+"não alterar o cursor do mouse."
 
 #: ../../../build/NEWS:2785
 msgid ":gh:`115009`: Update Windows installer to use SQLite 3.45.3."
 msgstr ""
+":gh:`115009`: Atualiza o instalador do Windows para usar o SQLite 3.45.3."
 
 #: ../../../build/NEWS:2787
 msgid ""
@@ -6566,36 +6971,50 @@ msgid ""
 "path caused the venv to be created in a different location than originally "
 "requested."
 msgstr ""
+":gh:`90329`: Suprime o aviso exibido na criação do ambiente virtual quando "
+"os caminhos solicitados e criados diferem apenas por um nome curto (estilo "
+"8.3). Os avisos continuarão a ser exibidos se uma junção ou link simbólico "
+"no caminho fez com que o venv fosse criado em um local diferente do "
+"solicitado originalmente."
 
 #: ../../../build/NEWS:2793
 msgid ""
 ":gh:`117786`: Fixes virtual environments not correctly launching when "
 "created from a Store install."
 msgstr ""
+":gh:`117786`: Corrige ambientes virtuais que não iniciam corretamente quando "
+"criados a partir de uma instalação da Store."
 
 #: ../../../build/NEWS:2799
 msgid ":gh:`115119`: Update macOS installer to use libmpdecimal 4.0.0."
 msgstr ""
+":gh:`115119`: Atualiza o instalador do macOS para usar libmpdecimal 4.0.0."
 
 #: ../../../build/NEWS:2801
 msgid ""
 ":gh:`114099`: iOS preprocessor symbol usage was made compatible with older "
 "macOS SDKs."
 msgstr ""
+":gh:`114099`: O uso do símbolo do pré-processador iOS foi tornado compatível "
+"com SDKs macOS mais antigos."
 
 #: ../../../build/NEWS:2804
 msgid ":gh:`115009`: Update macOS installer to use SQLite 3.45.3."
-msgstr ""
+msgstr ":gh:`115009`: Atualiza o instalador macOS para usar o SQLite 3.45.3."
 
 #: ../../../build/NEWS:2806
 msgid ""
 ":gh:`91629`: Use :file:`~/.config/fish/conf.d` configs and :program:"
 "`fish_add_path` to set :envvar:`PATH` when installing for the Fish shell."
 msgstr ""
+":gh:`91629`: Use as configurações :file:`~/.config/fish/conf.d` e :program:"
+"`fish_add_path` para definir :envvar:`PATH` ao instalar para o shell Fish."
 
 #: ../../../build/NEWS:2813
 msgid ":issue:`34774`: Use user-selected color theme for Help => IDLE Doc."
 msgstr ""
+":issue:`34774`: Use o tema de cores selecionado pelo usuário para Help => "
+"IDLE Doc."
 
 #: ../../../build/NEWS:2818
 msgid ""
@@ -6603,26 +7022,29 @@ msgid ""
 "`Py_BUILD_ASSERT_EXPR` for non-constant expressions: use ``static_assert()`` "
 "on C11 and newer. Patch by Victor Stinner."
 msgstr ""
+":gh:`118124`: Corrige :c:macro:`Py_BUILD_ASSERT` e :c:macro:"
+"`Py_BUILD_ASSERT_EXPR` para expressões não constantes: use "
+"``static_assert()`` no C11 e mais recentes. Patch por Victor Stinner."
 
 #: ../../../build/NEWS:2822
 msgid ":gh:`110850`: Add \"Raw\" variant of PyTime functions"
-msgstr ""
+msgstr ":gh:`110850`: Adiciona variante \"Raw\" das funções PyTime"
 
 #: ../../../build/NEWS:2824
 msgid ":c:func:`PyTime_MonotonicRaw`"
-msgstr ""
+msgstr ":c:func:`PyTime_MonotonicRaw`"
 
 #: ../../../build/NEWS:2825
 msgid ":c:func:`PyTime_PerfCounterRaw`"
-msgstr ""
+msgstr ":c:func:`PyTime_PerfCounterRaw`"
 
 #: ../../../build/NEWS:2826
 msgid ":c:func:`PyTime_TimeRaw`"
-msgstr ""
+msgstr ":c:func:`PyTime_TimeRaw`"
 
 #: ../../../build/NEWS:2830
 msgid ":gh:`117987`: Restore functions removed in Python 3.13 alpha 1:"
-msgstr ""
+msgstr ":gh:`117987`: Restaura funções removidas no Python 3.13 alpha 1:"
 
 #: ../../../build/NEWS:2832
 msgid ":c:func:`Py_SetPythonHome`"
@@ -6645,6 +7067,8 @@ msgid ""
 ":gh:`117929`: Restore removed :c:func:`PyEval_InitThreads` function. Patch "
 "by Victor Stinner."
 msgstr ""
+":gh:`117929`: Restaura função removida :c:func:`PyEval_InitThreads`. Patch "
+"por Victor Stinner."
 
 #: ../../../build/NEWS:2842
 msgid ""
@@ -6652,16 +7076,23 @@ msgid ""
 "`datetime.datetime.fromisoformat` to better handle invalid years. Patch by "
 "Vlad Efanov."
 msgstr ""
+":gh:`117534`: Melhora a lógica de validação na implementação C de :meth:"
+"`datetime.datetime.fromisoformat` para lidar melhor com anos inválidos. "
+"Patch por Vlad Efanov."
 
 #: ../../../build/NEWS:2846
 msgid ""
 ":gh:`68114`: Fixed skipitem()'s handling of the old 'w' and 'w#' formatters. "
 "These are no longer supported and now raise an exception if used."
 msgstr ""
+":gh:`68114`: Corrigido o tratamento de skipitem() dos antigos formatadores "
+"'w' e 'w#'. Eles não são mais suportados e agora levantam uma exceção se "
+"usados."
 
 #: ../../../build/NEWS:2849
 msgid ":gh:`111997`: Add a C-API for firing monitoring events."
 msgstr ""
+":gh:`111997`: Adiciona uma API C para disparar eventos de monitoramento."
 
 #: ../../../build/NEWS:2853
 msgid "Python 3.13.0 alpha 6"
