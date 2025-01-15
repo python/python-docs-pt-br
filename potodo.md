@@ -79,7 +79,7 @@
 
 
 
-# library (57.40% done)
+# library (57.42% done)
 
 - argparse.po                    260 / 290 ( 89.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
@@ -98,7 +98,7 @@
 - audioop.po                       1 /  46 (  2.0% translated).
 - base64.po                       16 /  48 ( 33.0% translated).
 - bdb.po                           5 /  92 (  5.0% translated).
-- binascii.po                      5 /  37 ( 13.0% translated).
+- binascii.po                     12 /  37 ( 32.0% translated).
 - bz2.po                          64 /  65 ( 98.0% translated).
 - calendar.po                     56 /  69 ( 81.0% translated).
 - cgi.po                          19 /  90 ( 21.0% translated).
@@ -303,5 +303,5 @@
 - 3.9.po                         382 / 386 ( 98.0% translated).
 
 
-# TOTAL (61.69% done)
+# TOTAL (61.70% done)
 
