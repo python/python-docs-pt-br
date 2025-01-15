@@ -73,7 +73,7 @@
 
 
 
-# library (58.07% done)
+# library (58.39% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - abc.po                          31 /  60 ( 51.0% translated).
@@ -99,7 +99,6 @@
 - cgi.po                          28 / 126 ( 22.0% translated).
 - cgitb.po                        16 /  17 ( 94.0% translated).
 - chunk.po                        14 /  39 ( 35.0% translated).
-- cmd.po                           5 /  48 ( 10.0% translated).
 - codecs.po                      250 / 533 ( 46.0% translated).
 - collections.po                 237 / 240 ( 98.0% translated).
 - compileall.po                   59 /  60 ( 98.0% translated).
@@ -116,7 +115,7 @@
 - dataclasses.po                  47 / 151 ( 31.0% translated).
 - datetime.po                    628 / 635 ( 98.0% translated).
 - dbm.po                           5 /  87 (  5.0% translated).
-- decimal.po                     344 / 378 ( 91.0% translated).
+- decimal.po                     370 / 378 ( 97.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
 - dis.po                         180 / 357 ( 50.0% translated).
 - doctest.po                      91 / 363 ( 25.0% translated).
@@ -166,7 +165,7 @@
 - logging.config.po               12 / 171 (  7.0% translated).
 - logging.handlers.po             48 / 270 ( 17.0% translated).
 - logging.po                     100 / 367 ( 27.0% translated).
-- lzma.po                         65 / 113 ( 57.0% translated).
+- lzma.po                        112 / 113 ( 99.0% translated).
 - mailbox.po                      10 / 289 (  3.0% translated).
 - mailcap.po                       2 /  16 ( 12.0% translated).
 - marshal.po                      24 /  30 ( 80.0% translated).
@@ -281,7 +280,7 @@
 - windows.po                     374 / 378 ( 98.0% translated).
 
 
-# whatsnew (74.67% done)
+# whatsnew (74.68% done)
 
 - 2.3.po                         328 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -294,9 +293,9 @@
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
 - 3.5.po                         125 / 578 ( 21.0% translated).
-- 3.6.po                         235 / 544 ( 43.0% translated).
+- 3.6.po                         236 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (64.43% done)
+# TOTAL (64.62% done)
 
