@@ -79,7 +79,7 @@
 
 
 
-# library (57.42% done)
+# library (57.64% done)
 
 - argparse.po                    260 / 290 ( 89.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
@@ -104,7 +104,7 @@
 - cgi.po                          19 /  90 ( 21.0% translated).
 - chunk.po                        10 /  34 ( 29.0% translated).
 - cmath.po                        41 /  52 ( 78.0% translated).
-- cmd.po                           4 /  42 (  9.0% translated).
+- cmd.po                          31 /  42 ( 73.0% translated).
 - code.po                         29 /  31 ( 93.0% translated).
 - codecs.po                      237 / 511 ( 46.0% translated).
 - collections.po                 199 / 202 ( 98.0% translated).
@@ -170,7 +170,7 @@
 - logging.config.po               12 / 119 ( 10.0% translated).
 - logging.handlers.po             49 / 261 ( 18.0% translated).
 - logging.po                      94 / 321 ( 29.0% translated).
-- lzma.po                         67 / 107 ( 62.0% translated).
+- lzma.po                        106 / 107 ( 99.0% translated).
 - mailbox.po                      20 / 282 (  7.0% translated).
 - mailcap.po                       2 /  15 ( 13.0% translated).
 - mimetypes.po                    16 /  45 ( 35.0% translated).
@@ -303,5 +303,5 @@
 - 3.9.po                         382 / 386 ( 98.0% translated).
 
 
-# TOTAL (61.70% done)
+# TOTAL (61.83% done)
 
