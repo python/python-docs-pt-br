@@ -52,11 +52,11 @@
 - programming.po                 456 / 508 ( 89.0% translated).
 
 
-# howto (57.39% done)
+# howto (57.69% done)
 
 - argparse.po                    144 / 145 ( 99.0% translated).
 - curses.po                       58 / 121 ( 47.0% translated).
-- descriptor.po                  172 / 233 ( 73.0% translated).
+- descriptor.po                  181 / 233 ( 77.0% translated).
 - enum.po                         63 / 319 ( 19.0% translated).
 - functional.po                  138 / 252 ( 54.0% translated).
 - logging-cookbook.po             23 / 418 (  5.0% translated).
@@ -73,7 +73,7 @@
 
 
 
-# library (58.39% done)
+# library (58.62% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - abc.po                          31 /  60 ( 51.0% translated).
@@ -95,7 +95,7 @@
 - bdb.po                           7 / 111 (  6.0% translated).
 - binascii.po                     23 /  41 ( 56.0% translated).
 - bisect.po                       18 /  35 ( 51.0% translated).
-- calendar.po                     87 / 114 ( 76.0% translated).
+- calendar.po                    112 / 114 ( 98.0% translated).
 - cgi.po                          28 / 126 ( 22.0% translated).
 - cgitb.po                        16 /  17 ( 94.0% translated).
 - chunk.po                        14 /  39 ( 35.0% translated).
@@ -155,7 +155,7 @@
 - idle.po                         16 / 281 (  5.0% translated).
 - imaplib.po                      13 / 117 ( 11.0% translated).
 - imghdr.po                       20 /  42 ( 47.0% translated).
-- importlib.po                   231 / 304 ( 75.0% translated).
+- importlib.po                   242 / 304 ( 79.0% translated).
 - importlib.resources.po          40 /  47 ( 85.0% translated).
 - inspect.po                      78 / 383 ( 20.0% translated).
 - io.po                           21 / 271 (  7.0% translated).
@@ -179,7 +179,7 @@
 - os.path.po                      88 /  92 ( 95.0% translated).
 - ossaudiodev.po                  18 / 102 ( 17.0% translated).
 - pathlib.po                     209 / 346 ( 60.0% translated).
-- pdb.po                         117 / 137 ( 85.0% translated).
+- pdb.po                         132 / 137 ( 96.0% translated).
 - pickle.po                      226 / 243 ( 93.0% translated).
 - pipes.po                         5 /  21 ( 23.0% translated).
 - pkgutil.po                       6 /  50 ( 12.0% translated).
@@ -198,7 +198,7 @@
 - shelve.po                       11 /  40 ( 27.0% translated).
 - shlex.po                         3 /  77 (  3.0% translated).
 - signal.po                       13 / 137 (  9.0% translated).
-- site.po                         26 /  58 ( 44.0% translated).
+- site.po                         41 /  58 ( 70.0% translated).
 - smtplib.po                      30 / 116 ( 25.0% translated).
 - sndhdr.po                       12 /  38 ( 31.0% translated).
 - socket.po                       53 / 363 ( 14.0% translated).
@@ -207,13 +207,13 @@
 - ssl.po                          39 / 520 (  7.0% translated).
 - statistics.po                  161 / 241 ( 66.0% translated).
 - stdtypes.po                    1324 / 1330 ( 99.0% translated).
-- string.po                      193 / 215 ( 89.0% translated).
+- string.po                      209 / 216 ( 96.0% translated).
 - stringprep.po                    1 /  25 (  4.0% translated).
 - struct.po                       96 / 194 ( 49.0% translated).
 - subprocess.po                  128 / 321 ( 39.0% translated).
 - symtable.po                      4 /  50 (  8.0% translated).
 - sys.monitoring.po              104 / 112 ( 92.0% translated).
-- sys.po                         419 / 431 ( 97.0% translated).
+- sys.po                         418 / 431 ( 96.0% translated).
 - syslog.po                       26 /  33 ( 78.0% translated).
 - tarfile.po                     103 / 333 ( 30.0% translated).
 - telnetlib.po                    10 /  53 ( 18.0% translated).
@@ -227,7 +227,7 @@
 - tokenize.po                      8 /  52 ( 15.0% translated).
 - traceback.po                     9 / 108 (  8.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
-- turtle.po                      660 / 662 ( 99.0% translated).
+- turtle.po                      661 / 662 ( 99.0% translated).
 - types.po                        90 /  99 ( 90.0% translated).
 - typing.po                      694 / 745 ( 93.0% translated).
 - unicodedata.po                   5 /  32 ( 15.0% translated).
@@ -297,5 +297,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (64.62% done)
+# TOTAL (64.77% done)
 

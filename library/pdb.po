@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-19 01:32+0000\n"
+"POT-Creation-Date: 2024-12-27 14:52+0000\n"
 "PO-Revision-Date: 2024-05-11 00:33+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -88,7 +88,7 @@ msgstr "O uso típico para invadir o depurador é inserir::"
 
 #: ../../library/pdb.rst:41
 msgid "import pdb; pdb.set_trace()"
-msgstr ""
+msgstr "import pdb; pdb.set_trace()"
 
 #: ../../library/pdb.rst:43
 msgid "Or::"
@@ -96,7 +96,7 @@ msgstr "ou::"
 
 #: ../../library/pdb.rst:45
 msgid "breakpoint()"
-msgstr ""
+msgstr "breakpoint()"
 
 #: ../../library/pdb.rst:47
 msgid ""
@@ -113,6 +113,8 @@ msgid ""
 "The built-in :func:`breakpoint`, when called with defaults, can be used "
 "instead of ``import pdb; pdb.set_trace()``."
 msgstr ""
+"A função embutida :func:`breakpoint`, quando chamada com valores padrão, "
+"pode ser usada em vez de ``import pdb; pdb.set_trace()``."
 
 #: ../../library/pdb.rst:57
 msgid ""
@@ -122,6 +124,11 @@ msgid ""
 "val = 3\n"
 "print(f\"{val} * 2 is {double(val)}\")"
 msgstr ""
+"def double(x):\n"
+"   breakpoint()\n"
+"   return x * 2\n"
+"val = 3\n"
+"print(f\"{val} * 2 is {double(val)}\")"
 
 #: ../../library/pdb.rst:63
 msgid ""
@@ -161,7 +168,7 @@ msgstr ""
 
 #: ../../library/pdb.rst:81
 msgid "python -m pdb myscript.py"
-msgstr ""
+msgstr "python -m pdb meuscript.py"
 
 #: ../../library/pdb.rst:83
 msgid ""
@@ -212,6 +219,14 @@ msgid ""
 "0.5\n"
 ">>>"
 msgstr ""
+">>> import pdb\n"
+">>> def f(x):\n"
+"...     print(1 / x)\n"
+">>> pdb.run(\"f(2)\")\n"
+"> <string>(1)<module>()\n"
+"(Pdb) continue\n"
+"0.5\n"
+">>>"
 
 #: ../../library/pdb.rst:109
 msgid "The typical usage to inspect a crashed program is::"
@@ -234,6 +249,20 @@ msgid ""
 "0\n"
 "(Pdb)"
 msgstr ""
+">>> import pdb\n"
+">>> def f(x):\n"
+"...     print(1 / x)\n"
+"...\n"
+">>> f(0)\n"
+"Traceback (most recent call last):\n"
+"  File \"<stdin>\", line 1, in <module>\n"
+"  File \"<stdin>\", line 2, in f\n"
+"ZeroDivisionError: division by zero\n"
+">>> pdb.pm()\n"
+"> <stdin>(2)f()\n"
+"(Pdb) p x\n"
+"0\n"
+"(Pdb)"
 
 #: ../../library/pdb.rst:127
 msgid ""
@@ -381,7 +410,7 @@ msgstr "Exemplo de chamada para habilitar rastreamento com *skip*::"
 
 #: ../../library/pdb.rst:208
 msgid "import pdb; pdb.Pdb(skip=['django.*']).set_trace()"
-msgstr ""
+msgstr "import pdb; pdb.Pdb(skip=['django.*']).set_trace()"
 
 #: ../../library/pdb.rst:210
 msgid ""
@@ -710,6 +739,10 @@ msgid ""
 "(com) end\n"
 "(Pdb)"
 msgstr ""
+"(Pdb) comando 1\n"
+"(com) p alguma_variável\n"
+"(com) end\n"
+"(Pdb)"
 
 #: ../../library/pdb.rst:390
 msgid ""
@@ -948,6 +981,11 @@ msgid ""
 "lst.append(1)\n"
 "print(lst)"
 msgstr ""
+"lst = []\n"
+"breakpoint()\n"
+"pass\n"
+"lst.append(1)\n"
+"print(lst)"
 
 #: ../../library/pdb.rst:529
 msgid ""
@@ -972,6 +1010,17 @@ msgid ""
 "-> print(lst)\n"
 "(Pdb)"
 msgstr ""
+"> example.py(3)<module>()\n"
+"-> pass\n"
+"(Pdb) display lst\n"
+"display lst: []\n"
+"(Pdb) n\n"
+"> example.py(4)<module>()\n"
+"-> lst.append(1)\n"
+"(Pdb) n\n"
+"> example.py(5)<module>()\n"
+"-> print(lst)\n"
+"(Pdb)"
 
 #: ../../library/pdb.rst:544
 msgid "You can do some tricks with copy mechanism to make it work::"
@@ -994,6 +1043,18 @@ msgid ""
 "display lst[:]: [1]  [old: []]\n"
 "(Pdb)"
 msgstr ""
+"> example.py(3)<module>()\n"
+"-> pass\n"
+"(Pdb) display lst[:]\n"
+"display lst[:]: []\n"
+"(Pdb) n\n"
+"> example.py(4)<module>()\n"
+"-> lst.append(1)\n"
+"(Pdb) n\n"
+"> example.py(5)<module>()\n"
+"-> print(lst)\n"
+"display lst[:]: [1]  [old: []]\n"
+"(Pdb)"
 
 #: ../../library/pdb.rst:563
 msgid ""
@@ -1048,6 +1109,10 @@ msgid ""
 "# Print instance variables in self\n"
 "alias ps pi self"
 msgstr ""
+"# Exibe variáveis de instância (use em \"pi classInst\")\n"
+"alias pi for k in %1.__dict__.keys(): print(f\"%1.{k} = {%1.__dict__[k]}\")\n"
+"# Exibe variáveis de instância em self\n"
+"alias ps pi self"
 
 #: ../../library/pdb.rst:602
 msgid "Delete the specified alias *name*."
@@ -1068,6 +1133,8 @@ msgid ""
 "(Pdb) ! n=42\n"
 "(Pdb)"
 msgstr ""
+"(Pdb) ! n=42\n"
+"(Pdb)"
 
 #: ../../library/pdb.rst:615
 msgid ""
@@ -1082,6 +1149,8 @@ msgid ""
 "(Pdb) global list_options; list_options = ['-l']\n"
 "(Pdb)"
 msgstr ""
+"(Pdb) global list_options; list_options = ['-l']\n"
+"(Pdb)"
 
 #: ../../library/pdb.rst:626
 msgid ""
