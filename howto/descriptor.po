@@ -8,16 +8,16 @@
 # Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2021
 # i17obot <i17obot@rougeth.com>, 2021
 # Adorilson Bezerra <adorilson@gmail.com>, 2024
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-10 14:17+0000\n"
+"POT-Creation-Date: 2025-01-17 14:16+0000\n"
 "PO-Revision-Date: 2021-06-28 00:53+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -1251,6 +1251,34 @@ msgid ""
 "        return cls_var                                  # class variable\n"
 "    raise AttributeError(name)"
 msgstr ""
+"def find_name_in_mro(cls, name, default):\n"
+"    \"Emulate _PyType_Lookup() in Objects/typeobject.c\"\n"
+"    for base in cls.__mro__:\n"
+"        if name in vars(base):\n"
+"            return vars(base)[name]\n"
+"    return default\n"
+"\n"
+"def object_getattribute(obj, name):\n"
+"    \"Emulate PyObject_GenericGetAttr() in Objects/object.c\"\n"
+"    null = object()\n"
+"    objtype = type(obj)\n"
+"    cls_var = find_name_in_mro(objtype, name, null)\n"
+"    descr_get = getattr(type(cls_var), '__get__', null)\n"
+"    if descr_get is not null:\n"
+"        if (hasattr(type(cls_var), '__set__')\n"
+"            or hasattr(type(cls_var), '__delete__')):\n"
+"            return descr_get(cls_var, obj, objtype)     # descritor de "
+"dados\n"
+"    if hasattr(obj, '__dict__') and name in vars(obj):\n"
+"        return vars(obj)[name]                          # variável de "
+"instância\n"
+"    if descr_get is not null:\n"
+"        return descr_get(cls_var, obj, objtype)         # descritor de não "
+"dados\n"
+"    if cls_var is not null:\n"
+"        return cls_var                                  # variável de "
+"classe\n"
+"    raise AttributeError(name)"
 
 #: ../../howto/descriptor.rst:722
 msgid ""
@@ -1419,6 +1447,8 @@ msgstr "Os descritores de dados sempre substituem os dicionários de instância.
 #: ../../howto/descriptor.rst:829
 msgid "Non-data descriptors may be overridden by instance dictionaries."
 msgstr ""
+"Descritores de não-dados podem ser substituídos pelos dicionários de "
+"instância."
 
 #: ../../howto/descriptor.rst:833
 msgid "Automatic name notification"
@@ -1823,6 +1853,9 @@ msgid ""
 "Python's object oriented features are built upon a function based "
 "environment. Using non-data descriptors, the two are merged seamlessly."
 msgstr ""
+"Os recursos orientados a objetos do Python são construídos sobre um ambiente "
+"baseado em funções. Usando descritores de não-dados, os dois são mesclados "
+"perfeitamente."
 
 #: ../../howto/descriptor.rst:1153
 msgid ""
@@ -1906,6 +1939,11 @@ msgid ""
 "means that functions are non-data descriptors that return bound methods "
 "during dotted lookup from an instance.  Here's how it works:"
 msgstr ""
+"Para dar suporte à criação automática de métodos, as funções incluem o "
+"método :meth:`~object.__get__` para vincular métodos durante o acesso ao "
+"atributo. Isso significa que as funções são descritores de não-dados que "
+"retornam métodos vinculados durante a pesquisa pontilhada de uma instância. "
+"Veja como funciona:"
 
 #: ../../howto/descriptor.rst:1194
 msgid ""
@@ -2057,6 +2095,8 @@ msgid ""
 "Non-data descriptors provide a simple mechanism for variations on the usual "
 "patterns of binding functions into methods."
 msgstr ""
+"Descritores de não-dados fornecem um mecanismo simples para variações nos "
+"padrões usuais de vinculação de funções em métodos."
 
 #: ../../howto/descriptor.rst:1271
 msgid ""
@@ -2154,6 +2194,10 @@ msgid ""
 "    def f(x):\n"
 "        return x * 10"
 msgstr ""
+"class E:\n"
+"    @staticmethod\n"
+"    def f(x):\n"
+"        return x * 10"
 
 #: ../../howto/descriptor.rst:1321
 msgid ""
@@ -2162,6 +2206,10 @@ msgid ""
 ">>> E().f(3)\n"
 "30"
 msgstr ""
+">>> E.f(3)\n"
+"30\n"
+">>> E().f(3)\n"
+"30"
 
 #: ../../howto/descriptor.rst:1328
 msgid ""
@@ -2214,6 +2262,10 @@ msgid ""
 "    def f(cls, x):\n"
 "        return cls.__name__, x"
 msgstr ""
+"class F:\n"
+"    @classmethod\n"
+"    def f(cls, x):\n"
+"        return cls.__name__, x"
 
 #: ../../howto/descriptor.rst:1430
 msgid ""
@@ -2222,6 +2274,10 @@ msgid ""
 ">>> F().f(3)\n"
 "('F', 3)"
 msgstr ""
+">>> F.f(3)\n"
+"('F', 3)\n"
+">>> F().f(3)\n"
+"('F', 3)"
 
 #: ../../howto/descriptor.rst:1437
 msgid ""
