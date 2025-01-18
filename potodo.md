@@ -5,7 +5,7 @@
 - license.po                     112 / 123 ( 91.0% translated).
 
 
-# c-api (51.92% done)
+# c-api (52.25% done)
 
 - exceptions.po                  194 / 366 ( 53.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
@@ -23,7 +23,6 @@
 - refcounting.po                   2 /  47 (  4.0% translated).
 - structures.po                   71 / 179 ( 39.0% translated).
 - sys.po                          28 /  77 ( 36.0% translated).
-- tuple.po                        27 /  43 ( 62.0% translated).
 - type.po                         19 /  99 ( 19.0% translated).
 - typeobj.po                     229 / 664 ( 34.0% translated).
 - unicode.po                      27 / 312 (  8.0% translated).
@@ -73,7 +72,7 @@
 
 
 
-# library (58.62% done)
+# library (58.75% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - abc.po                          31 /  60 ( 51.0% translated).
@@ -197,7 +196,7 @@
 - selectors.po                    13 /  58 ( 22.0% translated).
 - shelve.po                       11 /  40 ( 27.0% translated).
 - shlex.po                         3 /  77 (  3.0% translated).
-- signal.po                       13 / 137 (  9.0% translated).
+- signal.po                       55 / 137 ( 40.0% translated).
 - site.po                         41 /  58 ( 70.0% translated).
 - smtplib.po                      30 / 116 ( 25.0% translated).
 - sndhdr.po                       12 /  38 ( 31.0% translated).
@@ -207,7 +206,6 @@
 - ssl.po                          39 / 520 (  7.0% translated).
 - statistics.po                  161 / 241 ( 66.0% translated).
 - stdtypes.po                    1324 / 1330 ( 99.0% translated).
-- string.po                      209 / 216 ( 96.0% translated).
 - stringprep.po                    1 /  25 (  4.0% translated).
 - struct.po                       96 / 194 ( 49.0% translated).
 - subprocess.po                  128 / 321 ( 39.0% translated).
@@ -297,5 +295,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (64.77% done)
+# TOTAL (64.87% done)
 
