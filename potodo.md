@@ -52,12 +52,12 @@
 - programming.po                 328 / 372 ( 88.0% translated).
 
 
-# howto (53.63% done)
+# howto (53.76% done)
 
 - argparse.po                     83 /  84 ( 98.0% translated).
 - clinic.po                      101 / 415 ( 24.0% translated).
 - curses.po                       69 / 105 ( 65.0% translated).
-- descriptor.po                  111 / 174 ( 63.0% translated).
+- descriptor.po                  114 / 174 ( 65.0% translated).
 - functional.po                  140 / 206 ( 67.0% translated).
 - instrumentation.po              49 /  59 ( 83.0% translated).
 - logging-cookbook.po             15 / 237 (  6.0% translated).
@@ -79,7 +79,7 @@
 
 
 
-# library (57.64% done)
+# library (57.77% done)
 
 - argparse.po                    260 / 290 ( 89.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
@@ -100,7 +100,7 @@
 - bdb.po                           5 /  92 (  5.0% translated).
 - binascii.po                     12 /  37 ( 32.0% translated).
 - bz2.po                          64 /  65 ( 98.0% translated).
-- calendar.po                     56 /  69 ( 81.0% translated).
+- calendar.po                     58 /  69 ( 84.0% translated).
 - cgi.po                          19 /  90 ( 21.0% translated).
 - chunk.po                        10 /  34 ( 29.0% translated).
 - cmath.po                        41 /  52 ( 78.0% translated).
@@ -202,8 +202,8 @@
 - shelve.po                        7 /  31 ( 22.0% translated).
 - shlex.po                         4 /  72 (  5.0% translated).
 - shutil.po                      153 / 154 ( 99.0% translated).
-- signal.po                       11 / 127 (  8.0% translated).
-- site.po                         17 /  39 ( 43.0% translated).
+- signal.po                       45 / 127 ( 35.0% translated).
+- site.po                         22 /  39 ( 56.0% translated).
 - smtpd.po                        10 /  79 ( 12.0% translated).
 - smtplib.po                      25 / 109 ( 22.0% translated).
 - socket.po                       58 / 320 ( 18.0% translated).
@@ -303,5 +303,5 @@
 - 3.9.po                         382 / 386 ( 98.0% translated).
 
 
-# TOTAL (61.83% done)
+# TOTAL (61.92% done)
 
