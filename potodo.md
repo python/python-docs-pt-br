@@ -4,7 +4,7 @@
 
 
 
-# c-api (52.22% done)
+# c-api (52.63% done)
 
 - exceptions.po                  194 / 370 ( 52.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
@@ -22,7 +22,6 @@
 - refcounting.po                   4 /  48 (  8.0% translated).
 - structures.po                   71 / 179 ( 39.0% translated).
 - sys.po                          28 /  75 ( 37.0% translated).
-- tuple.po                        25 /  46 ( 54.0% translated).
 - type.po                         19 / 101 ( 18.0% translated).
 - typeobj.po                     228 / 670 ( 34.0% translated).
 - unicode.po                      28 / 325 (  8.0% translated).
@@ -69,7 +68,7 @@
 
 
 
-# library (59.84% done)
+# library (59.98% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
@@ -164,7 +163,7 @@
 - selectors.po                    13 /  58 ( 22.0% translated).
 - shelve.po                       11 /  40 ( 27.0% translated).
 - shlex.po                         3 /  77 (  3.0% translated).
-- signal.po                       13 / 137 (  9.0% translated).
+- signal.po                       56 / 137 ( 40.0% translated).
 - site.po                         45 /  60 ( 75.0% translated).
 - smtplib.po                      30 / 116 ( 25.0% translated).
 - socket.po                       53 / 364 ( 14.0% translated).
@@ -172,7 +171,6 @@
 - sqlite3.po                     116 / 476 ( 24.0% translated).
 - ssl.po                          40 / 544 (  7.0% translated).
 - statistics.po                  176 / 248 ( 70.0% translated).
-- string.po                      209 / 216 ( 96.0% translated).
 - stringprep.po                    1 /  25 (  4.0% translated).
 - struct.po                       96 / 195 ( 49.0% translated).
 - subprocess.po                  128 / 323 ( 39.0% translated).
@@ -248,5 +246,5 @@
 - changelog.po                   958 / 12128 (  7.0% translated).
 
 
-# TOTAL (56.88% done)
+# TOTAL (56.97% done)
 
