@@ -11,17 +11,17 @@
 # Rodrigo Cendamore, 2023
 # Vitor Buxbaum Orlandi, 2023
 # Jones Martins, 2024
-# Adorilson Bezerra <adorilson@gmail.com>, 2025
 # Rafael Fontenelle <rffontenelle@gmail.com>, 2025
+# Adorilson Bezerra <adorilson@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-10 14:17+0000\n"
+"POT-Creation-Date: 2025-01-17 14:16+0000\n"
 "PO-Revision-Date: 2021-06-28 00:52+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
+"Last-Translator: Adorilson Bezerra <adorilson@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -4281,7 +4281,7 @@ msgstr ""
 
 #: ../../faq/programming.rst:1993
 msgid "How do I cache method calls?"
-msgstr ""
+msgstr "Como faço para armazenar em cache as chamadas de um método?"
 
 #: ../../faq/programming.rst:1995
 msgid ""
@@ -4289,6 +4289,9 @@ msgid ""
 "cached_property` and :func:`functools.lru_cache`.  The former stores results "
 "at the instance level and the latter at the class level."
 msgstr ""
+"As duas principais ferramentas para armazenamento em cache de métodos são :"
+"func:`functools.cached_property` e :func:`functools.lru_cache`.  A primeira "
+"armazena resultados no nível de instância e a segunda no nível de classe."
 
 #: ../../faq/programming.rst:2000
 msgid ""
@@ -4296,6 +4299,9 @@ msgid ""
 "arguments.  It does not create a reference to the instance.  The cached "
 "method result will be kept only as long as the instance is alive."
 msgstr ""
+"A abordagem *cached_property* funciona somente com métodos que não aceitam "
+"nenhum argumento.  Ela não cria uma referência para a instância. O resultado "
+"do método será mantido em cache somente enquanto a instância estiver ativa."
 
 #: ../../faq/programming.rst:2004
 msgid ""
@@ -4304,6 +4310,10 @@ msgid ""
 "accumulate, so too will the accumulated method results.  They can grow "
 "without bound."
 msgstr ""
+"A vantagem é que, quando um instância não for mais usada, o resultado do "
+"método armazenado em cache será liberado imediatamente.  A desvantagem é "
+"que, se as instâncias se acumularem, os resultados do método também serão "
+"acumulados. Eles podem crescer sem limites."
 
 #: ../../faq/programming.rst:2009
 msgid ""
@@ -4311,6 +4321,9 @@ msgid ""
 "arguments.  It creates a reference to the instance unless special efforts "
 "are made to pass in weak references."
 msgstr ""
+"A abordagem *lru_cache* funciona com métodos que têm argumento :term:"
+"`hasheável`.  Ele cria uma referência para a instância, a menos que sejam "
+"feitos esforços especiais para passar referências fracas."
 
 #: ../../faq/programming.rst:2013
 msgid ""
@@ -4318,6 +4331,9 @@ msgid ""
 "bounded by the specified *maxsize*.  The disadvantage is that instances are "
 "kept alive until they age out of the cache or until the cache is cleared."
 msgstr ""
+"A vantagem do algoritmo menos recentemente usado é que o cache é limitado "
+"pelo *maxsize* especificado.  A desvantagem é que as instâncias são mantidas "
+"vivas até que saiam do cache ou até que o cache seja limpo."
 
 #: ../../faq/programming.rst:2018
 msgid "This example shows the various techniques::"
@@ -4347,6 +4363,28 @@ msgid ""
 "        \"Rainfall on a given date\"\n"
 "        # Depends on the station_id, date, and units."
 msgstr ""
+"class Weather:\n"
+"    \"Procura informações de tempo em sites governamentais\"\n"
+"\n"
+"    def __init__(self, station_id):\n"
+"        self._station_id = station_id\n"
+"        # O _station_id é privado e imutável\n"
+"\n"
+"    def current_temperature(self):\n"
+"        \"Última observação horária\"\n"
+"        # Não armazena isso em cache porque os dados anteriores\n"
+"        # podem estar desatualizados.\n"
+"\n"
+"    @cached_property\n"
+"    def location(self):\n"
+"        \"Retornas as coordenadas longitude/latitude coordinates da "
+"estação\"\n"
+"        # Resultado depende apenas de station_id\n"
+"\n"
+"    @lru_cache(maxsize=20)\n"
+"    def historic_rainfall(self, date, units='mm'):\n"
+"        \"Precipitação em uma determinada data\"\n"
+"        # Depende de station_id, date, e units."
 
 #: ../../faq/programming.rst:2042
 msgid ""
@@ -4354,6 +4392,9 @@ msgid ""
 "relevant instance attributes are mutable, the *cached_property* approach "
 "can't be made to work because it cannot detect changes to the attributes."
 msgstr ""
+"O exemplo acima assume que o *station_id* nunca muda.  Se os atribuitos "
+"relevantes da instância forem mutáveis, a abordagem *cached_property* não "
+"poderá usada porque não é capaz de detectar alterações no atributo."
 
 #: ../../faq/programming.rst:2047
 msgid ""
@@ -4361,6 +4402,10 @@ msgid ""
 "class needs to define the :meth:`~object.__eq__` and :meth:`~object."
 "__hash__` methods so that the cache can detect relevant attribute updates::"
 msgstr ""
+"Para que a abordagem *lru_cache* funcione quando *station_id* for mutável, a "
+"classe precisa definir os métodos :meth:`~object.__eq__` e :meth:`~object."
+"__hash__` para que o cache possa detectar atualizações relevantes do "
+"atributo::"
 
 #: ../../faq/programming.rst:2051
 msgid ""
@@ -4384,6 +4429,25 @@ msgid ""
 "        'Rainfall on a given date'\n"
 "        # Depends on the station_id, date, and units."
 msgstr ""
+"class Weather:\n"
+"    \"Examplo com um identificador de estação mutável\"\n"
+"\n"
+"    def __init__(self, station_id):\n"
+"        self.station_id = station_id\n"
+"\n"
+"    def change_station(self, station_id):\n"
+"        self.station_id = station_id\n"
+"\n"
+"    def __eq__(self, other):\n"
+"        return self.station_id == other.station_id\n"
+"\n"
+"    def __hash__(self):\n"
+"        return hash(self.station_id)\n"
+"\n"
+"    @lru_cache(maxsize=20)\n"
+"    def historic_rainfall(self, date, units='cm'):\n"
+"        \"Precipitação em uma determinada data\"\n"
+"        # Depende de station_id, date, e units."
 
 #: ../../faq/programming.rst:2073
 msgid "Modules"
