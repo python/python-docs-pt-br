@@ -72,7 +72,7 @@
 
 
 
-# library (58.75% done)
+# library (58.81% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - abc.po                          31 /  60 ( 51.0% translated).
@@ -208,7 +208,7 @@
 - stdtypes.po                    1324 / 1330 ( 99.0% translated).
 - stringprep.po                    1 /  25 (  4.0% translated).
 - struct.po                       96 / 194 ( 49.0% translated).
-- subprocess.po                  128 / 321 ( 39.0% translated).
+- subprocess.po                  149 / 321 ( 46.0% translated).
 - symtable.po                      4 /  50 (  8.0% translated).
 - sys.monitoring.po              104 / 112 ( 92.0% translated).
 - sys.po                         418 / 431 ( 96.0% translated).
@@ -295,5 +295,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (64.89% done)
+# TOTAL (64.92% done)
 

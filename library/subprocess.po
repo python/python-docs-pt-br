@@ -25,7 +25,7 @@ msgstr ""
 
 #: ../../library/subprocess.rst:2
 msgid ":mod:`!subprocess` --- Subprocess management"
-msgstr ""
+msgstr ":mod:`!subprocess` --- Gerenciamento de subprocessos"
 
 #: ../../library/subprocess.rst:10
 msgid "**Source code:** :source:`Lib/subprocess.py`"
@@ -46,6 +46,8 @@ msgid ""
 "os.system\n"
 "os.spawn*"
 msgstr ""
+"os.system\n"
+"os.spawn*"
 
 #: ../../library/subprocess.rst:21
 msgid ""
@@ -228,6 +230,18 @@ msgid ""
 "CompletedProcess(args=['ls', '-l', '/dev/null'], returncode=0,\n"
 "stdout=b'crw-rw-rw- 1 root root 1, 3 Jan 23 16:23 /dev/null\\n', stderr=b'')"
 msgstr ""
+">>> subprocess.run([\"ls\", \"-l\"])  # não captura a saída\n"
+"CompletedProcess(args=['ls', '-l'], returncode=0)\n"
+"\n"
+">>> subprocess.run(\"exit 1\", shell=True, check=True)\n"
+"Traceback (most recent call last):\n"
+"  ...\n"
+"subprocess.CalledProcessError: Command 'exit 1' returned non-zero exit "
+"status 1\n"
+"\n"
+">>> subprocess.run([\"ls\", \"-l\", \"/dev/null\"], capture_output=True)\n"
+"CompletedProcess(args=['ls', '-l', '/dev/null'], returncode=0,\n"
+"stdout=b'crw-rw-rw- 1 root root 1, 3 Jan 23 16:23 /dev/null\\n', stderr=b'')"
 
 #: ../../library/subprocess.rst:113
 msgid "Added *encoding* and *errors* parameters"
@@ -692,7 +706,7 @@ msgstr ""
 
 #: ../../library/subprocess.rst:403
 msgid "Popen([\"/usr/bin/git\", \"commit\", \"-m\", \"Fixes a bug.\"])"
-msgstr ""
+msgstr "Popen([\"/usr/bin/git\", \"commit\", \"-m\", \"Fixes a bug.\"])"
 
 #: ../../library/subprocess.rst:405
 msgid ""
@@ -726,6 +740,15 @@ msgid ""
 "\"echo '$MONEY'\"]\n"
 ">>> p = subprocess.Popen(args) # Success!"
 msgstr ""
+">>> import shlex, subprocess\n"
+">>> command_line = input()\n"
+"/bin/vikings -input eggs.txt -output \"spam spam.txt\" -cmd \"echo "
+"'$MONEY'\"\n"
+">>> args = shlex.split(command_line)\n"
+">>> print(args)\n"
+"['/bin/vikings', '-input', 'eggs.txt', '-output', 'spam spam.txt', '-cmd', "
+"\"echo '$MONEY'\"]\n"
+">>> p = subprocess.Popen(args) # Successo!"
 
 #: ../../library/subprocess.rst:423
 msgid ""
@@ -801,7 +824,7 @@ msgstr ""
 
 #: ../../library/subprocess.rst:455
 msgid "Popen(['/bin/sh', '-c', args[0], args[1], ...])"
-msgstr ""
+msgstr "Popen(['/bin/sh', '-c', args[0], args[1], ...])"
 
 #: ../../library/subprocess.rst:457
 msgid ""
@@ -811,34 +834,50 @@ msgid ""
 "into the shell (e.g. :command:`dir` or :command:`copy`).  You do not need "
 "``shell=True`` to run a batch file or console-based executable."
 msgstr ""
+"No Windows com ``shell=True``, a variável de ambiente :envvar:`COMSPEC` "
+"especifica o shell padrão. A única vez que você precisa especificar "
+"``shell=True`` no Windows é quando o comando que você deseja executar é "
+"construído no shell (por exemplo, :command:`dir` ou :command:`copy`). Você "
+"não precisa de ``shell=True`` para executar um arquivo em lote ou executável "
+"baseado em console."
 
 #: ../../library/subprocess.rst:467
 msgid ""
 "*bufsize* will be supplied as the corresponding argument to the :func:`open` "
 "function when creating the stdin/stdout/stderr pipe file objects:"
 msgstr ""
+"*bufsize* será fornecido como o argumento correspondente à função :func:"
+"`open` ao criar os objetos arquivo de encadeamento stdin/stdout/stderr:"
 
 #: ../../library/subprocess.rst:471
 msgid ""
 "``0`` means unbuffered (read and write are one system call and can return "
 "short)"
 msgstr ""
+"``0`` significa sem buffer (leitura e gravação são uma chamada de sistema e "
+"podem retornar curto)"
 
 #: ../../library/subprocess.rst:473
 msgid ""
 "``1`` means line buffered (only usable if ``text=True`` or "
 "``universal_newlines=True``)"
 msgstr ""
+"``1`` significa buffer de linha (utilizável somente se ``text=True`` ou "
+"``universal_newlines=True``)"
 
 #: ../../library/subprocess.rst:475
 msgid "any other positive value means use a buffer of approximately that size"
 msgstr ""
+"qualquer outro valor positivo significa usar um buffer de aproximadamente "
+"esse tamanho"
 
 #: ../../library/subprocess.rst:477
 msgid ""
 "negative bufsize (the default) means the system default of io."
 "DEFAULT_BUFFER_SIZE will be used."
 msgstr ""
+"bufsize negativo (o padrão) significa que o padrão do sistema io."
+"DEFAULT_BUFFER_SIZE será usado."
 
 #: ../../library/subprocess.rst:480
 msgid ""
@@ -848,6 +887,12 @@ msgid ""
 "short reads.  This was unintentional and did not match the behavior of "
 "Python 2 as most code expected."
 msgstr ""
+"*bufsize* agora assume o padrão -1 para habilitar o buffer por padrão para "
+"corresponder ao comportamento que a maioria dos códigos espera. Em versões "
+"anteriores ao Python 3.2.4 e 3.3.1, ele assumia incorretamente o padrão "
+"``0``, que não tinha buffer e permitia leituras curtas. Isso não foi "
+"intencional e não correspondeu ao comportamento do Python 2, como a maioria "
+"dos códigos esperava."
 
 #: ../../library/subprocess.rst:487
 msgid ""
@@ -861,16 +906,29 @@ msgid ""
 "POSIX the *executable* argument specifies a replacement shell for the "
 "default :file:`/bin/sh`."
 msgstr ""
+"O argumento *executable* especifica um programa de substituição para "
+"executar. Ele é muito raramente necessário. Quando ``shell=False``, "
+"*executable* substitui o programa a ser executado especificado por *args*. "
+"No entanto, o *args* original ainda é passado para o programa. A maioria dos "
+"programas trata o programa especificado por *args* como o nome do comando, "
+"que pode então ser diferente do programa realmente executado. No POSIX, o "
+"nome *args* se torna o nome de exibição para o executável em utilitários "
+"como :program:`ps`. Se ``shell=True``, no POSIX o argumento *executable* "
+"especifica um shell de substituição para o padrão :file:`/bin/sh`."
 
 #: ../../library/subprocess.rst:497
 msgid "*executable* parameter accepts a :term:`path-like object` on POSIX."
 msgstr ""
+"O parâmetro *executable* aceita um :term:`objeto caminho ou similar` no "
+"POSIX."
 
 #: ../../library/subprocess.rst:500
 msgid ""
 "*executable* parameter accepts a bytes and :term:`path-like object` on "
 "Windows."
 msgstr ""
+"O parâmetro *executable* aceita um :term:`objeto caminho ou similar` bytes "
+"no Windows."
 
 #: ../../library/subprocess.rst:512
 msgid ""
@@ -885,18 +943,33 @@ msgid ""
 "which indicates that the stderr data from the applications should be "
 "captured into the same file handle as for *stdout*."
 msgstr ""
+"*stdin*, *stdout* e *stderr* especificam a entrada padrão, a saída padrão e "
+"a saída de erro do programa executado, respectivamente. Os valores válidos "
+"são ``None``, :data:`PIPE`, :data:`DEVNULL`, um descritor de arquivo "
+"existente (um número inteiro positivo) e um :term:`objeto arquivo` existente "
+"com um descritor de arquivo válido. Com as configurações padrão de ``None``, "
+"nenhum redirecionamento ocorrerá. :data:`PIPE` indica que um novo canal para "
+"o filho deve ser criado. :data:`DEVNULL` indica que o arquivo especial :data:"
+"`os.devnull` será usado. Além disso, *stderr* pode ser :data:`STDOUT`, o que "
+"indica que os dados de stderr da aplicação devem ser capturados no mesmo "
+"identificador de arquivo que para *stdout*."
 
 #: ../../library/subprocess.rst:523
 msgid ""
 "If *preexec_fn* is set to a callable object, this object will be called in "
 "the child process just before the child is executed. (POSIX only)"
 msgstr ""
+"Se *preexec_fn* for definido como um objeto chamável, esse objeto será "
+"chamado no processo filho pouco antes de o filho ser executado. (Somente "
+"POSIX)"
 
 #: ../../library/subprocess.rst:529
 msgid ""
 "The *preexec_fn* parameter is NOT SAFE to use in the presence of threads in "
 "your application.  The child process could deadlock before exec is called."
 msgstr ""
+"O parâmetro *preexec_fn* NÃO É SEGURO para uso na presença de threads em sua "
+"aplicação. O processo filho pode travar antes de exec ser chamado."
 
 #: ../../library/subprocess.rst:535
 msgid ""
@@ -905,6 +978,10 @@ msgid ""
 "*process_group* parameters should take the place of code using *preexec_fn* "
 "to call :func:`os.setsid` or :func:`os.setpgid` in the child."
 msgstr ""
+"Se você precisar modificar o ambiente para o filho, use o parâmetro *env* em "
+"vez de fazer isso em um *preexec_fn*. Os parâmetros *start_new_session* e "
+"*process_group* devem tomar o lugar do código usando *preexec_fn* para "
+"chamar :func:`os.setsid` ou :func:`os.setpgid` no filho."
 
 #: ../../library/subprocess.rst:542
 msgid ""
@@ -913,6 +990,10 @@ msgid ""
 "restriction may affect applications that are deployed in mod_wsgi, uWSGI, "
 "and other embedded environments."
 msgstr ""
+"O parâmetro *preexec_fn* não é mais suportado em subinterpretadores. O uso "
+"do parâmetro em um subinterpretador levanta :exc:`RuntimeError`. A nova "
+"restrição pode afetar aplicações que são implantadas em mod_wsgi, uWSGI e "
+"outros ambientes incorporados."
 
 #: ../../library/subprocess.rst:547
 msgid ""
