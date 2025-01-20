@@ -68,7 +68,7 @@
 
 
 
-# library (59.98% done)
+# library (60.04% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
@@ -173,7 +173,7 @@
 - statistics.po                  176 / 248 ( 70.0% translated).
 - stringprep.po                    1 /  25 (  4.0% translated).
 - struct.po                       96 / 195 ( 49.0% translated).
-- subprocess.po                  128 / 323 ( 39.0% translated).
+- subprocess.po                  149 / 323 ( 46.0% translated).
 - symtable.po                      6 /  65 (  9.0% translated).
 - sys.monitoring.po              102 / 111 ( 91.0% translated).
 - tarfile.po                     103 / 337 ( 30.0% translated).
@@ -246,5 +246,5 @@
 - changelog.po                   958 / 12128 (  7.0% translated).
 
 
-# TOTAL (56.99% done)
+# TOTAL (57.01% done)
 
