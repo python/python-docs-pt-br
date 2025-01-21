@@ -39,6 +39,10 @@ msgid ""
 "administrative tools, and prototypes that will later be wrapped in a more "
 "sophisticated interface."
 msgstr ""
+"A classe :class:`Cmd` fornece um framework simples para escrever "
+"interpretadores de comando orientados a linhas. Eles são frequentemente "
+"úteis para melhorar testes, ferramentas administrativas e protótipos que "
+"mais tarde serão encapsulados em uma interface mais sofisticada."
 
 #: ../../library/cmd.rst:20
 msgid ""
@@ -48,6 +52,11 @@ msgid ""
 "yourself in order to inherit :class:`Cmd`'s methods and encapsulate action "
 "methods."
 msgstr ""
+"Uma instância de :class:`Cmd` ou instância de sua subclasse é um framework "
+"de interpretador orientado a linhas. Não há um bom motivo para instanciar :"
+"class:`Cmd` em si; em vez disso, ele é útil como uma superclasse de uma "
+"classe de interpretador que você mesmo define para herdar os métodos de :"
+"class:`Cmd` e encapsular métodos de ação."
 
 #: ../../library/cmd.rst:25
 msgid ""
@@ -56,6 +65,10 @@ msgid ""
 "`None` and :mod:`readline` is available, command completion is done "
 "automatically."
 msgstr ""
+"O argumento opcional *completekey* é o nome :mod:`readline` de uma chave de "
+"conclusão; o padrão é :kbd:`Tab`. Se *completekey* não for :const:`None` e :"
+"mod:`readline` estiver disponível, a conclusão do comando será feita "
+"automaticamente."
 
 #: ../../library/cmd.rst:29
 msgid ""
@@ -64,6 +77,10 @@ msgid ""
 "and output. If not specified, they will default to :data:`sys.stdin` and :"
 "data:`sys.stdout`."
 msgstr ""
+"Os argumentos opcionais *stdin* e *stdout* especificam os objetos arquivo de "
+"entrada e saída que a instância Cmd ou instância de sua subclasse usará para "
+"entrada e saída. Se não forem especificados, eles serão padronizados para :"
+"data:`sys.stdin` e :data:`sys.stdout`."
 
 #: ../../library/cmd.rst:34
 msgid ""
@@ -71,6 +88,9 @@ msgid ""
 "attr:`use_rawinput` attribute to ``False``, otherwise *stdin* will be "
 "ignored."
 msgstr ""
+"Se você quiser que um determinado *stdin* seja usado, certifique-se de "
+"definir o atributo :attr:`use_rawinput` da instância como ``False``, caso "
+"contrário, *stdin* será ignorado."
 
 #: ../../library/cmd.rst:42
 msgid "Cmd Objects"
@@ -78,7 +98,7 @@ msgstr "Objetos Cmd"
 
 #: ../../library/cmd.rst:44
 msgid "A :class:`Cmd` instance has the following methods:"
-msgstr ""
+msgstr "Uma instância :class:`Cmd` tem os seguintes métodos:"
 
 #: ../../library/cmd.rst:49
 msgid ""
@@ -86,12 +106,17 @@ msgid ""
 "received input, and dispatch to action methods, passing them the remainder "
 "of the line as argument."
 msgstr ""
+"Emite um prompt repetidamente, aceite a entrada, analise um prefixo inicial "
+"da entrada recebida e despache para métodos de ação, passando a eles o "
+"restante da linha como argumento."
 
 #: ../../library/cmd.rst:53
 msgid ""
 "The optional argument is a banner or intro string to be issued before the "
 "first prompt (this overrides the :attr:`intro` class attribute)."
 msgstr ""
+"O argumento opcional é um banner ou uma string de introdução a ser emitida "
+"antes do primeiro prompt (isso substitui o atributo de classe :attr:`intro`)."
 
 #: ../../library/cmd.rst:56
 msgid ""
@@ -101,10 +126,16 @@ msgid ""
 "`Control-F` moves the cursor to the right non-destructively, :kbd:`Control-"
 "B` moves the cursor to the left non-destructively, etc.)."
 msgstr ""
+"Se o módulo :mod:`readline` for carregado, a entrada vai herdar "
+"automaticamente a edição de lista de histórico semelhante a :program:`bash` "
+"(por exemplo, :kbd:`Control-P` retorna ao último comando, :kbd:`Control-N` "
+"avança para o próximo, :kbd:`Control-F` move o cursor para a direita de "
+"forma não destrutiva, :kbd:`Control-B` move o cursor para a esquerda de "
+"forma não destrutiva, etc.)."
 
 #: ../../library/cmd.rst:62
 msgid "An end-of-file on input is passed back as the string ``'EOF'``."
-msgstr ""
+msgstr "Um fim de arquivo na entrada é retornado como a string ``'EOF'``."
 
 #: ../../library/cmd.rst:68
 msgid ""
@@ -161,12 +192,18 @@ msgid ""
 "Method called when an empty line is entered in response to the prompt. If "
 "this method is not overridden, it repeats the last nonempty command entered."
 msgstr ""
+"Método chamado quando uma linha vazia é inserida em resposta ao prompt. Se "
+"esse método não for substituído, ele repete o último comando não vazio "
+"inserido."
 
 #: ../../library/cmd.rst:114
 msgid ""
 "Method called on an input line when the command prefix is not recognized. If "
 "this method is not overridden, it prints an error message and returns."
 msgstr ""
+"Método chamado em uma linha de entrada quando o prefixo do comando não é "
+"reconhecido. Se esse método não for substituído, ele imprime uma mensagem de "
+"erro e retorna."
 
 #: ../../library/cmd.rst:120
 msgid ""
@@ -183,6 +220,12 @@ msgid ""
 "the :meth:`precmd` implementation may re-write the command or simply return "
 "*line* unchanged."
 msgstr ""
+"Método gancho executado logo antes da linha de comando *line* ser "
+"interpretada, mas depois que o prompt de entrada é gerado e emitido. Este "
+"método é um stub em :class:`Cmd`; ele existe para ser substituído por "
+"subclasses. O valor de retorno é usado como o comando que será executado "
+"pelo método :meth:`onecmd`; a implementação :meth:`precmd` pode reescrever o "
+"comando ou simplesmente retornar *line* inalterado."
 
 #: ../../library/cmd.rst:136
 msgid ""
@@ -194,35 +237,51 @@ msgid ""
 "this method will be used as the new value for the internal flag which "
 "corresponds to *stop*; returning false will cause interpretation to continue."
 msgstr ""
+"Método gancho executado logo após o término do despacho de um comando. Este "
+"método é um stub em :class:`Cmd`; ele existe para ser substituído por "
+"subclasses. *line* é a linha de comando que foi executada, e *stop* é um "
+"sinalizador que indica se a execução será encerrada após a chamada para :"
+"meth:`postcmd`; este será o valor de retorno do método :meth:`onecmd`. O "
+"valor de retorno deste método será usado como o novo valor para o "
+"sinalizador interno que corresponde a *stop*; retornar false fará com que a "
+"interpretação continue."
 
 #: ../../library/cmd.rst:147
 msgid ""
 "Hook method executed once when :meth:`cmdloop` is called.  This method is a "
 "stub in :class:`Cmd`; it exists to be overridden by subclasses."
 msgstr ""
+"Método gancho executado uma vez quando :meth:`cmdloop` é chamado. Este "
+"método é um stub em :class:`Cmd`; ele existe para ser substituído por "
+"subclasses."
 
 #: ../../library/cmd.rst:153
 msgid ""
 "Hook method executed once when :meth:`cmdloop` is about to return. This "
 "method is a stub in :class:`Cmd`; it exists to be overridden by subclasses."
 msgstr ""
+"Método gancho executado uma vez quando :meth:`cmdloop` está para ser "
+"retornado. Este método é um stub em :class:`Cmd`; ele existe para ser "
+"substituído por subclasses."
 
 #: ../../library/cmd.rst:157
 msgid ""
 "Instances of :class:`Cmd` subclasses have some public instance variables:"
 msgstr ""
+"Instâncias das subclasses :class:`Cmd` têm algumas variáveis ​​de instância "
+"públicas:"
 
 #: ../../library/cmd.rst:161
 msgid "The prompt issued to solicit input."
-msgstr ""
+msgstr "O prompt emitido para solicitar informações."
 
 #: ../../library/cmd.rst:166
 msgid "The string of characters accepted for the command prefix."
-msgstr ""
+msgstr "A sequência de caracteres aceita para o prefixo do comando."
 
 #: ../../library/cmd.rst:171
 msgid "The last nonempty command prefix seen."
-msgstr ""
+msgstr "O último prefixo de comando não vazio visto."
 
 #: ../../library/cmd.rst:176
 msgid ""
@@ -230,17 +289,25 @@ msgid ""
 "`cmdloop` when new input is needed; if it is nonempty, its elements will be "
 "processed in order, as if entered at the prompt."
 msgstr ""
+"Uma lista de linhas de entrada enfileiradas. A lista cmdqueue é verificada "
+"em :meth:`cmdloop` quando uma nova entrada é necessária; se não estiver "
+"vazia, seus elementos serão processados ​​em ordem, como se tivessem sido "
+"inseridos no prompt."
 
 #: ../../library/cmd.rst:183
 msgid ""
 "A string to issue as an intro or banner.  May be overridden by giving the :"
 "meth:`cmdloop` method an argument."
 msgstr ""
+"Uma string para emitir como uma introdução ou banner. Pode ser substituída "
+"dando ao método :meth:`cmdloop` um argumento."
 
 #: ../../library/cmd.rst:189
 msgid ""
 "The header to issue if the help output has a section for documented commands."
 msgstr ""
+"O cabeçalho a ser emitido se a saída de ajuda tiver uma seção para comandos "
+"documentados."
 
 #: ../../library/cmd.rst:194
 msgid ""
@@ -261,6 +328,9 @@ msgid ""
 "The character used to draw separator lines under the help-message headers.  "
 "If empty, no ruler line is drawn.  It defaults to ``'='``."
 msgstr ""
+"O caractere usado para desenhar linhas separadoras sob os cabeçalhos de "
+"mensagem de ajuda. Se estiver vazio, nenhuma linha de régua será desenhada. "
+"O padrão é ``'='``."
 
 #: ../../library/cmd.rst:214
 msgid ""
@@ -281,12 +351,16 @@ msgid ""
 "The :mod:`cmd` module is mainly useful for building custom shells that let a "
 "user work with a program interactively."
 msgstr ""
+"O módulo :mod:`cmd` é útil principalmente para criar shells personalizados "
+"que permitem ao usuário trabalhar com um programa interativamente."
 
 #: ../../library/cmd.rst:231
 msgid ""
 "This section presents a simple example of how to build a shell around a few "
 "of the commands in the :mod:`turtle` module."
 msgstr ""
+"Esta seção apresenta um exemplo simples de como construir um shell em torno "
+"de alguns dos comandos do módulo :mod:`turtle`."
 
 #: ../../library/cmd.rst:234
 msgid ""
@@ -311,3 +385,6 @@ msgid ""
 "using blank lines to repeat commands, and the simple record and playback "
 "facility:"
 msgstr ""
+"Aqui está uma sessão de exemplo com o shell do turtle mostrando as funções "
+"de ajuda, usando linhas em branco para repetir comandos e o recurso simples "
+"de gravação e reprodução:"
