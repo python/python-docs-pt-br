@@ -68,7 +68,7 @@
 
 
 
-# library (60.04% done)
+# library (60.07% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
@@ -117,7 +117,7 @@
 - enum.po                         73 / 244 ( 29.0% translated).
 - errno.po                         8 / 134 (  5.0% translated).
 - faulthandler.po                  4 /  43 (  9.0% translated).
-- fcntl.po                        10 /  49 ( 20.0% translated).
+- fcntl.po                        22 /  49 ( 44.0% translated).
 - filecmp.po                       3 /  42 (  7.0% translated).
 - ftplib.po                       11 /  99 ( 11.0% translated).
 - functools.po                    20 / 115 ( 17.0% translated).
@@ -216,9 +216,9 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (95.17% done)
+# reference (95.28% done)
 
-- compound_stmts.po              329 / 467 ( 70.0% translated).
+- compound_stmts.po              332 / 467 ( 71.0% translated).
 
 
 # tutorial (100.00% done)
@@ -246,5 +246,5 @@
 - changelog.po                   958 / 12128 (  7.0% translated).
 
 
-# TOTAL (57.01% done)
+# TOTAL (57.03% done)
 
