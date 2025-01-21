@@ -79,7 +79,7 @@
 
 
 
-# library (57.77% done)
+# library (57.80% done)
 
 - argparse.po                    260 / 290 ( 89.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
@@ -213,7 +213,7 @@
 - stat.po                         78 /  81 ( 96.0% translated).
 - stringprep.po                    1 /  25 (  4.0% translated).
 - struct.po                       83 / 150 ( 55.0% translated).
-- subprocess.po                  128 / 273 ( 46.0% translated).
+- subprocess.po                  137 / 273 ( 50.0% translated).
 - symtable.po                      3 /  44 (  6.0% translated).
 - sys.po                         326 / 402 ( 81.0% translated).
 - sysconfig.po                    69 /  74 ( 93.0% translated).
@@ -303,5 +303,5 @@
 - 3.9.po                         382 / 386 ( 98.0% translated).
 
 
-# TOTAL (61.92% done)
+# TOTAL (61.94% done)
 
