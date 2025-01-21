@@ -25,7 +25,7 @@ msgstr ""
 
 #: ../../library/fcntl.rst:2
 msgid ":mod:`!fcntl` --- The ``fcntl`` and ``ioctl`` system calls"
-msgstr ""
+msgstr ":mod:`!fcntl` --- as chamadas de sistema ``fcntl`` e ``ioctl``"
 
 #: ../../library/fcntl.rst:16
 msgid ""
@@ -34,6 +34,10 @@ msgid ""
 "manpage:`fcntl(2)` and :manpage:`ioctl(2)` Unix manual pages for full "
 "details."
 msgstr ""
+"Este módulo executa o controle de arquivos e de E/S em descritores de "
+"arquivos. É uma interface para as rotinas :c:func:`fcntl` e :c:func:`ioctl` "
+"do Unix. Veja as páginas de manual do Unix  :manpage:`fcntl(2)` e :manpage:"
+"`ioctl(2)` para mais detalhes."
 
 #: ../../library/fcntl.rst:21
 msgid "Availability"
@@ -47,12 +51,19 @@ msgid ""
 "itself, which provides a :meth:`~io.IOBase.fileno` that returns a genuine "
 "file descriptor."
 msgstr ""
+"Todas as funções neste módulo recebem um descritor de arquivo *fd* como seu "
+"primeiro argumento. Este pode ser um descritor de arquivo inteiro, como "
+"retornado por ``sys.stdin.fileno()``, ou um objeto :class:`io.IOBase`, como "
+"o próprio ``sys.stdin``, que fornece um :meth:`~io.IOBase.fileno` que "
+"retorna um descritor de arquivo genuíno."
 
 #: ../../library/fcntl.rst:29
 msgid ""
 "Operations in this module used to raise an :exc:`IOError` where they now "
 "raise an :exc:`OSError`."
 msgstr ""
+"As operações neste módulo costumavam levantar um :exc:`IOError`, mas agora "
+"levantam um :exc:`OSError`."
 
 #: ../../library/fcntl.rst:33
 msgid ""
@@ -90,6 +101,11 @@ msgid ""
 "another file by reflinking on some filesystems (e.g., btrfs, OCFS2, and "
 "XFS). This behavior is commonly referred to as \"copy-on-write\"."
 msgstr ""
+"No Linux >= 4.5, o módulo :mod:`fcntl` expõe as constantes ``FICLONE`` e "
+"``FICLONERANGE``, que permitem compartilhar alguns dados de um arquivo com "
+"outro arquivo por meio de reflinking em alguns sistemas de arquivos (por "
+"exemplo, btrfs, OCFS2 e XFS). Esse comportamento é comumente chamado de "
+"\"copy-on-write\"."
 
 #: ../../library/fcntl.rst:61
 msgid "The module defines the following functions:"
@@ -113,10 +129,27 @@ msgid ""
 "the operating system is larger than 1024 bytes, this is most likely to "
 "result in a segmentation violation or a more subtle data corruption."
 msgstr ""
+"Executa a operação *cmd* no descritor de arquivo *fd* (objetos arquivo que "
+"fornecem um método :meth:`~io.IOBase.fileno` também são aceitos). Os valores "
+"usados ​​para *cmd* dependem do sistema operacional e estão disponíveis como "
+"constantes no módulo :mod:`fcntl`, usando os mesmos nomes usados ​​nos "
+"arquivos de cabeçalho C relevantes. O argumento *arg* pode ser um valor "
+"inteiro ou um objeto :class:`bytes`. Com um valor inteiro, o valor de "
+"retorno desta função é o valor de retorno inteiro da chamada C :c:func:"
+"`fcntl`. Quando o argumento é bytes, ele representa uma estrutura binária, "
+"por exemplo, criada por :func:`struct.pack`. Os dados binários são copiados "
+"para um buffer cujo endereço é passado para a chamada C :c:func:`fcntl`. O "
+"valor de retorno após uma chamada bem-sucedida é o conteúdo do buffer, "
+"convertido em um objeto :class:`bytes`. O comprimento do objeto retornado "
+"será o mesmo que o comprimento do argumento *arg*. Isso é limitado a 1024 "
+"bytes. Se as informações retornadas no buffer pelo sistema operacional forem "
+"maiores que 1024 bytes, isso provavelmente resultará em uma violação de "
+"segmentação ou uma corrupção de dados mais sutil."
 
 #: ../../library/fcntl.rst:83
 msgid "If the :c:func:`fcntl` call fails, an :exc:`OSError` is raised."
 msgstr ""
+"Se a chamada a :c:func:`fcntl` falhar, um exceção :exc:`OSError` é levantada."
 
 #: ../../library/fcntl.rst:85
 msgid ""

@@ -72,7 +72,7 @@
 
 
 
-# library (58.81% done)
+# library (58.83% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - abc.po                          31 /  60 ( 51.0% translated).
@@ -135,7 +135,7 @@
 - errno.po                         8 / 134 (  5.0% translated).
 - exceptions.po                  188 / 189 ( 99.0% translated).
 - faulthandler.po                  4 /  43 (  9.0% translated).
-- fcntl.po                        10 /  48 ( 20.0% translated).
+- fcntl.po                        17 /  48 ( 35.0% translated).
 - filecmp.po                       3 /  41 (  7.0% translated).
 - fractions.po                    32 /  33 ( 96.0% translated).
 - ftplib.po                       11 /  99 ( 11.0% translated).
@@ -258,9 +258,9 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (95.08% done)
+# reference (95.18% done)
 
-- compound_stmts.po              329 / 465 ( 70.0% translated).
+- compound_stmts.po              332 / 465 ( 71.0% translated).
 - datamodel.po                   852 / 856 ( 99.0% translated).
 
 
@@ -295,5 +295,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (64.92% done)
+# TOTAL (64.94% done)
 
