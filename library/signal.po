@@ -48,6 +48,12 @@ msgid ""
 "translated into a :exc:`KeyboardInterrupt` exception if the parent process "
 "has not changed it."
 msgstr ""
+"A função :func:`signal.signal` permite definir manipuladores personalizados "
+"a serem executados quando um sinal é recebido. Um pequeno número de "
+"manipuladores padrão são instalados: :const:`SIGPIPE` é ignorado (então "
+"erros de gravação em encadeamentos e sockets podem ser relatados como "
+"exceções comuns do Python) e :const:`SIGINT` é traduzido em uma exceção :exc:"
+"`KeyboardInterrupt` se o processo pai não a tiver alterado."
 
 #: ../../library/signal.rst:24
 msgid ""
@@ -56,6 +62,10 @@ msgid ""
 "underlying implementation), with the exception of the handler for :const:"
 "`SIGCHLD`, which follows the underlying implementation."
 msgstr ""
+"Um manipulador para um sinal específico, uma vez definido, permanece "
+"instalado até ser explicitamente redefinido (o Python emula a interface de "
+"estilo BSD independentemente da implementação subjacente), com exceção do "
+"manipulador para :const:`SIGCHLD`, que segue a implementação subjacente."
 
 #: ../../library/signal.rst:29
 msgid ""
@@ -66,7 +76,7 @@ msgstr ""
 
 #: ../../library/signal.rst:34
 msgid "Execution of Python signal handlers"
-msgstr ""
+msgstr "Execução de manipuladores de sinais Python"
 
 #: ../../library/signal.rst:36
 msgid ""
@@ -76,6 +86,11 @@ msgid ""
 "handler at a later point(for example at the next :term:`bytecode` "
 "instruction). This has consequences:"
 msgstr ""
+"Um manipulador de sinal Python não é executado dentro do manipulador de "
+"sinal de baixo nível (C). Em vez disso, o manipulador de sinal de baixo "
+"nível define um sinalizador que diz à :term:`máquina virtual` para executar "
+"o manipulador de sinal Python correspondente em um ponto posterior (por "
+"exemplo, na próxima instrução :term:`bytecode`). Isso tem consequências:"
 
 #: ../../library/signal.rst:42
 msgid ""
@@ -86,6 +101,12 @@ msgid ""
 "onwards, you can use the :mod:`faulthandler` module to report on synchronous "
 "errors."
 msgstr ""
+"Faz pouco sentido capturar erros síncronos como :const:`SIGFPE` ou :const:"
+"`SIGSEGV` que são causados ​​por uma operação inválida no código C. O Python "
+"retornará do manipulador de sinais para o código C, o que provavelmente "
+"levantará o mesmo sinal novamente, fazendo com que o Python aparentemente "
+"trave. Do Python 3.3 em diante, você pode usar o módulo :mod:`faulthandler` "
+"para relatar erros síncronos."
 
 #: ../../library/signal.rst:49
 msgid ""
@@ -94,6 +115,11 @@ msgid ""
 "arbitrary amount of time, regardless of any signals received.  The Python "
 "signal handlers will be called when the calculation finishes."
 msgstr ""
+"Um cálculo de longa duração implementado puramente em C (como "
+"correspondência de expressão regular em um grande corpo de texto) pode ser "
+"executado ininterruptamente por um período de tempo arbitrário, "
+"independentemente de quaisquer sinais recebidos. Os manipuladores de sinal "
+"do Python serão chamados quando o cálculo terminar."
 
 #: ../../library/signal.rst:54
 msgid ""
@@ -101,10 +127,13 @@ msgid ""
 "the main thread. See the :ref:`note below <handlers-and-exceptions>` for a "
 "discussion."
 msgstr ""
+"Se o manipulador levantar uma exceção, ela será levantada \"do nada\" no "
+"thread principal. Veja a :ref:`nota abaixo <handlers-and-exceptions>` para "
+"uma discussão."
 
 #: ../../library/signal.rst:62
 msgid "Signals and threads"
-msgstr ""
+msgstr "Sinais e threads"
 
 #: ../../library/signal.rst:64
 msgid ""
@@ -114,12 +143,19 @@ msgid ""
 "You can use the synchronization primitives from the :mod:`threading` module "
 "instead."
 msgstr ""
+"Os manipuladores de sinais Python são sempre executados no thread Python "
+"principal do interpretador principal, mesmo se o sinal foi recebido em outro "
+"thread. Isso significa que os sinais não podem ser usados ​​como um meio de "
+"comunicação entre threads. Você pode usar as primitivas de sincronização do "
+"módulo :mod:`threading` em vez disso."
 
 #: ../../library/signal.rst:69
 msgid ""
 "Besides, only the main thread of the main interpreter is allowed to set a "
 "new signal handler."
 msgstr ""
+"Além disso, somente a thread principal do interpretador principal tem "
+"permissão para definir um novo manipulador de sinal."
 
 #: ../../library/signal.rst:73
 msgid "Module contents"
@@ -135,27 +171,38 @@ msgid ""
 "`sigwait` functions return human-readable :class:`enums <enum.IntEnum>` as :"
 "class:`Signals` objects."
 msgstr ""
+"As constantes relacionadas a sinal (SIG*), manipulador (:const:`SIG_DFL`, :"
+"const:`SIG_IGN`) e sigmask (:const:`SIG_BLOCK`, :const:`SIG_UNBLOCK`, :const:"
+"`SIG_SETMASK`) listadas abaixo foram transformadas em :class:`enums <enum."
+"IntEnum>` (:class:`Signals`, :class:`Handlers` e :class:`Sigmasks` "
+"respectivamente). As funções :func:`getsignal`, :func:`pthread_sigmask`, :"
+"func:`sigpending` e :func:`sigwait` retornam :class:`enums <enum.IntEnum>` "
+"legíveis por humanos como objetos :class:`Signals`."
 
 #: ../../library/signal.rst:85
 msgid "The signal module defines three enums:"
-msgstr ""
+msgstr "O módulo de sinal define três enumerações:"
 
 #: ../../library/signal.rst:89
 msgid ""
 ":class:`enum.IntEnum` collection of SIG* constants and the CTRL_* constants."
-msgstr ""
+msgstr "Coleção :class:`enum.IntEnum` de constantes SIG* e constantes CTRL_*."
 
 #: ../../library/signal.rst:95
 msgid ""
 ":class:`enum.IntEnum` collection the constants :const:`SIG_DFL` and :const:"
 "`SIG_IGN`."
 msgstr ""
+"Coleção :class:`enum.IntEnum` das constantes :const:`SIG_DFL` e :const:"
+"`SIG_IGN`."
 
 #: ../../library/signal.rst:101
 msgid ""
 ":class:`enum.IntEnum` collection the constants :const:`SIG_BLOCK`, :const:"
 "`SIG_UNBLOCK` and :const:`SIG_SETMASK`."
 msgstr ""
+"Coleção :class:`enum.IntEnum` das constantes :const:`SIG_BLOCK`, :const:"
+"`SIG_UNBLOCK` e :const:`SIG_SETMASK`."
 
 #: ../../library/signal.rst:103 ../../library/signal.rst:136
 #: ../../library/signal.rst:148 ../../library/signal.rst:154
@@ -176,10 +223,12 @@ msgid ""
 "See the man page :manpage:`sigprocmask(2)` and :manpage:`pthread_sigmask(3)` "
 "for further information."
 msgstr ""
+"Veja a página man :manpage:`sigprocmask(2)` e :manpage:`pthread_sigmask(3)` "
+"para mais informações."
 
 #: ../../library/signal.rst:111
 msgid "The variables defined in the :mod:`signal` module are:"
-msgstr ""
+msgstr "As variáveis ​​definidas no módulo :mod:`signal` são:"
 
 #: ../../library/signal.rst:116
 msgid ""
@@ -188,24 +237,30 @@ msgid ""
 "default action for :const:`SIGQUIT` is to dump core and exit, while the "
 "default action for :const:`SIGCHLD` is to simply ignore it."
 msgstr ""
+"Esta é uma das duas opções de manipulação de sinal padrão; ela simplesmente "
+"executará a função padrão para o sinal. Por exemplo, na maioria dos "
+"sistemas, a ação padrão para :const:`SIGQUIT` é despejar o núcleo e sair, "
+"enquanto a ação padrão para :const:`SIGCHLD` é simplesmente ignorá-lo."
 
 #: ../../library/signal.rst:124
 msgid ""
 "This is another standard signal handler, which will simply ignore the given "
 "signal."
 msgstr ""
+"Este é outro manipulador de sinal padrão, que simplesmente ignorará o sinal "
+"fornecido."
 
 #: ../../library/signal.rst:130
 msgid "Abort signal from :manpage:`abort(3)`."
-msgstr ""
+msgstr "Sinal de abortar de :manpage:`abort(3)`."
 
 #: ../../library/signal.rst:134
 msgid "Timer signal from :manpage:`alarm(2)`."
-msgstr ""
+msgstr "Sinal do temporizador de :manpage:`alarm(2)`."
 
 #: ../../library/signal.rst:140
 msgid "Interrupt from keyboard (CTRL + BREAK)."
-msgstr ""
+msgstr "Interrupção do teclado (CTRL + BREAK)."
 
 #: ../../library/signal.rst:142 ../../library/signal.rst:262
 #: ../../library/signal.rst:272
@@ -214,15 +269,15 @@ msgstr ":ref:`Disponibilidade <availability>`: Windows."
 
 #: ../../library/signal.rst:146
 msgid "Bus error (bad memory access)."
-msgstr ""
+msgstr "Erro de barramento (acesso incorreto à memória)."
 
 #: ../../library/signal.rst:152
 msgid "Child process stopped or terminated."
-msgstr ""
+msgstr "Processo filho interrompido ou encerrado."
 
 #: ../../library/signal.rst:158
 msgid "Alias to :data:`SIGCHLD`."
-msgstr ""
+msgstr "Apelido para :data:`SIGCHLD`."
 
 #: ../../library/signal.rst:160
 msgid ":ref:`Availability <availability>`: not macOS."
@@ -230,22 +285,26 @@ msgstr ""
 
 #: ../../library/signal.rst:164
 msgid "Continue the process if it is currently stopped"
-msgstr ""
+msgstr "Continua o processo se ele estiver parado no momento"
 
 #: ../../library/signal.rst:170
 msgid "Floating-point exception. For example, division by zero."
-msgstr ""
+msgstr "Exceção de ponto flutuante. Por exemplo, divisão por zero."
 
 #: ../../library/signal.rst:173
 msgid ""
 ":exc:`ZeroDivisionError` is raised when the second argument of a division or "
 "modulo operation is zero."
 msgstr ""
+":exc:`ZeroDivisionError` é levatanda quando o segundo argumento de uma "
+"operação de divisão ou módulo é zero."
 
 #: ../../library/signal.rst:178
 msgid ""
 "Hangup detected on controlling terminal or death of controlling process."
 msgstr ""
+"Travamento detectado no terminal de controle ou morte do processo de "
+"controle."
 
 #: ../../library/signal.rst:184
 msgid "Illegal instruction."
@@ -253,37 +312,39 @@ msgstr "Instrução ilegal."
 
 #: ../../library/signal.rst:188
 msgid "Interrupt from keyboard (CTRL + C)."
-msgstr ""
+msgstr "Interrupção do teclado (CTRL + C)."
 
 #: ../../library/signal.rst:190
 msgid "Default action is to raise :exc:`KeyboardInterrupt`."
-msgstr ""
+msgstr "A ação padrão é levantar :exc:`KeyboardInterrupt`."
 
 #: ../../library/signal.rst:194
 msgid "Kill signal."
-msgstr ""
+msgstr "Sinal de matar."
 
 #: ../../library/signal.rst:196
 msgid "It cannot be caught, blocked, or ignored."
-msgstr ""
+msgstr "Ele não pode ser capturado, bloqueado ou ignorado."
 
 #: ../../library/signal.rst:202
 msgid "Broken pipe: write to pipe with no readers."
-msgstr ""
+msgstr "Encadeamento quebrado: escreve no encadeamento sem leitores."
 
 #: ../../library/signal.rst:204
 msgid "Default action is to ignore the signal."
-msgstr ""
+msgstr "A ação padrão é ignorar o sinal."
 
 #: ../../library/signal.rst:210
 msgid "Segmentation fault: invalid memory reference."
-msgstr ""
+msgstr "Falha de segmentação: referência de memória inválida."
 
 #: ../../library/signal.rst:214
 msgid ""
 "Stack fault on coprocessor. The Linux kernel does not raise this signal: it "
 "can only be raised in user space."
 msgstr ""
+"Falha de pilha no coprocessador. O kernel Linux não levanta esse sinal: ele "
+"só pode ser emitido no espaço do usuário."
 
 #: ../../library/signal.rst:217
 msgid ":ref:`Availability <availability>`: Linux."
@@ -294,22 +355,24 @@ msgid ""
 "On architectures where the signal is available. See the man page :manpage:"
 "`signal(7)` for further information."
 msgstr ""
+"Em arquiteturas onde o sinal está disponível. Veja a página man :manpage:"
+"`signal(7)` para mais informações."
 
 #: ../../library/signal.rst:226
 msgid "Termination signal."
-msgstr ""
+msgstr "Sinal de encerramento."
 
 #: ../../library/signal.rst:230
 msgid "User-defined signal 1."
-msgstr ""
+msgstr "Sinal definido pelo usuário 1."
 
 #: ../../library/signal.rst:236
 msgid "User-defined signal 2."
-msgstr ""
+msgstr "Sinal definido pelo usuário 2."
 
 #: ../../library/signal.rst:242
 msgid "Window resize signal."
-msgstr ""
+msgstr "Sinal de redimensionamento do Windows."
 
 #: ../../library/signal.rst:248
 msgid ""
