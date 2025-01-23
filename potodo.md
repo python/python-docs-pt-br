@@ -44,9 +44,9 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (96.23% done)
+# faq (97.15% done)
 
-- programming.po                 467 / 508 ( 91.0% translated).
+- programming.po                 477 / 508 ( 93.0% translated).
 
 
 # howto (59.69% done)
@@ -216,9 +216,9 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (95.28% done)
+# reference (97.69% done)
 
-- compound_stmts.po              332 / 467 ( 71.0% translated).
+- compound_stmts.po              401 / 467 ( 85.0% translated).
 
 
 # tutorial (100.00% done)
@@ -246,5 +246,5 @@
 - changelog.po                   958 / 12128 (  7.0% translated).
 
 
-# TOTAL (57.03% done)
+# TOTAL (57.14% done)
 
