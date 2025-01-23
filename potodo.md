@@ -45,10 +45,10 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (95.72% done)
+# faq (96.63% done)
 
 - library.po                     157 / 162 ( 96.0% translated).
-- programming.po                 466 / 508 ( 91.0% translated).
+- programming.po                 476 / 508 ( 93.0% translated).
 
 
 # howto (57.69% done)
@@ -258,9 +258,9 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (95.18% done)
+# reference (97.50% done)
 
-- compound_stmts.po              332 / 465 ( 71.0% translated).
+- compound_stmts.po              398 / 465 ( 85.0% translated).
 - datamodel.po                   852 / 856 ( 99.0% translated).
 
 
@@ -295,5 +295,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (64.94% done)
+# TOTAL (65.06% done)
 
