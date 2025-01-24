@@ -5,7 +5,7 @@
 - license.po                     112 / 123 ( 91.0% translated).
 
 
-# c-api (52.25% done)
+# c-api (52.24% done)
 
 - exceptions.po                  194 / 366 ( 53.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
@@ -25,7 +25,7 @@
 - sys.po                          28 /  77 ( 36.0% translated).
 - type.po                         19 /  99 ( 19.0% translated).
 - typeobj.po                     229 / 664 ( 34.0% translated).
-- unicode.po                      27 / 312 (  8.0% translated).
+- unicode.po                      27 / 313 (  8.0% translated).
 - veryhigh.po                      3 /  57 (  5.0% translated).
 
 
@@ -45,10 +45,10 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (96.63% done)
+# faq (96.35% done)
 
 - library.po                     157 / 162 ( 96.0% translated).
-- programming.po                 476 / 508 ( 93.0% translated).
+- programming.po                 473 / 508 ( 93.0% translated).
 
 
 # howto (57.69% done)
@@ -72,7 +72,7 @@
 
 
 
-# library (58.83% done)
+# library (58.96% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - abc.po                          31 /  60 ( 51.0% translated).
@@ -120,7 +120,7 @@
 - doctest.po                      91 / 363 ( 25.0% translated).
 - email.charset.po                 1 /  44 (  2.0% translated).
 - email.compat32-message.po        5 / 115 (  4.0% translated).
-- email.contentmanager.po          4 /  41 (  9.0% translated).
+- email.contentmanager.po          4 /  42 (  9.0% translated).
 - email.encoders.po                2 /  15 ( 13.0% translated).
 - email.errors.po                  5 /  27 ( 18.0% translated).
 - email.examples.po               15 /  20 ( 75.0% translated).
@@ -211,7 +211,7 @@
 - subprocess.po                  149 / 321 ( 46.0% translated).
 - symtable.po                      4 /  50 (  8.0% translated).
 - sys.monitoring.po              104 / 112 ( 92.0% translated).
-- sys.po                         418 / 431 ( 96.0% translated).
+- sys.po                         419 / 431 ( 97.0% translated).
 - syslog.po                       26 /  33 ( 78.0% translated).
 - tarfile.po                     103 / 333 ( 30.0% translated).
 - telnetlib.po                    10 /  53 ( 18.0% translated).
@@ -222,7 +222,6 @@
 - timeit.po                       52 /  68 ( 76.0% translated).
 - tkinter.tix.po                   5 /  75 (  6.0% translated).
 - tkinter.ttk.po                 141 / 421 ( 33.0% translated).
-- tokenize.po                      8 /  52 ( 15.0% translated).
 - traceback.po                     9 / 108 (  8.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
 - turtle.po                      661 / 662 ( 99.0% translated).
@@ -295,5 +294,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (65.06% done)
+# TOTAL (65.13% done)
 
