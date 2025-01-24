@@ -87,7 +87,7 @@
 
 
 
-# library (58.09% done)
+# library (58.20% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    254 / 290 ( 87.0% translated).
@@ -243,7 +243,7 @@
 - tkinter.po                     303 / 304 ( 99.0% translated).
 - tkinter.tix.po                   4 /  71 (  5.0% translated).
 - tkinter.ttk.po                 135 / 408 ( 33.0% translated).
-- tokenize.po                      7 /  44 ( 15.0% translated).
+- tokenize.po                     41 /  44 ( 93.0% translated).
 - traceback.po                     7 /  78 (  8.0% translated).
 - tracemalloc.po                  21 / 144 ( 14.0% translated).
 - turtle.po                      508 / 514 ( 98.0% translated).
@@ -323,5 +323,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (62.59% done)
+# TOTAL (62.66% done)
 
