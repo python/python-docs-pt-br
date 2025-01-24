@@ -4,7 +4,7 @@
 
 
 
-# c-api (52.63% done)
+# c-api (52.60% done)
 
 - exceptions.po                  194 / 370 ( 52.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
@@ -24,8 +24,8 @@
 - sys.po                          28 /  75 ( 37.0% translated).
 - type.po                         19 / 101 ( 18.0% translated).
 - typeobj.po                     228 / 670 ( 34.0% translated).
-- unicode.po                      28 / 325 (  8.0% translated).
-- veryhigh.po                      3 /  54 (  5.0% translated).
+- unicode.po                      28 / 326 (  8.0% translated).
+- veryhigh.po                      3 /  56 (  5.0% translated).
 
 
 # deprecations (100.00% done)
@@ -44,9 +44,9 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (97.15% done)
+# faq (96.87% done)
 
-- programming.po                 477 / 508 ( 93.0% translated).
+- programming.po                 474 / 508 ( 93.0% translated).
 
 
 # howto (59.69% done)
@@ -68,7 +68,7 @@
 
 
 
-# library (60.07% done)
+# library (60.20% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
@@ -103,7 +103,7 @@
 - doctest.po                      92 / 372 ( 24.0% translated).
 - email.charset.po                 1 /  44 (  2.0% translated).
 - email.compat32-message.po        5 / 115 (  4.0% translated).
-- email.contentmanager.po          4 /  41 (  9.0% translated).
+- email.contentmanager.po          4 /  42 (  9.0% translated).
 - email.encoders.po                2 /  15 ( 13.0% translated).
 - email.errors.po                  5 /  27 ( 18.0% translated).
 - email.examples.po               15 /  20 ( 75.0% translated).
@@ -183,7 +183,6 @@
 - threading.po                    36 / 240 ( 15.0% translated).
 - timeit.po                       52 /  68 ( 76.0% translated).
 - tkinter.ttk.po                 141 / 429 ( 32.0% translated).
-- tokenize.po                      8 /  52 ( 15.0% translated).
 - traceback.po                     9 / 112 (  8.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
 - types.po                        93 / 103 ( 90.0% translated).
@@ -229,7 +228,7 @@
 
 
 
-# whatsnew (40.04% done)
+# whatsnew (40.73% done)
 
 - 2.3.po                         328 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -243,8 +242,8 @@
 - 3.5.po                         125 / 578 ( 21.0% translated).
 - 3.6.po                         236 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   958 / 12128 (  7.0% translated).
+- changelog.po                   1122 / 12150 (  9.0% translated).
 
 
-# TOTAL (57.14% done)
+# TOTAL (57.39% done)
 
