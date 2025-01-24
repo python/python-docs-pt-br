@@ -85,7 +85,7 @@
 
 
 
-# library (59.23% done)
+# library (59.33% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          33 /  49 ( 67.0% translated).
@@ -248,7 +248,7 @@
 - tkinter.font.po                 34 /  35 ( 97.0% translated).
 - tkinter.tix.po                   5 /  72 (  6.0% translated).
 - tkinter.ttk.po                 141 / 410 ( 34.0% translated).
-- tokenize.po                      7 /  44 ( 15.0% translated).
+- tokenize.po                     41 /  44 ( 93.0% translated).
 - traceback.po                     9 /  94 (  9.0% translated).
 - tracemalloc.po                  21 / 144 ( 14.0% translated).
 - tty.po                           8 /  10 ( 80.0% translated).
@@ -329,5 +329,5 @@
 - 3.8.po                         468 / 469 ( 99.0% translated).
 
 
-# TOTAL (64.87% done)
+# TOTAL (64.93% done)
 
