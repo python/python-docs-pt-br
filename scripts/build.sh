@@ -17,7 +17,7 @@ mkdir -p logs
 opts="-D language=${PYDOC_LANGUAGE} --keep-going -w ../../logs/sphinxwarnings.txt"
 minor_version=$(git -C cpython/Doc branch --show-current | sed 's|^3\.||')
 if [ $minor_version -lt 12 ]; then
-  opts+='-D gettext_compact=False'
+  opts="$opts -D gettext_compact=False"
 fi
 
 make -C cpython/Doc html SPHINXOPTS="${opts}"
