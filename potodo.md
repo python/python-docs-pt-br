@@ -52,7 +52,7 @@
 - programming.po                 336 / 372 ( 90.0% translated).
 
 
-# howto (53.76% done)
+# howto (53.81% done)
 
 - argparse.po                     83 /  84 ( 98.0% translated).
 - clinic.po                      101 / 415 ( 24.0% translated).
@@ -63,7 +63,7 @@
 - logging-cookbook.po             15 / 237 (  6.0% translated).
 - logging.po                     125 / 219 ( 57.0% translated).
 - pyporting.po                    35 /  86 ( 40.0% translated).
-- regex.po                       274 / 286 ( 95.0% translated).
+- regex.po                       275 / 286 ( 96.0% translated).
 - sockets.po                      37 /  57 ( 64.0% translated).
 - sorting.po                      54 /  55 ( 98.0% translated).
 - unicode.po                      30 / 121 ( 24.0% translated).
@@ -79,7 +79,7 @@
 
 
 
-# library (57.81% done)
+# library (57.92% done)
 
 - argparse.po                    260 / 290 ( 89.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
@@ -227,7 +227,7 @@
 - tkinter.font.po                 33 /  34 ( 97.0% translated).
 - tkinter.tix.po                   4 /  71 (  5.0% translated).
 - tkinter.ttk.po                 135 / 408 ( 33.0% translated).
-- tokenize.po                      7 /  43 ( 16.0% translated).
+- tokenize.po                     40 /  43 ( 93.0% translated).
 - traceback.po                     4 /  66 (  6.0% translated).
 - tracemalloc.po                  21 / 144 ( 14.0% translated).
 - turtle.po                      494 / 514 ( 96.0% translated).
@@ -303,5 +303,5 @@
 - 3.9.po                         382 / 386 ( 98.0% translated).
 
 
-# TOTAL (62.03% done)
+# TOTAL (62.10% done)
 
