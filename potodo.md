@@ -5,7 +5,7 @@
 - license.po                     112 / 123 ( 91.0% translated).
 
 
-# c-api (52.24% done)
+# c-api (53.30% done)
 
 - exceptions.po                  194 / 366 ( 53.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
@@ -26,7 +26,7 @@
 - type.po                         19 /  99 ( 19.0% translated).
 - typeobj.po                     229 / 664 ( 34.0% translated).
 - unicode.po                      27 / 313 (  8.0% translated).
-- veryhigh.po                      3 /  57 (  5.0% translated).
+- veryhigh.po                     54 /  57 ( 94.0% translated).
 
 
 # deprecations (100.00% done)
@@ -51,7 +51,7 @@
 - programming.po                 473 / 508 ( 93.0% translated).
 
 
-# howto (57.69% done)
+# howto (58.21% done)
 
 - argparse.po                    144 / 145 ( 99.0% translated).
 - curses.po                       58 / 121 ( 47.0% translated).
@@ -61,7 +61,7 @@
 - logging-cookbook.po             23 / 418 (  5.0% translated).
 - logging.po                     121 / 250 ( 48.0% translated).
 - perf_profiling.po               29 /  32 ( 90.0% translated).
-- regex.po                       291 / 332 ( 87.0% translated).
+- regex.po                       307 / 332 ( 92.0% translated).
 - sockets.po                      35 /  63 ( 55.0% translated).
 - sorting.po                      46 /  75 ( 61.0% translated).
 - unicode.po                      30 / 145 ( 20.0% translated).
@@ -72,7 +72,7 @@
 
 
 
-# library (58.96% done)
+# library (59.42% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - abc.po                          31 /  60 ( 51.0% translated).
@@ -91,7 +91,7 @@
 - asyncio-task.po                142 / 254 ( 55.0% translated).
 - audioop.po                       5 /  53 (  9.0% translated).
 - base64.po                       20 /  60 ( 33.0% translated).
-- bdb.po                           7 / 111 (  6.0% translated).
+- bdb.po                           8 / 111 (  7.0% translated).
 - binascii.po                     23 /  41 ( 56.0% translated).
 - bisect.po                       18 /  35 ( 51.0% translated).
 - calendar.po                    112 / 114 ( 98.0% translated).
@@ -108,13 +108,10 @@
 - crypt.po                         6 /  36 ( 16.0% translated).
 - csv.po                         117 / 118 ( 99.0% translated).
 - ctypes.po                      102 / 523 ( 19.0% translated).
-- curses.ascii.po                  7 /  69 ( 10.0% translated).
-- curses.panel.po                  6 /  23 ( 26.0% translated).
-- curses.po                       63 / 484 ( 13.0% translated).
+- curses.po                       64 / 484 ( 13.0% translated).
 - dataclasses.po                  47 / 151 ( 31.0% translated).
-- datetime.po                    628 / 635 ( 98.0% translated).
+- datetime.po                    633 / 635 ( 99.0% translated).
 - dbm.po                           5 /  87 (  5.0% translated).
-- decimal.po                     370 / 378 ( 97.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
 - dis.po                         180 / 357 ( 50.0% translated).
 - doctest.po                      91 / 363 ( 25.0% translated).
@@ -143,8 +140,7 @@
 - functools.po                    20 / 115 ( 17.0% translated).
 - gettext.po                     116 / 129 ( 89.0% translated).
 - gzip.po                         22 /  65 ( 33.0% translated).
-- hashlib.po                      11 / 168 (  6.0% translated).
-- hmac.po                          3 /  27 ( 11.0% translated).
+- hashlib.po                      13 / 168 (  7.0% translated).
 - html.parser.po                   3 /  60 (  5.0% translated).
 - http.client.po                  45 / 117 ( 38.0% translated).
 - http.cookiejar.po                9 / 159 (  5.0% translated).
@@ -179,7 +175,7 @@
 - ossaudiodev.po                  18 / 102 ( 17.0% translated).
 - pathlib.po                     209 / 346 ( 60.0% translated).
 - pdb.po                         132 / 137 ( 96.0% translated).
-- pickle.po                      226 / 243 ( 93.0% translated).
+- pickle.po                      231 / 243 ( 95.0% translated).
 - pipes.po                         5 /  21 ( 23.0% translated).
 - pkgutil.po                       6 /  50 ( 12.0% translated).
 - poplib.po                       10 /  53 ( 18.0% translated).
@@ -197,7 +193,7 @@
 - shelve.po                       11 /  40 ( 27.0% translated).
 - shlex.po                         3 /  77 (  3.0% translated).
 - signal.po                       55 / 137 ( 40.0% translated).
-- site.po                         41 /  58 ( 70.0% translated).
+- site.po                         56 /  58 ( 96.0% translated).
 - smtplib.po                      30 / 116 ( 25.0% translated).
 - sndhdr.po                       12 /  38 ( 31.0% translated).
 - socket.po                       53 / 363 ( 14.0% translated).
@@ -238,7 +234,7 @@
 - venv.po                        120 / 121 ( 99.0% translated).
 - warnings.po                     71 / 131 ( 54.0% translated).
 - wave.po                         17 /  53 ( 32.0% translated).
-- webbrowser.po                   32 /  80 ( 40.0% translated).
+- webbrowser.po                   61 /  80 ( 76.0% translated).
 - winreg.po                       30 / 176 ( 17.0% translated).
 - winsound.po                      8 /  35 ( 22.0% translated).
 - wsgiref.po                       8 / 132 (  6.0% translated).
@@ -277,7 +273,7 @@
 - windows.po                     374 / 378 ( 98.0% translated).
 
 
-# whatsnew (74.68% done)
+# whatsnew (74.69% done)
 
 - 2.3.po                         328 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -290,9 +286,9 @@
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
 - 3.5.po                         125 / 578 ( 21.0% translated).
-- 3.6.po                         236 / 544 ( 43.0% translated).
+- 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (65.13% done)
+# TOTAL (65.51% done)
 
