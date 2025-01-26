@@ -4,7 +4,7 @@
 
 
 
-# c-api (59.42% done)
+# c-api (60.41% done)
 
 - exceptions.po                  196 / 266 ( 73.0% translated).
 - gcsupport.po                    10 /  33 ( 30.0% translated).
@@ -21,7 +21,7 @@
 - type.po                         29 /  63 ( 46.0% translated).
 - typeobj.po                     232 / 578 ( 40.0% translated).
 - unicode.po                      51 / 335 ( 15.0% translated).
-- veryhigh.po                      3 /  61 (  4.0% translated).
+- veryhigh.po                     40 /  61 ( 65.0% translated).
 
 
 # distributing (100.00% done)
@@ -52,7 +52,7 @@
 - programming.po                 336 / 372 ( 90.0% translated).
 
 
-# howto (53.81% done)
+# howto (53.99% done)
 
 - argparse.po                     83 /  84 ( 98.0% translated).
 - clinic.po                      101 / 415 ( 24.0% translated).
@@ -63,7 +63,7 @@
 - logging-cookbook.po             15 / 237 (  6.0% translated).
 - logging.po                     125 / 219 ( 57.0% translated).
 - pyporting.po                    35 /  86 ( 40.0% translated).
-- regex.po                       275 / 286 ( 96.0% translated).
+- regex.po                       279 / 286 ( 97.0% translated).
 - sockets.po                      37 /  57 ( 64.0% translated).
 - sorting.po                      54 /  55 ( 98.0% translated).
 - unicode.po                      30 / 121 ( 24.0% translated).
@@ -79,7 +79,7 @@
 
 
 
-# library (57.92% done)
+# library (58.36% done)
 
 - argparse.po                    260 / 290 ( 89.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
@@ -97,7 +97,7 @@
 - asyncore.po                      8 /  52 ( 15.0% translated).
 - audioop.po                       1 /  46 (  2.0% translated).
 - base64.po                       16 /  48 ( 33.0% translated).
-- bdb.po                           5 /  92 (  5.0% translated).
+- bdb.po                           6 /  92 (  6.0% translated).
 - binascii.po                     12 /  37 ( 32.0% translated).
 - bz2.po                          64 /  65 ( 98.0% translated).
 - calendar.po                     58 /  69 ( 84.0% translated).
@@ -114,9 +114,9 @@
 - contextlib.po                    9 / 113 (  7.0% translated).
 - crypt.po                         3 /  30 ( 10.0% translated).
 - ctypes.po                       91 / 429 ( 21.0% translated).
-- curses.ascii.po                 41 / 101 ( 40.0% translated).
-- curses.panel.po                  6 /  23 ( 26.0% translated).
-- curses.po                      229 / 634 ( 36.0% translated).
+- curses.ascii.po                100 / 101 ( 99.0% translated).
+- curses.panel.po                 22 /  23 ( 95.0% translated).
+- curses.po                      230 / 634 ( 36.0% translated).
 - dataclasses.po                  65 /  98 ( 66.0% translated).
 - dbm.po                          14 /  74 ( 18.0% translated).
 - difflib.po                      14 / 133 ( 10.0% translated).
@@ -149,9 +149,9 @@
 - gc.po                           54 /  55 ( 98.0% translated).
 - grp.po                          26 /  28 ( 92.0% translated).
 - gzip.po                         21 /  57 ( 36.0% translated).
-- hashlib.po                       8 / 139 (  5.0% translated).
+- hashlib.po                      10 / 139 (  7.0% translated).
 - heapq.po                        49 /  51 ( 96.0% translated).
-- hmac.po                          3 /  27 ( 11.0% translated).
+- hmac.po                         22 /  27 ( 81.0% translated).
 - html.parser.po                   2 /  48 (  4.0% translated).
 - http.client.po                  50 /  96 ( 52.0% translated).
 - http.cookiejar.po                9 / 153 (  5.0% translated).
@@ -203,7 +203,7 @@
 - shlex.po                         4 /  72 (  5.0% translated).
 - shutil.po                      153 / 154 ( 99.0% translated).
 - signal.po                       45 / 127 ( 35.0% translated).
-- site.po                         22 /  39 ( 56.0% translated).
+- site.po                         34 /  39 ( 87.0% translated).
 - smtpd.po                        10 /  79 ( 12.0% translated).
 - smtplib.po                      25 / 109 ( 22.0% translated).
 - socket.po                       58 / 320 ( 18.0% translated).
@@ -243,7 +243,7 @@
 - warnings.po                     65 / 109 ( 59.0% translated).
 - wave.po                         18 /  49 ( 36.0% translated).
 - weakref.po                      71 /  81 ( 87.0% translated).
-- webbrowser.po                   53 /  82 ( 64.0% translated).
+- webbrowser.po                   75 /  82 ( 91.0% translated).
 - winreg.po                       29 / 172 ( 16.0% translated).
 - winsound.po                      9 /  34 ( 26.0% translated).
 - wsgiref.po                      10 / 115 (  8.0% translated).
@@ -303,5 +303,5 @@
 - 3.9.po                         382 / 386 ( 98.0% translated).
 
 
-# TOTAL (62.10% done)
+# TOTAL (62.45% done)
 
