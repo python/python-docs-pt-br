@@ -32,7 +32,7 @@ def main() -> None:
     stats = scan_path(pofiles_path, no_cache=True, hide_reserved=False, api_url="")
 
     stats_data = {
-        "completion": str(round(stats.completion, 2)),
+        "completion": str(round(stats.completion, 2)) + "%",
         "translated": stats.translated,
         "entries": stats.entries,
         "updated_at": datetime.now(timezone.utc).isoformat(timespec="seconds") + "Z",
