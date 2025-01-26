@@ -38,7 +38,7 @@ jobs:
           repository: 'python/cpython'
           ref: ${{ env.PYDOC_VERSION }}
           path: cpython
-          
+
       - name: Set language dir variable
         run:
           echo "LANGUAGE_DIR=cpython/Doc/locales/${{ env.PYDOC_LANGUAGE }}/LC_MESSAGES" >> $GITHUB_ENV
@@ -113,12 +113,10 @@ jobs:
           powrap *.po **/*.po
 
       - name: Update statistics
-        if: always() && steps.secret-check.outputs.available == 'true'
+        if: always()
         run: |
-          python ./scripts/tx_stats.py > ./${{ env.LANGUAGE_DIR }}/stats.json
+          ./scripts/stats.py
           git -C ./${{ env.LANGUAGE_DIR }} diff stats.json
-        env:
-          TX_TOKEN: ${{ secrets.TX_TOKEN }}
 
       - name: Update potodo.md
         if: always()
