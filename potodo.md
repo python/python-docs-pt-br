@@ -72,7 +72,7 @@
 
 
 
-# library (59.42% done)
+# library (59.44% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - abc.po                          31 /  60 ( 51.0% translated).
@@ -125,7 +125,7 @@
 - email.header.po                  3 /  40 (  7.0% translated).
 - email.headerregistry.po         12 / 111 ( 10.0% translated).
 - email.message.po                 6 / 110 (  5.0% translated).
-- email.mime.po                   25 /  38 ( 65.0% translated).
+- email.mime.po                   29 /  38 ( 76.0% translated).
 - email.parser.po                  2 /  48 (  4.0% translated).
 - email.policy.po                 11 / 107 ( 10.0% translated).
 - enum.po                         71 / 231 ( 30.0% translated).
@@ -186,7 +186,7 @@
 - re.po                          433 / 436 ( 99.0% translated).
 - reprlib.po                      10 /  39 ( 25.0% translated).
 - resource.po                     40 / 110 ( 36.0% translated).
-- runpy.po                        25 /  40 ( 62.0% translated).
+- runpy.po                        28 /  40 ( 70.0% translated).
 - sched.po                         4 /  25 ( 16.0% translated).
 - select.po                       78 / 206 ( 37.0% translated).
 - selectors.po                    13 /  58 ( 22.0% translated).
@@ -290,5 +290,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (65.51% done)
+# TOTAL (65.52% done)
 
