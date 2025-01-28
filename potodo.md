@@ -72,7 +72,7 @@
 
 
 
-# library (59.44% done)
+# library (59.47% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - abc.po                          31 /  60 ( 51.0% translated).
@@ -117,7 +117,7 @@
 - doctest.po                      91 / 363 ( 25.0% translated).
 - email.charset.po                 1 /  44 (  2.0% translated).
 - email.compat32-message.po        5 / 115 (  4.0% translated).
-- email.contentmanager.po          4 /  42 (  9.0% translated).
+- email.contentmanager.po          9 /  42 ( 21.0% translated).
 - email.encoders.po                2 /  15 ( 13.0% translated).
 - email.errors.po                  5 /  27 ( 18.0% translated).
 - email.examples.po               15 /  20 ( 75.0% translated).
@@ -186,7 +186,7 @@
 - re.po                          433 / 436 ( 99.0% translated).
 - reprlib.po                      10 /  39 ( 25.0% translated).
 - resource.po                     40 / 110 ( 36.0% translated).
-- runpy.po                        28 /  40 ( 70.0% translated).
+- runpy.po                        31 /  40 ( 77.0% translated).
 - sched.po                         4 /  25 ( 16.0% translated).
 - select.po                       78 / 206 ( 37.0% translated).
 - selectors.po                    13 /  58 ( 22.0% translated).
@@ -290,5 +290,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (65.52% done)
+# TOTAL (65.53% done)
 
