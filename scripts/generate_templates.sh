@@ -13,9 +13,17 @@ set -xeu
 # Fail earlier if required variables are not set (do not expose TX_TOKEN)
 test -n ${PYDOC_TX_PROJECT+x}
 test -n ${PYDOC_LANGUAGE+x}
+test -n ${PYDOC_VERSION+x}
 
 # Make sure to run all commands from CPython docs locales directory
 cd $(dirname $0)/../cpython/Doc/locales
+
+# Python 3.7: Add missing sections to satisfy Blurb's check
+# Useful if setup.sh was not ran
+if [[ ${PYDOC_VERSION} == '3.7' ]] && [ ! -f ../../114553.patch ]; then
+  curl -L https://github.com/python/cpython/pull/114553.patch -o ../../114553.patch
+  git apply ../../114553.patch
+fi
 
 # Generate message catalog template (.pot) files
 # TODO: use `make -C .. gettext` when there are only Python >= 3.12
