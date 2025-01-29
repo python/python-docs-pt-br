@@ -87,7 +87,7 @@
 
 
 
-# library (58.66% done)
+# library (58.88% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    254 / 290 ( 87.0% translated).
@@ -109,7 +109,7 @@
 - base64.po                       18 /  55 ( 32.0% translated).
 - bdb.po                           9 / 109 (  8.0% translated).
 - binascii.po                     12 /  37 ( 32.0% translated).
-- bisect.po                       20 /  30 ( 66.0% translated).
+- bisect.po                       23 /  30 ( 76.0% translated).
 - calendar.po                     59 /  70 ( 84.0% translated).
 - cgi.po                          18 /  90 ( 20.0% translated).
 - chunk.po                        10 /  34 ( 29.0% translated).
@@ -123,7 +123,7 @@
 - concurrent.futures.po           16 /  88 ( 18.0% translated).
 - configparser.po                152 / 176 ( 86.0% translated).
 - constants.po                    16 /  18 ( 88.0% translated).
-- contextlib.po                    9 / 125 (  7.0% translated).
+- contextlib.po                   39 / 125 ( 31.0% translated).
 - copyreg.po                       8 /   9 ( 88.0% translated).
 - crypt.po                         3 /  30 ( 10.0% translated).
 - ctypes.po                       89 / 434 ( 20.0% translated).
@@ -136,13 +136,13 @@
 - difflib.po                      14 / 133 ( 10.0% translated).
 - dis.po                          78 / 239 ( 32.0% translated).
 - doctest.po                      62 / 304 ( 20.0% translated).
-- email.charset.po                 1 /  44 (  2.0% translated).
+- email.charset.po                 2 /  44 (  4.0% translated).
 - email.compat32-message.po        5 / 104 (  4.0% translated).
 - email.contentmanager.po          8 /  41 ( 19.0% translated).
-- email.encoders.po                2 /  15 ( 13.0% translated).
+- email.encoders.po               13 /  15 ( 86.0% translated).
 - email.errors.po                  6 /  25 ( 24.0% translated).
 - email.generator.po               2 /  41 (  4.0% translated).
-- email.header.po                  3 /  38 (  7.0% translated).
+- email.header.po                  4 /  38 ( 10.0% translated).
 - email.headerregistry.po         13 / 103 ( 12.0% translated).
 - email.message.po                 6 / 103 (  5.0% translated).
 - email.mime.po                   28 /  38 ( 73.0% translated).
@@ -226,7 +226,7 @@
 - stat.po                         78 /  81 ( 96.0% translated).
 - statistics.po                  158 / 172 ( 91.0% translated).
 - stdtypes.po                    1022 / 1026 ( 99.0% translated).
-- stringprep.po                    1 /  25 (  4.0% translated).
+- stringprep.po                   23 /  25 ( 92.0% translated).
 - struct.po                       84 / 168 ( 50.0% translated).
 - subprocess.po                  137 / 275 ( 49.0% translated).
 - symtable.po                      3 /  44 (  6.0% translated).
@@ -323,5 +323,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (63.03% done)
+# TOTAL (63.16% done)
 
