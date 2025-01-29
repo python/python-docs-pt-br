@@ -79,7 +79,7 @@
 
 
 
-# library (58.36% done)
+# library (58.39% done)
 
 - argparse.po                    260 / 290 ( 89.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
@@ -124,7 +124,7 @@
 - doctest.po                      61 / 305 ( 20.0% translated).
 - email.charset.po                 1 /  44 (  2.0% translated).
 - email.compat32-message.po        5 / 104 (  4.0% translated).
-- email.contentmanager.po          4 /  41 (  9.0% translated).
+- email.contentmanager.po          8 /  41 ( 19.0% translated).
 - email.encoders.po                2 /  15 ( 13.0% translated).
 - email.errors.po                  6 /  24 ( 25.0% translated).
 - email.generator.po               2 /  41 (  4.0% translated).
@@ -211,7 +211,7 @@
 - sqlite3.po                      33 / 210 ( 15.0% translated).
 - ssl.po                          49 / 496 (  9.0% translated).
 - stat.po                         78 /  81 ( 96.0% translated).
-- stringprep.po                    1 /  25 (  4.0% translated).
+- stringprep.po                    8 /  25 ( 32.0% translated).
 - struct.po                       83 / 150 ( 55.0% translated).
 - subprocess.po                  137 / 273 ( 50.0% translated).
 - symtable.po                      3 /  44 (  6.0% translated).
@@ -303,5 +303,5 @@
 - 3.9.po                         382 / 386 ( 98.0% translated).
 
 
-# TOTAL (62.45% done)
+# TOTAL (62.47% done)
 
