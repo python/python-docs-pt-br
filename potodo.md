@@ -79,7 +79,7 @@
 
 
 
-# library (58.39% done)
+# library (58.56% done)
 
 - argparse.po                    260 / 290 ( 89.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
@@ -111,7 +111,7 @@
 - concurrent.futures.po           16 /  87 ( 18.0% translated).
 - configparser.po                151 / 174 ( 86.0% translated).
 - constants.po                    15 /  18 ( 83.0% translated).
-- contextlib.po                    9 / 113 (  7.0% translated).
+- contextlib.po                   30 / 113 ( 26.0% translated).
 - crypt.po                         3 /  30 ( 10.0% translated).
 - ctypes.po                       91 / 429 ( 21.0% translated).
 - curses.ascii.po                100 / 101 ( 99.0% translated).
@@ -122,13 +122,13 @@
 - difflib.po                      14 / 133 ( 10.0% translated).
 - dis.po                          77 / 227 ( 33.0% translated).
 - doctest.po                      61 / 305 ( 20.0% translated).
-- email.charset.po                 1 /  44 (  2.0% translated).
+- email.charset.po                 2 /  44 (  4.0% translated).
 - email.compat32-message.po        5 / 104 (  4.0% translated).
 - email.contentmanager.po          8 /  41 ( 19.0% translated).
-- email.encoders.po                2 /  15 ( 13.0% translated).
+- email.encoders.po               13 /  15 ( 86.0% translated).
 - email.errors.po                  6 /  24 ( 25.0% translated).
 - email.generator.po               2 /  41 (  4.0% translated).
-- email.header.po                  3 /  38 (  7.0% translated).
+- email.header.po                  4 /  38 ( 10.0% translated).
 - email.headerregistry.po         13 / 103 ( 12.0% translated).
 - email.message.po                 6 / 103 (  5.0% translated).
 - email.mime.po                   30 /  38 ( 78.0% translated).
@@ -211,7 +211,7 @@
 - sqlite3.po                      33 / 210 ( 15.0% translated).
 - ssl.po                          49 / 496 (  9.0% translated).
 - stat.po                         78 /  81 ( 96.0% translated).
-- stringprep.po                    8 /  25 ( 32.0% translated).
+- stringprep.po                   23 /  25 ( 92.0% translated).
 - struct.po                       83 / 150 ( 55.0% translated).
 - subprocess.po                  137 / 273 ( 50.0% translated).
 - symtable.po                      3 /  44 (  6.0% translated).
@@ -303,5 +303,5 @@
 - 3.9.po                         382 / 386 ( 98.0% translated).
 
 
-# TOTAL (62.47% done)
+# TOTAL (62.57% done)
 

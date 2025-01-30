@@ -7,16 +7,16 @@
 # Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2017
 # Marco Rougeth <marco@rougeth.com>, 2020
 # i17obot <i17obot@rougeth.com>, 2020
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-03 16:35+0000\n"
+"POT-Creation-Date: 2025-01-24 16:37+0000\n"
 "PO-Revision-Date: 2017-02-16 23:04+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "Language: pt_BR\n"
@@ -30,6 +30,8 @@ msgstr ""
 msgid ""
 ":mod:`!contextlib` --- Utilities for :keyword:`!with`\\ -statement contexts"
 msgstr ""
+":mod:`!contextlib` --- Utilitários para contextos da instrução :keyword:`!"
+"with`"
 
 #: ../../library/contextlib.rst:7
 msgid "**Source code:** :source:`Lib/contextlib.py`"
@@ -41,6 +43,9 @@ msgid ""
 "`with` statement. For more information see also :ref:`typecontextmanager` "
 "and :ref:`context-managers`."
 msgstr ""
+"Este módulo fornece utilitários para tarefas comuns envolvendo a instrução :"
+"keyword:`with`. Para mais informações, veja também :ref:`typecontextmanager` "
+"e :ref:`context-managers`."
 
 #: ../../library/contextlib.rst:17
 msgid "Utilities"
@@ -48,7 +53,7 @@ msgstr "Utilitários"
 
 #: ../../library/contextlib.rst:19
 msgid "Functions and classes provided:"
-msgstr ""
+msgstr "Funções e classes fornecidas:"
 
 #: ../../library/contextlib.rst:23
 msgid ""
@@ -58,6 +63,11 @@ msgid ""
 "__exit__` is an abstract method which by default returns ``None``. See also "
 "the definition of :ref:`typecontextmanager`."
 msgstr ""
+"Uma :term:`classe base abstrata` para classes que implementam :meth:`object."
+"__enter__` e :meth:`object.__exit__`. Uma implementação padrão para :meth:"
+"`object.__enter__` é fornecida, que retorna ``self``, enquanto :meth:`object."
+"__exit__` é um método abstrato que, por padrão, retorna ``None``. Veja "
+"também a definição de :ref:`typecontextmanager`."
 
 #: ../../library/contextlib.rst:34
 msgid ""
@@ -67,6 +77,11 @@ msgid ""
 "__aexit__` is an abstract method which by default returns ``None``. See also "
 "the definition of :ref:`async-context-managers`."
 msgstr ""
+"Uma :term:`classe base abstrata` para classes que implementam :meth:`object."
+"__aenter__` e :meth:`object.__aexit__`. Uma implementação padrão para :meth:"
+"`object.__aenter__` é fornecida, que retorna ``self``, enquanto :meth:"
+"`object.__aexit__` é um método abstrato que, por padrão, retorna ``None``. "
+"Veja também a definição de :ref:`async-context-managers`"
 
 #: ../../library/contextlib.rst:46
 msgid ""
@@ -82,12 +97,18 @@ msgid ""
 "and doesn't implement a ``close()`` method for use with ``contextlib."
 "closing``"
 msgstr ""
+"Embora muitos objetos ofereçam suporte nativo ao uso em instruções with, às "
+"vezes é necessário gerenciar um recurso que não seja um gerenciador de "
+"contexto por si só e não implemente um método ``close()`` para uso com "
+"``contextlib.closing``"
 
 #: ../../library/contextlib.rst:54
 msgid ""
 "An abstract example would be the following to ensure correct resource "
 "management::"
 msgstr ""
+"Um exemplo abstrato seria o seguinte para garantir o gerenciamento correto "
+"dos recursos:"
 
 #: ../../library/contextlib.rst:73
 msgid ""
@@ -95,6 +116,10 @@ msgid ""
 "called. This iterator must yield exactly one value, which will be bound to "
 "the targets in the :keyword:`with` statement's :keyword:`!as` clause, if any."
 msgstr ""
+"A função que está sendo decorada deve retornar um iterador :term:`gerador` "
+"quando chamada. Este iterador deve produzir exatamente um valor, que será "
+"vinculado aos alvos na cláusula :keyword:`!as` da instrução :keyword:`with`, "
+"se houver."
 
 #: ../../library/contextlib.rst:77
 msgid ""
@@ -111,6 +136,18 @@ msgid ""
 "handled, and execution will resume with the statement immediately following "
 "the :keyword:`!with` statement."
 msgstr ""
+"No ponto em que o gerador é produzido, o bloco aninhado na instrução :"
+"keyword:`with` é executado. O gerador é então retomado após o bloco ser "
+"encerrado. Se uma exceção não tratada ocorrer no bloco, ela será levantada "
+"novamente dentro do gerador no ponto em que a produção ocorreu. Assim, você "
+"pode usar uma instrução :keyword:`try`...\\ :keyword:`except`...\\ :keyword:"
+"`finally` para capturar o erro (se houver), ou garantir que alguma limpeza "
+"ocorra. Se uma exceção for capturada apenas para registrá-la ou para "
+"executar alguma ação (em vez de suprimi-la completamente), o gerador deve "
+"levantar novamente essa exceção. Caso contrário, o gerenciador de contexto "
+"do gerador indicará à instrução :keyword:`!with` que a exceção foi tratada, "
+"e a execução será retomada com a instrução imediatamente após a instrução :"
+"keyword:`!with`."
 
 #: ../../library/contextlib.rst:89
 msgid ""
@@ -122,16 +159,25 @@ msgid ""
 "that context managers support multiple invocations in order to be used as "
 "decorators)."
 msgstr ""
+":func:`contextmanager` usa :class:`ContextDecorator` para que os "
+"gerenciadores de contexto que ela cria possam ser usados ​​como decoradores, "
+"bem como em instruções :keyword:`with`. Quando usada como um decorador, uma "
+"nova instância do gerador é implicitamente criada em cada chamada de função "
+"(isso permite que os gerenciadores de contexto criados por :func:"
+"`contextmanager` atendam ao requisito de que os gerenciadores de contexto "
+"ofereçam suporte a múltiplas invocações para serem usados ​​como decoradores)."
 
 #: ../../library/contextlib.rst:96
 msgid "Use of :class:`ContextDecorator`."
-msgstr ""
+msgstr "Uso de :class:`ContextDecorator`."
 
 #: ../../library/contextlib.rst:102
 msgid ""
 "Similar to :func:`~contextlib.contextmanager`, but creates an :ref:"
 "`asynchronous context manager <async-context-managers>`."
 msgstr ""
+"Semelhante a :func:`~contextlib.contextmanager`, mas cria um :ref:"
+"`gerenciador de contexto assíncrono <async-context-managers>`."
 
 #: ../../library/contextlib.rst:105
 msgid ""
@@ -151,16 +197,20 @@ msgid ""
 "Return a context manager that closes *thing* upon completion of the block.  "
 "This is basically equivalent to::"
 msgstr ""
+"Retorna um gerenciador de contexto que fecha *thing* após a conclusão do "
+"bloco. Isso basicamente equivale a::"
 
 #: ../../library/contextlib.rst:144
 msgid "And lets you write code like this::"
-msgstr ""
+msgstr "E permite que você escreva código como isso:"
 
 #: ../../library/contextlib.rst:153
 msgid ""
 "without needing to explicitly close ``page``.  Even if an error occurs, "
 "``page.close()`` will be called when the :keyword:`with` block is exited."
 msgstr ""
+"sem precisar fechar explicitamente ``page``. Mesmo se ocorrer um erro, "
+"``page.close()`` será chamado quando o bloco :keyword:`with` for encerrado."
 
 #: ../../library/contextlib.rst:161
 msgid ""
@@ -168,10 +218,14 @@ msgid ""
 "otherwise does nothing. It is intended to be used as a stand-in for an "
 "optional context manager, for example::"
 msgstr ""
+"Retorna um gerenciador de contexto que retorna *enter_result* de "
+"``__enter__``, mas não faz nada de outra forma. Ele foi criado para ser "
+"usado como um substituto para um gerenciador de contexto opcional, por "
+"exemplo::"
 
 #: ../../library/contextlib.rst:175
 msgid "An example using *enter_result*::"
-msgstr ""
+msgstr "Um exemplo usando *enter_result*::"
 
 #: ../../library/contextlib.rst:193
 msgid ""
@@ -180,6 +234,10 @@ msgid ""
 "execution with the first statement following the end of the :keyword:`!with` "
 "statement."
 msgstr ""
+"Retorna um gerenciador de contexto que suprime qualquer uma das exceções "
+"especificadas se elas ocorrerem no corpo de uma instrução :keyword:`!with` e "
+"então retoma a execução com a primeira instrução após o final da instrução :"
+"keyword:`!with`."
 
 #: ../../library/contextlib.rst:198
 msgid ""
@@ -188,6 +246,10 @@ msgid ""
 "silently continuing with program execution is known to be the right thing to "
 "do."
 msgstr ""
+"Como qualquer outro mecanismo que suprime completamente exceções, este "
+"gerenciador de contexto deve ser usado apenas para cobrir erros muito "
+"específicos, onde continuar silenciosamente com a execução do programa é "
+"considerado a coisa certa a fazer."
 
 #: ../../library/contextlib.rst:203
 msgid "For example::"
@@ -195,12 +257,12 @@ msgstr "Por exemplo::"
 
 #: ../../library/contextlib.rst:213
 msgid "This code is equivalent to::"
-msgstr ""
+msgstr "Este código equivale a::"
 
 #: ../../library/contextlib.rst:225 ../../library/contextlib.rst:265
 #: ../../library/contextlib.rst:275
 msgid "This context manager is :ref:`reentrant <reentrant-cms>`."
-msgstr ""
+msgstr "O gerenciador de contexto é :ref:`reentrante <reentrant-cms>`."
 
 #: ../../library/contextlib.rst:232
 msgid ""
