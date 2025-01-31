@@ -1,8 +1,8 @@
 
 
-# 3.12 (98.34% done)
+# 3.12 (98.35% done)
 
-- license.po                     112 / 123 ( 91.0% translated).
+- license.po                     114 / 125 ( 91.0% translated).
 
 
 # c-api (53.30% done)
@@ -72,7 +72,7 @@
 
 
 
-# library (59.79% done)
+# library (60.04% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - abc.po                          31 /  60 ( 51.0% translated).
@@ -127,7 +127,7 @@
 - email.parser.po                  2 /  48 (  4.0% translated).
 - email.policy.po                 11 / 107 ( 10.0% translated).
 - enum.po                         71 / 231 ( 30.0% translated).
-- errno.po                         8 / 134 (  5.0% translated).
+- errno.po                       115 / 160 ( 71.0% translated).
 - exceptions.po                  188 / 189 ( 99.0% translated).
 - faulthandler.po                  4 /  43 (  9.0% translated).
 - fcntl.po                        17 /  48 ( 35.0% translated).
@@ -286,5 +286,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (65.72% done)
+# TOTAL (65.87% done)
 
