@@ -85,7 +85,7 @@
 
 
 
-# library (60.04% done)
+# library (60.36% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          33 /  49 ( 67.0% translated).
@@ -147,7 +147,7 @@
 - email.policy.po                 11 / 102 ( 10.0% translated).
 - email.utils.po                  32 /  33 ( 96.0% translated).
 - enum.po                         69 / 192 ( 35.0% translated).
-- errno.po                         8 / 134 (  5.0% translated).
+- errno.po                       114 / 134 ( 85.0% translated).
 - faulthandler.po                  4 /  42 (  9.0% translated).
 - fcntl.po                        16 /  45 ( 35.0% translated).
 - filecmp.po                       4 /  40 ( 10.0% translated).
@@ -329,5 +329,5 @@
 - 3.8.po                         468 / 469 ( 99.0% translated).
 
 
-# TOTAL (65.45% done)
+# TOTAL (65.64% done)
 
