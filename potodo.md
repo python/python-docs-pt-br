@@ -67,7 +67,7 @@
 
 
 
-# library (61.16% done)
+# library (61.42% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
@@ -108,7 +108,7 @@
 - email.parser.po                  2 /  48 (  4.0% translated).
 - email.policy.po                 11 / 107 ( 10.0% translated).
 - enum.po                         73 / 244 ( 29.0% translated).
-- errno.po                         8 / 134 (  5.0% translated).
+- errno.po                       115 / 160 ( 71.0% translated).
 - faulthandler.po                  4 /  43 (  9.0% translated).
 - fcntl.po                        22 /  49 ( 44.0% translated).
 - filecmp.po                       3 /  42 (  7.0% translated).
@@ -214,7 +214,7 @@
 
 
 
-# whatsnew (40.73% done)
+# whatsnew (41.31% done)
 
 - 2.3.po                         328 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -228,8 +228,8 @@
 - 3.5.po                         125 / 578 ( 21.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   1122 / 12150 (  9.0% translated).
+- changelog.po                   1249 / 12160 ( 10.0% translated).
 
 
-# TOTAL (57.95% done)
+# TOTAL (58.24% done)
 
