@@ -79,7 +79,7 @@
 
 
 
-# library (58.56% done)
+# library (58.90% done)
 
 - argparse.po                    260 / 290 ( 89.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
@@ -135,7 +135,7 @@
 - email.parser.po                  2 /  47 (  4.0% translated).
 - email.policy.po                 12 / 103 ( 11.0% translated).
 - enum.po                         63 / 188 ( 33.0% translated).
-- errno.po                         7 / 127 (  5.0% translated).
+- errno.po                       112 / 127 ( 88.0% translated).
 - exceptions.po                  139 / 140 ( 99.0% translated).
 - faulthandler.po                  2 /  36 (  5.0% translated).
 - fcntl.po                        14 /  38 ( 36.0% translated).
@@ -303,5 +303,5 @@
 - 3.9.po                         382 / 386 ( 98.0% translated).
 
 
-# TOTAL (62.57% done)
+# TOTAL (62.78% done)
 
