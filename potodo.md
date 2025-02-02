@@ -201,9 +201,9 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (97.69% done)
+# reference (98.15% done)
 
-- compound_stmts.po              401 / 467 ( 85.0% translated).
+- compound_stmts.po              414 / 467 ( 88.0% translated).
 
 
 # tutorial (100.00% done)
@@ -231,5 +231,5 @@
 - changelog.po                   1249 / 12160 ( 10.0% translated).
 
 
-# TOTAL (58.24% done)
+# TOTAL (58.26% done)
 
