@@ -5,7 +5,7 @@
 - license.po                     114 / 125 ( 91.0% translated).
 
 
-# c-api (53.30% done)
+# c-api (53.38% done)
 
 - exceptions.po                  194 / 366 ( 53.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
@@ -17,7 +17,7 @@
 - intro.po                        96 / 141 ( 68.0% translated).
 - long.po                         30 /  67 ( 44.0% translated).
 - memory.po                       53 / 195 ( 27.0% translated).
-- module.po                       57 / 124 ( 45.0% translated).
+- module.po                       61 / 124 ( 49.0% translated).
 - number.po                       14 /  48 ( 29.0% translated).
 - object.po                       14 /  80 ( 17.0% translated).
 - refcounting.po                   2 /  47 (  4.0% translated).
@@ -286,5 +286,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (65.89% done)
+# TOTAL (65.90% done)
 
