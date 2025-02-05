@@ -4,7 +4,7 @@
 
 
 
-# c-api (56.98% done)
+# c-api (57.01% done)
 
 - allocation.po                    8 /   9 ( 88.0% translated).
 - arg.po                         193 / 195 ( 98.0% translated).
@@ -17,7 +17,7 @@
 - intro.po                        79 /  86 ( 91.0% translated).
 - long.po                         30 /  51 ( 58.0% translated).
 - memory.po                       57 / 184 ( 30.0% translated).
-- module.po                       47 /  99 ( 47.0% translated).
+- module.po                       48 /  99 ( 48.0% translated).
 - number.po                        8 /  42 ( 19.0% translated).
 - object.po                        3 /  50 (  6.0% translated).
 - refcounting.po                   5 /  28 ( 17.0% translated).
@@ -323,5 +323,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (63.36% done)
+# TOTAL (63.37% done)
 
