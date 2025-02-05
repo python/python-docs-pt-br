@@ -9513,8 +9513,8 @@ msgid ""
 msgstr ""
 ":gh:`114570`: Adiciona exceção :exc:`PythonFinalizationError`. Esta exceção "
 "derivada de :exc:`RuntimeError` é levantada quando uma operação é bloqueada "
-"durante a :term:`finalização do Python <encerramento do interpretador>`. "
-"Patch por Victor Stinner."
+"durante a :term:`finalização do Python <interpreter shutdown>`. Patch por "
+"Victor Stinner."
 
 #: ../NEWS:3967
 msgid ""
@@ -9753,8 +9753,8 @@ msgstr ""
 "compartilham estado com o interpretador principal, isso aponta para a mesma "
 "estrutura de memória estática. Para interpretadores com seu próprio estado "
 "obmalloc, ele é alocado em heap. Adiciona free_obmalloc_arenas() que "
-"liberará as arenas obmalloc e as estruturas de árvore radix para intérpretes "
-"com seu próprio estado obmalloc."
+"liberará as arenas obmalloc e as estruturas de árvore radix para "
+"interpretadores com seu próprio estado obmalloc."
 
 #: ../NEWS:4061
 msgid ""
@@ -9812,7 +9812,7 @@ msgid ""
 "Dave Shawley."
 msgstr ""
 ":gh:`115165`: A maioria das exceções agora são ignoradas ao tentar definir o "
-"atributo ``__orig_class__`` em objetos retornados ao chamar aliases "
+"atributo ``__orig_class__`` em objetos retornados ao chamar apelidos "
 "genéricos :mod:`typing` (incluindo aliases genéricos criados usando :data:"
 "`typing.Annotated`). Anteriormente, apenas :exc:`AttributeError` era "
 "ignorada. Patch por Dave Shawley."
@@ -9832,30 +9832,40 @@ msgid ""
 ":gh:`115133`: Fix tests for :class:`~xml.etree.ElementTree.XMLPullParser` "
 "with Expat 2.6.0."
 msgstr ""
+":gh:`115133`: Corrige testes para :class:`~xml.etree.ElementTree."
+"XMLPullParser` com Expat 2.6.0."
 
 #: ../NEWS:4096
 msgid ""
 ":gh:`115059`: :meth:`io.BufferedRandom.read1` now flushes the underlying "
 "write buffer."
 msgstr ""
+":gh:`115059`: :meth:`io.BufferedRandom.read1` agora limpa o buffer de "
+"gravação subjacente."
 
 #: ../NEWS:4099
 msgid ""
 ":gh:`79382`: Trailing ``**`` no longer allows to match files and non-"
 "existing paths in recursive :func:`~glob.glob`."
 msgstr ""
+":gh:`79382`: ``**`` no final não permite mais corresponder arquivos e "
+"caminhos não existentes em :func:`~glob.glob` recursivo."
 
 #: ../NEWS:4102
 msgid ""
 ":gh:`67837`: Avoid race conditions in the creation of directories during "
 "concurrent extraction in :mod:`tarfile` and :mod:`zipfile`."
 msgstr ""
+":gh:`67837`: Evita condições de corrida na criação de diretórios durante a "
+"extração simultânea em :mod:`tarfile` e :mod:`zipfile`."
 
 #: ../NEWS:4105
 msgid ""
 ":gh:`115060`: Speed up :meth:`pathlib.Path.glob` by removing redundant regex "
 "matching."
 msgstr ""
+":gh:`115060`: Acelera :meth:`pathlib.Path.glob` removendo a correspondência "
+"de regex redundante."
 
 #: ../NEWS:4108
 msgid ""
@@ -9865,43 +9875,59 @@ msgid ""
 "*return_ints*: specifying ``return_ints=True`` makes ``Text.count()`` always "
 "returning the single count as an integer instead of a 1-tuple or ``None``."
 msgstr ""
+":gh:`97928`: Reverte parcialmente o comportamento de :meth:`tkinter.Text."
+"count`. Por padrão, ele preserva o comportamento de versões mais antigas do "
+"Python, exceto que definir ``wantobjects`` como 0 não tem mais efeito. "
+"Adiciona um novo parâmetro *return_ints*: especificar ``return_ints=True`` "
+"faz com que ``Text.count()`` sempre retorna a contagem única como um inteiro "
+"em vez de uma tupla de 1 elemento ou ``None``."
 
 #: ../NEWS:4115
 msgid ""
 ":gh:`114628`: When csv.Error is raised when handling TypeError, do not print "
 "the TypeError traceback."
 msgstr ""
+":gh:`114628`: Quando csv.Error é levantada ao manipular TypeError, não "
+"exibir o traceback de TypeError."
 
 #: ../NEWS:4118
 msgid ""
 ":gh:`85984`: Added ``_POSIX_VDISABLE`` from C's ``<unistd.h>`` to :mod:"
 "`termios`."
 msgstr ""
+":gh:`85984`: Adicionado ``_POSIX_VDISABLE`` de ``<unistd.h>`` de C para :mod:"
+"`termios`."
 
 #: ../NEWS:4121
 msgid ":gh:`114965`: Update bundled pip to 24.0"
-msgstr ""
+msgstr ":gh:`114965`: Atualiza pip empacotado para 24.0"
 
 #: ../NEWS:4123
 msgid ""
 ":gh:`114959`: :mod:`tarfile` no longer ignores errors when trying to extract "
 "a directory on top of a file."
 msgstr ""
+":gh:`114959`: :mod:`tarfile` não ignora mais erros ao tentar extrair um "
+"diretório em cima de um arquivo."
 
 #: ../NEWS:4126
 msgid ":gh:`114894`: Add :meth:`array.array.clear`."
-msgstr ""
+msgstr ":gh:`114894`: Adiciona :meth:`array.array.clear`."
 
 #: ../NEWS:4128
 msgid ""
 ":gh:`114071`: Support tuple subclasses using auto() for enum member value."
 msgstr ""
+":gh:`114071`: Suporte a subclasses de tupla usando auto() para valor de "
+"membro enum."
 
 #: ../NEWS:4130
 msgid ""
 ":gh:`109475`: Fix support of explicit option value \"--\" in :mod:`argparse` "
 "(e.g. ``--option=--``)."
 msgstr ""
+":gh:`109475`: Corrige suporte ao valor de opção explícito \"--\" em :mod:"
+"`argparse` (por exemplo, ``--option=--``)."
 
 #: ../NEWS:4133
 msgid ""
@@ -9914,12 +9940,22 @@ msgid ""
 "symmetric and allows to change the default behavior by overriding the "
 "special comparison methods in subclasses."
 msgstr ""
+":gh:`49766`: Corrige comparação :class:`~datetime.date`-:class:`~datetime."
+"datetime`. Agora, os métodos de comparação especiais como ``__eq__`` e "
+"``__lt__`` retornam :data:`NotImplemented` se um dos comparandos for :class:"
+"`!date` e o outro for :class:`!datetime` em vez de ignorar a parte do tempo "
+"e o fuso horário ou retornar forçadamente \"não igual\" ou levantar :exc:"
+"`TypeError`. Ele torna a comparação das subclasses :class:`!date` e :class:`!"
+"datetime` mais simétrica e permite alterar o comportamento padrão "
+"substituindo os métodos de comparação especiais em subclasses."
 
 #: ../NEWS:4143
 msgid ""
 ":gh:`110190`: Fix ctypes structs with array on Windows ARM64 platform by "
 "setting ``MAX_STRUCT_SIZE`` to 32 in stgdict. Patch by Diego Russo"
 msgstr ""
+":gh:`110190`: Corrige estruturas ctypes com vetor na plataforma Windows "
+"ARM64 definindo ``MAX_STRUCT_SIZE`` como 32 em stgdict. Patch por Diego Russo"
 
 #: ../NEWS:4146
 msgid ""
@@ -9927,6 +9963,10 @@ msgid ""
 "`~decimal.Decimal` format is not raised for cases where 'N' appears in other "
 "places in the format specifier. Based on patch by Stefan Krah."
 msgstr ""
+":gh:`114678`: Garante que o aviso de descontinuação para o especificador 'N' "
+"no formato :class:`~decimal.Decimal` não seja levantada para casos em que "
+"'N' aparece em outros lugares no especificador de formato. Baseado no patch "
+"por Stefan Krah."
 
 #: ../NEWS:4150
 msgid ""
@@ -9934,18 +9974,25 @@ msgid ""
 "glob` if a pattern ends with \"``**``\". Previously only directories were "
 "returned."
 msgstr ""
+":gh:`70303`: Retorna arquivos e diretórios de :meth:`pathlib.Path.glob` se "
+"um padrão termina com \"``**``\". Anteriormente, apenas diretórios eram "
+"retornados."
 
 #: ../NEWS:4154
 msgid ""
 ":gh:`109653`: Improve import time of :mod:`importlib.metadata` and :mod:"
 "`email.utils`."
 msgstr ""
+":gh:`109653`: Melhora o tempo de importação de :mod:`importlib.metadata` e :"
+"mod:`email.utils`."
 
 #: ../NEWS:4157
 msgid ""
 ":gh:`113280`: Fix a leak of open socket in rare cases when error occurred "
 "in :class:`ssl.SSLSocket` creation."
 msgstr ""
+":gh:`113280`: Corrige um vazamento de soquete aberto em casos raros quando "
+"ocorria um erro na criação de :class:`ssl.SSLSocket`."
 
 #: ../NEWS:4160
 msgid ""
@@ -9953,6 +10000,9 @@ msgid ""
 "ASCII characters in headers if :attr:`~email.policy.EmailPolicy.utf8` is "
 "false."
 msgstr ""
+":gh:`77749`: :meth:`email.policy.EmailPolicy.fold` agora sempre codifica "
+"caracteres não ASCII em cabeçalhos se :attr:`~email.policy.EmailPolicy.utf8` "
+"for falso."
 
 #: ../NEWS:4164
 msgid ""
@@ -9962,6 +10012,11 @@ msgid ""
 "created immediately after opening instead of deferring this until "
 "synchronizing or closing."
 msgstr ""
+":gh:`83383`: A sincronização do banco de dados :mod:`dbm.dumb` agora é no-op "
+"se não houver modificação desde a abertura ou última sincronização. O "
+"arquivo de diretório para um banco de dados :mod:`dbm.dumb` vazio recém-"
+"criado agora é criado imediatamente após a abertura, em vez de adiar isso "
+"até a sincronização ou o fechamento."
 
 #: ../NEWS:4170
 msgid ""
@@ -9969,6 +10024,9 @@ msgid ""
 "Connection.iterdump` for filtering database objects to dump. Patch by "
 "Mariusz Felisiak."
 msgstr ""
+":gh:`91602`: Adiciona o parâmetro somente-nomeado *filter* a :meth:`sqlite3."
+"Connection.iterdump` para filtrar objetos de banco de dados para despejar. "
+"Patch por Mariusz Felisiak."
 
 #: ../NEWS:4174
 msgid ""
@@ -9976,30 +10034,42 @@ msgid ""
 "This is consistent with C-extension implementation. Patch by Mariusz "
 "Felisiak."
 msgstr ""
+":gh:`112451`: Proíbe criar subclasse de Python puro :class:`datetime."
+"timezone`. Isso é consistente com a implementação da extensão C. Patch por "
+"Mariusz Felisiak."
 
 #: ../NEWS:4178
 msgid ""
 ":gh:`69893`: Add the :meth:`!close` method for the iterator returned by :"
 "func:`xml.etree.ElementTree.iterparse`."
 msgstr ""
+":gh:`69893`: Adiciona o método :meth:`!close` para o iterador retornado por :"
+"func:`xml.etree.ElementTree.iterparse`."
 
 #: ../NEWS:4181
 msgid ""
 ":gh:`109653`: Reduce the import time of :mod:`threading` module by ~50%. "
 "Patch by Daniel Hollas."
 msgstr ""
+":gh:`109653`: Reduz o tempo de importação do módulo :mod:`threading` em "
+"~50%. Patch por Daniel Hollas."
 
 #: ../NEWS:4184
 msgid ""
 ":gh:`114492`: Make the result of :func:`termios.tcgetattr` reproducible on "
 "Alpine Linux. Previously it could leave a random garbage in some fields."
 msgstr ""
+":gh:`114492`: Torna o resultado de :func:`termios.tcgetattr` reproduzível no "
+"Alpine Linux. Anteriormente, ele poderia deixar um lixo aleatório em alguns "
+"campos."
 
 #: ../NEWS:4187
 msgid ""
 ":gh:`114315`: Make :class:`threading.Lock` a real class, not a factory "
 "function. Add ``__new__`` to ``_thread.lock`` type."
 msgstr ""
+":gh:`114315`: Torna :class:`threading.Lock` uma classe real, não uma função "
+"de fábrica. Adiciona ``__new__`` ao tipo ``_thread.lock``."
 
 #: ../NEWS:4190
 msgid ""
@@ -10007,12 +10077,17 @@ msgid ""
 "the new default :mod:`!dbm` backend. Patch by Raymond Hettinger and Erlend "
 "E. Aasland."
 msgstr ""
+":gh:`100414`: Adiciona :mod:`dbm.sqlite3` como um backend para :mod:`dbm`, e "
+"torna-o o novo backend padrão :mod:`!dbm`. Patch por Raymond Hettinger e "
+"Erlend E. Aasland."
 
 #: ../NEWS:4194
 msgid ""
 ":gh:`113267`: Revert changes in :gh:`106584` which made calls of "
 "``TestResult`` methods ``startTest()`` and ``stopTest()`` unbalanced."
 msgstr ""
+":gh:`113267`: Reverte alterações em :gh:`106584` que tornavam as chamadas "
+"dos métodos ``TestResult`` ``startTest()`` e ``stopTest()`` desbalanceadas."
 
 #: ../NEWS:4197
 msgid ""
@@ -10020,24 +10095,33 @@ msgid ""
 "create_server` when IPv6 is available but the interface cannot actually "
 "support it."
 msgstr ""
+":gh:`75128`: Ignora uma :exc:`OSError` em :meth:`asyncio.BaseEventLoop."
+"create_server` quando o IPv6 estiver disponível, mas a interface não puder "
+"realmente suportá-lo."
 
 #: ../NEWS:4201
 msgid ""
 ":gh:`114423`: ``_DummyThread`` entries in ``threading._active`` are now "
 "automatically removed when the related thread dies."
 msgstr ""
+":gh:`114423`: As entradas ``_DummyThread`` em ``threading._active`` agora "
+"são removidas automaticamente quando o thread relacionado morre."
 
 #: ../NEWS:4204
 msgid ""
 ":gh:`114257`: Dismiss the :exc:`FileNotFound` error in :func:`ctypes.util."
 "find_library` and just return ``None`` on Linux."
 msgstr ""
+":gh:`114257`: Descarta o erro :exc:`FileNotFound` em :func:`ctypes.util."
+"find_library` e retorna apenas ``None`` no Linux."
 
 #: ../NEWS:4207
 msgid ""
 ":gh:`114321`: Expose more platform specific constants in the :mod:`fcntl` "
 "module on Linux, macOS, FreeBSD and NetBSD."
 msgstr ""
+":gh:`114321`: Expõe mais constantes específicas da plataforma no módulo :mod:"
+"`fcntl` no Linux, macOS, FreeBSD e NetBSD."
 
 #: ../NEWS:4210
 msgid ""
@@ -10046,6 +10130,10 @@ msgid ""
 "introduced in 3.12 that no longer matched how OSes define cbreak mode in "
 "their ``stty(1)`` manual pages."
 msgstr ""
+":gh:`114328`: A :func:`tty.setcbreak` e a nova :func:`tty.cfmakecbreak` não "
+"limpam mais o sinalizador ICRLF de entrada do terminal. Isso corrige uma "
+"regressão introduzida na 3.12 que não correspondia mais a como os sistemas "
+"operacionais definem o modo cbreak em suas páginas de manual ``stty(1)``."
 
 #: ../NEWS:4215
 msgid ""
@@ -10053,6 +10141,9 @@ msgid ""
 "annotations in the `typeshed <https://github.com/python/typeshed>`__ project "
 "should be used instead."
 msgstr ""
+":gh:`114281`: Remove dicas de tipo de ``Lib/asyncio/staggered.py``. As "
+"anotações no projeto `typeshed <https://github.com/python/typeshed>`__ devem "
+"ser usadas em vez disso."
 
 #: ../NEWS:4219
 msgid ""
@@ -10061,12 +10152,19 @@ msgid ""
 "reference cycle prevented prompt clean-up of the file descriptor if the "
 "returned iterator was not exhausted."
 msgstr ""
+":gh:`101438`: Evite o ciclo de referência em ElementTree.iterparse. O "
+"iterador retornado por ``ElementTree.iterparse`` pode manter um descritor de "
+"arquivo. O ciclo de referência impedia a limpeza rápida do descritor de "
+"arquivo se o iterador retornado não estivesse esgotado."
 
 #: ../NEWS:4224
 msgid ""
 ":gh:`114198`: The signature for the ``__replace__`` method on :mod:"
 "`dataclasses` now has the first argument named ``self``, rather than ``obj``."
 msgstr ""
+":gh:`114198`: A assinatura para o método ``__replace__`` em :mod:"
+"`dataclasses` agora tem o primeiro argumento chamado ``self``, em vez de "
+"``obj``."
 
 #: ../NEWS:4228
 msgid ""
@@ -10074,21 +10172,28 @@ msgid ""
 "*filename* attribute set to *cwd* if the error was caused by a failed "
 "attempt to change the current directory."
 msgstr ""
+":gh:`104522`: :exc:`OSError` levantada ao executar um subprocesso agora tem "
+"apenas o atributo *filename* definido como *cwd* se o erro foi causado por "
+"uma tentativa malsucedida de alterar o diretório atual."
 
 #: ../NEWS:4232
 msgid ""
 ":gh:`114149`: Enum: correctly handle tuple subclasses in custom ``__new__``."
 msgstr ""
+":gh:`114149`: Enum: manipula corretamente subclasses de tuplas em "
+"``__new__`` personalizado."
 
 #: ../NEWS:4234
 msgid ""
 ":gh:`83648`: Support deprecation of options, positional arguments and "
 "subcommands in :mod:`argparse`."
 msgstr ""
+":gh:`83648`: Suporta descontinuação de opções, argumentos posicionais e "
+"subcomandos em :mod:`argparse`."
 
 #: ../NEWS:4237
 msgid ":gh:`114087`: Speed up ``dataclasses.asdict`` up to 1.35x."
-msgstr ""
+msgstr ":gh:`114087`: Acelera ``dataclasses.asdict`` em até 1,35x."
 
 #: ../NEWS:4239
 msgid ""
@@ -10096,12 +10201,17 @@ msgid ""
 "BaseSelectorEventLoop` when SSL handshakes fail. Patch contributed by Jamie "
 "Phan."
 msgstr ""
+":gh:`109534`: Corrige um vazamento de referência em :class:`asyncio."
+"selector_events.BaseSelectorEventLoop` quando negociações SSL falham. Patch "
+"foi contribuição de Jamie Phan."
 
 #: ../NEWS:4243
 msgid ""
 ":gh:`79634`: Accept :term:`path-like objects <path-like object>` as patterns "
 "in :meth:`pathlib.Path.glob` and :meth:`~pathlib.Path.rglob`."
 msgstr ""
+":gh:`79634`: Aceita :term:`objetos caminho ou similar <<path-like object>>` "
+"como padrões em :meth:`pathlib.Path.glob` e :meth:`~pathlib.Path.rglob`."
 
 #: ../NEWS:4246
 msgid ""
@@ -10109,6 +10219,9 @@ msgid ""
 "get lost if the awakened ``Task`` is simultaneously cancelled or encounters "
 "any other error."
 msgstr ""
+":gh:`112202`: Garante que uma chamada :func:`asyncio.Condition.notify` não "
+"seja perdida se a ``Task`` despertada for cancelada simultaneamente ou "
+"encontrar qualquer outro erro."
 
 #: ../NEWS:4250
 msgid ""
@@ -10120,6 +10233,14 @@ msgid ""
 "*sequence*, keeping other commands, and deletes the *funcid* command. It "
 "leaves *sequence* unbound only if *funcid* was the last bound command."
 msgstr ""
+":gh:`113951`: Corrige o comportamento dos métodos ``tag_unbind()`` das "
+"classes :class:`tkinter.Text` e :class:`tkinter.Canvas` com três argumentos. "
+"Anteriormente, ``widget.tag_unbind(tag, sequence, funcid)`` destruía a "
+"vinculação atual para *sequence*, deixando *sequence* desvinculado, e "
+"excluía o comando *funcid*. Agora, ele remove apenas *funcid* da vinculação "
+"para *sequence*, mantendo outros comandos, e exclui o comando *funcid*. Ele "
+"deixa *sequence* desvinculado somente se *funcid* foi o último comando "
+"vinculado."
 
 #: ../NEWS:4259
 msgid ""
@@ -10131,6 +10252,14 @@ msgid ""
 "current. Bound methods are now listed in the static methods section. Methods "
 "of builtin classes are now supported as well as methods of Python classes."
 msgstr ""
+":gh:`97959`: Corrige métodos de classe de renderização, métodos vinculados, "
+"métodos e apelidos de função em :mod:`pydoc`. Métodos de classe não têm mais "
+"a nota \"método de instância builtins.type\". Notas correspondentes agora "
+"são adicionadas para métodos de classe e não vinculados. Apelidos de método "
+"e função agora têm referências ao módulo ou à classe onde a origem foi "
+"definida se for diferente da atual. Métodos vinculados agora são listados na "
+"seção de métodos estáticos. Métodos de classes internas agora são "
+"suportados, bem como métodos de classes Python."
 
 #: ../NEWS:4268
 msgid ""
@@ -10138,18 +10267,25 @@ msgid ""
 "constructor. :exc:`ValueError` is now raised if the same character is used "
 "in different roles."
 msgstr ""
+":gh:`113796`: Adiciona mais verificações de validação no construtor :class:"
+"`csv.Dialect`. :exc:`ValueError` agora é levantada se o mesmo caractere for "
+"usado em funções diferentes."
 
 #: ../NEWS:4272
 msgid ""
 ":gh:`113732`: Fix support of :data:`~csv.QUOTE_NOTNULL` and :data:`~csv."
 "QUOTE_STRINGS` in :func:`csv.reader`."
 msgstr ""
+":gh:`113732`: Corrige suporte de :data:`~csv.QUOTE_NOTNULL` e :data:`~csv."
+"QUOTE_STRINGS` em :func:`csv.reader`."
 
 #: ../NEWS:4275
 msgid ""
 ":gh:`113225`: Speed up :meth:`pathlib.Path.walk` by using :attr:`os.DirEntry."
 "path` where possible."
 msgstr ""
+":gh:`113225`: Acelera :meth:`pathlib.Path.walk` usando :attr:`os.DirEntry."
+"path` onde possível."
 
 #: ../NEWS:4278
 msgid ""
@@ -10157,18 +10293,26 @@ msgid ""
 "or time, properly call derived constructor. Previously, only the base "
 "class's constructor was called."
 msgstr ""
+":gh:`89039`: Quando o método replace() é chamado em uma subclasse de "
+"datetime, date ou time, chamar corretamente o construtor derivado. "
+"Anteriormente, apenas o construtor da classe base era chamado."
 
 #: ../NEWS:4282
 msgid ""
 "Also, make sure to pass non-zero fold values when creating subclasses in "
 "various methods. Previously, fold was silently ignored."
 msgstr ""
+"Além disso, certifica-se de passar valores de fold diferentes de zero ao "
+"criar subclasses em vários métodos. Anteriormente, fold era ignorado "
+"silenciosamente."
 
 #: ../NEWS:4285
 msgid ""
 ":gh:`112919`: Speed-up :func:`datetime.datetime.replace`, :func:`datetime."
 "date.replace` and :func:`datetime.time.replace`."
 msgstr ""
+":gh:`112919`: Aceleração de :func:`datetime.datetime.replace`, :func:"
+"`datetime.date.replace` e :func:`datetime.time.replace`."
 
 #: ../NEWS:4288
 msgid ""
@@ -10176,24 +10320,33 @@ msgid ""
 "instead of the line of function definition when the user do ``break func`` "
 "using :mod:`pdb`"
 msgstr ""
+":gh:`59013`: Define o ponto de interrupção na primeira linha executável da "
+"função, em vez da linha de definição da função quando o usuário faz ``break "
+"func`` usando :mod:`pdb`"
 
 #: ../NEWS:4292
 msgid ""
 ":gh:`112343`: Improve handling of pdb convenience variables to avoid "
 "replacing string contents."
 msgstr ""
+":gh:`112343`: Melhora o tratamento de variáveis ​​de conveniência pdb para "
+"evitar a substituição de conteúdo de string."
 
 #: ../NEWS:4295
 msgid ""
 ":gh:`112240`: Add option to calendar module CLI to specify the weekday to "
 "start each week. Patch by Steven Ward."
 msgstr ""
+":gh:`112240`: Adiciona opção à CLI do módulo de calendar para especificar o "
+"dia da semana para começar cada semana. Patch por Steven Ward."
 
 #: ../NEWS:4298
 msgid ""
 ":gh:`111741`: Recognise ``image/webp`` as a standard format in the :mod:"
 "`mimetypes` module."
 msgstr ""
+":gh:`111741`: Reconhece ``image/webp`` como um formato padrão no módulo :mod:"
+"`mimetypes`."
 
 #: ../NEWS:4301
 msgid ""
@@ -10205,24 +10358,38 @@ msgid ""
 "dict instead of a tuple. Calling ``w.wm_attributes()`` now returns a tuple "
 "instead of string if *wantobjects* was set to 0."
 msgstr ""
+":gh:`43457`: Corrige o método do widget :mod:`tkinter` :meth:`!"
+"wm_attributes`. Agora ele aceita o nome do atributo sem o prefixo menos para "
+"obter atributos de janela e permite especificar atributos e valores para ser "
+"definido como argumentos nomeados. Adiciona um novo argumento nomeado "
+"opcional *return_python_dict*: chamar ``w."
+"wm_attributes(return_python_dict=True)`` retorna os atributos como um dict "
+"em vez de uma tupla. Chamar ``w.wm_attributes()`` agora retorna uma tupla em "
+"vez de uma string se *wantobjects* foi definido como 0."
 
 #: ../NEWS:4309
 msgid ""
 ":gh:`82626`: Many functions now emit a warning if a boolean value is passed "
 "as a file descriptor argument."
 msgstr ""
+":gh:`82626`: Muitas funções agora emitem um aviso se um valor booleano for "
+"passado como um argumento de descritor de arquivo."
 
 #: ../NEWS:4312
 msgid ""
 ":gh:`111051`: Added check for file modification during debugging with :mod:"
 "`pdb`"
 msgstr ""
+":gh:`111051`: Adicionada verificação para modificação de arquivo durante a "
+"depuração com :mod:`pdb`"
 
 #: ../NEWS:4315
 msgid ""
 ":gh:`110345`: Show the Tcl/Tk patchlevel (rather than version) in :meth:"
 "`tkinter._test`."
 msgstr ""
+":gh:`110345`: Mostra o patchlevel Tcl/Tk (em vez da versão) em :meth:"
+"`tkinter._test`."
 
 #: ../NEWS:4318
 msgid ""
@@ -10230,24 +10397,33 @@ msgid ""
 "directory exists and creating it, directly call :func:`os.makedirs` with the "
 "kwarg ``exist_ok=True``."
 msgstr ""
+":gh:`38807`: Corrige a condição de corrida em :mod:`trace`. Em vez de "
+"verificar se um diretório existe e criá-lo, chame diretamente :func:`os."
+"makedirs` com o kwarg ``exist_ok=True``."
 
 #: ../NEWS:4322
 msgid ""
 ":gh:`75705`: Set unixfrom envelope in :class:`mailbox.mbox` and :class:"
 "`mailbox.MMDF`."
 msgstr ""
+":gh:`75705`: Define o envelope unixfrom em :class:`mailbox.mbox` e :class:"
+"`mailbox.MMDF`."
 
 #: ../NEWS:4325
 msgid ""
 ":gh:`106233`: Fix stacklevel in ``InvalidTZPathWarning`` during :mod:"
 "`zoneinfo` module import."
 msgstr ""
+":gh:`106233`: Corrige o stacklevel em ``InvalidTZPathWarning`` durante a "
+"importação do módulo :mod:`zoneinfo`."
 
 #: ../NEWS:4328
 msgid ""
 ":gh:`105102`: Allow :class:`ctypes.Union` to be nested in :class:`ctypes."
 "Structure` when the system endianness is the opposite of the classes."
 msgstr ""
+":gh:`105102`: Permita que :class:`ctypes.Union` seja aninhado em :class:"
+"`ctypes.Structure` quando o endianness do sistema for o oposto das classes."
 
 #: ../NEWS:4332
 msgid ""
@@ -10255,23 +10431,32 @@ msgid ""
 "_decode_filter_properties` due to improper handling of BCJ filters with "
 "properties of zero length. Patch by Radislav Chugunov."
 msgstr ""
+":gh:`104282`: Corrige a desreferência de ponteiro nulo em :func:`lzma."
+"_decode_filter_properties` devido ao tratamento impróprio de filtros BCJ com "
+"propriedades de comprimento zero. Patch por Radislav Chugunov."
 
 #: ../NEWS:4336
 msgid ""
 ":gh:`96471`: Add :py:class:`queue.Queue` termination with :py:meth:`~queue."
 "Queue.shutdown`."
 msgstr ""
+":gh:`96471`: Adiciona terminação :py:class:`queue.Queue` com :py:meth:"
+"`~queue.Queue.shutdown`."
 
 #: ../NEWS:4339
 msgid ""
 ":gh:`101599`: Changed argparse flag options formatting to remove redundancy."
 msgstr ""
+":gh:`101599`: Altera a formatação de opções de sinalizador argparse para "
+"remover redundância."
 
 #: ../NEWS:4341
 msgid ""
 ":gh:`85984`: Add POSIX pseudo-terminal functions :func:`os.posix_openpt`, :"
 "func:`os.grantpt`, :func:`os.unlockpt`, and :func:`os.ptsname`."
 msgstr ""
+":gh:`85984`: Adiciona funções pseudoterminais POSIX :func:`os."
+"posix_openpt`, :func:`os.grantpt`, :func:`os.unlockpt` e :func:`os.ptsname`."
 
 #: ../NEWS:4344
 msgid ""
@@ -10280,6 +10465,10 @@ msgid ""
 "``_MainThread``. Also changed its name and daemonic status, it can be now "
 "joined."
 msgstr ""
+":gh:`102512`: Quando :func:`os.fork` é chamado de um thread estrangeiro "
+"(também conhecido como ``_DummyThread``), o tipo do thread em um processo "
+"filho é alterado para ``_MainThread``. Também alterou seu nome e status como "
+"daemon, agora pode ser unido."
 
 #: ../NEWS:4349
 msgid ""
@@ -10287,10 +10476,13 @@ msgid ""
 "pathnames such as \"NUL\", \"AUX\" and \"CON\". This function is only "
 "available on Windows."
 msgstr ""
+":gh:`88569`: Adiciona :func:`os.path.isreserved`, que identifica nomes de "
+"caminho reservados como \"NUL\", \"AUX\" e \"CON\". Esta função está "
+"disponível somente no Windows."
 
 #: ../NEWS:4353
 msgid "Deprecate :meth:`pathlib.PurePath.is_reserved`."
-msgstr ""
+msgstr "Descontinua :meth:`pathlib.PurePath.is_reserved`."
 
 #: ../NEWS:4355
 msgid ""
@@ -10299,12 +10491,18 @@ msgid ""
 "partialmethod`` wrapped functions the same way they support ``functools."
 "partial``."
 msgstr ""
+":issue:`38364`: As funções ``inspect`` ``isgeneratorfunction``, "
+"``iscoroutinefunction``, ``isasyncgenfunction`` agora oferecem suporte a "
+"funções encapsuladas ``functools.partialmethod`` da mesma forma que oferecem "
+"suporte a ``functools.partial``."
 
 #: ../NEWS:4363
 msgid ""
 ":gh:`115233`: Fix an example for :class:`~logging.LoggerAdapter` in the "
 "Logging Cookbook."
 msgstr ""
+":gh:`115233`: Corrige um exemplo para :class:`~logging.LoggerAdapter` no "
+"Logging Cookbook."
 
 #: ../NEWS:4366
 msgid ""
@@ -10312,6 +10510,9 @@ msgid ""
 "instead of reexporting it from the internal :mod:`!_csv` module, and remove "
 "``__doc__`` from ``csv.__all__``."
 msgstr ""
+":gh:`114123`: Move a docstring do módulo :mod:`csv` para o módulo :mod:`!"
+"csv` em vez de reexportá-la do módulo interno :mod:`!_csv` e remove "
+"``__doc__`` de ``csv.__all__``."
 
 #: ../NEWS:4370
 msgid ""
@@ -10319,11 +10520,16 @@ msgid ""
 "reexporting it from the internal :mod:`!_csv` module, and remove "
 "``__version__`` from ``csv.__all__``."
 msgstr ""
+"Move :attr:`!csv.__version__` para o módulo :mod:`!csv` em vez de reexportá-"
+"lo do módulo interno :mod:`!_csv` e remove ``__version__`` de ``csv."
+"__all__``."
 
 #: ../NEWS:4377
 msgid ""
 ":gh:`114099`: Added test exclusions required to run the test suite on iOS."
 msgstr ""
+":gh:`114099`: Adicionadas exclusões de teste necessárias para executar o "
+"conjunto de testes no iOS."
 
 #: ../NEWS:4379
 msgid ""
@@ -10331,48 +10537,65 @@ msgid ""
 "test_create_directory_with_write`` test in AIX by doing a bitwise AND of "
 "0xFFFF on mode , so that it will be in sync with ``zinfo.external_attr``"
 msgstr ""
+":gh:`105089`: Corrige o teste ``test.test_zipfile.test_core."
+"TestWithDirectory.test_create_directory_with_write`` no AIX fazendo um AND "
+"bit a bit de 0xFFFF no modo , para que ele fique sincronizado com ``zinfo."
+"external_attr``"
 
 #: ../NEWS:4387
 msgid ""
 ":gh:`115167`: Avoid vendoring ``vcruntime140_threads.dll`` when building "
 "with Visual Studio 2022 version 17.8."
 msgstr ""
+":gh:`115167`: Evita incluir ``vcruntime140_threads.dll`` ao Python ao "
+"construir com o Visual Studio 2022 versão 17.8."
 
 #: ../NEWS:4390
 msgid ""
 ":gh:`113632`: Promote WASI to a tier 2 platform and drop Emscripten from "
 "tier 3 in configure.ac."
 msgstr ""
+":gh:`113632`: Promove o WASI para uma plataforma de nível 2 e remove o "
+"Emscripten do nível 3 em configure.ac."
 
 #: ../NEWS:4393
 msgid ""
 ":gh:`114099`: configure and Makefile were refactored to accommodate "
 "framework builds on Apple platforms other than macOS."
 msgstr ""
+":gh:`114099`: configure e Makefile foram refatorados para acomodar "
+"construções de framework em plataformas Apple diferentes do macOS."
 
 #: ../NEWS:4396
 msgid ""
 ":gh:`114875`: Add :c:func:`!getgrent` as a prerequisite for building the :"
 "mod:`grp` module."
 msgstr ""
+":gh:`114875`: Adiciona :c:func:`!getgrent` como um pré-requisito para "
+"construir o módulo :mod:`grp`."
 
 #: ../NEWS:4402
 msgid ""
 ":gh:`115049`: Fixes ``py.exe`` launcher failing when run as users without "
 "user profiles."
 msgstr ""
+":gh:`115049`: Corrige a falha do iniciador ``py.exe`` quando executado como "
+"usuários sem perfis de usuário."
 
 #: ../NEWS:4405
 msgid ":gh:`115009`: Update Windows installer to use SQLite 3.45.1."
 msgstr ""
+":gh:`115009`: Atualize o instalador do Windows para usar o SQLite 3.45.1."
 
 #: ../NEWS:4407
 msgid ":gh:`109991`: Update Windows build to use OpenSSL 3.0.13."
 msgstr ""
+":gh:`109991`: Atualize a construção do Windows para usar o OpenSSL 3.0.13."
 
 #: ../NEWS:4409
 msgid ":gh:`111239`: Update Windows builds to use zlib v1.3.1."
 msgstr ""
+":gh:`111239`: Atualiza as construções do Windows para usar o zlib v1.3.1."
 
 #: ../NEWS:4411
 msgid ""
@@ -10380,31 +10603,42 @@ msgid ""
 "Microsoft Store redirector when launching a script containing a ``/usr/bin/"
 "env`` shebang"
 msgstr ""
+":gh:`100107`: O iniciador ``py.exe`` não tentará mais executar o "
+"redirecionador da Microsoft Store ao iniciar um script contendo um shebang "
+"``/usr/bin/env``"
 
 #: ../NEWS:4415
 msgid ""
 ":gh:`112984`: Adds free-threaded binaries to Windows installer as an "
 "optional component."
 msgstr ""
+":gh:`112984`: Adiciona binários de threads livres ao instalador do Windows "
+"como um componente opcional."
 
 #: ../NEWS:4418
 msgid ""
 ":gh:`89240`: Allows :mod:`multiprocessing` to create pools of greater than "
 "62 processes."
 msgstr ""
+":gh:`89240`: Permite que :mod:`multiprocessing` crie pools com mais de 62 "
+"processos."
 
 #: ../NEWS:4424
 msgid ":gh:`115009`: Update macOS installer to use SQLite 3.45.1."
 msgstr ""
+":gh:`115009`: Atualiza o instalador do macOS para usar o SQLite 3.45.1."
 
 #: ../NEWS:4426
 msgid ":gh:`109991`: Update macOS installer to use OpenSSL 3.0.13."
 msgstr ""
+":gh:`109991`: Atualiza o instalador do macOS para usar o OpenSSL 3.0.13."
 
 #: ../NEWS:4428
 msgid ""
 ":gh:`114490`: Add Mach-O linkage support for :func:`platform.architecture`."
 msgstr ""
+":gh:`114490`: Adiciona suporte de ligação Mach-O para :func:`platform."
+"architecture`."
 
 #: ../NEWS:4430
 msgid ""
@@ -10412,11 +10646,17 @@ msgid ""
 "correctly report the size of very large disks, in previous versions the "
 "reported number of blocks was wrong for disks with at least 2**32 blocks."
 msgstr ""
+":gh:`87804`: No macOS, o resultado de ``os.statvfs`` e ``os.fstatvfs`` agora "
+"relata corretamente o tamanho de discos muito grandes, em versões anteriores "
+"o número relatado de blocos estava errado para discos com pelo menos 2**32 "
+"blocos."
 
 #: ../NEWS:4437
 msgid ""
 ":gh:`96905`: In idlelib code, stop redefining built-ins 'dict' and 'object'."
 msgstr ""
+":gh:`96905`: No código de idlelib, para de redefinir os tipos embutidos "
+"'dict' e 'object'."
 
 #: ../NEWS:4439
 msgid ""
@@ -10424,16 +10664,21 @@ msgid ""
 "non-X11 windowing systems (i.e. Win32 and Aqua) are not mistaken for "
 "scrolling."
 msgstr ""
+":gh:`103820`: Revisa as ligações do IDLE para que os eventos do botão do "
+"mouse 4/5 em sistemas de janelas não X11 (por exemplo, Win32 e Aqua) não "
+"sejam confundidos com rolagem."
 
 #: ../NEWS:4446
 msgid ":gh:`113516`: Don't set ``LDSHARED`` when building for WASI."
-msgstr ""
+msgstr ":gh:`113516`: Não define ``LDSHARED`` ao construir para WASI."
 
 #: ../NEWS:4448
 msgid ""
 ":gh:`109991`: Update GitHub CI workflows to use OpenSSL 3.0.13 and "
 "multissltests to use 1.1.1w, 3.0.13, 3.1.5, and 3.2.1."
 msgstr ""
+":gh:`109991`: Atualiza fluxos de trabalho do GitHub CI para usar OpenSSL "
+"3.0.13 e multissltests para usar 1.1.1w, 3.0.13, 3.1.5 e 3.2.1."
 
 #: ../NEWS:4451
 msgid ""
@@ -10443,6 +10688,11 @@ msgid ""
 "Only the positional parameter count was checked; any keyword argument passed "
 "would be silently accepted."
 msgstr ""
+":gh:`115015`: Corrige um bug no Argument Clinic que gerava código incorreto "
+"para métodos sem parâmetros que usam a convenção de chamada :ref:"
+"`METH_METHOD | METH_FASTCALL | METH_KEYWORDS <METH_METHOD-METH_FASTCALL-"
+"METH_KEYWORDS>`. Apenas a contagem de parâmetros posicionais foi verificada; "
+"qualquer argumento nomeado passado seria aceito silenciosamente."
 
 #: ../NEWS:4460
 msgid ""
@@ -10450,6 +10700,8 @@ msgid ""
 "`PyLong_FromNativeBytes` and :c:func:`PyLong_FromUnsignedNativeBytes` "
 "functions."
 msgstr ""
+":gh:`111140`: Adiciona as funções :c:func:`PyLong_AsNativeBytes`, :c:func:"
+"`PyLong_FromNativeBytes` e :c:func:`PyLong_FromUnsignedNativeBytes`."
 
 #: ../NEWS:4464
 msgid ""
@@ -10457,6 +10709,10 @@ msgid ""
 "called with :c:macro:`PyBUF_READ` or :c:macro:`PyBUF_WRITE` as flags. These "
 "flags should only be used with the ``PyMemoryView_*`` C API."
 msgstr ""
+":gh:`114685`: :c:func:`PyBuffer_FillInfo` agora levanta uma :exc:"
+"`SystemError` se chamada com :c:macro:`PyBUF_READ` ou :c:macro:`PyBUF_WRITE` "
+"como sinalizadores. Esses sinalizadores devem ser usados ​​apenas com a API C "
+"``PyMemoryView_*``."
 
 #: ../NEWS:4468
 msgid ""
@@ -10464,6 +10720,10 @@ msgid ""
 "if called with :c:macro:`PyBUF_READ` or :c:macro:`PyBUF_WRITE` as flags. "
 "These flags should only be used with the ``PyMemoryView_*`` C API."
 msgstr ""
+":gh:`114685`: :c:func:`PyObject_GetBuffer` agora levanta uma :exc:"
+"`SystemError` se chamado com :c:macro:`PyBUF_READ` ou :c:macro:`PyBUF_WRITE` "
+"como sinalizadores. Esses sinalizadores devem ser usados ​​somente com a API C "
+"``PyMemoryView_*``."
 
 #: ../NEWS:4472
 msgid ""
@@ -10472,6 +10732,10 @@ msgid ""
 "``_PyCFunctionFastWithKeywords`` typedefs, just without a leading ``_`` "
 "prefix)."
 msgstr ""
+":gh:`114626`: Adiciona os typedefs ``PyCFunctionFast`` e "
+"``PyCFunctionFastWithKeywords`` (idênticos aos typedefs ``_PyCFunctionFast`` "
+"e ``_PyCFunctionFastWithKeywords`` existentes, apenas sem um prefixo ``_`` "
+"inicial)."
 
 #: ../NEWS:4477
 msgid ""
@@ -10479,10 +10743,13 @@ msgid ""
 "`PyList_GetItem` but returns a :term:`strong reference` instead of a :term:"
 "`borrowed reference`."
 msgstr ""
+":gh:`114329`: Adiciona :c:func:`PyList_GetItemRef`, que é semelhante a :c:"
+"func:`PyList_GetItem`, mas retorna uma :term:`referência forte` em vez de "
+"uma :term:`referência emprestada`."
 
 #: ../NEWS:4481
 msgid ":gh:`110850`: Add PyTime C API:"
-msgstr ""
+msgstr ":gh:`110850`: Adiciona a API C de PyTime:"
 
 #: ../NEWS:4483
 msgid ":c:type:`PyTime_t` type."
@@ -10497,6 +10764,8 @@ msgid ""
 ":c:func:`PyTime_AsSecondsDouble`, :c:func:`PyTime_Monotonic`, :c:func:"
 "`PyTime_PerfCounter`, and :c:func:`PyTime_Time` functions."
 msgstr ""
+"Funções :c:func:`PyTime_AsSecondsDouble`, :c:func:`PyTime_Monotonic`, :c:"
+"func:`PyTime_PerfCounter` e :c:func:`PyTime_Time`."
 
 #: ../NEWS:4491
 msgid ""
@@ -10506,6 +10775,11 @@ msgid ""
 "was already present. It is also similar to :c:func:`PyDict_SetDefault`, but "
 "returns a strong reference instead of a borrowed reference."
 msgstr ""
+":gh:`112066`: Adiciona :c:func:`PyDict_SetDefaultRef`: insere uma chave e um "
+"valor em um dicionário se a chave ainda não estiver presente. Isto é similar "
+"a :meth:`dict.setdefault`, mas retorna um valor inteiro indicando se a chave "
+"já estava presente. Também é similar a :c:func:`PyDict_SetDefault`, mas "
+"retorna uma referência forte em vez de uma referência emprestada."
 
 #: ../NEWS:4500
 msgid "Python 3.13.0 alpha 3"

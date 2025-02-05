@@ -4,7 +4,7 @@
 
 
 
-# c-api (53.72% done)
+# c-api (53.75% done)
 
 - exceptions.po                  194 / 370 ( 52.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
@@ -16,7 +16,7 @@
 - intro.po                        95 / 140 ( 67.0% translated).
 - long.po                         37 / 104 ( 35.0% translated).
 - memory.po                       53 / 200 ( 26.0% translated).
-- module.po                       61 / 132 ( 46.0% translated).
+- module.po                       63 / 132 ( 47.0% translated).
 - number.po                       14 /  48 ( 29.0% translated).
 - object.po                       43 / 119 ( 36.0% translated).
 - refcounting.po                   4 /  48 (  8.0% translated).
@@ -214,7 +214,7 @@
 
 
 
-# whatsnew (41.49% done)
+# whatsnew (41.95% done)
 
 - 2.3.po                         328 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -228,8 +228,8 @@
 - 3.5.po                         125 / 578 ( 21.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   1292 / 12166 ( 10.0% translated).
+- changelog.po                   1397 / 12166 ( 11.0% translated).
 
 
-# TOTAL (58.32% done)
+# TOTAL (58.46% done)
 
