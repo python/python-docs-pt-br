@@ -11,6 +11,10 @@ on:
         description: "Name of the Transifex translation project"
         required: true
         type: string
+      py_bin:
+        description: "Python binary version to use (useful if not equal to the 'version' input)"
+        required: false
+        type: string
     secrets:
       TX_TOKEN:
         description: "Token required for interacting with Transifex API"
@@ -48,10 +52,19 @@ jobs:
         with:
           ref: ${{ env.PYDOC_VERSION }}
           path: ${{ env.LANGUAGE_DIR }}
+          
+      - name: Set python binary version to use
+        run: |
+          if [[ -n "${{ inputs.py_bin }}" ]]; then
+            py_bin="${{ inputs.py_bin }}"
+          else
+            py_bin="${{ inputs.version }}"
+          fi
+          echo "PYTHON_BINARY_VERSION=$py_bin" >> $GITHUB_ENV
 
       - uses: actions/setup-python@v5
         with:
-          python-version: ${{ inputs.version }}
+          python-version: ${{ env.PYTHON_BINARY_VERSION }}
           allow-prereleases: true
           cache: 'pip'
           cache-dependency-path: |
