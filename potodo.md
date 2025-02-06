@@ -72,7 +72,7 @@
 
 
 
-# library (60.04% done)
+# library (60.06% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - abc.po                          31 /  60 ( 51.0% translated).
@@ -101,7 +101,7 @@
 - collections.po                 237 / 240 ( 98.0% translated).
 - compileall.po                   59 /  60 ( 98.0% translated).
 - concurrent.futures.po           14 /  98 ( 14.0% translated).
-- configparser.po                190 / 211 ( 90.0% translated).
+- configparser.po                197 / 211 ( 93.0% translated).
 - contextlib.po                   56 / 172 ( 32.0% translated).
 - contextvars.po                  49 /  51 ( 96.0% translated).
 - crypt.po                         6 /  36 ( 16.0% translated).
@@ -286,5 +286,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (65.91% done)
+# TOTAL (65.92% done)
 
