@@ -67,7 +67,7 @@
 
 
 
-# library (61.42% done)
+# library (61.44% done)
 
 - abc.po                          31 /  60 ( 51.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
@@ -86,7 +86,7 @@
 - binascii.po                     23 /  38 ( 60.0% translated).
 - codecs.po                      250 / 532 ( 46.0% translated).
 - concurrent.futures.po           14 / 100 ( 14.0% translated).
-- configparser.po                197 / 220 ( 89.0% translated).
+- configparser.po                204 / 220 ( 92.0% translated).
 - contextlib.po                   56 / 172 ( 32.0% translated).
 - ctypes.po                      102 / 526 ( 19.0% translated).
 - curses.po                       66 / 486 ( 13.0% translated).
@@ -231,5 +231,5 @@
 - changelog.po                   1397 / 12166 ( 11.0% translated).
 
 
-# TOTAL (58.46% done)
+# TOTAL (58.47% done)
 
