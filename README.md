@@ -14,6 +14,6 @@ See [main][main] branch for scripts, docs, license and more info.
 [docs_url]: https://docs.python.org/pt-br/3.8/
 [workflow_badge]: https://github.com/python/python-docs-pt-br/workflows/python-38/badge.svg
 [workflow_url]: https://github.com/python/python-docs-pt-br/actions?workflow=python-38
-[stats_badge]: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fpython%2Fpython-docs-pt-br%2Fraw%2F3.8%2Fstats.json&query=translation&label=pt_BR
+[stats_badge]: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fpython%2Fpython-docs-pt-br%2Fraw%2F3.8%2Fstats.json&query=completion&label=pt_BR
 [transifex_url]: https://app.transifex.com/python-doc/python-newest/
 
