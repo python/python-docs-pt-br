@@ -72,7 +72,7 @@
 
 
 
-# library (60.06% done)
+# library (60.05% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - abc.po                          31 /  60 ( 51.0% translated).
@@ -147,7 +147,7 @@
 - idle.po                         16 / 281 (  5.0% translated).
 - imaplib.po                      13 / 117 ( 11.0% translated).
 - imghdr.po                       20 /  42 ( 47.0% translated).
-- importlib.po                   242 / 304 ( 79.0% translated).
+- importlib.po                   240 / 304 ( 78.0% translated).
 - importlib.resources.po          40 /  47 ( 85.0% translated).
 - inspect.po                      78 / 383 ( 20.0% translated).
 - io.po                           21 / 271 (  7.0% translated).
@@ -156,7 +156,7 @@
 - json.po                        172 / 173 ( 99.0% translated).
 - logging.config.po               12 / 171 (  7.0% translated).
 - logging.handlers.po             48 / 270 ( 17.0% translated).
-- logging.po                     100 / 367 ( 27.0% translated).
+- logging.po                      99 / 367 ( 26.0% translated).
 - lzma.po                        112 / 113 ( 99.0% translated).
 - mailbox.po                      10 / 289 (  3.0% translated).
 - mailcap.po                       2 /  16 ( 12.0% translated).
@@ -193,7 +193,7 @@
 - site.po                         56 /  58 ( 96.0% translated).
 - smtplib.po                      30 / 116 ( 25.0% translated).
 - sndhdr.po                       12 /  38 ( 31.0% translated).
-- socket.po                       53 / 363 ( 14.0% translated).
+- socket.po                       53 / 362 ( 14.0% translated).
 - socketserver.po                  9 /  98 (  9.0% translated).
 - sqlite3.po                     114 / 468 ( 24.0% translated).
 - ssl.po                          39 / 520 (  7.0% translated).
@@ -269,9 +269,9 @@
 - windows.po                     374 / 378 ( 98.0% translated).
 
 
-# whatsnew (74.69% done)
+# whatsnew (74.68% done)
 
-- 2.3.po                         328 / 387 ( 84.0% translated).
+- 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
 - 2.5.po                         384 / 452 ( 84.0% translated).
 - 2.6.po                         537 / 626 ( 85.0% translated).
@@ -286,5 +286,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (65.92% done)
+# TOTAL (65.91% done)
 
