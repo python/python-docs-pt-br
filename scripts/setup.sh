@@ -32,6 +32,23 @@ set -u
 pip install -r requirements.txt
 make -C cpython/Doc venv
 
+
+if [[ ${PYDOC_VERSION} == '3.7' ]]; then
+  # Fixes circular dependencies that affects Python 3.7, see:
+  #   https://github.com/sphinx-doc/sphinx/issues/11567
+  #   https://github.com/bazelbuild/rules_python/pull/1166
+  cpython/Doc/venv/bin/pip install \
+    sphinxcontrib-applehelp==1.0.4 \
+    sphinxcontrib-devhelp==1.0.2 \
+    sphinxcontrib-htmlhelp==2.0.1 \
+    sphinxcontrib-qthelp==1.0.3 \
+    sphinxcontrib-serializinghtml==1.1.5 \
+    alabaster==0.7.13
+  # Add missing sections to satisfy Blurb's check
+  curl -L https://github.com/python/cpython/pull/114553.patch -o ../../114553.patch
+  git apply ../../114553.patch
+fi
+
 if ! command -v tx > /dev/null; then
   echo "WARNING: Transifex CLI tool was not found."
   echo "If going to pull translations it is needed, can be ignored otherwise."
