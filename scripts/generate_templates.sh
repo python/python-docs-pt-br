@@ -22,7 +22,7 @@ cd $(dirname $0)/../cpython/Doc/locales
 # Useful if setup.sh was not ran
 if [ ${PYDOC_VERSION} = '3.7' ] && [ ! -f ../../114553.patch ]; then
   curl -L https://github.com/python/cpython/pull/114553.patch -o ../../114553.patch
-  git apply ../../114553.patch
+  git am ../../114553.patch
 fi
 
 # Generate message catalog template (.pot) files
