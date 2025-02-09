@@ -67,9 +67,9 @@
 
 
 
-# library (61.43% done)
+# library (61.69% done)
 
-- abc.po                          31 /  60 ( 51.0% translated).
+- abc.po                          41 /  60 ( 68.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 402 ( 76.0% translated).
@@ -86,7 +86,6 @@
 - binascii.po                     23 /  38 ( 60.0% translated).
 - codecs.po                      250 / 532 ( 46.0% translated).
 - concurrent.futures.po           14 / 100 ( 14.0% translated).
-- configparser.po                204 / 220 ( 92.0% translated).
 - contextlib.po                   56 / 172 ( 32.0% translated).
 - ctypes.po                      102 / 526 ( 19.0% translated).
 - curses.po                       66 / 486 ( 13.0% translated).
@@ -111,7 +110,6 @@
 - errno.po                       115 / 160 ( 71.0% translated).
 - faulthandler.po                  4 /  43 (  9.0% translated).
 - fcntl.po                        22 /  49 ( 44.0% translated).
-- filecmp.po                       3 /  42 (  7.0% translated).
 - ftplib.po                       11 /  99 ( 11.0% translated).
 - functools.po                    20 / 115 ( 17.0% translated).
 - gzip.po                         24 /  68 ( 35.0% translated).
@@ -162,17 +160,14 @@
 - struct.po                       96 / 195 ( 49.0% translated).
 - subprocess.po                  149 / 323 ( 46.0% translated).
 - symtable.po                      6 /  65 (  9.0% translated).
-- sys.monitoring.po              102 / 111 ( 91.0% translated).
 - tarfile.po                     103 / 337 ( 30.0% translated).
 - tempfile.po                      8 /  87 (  9.0% translated).
 - test.po                        119 / 321 ( 37.0% translated).
-- textwrap.po                     48 /  57 ( 84.0% translated).
 - threading.po                    36 / 240 ( 15.0% translated).
 - timeit.po                       52 /  68 ( 76.0% translated).
 - tkinter.ttk.po                 141 / 429 ( 32.0% translated).
 - traceback.po                     9 / 112 (  8.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
-- types.po                        93 / 103 ( 90.0% translated).
 - typing.po                      759 / 791 ( 95.0% translated).
 - unicodedata.po                   5 /  32 ( 15.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
@@ -201,9 +196,8 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (98.15% done)
+# reference (100.00% done)
 
-- compound_stmts.po              414 / 467 ( 88.0% translated).
 
 
 # tutorial (100.00% done)
@@ -231,5 +225,5 @@
 - changelog.po                   1532 / 12179 ( 12.0% translated).
 
 
-# TOTAL (58.63% done)
+# TOTAL (58.83% done)
 

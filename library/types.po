@@ -6,16 +6,16 @@
 # Translators:
 # Raphael Mendonça, 2023
 # Adorilson Bezerra <adorilson@gmail.com>, 2024
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-17 14:16+0000\n"
+"POT-Creation-Date: 2025-02-07 14:17+0000\n"
 "PO-Revision-Date: 2021-06-28 01:16+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -190,6 +190,9 @@ msgid ""
 "``__orig_bases__`` attribute, :attr:`cls.__bases__ <type.__bases__>` is "
 "returned."
 msgstr ""
+"Para classes que possuem um atributo ``__orig_bases__``, esta função retorna "
+"o valor de ``cls.__orig_bases__``. Para classes sem o atributo "
+"``__orig_bases__``, :attr:`cls.__bases__ <type.__bases__>` é retornado."
 
 #: ../../library/types.rst:97
 msgid "Examples::"
@@ -221,6 +224,29 @@ msgid ""
 "assert int.__bases__ == (object,)\n"
 "assert get_original_bases(int) == (object,)"
 msgstr ""
+"from typing import TypeVar, Generic, NamedTuple, TypedDict\n"
+"\n"
+"T = TypeVar(\"T\")\n"
+"class Foo(Generic[T]): ...\n"
+"class Bar(Foo[int], float): ...\n"
+"class Baz(list[str]): ...\n"
+"Eggs = NamedTuple(\"Eggs\", [(\"a\", int), (\"b\", str)])\n"
+"Spam = TypedDict(\"Spam\", {\"a\": int, \"b\": str})\n"
+"\n"
+"assert Bar.__bases__ == (Foo, float)\n"
+"assert get_original_bases(Bar) == (Foo[int], float)\n"
+"\n"
+"assert Baz.__bases__ == (list,)\n"
+"assert get_original_bases(Baz) == (list[str],)\n"
+"\n"
+"assert Eggs.__bases__ == (tuple,)\n"
+"assert get_original_bases(Eggs) == (NamedTuple,)\n"
+"\n"
+"assert Spam.__bases__ == (dict,)\n"
+"assert get_original_bases(Spam) == (TypedDict,)\n"
+"\n"
+"assert int.__bases__ == (object,)\n"
+"assert get_original_bases(int) == (object,)"
 
 #: ../../library/types.rst:127
 msgid ":pep:`560` - Core support for typing module and generic types"
@@ -349,6 +375,8 @@ msgid ""
 "The type for cell objects: such objects are used as containers for a "
 "function's :term:`closure variables <closure variable>`."
 msgstr ""
+"O tipo para objetos de célula: tais objetos são usados como contêineres para "
+"as :term:`variáveis de clausura <closure variable>` de uma função."
 
 #: ../../library/types.rst:209
 msgid "The type of methods of user-defined class instances."
@@ -408,17 +436,19 @@ msgstr ""
 
 #: ../../library/types.rst:265
 msgid ":ref:`Documentation on module objects <module-objects>`"
-msgstr ""
+msgstr ":ref:`Documentação em objetos de módulo <module-objects>`"
 
 #: ../../library/types.rst:266
 msgid ""
 "Provides details on the special attributes that can be found on instances "
 "of :class:`!ModuleType`."
 msgstr ""
+"Fornece detalhes sobre os atributos especiais que podem ser encontrados em "
+"instâncias de :class:`!ModuleType`."
 
 #: ../../library/types.rst:269
 msgid ":func:`importlib.util.module_from_spec`"
-msgstr ""
+msgstr ":func:`importlib.util.module_from_spec`"
 
 #: ../../library/types.rst:270
 msgid ""
@@ -428,6 +458,11 @@ msgid ""
 "ModuleType` instances which ensures the various attributes are set "
 "appropriately."
 msgstr ""
+"Módulos criados usando o construtor :class:`!ModuleType` são criados com "
+"muitos de seus atributos especiais não definidos ou definidos com valores "
+"padrão. :func:`!module_from_spec` fornece uma maneira mais robusta de criar "
+"instâncias :class:`!ModuleType`, o que garante que os vários atributos sejam "
+"definidos adequadamente."
 
 #: ../../library/types.rst:278
 msgid "The type of :data:`Ellipsis`."
@@ -460,6 +495,12 @@ msgid ""
 ">>> dict[str, int] == GenericAlias(dict, (str, int))\n"
 "True"
 msgstr ""
+">>> from types import GenericAlias\n"
+"\n"
+">>> list[int] == GenericAlias(list, (int,))\n"
+"True\n"
+">>> dict[str, int] == GenericAlias(dict, (str, int))\n"
+"True"
 
 #: ../../library/types.rst:300
 msgid "This type can now be subclassed."
@@ -547,6 +588,10 @@ msgid ""
 "will be added as an attribute on the class. This allows the slot to appear "
 "in the class's :attr:`~type.__dict__`."
 msgstr ""
+"Além disso, quando uma classe é definida com um atributo :attr:`~object."
+"__slots__`, então para cada atributo, uma instância de :class:`!"
+"MemberDescriptorType` será adicionada como um atributo na classe. Isso "
+"permite que o atributo apareça no :attr:`~type.__dict__` da classe."
 
 #: ../../library/types.rst:354
 msgid ""
@@ -702,6 +747,20 @@ msgid ""
 "           return self.__dict__ == other.__dict__\n"
 "        return NotImplemented"
 msgstr ""
+"class SimpleNamespace:\n"
+"    def __init__(self, mapping_or_iterable=(), /, **kwargs):\n"
+"        self.__dict__.update(mapping_or_iterable)\n"
+"        self.__dict__.update(kwargs)\n"
+"\n"
+"    def __repr__(self):\n"
+"        items = (f\"{k}={v!r}\" for k, v in self.__dict__.items())\n"
+"        return \"{}({})\".format(type(self).__name__, \", \".join(items))\n"
+"\n"
+"    def __eq__(self, other):\n"
+"        if isinstance(self, SimpleNamespace) and isinstance(other, "
+"SimpleNamespace):\n"
+"           return self.__dict__ == other.__dict__\n"
+"        return NotImplemented"
 
 #: ../../library/types.rst:469
 msgid ""
