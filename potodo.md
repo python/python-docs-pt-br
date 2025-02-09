@@ -72,10 +72,10 @@
 
 
 
-# library (60.05% done)
+# library (60.29% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
-- abc.po                          31 /  60 ( 51.0% translated).
+- abc.po                          41 /  60 ( 68.0% translated).
 - argparse.po                    368 / 370 ( 99.0% translated).
 - array.po                        64 /  84 ( 76.0% translated).
 - ast.po                         255 / 306 ( 83.0% translated).
@@ -101,7 +101,6 @@
 - collections.po                 237 / 240 ( 98.0% translated).
 - compileall.po                   59 /  60 ( 98.0% translated).
 - concurrent.futures.po           14 /  98 ( 14.0% translated).
-- configparser.po                197 / 211 ( 93.0% translated).
 - contextlib.po                   56 / 172 ( 32.0% translated).
 - contextvars.po                  49 /  51 ( 96.0% translated).
 - crypt.po                         6 /  36 ( 16.0% translated).
@@ -131,7 +130,7 @@
 - exceptions.po                  188 / 189 ( 99.0% translated).
 - faulthandler.po                  4 /  43 (  9.0% translated).
 - fcntl.po                        17 /  48 ( 35.0% translated).
-- filecmp.po                       3 /  41 (  7.0% translated).
+- filecmp.po                      40 /  41 ( 97.0% translated).
 - fractions.po                    32 /  33 ( 96.0% translated).
 - ftplib.po                       11 /  99 ( 11.0% translated).
 - functions.po                   491 / 497 ( 98.0% translated).
@@ -202,14 +201,12 @@
 - struct.po                       96 / 194 ( 49.0% translated).
 - subprocess.po                  149 / 321 ( 46.0% translated).
 - symtable.po                      4 /  50 (  8.0% translated).
-- sys.monitoring.po              104 / 112 ( 92.0% translated).
 - sys.po                         419 / 431 ( 97.0% translated).
 - syslog.po                       26 /  33 ( 78.0% translated).
 - tarfile.po                     103 / 333 ( 30.0% translated).
 - telnetlib.po                    10 /  53 ( 18.0% translated).
 - tempfile.po                      8 /  87 (  9.0% translated).
 - test.po                        118 / 320 ( 36.0% translated).
-- textwrap.po                     48 /  57 ( 84.0% translated).
 - threading.po                    35 / 239 ( 14.0% translated).
 - timeit.po                       52 /  68 ( 76.0% translated).
 - tkinter.tix.po                   5 /  75 (  6.0% translated).
@@ -217,7 +214,7 @@
 - traceback.po                     9 / 108 (  8.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
 - turtle.po                      661 / 662 ( 99.0% translated).
-- types.po                        90 /  99 ( 90.0% translated).
+- types.po                        98 /  99 ( 98.0% translated).
 - typing.po                      694 / 745 ( 93.0% translated).
 - unicodedata.po                   5 /  32 ( 15.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
@@ -249,9 +246,9 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (97.96% done)
+# reference (99.82% done)
 
-- compound_stmts.po              411 / 465 ( 88.0% translated).
+- compound_stmts.po              464 / 465 ( 99.0% translated).
 - datamodel.po                   852 / 856 ( 99.0% translated).
 
 
@@ -286,5 +283,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (65.91% done)
+# TOTAL (66.14% done)
 

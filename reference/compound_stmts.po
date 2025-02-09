@@ -3173,11 +3173,11 @@ msgstr "Classes genéricas"
 
 #: ../../reference/compound_stmts.rst:1786
 msgid "Generic classes are declared as follows::"
-msgstr ""
+msgstr "Classes genéricas são declaradas assim:"
 
 #: ../../reference/compound_stmts.rst:1788
 msgid "class Bag[T]: ..."
-msgstr ""
+msgstr "class Bag[T]: ..."
 
 #: ../../reference/compound_stmts.rst:1792
 msgid ""
@@ -3189,6 +3189,13 @@ msgid ""
 "    return Bag\n"
 "Bag = TYPE_PARAMS_OF_Bag()"
 msgstr ""
+"annotation-def TYPE_PARAMS_OF_Bag():\n"
+"    T = typing.TypeVar(\"T\")\n"
+"    class Bag(typing.Generic[T]):\n"
+"        __type_params__ = (T,)\n"
+"        ...\n"
+"    return Bag\n"
+"Bag = TYPE_PARAMS_OF_Bag()"
 
 #: ../../reference/compound_stmts.rst:1800
 msgid ""
@@ -3196,6 +3203,9 @@ msgid ""
 "`annotation scope <annotation-scopes>`, and the name ``TYPE_PARAMS_OF_Bag`` "
 "is not actually bound at runtime."
 msgstr ""
+"Aqui novamente ``annotation-def`` (não é uma palavra reservada real) indica "
+"um :ref:`escopo de anotação <annotation-scopes>`, e o nome "
+"``TYPE_PARAMS_OF_Bag`` não é realmente vinculado em tempo de execução."
 
 #: ../../reference/compound_stmts.rst:1804
 msgid ""
@@ -3204,12 +3214,18 @@ msgid ""
 "type scope for the type parameters, and decorators are evaluated outside "
 "that scope. This is illustrated by this example::"
 msgstr ""
+"Classes genéricas herdam implicitamente de :data:`typing.Generic`. As "
+"classes base e os argumentos nomeados de classes genéricas são avaliados "
+"dentro do escopo de tipo para os parâmetros de tipo, e os decoradores são "
+"avaliados fora desse escopo. Isso é ilustrado por este exemplo::"
 
 #: ../../reference/compound_stmts.rst:1810
 msgid ""
 "@decorator\n"
 "class Bag(Base[T], arg=T): ..."
 msgstr ""
+"@decorator\n"
+"class Bag(Base[T], arg=T): ..."
 
 #: ../../reference/compound_stmts.rst:1813
 msgid "This is equivalent to::"
@@ -3225,26 +3241,37 @@ msgid ""
 "    return Bag\n"
 "Bag = decorator(TYPE_PARAMS_OF_Bag())"
 msgstr ""
+"annotation-def TYPE_PARAMS_OF_Bag():\n"
+"    T = typing.TypeVar(\"T\")\n"
+"    class Bag(Base[T], typing.Generic[T], arg=T):\n"
+"        __type_params__ = (T,)\n"
+"        ...\n"
+"    return Bag\n"
+"Bag = decorator(TYPE_PARAMS_OF_Bag())"
 
 #: ../../reference/compound_stmts.rst:1826
 msgid "Generic type aliases"
-msgstr ""
+msgstr "Apelidos de tipo genérico"
 
 #: ../../reference/compound_stmts.rst:1828
 msgid ""
 "The :keyword:`type` statement can also be used to create a generic type "
 "alias::"
 msgstr ""
+"A instrução :keyword:`type` também pode ser usada para criar um apelido de "
+"tipo genérico::"
 
 #: ../../reference/compound_stmts.rst:1830
 msgid "type ListOrSet[T] = list[T] | set[T]"
-msgstr ""
+msgstr "type ListOrSet[T] = list[T] | set[T]"
 
 #: ../../reference/compound_stmts.rst:1832
 msgid ""
 "Except for the :ref:`lazy evaluation <lazy-evaluation>` of the value, this "
 "is equivalent to::"
 msgstr ""
+"Exceto pela :ref:`avaliação preguiçosa <lazy-evaluation>` do valor, isso é "
+"equivalente a::"
 
 #: ../../reference/compound_stmts.rst:1835
 msgid ""
@@ -3258,6 +3285,15 @@ msgid ""
 "type_params=(T,))\n"
 "ListOrSet = TYPE_PARAMS_OF_ListOrSet()"
 msgstr ""
+"annotation-def TYPE_PARAMS_OF_ListOrSet():\n"
+"    T = typing.TypeVar(\"T\")\n"
+"\n"
+"    annotation-def VALUE_OF_ListOrSet():\n"
+"        return list[T] | set[T]\n"
+"    # Na realidade, o valor é avaliado preguiçosamente\n"
+"    return typing.TypeAliasType(\"ListOrSet\", VALUE_OF_ListOrSet(), "
+"type_params=(T,))\n"
+"ListOrSet = TYPE_PARAMS_OF_ListOrSet()"
 
 #: ../../reference/compound_stmts.rst:1844
 msgid ""
@@ -3265,6 +3301,10 @@ msgid ""
 "scope <annotation-scopes>`. The capitalized names like "
 "``TYPE_PARAMS_OF_ListOrSet`` are not actually bound at runtime."
 msgstr ""
+"Aqui, ``annotation-def`` (não é uma palavra reservada real) indica um :ref:"
+"`escopo de anotação <annotation-scopes>`. Os nomes em maiúsculas como "
+"``TYPE_PARAMS_OF_ListOrSet`` não são realmente vinculados em tempo de "
+"execução."
 
 #: ../../reference/compound_stmts.rst:1849
 msgid "Footnotes"
@@ -3276,33 +3316,41 @@ msgid ""
 "keyword:`finally` clause which happens to raise another exception. That new "
 "exception causes the old one to be lost."
 msgstr ""
+"A exceção é propagada para a pilha de invocação, a menos que haja uma "
+"cláusula :keyword:`finally` que por acaso levante outra exceção. Essa nova "
+"exceção faz com que a antiga seja perdida."
 
 #: ../../reference/compound_stmts.rst:1854
 msgid "In pattern matching, a sequence is defined as one of the following:"
 msgstr ""
+"Na correspondência de padrões, uma sequência é definida como uma das "
+"seguintes:"
 
 #: ../../reference/compound_stmts.rst:1856
 msgid "a class that inherits from :class:`collections.abc.Sequence`"
-msgstr ""
+msgstr "uma classe que herda de :class:`collections.abc.Sequence`"
 
 #: ../../reference/compound_stmts.rst:1857
 msgid ""
 "a Python class that has been registered as :class:`collections.abc.Sequence`"
 msgstr ""
+"uma classe Python que foi registrada como :class:`collections.abc.Sequence`"
 
 #: ../../reference/compound_stmts.rst:1858
 msgid ""
 "a builtin class that has its (CPython) :c:macro:`Py_TPFLAGS_SEQUENCE` bit set"
 msgstr ""
+"uma classe embutida que tem seu bit :c:macro:`Py_TPFLAGS_SEQUENCE` (CPython) "
+"definido"
 
 #: ../../reference/compound_stmts.rst:1859
 #: ../../reference/compound_stmts.rst:1878
 msgid "a class that inherits from any of the above"
-msgstr ""
+msgstr "uma classe que herda de qualquer uma das anteriores"
 
 #: ../../reference/compound_stmts.rst:1861
 msgid "The following standard library classes are sequences:"
-msgstr ""
+msgstr "As seguintes classes de biblioteca padrão são sequências:"
 
 #: ../../reference/compound_stmts.rst:1863
 msgid ":class:`array.array`"
@@ -3325,30 +3373,39 @@ msgid ""
 "Subject values of type ``str``, ``bytes``, and ``bytearray`` do not match "
 "sequence patterns."
 msgstr ""
+"Valores de assunto do tipo ``str``, ``bytes`` e ``bytearray`` não "
+"correspondem aos padrões de sequência."
 
 #: ../../reference/compound_stmts.rst:1873
 msgid "In pattern matching, a mapping is defined as one of the following:"
 msgstr ""
+"Na correspondência de padrões, um mapeamento é definido como uma das "
+"seguintes:"
 
 #: ../../reference/compound_stmts.rst:1875
 msgid "a class that inherits from :class:`collections.abc.Mapping`"
-msgstr ""
+msgstr "uma classe que herda de :class:`collections.abc.Mapping`"
 
 #: ../../reference/compound_stmts.rst:1876
 msgid ""
 "a Python class that has been registered as :class:`collections.abc.Mapping`"
 msgstr ""
+"uma classe Python que foi registrada como :class:`collections.abc.Mapping`"
 
 #: ../../reference/compound_stmts.rst:1877
 msgid ""
 "a builtin class that has its (CPython) :c:macro:`Py_TPFLAGS_MAPPING` bit set"
 msgstr ""
+"uma classe embutida que tem seu bit :c:macro:`Py_TPFLAGS_MAPPING` (CPython) "
+"definido"
 
 #: ../../reference/compound_stmts.rst:1880
 msgid ""
 "The standard library classes :class:`dict` and :class:`types."
 "MappingProxyType` are mappings."
 msgstr ""
+"As classes de biblioteca padrão :class:`dict` e :class:`types."
+"MappingProxyType` são mapeamentos."
 
 #: ../../reference/compound_stmts.rst:1883
 msgid ""
@@ -3356,6 +3413,9 @@ msgid ""
 "transformed into the function's :attr:`~function.__doc__` attribute and "
 "therefore the function's :term:`docstring`."
 msgstr ""
+"Um literal de string que aparece como a primeira instrução no corpo da "
+"função é transformado no atributo :attr:`~function.__doc__` da função e, "
+"portanto, no :term:`docstring` da função."
 
 #: ../../reference/compound_stmts.rst:1887
 msgid ""
@@ -3363,6 +3423,9 @@ msgid ""
 "transformed into the namespace's :attr:`~type.__doc__` item and therefore "
 "the class's :term:`docstring`."
 msgstr ""
+"Um literal de string que aparece como a primeira instrução no corpo da "
+"classe é transformado no item :attr:`~type.__doc__` do espaço de nomes e, "
+"portanto, no :term:`docstring` da classe."
 
 #: ../../reference/compound_stmts.rst:7
 msgid "compound"
@@ -3388,11 +3451,11 @@ msgstr "instrução"
 
 #: ../../reference/compound_stmts.rst:21
 msgid "clause"
-msgstr ""
+msgstr "cláusula"
 
 #: ../../reference/compound_stmts.rst:21
 msgid "suite"
-msgstr ""
+msgstr "conjunto (suite)"
 
 #: ../../reference/compound_stmts.rst:21
 msgid "; (semicolon)"
@@ -3408,7 +3471,7 @@ msgstr "token DEDENT"
 
 #: ../../reference/compound_stmts.rst:64
 msgid "dangling"
-msgstr ""
+msgstr "pendurado"
 
 #: ../../reference/compound_stmts.rst:64 ../../reference/compound_stmts.rst:86
 #: ../../reference/compound_stmts.rst:111
@@ -3436,7 +3499,7 @@ msgstr "palavra reservada"
 
 #: ../../reference/compound_stmts.rst:86
 msgid "elif"
-msgstr ""
+msgstr "elif"
 
 #: ../../reference/compound_stmts.rst:86 ../../reference/compound_stmts.rst:111
 #: ../../reference/compound_stmts.rst:144
@@ -3457,7 +3520,7 @@ msgstr ": (dois pontos)"
 #: ../../reference/compound_stmts.rst:1195
 #: ../../reference/compound_stmts.rst:1389
 msgid "compound statement"
-msgstr ""
+msgstr "instrução composta"
 
 #: ../../reference/compound_stmts.rst:111
 msgid "while"
@@ -3539,7 +3602,7 @@ msgstr "as"
 
 #: ../../reference/compound_stmts.rst:265
 msgid "except clause"
-msgstr ""
+msgstr "cláusula except"
 
 #: ../../reference/compound_stmts.rst:298
 msgid "module"
@@ -3555,7 +3618,7 @@ msgstr "traceback"
 
 #: ../../reference/compound_stmts.rst:327
 msgid "except_star"
-msgstr ""
+msgstr "except_star"
 
 #: ../../reference/compound_stmts.rst:390
 #: ../../reference/compound_stmts.rst:437
@@ -3568,7 +3631,7 @@ msgstr "with"
 
 #: ../../reference/compound_stmts.rst:471
 msgid "with statement"
-msgstr ""
+msgstr "instrução with"
 
 #: ../../reference/compound_stmts.rst:471
 #: ../../reference/compound_stmts.rst:1195
@@ -3578,39 +3641,39 @@ msgstr ", (vírgula)"
 
 #: ../../reference/compound_stmts.rst:588
 msgid "match"
-msgstr ""
+msgstr "match"
 
 #: ../../reference/compound_stmts.rst:588
 msgid "case"
-msgstr ""
+msgstr "case"
 
 #: ../../reference/compound_stmts.rst:588
 msgid "pattern matching"
-msgstr ""
+msgstr "correspondência de padrões"
 
 #: ../../reference/compound_stmts.rst:588
 msgid "match statement"
-msgstr ""
+msgstr "instrução match"
 
 #: ../../reference/compound_stmts.rst:692
 msgid "guard"
-msgstr ""
+msgstr "guard"
 
 #: ../../reference/compound_stmts.rst:731
 msgid "irrefutable case block"
-msgstr ""
+msgstr "bloco irrefutável de case"
 
 #: ../../reference/compound_stmts.rst:731
 msgid "case block"
-msgstr ""
+msgstr "bloco de case"
 
 #: ../../reference/compound_stmts.rst:755
 msgid "! patterns"
-msgstr ""
+msgstr "padrões !"
 
 #: ../../reference/compound_stmts.rst:755
 msgid "AS pattern, OR pattern, capture pattern, wildcard pattern"
-msgstr ""
+msgstr "padrão AS, padrão OR, padrão de captura, padrão curinga"
 
 #: ../../reference/compound_stmts.rst:1186
 #: ../../reference/compound_stmts.rst:1275
@@ -3623,11 +3686,11 @@ msgstr "parâmetro"
 #: ../../reference/compound_stmts.rst:1275
 #: ../../reference/compound_stmts.rst:1304
 msgid "function definition"
-msgstr ""
+msgstr "definição de função"
 
 #: ../../reference/compound_stmts.rst:1195
 msgid "def"
-msgstr ""
+msgstr "def"
 
 #: ../../reference/compound_stmts.rst:1195
 #: ../../reference/compound_stmts.rst:1325
@@ -3660,7 +3723,7 @@ msgstr "() (parênteses)"
 
 #: ../../reference/compound_stmts.rst:1195
 msgid "parameter list"
-msgstr ""
+msgstr "lista de parâmetros"
 
 #: ../../reference/compound_stmts.rst:1239
 #: ../../reference/compound_stmts.rst:1439
@@ -3729,7 +3792,7 @@ msgstr "quadro"
 
 #: ../../reference/compound_stmts.rst:1389
 msgid "inheritance"
-msgstr ""
+msgstr "herança"
 
 #: ../../reference/compound_stmts.rst:1389
 msgid "docstring"
@@ -3746,11 +3809,11 @@ msgstr "expressão, lista de"
 
 #: ../../reference/compound_stmts.rst:1499
 msgid "async def"
-msgstr ""
+msgstr "async def"
 
 #: ../../reference/compound_stmts.rst:1509
 msgid "async"
-msgstr ""
+msgstr "async"
 
 #: ../../reference/compound_stmts.rst:1509
 msgid "await"
@@ -3762,8 +3825,8 @@ msgstr "async for"
 
 #: ../../reference/compound_stmts.rst:1578
 msgid "async with"
-msgstr ""
+msgstr "async with"
 
 #: ../../reference/compound_stmts.rst:1632
 msgid "type parameters"
-msgstr ""
+msgstr "parâmetros de tipo"
