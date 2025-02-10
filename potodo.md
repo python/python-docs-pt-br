@@ -79,7 +79,7 @@
 
 
 
-# library (58.90% done)
+# library (59.00% done)
 
 - argparse.po                    260 / 290 ( 89.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
@@ -139,7 +139,7 @@
 - exceptions.po                  139 / 140 ( 99.0% translated).
 - faulthandler.po                  2 /  36 (  5.0% translated).
 - fcntl.po                        14 /  38 ( 36.0% translated).
-- filecmp.po                       4 /  39 ( 10.0% translated).
+- filecmp.po                      35 /  39 ( 89.0% translated).
 - fileinput.po                    33 /  40 ( 82.0% translated).
 - formatter.po                     6 /  52 ( 11.0% translated).
 - fractions.po                    15 /  23 ( 65.0% translated).
@@ -265,9 +265,9 @@
 - zoneinfo.po                      5 /  72 (  6.0% translated).
 
 
-# reference (92.47% done)
+# reference (92.54% done)
 
-- compound_stmts.po               81 / 118 ( 68.0% translated).
+- compound_stmts.po               82 / 118 ( 69.0% translated).
 - datamodel.po                   477 / 484 ( 98.0% translated).
 - expressions.po                 295 / 329 ( 89.0% translated).
 - import.po                      163 / 186 ( 87.0% translated).
@@ -303,5 +303,5 @@
 - 3.9.po                         382 / 386 ( 98.0% translated).
 
 
-# TOTAL (62.78% done)
+# TOTAL (62.85% done)
 
