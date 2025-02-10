@@ -167,12 +167,17 @@ msgid ""
 "ABC, even if it would normally be one.  If it returns :data:`!"
 "NotImplemented`, the subclass check is continued with the usual mechanism."
 msgstr ""
+"Este método deve retornar ``True``, ``False`` ou :data:`NotImplemented`. Se "
+"retornar ``True``, *subclass* é considerada uma subclasse desta ABC. Se "
+"retornar ``False``, *subclass* não é considerada uma subclasse desta ABC, "
+"mesmo que normalmente seria uma. Se retornar :data:`!NotImplemented`, a "
+"verificação da subclasse é continuada com o mecanismo usual."
 
 #: ../../library/abc.rst:114
 msgid ""
 "For a demonstration of these concepts, look at this example ABC definition::"
 msgstr ""
-"Para uma demonstração destes conceitos, veja este exemplo de definição CBA::"
+"Para uma demonstração destes conceitos, veja este exemplo de definição ABC::"
 
 #: ../../library/abc.rst:143
 msgid ""
@@ -182,6 +187,11 @@ msgid ""
 "also part of the ``MyIterable`` abstract base class, but it does not have to "
 "be overridden in non-abstract derived classes."
 msgstr ""
+"A ``MyIterable`` da ABC define o método iterável padrão, :meth:`~iterator."
+"__iter__`, como um método abstrato. A implementação dada aqui pode ainda ser "
+"chamada da subclasse. O método :meth:`!get_iterator` é também parte da "
+"classe base abstrata ``MyIterable`` , mas não precisa ser substituído nas "
+"classes derivadas não abstratas."
 
 #: ../../library/abc.rst:149
 msgid ""
@@ -204,10 +214,16 @@ msgid ""
 "``get_iterator`` available as a method of ``Foo``, so it is provided "
 "separately."
 msgstr ""
+"Finalmente, a última linha faz de ``Foo`` uma subclasse virtual da "
+"``MyIterable``, apesar de não definir um método :meth:`~iterator.__iter__` "
+"(ela usa o protocolo iterável antigo, definido em termos de :meth:`~object."
+"__len__` e :meth:`~object.__getitem__`). Note que isto não fará o "
+"``get_iterator`` disponível como um método de ``Foo``, então ele é fornecido "
+"separadamente."
 
 #: ../../library/abc.rst:163
 msgid "The :mod:`!abc` module also provides the following decorator:"
-msgstr ""
+msgstr "O módulo :mod:`!abc` também fornece o seguinte decorador:"
 
 #: ../../library/abc.rst:167
 msgid "A decorator indicating abstract methods."
@@ -222,6 +238,13 @@ msgid ""
 "the normal 'super' call mechanisms.  :func:`!abstractmethod` may be used to "
 "declare abstract methods for properties and descriptors."
 msgstr ""
+"Usar este decorador requer que a metaclasse da classe seja :class:`ABCMeta` "
+"ou seja derivada desta. Uma classe que tem uma metaclasse derivada de :class:"
+"`!ABCMeta` não pode ser instanciada, a menos que todos os seus métodos "
+"abstratos e propriedades estejam substituídos. Os métodos abstratos podem "
+"ser chamados usando qualquer um dos mecanismos normais de chamadas a "
+"'super'. :func:`!abstractmethod` pode ser usado para declarar métodos "
+"abstratos para propriedades e descritores."
 
 #: ../../library/abc.rst:176
 msgid ""
@@ -232,6 +255,12 @@ msgid ""
 "\"virtual subclasses\" registered with the ABC's :meth:`~ABCMeta.register` "
 "method are not affected."
 msgstr ""
+"Adicionar dinamicamente métodos abstratos a uma classe, ou tentar modificar "
+"o status de abstração de um método ou classe uma vez que estejam criados, só "
+"é suportado usando a função :func:`update_abstractmethods`. A :func:`!"
+"abstractmethod` afeta apenas subclasses derivadas usando herança regular; "
+"\"subclasses virtuais\" registradas com o método :meth:`~ABCMeta.register` "
+"da ABC não são afetadas."
 
 #: ../../library/abc.rst:183
 msgid ""
@@ -239,6 +268,9 @@ msgid ""
 "descriptors, it should be applied as the innermost decorator, as shown in "
 "the following usage examples::"
 msgstr ""
+"Quando :func:`!abstractmethod` é aplicado em combinação com outros "
+"descritores de método, ele deve ser aplicado como o decorador mais interno, "
+"como mostrado nos seguintes exemplos de uso::"
 
 #: ../../library/abc.rst:217
 msgid ""
@@ -248,6 +280,11 @@ msgid ""
 "of the methods used to compose the descriptor are abstract. For example, "
 "Python's built-in :class:`property` does the equivalent of::"
 msgstr ""
+"Para que interopere corretamente com o maquinário da classe base abstrata, o "
+"descritor precisa identificar-se como abstrato usando :attr:`!"
+"__isabstractmethod__`. No geral, este atributo deve ser ``True`` se algum "
+"dos métodos usados para compor o descritor for abstrato. Por exemplo, a :"
+"class:`property` embutida do Python faz o equivalente a::"
 
 #: ../../library/abc.rst:232
 msgid ""
@@ -264,7 +301,7 @@ msgstr ""
 
 #: ../../library/abc.rst:239
 msgid "The :mod:`!abc` module also supports the following legacy decorators:"
-msgstr ""
+msgstr "O módulo :mod:`!abc` também suporta os seguintes decoradores herdados:"
 
 #: ../../library/abc.rst:244
 msgid ""
@@ -363,7 +400,7 @@ msgstr ""
 
 #: ../../library/abc.rst:326
 msgid "The :mod:`!abc` module also provides the following functions:"
-msgstr ""
+msgstr "O módulo :mod:`!abc` também fornece as seguintes funções:"
 
 #: ../../library/abc.rst:330
 msgid "Returns the current abstract base class cache token."
