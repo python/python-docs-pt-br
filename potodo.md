@@ -72,10 +72,9 @@
 
 
 
-# library (60.29% done)
+# library (60.42% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
-- abc.po                          41 /  60 ( 68.0% translated).
 - argparse.po                    368 / 370 ( 99.0% translated).
 - array.po                        64 /  84 ( 76.0% translated).
 - ast.po                         255 / 306 ( 83.0% translated).
@@ -122,7 +121,6 @@
 - email.header.po                  4 /  40 ( 10.0% translated).
 - email.headerregistry.po         12 / 111 ( 10.0% translated).
 - email.message.po                 6 / 110 (  5.0% translated).
-- email.mime.po                   29 /  38 ( 76.0% translated).
 - email.parser.po                  2 /  48 (  4.0% translated).
 - email.policy.po                 11 / 107 ( 10.0% translated).
 - enum.po                         71 / 231 ( 30.0% translated).
@@ -150,7 +148,6 @@
 - importlib.resources.po          40 /  47 ( 85.0% translated).
 - inspect.po                      78 / 383 ( 20.0% translated).
 - io.po                           21 / 271 (  7.0% translated).
-- ipaddress.po                   154 / 164 ( 93.0% translated).
 - itertools.po                   117 / 193 ( 60.0% translated).
 - json.po                        172 / 173 ( 99.0% translated).
 - logging.config.po               12 / 171 (  7.0% translated).
@@ -241,7 +238,6 @@
 - xml.sax.reader.po                2 /  75 (  2.0% translated).
 - xml.sax.utils.po                 1 /  15 (  6.0% translated).
 - xmlrpc.client.po                56 / 113 ( 49.0% translated).
-- zipfile.po                     193 / 202 ( 95.0% translated).
 - zipimport.po                     6 /  37 ( 16.0% translated).
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
@@ -283,5 +279,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (66.14% done)
+# TOTAL (66.21% done)
 
