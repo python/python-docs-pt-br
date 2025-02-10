@@ -87,7 +87,7 @@
 
 
 
-# library (59.32% done)
+# library (59.35% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    254 / 290 ( 87.0% translated).
@@ -145,7 +145,7 @@
 - email.header.po                  4 /  38 ( 10.0% translated).
 - email.headerregistry.po         13 / 103 ( 12.0% translated).
 - email.message.po                 6 / 103 (  5.0% translated).
-- email.mime.po                   28 /  38 ( 73.0% translated).
+- email.mime.po                   36 /  38 ( 94.0% translated).
 - email.parser.po                  2 /  47 (  4.0% translated).
 - email.policy.po                 12 / 103 ( 11.0% translated).
 - enum.po                         63 / 188 ( 33.0% translated).
@@ -323,5 +323,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (63.45% done)
+# TOTAL (63.47% done)
 
