@@ -67,9 +67,8 @@
 
 
 
-# library (61.69% done)
+# library (61.82% done)
 
-- abc.po                          41 /  60 ( 68.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 402 ( 76.0% translated).
@@ -103,7 +102,6 @@
 - email.header.po                  4 /  40 ( 10.0% translated).
 - email.headerregistry.po         12 / 111 ( 10.0% translated).
 - email.message.po                 6 / 110 (  5.0% translated).
-- email.mime.po                   29 /  38 ( 76.0% translated).
 - email.parser.po                  2 /  48 (  4.0% translated).
 - email.policy.po                 11 / 107 ( 10.0% translated).
 - enum.po                         73 / 244 ( 29.0% translated).
@@ -125,7 +123,6 @@
 - importlib.po                   245 / 312 ( 78.0% translated).
 - inspect.po                      78 / 390 ( 20.0% translated).
 - io.po                           21 / 271 (  7.0% translated).
-- ipaddress.po                   155 / 165 ( 93.0% translated).
 - itertools.po                   116 / 200 ( 58.0% translated).
 - logging.config.po               12 / 171 (  7.0% translated).
 - logging.handlers.po             48 / 270 ( 17.0% translated).
@@ -191,7 +188,6 @@
 - xml.sax.reader.po                2 /  75 (  2.0% translated).
 - xml.sax.utils.po                 1 /  15 (  6.0% translated).
 - xmlrpc.client.po                56 / 113 ( 49.0% translated).
-- zipfile.po                     198 / 207 ( 95.0% translated).
 - zipimport.po                     6 /  38 ( 15.0% translated).
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
@@ -225,5 +221,5 @@
 - changelog.po                   1532 / 12179 ( 12.0% translated).
 
 
-# TOTAL (58.83% done)
+# TOTAL (58.89% done)
 
