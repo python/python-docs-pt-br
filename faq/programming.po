@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-03 17:40+0000\n"
+"POT-Creation-Date: 2025-02-07 14:17+0000\n"
 "PO-Revision-Date: 2021-06-28 00:52+0000\n"
 "Last-Translator: Adorilson Bezerra <adorilson@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -4596,7 +4596,7 @@ msgstr ""
 
 #: ../../faq/programming.rst:2145
 msgid "How can I have modules that mutually import each other?"
-msgstr ""
+msgstr "Como posso ter módulos que se importam mutuamente?"
 
 #: ../../faq/programming.rst:2147
 msgid "Suppose you have the following modules:"
@@ -4611,6 +4611,8 @@ msgid ""
 "from bar import bar_var\n"
 "foo_var = 1"
 msgstr ""
+"from bar importar bar_var\n"
+"foo_var = 1"
 
 #: ../../faq/programming.rst:2154
 msgid ":file:`bar.py`::"
@@ -4621,6 +4623,8 @@ msgid ""
 "from foo import foo_var\n"
 "bar_var = 2"
 msgstr ""
+"from foo import foo_var\n"
+"bar_var = 2"
 
 #: ../../faq/programming.rst:2159
 msgid "The problem is that the interpreter will perform the following steps:"
@@ -4628,55 +4632,64 @@ msgstr "O problema é que o interpretador vai realizar os seguintes passos:"
 
 #: ../../faq/programming.rst:2161
 msgid "main imports ``foo``"
-msgstr ""
+msgstr "programa principal importa ``foo``"
 
 #: ../../faq/programming.rst:2162
 msgid "Empty globals for ``foo`` are created"
-msgstr ""
+msgstr "São criados globais vazios para ``foo``"
 
 #: ../../faq/programming.rst:2163
 msgid "``foo`` is compiled and starts executing"
-msgstr ""
+msgstr "``foo`` é compilado e começa a ser executado"
 
 #: ../../faq/programming.rst:2164
 msgid "``foo`` imports ``bar``"
-msgstr ""
+msgstr "``foo`` importa ``bar``"
 
 #: ../../faq/programming.rst:2165
 msgid "Empty globals for ``bar`` are created"
-msgstr ""
+msgstr "São criados globais vazios para ``bar``"
 
 #: ../../faq/programming.rst:2166
 msgid "``bar`` is compiled and starts executing"
-msgstr ""
+msgstr "``bar`` é compilado e começa a ser executado"
 
 #: ../../faq/programming.rst:2167
 msgid ""
 "``bar`` imports ``foo`` (which is a no-op since there already is a module "
 "named ``foo``)"
 msgstr ""
+"``bar`` importa ``foo`` (o que não é executado de fato, pois já existe um "
+"módulo chamado ``foo``)"
 
 #: ../../faq/programming.rst:2168
 msgid ""
 "The import mechanism tries to read ``foo_var`` from ``foo`` globals, to set "
 "``bar.foo_var = foo.foo_var``"
 msgstr ""
+"O mecanismo de importação tenta ler ``foo_var`` do ``foo`` em globais, para "
+"definir ``bar.foo_var = foo.foo_var``"
 
 #: ../../faq/programming.rst:2170
 msgid ""
 "The last step fails, because Python isn't done with interpreting ``foo`` yet "
 "and the global symbol dictionary for ``foo`` is still empty."
 msgstr ""
+"A última etapa falha, pois Python ainda não terminou de interpretar ``foo`` "
+"e o dicionário de símbolos global para ``foo`` ainda está vazio."
 
 #: ../../faq/programming.rst:2173
 msgid ""
 "The same thing happens when you use ``import foo``, and then try to access "
 "``foo.foo_var`` in global code."
 msgstr ""
+"O mesmo acontece quando você usa ``import foo`` e, em seguida, tenta acessar "
+"``foo.foo_var`` no código global."
 
 #: ../../faq/programming.rst:2176
 msgid "There are (at least) three possible workarounds for this problem."
 msgstr ""
+"Há (pelo menos) três possíveis soluções alternativas para esse problema."
 
 #: ../../faq/programming.rst:2178
 msgid ""
@@ -4686,21 +4699,29 @@ msgid ""
 "only.  This means everything from an imported module is referenced as "
 "``<module>.<name>``."
 msgstr ""
+"Guido van Rossum recomenda evitar todos os usos de ``from <module> import ..."
+"`` e colocar todo o código dentro de funções.  As inicializações de "
+"variáveis globais e variáveis de classe devem usar apenas constantes ou "
+"funções embutidas.  Isso significa que tudo de um módulo importado é "
+"referenciado como ``<module>.<name>``."
 
 #: ../../faq/programming.rst:2183
 msgid ""
 "Jim Roskind suggests performing steps in the following order in each module:"
 msgstr ""
+"Jim Roskind sugere a execução das etapas na seguinte ordem em cada módulo:"
 
 #: ../../faq/programming.rst:2185
 msgid ""
 "exports (globals, functions, and classes that don't need imported base "
 "classes)"
 msgstr ""
+"exportações (globais, função e classes que não precisam de classes base "
+"importadas)"
 
 #: ../../faq/programming.rst:2187
 msgid "``import`` statements"
-msgstr "Declaração ``import``"
+msgstr "instruções ``import``"
 
 #: ../../faq/programming.rst:2188
 msgid ""
@@ -4713,16 +4734,20 @@ msgid ""
 "Van Rossum doesn't like this approach much because the imports appear in a "
 "strange place, but it does work."
 msgstr ""
+"Van Rossum não gosta muito dessa abordagem porque a importação aparece em um "
+"lugar estranho, mas ela funciona."
 
 #: ../../faq/programming.rst:2193
 msgid ""
 "Matthias Urlichs recommends restructuring your code so that the recursive "
 "import is not necessary in the first place."
 msgstr ""
+"Matthias Urlichs recomenda reestruturar seu código para que importação "
+"recursiva não seja necessária em primeiro lugar."
 
 #: ../../faq/programming.rst:2196
 msgid "These solutions are not mutually exclusive."
-msgstr "Essas soluções não são mutualmente exclusivas."
+msgstr "Essas soluções não são mutuamente exclusivas."
 
 #: ../../faq/programming.rst:2200
 msgid "__import__('x.y.z') returns <module 'x'>; how do I get z?"
