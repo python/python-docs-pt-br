@@ -5,7 +5,7 @@
 - license.po                     116 / 125 ( 92.0% translated).
 
 
-# c-api (53.43% done)
+# c-api (53.42% done)
 
 - exceptions.po                  194 / 366 ( 53.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
@@ -25,7 +25,7 @@
 - sys.po                          28 /  77 ( 36.0% translated).
 - type.po                         19 /  99 ( 19.0% translated).
 - typeobj.po                     229 / 664 ( 34.0% translated).
-- unicode.po                      27 / 313 (  8.0% translated).
+- unicode.po                      27 / 314 (  8.0% translated).
 - veryhigh.po                     54 /  57 ( 94.0% translated).
 
 
@@ -72,7 +72,7 @@
 
 
 
-# library (60.42% done)
+# library (60.41% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - argparse.po                    368 / 370 ( 99.0% translated).
@@ -141,7 +141,7 @@
 - http.cookies.po                  7 /  49 ( 14.0% translated).
 - http.po                        210 / 246 ( 85.0% translated).
 - http.server.po                  13 / 114 ( 11.0% translated).
-- idle.po                         16 / 281 (  5.0% translated).
+- idle.po                         16 / 282 (  5.0% translated).
 - imaplib.po                      13 / 117 ( 11.0% translated).
 - imghdr.po                       20 /  42 ( 47.0% translated).
 - importlib.po                   240 / 304 ( 78.0% translated).
@@ -152,7 +152,7 @@
 - json.po                        172 / 173 ( 99.0% translated).
 - logging.config.po               12 / 171 (  7.0% translated).
 - logging.handlers.po             48 / 270 ( 17.0% translated).
-- logging.po                      99 / 367 ( 26.0% translated).
+- logging.po                      99 / 368 ( 26.0% translated).
 - lzma.po                        112 / 113 ( 99.0% translated).
 - mailbox.po                      10 / 289 (  3.0% translated).
 - mailcap.po                       2 /  16 ( 12.0% translated).
@@ -171,6 +171,7 @@
 - pickle.po                      231 / 243 ( 95.0% translated).
 - pipes.po                         5 /  21 ( 23.0% translated).
 - pkgutil.po                       6 /  50 ( 12.0% translated).
+- plistlib.po                     44 /  45 ( 97.0% translated).
 - poplib.po                       10 /  53 ( 18.0% translated).
 - profile.po                      34 / 179 ( 18.0% translated).
 - pyexpat.po                      21 / 144 ( 14.0% translated).
@@ -255,10 +256,12 @@
 - stdlib2.po                      64 /  65 ( 98.0% translated).
 
 
-# using (98.39% done)
+# using (97.01% done)
 
 - cmdline.po                     210 / 214 ( 98.0% translated).
 - configure.po                   285 / 293 ( 97.0% translated).
+- editors.po                       2 /   6 ( 33.0% translated).
+- unix.po                         52 /  62 ( 83.0% translated).
 - windows.po                     374 / 378 ( 98.0% translated).
 
 
@@ -279,5 +282,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (66.25% done)
+# TOTAL (66.23% done)
 
