@@ -43,9 +43,8 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (98.99% done)
+# faq (100.00% done)
 
-- programming.po                 497 / 508 ( 97.0% translated).
 
 
 # howto (60.19% done)
@@ -67,7 +66,7 @@
 
 
 
-# library (61.81% done)
+# library (62.02% done)
 
 - array.po                        66 /  86 ( 76.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -118,7 +117,7 @@
 - http.cookies.po                  7 /  49 ( 14.0% translated).
 - http.po                        163 / 247 ( 65.0% translated).
 - http.server.po                  13 / 116 ( 11.0% translated).
-- idle.po                         16 / 282 (  5.0% translated).
+- idle.po                         17 / 282 (  6.0% translated).
 - imaplib.po                      13 / 117 ( 11.0% translated).
 - importlib.po                   245 / 312 ( 78.0% translated).
 - inspect.po                      78 / 390 ( 20.0% translated).
@@ -135,7 +134,6 @@
 - pathlib.po                     252 / 418 ( 60.0% translated).
 - pickle.po                      233 / 245 ( 95.0% translated).
 - pkgutil.po                       6 /  50 ( 12.0% translated).
-- plistlib.po                     48 /  49 ( 97.0% translated).
 - poplib.po                       10 /  53 ( 18.0% translated).
 - profile.po                      34 / 181 ( 18.0% translated).
 - pyexpat.po                      21 / 144 ( 14.0% translated).
@@ -151,7 +149,7 @@
 - signal.po                       56 / 137 ( 40.0% translated).
 - smtplib.po                      30 / 116 ( 25.0% translated).
 - socket.po                       53 / 363 ( 14.0% translated).
-- socketserver.po                  9 /  98 (  9.0% translated).
+- socketserver.po                 80 /  98 ( 81.0% translated).
 - sqlite3.po                     116 / 476 ( 24.0% translated).
 - ssl.po                          40 / 544 (  7.0% translated).
 - statistics.po                  176 / 248 ( 70.0% translated).
@@ -201,13 +199,11 @@
 
 
 
-# using (98.93% done)
-
-- editors.po                       2 /   6 ( 33.0% translated).
-- unix.po                         52 /  62 ( 83.0% translated).
+# using (100.00% done)
 
 
-# whatsnew (42.49% done)
+
+# whatsnew (42.54% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -221,8 +217,8 @@
 - 3.5.po                         125 / 578 ( 21.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   1532 / 12189 ( 12.0% translated).
+- changelog.po                   1542 / 12189 ( 12.0% translated).
 
 
-# TOTAL (58.89% done)
+# TOTAL (59.04% done)
 
