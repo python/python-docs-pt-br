@@ -45,10 +45,10 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (98.45% done)
+# faq (99.45% done)
 
 - library.po                     157 / 162 ( 96.0% translated).
-- programming.po                 496 / 508 ( 97.0% translated).
+- programming.po                 507 / 508 ( 99.0% translated).
 
 
 # howto (58.21% done)
@@ -72,7 +72,7 @@
 
 
 
-# library (60.41% done)
+# library (60.62% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - argparse.po                    368 / 370 ( 99.0% translated).
@@ -141,7 +141,7 @@
 - http.cookies.po                  7 /  49 ( 14.0% translated).
 - http.po                        210 / 246 ( 85.0% translated).
 - http.server.po                  13 / 114 ( 11.0% translated).
-- idle.po                         16 / 282 (  5.0% translated).
+- idle.po                         17 / 282 (  6.0% translated).
 - imaplib.po                      13 / 117 ( 11.0% translated).
 - imghdr.po                       20 /  42 ( 47.0% translated).
 - importlib.po                   240 / 304 ( 78.0% translated).
@@ -171,7 +171,6 @@
 - pickle.po                      231 / 243 ( 95.0% translated).
 - pipes.po                         5 /  21 ( 23.0% translated).
 - pkgutil.po                       6 /  50 ( 12.0% translated).
-- plistlib.po                     44 /  45 ( 97.0% translated).
 - poplib.po                       10 /  53 ( 18.0% translated).
 - profile.po                      34 / 179 ( 18.0% translated).
 - pyexpat.po                      21 / 144 ( 14.0% translated).
@@ -191,7 +190,7 @@
 - smtplib.po                      30 / 116 ( 25.0% translated).
 - sndhdr.po                       12 /  38 ( 31.0% translated).
 - socket.po                       53 / 362 ( 14.0% translated).
-- socketserver.po                  9 /  98 (  9.0% translated).
+- socketserver.po                 80 /  98 ( 81.0% translated).
 - sqlite3.po                     114 / 468 ( 24.0% translated).
 - ssl.po                          39 / 520 (  7.0% translated).
 - statistics.po                  161 / 241 ( 66.0% translated).
@@ -256,12 +255,10 @@
 - stdlib2.po                      64 /  65 ( 98.0% translated).
 
 
-# using (97.01% done)
+# using (98.41% done)
 
 - cmdline.po                     210 / 214 ( 98.0% translated).
 - configure.po                   285 / 293 ( 97.0% translated).
-- editors.po                       2 /   6 ( 33.0% translated).
-- unix.po                         52 /  62 ( 83.0% translated).
 - windows.po                     374 / 378 ( 98.0% translated).
 
 
@@ -282,5 +279,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (66.23% done)
+# TOTAL (66.39% done)
 

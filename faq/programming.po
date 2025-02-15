@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-07 14:52+0000\n"
+"POT-Creation-Date: 2025-02-14 14:53+0000\n"
 "PO-Revision-Date: 2024-05-11 00:32+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -4081,6 +4081,10 @@ msgid ""
 "for ``None``.  This reads like plain English in code and avoids confusion "
 "with other objects that may have boolean values that evaluate to false."
 msgstr ""
+"Conforme recomendado por :pep:`8`, um teste de identidade é a maneira "
+"preferida de verificar ``None``.  Isso é lido como se fosse inglês simples "
+"no código e evita confusão com outros objetos que podem ter valor booleano "
+"avaliado para falso."
 
 #: ../../faq/programming.rst:1912
 msgid ""
@@ -4089,6 +4093,11 @@ msgid ""
 "guaranteed to be distinct from other objects.  For example, here is how to "
 "implement a method that behaves like :meth:`dict.pop`:"
 msgstr ""
+"2) A detecção de argumento opcional pode ser complicada quando ``None`` é "
+"uma valor de entrada válido.  Nessas situações, você pode criar um objeto "
+"Singleton sinalizador com garantia de ser distinto de outros objetos. Por "
+"exemplo, veja como implementar um método que se comporta como :meth:`dict."
+"pop`:"
 
 #: ../../faq/programming.rst:1917
 msgid ""
@@ -4120,6 +4129,9 @@ msgid ""
 "identity tests.  This prevents the code from being confused by objects such "
 "as ``float('NaN')`` that are not equal to themselves."
 msgstr ""
+"Implementações de contêiner às vezes precisam combinar testes de igualdade "
+"com testes de identidade. Isso evita que o código seja confundido por "
+"objetos como ``float('NaN')`` que não são iguais a si mesmos."
 
 #: ../../faq/programming.rst:1934
 msgid ""
@@ -4752,6 +4764,11 @@ msgid ""
 "module, the basic module would be parsed and re-parsed many times.  To force "
 "re-reading of a changed module, do this::"
 msgstr ""
+"Por motivos de eficiência e consistência, o Python só lê o arquivo do módulo "
+"na primeira vez em que um módulo é importado.  Caso contrário, em um "
+"programa que consiste em muitos módulos em que cada um importa o mesmo "
+"módulo básico, o módulo básico seria analisado e reanalisado várias vezes.  "
+"Para forçar a releitura de um módulo alterado, faça o seguinte::"
 
 #: ../../faq/programming.rst:2217
 msgid ""
@@ -4759,18 +4776,21 @@ msgid ""
 "import modname\n"
 "importlib.reload(modname)"
 msgstr ""
+"import importlib\n"
+"import modname\n"
+"importlib.reload(modname)"
 
 #: ../../faq/programming.rst:2221
 msgid ""
 "Warning: this technique is not 100% fool-proof.  In particular, modules "
 "containing statements like ::"
 msgstr ""
-"Aviso: essa técnica não é 100% a prova de falhas. Em particular, módulos "
+"Aviso: essa técnica não é 100% à prova de falhas. Em particular, módulos "
 "contendo instruções como ::"
 
 #: ../../faq/programming.rst:2224
 msgid "from modname import some_objects"
-msgstr ""
+msgstr "from modname import some_objects"
 
 #: ../../faq/programming.rst:2226
 msgid ""
@@ -4779,6 +4799,10 @@ msgid ""
 "updated to use the new class definition.  This can result in the following "
 "paradoxical behaviour::"
 msgstr ""
+"continuará com a versão antiga dos objetos importados.  Se o módulo contiver "
+"definições de classe, as instâncias de classe existentes *não* serão "
+"atualizadas para usar a nova definição da classe.  Isso pode resultar no "
+"seguinte comportamento paradoxal::"
 
 #: ../../faq/programming.rst:2231
 msgid ""
@@ -4790,6 +4814,13 @@ msgid ""
 ">>> isinstance(c, cls.C)       # isinstance is false?!?\n"
 "False"
 msgstr ""
+">>> import importlib\n"
+">>> import cls\n"
+">>> c = cls.C()                # Cria uma instância de C\n"
+">>> importlib.reload(cls)\n"
+"<module 'cls' from 'cls.py'>\n"
+">>> isinstance(c, cls.C)       # isinstance é falso?!?\n"
+"False"
 
 #: ../../faq/programming.rst:2239
 msgid ""
@@ -4806,6 +4837,10 @@ msgid ""
 ">>> hex(id(cls.C))\n"
 "'0x4198d0'"
 msgstr ""
+">>> hex(id(c.__class__))\n"
+"'0x7352a0'\n"
+">>> hex(id(cls.C))\n"
+"'0x4198d0'"
 
 #: ../../faq/programming.rst:408
 msgid "argument"
@@ -4813,7 +4848,7 @@ msgstr "argumento"
 
 #: ../../faq/programming.rst:408
 msgid "difference from parameter"
-msgstr ""
+msgstr "diferença de parâmetro"
 
 #: ../../faq/programming.rst:408
 msgid "parameter"
@@ -4821,4 +4856,4 @@ msgstr "parâmetro"
 
 #: ../../faq/programming.rst:408
 msgid "difference from argument"
-msgstr ""
+msgstr "diferença de argumento"
