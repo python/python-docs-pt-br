@@ -52,12 +52,12 @@
 - newtypes_tutorial.po            27 / 123 ( 21.0% translated).
 
 
-# faq (95.81% done)
+# faq (96.03% done)
 
 - design.po                      125 / 141 ( 88.0% translated).
 - extending.po                    51 /  58 ( 87.0% translated).
 - library.po                     132 / 140 ( 94.0% translated).
-- programming.po                 381 / 388 ( 98.0% translated).
+- programming.po                 383 / 388 ( 98.0% translated).
 
 
 # howto (53.33% done)
@@ -87,7 +87,7 @@
 
 
 
-# library (59.35% done)
+# library (59.51% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    254 / 290 ( 87.0% translated).
@@ -220,7 +220,7 @@
 - smtpd.po                        10 /  79 ( 12.0% translated).
 - smtplib.po                      25 / 109 ( 22.0% translated).
 - socket.po                       59 / 324 ( 18.0% translated).
-- socketserver.po                  7 /  78 (  8.0% translated).
+- socketserver.po                 58 /  78 ( 74.0% translated).
 - sqlite3.po                      76 / 287 ( 26.0% translated).
 - ssl.po                          49 / 493 (  9.0% translated).
 - stat.po                         78 /  81 ( 96.0% translated).
@@ -324,5 +324,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (63.50% done)
+# TOTAL (63.60% done)
 
