@@ -72,7 +72,7 @@
 
 
 
-# library (60.62% done)
+# library (60.74% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - argparse.po                    368 / 370 ( 99.0% translated).
@@ -108,7 +108,7 @@
 - curses.po                       64 / 484 ( 13.0% translated).
 - dataclasses.po                  47 / 151 ( 31.0% translated).
 - datetime.po                    633 / 635 ( 99.0% translated).
-- dbm.po                           5 /  87 (  5.0% translated).
+- dbm.po                          33 /  87 ( 37.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
 - dis.po                         180 / 357 ( 50.0% translated).
 - doctest.po                      91 / 363 ( 25.0% translated).
@@ -190,7 +190,6 @@
 - smtplib.po                      30 / 116 ( 25.0% translated).
 - sndhdr.po                       12 /  38 ( 31.0% translated).
 - socket.po                       53 / 362 ( 14.0% translated).
-- socketserver.po                 80 /  98 ( 81.0% translated).
 - sqlite3.po                     114 / 468 ( 24.0% translated).
 - ssl.po                          39 / 520 (  7.0% translated).
 - statistics.po                  161 / 241 ( 66.0% translated).
@@ -279,5 +278,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (66.39% done)
+# TOTAL (66.46% done)
 
