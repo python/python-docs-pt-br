@@ -87,7 +87,7 @@
 
 
 
-# library (59.51% done)
+# library (59.55% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    254 / 290 ( 87.0% translated).
@@ -131,7 +131,7 @@
 - curses.panel.po                 22 /  23 ( 95.0% translated).
 - curses.po                      231 / 639 ( 36.0% translated).
 - dataclasses.po                  65 / 117 ( 55.0% translated).
-- dbm.po                          14 /  74 ( 18.0% translated).
+- dbm.po                          19 /  74 ( 25.0% translated).
 - decimal.po                     328 / 329 ( 99.0% translated).
 - difflib.po                      14 / 133 ( 10.0% translated).
 - dis.po                          78 / 239 ( 32.0% translated).
@@ -220,7 +220,7 @@
 - smtpd.po                        10 /  79 ( 12.0% translated).
 - smtplib.po                      25 / 109 ( 22.0% translated).
 - socket.po                       59 / 324 ( 18.0% translated).
-- socketserver.po                 58 /  78 ( 74.0% translated).
+- socketserver.po                 67 /  78 ( 85.0% translated).
 - sqlite3.po                      76 / 287 ( 26.0% translated).
 - ssl.po                          49 / 493 (  9.0% translated).
 - stat.po                         78 /  81 ( 96.0% translated).
@@ -324,5 +324,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (63.60% done)
+# TOTAL (63.63% done)
 
