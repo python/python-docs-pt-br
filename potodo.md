@@ -66,7 +66,7 @@
 
 
 
-# library (62.18% done)
+# library (62.24% done)
 
 - array.po                        66 /  86 ( 76.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -88,7 +88,7 @@
 - ctypes.po                      102 / 526 ( 19.0% translated).
 - curses.po                       66 / 486 ( 13.0% translated).
 - dataclasses.po                  47 / 152 ( 30.0% translated).
-- dbm.po                          48 / 102 ( 47.0% translated).
+- dbm.po                          72 / 102 ( 70.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
 - dis.po                         204 / 396 ( 51.0% translated).
 - doctest.po                      92 / 372 ( 24.0% translated).
@@ -219,5 +219,5 @@
 - changelog.po                   1542 / 12189 ( 12.0% translated).
 
 
-# TOTAL (59.11% done)
+# TOTAL (59.15% done)
 
