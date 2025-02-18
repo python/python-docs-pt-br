@@ -72,7 +72,7 @@
 
 
 
-# library (60.81% done)
+# library (60.89% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - argparse.po                    368 / 370 ( 99.0% translated).
@@ -108,7 +108,7 @@
 - curses.po                       64 / 484 ( 13.0% translated).
 - dataclasses.po                  47 / 151 ( 31.0% translated).
 - datetime.po                    633 / 635 ( 99.0% translated).
-- dbm.po                          56 /  87 ( 64.0% translated).
+- dbm.po                          85 /  87 ( 97.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
 - dis.po                         180 / 357 ( 50.0% translated).
 - doctest.po                      91 / 363 ( 25.0% translated).
@@ -278,5 +278,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (66.50% done)
+# TOTAL (66.55% done)
 
