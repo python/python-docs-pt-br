@@ -79,7 +79,7 @@
 
 
 
-# library (59.25% done)
+# library (59.27% done)
 
 - argparse.po                    260 / 290 ( 89.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
@@ -118,7 +118,7 @@
 - curses.panel.po                 22 /  23 ( 95.0% translated).
 - curses.po                      230 / 634 ( 36.0% translated).
 - dataclasses.po                  65 /  98 ( 66.0% translated).
-- dbm.po                          24 /  74 ( 32.0% translated).
+- dbm.po                          30 /  74 ( 40.0% translated).
 - difflib.po                      14 / 133 ( 10.0% translated).
 - dis.po                          77 / 227 ( 33.0% translated).
 - doctest.po                      61 / 305 ( 20.0% translated).
@@ -302,5 +302,5 @@
 - 3.9.po                         382 / 386 ( 98.0% translated).
 
 
-# TOTAL (63.03% done)
+# TOTAL (63.04% done)
 
