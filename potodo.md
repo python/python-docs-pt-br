@@ -72,7 +72,7 @@
 
 
 
-# library (60.89% done)
+# library (60.93% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - argparse.po                    368 / 370 ( 99.0% translated).
@@ -148,7 +148,7 @@
 - importlib.resources.po          40 /  47 ( 85.0% translated).
 - inspect.po                      78 / 383 ( 20.0% translated).
 - io.po                           21 / 271 (  7.0% translated).
-- itertools.po                   117 / 193 ( 60.0% translated).
+- itertools.po                   134 / 193 ( 69.0% translated).
 - json.po                        172 / 173 ( 99.0% translated).
 - logging.config.po               12 / 171 (  7.0% translated).
 - logging.handlers.po             48 / 270 ( 17.0% translated).
@@ -278,5 +278,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (66.55% done)
+# TOTAL (66.57% done)
 
