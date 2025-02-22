@@ -76,7 +76,7 @@
 
 
 
-# library (60.77% done)
+# library (60.80% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - argparse.po                    368 / 370 ( 99.0% translated).
@@ -128,16 +128,15 @@
 - email.message.po                 6 / 110 (  5.0% translated).
 - email.parser.po                  2 /  48 (  4.0% translated).
 - email.policy.po                 11 / 107 ( 10.0% translated).
-- ensurepip.po                    35 /  39 ( 89.0% translated).
 - enum.po                         71 / 231 ( 30.0% translated).
 - errno.po                       115 / 160 ( 71.0% translated).
 - exceptions.po                  188 / 189 ( 99.0% translated).
 - faulthandler.po                  4 /  43 (  9.0% translated).
 - fcntl.po                        17 /  48 ( 35.0% translated).
-- filecmp.po                      39 /  41 ( 95.0% translated).
+- filecmp.po                      40 /  41 ( 97.0% translated).
 - fractions.po                    32 /  33 ( 96.0% translated).
 - ftplib.po                       11 /  99 ( 11.0% translated).
-- functions.po                   490 / 497 ( 98.0% translated).
+- functions.po                   491 / 497 ( 98.0% translated).
 - functools.po                    20 / 115 ( 17.0% translated).
 - gzip.po                         22 /  65 ( 33.0% translated).
 - hashlib.po                      13 / 168 (  7.0% translated).
@@ -189,7 +188,6 @@
 - resource.po                     40 / 110 ( 36.0% translated).
 - runpy.po                        31 /  40 ( 77.0% translated).
 - sched.po                         4 /  25 ( 16.0% translated).
-- secrets.po                      34 /  37 ( 91.0% translated).
 - select.po                       78 / 206 ( 37.0% translated).
 - selectors.po                    13 /  58 ( 22.0% translated).
 - shelve.po                       11 /  40 ( 27.0% translated).
@@ -202,8 +200,7 @@
 - sqlite3.po                     114 / 468 ( 24.0% translated).
 - ssl.po                          39 / 520 (  7.0% translated).
 - statistics.po                  161 / 241 ( 66.0% translated).
-- stdtypes.po                    1323 / 1332 ( 99.0% translated).
-- string.po                      215 / 216 ( 99.0% translated).
+- stdtypes.po                    1326 / 1332 ( 99.0% translated).
 - struct.po                       96 / 194 ( 49.0% translated).
 - subprocess.po                  149 / 321 ( 46.0% translated).
 - symtable.po                      4 /  50 (  8.0% translated).
@@ -257,11 +254,9 @@
 - datamodel.po                   852 / 856 ( 99.0% translated).
 
 
-# tutorial (99.38% done)
+# tutorial (99.61% done)
 
 - interpreter.po                  31 /  33 ( 93.0% translated).
-- introduction.po                118 / 119 ( 99.0% translated).
-- modules.po                     115 / 117 ( 98.0% translated).
 - stdlib.po                       65 /  67 ( 97.0% translated).
 - stdlib2.po                      64 /  65 ( 98.0% translated).
 
@@ -273,24 +268,22 @@
 - windows.po                     374 / 378 ( 98.0% translated).
 
 
-# whatsnew (74.66% done)
+# whatsnew (74.68% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
 - 2.5.po                         384 / 452 ( 84.0% translated).
 - 2.6.po                         537 / 626 ( 85.0% translated).
-- 2.7.po                         497 / 498 ( 99.0% translated).
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
 - 3.10.po                        529 / 550 ( 96.0% translated).
 - 3.12.po                        831 / 832 ( 99.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
-- 3.4.po                         517 / 518 ( 99.0% translated).
 - 3.5.po                         125 / 578 ( 21.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (66.43% done)
+# TOTAL (66.46% done)
 
