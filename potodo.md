@@ -72,7 +72,7 @@
 
 
 
-# library (62.21% done)
+# library (62.25% done)
 
 - argparse.po                    375 / 376 ( 99.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
@@ -111,14 +111,11 @@
 - email.message.po                 6 / 110 (  5.0% translated).
 - email.parser.po                  2 /  48 (  4.0% translated).
 - email.policy.po                 11 / 107 ( 10.0% translated).
-- ensurepip.po                    35 /  39 ( 89.0% translated).
 - enum.po                         73 / 244 ( 29.0% translated).
 - errno.po                       115 / 160 ( 71.0% translated).
 - faulthandler.po                  4 /  43 (  9.0% translated).
 - fcntl.po                        22 /  49 ( 44.0% translated).
-- filecmp.po                      41 /  42 ( 97.0% translated).
 - ftplib.po                       11 /  99 ( 11.0% translated).
-- functions.po                   509 / 510 ( 99.0% translated).
 - functools.po                    20 / 115 ( 17.0% translated).
 - gzip.po                         24 /  68 ( 35.0% translated).
 - hashlib.po                      13 / 168 (  7.0% translated).
@@ -155,7 +152,6 @@
 - reprlib.po                      10 /  39 ( 25.0% translated).
 - resource.po                     40 / 110 ( 36.0% translated).
 - sched.po                         4 /  25 ( 16.0% translated).
-- secrets.po                      34 /  37 ( 91.0% translated).
 - select.po                       78 / 206 ( 37.0% translated).
 - selectors.po                    13 /  58 ( 22.0% translated).
 - shelve.po                       11 /  40 ( 27.0% translated).
@@ -166,8 +162,6 @@
 - sqlite3.po                     116 / 476 ( 24.0% translated).
 - ssl.po                          40 / 544 (  7.0% translated).
 - statistics.po                  176 / 248 ( 70.0% translated).
-- stdtypes.po                    1331 / 1334 ( 99.0% translated).
-- string.po                      215 / 216 ( 99.0% translated).
 - struct.po                       96 / 195 ( 49.0% translated).
 - subprocess.po                  149 / 323 ( 46.0% translated).
 - symtable.po                      6 /  65 (  9.0% translated).
@@ -210,34 +204,30 @@
 
 
 
-# tutorial (99.77% done)
+# tutorial (100.00% done)
 
-- introduction.po                118 / 119 ( 99.0% translated).
-- modules.po                     115 / 117 ( 98.0% translated).
 
 
 # using (100.00% done)
 
 
 
-# whatsnew (42.51% done)
+# whatsnew (42.56% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
 - 2.5.po                         388 / 452 ( 85.0% translated).
 - 2.6.po                         542 / 626 ( 86.0% translated).
-- 2.7.po                         497 / 498 ( 99.0% translated).
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
 - 3.10.po                        529 / 550 ( 96.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
-- 3.4.po                         516 / 517 ( 99.0% translated).
 - 3.5.po                         125 / 578 ( 21.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   1542 / 12200 ( 12.0% translated).
+- changelog.po                   1553 / 12200 ( 12.0% translated).
 
 
-# TOTAL (59.09% done)
+# TOTAL (59.13% done)
 
