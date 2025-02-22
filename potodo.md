@@ -274,8 +274,9 @@
 - simple_stmts.po                150 / 154 ( 97.0% translated).
 
 
-# tutorial (100.00% done)
+# tutorial (99.89% done)
 
+- classes.po                     114 / 115 ( 99.0% translated).
 
 
 # using (99.33% done)
