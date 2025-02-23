@@ -72,7 +72,7 @@
 
 
 
-# library (62.25% done)
+# library (62.32% done)
 
 - argparse.po                    375 / 376 ( 99.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
@@ -96,7 +96,6 @@
 - ctypes.po                       99 / 526 ( 18.0% translated).
 - curses.po                       66 / 486 ( 13.0% translated).
 - dataclasses.po                  47 / 152 ( 30.0% translated).
-- datetime.po                    641 / 646 ( 99.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
 - dis.po                         204 / 396 ( 51.0% translated).
 - doctest.po                      92 / 372 ( 24.0% translated).
@@ -148,7 +147,6 @@
 - pyexpat.po                      21 / 144 ( 14.0% translated).
 - queue.po                         9 /  53 ( 16.0% translated).
 - random.po                      125 / 137 ( 91.0% translated).
-- readline.po                     34 /  56 ( 60.0% translated).
 - reprlib.po                      10 /  39 ( 25.0% translated).
 - resource.po                     40 / 110 ( 36.0% translated).
 - sched.po                         4 /  25 ( 16.0% translated).
@@ -229,5 +227,5 @@
 - changelog.po                   1553 / 12200 ( 12.0% translated).
 
 
-# TOTAL (59.13% done)
+# TOTAL (59.16% done)
 
