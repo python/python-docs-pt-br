@@ -76,7 +76,7 @@
 
 
 
-# library (60.80% done)
+# library (60.87% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - argparse.po                    368 / 370 ( 99.0% translated).
@@ -112,7 +112,7 @@
 - ctypes.po                       99 / 523 ( 18.0% translated).
 - curses.po                       64 / 484 ( 13.0% translated).
 - dataclasses.po                  47 / 151 ( 31.0% translated).
-- datetime.po                    629 / 635 ( 99.0% translated).
+- datetime.po                    633 / 635 ( 99.0% translated).
 - dbm.po                          85 /  87 ( 97.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
 - dis.po                         180 / 357 ( 50.0% translated).
@@ -183,7 +183,6 @@
 - queue.po                         6 /  44 ( 13.0% translated).
 - random.po                      111 / 121 ( 91.0% translated).
 - re.po                          433 / 436 ( 99.0% translated).
-- readline.po                     31 /  53 ( 58.0% translated).
 - reprlib.po                      10 /  39 ( 25.0% translated).
 - resource.po                     40 / 110 ( 36.0% translated).
 - runpy.po                        31 /  40 ( 77.0% translated).
@@ -285,5 +284,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (66.46% done)
+# TOTAL (66.51% done)
 
