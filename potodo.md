@@ -72,7 +72,7 @@
 
 
 
-# library (62.32% done)
+# library (62.52% done)
 
 - argparse.po                    375 / 376 ( 99.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
@@ -159,7 +159,6 @@
 - socket.po                       53 / 363 ( 14.0% translated).
 - sqlite3.po                     116 / 476 ( 24.0% translated).
 - ssl.po                          40 / 544 (  7.0% translated).
-- statistics.po                  176 / 248 ( 70.0% translated).
 - struct.po                       96 / 195 ( 49.0% translated).
 - subprocess.po                  149 / 323 ( 46.0% translated).
 - symtable.po                      6 /  65 (  9.0% translated).
@@ -227,5 +226,5 @@
 - changelog.po                   1553 / 12200 ( 12.0% translated).
 
 
-# TOTAL (59.16% done)
+# TOTAL (59.26% done)
 
