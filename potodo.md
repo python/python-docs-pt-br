@@ -85,7 +85,7 @@
 
 
 
-# library (60.99% done)
+# library (61.03% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          48 /  49 ( 97.0% translated).
@@ -228,7 +228,7 @@
 - sqlite3.po                      89 / 371 ( 23.0% translated).
 - ssl.po                          52 / 503 ( 10.0% translated).
 - stat.po                         80 /  81 ( 98.0% translated).
-- statistics.po                  160 / 177 ( 90.0% translated).
+- statistics.po                  174 / 177 ( 98.0% translated).
 - stdtypes.po                    1196 / 1211 ( 98.0% translated).
 - stringprep.po                   24 /  25 ( 96.0% translated).
 - struct.po                       95 / 184 ( 51.0% translated).
@@ -328,5 +328,5 @@
 - 3.8.po                         468 / 469 ( 99.0% translated).
 
 
-# TOTAL (66.13% done)
+# TOTAL (66.15% done)
 
