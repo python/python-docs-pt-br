@@ -46,19 +46,17 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (99.82% done)
+# faq (99.91% done)
 
 - general.po                      97 /  98 ( 98.0% translated).
-- programming.po                 507 / 508 ( 99.0% translated).
 
 
-# howto (59.98% done)
+# howto (60.01% done)
 
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                  187 / 230 ( 81.0% translated).
 - enum.po                         62 / 327 ( 18.0% translated).
 - functional.po                  138 / 252 ( 54.0% translated).
-- ipaddress.po                    64 /  65 ( 98.0% translated).
 - logging-cookbook.po             23 / 421 (  5.0% translated).
 - logging.po                     121 / 250 ( 48.0% translated).
 - regex.po                       303 / 332 ( 91.0% translated).
@@ -74,7 +72,6 @@
 
 # library (62.52% done)
 
-- argparse.po                    375 / 376 ( 99.0% translated).
 - array.po                        66 /  86 ( 76.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 402 ( 76.0% translated).
@@ -209,7 +206,7 @@
 
 
 
-# whatsnew (42.56% done)
+# whatsnew (43.06% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -223,8 +220,8 @@
 - 3.5.po                         125 / 578 ( 21.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   1553 / 12200 ( 12.0% translated).
+- changelog.po                   1667 / 12200 ( 13.0% translated).
 
 
-# TOTAL (59.26% done)
+# TOTAL (59.41% done)
 
