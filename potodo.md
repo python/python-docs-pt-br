@@ -47,21 +47,20 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (99.27% done)
+# faq (99.36% done)
 
 - general.po                      97 /  98 ( 98.0% translated).
 - library.po                     157 / 162 ( 96.0% translated).
-- programming.po                 506 / 508 ( 99.0% translated).
+- programming.po                 507 / 508 ( 99.0% translated).
 
 
-# howto (57.99% done)
+# howto (58.02% done)
 
 - argparse.po                    144 / 145 ( 99.0% translated).
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                  181 / 233 ( 77.0% translated).
 - enum.po                         63 / 319 ( 19.0% translated).
 - functional.po                  138 / 252 ( 54.0% translated).
-- ipaddress.po                    64 /  65 ( 98.0% translated).
 - logging-cookbook.po             23 / 421 (  5.0% translated).
 - logging.po                     121 / 250 ( 48.0% translated).
 - perf_profiling.po               29 /  32 ( 90.0% translated).
