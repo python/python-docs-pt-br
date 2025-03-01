@@ -73,10 +73,9 @@
 
 
 
-# library (61.02% done)
+# library (61.09% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
-- abc.po                          57 /  60 ( 95.0% translated).
 - argparse.po                    368 / 370 ( 99.0% translated).
 - array.po                        64 /  84 ( 76.0% translated).
 - ast.po                         255 / 306 ( 83.0% translated).
@@ -88,7 +87,6 @@
 - asyncio-protocol.po             25 / 193 ( 12.0% translated).
 - asyncio-runner.po                5 /  37 ( 13.0% translated).
 - asyncio-stream.po               71 /  98 ( 72.0% translated).
-- asyncio-subprocess.po           80 /  81 ( 98.0% translated).
 - asyncio-sync.po                 12 /  99 ( 12.0% translated).
 - asyncio-task.po                142 / 254 ( 55.0% translated).
 - audioop.po                       5 /  53 (  9.0% translated).
@@ -100,7 +98,6 @@
 - cgitb.po                        16 /  17 ( 94.0% translated).
 - chunk.po                        14 /  39 ( 35.0% translated).
 - codecs.po                      250 / 533 ( 46.0% translated).
-- collections.abc.po             133 / 136 ( 97.0% translated).
 - collections.po                 237 / 240 ( 98.0% translated).
 - compileall.po                   59 /  60 ( 98.0% translated).
 - concurrent.futures.po           14 /  98 ( 14.0% translated).
@@ -198,11 +195,11 @@
 - sqlite3.po                     114 / 468 ( 24.0% translated).
 - ssl.po                          39 / 520 (  7.0% translated).
 - statistics.po                  229 / 241 ( 95.0% translated).
-- stdtypes.po                    1325 / 1332 ( 99.0% translated).
+- stdtypes.po                    1326 / 1332 ( 99.0% translated).
 - struct.po                       96 / 194 ( 49.0% translated).
 - subprocess.po                  149 / 321 ( 46.0% translated).
 - symtable.po                      4 /  50 (  8.0% translated).
-- sys.po                         417 / 431 ( 96.0% translated).
+- sys.po                         419 / 431 ( 97.0% translated).
 - syslog.po                       26 /  33 ( 78.0% translated).
 - tarfile.po                     103 / 333 ( 30.0% translated).
 - telnetlib.po                    10 /  53 ( 18.0% translated).
@@ -224,7 +221,7 @@
 - urllib.parse.po                109 / 167 ( 65.0% translated).
 - urllib.request.po               43 / 299 ( 14.0% translated).
 - urllib.robotparser.po            5 /  19 ( 26.0% translated).
-- uuid.po                          7 /  64 ( 10.0% translated).
+- uuid.po                         19 /  64 ( 29.0% translated).
 - venv.po                        120 / 121 ( 99.0% translated).
 - warnings.po                     71 / 131 ( 54.0% translated).
 - wave.po                         17 /  53 ( 32.0% translated).
@@ -283,5 +280,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (66.60% done)
+# TOTAL (66.64% done)
 
