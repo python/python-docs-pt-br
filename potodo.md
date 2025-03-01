@@ -87,7 +87,7 @@
 
 
 
-# library (59.62% done)
+# library (59.65% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    254 / 290 ( 87.0% translated).
@@ -255,7 +255,7 @@
 - urllib.parse.po                 95 / 154 ( 61.0% translated).
 - urllib.request.po               43 / 275 ( 15.0% translated).
 - urllib.robotparser.po            2 /  14 ( 14.0% translated).
-- uuid.po                         16 /  59 ( 27.0% translated).
+- uuid.po                         25 /  59 ( 42.0% translated).
 - venv.po                         99 / 102 ( 97.0% translated).
 - warnings.po                     65 / 109 ( 59.0% translated).
 - wave.po                         18 /  49 ( 36.0% translated).
@@ -324,5 +324,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (63.67% done)
+# TOTAL (63.69% done)
 
