@@ -79,7 +79,7 @@
 
 
 
-# library (59.27% done)
+# library (59.33% done)
 
 - argparse.po                    260 / 290 ( 89.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
@@ -238,7 +238,7 @@
 - urllib.parse.po                 97 / 154 ( 62.0% translated).
 - urllib.request.po               43 / 274 ( 15.0% translated).
 - urllib.robotparser.po            2 /  14 ( 14.0% translated).
-- uuid.po                         16 /  59 ( 27.0% translated).
+- uuid.po                         34 /  59 ( 57.0% translated).
 - warnings.po                     65 / 109 ( 59.0% translated).
 - wave.po                         18 /  49 ( 36.0% translated).
 - weakref.po                      71 /  81 ( 87.0% translated).
@@ -303,5 +303,5 @@
 - 3.9.po                         382 / 386 ( 98.0% translated).
 
 
-# TOTAL (63.04% done)
+# TOTAL (63.07% done)
 
