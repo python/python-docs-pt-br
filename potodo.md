@@ -67,7 +67,7 @@
 
 
 
-# library (62.54% done)
+# library (62.72% done)
 
 - array.po                        66 /  86 ( 76.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -151,7 +151,7 @@
 - smtplib.po                      30 / 116 ( 25.0% translated).
 - socket.po                       53 / 363 ( 14.0% translated).
 - sqlite3.po                     116 / 476 ( 24.0% translated).
-- ssl.po                          40 / 544 (  7.0% translated).
+- ssl.po                          61 / 544 ( 11.0% translated).
 - struct.po                       96 / 195 ( 49.0% translated).
 - subprocess.po                  149 / 323 ( 46.0% translated).
 - symtable.po                      6 /  65 (  9.0% translated).
@@ -171,7 +171,6 @@
 - urllib.parse.po                110 / 168 ( 65.0% translated).
 - urllib.request.po               40 / 297 ( 13.0% translated).
 - urllib.robotparser.po            5 /  19 ( 26.0% translated).
-- uuid.po                         19 /  64 ( 29.0% translated).
 - warnings.po                     72 / 138 ( 52.0% translated).
 - wave.po                         17 /  54 ( 31.0% translated).
 - winreg.po                       30 / 176 ( 17.0% translated).
@@ -219,5 +218,5 @@
 - changelog.po                   1679 / 12211 ( 13.0% translated).
 
 
-# TOTAL (59.43% done)
+# TOTAL (59.52% done)
 
