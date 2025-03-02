@@ -85,7 +85,7 @@
 
 
 
-# library (61.06% done)
+# library (61.21% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          48 /  49 ( 97.0% translated).
@@ -226,7 +226,7 @@
 - socket.po                       75 / 348 ( 21.0% translated).
 - socketserver.po                 82 /  86 ( 95.0% translated).
 - sqlite3.po                      89 / 371 ( 23.0% translated).
-- ssl.po                          52 / 503 ( 10.0% translated).
+- ssl.po                          67 / 503 ( 13.0% translated).
 - stat.po                         80 /  81 ( 98.0% translated).
 - statistics.po                  174 / 177 ( 98.0% translated).
 - stdtypes.po                    1196 / 1211 ( 98.0% translated).
@@ -260,7 +260,7 @@
 - urllib.parse.po                101 / 160 ( 63.0% translated).
 - urllib.request.po               45 / 283 ( 15.0% translated).
 - urllib.robotparser.po            5 /  18 ( 27.0% translated).
-- uuid.po                         15 /  56 ( 26.0% translated).
+- uuid.po                         49 /  56 ( 87.0% translated).
 - venv.po                        110 / 111 ( 99.0% translated).
 - warnings.po                     66 / 112 ( 58.0% translated).
 - wave.po                         17 /  52 ( 32.0% translated).
@@ -328,5 +328,5 @@
 - 3.8.po                         468 / 469 ( 99.0% translated).
 
 
-# TOTAL (66.17% done)
+# TOTAL (66.26% done)
 
