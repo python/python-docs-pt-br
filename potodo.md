@@ -87,7 +87,7 @@
 
 
 
-# library (59.78% done)
+# library (59.89% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    254 / 290 ( 87.0% translated).
@@ -126,7 +126,7 @@
 - contextlib.po                   39 / 125 ( 31.0% translated).
 - copyreg.po                       8 /   9 ( 88.0% translated).
 - crypt.po                         3 /  30 ( 10.0% translated).
-- ctypes.po                       89 / 434 ( 20.0% translated).
+- ctypes.po                       93 / 434 ( 21.0% translated).
 - curses.ascii.po                101 / 102 ( 99.0% translated).
 - curses.panel.po                 22 /  23 ( 95.0% translated).
 - curses.po                      231 / 639 ( 36.0% translated).
@@ -263,7 +263,7 @@
 - webbrowser.po                   76 /  82 ( 92.0% translated).
 - winreg.po                       29 / 171 ( 16.0% translated).
 - winsound.po                      9 /  34 ( 26.0% translated).
-- wsgiref.po                      10 / 116 (  8.0% translated).
+- wsgiref.po                      39 / 116 ( 33.0% translated).
 - xdrlib.po                        4 /  54 (  7.0% translated).
 - xml.dom.minidom.po               6 /  51 ( 11.0% translated).
 - xml.dom.po                      67 / 234 ( 28.0% translated).
@@ -324,5 +324,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (63.77% done)
+# TOTAL (63.83% done)
 
