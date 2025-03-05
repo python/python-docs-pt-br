@@ -67,7 +67,7 @@
 
 
 
-# library (62.72% done)
+# library (62.85% done)
 
 - array.po                        66 /  86 ( 76.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -86,21 +86,21 @@
 - codecs.po                      250 / 532 ( 46.0% translated).
 - concurrent.futures.po           14 / 100 ( 14.0% translated).
 - contextlib.po                   56 / 172 ( 32.0% translated).
-- ctypes.po                       99 / 526 ( 18.0% translated).
+- ctypes.po                      103 / 526 ( 19.0% translated).
 - curses.po                       66 / 486 ( 13.0% translated).
 - dataclasses.po                  47 / 152 ( 30.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
 - dis.po                         204 / 396 ( 51.0% translated).
 - doctest.po                      92 / 372 ( 24.0% translated).
 - email.charset.po                 2 /  44 (  4.0% translated).
-- email.compat32-message.po        5 / 115 (  4.0% translated).
+- email.compat32-message.po        6 / 115 (  5.0% translated).
 - email.contentmanager.po          9 /  42 ( 21.0% translated).
 - email.errors.po                  5 /  26 ( 19.0% translated).
 - email.examples.po               15 /  20 ( 75.0% translated).
 - email.generator.po               2 /  41 (  4.0% translated).
 - email.header.po                  4 /  40 ( 10.0% translated).
 - email.headerregistry.po         12 / 111 ( 10.0% translated).
-- email.message.po                 6 / 110 (  5.0% translated).
+- email.message.po                 7 / 110 (  6.0% translated).
 - email.parser.po                  2 /  48 (  4.0% translated).
 - email.policy.po                 11 / 107 ( 10.0% translated).
 - enum.po                         73 / 244 ( 29.0% translated).
@@ -175,10 +175,10 @@
 - wave.po                         17 /  54 ( 31.0% translated).
 - winreg.po                       30 / 176 ( 17.0% translated).
 - winsound.po                      8 /  35 ( 22.0% translated).
-- wsgiref.po                       8 / 134 (  5.0% translated).
+- wsgiref.po                      49 / 134 ( 36.0% translated).
 - xml.dom.minidom.po               6 /  56 ( 10.0% translated).
 - xml.dom.po                      67 / 235 ( 28.0% translated).
-- xml.dom.pulldom.po              12 /  30 ( 40.0% translated).
+- xml.dom.pulldom.po              13 /  30 ( 43.0% translated).
 - xml.etree.elementtree.po        67 / 266 ( 25.0% translated).
 - xml.sax.handler.po               4 / 103 (  3.0% translated).
 - xml.sax.po                       2 /  32 (  6.0% translated).
@@ -215,8 +215,8 @@
 - 3.5.po                         125 / 578 ( 21.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   1679 / 12211 ( 13.0% translated).
+- changelog.po                   1680 / 12211 ( 13.0% translated).
 
 
-# TOTAL (59.52% done)
+# TOTAL (59.59% done)
 
