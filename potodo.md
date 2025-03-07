@@ -67,7 +67,7 @@
 
 
 
-# library (62.85% done)
+# library (62.89% done)
 
 - array.po                        66 /  86 ( 76.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -95,7 +95,7 @@
 - email.charset.po                 2 /  44 (  4.0% translated).
 - email.compat32-message.po        6 / 115 (  5.0% translated).
 - email.contentmanager.po          9 /  42 ( 21.0% translated).
-- email.errors.po                  5 /  26 ( 19.0% translated).
+- email.errors.po                  6 /  26 ( 23.0% translated).
 - email.examples.po               15 /  20 ( 75.0% translated).
 - email.generator.po               2 /  41 (  4.0% translated).
 - email.header.po                  4 /  40 ( 10.0% translated).
@@ -119,7 +119,6 @@
 - http.server.po                  13 / 116 ( 11.0% translated).
 - idle.po                         17 / 293 (  5.0% translated).
 - imaplib.po                      13 / 117 ( 11.0% translated).
-- importlib.metadata.po          100 / 119 ( 84.0% translated).
 - importlib.po                   245 / 312 ( 78.0% translated).
 - inspect.po                      78 / 390 ( 20.0% translated).
 - io.po                           21 / 271 (  7.0% translated).
@@ -161,9 +160,9 @@
 - threading.po                    36 / 240 ( 15.0% translated).
 - timeit.po                       52 /  68 ( 76.0% translated).
 - tkinter.ttk.po                 141 / 429 ( 32.0% translated).
-- traceback.po                     9 / 112 (  8.0% translated).
+- traceback.po                     9 / 116 (  7.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
-- typing.po                      759 / 791 ( 95.0% translated).
+- typing.po                      756 / 791 ( 95.0% translated).
 - unicodedata.po                   5 /  32 ( 15.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               103 / 448 ( 22.0% translated).
@@ -184,7 +183,7 @@
 - xml.sax.po                       2 /  32 (  6.0% translated).
 - xml.sax.reader.po                2 /  75 (  2.0% translated).
 - xml.sax.utils.po                 1 /  15 (  6.0% translated).
-- xmlrpc.client.po                56 / 113 ( 49.0% translated).
+- xmlrpc.client.po                54 / 113 ( 47.0% translated).
 - zipimport.po                     6 /  38 ( 15.0% translated).
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
@@ -201,7 +200,7 @@
 
 
 
-# whatsnew (43.30% done)
+# whatsnew (43.33% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -215,8 +214,8 @@
 - 3.5.po                         125 / 578 ( 21.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   1723 / 12211 ( 14.0% translated).
+- changelog.po                   1733 / 12221 ( 14.0% translated).
 
 
-# TOTAL (59.64% done)
+# TOTAL (59.67% done)
 
