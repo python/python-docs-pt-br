@@ -67,7 +67,7 @@
 
 
 
-# library (62.89% done)
+# library (62.97% done)
 
 - array.po                        66 /  86 ( 76.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -174,7 +174,7 @@
 - wave.po                         17 /  54 ( 31.0% translated).
 - winreg.po                       30 / 176 ( 17.0% translated).
 - winsound.po                      8 /  35 ( 22.0% translated).
-- wsgiref.po                      49 / 134 ( 36.0% translated).
+- wsgiref.po                      78 / 134 ( 58.0% translated).
 - xml.dom.minidom.po               6 /  56 ( 10.0% translated).
 - xml.dom.po                      67 / 235 ( 28.0% translated).
 - xml.dom.pulldom.po              13 /  30 ( 43.0% translated).
@@ -217,5 +217,5 @@
 - changelog.po                   1733 / 12221 ( 14.0% translated).
 
 
-# TOTAL (59.67% done)
+# TOTAL (59.71% done)
 
