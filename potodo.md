@@ -5,7 +5,7 @@
 - license.po                     116 / 125 ( 92.0% translated).
 
 
-# c-api (53.23% done)
+# c-api (53.20% done)
 
 - exceptions.po                  194 / 366 ( 53.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
@@ -22,10 +22,10 @@
 - number.po                       14 /  48 ( 29.0% translated).
 - object.po                       14 /  80 ( 17.0% translated).
 - refcounting.po                   2 /  47 (  4.0% translated).
-- structures.po                   71 / 179 ( 39.0% translated).
+- structures.po                   71 / 180 ( 39.0% translated).
 - sys.po                          28 /  77 ( 36.0% translated).
 - type.po                         19 /  99 ( 19.0% translated).
-- typeobj.po                     229 / 664 ( 34.0% translated).
+- typeobj.po                     228 / 664 ( 34.0% translated).
 - unicode.po                      27 / 325 (  8.0% translated).
 - veryhigh.po                     54 /  57 ( 94.0% translated).
 
@@ -168,7 +168,7 @@
 - os.path.po                      88 /  92 ( 95.0% translated).
 - ossaudiodev.po                  18 / 102 ( 17.0% translated).
 - pathlib.po                     209 / 346 ( 60.0% translated).
-- pdb.po                         132 / 137 ( 96.0% translated).
+- pdb.po                         134 / 139 ( 96.0% translated).
 - pickle.po                      231 / 243 ( 95.0% translated).
 - pipes.po                         5 /  21 ( 23.0% translated).
 - pkgutil.po                       6 /  50 ( 12.0% translated).
@@ -212,7 +212,7 @@
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
 - turtle.po                      661 / 662 ( 99.0% translated).
 - types.po                        98 /  99 ( 98.0% translated).
-- typing.po                      692 / 745 ( 92.0% translated).
+- typing.po                      685 / 738 ( 92.0% translated).
 - unicodedata.po                   5 /  32 ( 15.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               103 / 440 ( 23.0% translated).
@@ -223,7 +223,7 @@
 - venv.po                        120 / 121 ( 99.0% translated).
 - warnings.po                     71 / 131 ( 54.0% translated).
 - wave.po                         17 /  53 ( 32.0% translated).
-- webbrowser.po                   61 /  80 ( 76.0% translated).
+- webbrowser.po                   65 /  83 ( 78.0% translated).
 - winreg.po                       30 / 176 ( 17.0% translated).
 - winsound.po                      8 /  35 ( 22.0% translated).
 - wsgiref.po                      78 / 134 ( 58.0% translated).
@@ -241,10 +241,11 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (99.82% done)
+# reference (99.79% done)
 
 - compound_stmts.po              464 / 465 ( 99.0% translated).
 - datamodel.po                   852 / 856 ( 99.0% translated).
+- grammar.po                       3 /   4 ( 75.0% translated).
 
 
 # tutorial (99.61% done)
@@ -278,5 +279,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (66.90% done)
+# TOTAL (66.89% done)
 
