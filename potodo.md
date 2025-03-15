@@ -85,11 +85,11 @@
 
 
 
-# library (61.41% done)
+# library (61.42% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          48 /  49 ( 97.0% translated).
-- argparse.po                    303 / 335 ( 90.0% translated).
+- argparse.po                    305 / 335 ( 91.0% translated).
 - array.po                        66 /  83 ( 79.0% translated).
 - ast.po                         224 / 228 ( 98.0% translated).
 - asynchat.po                      6 /  35 ( 17.0% translated).
@@ -110,7 +110,7 @@
 - bdb.po                           9 / 110 (  8.0% translated).
 - binascii.po                     23 /  40 ( 57.0% translated).
 - bisect.po                       27 /  30 ( 90.0% translated).
-- calendar.po                     86 /  93 ( 92.0% translated).
+- calendar.po                     87 /  93 ( 93.0% translated).
 - cgi.po                          27 / 109 ( 24.0% translated).
 - chunk.po                        14 /  39 ( 35.0% translated).
 - cmath.po                        54 /  56 ( 96.0% translated).
@@ -126,7 +126,7 @@
 - curses.panel.po                 22 /  23 ( 95.0% translated).
 - curses.po                       64 / 485 ( 13.0% translated).
 - dataclasses.po                  62 / 124 ( 50.0% translated).
-- datetime.po                    574 / 586 ( 97.0% translated).
+- datetime.po                    575 / 586 ( 98.0% translated).
 - dbm.po                          81 /  85 ( 95.0% translated).
 - difflib.po                      14 / 134 ( 10.0% translated).
 - dis.po                         109 / 265 ( 41.0% translated).
@@ -192,7 +192,7 @@
 - multiprocessing.po             276 / 529 ( 52.0% translated).
 - multiprocessing.shared_memory.po  46 /  48 ( 95.0% translated).
 - nntplib.po                       9 /  89 ( 10.0% translated).
-- optparse.po                    411 / 416 ( 98.0% translated).
+- optparse.po                    412 / 416 ( 99.0% translated).
 - os.path.po                      77 /  78 ( 98.0% translated).
 - os.po                          918 / 931 ( 98.0% translated).
 - ossaudiodev.po                  18 /  98 ( 18.0% translated).
@@ -284,10 +284,10 @@
 - zoneinfo.po                      8 /  75 ( 10.0% translated).
 
 
-# reference (98.54% done)
+# reference (98.62% done)
 
 - compound_stmts.po              383 / 389 ( 98.0% translated).
-- datamodel.po                   783 / 786 ( 99.0% translated).
+- datamodel.po                   785 / 786 ( 99.0% translated).
 - executionmodel.po               73 /  75 ( 97.0% translated).
 - import.po                      192 / 207 ( 92.0% translated).
 - lexical_analysis.po            287 / 299 ( 95.0% translated).
@@ -328,5 +328,5 @@
 - 3.8.po                         468 / 469 ( 99.0% translated).
 
 
-# TOTAL (66.38% done)
+# TOTAL (66.39% done)
 
