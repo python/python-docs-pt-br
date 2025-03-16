@@ -79,9 +79,9 @@
 
 
 
-# library (59.61% done)
+# library (59.62% done)
 
-- argparse.po                    260 / 290 ( 89.0% translated).
+- argparse.po                    262 / 290 ( 90.0% translated).
 - array.po                        79 /  81 ( 97.0% translated).
 - ast.po                         179 / 193 ( 92.0% translated).
 - asynchat.po                      4 /  33 ( 12.0% translated).
@@ -177,7 +177,7 @@
 - msilib.po                        7 /  96 (  7.0% translated).
 - multiprocessing.po             269 / 518 ( 51.0% translated).
 - nntplib.po                       6 /  84 (  7.0% translated).
-- optparse.po                    379 / 406 ( 93.0% translated).
+- optparse.po                    380 / 406 ( 93.0% translated).
 - ossaudiodev.po                  18 /  98 ( 18.0% translated).
 - parser.po                        7 /  49 ( 14.0% translated).
 - pathlib.po                     204 / 205 ( 99.0% translated).
@@ -264,10 +264,10 @@
 - zoneinfo.po                      5 /  72 (  6.0% translated).
 
 
-# reference (92.54% done)
+# reference (92.60% done)
 
 - compound_stmts.po               82 / 118 ( 69.0% translated).
-- datamodel.po                   477 / 484 ( 98.0% translated).
+- datamodel.po                   478 / 484 ( 98.0% translated).
 - expressions.po                 295 / 329 ( 89.0% translated).
 - import.po                      163 / 186 ( 87.0% translated).
 - lexical_analysis.po            173 / 184 ( 94.0% translated).
@@ -303,5 +303,5 @@
 - 3.9.po                         382 / 386 ( 98.0% translated).
 
 
-# TOTAL (63.24% done)
+# TOTAL (63.25% done)
 
