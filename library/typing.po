@@ -3338,12 +3338,23 @@ msgid ""
 "str or bytes\n"
 "    ..."
 msgstr ""
+"class StrSequence[S: str]:  # S é a TypeVar com como limite superior em "
+"`str`;\n"
+"    ...                     # podemos dizer que S é \"delimitada por "
+"`str`\"\n"
+"\n"
+"\n"
+"class StrOrBytesSequence[A: (str, bytes)]:  # A é uma TypeVar restrita a str "
+"ou bytes\n"
+"    ..."
 
 #: ../../library/typing.rst:1608
 msgid ""
 "However, if desired, reusable type variables can also be constructed "
 "manually, like so::"
 msgstr ""
+"No entanto, se desejado, tipos variáveis reutilizáveis também podem ser "
+"construídas manualmente, como:"
 
 #: ../../library/typing.rst:1610
 msgid ""
@@ -3351,6 +3362,9 @@ msgid ""
 "S = TypeVar('S', bound=str)  # Can be any subtype of str\n"
 "A = TypeVar('A', str, bytes)  # Must be exactly str or bytes"
 msgstr ""
+"T = TypeVar('T') # Pode ser qualquer coisa\n"
+"S = TypeVar('S', bound=str) # Pode ser qualquer subtipo de str\n"
+"A = TypeVar('A', str, bytes) # Deve ser exatamente str ou bytes"
 
 #: ../../library/typing.rst:1614
 msgid ""
@@ -3359,6 +3373,11 @@ msgid ""
 "function and type alias definitions. See :class:`Generic` for more "
 "information on generic types.  Generic functions work as follows::"
 msgstr ""
+"Tipos variáveis existem principalmente para o benefício de verificadores de "
+"tipo estático. Eles servem como parâmetros para tipos genéricos, bem como "
+"para definições de função genérica  e apelidos de tipo. Consulte :class:"
+"`Generic` para obter mais informações sobre genérico. Funções genéricas "
+"funcionam da seguinte forma::"
 
 #: ../../library/typing.rst:1620
 msgid ""
@@ -3397,6 +3416,8 @@ msgid ""
 "Note that type variables can be *bounded*, *constrained*, or neither, but "
 "cannot be both bounded *and* constrained."
 msgstr ""
+"Observe que tipos variáveis podem ser *delimitados*, *restritos*, nenhum dos "
+"dois, mas não podem ser *ambos*."
 
 #: ../../library/typing.rst:1638
 msgid ""
@@ -3407,6 +3428,13 @@ msgid ""
 "or ``contravariant=True``. By default, manually created type variables are "
 "invariant. See :pep:`484` and :pep:`695` for more details."
 msgstr ""
+"A variância de tipos variáveis é inferida pelos verificadores de tipo quando "
+"eles são criados por meio do :ref:`sintaxe de parâmetro de tipo <type-"
+"params>` ou quando ``infer_variance=True`` é passado. Os tipos variáveis "
+"criados manualmente podem ser explicitamente marcados como covariante ou "
+"contravariantes ao passar ``covariant=True`` ou ``contravariant=True``. Por "
+"padrão, os tipos variáveis criados manualmente são invariante. Consulte :pep:"
+"`484` e :pep:`695` para obter mais detalhes."
 
 #: ../../library/typing.rst:1646
 msgid ""
@@ -3414,6 +3442,10 @@ msgid ""
 "semantics in several important ways. Using a *bounded* type variable means "
 "that the ``TypeVar`` will be solved using the most specific type possible::"
 msgstr ""
+"Tipos variáveis delimitados e tipos variáveis restritos têm semânticas "
+"diferentes de várias formas importantes. Usar um tipo variável *delimitado* "
+"significa que a ``TypeVar`` será resolvido usando o tipo mais específico "
+"possível::"
 
 #: ../../library/typing.rst:1650
 msgid ""
@@ -3444,6 +3476,9 @@ msgid ""
 "The upper bound of a type variable can be a concrete type, abstract type "
 "(ABC or Protocol), or even a union of types::"
 msgstr ""
+"O limite superior de um tipo variável pode ser um tipo concreto, um tipo "
+"abstrato (classe base abstrata ou protocolo) ou até mesmo uma união de "
+"tipos::"
 
 #: ../../library/typing.rst:1664
 msgid ""
@@ -3484,6 +3519,15 @@ msgid ""
 "c = concatenate('one', b'two')  # error: type variable 'A' can be either str "
 "or bytes in a function call, but not both"
 msgstr ""
+"a = concatenate('one', 'two')\n"
+"reveal_type(a) # o tipo revelado é str\n"
+"\n"
+"b = concatenate(StringSubclass('one'), StringSubclass('two'))\n"
+"reveal_type(b) # o tipo revelado é str, apesar de StringSubclass ter sido "
+"passado\n"
+"\n"
+"c = concatenate('one', b'two') # erro: tipo variável 'A' pode ser str ou "
+"bytes em uma chamada de função, mas não ambos"
 
 #: ../../library/typing.rst:1684
 msgid "At runtime, ``isinstance(x, T)`` will raise :exc:`TypeError`."
@@ -3491,24 +3535,25 @@ msgstr "Em tempo de execução, ``isinstance(x, T)`` levantará :exc:`TypeError`
 
 #: ../../library/typing.rst:1688
 msgid "The name of the type variable."
-msgstr ""
+msgstr "O nome do tipo variável."
 
 #: ../../library/typing.rst:1692
 msgid "Whether the type var has been explicitly marked as covariant."
-msgstr ""
+msgstr "Se o tipo variável foi explicitamente marcado como covariante."
 
 #: ../../library/typing.rst:1696
 msgid "Whether the type var has been explicitly marked as contravariant."
-msgstr ""
+msgstr "Se o tipo variável foi explicitamente marcado como contravariante."
 
 #: ../../library/typing.rst:1700
 msgid ""
 "Whether the type variable's variance should be inferred by type checkers."
 msgstr ""
+"Se a variância de tipo variável deve ser inferida por verificadores de tipo."
 
 #: ../../library/typing.rst:1706
 msgid "The upper bound of the type variable, if any."
-msgstr ""
+msgstr "A limite superior do tipo variável, se houver."
 
 #: ../../library/typing.rst:1710
 msgid ""
@@ -3516,10 +3561,13 @@ msgid ""
 "params>`, the bound is evaluated only when the attribute is accessed, not "
 "when the type variable is created (see :ref:`lazy-evaluation`)."
 msgstr ""
+"Para tipos variáveis criado por meio da :ref:`sintaxe de parâmetro de tipo "
+"<type-params>` , a limite é avaliado somente quando o atributo é acessado, "
+"não quando o tipo variável é criado (consulte :ref:`lazy-evaluation`)."
 
 #: ../../library/typing.rst:1716
 msgid "A tuple containing the constraints of the type variable, if any."
-msgstr ""
+msgstr "Um tupla contendo as restrições do tipo variável, se houver."
 
 #: ../../library/typing.rst:1720
 msgid ""
@@ -3527,6 +3575,10 @@ msgid ""
 "params>`, the constraints are evaluated only when the attribute is accessed, "
 "not when the type variable is created (see :ref:`lazy-evaluation`)."
 msgstr ""
+"Para tipos variáveis criado por meio da :ref:`sintaxe de parâmetro de tipo "
+"<type-params>` , a restrição é avaliada somente quando o atributo é "
+"acessado, não quando o tipo variável é criado (consulte :ref:`lazy-"
+"evaluation`)."
 
 #: ../../library/typing.rst:1726
 msgid ""
@@ -3534,6 +3586,9 @@ msgid ""
 "params>` syntax introduced by :pep:`695`. The ``infer_variance`` parameter "
 "was added."
 msgstr ""
+"tipos variáveis agora podem ser declarados usando a :ref:`sintaxe de "
+"parâmetro de tipo <type-params>` introduzida por :pep:`695`. O parâmetro "
+"``infer_variance`` foi adicionado."
 
 #: ../../library/typing.rst:1734
 msgid ""
