@@ -67,7 +67,7 @@
 
 
 
-# library (62.97% done)
+# library (63.02% done)
 
 - array.po                        66 /  86 ( 76.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -162,7 +162,7 @@
 - tkinter.ttk.po                 141 / 429 ( 32.0% translated).
 - traceback.po                     9 / 116 (  7.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
-- typing.po                      749 / 784 ( 95.0% translated).
+- typing.po                      769 / 784 ( 98.0% translated).
 - unicodedata.po                   5 /  32 ( 15.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               103 / 448 ( 22.0% translated).
@@ -200,7 +200,7 @@
 
 
 
-# whatsnew (44.22% done)
+# whatsnew (44.25% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -213,8 +213,8 @@
 - 3.5.po                         125 / 578 ( 21.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   1921 / 12230 ( 15.0% translated).
+- changelog.po                   1929 / 12230 ( 15.0% translated).
 
 
-# TOTAL (59.97% done)
+# TOTAL (60.01% done)
 
