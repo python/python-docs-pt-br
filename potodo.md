@@ -87,7 +87,7 @@
 
 
 
-# library (59.98% done)
+# library (60.06% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    256 / 290 ( 88.0% translated).
@@ -262,7 +262,7 @@
 - weakref.po                      74 /  84 ( 88.0% translated).
 - webbrowser.po                   76 /  82 ( 92.0% translated).
 - winreg.po                       29 / 171 ( 16.0% translated).
-- winsound.po                      9 /  34 ( 26.0% translated).
+- winsound.po                     32 /  34 ( 94.0% translated).
 - wsgiref.po                      65 / 116 ( 56.0% translated).
 - xdrlib.po                        4 /  54 (  7.0% translated).
 - xml.dom.minidom.po               6 /  51 ( 11.0% translated).
@@ -324,5 +324,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (63.89% done)
+# TOTAL (63.93% done)
 
