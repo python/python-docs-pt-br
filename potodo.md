@@ -4,7 +4,7 @@
 
 
 
-# c-api (53.57% done)
+# c-api (53.50% done)
 
 - exceptions.po                  194 / 370 ( 52.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
@@ -24,7 +24,7 @@
 - structures.po                   71 / 180 ( 39.0% translated).
 - sys.po                          28 /  75 ( 37.0% translated).
 - type.po                         19 / 101 ( 18.0% translated).
-- typeobj.po                     227 / 670 ( 33.0% translated).
+- typeobj.po                     227 / 680 ( 33.0% translated).
 - unicode.po                      28 / 338 (  8.0% translated).
 
 
@@ -67,7 +67,7 @@
 
 
 
-# library (63.02% done)
+# library (63.09% done)
 
 - array.po                        66 /  86 ( 76.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -90,8 +90,8 @@
 - curses.po                       66 / 486 ( 13.0% translated).
 - dataclasses.po                  47 / 152 ( 30.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
-- dis.po                         204 / 396 ( 51.0% translated).
-- doctest.po                      92 / 372 ( 24.0% translated).
+- dis.po                         204 / 397 ( 51.0% translated).
+- doctest.po                      88 / 376 ( 23.0% translated).
 - email.charset.po                 2 /  44 (  4.0% translated).
 - email.compat32-message.po        6 / 115 (  5.0% translated).
 - email.contentmanager.po          9 /  42 ( 21.0% translated).
@@ -116,7 +116,7 @@
 - http.cookiejar.po                9 / 159 (  5.0% translated).
 - http.cookies.po                  7 /  49 ( 14.0% translated).
 - http.po                        163 / 247 ( 65.0% translated).
-- http.server.po                  13 / 116 ( 11.0% translated).
+- http.server.po                  15 / 115 ( 13.0% translated).
 - idle.po                         17 / 293 (  5.0% translated).
 - imaplib.po                      13 / 117 ( 11.0% translated).
 - importlib.po                   245 / 312 ( 78.0% translated).
@@ -149,7 +149,7 @@
 - signal.po                       56 / 137 ( 40.0% translated).
 - smtplib.po                      30 / 116 ( 25.0% translated).
 - socket.po                       53 / 363 ( 14.0% translated).
-- sqlite3.po                     116 / 476 ( 24.0% translated).
+- sqlite3.po                     116 / 477 ( 24.0% translated).
 - ssl.po                          61 / 544 ( 11.0% translated).
 - struct.po                       96 / 195 ( 49.0% translated).
 - subprocess.po                  149 / 323 ( 46.0% translated).
@@ -173,7 +173,6 @@
 - warnings.po                     72 / 138 ( 52.0% translated).
 - wave.po                         17 /  54 ( 31.0% translated).
 - winreg.po                       30 / 176 ( 17.0% translated).
-- winsound.po                      8 /  35 ( 22.0% translated).
 - wsgiref.po                      78 / 134 ( 58.0% translated).
 - xml.dom.minidom.po               6 /  56 ( 10.0% translated).
 - xml.dom.po                      67 / 235 ( 28.0% translated).
@@ -200,7 +199,7 @@
 
 
 
-# whatsnew (44.25% done)
+# whatsnew (44.27% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -213,8 +212,8 @@
 - 3.5.po                         125 / 578 ( 21.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   1929 / 12230 ( 15.0% translated).
+- changelog.po                   1937 / 12238 ( 15.0% translated).
 
 
-# TOTAL (60.01% done)
+# TOTAL (60.04% done)
 
