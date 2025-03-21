@@ -1,11 +1,11 @@
 
 
-# 3.12 (98.65% done)
+# 3.12 (98.66% done)
 
 - license.po                     116 / 125 ( 92.0% translated).
 
 
-# c-api (53.20% done)
+# c-api (53.08% done)
 
 - exceptions.po                  194 / 366 ( 53.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
@@ -16,7 +16,7 @@
 - init.po                        138 / 434 ( 31.0% translated).
 - init_config.po                 133 / 410 ( 32.0% translated).
 - intro.po                        96 / 141 ( 68.0% translated).
-- long.po                         30 /  67 ( 44.0% translated).
+- long.po                         30 /  69 ( 43.0% translated).
 - memory.po                       53 / 195 ( 27.0% translated).
 - module.po                       63 / 124 ( 50.0% translated).
 - number.po                       14 /  48 ( 29.0% translated).
@@ -25,7 +25,7 @@
 - structures.po                   71 / 180 ( 39.0% translated).
 - sys.po                          28 /  77 ( 36.0% translated).
 - type.po                         19 /  99 ( 19.0% translated).
-- typeobj.po                     228 / 664 ( 34.0% translated).
+- typeobj.po                     228 / 674 ( 33.0% translated).
 - unicode.po                      27 / 325 (  8.0% translated).
 - veryhigh.po                     54 /  57 ( 94.0% translated).
 
@@ -71,7 +71,7 @@
 
 
 
-# library (61.66% done)
+# library (61.71% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        64 /  84 ( 76.0% translated).
@@ -97,14 +97,16 @@
 - concurrent.futures.po           14 /  98 ( 14.0% translated).
 - contextlib.po                   56 / 172 ( 32.0% translated).
 - contextvars.po                  49 /  51 ( 96.0% translated).
+- copy.po                         27 /  28 ( 96.0% translated).
 - crypt.po                         6 /  36 ( 16.0% translated).
 - ctypes.po                      103 / 523 ( 19.0% translated).
 - curses.po                       64 / 484 ( 13.0% translated).
 - dataclasses.po                  47 / 151 ( 31.0% translated).
+- datetime.po                    633 / 637 ( 99.0% translated).
 - dbm.po                          85 /  87 ( 97.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
 - dis.po                         180 / 357 ( 50.0% translated).
-- doctest.po                      91 / 363 ( 25.0% translated).
+- doctest.po                      87 / 367 ( 23.0% translated).
 - email.charset.po                 2 /  44 (  4.0% translated).
 - email.compat32-message.po        6 / 115 (  5.0% translated).
 - email.contentmanager.po          9 /  42 ( 21.0% translated).
@@ -131,7 +133,7 @@
 - http.cookiejar.po                9 / 159 (  5.0% translated).
 - http.cookies.po                  7 /  49 ( 14.0% translated).
 - http.po                        210 / 246 ( 85.0% translated).
-- http.server.po                  13 / 114 ( 11.0% translated).
+- http.server.po                  15 / 113 ( 13.0% translated).
 - idle.po                         17 / 293 (  5.0% translated).
 - imaplib.po                      13 / 117 ( 11.0% translated).
 - imghdr.po                       20 /  42 ( 47.0% translated).
@@ -177,7 +179,7 @@
 - smtplib.po                      30 / 116 ( 25.0% translated).
 - sndhdr.po                       12 /  38 ( 31.0% translated).
 - socket.po                       53 / 362 ( 14.0% translated).
-- sqlite3.po                     114 / 468 ( 24.0% translated).
+- sqlite3.po                     114 / 469 ( 24.0% translated).
 - ssl.po                          59 / 520 ( 11.0% translated).
 - statistics.po                  229 / 241 ( 95.0% translated).
 - struct.po                       96 / 194 ( 49.0% translated).
@@ -208,7 +210,6 @@
 - wave.po                         17 /  53 ( 32.0% translated).
 - webbrowser.po                   65 /  83 ( 78.0% translated).
 - winreg.po                       30 / 176 ( 17.0% translated).
-- winsound.po                      8 /  35 ( 22.0% translated).
 - wsgiref.po                      78 / 134 ( 58.0% translated).
 - xdrlib.po                        5 /  58 (  8.0% translated).
 - xml.dom.minidom.po               6 /  56 ( 10.0% translated).
@@ -258,5 +259,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (67.01% done)
+# TOTAL (67.03% done)
 
