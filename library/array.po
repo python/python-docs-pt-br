@@ -8,17 +8,17 @@
 # Misael borges <misael@planosassessoria.com.br>, 2021
 # Juliana Karoline <julianaklulo@gmail.com>, 2021
 # Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2024
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 # Adorilson Bezerra <adorilson@gmail.com>, 2024
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-17 14:16+0000\n"
+"POT-Creation-Date: 2025-03-21 14:18+0000\n"
 "PO-Revision-Date: 2021-06-28 00:54+0000\n"
-"Last-Translator: Adorilson Bezerra <adorilson@gmail.com>, 2024\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -230,10 +230,13 @@ msgid ""
 "``Py_UNICODE``. This change doesn't affect its behavior because "
 "``Py_UNICODE`` is alias of :c:type:`wchar_t` since Python 3.3."
 msgstr ""
+"``array('u')`` agora usa :c:type:`wchar_t` como tipo C no lugar do "
+"descontinuado ``Py_UNICODE``. Essa mudança não afeta o comportamento pois "
+"``Py_UNICODE`` é um apelido para :c:type:`wchar_t` desde Python 3.3."
 
 #: ../../library/array.rst:60
 msgid "Please migrate to ``'w'`` typecode."
-msgstr ""
+msgstr "Por favor, migre para o código de tipo ``'w'``."
 
 #: ../../library/array.rst:64
 msgid ""
@@ -241,10 +244,13 @@ msgid ""
 "architecture (strictly speaking, by the C implementation).  The actual size "
 "can be accessed through the :attr:`array.itemsize` attribute."
 msgstr ""
+"A representação dos valores é definida pela arquitetura da máquina, mais "
+"especificamente da implementação do C. O tamanho real pode ser acessado pelo "
+"atributo :attr:`array.itemsize`."
 
 #: ../../library/array.rst:68
 msgid "The module defines the following item:"
-msgstr ""
+msgstr "O módulo define o seguinte item:"
 
 #: ../../library/array.rst:73
 msgid "A string with all available type codes."
@@ -261,6 +267,10 @@ msgid ""
 "`bytearray` object, a Unicode string, or iterable over elements of the "
 "appropriate type."
 msgstr ""
+"Um novo vetor cujos itens são restritos por *typecode* e inicializados a "
+"partir do valor opcional *initializer*, que deve ser um objeto :class:"
+"`bytes` ou :class:`bytearray`, uma string Unicode ou iterável sobre "
+"elementos do tipo apropriado."
 
 #: ../../library/array.rst:86
 msgid ""
@@ -270,6 +280,11 @@ msgid ""
 "otherwise, the initializer's iterator is passed to the :meth:`extend` method "
 "to add initial items to the array."
 msgstr ""
+"Se for fornecido um objeto :class:`bytes` ou :class:`bytearray`, o "
+"inicializador é passado para o método :meth:`frombytes` do novo vetor; se "
+"for fornecida uma string Unicode, o inicializador é passado para o método :"
+"meth:`fromunicode`; caso contrário, o iterador do inicializador é passado "
+"para o método :meth:`extend` para adicionar itens iniciais ao vetor."
 
 #: ../../library/array.rst:93
 msgid ""
@@ -280,10 +295,10 @@ msgid ""
 "interface, and may be used wherever :term:`bytes-like objects <bytes-like "
 "object>` are supported."
 msgstr ""
-"Objetos array tem suporte para as operações de sequência comuns: indexação, "
-"fatiamento, concatenação, e multiplicação.  Quando usando a atribuição de "
-"fatias, o valor associado deve ser um objeto array com o mesmo código de "
-"tipo; caso contrário, :exc:`TypeError` é levantada. Objetos array também "
+"Objetos vetor tem suporte para as operações de sequência comuns: indexação, "
+"fatiamento, concatenação e multiplicação. Quando usando a atribuição de "
+"fatias, o valor associado deve ser um objeto vetor com o mesmo código de "
+"tipo; caso contrário, :exc:`TypeError` é levantada. Objetos vetor também "
 "implementam a interface buffer, e também podem ser usados em qualquer lugar "
 "onde :term:`objetos byte ou similar <bytes-like object>` é permitido."
 
@@ -297,7 +312,7 @@ msgstr ""
 
 #: ../../library/array.rst:104
 msgid "The typecode character used to create the array."
-msgstr "O caractere typecode usado para criar o vetor."
+msgstr "O caractere de código de tipo usado para criar o vetor."
 
 #: ../../library/array.rst:109
 msgid "The length in bytes of one array item in the internal representation."
@@ -318,6 +333,14 @@ msgid ""
 "as long as the array exists and no length-changing operations are applied to "
 "it."
 msgstr ""
+"Retorna uma tupla ``(address, length)`` com o endereço corrente da memória e "
+"o tamanho em elementos do buffer usado para armazenar conteúdos do vetor. O "
+"tamanho do buffer da memória em bytes pode ser computado como ``array."
+"buffer_info()[1] * array.itemsize``. Isso é ocasionalmente útil quando se "
+"está trabalhando com interfaces I/O de baixo nível (inerentemente inseguras) "
+"que precisam de endereços de memória, como algumas operações :c:func:`!"
+"ioctl`. Os números retornados são válidos enquanto o vetor existir e nenhuma "
+"operação de alteração de tamanho for aplicada a ele."
 
 #: ../../library/array.rst:129
 msgid ""
@@ -342,7 +365,7 @@ msgid ""
 msgstr ""
 "\"Byteswap\" todos os itens do vetor. Isso é somente suportado para valores "
 "de 1, 2, 4 ou 8 bytes de tamanho; para outros tipos de valores é levantada :"
-"exc:`RuntimeError` .  Isso é útil quando estamos lendo dados de um arquivo "
+"exc:`RuntimeError`. Isso é útil quando estamos lendo dados de um arquivo "
 "para serem escritos em um arquivo de outra máquina de ordem de bytes "
 "diferente."
 
@@ -368,10 +391,14 @@ msgid ""
 "as an array of machine values (as if it had been read from a file using the :"
 "meth:`fromfile` method)."
 msgstr ""
+"Adiciona itens do :term:`objeto byte ou similar`, interpretando seu conteúdo "
+"como um vetor (como se tivesse sido lido de um arquivo usando o método :meth:"
+"`fromfile`)."
 
 #: ../../library/array.rst:163
 msgid ":meth:`!fromstring` is renamed to :meth:`frombytes` for clarity."
 msgstr ""
+":meth:`!fromstring` foi renomeado para :meth:`frombytes` para maior clareza."
 
 #: ../../library/array.rst:169
 msgid ""
@@ -400,6 +427,10 @@ msgid ""
 "Use ``array.frombytes(unicodestring.encode(enc))`` to append Unicode data to "
 "an array of some other type."
 msgstr ""
+"Estende este vetor com dados da string Unicode fornecida. O vetor deve ter o "
+"código de tipo ``'u'`` ou ``'w'``; caso contrário, uma :exc:`ValueError` é "
+"levantada. Use ``array.frombytes(unicodestring.encode(enc))`` para anexar "
+"dados Unicode a um vetor de algum outro tipo."
 
 #: ../../library/array.rst:191
 msgid ""
@@ -408,17 +439,21 @@ msgid ""
 "specified to search for *x* within a subsection of the array.  Raise :exc:"
 "`ValueError` if *x* is not found."
 msgstr ""
+"Retorna o menor *i* tal que *i* seja o índice da primeira ocorrência de *x* "
+"no vetor. Os argumentos opcionais *start* e *stop* podem ser especificados "
+"para procurar por *x* dentro de uma subseção do vetor. Levanta :exc:"
+"`ValueError` se *x* não for encontrado."
 
 #: ../../library/array.rst:196
 msgid "Added optional *start* and *stop* parameters."
-msgstr ""
+msgstr "Adicionados os parâmetros opcionais *start e *stop*."
 
 #: ../../library/array.rst:202
 msgid ""
 "Insert a new item with value *x* in the array before position *i*. Negative "
 "values are treated as being relative to the end of the array."
 msgstr ""
-"Insere um novo item com o *x* no vetor antes da posição *i*. Valores "
+"Insere um novo item com o valor *x* no vetor antes da posição *i*. Valores "
 "negativos são tratados como sendo em relação ao fim do vetor."
 
 #: ../../library/array.rst:208
@@ -428,7 +463,8 @@ msgid ""
 "removed and returned."
 msgstr ""
 "Remove o item com o índice *i* do vetor e retorna este item. O valor padrão "
-"do argumento é ``-1``, assim por padrão o último item é removido e retornado."
+"do argumento opcional é ``-1``, assim por padrão o último item é removido e "
+"retornado."
 
 #: ../../library/array.rst:215
 msgid "Remove the first occurrence of *x* from the array."
@@ -436,7 +472,7 @@ msgstr "Remove a primeira ocorrência de *x* do vetor."
 
 #: ../../library/array.rst:220
 msgid "Remove all elements from the array."
-msgstr ""
+msgstr "Remove todos os elementos do vetor."
 
 #: ../../library/array.rst:227
 msgid "Reverse the order of the items in the array."
@@ -454,7 +490,7 @@ msgstr ""
 
 #: ../../library/array.rst:236
 msgid ":meth:`!tostring` is renamed to :meth:`tobytes` for clarity."
-msgstr ""
+msgstr ":meth:`!tostring` foi nomeado para :meth:`tobytes` para maior clareza."
 
 #: ../../library/array.rst:242
 msgid "Write all items (as machine values) to the :term:`file object` *f*."
@@ -472,6 +508,10 @@ msgid ""
 "or ``'w'``; otherwise a :exc:`ValueError` is raised. Use ``array.tobytes()."
 "decode(enc)`` to obtain a Unicode string from an array of some other type."
 msgstr ""
+"Devolve os itens do vetor como uma string Unicode. O vetor deve ser do tipo "
+"``'u'`` ou ``'w'``; caso contrário :exc:`ValueError` é levantada. Use "
+"``array.tobytes().decode(enc)`` para obter uma string Unicode de um vetor de "
+"outros tipos."
 
 #: ../../library/array.rst:257
 msgid ""
@@ -493,6 +533,10 @@ msgid ""
 "array('l', [1, 2, 3, 4, 5])\n"
 "array('d', [1.0, 2.0, 3.14, -inf, nan])"
 msgstr ""
+"array('l')\n"
+"array('w', 'hello \\u2641')\n"
+"array('l', [1, 2, 3, 4, 5])\n"
+"array('d', [1.0, 2.0, 3.14, -inf, nan])"
 
 #: ../../library/array.rst:277
 msgid "Module :mod:`struct`"
@@ -504,11 +548,11 @@ msgstr "Empacotamento e desempacotamento de dados binários heterogêneos."
 
 #: ../../library/array.rst:280
 msgid "`NumPy <https://numpy.org/>`_"
-msgstr ""
+msgstr "`NumPy <https://numpy.org/>`_"
 
 #: ../../library/array.rst:281
 msgid "The NumPy package defines another array type."
-msgstr ""
+msgstr "O pacote NumPy define outro tipo de vetor."
 
 #: ../../library/array.rst:7
 msgid "arrays"

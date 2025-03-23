@@ -48,7 +48,7 @@
 
 
 
-# howto (60.01% done)
+# howto (60.04% done)
 
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                  187 / 230 ( 81.0% translated).
@@ -56,7 +56,7 @@
 - functional.po                  138 / 252 ( 54.0% translated).
 - logging-cookbook.po             23 / 421 (  5.0% translated).
 - logging.po                     121 / 250 ( 48.0% translated).
-- regex.po                       303 / 332 ( 91.0% translated).
+- regex.po                       304 / 332 ( 91.0% translated).
 - sockets.po                      35 /  63 ( 55.0% translated).
 - sorting.po                      46 /  75 ( 61.0% translated).
 - unicode.po                      30 / 145 ( 20.0% translated).
@@ -67,9 +67,9 @@
 
 
 
-# library (63.09% done)
+# library (63.21% done)
 
-- array.po                        66 /  86 ( 76.0% translated).
+- array.po                        84 /  86 ( 97.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 402 ( 76.0% translated).
 - asyncio-future.po                9 /  64 ( 14.0% translated).
@@ -138,7 +138,6 @@
 - profile.po                      34 / 181 ( 18.0% translated).
 - pyexpat.po                      21 / 144 ( 14.0% translated).
 - queue.po                         9 /  53 ( 16.0% translated).
-- random.po                      125 / 137 ( 91.0% translated).
 - reprlib.po                      10 /  39 ( 25.0% translated).
 - resource.po                     40 / 110 ( 36.0% translated).
 - sched.po                         4 /  25 ( 16.0% translated).
@@ -169,7 +168,6 @@
 - unittest.po                    282 / 537 ( 52.0% translated).
 - urllib.parse.po                110 / 168 ( 65.0% translated).
 - urllib.request.po               40 / 297 ( 13.0% translated).
-- urllib.robotparser.po            5 /  19 ( 26.0% translated).
 - warnings.po                     72 / 138 ( 52.0% translated).
 - wave.po                         17 /  54 ( 31.0% translated).
 - winreg.po                       30 / 176 ( 17.0% translated).
@@ -215,5 +213,5 @@
 - changelog.po                   1937 / 12238 ( 15.0% translated).
 
 
-# TOTAL (60.04% done)
+# TOTAL (60.10% done)
 
