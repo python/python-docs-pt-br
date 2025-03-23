@@ -85,12 +85,12 @@
 
 
 
-# library (61.51% done)
+# library (61.58% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          48 /  49 ( 97.0% translated).
 - argparse.po                    305 / 335 ( 91.0% translated).
-- array.po                        66 /  83 ( 79.0% translated).
+- array.po                        79 /  83 ( 95.0% translated).
 - ast.po                         224 / 228 ( 98.0% translated).
 - asynchat.po                      6 /  35 ( 17.0% translated).
 - asyncio-dev.po                  16 /  42 ( 38.0% translated).
@@ -259,7 +259,7 @@
 - urllib.error.po                 11 /  13 ( 84.0% translated).
 - urllib.parse.po                101 / 160 ( 63.0% translated).
 - urllib.request.po               45 / 283 ( 15.0% translated).
-- urllib.robotparser.po            5 /  18 ( 27.0% translated).
+- urllib.robotparser.po           17 /  18 ( 94.0% translated).
 - uuid.po                         49 /  56 ( 87.0% translated).
 - venv.po                        110 / 111 ( 99.0% translated).
 - warnings.po                     66 / 112 ( 58.0% translated).
@@ -327,5 +327,5 @@
 - 3.8.po                         468 / 469 ( 99.0% translated).
 
 
-# TOTAL (66.44% done)
+# TOTAL (66.49% done)
 
