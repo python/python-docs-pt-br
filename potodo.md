@@ -51,7 +51,7 @@
 - library.po                     157 / 162 ( 96.0% translated).
 
 
-# howto (58.05% done)
+# howto (58.08% done)
 
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                  181 / 233 ( 77.0% translated).
@@ -60,7 +60,7 @@
 - logging-cookbook.po             23 / 421 (  5.0% translated).
 - logging.po                     121 / 250 ( 48.0% translated).
 - perf_profiling.po               29 /  32 ( 90.0% translated).
-- regex.po                       303 / 332 ( 91.0% translated).
+- regex.po                       304 / 332 ( 91.0% translated).
 - sockets.po                      35 /  63 ( 55.0% translated).
 - sorting.po                      46 /  75 ( 61.0% translated).
 - unicode.po                      30 / 145 ( 20.0% translated).
@@ -71,10 +71,10 @@
 
 
 
-# library (61.71% done)
+# library (61.81% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
-- array.po                        64 /  84 ( 76.0% translated).
+- array.po                        77 /  84 ( 91.0% translated).
 - ast.po                         255 / 306 ( 83.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 390 ( 78.0% translated).
@@ -165,7 +165,6 @@
 - profile.po                      34 / 179 ( 18.0% translated).
 - pyexpat.po                      21 / 144 ( 14.0% translated).
 - queue.po                         6 /  44 ( 13.0% translated).
-- random.po                      111 / 121 ( 91.0% translated).
 - reprlib.po                      10 /  39 ( 25.0% translated).
 - resource.po                     40 / 110 ( 36.0% translated).
 - runpy.po                        31 /  40 ( 77.0% translated).
@@ -205,7 +204,6 @@
 - unittest.po                    282 / 536 ( 52.0% translated).
 - urllib.parse.po                109 / 167 ( 65.0% translated).
 - urllib.request.po               43 / 299 ( 14.0% translated).
-- urllib.robotparser.po            5 /  19 ( 26.0% translated).
 - warnings.po                     71 / 131 ( 54.0% translated).
 - wave.po                         17 /  53 ( 32.0% translated).
 - webbrowser.po                   65 /  83 ( 78.0% translated).
@@ -259,5 +257,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (67.03% done)
+# TOTAL (67.10% done)
 
