@@ -67,7 +67,7 @@
 
 
 
-# library (63.21% done)
+# library (63.05% done)
 
 - array.po                        84 /  86 ( 97.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -126,7 +126,7 @@
 - logging.config.po               12 / 171 (  7.0% translated).
 - logging.handlers.po             48 / 270 ( 17.0% translated).
 - logging.po                      92 / 369 ( 24.0% translated).
-- mailbox.po                      10 / 306 (  3.0% translated).
+- mailbox.po                      10 / 307 (  3.0% translated).
 - mimetypes.po                    20 /  54 ( 37.0% translated).
 - mmap.po                         12 /  65 ( 18.0% translated).
 - msvcrt.po                       22 /  46 ( 47.0% translated).
@@ -159,6 +159,7 @@
 - threading.po                    36 / 240 ( 15.0% translated).
 - timeit.po                       52 /  68 ( 76.0% translated).
 - tkinter.ttk.po                 141 / 429 ( 32.0% translated).
+- token.po                        30 /  96 ( 31.0% translated).
 - traceback.po                     9 / 116 (  7.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
 - typing.po                      769 / 784 ( 98.0% translated).
@@ -167,7 +168,7 @@
 - unittest.mock.po               103 / 448 ( 22.0% translated).
 - unittest.po                    282 / 537 ( 52.0% translated).
 - urllib.parse.po                110 / 168 ( 65.0% translated).
-- urllib.request.po               40 / 297 ( 13.0% translated).
+- urllib.request.po               40 / 298 ( 13.0% translated).
 - warnings.po                     72 / 138 ( 52.0% translated).
 - wave.po                         17 /  54 ( 31.0% translated).
 - winreg.po                       30 / 176 ( 17.0% translated).
@@ -197,7 +198,7 @@
 
 
 
-# whatsnew (44.27% done)
+# whatsnew (44.29% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -210,8 +211,8 @@
 - 3.5.po                         125 / 578 ( 21.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   1937 / 12238 ( 15.0% translated).
+- changelog.po                   1943 / 12244 ( 15.0% translated).
 
 
-# TOTAL (60.10% done)
+# TOTAL (60.03% done)
 
