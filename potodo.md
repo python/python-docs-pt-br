@@ -145,7 +145,7 @@
 - logging.config.po               12 / 171 (  7.0% translated).
 - logging.handlers.po             48 / 270 ( 17.0% translated).
 - logging.po                      99 / 368 ( 26.0% translated).
-- mailbox.po                      10 / 289 (  3.0% translated).
+- mailbox.po                      10 / 290 (  3.0% translated).
 - mailcap.po                       2 /  16 ( 12.0% translated).
 - marshal.po                      24 /  30 ( 80.0% translated).
 - mimetypes.po                    16 /  51 ( 31.0% translated).
@@ -203,7 +203,7 @@
 - unittest.mock.po               103 / 440 ( 23.0% translated).
 - unittest.po                    282 / 536 ( 52.0% translated).
 - urllib.parse.po                109 / 167 ( 65.0% translated).
-- urllib.request.po               43 / 299 ( 14.0% translated).
+- urllib.request.po               43 / 300 ( 14.0% translated).
 - warnings.po                     71 / 131 ( 54.0% translated).
 - wave.po                         17 /  53 ( 32.0% translated).
 - webbrowser.po                   65 /  83 ( 78.0% translated).
@@ -242,7 +242,7 @@
 - windows.po                     374 / 378 ( 98.0% translated).
 
 
-# whatsnew (74.91% done)
+# whatsnew (74.92% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
