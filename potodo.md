@@ -67,7 +67,7 @@
 
 
 
-# library (63.06% done)
+# library (63.24% done)
 
 - array.po                        84 /  86 ( 97.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -159,7 +159,6 @@
 - threading.po                    36 / 240 ( 15.0% translated).
 - timeit.po                       52 /  68 ( 76.0% translated).
 - tkinter.ttk.po                 141 / 429 ( 32.0% translated).
-- token.po                        30 /  96 ( 31.0% translated).
 - traceback.po                     9 / 116 (  7.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
 - typing.po                      772 / 784 ( 98.0% translated).
@@ -214,5 +213,5 @@
 - changelog.po                   1943 / 12244 ( 15.0% translated).
 
 
-# TOTAL (60.03% done)
+# TOTAL (60.12% done)
 
