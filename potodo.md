@@ -71,7 +71,7 @@
 
 
 
-# library (61.82% done)
+# library (61.76% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        77 /  84 ( 91.0% translated).
@@ -93,6 +93,7 @@
 - cgi.po                          28 / 126 ( 22.0% translated).
 - cgitb.po                        16 /  17 ( 94.0% translated).
 - chunk.po                        14 /  39 ( 35.0% translated).
+- cmath.po                        35 /  58 ( 60.0% translated).
 - codecs.po                      250 / 533 ( 46.0% translated).
 - concurrent.futures.po           14 /  98 ( 14.0% translated).
 - contextlib.po                   56 / 172 ( 32.0% translated).
@@ -105,7 +106,7 @@
 - datetime.po                    633 / 637 ( 99.0% translated).
 - dbm.po                          85 /  87 ( 97.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
-- dis.po                         180 / 357 ( 50.0% translated).
+- dis.po                         182 / 357 ( 50.0% translated).
 - doctest.po                      87 / 367 ( 23.0% translated).
 - email.charset.po                 2 /  44 (  4.0% translated).
 - email.compat32-message.po        6 / 115 (  5.0% translated).
@@ -257,5 +258,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (67.10% done)
+# TOTAL (67.07% done)
 
