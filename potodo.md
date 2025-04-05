@@ -198,7 +198,7 @@
 
 
 
-# whatsnew (44.27% done)
+# whatsnew (44.31% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -211,8 +211,8 @@
 - 3.5.po                         125 / 578 ( 21.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   1943 / 12254 ( 15.0% translated).
+- changelog.po                   1953 / 12254 ( 15.0% translated).
 
 
-# TOTAL (60.09% done)
+# TOTAL (60.10% done)
 
