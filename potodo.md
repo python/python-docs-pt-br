@@ -67,7 +67,7 @@
 
 
 
-# library (63.19% done)
+# library (63.25% done)
 
 - array.po                        84 /  86 ( 97.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -83,7 +83,6 @@
 - base64.po                       20 /  62 ( 32.0% translated).
 - bdb.po                           9 / 112 (  8.0% translated).
 - binascii.po                     23 /  38 ( 60.0% translated).
-- cmath.po                        35 /  58 ( 60.0% translated).
 - codecs.po                      250 / 532 ( 46.0% translated).
 - concurrent.futures.po           14 / 100 ( 14.0% translated).
 - contextlib.po                   56 / 172 ( 32.0% translated).
@@ -214,5 +213,5 @@
 - changelog.po                   1953 / 12254 ( 15.0% translated).
 
 
-# TOTAL (60.10% done)
+# TOTAL (60.13% done)
 
