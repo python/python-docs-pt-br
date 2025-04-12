@@ -46,10 +46,9 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (99.27% done)
+# faq (99.54% done)
 
 - library.po                     157 / 162 ( 96.0% translated).
-- programming.po                 505 / 508 ( 99.0% translated).
 
 
 # howto (58.08% done)
@@ -72,7 +71,7 @@
 
 
 
-# library (61.71% done)
+# library (61.88% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        77 /  84 ( 91.0% translated).
@@ -94,7 +93,6 @@
 - cgi.po                          28 / 126 ( 22.0% translated).
 - cgitb.po                        16 /  17 ( 94.0% translated).
 - chunk.po                        14 /  39 ( 35.0% translated).
-- cmath.po                        73 / 124 ( 58.0% translated).
 - codecs.po                      250 / 533 ( 46.0% translated).
 - concurrent.futures.po           14 /  98 ( 14.0% translated).
 - contextlib.po                   56 / 172 ( 32.0% translated).
@@ -128,7 +126,7 @@
 - fractions.po                    32 /  33 ( 96.0% translated).
 - ftplib.po                       11 /  99 ( 11.0% translated).
 - functools.po                    20 / 115 ( 17.0% translated).
-- gzip.po                         22 /  65 ( 33.0% translated).
+- gzip.po                         32 /  65 ( 49.0% translated).
 - hashlib.po                      13 / 168 (  7.0% translated).
 - html.parser.po                   3 /  60 (  5.0% translated).
 - http.client.po                  45 / 117 ( 38.0% translated).
@@ -260,5 +258,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (67.03% done)
+# TOTAL (67.13% done)
 
