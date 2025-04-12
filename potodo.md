@@ -44,9 +44,8 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (99.72% done)
+# faq (100.00% done)
 
-- programming.po                 505 / 508 ( 99.0% translated).
 
 
 # howto (60.04% done)
@@ -68,7 +67,7 @@
 
 
 
-# library (63.14% done)
+# library (63.31% done)
 
 - array.po                        84 /  86 ( 97.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -84,7 +83,6 @@
 - base64.po                       20 /  62 ( 32.0% translated).
 - bdb.po                           9 / 112 (  8.0% translated).
 - binascii.po                     23 /  38 ( 60.0% translated).
-- cmath.po                        73 / 124 ( 58.0% translated).
 - codecs.po                      250 / 532 ( 46.0% translated).
 - concurrent.futures.po           14 / 100 ( 14.0% translated).
 - contextlib.po                   55 / 172 ( 31.0% translated).
@@ -111,7 +109,7 @@
 - fcntl.po                        22 /  49 ( 44.0% translated).
 - ftplib.po                       11 /  99 ( 11.0% translated).
 - functools.po                    20 / 115 ( 17.0% translated).
-- gzip.po                         24 /  68 ( 35.0% translated).
+- gzip.po                         34 /  68 ( 50.0% translated).
 - hashlib.po                      13 / 168 (  7.0% translated).
 - html.parser.po                   3 /  60 (  5.0% translated).
 - http.client.po                  45 / 117 ( 38.0% translated).
@@ -200,7 +198,7 @@
 
 
 
-# whatsnew (44.33% done)
+# whatsnew (44.38% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -213,8 +211,8 @@
 - 3.5.po                         125 / 578 ( 21.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   1968 / 12281 ( 16.0% translated).
+- changelog.po                   1980 / 12281 ( 16.0% translated).
 
 
-# TOTAL (60.08% done)
+# TOTAL (60.18% done)
 
