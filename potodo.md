@@ -67,7 +67,7 @@
 
 
 
-# library (63.31% done)
+# library (63.32% done)
 
 - array.po                        84 /  86 ( 97.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -162,7 +162,7 @@
 - tkinter.ttk.po                 141 / 429 ( 32.0% translated).
 - traceback.po                     9 / 116 (  7.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
-- typing.po                      775 / 784 ( 98.0% translated).
+- typing.po                      777 / 784 ( 99.0% translated).
 - unicodedata.po                   5 /  32 ( 15.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               103 / 448 ( 22.0% translated).
