@@ -71,7 +71,7 @@
 
 
 
-# library (61.89% done)
+# library (61.97% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        77 /  84 ( 91.0% translated).
@@ -126,7 +126,7 @@
 - fractions.po                    32 /  33 ( 96.0% translated).
 - ftplib.po                       11 /  99 ( 11.0% translated).
 - functools.po                    20 / 115 ( 17.0% translated).
-- gzip.po                         32 /  65 ( 49.0% translated).
+- gzip.po                         60 /  65 ( 92.0% translated).
 - hashlib.po                      13 / 168 (  7.0% translated).
 - html.parser.po                   3 /  60 (  5.0% translated).
 - http.client.po                  45 / 117 ( 38.0% translated).
@@ -258,5 +258,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (67.14% done)
+# TOTAL (67.18% done)
 
