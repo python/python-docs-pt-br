@@ -67,7 +67,7 @@
 
 
 
-# library (63.32% done)
+# library (63.41% done)
 
 - array.po                        84 /  86 ( 97.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -109,7 +109,6 @@
 - fcntl.po                        22 /  49 ( 44.0% translated).
 - ftplib.po                       11 /  99 ( 11.0% translated).
 - functools.po                    20 / 115 ( 17.0% translated).
-- gzip.po                         34 /  68 ( 50.0% translated).
 - hashlib.po                      13 / 168 (  7.0% translated).
 - html.parser.po                   3 /  60 (  5.0% translated).
 - http.client.po                  45 / 117 ( 38.0% translated).
@@ -214,5 +213,5 @@
 - changelog.po                   1980 / 12281 ( 16.0% translated).
 
 
-# TOTAL (60.18% done)
+# TOTAL (60.23% done)
 
