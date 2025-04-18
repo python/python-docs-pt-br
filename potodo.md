@@ -251,7 +251,7 @@
 - traceback.po                     9 /  94 (  9.0% translated).
 - tracemalloc.po                  21 / 144 ( 14.0% translated).
 - tty.po                           8 /  10 ( 80.0% translated).
-- typing.po                      471 / 563 ( 83.0% translated).
+- typing.po                      470 / 563 ( 83.0% translated).
 - unicodedata.po                   4 /  32 ( 12.0% translated).
 - unittest.mock-examples.po       22 / 162 ( 13.0% translated).
 - unittest.mock.po               107 / 388 ( 27.0% translated).
