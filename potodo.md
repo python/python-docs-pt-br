@@ -68,10 +68,9 @@
 
 
 
-# library (63.39% done)
+# library (63.42% done)
 
 - array.po                        84 /  86 ( 97.0% translated).
-- ast.po                         313 / 314 ( 99.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 404 ( 76.0% translated).
 - asyncio-future.po                9 /  64 ( 14.0% translated).
@@ -135,7 +134,6 @@
 - pathlib.po                     252 / 418 ( 60.0% translated).
 - pickle.po                      233 / 245 ( 95.0% translated).
 - pkgutil.po                       6 /  50 ( 12.0% translated).
-- plistlib.po                     50 /  51 ( 98.0% translated).
 - poplib.po                       10 /  53 ( 18.0% translated).
 - profile.po                      34 / 181 ( 18.0% translated).
 - pyexpat.po                      21 / 144 ( 14.0% translated).
@@ -164,7 +162,6 @@
 - tkinter.ttk.po                 141 / 429 ( 32.0% translated).
 - traceback.po                     9 / 116 (  7.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
-- typing.po                      776 / 785 ( 98.0% translated).
 - unicodedata.po                   5 /  32 ( 15.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               103 / 448 ( 22.0% translated).
@@ -216,5 +213,5 @@
 - changelog.po                   1980 / 12290 ( 16.0% translated).
 
 
-# TOTAL (60.20% done)
+# TOTAL (60.21% done)
 
