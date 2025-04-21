@@ -48,7 +48,7 @@
 
 
 
-# howto (59.88% done)
+# howto (60.12% done)
 
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                  187 / 230 ( 81.0% translated).
@@ -56,7 +56,6 @@
 - functional.po                  138 / 252 ( 54.0% translated).
 - logging-cookbook.po             23 / 421 (  5.0% translated).
 - logging.po                     121 / 250 ( 48.0% translated).
-- perf_profiling.po               42 /  50 ( 84.0% translated).
 - regex.po                       304 / 332 ( 91.0% translated).
 - sockets.po                      35 /  63 ( 55.0% translated).
 - sorting.po                      46 /  75 ( 61.0% translated).
@@ -197,7 +196,7 @@
 
 
 
-# whatsnew (44.36% done)
+# whatsnew (44.41% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -210,8 +209,8 @@
 - 3.5.po                         125 / 578 ( 21.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   1980 / 12290 ( 16.0% translated).
+- changelog.po                   1991 / 12290 ( 16.0% translated).
 
 
-# TOTAL (60.21% done)
+# TOTAL (60.24% done)
 
