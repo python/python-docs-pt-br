@@ -180,7 +180,7 @@
 - xml.sax.reader.po                2 /  75 (  2.0% translated).
 - xml.sax.utils.po                 1 /  15 (  6.0% translated).
 - xmlrpc.client.po                54 / 113 ( 47.0% translated).
-- zipimport.po                     6 /  38 ( 15.0% translated).
+- zipimport.po                     8 /  38 ( 21.0% translated).
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
