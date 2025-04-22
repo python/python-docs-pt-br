@@ -276,7 +276,7 @@
 - xml.sax.utils.po                 1 /  13 (  7.0% translated).
 - xmlrpc.client.po                54 /  98 ( 55.0% translated).
 - zipapp.po                       64 /  79 ( 81.0% translated).
-- zipimport.po                     6 /  38 ( 15.0% translated).
+- zipimport.po                     7 /  38 ( 18.0% translated).
 - zlib.po                         62 /  64 ( 96.0% translated).
 - zoneinfo.po                      6 /  73 (  8.0% translated).
 
