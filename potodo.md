@@ -279,7 +279,7 @@
 - xmlrpc.client.po                57 / 100 ( 57.0% translated).
 - zipapp.po                       66 /  79 ( 83.0% translated).
 - zipfile.po                     192 / 193 ( 99.0% translated).
-- zipimport.po                     6 /  38 ( 15.0% translated).
+- zipimport.po                     7 /  38 ( 18.0% translated).
 - zoneinfo.po                      8 /  75 ( 10.0% translated).
 
 
