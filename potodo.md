@@ -258,7 +258,7 @@
 - xmlrpc.client.po                51 /  98 ( 52.0% translated).
 - zipapp.po                       63 /  79 ( 79.0% translated).
 - zipfile.po                     173 / 174 ( 99.0% translated).
-- zipimport.po                     6 /  31 ( 19.0% translated).
+- zipimport.po                     7 /  31 ( 22.0% translated).
 - zlib.po                         61 /  64 ( 95.0% translated).
 - zoneinfo.po                      5 /  72 (  6.0% translated).
 
