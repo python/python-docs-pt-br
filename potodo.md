@@ -67,7 +67,7 @@
 
 
 
-# library (63.42% done)
+# library (63.50% done)
 
 - array.po                        84 /  86 ( 97.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -180,7 +180,6 @@
 - xml.sax.reader.po                2 /  75 (  2.0% translated).
 - xml.sax.utils.po                 1 /  15 (  6.0% translated).
 - xmlrpc.client.po                54 / 113 ( 47.0% translated).
-- zipimport.po                     8 /  38 ( 21.0% translated).
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
@@ -212,5 +211,5 @@
 - changelog.po                   1991 / 12290 ( 16.0% translated).
 
 
-# TOTAL (60.24% done)
+# TOTAL (60.28% done)
 
