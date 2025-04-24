@@ -79,7 +79,7 @@
 
 
 
-# library (59.83% done)
+# library (59.89% done)
 
 - argparse.po                    262 / 290 ( 90.0% translated).
 - ast.po                         179 / 193 ( 92.0% translated).
@@ -258,7 +258,7 @@
 - xmlrpc.client.po                51 /  98 ( 52.0% translated).
 - zipapp.po                       63 /  79 ( 79.0% translated).
 - zipfile.po                     173 / 174 ( 99.0% translated).
-- zipimport.po                     7 /  31 ( 22.0% translated).
+- zipimport.po                    25 /  31 ( 80.0% translated).
 - zlib.po                         61 /  64 ( 95.0% translated).
 - zoneinfo.po                      5 /  72 (  6.0% translated).
 
@@ -302,5 +302,5 @@
 - 3.9.po                         382 / 386 ( 98.0% translated).
 
 
-# TOTAL (63.38% done)
+# TOTAL (63.42% done)
 
