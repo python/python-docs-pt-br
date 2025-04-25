@@ -5,7 +5,7 @@
 - license.po                     116 / 125 ( 92.0% translated).
 
 
-# c-api (53.08% done)
+# c-api (53.12% done)
 
 - exceptions.po                  194 / 366 ( 53.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
@@ -15,7 +15,7 @@
 - import.po                       36 /  57 ( 63.0% translated).
 - init.po                        138 / 434 ( 31.0% translated).
 - init_config.po                 133 / 410 ( 32.0% translated).
-- intro.po                        96 / 141 ( 68.0% translated).
+- intro.po                        98 / 141 ( 69.0% translated).
 - long.po                         30 /  69 ( 43.0% translated).
 - memory.po                       53 / 195 ( 27.0% translated).
 - module.po                       63 / 124 ( 50.0% translated).
@@ -38,10 +38,10 @@
 
 
 
-# extending (15.92% done)
+# extending (16.09% done)
 
 - embedding.po                     4 /  58 (  6.0% translated).
-- extending.po                    15 / 207 (  7.0% translated).
+- extending.po                    16 / 207 (  7.0% translated).
 - newtypes.po                      8 / 117 (  6.0% translated).
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
@@ -71,7 +71,7 @@
 
 
 
-# library (62.07% done)
+# library (62.15% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        77 /  84 ( 91.0% translated).
@@ -173,7 +173,7 @@
 - selectors.po                    13 /  58 ( 22.0% translated).
 - shelve.po                       11 /  40 ( 27.0% translated).
 - shlex.po                         3 /  77 (  3.0% translated).
-- signal.po                       55 / 137 ( 40.0% translated).
+- signal.po                       84 / 137 ( 61.0% translated).
 - site.po                         56 /  58 ( 96.0% translated).
 - smtplib.po                      30 / 116 ( 25.0% translated).
 - sndhdr.po                       12 /  38 ( 31.0% translated).
@@ -257,5 +257,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (67.24% done)
+# TOTAL (67.29% done)
 
