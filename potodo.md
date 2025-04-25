@@ -4,7 +4,7 @@
 
 
 
-# c-api (53.47% done)
+# c-api (53.49% done)
 
 - exceptions.po                  194 / 370 ( 52.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
@@ -14,7 +14,7 @@
 - import.po                       33 /  62 ( 53.0% translated).
 - init.po                        149 / 480 ( 31.0% translated).
 - init_config.po                 135 / 417 ( 32.0% translated).
-- intro.po                        95 / 140 ( 67.0% translated).
+- intro.po                        96 / 140 ( 68.0% translated).
 - long.po                         37 / 104 ( 35.0% translated).
 - memory.po                       53 / 200 ( 26.0% translated).
 - module.po                       63 / 132 ( 47.0% translated).
@@ -36,10 +36,10 @@
 
 
 
-# extending (15.75% done)
+# extending (15.92% done)
 
 - embedding.po                     4 /  59 (  6.0% translated).
-- extending.po                    14 / 206 (  6.0% translated).
+- extending.po                    15 / 206 (  7.0% translated).
 - newtypes.po                      8 / 117 (  6.0% translated).
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
@@ -67,7 +67,7 @@
 
 
 
-# library (63.50% done)
+# library (63.62% done)
 
 - array.po                        84 /  86 ( 97.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -106,10 +106,10 @@
 - enum.po                         73 / 244 ( 29.0% translated).
 - errno.po                       115 / 160 ( 71.0% translated).
 - faulthandler.po                  4 /  43 (  9.0% translated).
-- fcntl.po                        22 /  49 ( 44.0% translated).
+- fcntl.po                        21 /  51 ( 41.0% translated).
 - ftplib.po                       11 /  99 ( 11.0% translated).
 - functools.po                    20 / 115 ( 17.0% translated).
-- hashlib.po                      13 / 168 (  7.0% translated).
+- hashlib.po                      13 / 170 (  7.0% translated).
 - html.parser.po                   3 /  60 (  5.0% translated).
 - http.client.po                  45 / 117 ( 38.0% translated).
 - http.cookiejar.po                9 / 159 (  5.0% translated).
@@ -144,9 +144,9 @@
 - selectors.po                    13 /  58 ( 22.0% translated).
 - shelve.po                       11 /  40 ( 27.0% translated).
 - shlex.po                         3 /  77 (  3.0% translated).
-- signal.po                       56 / 137 ( 40.0% translated).
+- signal.po                       85 / 137 ( 62.0% translated).
 - smtplib.po                      30 / 116 ( 25.0% translated).
-- socket.po                       53 / 366 ( 14.0% translated).
+- socket.po                       53 / 367 ( 14.0% translated).
 - sqlite3.po                     116 / 477 ( 24.0% translated).
 - ssl.po                          61 / 544 ( 11.0% translated).
 - string.po                      206 / 220 ( 93.0% translated).
@@ -195,7 +195,7 @@
 
 
 
-# whatsnew (44.41% done)
+# whatsnew (44.43% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -208,8 +208,8 @@
 - 3.5.po                         125 / 578 ( 21.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   1991 / 12290 ( 16.0% translated).
+- changelog.po                   2001 / 12300 ( 16.0% translated).
 
 
-# TOTAL (60.28% done)
+# TOTAL (60.34% done)
 
