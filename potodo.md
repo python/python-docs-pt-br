@@ -67,7 +67,7 @@
 
 
 
-# library (63.62% done)
+# library (63.67% done)
 
 - array.po                        84 /  86 ( 97.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -144,7 +144,7 @@
 - selectors.po                    13 /  58 ( 22.0% translated).
 - shelve.po                       11 /  40 ( 27.0% translated).
 - shlex.po                         3 /  77 (  3.0% translated).
-- signal.po                       85 / 137 ( 62.0% translated).
+- signal.po                      105 / 137 ( 76.0% translated).
 - smtplib.po                      30 / 116 ( 25.0% translated).
 - socket.po                       53 / 367 ( 14.0% translated).
 - sqlite3.po                     116 / 477 ( 24.0% translated).
@@ -211,5 +211,5 @@
 - changelog.po                   2001 / 12300 ( 16.0% translated).
 
 
-# TOTAL (60.34% done)
+# TOTAL (60.37% done)
 

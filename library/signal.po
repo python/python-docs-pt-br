@@ -136,7 +136,7 @@ msgid ""
 "the main thread. See the :ref:`note below <handlers-and-exceptions>` for a "
 "discussion."
 msgstr ""
-"Se o manipulador levantar uma exceção, ela será levantada \"do nada\" no "
+"Se o manipulador levantar uma exceção, ela será levantada \"do nada\" na "
 "thread principal. Veja a :ref:`nota abaixo <handlers-and-exceptions>` para "
 "uma discussão."
 
@@ -152,8 +152,8 @@ msgid ""
 "You can use the synchronization primitives from the :mod:`threading` module "
 "instead."
 msgstr ""
-"Os manipuladores de sinais Python são sempre executados no thread Python "
-"principal do interpretador principal, mesmo se o sinal foi recebido em outro "
+"Os manipuladores de sinais Python são sempre executados na thread principal "
+"do Python do interpretador principal, mesmo se o sinal foi recebido em outra "
 "thread. Isso significa que os sinais não podem ser usados como um meio de "
 "comunicação entre threads. Você pode usar as primitivas de sincronização do "
 "módulo :mod:`threading` em vez disso."
@@ -634,7 +634,7 @@ msgid ""
 "performed; this can be used to check if the target thread is still running."
 msgstr ""
 "Se *signalnum* for 0, nenhum sinal será enviado, mas a verificação de erros "
-"ainda será realizada; isso pode ser usado para verificar se o thread de "
+"ainda será realizada; isso pode ser usado para verificar se a thread de "
 "destino ainda está em execução."
 
 #: ../../library/signal.rst:435
@@ -659,17 +659,22 @@ msgid ""
 "is the set of signals whose delivery is currently blocked for the caller. "
 "Return the old signal mask as a set of signals."
 msgstr ""
+"Busca e/ou altera a máscara de sinal da thread chamadora. A máscara de sinal "
+"é o conjunto de sinais cuja entrega está atualmente bloqueada para o "
+"chamador. Retorna a máscara de sinal antiga como um conjunto de sinais."
 
 #: ../../library/signal.rst:452
 msgid ""
 "The behavior of the call is dependent on the value of *how*, as follows."
-msgstr ""
+msgstr "O comportamento da chamada depende do valor de *how*, como segue."
 
 #: ../../library/signal.rst:454
 msgid ""
 ":data:`SIG_BLOCK`: The set of blocked signals is the union of the current "
 "set and the *mask* argument."
 msgstr ""
+":data:`SIG_BLOCK`: O conjunto de sinais bloqueados é a união do conjunto "
+"atual e do argumento *mask*."
 
 #: ../../library/signal.rst:456
 msgid ""
@@ -677,12 +682,17 @@ msgid ""
 "of blocked signals.  It is permissible to attempt to unblock a signal which "
 "is not blocked."
 msgstr ""
+":data:`SIG_UNBLOCK`: Os sinais em *mask* são removidos do conjunto atual de "
+"sinais bloqueados. É permitido tentar desbloquear um sinal que não esteja "
+"bloqueado."
 
 #: ../../library/signal.rst:459
 msgid ""
 ":data:`SIG_SETMASK`: The set of blocked signals is set to the *mask* "
 "argument."
 msgstr ""
+":data:`SIG_SETMASK`: O conjunto de sinais bloqueados é definido como o "
+"argumento *mask*."
 
 #: ../../library/signal.rst:462
 msgid ""
@@ -690,16 +700,21 @@ msgid ""
 "`signal.SIGTERM`}). Use :func:`~signal.valid_signals` for a full mask "
 "including all signals."
 msgstr ""
+"*mask* é um conjunto de números de sinais (ex.: {:const:`signal.SIGINT`, :"
+"const:`signal.SIGTERM`}). Use :func:`~signal.valid_signals` para uma máscara "
+"completa, incluindo todos os sinais."
 
 #: ../../library/signal.rst:466
 msgid ""
 "For example, ``signal.pthread_sigmask(signal.SIG_BLOCK, [])`` reads the "
 "signal mask of the calling thread."
 msgstr ""
+"Por exemplo, ``signal.pthread_sigmask(signal.SIG_BLOCK, [])`` lê a máscara "
+"de sinal da thread de chamada."
 
 #: ../../library/signal.rst:469
 msgid ":data:`SIGKILL` and :data:`SIGSTOP` cannot be blocked."
-msgstr ""
+msgstr ":data:`SIGKILL` e :data:`SIGSTOP` não podem ser bloqueados."
 
 #: ../../library/signal.rst:476
 msgid "See also :func:`pause`, :func:`sigpending` and :func:`sigwait`."
@@ -714,6 +729,12 @@ msgid ""
 "interval timer specified by *which* can be cleared by setting *seconds* to "
 "zero."
 msgstr ""
+"Define o temporizador de intervalo fornecido (um dos seguintes: :const:"
+"`signal.ITIMER_REAL`, :const:`signal.ITIMER_VIRTUAL` ou :const:`signal."
+"ITIMER_PROF`) especificado por *which* para disparar após *seconds* (float é "
+"aceito, diferente de :func:`alarm`) e, depois disso, a cada *interval* "
+"segundos (se *interval* for diferente de zero). O temporizador de intervalo "
+"especificado por *which* pode ser zerado definindo *seconds* como zero."
 
 #: ../../library/signal.rst:490
 msgid ""
@@ -722,20 +743,27 @@ msgid ""
 "deliver :const:`SIGALRM`, :const:`signal.ITIMER_VIRTUAL` sends :const:"
 "`SIGVTALRM`, and :const:`signal.ITIMER_PROF` will deliver :const:`SIGPROF`."
 msgstr ""
+"Quando um temporizador de intervalo dispara, um sinal é enviado ao processo. "
+"O sinal enviado depende do temporizador utilizado; :const:`signal."
+"ITIMER_REAL` enviará :const:`SIGALRM`, :const:`signal.ITIMER_VIRTUAL` "
+"enviará :const:`SIGVTALRM` e :const:`signal.ITIMER_PROF` enviará :const:"
+"`SIGPROF`."
 
 #: ../../library/signal.rst:496
 msgid "The old values are returned as a tuple: (delay, interval)."
-msgstr ""
+msgstr "Os valores antigos são retornados como uma tupla: (atraso, intervalo)."
 
 #: ../../library/signal.rst:498
 msgid ""
 "Attempting to pass an invalid interval timer will cause an :exc:"
 "`ItimerError`."
 msgstr ""
+"Tentar passar um intervalo de tempo inválido causará uma :exc:`ItimerError`."
 
 #: ../../library/signal.rst:506
 msgid "Returns current value of a given interval timer specified by *which*."
 msgstr ""
+"Retorna o valor atual de um intervalo de tempo especificado por *which*."
 
 #: ../../library/signal.rst:513
 msgid ""
@@ -746,6 +774,13 @@ msgid ""
 "This can be used by a library to wakeup a poll or select call, allowing the "
 "signal to be fully processed."
 msgstr ""
+"Define o descritor de arquivo de ativação como *fd*. Quando um sinal para o "
+"qual seu programa registrou um manipulador de sinais é recebido, o número do "
+"sinal é escrito como um único byte no fd. Se você não registrou um "
+"manipulador de sinais para os sinais de seu interesse, nada será escrito no "
+"fd de ativação. Isso pode ser usado por uma biblioteca para ativar uma "
+"chamada de poll ou seleção, permitindo que o sinal seja totalmente "
+"processado."
 
 #: ../../library/signal.rst:520
 msgid ""
@@ -754,6 +789,11 @@ msgid ""
 "*fd* must be non-blocking.  It is up to the library to remove any bytes from "
 "*fd* before calling poll or select again."
 msgstr ""
+"O antigo fd de ativação é retornado (ou -1 se a ativação do descritor de "
+"arquivo não estava habilitada). Se *fd* for -1, a ativação do descritor de "
+"arquivo está desabilitada. Se não for -1, *fd* deve ser não bloqueante. Cabe "
+"à biblioteca remover quaisquer bytes de *fd* antes de chamar poll ou select "
+"novamente."
 
 #: ../../library/signal.rst:525 ../../library/signal.rst:580
 msgid ""
@@ -762,6 +802,9 @@ msgid ""
 "call it from other threads will cause a :exc:`ValueError` exception to be "
 "raised."
 msgstr ""
+"Quando threads estão habilitadas, esta função só pode ser chamada da :ref:"
+"`thread principal do interpretador principal <signals-and-threads>`; tentar "
+"chamá-la de outras threads levantará uma exceção :exc:`ValueError`."
 
 #: ../../library/signal.rst:530
 msgid ""
@@ -769,6 +812,9 @@ msgid ""
 "the fd to wake up when a signal arrives, but then they differ in how they "
 "determine *which* signal or signals have arrived."
 msgstr ""
+"Há duas maneiras comuns de usar esta função. Em ambas as abordagens, você "
+"usa o fd para despertar quando um sinal chega, mas elas diferem na forma "
+"como determinam *which* sinal ou sinais chegaram."
 
 #: ../../library/signal.rst:535
 msgid ""
@@ -780,6 +826,13 @@ msgid ""
 "you should set ``warn_on_full_buffer=True``, which will at least cause a "
 "warning to be printed to stderr when signals are lost."
 msgstr ""
+"Na primeira abordagem, lemos os dados do buffer do fd, e os valores dos "
+"bytes fornecem os números dos sinais. Isso é simples, mas em casos raros "
+"pode apresentar um problema: geralmente, o fd terá um espaço de buffer "
+"limitado e, se muitos sinais chegarem muito rápido, o buffer pode ficar "
+"cheio e alguns sinais podem ser perdidos. Se você usar essa abordagem, "
+"defina ``warn_on_full_buffer=True``, o que pelo menos fará com que um aviso "
+"seja impresso no stderr quando os sinais forem perdidos."
 
 #: ../../library/signal.rst:544
 msgid ""
@@ -790,6 +843,11 @@ msgid ""
 "``warn_on_full_buffer=False``, so that your users are not confused by "
 "spurious warning messages."
 msgstr ""
+"Na segunda abordagem, usamos o fd de ativação *apenas* para ativações e "
+"ignoramos os valores de bytes reais. Nesse caso, tudo o que importa é se o "
+"buffer do fd está vazio ou não; um buffer cheio não indica nenhum problema. "
+"Se você usar essa abordagem, defina ``warn_on_full_buffer=False`` para que "
+"seus usuários não sejam confundidos por mensagens de aviso falsas."
 
 #: ../../library/signal.rst:551
 msgid "On Windows, the function now also supports socket handles."
@@ -797,7 +855,7 @@ msgstr "No Windows, a função agora também suporta manipuladores de socket."
 
 #: ../../library/signal.rst:554
 msgid "Added ``warn_on_full_buffer`` parameter."
-msgstr ""
+msgstr "Adiciona o parâmetro ``warn_on_full_buffer``."
 
 #: ../../library/signal.rst:559
 msgid ""
