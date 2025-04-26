@@ -85,7 +85,7 @@
 
 
 
-# library (61.87% done)
+# library (61.93% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          48 /  49 ( 97.0% translated).
@@ -218,7 +218,7 @@
 - shelve.po                       12 /  38 ( 31.0% translated).
 - shlex.po                         4 /  75 (  5.0% translated).
 - shutil.po                      158 / 166 ( 95.0% translated).
-- signal.po                       85 / 137 ( 62.0% translated).
+- signal.po                      104 / 137 ( 75.0% translated).
 - site.po                         50 /  54 ( 92.0% translated).
 - smtpd.po                         3 /  78 (  3.0% translated).
 - smtplib.po                      28 / 114 ( 24.0% translated).
@@ -327,5 +327,5 @@
 - 3.8.po                         468 / 469 ( 99.0% translated).
 
 
-# TOTAL (66.66% done)
+# TOTAL (66.69% done)
 
