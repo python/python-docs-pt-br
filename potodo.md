@@ -71,7 +71,7 @@
 
 
 
-# library (62.20% done)
+# library (62.23% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        77 /  84 ( 91.0% translated).
@@ -121,7 +121,7 @@
 - enum.po                         71 / 231 ( 30.0% translated).
 - errno.po                       115 / 160 ( 71.0% translated).
 - faulthandler.po                  4 /  43 (  9.0% translated).
-- fcntl.po                        17 /  48 ( 35.0% translated).
+- fcntl.po                        27 /  48 ( 56.0% translated).
 - filecmp.po                      40 /  41 ( 97.0% translated).
 - fractions.po                    32 /  33 ( 96.0% translated).
 - ftplib.po                       11 /  99 ( 11.0% translated).
@@ -257,5 +257,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (67.32% done)
+# TOTAL (67.34% done)
 
