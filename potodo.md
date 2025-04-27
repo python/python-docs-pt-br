@@ -87,7 +87,7 @@
 
 
 
-# library (60.44% done)
+# library (60.45% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    256 / 290 ( 88.0% translated).
@@ -152,7 +152,7 @@
 - errno.po                       112 / 127 ( 88.0% translated).
 - exceptions.po                  136 / 149 ( 91.0% translated).
 - faulthandler.po                  4 /  42 (  9.0% translated).
-- fcntl.po                        14 /  39 ( 35.0% translated).
+- fcntl.po                        17 /  39 ( 43.0% translated).
 - filecmp.po                      37 /  40 ( 92.0% translated).
 - fileinput.po                    38 /  44 ( 86.0% translated).
 - fractions.po                    18 /  23 ( 78.0% translated).
@@ -324,5 +324,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (64.16% done)
+# TOTAL (64.17% done)
 
