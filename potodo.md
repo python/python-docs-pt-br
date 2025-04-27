@@ -67,7 +67,7 @@
 
 
 
-# library (63.67% done)
+# library (63.73% done)
 
 - array.po                        84 /  86 ( 97.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -106,7 +106,7 @@
 - enum.po                         73 / 244 ( 29.0% translated).
 - errno.po                       115 / 160 ( 71.0% translated).
 - faulthandler.po                  4 /  43 (  9.0% translated).
-- fcntl.po                        21 /  51 ( 41.0% translated).
+- fcntl.po                        40 /  51 ( 78.0% translated).
 - ftplib.po                       11 /  99 ( 11.0% translated).
 - functools.po                    20 / 115 ( 17.0% translated).
 - hashlib.po                      13 / 170 (  7.0% translated).
@@ -211,5 +211,5 @@
 - changelog.po                   2001 / 12300 ( 16.0% translated).
 
 
-# TOTAL (60.37% done)
+# TOTAL (60.40% done)
 
