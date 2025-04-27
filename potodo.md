@@ -85,7 +85,7 @@
 
 
 
-# library (61.93% done)
+# library (61.95% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          48 /  49 ( 97.0% translated).
@@ -148,7 +148,7 @@
 - enum.po                         69 / 192 ( 35.0% translated).
 - errno.po                       114 / 134 ( 85.0% translated).
 - faulthandler.po                  4 /  42 (  9.0% translated).
-- fcntl.po                        16 /  45 ( 35.0% translated).
+- fcntl.po                        25 /  45 ( 55.0% translated).
 - filecmp.po                      39 /  40 ( 97.0% translated).
 - fileinput.po                    41 /  43 ( 95.0% translated).
 - fractions.po                    21 /  25 ( 84.0% translated).
@@ -327,5 +327,5 @@
 - 3.8.po                         468 / 469 ( 99.0% translated).
 
 
-# TOTAL (66.69% done)
+# TOTAL (66.71% done)
 
