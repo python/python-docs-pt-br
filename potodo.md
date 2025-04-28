@@ -87,7 +87,7 @@
 
 
 
-# library (60.45% done)
+# library (60.54% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    256 / 290 ( 88.0% translated).
@@ -152,7 +152,7 @@
 - errno.po                       112 / 127 ( 88.0% translated).
 - exceptions.po                  136 / 149 ( 91.0% translated).
 - faulthandler.po                  4 /  42 (  9.0% translated).
-- fcntl.po                        17 /  39 ( 43.0% translated).
+- fcntl.po                        21 /  39 ( 53.0% translated).
 - filecmp.po                      37 /  40 ( 92.0% translated).
 - fileinput.po                    38 /  44 ( 86.0% translated).
 - fractions.po                    18 /  23 ( 78.0% translated).
@@ -179,7 +179,7 @@
 - inspect.po                      83 / 338 ( 24.0% translated).
 - io.po                           18 / 245 (  7.0% translated).
 - ipaddress.po                   155 / 158 ( 98.0% translated).
-- itertools.po                   125 / 153 ( 81.0% translated).
+- itertools.po                   128 / 153 ( 83.0% translated).
 - logging.config.po               12 / 133 (  9.0% translated).
 - logging.handlers.po             49 / 268 ( 18.0% translated).
 - logging.po                      95 / 334 ( 28.0% translated).
@@ -215,7 +215,7 @@
 - shelve.po                        7 /  32 ( 21.0% translated).
 - shlex.po                         4 /  75 (  5.0% translated).
 - shutil.po                      153 / 155 ( 98.0% translated).
-- signal.po                       89 / 128 ( 69.0% translated).
+- signal.po                      110 / 128 ( 85.0% translated).
 - site.po                         34 /  39 ( 87.0% translated).
 - smtpd.po                        10 /  79 ( 12.0% translated).
 - smtplib.po                      25 / 109 ( 22.0% translated).
@@ -324,5 +324,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (64.17% done)
+# TOTAL (64.22% done)
 
