@@ -395,8 +395,8 @@ msgid ""
 msgstr ""
 "Este é essencialmente um invólucro em torno das chamadas de trava :func:"
 "`~fcntl.fcntl`. *fd* é o descritor de arquivo (objetos arquivo que fornecem "
-"um método :meth:`~io.IOBase.fileno` também são aceitos) do arquivo a ser "
-"travado ou destravado, e *cmd* é um dos seguintes valores:"
+"um método :meth:`~io.IOBase.fileno` também são aceitos) do arquivo para "
+"travar ou destravar, e *cmd* é um dos seguintes valores:"
 
 #: ../../library/fcntl.rst:198
 msgid "Release an existing lock."
@@ -415,6 +415,8 @@ msgid ""
 "Bitwise OR with any of the other three ``LOCK_*`` constants to make the "
 "request non-blocking."
 msgstr ""
+"Aplica OU (OR) bit a bit com qualquer uma das outras três constantes "
+"``LOCK_*`` para tornar a solicitação não bloqueante."
 
 #: ../../library/fcntl.rst:213
 msgid ""
@@ -438,18 +440,21 @@ msgid ""
 "the lock starts, relative to *whence*, and *whence* is as with :func:`io."
 "IOBase.seek`, specifically:"
 msgstr ""
+"*len* é o número de bytes para travar, *start* é o deslocamento de bytes em "
+"que a trava começa, em relação a *whence*, e *whence* é como em :func:`io."
+"IOBase.seek`, especificamente:"
 
 #: ../../library/fcntl.rst:224
 msgid "``0`` -- relative to the start of the file (:const:`os.SEEK_SET`)"
-msgstr ""
+msgstr "``0`` -- relativo ao início do arquivo (:const:`os.SEEK_SET`)"
 
 #: ../../library/fcntl.rst:225
 msgid "``1`` -- relative to the current buffer position (:const:`os.SEEK_CUR`)"
-msgstr ""
+msgstr "``1`` -- relativo à posição atual do buffer (:const:`os.SEEK_CUR`)"
 
 #: ../../library/fcntl.rst:226
 msgid "``2`` -- relative to the end of the file (:const:`os.SEEK_END`)"
-msgstr ""
+msgstr "``2`` -- relativo ao fim do arquivo (:const:`os.SEEK_END`)"
 
 #: ../../library/fcntl.rst:228
 msgid ""
@@ -457,6 +462,9 @@ msgid ""
 "file. The default for *len* is 0 which means to lock to the end of the "
 "file.  The default for *whence* is also 0."
 msgstr ""
+"O padrão para *start* é 0, o que significa iniciar no início do arquivo. O "
+"padrão para *len* é 0, o que significa travar no final do arquivo. O padrão "
+"para *whence* também é 0."
 
 #: ../../library/fcntl.rst:232
 msgid ""
@@ -468,7 +476,7 @@ msgstr ""
 
 #: ../../library/fcntl.rst:234
 msgid "Examples (all on a SVR4 compliant system)::"
-msgstr ""
+msgstr "Exemplos (todos em um sistema compatível com SVR4)::"
 
 #: ../../library/fcntl.rst:236
 msgid ""
@@ -480,6 +488,13 @@ msgid ""
 "lockdata = struct.pack('hhllhh', fcntl.F_WRLCK, 0, 0, 0, 0, 0)\n"
 "rv = fcntl.fcntl(f, fcntl.F_SETLKW, lockdata)"
 msgstr ""
+"import struct, fcntl, os\n"
+"\n"
+"f = open(...)\n"
+"rv = fcntl.fcntl(f, fcntl.F_SETFL, os.O_NDELAY)\n"
+"\n"
+"lockdata = struct.pack('hhllhh', fcntl.F_WRLCK, 0, 0, 0, 0, 0)\n"
+"rv = fcntl.fcntl(f, fcntl.F_SETLKW, lockdata)"
 
 #: ../../library/fcntl.rst:244
 msgid ""
@@ -488,6 +503,10 @@ msgid ""
 "The structure lay-out for the *lockdata* variable is system dependent --- "
 "therefore using the :func:`flock` call may be better."
 msgstr ""
+"Observe que, no primeiro exemplo, a variável de valor de retorno *rv* "
+"conterá um valor inteiro; no segundo exemplo, ela conterá um objeto :class:"
+"`bytes`. O layout da estrutura da variável *lockdata* depende do sistema --- "
+"portanto, usar a chamada :func:`flock` pode ser melhor."
 
 #: ../../library/fcntl.rst:252
 msgid "Module :mod:`os`"
@@ -499,6 +518,9 @@ msgid ""
 "present in the :mod:`os` module (on BSD only), the :func:`os.open` function "
 "provides an alternative to the :func:`lockf` and :func:`flock` functions."
 msgstr ""
+"Se os sinalizadores de trava :const:`~os.O_SHLOCK` e :const:`~os.O_EXLOCK` "
+"estiverem presentes no módulo :mod:`os` (somente no BSD), a função :func:`os."
+"open` fornece uma alternativa às funções :func:`lockf` e :func:`flock`."
 
 #: ../../library/fcntl.rst:10
 msgid "UNIX"
@@ -506,7 +528,7 @@ msgstr "UNIX"
 
 #: ../../library/fcntl.rst:10
 msgid "file control"
-msgstr ""
+msgstr "controle de arquivo"
 
 #: ../../library/fcntl.rst:10
 msgid "I/O control"

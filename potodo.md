@@ -67,7 +67,7 @@
 
 
 
-# library (63.73% done)
+# library (63.90% done)
 
 - array.po                        84 /  86 ( 97.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -106,7 +106,6 @@
 - enum.po                         73 / 244 ( 29.0% translated).
 - errno.po                       115 / 160 ( 71.0% translated).
 - faulthandler.po                  4 /  43 (  9.0% translated).
-- fcntl.po                        40 /  51 ( 78.0% translated).
 - ftplib.po                       11 /  99 ( 11.0% translated).
 - functools.po                    20 / 115 ( 17.0% translated).
 - hashlib.po                      13 / 170 (  7.0% translated).
@@ -121,7 +120,7 @@
 - importlib.po                   245 / 312 ( 78.0% translated).
 - inspect.po                      78 / 390 ( 20.0% translated).
 - io.po                           21 / 271 (  7.0% translated).
-- itertools.po                   137 / 200 ( 68.0% translated).
+- itertools.po                   156 / 200 ( 78.0% translated).
 - logging.config.po               12 / 171 (  7.0% translated).
 - logging.handlers.po             48 / 271 ( 17.0% translated).
 - logging.po                      92 / 369 ( 24.0% translated).
@@ -144,7 +143,6 @@
 - selectors.po                    13 /  58 ( 22.0% translated).
 - shelve.po                       11 /  40 ( 27.0% translated).
 - shlex.po                         3 /  77 (  3.0% translated).
-- signal.po                      105 / 137 ( 76.0% translated).
 - smtplib.po                      30 / 116 ( 25.0% translated).
 - socket.po                       53 / 367 ( 14.0% translated).
 - sqlite3.po                     116 / 477 ( 24.0% translated).
@@ -211,5 +209,5 @@
 - changelog.po                   2001 / 12300 ( 16.0% translated).
 
 
-# TOTAL (60.40% done)
+# TOTAL (60.48% done)
 
