@@ -79,7 +79,7 @@
 
 
 
-# library (60.06% done)
+# library (60.13% done)
 
 - argparse.po                    262 / 290 ( 90.0% translated).
 - ast.po                         179 / 193 ( 92.0% translated).
@@ -164,7 +164,7 @@
 - inspect.po                      83 / 315 ( 26.0% translated).
 - io.po                           17 / 229 (  7.0% translated).
 - ipaddress.po                   155 / 158 ( 98.0% translated).
-- itertools.po                   122 / 148 ( 82.0% translated).
+- itertools.po                   125 / 148 ( 84.0% translated).
 - logging.config.po               12 / 119 ( 10.0% translated).
 - logging.handlers.po             49 / 261 ( 18.0% translated).
 - logging.po                      94 / 321 ( 29.0% translated).
@@ -200,7 +200,7 @@
 - shelve.po                        7 /  31 ( 22.0% translated).
 - shlex.po                         4 /  72 (  5.0% translated).
 - shutil.po                      153 / 154 ( 99.0% translated).
-- signal.po                       90 / 127 ( 70.0% translated).
+- signal.po                      109 / 127 ( 85.0% translated).
 - site.po                         34 /  39 ( 87.0% translated).
 - smtpd.po                        10 /  79 ( 12.0% translated).
 - smtplib.po                      25 / 109 ( 22.0% translated).
@@ -302,5 +302,5 @@
 - 3.9.po                         382 / 386 ( 98.0% translated).
 
 
-# TOTAL (63.52% done)
+# TOTAL (63.57% done)
 
