@@ -48,7 +48,7 @@
 
 
 
-# howto (60.12% done)
+# howto (60.46% done)
 
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                  187 / 230 ( 81.0% translated).
@@ -56,7 +56,7 @@
 - functional.po                  138 / 252 ( 54.0% translated).
 - logging-cookbook.po             23 / 421 (  5.0% translated).
 - logging.po                     121 / 250 ( 48.0% translated).
-- regex.po                       304 / 332 ( 91.0% translated).
+- regex.po                       315 / 332 ( 94.0% translated).
 - sockets.po                      35 /  63 ( 55.0% translated).
 - sorting.po                      46 /  75 ( 61.0% translated).
 - unicode.po                      30 / 145 ( 20.0% translated).
@@ -67,7 +67,7 @@
 
 
 
-# library (63.90% done)
+# library (64.18% done)
 
 - array.po                        84 /  86 ( 97.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -130,14 +130,12 @@
 - msvcrt.po                       22 /  46 ( 47.0% translated).
 - multiprocessing.po             328 / 596 ( 55.0% translated).
 - pathlib.po                     252 / 418 ( 60.0% translated).
-- pickle.po                      233 / 245 ( 95.0% translated).
+- pickle.po                      237 / 245 ( 96.0% translated).
 - pkgutil.po                       6 /  50 ( 12.0% translated).
 - poplib.po                       10 /  53 ( 18.0% translated).
 - profile.po                      34 / 181 ( 18.0% translated).
 - pyexpat.po                      21 / 144 ( 14.0% translated).
 - queue.po                         9 /  53 ( 16.0% translated).
-- reprlib.po                      10 /  39 ( 25.0% translated).
-- resource.po                     40 / 110 ( 36.0% translated).
 - sched.po                         4 /  25 ( 16.0% translated).
 - select.po                       78 / 206 ( 37.0% translated).
 - selectors.po                    13 /  58 ( 22.0% translated).
@@ -193,7 +191,7 @@
 
 
 
-# whatsnew (44.43% done)
+# whatsnew (44.53% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -206,8 +204,8 @@
 - 3.5.po                         125 / 578 ( 21.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   2001 / 12300 ( 16.0% translated).
+- changelog.po                   2023 / 12300 ( 16.0% translated).
 
 
-# TOTAL (60.48% done)
+# TOTAL (60.66% done)
 
