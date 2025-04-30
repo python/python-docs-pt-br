@@ -79,7 +79,7 @@
 
 
 
-# library (60.13% done)
+# library (60.38% done)
 
 - argparse.po                    262 / 290 ( 90.0% translated).
 - ast.po                         179 / 193 ( 92.0% translated).
@@ -192,8 +192,8 @@
 - pyexpat.po                      21 / 132 ( 15.0% translated).
 - queue.po                         5 /  42 ( 11.0% translated).
 - readline.po                     45 /  47 ( 95.0% translated).
-- reprlib.po                       5 /  21 ( 23.0% translated).
-- resource.po                     39 / 112 ( 34.0% translated).
+- reprlib.po                      17 /  21 ( 80.0% translated).
+- resource.po                    102 / 112 ( 91.0% translated).
 - sched.po                         4 /  23 ( 17.0% translated).
 - select.po                       73 / 202 ( 36.0% translated).
 - selectors.po                    13 /  56 ( 23.0% translated).
@@ -302,5 +302,5 @@
 - 3.9.po                         382 / 386 ( 98.0% translated).
 
 
-# TOTAL (63.57% done)
+# TOTAL (63.72% done)
 
