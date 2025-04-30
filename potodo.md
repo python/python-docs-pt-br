@@ -59,7 +59,7 @@
 - programming.po                 391 / 393 ( 99.0% translated).
 
 
-# howto (61.12% done)
+# howto (61.29% done)
 
 - curses.po                       59 / 105 ( 56.0% translated).
 - descriptor.po                  120 / 177 ( 67.0% translated).
@@ -69,7 +69,7 @@
 - isolating-extensions.po        117 / 118 ( 99.0% translated).
 - logging-cookbook.po             23 / 308 (  7.0% translated).
 - logging.po                     118 / 218 ( 54.0% translated).
-- regex.po                       282 / 287 ( 98.0% translated).
+- regex.po                       286 / 287 ( 99.0% translated).
 - sockets.po                      35 /  58 ( 60.0% translated).
 - sorting.po                      45 /  52 ( 86.0% translated).
 - unicode.po                      30 / 121 ( 24.0% translated).
@@ -85,7 +85,7 @@
 
 
 
-# library (62.08% done)
+# library (62.33% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          48 /  49 ( 97.0% translated).
@@ -209,8 +209,7 @@
 - queue.po                         5 /  42 ( 11.0% translated).
 - random.po                       98 / 104 ( 94.0% translated).
 - re.po                          382 / 386 ( 98.0% translated).
-- reprlib.po                       8 /  24 ( 33.0% translated).
-- resource.po                     46 / 115 ( 40.0% translated).
+- resource.po                    113 / 115 ( 98.0% translated).
 - runpy.po                        35 /  38 ( 92.0% translated).
 - sched.po                         4 /  24 ( 16.0% translated).
 - select.po                       79 / 207 ( 38.0% translated).
@@ -327,5 +326,5 @@
 - 3.8.po                         468 / 469 ( 99.0% translated).
 
 
-# TOTAL (66.78% done)
+# TOTAL (66.94% done)
 
