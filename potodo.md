@@ -60,7 +60,7 @@
 - programming.po                 383 / 388 ( 98.0% translated).
 
 
-# howto (53.33% done)
+# howto (53.50% done)
 
 - annotations.po                  44 /  45 ( 97.0% translated).
 - argparse.po                     81 /  84 ( 96.0% translated).
@@ -72,7 +72,7 @@
 - logging-cookbook.po             25 / 306 (  8.0% translated).
 - logging.po                     123 / 221 ( 55.0% translated).
 - pyporting.po                    35 /  86 ( 40.0% translated).
-- regex.po                       279 / 286 ( 97.0% translated).
+- regex.po                       283 / 286 ( 98.0% translated).
 - sockets.po                      35 /  58 ( 60.0% translated).
 - unicode.po                      30 / 121 ( 24.0% translated).
 - urllib2.po                      24 /  85 ( 28.0% translated).
@@ -87,7 +87,7 @@
 
 
 
-# library (60.54% done)
+# library (60.78% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    256 / 290 ( 88.0% translated).
@@ -207,8 +207,8 @@
 - queue.po                         5 /  42 ( 11.0% translated).
 - random.po                       94 /  96 ( 97.0% translated).
 - readline.po                     47 /  48 ( 97.0% translated).
-- reprlib.po                       5 /  21 ( 23.0% translated).
-- resource.po                     39 / 114 ( 34.0% translated).
+- reprlib.po                      17 /  21 ( 80.0% translated).
+- resource.po                    103 / 114 ( 90.0% translated).
 - sched.po                         4 /  23 ( 17.0% translated).
 - select.po                       73 / 202 ( 36.0% translated).
 - selectors.po                    13 /  56 ( 23.0% translated).
@@ -324,5 +324,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (64.22% done)
+# TOTAL (64.38% done)
 

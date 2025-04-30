@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-21 22:53+0000\n"
+"POT-Creation-Date: 2025-04-11 16:03+0000\n"
 "PO-Revision-Date: 2022-11-05 17:22+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -32,16 +32,23 @@ msgid ""
 "This module provides basic mechanisms for measuring and controlling system "
 "resources utilized by a program."
 msgstr ""
+"Este módulo fornece mecanismos básicos para medir e controlar os recursos do "
+"sistema usados por um programa."
 
 #: ../../library/resource.rst:16
 msgid ""
 "Symbolic constants are used to specify particular system resources and to "
 "request usage information about either the current process or its children."
 msgstr ""
+"Constantes simbólicas são usadas para especificar recursos específicos do "
+"sistema e para solicitar informações de uso sobre o processo atual ou seus "
+"filhos."
 
 #: ../../library/resource.rst:19
 msgid "An :exc:`OSError` is raised on syscall failure."
 msgstr ""
+"Uma exceção :exc:`OSError` é levantada em caso de falha de chamada de "
+"sistema."
 
 #: ../../library/resource.rst:24
 msgid "A deprecated alias of :exc:`OSError`."
@@ -55,7 +62,7 @@ msgstr ""
 
 #: ../../library/resource.rst:31
 msgid "Resource Limits"
-msgstr ""
+msgstr "Limites de recursos"
 
 #: ../../library/resource.rst:33
 msgid ""
@@ -67,6 +74,13 @@ msgid ""
 "soft limit, but not raised. (Only processes with the effective UID of the "
 "super-user can raise a hard limit.)"
 msgstr ""
+"O uso de recursos pode ser limitado usando a função :func:`setrlimit` "
+"descrita abaixo. Cada recurso é controlado por um par de limites: um limite "
+"suave e um limite rígido. O limite suave é o limite atual e pode ser "
+"reduzido ou aumentado por um processo ao longo do tempo. O limite suave "
+"nunca pode exceder o limite rígido. O limite rígido pode ser reduzido para "
+"qualquer valor maior que o limite suave, mas não aumentado. (Somente "
+"processos com o UID efetivo do superusuário podem aumentar um limite rígido.)"
 
 #: ../../library/resource.rst:41
 msgid ""
@@ -76,10 +90,15 @@ msgid ""
 "resources which cannot be checked or controlled by the operating system are "
 "not defined in this module for those platforms."
 msgstr ""
+"Os recursos específicos que podem ser limitados dependem do sistema. Eles "
+"são descritos na página man :manpage:`getrlimit(2)`. Os recursos listados "
+"abaixo são suportados quando o sistema operacional subjacente os suporta; "
+"recursos que não podem ser verificados ou controlados pelo sistema "
+"operacional não são definidos neste módulo para essas plataformas."
 
 #: ../../library/resource.rst:50
 msgid "Constant used to represent the limit for an unlimited resource."
-msgstr ""
+msgstr "Constante usada para representar o limite de um recurso ilimitado."
 
 #: ../../library/resource.rst:55
 msgid ""
@@ -87,6 +106,10 @@ msgid ""
 "*resource*. Raises :exc:`ValueError` if an invalid resource is specified, "
 "or :exc:`error` if the underlying system call fails unexpectedly."
 msgstr ""
+"Retorna uma tupla ``(suave, rígido)`` com os limites soft e hard atuais de "
+"*resource*. Levanta :exc:`ValueError` se um recurso inválido for "
+"especificado, ou :exc:`error` se a chamada do sistema subjacente falhar "
+"inesperadamente."
 
 #: ../../library/resource.rst:62
 msgid ""
@@ -95,6 +118,10 @@ msgid ""
 "of :data:`~resource.RLIM_INFINITY` can be used to request a limit that is "
 "unlimited."
 msgstr ""
+"Define novos limites de consumo de *resource*. O argumento *limits* deve ser "
+"uma tupla ``(suave, rígido)`` de dois inteiros descrevendo os novos limites. "
+"Um valor de :data:`~resource.RLIM_INFINITY` pode ser usado para solicitar um "
+"limite ilimitado."
 
 #: ../../library/resource.rst:67
 msgid ""
@@ -106,16 +133,26 @@ msgid ""
 "any valid limit value, including unlimited, but :exc:`ValueError` will still "
 "be raised if the requested limit exceeds the system imposed limit."
 msgstr ""
+"Levanta :exc:`ValueError` se um recurso inválido for especificado, se o novo "
+"limite suave exceder o limite rígido ou se um processo tentar aumentar seu "
+"limite rígido. Especificar um limite de :data:`~resource.RLIM_INFINITY` "
+"quando o limite rígido ou do sistema para esse recurso não for ilimitado "
+"resultará em uma exceção :exc:`ValueError`. Um processo com o UID efetivo de "
+"superusuário pode solicitar qualquer valor limite válido, incluindo "
+"ilimitado, mas :exc:`ValueError` ainda será levantada se o limite solicitado "
+"exceder o limite imposto pelo sistema."
 
 #: ../../library/resource.rst:76
 msgid ""
 "``setrlimit`` may also raise :exc:`error` if the underlying system call "
 "fails."
 msgstr ""
+"``setrlimit`` também pode levantar :exc:`error` se a chamada do sistema "
+"subjacente falhar."
 
 #: ../../library/resource.rst:79
 msgid "VxWorks only supports setting :data:`RLIMIT_NOFILE`."
-msgstr ""
+msgstr "VxWorks só oferece suporte a definir :data:`RLIMIT_NOFILE`."
 
 #: ../../library/resource.rst:81
 msgid ""
@@ -133,6 +170,10 @@ msgid ""
 "*limits* have the same meaning as in :func:`setrlimit`, except that *limits* "
 "is optional."
 msgstr ""
+"Combina :func:`setrlimit` e :func:`getrlimit` em uma única função e permite "
+"obter e definir os limites de recursos de um processo arbitrário. Se *pid* "
+"for 0, a chamada se aplica ao processo atual. *resource* e *limits* têm o "
+"mesmo significado que em :func:`setrlimit`, exceto que *limits* é opcional."
 
 #: ../../library/resource.rst:92
 msgid ""
@@ -140,6 +181,9 @@ msgid ""
 "process *pid*. When *limits* is given the *resource* limit of the process is "
 "set and the former resource limit is returned."
 msgstr ""
+"Quando *limits* não é fornecido, a função retorna o limite de *resource* do "
+"processo *pid*. Quando *limits* é fornecido, o limite de *resource* do "
+"processo é definido e o limite de recurso anterior é retornado."
 
 #: ../../library/resource.rst:96
 msgid ""
@@ -147,6 +191,9 @@ msgid ""
 "`PermissionError` when the user doesn't have ``CAP_SYS_RESOURCE`` for the "
 "process."
 msgstr ""
+"Levanta :exc:`ProcessLookupError` quando *pid* não pode ser encontrado e :"
+"exc:`PermissionError` quando o usuário não tem ``CAP_SYS_RESOURCE`` para o "
+"processo."
 
 #: ../../library/resource.rst:100
 msgid ""
@@ -168,6 +215,9 @@ msgid ""
 "the :func:`setrlimit` and :func:`getrlimit` functions described below. The "
 "values of these symbols are exactly the constants used by C programs."
 msgstr ""
+"Esses símbolos definem recursos cujo consumo pode ser controlado usando as "
+"funções :func:`setrlimit` e :func:`getrlimit` descritas abaixo. Os valores "
+"desses símbolos são exatamente as constantes usadas por programas em C."
 
 #: ../../library/resource.rst:111
 msgid ""
@@ -177,6 +227,11 @@ msgid ""
 "--- symbols not defined for a platform will not be available from this "
 "module on that platform."
 msgstr ""
+"A página man do Unix para :manpage:`getrlimit(2)` lista os recursos "
+"disponíveis. Observe que nem todos os sistemas usam o mesmo símbolo ou o "
+"mesmo valor para denotar o mesmo recurso. Este módulo não tenta mascarar "
+"diferenças de plataforma --- símbolos não definidos para uma plataforma não "
+"estarão disponíveis neste módulo para essa plataforma."
 
 #: ../../library/resource.rst:120
 msgid ""
@@ -184,6 +239,10 @@ msgid ""
 "create. This may result in the creation of a partial core file if a larger "
 "core would be required to contain the entire process image."
 msgstr ""
+"O tamanho máximo (em bytes) de um arquivo de núcleo (core file) que o "
+"processo atual pode criar. Isso pode resultar na criação de um arquivo de "
+"núcleo parcial se um núcleo maior for necessário para conter a imagem "
+"completa do processo."
 
 #: ../../library/resource.rst:127
 msgid ""
@@ -192,55 +251,68 @@ msgid ""
 "(See the :mod:`signal` module documentation for information about how to "
 "catch this signal and do something useful, e.g. flush open files to disk.)"
 msgstr ""
+"O tempo máximo de processador (em segundos) que um processo pode usar. Se "
+"esse limite for excedido, um sinal :const:`SIGXCPU` é enviado ao processo. "
+"(Consulte a documentação do módulo :mod:`signal` para obter informações "
+"sobre como capturar esse sinal e fazer algo útil, por exemplo, liberar "
+"arquivos abertos no disco.)"
 
 #: ../../library/resource.rst:135
 msgid "The maximum size of a file which the process may create."
-msgstr ""
+msgstr "O tamanho máximo de um arquivo que o processo pode criar."
 
 #: ../../library/resource.rst:140
 msgid "The maximum size (in bytes) of the process's heap."
-msgstr ""
+msgstr "O tamanho máximo (em bytes) da heap do processo."
 
 #: ../../library/resource.rst:145
 msgid ""
 "The maximum size (in bytes) of the call stack for the current process.  This "
 "only affects the stack of the main thread in a multi-threaded process."
 msgstr ""
+"O tamanho máximo (em bytes) da pilha de chamadas para o processo atual. Isso "
+"afeta apenas a pilha da thread principal em um processo multithread."
 
 #: ../../library/resource.rst:151
 msgid ""
 "The maximum resident set size that should be made available to the process."
 msgstr ""
+"O tamanho máximo do conjunto de residentes que deve ser disponibilizado para "
+"o processo."
 
 #: ../../library/resource.rst:156
 msgid "The maximum number of processes the current process may create."
-msgstr ""
+msgstr "O número máximo de processos que o processo atual pode criar."
 
 #: ../../library/resource.rst:161
 msgid "The maximum number of open file descriptors for the current process."
 msgstr ""
+"O número máximo de descritores de arquivo abertos para o processo atual."
 
 #: ../../library/resource.rst:166
 msgid "The BSD name for :const:`RLIMIT_NOFILE`."
-msgstr ""
+msgstr "O nome BSD para :const:`RLIMIT_NOFILE`."
 
 #: ../../library/resource.rst:171
 msgid "The maximum address space which may be locked in memory."
-msgstr ""
+msgstr "O espaço máximo de endereço que pode ser travado na memória."
 
 #: ../../library/resource.rst:176
 msgid "The largest area of mapped memory which the process may occupy."
-msgstr ""
+msgstr "A maior área de memória mapeada que o processo pode ocupar."
 
 #: ../../library/resource.rst:181
 msgid ""
 "The maximum area (in bytes) of address space which may be taken by the "
 "process."
 msgstr ""
+"A área máxima (em bytes) de espaço de endereço que pode ser ocupada pelo "
+"processo."
 
 #: ../../library/resource.rst:186
 msgid "The number of bytes that can be allocated for POSIX message queues."
 msgstr ""
+"O número de bytes que podem ser alocados para filas de mensagens POSIX."
 
 #: ../../library/resource.rst:189 ../../library/resource.rst:226
 msgid ":ref:`Availability <availability>`: Linux 2.6.8 or later."
@@ -249,6 +321,7 @@ msgstr ""
 #: ../../library/resource.rst:195
 msgid "The ceiling for the process's nice level (calculated as 20 - rlim_cur)."
 msgstr ""
+"O teto para o nível agradável do processo (calculado como 20 - rlim_cur)."
 
 #: ../../library/resource.rst:198 ../../library/resource.rst:207
 msgid ":ref:`Availability <availability>`: Linux 2.6.12 or later."
@@ -256,13 +329,16 @@ msgstr ""
 
 #: ../../library/resource.rst:204
 msgid "The ceiling of the real-time priority."
-msgstr ""
+msgstr "O teto da prioridade em tempo real."
 
 #: ../../library/resource.rst:213
 msgid ""
 "The time limit (in microseconds) on CPU time that a process can spend under "
 "real-time scheduling without making a blocking syscall."
 msgstr ""
+"O limite de tempo (em microssegundos) no tempo de CPU que um processo pode "
+"gastar sob agendamento em tempo real sem fazer uma chamada de sistema de "
+"bloqueio."
 
 #: ../../library/resource.rst:217
 msgid ":ref:`Availability <availability>`: Linux 2.6.25 or later."
@@ -270,7 +346,7 @@ msgstr ""
 
 #: ../../library/resource.rst:223
 msgid "The number of signals which the process may queue."
-msgstr ""
+msgstr "O número de sinais que o processo pode enfileirar."
 
 #: ../../library/resource.rst:231
 msgid ""
@@ -278,6 +354,9 @@ msgid ""
 "limits the amount of network memory, and hence the amount of mbufs, that "
 "this user may hold at any time."
 msgstr ""
+"O tamanho máximo (em bytes) de uso do buffer de soquete para este usuário. "
+"Isso limita a quantidade de memória de rede e, portanto, a quantidade de "
+"mbufs que este usuário pode armazenar a qualquer momento."
 
 #: ../../library/resource.rst:236 ../../library/resource.rst:249
 #: ../../library/resource.rst:257
@@ -295,11 +374,12 @@ msgstr ""
 
 #: ../../library/resource.rst:254
 msgid "The maximum number of pseudo-terminals created by this user id."
-msgstr ""
+msgstr "O número máximo de pseudoterminais criados por este ID de usuário."
 
 #: ../../library/resource.rst:262
 msgid "The maximum number of kqueues this user id is allowed to create."
 msgstr ""
+"O número máximo de kqueues que esse ID de usuário tem permissão para criar."
 
 #: ../../library/resource.rst:265
 msgid ":ref:`Availability <availability>`: FreeBSD 11 or later."
@@ -307,11 +387,12 @@ msgstr ""
 
 #: ../../library/resource.rst:269
 msgid "Resource Usage"
-msgstr ""
+msgstr "Uso de recursos"
 
 #: ../../library/resource.rst:271
 msgid "These functions are used to retrieve resource usage information:"
 msgstr ""
+"Essas funções são usadas para recuperar informações de uso de recursos:"
 
 #: ../../library/resource.rst:276
 msgid ""
@@ -333,12 +414,19 @@ msgid ""
 "dependent on the clock tick internal, e.g. the amount of memory the process "
 "is using."
 msgstr ""
+"Os campos do valor de retorno descrevem como um recurso específico do "
+"sistema foi utilizado, por exemplo, a quantidade de tempo gasto em execução "
+"no modo de usuário ou o número de vezes que o processo foi trocado da "
+"memória principal. Alguns valores dependem do tique do relógio interno, por "
+"exemplo, a quantidade de memória que o processo está usando."
 
 #: ../../library/resource.rst:300
 msgid ""
 "For backward compatibility, the return value is also accessible as a tuple "
 "of 16 elements."
 msgstr ""
+"Para retrocompatibilidade, o valor de retorno também pode ser acessado como "
+"uma tupla de 16 elementos."
 
 #: ../../library/resource.rst:303
 msgid ""
@@ -360,7 +448,7 @@ msgstr "Campo"
 
 #: ../../library/resource.rst:310
 msgid "Resource"
-msgstr ""
+msgstr "Recurso"
 
 #: ../../library/resource.rst:312
 msgid "``0``"
@@ -372,7 +460,7 @@ msgstr ":attr:`ru_utime`"
 
 #: ../../library/resource.rst:312
 msgid "time in user mode (float seconds)"
-msgstr ""
+msgstr "tempo no modo de usuário (segundos em pontos flutuantes)"
 
 #: ../../library/resource.rst:314
 msgid "``1``"
@@ -384,7 +472,7 @@ msgstr ":attr:`ru_stime`"
 
 #: ../../library/resource.rst:314
 msgid "time in system mode (float seconds)"
-msgstr ""
+msgstr "tempo no modo de sistema (segundos em pontos flutuantes)"
 
 #: ../../library/resource.rst:316
 msgid "``2``"
@@ -396,7 +484,7 @@ msgstr ":attr:`ru_maxrss`"
 
 #: ../../library/resource.rst:316
 msgid "maximum resident set size"
-msgstr ""
+msgstr "tamanho máximo do conjunto residente"
 
 #: ../../library/resource.rst:318
 msgid "``3``"
@@ -408,7 +496,7 @@ msgstr ":attr:`ru_ixrss`"
 
 #: ../../library/resource.rst:318
 msgid "shared memory size"
-msgstr ""
+msgstr "tamanho da memória compartilhada"
 
 #: ../../library/resource.rst:320
 msgid "``4``"
@@ -420,7 +508,7 @@ msgstr ":attr:`ru_idrss`"
 
 #: ../../library/resource.rst:320
 msgid "unshared memory size"
-msgstr ""
+msgstr "tamanho da memória não compartilhada"
 
 #: ../../library/resource.rst:322
 msgid "``5``"
@@ -432,7 +520,7 @@ msgstr ":attr:`ru_isrss`"
 
 #: ../../library/resource.rst:322
 msgid "unshared stack size"
-msgstr ""
+msgstr "tamanho da pilha não compartilhada"
 
 #: ../../library/resource.rst:324
 msgid "``6``"
@@ -444,7 +532,7 @@ msgstr ":attr:`ru_minflt`"
 
 #: ../../library/resource.rst:324
 msgid "page faults not requiring I/O"
-msgstr ""
+msgstr "falhas de página que não requerem E/S"
 
 #: ../../library/resource.rst:326
 msgid "``7``"
@@ -456,7 +544,7 @@ msgstr ":attr:`ru_majflt`"
 
 #: ../../library/resource.rst:326
 msgid "page faults requiring I/O"
-msgstr ""
+msgstr "falhas de página que requerem E/S"
 
 #: ../../library/resource.rst:328
 msgid "``8``"
@@ -468,7 +556,7 @@ msgstr ":attr:`ru_nswap`"
 
 #: ../../library/resource.rst:328
 msgid "number of swap outs"
-msgstr ""
+msgstr "número de trocas para a memórias de swap"
 
 #: ../../library/resource.rst:330
 msgid "``9``"
@@ -480,7 +568,7 @@ msgstr ":attr:`ru_inblock`"
 
 #: ../../library/resource.rst:330
 msgid "block input operations"
-msgstr ""
+msgstr "operações de entrada de bloco"
 
 #: ../../library/resource.rst:332
 msgid "``10``"
@@ -492,7 +580,7 @@ msgstr ":attr:`ru_oublock`"
 
 #: ../../library/resource.rst:332
 msgid "block output operations"
-msgstr ""
+msgstr "operações de saída de bloco"
 
 #: ../../library/resource.rst:334
 msgid "``11``"
@@ -504,7 +592,7 @@ msgstr ":attr:`ru_msgsnd`"
 
 #: ../../library/resource.rst:334
 msgid "messages sent"
-msgstr ""
+msgstr "mensagens enviadas"
 
 #: ../../library/resource.rst:336
 msgid "``12``"
@@ -516,7 +604,7 @@ msgstr ":attr:`ru_msgrcv`"
 
 #: ../../library/resource.rst:336
 msgid "messages received"
-msgstr ""
+msgstr "mensagens recebidas"
 
 #: ../../library/resource.rst:338
 msgid "``13``"
@@ -528,7 +616,7 @@ msgstr ":attr:`ru_nsignals`"
 
 #: ../../library/resource.rst:338
 msgid "signals received"
-msgstr ""
+msgstr "sinais recebidos"
 
 #: ../../library/resource.rst:340
 msgid "``14``"
@@ -540,7 +628,7 @@ msgstr ":attr:`ru_nvcsw`"
 
 #: ../../library/resource.rst:340
 msgid "voluntary context switches"
-msgstr ""
+msgstr "trocas voluntárias de contexto"
 
 #: ../../library/resource.rst:342
 msgid "``15``"
@@ -552,7 +640,7 @@ msgstr ":attr:`ru_nivcsw`"
 
 #: ../../library/resource.rst:342
 msgid "involuntary context switches"
-msgstr ""
+msgstr "trocas involuntárias de contexto"
 
 #: ../../library/resource.rst:345
 msgid ""
@@ -560,12 +648,17 @@ msgid ""
 "is specified. It may also raise :exc:`error` exception in unusual "
 "circumstances."
 msgstr ""
+"Esta função levantará uma :exc:`ValueError` se um parâmetro *who* inválido "
+"for especificado. Também pode levantar uma exceção :exc:`error` em "
+"circunstâncias incomuns."
 
 #: ../../library/resource.rst:351
 msgid ""
 "Returns the number of bytes in a system page. (This need not be the same as "
 "the hardware page size.)"
 msgstr ""
+"Retorna o número de bytes em uma página do sistema. (Não precisa ser o mesmo "
+"que o tamanho da página de hardware.)"
 
 #: ../../library/resource.rst:354
 msgid ""
@@ -579,21 +672,31 @@ msgid ""
 "Pass to :func:`getrusage` to request resources consumed by the calling "
 "process, which is the sum of resources used by all threads in the process."
 msgstr ""
+"Passeapara :func:`getrusage` para solicitar recursos consumidos pelo "
+"processo de chamada, que é a soma dos recursos usados ​​por todas as threads "
+"no processo."
 
 #: ../../library/resource.rst:366
 msgid ""
 "Pass to :func:`getrusage` to request resources consumed by child processes "
 "of the calling process which have been terminated and waited for."
 msgstr ""
+"Passa para :func:`getrusage` para solicitar recursos consumidos por "
+"processos filhos do processo de chamada que foram encerrados e aguardados."
 
 #: ../../library/resource.rst:372
 msgid ""
 "Pass to :func:`getrusage` to request resources consumed by both the current "
 "process and child processes.  May not be available on all systems."
 msgstr ""
+"Passa para :func:`getrusage` para solicitar recursos consumidos pelo "
+"processo atual e pelos processos filhos. Pode não estar disponível em todos "
+"os sistemas."
 
 #: ../../library/resource.rst:378
 msgid ""
 "Pass to :func:`getrusage` to request resources consumed by the current "
 "thread.  May not be available on all systems."
 msgstr ""
+"Passa para :func:`getrusage` para solicitar recursos consumidos pela thread "
+"atual. Pode não estar disponível em todos os sistemas."
