@@ -52,7 +52,7 @@
 - programming.po                 349 / 372 ( 93.0% translated).
 
 
-# howto (53.99% done)
+# howto (54.16% done)
 
 - argparse.po                     83 /  84 ( 98.0% translated).
 - clinic.po                      101 / 415 ( 24.0% translated).
@@ -63,7 +63,7 @@
 - logging-cookbook.po             15 / 237 (  6.0% translated).
 - logging.po                     125 / 219 ( 57.0% translated).
 - pyporting.po                    35 /  86 ( 40.0% translated).
-- regex.po                       279 / 286 ( 97.0% translated).
+- regex.po                       283 / 286 ( 98.0% translated).
 - sockets.po                      37 /  57 ( 64.0% translated).
 - sorting.po                      54 /  55 ( 98.0% translated).
 - unicode.po                      30 / 121 ( 24.0% translated).
@@ -302,5 +302,5 @@
 - 3.9.po                         382 / 386 ( 98.0% translated).
 
 
-# TOTAL (63.72% done)
+# TOTAL (63.73% done)
 
