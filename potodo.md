@@ -4,7 +4,7 @@
 
 
 
-# c-api (57.01% done)
+# c-api (57.59% done)
 
 - allocation.po                    8 /   9 ( 88.0% translated).
 - arg.po                         193 / 195 ( 98.0% translated).
@@ -28,7 +28,7 @@
 - tuple.po                        47 /  48 ( 97.0% translated).
 - type.po                         27 /  63 ( 42.0% translated).
 - typeobj.po                     233 / 604 ( 38.0% translated).
-- unicode.po                      51 / 334 ( 15.0% translated).
+- unicode.po                      74 / 334 ( 22.0% translated).
 - veryhigh.po                     46 /  56 ( 82.0% translated).
 
 
@@ -324,5 +324,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (64.38% done)
+# TOTAL (64.42% done)
 
