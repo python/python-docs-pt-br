@@ -4,7 +4,7 @@
 
 
 
-# c-api (53.49% done)
+# c-api (54.30% done)
 
 - exceptions.po                  194 / 370 ( 52.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
@@ -25,7 +25,7 @@
 - sys.po                          28 /  75 ( 37.0% translated).
 - type.po                         19 / 102 ( 18.0% translated).
 - typeobj.po                     227 / 680 ( 33.0% translated).
-- unicode.po                      28 / 340 (  8.0% translated).
+- unicode.po                      70 / 341 ( 20.0% translated).
 
 
 # deprecations (100.00% done)
@@ -67,7 +67,7 @@
 
 
 
-# library (64.18% done)
+# library (64.19% done)
 
 - array.po                        84 /  86 ( 97.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -191,7 +191,7 @@
 
 
 
-# whatsnew (44.57% done)
+# whatsnew (44.69% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -204,8 +204,8 @@
 - 3.5.po                         125 / 578 ( 21.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   2032 / 12300 ( 16.0% translated).
+- changelog.po                   2064 / 12309 ( 16.0% translated).
 
 
-# TOTAL (60.67% done)
+# TOTAL (60.76% done)
 
