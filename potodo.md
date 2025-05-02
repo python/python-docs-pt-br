@@ -5,7 +5,7 @@
 - license.po                     116 / 125 ( 92.0% translated).
 
 
-# c-api (53.12% done)
+# c-api (53.95% done)
 
 - exceptions.po                  194 / 366 ( 53.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
@@ -26,7 +26,7 @@
 - sys.po                          28 /  77 ( 36.0% translated).
 - type.po                         19 /  99 ( 19.0% translated).
 - typeobj.po                     228 / 674 ( 33.0% translated).
-- unicode.po                      27 / 325 (  8.0% translated).
+- unicode.po                      67 / 325 ( 20.0% translated).
 - veryhigh.po                     54 /  57 ( 94.0% translated).
 
 
@@ -255,5 +255,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (67.62% done)
+# TOTAL (67.68% done)
 
