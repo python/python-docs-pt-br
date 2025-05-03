@@ -71,7 +71,7 @@
 
 
 
-# library (62.67% done)
+# library (62.79% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        77 /  84 ( 91.0% translated).
@@ -127,7 +127,7 @@
 - ftplib.po                       11 /  99 ( 11.0% translated).
 - functools.po                    20 / 115 ( 17.0% translated).
 - gzip.po                         60 /  65 ( 92.0% translated).
-- hashlib.po                      13 / 168 (  7.0% translated).
+- hashlib.po                      55 / 168 ( 32.0% translated).
 - html.parser.po                   3 /  60 (  5.0% translated).
 - http.client.po                  45 / 117 ( 38.0% translated).
 - http.cookiejar.po                9 / 159 (  5.0% translated).
@@ -153,7 +153,7 @@
 - msilib.po                        7 /  97 (  7.0% translated).
 - multiprocessing.po             327 / 594 ( 55.0% translated).
 - multiprocessing.shared_memory.po  51 /  53 ( 96.0% translated).
-- nntplib.po                       9 /  92 (  9.0% translated).
+- nntplib.po                      10 /  92 ( 10.0% translated).
 - os.path.po                      88 /  92 ( 95.0% translated).
 - ossaudiodev.po                  18 / 102 ( 17.0% translated).
 - pathlib.po                     209 / 346 ( 60.0% translated).
@@ -255,5 +255,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (67.68% done)
+# TOTAL (67.75% done)
 
