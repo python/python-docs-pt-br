@@ -4,7 +4,7 @@
 
 
 
-# c-api (60.44% done)
+# c-api (61.08% done)
 
 - exceptions.po                  196 / 266 ( 73.0% translated).
 - gcsupport.po                    10 /  33 ( 30.0% translated).
@@ -20,7 +20,7 @@
 - sys.po                          19 /  71 ( 26.0% translated).
 - type.po                         29 /  63 ( 46.0% translated).
 - typeobj.po                     232 / 578 ( 40.0% translated).
-- unicode.po                      51 / 335 ( 15.0% translated).
+- unicode.po                      75 / 335 ( 22.0% translated).
 - veryhigh.po                     40 /  61 ( 65.0% translated).
 
 
@@ -302,5 +302,5 @@
 - 3.9.po                         382 / 386 ( 98.0% translated).
 
 
-# TOTAL (63.73% done)
+# TOTAL (63.77% done)
 
