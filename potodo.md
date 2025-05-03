@@ -85,7 +85,7 @@
 
 
 
-# library (62.33% done)
+# library (62.45% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          48 /  49 ( 97.0% translated).
@@ -158,7 +158,7 @@
 - glob.po                         32 /  33 ( 96.0% translated).
 - grp.po                          28 /  29 ( 96.0% translated).
 - gzip.po                         54 /  60 ( 90.0% translated).
-- hashlib.po                      13 / 161 (  8.0% translated).
+- hashlib.po                      53 / 161 ( 32.0% translated).
 - heapq.po                        50 /  51 ( 98.0% translated).
 - hmac.po                         26 /  27 ( 96.0% translated).
 - html.entities.po                 7 /   9 ( 77.0% translated).
@@ -191,7 +191,7 @@
 - msilib.po                        7 /  97 (  7.0% translated).
 - multiprocessing.po             276 / 529 ( 52.0% translated).
 - multiprocessing.shared_memory.po  46 /  48 ( 95.0% translated).
-- nntplib.po                       9 /  89 ( 10.0% translated).
+- nntplib.po                      10 /  89 ( 11.0% translated).
 - optparse.po                    412 / 416 ( 99.0% translated).
 - os.path.po                      77 /  78 ( 98.0% translated).
 - os.po                          918 / 931 ( 98.0% translated).
@@ -326,5 +326,5 @@
 - 3.8.po                         468 / 469 ( 99.0% translated).
 
 
-# TOTAL (67.00% done)
+# TOTAL (67.07% done)
 
