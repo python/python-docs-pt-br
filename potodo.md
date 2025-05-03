@@ -87,7 +87,7 @@
 
 
 
-# library (60.78% done)
+# library (60.84% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    256 / 290 ( 88.0% translated).
@@ -162,7 +162,7 @@
 - glob.po                         20 /  21 ( 95.0% translated).
 - grp.po                          27 /  28 ( 96.0% translated).
 - gzip.po                         46 /  58 ( 79.0% translated).
-- hashlib.po                      10 / 141 (  7.0% translated).
+- hashlib.po                      27 / 141 ( 19.0% translated).
 - heapq.po                        49 /  51 ( 96.0% translated).
 - hmac.po                         24 /  27 ( 88.0% translated).
 - html.parser.po                   2 /  48 (  4.0% translated).
@@ -190,7 +190,7 @@
 - mmap.po                         13 /  50 ( 26.0% translated).
 - msilib.po                        7 /  96 (  7.0% translated).
 - multiprocessing.po             272 / 519 ( 52.0% translated).
-- nntplib.po                       6 /  84 (  7.0% translated).
+- nntplib.po                       7 /  84 (  8.0% translated).
 - optparse.po                    385 / 406 ( 94.0% translated).
 - os.po                          841 / 843 ( 99.0% translated).
 - ossaudiodev.po                  18 /  98 ( 18.0% translated).
@@ -324,5 +324,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (64.42% done)
+# TOTAL (64.46% done)
 
