@@ -48,13 +48,13 @@
 
 
 
-# howto (60.46% done)
+# howto (60.50% done)
 
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                  187 / 230 ( 81.0% translated).
 - enum.po                         62 / 327 ( 18.0% translated).
 - functional.po                  138 / 252 ( 54.0% translated).
-- logging-cookbook.po             23 / 421 (  5.0% translated).
+- logging-cookbook.po             24 / 421 (  5.0% translated).
 - logging.po                     121 / 250 ( 48.0% translated).
 - regex.po                       315 / 332 ( 94.0% translated).
 - sockets.po                      35 /  63 ( 55.0% translated).
