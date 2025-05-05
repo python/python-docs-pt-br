@@ -60,7 +60,7 @@
 - programming.po                 383 / 388 ( 98.0% translated).
 
 
-# howto (53.50% done)
+# howto (53.54% done)
 
 - annotations.po                  44 /  45 ( 97.0% translated).
 - argparse.po                     81 /  84 ( 96.0% translated).
@@ -69,7 +69,7 @@
 - descriptor.po                  115 / 175 ( 65.0% translated).
 - functional.po                  138 / 206 ( 66.0% translated).
 - instrumentation.po              55 /  59 ( 93.0% translated).
-- logging-cookbook.po             25 / 306 (  8.0% translated).
+- logging-cookbook.po             26 / 306 (  8.0% translated).
 - logging.po                     123 / 221 ( 55.0% translated).
 - pyporting.po                    35 /  86 ( 40.0% translated).
 - regex.po                       283 / 286 ( 98.0% translated).
