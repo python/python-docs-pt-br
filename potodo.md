@@ -59,7 +59,7 @@
 - programming.po                 391 / 393 ( 99.0% translated).
 
 
-# howto (61.29% done)
+# howto (61.34% done)
 
 - curses.po                       59 / 105 ( 56.0% translated).
 - descriptor.po                  120 / 177 ( 67.0% translated).
@@ -67,7 +67,7 @@
 - functional.po                  137 / 206 ( 66.0% translated).
 - instrumentation.po              58 /  59 ( 98.0% translated).
 - isolating-extensions.po        117 / 118 ( 99.0% translated).
-- logging-cookbook.po             23 / 308 (  7.0% translated).
+- logging-cookbook.po             24 / 308 (  7.0% translated).
 - logging.po                     118 / 218 ( 54.0% translated).
 - regex.po                       286 / 287 ( 99.0% translated).
 - sockets.po                      35 /  58 ( 60.0% translated).
