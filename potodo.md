@@ -87,7 +87,7 @@
 
 
 
-# library (60.84% done)
+# library (60.87% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    256 / 290 ( 88.0% translated).
@@ -162,7 +162,7 @@
 - glob.po                         20 /  21 ( 95.0% translated).
 - grp.po                          27 /  28 ( 96.0% translated).
 - gzip.po                         46 /  58 ( 79.0% translated).
-- hashlib.po                      27 / 141 ( 19.0% translated).
+- hashlib.po                      38 / 141 ( 26.0% translated).
 - heapq.po                        49 /  51 ( 96.0% translated).
 - hmac.po                         24 /  27 ( 88.0% translated).
 - html.parser.po                   2 /  48 (  4.0% translated).
@@ -324,5 +324,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (64.46% done)
+# TOTAL (64.48% done)
 
