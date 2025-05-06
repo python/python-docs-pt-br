@@ -67,7 +67,7 @@
 
 
 
-# library (64.31% done)
+# library (64.36% done)
 
 - array.po                        84 /  86 ( 97.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -108,7 +108,7 @@
 - faulthandler.po                  4 /  43 (  9.0% translated).
 - ftplib.po                       11 /  99 ( 11.0% translated).
 - functools.po                    20 / 115 ( 17.0% translated).
-- hashlib.po                      59 / 170 ( 34.0% translated).
+- hashlib.po                      75 / 170 ( 44.0% translated).
 - html.parser.po                   3 /  60 (  5.0% translated).
 - http.client.po                  45 / 117 ( 38.0% translated).
 - http.cookiejar.po                9 / 159 (  5.0% translated).
@@ -191,7 +191,7 @@
 
 
 
-# whatsnew (45.14% done)
+# whatsnew (45.41% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -204,8 +204,8 @@
 - 3.5.po                         125 / 578 ( 21.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   2167 / 12309 ( 17.0% translated).
+- changelog.po                   2229 / 12309 ( 18.0% translated).
 
 
-# TOTAL (60.96% done)
+# TOTAL (61.06% done)
 
