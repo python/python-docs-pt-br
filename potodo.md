@@ -79,7 +79,7 @@
 
 
 
-# library (60.44% done)
+# library (60.47% done)
 
 - argparse.po                    262 / 290 ( 90.0% translated).
 - ast.po                         179 / 193 ( 92.0% translated).
@@ -147,7 +147,7 @@
 - gc.po                           54 /  55 ( 98.0% translated).
 - grp.po                          26 /  28 ( 92.0% translated).
 - gzip.po                         46 /  57 ( 80.0% translated).
-- hashlib.po                      27 / 139 ( 19.0% translated).
+- hashlib.po                      37 / 139 ( 26.0% translated).
 - heapq.po                        49 /  51 ( 96.0% translated).
 - hmac.po                         22 /  27 ( 81.0% translated).
 - html.parser.po                   2 /  48 (  4.0% translated).
@@ -302,5 +302,5 @@
 - 3.9.po                         382 / 386 ( 98.0% translated).
 
 
-# TOTAL (63.81% done)
+# TOTAL (63.83% done)
 
