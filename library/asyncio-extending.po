@@ -1,0 +1,196 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2001-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Translators:
+# Rodrigo Vitorino, 2022
+# Juliana Barros Lima, 2022
+# Jones Martins, 2024
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.13\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-25 14:19+0000\n"
+"PO-Revision-Date: 2022-11-05 19:48+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
+"Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
+"teams/5390/pt_BR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
+"1000000 == 0 ? 1 : 2;\n"
+
+#: ../../library/asyncio-extending.rst:6
+msgid "Extending"
+msgstr "Extensão"
+
+#: ../../library/asyncio-extending.rst:8
+msgid ""
+"The main direction for :mod:`asyncio` extending is writing custom *event "
+"loop* classes. Asyncio has helpers that could be used to simplify this task."
+msgstr ""
+"A direção principal para estender o módulo :mod:`asyncio` é escrever classes "
+"de *laços de eventos* personalizados. O Asyncio tem funções auxiliares que "
+"podem ser usadas para simplificar essa tarefa."
+
+#: ../../library/asyncio-extending.rst:13
+msgid ""
+"Third-parties should reuse existing asyncio code with caution, a new Python "
+"version is free to break backward compatibility in *internal* part of API."
+msgstr ""
+"Terceiros devem reutilizar o código assíncrono existente com cuidado. Uma "
+"versão nova de Python pode quebrar a compatibilidade com versões anteriores "
+"da parte *interna* da API."
+
+#: ../../library/asyncio-extending.rst:19
+msgid "Writing a Custom Event Loop"
+msgstr "Escrevendo um laço de eventos personalizado"
+
+#: ../../library/asyncio-extending.rst:21
+msgid ""
+":class:`asyncio.AbstractEventLoop` declares very many methods.  Implementing "
+"all them from scratch is a tedious job."
+msgstr ""
+":class:`asyncio.AbstractEventLoop` declara muitos métodos. Implementar todos "
+"eles do zero é um trabalho tedioso."
+
+#: ../../library/asyncio-extending.rst:24
+msgid ""
+"A loop can get many common methods implementation for free by inheriting "
+"from :class:`asyncio.BaseEventLoop`."
+msgstr ""
+"Um laço de eventos pode herdar várias implementações de métodos da "
+"classe :class:`asyncio.BaseEventLoop`."
+
+#: ../../library/asyncio-extending.rst:27
+msgid ""
+"In turn, the successor should implement a bunch of *private* methods "
+"declared but not implemented in :class:`asyncio.BaseEventLoop`."
+msgstr ""
+"Por sua vez, o sucessor deve implementar um conjunto de métodos *privados* "
+"declarados, porém não implementados, em :class:`asyncio.BaseEventLoop`."
+
+#: ../../library/asyncio-extending.rst:30
+msgid ""
+"For example, ``loop.create_connection()`` checks arguments, resolves DNS "
+"addresses, and calls ``loop._make_socket_transport()`` that should be "
+"implemented by inherited class. The ``_make_socket_transport()`` method is "
+"not documented and is considered as an *internal* API."
+msgstr ""
+"Por exemplo, ``loop.create_connection()``verifica os argumentos, resolve "
+"endereços DNS, e chama a função ``loop._make_socket_transport()``, que deve "
+"ser implementada pela classe herdada. O método``_make_socket_transport()`` "
+"não está documentado, e é considerado parte de uma API *interna*."
+
+#: ../../library/asyncio-extending.rst:38
+msgid "Future and Task private constructors"
+msgstr "Construtores privados de Future e Task"
+
+#: ../../library/asyncio-extending.rst:40
+msgid ""
+":class:`asyncio.Future` and :class:`asyncio.Task` should be never created "
+"directly, please use corresponding :meth:`loop.create_future` "
+"and :meth:`loop.create_task`, or :func:`asyncio.create_task` factories "
+"instead."
+msgstr ""
+"As classes :class:`asyncio.Future` e :class:`asyncio.Task` nunca deverão ser "
+"criadas diretamente. Por favor, as substitua pelas *factories* "
+"correspondentes: :meth:`loop.create_future` e :meth:`loop.create_task` "
+"ou :func:`asyncio.create_task`."
+
+#: ../../library/asyncio-extending.rst:44
+msgid ""
+"However, third-party *event loops* may *reuse* built-in future and task "
+"implementations for the sake of getting a complex and highly optimized code "
+"for free."
+msgstr ""
+"Porém, *laços de eventos* de terceiros podem *reutilizar* as implementações "
+"embutidas de Future e Task, obtendo um código complexo e altamente otimizado."
+
+#: ../../library/asyncio-extending.rst:47
+msgid "For this purpose the following, *private* constructors are listed:"
+msgstr "Por isso, segue a listagem de construtores *privados*:"
+
+#: ../../library/asyncio-extending.rst:51
+msgid "Create a built-in future instance."
+msgstr "Cria uma instância de Future embutida."
+
+#: ../../library/asyncio-extending.rst:53
+msgid "*loop* is an optional event loop instance."
+msgstr "*loop* é uma instância opcional do laço de eventos."
+
+#: ../../library/asyncio-extending.rst:57
+msgid "Create a built-in task instance."
+msgstr "Cria uma instância embutida de Task."
+
+#: ../../library/asyncio-extending.rst:59
+msgid ""
+"*loop* is an optional event loop instance. The rest of arguments are "
+"described in :meth:`loop.create_task` description."
+msgstr ""
+"*loop* é uma instância opcional do laço de eventos. Os outros argumentos "
+"estão descritos em :meth:`loop.create_task`."
+
+#: ../../library/asyncio-extending.rst:64
+msgid "*context* argument is added."
+msgstr "o argumento *context* foi adicionado"
+
+#: ../../library/asyncio-extending.rst:69
+msgid "Task lifetime support"
+msgstr "Suporte ao ciclo de vida de tarefas"
+
+#: ../../library/asyncio-extending.rst:71
+msgid ""
+"A third party task implementation should call the following functions to "
+"keep a task visible by :func:`asyncio.all_tasks` "
+"and :func:`asyncio.current_task`:"
+msgstr ""
+"Implementações de Task de terceiros devem chamar as seguintes funções para "
+"manter uma tarefa visível para :func:`asyncio.all_tasks` "
+"e :func:`asyncio.current_task`:"
+
+#: ../../library/asyncio-extending.rst:76
+msgid "Register a new *task* as managed by *asyncio*."
+msgstr "Registra uma nova *task* como gerenciada pelo *asyncio*."
+
+#: ../../library/asyncio-extending.rst:78
+msgid "Call the function from a task constructor."
+msgstr "Chame esta função no construtor de uma tarefa."
+
+#: ../../library/asyncio-extending.rst:82
+msgid "Unregister a *task* from *asyncio* internal structures."
+msgstr "Cancela o registro de *task* nas estruturas internas do *asyncio*."
+
+#: ../../library/asyncio-extending.rst:84
+msgid "The function should be called when a task is about to finish."
+msgstr "Chame esta função quando a tarefa estiver terminando."
+
+#: ../../library/asyncio-extending.rst:88
+msgid "Switch the current task to the *task* argument."
+msgstr "Troca a tarefa atual para o argumento *task*."
+
+#: ../../library/asyncio-extending.rst:90
+msgid ""
+"Call the function just before executing a portion of embedded *coroutine* "
+"(:meth:`coroutine.send` or :meth:`coroutine.throw`)."
+msgstr ""
+"Chame esta função logo antes de executar uma porção da *corrotina* embutida "
+"(:meth:`coroutine.send` ou :meth:`coroutine.throw`)."
+
+#: ../../library/asyncio-extending.rst:95
+msgid "Switch the current task back from *task* to ``None``."
+msgstr "Troca a tarefa atual de *task* para ``None``."
+
+#: ../../library/asyncio-extending.rst:97
+msgid ""
+"Call the function just after :meth:`coroutine.send` "
+"or :meth:`coroutine.throw` execution."
+msgstr ""
+"Chame esta função logo após executar :meth:`coroutine.send` "
+"ou :meth:`coroutine.throw`."

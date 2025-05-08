@@ -1,0 +1,904 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2001-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Translators:
+# Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2021
+# Ruan Aragão <ruanaragao2@gmail.com>, 2021
+# Otávio Carneiro <otavio@carneiro.blog.br>, 2021
+# i17obot <i17obot@rougeth.com>, 2021
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2023
+# Vitor Buxbaum Orlandi, 2023
+# Adorilson Bezerra <adorilson@gmail.com>, 2024
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.13\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-18 14:18+0000\n"
+"PO-Revision-Date: 2021-06-28 00:53+0000\n"
+"Last-Translator: Adorilson Bezerra <adorilson@gmail.com>, 2024\n"
+"Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
+"teams/5390/pt_BR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
+"1000000 == 0 ? 1 : 2;\n"
+
+#: ../../howto/urllib2.rst:5
+msgid "HOWTO Fetch Internet Resources Using The urllib Package"
+msgstr "Como buscar recursos da Internet usando o pacote urllib"
+
+#: ../../howto/urllib2.rst:0
+msgid "Author"
+msgstr "Autor"
+
+#: ../../howto/urllib2.rst:7
+msgid "`Michael Foord <https://agileabstractions.com/>`_"
+msgstr "`Michael Foord <https://agileabstractions.com/>`_"
+
+#: ../../howto/urllib2.rst:11
+msgid "Introduction"
+msgstr "Introdução"
+
+#: ../../howto/urllib2.rst:15
+msgid ""
+"You may also find useful the following article on fetching web resources "
+"with Python:"
+msgstr ""
+"Você também pode achar útil o seguinte artigo na busca de recursos da web "
+"com Python:"
+
+#: ../../howto/urllib2.rst:18
+msgid ""
+"`Basic Authentication <https://web.archive.org/web/20201215133350/http://"
+"www.voidspace.org.uk/python/articles/authentication.shtml>`_"
+msgstr ""
+"`Autenticação Básica <https://web.archive.org/web/20201215133350/http://"
+"www.voidspace.org.uk/python/articles/authentication.shtml>`_"
+
+#: ../../howto/urllib2.rst:20
+msgid "A tutorial on *Basic Authentication*, with examples in Python."
+msgstr "Um tutorial sobre *Autenticação Básica*, com exemplos em Python."
+
+#: ../../howto/urllib2.rst:22
+msgid ""
+"**urllib.request** is a Python module for fetching URLs (Uniform Resource "
+"Locators). It offers a very simple interface, in the form of the *urlopen* "
+"function. This is capable of fetching URLs using a variety of different "
+"protocols. It also offers a slightly more complex interface for handling "
+"common situations - like basic authentication, cookies, proxies and so on. "
+"These are provided by objects called handlers and openers."
+msgstr ""
+"**urllib.request** é um modulo Python para buscar URLs (Uniform Resource "
+"Locators). Ele oferece uma interface muito simples, na forma da função "
+"*urlopen*. Este é capaz de buscar URLs usando uma variedade de diferentes "
+"protocolos. Ele também oferece uma interface um pouco mais complexa para "
+"lidar com situações comuns - como autenticação básica, cookies, proxies e "
+"assim por diante. Estes são fornecidos por objetos chamados handlers "
+"(manipuladores) e openers (abridores)."
+
+#: ../../howto/urllib2.rst:29
+msgid ""
+"urllib.request supports fetching URLs for many \"URL schemes\" (identified "
+"by the string before the ``\":\"`` in URL - for example ``\"ftp\"`` is the "
+"URL scheme of ``\"ftp://python.org/\"``) using their associated network "
+"protocols (e.g. FTP, HTTP). This tutorial focuses on the most common case, "
+"HTTP."
+msgstr ""
+"urllib.request suporta o acesso a URLs por meio de vários \"esquemas de "
+"URL\" (identificados pela string antes de ``\":\"`` na URL - por exemplo "
+"``\"ftp\"`` é o esquema de URL em ``\"ftp://python.org/\"``) usando o "
+"protocolo de rede associado a ele (como FTP e HTTP). Este tutorial foca no "
+"caso mais comum, HTTP."
+
+#: ../../howto/urllib2.rst:34
+msgid ""
+"For straightforward situations *urlopen* is very easy to use. But as soon as "
+"you encounter errors or non-trivial cases when opening HTTP URLs, you will "
+"need some understanding of the HyperText Transfer Protocol. The most "
+"comprehensive and authoritative reference to HTTP is :rfc:`2616`. This is a "
+"technical document and not intended to be easy to read. This HOWTO aims to "
+"illustrate using *urllib*, with enough detail about HTTP to help you "
+"through. It is not intended to replace the :mod:`urllib.request` docs, but "
+"is supplementary to them."
+msgstr ""
+"Para situações simples \"urlopen\" é muito fácil de usar. Mas assim que você "
+"se depara com erros ou casos não triviais ao abrir URLs HTTP, você vai "
+"precisar entender um pouco mais do HyperText Transfer Protocol. A literatura "
+"de referência mais reconhecida e compreensível para o HTTP é :rfc:`2616`. "
+"Ela é um documento técnico e não foi feita para ser fácil de ler. Este "
+"documento busca ilustrar o uso de *urllib* com detalhes suficientes sobre "
+"HTTP para te permitir seguir adiante. Ele não tem a intenção de substituir a "
+"documentação do :mod:`urllib.request`, mas é suplementar a ela."
+
+#: ../../howto/urllib2.rst:44
+msgid "Fetching URLs"
+msgstr "Acessando URLs"
+
+#: ../../howto/urllib2.rst:46
+msgid "The simplest way to use urllib.request is as follows::"
+msgstr "O modo mais simples de usar urllib.request é o seguinte::"
+
+#: ../../howto/urllib2.rst:48
+msgid ""
+"import urllib.request\n"
+"with urllib.request.urlopen('http://python.org/') as response:\n"
+"   html = response.read()"
+msgstr ""
+
+#: ../../howto/urllib2.rst:52
+msgid ""
+"If you wish to retrieve a resource via URL and store it in a temporary "
+"location, you can do so via the :func:`shutil.copyfileobj` "
+"and :func:`tempfile.NamedTemporaryFile` functions::"
+msgstr ""
+"Se você deseja obter um recurso via URL e guardá-lo em uma localização "
+"temporária, você pode fazê-lo com as funções :func:`shutil.copyfileobj` "
+"e :func:`tempfile.NamedTemporaryFile`::"
+
+#: ../../howto/urllib2.rst:56
+msgid ""
+"import shutil\n"
+"import tempfile\n"
+"import urllib.request\n"
+"\n"
+"with urllib.request.urlopen('http://python.org/') as response:\n"
+"    with tempfile.NamedTemporaryFile(delete=False) as tmp_file:\n"
+"        shutil.copyfileobj(response, tmp_file)\n"
+"\n"
+"with open(tmp_file.name) as html:\n"
+"    pass"
+msgstr ""
+
+#: ../../howto/urllib2.rst:67
+msgid ""
+"Many uses of urllib will be that simple (note that instead of an 'http:' URL "
+"we could have used a URL starting with 'ftp:', 'file:', etc.).  However, "
+"it's the purpose of this tutorial to explain the more complicated cases, "
+"concentrating on HTTP."
+msgstr ""
+"Muitos usos de urllib são simples assim (repare que ao invés de uma URL "
+"'http:' nós poderíamos ter usado uma string URL começando com 'ftp:', "
+"'file:', etc.).. No entanto, o propósito deste tutorial é explicar casos "
+"mais complicados, concentrando em HTTP."
+
+#: ../../howto/urllib2.rst:72
+msgid ""
+"HTTP is based on requests and responses - the client makes requests and "
+"servers send responses. urllib.request mirrors this with a ``Request`` "
+"object which represents the HTTP request you are making. In its simplest "
+"form you create a Request object that specifies the URL you want to fetch. "
+"Calling ``urlopen`` with this Request object returns a response object for "
+"the URL requested. This response is a file-like object, which means you can "
+"for example call ``.read()`` on the response::"
+msgstr ""
+"HTTP é baseado em solicitações (requests) e respostas (responses) - o "
+"cliente faz solicitações e os servidores mandam respostas. urllib.request "
+"espelha isto com um objeto ``Request`` que representa a solicitação HTTP que "
+"você está fazendo. Na sua forma mais simples, você cria um objeto Request "
+"que especifica a URL que você quer acessar. Chamar ``urlopen`` com este "
+"objeto Request retorna um objeto de resposta para a URL solicitada. Essa "
+"resposta é um objeto arquivo ou similar, o que significa que você pode, por "
+"exemplo, chamar ``.read()`` na resposta::"
+
+#: ../../howto/urllib2.rst:80
+msgid ""
+"import urllib.request\n"
+"\n"
+"req = urllib.request.Request('http://python.org/')\n"
+"with urllib.request.urlopen(req) as response:\n"
+"   the_page = response.read()"
+msgstr ""
+
+#: ../../howto/urllib2.rst:86
+msgid ""
+"Note that urllib.request makes use of the same Request interface to handle "
+"all URL schemes.  For example, you can make an FTP request like so::"
+msgstr ""
+"Note que urllib.request usa a mesma interface Request para tratar todos os "
+"esquemas URL. Por exemplo, você pode fazer uma solicitação FTP da seguinte "
+"forma::"
+
+#: ../../howto/urllib2.rst:89
+msgid "req = urllib.request.Request('ftp://example.com/')"
+msgstr ""
+
+#: ../../howto/urllib2.rst:91
+msgid ""
+"In the case of HTTP, there are two extra things that Request objects allow "
+"you to do: First, you can pass data to be sent to the server.  Second, you "
+"can pass extra information (\"metadata\") *about* the data or about the "
+"request itself, to the server - this information is sent as HTTP "
+"\"headers\".  Let's look at each of these in turn."
+msgstr ""
+
+#: ../../howto/urllib2.rst:98
+msgid "Data"
+msgstr ""
+
+#: ../../howto/urllib2.rst:100
+msgid ""
+"Sometimes you want to send data to a URL (often the URL will refer to a CGI "
+"(Common Gateway Interface) script or other web application). With HTTP, this "
+"is often done using what's known as a **POST** request. This is often what "
+"your browser does when you submit a HTML form that you filled in on the web. "
+"Not all POSTs have to come from forms: you can use a POST to transmit "
+"arbitrary data to your own application. In the common case of HTML forms, "
+"the data needs to be encoded in a standard way, and then passed to the "
+"Request object as the ``data`` argument. The encoding is done using a "
+"function from the :mod:`urllib.parse` library. ::"
+msgstr ""
+
+#: ../../howto/urllib2.rst:110
+msgid ""
+"import urllib.parse\n"
+"import urllib.request\n"
+"\n"
+"url = 'http://www.someserver.com/cgi-bin/register.cgi'\n"
+"values = {'name' : 'Michael Foord',\n"
+"          'location' : 'Northampton',\n"
+"          'language' : 'Python' }\n"
+"\n"
+"data = urllib.parse.urlencode(values)\n"
+"data = data.encode('ascii') # data should be bytes\n"
+"req = urllib.request.Request(url, data)\n"
+"with urllib.request.urlopen(req) as response:\n"
+"   the_page = response.read()"
+msgstr ""
+
+#: ../../howto/urllib2.rst:124
+msgid ""
+"Note that other encodings are sometimes required (e.g. for file upload from "
+"HTML forms - see `HTML Specification, Form Submission <https://www.w3.org/TR/"
+"REC-html40/interact/forms.html#h-17.13>`_ for more details)."
+msgstr ""
+
+#: ../../howto/urllib2.rst:129
+msgid ""
+"If you do not pass the ``data`` argument, urllib uses a **GET** request. One "
+"way in which GET and POST requests differ is that POST requests often have "
+"\"side-effects\": they change the state of the system in some way (for "
+"example by placing an order with the website for a hundredweight of tinned "
+"spam to be delivered to your door).  Though the HTTP standard makes it clear "
+"that POSTs are intended to *always* cause side-effects, and GET requests "
+"*never* to cause side-effects, nothing prevents a GET request from having "
+"side-effects, nor a POST requests from having no side-effects. Data can also "
+"be passed in an HTTP GET request by encoding it in the URL itself."
+msgstr ""
+
+#: ../../howto/urllib2.rst:139
+msgid "This is done as follows::"
+msgstr "Isso é feito como abaixo::"
+
+#: ../../howto/urllib2.rst:141
+msgid ""
+">>> import urllib.request\n"
+">>> import urllib.parse\n"
+">>> data = {}\n"
+">>> data['name'] = 'Somebody Here'\n"
+">>> data['location'] = 'Northampton'\n"
+">>> data['language'] = 'Python'\n"
+">>> url_values = urllib.parse.urlencode(data)\n"
+">>> print(url_values)  # The order may differ from below.\n"
+"name=Somebody+Here&language=Python&location=Northampton\n"
+">>> url = 'http://www.example.com/example.cgi'\n"
+">>> full_url = url + '?' + url_values\n"
+">>> data = urllib.request.urlopen(full_url)"
+msgstr ""
+
+#: ../../howto/urllib2.rst:154
+msgid ""
+"Notice that the full URL is created by adding a ``?`` to the URL, followed "
+"by the encoded values."
+msgstr ""
+"Observe que o URL completo é criado adicionando um ``?`` ao URL, seguido "
+"pelos valores codificados."
+
+#: ../../howto/urllib2.rst:158
+msgid "Headers"
+msgstr ""
+
+#: ../../howto/urllib2.rst:160
+msgid ""
+"We'll discuss here one particular HTTP header, to illustrate how to add "
+"headers to your HTTP request."
+msgstr ""
+
+#: ../../howto/urllib2.rst:163
+msgid ""
+"Some websites [#]_ dislike being browsed by programs, or send different "
+"versions to different browsers [#]_. By default urllib identifies itself as "
+"``Python-urllib/x.y`` (where ``x`` and ``y`` are the major and minor version "
+"numbers of the Python release, e.g. ``Python-urllib/2.5``), which may "
+"confuse the site, or just plain not work. The way a browser identifies "
+"itself is through the ``User-Agent`` header [#]_. When you create a Request "
+"object you can pass a dictionary of headers in. The following example makes "
+"the same request as above, but identifies itself as a version of Internet "
+"Explorer [#]_. ::"
+msgstr ""
+
+#: ../../howto/urllib2.rst:174
+msgid ""
+"import urllib.parse\n"
+"import urllib.request\n"
+"\n"
+"url = 'http://www.someserver.com/cgi-bin/register.cgi'\n"
+"user_agent = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64)'\n"
+"values = {'name': 'Michael Foord',\n"
+"          'location': 'Northampton',\n"
+"          'language': 'Python' }\n"
+"headers = {'User-Agent': user_agent}\n"
+"\n"
+"data = urllib.parse.urlencode(values)\n"
+"data = data.encode('ascii')\n"
+"req = urllib.request.Request(url, data, headers)\n"
+"with urllib.request.urlopen(req) as response:\n"
+"   the_page = response.read()"
+msgstr ""
+
+#: ../../howto/urllib2.rst:190
+msgid ""
+"The response also has two useful methods. See the section on `info and "
+"geturl`_ which comes after we have a look at what happens when things go "
+"wrong."
+msgstr ""
+
+#: ../../howto/urllib2.rst:195
+msgid "Handling Exceptions"
+msgstr "Tratamento de exceções"
+
+#: ../../howto/urllib2.rst:197
+msgid ""
+"*urlopen* raises :exc:`~urllib.error.URLError` when it cannot handle a "
+"response (though as usual with Python APIs, built-in exceptions such "
+"as :exc:`ValueError`, :exc:`TypeError` etc. may also be raised)."
+msgstr ""
+
+#: ../../howto/urllib2.rst:201
+msgid ""
+":exc:`~urllib.error.HTTPError` is the subclass "
+"of :exc:`~urllib.error.URLError` raised in the specific case of HTTP URLs."
+msgstr ""
+
+#: ../../howto/urllib2.rst:204
+msgid "The exception classes are exported from the :mod:`urllib.error` module."
+msgstr ""
+
+#: ../../howto/urllib2.rst:207
+msgid "URLError"
+msgstr "URLError"
+
+#: ../../howto/urllib2.rst:209
+msgid ""
+"Often, URLError is raised because there is no network connection (no route "
+"to the specified server), or the specified server doesn't exist.  In this "
+"case, the exception raised will have a 'reason' attribute, which is a tuple "
+"containing an error code and a text error message."
+msgstr ""
+
+#: ../../howto/urllib2.rst:214
+msgid "e.g. ::"
+msgstr ""
+
+#: ../../howto/urllib2.rst:216
+msgid ""
+">>> req = urllib.request.Request('http://www.pretend_server.org')\n"
+">>> try: urllib.request.urlopen(req)\n"
+"... except urllib.error.URLError as e:\n"
+"...     print(e.reason)\n"
+"...\n"
+"(4, 'getaddrinfo failed')"
+msgstr ""
+
+#: ../../howto/urllib2.rst:225
+msgid "HTTPError"
+msgstr "HTTPError"
+
+#: ../../howto/urllib2.rst:227
+msgid ""
+"Every HTTP response from the server contains a numeric \"status code\". "
+"Sometimes the status code indicates that the server is unable to fulfil the "
+"request. The default handlers will handle some of these responses for you "
+"(for example, if the response is a \"redirection\" that requests the client "
+"fetch the document from a different URL, urllib will handle that for you). "
+"For those it can't handle, urlopen will raise "
+"an :exc:`~urllib.error.HTTPError`. Typical errors include '404' (page not "
+"found), '403' (request forbidden), and '401' (authentication required)."
+msgstr ""
+
+#: ../../howto/urllib2.rst:235
+msgid ""
+"See section 10 of :rfc:`2616` for a reference on all the HTTP error codes."
+msgstr ""
+
+#: ../../howto/urllib2.rst:237
+msgid ""
+"The :exc:`~urllib.error.HTTPError` instance raised will have an integer "
+"'code' attribute, which corresponds to the error sent by the server."
+msgstr ""
+
+#: ../../howto/urllib2.rst:241
+msgid "Error Codes"
+msgstr ""
+
+#: ../../howto/urllib2.rst:243
+msgid ""
+"Because the default handlers handle redirects (codes in the 300 range), and "
+"codes in the 100--299 range indicate success, you will usually only see "
+"error codes in the 400--599 range."
+msgstr ""
+
+#: ../../howto/urllib2.rst:247
+msgid ""
+":attr:`http.server.BaseHTTPRequestHandler.responses` is a useful dictionary "
+"of response codes in that shows all the response codes used by :rfc:`2616`. "
+"The dictionary is reproduced here for convenience ::"
+msgstr ""
+
+#: ../../howto/urllib2.rst:251
+msgid ""
+"# Table mapping response codes to messages; entries have the\n"
+"# form {code: (shortmessage, longmessage)}.\n"
+"responses = {\n"
+"    100: ('Continue', 'Request received, please continue'),\n"
+"    101: ('Switching Protocols',\n"
+"          'Switching to new protocol; obey Upgrade header'),\n"
+"\n"
+"    200: ('OK', 'Request fulfilled, document follows'),\n"
+"    201: ('Created', 'Document created, URL follows'),\n"
+"    202: ('Accepted',\n"
+"          'Request accepted, processing continues off-line'),\n"
+"    203: ('Non-Authoritative Information', 'Request fulfilled from cache'),\n"
+"    204: ('No Content', 'Request fulfilled, nothing follows'),\n"
+"    205: ('Reset Content', 'Clear input form for further input.'),\n"
+"    206: ('Partial Content', 'Partial content follows.'),\n"
+"\n"
+"    300: ('Multiple Choices',\n"
+"          'Object has several resources -- see URI list'),\n"
+"    301: ('Moved Permanently', 'Object moved permanently -- see URI list'),\n"
+"    302: ('Found', 'Object moved temporarily -- see URI list'),\n"
+"    303: ('See Other', 'Object moved -- see Method and URL list'),\n"
+"    304: ('Not Modified',\n"
+"          'Document has not changed since given time'),\n"
+"    305: ('Use Proxy',\n"
+"          'You must use proxy specified in Location to access this '\n"
+"          'resource.'),\n"
+"    307: ('Temporary Redirect',\n"
+"          'Object moved temporarily -- see URI list'),\n"
+"\n"
+"    400: ('Bad Request',\n"
+"          'Bad request syntax or unsupported method'),\n"
+"    401: ('Unauthorized',\n"
+"          'No permission -- see authorization schemes'),\n"
+"    402: ('Payment Required',\n"
+"          'No payment -- see charging schemes'),\n"
+"    403: ('Forbidden',\n"
+"          'Request forbidden -- authorization will not help'),\n"
+"    404: ('Not Found', 'Nothing matches the given URI'),\n"
+"    405: ('Method Not Allowed',\n"
+"          'Specified method is invalid for this server.'),\n"
+"    406: ('Not Acceptable', 'URI not available in preferred format.'),\n"
+"    407: ('Proxy Authentication Required', 'You must authenticate with '\n"
+"          'this proxy before proceeding.'),\n"
+"    408: ('Request Timeout', 'Request timed out; try again later.'),\n"
+"    409: ('Conflict', 'Request conflict.'),\n"
+"    410: ('Gone',\n"
+"          'URI no longer exists and has been permanently removed.'),\n"
+"    411: ('Length Required', 'Client must specify Content-Length.'),\n"
+"    412: ('Precondition Failed', 'Precondition in headers is false.'),\n"
+"    413: ('Request Entity Too Large', 'Entity is too large.'),\n"
+"    414: ('Request-URI Too Long', 'URI is too long.'),\n"
+"    415: ('Unsupported Media Type', 'Entity body in unsupported format.'),\n"
+"    416: ('Requested Range Not Satisfiable',\n"
+"          'Cannot satisfy request range.'),\n"
+"    417: ('Expectation Failed',\n"
+"          'Expect condition could not be satisfied.'),\n"
+"\n"
+"    500: ('Internal Server Error', 'Server got itself in trouble'),\n"
+"    501: ('Not Implemented',\n"
+"          'Server does not support this operation'),\n"
+"    502: ('Bad Gateway', 'Invalid responses from another server/proxy.'),\n"
+"    503: ('Service Unavailable',\n"
+"          'The server cannot process the request due to a high load'),\n"
+"    504: ('Gateway Timeout',\n"
+"          'The gateway server did not receive a timely response'),\n"
+"    505: ('HTTP Version Not Supported', 'Cannot fulfill request.'),\n"
+"    }"
+msgstr ""
+
+#: ../../howto/urllib2.rst:319
+msgid ""
+"When an error is raised the server responds by returning an HTTP error code "
+"*and* an error page. You can use the :exc:`~urllib.error.HTTPError` instance "
+"as a response on the page returned. This means that as well as the code "
+"attribute, it also has read, geturl, and info, methods as returned by the "
+"``urllib.response`` module::"
+msgstr ""
+
+#: ../../howto/urllib2.rst:324
+msgid ""
+">>> req = urllib.request.Request('http://www.python.org/fish.html')\n"
+">>> try:\n"
+"...     urllib.request.urlopen(req)\n"
+"... except urllib.error.HTTPError as e:\n"
+"...     print(e.code)\n"
+"...     print(e.read())\n"
+"...\n"
+"404\n"
+"b'<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n"
+"  \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-"
+"transitional.dtd\">\\n\\n\\n<html\n"
+"  ...\n"
+"  <title>Page Not Found</title>\\n\n"
+"  ..."
+msgstr ""
+
+#: ../../howto/urllib2.rst:339
+msgid "Wrapping it Up"
+msgstr ""
+
+#: ../../howto/urllib2.rst:341
+msgid ""
+"So if you want to be prepared for :exc:`~urllib.error.HTTPError` "
+"*or* :exc:`~urllib.error.URLError` there are two basic approaches. I prefer "
+"the second approach."
+msgstr ""
+
+#: ../../howto/urllib2.rst:345
+msgid "Number 1"
+msgstr ""
+
+#: ../../howto/urllib2.rst:350
+msgid ""
+"from urllib.request import Request, urlopen\n"
+"from urllib.error import URLError, HTTPError\n"
+"req = Request(someurl)\n"
+"try:\n"
+"    response = urlopen(req)\n"
+"except HTTPError as e:\n"
+"    print('The server couldn\\'t fulfill the request.')\n"
+"    print('Error code: ', e.code)\n"
+"except URLError as e:\n"
+"    print('We failed to reach a server.')\n"
+"    print('Reason: ', e.reason)\n"
+"else:\n"
+"    # everything is fine"
+msgstr ""
+
+#: ../../howto/urllib2.rst:367
+msgid ""
+"The ``except HTTPError`` *must* come first, otherwise ``except URLError`` "
+"will *also* catch an :exc:`~urllib.error.HTTPError`."
+msgstr ""
+
+#: ../../howto/urllib2.rst:371
+msgid "Number 2"
+msgstr ""
+
+#: ../../howto/urllib2.rst:375
+msgid ""
+"from urllib.request import Request, urlopen\n"
+"from urllib.error import URLError\n"
+"req = Request(someurl)\n"
+"try:\n"
+"    response = urlopen(req)\n"
+"except URLError as e:\n"
+"    if hasattr(e, 'reason'):\n"
+"        print('We failed to reach a server.')\n"
+"        print('Reason: ', e.reason)\n"
+"    elif hasattr(e, 'code'):\n"
+"        print('The server couldn\\'t fulfill the request.')\n"
+"        print('Error code: ', e.code)\n"
+"else:\n"
+"    # everything is fine"
+msgstr ""
+
+#: ../../howto/urllib2.rst:392
+msgid "info and geturl"
+msgstr ""
+
+#: ../../howto/urllib2.rst:394
+msgid ""
+"The response returned by urlopen (or the :exc:`~urllib.error.HTTPError` "
+"instance) has two useful methods :meth:`!info` and :meth:`!geturl` and is "
+"defined in the module :mod:`urllib.response`."
+msgstr ""
+
+#: ../../howto/urllib2.rst:398
+msgid ""
+"**geturl** - this returns the real URL of the page fetched. This is useful "
+"because ``urlopen`` (or the opener object used) may have followed a "
+"redirect. The URL of the page fetched may not be the same as the URL "
+"requested."
+msgstr ""
+
+#: ../../howto/urllib2.rst:402
+msgid ""
+"**info** - this returns a dictionary-like object that describes the page "
+"fetched, particularly the headers sent by the server. It is currently "
+"an :class:`http.client.HTTPMessage` instance."
+msgstr ""
+
+#: ../../howto/urllib2.rst:406
+msgid ""
+"Typical headers include 'Content-length', 'Content-type', and so on. See the "
+"`Quick Reference to HTTP Headers <https://jkorpela.fi/http.html>`_ for a "
+"useful listing of HTTP headers with brief explanations of their meaning and "
+"use."
+msgstr ""
+
+#: ../../howto/urllib2.rst:413
+msgid "Openers and Handlers"
+msgstr ""
+
+#: ../../howto/urllib2.rst:415
+msgid ""
+"When you fetch a URL you use an opener (an instance of the perhaps "
+"confusingly named :class:`urllib.request.OpenerDirector`). Normally we have "
+"been using the default opener - via ``urlopen`` - but you can create custom "
+"openers. Openers use handlers. All the \"heavy lifting\" is done by the "
+"handlers. Each handler knows how to open URLs for a particular URL scheme "
+"(http, ftp, etc.), or how to handle an aspect of URL opening, for example "
+"HTTP redirections or HTTP cookies."
+msgstr ""
+
+#: ../../howto/urllib2.rst:423
+msgid ""
+"You will want to create openers if you want to fetch URLs with specific "
+"handlers installed, for example to get an opener that handles cookies, or to "
+"get an opener that does not handle redirections."
+msgstr ""
+
+#: ../../howto/urllib2.rst:427
+msgid ""
+"To create an opener, instantiate an ``OpenerDirector``, and then call "
+"``.add_handler(some_handler_instance)`` repeatedly."
+msgstr ""
+
+#: ../../howto/urllib2.rst:430
+msgid ""
+"Alternatively, you can use ``build_opener``, which is a convenience function "
+"for creating opener objects with a single function call.  ``build_opener`` "
+"adds several handlers by default, but provides a quick way to add more and/"
+"or override the default handlers."
+msgstr ""
+
+#: ../../howto/urllib2.rst:435
+msgid ""
+"Other sorts of handlers you might want to can handle proxies, "
+"authentication, and other common but slightly specialised situations."
+msgstr ""
+
+#: ../../howto/urllib2.rst:438
+msgid ""
+"``install_opener`` can be used to make an ``opener`` object the (global) "
+"default opener. This means that calls to ``urlopen`` will use the opener you "
+"have installed."
+msgstr ""
+
+#: ../../howto/urllib2.rst:442
+msgid ""
+"Opener objects have an ``open`` method, which can be called directly to "
+"fetch urls in the same way as the ``urlopen`` function: there's no need to "
+"call ``install_opener``, except as a convenience."
+msgstr ""
+
+#: ../../howto/urllib2.rst:448
+msgid "Basic Authentication"
+msgstr ""
+
+#: ../../howto/urllib2.rst:450
+msgid ""
+"To illustrate creating and installing a handler we will use the "
+"``HTTPBasicAuthHandler``. For a more detailed discussion of this subject -- "
+"including an explanation of how Basic Authentication works - see the `Basic "
+"Authentication Tutorial <https://web.archive.org/web/20201215133350/http://"
+"www.voidspace.org.uk/python/articles/authentication.shtml>`__."
+msgstr ""
+
+#: ../../howto/urllib2.rst:456
+msgid ""
+"When authentication is required, the server sends a header (as well as the "
+"401 error code) requesting authentication.  This specifies the "
+"authentication scheme and a 'realm'. The header looks like: ``WWW-"
+"Authenticate: SCHEME realm=\"REALM\"``."
+msgstr ""
+
+#: ../../howto/urllib2.rst:461
+msgid "e.g."
+msgstr ""
+
+#: ../../howto/urllib2.rst:463
+msgid "WWW-Authenticate: Basic realm=\"cPanel Users\""
+msgstr ""
+
+#: ../../howto/urllib2.rst:468
+msgid ""
+"The client should then retry the request with the appropriate name and "
+"password for the realm included as a header in the request. This is 'basic "
+"authentication'. In order to simplify this process we can create an instance "
+"of ``HTTPBasicAuthHandler`` and an opener to use this handler."
+msgstr ""
+
+#: ../../howto/urllib2.rst:473
+msgid ""
+"The ``HTTPBasicAuthHandler`` uses an object called a password manager to "
+"handle the mapping of URLs and realms to passwords and usernames. If you "
+"know what the realm is (from the authentication header sent by the server), "
+"then you can use a ``HTTPPasswordMgr``. Frequently one doesn't care what the "
+"realm is. In that case, it is convenient to use "
+"``HTTPPasswordMgrWithDefaultRealm``. This allows you to specify a default "
+"username and password for a URL. This will be supplied in the absence of you "
+"providing an alternative combination for a specific realm. We indicate this "
+"by providing ``None`` as the realm argument to the ``add_password`` method."
+msgstr ""
+
+#: ../../howto/urllib2.rst:483
+msgid ""
+"The top-level URL is the first URL that requires authentication. URLs "
+"\"deeper\" than the URL you pass to .add_password() will also match. ::"
+msgstr ""
+
+#: ../../howto/urllib2.rst:486
+msgid ""
+"# create a password manager\n"
+"password_mgr = urllib.request.HTTPPasswordMgrWithDefaultRealm()\n"
+"\n"
+"# Add the username and password.\n"
+"# If we knew the realm, we could use it instead of None.\n"
+"top_level_url = \"http://example.com/foo/\"\n"
+"password_mgr.add_password(None, top_level_url, username, password)\n"
+"\n"
+"handler = urllib.request.HTTPBasicAuthHandler(password_mgr)\n"
+"\n"
+"# create \"opener\" (OpenerDirector instance)\n"
+"opener = urllib.request.build_opener(handler)\n"
+"\n"
+"# use the opener to fetch a URL\n"
+"opener.open(a_url)\n"
+"\n"
+"# Install the opener.\n"
+"# Now all calls to urllib.request.urlopen use our opener.\n"
+"urllib.request.install_opener(opener)"
+msgstr ""
+
+#: ../../howto/urllib2.rst:508
+msgid ""
+"In the above example we only supplied our ``HTTPBasicAuthHandler`` to "
+"``build_opener``. By default openers have the handlers for normal situations "
+"-- ``ProxyHandler`` (if a proxy setting such as an :envvar:`!http_proxy` "
+"environment variable is set), ``UnknownHandler``, ``HTTPHandler``, "
+"``HTTPDefaultErrorHandler``, ``HTTPRedirectHandler``, ``FTPHandler``, "
+"``FileHandler``, ``DataHandler``, ``HTTPErrorProcessor``."
+msgstr ""
+
+#: ../../howto/urllib2.rst:515
+msgid ""
+"``top_level_url`` is in fact *either* a full URL (including the 'http:' "
+"scheme component and the hostname and optionally the port number) e.g. "
+"``\"http://example.com/\"`` *or* an \"authority\" (i.e. the hostname, "
+"optionally including the port number) e.g. ``\"example.com\"`` or "
+"``\"example.com:8080\"`` (the latter example includes a port number).  The "
+"authority, if present, must NOT contain the \"userinfo\" component - for "
+"example ``\"joe:password@example.com\"`` is not correct."
+msgstr ""
+
+#: ../../howto/urllib2.rst:525
+msgid "Proxies"
+msgstr "Proxies"
+
+#: ../../howto/urllib2.rst:527
+msgid ""
+"**urllib** will auto-detect your proxy settings and use those. This is "
+"through the ``ProxyHandler``, which is part of the normal handler chain when "
+"a proxy setting is detected.  Normally that's a good thing, but there are "
+"occasions when it may not be helpful [#]_. One way to do this is to setup "
+"our own ``ProxyHandler``, with no proxies defined. This is done using "
+"similar steps to setting up a `Basic Authentication`_ handler: ::"
+msgstr ""
+
+#: ../../howto/urllib2.rst:534
+msgid ""
+">>> proxy_support = urllib.request.ProxyHandler({})\n"
+">>> opener = urllib.request.build_opener(proxy_support)\n"
+">>> urllib.request.install_opener(opener)"
+msgstr ""
+
+#: ../../howto/urllib2.rst:540
+msgid ""
+"Currently ``urllib.request`` *does not* support fetching of ``https`` "
+"locations through a proxy.  However, this can be enabled by extending "
+"urllib.request as shown in the recipe [#]_."
+msgstr ""
+
+#: ../../howto/urllib2.rst:546
+msgid ""
+"``HTTP_PROXY`` will be ignored if a variable ``REQUEST_METHOD`` is set; see "
+"the documentation on :func:`~urllib.request.getproxies`."
+msgstr ""
+
+#: ../../howto/urllib2.rst:551
+msgid "Sockets and Layers"
+msgstr ""
+
+#: ../../howto/urllib2.rst:553
+msgid ""
+"The Python support for fetching resources from the web is layered.  urllib "
+"uses the :mod:`http.client` library, which in turn uses the socket library."
+msgstr ""
+
+#: ../../howto/urllib2.rst:556
+msgid ""
+"As of Python 2.3 you can specify how long a socket should wait for a "
+"response before timing out. This can be useful in applications which have to "
+"fetch web pages. By default the socket module has *no timeout* and can hang. "
+"Currently, the socket timeout is not exposed at the http.client or "
+"urllib.request levels. However, you can set the default timeout globally for "
+"all sockets using ::"
+msgstr ""
+
+#: ../../howto/urllib2.rst:562
+msgid ""
+"import socket\n"
+"import urllib.request\n"
+"\n"
+"# timeout in seconds\n"
+"timeout = 10\n"
+"socket.setdefaulttimeout(timeout)\n"
+"\n"
+"# this call to urllib.request.urlopen now uses the default timeout\n"
+"# we have set in the socket module\n"
+"req = urllib.request.Request('http://www.voidspace.org.uk')\n"
+"response = urllib.request.urlopen(req)"
+msgstr ""
+
+#: ../../howto/urllib2.rst:579
+msgid "Footnotes"
+msgstr "Notas de rodapé"
+
+#: ../../howto/urllib2.rst:581
+msgid "This document was reviewed and revised by John Lee."
+msgstr ""
+
+#: ../../howto/urllib2.rst:583
+msgid "Google for example."
+msgstr "Google, por exemplo."
+
+#: ../../howto/urllib2.rst:584
+msgid ""
+"Browser sniffing is a very bad practice for website design - building sites "
+"using web standards is much more sensible. Unfortunately a lot of sites "
+"still send different versions to different browsers."
+msgstr ""
+
+#: ../../howto/urllib2.rst:587
+msgid ""
+"The user agent for MSIE 6 is *'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT "
+"5.1; SV1; .NET CLR 1.1.4322)'*"
+msgstr ""
+
+#: ../../howto/urllib2.rst:589
+msgid ""
+"For details of more HTTP request headers, see `Quick Reference to HTTP "
+"Headers`_."
+msgstr ""
+
+#: ../../howto/urllib2.rst:591
+msgid ""
+"In my case I have to use a proxy to access the internet at work. If you "
+"attempt to fetch *localhost* URLs through this proxy it blocks them. IE is "
+"set to use the proxy, which urllib picks up on. In order to test scripts "
+"with a localhost server, I have to prevent urllib from using the proxy."
+msgstr ""
+
+#: ../../howto/urllib2.rst:596
+msgid ""
+"urllib opener for SSL proxy (CONNECT method): `ASPN Cookbook Recipe <https://"
+"code.activestate.com/recipes/456195-urrlib2-opener-for-ssl-proxy-connect-"
+"method/>`_."
+msgstr ""
