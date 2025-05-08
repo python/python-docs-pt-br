@@ -71,7 +71,7 @@
 
 
 
-# library (62.83% done)
+# library (62.84% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        77 /  84 ( 91.0% translated).
@@ -144,7 +144,7 @@
 - itertools.po                   149 / 193 ( 77.0% translated).
 - logging.config.po               12 / 171 (  7.0% translated).
 - logging.handlers.po             48 / 270 ( 17.0% translated).
-- logging.po                      99 / 368 ( 26.0% translated).
+- logging.po                     100 / 368 ( 27.0% translated).
 - mailbox.po                      10 / 290 (  3.0% translated).
 - mailcap.po                       2 /  16 ( 12.0% translated).
 - marshal.po                      24 /  30 ( 80.0% translated).
