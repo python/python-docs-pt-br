@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2025, Python Software Foundation
+# Copyright (C) 2001 Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -11,9 +11,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.13\n"
+"Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-02 14:19+0000\n"
+"POT-Creation-Date: 2025-05-08 02:53-0300\n"
 "PO-Revision-Date: 2021-06-28 01:14+0000\n"
 "Last-Translator: Adorilson Bezerra <adorilson@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -107,8 +107,8 @@ msgstr ""
 
 #: ../../library/symtable.rst:88
 msgid ""
-"Return the type of the symbol table.  Possible values are members of "
-"the :class:`SymbolTableType` enumeration."
+"Return the type of the symbol table.  Possible values are members of the :"
+"class:`SymbolTableType` enumeration."
 msgstr ""
 
 #: ../../library/symtable.rst:91
@@ -139,8 +139,8 @@ msgid ""
 "``'top'`` if the table is global (:meth:`get_type` returns ``'module'``). "
 "For type parameter scopes (which are used for generic classes, functions, "
 "and type aliases), it is the name of the underlying class, function, or type "
-"alias. For type alias scopes, it is the name of the type alias. "
-"For :class:`~typing.TypeVar` bound scopes, it is the name of the ``TypeVar``."
+"alias. For type alias scopes, it is the name of the type alias. For :class:"
+"`~typing.TypeVar` bound scopes, it is the name of the ``TypeVar``."
 msgstr ""
 
 #: ../../library/symtable.rst:118
@@ -163,8 +163,8 @@ msgstr ""
 
 #: ../../library/symtable.rst:135
 msgid ""
-"Return a view object containing the names of symbols in the table. See "
-"the :ref:`documentation of view objects <dict-views>`."
+"Return a view object containing the names of symbols in the table. See the :"
+"ref:`documentation of view objects <dict-views>`."
 msgstr ""
 
 #: ../../library/symtable.rst:140
@@ -181,8 +181,8 @@ msgstr ""
 
 #: ../../library/symtable.rst:153
 msgid ""
-"A namespace for a function or method.  This class inherits "
-"from :class:`SymbolTable`."
+"A namespace for a function or method.  This class inherits from :class:"
+"`SymbolTable`."
 msgstr ""
 
 #: ../../library/symtable.rst:158
@@ -235,80 +235,142 @@ msgstr ""
 msgid "For example:"
 msgstr "Por exemplo:"
 
-#: ../../library/symtable.rst:215
+#: ../../library/symtable.rst:206
+msgid ""
+">>> import symtable\n"
+">>> st = symtable.symtable('''\n"
+"... def outer(): pass\n"
+"...\n"
+"... class A:\n"
+"...    def f():\n"
+"...        def w(): pass\n"
+"...\n"
+"...    def g(self): pass\n"
+"...\n"
+"...    @classmethod\n"
+"...    async def h(cls): pass\n"
+"...\n"
+"...    global outer\n"
+"...    def outer(self): pass\n"
+"... ''', 'test', 'exec')\n"
+">>> class_A = st.get_children()[2]\n"
+">>> class_A.get_methods()\n"
+"('f', 'g', 'h')"
+msgstr ""
+
+#: ../../library/symtable.rst:228
 msgid ""
 "Although ``A().f()`` raises :exc:`TypeError` at runtime, ``A.f`` is still "
 "considered as a method-like function."
 msgstr ""
 
-#: ../../library/symtable.rst:220
+#: ../../library/symtable.rst:236
 msgid ""
 "An entry in a :class:`SymbolTable` corresponding to an identifier in the "
 "source.  The constructor is not public."
 msgstr ""
 
-#: ../../library/symtable.rst:225
+#: ../../library/symtable.rst:241
 msgid "Return the symbol's name."
 msgstr ""
 
-#: ../../library/symtable.rst:229
+#: ../../library/symtable.rst:245
 msgid "Return ``True`` if the symbol is used in its block."
 msgstr ""
 
-#: ../../library/symtable.rst:233
+#: ../../library/symtable.rst:249
 msgid "Return ``True`` if the symbol is created from an import statement."
 msgstr ""
 
-#: ../../library/symtable.rst:237
+#: ../../library/symtable.rst:253
 msgid "Return ``True`` if the symbol is a parameter."
 msgstr ""
 
-#: ../../library/symtable.rst:241
+#: ../../library/symtable.rst:257
+msgid "Return ``True`` if the symbol is a type parameter."
+msgstr ""
+
+#: ../../library/symtable.rst:263
 msgid "Return ``True`` if the symbol is global."
 msgstr ""
 
-#: ../../library/symtable.rst:245
+#: ../../library/symtable.rst:267
 msgid "Return ``True`` if the symbol is nonlocal."
 msgstr ""
 
-#: ../../library/symtable.rst:249
+#: ../../library/symtable.rst:271
 msgid ""
 "Return ``True`` if the symbol is declared global with a global statement."
 msgstr ""
 
-#: ../../library/symtable.rst:253
+#: ../../library/symtable.rst:275
 msgid "Return ``True`` if the symbol is local to its block."
 msgstr ""
 
-#: ../../library/symtable.rst:257
+#: ../../library/symtable.rst:279
 msgid "Return ``True`` if the symbol is annotated."
 msgstr ""
 
-#: ../../library/symtable.rst:263
+#: ../../library/symtable.rst:285
 msgid ""
 "Return ``True`` if the symbol is referenced in its block, but not assigned "
 "to."
 msgstr ""
 
-#: ../../library/symtable.rst:268
+#: ../../library/symtable.rst:290
+msgid ""
+"Return *True* if a class-scoped symbol is free from the perspective of a "
+"method."
+msgstr ""
+
+#: ../../library/symtable.rst:293
+msgid "Consider the following example::"
+msgstr ""
+
+#: ../../library/symtable.rst:295
+msgid ""
+"def f():\n"
+"    x = 1  # function-scoped\n"
+"    class C:\n"
+"        x = 2  # class-scoped\n"
+"        def method(self):\n"
+"            return x"
+msgstr ""
+
+#: ../../library/symtable.rst:302
+msgid ""
+"In this example, the class-scoped symbol ``x`` is considered to be free from "
+"the perspective of ``C.method``, thereby allowing the latter to return *1* "
+"at runtime and not *2*."
+msgstr ""
+
+#: ../../library/symtable.rst:310
 msgid "Return ``True`` if the symbol is assigned to in its block."
 msgstr ""
 
-#: ../../library/symtable.rst:272
+#: ../../library/symtable.rst:314
+msgid "Return ``True`` if the symbol is a comprehension iteration variable."
+msgstr ""
+
+#: ../../library/symtable.rst:320
+msgid "Return ``True`` if the symbol is a cell in an inlined comprehension."
+msgstr ""
+
+#: ../../library/symtable.rst:326
 msgid "Return ``True`` if name binding introduces new namespace."
 msgstr ""
 
-#: ../../library/symtable.rst:274
+#: ../../library/symtable.rst:328
 msgid ""
 "If the name is used as the target of a function or class statement, this "
 "will be true."
 msgstr ""
 
-#: ../../library/symtable.rst:277
+#: ../../library/symtable.rst:331
 msgid "For example::"
 msgstr "Por exemplo::"
 
-#: ../../library/symtable.rst:279
+#: ../../library/symtable.rst:333
 msgid ""
 ">>> table = symtable.symtable(\"def some_func(): pass\", \"string\", "
 "\"exec\")\n"
@@ -316,39 +378,39 @@ msgid ""
 "True"
 msgstr ""
 
-#: ../../library/symtable.rst:283
+#: ../../library/symtable.rst:337
 msgid ""
 "Note that a single name can be bound to multiple objects.  If the result is "
 "``True``, the name may also be bound to other objects, like an int or list, "
 "that does not introduce a new namespace."
 msgstr ""
 
-#: ../../library/symtable.rst:289
+#: ../../library/symtable.rst:343
 msgid "Return a list of namespaces bound to this name."
 msgstr ""
 
-#: ../../library/symtable.rst:293
+#: ../../library/symtable.rst:347
 msgid ""
 "Return the namespace bound to this name. If more than one or no namespace is "
 "bound to this name, a :exc:`ValueError` is raised."
 msgstr ""
 
-#: ../../library/symtable.rst:300
+#: ../../library/symtable.rst:354
 msgid "Command-Line Usage"
 msgstr "Uso na linha de comando"
 
-#: ../../library/symtable.rst:304
+#: ../../library/symtable.rst:358
 msgid ""
 "The :mod:`symtable` module can be executed as a script from the command line."
 msgstr ""
 "O módulo :mod:`symtable` pode ser invocado como um script na linha de "
 "comando:"
 
-#: ../../library/symtable.rst:306
+#: ../../library/symtable.rst:360
 msgid "python -m symtable [infile...]"
 msgstr ""
 
-#: ../../library/symtable.rst:310
+#: ../../library/symtable.rst:364
 msgid ""
 "Symbol tables are generated for the specified Python source files and dumped "
 "to stdout. If no input file is specified, the content is read from stdin."
