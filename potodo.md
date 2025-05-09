@@ -4,7 +4,7 @@
 
 
 
-# c-api (54.32% done)
+# c-api (54.63% done)
 
 - exceptions.po                  194 / 370 ( 52.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
@@ -12,7 +12,7 @@
 - function.po                     33 /  39 ( 84.0% translated).
 - gcsupport.po                     9 /  52 ( 17.0% translated).
 - import.po                       33 /  62 ( 53.0% translated).
-- init.po                        149 / 480 ( 31.0% translated).
+- init.po                        165 / 480 ( 34.0% translated).
 - init_config.po                 135 / 417 ( 32.0% translated).
 - intro.po                        96 / 140 ( 68.0% translated).
 - long.po                         37 / 104 ( 35.0% translated).
@@ -67,7 +67,7 @@
 
 
 
-# library (64.25% done)
+# library (64.24% done)
 
 - array.po                        84 /  86 ( 97.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -83,7 +83,6 @@
 - base64.po                       20 /  62 ( 32.0% translated).
 - bdb.po                           9 / 112 (  8.0% translated).
 - binascii.po                     23 /  38 ( 60.0% translated).
-- cmdline.po                      53 /  54 ( 98.0% translated).
 - codecs.po                      250 / 532 ( 46.0% translated).
 - concurrent.futures.po           14 / 100 ( 14.0% translated).
 - contextlib.po                   55 / 172 ( 31.0% translated).
@@ -147,8 +146,8 @@
 - socket.po                       53 / 367 ( 14.0% translated).
 - sqlite3.po                     116 / 477 ( 24.0% translated).
 - ssl.po                          61 / 544 ( 11.0% translated).
-- stdtypes.po                    1377 / 1378 ( 99.0% translated).
-- string.po                      206 / 220 ( 93.0% translated).
+- stdtypes.po                    1376 / 1378 ( 99.0% translated).
+- string.po                      205 / 220 ( 93.0% translated).
 - struct.po                       96 / 195 ( 49.0% translated).
 - subprocess.po                  149 / 327 ( 45.0% translated).
 - symtable.po                      6 /  65 (  9.0% translated).
@@ -183,9 +182,8 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (99.97% done)
+# reference (100.00% done)
 
-- lexical_analysis.po            324 / 325 ( 99.0% translated).
 
 
 # tutorial (100.00% done)
@@ -197,7 +195,7 @@
 - cmdline.po                     248 / 249 ( 99.0% translated).
 
 
-# whatsnew (46.13% done)
+# whatsnew (46.17% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -211,8 +209,8 @@
 - 3.5.po                         125 / 578 ( 21.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   2403 / 12322 ( 19.0% translated).
+- changelog.po                   2414 / 12327 ( 19.0% translated).
 
 
-# TOTAL (61.22% done)
+# TOTAL (61.25% done)
 
