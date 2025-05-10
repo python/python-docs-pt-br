@@ -59,7 +59,7 @@
 - programming.po                 391 / 393 ( 99.0% translated).
 
 
-# howto (61.34% done)
+# howto (61.42% done)
 
 - curses.po                       59 / 105 ( 56.0% translated).
 - descriptor.po                  120 / 177 ( 67.0% translated).
@@ -67,7 +67,7 @@
 - functional.po                  137 / 206 ( 66.0% translated).
 - instrumentation.po              58 /  59 ( 98.0% translated).
 - isolating-extensions.po        117 / 118 ( 99.0% translated).
-- logging-cookbook.po             24 / 308 (  7.0% translated).
+- logging-cookbook.po             26 / 308 (  8.0% translated).
 - logging.po                     118 / 218 ( 54.0% translated).
 - regex.po                       286 / 287 ( 99.0% translated).
 - sockets.po                      35 /  58 ( 60.0% translated).
@@ -85,7 +85,7 @@
 
 
 
-# library (62.48% done)
+# library (62.52% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          48 /  49 ( 97.0% translated).
@@ -132,7 +132,7 @@
 - dis.po                         109 / 265 ( 41.0% translated).
 - distutils.po                     0 /  13 (  0.0% translated).
 - doctest.po                      74 / 318 ( 23.0% translated).
-- email.charset.po                 2 /  44 (  4.0% translated).
+- email.charset.po                13 /  44 ( 29.0% translated).
 - email.compat32-message.po        5 / 104 (  4.0% translated).
 - email.contentmanager.po          8 /  41 ( 19.0% translated).
 - email.encoders.po               14 /  15 ( 93.0% translated).
@@ -326,5 +326,5 @@
 - 3.8.po                         468 / 469 ( 99.0% translated).
 
 
-# TOTAL (67.10% done)
+# TOTAL (67.12% done)
 
