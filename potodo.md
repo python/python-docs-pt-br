@@ -4,7 +4,7 @@
 
 
 
-# c-api (57.59% done)
+# c-api (57.69% done)
 
 - allocation.po                    8 /   9 ( 88.0% translated).
 - arg.po                         193 / 195 ( 98.0% translated).
@@ -12,7 +12,7 @@
 - exceptions.po                  197 / 275 ( 71.0% translated).
 - float.po                        12 /  13 ( 92.0% translated).
 - gcsupport.po                    10 /  40 ( 25.0% translated).
-- init.po                        115 / 310 ( 37.0% translated).
+- init.po                        119 / 310 ( 38.0% translated).
 - init_config.po                 129 / 375 ( 34.0% translated).
 - intro.po                        79 /  86 ( 91.0% translated).
 - long.po                         30 /  51 ( 58.0% translated).
@@ -324,5 +324,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (64.48% done)
+# TOTAL (64.49% done)
 
