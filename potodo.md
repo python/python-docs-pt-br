@@ -67,7 +67,7 @@
 
 
 
-# howto (57.56% done)
+# howto (57.71% done)
 
 - annotations.po                  46 /  51 ( 90.0% translated).
 - curses.po                       58 / 121 ( 47.0% translated).
@@ -75,7 +75,7 @@
 - enum.po                         62 / 327 ( 18.0% translated).
 - free-threading-extensions.po    70 / 104 ( 67.0% translated).
 - functional.po                  138 / 252 ( 54.0% translated).
-- logging-cookbook.po             24 / 423 (  5.0% translated).
+- logging-cookbook.po             29 / 423 (  6.0% translated).
 - logging.po                     120 / 250 ( 48.0% translated).
 - regex.po                       317 / 334 ( 94.0% translated).
 - remote_debugging.po              0 / 106 (  0.0% translated).
@@ -89,7 +89,7 @@
 
 
 
-# library (62.45% done)
+# library (62.48% done)
 
 - _thread.po                      51 /  52 ( 98.0% translated).
 - annotationlib.po                 3 /  89 (  3.0% translated).
@@ -123,7 +123,7 @@
 - difflib.po                      14 / 140 ( 10.0% translated).
 - dis.po                         200 / 404 ( 49.0% translated).
 - doctest.po                      88 / 377 ( 23.0% translated).
-- email.charset.po                 2 /  44 (  4.0% translated).
+- email.charset.po                16 /  44 ( 36.0% translated).
 - email.compat32-message.po        6 / 115 (  5.0% translated).
 - email.contentmanager.po          9 /  42 ( 21.0% translated).
 - email.errors.po                  6 /  26 ( 23.0% translated).
@@ -278,5 +278,5 @@
 - changelog.po                   2477 / 13225 ( 18.0% translated).
 
 
-# TOTAL (58.79% done)
+# TOTAL (58.81% done)
 
