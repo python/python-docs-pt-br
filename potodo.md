@@ -52,7 +52,7 @@
 - programming.po                 349 / 372 ( 93.0% translated).
 
 
-# howto (54.16% done)
+# howto (54.25% done)
 
 - argparse.po                     83 /  84 ( 98.0% translated).
 - clinic.po                      101 / 415 ( 24.0% translated).
@@ -60,7 +60,7 @@
 - descriptor.po                  114 / 174 ( 65.0% translated).
 - functional.po                  140 / 206 ( 67.0% translated).
 - instrumentation.po              49 /  59 ( 83.0% translated).
-- logging-cookbook.po             15 / 237 (  6.0% translated).
+- logging-cookbook.po             17 / 237 (  7.0% translated).
 - logging.po                     125 / 219 ( 57.0% translated).
 - pyporting.po                    35 /  86 ( 40.0% translated).
 - regex.po                       283 / 286 ( 98.0% translated).
@@ -79,7 +79,7 @@
 
 
 
-# library (60.47% done)
+# library (60.51% done)
 
 - argparse.po                    262 / 290 ( 90.0% translated).
 - ast.po                         179 / 193 ( 92.0% translated).
@@ -121,7 +121,7 @@
 - difflib.po                      14 / 133 ( 10.0% translated).
 - dis.po                          77 / 227 ( 33.0% translated).
 - doctest.po                      61 / 305 ( 20.0% translated).
-- email.charset.po                 2 /  44 (  4.0% translated).
+- email.charset.po                15 /  44 ( 34.0% translated).
 - email.compat32-message.po        5 / 104 (  4.0% translated).
 - email.contentmanager.po          8 /  41 ( 19.0% translated).
 - email.encoders.po               13 /  15 ( 86.0% translated).
@@ -302,5 +302,5 @@
 - 3.9.po                         382 / 386 ( 98.0% translated).
 
 
-# TOTAL (63.84% done)
+# TOTAL (63.87% done)
 
