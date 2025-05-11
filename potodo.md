@@ -89,7 +89,7 @@
 
 
 
-# library (62.48% done)
+# library (62.57% done)
 
 - _thread.po                      51 /  52 ( 98.0% translated).
 - annotationlib.po                 3 /  89 (  3.0% translated).
@@ -123,11 +123,10 @@
 - difflib.po                      14 / 140 ( 10.0% translated).
 - dis.po                         200 / 404 ( 49.0% translated).
 - doctest.po                      88 / 377 ( 23.0% translated).
-- email.charset.po                16 /  44 ( 36.0% translated).
 - email.compat32-message.po        6 / 115 (  5.0% translated).
 - email.contentmanager.po          9 /  42 ( 21.0% translated).
 - email.errors.po                  6 /  26 ( 23.0% translated).
-- email.examples.po               15 /  20 ( 75.0% translated).
+- email.examples.po               19 /  20 ( 95.0% translated).
 - email.generator.po               2 /  41 (  4.0% translated).
 - email.header.po                  4 /  40 ( 10.0% translated).
 - email.headerregistry.po         12 / 111 ( 10.0% translated).
@@ -278,5 +277,5 @@
 - changelog.po                   2477 / 13225 ( 18.0% translated).
 
 
-# TOTAL (58.81% done)
+# TOTAL (58.85% done)
 
