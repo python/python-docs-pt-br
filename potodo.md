@@ -67,7 +67,7 @@
 
 
 
-# library (64.37% done)
+# library (64.48% done)
 
 - array.po                        84 /  86 ( 97.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -96,11 +96,10 @@
 - email.contentmanager.po          9 /  42 ( 21.0% translated).
 - email.errors.po                  6 /  26 ( 23.0% translated).
 - email.examples.po               19 /  20 ( 95.0% translated).
-- email.generator.po               2 /  41 (  4.0% translated).
 - email.header.po                  4 /  40 ( 10.0% translated).
 - email.headerregistry.po         12 / 111 ( 10.0% translated).
 - email.message.po                 7 / 110 (  6.0% translated).
-- email.parser.po                  2 /  48 (  4.0% translated).
+- email.parser.po                  3 /  48 (  6.0% translated).
 - email.policy.po                 11 / 107 ( 10.0% translated).
 - enum.po                         73 / 244 ( 29.0% translated).
 - errno.po                       115 / 160 ( 71.0% translated).
@@ -211,5 +210,5 @@
 - changelog.po                   2414 / 12327 ( 19.0% translated).
 
 
-# TOTAL (61.32% done)
+# TOTAL (61.37% done)
 
