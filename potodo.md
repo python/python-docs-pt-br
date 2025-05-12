@@ -85,7 +85,7 @@
 
 
 
-# library (62.60% done)
+# library (62.71% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          48 /  49 ( 97.0% translated).
@@ -137,11 +137,11 @@
 - email.contentmanager.po          8 /  41 ( 19.0% translated).
 - email.encoders.po               14 /  15 ( 93.0% translated).
 - email.errors.po                  6 /  27 ( 22.0% translated).
-- email.generator.po               2 /  41 (  4.0% translated).
+- email.generator.po              39 /  41 ( 95.0% translated).
 - email.header.po                  4 /  38 ( 10.0% translated).
 - email.headerregistry.po         13 / 103 ( 12.0% translated).
 - email.message.po                 6 / 103 (  5.0% translated).
-- email.parser.po                  2 /  47 (  4.0% translated).
+- email.parser.po                  3 /  47 (  6.0% translated).
 - email.po                        25 /  27 ( 92.0% translated).
 - email.policy.po                 11 / 102 ( 10.0% translated).
 - email.utils.po                  32 /  33 ( 96.0% translated).
@@ -326,5 +326,5 @@
 - 3.8.po                         468 / 469 ( 99.0% translated).
 
 
-# TOTAL (67.17% done)
+# TOTAL (67.24% done)
 
