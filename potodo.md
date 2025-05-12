@@ -79,7 +79,7 @@
 
 
 
-# library (60.51% done)
+# library (60.60% done)
 
 - argparse.po                    262 / 290 ( 90.0% translated).
 - ast.po                         179 / 193 ( 92.0% translated).
@@ -121,7 +121,7 @@
 - difflib.po                      14 / 133 ( 10.0% translated).
 - dis.po                          77 / 227 ( 33.0% translated).
 - doctest.po                      61 / 305 ( 20.0% translated).
-- email.charset.po                15 /  44 ( 34.0% translated).
+- email.charset.po                42 /  44 ( 95.0% translated).
 - email.compat32-message.po        5 / 104 (  4.0% translated).
 - email.contentmanager.po          8 /  41 ( 19.0% translated).
 - email.encoders.po               13 /  15 ( 86.0% translated).
@@ -302,5 +302,5 @@
 - 3.9.po                         382 / 386 ( 98.0% translated).
 
 
-# TOTAL (63.87% done)
+# TOTAL (63.92% done)
 
