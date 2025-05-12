@@ -89,7 +89,7 @@
 
 
 
-# library (62.57% done)
+# library (62.68% done)
 
 - _thread.po                      51 /  52 ( 98.0% translated).
 - annotationlib.po                 3 /  89 (  3.0% translated).
@@ -127,11 +127,10 @@
 - email.contentmanager.po          9 /  42 ( 21.0% translated).
 - email.errors.po                  6 /  26 ( 23.0% translated).
 - email.examples.po               19 /  20 ( 95.0% translated).
-- email.generator.po               2 /  41 (  4.0% translated).
 - email.header.po                  4 /  40 ( 10.0% translated).
 - email.headerregistry.po         12 / 111 ( 10.0% translated).
 - email.message.po                 7 / 110 (  6.0% translated).
-- email.parser.po                  2 /  48 (  4.0% translated).
+- email.parser.po                  3 /  48 (  6.0% translated).
 - email.policy.po                 11 / 107 ( 10.0% translated).
 - enum.po                         73 / 245 ( 29.0% translated).
 - errno.po                       115 / 161 ( 71.0% translated).
@@ -277,5 +276,5 @@
 - changelog.po                   2477 / 13225 ( 18.0% translated).
 
 
-# TOTAL (58.85% done)
+# TOTAL (58.90% done)
 

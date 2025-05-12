@@ -1,19 +1,19 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2025, Python Software Foundation
+# Copyright (C) 2001 Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2021
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.13\n"
+"Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-18 14:18+0000\n"
+"POT-Creation-Date: 2025-05-09 14:19+0000\n"
 "PO-Revision-Date: 2021-06-28 01:05+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2021\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr ""
 
 #: ../../library/email.generator.rst:2
 msgid ":mod:`!email.generator`: Generating MIME documents"
-msgstr ""
+msgstr ":mod:`!email.generator`: Geração de documentos MIME"
 
 #: ../../library/email.generator.rst:7
 msgid "**Source code:** :source:`Lib/email/generator.py`"
@@ -40,6 +40,12 @@ msgid ""
 "structure and producing a serialized representation is the job of the "
 "generator classes."
 msgstr ""
+"Uma das tarefas mais comuns é gerar a versão plana (serializada) da mensagem "
+"de e-mail representada por uma estrutura de objeto de mensagem. Você "
+"precisará fazer isso se quiser enviar sua mensagem via :meth:`smtplib.SMTP."
+"sendmail` ou exibir a mensagem no console. A tarefa das classes geradoras é "
+"pegar uma estrutura de objeto de mensagem e produzir uma representação "
+"serializada."
 
 #: ../../library/email.generator.rst:18
 msgid ""
@@ -57,6 +63,19 @@ msgid ""
 "changes to the :class:`~email.message.EmailMessage` object as defaults are "
 "filled in.)"
 msgstr ""
+"Assim como no módulo :mod:`email.parser`, você não está limitado à "
+"funcionalidade do gerador integrado; você mesmo pode criar um do zero. No "
+"entanto, o gerador integrado sabe como gerar a maioria dos e-mails em "
+"conformidade com os padrões, deve lidar perfeitamente com mensagens de e-"
+"mail MIME e não MIME e foi projetado para que as operações de análise e "
+"geração orientadas a bytes sejam inversas, presumindo que a mesma :mod:"
+"`~email.policy` não transformadora seja usada para ambas. Ou seja, analisar "
+"o fluxo de bytes serializado por meio da classe :class:`~email.parser."
+"BytesParser` e, em seguida, regenerar o fluxo de bytes serializado usando :"
+"class:`BytesGenerator` deve produzir uma saída idêntica à entrada [#]_. (Por "
+"outro lado, usar o gerador em um :class:`~email.message.EmailMessage` "
+"construído pelo programa pode resultar em alterações no objeto :class:"
+"`~email.message.EmailMessage` à medida que os padrões são preenchidos.)"
 
 #: ../../library/email.generator.rst:32
 msgid ""
@@ -67,6 +86,13 @@ msgid ""
 "Content Transfer Encoding techniques for encoding email messages for "
 "transport over channels that are not \"8 bit clean\"."
 msgstr ""
+"A classe :class:`Generator` pode ser usada para simplificar uma mensagem em "
+"uma representação serializada de texto (em oposição a binária), mas como o "
+"Unicode não pode representar dados binários diretamente, a mensagem é "
+"necessariamente transformada em algo que contém apenas caracteres ASCII, "
+"usando as técnicas de codificação de transferência de conteúdo RFC de e-mail "
+"padrão para codificar mensagens de e-mail para transporte em canais que não "
+"são \"limpos de 8 bits\"."
 
 #: ../../library/email.generator.rst:39
 msgid ""
@@ -74,6 +100,9 @@ msgid ""
 "`Generator` disables header folding for message parts of type ``multipart/"
 "signed`` and all subparts."
 msgstr ""
+"Para acomodar o processamento reproduzível de mensagens assinadas por "
+"SMIME, :class:`Generator` desabilita a dobragem de cabeçalho para partes de "
+"mensagens do tipo ``multipart/signed`` e todas as subpartes."
 
 #: ../../library/email.generator.rst:47
 msgid ""
@@ -82,6 +111,11 @@ msgid ""
 "to the :meth:`write` method, to the :term:`file-like object` *outfp*. "
 "*outfp* must support a ``write`` method that accepts binary data."
 msgstr ""
+"Retorna um objeto :class:`BytesGenerator` que gravará qualquer mensagem "
+"fornecida ao método :meth:`flatten`, ou qualquer texto codificado "
+"surrogateescape fornecido ao método :meth:`write`, no :term:`objeto arquivo "
+"ou similar` *outfp*. *outfp* deve oferecer suporte a um método ``write`` que "
+"aceite dados binários."
 
 #: ../../library/email.generator.rst:52 ../../library/email.generator.rst:153
 msgid ""
@@ -95,6 +129,15 @@ msgid ""
 "`WHY THE CONTENT-LENGTH FORMAT IS BAD <https://www.jwz.org/doc/content-"
 "length.html>`_)."
 msgstr ""
+"Se o *mangle_from_* opcional for ``True``, coloca um caractere ``>`` na "
+"frente de qualquer linha no corpo que comece com a string exata ``\"From "
+"\"``, ou seja, ``From`` seguido por um espaço no início de uma linha. "
+"*mangle_from_* assume por padrão o valor da configuração :attr:`~email."
+"policy.Policy.mangle_from_` da *policy* (que é ``True`` para a política :"
+"data:`~email.policy.compat32` e ``False`` para todas as outras). "
+"*mangle_from_* deve ser usado quando as mensagens são armazenadas no formato "
+"mbox do Unix (consulte :mod:`mailbox` e `WHY THE CONTENT-LENGTH FORMAT IS "
+"BAD <https://www.jwz.org/doc/content-length.html>`_)."
 
 #: ../../library/email.generator.rst:62 ../../library/email.generator.rst:163
 msgid ""
@@ -103,6 +146,10 @@ msgid ""
 "*manheaderlen* is ``None`` (the default), wrap headers and other message "
 "lines according to the *policy* settings."
 msgstr ""
+"Se *maxheaderlen* não for ``None``, redobra quaisquer linhas de cabeçalho "
+"maiores que *maxheaderlen* ou, se for ``0``, não redobra nenhum cabeçalho. "
+"Se *manheaderlen* for ``None`` (o padrão), redobra os cabeçalhos e outras "
+"linhas de mensagem de acordo com as configurações da *policy*."
 
 #: ../../library/email.generator.rst:67 ../../library/email.generator.rst:168
 msgid ""
@@ -112,16 +159,24 @@ msgid ""
 "object passed to ``flatten`` to control the message generation.  See :mod:"
 "`email.policy` for details on what *policy* controls."
 msgstr ""
+"Se *policy* for especificado, usa essa política para controlar a geração de "
+"mensagens. Se *policy* for ``None`` (o padrão), usa a política associada ao "
+"objeto :class:`~email.message.Message` ou :class:`~email.message."
+"EmailMessage` passado para ``flatten`` para controlar a geração de "
+"mensagens. Consulte :mod:`email.policy` para obter detalhes sobre o que "
+"*policy* controla."
 
 #: ../../library/email.generator.rst:75 ../../library/email.generator.rst:174
 msgid "Added the *policy* keyword."
-msgstr ""
+msgstr "Adicionada o argumento nomeado *policy*."
 
 #: ../../library/email.generator.rst:77 ../../library/email.generator.rst:176
 msgid ""
 "The default behavior of the *mangle_from_* and *maxheaderlen* parameters is "
 "to follow the policy."
 msgstr ""
+"O comportamento padrão dos parâmetros *mangle_from_* e *maxheaderlen* é "
+"seguir a política."
 
 #: ../../library/email.generator.rst:83
 msgid ""
@@ -129,6 +184,9 @@ msgid ""
 "*msg* to the output file specified when the :class:`BytesGenerator` instance "
 "was created."
 msgstr ""
+"Exibe a representação textual da estrutura do objeto de mensagem com raiz em "
+"*msg* no arquivo de saída especificado quando a instância :class:"
+"`BytesGenerator` foi criada."
 
 #: ../../library/email.generator.rst:87
 msgid ""
@@ -145,6 +203,19 @@ msgid ""
 "bytes in headers using the MIME ``unknown-8bit`` character set, thus "
 "rendering them RFC-compliant."
 msgstr ""
+"Se a opção :mod:`~email.policy` :attr:`~email.policy.Policy.cte_type` for "
+"``8bit`` (o padrão), copia todos os cabeçalhos da mensagem original "
+"analisada que não tenham sido modificados para a saída, com todos os bytes "
+"com o bit mais alto definido reproduzidos como no original, e preserva a :"
+"mailheader:`Content-Transfer-Encoding` não ASCII de quaisquer partes do "
+"corpo que os contenham. Se ``cte_type`` for ``7bit``, converte os bytes com "
+"o bit mais alto definido, conforme necessário, usando uma :mailheader:"
+"`Content-Transfer-Encoding` compatível com ASCII. Ou seja, transforma partes "
+"com :mailheader:`Content-Transfer-Encoding` não ASCII (:mailheader:`Content-"
+"Transfer-Encoding: 8bit`) em um :mailheader:`Content-Transfer-Encoding` "
+"compatível com ASCII e codifica bytes não ASCII inválidos para RFC em "
+"cabeçalhos usando o conjunto de caracteres MIME ``unknown-8bit``, tornando-"
+"os compatíveis com RFC."
 
 #: ../../library/email.generator.rst:104 ../../library/email.generator.rst:197
 msgid ""
@@ -154,6 +225,12 @@ msgid ""
 "header, craft a standard one.  The default is ``False``. Note that for "
 "subparts, no envelope header is ever printed."
 msgstr ""
+"Se *unixfrom* for ``True``, exibe o delimitador de cabeçalho de envelope "
+"usado pelo formato de caixa de correio Unix (consulte :mod:`mailbox`) antes "
+"do primeiro dos cabeçalhos :rfc:`5322` do objeto de mensagem raiz. Se o "
+"objeto raiz não tiver cabeçalho de envelope, crie um padrão. O padrão é "
+"``False``. Observe que, para subpartes, nenhum cabeçalho de envelope é "
+"exibido."
 
 #: ../../library/email.generator.rst:110 ../../library/email.generator.rst:203
 msgid ""
@@ -161,12 +238,17 @@ msgid ""
 "the lines of the flattened message.  If *linesep* is ``None`` (the default), "
 "use the value specified in the *policy*."
 msgstr ""
+"Se *linesep* não for ``None``, usa-o como caractere separador entre todas as "
+"linhas da mensagem simplificada. Se *linesep* for ``None`` (o padrão), usa o "
+"valor especificado na *policy*."
 
 #: ../../library/email.generator.rst:119
 msgid ""
 "Return an independent clone of this :class:`BytesGenerator` instance with "
 "the exact same option settings, and *fp* as the new *outfp*."
 msgstr ""
+"Retorna um clone independente desta instância :class:`BytesGenerator` com "
+"exatamente as mesmas configurações de opção e *fp* como o novo *outfp*."
 
 #: ../../library/email.generator.rst:125
 msgid ""
@@ -174,6 +256,9 @@ msgid ""
 "handler, and pass it to the *write* method of the *outfp* passed to the :"
 "class:`BytesGenerator`'s constructor."
 msgstr ""
+"Codifica *s* usando o codec ``ASCII`` e o tratador de erros "
+"``surrogateescape`` e passa-o para o método *write* do *outfp* passado ao "
+"construtor :class:`BytesGenerator`."
 
 #: ../../library/email.generator.rst:130
 msgid ""
@@ -183,6 +268,11 @@ msgid ""
 "of a serialized binary representation of a message object.  For more detail, "
 "see :mod:`email.message`."
 msgstr ""
+"Para facilitar, :class:`~email.message.EmailMessage` fornece os métodos :"
+"meth:`~email.message.EmailMessage.as_bytes` e ``bytes(aMessage)`` (também "
+"conhecidos como :meth:`~email.message.EmailMessage.__bytes__`), que "
+"simplificam a geração de uma representação binária serializada de um objeto "
+"de mensagem. Para mais detalhes, consulte :mod:`email.message`."
 
 #: ../../library/email.generator.rst:137
 msgid ""
@@ -194,6 +284,14 @@ msgid ""
 "not \"8 bit clean\".  In other words, most applications will want to be "
 "using :class:`BytesGenerator`, and not :class:`Generator`."
 msgstr ""
+"Como strings não podem representar dados binários, a classe :class:"
+"`Generator` deve converter quaisquer dados binários em qualquer mensagem que "
+"ela nivele para um formato compatível com ASCII, convertendo-os para um :"
+"mailheader:`Content-Transfer_Encoding` compatível com ASCII. Usando a "
+"terminologia dos RFCs de e-mail, você pode pensar nisso como :class:"
+"`Generator` serializando para um fluxo de E/S que não é \"limpo em 8 bits\". "
+"Em outras palavras, a maioria das aplicações usará :class:`BytesGenerator`, "
+"e não :class:`Generator`."
 
 #: ../../library/email.generator.rst:148
 msgid ""
@@ -202,6 +300,10 @@ msgid ""
 "method, to the :term:`file-like object` *outfp*.  *outfp* must support a "
 "``write`` method that accepts string data."
 msgstr ""
+"Retorna um objeto :class:`Generator` que gravará qualquer mensagem fornecida "
+"ao método :meth:`flatten`, ou qualquer texto fornecido ao método :meth:"
+"`write`, no :term:`objeto arquivo ou similar` *outfp*. *outfp* deve oferecer "
+"suporte a um método ``write`` que aceite dados string."
 
 #: ../../library/email.generator.rst:182
 msgid ""
@@ -209,6 +311,9 @@ msgid ""
 "*msg* to the output file specified when the :class:`Generator` instance was "
 "created."
 msgstr ""
+"Exibe a representação textual da estrutura do objeto de mensagem com raiz em "
+"*msg* no arquivo de saída especificado quando a instância :class:`Generator` "
+"foi criada."
 
 #: ../../library/email.generator.rst:186
 msgid ""
@@ -222,18 +327,32 @@ msgid ""
 "Encoding`, and encode RFC-invalid non-ASCII bytes in headers using the MIME "
 "``unknown-8bit`` character set, thus rendering them RFC-compliant."
 msgstr ""
+"Se a opção :mod:`~email.policy` :attr:`~email.policy.Policy.cte_type` for "
+"``8bit``, gera a mensagem como se a opção estivesse definida como ``7bit``. "
+"(Isso é necessário porque strings não podem representar bytes não ASCII.) "
+"Converte quaisquer bytes com o bit mais alto definido, conforme necessário, "
+"usando uma :mailheader:`Content-Transfer-Encoding` compatível com ASCII. Ou "
+"seja, transforma partes com :mailheader:`Content-Transfer-Encoding` não "
+"ASCII (:mailheader:`Content-Transfer-Encoding: 8bit`) em um :mailheader:"
+"`Content-Transfer-Encoding` compatível com ASCII e codifica bytes não ASCII "
+"inválidos para RFC em cabeçalhos usando o conjunto de caracteres MIME "
+"``unknown-8bit``, tornando-os compatíveis com RFC."
 
 #: ../../library/email.generator.rst:209
 msgid ""
 "Added support for re-encoding ``8bit`` message bodies, and the *linesep* "
 "argument."
 msgstr ""
+"Adicionado suporte para recodificação de corpos de mensagens ``8bit`` e o "
+"argumento *linesep*."
 
 #: ../../library/email.generator.rst:216
 msgid ""
 "Return an independent clone of this :class:`Generator` instance with the "
 "exact same options, and *fp* as the new *outfp*."
 msgstr ""
+"Retorna um clone independente desta instância :class:`Generator` com "
+"exatamente as mesmas opções e *fp* como o novo *outfp*."
 
 #: ../../library/email.generator.rst:222
 msgid ""
@@ -241,6 +360,9 @@ msgid ""
 "`Generator`'s constructor.  This provides just enough file-like API for :"
 "class:`Generator` instances to be used in the :func:`print` function."
 msgstr ""
+"Escreve *s* no método *write* do *outfp* passado ao construtor de :class:"
+"`Generator`. Isso fornece API arquivo ou similar suficiente para que "
+"instâncias de :class:`Generator` sejam usadas na função :func:`print`."
 
 #: ../../library/email.generator.rst:228
 msgid ""
@@ -250,6 +372,11 @@ msgid ""
 "of a formatted string representation of a message object.  For more detail, "
 "see :mod:`email.message`."
 msgstr ""
+"Para facilitar, :class:`~email.message.EmailMessage` fornece os métodos :"
+"meth:`~email.message.EmailMessage.as_string` e ``str(aMessage)`` (também "
+"conhecidos como :meth:`~email.message.EmailMessage.__str__`), que "
+"simplificam a geração de uma representação de string formatada de um objeto "
+"de mensagem. Para mais detalhes, consulte :mod:`email.message`."
 
 #: ../../library/email.generator.rst:235
 msgid ""
@@ -259,6 +386,11 @@ msgid ""
 "represented in the output stream by a string derived from a template filled "
 "in with information about the part."
 msgstr ""
+"O módulo :mod:`email.generator` também fornece uma classe derivada, :class:"
+"`DecodedGenerator`, que é como a classe base :class:`Generator`, exceto que "
+"as partes não- :mimetype:`text` não são serializadas, mas são representadas "
+"no fluxo de saída por uma string derivada de um modelo preenchido com "
+"informações sobre a parte."
 
 #: ../../library/email.generator.rst:244
 msgid ""
@@ -269,54 +401,66 @@ msgid ""
 "*fmt* using information from the part and print the resulting filled-in "
 "string."
 msgstr ""
+"Age como :class:`Generator`, exceto que para qualquer subparte da mensagem "
+"passada para :meth:`Generator.flatten`, se a subparte for do tipo principal :"
+"mimetype:`text`, exibe a carga decodificada da subparte e, se o tipo "
+"principal não for :mimetype:`text`, em vez de exibi-la, preenche a string "
+"*fmt* usando informações da parte e exibe a string preenchida resultante."
 
 #: ../../library/email.generator.rst:251
 msgid ""
 "To fill in *fmt*, execute ``fmt % part_info``, where ``part_info`` is a "
 "dictionary composed of the following keys and values:"
 msgstr ""
+"Para preencher *fmt*, executa ``fmt % part_info``, onde ``part_info`` é um "
+"dicionário composto pelas seguintes chaves e valores:"
 
 #: ../../library/email.generator.rst:254
 msgid "``type`` -- Full MIME type of the non-\\ :mimetype:`text` part"
-msgstr ""
+msgstr "``type`` -- Tipo MIME completo da parte não-\\ :mimetype:`text`"
 
 #: ../../library/email.generator.rst:256
 msgid "``maintype`` -- Main MIME type of the non-\\ :mimetype:`text` part"
-msgstr ""
+msgstr "``maintype`` -- Tipo MIME principal da parte não-\\ :mimetype:`text`"
 
 #: ../../library/email.generator.rst:258
 msgid "``subtype`` -- Sub-MIME type of the non-\\ :mimetype:`text` part"
-msgstr ""
+msgstr "``subtype`` -- Tipo sub-MIME da parte não-\\ :mimetype:`text`"
 
 #: ../../library/email.generator.rst:260
 msgid "``filename`` -- Filename of the non-\\ :mimetype:`text` part"
-msgstr ""
+msgstr "``filename`` -- Nome de arquivo da parte não-\\ :mimetype:`text`"
 
 #: ../../library/email.generator.rst:262
 msgid ""
 "``description`` -- Description associated with the non-\\ :mimetype:`text` "
 "part"
-msgstr ""
+msgstr "``description`` -- Descrição associada à parte não-\\ :mimetype:`text`"
 
 #: ../../library/email.generator.rst:264
 msgid ""
 "``encoding`` -- Content transfer encoding of the non-\\ :mimetype:`text` part"
 msgstr ""
+"``encoding`` -- Codificação de transferência de conteúdo da parte não-\\ :"
+"mimetype:`text`"
 
 #: ../../library/email.generator.rst:266
 msgid "If *fmt* is ``None``, use the following default *fmt*:"
-msgstr ""
+msgstr "Se *fmt* for ``None``, usa o seguinte *fmt* padrão:"
 
 #: ../../library/email.generator.rst:268
 msgid ""
 "\"[Non-text (%(type)s) part of message omitted, filename %(filename)s]\""
 msgstr ""
+"\"[Non-text (%(type)s) part of message omitted, filename %(filename)s]\""
 
 #: ../../library/email.generator.rst:270
 msgid ""
 "Optional *_mangle_from_* and *maxheaderlen* are as with the :class:"
 "`Generator` base class."
 msgstr ""
+"Os opcionais *_mangle_from_* e *maxheaderlen* são como os da classe base :"
+"class:`Generator`."
 
 #: ../../library/email.generator.rst:275
 msgid "Footnotes"
@@ -333,3 +477,11 @@ msgid ""
 "parsing error recovery.  It is a goal to fix these latter edge cases when "
 "possible."
 msgstr ""
+"Esta instrução presume que você usa a configuração apropriada para "
+"``unixfrom`` e que não haja configurações :mod:`email.policy` que exijam "
+"ajustes automáticos (por exemplo, :attr:`~email.policy.EmailPolicy."
+"refold_source` deve ser ``none``, que *não* é o padrão). Também não é 100% "
+"verdadeiro, pois, se a mensagem não estiver em conformidade com os padrões "
+"RFC, ocasionalmente informações sobre o texto original exato são perdidas "
+"durante a recuperação de erros de análise. O objetivo é corrigir esses "
+"últimos casos extremos sempre que possível."
