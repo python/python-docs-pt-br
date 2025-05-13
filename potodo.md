@@ -79,7 +79,7 @@
 
 
 
-# library (60.60% done)
+# library (60.72% done)
 
 - argparse.po                    262 / 290 ( 90.0% translated).
 - ast.po                         179 / 193 ( 92.0% translated).
@@ -126,11 +126,11 @@
 - email.contentmanager.po          8 /  41 ( 19.0% translated).
 - email.encoders.po               13 /  15 ( 86.0% translated).
 - email.errors.po                  6 /  24 ( 25.0% translated).
-- email.generator.po               2 /  41 (  4.0% translated).
+- email.generator.po              37 /  41 ( 90.0% translated).
 - email.header.po                  4 /  38 ( 10.0% translated).
 - email.headerregistry.po         13 / 103 ( 12.0% translated).
 - email.message.po                 6 / 103 (  5.0% translated).
-- email.parser.po                  2 /  47 (  4.0% translated).
+- email.parser.po                  3 /  47 (  6.0% translated).
 - email.policy.po                 12 / 103 ( 11.0% translated).
 - enum.po                         63 / 188 ( 33.0% translated).
 - errno.po                       112 / 127 ( 88.0% translated).
@@ -302,5 +302,5 @@
 - 3.9.po                         382 / 386 ( 98.0% translated).
 
 
-# TOTAL (63.92% done)
+# TOTAL (64.00% done)
 
