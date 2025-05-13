@@ -67,7 +67,7 @@
 
 
 
-# howto (57.71% done)
+# howto (57.88% done)
 
 - annotations.po                  46 /  51 ( 90.0% translated).
 - curses.po                       58 / 121 ( 47.0% translated).
@@ -75,7 +75,7 @@
 - enum.po                         62 / 327 ( 18.0% translated).
 - free-threading-extensions.po    70 / 104 ( 67.0% translated).
 - functional.po                  138 / 252 ( 54.0% translated).
-- logging-cookbook.po             29 / 423 (  6.0% translated).
+- logging-cookbook.po             35 / 423 (  8.0% translated).
 - logging.po                     120 / 250 ( 48.0% translated).
 - regex.po                       317 / 334 ( 94.0% translated).
 - remote_debugging.po              0 / 106 (  0.0% translated).
@@ -276,5 +276,5 @@
 - changelog.po                   2477 / 13225 ( 18.0% translated).
 
 
-# TOTAL (58.90% done)
+# TOTAL (58.91% done)
 
