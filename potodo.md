@@ -59,7 +59,7 @@
 - programming.po                 391 / 393 ( 99.0% translated).
 
 
-# howto (61.60% done)
+# howto (61.77% done)
 
 - curses.po                       59 / 105 ( 56.0% translated).
 - descriptor.po                  120 / 177 ( 67.0% translated).
@@ -67,7 +67,7 @@
 - functional.po                  137 / 206 ( 66.0% translated).
 - instrumentation.po              58 /  59 ( 98.0% translated).
 - isolating-extensions.po        117 / 118 ( 99.0% translated).
-- logging-cookbook.po             30 / 308 (  9.0% translated).
+- logging-cookbook.po             34 / 308 ( 11.0% translated).
 - logging.po                     118 / 218 ( 54.0% translated).
 - regex.po                       286 / 287 ( 99.0% translated).
 - sockets.po                      35 /  58 ( 60.0% translated).
@@ -85,7 +85,7 @@
 
 
 
-# library (62.71% done)
+# library (62.73% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          48 /  49 ( 97.0% translated).
@@ -180,9 +180,9 @@
 - ipaddress.po                   155 / 156 ( 99.0% translated).
 - itertools.po                   131 / 157 ( 83.0% translated).
 - locale.po                      146 / 151 ( 96.0% translated).
-- logging.config.po               12 / 134 (  8.0% translated).
-- logging.handlers.po             49 / 268 ( 18.0% translated).
-- logging.po                      98 / 351 ( 27.0% translated).
+- logging.config.po               13 / 134 (  9.0% translated).
+- logging.handlers.po             51 / 268 ( 19.0% translated).
+- logging.po                      99 / 351 ( 28.0% translated).
 - mailbox.po                      10 / 285 (  3.0% translated).
 - mailcap.po                       2 /  15 ( 13.0% translated).
 - math.po                        116 / 122 ( 95.0% translated).
@@ -326,5 +326,5 @@
 - 3.8.po                         468 / 469 ( 99.0% translated).
 
 
-# TOTAL (67.25% done)
+# TOTAL (67.26% done)
 
