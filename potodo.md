@@ -48,13 +48,13 @@
 
 
 
-# howto (60.84% done)
+# howto (60.99% done)
 
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                  187 / 230 ( 81.0% translated).
 - enum.po                         62 / 327 ( 18.0% translated).
 - functional.po                  138 / 252 ( 54.0% translated).
-- logging-cookbook.po             35 / 421 (  8.0% translated).
+- logging-cookbook.po             40 / 421 (  9.0% translated).
 - logging.po                     121 / 250 ( 48.0% translated).
 - regex.po                       315 / 332 ( 94.0% translated).
 - sockets.po                      35 /  63 ( 55.0% translated).
@@ -67,7 +67,7 @@
 
 
 
-# library (64.48% done)
+# library (64.51% done)
 
 - array.po                        84 /  86 ( 97.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -119,9 +119,9 @@
 - inspect.po                      78 / 390 ( 20.0% translated).
 - io.po                           21 / 271 (  7.0% translated).
 - itertools.po                   156 / 200 ( 78.0% translated).
-- logging.config.po               12 / 171 (  7.0% translated).
-- logging.handlers.po             48 / 271 ( 17.0% translated).
-- logging.po                      93 / 369 ( 25.0% translated).
+- logging.config.po               13 / 171 (  7.0% translated).
+- logging.handlers.po             51 / 271 ( 18.0% translated).
+- logging.po                      99 / 369 ( 26.0% translated).
 - mailbox.po                      10 / 307 (  3.0% translated).
 - mimetypes.po                    20 /  54 ( 37.0% translated).
 - mmap.po                         12 /  65 ( 18.0% translated).
@@ -210,5 +210,5 @@
 - changelog.po                   2414 / 12327 ( 19.0% translated).
 
 
-# TOTAL (61.38% done)
+# TOTAL (61.40% done)
 
