@@ -51,13 +51,13 @@
 - library.po                     157 / 162 ( 96.0% translated).
 
 
-# howto (58.83% done)
+# howto (58.99% done)
 
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                  181 / 233 ( 77.0% translated).
 - enum.po                         63 / 319 ( 19.0% translated).
 - functional.po                  138 / 252 ( 54.0% translated).
-- logging-cookbook.po             35 / 421 (  8.0% translated).
+- logging-cookbook.po             40 / 421 (  9.0% translated).
 - logging.po                     121 / 250 ( 48.0% translated).
 - perf_profiling.po               29 /  32 ( 90.0% translated).
 - regex.po                       315 / 332 ( 94.0% translated).
@@ -71,7 +71,7 @@
 
 
 
-# library (63.06% done)
+# library (63.09% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        77 /  84 ( 91.0% translated).
@@ -141,9 +141,9 @@
 - inspect.po                      78 / 383 ( 20.0% translated).
 - io.po                           21 / 271 (  7.0% translated).
 - itertools.po                   149 / 193 ( 77.0% translated).
-- logging.config.po               12 / 171 (  7.0% translated).
-- logging.handlers.po             48 / 270 ( 17.0% translated).
-- logging.po                     100 / 368 ( 27.0% translated).
+- logging.config.po               13 / 171 (  7.0% translated).
+- logging.handlers.po             51 / 270 ( 18.0% translated).
+- logging.po                     105 / 368 ( 28.0% translated).
 - mailbox.po                      10 / 290 (  3.0% translated).
 - mailcap.po                       2 /  16 ( 12.0% translated).
 - marshal.po                      24 /  30 ( 80.0% translated).
@@ -254,5 +254,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (67.94% done)
+# TOTAL (67.96% done)
 
