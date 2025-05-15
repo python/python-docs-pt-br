@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.11\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-21 22:20+0000\n"
+"POT-Creation-Date: 2025-05-02 15:33+0000\n"
 "PO-Revision-Date: 2023-05-24 02:11+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -176,10 +176,16 @@ msgid ""
 "request itself, to the server - this information is sent as HTTP "
 "\"headers\".  Let's look at each of these in turn."
 msgstr ""
+"No caso do HTTP, há duas coisas extras que os objetos Request permitem que "
+"você faça: primeiro, você pode passar dados a serem enviados ao servidor. "
+"Segundo, você pode passar informações extras (\"metadados\") *sobre* os "
+"dados ou sobre a própria solicitação para o servidor — essas informações são "
+"enviadas como \"cabeçalhos\" HTTP. Vamos analisar cada um deles "
+"separadamente."
 
 #: ../../howto/urllib2.rst:98
 msgid "Data"
-msgstr ""
+msgstr "Dados"
 
 #: ../../howto/urllib2.rst:100
 msgid ""
@@ -193,6 +199,16 @@ msgid ""
 "Request object as the ``data`` argument. The encoding is done using a "
 "function from the :mod:`urllib.parse` library. ::"
 msgstr ""
+"Às vezes, você deseja enviar dados para uma URL (geralmente a URL se refere "
+"a um script CGI (Common Gateway Interface) ou outra aplicação web). Com "
+"HTTP, isso geralmente é feito usando o que é conhecido como uma solicitação "
+"**POST**. Isso geralmente é o que seu navegador faz quando você envia um "
+"formulário HTML preenchido na web. Nem todos os POSTs precisam vir de "
+"formulários: você pode usar um POST para transmitir dados arbitrários para "
+"sua própria aplicação. No caso comum de formulários HTML, os dados precisam "
+"ser codificados de forma padrão e, em seguida, passados ​​para o objeto "
+"Request como o argumento ``data``. A codificação é feita usando uma função "
+"da biblioteca :mod:`urllib.parse`. ::"
 
 #: ../../howto/urllib2.rst:124
 msgid ""
@@ -200,6 +216,10 @@ msgid ""
 "HTML forms - see `HTML Specification, Form Submission <https://www.w3.org/TR/"
 "REC-html40/interact/forms.html#h-17.13>`_ for more details)."
 msgstr ""
+"Observe que outras codificações às vezes são necessárias (por exemplo, para "
+"envio de arquivos de formulários HTML - consulte `HTML Specification, Form "
+"Submission <https://www.w3.org/TR/REC-html40/interact/forms.html#h-17.13>`_ "
+"para mais detalhes)."
 
 #: ../../howto/urllib2.rst:129
 msgid ""
@@ -213,6 +233,16 @@ msgid ""
 "side-effects, nor a POST requests from having no side-effects. Data can also "
 "be passed in an HTTP GET request by encoding it in the URL itself."
 msgstr ""
+"Se você não passar o argumento ``data``, o urllib usará uma requisição "
+"**GET**. Uma diferença entre requisições GET e POST é que as requisições "
+"POST frequentemente têm \"efeitos colaterais\": elas alteram o estado do "
+"sistema de alguma forma (por exemplo, ao fazer um pedido ao site para que "
+"cem libras de spam enlatado sejam entregues em sua porta). Embora o padrão "
+"HTTP deixe claro que os POSTs devem *sempre* causar efeitos colaterais, e as "
+"requisições GET *nunca* causar efeitos colaterais, nada impede que uma "
+"requisição GET tenha efeitos colaterais, nem que uma requisição POST não "
+"tenha efeitos colaterais. Dados também podem ser passados ​​em uma requisição "
+"HTTP GET codificando-os na própria URL."
 
 #: ../../howto/urllib2.rst:139
 msgid "This is done as follows::"
@@ -228,13 +258,15 @@ msgstr ""
 
 #: ../../howto/urllib2.rst:158
 msgid "Headers"
-msgstr ""
+msgstr "Cabeçalhos"
 
 #: ../../howto/urllib2.rst:160
 msgid ""
 "We'll discuss here one particular HTTP header, to illustrate how to add "
 "headers to your HTTP request."
 msgstr ""
+"Discutiremos aqui um cabeçalho HTTP específico para ilustrar como adicionar "
+"cabeçalhos à sua solicitação HTTP."
 
 #: ../../howto/urllib2.rst:163
 msgid ""
@@ -248,6 +280,15 @@ msgid ""
 "the same request as above, but identifies itself as a version of Internet "
 "Explorer [#]_. ::"
 msgstr ""
+"Alguns sites [#]_ não gostam de ser navegados por programas ou enviam "
+"versões diferentes para navegadores diferentes [#]_. Por padrão, urllib se "
+"identifica como ``Python-urllib/x.y`` (onde ``x`` e ``y`` são os números de "
+"versão principal e secundária da versão do Python, por exemplo, ``Python-"
+"urllib/2.5``), o que pode confundir o site ou simplesmente não funcionar. A "
+"forma como um navegador se identifica é através do cabeçalho ``User-Agent`` "
+"[#]_. Ao criar um objeto Request, você pode passar um dicionário de "
+"cabeçalhos. O exemplo a seguir faz a mesma solicitação acima, mas se "
+"identifica como uma versão do Internet Explorer [#]_. ::"
 
 #: ../../howto/urllib2.rst:190
 msgid ""
@@ -255,6 +296,9 @@ msgid ""
 "geturl`_ which comes after we have a look at what happens when things go "
 "wrong."
 msgstr ""
+"A resposta também possui dois métodos úteis. Veja a seção sobre `info e "
+"geturl`_, que vem depois de analisarmos o que acontece quando as coisas dão "
+"errado."
 
 #: ../../howto/urllib2.rst:195
 msgid "Handling Exceptions"
@@ -266,16 +310,21 @@ msgid ""
 "response (though as usual with Python APIs, built-in exceptions such as :exc:"
 "`ValueError`, :exc:`TypeError` etc. may also be raised)."
 msgstr ""
+"*urlopen* levanta :exc:`~urllib.error.URLError` quando não consegue tratar "
+"uma resposta (embora, como de costume com APIs Python, exceções embutidas "
+"como :exc:`ValueError`, :exc:`TypeError` etc. também possam ser levantadas)."
 
 #: ../../howto/urllib2.rst:201
 msgid ""
 ":exc:`~urllib.error.HTTPError` is the subclass of :exc:`~urllib.error."
 "URLError` raised in the specific case of HTTP URLs."
 msgstr ""
+":exc:`~urllib.error.HTTPError` é a subclasse de :exc:`~urllib.error."
+"URLError` levantada no caso específico de URLs HTTP."
 
 #: ../../howto/urllib2.rst:204
 msgid "The exception classes are exported from the :mod:`urllib.error` module."
-msgstr ""
+msgstr "As classes de exceção são exportadas do módulo :mod:`urllib.error`."
 
 #: ../../howto/urllib2.rst:207
 msgid "URLError"
@@ -288,10 +337,14 @@ msgid ""
 "case, the exception raised will have a 'reason' attribute, which is a tuple "
 "containing an error code and a text error message."
 msgstr ""
+"Frequentemente, URLError é levantada porque não há conexão de rede (nenhuma "
+"rota para o servidor especificado) ou o servidor especificado não existe. "
+"Nesse caso, a exceção gerada terá um atributo \"reason\", que é uma tupla "
+"contendo um código de erro e uma mensagem de erro em texto."
 
 #: ../../howto/urllib2.rst:214
 msgid "e.g. ::"
-msgstr ""
+msgstr "Por exemplo ::"
 
 #: ../../howto/urllib2.rst:225
 msgid "HTTPError"
@@ -308,21 +361,34 @@ msgid ""
 "HTTPError`. Typical errors include '404' (page not found), '403' (request "
 "forbidden), and '401' (authentication required)."
 msgstr ""
+"Cada resposta HTTP do servidor contém um \"código de status\" numérico. Às "
+"vezes, o código de status indica que o servidor não consegue atender à "
+"solicitação. Os manipuladores padrão lidarão com algumas dessas respostas "
+"para você (por exemplo, se a resposta for um \"redirecionamento\" que "
+"solicita que o cliente busque o documento de uma URL diferente, o urllib "
+"cuidará disso para você). Para aquelas que ele não consegue tratar, o "
+"urlopen lançará um :exc:`~urllib.error.HTTPError`. Erros típicos incluem "
+"'404' (página não encontrada), '403' (solicitação proibida) e "
+"'401' (autenticação necessária)."
 
 #: ../../howto/urllib2.rst:235
 msgid ""
 "See section 10 of :rfc:`2616` for a reference on all the HTTP error codes."
 msgstr ""
+"Veja a seção 10 de :rfc:`2616` para uma referência sobre todos os códigos de "
+"erro HTTP."
 
 #: ../../howto/urllib2.rst:237
 msgid ""
 "The :exc:`~urllib.error.HTTPError` instance raised will have an integer "
 "'code' attribute, which corresponds to the error sent by the server."
 msgstr ""
+"A instância :exc:`~urllib.error.HTTPError` levantada terá um atributo "
+"inteiro 'code', que corresponde ao erro enviado pelo servidor."
 
 #: ../../howto/urllib2.rst:241
 msgid "Error Codes"
-msgstr ""
+msgstr "Códigos de erro"
 
 #: ../../howto/urllib2.rst:243
 msgid ""
@@ -330,6 +396,9 @@ msgid ""
 "codes in the 100--299 range indicate success, you will usually only see "
 "error codes in the 400--599 range."
 msgstr ""
+"Como os tratadores padrão controlam redirecionamentos (códigos no intervalo "
+"300) e códigos no intervalo 100-299 indicam sucesso, normalmente você verá "
+"apenas códigos de erro no intervalo 400-599."
 
 #: ../../howto/urllib2.rst:247
 msgid ""
@@ -337,6 +406,9 @@ msgid ""
 "of response codes in that shows all the response codes used by :rfc:`2616`. "
 "The dictionary is reproduced here for convenience ::"
 msgstr ""
+":attr:`http.server.BaseHTTPRequestHandler.responses` é um dicionário útil de "
+"códigos de resposta que mostra todos os códigos de resposta usados ​​por :rfc:"
+"`2616`. O dicionário é reproduzido aqui para facilitar ::"
 
 #: ../../howto/urllib2.rst:319
 msgid ""
@@ -346,6 +418,11 @@ msgid ""
 "attribute, it also has read, geturl, and info, methods as returned by the "
 "``urllib.response`` module::"
 msgstr ""
+"Quando um erro é levantado, o servidor responde retornando um código de erro "
+"HTTP *e* uma página de erro. Você pode usar a instância :exc:`~urllib.error."
+"HTTPError` como resposta na página retornada. Isso significa que, além do "
+"atributo code, ela também possui os métodos read, geturl e info, conforme "
+"retornados pelo módulo ``urllib.response``::"
 
 #: ../../howto/urllib2.rst:339
 msgid "Wrapping it Up"
@@ -357,24 +434,29 @@ msgid ""
 "`~urllib.error.URLError` there are two basic approaches. I prefer the second "
 "approach."
 msgstr ""
+"Então, se você quiser se preparar para :exc:`~urllib.error.HTTPError` *ou* :"
+"exc:`~urllib.error.URLError`, existem duas abordagens básicas. Eu prefiro a "
+"segunda."
 
 #: ../../howto/urllib2.rst:345
 msgid "Number 1"
-msgstr ""
+msgstr "Número 1"
 
 #: ../../howto/urllib2.rst:367
 msgid ""
 "The ``except HTTPError`` *must* come first, otherwise ``except URLError`` "
 "will *also* catch an :exc:`~urllib.error.HTTPError`."
 msgstr ""
+"O ``except HTTPError`` *deve* vir primeiro, caso contrário, ``except "
+"URLError`` *também* capturará uma :exc:`~urllib.error.HTTPError`."
 
 #: ../../howto/urllib2.rst:371
 msgid "Number 2"
-msgstr ""
+msgstr "Número 2"
 
 #: ../../howto/urllib2.rst:392
 msgid "info and geturl"
-msgstr ""
+msgstr "info e geturl"
 
 #: ../../howto/urllib2.rst:394
 msgid ""
@@ -382,6 +464,9 @@ msgid ""
 "instance) has two useful methods :meth:`!info` and :meth:`!geturl` and is "
 "defined in the module :mod:`urllib.response`."
 msgstr ""
+"A resposta retornada por urlopen (ou a instância :exc:`~urllib.error."
+"HTTPError`) tem dois métodos úteis :meth:`!info` e :meth:`!geturl` e é "
+"definida no módulo :mod:`urllib.response`."
 
 #: ../../howto/urllib2.rst:398
 msgid ""
@@ -390,6 +475,10 @@ msgid ""
 "redirect. The URL of the page fetched may not be the same as the URL "
 "requested."
 msgstr ""
+"**geturl** - Isso retorna a URL real da página recuperada. Isso é útil "
+"porque ``urlopen`` (ou o objeto de abertura utilizado) pode ter seguido um "
+"redirecionamento. A URL da página recuperada pode não ser a mesma que a URL "
+"solicitada."
 
 #: ../../howto/urllib2.rst:402
 msgid ""
@@ -397,6 +486,9 @@ msgid ""
 "fetched, particularly the headers sent by the server. It is currently an :"
 "class:`http.client.HTTPMessage` instance."
 msgstr ""
+"**info** - Isso retorna um objeto semelhante a um dicionário que descreve a "
+"página recuperada, particularmente os cabeçalhos enviados pelo servidor. "
+"Atualmente, é uma instância de :class:`http.client.HTTPMessage`."
 
 #: ../../howto/urllib2.rst:406
 msgid ""
@@ -405,10 +497,14 @@ msgid ""
 "useful listing of HTTP headers with brief explanations of their meaning and "
 "use."
 msgstr ""
+"Cabeçalhos típicos incluem 'Content-length', 'Content-type' e assim por "
+"diante. Consulte a \"Referência rápida para cabeçalhos HTTP <https://"
+"jkorpela.fi/http.html>\" para obter uma lista útil de cabeçalhos HTTP com "
+"breves explicações sobre seu significado e uso."
 
 #: ../../howto/urllib2.rst:413
 msgid "Openers and Handlers"
-msgstr ""
+msgstr "Abridores e tratadores"
 
 #: ../../howto/urllib2.rst:415
 msgid ""
@@ -420,6 +516,13 @@ msgid ""
 "(http, ftp, etc.), or how to handle an aspect of URL opening, for example "
 "HTTP redirections or HTTP cookies."
 msgstr ""
+"Ao buscar uma URL, você usa um abridor (uma instância do talvez confuso "
+"nome :class:`urllib.request.OpenerDirector`). Normalmente, usamos o abridor "
+"padrão - via ``urlopen`` -, mas você pode criar abridores personalizados. Os "
+"abridores usam manipuladores. Todo o \"trabalho pesado\" é feito pelos "
+"manipuladores. Cada manipulador sabe como abrir URLs para um esquema de URL "
+"específico (http, ftp, etc.) ou como lidar com um aspecto da abertura de "
+"URL, por exemplo, redirecionamentos HTTP ou cookies HTTP."
 
 #: ../../howto/urllib2.rst:423
 msgid ""
@@ -427,12 +530,17 @@ msgid ""
 "handlers installed, for example to get an opener that handles cookies, or to "
 "get an opener that does not handle redirections."
 msgstr ""
+"Você vai querer criar abridores se quiser buscar URLs com manipuladores "
+"específicos instalados, por exemplo, para obter um abridor que manipule "
+"cookies ou para obter um abridor que não manipule redirecionamentos."
 
 #: ../../howto/urllib2.rst:427
 msgid ""
 "To create an opener, instantiate an ``OpenerDirector``, and then call ``."
 "add_handler(some_handler_instance)`` repeatedly."
 msgstr ""
+"Para criar um abridor, instancie um ``OpenerDirector`` e então chame ``."
+"add_handler(some_handler_instance)`` repetidamente."
 
 #: ../../howto/urllib2.rst:430
 msgid ""
@@ -441,12 +549,18 @@ msgid ""
 "adds several handlers by default, but provides a quick way to add more and/"
 "or override the default handlers."
 msgstr ""
+"Como alternativa, você pode usar ``build_opener``, que é uma função "
+"conveniente para criar objetos de abertura com uma única chamada de função. "
+"``build_opener`` adiciona vários tratadores por padrão, mas fornece uma "
+"maneira rápida de adicionar mais e/ou substituir os tratadores padrão."
 
 #: ../../howto/urllib2.rst:435
 msgid ""
 "Other sorts of handlers you might want to can handle proxies, "
 "authentication, and other common but slightly specialised situations."
 msgstr ""
+"Outros tipos de manipuladores que você pode querer podem lidar com proxies, "
+"autenticação e outras situações comuns, mas um pouco especializadas."
 
 #: ../../howto/urllib2.rst:438
 msgid ""
@@ -454,6 +568,9 @@ msgid ""
 "default opener. This means that calls to ``urlopen`` will use the opener you "
 "have installed."
 msgstr ""
+"``install_opener`` pode ser usado para tornar um objeto ``opener`` o abridor "
+"padrão (global). Isso significa que chamadas para ``urlopen`` usarão o "
+"abridor que você instalou."
 
 #: ../../howto/urllib2.rst:442
 msgid ""
@@ -461,6 +578,9 @@ msgid ""
 "fetch urls in the same way as the ``urlopen`` function: there's no need to "
 "call ``install_opener``, except as a convenience."
 msgstr ""
+"Objetos abridores têm um método ``open``, que pode ser chamado diretamente "
+"para buscar URLs da mesma forma que a função ``urlopen``: não há necessidade "
+"de chamar ``install_opener``, exceto por conveniência."
 
 #: ../../howto/urllib2.rst:448
 msgid "Basic Authentication"
@@ -588,7 +708,7 @@ msgstr "Notas de rodapé"
 
 #: ../../howto/urllib2.rst:581
 msgid "This document was reviewed and revised by John Lee."
-msgstr ""
+msgstr "Este documento foi revisado e revisado por John Lee."
 
 #: ../../howto/urllib2.rst:583
 msgid "Google for example."
