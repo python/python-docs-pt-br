@@ -60,7 +60,7 @@
 - programming.po                 383 / 388 ( 98.0% translated).
 
 
-# howto (53.79% done)
+# howto (53.96% done)
 
 - annotations.po                  44 /  45 ( 97.0% translated).
 - argparse.po                     81 /  84 ( 96.0% translated).
@@ -69,7 +69,7 @@
 - descriptor.po                  115 / 175 ( 65.0% translated).
 - functional.po                  138 / 206 ( 66.0% translated).
 - instrumentation.po              55 /  59 ( 93.0% translated).
-- logging-cookbook.po             32 / 306 ( 10.0% translated).
+- logging-cookbook.po             36 / 306 ( 11.0% translated).
 - logging.po                     123 / 221 ( 55.0% translated).
 - pyporting.po                    35 /  86 ( 40.0% translated).
 - regex.po                       283 / 286 ( 98.0% translated).
@@ -87,7 +87,7 @@
 
 
 
-# library (61.11% done)
+# library (61.12% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    256 / 290 ( 88.0% translated).
@@ -180,8 +180,8 @@
 - io.po                           18 / 245 (  7.0% translated).
 - ipaddress.po                   155 / 158 ( 98.0% translated).
 - itertools.po                   128 / 153 ( 83.0% translated).
-- logging.config.po               12 / 133 (  9.0% translated).
-- logging.handlers.po             49 / 268 ( 18.0% translated).
+- logging.config.po               13 / 133 (  9.0% translated).
+- logging.handlers.po             51 / 268 ( 19.0% translated).
 - logging.po                      95 / 334 ( 28.0% translated).
 - mailbox.po                      20 / 282 (  7.0% translated).
 - mailcap.po                       2 /  15 ( 13.0% translated).
@@ -324,5 +324,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (64.64% done)
+# TOTAL (64.66% done)
 
