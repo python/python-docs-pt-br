@@ -67,7 +67,7 @@
 
 
 
-# howto (58.03% done)
+# howto (59.53% done)
 
 - annotations.po                  46 /  51 ( 90.0% translated).
 - curses.po                       58 / 121 ( 47.0% translated).
@@ -82,7 +82,7 @@
 - sockets.po                      35 /  63 ( 55.0% translated).
 - sorting.po                      44 /  92 ( 47.0% translated).
 - unicode.po                      30 / 145 ( 20.0% translated).
-- urllib2.po                      24 / 100 ( 24.0% translated).
+- urllib2.po                      75 / 100 ( 75.0% translated).
 
 
 # installing (100.00% done)
@@ -276,5 +276,5 @@
 - changelog.po                   2477 / 13225 ( 18.0% translated).
 
 
-# TOTAL (58.93% done)
+# TOTAL (58.99% done)
 
