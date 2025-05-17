@@ -146,7 +146,7 @@
 - socket.po                       53 / 367 ( 14.0% translated).
 - sqlite3.po                     116 / 477 ( 24.0% translated).
 - ssl.po                          61 / 544 ( 11.0% translated).
-- stdtypes.po                    1376 / 1380 ( 99.0% translated).
+- stdtypes.po                    1378 / 1380 ( 99.0% translated).
 - string.po                      205 / 220 ( 93.0% translated).
 - struct.po                       96 / 195 ( 49.0% translated).
 - subprocess.po                  149 / 327 ( 45.0% translated).
