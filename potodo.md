@@ -89,7 +89,7 @@
 
 
 
-# library (62.89% done)
+# library (62.91% done)
 
 - _thread.po                      51 /  52 ( 98.0% translated).
 - annotationlib.po                 3 / 136 (  2.0% translated).
@@ -185,7 +185,6 @@
 - selectors.po                    13 /  58 ( 22.0% translated).
 - shelve.po                       11 /  40 ( 27.0% translated).
 - shlex.po                         3 /  77 (  3.0% translated).
-- shutil.po                      182 / 189 ( 96.0% translated).
 - smtplib.po                      30 / 116 ( 25.0% translated).
 - socket.po                       51 / 383 ( 13.0% translated).
 - sqlite3.po                     116 / 475 ( 24.0% translated).
@@ -274,5 +273,5 @@
 - changelog.po                   2597 / 13241 ( 19.0% translated).
 
 
-# TOTAL (59.24% done)
+# TOTAL (59.25% done)
 
