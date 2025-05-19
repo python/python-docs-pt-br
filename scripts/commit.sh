@@ -19,8 +19,8 @@ set -u
 # Set for removal the deleted obsolete PO files
 git status -s | grep '^ D ' | cut -d' ' -f3 | xargs -r git rm
 
-# Add only updates that do not consist only of 'POT-Creation-Date' header change
-git diff -I'^"POT-Creation-Date: ' -I'^"Language: pt_BR' --numstat *.po **/*.po | cut -f3 | xargs -r git add -v
+# Add only updates that do not consist only of the following header lines
+git diff -I'^# Copyright ' -I'^"Project-Id-Version: ' -I'^"POT-Creation-Date: ' -I'^"Language: ' --numstat *.po **/*.po | cut -f3 | xargs -r git add -v
 
 # Add currently untracked PO files, and update other helper files
 untracked_files=$(git ls-files -o --exclude-standard *.po **/*.po)
