@@ -48,7 +48,7 @@
 
 
 
-# howto (62.57% done)
+# howto (62.63% done)
 
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                  187 / 230 ( 81.0% translated).
@@ -56,7 +56,7 @@
 - functional.po                  138 / 252 ( 54.0% translated).
 - logging-cookbook.po             40 / 421 (  9.0% translated).
 - logging.po                     121 / 250 ( 48.0% translated).
-- regex.po                       315 / 332 ( 94.0% translated).
+- regex.po                       317 / 332 ( 95.0% translated).
 - sockets.po                      35 /  63 ( 55.0% translated).
 - sorting.po                      46 /  75 ( 61.0% translated).
 - unicode.po                      30 / 145 ( 20.0% translated).
@@ -145,7 +145,7 @@
 - socket.po                       53 / 367 ( 14.0% translated).
 - sqlite3.po                     116 / 477 ( 24.0% translated).
 - ssl.po                          61 / 544 ( 11.0% translated).
-- stdtypes.po                    1378 / 1380 ( 99.0% translated).
+- stdtypes.po                    1379 / 1380 ( 99.0% translated).
 - string.po                      205 / 220 ( 93.0% translated).
 - struct.po                       96 / 195 ( 49.0% translated).
 - subprocess.po                  149 / 327 ( 45.0% translated).
@@ -212,5 +212,5 @@
 - changelog.po                   2446 / 12337 ( 19.0% translated).
 
 
-# TOTAL (61.49% done)
+# TOTAL (61.50% done)
 
