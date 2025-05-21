@@ -89,7 +89,7 @@
 
 
 
-# library (62.92% done)
+# library (62.96% done)
 
 - _thread.po                      51 /  52 ( 98.0% translated).
 - annotationlib.po                 3 / 136 (  2.0% translated).
@@ -189,7 +189,6 @@
 - socket.po                       51 / 383 ( 13.0% translated).
 - sqlite3.po                     116 / 475 ( 24.0% translated).
 - ssl.po                          61 / 545 ( 11.0% translated).
-- stdtypes.po                    1481 / 1494 ( 99.0% translated).
 - string.po                      203 / 221 ( 91.0% translated).
 - struct.po                       97 / 204 ( 47.0% translated).
 - subprocess.po                  149 / 311 ( 47.0% translated).
@@ -273,5 +272,5 @@
 - changelog.po                   2597 / 13241 ( 19.0% translated).
 
 
-# TOTAL (59.26% done)
+# TOTAL (59.28% done)
 
