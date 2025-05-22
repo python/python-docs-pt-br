@@ -141,7 +141,7 @@
 - inspect.po                      78 / 383 ( 20.0% translated).
 - io.po                           21 / 271 (  7.0% translated).
 - itertools.po                   149 / 193 ( 77.0% translated).
-- logging.config.po               13 / 171 (  7.0% translated).
+- logging.config.po               15 / 171 (  8.0% translated).
 - logging.handlers.po             51 / 270 ( 18.0% translated).
 - logging.po                     105 / 368 ( 28.0% translated).
 - mailbox.po                      10 / 290 (  3.0% translated).
