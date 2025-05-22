@@ -67,7 +67,7 @@
 
 
 
-# library (64.49% done)
+# library (64.50% done)
 
 - array.po                        84 /  86 ( 97.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
@@ -120,7 +120,7 @@
 - inspect.po                      78 / 390 ( 20.0% translated).
 - io.po                           21 / 271 (  7.0% translated).
 - itertools.po                   156 / 200 ( 78.0% translated).
-- logging.config.po               13 / 171 (  7.0% translated).
+- logging.config.po               15 / 171 (  8.0% translated).
 - logging.handlers.po             51 / 271 ( 18.0% translated).
 - logging.po                      99 / 369 ( 26.0% translated).
 - mailbox.po                      10 / 307 (  3.0% translated).
