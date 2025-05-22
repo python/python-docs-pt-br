@@ -159,7 +159,7 @@
 - itertools.po                   155 / 201 ( 77.0% translated).
 - json.po                        170 / 176 ( 96.0% translated).
 - locale.po                      148 / 150 ( 98.0% translated).
-- logging.config.po               13 / 171 (  7.0% translated).
+- logging.config.po               15 / 171 (  8.0% translated).
 - logging.handlers.po             52 / 273 ( 19.0% translated).
 - logging.po                      98 / 369 ( 26.0% translated).
 - mailbox.po                      10 / 307 (  3.0% translated).
