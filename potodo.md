@@ -180,7 +180,7 @@
 - io.po                           18 / 245 (  7.0% translated).
 - ipaddress.po                   155 / 158 ( 98.0% translated).
 - itertools.po                   128 / 153 ( 83.0% translated).
-- logging.config.po               13 / 133 (  9.0% translated).
+- logging.config.po               14 / 133 ( 10.0% translated).
 - logging.handlers.po             51 / 268 ( 19.0% translated).
 - logging.po                      95 / 334 ( 28.0% translated).
 - mailbox.po                      20 / 282 (  7.0% translated).
