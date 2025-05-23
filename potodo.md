@@ -165,7 +165,7 @@
 - io.po                           17 / 229 (  7.0% translated).
 - ipaddress.po                   155 / 158 ( 98.0% translated).
 - itertools.po                   125 / 148 ( 84.0% translated).
-- logging.config.po               13 / 119 ( 10.0% translated).
+- logging.config.po               14 / 119 ( 11.0% translated).
 - logging.handlers.po             51 / 261 ( 19.0% translated).
 - logging.po                      94 / 321 ( 29.0% translated).
 - lzma.po                        106 / 107 ( 99.0% translated).
