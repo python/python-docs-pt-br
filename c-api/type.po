@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-08 02:53-0300\n"
+"POT-Creation-Date: 2025-05-23 14:20+0000\n"
 "PO-Revision-Date: 2021-06-28 00:50+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2023\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -190,24 +190,37 @@ msgstr ""
 #: ../../c-api/type.rst:154
 msgid ""
 "Generic handler for the :c:member:`~PyTypeObject.tp_alloc` slot of a type "
-"object.  Use Python's default memory allocation mechanism to allocate a new "
-"instance and initialize all its contents to ``NULL``."
+"object.  Uses Python's default memory allocation mechanism to allocate "
+"memory for a new instance, zeros the memory, then initializes the memory as "
+"if by calling :c:func:`PyObject_Init` or :c:func:`PyObject_InitVar`."
 msgstr ""
-"Manipulador genérico para o slot :c:member:`~PyTypeObject.tp_alloc` de um "
-"objeto tipo. Use o mecanismo de alocação de memória padrão do Python para "
-"alocar uma nova instância e inicializar todo o seu conteúdo para ``NULL``."
 
-#: ../../c-api/type.rst:160
+#: ../../c-api/type.rst:159
+msgid ""
+"Do not call this directly to allocate memory for an object; call the type's :"
+"c:member:`~PyTypeObject.tp_alloc` slot instead."
+msgstr ""
+
+#: ../../c-api/type.rst:162
+msgid ""
+"For types that support garbage collection (i.e., the :c:macro:"
+"`Py_TPFLAGS_HAVE_GC` flag is set), this function behaves like :c:macro:"
+"`PyObject_GC_New` or :c:macro:`PyObject_GC_NewVar` (except the memory is "
+"guaranteed to be zeroed before initialization), and should be paired with :c:"
+"func:`PyObject_GC_Del` in :c:member:`~PyTypeObject.tp_free`. Otherwise, it "
+"behaves like :c:macro:`PyObject_New` or :c:macro:`PyObject_NewVar` (except "
+"the memory is guaranteed to be zeroed before initialization) and should be "
+"paired with :c:func:`PyObject_Free` in :c:member:`~PyTypeObject.tp_free`."
+msgstr ""
+
+#: ../../c-api/type.rst:174
 msgid ""
 "Generic handler for the :c:member:`~PyTypeObject.tp_new` slot of a type "
-"object.  Create a new instance using the type's :c:member:`~PyTypeObject."
-"tp_alloc` slot."
+"object.  Creates a new instance using the type's :c:member:`~PyTypeObject."
+"tp_alloc` slot and returns the resulting object."
 msgstr ""
-"Manipulador genérico para o slot :c:member:`~PyTypeObject.tp_new` de um "
-"objeto tipo. Cria uma nova instância usando o slot :c:member:`~PyTypeObject."
-"tp_alloc` do tipo."
 
-#: ../../c-api/type.rst:165
+#: ../../c-api/type.rst:180
 msgid ""
 "Finalize a type object.  This should be called on all type objects to finish "
 "their initialization.  This function is responsible for adding inherited "
@@ -219,7 +232,7 @@ msgstr ""
 "herdados da classe base de um tipo. Retorna ``0`` em caso de sucesso, ou "
 "retorna ``-1`` e define uma exceção em caso de erro."
 
-#: ../../c-api/type.rst:171
+#: ../../c-api/type.rst:186
 msgid ""
 "If some of the base classes implements the GC protocol and the provided type "
 "does not include the :c:macro:`Py_TPFLAGS_HAVE_GC` in its flags, then the GC "
@@ -230,32 +243,32 @@ msgid ""
 "handle."
 msgstr ""
 
-#: ../../c-api/type.rst:181
+#: ../../c-api/type.rst:196
 msgid ""
 "Return the type's name. Equivalent to getting the type's :attr:`~type."
 "__name__` attribute."
 msgstr ""
 
-#: ../../c-api/type.rst:188
+#: ../../c-api/type.rst:203
 msgid ""
 "Return the type's qualified name. Equivalent to getting the type's :attr:"
 "`~type.__qualname__` attribute."
 msgstr ""
 
-#: ../../c-api/type.rst:195
+#: ../../c-api/type.rst:210
 msgid ""
 "Return the type's fully qualified name. Equivalent to ``f\"{type.__module__}."
 "{type.__qualname__}\"``, or :attr:`type.__qualname__` if :attr:`type."
 "__module__` is not a string or is equal to ``\"builtins\"``."
 msgstr ""
 
-#: ../../c-api/type.rst:203
+#: ../../c-api/type.rst:218
 msgid ""
 "Return the type's module name. Equivalent to getting the :attr:`type."
 "__module__` attribute."
 msgstr ""
 
-#: ../../c-api/type.rst:210
+#: ../../c-api/type.rst:225
 msgid ""
 "Return the function pointer stored in the given slot. If the result is "
 "``NULL``, this indicates that either the slot is ``NULL``, or that the "
@@ -267,19 +280,19 @@ msgstr ""
 "com parâmetros inválidos. Os chamadores normalmente lançarão o ponteiro do "
 "resultado no tipo de função apropriado."
 
-#: ../../c-api/type.rst:216
+#: ../../c-api/type.rst:231
 msgid ""
 "See :c:member:`PyType_Slot.slot` for possible values of the *slot* argument."
 msgstr ""
 "Veja :c:member:`PyType_Slot.slot` por possíveis valores do argumento *slot*."
 
-#: ../../c-api/type.rst:220
+#: ../../c-api/type.rst:235
 msgid ""
 ":c:func:`PyType_GetSlot` can now accept all types. Previously, it was "
 "limited to :ref:`heap types <heap-types>`."
 msgstr ""
 
-#: ../../c-api/type.rst:226
+#: ../../c-api/type.rst:241
 msgid ""
 "Return the module object associated with the given type when the type was "
 "created using :c:func:`PyType_FromModuleAndSpec`."
@@ -287,7 +300,7 @@ msgstr ""
 "Retorna o objeto de módulo associado ao tipo fornecido quando o tipo foi "
 "criado usando :c:func:`PyType_FromModuleAndSpec`."
 
-#: ../../c-api/type.rst:229 ../../c-api/type.rst:249
+#: ../../c-api/type.rst:244 ../../c-api/type.rst:264
 msgid ""
 "If no module is associated with the given type, sets :py:class:`TypeError` "
 "and returns ``NULL``."
@@ -295,7 +308,7 @@ msgstr ""
 "Se nenhum módulo estiver associado com o tipo fornecido, define :py:class:"
 "`TypeError` e retorna ``NULL``."
 
-#: ../../c-api/type.rst:232
+#: ../../c-api/type.rst:247
 msgid ""
 "This function is usually used to get the module in which a method is "
 "defined. Note that in such a method, ``PyType_GetModule(Py_TYPE(self))`` may "
@@ -306,31 +319,31 @@ msgid ""
 "type:`!PyCMethod` cannot be used."
 msgstr ""
 
-#: ../../c-api/type.rst:245
+#: ../../c-api/type.rst:260
 msgid ""
 "Return the state of the module object associated with the given type. This "
 "is a shortcut for calling :c:func:`PyModule_GetState()` on the result of :c:"
 "func:`PyType_GetModule`."
 msgstr ""
 
-#: ../../c-api/type.rst:252
+#: ../../c-api/type.rst:267
 msgid ""
 "If the *type* has an associated module but its state is ``NULL``, returns "
 "``NULL`` without setting an exception."
 msgstr ""
 
-#: ../../c-api/type.rst:259
+#: ../../c-api/type.rst:274
 msgid ""
 "Find the first superclass whose module was created from the given :c:type:"
 "`PyModuleDef` *def*, and return that module."
 msgstr ""
 
-#: ../../c-api/type.rst:262
+#: ../../c-api/type.rst:277
 msgid ""
 "If no module is found, raises a :py:class:`TypeError` and returns ``NULL``."
 msgstr ""
 
-#: ../../c-api/type.rst:264
+#: ../../c-api/type.rst:279
 msgid ""
 "This function is intended to be used together with :c:func:"
 "`PyModule_GetState()` to get module state from slot methods (such as :c:"
@@ -339,78 +352,78 @@ msgid ""
 "type:`PyCMethod` calling convention."
 msgstr ""
 
-#: ../../c-api/type.rst:274
+#: ../../c-api/type.rst:289
 msgid ""
 "Find the first superclass in *type*'s :term:`method resolution order` whose :"
 "c:macro:`Py_tp_token` token is equal to the given one."
 msgstr ""
 
-#: ../../c-api/type.rst:277
+#: ../../c-api/type.rst:292
 msgid ""
 "If found, set *\\*result* to a new :term:`strong reference` to it and return "
 "``1``."
 msgstr ""
 
-#: ../../c-api/type.rst:279
+#: ../../c-api/type.rst:294
 msgid "If not found, set *\\*result* to ``NULL`` and return ``0``."
 msgstr ""
 
-#: ../../c-api/type.rst:280
+#: ../../c-api/type.rst:295
 msgid ""
 "On error, set *\\*result* to ``NULL`` and return ``-1`` with an exception "
 "set."
 msgstr ""
 
-#: ../../c-api/type.rst:283
+#: ../../c-api/type.rst:298
 msgid ""
 "The *result* argument may be ``NULL``, in which case *\\*result* is not set. "
 "Use this if you need only the return value."
 msgstr ""
 
-#: ../../c-api/type.rst:286
+#: ../../c-api/type.rst:301
 msgid "The *token* argument may not be ``NULL``."
 msgstr ""
 
-#: ../../c-api/type.rst:292
+#: ../../c-api/type.rst:307
 msgid "Attempt to assign a version tag to the given type."
 msgstr ""
 
-#: ../../c-api/type.rst:294
+#: ../../c-api/type.rst:309
 msgid ""
 "Returns 1 if the type already had a valid version tag or a new one was "
 "assigned, or 0 if a new tag could not be assigned."
 msgstr ""
 
-#: ../../c-api/type.rst:301
+#: ../../c-api/type.rst:316
 msgid "Creating Heap-Allocated Types"
 msgstr ""
 
-#: ../../c-api/type.rst:303
+#: ../../c-api/type.rst:318
 msgid ""
 "The following functions and structs are used to create :ref:`heap types "
 "<heap-types>`."
 msgstr ""
 
-#: ../../c-api/type.rst:308
+#: ../../c-api/type.rst:323
 msgid ""
 "Create and return a :ref:`heap type <heap-types>` from the *spec* (see :c:"
 "macro:`Py_TPFLAGS_HEAPTYPE`)."
 msgstr ""
 
-#: ../../c-api/type.rst:311
+#: ../../c-api/type.rst:326
 msgid ""
 "The metaclass *metaclass* is used to construct the resulting type object. "
 "When *metaclass* is ``NULL``, the metaclass is derived from *bases* (or "
 "*Py_tp_base[s]* slots if *bases* is ``NULL``, see below)."
 msgstr ""
 
-#: ../../c-api/type.rst:315
+#: ../../c-api/type.rst:330
 msgid ""
 "Metaclasses that override :c:member:`~PyTypeObject.tp_new` are not "
 "supported, except if ``tp_new`` is ``NULL``."
 msgstr ""
 
-#: ../../c-api/type.rst:318
+#: ../../c-api/type.rst:333
 msgid ""
 "The *bases* argument can be used to specify base classes; it can either be "
 "only one class or a tuple of classes. If *bases* is ``NULL``, the "
@@ -419,7 +432,7 @@ msgid ""
 "derives from :class:`object`."
 msgstr ""
 
-#: ../../c-api/type.rst:324
+#: ../../c-api/type.rst:339
 msgid ""
 "The *module* argument can be used to record the module in which the new "
 "class is defined. It must be a module object or ``NULL``. If not ``NULL``, "
@@ -428,11 +441,11 @@ msgid ""
 "subclasses; it must be specified for each class individually."
 msgstr ""
 
-#: ../../c-api/type.rst:331
+#: ../../c-api/type.rst:346
 msgid "This function calls :c:func:`PyType_Ready` on the new type."
 msgstr ""
 
-#: ../../c-api/type.rst:333
+#: ../../c-api/type.rst:348
 msgid ""
 "Note that this function does *not* fully match the behavior of calling :py:"
 "class:`type() <type>` or using the :keyword:`class` statement. With user-"
@@ -441,108 +454,108 @@ msgid ""
 "Specifically:"
 msgstr ""
 
-#: ../../c-api/type.rst:340
+#: ../../c-api/type.rst:355
 msgid ""
 ":py:meth:`~object.__new__` is not called on the new class (and it must be "
 "set to ``type.__new__``)."
 msgstr ""
 
-#: ../../c-api/type.rst:342
+#: ../../c-api/type.rst:357
 msgid ":py:meth:`~object.__init__` is not called on the new class."
 msgstr ""
 
-#: ../../c-api/type.rst:343
+#: ../../c-api/type.rst:358
 msgid ":py:meth:`~object.__init_subclass__` is not called on any bases."
 msgstr ""
 
-#: ../../c-api/type.rst:344
+#: ../../c-api/type.rst:359
 msgid ":py:meth:`~object.__set_name__` is not called on new descriptors."
 msgstr ""
 
-#: ../../c-api/type.rst:350
+#: ../../c-api/type.rst:365
 msgid "Equivalent to ``PyType_FromMetaclass(NULL, module, spec, bases)``."
 msgstr ""
 
-#: ../../c-api/type.rst:356
+#: ../../c-api/type.rst:371
 msgid ""
 "The function now accepts a single class as the *bases* argument and ``NULL`` "
 "as the ``tp_doc`` slot."
 msgstr ""
 
-#: ../../c-api/type.rst:361 ../../c-api/type.rst:382
+#: ../../c-api/type.rst:376 ../../c-api/type.rst:397
 msgid ""
 "The function now finds and uses a metaclass corresponding to the provided "
 "base classes.  Previously, only :class:`type` instances were returned."
 msgstr ""
 
-#: ../../c-api/type.rst:364 ../../c-api/type.rst:385 ../../c-api/type.rst:405
+#: ../../c-api/type.rst:379 ../../c-api/type.rst:400 ../../c-api/type.rst:420
 msgid ""
 "The :c:member:`~PyTypeObject.tp_new` of the metaclass is *ignored*. which "
 "may result in incomplete initialization. Creating classes whose metaclass "
 "overrides :c:member:`~PyTypeObject.tp_new` is deprecated."
 msgstr ""
 
-#: ../../c-api/type.rst:371 ../../c-api/type.rst:392 ../../c-api/type.rst:412
+#: ../../c-api/type.rst:386 ../../c-api/type.rst:407 ../../c-api/type.rst:427
 msgid ""
 "Creating classes whose metaclass overrides :c:member:`~PyTypeObject.tp_new` "
 "is no longer allowed."
 msgstr ""
 
-#: ../../c-api/type.rst:376
+#: ../../c-api/type.rst:391
 msgid "Equivalent to ``PyType_FromMetaclass(NULL, NULL, spec, bases)``."
 msgstr ""
 
-#: ../../c-api/type.rst:397
+#: ../../c-api/type.rst:412
 msgid "Equivalent to ``PyType_FromMetaclass(NULL, NULL, spec, NULL)``."
 msgstr ""
 
-#: ../../c-api/type.rst:401
+#: ../../c-api/type.rst:416
 msgid ""
 "The function now finds and uses a metaclass corresponding to the base "
 "classes provided in *Py_tp_base[s]* slots. Previously, only :class:`type` "
 "instances were returned."
 msgstr ""
 
-#: ../../c-api/type.rst:417
+#: ../../c-api/type.rst:432
 msgid ""
 "Make a type immutable: set the :c:macro:`Py_TPFLAGS_IMMUTABLETYPE` flag."
 msgstr ""
 
-#: ../../c-api/type.rst:419
+#: ../../c-api/type.rst:434
 msgid "All base classes of *type* must be immutable."
 msgstr ""
 
-#: ../../c-api/type.rst:421
+#: ../../c-api/type.rst:436
 msgid "On success, return ``0``. On error, set an exception and return ``-1``."
 msgstr ""
 
-#: ../../c-api/type.rst:424
+#: ../../c-api/type.rst:439
 msgid ""
 "The type must not be used before it's made immutable. For example, type "
 "instances must not be created before the type is made immutable."
 msgstr ""
 
-#: ../../c-api/type.rst:440
+#: ../../c-api/type.rst:455
 msgid "Structure defining a type's behavior."
 msgstr ""
 
-#: ../../c-api/type.rst:444
+#: ../../c-api/type.rst:459
 msgid "Name of the type, used to set :c:member:`PyTypeObject.tp_name`."
 msgstr ""
 
-#: ../../c-api/type.rst:448
+#: ../../c-api/type.rst:463
 msgid ""
 "If positive, specifies the size of the instance in bytes. It is used to set :"
 "c:member:`PyTypeObject.tp_basicsize`."
 msgstr ""
 
-#: ../../c-api/type.rst:451
+#: ../../c-api/type.rst:466
 msgid ""
 "If zero, specifies that :c:member:`~PyTypeObject.tp_basicsize` should be "
 "inherited."
 msgstr ""
 
-#: ../../c-api/type.rst:454
+#: ../../c-api/type.rst:469
 msgid ""
 "If negative, the absolute value specifies how much space instances of the "
 "class need *in addition* to the superclass. Use :c:func:"
@@ -552,17 +565,17 @@ msgid ""
 "requirements."
 msgstr ""
 
-#: ../../c-api/type.rst:464
+#: ../../c-api/type.rst:479
 msgid "Previously, this field could not be negative."
 msgstr ""
 
-#: ../../c-api/type.rst:468
+#: ../../c-api/type.rst:483
 msgid ""
 "Size of one element of a variable-size type, in bytes. Used to set :c:member:"
 "`PyTypeObject.tp_itemsize`. See ``tp_itemsize`` documentation for caveats."
 msgstr ""
 
-#: ../../c-api/type.rst:472
+#: ../../c-api/type.rst:487
 msgid ""
 "If zero, :c:member:`~PyTypeObject.tp_itemsize` is inherited. Extending "
 "arbitrary variable-sized classes is dangerous, since some types use a fixed "
@@ -571,58 +584,58 @@ msgid ""
 "only possible in the following situations:"
 msgstr ""
 
-#: ../../c-api/type.rst:479
+#: ../../c-api/type.rst:494
 msgid ""
 "The base is not variable-sized (its :c:member:`~PyTypeObject.tp_itemsize`)."
 msgstr ""
 
-#: ../../c-api/type.rst:481
+#: ../../c-api/type.rst:496
 msgid ""
 "The requested :c:member:`PyType_Spec.basicsize` is positive, suggesting that "
 "the memory layout of the base class is known."
 msgstr ""
 
-#: ../../c-api/type.rst:483
+#: ../../c-api/type.rst:498
 msgid ""
 "The requested :c:member:`PyType_Spec.basicsize` is zero, suggesting that the "
 "subclass does not access the instance's memory directly."
 msgstr ""
 
-#: ../../c-api/type.rst:486
+#: ../../c-api/type.rst:501
 msgid "With the :c:macro:`Py_TPFLAGS_ITEMS_AT_END` flag."
 msgstr ""
 
-#: ../../c-api/type.rst:490
+#: ../../c-api/type.rst:505
 msgid "Type flags, used to set :c:member:`PyTypeObject.tp_flags`."
 msgstr ""
 
-#: ../../c-api/type.rst:492
+#: ../../c-api/type.rst:507
 msgid ""
 "If the ``Py_TPFLAGS_HEAPTYPE`` flag is not set, :c:func:"
 "`PyType_FromSpecWithBases` sets it automatically."
 msgstr ""
 
-#: ../../c-api/type.rst:497
+#: ../../c-api/type.rst:512
 msgid ""
 "Array of :c:type:`PyType_Slot` structures. Terminated by the special slot "
 "value ``{0, NULL}``."
 msgstr ""
 
-#: ../../c-api/type.rst:500
+#: ../../c-api/type.rst:515
 msgid "Each slot ID should be specified at most once."
 msgstr ""
 
-#: ../../c-api/type.rst:510
+#: ../../c-api/type.rst:525
 msgid ""
 "Structure defining optional functionality of a type, containing a slot ID "
 "and a value pointer."
 msgstr ""
 
-#: ../../c-api/type.rst:515
+#: ../../c-api/type.rst:530
 msgid "A slot ID."
 msgstr ""
 
-#: ../../c-api/type.rst:517
+#: ../../c-api/type.rst:532
 msgid ""
 "Slot IDs are named like the field names of the structures :c:type:"
 "`PyTypeObject`, :c:type:`PyNumberMethods`, :c:type:`PySequenceMethods`, :c:"
@@ -630,52 +643,52 @@ msgid ""
 "prefix. For example, use:"
 msgstr ""
 
-#: ../../c-api/type.rst:523
+#: ../../c-api/type.rst:538
 msgid "``Py_tp_dealloc`` to set :c:member:`PyTypeObject.tp_dealloc`"
 msgstr ""
 
-#: ../../c-api/type.rst:524
+#: ../../c-api/type.rst:539
 msgid "``Py_nb_add`` to set :c:member:`PyNumberMethods.nb_add`"
 msgstr ""
 
-#: ../../c-api/type.rst:525
+#: ../../c-api/type.rst:540
 msgid "``Py_sq_length`` to set :c:member:`PySequenceMethods.sq_length`"
 msgstr ""
 
-#: ../../c-api/type.rst:527
+#: ../../c-api/type.rst:542
 msgid ""
 "An additional slot is supported that does not correspond to a :c:type:`!"
 "PyTypeObject` struct field:"
 msgstr ""
 
-#: ../../c-api/type.rst:530
+#: ../../c-api/type.rst:545
 msgid ":c:data:`Py_tp_token`"
 msgstr ""
 
-#: ../../c-api/type.rst:532
+#: ../../c-api/type.rst:547
 msgid ""
 "The following “offset” fields cannot be set using :c:type:`PyType_Slot`:"
 msgstr ""
 
-#: ../../c-api/type.rst:534
+#: ../../c-api/type.rst:549
 msgid ""
 ":c:member:`~PyTypeObject.tp_weaklistoffset` (use :c:macro:"
 "`Py_TPFLAGS_MANAGED_WEAKREF` instead if possible)"
 msgstr ""
 
-#: ../../c-api/type.rst:536
+#: ../../c-api/type.rst:551
 msgid ""
 ":c:member:`~PyTypeObject.tp_dictoffset` (use :c:macro:"
 "`Py_TPFLAGS_MANAGED_DICT` instead if possible)"
 msgstr ""
 
-#: ../../c-api/type.rst:538
+#: ../../c-api/type.rst:553
 msgid ""
 ":c:member:`~PyTypeObject.tp_vectorcall_offset` (use "
 "``\"__vectorcalloffset__\"`` in :ref:`PyMemberDef <pymemberdef-offsets>`)"
 msgstr ""
 
-#: ../../c-api/type.rst:542
+#: ../../c-api/type.rst:557
 msgid ""
 "If it is not possible to switch to a ``MANAGED`` flag (for example, for "
 "vectorcall or to support Python older than 3.12), specify the offset in :c:"
@@ -683,109 +696,109 @@ msgid ""
 "documentation <pymemberdef-offsets>` for details."
 msgstr ""
 
-#: ../../c-api/type.rst:548
+#: ../../c-api/type.rst:563
 msgid ""
 "The following internal fields cannot be set at all when creating a heap type:"
 msgstr ""
 
-#: ../../c-api/type.rst:551
+#: ../../c-api/type.rst:566
 msgid ""
 ":c:member:`~PyTypeObject.tp_dict`, :c:member:`~PyTypeObject.tp_mro`, :c:"
 "member:`~PyTypeObject.tp_cache`, :c:member:`~PyTypeObject.tp_subclasses`, "
 "and :c:member:`~PyTypeObject.tp_weaklist`."
 msgstr ""
 
-#: ../../c-api/type.rst:557
+#: ../../c-api/type.rst:572
 msgid ""
 "Setting :c:data:`Py_tp_bases` or :c:data:`Py_tp_base` may be problematic on "
 "some platforms. To avoid issues, use the *bases* argument of :c:func:"
 "`PyType_FromSpecWithBases` instead."
 msgstr ""
 
-#: ../../c-api/type.rst:562
+#: ../../c-api/type.rst:577
 msgid "Slots in :c:type:`PyBufferProcs` may be set in the unlimited API."
 msgstr ""
 
-#: ../../c-api/type.rst:565
+#: ../../c-api/type.rst:580
 msgid ""
 ":c:member:`~PyBufferProcs.bf_getbuffer` and :c:member:`~PyBufferProcs."
 "bf_releasebuffer` are now available under the :ref:`limited API <limited-c-"
 "api>`."
 msgstr ""
 
-#: ../../c-api/type.rst:570
+#: ../../c-api/type.rst:585
 msgid ""
 "The field :c:member:`~PyTypeObject.tp_vectorcall` can now set using "
 "``Py_tp_vectorcall``.  See the field's documentation for details."
 msgstr ""
 
-#: ../../c-api/type.rst:577
+#: ../../c-api/type.rst:592
 msgid ""
 "The desired value of the slot. In most cases, this is a pointer to a "
 "function."
 msgstr ""
 
-#: ../../c-api/type.rst:580
+#: ../../c-api/type.rst:595
 msgid "*pfunc* values may not be ``NULL``, except for the following slots:"
 msgstr ""
 
-#: ../../c-api/type.rst:582
+#: ../../c-api/type.rst:597
 msgid "``Py_tp_doc``"
 msgstr ""
 
-#: ../../c-api/type.rst:583
+#: ../../c-api/type.rst:598
 msgid ""
 ":c:data:`Py_tp_token` (for clarity, prefer :c:data:`Py_TP_USE_SPEC` rather "
 "than ``NULL``)"
 msgstr ""
 
-#: ../../c-api/type.rst:588
+#: ../../c-api/type.rst:603
 msgid ""
 "A :c:member:`~PyType_Slot.slot` that records a static memory layout ID for a "
 "class."
 msgstr ""
 
-#: ../../c-api/type.rst:591
+#: ../../c-api/type.rst:606
 msgid ""
 "If the :c:type:`PyType_Spec` of the class is statically allocated, the token "
 "can be set to the spec using the special value :c:data:`Py_TP_USE_SPEC`:"
 msgstr ""
 
-#: ../../c-api/type.rst:595
+#: ../../c-api/type.rst:610
 msgid ""
 "static PyType_Slot foo_slots[] = {\n"
 "   {Py_tp_token, Py_TP_USE_SPEC},"
 msgstr ""
 
-#: ../../c-api/type.rst:600
+#: ../../c-api/type.rst:615
 msgid "It can also be set to an arbitrary pointer, but you must ensure that:"
 msgstr ""
 
-#: ../../c-api/type.rst:602
+#: ../../c-api/type.rst:617
 msgid ""
 "The pointer outlives the class, so it's not reused for something else while "
 "the class exists."
 msgstr ""
 
-#: ../../c-api/type.rst:604
+#: ../../c-api/type.rst:619
 msgid ""
 "It \"belongs\" to the extension module where the class lives, so it will not "
 "clash with other extensions."
 msgstr ""
 
-#: ../../c-api/type.rst:607
+#: ../../c-api/type.rst:622
 msgid ""
 "Use :c:func:`PyType_GetBaseByToken` to check if a class's superclass has a "
 "given token -- that is, check whether the memory layout is compatible."
 msgstr ""
 
-#: ../../c-api/type.rst:610
+#: ../../c-api/type.rst:625
 msgid ""
 "To get the token for a given class (without considering superclasses), use :"
 "c:func:`PyType_GetSlot` with ``Py_tp_token``."
 msgstr ""
 
-#: ../../c-api/type.rst:619
+#: ../../c-api/type.rst:634
 msgid ""
 "Used as a value with :c:data:`Py_tp_token` to set the token to the class's :"
 "c:type:`PyType_Spec`. Expands to ``NULL``."

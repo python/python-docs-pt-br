@@ -29,7 +29,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-16 14:19+0000\n"
+"POT-Creation-Date: 2025-05-23 14:20+0000\n"
 "PO-Revision-Date: 2021-06-28 01:04+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -557,6 +557,8 @@ msgid ""
 "Since the string representation of :class:`!timedelta` objects can be "
 "confusing, use the following recipe to produce a more readable format:"
 msgstr ""
+"Como a representação de string dos objetos :class:`!timedelta` pode ser "
+"confusa, use a seguinte receita para produzir um formato mais legível:"
 
 #: ../../library/datetime.rst:267
 msgid ""
@@ -571,6 +573,16 @@ msgid ""
 ">>> pretty_timedelta(d)\n"
 "'-(1:00:00)'"
 msgstr ""
+">>> def pretty_timedelta(td):\n"
+"...     if td.days >= 0:\n"
+"...         return str(td)\n"
+"...     return f'-({-td!s})'\n"
+"...\n"
+">>> d = timedelta(hours=-1)\n"
+">>> str(d)  # not human-friendly\n"
+"'-1 day, 23:00:00'\n"
+">>> pretty_timedelta(d)\n"
+"'-(1:00:00)'"
 
 #: ../../library/datetime.rst:281 ../../library/datetime.rst:615
 #: ../../library/datetime.rst:1175 ../../library/datetime.rst:1813
@@ -1195,10 +1207,12 @@ msgid ""
 "Return a :class:`.date` corresponding to *date_string*, parsed according to "
 "*format*. This is equivalent to::"
 msgstr ""
+"Retorna um :class:`.date` correspondente ao *date_string*, analisado de "
+"acordo com *format*. Isso equivale a::"
 
 #: ../../library/datetime.rst:586
 msgid "date(*(time.strptime(date_string, format)[0:3]))"
-msgstr ""
+msgstr "date(*(time.strptime(date_string, format)[0:3]))"
 
 #: ../../library/datetime.rst:588
 msgid ""
@@ -1206,6 +1220,10 @@ msgid ""
 "by :func:`time.strptime` or if it returns a value which isn't a time tuple.  "
 "See also :ref:`strftime-strptime-behavior` and :meth:`date.fromisoformat`."
 msgstr ""
+":exc:`ValueError` é levantado se o date_string e o format não puderem ser "
+"interpretados por :func:`time.strptime` ou se ele retorna um valor o qual "
+"não é uma tupla temporal. Veja também :ref:`strftime-strptime-behavior` e :"
+"meth:`date.fromisoformat`."
 
 #: ../../library/datetime.rst:595
 msgid ""
@@ -1217,6 +1235,14 @@ msgid ""
 "year in your *format*.  If parsing *date_string* values that do not have a "
 "year, explicitly add a year that is a leap year before parsing:"
 msgstr ""
+"Se *format* especificar um dia do mês sem um ano, um :exc:"
+"`DeprecationWarning` é emitido. Isso é para evitar um bug de ano bissexto "
+"quadrienal no código que busca analisar apenas um mês e dia, pois o ano "
+"padrão usado na ausência de um no formato não é um ano bissexto. Esses "
+"valores de *format* podem gerar um erro a partir do Python 3.15. A solução "
+"alternativa é sempre incluir um ano em seu *format*. Se estiver analisando "
+"valores de *date_string* que não têm um ano, adicione explicitamente um ano "
+"que seja um ano bissexto antes da análise:"
 
 #: ../../library/datetime.rst:604
 msgid ""
@@ -1227,6 +1253,12 @@ msgid ""
 ">>> when.strftime(\"%B %d\")\n"
 "'February 29'"
 msgstr ""
+">>> from datetime import date\n"
+">>> date_string = \"02/29\"\n"
+">>> when = date.strptime(f\"{date_string};1984\", \"%m/%d;%Y\")  # Evita bug "
+"do ano  bissexto.\n"
+">>> when.strftime(\"%B %d\")\n"
+"'February 29'"
 
 #: ../../library/datetime.rst:619
 msgid "The earliest representable date, ``date(MINYEAR, 1, 1)``."
@@ -3488,7 +3520,7 @@ msgstr ""
 
 #: ../../library/datetime.rst:1897
 msgid "Other constructors:"
-msgstr ""
+msgstr "Outros construtores:"
 
 #: ../../library/datetime.rst:1901
 msgid ""
@@ -3571,6 +3603,8 @@ msgid ""
 "Return a :class:`.time` corresponding to *date_string*, parsed according to "
 "*format*."
 msgstr ""
+"Retorna um :class:`.time` correspondente ao *date_string*, analisado de "
+"acordo com *format*."
 
 #: ../../library/datetime.rst:1944
 msgid ""
@@ -3582,7 +3616,7 @@ msgstr ""
 
 #: ../../library/datetime.rst:1946
 msgid "time(*(time.strptime(date_string, format)[3:6]))"
-msgstr ""
+msgstr "time(*(time.strptime(date_string, format)[3:6]))"
 
 #: ../../library/datetime.rst:1948
 msgid ""
@@ -3591,6 +3625,10 @@ msgid ""
 "tuple.  See also :ref:`strftime-strptime-behavior` and :meth:`time."
 "fromisoformat`."
 msgstr ""
+":exc:`ValueError` é levantado se o *date_string* e o *format* não puderem "
+"ser interpretados por :func:`time.strptime` ou se ele retorna um valor o "
+"qual não é uma tupla temporal. Veja também :ref:`strftime-strptime-behavior` "
+"e :meth:`time.fromisoformat`."
 
 #: ../../library/datetime.rst:1961
 msgid ""
@@ -4877,6 +4915,9 @@ msgid ""
 "`time.strptime` class methods create an object from a string representing "
 "the time and a corresponding format string."
 msgstr ""
+"Em recíproca, os métodos de classe :meth:`date.strptime`, :meth:`datetime."
+"strptime` e :meth:`time.strptime` criam um objeto a partir de uma string "
+"representando o tempo e uma string de formatação correspondente."
 
 #: ../../library/datetime.rst:2457
 msgid ""
@@ -4904,7 +4945,7 @@ msgstr "Converte objeto para uma string conforme um formato fornecido"
 
 #: ../../library/datetime.rst:2463
 msgid "Parse a string into an object given a corresponding format"
-msgstr ""
+msgstr "Interpreta uma string como um objeto dado um formato correspondente"
 
 #: ../../library/datetime.rst:2465
 msgid "Type of method"
