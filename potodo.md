@@ -71,7 +71,7 @@
 
 
 
-# library (63.09% done)
+# library (63.13% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        77 /  84 ( 91.0% translated).
@@ -138,7 +138,7 @@
 - imghdr.po                       20 /  42 ( 47.0% translated).
 - importlib.po                   240 / 304 ( 78.0% translated).
 - importlib.resources.po          38 /  47 ( 80.0% translated).
-- inspect.po                      78 / 383 ( 20.0% translated).
+- inspect.po                      81 / 383 ( 21.0% translated).
 - io.po                           21 / 271 (  7.0% translated).
 - itertools.po                   149 / 193 ( 77.0% translated).
 - logging.config.po               15 / 171 (  8.0% translated).
@@ -178,7 +178,7 @@
 - sqlite3.po                     114 / 469 ( 24.0% translated).
 - ssl.po                          59 / 520 ( 11.0% translated).
 - statistics.po                  229 / 241 ( 95.0% translated).
-- string.po                      206 / 220 ( 93.0% translated).
+- string.po                      218 / 220 ( 99.0% translated).
 - struct.po                       96 / 194 ( 49.0% translated).
 - subprocess.po                  149 / 321 ( 46.0% translated).
 - symtable.po                      4 /  50 (  8.0% translated).
@@ -254,5 +254,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (68.05% done)
+# TOTAL (68.07% done)
 
