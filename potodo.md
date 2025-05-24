@@ -71,14 +71,13 @@
 
 
 
-# howto (59.48% done)
+# howto (59.51% done)
 
 - annotations.po                  46 /  52 ( 88.0% translated).
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                  187 / 230 ( 81.0% translated).
 - enum.po                         62 / 327 ( 18.0% translated).
 - free-threading-extensions.po    70 / 105 ( 66.0% translated).
-- free-threading-python.po        44 /  45 ( 97.0% translated).
 - functional.po                  138 / 252 ( 54.0% translated).
 - isolating-extensions.po        132 / 134 ( 98.0% translated).
 - logging-cookbook.po             40 / 423 (  9.0% translated).
@@ -95,7 +94,7 @@
 
 
 
-# library (63.05% done)
+# library (63.07% done)
 
 - _thread.po                      51 /  52 ( 98.0% translated).
 - archiving.po                     1 /   2 ( 50.0% translated).
@@ -187,7 +186,6 @@
 - profile.po                      34 / 181 ( 18.0% translated).
 - pyexpat.po                      21 / 145 ( 14.0% translated).
 - queue.po                         9 /  53 ( 16.0% translated).
-- re.po                          438 / 442 ( 99.0% translated).
 - readline.po                     52 /  57 ( 91.0% translated).
 - sched.po                         4 /  25 ( 16.0% translated).
 - select.po                       78 / 209 ( 37.0% translated).
@@ -198,7 +196,6 @@
 - socket.po                       51 / 383 ( 13.0% translated).
 - sqlite3.po                     116 / 475 ( 24.0% translated).
 - ssl.po                          61 / 545 ( 11.0% translated).
-- stdtypes.po                    1492 / 1496 ( 99.0% translated).
 - struct.po                       97 / 204 ( 47.0% translated).
 - subprocess.po                  149 / 311 ( 47.0% translated).
 - symtable.po                      6 /  73 (  8.0% translated).
@@ -244,9 +241,8 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (98.45% done)
+# reference (98.48% done)
 
-- compound_stmts.po              479 / 480 ( 99.0% translated).
 - datamodel.po                   856 / 886 ( 96.0% translated).
 - executionmodel.po              102 / 107 ( 95.0% translated).
 - expressions.po                 531 / 538 ( 98.0% translated).
@@ -264,7 +260,7 @@
 - windows.po                     338 / 536 ( 63.0% translated).
 
 
-# whatsnew (44.89% done)
+# whatsnew (44.90% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -272,7 +268,6 @@
 - 2.6.po                         541 / 626 ( 86.0% translated).
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
-- 3.10.po                        548 / 550 ( 99.0% translated).
 - 3.13.po                        929 / 931 ( 99.0% translated).
 - 3.14.po                        323 / 922 ( 35.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
@@ -283,5 +278,5 @@
 - changelog.po                   2597 / 13274 ( 19.0% translated).
 
 
-# TOTAL (59.19% done)
+# TOTAL (59.20% done)
 
