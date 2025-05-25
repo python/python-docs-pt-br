@@ -94,7 +94,7 @@
 
 
 
-# library (63.07% done)
+# library (63.08% done)
 
 - _thread.po                      51 /  52 ( 98.0% translated).
 - archiving.po                     1 /   2 ( 50.0% translated).
@@ -166,7 +166,7 @@
 - itertools.po                   155 / 201 ( 77.0% translated).
 - json.po                        165 / 177 ( 93.0% translated).
 - locale.po                      148 / 150 ( 98.0% translated).
-- logging.config.po               15 / 171 (  8.0% translated).
+- logging.config.po               18 / 171 ( 10.0% translated).
 - logging.handlers.po             52 / 273 ( 19.0% translated).
 - logging.po                      98 / 369 ( 26.0% translated).
 - mailbox.po                      10 / 307 (  3.0% translated).
@@ -278,5 +278,5 @@
 - changelog.po                   2597 / 13274 ( 19.0% translated).
 
 
-# TOTAL (59.20% done)
+# TOTAL (59.21% done)
 
