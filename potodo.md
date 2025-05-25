@@ -85,7 +85,7 @@
 
 
 
-# library (62.74% done)
+# library (62.75% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          48 /  49 ( 97.0% translated).
@@ -180,7 +180,7 @@
 - ipaddress.po                   155 / 156 ( 99.0% translated).
 - itertools.po                   131 / 157 ( 83.0% translated).
 - locale.po                      146 / 151 ( 96.0% translated).
-- logging.config.po               14 / 134 ( 10.0% translated).
+- logging.config.po               17 / 134 ( 12.0% translated).
 - logging.handlers.po             51 / 268 ( 19.0% translated).
 - logging.po                      99 / 351 ( 28.0% translated).
 - mailbox.po                      10 / 285 (  3.0% translated).
