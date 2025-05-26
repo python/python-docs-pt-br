@@ -71,7 +71,7 @@
 
 
 
-# howto (59.51% done)
+# howto (59.59% done)
 
 - annotations.po                  46 /  52 ( 88.0% translated).
 - curses.po                       58 / 121 ( 47.0% translated).
@@ -82,7 +82,7 @@
 - isolating-extensions.po        132 / 134 ( 98.0% translated).
 - logging-cookbook.po             40 / 423 (  9.0% translated).
 - logging.po                     120 / 250 ( 48.0% translated).
-- regex.po                       319 / 334 ( 95.0% translated).
+- regex.po                       322 / 334 ( 96.0% translated).
 - remote_debugging.po              0 / 106 (  0.0% translated).
 - sockets.po                      35 /  63 ( 55.0% translated).
 - sorting.po                      44 /  92 ( 47.0% translated).
@@ -269,7 +269,7 @@
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
 - 3.13.po                        929 / 931 ( 99.0% translated).
-- 3.14.po                        323 / 922 ( 35.0% translated).
+- 3.14.po                        325 / 922 ( 35.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
 - 3.5.po                         125 / 578 ( 21.0% translated).
