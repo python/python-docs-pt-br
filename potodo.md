@@ -1,8 +1,7 @@
 
 
-# 3.13 (98.55% done)
+# 3.13 (100.00% done)
 
-- sphinx.po                      101 / 111 ( 90.0% translated).
 
 
 # c-api (54.59% done)
@@ -85,7 +84,6 @@
 - base64.po                       15 /  71 ( 21.0% translated).
 - bdb.po                           9 / 112 (  8.0% translated).
 - binascii.po                     23 /  38 ( 60.0% translated).
-- code.po                         32 /  33 ( 96.0% translated).
 - codecs.po                      250 / 532 ( 46.0% translated).
 - concurrent.futures.po           14 / 100 ( 14.0% translated).
 - contextlib.po                   55 / 172 ( 31.0% translated).
@@ -198,7 +196,7 @@
 - cmdline.po                     248 / 249 ( 99.0% translated).
 
 
-# whatsnew (46.25% done)
+# whatsnew (46.26% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -206,7 +204,7 @@
 - 2.6.po                         542 / 626 ( 86.0% translated).
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
-- 3.13.po                        877 / 882 ( 99.0% translated).
+- 3.13.po                        879 / 882 ( 99.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
 - 3.5.po                         125 / 578 ( 21.0% translated).
@@ -215,5 +213,5 @@
 - changelog.po                   2446 / 12353 ( 19.0% translated).
 
 
-# TOTAL (61.46% done)
+# TOTAL (61.48% done)
 
