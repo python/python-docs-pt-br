@@ -1,9 +1,7 @@
 
 
-# 3.14 (98.31% done)
+# 3.14 (100.00% done)
 
-- glossary.po                    425 / 427 ( 99.0% translated).
-- sphinx.po                      101 / 111 ( 90.0% translated).
 
 
 # c-api (47.95% done)
@@ -94,7 +92,7 @@
 
 
 
-# library (63.08% done)
+# library (63.10% done)
 
 - _thread.po                      51 /  52 ( 98.0% translated).
 - archiving.po                     1 /   2 ( 50.0% translated).
@@ -116,9 +114,7 @@
 - bdb.po                           9 / 119 (  7.0% translated).
 - binascii.po                     23 /  38 ( 60.0% translated).
 - cmath.po                       119 / 124 ( 95.0% translated).
-- code.po                         32 /  33 ( 96.0% translated).
 - codecs.po                      250 / 535 ( 46.0% translated).
-- compression.po                   0 /   7 (  0.0% translated).
 - compression.zstd.po             16 / 160 ( 10.0% translated).
 - concurrent.futures.po           12 / 121 (  9.0% translated).
 - configparser.po                219 / 226 ( 96.0% translated).
@@ -241,12 +237,11 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (98.48% done)
+# reference (98.52% done)
 
 - datamodel.po                   856 / 886 ( 96.0% translated).
 - executionmodel.po              102 / 107 ( 95.0% translated).
 - expressions.po                 531 / 538 ( 98.0% translated).
-- grammar.po                       3 /   4 ( 75.0% translated).
 - import.po                      199 / 200 ( 99.0% translated).
 
 
@@ -260,7 +255,7 @@
 - windows.po                     338 / 536 ( 63.0% translated).
 
 
-# whatsnew (44.90% done)
+# whatsnew (44.92% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -268,8 +263,7 @@
 - 2.6.po                         541 / 626 ( 86.0% translated).
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
-- 3.13.po                        929 / 931 ( 99.0% translated).
-- 3.14.po                        325 / 922 ( 35.0% translated).
+- 3.14.po                        326 / 922 ( 35.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
 - 3.5.po                         125 / 578 ( 21.0% translated).
@@ -278,5 +272,5 @@
 - changelog.po                   2597 / 13274 ( 19.0% translated).
 
 
-# TOTAL (59.21% done)
+# TOTAL (59.24% done)
 
