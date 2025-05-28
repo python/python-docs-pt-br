@@ -48,7 +48,7 @@
 
 
 
-# howto (62.67% done)
+# howto (62.86% done)
 
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                  187 / 230 ( 81.0% translated).
@@ -57,7 +57,7 @@
 - isolating-extensions.po        132 / 134 ( 98.0% translated).
 - logging-cookbook.po             40 / 421 (  9.0% translated).
 - logging.po                     121 / 250 ( 48.0% translated).
-- regex.po                       320 / 332 ( 96.0% translated).
+- regex.po                       326 / 332 ( 98.0% translated).
 - sockets.po                      35 /  63 ( 55.0% translated).
 - sorting.po                      46 /  75 ( 61.0% translated).
 - unicode.po                      30 / 145 ( 20.0% translated).
@@ -68,7 +68,7 @@
 
 
 
-# library (64.48% done)
+# library (64.50% done)
 
 - array.po                        84 /  86 ( 97.0% translated).
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
@@ -121,7 +121,6 @@
 - inspect.po                      81 / 390 ( 20.0% translated).
 - io.po                           21 / 272 (  7.0% translated).
 - itertools.po                   156 / 200 ( 78.0% translated).
-- json.po                        170 / 176 ( 96.0% translated).
 - logging.config.po               18 / 171 ( 10.0% translated).
 - logging.handlers.po             51 / 271 ( 18.0% translated).
 - logging.po                      99 / 369 ( 26.0% translated).
@@ -213,5 +212,5 @@
 - changelog.po                   2446 / 12353 ( 19.0% translated).
 
 
-# TOTAL (61.48% done)
+# TOTAL (61.50% done)
 
