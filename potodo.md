@@ -48,14 +48,12 @@
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
 
-# faq (99.91% done)
-
-- extending.po                    63 /  64 ( 98.0% translated).
+# faq (100.00% done)
 
 
-# howto (62.86% done)
 
-- cporting.po                      4 /   5 ( 80.0% translated).
+# howto (62.89% done)
+
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                  187 / 230 ( 81.0% translated).
 - enum.po                         62 / 327 ( 18.0% translated).
@@ -75,7 +73,7 @@
 
 
 
-# library (64.47% done)
+# library (64.48% done)
 
 - array.po                        84 /  86 ( 97.0% translated).
 - ast.po                         317 / 318 ( 99.0% translated).
@@ -154,7 +152,6 @@
 - socket.po                       53 / 367 ( 14.0% translated).
 - sqlite3.po                     116 / 477 ( 24.0% translated).
 - ssl.po                          61 / 544 ( 11.0% translated).
-- stdtypes.po                    1382 / 1384 ( 99.0% translated).
 - string.po                      218 / 220 ( 99.0% translated).
 - struct.po                       96 / 195 ( 49.0% translated).
 - subprocess.po                  149 / 327 ( 45.0% translated).
@@ -221,5 +218,5 @@
 - changelog.po                   2446 / 12361 ( 19.0% translated).
 
 
-# TOTAL (61.46% done)
+# TOTAL (61.47% done)
 
