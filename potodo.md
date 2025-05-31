@@ -68,15 +68,13 @@
 - windows.po                      20 /  28 ( 71.0% translated).
 
 
-# faq (99.91% done)
-
-- extending.po                    63 /  64 ( 98.0% translated).
+# faq (100.00% done)
 
 
-# howto (59.83% done)
+
+# howto (59.86% done)
 
 - annotations.po                  48 /  52 ( 92.0% translated).
-- cporting.po                      4 /   5 ( 80.0% translated).
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                  187 / 230 ( 81.0% translated).
 - enum.po                         62 / 327 ( 18.0% translated).
@@ -97,10 +95,9 @@
 
 
 
-# library (63.09% done)
+# library (63.10% done)
 
 - _thread.po                      51 /  52 ( 98.0% translated).
-- annotationlib.po               136 / 137 ( 99.0% translated).
 - archiving.po                     1 /   2 ( 50.0% translated).
 - argparse.po                    370 / 398 ( 92.0% translated).
 - array.po                        84 /  86 ( 97.0% translated).
@@ -197,7 +194,6 @@
 - socket.po                       51 / 383 ( 13.0% translated).
 - sqlite3.po                     116 / 475 ( 24.0% translated).
 - ssl.po                          61 / 545 ( 11.0% translated).
-- stdtypes.po                    1496 / 1498 ( 99.0% translated).
 - struct.po                       97 / 204 ( 47.0% translated).
 - subprocess.po                  149 / 311 ( 47.0% translated).
 - symtable.po                      6 /  73 (  8.0% translated).
@@ -243,9 +239,9 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (97.39% done)
+# reference (97.66% done)
 
-- datamodel.po                   856 / 888 ( 96.0% translated).
+- datamodel.po                   864 / 888 ( 97.0% translated).
 - executionmodel.po              102 / 107 ( 95.0% translated).
 - expressions.po                 531 / 538 ( 98.0% translated).
 - import.po                      199 / 200 ( 99.0% translated).
@@ -279,5 +275,5 @@
 - changelog.po                   2597 / 13300 ( 19.0% translated).
 
 
-# TOTAL (59.17% done)
+# TOTAL (59.19% done)
 
