@@ -4,10 +4,9 @@
 
 
 
-# c-api (54.44% done)
+# c-api (54.46% done)
 
 - allocation.po                   10 /  11 ( 90.0% translated).
-- code.po                         58 /  59 ( 98.0% translated).
 - exceptions.po                  194 / 370 ( 52.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
 - frame.po                        20 /  42 ( 47.0% translated).
@@ -38,12 +37,10 @@
 
 
 
-# extending (15.21% done)
+# extending (15.70% done)
 
-- building.po                      9 /  10 ( 90.0% translated).
 - embedding.po                     4 /  59 (  6.0% translated).
 - extending.po                    15 / 209 (  7.0% translated).
-- index.po                         9 /  11 ( 81.0% translated).
 - newtypes.po                      8 / 117 (  6.0% translated).
 - newtypes_tutorial.po            25 / 177 ( 14.0% translated).
 
@@ -52,7 +49,7 @@
 
 
 
-# howto (62.89% done)
+# howto (62.95% done)
 
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                  187 / 230 ( 81.0% translated).
@@ -62,7 +59,7 @@
 - isolating-extensions.po        132 / 134 ( 98.0% translated).
 - logging-cookbook.po             40 / 421 (  9.0% translated).
 - logging.po                     121 / 250 ( 48.0% translated).
-- regex.po                       328 / 332 ( 98.0% translated).
+- regex.po                       330 / 332 ( 99.0% translated).
 - sockets.po                      35 /  63 ( 55.0% translated).
 - sorting.po                      46 /  75 ( 61.0% translated).
 - unicode.po                      30 / 145 ( 20.0% translated).
@@ -73,10 +70,9 @@
 
 
 
-# library (64.48% done)
+# library (64.50% done)
 
 - array.po                        84 /  86 ( 97.0% translated).
-- ast.po                         317 / 318 ( 99.0% translated).
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 409 ( 75.0% translated).
 - asyncio-future.po                9 /  64 ( 14.0% translated).
@@ -96,7 +92,6 @@
 - ctypes.po                      104 / 530 ( 19.0% translated).
 - curses.po                       66 / 486 ( 13.0% translated).
 - dataclasses.po                  45 / 155 ( 29.0% translated).
-- decimal.po                     370 / 378 ( 97.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
 - dis.po                         208 / 396 ( 52.0% translated).
 - doctest.po                      88 / 376 ( 23.0% translated).
@@ -212,11 +207,11 @@
 - 3.13.po                        879 / 882 ( 99.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
-- 3.5.po                         125 / 578 ( 21.0% translated).
+- 3.5.po                         126 / 578 ( 21.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
 - changelog.po                   2446 / 12361 ( 19.0% translated).
 
 
-# TOTAL (61.47% done)
+# TOTAL (61.49% done)
 
