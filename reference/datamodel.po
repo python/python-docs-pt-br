@@ -1967,6 +1967,9 @@ msgid ""
 "see :mod:`annotationlib`. Use :func:`annotationlib.get_annotations` instead "
 "of accessing this attribute directly."
 msgstr ""
+"Para melhores práticas sobre como trabalhar com :attr:`~object."
+"__annotations__`, consulte :mod:`annotationlib`. Use :func:`annotationlib."
+"get_annotations` em vez de acessar este atributo diretamente."
 
 #: ../../reference/datamodel.rst:1237
 msgid ""
@@ -1976,12 +1979,19 @@ msgid ""
 "__future__ import annotations``. See :pep:`749 <749#pep749-metaclasses>` for "
 "details."
 msgstr ""
+"Acessar o atributo :attr:`!__annotations__` diretamente em um objeto classe "
+"pode retornar anotações para a classe errada, especialmente em certos casos "
+"em que a classe, sua classe base ou uma metaclasse é definida em ``from "
+"__future__ import annotations``. Consulte a :pep:`749 <749#pep749-"
+"metaclasses>` para obter detalhes."
 
 #: ../../reference/datamodel.rst:1243
 msgid ""
 "This attribute does not exist on certain builtin classes. On user-defined "
 "classes without ``__annotations__``, it is an empty dictionary."
 msgstr ""
+"Este atributo não existe em certas classes embutidas. Em classes definidas "
+"pelo usuário sem ``__annotations__``, ele é um dicionário vazio."
 
 #: ../../reference/datamodel.rst:1252
 msgid ""
@@ -1989,6 +1999,9 @@ msgid ""
 "no annotations. See also: :attr:`__annotate__ attributes <object."
 "__annotate__>`."
 msgstr ""
+"A :term:`função de anotação` para esta classe, ou ``None`` se a classe não "
+"tiver anotações. Veja também: :attr:`atributos __annotate__ <object."
+"__annotate__>`."
 
 #: ../../reference/datamodel.rst:1259
 msgid ""
@@ -2383,6 +2396,9 @@ msgid ""
 "the first item in :attr:`~codeobject.co_consts` is the docstring of the "
 "function."
 msgstr ""
+"Se um objeto código representa uma função e tem uma docstring, o bit :data:"
+"`~inspect.CO_HAS_DOCSTRING` é definido em :attr:`~codeobject.co_flags` e o "
+"primeiro item em :attr:`~codeobject.co_consts` é a docstring da função."
 
 #: ../../reference/datamodel.rst:1542
 msgid "Methods on code objects"
@@ -5514,6 +5530,16 @@ msgid ""
 "optional third argument if the three-argument version of the built-in :func:"
 "`pow` function is to be supported."
 msgstr ""
+"Esses métodos são chamados para implementar as operações aritméticas "
+"binárias (``+``, ``-``, ``*``, ``@``, ``/``, ``//``, ``%``, :func:`divmod`, :"
+"func:`pow`, ``**``, ``<<``, ``>>``, ``&``, ``^``, ``|``). Por exemplo, para "
+"avaliar a expressão ``x + y``, onde *x* é uma instância de uma classe que "
+"tem um método :meth:`__add__`, ``type(x).__add__(x, y)`` é chamado. O "
+"método :meth:`__divmod__` deve ser equivalente a usar :meth:`__floordiv__` "
+"e :meth:`__mod__`; não deve estar relacionado a :meth:`__truediv__`. Note "
+"que :meth:`__pow__` deve ser definido para aceitar um terceiro argumento "
+"opcional se a versão de três argumentos da função embutida :func:`pow` for "
+"suportada."
 
 #: ../../reference/datamodel.rst:3323
 msgid ""
@@ -5536,6 +5562,17 @@ msgid ""
 "__rsub__(y, x)`` is called if ``type(x).__sub__(x, y)`` returns :data:"
 "`NotImplemented` or ``type(y)`` is a subclass of ``type(x)``. [#]_"
 msgstr ""
+"Esses métodos são chamados para implementar as operações aritméticas "
+"binárias (``+``, ``-``, ``*``, ``@``, ``/``, ``//``, ``%``, :func:`divmod`, :"
+"func:`pow`, ``**``, ``<<``, ``>>``, ``&``, ``^``, ``|``) com operandos "
+"refletidos (trocados). Essas funções são chamadas apenas se os operandos "
+"tiverem tipos diferentes, quando o operando esquerdo não oferecer suporte a "
+"operação correspondente [#]_, ou a classe do operando direito é derivada da "
+"classe do operando esquerdo. [#]_ Por exemplo, para avaliar a expressão ``x "
+"- y``, onde *y* é uma instância de uma classe que tem um método :meth:"
+"`__rsub__`, ``type(y).__rsub__(y, x)`` é chamado se ``type(x).__sub__(x, "
+"y)`` retorna :data:`NotImplemented` ou ``type(y)`` é uma subclasse de "
+"``type(x)``. [#]_"
 
 #: ../../reference/datamodel.rst:3357
 msgid ""
@@ -5543,6 +5580,9 @@ msgid ""
 "argument if the three-argument version of the built-in :func:`pow` function "
 "is to be supported."
 msgstr ""
+"Observe que :meth:`__rpow__` deve ser definido para aceitar um terceiro "
+"argumento opcional se a versão de três argumentos da função embutida :func:"
+"`pow` for suportada."
 
 #: ../../reference/datamodel.rst:3363
 msgid ""
@@ -5550,6 +5590,9 @@ msgid ""
 "necessary. Previously it was only called in two-argument :func:`!pow` and "
 "the binary power operator."
 msgstr ""
+":func:`pow` de três argumentos agora tenta chamar :meth:`~object.__rpow__` "
+"se necessário. Anteriormente, ele só era chamado em :func:`!pow` de dois "
+"argumentos e no operador binário de potência."
 
 #: ../../reference/datamodel.rst:3369
 msgid ""
@@ -5885,6 +5928,9 @@ msgid ""
 "<annotation>`, which are a way to associate information (usually :term:`type "
 "hints <type hint>`) with a symbol."
 msgstr ""
+"Funções, classes e módulos podem conter :term:`anotações <annotation>`, que "
+"são uma maneira de associar informações (geralmente :term:`dicas de tipo "
+"<type hint>`) a um símbolo."
 
 #: ../../reference/datamodel.rst:3593
 msgid ""
@@ -5893,16 +5939,23 @@ msgid ""
 "arbitrary code and raise exceptions. If evaluation is successful, the "
 "attribute is set to a dictionary mapping from variable names to annotations."
 msgstr ""
+"Este atributo contém as anotações de um objeto. Ele é `avaliado "
+"preguiçosamente <lazy-evaluation>`, portanto, acessá-lo pode executar código "
+"arbitrário e levantar exceções. Se a avaliação for bem-sucedida, o atributo "
+"é definido como um mapeamento de dicionário de nomes de variáveis ​​para "
+"anotações."
 
 #: ../../reference/datamodel.rst:3598
 msgid "Annotations are now lazily evaluated."
-msgstr ""
+msgstr "Anotações são agora avaliados preguiçosamente."
 
 #: ../../reference/datamodel.rst:3603
 msgid ""
 "An :term:`annotate function`. Returns a new dictionary object mapping "
 "attribute/parameter names to their annotation values."
 msgstr ""
+"Uma :term:`função de anotação`. Retorna um novo objeto dicionário mapeando "
+"nomes de atributos/parâmetros aos seus valores de anotação."
 
 #: ../../reference/datamodel.rst:3606
 msgid ""
@@ -5910,6 +5963,10 @@ msgid ""
 "should be provided. It must be a member of the :class:`annotationlib.Format` "
 "enum, or an integer with a value corresponding to a member of the enum."
 msgstr ""
+"Recebe um parâmetro de formato que especifica o formato em que os valores "
+"das anotações devem ser fornecidos. Deve ser um membro da enumeração :class:"
+"`annotationlib.Format` ou um inteiro com um valor correspondente a um membro "
+"da enumeração."
 
 #: ../../reference/datamodel.rst:3610
 msgid ""
@@ -5918,6 +5975,10 @@ msgid ""
 "`~annotationlib.Format.VALUE` format; they must not raise :exc:"
 "`NotImplementedError()` when called with this format."
 msgstr ""
+"Se uma função de anotação não oferecer suporte ao formato solicitado, ela "
+"deverá levantar :exc:`NotImplementedError`. Funções de anotação devem sempre "
+"oferecer suporte ao formato :attr:`~annotationlib.Format.VALUE`; elas não "
+"devem levantar :exc:`NotImplementedError()` quando chamadas com este formato."
 
 #: ../../reference/datamodel.rst:3615
 msgid ""
@@ -5925,6 +5986,9 @@ msgid ""
 "function may raise :exc:`NameError`; it must not raise :exc:`!NameError` "
 "when called requesting any other format."
 msgstr ""
+"Quando chamada com o formato :attr:`~annotationlib.Format.VALUE`, uma função "
+"de anotação pode levantar :exc:`NameError`; ela não deve levantar :exc:`!"
+"NameError` quando chamada solicitando qualquer outro formato."
 
 #: ../../reference/datamodel.rst:3618
 msgid ""
@@ -5932,15 +5996,19 @@ msgid ""
 "should preferably be set to ``None`` (it can’t be deleted), rather than set "
 "to a function that returns an empty dict."
 msgstr ""
+"Se um objeto não tiver nenhuma anotação, :attr:`~object.__annotate__` deve "
+"ser preferencialmente definido como ``None`` (não pode ser excluído), em vez "
+"de ser definido como uma função que retorna um dicionário vazio."
 
 #: ../../reference/datamodel.rst:3625
 msgid ":pep:`649` --- Deferred evaluation of annotation using descriptors"
-msgstr ""
+msgstr ":pep:`649` --- Avaliação diferida de anotação usando descritores"
 
 #: ../../reference/datamodel.rst:3626
 msgid ""
 "Introduces lazy evaluation of annotations and the ``__annotate__`` function."
 msgstr ""
+"Apresenta a avaliação preguiçosa de anotações e a função ``__annotate__``."
 
 #: ../../reference/datamodel.rst:3632
 msgid "Special method lookup"
@@ -6451,6 +6519,9 @@ msgid ""
 "method (such as :meth:`~object.__add__`) fails then the operation is not "
 "supported, which is why the reflected method is not called."
 msgstr ""
+"Para operandos do mesmo tipo, presume-se que se o método não refletido "
+"(como :meth:`~object.__add__`) falhar, a operação não será suportada, razão "
+"pela qual o método refletido não é chamado."
 
 #: ../../reference/datamodel.rst:3913
 msgid ""
@@ -6458,6 +6529,9 @@ msgid ""
 "reflected method having precedence allows subclasses to override their "
 "ancestors' operations."
 msgstr ""
+"Se o tipo do operando direito for uma subclasse do tipo do operando "
+"esquerdo, o método tendo precedência permite que as subclasses substituam as "
+"operações de seus ancestrais."
 
 #: ../../reference/datamodel.rst:14 ../../reference/datamodel.rst:152
 #: ../../reference/datamodel.rst:163 ../../reference/datamodel.rst:187
@@ -6848,7 +6922,7 @@ msgstr "__annotations__ (atributo de função)"
 
 #: ../../reference/datamodel.rst:577
 msgid "__annotate__ (function attribute)"
-msgstr ""
+msgstr "__annotate__ (atributo de função)"
 
 #: ../../reference/datamodel.rst:577
 msgid "__kwdefaults__ (function attribute)"
@@ -6956,7 +7030,7 @@ msgstr "__annotations__ (atributo de módulo)"
 
 #: ../../reference/datamodel.rst:893
 msgid "__annotate__ (module attribute)"
-msgstr ""
+msgstr "__annotate__ (atributo de módulo)"
 
 #: ../../reference/datamodel.rst:1119
 msgid "__dict__ (module attribute)"
@@ -7008,7 +7082,7 @@ msgstr "__annotations__ (atributo de classe)"
 
 #: ../../reference/datamodel.rst:1181
 msgid "__annotate__ (class attribute)"
-msgstr ""
+msgstr "__annotate__ (atributo de classe)"
 
 #: ../../reference/datamodel.rst:1181
 msgid "__type_params__ (class attribute)"
