@@ -244,7 +244,7 @@
 - windows.po                     338 / 536 ( 63.0% translated).
 
 
-# whatsnew (44.87% done)
+# whatsnew (44.92% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -258,8 +258,8 @@
 - 3.5.po                         126 / 578 ( 21.0% translated).
 - 3.6.po                         236 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   2597 / 13300 ( 19.0% translated).
+- changelog.po                   2611 / 13300 ( 19.0% translated).
 
 
-# TOTAL (59.50% done)
+# TOTAL (59.52% done)
 
