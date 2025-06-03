@@ -306,7 +306,7 @@
 - windows.po                     307 / 309 ( 99.0% translated).
 
 
-# whatsnew (70.23% done)
+# whatsnew (70.25% done)
 
 - 2.0.po                         137 / 182 ( 75.0% translated).
 - 2.2.po                         138 / 192 ( 71.0% translated).
@@ -319,7 +319,7 @@
 - 3.2.po                          69 / 518 ( 13.0% translated).
 - 3.3.po                         159 / 660 ( 24.0% translated).
 - 3.4.po                         510 / 511 ( 99.0% translated).
-- 3.5.po                         124 / 541 ( 22.0% translated).
+- 3.5.po                         125 / 541 ( 23.0% translated).
 - 3.6.po                         239 / 517 ( 46.0% translated).
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
