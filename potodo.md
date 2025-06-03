@@ -4,13 +4,12 @@
 
 
 
-# c-api (54.46% done)
+# c-api (54.60% done)
 
 - allocation.po                   10 /  11 ( 90.0% translated).
 - exceptions.po                  194 / 370 ( 52.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
 - frame.po                        20 /  42 ( 47.0% translated).
-- function.po                     32 /  39 ( 82.0% translated).
 - gcsupport.po                     9 /  52 ( 17.0% translated).
 - import.po                       33 /  62 ( 53.0% translated).
 - init.po                        165 / 481 ( 34.0% translated).
@@ -49,12 +48,11 @@
 
 
 
-# howto (62.95% done)
+# howto (62.98% done)
 
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                  187 / 230 ( 81.0% translated).
 - enum.po                         62 / 327 ( 18.0% translated).
-- free-threading-extensions.po    70 /  71 ( 98.0% translated).
 - functional.po                  138 / 252 ( 54.0% translated).
 - isolating-extensions.po        132 / 134 ( 98.0% translated).
 - logging-cookbook.po             40 / 421 (  9.0% translated).
@@ -196,7 +194,7 @@
 - cmdline.po                     248 / 249 ( 99.0% translated).
 
 
-# whatsnew (46.25% done)
+# whatsnew (46.27% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -210,8 +208,8 @@
 - 3.5.po                         126 / 578 ( 21.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   2446 / 12361 ( 19.0% translated).
+- changelog.po                   2451 / 12361 ( 19.0% translated).
 
 
-# TOTAL (61.49% done)
+# TOTAL (61.50% done)
 
