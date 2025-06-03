@@ -5,12 +5,11 @@
 - license.po                     116 / 125 ( 92.0% translated).
 
 
-# c-api (54.05% done)
+# c-api (54.18% done)
 
 - exceptions.po                  194 / 366 ( 53.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
 - frame.po                        20 /  36 ( 55.0% translated).
-- function.po                     33 /  39 ( 84.0% translated).
 - gcsupport.po                     9 /  52 ( 17.0% translated).
 - import.po                       36 /  57 ( 63.0% translated).
 - init.po                        143 / 434 ( 32.0% translated).
@@ -254,5 +253,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (68.10% done)
+# TOTAL (68.11% done)
 
