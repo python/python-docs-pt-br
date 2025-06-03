@@ -10,8 +10,8 @@
 # Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2023
 # Vitor Buxbaum Orlandi, 2023
 # Pedro Fonini, 2024
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 # Italo Penaforte <italo.penaforte@gmail.com>, 2025
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
@@ -20,7 +20,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-30 14:22+0000\n"
 "PO-Revision-Date: 2021-06-28 00:50+0000\n"
-"Last-Translator: Italo Penaforte <italo.penaforte@gmail.com>, 2025\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -2651,6 +2651,11 @@ msgid ""
 "cleared object is a partially destroyed object; the object is not obligated "
 "to satisfy design invariants held during normal use."
 msgstr ""
+"O objetivo desta função é interromper os ciclos de referência que estão "
+"causando um :term:`isolado cíclico` para que os objetos possam ser "
+"destruídos com segurança. Um objeto limpo é um objeto parcialmente "
+"destruído; o objeto não é obrigado a satisfazer as invariantes de projeto "
+"mantidas durante o uso normal."
 
 #: ../../c-api/typeobj.rst:1560
 msgid ""
@@ -2675,6 +2680,9 @@ msgid ""
 "in the :term:`cyclic isolate` may remain indefinitely uncollectable "
 "(\"leak\").  See :data:`gc.garbage`."
 msgstr ""
+"Se :c:member:`!tp_clear` não conseguir quebrar um ciclo de referência, os "
+"objetos no :term:`isolado cíclico` poderão permanecer indefinidamente não "
+"coletáveis ​​(\"vazamento\"). Veja :data:`gc.garbage`."
 
 #: ../../c-api/typeobj.rst:1579
 msgid ""
@@ -2727,6 +2735,10 @@ msgid ""
 "the object becomes unreachable (i.e., either there are no references to the "
 "object or the object is a member of a :term:`cyclic isolate`)."
 msgstr ""
+":c:member:`!tp_clear` pode nunca ser chamado automaticamente. O destrutor de "
+"um objeto, por outro lado, será chamado automaticamente algum tempo depois "
+"que o objeto se tornar inacessível (ou seja, ou não há referências ao objeto "
+"ou o objeto é membro de um :term:`isolado cíclico`)."
 
 #: ../../c-api/typeobj.rst:1612
 msgid ""
@@ -2740,6 +2752,9 @@ msgid ""
 "there is a reference to it and it is not a member of a :term:`cyclic "
 "isolate`."
 msgstr ""
+"O Python não limpará automaticamente um objeto se ele for acessível, ou "
+"seja, se houver uma referência a ele e ele não for membro de um :term:"
+"`isolado cíclico`."
 
 #: ../../c-api/typeobj.rst:1618
 msgid ""
@@ -2755,6 +2770,10 @@ msgid ""
 "automatically clear it if any member of the cyclic isolate has not yet been "
 "automatically finalized (:c:member:`~PyTypeObject.tp_finalize`)."
 msgstr ""
+"Se um objeto for membro de um :term:`isolado cíclico`, o Python não o "
+"limpará automaticamente se qualquer membro do isolado cíclico ainda não "
+"tiver sido finalizado automaticamente (:c:member:`~PyTypeObject."
+"tp_finalize`)."
 
 #: ../../c-api/typeobj.rst:1625
 msgid ""
@@ -2776,6 +2795,9 @@ msgid ""
 "reference cycles in a :term:`cyclic isolate`, but future versions might "
 "clear objects regularly before their destruction."
 msgstr ""
+"Atualmente, o CPython limpa objetos automaticamente apenas quando necessário "
+"para quebrar ciclos de referência em um :term:`isolado cíclico`, mas versões "
+"futuras podem limpar objetos regularmente antes de sua destruição."
 
 #: ../../c-api/typeobj.rst:1636
 msgid ""
@@ -3632,6 +3654,12 @@ msgid ""
 "resurrect the object by adding a new reference to the object that does not "
 "make it reachable, i.e., the object is (still) a member of a cyclic isolate."
 msgstr ""
+"Se a função finalizadora foi chamada e o finalizador tornou o objeto "
+"acessível (ou seja, há uma referência ao objeto e ele não é membro de um :"
+"term:`isolado cíclico`), então o finalizador *ressuscitou* o objeto. Não é "
+"especificado se o finalizador também pode ressuscitar o objeto adicionando "
+"uma nova referência ao objeto que não o torne acessível, ou seja, o objeto "
+"(ainda) é membro de um isolado cíclico."
 
 #: ../../c-api/typeobj.rst:2342
 msgid ""
@@ -3655,6 +3683,9 @@ msgid ""
 "there is a reference to it and it is not a member of a :term:`cyclic "
 "isolate`."
 msgstr ""
+"O Python não finalizará automaticamente um objeto se ele for acessível, ou "
+"seja, se houver uma referência a ele e ele não for membro de um :term:"
+"`isolado cíclico`."
 
 #: ../../c-api/typeobj.rst:2355
 msgid ""
@@ -3671,6 +3702,8 @@ msgid ""
 "Python will not automatically finalize any two members of a :term:`cyclic "
 "isolate` concurrently."
 msgstr ""
+"O Python não finalizará automaticamente quaisquer dois membros de um :term:"
+"`isolado cíclico` simultaneamente."
 
 #: ../../c-api/typeobj.rst:2363
 msgid ""
@@ -3684,6 +3717,9 @@ msgid ""
 "automatically finalize it after automatically clearing (see :c:member:"
 "`~PyTypeObject.tp_clear`) any other member."
 msgstr ""
+"Se um objeto for membro de um :term:`isolado cíclico`, o Python não o "
+"finalizará automaticamente após limpar automaticamente (veja :c:member:"
+"`~PyTypeObject.tp_clear`) qualquer outro membro."
 
 #: ../../c-api/typeobj.rst:2368
 msgid ""
@@ -3691,6 +3727,9 @@ msgid ""
 "before it automatically clears (see :c:member:`~PyTypeObject.tp_clear`) any "
 "of them."
 msgstr ""
+"O Python finalizará automaticamente cada membro de um :term:`isolado "
+"cíclico` antes de limpar automaticamente (veja :c:member:`~PyTypeObject."
+"tp_clear`) qualquer um deles."
 
 #: ../../c-api/typeobj.rst:2371
 msgid ""
@@ -3704,6 +3743,9 @@ msgid ""
 "term:`cyclic isolate`, but future versions might finalize objects regularly "
 "before their destruction."
 msgstr ""
+"Atualmente, o Python finaliza automaticamente apenas objetos que são membros "
+"de um :term:`isolado cíclico`, mas versões futuras podem finalizar objetos "
+"regularmente antes de sua destruição."
 
 #: ../../c-api/typeobj.rst:2379
 msgid ""

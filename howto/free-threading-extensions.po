@@ -6,7 +6,7 @@
 # Translators:
 # felipe caridade fernandes <caridade500@gmail.com>, 2024
 # Adorilson Bezerra <adorilson@gmail.com>, 2024
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
@@ -15,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-30 14:22+0000\n"
 "PO-Revision-Date: 2024-06-20 06:42+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -74,6 +74,10 @@ msgid ""
 "can be used to determine whether the current running interpreter had the "
 "macro defined."
 msgstr ""
+"No Windows, esta macro não é definida automaticamente, mas deve ser "
+"especificada ao compilador durante a compilação. A função :func:`sysconfig."
+"get_config_var` pode ser usada para determinar se o interpretador em "
+"execução tinha a macro definida."
 
 #: ../../howto/free-threading-extensions.rst:35
 msgid "Module Initialization"
@@ -228,6 +232,11 @@ msgid ""
 "error checking or locking. These macros are not thread-safe if the container "
 "object may be modified concurrently."
 msgstr ""
+"**Macros**: Macros de acesso como :c:macro:`PyList_GET_ITEM`, :c:macro:"
+"`PyList_SET_ITEM` e macros como :c:macro:`PySequence_Fast_GET_SIZE` que usam "
+"o objeto retornado por :c:func:`PySequence_Fast` não realizam nenhuma "
+"verificação de erro ou trava. Essas macros não são seguros para thread se o "
+"objeto contêiner puder ser modificado simultaneamente."
 
 #: ../../howto/free-threading-extensions.rst:113
 msgid ""
@@ -392,11 +401,11 @@ msgstr ":c:func:`PyImport_AddModuleRef`"
 
 #: ../../howto/free-threading-extensions.rst:180
 msgid ":c:func:`PyCell_GET`"
-msgstr ""
+msgstr ":c:func:`PyCell_GET`"
 
 #: ../../howto/free-threading-extensions.rst:180
 msgid ":c:func:`PyCell_Get`"
-msgstr ""
+msgstr ":c:func:`PyCell_Get`"
 
 #: ../../howto/free-threading-extensions.rst:183
 msgid ""
@@ -547,7 +556,7 @@ msgstr ""
 
 #: ../../howto/free-threading-extensions.rst:255
 msgid "Critical Sections"
-msgstr ""
+msgstr "Seções críticas"
 
 #: ../../howto/free-threading-extensions.rst:259
 msgid ""
@@ -557,10 +566,17 @@ msgid ""
 "implementation directly, understanding their behavior is crucial when using "
 "certain C API functions or managing shared state in the free-threaded build."
 msgstr ""
+"Na construção de threads livres, o CPython fornece um mecanismo chamado "
+"\"critical sections\" (em português, \"seções críticas\") para proteger "
+"dados que, de outra forma, seriam protegidos pela GIL. Embora os autores da "
+"extensão possam não interagir diretamente com a implementação da seção "
+"crítica interna, entender seu comportamento é crucial ao usar determinadas "
+"funções da API C ou gerenciar o estado compartilhado na construção de "
+"threads livres."
 
 #: ../../howto/free-threading-extensions.rst:266
 msgid "What Are Critical Sections?"
-msgstr ""
+msgstr "O que são seções críticas?"
 
 #: ../../howto/free-threading-extensions.rst:268
 msgid ""
@@ -571,26 +587,36 @@ msgid ""
 "func:`PyDict_SetItem`, or explicitly using macros), it attempts to acquire "
 "the underlying mutex."
 msgstr ""
+"Conceitualmente, seções críticas atuam como uma camada de prevenção de "
+"impasse construída sobre mutexes simples. Cada thread mantém uma pilha de "
+"seções críticas ativas. Quando uma thread precisa adquirir uma trava "
+"associada a uma seção crítica (por exemplo, implicitamente ao chamar uma "
+"função de API C segura para thread como :c:func:`PyDict_SetItem`, ou "
+"explicitamente usando macros), ela tenta adquirir o mutex subjacente."
 
 #: ../../howto/free-threading-extensions.rst:276
 msgid "Using Critical Sections"
-msgstr ""
+msgstr "Usando seções críticas"
 
 #: ../../howto/free-threading-extensions.rst:278
 msgid "The primary APIs for using critical sections are:"
-msgstr ""
+msgstr "As principais APIs para usar seções críticas são:"
 
 #: ../../howto/free-threading-extensions.rst:280
 msgid ""
 ":c:macro:`Py_BEGIN_CRITICAL_SECTION` and :c:macro:`Py_END_CRITICAL_SECTION` "
 "- For locking a single object"
 msgstr ""
+":c:macro:`Py_BEGIN_CRITICAL_SECTION` e :c:macro:`Py_END_CRITICAL_SECTION` - "
+"Para travar um único objeto"
 
 #: ../../howto/free-threading-extensions.rst:283
 msgid ""
 ":c:macro:`Py_BEGIN_CRITICAL_SECTION2` and :c:macro:"
 "`Py_END_CRITICAL_SECTION2` - For locking two objects simultaneously"
 msgstr ""
+":c:macro:`Py_BEGIN_CRITICAL_SECTION2` e :c:macro:`Py_END_CRITICAL_SECTION2` "
+"- Para travar dois objetos simultaneamente"
 
 #: ../../howto/free-threading-extensions.rst:286
 msgid ""
@@ -599,6 +625,11 @@ msgid ""
 "non-free-threaded builds, so they can be safely added to code that needs to "
 "support both build types."
 msgstr ""
+"Essas macros devem ser usadas em pares correspondentes e devem aparecer no "
+"mesmo escopo C, pois estabelecem um novo escopo local. Essas macros são "
+"inoperantes em construções de threads livres, portanto, podem ser "
+"adicionadas com segurança a códigos que precisam suportar ambos os tipos de "
+"construção."
 
 #: ../../howto/free-threading-extensions.rst:291
 msgid ""
@@ -607,6 +638,10 @@ msgid ""
 "has an internal count field, you could use a critical section while reading "
 "or writing that field::"
 msgstr ""
+"Um uso comum de uma seção crítica seria travar um objeto ao acessar um "
+"atributo interno dele. Por exemplo, se um tipo de extensão tiver um campo de "
+"contagem interno, você pode usar uma seção crítica ao ler ou escrever nesse "
+"campo:"
 
 #: ../../howto/free-threading-extensions.rst:296
 msgid ""
@@ -622,10 +657,21 @@ msgid ""
 "obj->count = new_count;\n"
 "Py_END_CRITICAL_SECTION();"
 msgstr ""
+"// lê a contagem, retorna uma nova referência ao valor da contagem interna\n"
+"PyObject *result;\n"
+"Py_BEGIN_CRITICAL_SECTION(obj);\n"
+"result = Py_NewRef(obj->count);\n"
+"Py_END_CRITICAL_SECTION();\n"
+"return result;\n"
+"\n"
+"// escreve a contagem, consome referência de new_count\n"
+"Py_BEGIN_CRITICAL_SECTION(obj);\n"
+"obj->count = new_count;\n"
+"Py_END_CRITICAL_SECTION();"
 
 #: ../../howto/free-threading-extensions.rst:310
 msgid "How Critical Sections Work"
-msgstr ""
+msgstr "Como seções críticas funcionam"
 
 #: ../../howto/free-threading-extensions.rst:312
 msgid ""
@@ -635,16 +681,23 @@ msgid ""
 "O), the critical section is temporarily suspended—all locks are released—and "
 "then resumed when the blocking operation completes."
 msgstr ""
+"Ao contrário das travas tradicionais, as seções críticas não garantem acesso "
+"exclusivo durante toda a sua duração. Se uma thread travar enquanto mantém "
+"uma seção crítica (por exemplo, ao adquirir outro bloqueio ou executar E/S), "
+"a seção crítica é temporariamente suspensa — todas as travas são liberadas — "
+"e então retomada quando a operação de bloqueio é concluída."
 
 #: ../../howto/free-threading-extensions.rst:318
 msgid ""
 "This behavior is similar to what happens with the GIL when a thread makes a "
 "blocking call. The key differences are:"
 msgstr ""
+"Esse comportamento é semelhante ao que ocorre com a GIL quando uma thread "
+"faz uma chamada de bloqueio. As principais diferenças são:"
 
 #: ../../howto/free-threading-extensions.rst:321
 msgid "Critical sections operate on a per-object basis rather than globally"
-msgstr ""
+msgstr "As seções críticas operam por objeto e não globalmente"
 
 #: ../../howto/free-threading-extensions.rst:323
 msgid ""
@@ -652,20 +705,25 @@ msgid ""
 "\"begin\" and \"end\" macros enforce this since they must be paired and "
 "within the same scope)"
 msgstr ""
+"As seções críticas seguem uma disciplina de pilha dentro de cada thread (as "
+"macros \"begin\" e \"end\" impõem isso, pois devem ser pareadas e estar "
+"dentro do mesmo escopo)"
 
 #: ../../howto/free-threading-extensions.rst:326
 msgid ""
 "Critical sections automatically release and reacquire locks around potential "
 "blocking operations"
 msgstr ""
+"As seções críticas liberam e readquirem automaticamente travas em torno de "
+"potenciais operações de bloqueio"
 
 #: ../../howto/free-threading-extensions.rst:330
 msgid "Deadlock Avoidance"
-msgstr ""
+msgstr "Prevenção de impasses"
 
 #: ../../howto/free-threading-extensions.rst:332
 msgid "Critical sections help avoid deadlocks in two ways:"
-msgstr ""
+msgstr "Seções críticas ajudam a evitar impasses de duas maneiras:"
 
 #: ../../howto/free-threading-extensions.rst:334
 msgid ""
@@ -673,12 +731,17 @@ msgid ""
 "it first suspends all of its active critical sections, temporarily releasing "
 "their locks"
 msgstr ""
+"Se uma thread tenta adquirir uma trava que já está sendo mantida por outra "
+"thread, ela primeiro suspende todas as suas seções críticas ativas, "
+"liberando temporariamente suas travas"
 
 #: ../../howto/free-threading-extensions.rst:338
 msgid ""
 "When the blocking operation completes, only the top-most critical section is "
 "reacquired first"
 msgstr ""
+"Quando a operação de bloqueio for concluída, apenas a seção mais crítica "
+"será readquirida primeiro"
 
 #: ../../howto/free-threading-extensions.rst:341
 msgid ""
@@ -687,6 +750,10 @@ msgid ""
 "Instead, use :c:macro:`Py_BEGIN_CRITICAL_SECTION2` to lock two objects "
 "simultaneously."
 msgstr ""
+"Isso significa que você não pode depender de seções críticas aninhadas para "
+"travar vários objetos simultaneamente, pois a seção crítica interna pode "
+"suspender as externas. Em vez disso, use :c:macro:"
+"`Py_BEGIN_CRITICAL_SECTION2` para travar dois objetos simultaneamente."
 
 #: ../../howto/free-threading-extensions.rst:345
 msgid ""
@@ -698,10 +765,17 @@ msgid ""
 "released.  If :c:type:`!PyMutex` is used without a critical section, it will "
 "not be released and therefore does not get the same deadlock avoidance."
 msgstr ""
+"Observe que as travas descritas acima são apenas travas baseadas em :c:type:"
+"`!PyMutex`. A implementação da seção crítica não conhece ou afeta outros "
+"mecanismos de trava que possam estar em uso, como mutexes POSIX. Observe "
+"também que, embora o bloqueio em qualquer :c:type:`!PyMutex` cause a "
+"suspensão das seções críticas, apenas os mutexes que fazem parte delas são "
+"liberados. Se :c:type:`!PyMutex` for usado sem uma seção crítica, ele não "
+"será liberado e, portanto, não terá a mesma capacidade de evitar impasses."
 
 #: ../../howto/free-threading-extensions.rst:354
 msgid "Important Considerations"
-msgstr ""
+msgstr "Considerações importantes"
 
 #: ../../howto/free-threading-extensions.rst:356
 msgid ""
@@ -709,6 +783,10 @@ msgid ""
 "threads to modify the protected data. Be careful about making assumptions "
 "about the state of the data after operations that might block."
 msgstr ""
+"Seções críticas podem liberar temporariamente suas travas, permitindo que "
+"outras threads modifiquem os dados protegidos. Tenha cuidado ao fazer "
+"suposições sobre o estado dos dados após operações que possam causar "
+"bloqueios."
 
 #: ../../howto/free-threading-extensions.rst:360
 msgid ""
@@ -719,6 +797,13 @@ msgid ""
 "I/O), all locks held by the thread via critical sections will be released. "
 "This is similar to how the GIL can be released during blocking calls."
 msgstr ""
+"Como as travas podem ser temporariamente liberadas (suspensas), entrar em "
+"uma seção crítica não garante acesso exclusivo ao recurso protegido durante "
+"toda a duração da seção. Se o código dentro de uma seção crítica chamar "
+"outra função que bloqueie (por exemplo, adquirir outra trava, executar E/S "
+"de bloqueio), todas as travas mantidas pela thread por meio de seções "
+"críticas serão liberadas. Isso é semelhante à forma como a GIL pode ser "
+"liberada durante chamadas de bloqueio."
 
 #: ../../howto/free-threading-extensions.rst:367
 msgid ""
@@ -726,12 +811,18 @@ msgid ""
 "critical section are guaranteed to be held at any given time. Locks for "
 "outer, nested critical sections might have been suspended."
 msgstr ""
+"Somente a(s) trava(s) associada(s) à seção crítica mais recentemente "
+"inserida (superior) tem garantia de ser(em) mantida(s) em um determinado "
+"momento. As travas para seções críticas externas e aninhadas podem ter sido "
+"suspensas."
 
 #: ../../howto/free-threading-extensions.rst:371
 msgid ""
 "You can lock at most two objects simultaneously with these APIs. If you need "
 "to lock more objects, you'll need to restructure your code."
 msgstr ""
+"Você pode travar no máximo dois objetos simultaneamente com essas APIs. Se "
+"precisar travar mais objetos, será necessário reestruturar seu código."
 
 #: ../../howto/free-threading-extensions.rst:374
 msgid ""
@@ -739,6 +830,9 @@ msgid ""
 "object twice, they are less efficient than purpose-built reentrant locks for "
 "this use case."
 msgstr ""
+"Embora seções críticas não entrem em impasse se você tentar travar o mesmo "
+"objeto duas vezes, elas são menos eficientes do que travas reentrantes "
+"desenvolvidas especificamente para esse caso de uso."
 
 #: ../../howto/free-threading-extensions.rst:378
 msgid ""
@@ -746,6 +840,9 @@ msgid ""
 "doesn't affect correctness (the implementation handles deadlock avoidance), "
 "but it's good practice to always lock objects in a consistent order."
 msgstr ""
+"Ao usar :c:macro:`Py_BEGIN_CRITICAL_SECTION2`, a ordem dos objetos não afeta "
+"a correção (a implementação lida com a prevenção de impasse), mas é uma boa "
+"prática sempre travar os objetos em uma ordem consistente."
 
 #: ../../howto/free-threading-extensions.rst:382
 msgid ""
@@ -755,6 +852,11 @@ msgid ""
 "protecting purely internal extension state, standard mutexes or other "
 "synchronization primitives might be more appropriate."
 msgstr ""
+"Lembre-se de que as macros de seção crítica servem principalmente para "
+"proteger o acesso a *objetos Python* que podem estar envolvidos em operações "
+"internas do CPython suscetíveis aos cenários de impasses descritos acima. "
+"Para proteger o estado de extensão puramente interno, mutexes padrão ou "
+"outras primitivas de sincronização podem ser mais apropriados."
 
 #: ../../howto/free-threading-extensions.rst:390
 msgid "Building Extensions for the Free-Threaded Build"
@@ -783,6 +885,9 @@ msgid ""
 "free-threaded build if you set `CIBW_ENABLE to cpython-freethreading "
 "<https://cibuildwheel.pypa.io/en/stable/options/#enable>`_."
 msgstr ""
+"`pypa/cibuildwheel <https://github.com/pypa/cibuildwheel>`_ oferece suporte "
+"a construção de threads livres se você definir `CIBW_ENABLE com cpython-"
+"freethreading <https://cibuildwheel.pypa.io/en/stable/options/#enable>`_."
 
 #: ../../howto/free-threading-extensions.rst:402
 msgid "Limited C API and Stable ABI"

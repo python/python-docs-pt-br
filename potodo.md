@@ -4,7 +4,7 @@
 
 
 
-# c-api (48.61% done)
+# c-api (48.94% done)
 
 - allocation.po                    7 /  31 ( 22.0% translated).
 - apiabiversion.po                17 /  59 ( 28.0% translated).
@@ -18,7 +18,6 @@
 - exceptions.po                  193 / 374 ( 51.0% translated).
 - float.po                        15 /  36 ( 41.0% translated).
 - frame.po                        20 /  42 ( 47.0% translated).
-- function.po                     32 /  39 ( 82.0% translated).
 - gcsupport.po                    11 /  67 ( 16.0% translated).
 - hash.po                         19 /  23 ( 82.0% translated).
 - import.po                       33 /  66 ( 50.0% translated).
@@ -42,7 +41,7 @@
 - time.po                         21 /  27 ( 77.0% translated).
 - tuple.po                        46 /  47 ( 97.0% translated).
 - type.po                         17 / 128 ( 13.0% translated).
-- typeobj.po                     227 / 738 ( 30.0% translated).
+- typeobj.po                     239 / 738 ( 32.0% translated).
 - unicode.po                      65 / 404 ( 16.0% translated).
 - weakref.po                      20 /  21 ( 95.0% translated).
 
@@ -68,13 +67,12 @@
 
 
 
-# howto (59.92% done)
+# howto (60.98% done)
 
 - annotations.po                  48 /  52 ( 92.0% translated).
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                  187 / 230 ( 81.0% translated).
 - enum.po                         62 / 327 ( 18.0% translated).
-- free-threading-extensions.po    69 / 105 ( 65.0% translated).
 - functional.po                  138 / 252 ( 54.0% translated).
 - isolating-extensions.po        132 / 134 ( 98.0% translated).
 - logging-cookbook.po             40 / 423 (  9.0% translated).
@@ -91,10 +89,9 @@
 
 
 
-# library (63.30% done)
+# library (63.31% done)
 
 - _thread.po                      51 /  52 ( 98.0% translated).
-- archiving.po                     1 /   2 ( 50.0% translated).
 - argparse.po                    370 / 398 ( 92.0% translated).
 - array.po                        84 /  86 ( 97.0% translated).
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
@@ -264,5 +261,5 @@
 - changelog.po                   2597 / 13300 ( 19.0% translated).
 
 
-# TOTAL (59.43% done)
+# TOTAL (59.50% done)
 
