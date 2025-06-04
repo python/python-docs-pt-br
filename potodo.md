@@ -70,7 +70,7 @@
 
 
 
-# library (63.14% done)
+# library (63.15% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        77 /  84 ( 91.0% translated).
@@ -109,7 +109,7 @@
 - email.compat32-message.po        6 / 115 (  5.0% translated).
 - email.contentmanager.po          9 /  42 ( 21.0% translated).
 - email.errors.po                  6 /  26 ( 23.0% translated).
-- email.examples.po               16 /  20 ( 80.0% translated).
+- email.examples.po               17 /  20 ( 85.0% translated).
 - email.generator.po              40 /  41 ( 97.0% translated).
 - email.header.po                  4 /  40 ( 10.0% translated).
 - email.headerregistry.po         12 / 111 ( 10.0% translated).
