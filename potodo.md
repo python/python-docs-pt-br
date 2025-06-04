@@ -123,7 +123,6 @@
 - email.compat32-message.po        6 / 115 (  5.0% translated).
 - email.contentmanager.po          9 /  42 ( 21.0% translated).
 - email.errors.po                  6 /  26 ( 23.0% translated).
-- email.examples.po               19 /  20 ( 95.0% translated).
 - email.header.po                  4 /  40 ( 10.0% translated).
 - email.headerregistry.po         12 / 111 ( 10.0% translated).
 - email.message.po                 7 / 110 (  6.0% translated).
@@ -211,7 +210,6 @@
 - urllib.parse.po                110 / 169 ( 65.0% translated).
 - urllib.request.po               39 / 289 ( 13.0% translated).
 - uuid.po                         47 /  77 ( 61.0% translated).
-- venv.po                        126 / 127 ( 99.0% translated).
 - warnings.po                     72 / 149 ( 48.0% translated).
 - wave.po                         17 /  54 ( 31.0% translated).
 - winreg.po                       30 / 176 ( 17.0% translated).
@@ -244,7 +242,7 @@
 - windows.po                     338 / 536 ( 63.0% translated).
 
 
-# whatsnew (44.92% done)
+# whatsnew (45.16% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -258,8 +256,8 @@
 - 3.5.po                         126 / 578 ( 21.0% translated).
 - 3.6.po                         236 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   2611 / 13300 ( 19.0% translated).
+- changelog.po                   2671 / 13300 ( 20.0% translated).
 
 
-# TOTAL (59.52% done)
+# TOTAL (59.60% done)
 
