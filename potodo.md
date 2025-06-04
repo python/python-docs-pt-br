@@ -68,7 +68,7 @@
 
 
 
-# library (64.50% done)
+# library (64.51% done)
 
 - array.po                        84 /  86 ( 97.0% translated).
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
@@ -96,7 +96,6 @@
 - email.compat32-message.po        6 / 115 (  5.0% translated).
 - email.contentmanager.po          9 /  42 ( 21.0% translated).
 - email.errors.po                  6 /  26 ( 23.0% translated).
-- email.examples.po               19 /  20 ( 95.0% translated).
 - email.header.po                  4 /  40 ( 10.0% translated).
 - email.headerregistry.po         12 / 111 ( 10.0% translated).
 - email.message.po                 7 / 110 (  6.0% translated).
@@ -194,7 +193,7 @@
 - cmdline.po                     248 / 249 ( 99.0% translated).
 
 
-# whatsnew (46.27% done)
+# whatsnew (46.38% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -208,8 +207,8 @@
 - 3.5.po                         126 / 578 ( 21.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   2451 / 12361 ( 19.0% translated).
+- changelog.po                   2476 / 12361 ( 20.0% translated).
 
 
-# TOTAL (61.50% done)
+# TOTAL (61.54% done)
 
