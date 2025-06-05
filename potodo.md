@@ -90,7 +90,7 @@
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          48 /  49 ( 97.0% translated).
 - argparse.po                    305 / 335 ( 91.0% translated).
-- array.po                        79 /  83 ( 95.0% translated).
+- array.po                        80 /  83 ( 96.0% translated).
 - ast.po                         224 / 228 ( 98.0% translated).
 - asynchat.po                      6 /  35 ( 17.0% translated).
 - asyncio-dev.po                  16 /  42 ( 38.0% translated).
@@ -326,5 +326,5 @@
 - 3.8.po                         468 / 469 ( 99.0% translated).
 
 
-# TOTAL (67.34% done)
+# TOTAL (67.35% done)
 
