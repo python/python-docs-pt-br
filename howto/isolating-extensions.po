@@ -7,16 +7,16 @@
 # Marco Rougeth <marco@rougeth.com>, 2022
 # Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2022
 # Pedro Fonini, 2024
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-23 14:20+0000\n"
+"POT-Creation-Date: 2025-05-30 14:22+0000\n"
 "PO-Revision-Date: 2022-11-05 19:48+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -494,6 +494,27 @@ msgid ""
 "    // ... rest of initialization\n"
 "}"
 msgstr ""
+"// Um sinalizador para todo o processo\n"
+"static int loaded = 0;\n"
+"\n"
+"// Mutex para fornecer segurança para a thread (só necessário para Python de "
+"threads livres)\n"
+"static PyMutex modinit_mutex = {0};\n"
+"\n"
+"static int\n"
+"exec_module(PyObject* module)\n"
+"{\n"
+"    PyMutex_Lock(&modinit_mutex);\n"
+"    if (loaded) {\n"
+"        PyMutex_Unlock(&modinit_mutex);\n"
+"        PyErr_SetString(PyExc_ImportError,\n"
+"                        \"cannot load module more than once per process\");\n"
+"        return -1;\n"
+"    }\n"
+"    loaded = 1;\n"
+"    PyMutex_Unlock(&modinit_mutex);\n"
+"    // ... rest of initialization\n"
+"}"
 
 #: ../../howto/isolating-extensions.rst:240
 msgid ""
@@ -503,6 +524,12 @@ msgid ""
 "but it will, for example, support being loaded after Python runtime shutdown "
 "(:c:func:`Py_FinalizeEx`) and re-initialization (:c:func:`Py_Initialize`)."
 msgstr ""
+"Se a função :c:member:`PyModuleDef.m_clear` do seu módulo for capaz de se "
+"preparar para reinicializações futuras, ela deverá limpar o sinalizador "
+"``loaded``. Nesse caso, seu módulo não suportará múltiplas instâncias "
+"existentes *simultaneamente*, mas suportará, por exemplo, o carregamento "
+"após o desligamento do tempo de execução do Python (:c:func:`Py_FinalizeEx`) "
+"e a reinicialização (:c:func:`Py_Initialize`)."
 
 #: ../../howto/isolating-extensions.rst:249
 msgid "Module State Access from Functions"
