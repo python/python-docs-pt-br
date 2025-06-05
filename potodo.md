@@ -50,7 +50,7 @@
 - library.po                     157 / 162 ( 96.0% translated).
 
 
-# howto (61.14% done)
+# howto (61.20% done)
 
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                  181 / 233 ( 77.0% translated).
@@ -59,7 +59,6 @@
 - logging-cookbook.po             40 / 421 (  9.0% translated).
 - logging.po                     121 / 250 ( 48.0% translated).
 - perf_profiling.po               29 /  32 ( 90.0% translated).
-- regex.po                       330 / 332 ( 99.0% translated).
 - sockets.po                      35 /  63 ( 55.0% translated).
 - sorting.po                      46 /  75 ( 61.0% translated).
 - unicode.po                      30 / 145 ( 20.0% translated).
@@ -73,7 +72,7 @@
 # library (63.15% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
-- array.po                        77 /  84 ( 91.0% translated).
+- array.po                        78 /  84 ( 92.0% translated).
 - ast.po                         255 / 306 ( 83.0% translated).
 - asyncio-dev.po                  16 /  55 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 390 ( 78.0% translated).
@@ -253,5 +252,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (68.11% done)
+# TOTAL (68.12% done)
 
