@@ -4,7 +4,7 @@
 
 
 
-# c-api (54.60% done)
+# c-api (54.57% done)
 
 - allocation.po                   10 /  11 ( 90.0% translated).
 - exceptions.po                  194 / 370 ( 52.0% translated).
@@ -17,7 +17,7 @@
 - intro.po                        98 / 154 ( 63.0% translated).
 - long.po                         37 / 104 ( 35.0% translated).
 - memory.po                       53 / 200 ( 26.0% translated).
-- module.po                       63 / 132 ( 47.0% translated).
+- module.po                       63 / 135 ( 46.0% translated).
 - number.po                       14 /  48 ( 29.0% translated).
 - object.po                       43 / 119 ( 36.0% translated).
 - refcounting.po                   4 /  48 (  8.0% translated).
@@ -48,7 +48,7 @@
 
 
 
-# howto (63.11% done)
+# howto (63.34% done)
 
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                  187 / 230 ( 81.0% translated).
@@ -59,7 +59,7 @@
 - sockets.po                      35 /  63 ( 55.0% translated).
 - sorting.po                      46 /  75 ( 61.0% translated).
 - unicode.po                      30 / 145 ( 20.0% translated).
-- urllib2.po                      75 / 100 ( 75.0% translated).
+- urllib2.po                      82 / 100 ( 82.0% translated).
 
 
 # installing (100.00% done)
@@ -89,7 +89,7 @@
 - dataclasses.po                  45 / 155 ( 29.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
 - dis.po                         208 / 396 ( 52.0% translated).
-- doctest.po                      88 / 376 ( 23.0% translated).
+- doctest.po                      86 / 376 ( 22.0% translated).
 - email.compat32-message.po        6 / 115 (  5.0% translated).
 - email.contentmanager.po          9 /  42 ( 21.0% translated).
 - email.errors.po                  6 /  26 ( 23.0% translated).
@@ -138,14 +138,14 @@
 - shelve.po                       11 /  40 ( 27.0% translated).
 - shlex.po                         3 /  77 (  3.0% translated).
 - smtplib.po                      30 / 116 ( 25.0% translated).
-- socket.po                       53 / 367 ( 14.0% translated).
+- socket.po                       53 / 368 ( 14.0% translated).
 - sqlite3.po                     116 / 477 ( 24.0% translated).
 - ssl.po                          61 / 544 ( 11.0% translated).
 - string.po                      218 / 220 ( 99.0% translated).
 - struct.po                       96 / 195 ( 49.0% translated).
 - subprocess.po                  149 / 327 ( 45.0% translated).
 - symtable.po                      6 /  65 (  9.0% translated).
-- tarfile.po                     103 / 337 ( 30.0% translated).
+- tarfile.po                     103 / 341 ( 30.0% translated).
 - tempfile.po                      8 /  87 (  9.0% translated).
 - test.po                        119 / 321 ( 37.0% translated).
 - threading.po                    34 / 274 ( 12.0% translated).
@@ -190,7 +190,7 @@
 - cmdline.po                     248 / 249 ( 99.0% translated).
 
 
-# whatsnew (46.38% done)
+# whatsnew (46.34% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -198,14 +198,14 @@
 - 2.6.po                         542 / 626 ( 86.0% translated).
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
-- 3.13.po                        879 / 882 ( 99.0% translated).
+- 3.13.po                        880 / 889 ( 98.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
 - 3.5.po                         126 / 578 ( 21.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   2476 / 12361 ( 20.0% translated).
+- changelog.po                   2476 / 12377 ( 20.0% translated).
 
 
-# TOTAL (61.55% done)
+# TOTAL (61.54% done)
 
