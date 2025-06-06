@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 14:22+0000\n"
+"POT-Creation-Date: 2025-06-06 14:20+0000\n"
 "PO-Revision-Date: 2025-05-23 14:22+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -370,7 +370,7 @@ msgstr ""
 "descompactados como um objeto :class:`bytes`."
 
 #: ../../library/compression.zstd.rst:184
-#: ../../library/compression.zstd.rst:278
+#: ../../library/compression.zstd.rst:306
 msgid ""
 "The *options* argument is a Python dictionary containing advanced "
 "decompression parameters. The valid keys and values for compression "
@@ -383,7 +383,7 @@ msgstr ""
 "`DecompressionParameter`."
 
 #: ../../library/compression.zstd.rst:189
-#: ../../library/compression.zstd.rst:283
+#: ../../library/compression.zstd.rst:311
 msgid ""
 "The *zstd_dict* argument is an instance of :class:`ZstdDict` containing "
 "trained data used during compression. This must be the same Zstandard "
@@ -480,6 +480,33 @@ msgstr ""
 
 #: ../../library/compression.zstd.rst:252
 msgid ""
+"Specify the amount of uncompressed data *size* that will be provided for the "
+"next frame. *size* will be written into the frame header of the next frame "
+"unless :attr:`CompressionParameter.content_size_flag` is ``False`` or ``0``. "
+"A size of ``0`` means that the frame is empty. If *size* is ``None``, the "
+"frame header will omit the frame size. Frames that include the uncompressed "
+"data size require less memory to decompress, especially at higher "
+"compression levels."
+msgstr ""
+
+#: ../../library/compression.zstd.rst:260
+msgid ""
+"If :attr:`last_mode` is not :attr:`FLUSH_FRAME`, a :exc:`ValueError` is "
+"raised as the compressor is not at the start of a frame. If the pledged size "
+"does not match the actual size of data provided to :meth:`.compress`, future "
+"calls to :meth:`!compress` or :meth:`flush` may raise :exc:`ZstdError` and "
+"the last chunk of data may be lost."
+msgstr ""
+
+#: ../../library/compression.zstd.rst:267
+msgid ""
+"After :meth:`flush` or :meth:`.compress` are called with mode :attr:"
+"`FLUSH_FRAME`, the next frame will not include the frame size into the "
+"header unless :meth:`!set_pledged_input_size` is called again."
+msgstr ""
+
+#: ../../library/compression.zstd.rst:273
+msgid ""
 "Collect more data for compression, which may or may not generate output "
 "immediately. This mode optimizes the compression ratio by maximizing the "
 "amount of data per block and frame."
@@ -488,7 +515,7 @@ msgstr ""
 "Este modo otimiza a taxa de compactação maximizando a quantidade de dados "
 "por bloco e quadro."
 
-#: ../../library/compression.zstd.rst:258
+#: ../../library/compression.zstd.rst:279
 msgid ""
 "Complete and write a block to the data stream. The data returned so far can "
 "be immediately decompressed. Past data can still be referenced in future "
@@ -499,7 +526,7 @@ msgstr ""
 "ser referenciados em blocos futuros gerados por chamadas a :meth:`~."
 "compress`, melhorando a compactação."
 
-#: ../../library/compression.zstd.rst:265
+#: ../../library/compression.zstd.rst:286
 msgid ""
 "Complete and write out a frame. Future data provided to :meth:`~.compress` "
 "will be written into a new frame and *cannot* reference past data."
@@ -508,7 +535,15 @@ msgstr ""
 "serão gravados em um novo quadro e *não poderão* fazer referência a dados "
 "passados."
 
-#: ../../library/compression.zstd.rst:272
+#: ../../library/compression.zstd.rst:292
+msgid ""
+"The last mode passed to either :meth:`~.compress` or :meth:`~.flush`. The "
+"value can be one of :attr:`~.CONTINUE`, :attr:`~.FLUSH_BLOCK`, or :attr:`~."
+"FLUSH_FRAME`. The initial value is :attr:`~.FLUSH_FRAME`, signifying that "
+"the compressor is at the start of a new frame."
+msgstr ""
+
+#: ../../library/compression.zstd.rst:300
 msgid ""
 "Create a decompressor object, which can be used to decompress data "
 "incrementally."
@@ -516,7 +551,7 @@ msgstr ""
 "Cria um objeto descompressor, que pode ser usado para descomprimir dados de "
 "forma incremental."
 
-#: ../../library/compression.zstd.rst:275
+#: ../../library/compression.zstd.rst:303
 msgid ""
 "For a more convenient way of decompressing an entire compressed stream at "
 "once, see the module-level function :func:`decompress`."
@@ -524,7 +559,7 @@ msgstr ""
 "Para uma maneira mais conveniente de descompactar todo um fluxo compactado "
 "de uma só vez, consulte a função a nível de módulo :func:`decompress`."
 
-#: ../../library/compression.zstd.rst:288
+#: ../../library/compression.zstd.rst:316
 msgid ""
 "This class does not transparently handle inputs containing multiple "
 "compressed frames, unlike the :func:`decompress` function and :class:"
@@ -539,7 +574,7 @@ msgstr ""
 "um :term:`objeto arquivo` ou múltiplas instâncias de :class:`!"
 "ZstdDecompressor`."
 
-#: ../../library/compression.zstd.rst:296
+#: ../../library/compression.zstd.rst:324
 msgid ""
 "Decompress *data* (a :term:`bytes-like object`), returning uncompressed data "
 "as bytes. Some of *data* may be buffered internally, for use in later calls "
@@ -552,7 +587,7 @@ msgstr ""
 "decompress`. Os dados retornados devem ser concatenados com a saída de "
 "qualquer chamada anterior para :meth:`!decompress`."
 
-#: ../../library/compression.zstd.rst:302
+#: ../../library/compression.zstd.rst:330
 msgid ""
 "If *max_length* is non-negative, the method returns at most *max_length* "
 "bytes of decompressed data. If this limit is reached and further output can "
@@ -566,7 +601,7 @@ msgstr ""
 "``False``. Neste caso, a próxima chamada para :meth:`~.decompress` pode "
 "fornecer *data* como ``b''`` para obter mais saída."
 
-#: ../../library/compression.zstd.rst:309
+#: ../../library/compression.zstd.rst:337
 msgid ""
 "If all of the input data was decompressed and returned (either because this "
 "was less than *max_length* bytes, or because *max_length* was negative), "
@@ -576,7 +611,7 @@ msgstr ""
 "era menor que *max_length* bytes, ou porque *max_length* era negativo), o "
 "atributo :attr:`~.needs_input` será definido como ``True`` ."
 
-#: ../../library/compression.zstd.rst:314
+#: ../../library/compression.zstd.rst:342
 msgid ""
 "Attempting to decompress data after the end of a frame will raise a :exc:"
 "`ZstdError`. Any data found after the end of the frame is ignored and saved "
@@ -586,19 +621,19 @@ msgstr ""
 "`ZstdError`. Quaisquer dados encontrados após o final do quadro serão "
 "ignorados e salvos no atributo :attr:`~.unused_data`."
 
-#: ../../library/compression.zstd.rst:320
+#: ../../library/compression.zstd.rst:348
 msgid "``True`` if the end-of-stream marker has been reached."
 msgstr "``True`` se o marcador de fim de fluxo foi atingido."
 
-#: ../../library/compression.zstd.rst:324
+#: ../../library/compression.zstd.rst:352
 msgid "Data found after the end of the compressed stream."
 msgstr "Dados encontrados após o término do fluxo comprimido."
 
-#: ../../library/compression.zstd.rst:326
+#: ../../library/compression.zstd.rst:354
 msgid "Before the end of the stream is reached, this will be ``b''``."
 msgstr "Antes do final do fluxo ser alcançado, isso será ``b''``."
 
-#: ../../library/compression.zstd.rst:330
+#: ../../library/compression.zstd.rst:358
 msgid ""
 "``False`` if the :meth:`.decompress` method can provide more decompressed "
 "data before requiring new compressed input."
@@ -606,11 +641,11 @@ msgstr ""
 "``False`` se o método :meth:`.decompress` puder fornecer mais dados "
 "descompactados antes de exigir uma nova entrada compactada."
 
-#: ../../library/compression.zstd.rst:335
+#: ../../library/compression.zstd.rst:363
 msgid "Zstandard dictionaries"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:340
+#: ../../library/compression.zstd.rst:368
 msgid ""
 "Train a Zstandard dictionary, returning a :class:`ZstdDict` instance. "
 "Zstandard dictionaries enable more efficient compression of smaller sizes of "
@@ -620,13 +655,13 @@ msgid ""
 "significantly."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:347
+#: ../../library/compression.zstd.rst:375
 msgid ""
 "The *samples* argument (an iterable of :class:`bytes` objects), is the "
 "population of samples used to train the Zstandard dictionary."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:350
+#: ../../library/compression.zstd.rst:378
 msgid ""
 "The *dict_size* argument, an integer, is the maximum size (in bytes) the "
 "Zstandard dictionary should be. The Zstandard documentation suggests an "
@@ -636,7 +671,7 @@ msgid ""
 "faster compression, but reduce the compression ratio."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:360
+#: ../../library/compression.zstd.rst:388
 msgid ""
 "An advanced function for converting a \"raw content\" Zstandard dictionary "
 "into a regular Zstandard dictionary. \"Raw content\" dictionaries are a "
@@ -644,26 +679,26 @@ msgid ""
 "Zstandard dictionary."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:365
+#: ../../library/compression.zstd.rst:393
 msgid ""
 "The *zstd_dict* argument is a :class:`ZstdDict` instance with the :attr:"
 "`~ZstdDict.dict_content` containing the raw dictionary contents."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:368
+#: ../../library/compression.zstd.rst:396
 msgid ""
 "The *samples* argument (an iterable of :class:`bytes` objects), contains "
 "sample data for generating the Zstandard dictionary."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:371
+#: ../../library/compression.zstd.rst:399
 msgid ""
 "The *dict_size* argument, an integer, is the maximum size (in bytes) the "
 "Zstandard dictionary should be. See :func:`train_dict` for suggestions on "
 "the maximum dictionary size."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:375
+#: ../../library/compression.zstd.rst:403
 msgid ""
 "The *level* argument (an integer) is the compression level expected to be "
 "passed to the compressors using this dictionary. The dictionary information "
@@ -671,20 +706,20 @@ msgid ""
 "level can make compression more efficient."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:383
+#: ../../library/compression.zstd.rst:411
 msgid ""
 "A wrapper around Zstandard dictionaries. Dictionaries can be used to improve "
 "the compression of many small chunks of data. Use :func:`train_dict` if you "
 "need to train a new dictionary from sample data."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:387
+#: ../../library/compression.zstd.rst:415
 msgid ""
 "The *dict_content* argument (a :term:`bytes-like object`), is the already "
 "trained dictionary information."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:390
+#: ../../library/compression.zstd.rst:418
 msgid ""
 "The *is_raw* argument, a boolean, is an advanced parameter controlling the "
 "meaning of *dict_content*. ``True`` means *dict_content* is a \"raw "
@@ -694,7 +729,7 @@ msgid ""
 "CLI."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:396
+#: ../../library/compression.zstd.rst:424
 msgid ""
 "When passing a :class:`!ZstdDict` to a function, the :attr:`!"
 "as_digested_dict` and :attr:`!as_undigested_dict` attributes can control how "
@@ -706,25 +741,25 @@ msgid ""
 "dictionary."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:405
+#: ../../library/compression.zstd.rst:433
 msgid "Difference for compression"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:410
+#: ../../library/compression.zstd.rst:438
 msgid "Digested dictionary"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:411
+#: ../../library/compression.zstd.rst:439
 msgid "Undigested dictionary"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:412
+#: ../../library/compression.zstd.rst:440
 msgid ""
 "Advanced parameters of the compressor which may be overridden by the "
 "dictionary's parameters"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:414
+#: ../../library/compression.zstd.rst:442
 msgid ""
 "``window_log``, ``hash_log``, ``chain_log``, ``search_log``, ``min_match``, "
 "``target_length``, ``strategy``, ``enable_long_distance_matching``, "
@@ -732,114 +767,114 @@ msgid ""
 "``ldm_hash_rate_log``, and some non-public parameters."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:419
+#: ../../library/compression.zstd.rst:447
 msgid "None"
 msgstr "None"
 
-#: ../../library/compression.zstd.rst:420
+#: ../../library/compression.zstd.rst:448
 msgid ":class:`!ZstdDict` internally caches the dictionary"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:421
+#: ../../library/compression.zstd.rst:449
 msgid ""
 "Yes. It's faster when loading a digested dictionary again with the same "
 "compression level."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:423
+#: ../../library/compression.zstd.rst:451
 msgid ""
 "No. If you wish to load an undigested dictionary multiple times, consider "
 "reusing a compressor object."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:426
+#: ../../library/compression.zstd.rst:454
 msgid ""
 "If passing a :class:`!ZstdDict` without any attribute, an undigested "
 "dictionary is passed by default when compressing and a digested dictionary "
 "is generated if necessary and passed by default when decompressing."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:432
+#: ../../library/compression.zstd.rst:460
 msgid ""
 "The content of the Zstandard dictionary, a ``bytes`` object. It's the same "
 "as the *dict_content* argument in the ``__init__`` method. It can be used "
 "with other programs, such as the ``zstd`` CLI program."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:438
+#: ../../library/compression.zstd.rst:466
 msgid "Identifier of the Zstandard dictionary, a non-negative int value."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:440
+#: ../../library/compression.zstd.rst:468
 msgid ""
 "Non-zero means the dictionary is ordinary, created by Zstandard functions "
 "and following the Zstandard format."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:443
+#: ../../library/compression.zstd.rst:471
 msgid ""
 "``0`` means a \"raw content\" dictionary, free of any format restriction, "
 "used for advanced users."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:448
+#: ../../library/compression.zstd.rst:476
 msgid ""
 "The meaning of ``0`` for :attr:`!ZstdDict.dict_id` is different from the "
 "``dictionary_id`` attribute to the :func:`get_frame_info` function."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:454
+#: ../../library/compression.zstd.rst:482
 msgid "Load as a digested dictionary."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:458
+#: ../../library/compression.zstd.rst:486
 msgid "Load as an undigested dictionary."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:462
+#: ../../library/compression.zstd.rst:490
 msgid "Advanced parameter control"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:466
+#: ../../library/compression.zstd.rst:494
 msgid ""
 "An :class:`~enum.IntEnum` containing the advanced compression parameter keys "
 "that can be used when compressing data."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:469
-#: ../../library/compression.zstd.rst:692
+#: ../../library/compression.zstd.rst:497
+#: ../../library/compression.zstd.rst:725
 msgid ""
 "The :meth:`~.bounds` method can be used on any attribute to get the valid "
 "values for that parameter."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:472
+#: ../../library/compression.zstd.rst:500
 msgid ""
 "Parameters are optional; any omitted parameter will have it's value selected "
 "automatically."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:475
+#: ../../library/compression.zstd.rst:503
 msgid ""
 "Example getting the lower and upper bound of :attr:`~.compression_level`::"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:477
+#: ../../library/compression.zstd.rst:505
 msgid "lower, upper = CompressionParameter.compression_level.bounds()"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:479
+#: ../../library/compression.zstd.rst:507
 msgid "Example setting the :attr:`~.window_log` to the maximum size::"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:481
+#: ../../library/compression.zstd.rst:509
 msgid ""
 "_lower, upper = CompressionParameter.window_log.bounds()\n"
 "options = {CompressionParameter.window_log: upper}\n"
 "compress(b'venezuelan beaver cheese', options=options)"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:487
+#: ../../library/compression.zstd.rst:515
 msgid ""
 "Return the tuple of int bounds, ``(lower, upper)``, of a compression "
 "parameter. This method should be called on the attribute you wish to "
@@ -848,19 +883,19 @@ msgid ""
 "compression_level.bounds()``."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:493
-#: ../../library/compression.zstd.rst:710
+#: ../../library/compression.zstd.rst:521
+#: ../../library/compression.zstd.rst:743
 msgid "Both the lower and upper bounds are inclusive."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:497
+#: ../../library/compression.zstd.rst:525
 msgid ""
 "A high-level means of setting other compression parameters that affect the "
 "speed and ratio of compressing data. Setting the level to zero uses :attr:"
 "`COMPRESSION_LEVEL_DEFAULT`."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:503
+#: ../../library/compression.zstd.rst:531
 msgid ""
 "Maximum allowed back-reference distance the compressor can use when "
 "compressing data, expressed as power of two, ``1 << window_log`` bytes. This "
@@ -868,22 +903,22 @@ msgid ""
 "require more memory but gain better compression values."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:508
-#: ../../library/compression.zstd.rst:517
-#: ../../library/compression.zstd.rst:528
 #: ../../library/compression.zstd.rst:536
-#: ../../library/compression.zstd.rst:547
-#: ../../library/compression.zstd.rst:562
-#: ../../library/compression.zstd.rst:593
-#: ../../library/compression.zstd.rst:600
-#: ../../library/compression.zstd.rst:608
-#: ../../library/compression.zstd.rst:616
-#: ../../library/compression.zstd.rst:670
-#: ../../library/compression.zstd.rst:719
+#: ../../library/compression.zstd.rst:545
+#: ../../library/compression.zstd.rst:556
+#: ../../library/compression.zstd.rst:564
+#: ../../library/compression.zstd.rst:575
+#: ../../library/compression.zstd.rst:590
+#: ../../library/compression.zstd.rst:621
+#: ../../library/compression.zstd.rst:628
+#: ../../library/compression.zstd.rst:636
+#: ../../library/compression.zstd.rst:644
+#: ../../library/compression.zstd.rst:703
+#: ../../library/compression.zstd.rst:752
 msgid "A value of zero causes the value to be selected automatically."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:512
+#: ../../library/compression.zstd.rst:540
 msgid ""
 "Size of the initial probe table, as a power of two. The resulting memory "
 "usage is ``1 << (hash_log+2)`` bytes. Larger tables improve compression "
@@ -891,7 +926,7 @@ msgid ""
 "speed of strategies > :attr:`~Strategy.dfast`."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:521
+#: ../../library/compression.zstd.rst:549
 msgid ""
 "Size of the multi-probe search table, as a power of two. The resulting "
 "memory usage is ``1 << (chain_log+2)`` bytes. Larger tables result in better "
@@ -900,14 +935,14 @@ msgid ""
 "dfast` strategy, in which case it defines a secondary probe table."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:532
+#: ../../library/compression.zstd.rst:560
 msgid ""
 "Number of search attempts, as a power of two. More attempts result in better "
 "and slower compression. This parameter is useless for :attr:`~Strategy.fast` "
 "and :attr:`~Strategy.dfast` strategies."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:540
+#: ../../library/compression.zstd.rst:568
 msgid ""
 "Minimum size of searched matches. Larger values increase compression and "
 "decompression speed, but decrease ratio. Note that Zstandard can still find "
@@ -917,11 +952,11 @@ msgid ""
 "effective maximum is ``6``."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:551
+#: ../../library/compression.zstd.rst:579
 msgid "The impact of this field depends on the selected :class:`Strategy`."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:553
+#: ../../library/compression.zstd.rst:581
 msgid ""
 "For strategies :attr:`~Strategy.btopt`, :attr:`~Strategy.btultra` and :attr:"
 "`~Strategy.btultra2`, the value is the length of a match considered \"good "
@@ -929,38 +964,38 @@ msgid ""
 "but compresses slower."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:558
+#: ../../library/compression.zstd.rst:586
 msgid ""
 "For strategy :attr:`~Strategy.fast`, it is the distance between match "
 "sampling. Larger values make compression faster, but with a worse "
 "compression ratio."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:566
+#: ../../library/compression.zstd.rst:594
 msgid ""
 "The higher the value of selected strategy, the more complex the compression "
 "technique used by zstd, resulting in higher compression ratios but slower "
 "compression."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:570
+#: ../../library/compression.zstd.rst:598
 msgid ":class:`Strategy`"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:574
+#: ../../library/compression.zstd.rst:602
 msgid ""
 "Long distance matching can be used to improve compression for large inputs "
 "by finding large matches at greater distances. It increases memory usage and "
 "window size."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:578
+#: ../../library/compression.zstd.rst:606
 msgid ""
 "``True`` or ``1`` enable long distance matching while ``False`` or ``0`` "
 "disable it."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:581
+#: ../../library/compression.zstd.rst:609
 msgid ""
 "Enabling this parameter increases default :attr:`~CompressionParameter."
 "window_log` to 128 MiB except when expressly set to a different value. This "
@@ -968,92 +1003,100 @@ msgid ""
 "compression strategy >= :attr:`~Strategy.btopt` (compression level 16+)."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:589
+#: ../../library/compression.zstd.rst:617
 msgid ""
 "Size of the table for long distance matching, as a power of two. Larger "
 "values increase memory usage and compression ratio, but decrease compression "
 "speed."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:597
+#: ../../library/compression.zstd.rst:625
 msgid ""
 "Minimum match size for long distance matcher. Larger or too small values can "
 "often decrease the compression ratio."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:604
+#: ../../library/compression.zstd.rst:632
 msgid ""
 "Log size of each bucket in the long distance matcher hash table for "
 "collision resolution. Larger values improve collision resolution but "
 "decrease compression speed."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:612
+#: ../../library/compression.zstd.rst:640
 msgid ""
 "Frequency of inserting/looking up entries into the long distance matcher "
 "hash table. Larger values improve compression speed. Deviating far from the "
 "default value will likely result in a compression ratio decrease."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:620
+#: ../../library/compression.zstd.rst:648
 msgid ""
 "Write the size of the data to be compressed into the Zstandard frame header "
 "when known prior to compressing."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:623
-msgid "This flag only takes effect under the following two scenarios:"
+#: ../../library/compression.zstd.rst:651
+msgid "This flag only takes effect under the following scenarios:"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:625
+#: ../../library/compression.zstd.rst:653
 msgid "Calling :func:`compress` for one-shot compression"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:626
+#: ../../library/compression.zstd.rst:654
 msgid ""
 "Providing all of the data to be compressed in the frame in a single :meth:"
 "`ZstdCompressor.compress` call, with the :attr:`ZstdCompressor.FLUSH_FRAME` "
 "mode."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:630
+#: ../../library/compression.zstd.rst:657
+msgid ""
+"Calling :meth:`ZstdCompressor.set_pledged_input_size` with the exact amount "
+"of data that will be provided to the compressor prior to any calls to :meth:"
+"`ZstdCompressor.compress` for the current frame. :meth:`!ZstdCompressor."
+"set_pledged_input_size` must be called for each new frame."
+msgstr ""
+
+#: ../../library/compression.zstd.rst:663
 msgid ""
 "All other compression calls may not write the size information into the "
 "frame header."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:633
+#: ../../library/compression.zstd.rst:666
 msgid ""
 "``True`` or ``1`` enable the content size flag while ``False`` or ``0`` "
 "disable it."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:638
+#: ../../library/compression.zstd.rst:671
 msgid ""
 "A four-byte checksum using XXHash64 of the uncompressed content is written "
 "at the end of each frame. Zstandard's decompression code verifies the "
 "checksum. If there is a mismatch a :class:`ZstdError` exception is raised."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:643
+#: ../../library/compression.zstd.rst:676
 msgid ""
 "``True`` or ``1`` enable checksum generation while ``False`` or ``0`` "
 "disable it."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:648
+#: ../../library/compression.zstd.rst:681
 msgid ""
 "When compressing with a :class:`ZstdDict`, the dictionary's ID is written "
 "into the frame header."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:651
+#: ../../library/compression.zstd.rst:684
 msgid ""
 "``True`` or ``1`` enable storing the dictionary ID while ``False`` or ``0`` "
 "disable it."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:656
+#: ../../library/compression.zstd.rst:689
 msgid ""
 "Select how many threads will be spawned to compress in parallel. When :attr:"
 "`!nb_workers` > 0, enables multi-threaded compression, a value of ``1`` "
@@ -1061,11 +1104,11 @@ msgid ""
 "also increase memory usage and slightly reduce compression ratio."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:661
+#: ../../library/compression.zstd.rst:694
 msgid "A value of zero disables multi-threading."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:665
+#: ../../library/compression.zstd.rst:698
 msgid ""
 "Size of a compression job, in bytes. This value is enforced only when :attr:"
 "`~CompressionParameter.nb_workers` >= 1. Each compression job is completed "
@@ -1073,7 +1116,7 @@ msgid ""
 "threads."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:674
+#: ../../library/compression.zstd.rst:707
 msgid ""
 "Sets how much data is reloaded from previous jobs (threads) for new jobs to "
 "be used by the look behind window during compression. This value is only "
@@ -1081,36 +1124,36 @@ msgid ""
 "vary from 0 to 9."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:679
+#: ../../library/compression.zstd.rst:712
 msgid "0 means dynamically set the overlap amount"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:680
+#: ../../library/compression.zstd.rst:713
 msgid "1 means no overlap"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:681
+#: ../../library/compression.zstd.rst:714
 msgid "9 means use a full window size from the previous job"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:683
+#: ../../library/compression.zstd.rst:716
 msgid ""
 "Each increment halves/doubles the overlap size. \"8\" means an overlap of "
 "``window_size/2``, \"7\" means an overlap of ``window_size/4``, etc."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:688
+#: ../../library/compression.zstd.rst:721
 msgid ""
 "An :class:`~enum.IntEnum` containing the advanced decompression parameter "
 "keys that can be used when decompressing data. Parameters are optional; any "
 "omitted parameter will have it's value selected automatically."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:695
+#: ../../library/compression.zstd.rst:728
 msgid "Example setting the :attr:`~.window_log_max` to the maximum size::"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:697
+#: ../../library/compression.zstd.rst:730
 msgid ""
 "data = compress(b'Some very long buffer of bytes...')\n"
 "\n"
@@ -1120,14 +1163,14 @@ msgid ""
 "decompress(data, options=options)"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:706
+#: ../../library/compression.zstd.rst:739
 msgid ""
 "Return the tuple of int bounds, ``(lower, upper)``, of a decompression "
 "parameter. This method should be called on the attribute you wish to "
 "retrieve the bounds of."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:714
+#: ../../library/compression.zstd.rst:747
 msgid ""
 "The base-two logarithm of the maximum size of the window used during "
 "decompression. This can be useful to limit the amount of memory used when "
@@ -1135,42 +1178,42 @@ msgid ""
 "decompression."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:724
+#: ../../library/compression.zstd.rst:757
 msgid ""
 "An :class:`~enum.IntEnum` containing strategies for compression. Higher-"
 "numbered strategies correspond to more complex and slower compression."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:730
+#: ../../library/compression.zstd.rst:763
 msgid ""
 "The values of attributes of :class:`!Strategy` are not necessarily stable "
 "across zstd versions. Only the ordering of the attributes may be relied "
 "upon. The attributes are listed below in order."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:734
+#: ../../library/compression.zstd.rst:767
 msgid "The following strategies are available:"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:756
+#: ../../library/compression.zstd.rst:789
 msgid "Miscellaneous"
 msgstr "Diversos"
 
-#: ../../library/compression.zstd.rst:760
+#: ../../library/compression.zstd.rst:793
 msgid ""
 "Retrieve a :class:`FrameInfo` object containing metadata about a Zstandard "
 "frame. Frames contain metadata related to the compressed data they hold."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:766
+#: ../../library/compression.zstd.rst:799
 msgid "Metadata related to a Zstandard frame."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:770
+#: ../../library/compression.zstd.rst:803
 msgid "The size of the decompressed contents of the frame."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:774
+#: ../../library/compression.zstd.rst:807
 msgid ""
 "An integer representing the Zstandard dictionary ID needed for decompressing "
 "the frame. ``0`` means the dictionary ID was not recorded in the frame "
@@ -1178,25 +1221,25 @@ msgid ""
 "ID of a required dictionary was not recorded."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:782
+#: ../../library/compression.zstd.rst:815
 msgid "The default compression level for Zstandard: ``3``."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:787
+#: ../../library/compression.zstd.rst:820
 msgid ""
 "Version number of the runtime zstd library as a tuple of integers (major, "
 "minor, release)."
 msgstr ""
 
-#: ../../library/compression.zstd.rst:792
+#: ../../library/compression.zstd.rst:825
 msgid "Examples"
 msgstr "Exemplos"
 
-#: ../../library/compression.zstd.rst:794
+#: ../../library/compression.zstd.rst:827
 msgid "Reading in a compressed file:"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:796
+#: ../../library/compression.zstd.rst:829
 msgid ""
 "from compression import zstd\n"
 "\n"
@@ -1204,11 +1247,11 @@ msgid ""
 "    file_content = f.read()"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:803
+#: ../../library/compression.zstd.rst:836
 msgid "Creating a compressed file:"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:805
+#: ../../library/compression.zstd.rst:838
 msgid ""
 "from compression import zstd\n"
 "\n"
@@ -1217,11 +1260,11 @@ msgid ""
 "    f.write(data)"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:813
+#: ../../library/compression.zstd.rst:846
 msgid "Compressing data in memory:"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:815
+#: ../../library/compression.zstd.rst:848
 msgid ""
 "from compression import zstd\n"
 "\n"
@@ -1229,11 +1272,11 @@ msgid ""
 "data_out = zstd.compress(data_in)"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:822
+#: ../../library/compression.zstd.rst:855
 msgid "Incremental compression:"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:824
+#: ../../library/compression.zstd.rst:857
 msgid ""
 "from compression import zstd\n"
 "\n"
@@ -1246,11 +1289,11 @@ msgid ""
 "result = b\"\".join([out1, out2, out3, out4])"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:836
+#: ../../library/compression.zstd.rst:869
 msgid "Writing compressed data to an already-open file:"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:838
+#: ../../library/compression.zstd.rst:871
 msgid ""
 "from compression import zstd\n"
 "\n"
@@ -1261,11 +1304,11 @@ msgid ""
 "    f.write(b\"Not compressed\\n\")"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:848
+#: ../../library/compression.zstd.rst:881
 msgid "Creating a compressed file using compression parameters:"
 msgstr ""
 
-#: ../../library/compression.zstd.rst:850
+#: ../../library/compression.zstd.rst:883
 msgid ""
 "from compression import zstd\n"
 "\n"
