@@ -154,7 +154,7 @@ def main() -> None:
     if args.command == "build":
         language = get_value(args.language, "--language", "PYDOC_LANGUAGE")
         version = get_value(args.python_version, "--python-version", "PYDOC_VERSION")
-        po_dir = args.po_dir.absolute() or cpython_path / f"Doc/locales/{language}/LC_MESSAGES"
+        po_dir = args.po_dir.absolute() if args.po_dir else cpython_path / f"Doc/locales/{language}/LC_MESSAGES"
 
     if args.command in ["build", "generate_templates"]:
         if not shutil.which("make"):
