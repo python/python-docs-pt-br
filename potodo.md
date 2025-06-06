@@ -4,12 +4,10 @@
 
 
 
-# c-api (49.42% done)
+# c-api (49.82% done)
 
 - allocation.po                    7 /  31 ( 22.0% translated).
 - apiabiversion.po                17 /  59 ( 28.0% translated).
-- arg.po                         195 / 206 ( 94.0% translated).
-- contextvars.po                  32 /  38 ( 84.0% translated).
 - exceptions.po                  193 / 374 ( 51.0% translated).
 - float.po                        15 /  36 ( 41.0% translated).
 - frame.po                        20 /  42 ( 47.0% translated).
@@ -26,7 +24,6 @@
 - refcounting.po                   4 /  50 (  8.0% translated).
 - structures.po                   71 / 181 ( 39.0% translated).
 - sys.po                          28 /  83 ( 33.0% translated).
-- time.po                         21 /  27 ( 77.0% translated).
 - type.po                         17 / 128 ( 13.0% translated).
 - typeobj.po                     239 / 738 ( 32.0% translated).
 - unicode.po                      65 / 404 ( 16.0% translated).
@@ -40,13 +37,12 @@
 
 
 
-# extending (15.15% done)
+# extending (16.45% done)
 
 - embedding.po                     4 /  59 (  6.0% translated).
 - extending.po                    15 / 209 (  7.0% translated).
 - newtypes.po                      8 / 117 (  6.0% translated).
 - newtypes_tutorial.po            25 / 180 ( 13.0% translated).
-- windows.po                      20 /  28 ( 71.0% translated).
 
 
 # faq (100.00% done)
@@ -72,7 +68,7 @@
 
 
 
-# library (63.41% done)
+# library (63.58% done)
 
 - argparse.po                    370 / 398 ( 92.0% translated).
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
@@ -89,11 +85,9 @@
 - base64.po                       15 /  71 ( 21.0% translated).
 - bdb.po                           9 / 119 (  7.0% translated).
 - binascii.po                     23 /  38 ( 60.0% translated).
-- cmath.po                       119 / 124 ( 95.0% translated).
 - codecs.po                      250 / 535 ( 46.0% translated).
 - compression.zstd.po             64 / 166 ( 38.0% translated).
 - concurrent.futures.po           12 / 121 (  9.0% translated).
-- configparser.po                219 / 226 ( 96.0% translated).
 - contextlib.po                   55 / 172 ( 31.0% translated).
 - ctypes.po                      106 / 603 ( 17.0% translated).
 - curses.po                       66 / 490 ( 13.0% translated).
@@ -112,12 +106,9 @@
 - enum.po                         73 / 245 ( 29.0% translated).
 - errno.po                       115 / 161 ( 71.0% translated).
 - faulthandler.po                  4 /  53 (  7.0% translated).
-- fcntl.po                        49 /  54 ( 90.0% translated).
-- fractions.po                    35 /  41 ( 85.0% translated).
 - ftplib.po                       11 /  99 ( 11.0% translated).
 - functools.po                    20 / 126 ( 15.0% translated).
 - gc.po                           55 /  73 ( 75.0% translated).
-- getopt.po                       27 /  36 ( 75.0% translated).
 - hashlib.po                      75 / 170 ( 44.0% translated).
 - heapq.po                        48 /  67 ( 71.0% translated).
 - html.parser.po                   3 /  60 (  5.0% translated).
@@ -142,7 +133,6 @@
 - mmap.po                         12 /  65 ( 18.0% translated).
 - msvcrt.po                       22 /  46 ( 47.0% translated).
 - multiprocessing.po             320 / 605 ( 52.0% translated).
-- operator.po                    183 / 189 ( 96.0% translated).
 - os.po                          1041 / 1053 ( 98.0% translated).
 - pathlib.po                     242 / 443 ( 54.0% translated).
 - pdb.po                         145 / 178 ( 81.0% translated).
@@ -153,7 +143,6 @@
 - profile.po                      34 / 181 ( 18.0% translated).
 - pyexpat.po                      21 / 145 ( 14.0% translated).
 - queue.po                         9 /  53 ( 16.0% translated).
-- readline.po                     52 /  57 ( 91.0% translated).
 - sched.po                         4 /  25 ( 16.0% translated).
 - select.po                       78 / 209 ( 37.0% translated).
 - selectors.po                    13 /  58 ( 22.0% translated).
@@ -166,9 +155,7 @@
 - struct.po                       97 / 204 ( 47.0% translated).
 - subprocess.po                  149 / 311 ( 47.0% translated).
 - symtable.po                      6 /  73 (  8.0% translated).
-- sys.monitoring.po              107 / 118 ( 90.0% translated).
 - sys.po                         434 / 469 ( 92.0% translated).
-- sys_path_init.po                18 /  27 ( 66.0% translated).
 - tarfile.po                     103 / 342 ( 30.0% translated).
 - tempfile.po                      8 /  87 (  9.0% translated).
 - test.po                        117 / 329 ( 35.0% translated).
@@ -233,5 +220,5 @@
 - changelog.po                   2671 / 13300 ( 20.0% translated).
 
 
-# TOTAL (59.69% done)
+# TOTAL (59.81% done)
 

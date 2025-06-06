@@ -5,16 +5,16 @@
 #
 # Translators:
 # i17obot <i17obot@rougeth.com>, 2021
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-08 02:53-0300\n"
+"POT-Creation-Date: 2025-05-30 14:22+0000\n"
 "PO-Revision-Date: 2021-06-28 01:06+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -92,6 +92,13 @@ msgid ""
 "argument followed by two colons (``'::'``); i.e., the same format that Unix :"
 "c:func:`!getopt` uses."
 msgstr ""
+"Analisa opções de linha de comando e lista de parâmetros. *args* é a lista "
+"de argumentos a ser analisada, sem a referência inicial para o programa em "
+"execução. Normalmente, isso significa ``sys.argv[1:]``. *shortopts* é a "
+"string de letras de opção que o script deseja reconhecer, com opções que "
+"requerem um argumento seguido por dois pontos (``':'``) e opções que aceitam "
+"o argumento opcional seguido por dois caracteres de dois pontos (``'::'``); "
+"ou seja, o mesmo formato que Unix :c:func:`!getopt` usa."
 
 #: ../../library/getopt.rst:48
 msgid ""
@@ -117,6 +124,18 @@ msgid ""
 "fo`` will match as ``--foo``, but ``--f`` will not match uniquely, so :exc:"
 "`GetoptError` will be raised."
 msgstr ""
+"*longopts*, se especificado, deve ser uma lista de strings com os nomes das "
+"opções longas que devem ser suportadas. Os caracteres ``'--'`` no início não "
+"devem ser incluídos no nome da opção. Opções longas que requerem um "
+"argumento devem ser seguidas por um sinal de igual (``'='``). Opções longas "
+"que aceitam um argumento opcional devem ser seguidas por um sinal de "
+"igualdade e ponto de interrogação (``'=?'``). Para aceitar apenas opções "
+"longas, *shortopts* deve ser uma string vazia. Opções longas na linha de "
+"comando podem ser reconhecidas, desde que forneçam um prefixo do nome da "
+"opção que corresponda exatamente a uma das opções aceitas. Por exemplo, se "
+"*longopts* for ``['foo', 'frob']``, a opção ``--fo`` irá corresponder a ``--"
+"foo``, mas ``--f`` não corresponderá exclusivamente, então :exc:"
+"`GetoptError` será levantada."
 
 #: ../../library/getopt.rst:65
 msgid ""
@@ -143,7 +162,7 @@ msgstr ""
 
 #: ../../library/getopt.rst:75
 msgid "Optional arguments are supported."
-msgstr ""
+msgstr "Argumentos opcionais são suportados."
 
 #: ../../library/getopt.rst:81
 msgid ""
@@ -175,11 +194,17 @@ msgid ""
 "arguments as its second element. The second element of the :func:`!"
 "gnu_getopt` result is a list of program arguments after the last option."
 msgstr ""
+"Se o primeiro caractere da string de opção for ``'-'``, argumentos não "
+"opcionais seguidos por opções serão adicionados à lista de pares opção-valor "
+"como um par que tem ``None`` como primeiro elemento e a lista de argumentos "
+"não opcionais como segundo elemento. O segundo elemento do resultado :func:`!"
+"gnu_getopt` é uma lista de argumentos do programa após a última opção."
 
 #: ../../library/getopt.rst:97
 msgid ""
 "Support for returning intermixed options and non-option arguments in order."
 msgstr ""
+"Suporte para retornar opções misturadas e argumentos não opcionais em ordem."
 
 #: ../../library/getopt.rst:103
 msgid ""
@@ -264,7 +289,7 @@ msgstr ""
 
 #: ../../library/getopt.rst:145
 msgid "Optional arguments should be specified explicitly:"
-msgstr ""
+msgstr "Argumentos opcionais devem ser especificados explicitamente:"
 
 #: ../../library/getopt.rst:147
 msgid ""
@@ -278,10 +303,19 @@ msgid ""
 ">>> args\n"
 "['a1', 'a2']"
 msgstr ""
+">>> s = '-Con -C --color=off --color a1 a2'\n"
+">>> args = s.split()\n"
+">>> args\n"
+"['-Con', '-C', '--color=off', '--color', 'a1', 'a2']\n"
+">>> optlist, args = getopt.getopt(args, 'C::', ['color=?'])\n"
+">>> optlist\n"
+"[('-C', 'on'), ('-C', ''), ('--color', 'off'), ('--color', '')]\n"
+">>> args\n"
+"['a1', 'a2']"
 
 #: ../../library/getopt.rst:159
 msgid "The order of options and non-option arguments can be preserved:"
-msgstr ""
+msgstr "A ordem dos argumentos opcionais e não opcionais pode ser preservada:"
 
 #: ../../library/getopt.rst:161
 msgid ""
@@ -295,6 +329,15 @@ msgid ""
 ">>> args\n"
 "['a6']"
 msgstr ""
+">>> s = 'a1 -x a2 a3 a4 --long a5 a6'\n"
+">>> args = s.split()\n"
+">>> args\n"
+"['a1', '-x', 'a2', 'a3', 'a4', '--long', 'a5', 'a6']\n"
+">>> optlist, args = getopt.gnu_getopt(args, '-x:', ['long='])\n"
+">>> optlist\n"
+"[(None, ['a1']), ('-x', 'a2'), (None, ['a3', 'a4']), ('--long', 'a5')]\n"
+">>> args\n"
+"['a6']"
 
 #: ../../library/getopt.rst:173
 msgid "In a script, typical usage is something like this:"
