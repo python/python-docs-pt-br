@@ -60,7 +60,7 @@
 - programming.po                 383 / 388 ( 98.0% translated).
 
 
-# howto (55.27% done)
+# howto (55.44% done)
 
 - annotations.po                  44 /  45 ( 97.0% translated).
 - argparse.po                     81 /  84 ( 96.0% translated).
@@ -75,7 +75,7 @@
 - regex.po                       283 / 286 ( 98.0% translated).
 - sockets.po                      35 /  58 ( 60.0% translated).
 - unicode.po                      30 / 121 ( 24.0% translated).
-- urllib2.po                      55 /  85 ( 64.0% translated).
+- urllib2.po                      59 /  85 ( 69.0% translated).
 
 
 # install (74.34% done)
@@ -232,7 +232,7 @@
 - symtable.po                      3 /  44 (  6.0% translated).
 - sys.po                         358 / 412 ( 86.0% translated).
 - sysconfig.po                    75 /  81 ( 92.0% translated).
-- tarfile.po                      96 / 297 ( 32.0% translated).
+- tarfile.po                      96 / 301 ( 31.0% translated).
 - telnetlib.po                     7 /  47 ( 14.0% translated).
 - tempfile.po                      8 /  64 ( 12.0% translated).
 - test.po                        115 / 295 ( 38.0% translated).
@@ -306,7 +306,7 @@
 - windows.po                     307 / 309 ( 99.0% translated).
 
 
-# whatsnew (70.25% done)
+# whatsnew (70.19% done)
 
 - 2.0.po                         137 / 182 ( 75.0% translated).
 - 2.2.po                         138 / 192 ( 71.0% translated).
@@ -315,7 +315,7 @@
 - 2.5.po                         359 / 386 ( 93.0% translated).
 - 2.6.po                         535 / 539 ( 99.0% translated).
 - 2.7.po                         442 / 453 ( 97.0% translated).
-- 3.10.po                        513 / 517 ( 99.0% translated).
+- 3.10.po                        513 / 523 ( 98.0% translated).
 - 3.2.po                          69 / 518 ( 13.0% translated).
 - 3.3.po                         159 / 660 ( 24.0% translated).
 - 3.4.po                         510 / 511 ( 99.0% translated).
