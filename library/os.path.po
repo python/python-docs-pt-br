@@ -7,16 +7,16 @@
 # Marcos Wenneton Araújo <mwvda.eng@uea.edu.br>, 2019
 # Sheila Gomes <sheilagomes1@gmail.com>, 2020
 # Marco Rougeth <marco@rougeth.com>, 2020
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-17 15:27+0000\n"
+"POT-Creation-Date: 2025-06-06 17:28+0000\n"
 "PO-Revision-Date: 2017-02-16 23:20+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "Language: pt_BR\n"
@@ -134,10 +134,10 @@ msgstr ""
 #: ../../library/os.path.rst:255 ../../library/os.path.rst:265
 #: ../../library/os.path.rst:275 ../../library/os.path.rst:294
 #: ../../library/os.path.rst:324 ../../library/os.path.rst:344
-#: ../../library/os.path.rst:358 ../../library/os.path.rst:377
-#: ../../library/os.path.rst:395 ../../library/os.path.rst:408
-#: ../../library/os.path.rst:424 ../../library/os.path.rst:440
-#: ../../library/os.path.rst:465 ../../library/os.path.rst:496
+#: ../../library/os.path.rst:383 ../../library/os.path.rst:414
+#: ../../library/os.path.rst:432 ../../library/os.path.rst:445
+#: ../../library/os.path.rst:461 ../../library/os.path.rst:477
+#: ../../library/os.path.rst:502 ../../library/os.path.rst:533
 msgid "Accepts a :term:`path-like object`."
 msgstr "Aceita um :term:`objeto caminho ou similar`."
 
@@ -168,16 +168,16 @@ msgstr ""
 "*paths* estiverem vazios. Ao contrário de :func:`commonprefix`, retorna um "
 "caminho válido."
 
-#: ../../library/os.path.rst:89 ../../library/os.path.rst:376
-#: ../../library/os.path.rst:388 ../../library/os.path.rst:404
-#: ../../library/os.path.rst:420
+#: ../../library/os.path.rst:89 ../../library/os.path.rst:413
+#: ../../library/os.path.rst:425 ../../library/os.path.rst:441
+#: ../../library/os.path.rst:457
 msgid ":ref:`Availability <availability>`: Unix, Windows."
 msgstr ":ref:`Disponibilidade <availability>`: Unix, Windows."
 
 #: ../../library/os.path.rst:92
 msgid "Accepts a sequence of :term:`path-like objects <path-like object>`."
 msgstr ""
-"Aceita uma sequência de :term:`objetos caminho ou similar <path-like "
+"Aceita uma sequência de :term:`objetos caminho ou similares <path-like "
 "object>`."
 
 #: ../../library/os.path.rst:98
@@ -506,19 +506,95 @@ msgstr ""
 "quaisquer links simbólicos encontrados no caminho (se esses forem suportados "
 "pelo sistema operacional)."
 
-#: ../../library/os.path.rst:355
+#: ../../library/os.path.rst:354
 msgid ""
-"When symbolic link cycles occur, the returned path will be one member of the "
-"cycle, but no guarantee is made about which member that will be."
+"By default, the path is evaluated up to the first component that does not "
+"exist, is a symlink loop, or whose evaluation raises :exc:`OSError`. All "
+"such components are appended unchanged to the existing part of the path."
 msgstr ""
-"Quando ocorrem ciclos de link simbólico, o caminho retornado será um membro "
-"do ciclo, mas nenhuma garantia é feita sobre qual membro será."
+"Por padrão, o caminho é avaliado até o primeiro componente que não existe, é "
+"um laço de link simbólico ou cuja avaliação levanta :exc:`OSError`. Todos "
+"esses componentes são anexados inalterados à parte existente do caminho."
 
-#: ../../library/os.path.rst:361
+#: ../../library/os.path.rst:358
+msgid ""
+"Some errors that are handled this way include \"access denied\", \"not a "
+"directory\", or \"bad argument to internal function\". Thus, the resulting "
+"path may be missing or inaccessible, may still contain links or loops, and "
+"may traverse non-directories."
+msgstr ""
+"Alguns erros tratados dessa forma incluem \"acesso negado\", \"não é um "
+"diretório\" ou \"argumento inválido para função interna\". Assim, o caminho "
+"resultante pode estar ausente ou inacessível, ainda pode conter links ou "
+"laços e pode passar por diretórios não especificados."
+
+#: ../../library/os.path.rst:363
+msgid "This behavior can be modified by keyword arguments:"
+msgstr "Esse comportamento pode ser modificado por argumentos nomeados:"
+
+#: ../../library/os.path.rst:365
+msgid ""
+"If *strict* is ``True``, the first error encountered when evaluating the "
+"path is re-raised. In particular, :exc:`FileNotFoundError` is raised if "
+"*path* does not exist, or another :exc:`OSError` if it is otherwise "
+"inaccessible."
+msgstr ""
+"Se *strict* for ``True``, o primeiro erro encontrado ao avaliar o caminho "
+"será levantado novamente. Em particular, :exc:`FileNotFoundError` é "
+"levantada se *path* não existir, ou outro :exc:`OSError` se ele estiver "
+"inacessível."
+
+#: ../../library/os.path.rst:370
+msgid ""
+"If *strict* is :py:data:`os.path.ALLOW_MISSING`, errors other than :exc:"
+"`FileNotFoundError` are re-raised (as with ``strict=True``). Thus, the "
+"returned path will not contain any symbolic links, but the named file and "
+"some of its parent directories may be missing."
+msgstr ""
+"Se *strict* for :py:data:`os.path.ALLOW_MISSING`, erros diferentes de :exc:"
+"`FileNotFoundError` serão levantados novamente (como em ``strict=True``). "
+"Portanto, o caminho retornado não conterá nenhum link simbólico, mas o "
+"arquivo nomeado e alguns de seus diretórios pais podem estar ausentes."
+
+#: ../../library/os.path.rst:376
+msgid ""
+"This function emulates the operating system's procedure for making a path "
+"canonical, which differs slightly between Windows and UNIX with respect to "
+"how links and subsequent path components interact."
+msgstr ""
+"Esta função emula o procedimento do sistema operacional para tornar um "
+"caminho canônico, que difere ligeiramente entre o Windows e o UNIX no que "
+"diz respeito à interação dos links e dos componentes do caminho subsequentes."
+
+#: ../../library/os.path.rst:380
+msgid ""
+"Operating system APIs make paths canonical as needed, so it's not normally "
+"necessary to call this function."
+msgstr ""
+"As APIs do sistema operacional tornam os caminhos canônicos conforme "
+"necessário, portanto, normalmente não é necessário chamar esta função."
+
+#: ../../library/os.path.rst:386
 msgid "Symbolic links and junctions are now resolved on Windows."
 msgstr "Links simbólicos e junções agora são resolvidos no Windows."
 
-#: ../../library/os.path.rst:367
+#: ../../library/os.path.rst:389
+msgid "The *strict* parameter was added."
+msgstr "O parâmetro *script* foi adicionado."
+
+#: ../../library/os.path.rst:392
+msgid ""
+"The :py:data:`~os.path.ALLOW_MISSING` value for the *strict* parameter was "
+"added."
+msgstr ""
+"O valor :py:data:`~os.path.ALLOW_MISSING` para o parâmetro *strict* foi "
+"adicionado."
+
+#: ../../library/os.path.rst:398
+msgid "Special value used for the *strict* argument in :func:`realpath`."
+msgstr "Valor especial usado para o argumento *strict* em :func:`realpath`."
+
+#: ../../library/os.path.rst:404
 msgid ""
 "Return a relative filepath to *path* either from the current directory or "
 "from an optional *start* directory.  This is a path computation:  the "
@@ -532,11 +608,11 @@ msgstr ""
 "*start*. No Windows, :exc:`ValueError` é levantada quando *path* e *start* "
 "estão em unidades diferentes."
 
-#: ../../library/os.path.rst:373
+#: ../../library/os.path.rst:410
 msgid "*start* defaults to :attr:`os.curdir`."
 msgstr "*start* tem como padrão :attr:`os.curdir`."
 
-#: ../../library/os.path.rst:383
+#: ../../library/os.path.rst:420
 msgid ""
 "Return ``True`` if both pathname arguments refer to the same file or "
 "directory. This is determined by the device number and i-node number and "
@@ -547,17 +623,17 @@ msgstr ""
 "número do nó-i e levanta uma exceção se uma chamada :func:`os.stat` em "
 "qualquer um dos caminhos falhar."
 
-#: ../../library/os.path.rst:389 ../../library/os.path.rst:405
-#: ../../library/os.path.rst:421
+#: ../../library/os.path.rst:426 ../../library/os.path.rst:442
+#: ../../library/os.path.rst:458
 msgid "Added Windows support."
 msgstr "Adicionado suporte ao Windows."
 
-#: ../../library/os.path.rst:392
+#: ../../library/os.path.rst:429
 msgid "Windows now uses the same implementation as all other platforms."
 msgstr ""
 "O Windows agora usa a mesma implementação que todas as outras plataformas."
 
-#: ../../library/os.path.rst:401
+#: ../../library/os.path.rst:438
 msgid ""
 "Return ``True`` if the file descriptors *fp1* and *fp2* refer to the same "
 "file."
@@ -565,7 +641,7 @@ msgstr ""
 "Retorna ``True`` se os descritores de arquivo *fp1* e *fp2* fazem referência "
 "ao mesmo arquivo."
 
-#: ../../library/os.path.rst:414
+#: ../../library/os.path.rst:451
 msgid ""
 "Return ``True`` if the stat tuples *stat1* and *stat2* refer to the same "
 "file. These structures may have been returned by :func:`os.fstat`, :func:`os."
@@ -577,7 +653,7 @@ msgstr ""
 "func:`os.fstat`, :func:`os.lstat` ou :func:`os.stat`. Esta função implementa "
 "a comparação subjacente usada por :func:`samefile` e :func:`sameopenfile`."
 
-#: ../../library/os.path.rst:430
+#: ../../library/os.path.rst:467
 msgid ""
 "Split the pathname *path* into a pair, ``(head, tail)`` where *tail* is the "
 "last pathname component and *head* is everything leading up to that.  The "
@@ -599,7 +675,7 @@ msgstr ""
 "local que *path* (mas as strings podem ser diferentes). Veja também as "
 "funções :func:`dirname` e :func:`basename`."
 
-#: ../../library/os.path.rst:446
+#: ../../library/os.path.rst:483
 msgid ""
 "Split the pathname *path* into a pair ``(drive, tail)`` where *drive* is "
 "either a mount point or the empty string.  On systems which do not use drive "
@@ -611,14 +687,14 @@ msgstr ""
 "especificações de unidade, *unidade* sempre será a string vazia. Em todos os "
 "casos, ``unidade + rabo`` será o mesmo que *path*."
 
-#: ../../library/os.path.rst:451
+#: ../../library/os.path.rst:488
 msgid ""
 "On Windows, splits a pathname into drive/UNC sharepoint and relative path."
 msgstr ""
 "No Windows, divide um nome de caminho em unidade/ponto de compartilhamento "
 "UNC e caminho relativo."
 
-#: ../../library/os.path.rst:453
+#: ../../library/os.path.rst:490
 msgid ""
 "If the path contains a drive letter, drive will contain everything up to and "
 "including the colon::"
@@ -626,7 +702,7 @@ msgstr ""
 "Se o caminho contiver uma letra de unidade, a unidade conterá tudo, "
 "incluindo os dois pontos::"
 
-#: ../../library/os.path.rst:459
+#: ../../library/os.path.rst:496
 msgid ""
 "If the path contains a UNC path, drive will contain the host name and share, "
 "up to but not including the fourth separator::"
@@ -634,7 +710,7 @@ msgstr ""
 "Se o caminho contiver um caminho UNC, a unidade conterá o nome do host e o "
 "compartilhamento, até mas não incluindo o quarto separador::"
 
-#: ../../library/os.path.rst:471
+#: ../../library/os.path.rst:508
 msgid ""
 "Split the pathname *path* into a pair ``(root, ext)``  such that ``root + "
 "ext == path``, and the extension, *ext*, is empty or begins with a period "
@@ -644,11 +720,11 @@ msgstr ""
 "+ ext == path``, e a extensão, *ext*, esteja vazia ou comece com um ponto e "
 "contenha no máximo um período."
 
-#: ../../library/os.path.rst:475
+#: ../../library/os.path.rst:512
 msgid "If the path contains no extension, *ext* will be ``''``::"
 msgstr "Se o caminho não contiver extensão, *ext* será ``''``::"
 
-#: ../../library/os.path.rst:480
+#: ../../library/os.path.rst:517
 msgid ""
 "If the path contains an extension, then *ext* will be set to this extension, "
 "including the leading period. Note that previous periods will be ignored::"
@@ -657,7 +733,7 @@ msgstr ""
 "incluindo o ponto inicial. Observe que os períodos anteriores serão "
 "ignorados::"
 
-#: ../../library/os.path.rst:488
+#: ../../library/os.path.rst:525
 msgid ""
 "Leading periods of the last component of the path are considered to be part "
 "of the root::"
@@ -665,7 +741,7 @@ msgstr ""
 "Os períodos iniciais do último componente do caminho são considerados parte "
 "da raiz::"
 
-#: ../../library/os.path.rst:502
+#: ../../library/os.path.rst:539
 msgid ""
 "``True`` if arbitrary Unicode strings can be used as file names (within "
 "limitations imposed by the file system)."
