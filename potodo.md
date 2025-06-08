@@ -66,7 +66,7 @@
 
 
 
-# library (64.51% done)
+# library (64.54% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 409 ( 75.0% translated).
@@ -89,7 +89,7 @@
 - dataclasses.po                  45 / 155 ( 29.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
 - dis.po                         208 / 396 ( 52.0% translated).
-- doctest.po                      86 / 376 ( 22.0% translated).
+- doctest.po                      99 / 376 ( 26.0% translated).
 - email.compat32-message.po        6 / 115 (  5.0% translated).
 - email.contentmanager.po          9 /  42 ( 21.0% translated).
 - email.errors.po                  6 /  26 ( 23.0% translated).
@@ -207,5 +207,5 @@
 - changelog.po                   2476 / 12377 ( 20.0% translated).
 
 
-# TOTAL (61.54% done)
+# TOTAL (61.55% done)
 
