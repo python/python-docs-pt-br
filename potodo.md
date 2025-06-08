@@ -131,7 +131,7 @@
 - difflib.po                      14 / 134 ( 10.0% translated).
 - dis.po                         109 / 265 ( 41.0% translated).
 - distutils.po                     0 /  13 (  0.0% translated).
-- doctest.po                      74 / 318 ( 23.0% translated).
+- doctest.po                      75 / 318 ( 23.0% translated).
 - email.charset.po                40 /  44 ( 90.0% translated).
 - email.compat32-message.po        5 / 104 (  4.0% translated).
 - email.contentmanager.po          8 /  41 ( 19.0% translated).
