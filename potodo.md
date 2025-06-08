@@ -68,7 +68,7 @@
 
 
 
-# library (63.64% done)
+# library (63.69% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           307 / 413 ( 74.0% translated).
@@ -93,7 +93,7 @@
 - dataclasses.po                  45 / 157 ( 28.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
 - dis.po                         200 / 404 ( 49.0% translated).
-- doctest.po                      86 / 377 ( 22.0% translated).
+- doctest.po                     100 / 377 ( 26.0% translated).
 - email.compat32-message.po        6 / 115 (  5.0% translated).
 - email.contentmanager.po          9 /  42 ( 21.0% translated).
 - email.errors.po                  6 /  26 ( 23.0% translated).
@@ -157,18 +157,18 @@
 - sys.po                         434 / 469 ( 92.0% translated).
 - tarfile.po                     103 / 346 ( 29.0% translated).
 - tempfile.po                      8 /  87 (  9.0% translated).
-- test.po                        117 / 329 ( 35.0% translated).
+- test.po                        118 / 329 ( 35.0% translated).
 - threading.po                    35 / 284 ( 12.0% translated).
 - timeit.po                       52 /  68 ( 76.0% translated).
 - tkinter.ttk.po                 141 / 429 ( 32.0% translated).
-- traceback.po                     9 / 118 (  7.0% translated).
+- traceback.po                    10 / 118 (  8.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
 - turtle.po                      657 / 683 ( 96.0% translated).
 - typing.po                      773 / 815 ( 94.0% translated).
 - unicodedata.po                   5 /  32 ( 15.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               103 / 448 ( 22.0% translated).
-- unittest.po                    282 / 560 ( 50.0% translated).
+- unittest.po                    283 / 560 ( 50.0% translated).
 - urllib.parse.po                110 / 169 ( 65.0% translated).
 - urllib.request.po               39 / 289 ( 13.0% translated).
 - uuid.po                         47 /  77 ( 61.0% translated).
@@ -202,7 +202,7 @@
 - windows.po                     338 / 536 ( 63.0% translated).
 
 
-# whatsnew (45.13% done)
+# whatsnew (45.14% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -210,7 +210,7 @@
 - 2.6.po                         541 / 626 ( 86.0% translated).
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
-- 3.14.po                        327 / 931 ( 35.0% translated).
+- 3.14.po                        330 / 931 ( 35.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
 - 3.5.po                         126 / 578 ( 21.0% translated).
@@ -219,5 +219,5 @@
 - changelog.po                   2671 / 13317 ( 20.0% translated).
 
 
-# TOTAL (59.83% done)
+# TOTAL (59.85% done)
 
