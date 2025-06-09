@@ -120,7 +120,7 @@
 - dbm.po                          30 /  74 ( 40.0% translated).
 - difflib.po                      14 / 133 ( 10.0% translated).
 - dis.po                          77 / 227 ( 33.0% translated).
-- doctest.po                      61 / 305 ( 20.0% translated).
+- doctest.po                      62 / 305 ( 20.0% translated).
 - email.charset.po                42 /  44 ( 95.0% translated).
 - email.compat32-message.po        5 / 104 (  4.0% translated).
 - email.contentmanager.po          8 /  41 ( 19.0% translated).
