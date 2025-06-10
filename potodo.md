@@ -59,7 +59,7 @@
 - programming.po                 391 / 393 ( 99.0% translated).
 
 
-# howto (63.70% done)
+# howto (63.91% done)
 
 - curses.po                       59 / 105 ( 56.0% translated).
 - descriptor.po                  120 / 177 ( 67.0% translated).
@@ -73,7 +73,7 @@
 - sockets.po                      35 /  58 ( 60.0% translated).
 - sorting.po                      45 /  52 ( 86.0% translated).
 - unicode.po                      30 / 121 ( 24.0% translated).
-- urllib2.po                      68 /  84 ( 80.0% translated).
+- urllib2.po                      73 /  84 ( 86.0% translated).
 
 
 # install (73.45% done)
@@ -326,5 +326,5 @@
 - 3.8.po                         468 / 469 ( 99.0% translated).
 
 
-# TOTAL (67.35% done)
+# TOTAL (67.36% done)
 
