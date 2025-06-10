@@ -49,7 +49,7 @@
 
 
 
-# howto (61.42% done)
+# howto (61.62% done)
 
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                  187 / 230 ( 81.0% translated).
@@ -61,7 +61,7 @@
 - sockets.po                      35 /  63 ( 55.0% translated).
 - sorting.po                      44 /  92 ( 47.0% translated).
 - unicode.po                      30 / 145 ( 20.0% translated).
-- urllib2.po                      82 / 100 ( 82.0% translated).
+- urllib2.po                      89 / 100 ( 89.0% translated).
 
 
 # installing (100.00% done)
@@ -202,7 +202,7 @@
 - windows.po                     338 / 536 ( 63.0% translated).
 
 
-# whatsnew (45.14% done)
+# whatsnew (45.16% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -210,7 +210,7 @@
 - 2.6.po                         541 / 626 ( 86.0% translated).
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
-- 3.14.po                        330 / 931 ( 35.0% translated).
+- 3.14.po                        335 / 931 ( 35.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
 - 3.5.po                         126 / 578 ( 21.0% translated).
@@ -219,5 +219,5 @@
 - changelog.po                   2671 / 13317 ( 20.0% translated).
 
 
-# TOTAL (59.85% done)
+# TOTAL (59.87% done)
 
