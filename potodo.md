@@ -52,7 +52,7 @@
 - programming.po                 349 / 372 ( 93.0% translated).
 
 
-# howto (56.12% done)
+# howto (56.30% done)
 
 - argparse.po                     83 /  84 ( 98.0% translated).
 - clinic.po                      101 / 415 ( 24.0% translated).
@@ -67,7 +67,7 @@
 - sockets.po                      37 /  57 ( 64.0% translated).
 - sorting.po                      54 /  55 ( 98.0% translated).
 - unicode.po                      30 / 121 ( 24.0% translated).
-- urllib2.po                      59 /  85 ( 69.0% translated).
+- urllib2.po                      63 /  85 ( 74.0% translated).
 
 
 # install (76.44% done)
@@ -302,5 +302,5 @@
 - 3.9.po                         383 / 393 ( 97.0% translated).
 
 
-# TOTAL (64.09% done)
+# TOTAL (64.10% done)
 
