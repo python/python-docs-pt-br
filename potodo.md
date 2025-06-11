@@ -60,7 +60,7 @@
 - programming.po                 383 / 388 ( 98.0% translated).
 
 
-# howto (55.44% done)
+# howto (55.61% done)
 
 - annotations.po                  44 /  45 ( 97.0% translated).
 - argparse.po                     81 /  84 ( 96.0% translated).
@@ -75,7 +75,7 @@
 - regex.po                       283 / 286 ( 98.0% translated).
 - sockets.po                      35 /  58 ( 60.0% translated).
 - unicode.po                      30 / 121 ( 24.0% translated).
-- urllib2.po                      59 /  85 ( 69.0% translated).
+- urllib2.po                      63 /  85 ( 74.0% translated).
 
 
 # install (74.34% done)
@@ -324,5 +324,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (64.73% done)
+# TOTAL (64.74% done)
 
