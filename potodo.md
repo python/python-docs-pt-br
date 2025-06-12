@@ -190,7 +190,7 @@
 - cmdline.po                     248 / 249 ( 99.0% translated).
 
 
-# whatsnew (46.34% done)
+# whatsnew (46.40% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -204,8 +204,8 @@
 - 3.5.po                         126 / 578 ( 21.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   2476 / 12377 ( 20.0% translated).
+- changelog.po                   2489 / 12377 ( 20.0% translated).
 
 
-# TOTAL (61.56% done)
+# TOTAL (61.58% done)
 
