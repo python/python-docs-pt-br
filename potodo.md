@@ -50,7 +50,7 @@
 - library.po                     157 / 162 ( 96.0% translated).
 
 
-# howto (61.59% done)
+# howto (61.95% done)
 
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                  181 / 233 ( 77.0% translated).
@@ -62,7 +62,7 @@
 - sockets.po                      35 /  63 ( 55.0% translated).
 - sorting.po                      46 /  75 ( 61.0% translated).
 - unicode.po                      30 / 145 ( 20.0% translated).
-- urllib2.po                      87 / 100 ( 87.0% translated).
+- urllib2.po                      98 / 100 ( 98.0% translated).
 
 
 # installing (100.00% done)
@@ -199,7 +199,7 @@
 - unittest.mock.po               103 / 440 ( 23.0% translated).
 - unittest.po                    282 / 536 ( 52.0% translated).
 - urllib.parse.po                109 / 167 ( 65.0% translated).
-- urllib.request.po               43 / 300 ( 14.0% translated).
+- urllib.request.po               44 / 300 ( 14.0% translated).
 - warnings.po                     71 / 131 ( 54.0% translated).
 - wave.po                         17 /  53 ( 32.0% translated).
 - webbrowser.po                   65 /  83 ( 78.0% translated).
@@ -253,5 +253,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (68.15% done)
+# TOTAL (68.17% done)
 
