@@ -59,7 +59,7 @@
 - programming.po                 391 / 393 ( 99.0% translated).
 
 
-# howto (63.91% done)
+# howto (64.31% done)
 
 - curses.po                       59 / 105 ( 56.0% translated).
 - descriptor.po                  120 / 177 ( 67.0% translated).
@@ -73,7 +73,7 @@
 - sockets.po                      35 /  58 ( 60.0% translated).
 - sorting.po                      45 /  52 ( 86.0% translated).
 - unicode.po                      30 / 121 ( 24.0% translated).
-- urllib2.po                      73 /  84 ( 86.0% translated).
+- urllib2.po                      82 /  84 ( 97.0% translated).
 
 
 # install (73.45% done)
@@ -257,7 +257,7 @@
 - unittest.po                    296 / 514 ( 57.0% translated).
 - urllib.error.po                 11 /  13 ( 84.0% translated).
 - urllib.parse.po                101 / 160 ( 63.0% translated).
-- urllib.request.po               45 / 283 ( 15.0% translated).
+- urllib.request.po               46 / 283 ( 16.0% translated).
 - urllib.robotparser.po           17 /  18 ( 94.0% translated).
 - uuid.po                         49 /  56 ( 87.0% translated).
 - venv.po                        110 / 111 ( 99.0% translated).
@@ -326,5 +326,5 @@
 - 3.8.po                         468 / 469 ( 99.0% translated).
 
 
-# TOTAL (67.36% done)
+# TOTAL (67.38% done)
 
