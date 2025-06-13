@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-06 14:20+0000\n"
+"POT-Creation-Date: 2025-06-13 14:21+0000\n"
 "PO-Revision-Date: 2025-05-23 14:22+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -488,6 +488,14 @@ msgid ""
 "data size require less memory to decompress, especially at higher "
 "compression levels."
 msgstr ""
+"Especifica a quantidade de *size* dados descompactados que será fornecida "
+"para o próximo quadro. *size* será gravado no cabeçalho do quadro do próximo "
+"quadro, a menos que :attr:`CompressionParameter.content_size_flag` seja "
+"``False`` ou ``0``. Um tamanho ``0`` significa que o quadro está vazio. Se "
+"*size* for ``None``, o cabeçalho do quadro omitirá o tamanho do quadro. "
+"Quadros que incluem o tamanho dos dados descompactados requerem menos "
+"memória para descompactação, especialmente em níveis de compactação mais "
+"altos."
 
 #: ../../library/compression.zstd.rst:260
 msgid ""
@@ -497,6 +505,11 @@ msgid ""
 "calls to :meth:`!compress` or :meth:`flush` may raise :exc:`ZstdError` and "
 "the last chunk of data may be lost."
 msgstr ""
+"Se :attr:`last_mode` não for :attr:`FLUSH_FRAME`, uma :exc:`ValueError` será "
+"levantada, pois o compressor não está no início de um quadro. Se o tamanho "
+"prometido não corresponder ao tamanho real dos dados fornecidos para :meth:`."
+"compress`, chamadas futuras para :meth:`!compress` ou :meth:`flush` poderão "
+"levantar :exc:`ZstdError` e o último bloco de dados poderá ser perdido."
 
 #: ../../library/compression.zstd.rst:267
 msgid ""
@@ -504,6 +517,10 @@ msgid ""
 "`FLUSH_FRAME`, the next frame will not include the frame size into the "
 "header unless :meth:`!set_pledged_input_size` is called again."
 msgstr ""
+"Depois que :meth:`flush` ou :meth:`.compress` são chamados com o modo :attr:"
+"`FLUSH_FRAME`, o próximo quadro não incluirá o tamanho do quadro no "
+"cabeçalho, a menos que :meth:`!set_pledged_input_size` seja chamado "
+"novamente."
 
 #: ../../library/compression.zstd.rst:273
 msgid ""
@@ -542,6 +559,10 @@ msgid ""
 "FLUSH_FRAME`. The initial value is :attr:`~.FLUSH_FRAME`, signifying that "
 "the compressor is at the start of a new frame."
 msgstr ""
+"O último modo passado para :meth:`~.compress` ou :meth:`~.flush`. O valor "
+"pode ser :attr:`~.CONTINUE`, :attr:`~.FLUSH_BLOCK` ou :attr:`~.FLUSH_FRAME`. "
+"O valor inicial é :attr:`~.FLUSH_FRAME`, significando que o compactador está "
+"no início de um novo quadro."
 
 #: ../../library/compression.zstd.rst:300
 msgid ""
@@ -643,7 +664,7 @@ msgstr ""
 
 #: ../../library/compression.zstd.rst:363
 msgid "Zstandard dictionaries"
-msgstr ""
+msgstr "Dicionários de Zstandard"
 
 #: ../../library/compression.zstd.rst:368
 msgid ""
@@ -654,12 +675,20 @@ msgid ""
 "files), Zstandard dictionaries can improve compression ratios and speed "
 "significantly."
 msgstr ""
+"Treina um dicionário Zstandard, retornando uma instância :class:`ZstdDict`. "
+"Os dicionários Zstandard permitem uma compactação mais eficiente de dados "
+"menores, que tradicionalmente são difíceis de comprimir devido à menor "
+"repetição. Se você estiver compactando vários grupos de dados semelhantes "
+"(como arquivos semelhantes), os dicionários Zstandard podem melhorar "
+"significativamente as taxas de compactação e a velocidade."
 
 #: ../../library/compression.zstd.rst:375
 msgid ""
 "The *samples* argument (an iterable of :class:`bytes` objects), is the "
 "population of samples used to train the Zstandard dictionary."
 msgstr ""
+"O argumento *samples* (um iterável de objetos :class:`bytes`) é a população "
+"de amostras usada para treinar o dicionário Zstandard."
 
 #: ../../library/compression.zstd.rst:378
 msgid ""
@@ -670,6 +699,12 @@ msgid ""
 "compression, but improve compression ratios. Smaller dictionaries lead to "
 "faster compression, but reduce the compression ratio."
 msgstr ""
+"O argumento *dict_size*, um inteiro, é o tamanho máximo (em bytes) que o "
+"dicionário Zstandard deve ter. A documentação do Zstandard sugere um máximo "
+"absoluto de no máximo 100 KB, mas o máximo pode ser menor dependendo dos "
+"dados. Dicionários maiores geralmente reduzem a compactação, mas melhoram as "
+"taxas de compactação. Dicionários menores levam a uma compactação mais "
+"rápida, mas reduzem a taxa de compactação."
 
 #: ../../library/compression.zstd.rst:388
 msgid ""
@@ -678,18 +713,26 @@ msgid ""
 "sequence of bytes that do not need to follow the structure of a normal "
 "Zstandard dictionary."
 msgstr ""
+"Uma função avançada para converter um dicionário Zstandard de \"conteúdo "
+"bruto\" em um dicionário Zstandard comum. Dicionários de \"conteúdo bruto\" "
+"são uma sequência de bytes que não precisa seguir a estrutura de um "
+"dicionário Zstandard comum."
 
 #: ../../library/compression.zstd.rst:393
 msgid ""
 "The *zstd_dict* argument is a :class:`ZstdDict` instance with the :attr:"
 "`~ZstdDict.dict_content` containing the raw dictionary contents."
 msgstr ""
+"O argumento *zstd_dict* é uma instância :class:`ZstdDict` com :attr:"
+"`~ZstdDict.dict_content` contendo o conteúdo bruto do dicionário."
 
 #: ../../library/compression.zstd.rst:396
 msgid ""
 "The *samples* argument (an iterable of :class:`bytes` objects), contains "
 "sample data for generating the Zstandard dictionary."
 msgstr ""
+"O argumento *samples* (um iterável de objetos :class:`bytes`) contém dados "
+"de amostra para gerar o dicionário Zstandard."
 
 #: ../../library/compression.zstd.rst:399
 msgid ""
@@ -697,6 +740,9 @@ msgid ""
 "Zstandard dictionary should be. See :func:`train_dict` for suggestions on "
 "the maximum dictionary size."
 msgstr ""
+"O argumento *dict_size*, um inteiro, é o tamanho máximo (em bytes) que o "
+"dicionário Zstandard deve ter. Consulte :func:`train_dict` para sugestões "
+"sobre o tamanho máximo do dicionário."
 
 #: ../../library/compression.zstd.rst:403
 msgid ""
@@ -705,6 +751,10 @@ msgid ""
 "varies for each compression level, so tuning for the proper compression "
 "level can make compression more efficient."
 msgstr ""
+"O argumento *level* (um inteiro) é o nível de compactação que se espera que "
+"seja passado aos compactadores usando este dicionário. As informações do "
+"dicionário variam para cada nível de compactação, portanto, ajustar o nível "
+"de compactação adequado pode tornar a compactação mais eficiente."
 
 #: ../../library/compression.zstd.rst:411
 msgid ""
@@ -712,12 +762,18 @@ msgid ""
 "the compression of many small chunks of data. Use :func:`train_dict` if you "
 "need to train a new dictionary from sample data."
 msgstr ""
+"Um invólucro para dicionários Zstandard. Dicionários podem ser usados ​​para "
+"melhorar a compactação de muitos pequenos blocos de dados. Use :func:"
+"`train_dict` se precisar treinar um novo dicionário a partir de dados de "
+"amostra."
 
 #: ../../library/compression.zstd.rst:415
 msgid ""
 "The *dict_content* argument (a :term:`bytes-like object`), is the already "
 "trained dictionary information."
 msgstr ""
+"O argumento *dict_content* (um :term:`objeto bytes ou similar`) é a "
+"informação do dicionário já treinada."
 
 #: ../../library/compression.zstd.rst:418
 msgid ""
@@ -728,6 +784,12 @@ msgid ""
 "functions, for example, :func:`train_dict` or the external :program:`zstd` "
 "CLI."
 msgstr ""
+"O argumento *is_raw*, um booleano, é um parâmetro avançado que controla o "
+"significado de *dict_content*. ``True`` significa que *dict_content* é um "
+"dicionário de \"conteúdo bruto\", sem nenhuma restrição de formato. "
+"``False`` significa que *dict_content* é um dicionário Zstandard comum, "
+"criado a partir de funções Zstandard, por exemplo, :func:`train_dict` ou a "
+"CLI externa :program:`zstd`."
 
 #: ../../library/compression.zstd.rst:424
 msgid ""
@@ -740,10 +802,18 @@ msgid ""
 "passing a digested dictionary will reduce the overhead of loading the "
 "dictionary."
 msgstr ""
+"Ao passar um :class:`!ZstdDict` para uma função, os atributos :attr:`!"
+"as_digested_dict` e :attr:`!as_undigested_dict` podem controlar como o "
+"dicionário é carregado, passando-os como o argumento ``zstd_dict``, por "
+"exemplo, ``compress(data, zstd_dict=zd.as_digested_dict)``. A digestão de um "
+"dicionário é uma operação custosa que ocorre ao carregar um dicionário "
+"Zstandard. Ao fazer várias chamadas para compactação ou descompactação, "
+"passar um dicionário digerido reduzirá a sobrecarga de carregamento do "
+"dicionário."
 
 #: ../../library/compression.zstd.rst:433
 msgid "Difference for compression"
-msgstr ""
+msgstr "Diferença para compactação"
 
 #: ../../library/compression.zstd.rst:438
 msgid "Digested dictionary"
@@ -758,6 +828,8 @@ msgid ""
 "Advanced parameters of the compressor which may be overridden by the "
 "dictionary's parameters"
 msgstr ""
+"Parâmetros avançados do compressor que podem ser substituídos pelos "
+"parâmetros do dicionário"
 
 #: ../../library/compression.zstd.rst:442
 msgid ""
@@ -766,6 +838,10 @@ msgid ""
 "``ldm_hash_log``, ``ldm_min_match``, ``ldm_bucket_size_log``, "
 "``ldm_hash_rate_log``, and some non-public parameters."
 msgstr ""
+"``window_log``, ``hash_log``, ``chain_log``, ``search_log``, ``min_match``, "
+"``target_length``, ``strategy``, ``enable_long_distance_matching``, "
+"``ldm_hash_log``, ``ldm_min_match``, ``ldm_bucket_size_log``, "
+"``ldm_hash_rate_log`` e alguns parâmetros não-públicos."
 
 #: ../../library/compression.zstd.rst:447
 msgid "None"
@@ -773,7 +849,7 @@ msgstr "None"
 
 #: ../../library/compression.zstd.rst:448
 msgid ":class:`!ZstdDict` internally caches the dictionary"
-msgstr ""
+msgstr ":class:`!ZstdDict` armazena em cache internamente o dicionário"
 
 #: ../../library/compression.zstd.rst:449
 msgid ""
