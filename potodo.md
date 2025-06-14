@@ -191,9 +191,9 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (99.08% done)
+# reference (99.11% done)
 
-- introduction.po                 25 /  52 ( 48.0% translated).
+- introduction.po                 26 /  52 ( 50.0% translated).
 
 
 # tutorial (100.00% done)
