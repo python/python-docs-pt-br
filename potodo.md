@@ -52,7 +52,7 @@
 - programming.po                 349 / 372 ( 93.0% translated).
 
 
-# howto (56.30% done)
+# howto (56.70% done)
 
 - argparse.po                     83 /  84 ( 98.0% translated).
 - clinic.po                      101 / 415 ( 24.0% translated).
@@ -67,7 +67,7 @@
 - sockets.po                      37 /  57 ( 64.0% translated).
 - sorting.po                      54 /  55 ( 98.0% translated).
 - unicode.po                      30 / 121 ( 24.0% translated).
-- urllib2.po                      63 /  85 ( 74.0% translated).
+- urllib2.po                      72 /  85 ( 84.0% translated).
 
 
 # install (76.44% done)
@@ -235,7 +235,7 @@
 - unittest.mock.po               108 / 373 ( 28.0% translated).
 - unittest.po                    309 / 499 ( 61.0% translated).
 - urllib.parse.po                 97 / 154 ( 62.0% translated).
-- urllib.request.po               43 / 274 ( 15.0% translated).
+- urllib.request.po               44 / 274 ( 16.0% translated).
 - urllib.robotparser.po           12 /  14 ( 85.0% translated).
 - uuid.po                         51 /  59 ( 86.0% translated).
 - warnings.po                     65 / 109 ( 59.0% translated).
@@ -302,5 +302,5 @@
 - 3.9.po                         383 / 393 ( 97.0% translated).
 
 
-# TOTAL (64.10% done)
+# TOTAL (64.12% done)
 
