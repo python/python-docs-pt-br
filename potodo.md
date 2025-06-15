@@ -69,7 +69,7 @@
 
 
 
-# library (63.18% done)
+# library (63.19% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        78 /  84 ( 92.0% translated).
@@ -99,7 +99,7 @@
 - crypt.po                         6 /  36 ( 16.0% translated).
 - ctypes.po                      103 / 523 ( 19.0% translated).
 - curses.po                       64 / 484 ( 13.0% translated).
-- dataclasses.po                  45 / 153 ( 29.0% translated).
+- dataclasses.po                  49 / 153 ( 32.0% translated).
 - datetime.po                    633 / 637 ( 99.0% translated).
 - dbm.po                          85 /  87 ( 97.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
@@ -253,5 +253,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (68.17% done)
+# TOTAL (68.18% done)
 
