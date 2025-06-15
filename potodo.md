@@ -65,7 +65,7 @@
 
 
 
-# library (64.53% done)
+# library (64.56% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 409 ( 75.0% translated).
@@ -83,10 +83,9 @@
 - codecs.po                      250 / 532 ( 46.0% translated).
 - concurrent.futures.po           14 / 100 ( 14.0% translated).
 - contextlib.po                   55 / 172 ( 31.0% translated).
-- csv.po                         117 / 118 ( 99.0% translated).
 - ctypes.po                      104 / 530 ( 19.0% translated).
 - curses.po                       66 / 486 ( 13.0% translated).
-- dataclasses.po                  44 / 155 ( 28.0% translated).
+- dataclasses.po                  49 / 155 ( 31.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
 - dis.po                         208 / 396 ( 52.0% translated).
 - doctest.po                      99 / 376 ( 26.0% translated).
@@ -141,7 +140,6 @@
 - socket.po                       53 / 368 ( 14.0% translated).
 - sqlite3.po                     116 / 477 ( 24.0% translated).
 - ssl.po                          61 / 544 ( 11.0% translated).
-- stdtypes.po                    1382 / 1389 ( 99.0% translated).
 - string.po                      218 / 220 ( 99.0% translated).
 - struct.po                       96 / 195 ( 49.0% translated).
 - subprocess.po                  149 / 327 ( 45.0% translated).
@@ -186,12 +184,11 @@
 
 
 
-# using (99.92% done)
-
-- cmdline.po                     248 / 249 ( 99.0% translated).
+# using (100.00% done)
 
 
-# whatsnew (46.37% done)
+
+# whatsnew (46.40% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -205,8 +202,8 @@
 - 3.5.po                         126 / 578 ( 21.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   2487 / 12384 ( 20.0% translated).
+- changelog.po                   2494 / 12384 ( 20.0% translated).
 
 
-# TOTAL (61.57% done)
+# TOTAL (61.60% done)
 
