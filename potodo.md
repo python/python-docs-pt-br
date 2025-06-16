@@ -69,7 +69,7 @@
 
 
 
-# library (63.19% done)
+# library (63.52% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        78 /  84 ( 92.0% translated).
@@ -155,7 +155,6 @@
 - ossaudiodev.po                  18 / 102 ( 17.0% translated).
 - pathlib.po                     209 / 346 ( 60.0% translated).
 - pdb.po                         134 / 139 ( 96.0% translated).
-- pickle.po                      235 / 243 ( 96.0% translated).
 - pipes.po                         5 /  21 ( 23.0% translated).
 - pkgutil.po                       6 /  50 ( 12.0% translated).
 - poplib.po                       10 /  53 ( 18.0% translated).
@@ -187,7 +186,6 @@
 - tempfile.po                      8 /  87 (  9.0% translated).
 - test.po                        118 / 320 ( 36.0% translated).
 - threading.po                    35 / 239 ( 14.0% translated).
-- timeit.po                       52 /  68 ( 76.0% translated).
 - tkinter.tix.po                   5 /  75 (  6.0% translated).
 - tkinter.ttk.po                 141 / 421 ( 33.0% translated).
 - traceback.po                     9 / 111 (  8.0% translated).
@@ -203,17 +201,15 @@
 - warnings.po                     71 / 131 ( 54.0% translated).
 - wave.po                         17 /  53 ( 32.0% translated).
 - webbrowser.po                   65 /  83 ( 78.0% translated).
-- winreg.po                       30 / 176 ( 17.0% translated).
+- winreg.po                       90 / 176 ( 51.0% translated).
 - wsgiref.po                      78 / 134 ( 58.0% translated).
 - xdrlib.po                        5 /  58 (  8.0% translated).
-- xml.dom.minidom.po               6 /  56 ( 10.0% translated).
+- xml.dom.minidom.po               7 /  56 ( 12.0% translated).
 - xml.dom.po                      67 / 235 ( 28.0% translated).
-- xml.dom.pulldom.po              13 /  30 ( 43.0% translated).
-- xml.etree.elementtree.po        67 / 265 ( 25.0% translated).
+- xml.etree.elementtree.po        68 / 265 ( 25.0% translated).
 - xml.sax.handler.po               4 / 103 (  3.0% translated).
 - xml.sax.po                       2 /  32 (  6.0% translated).
 - xml.sax.reader.po                2 /  75 (  2.0% translated).
-- xml.sax.utils.po                 1 /  15 (  6.0% translated).
 - xmlrpc.client.po                54 / 113 ( 47.0% translated).
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
@@ -253,5 +249,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (68.18% done)
+# TOTAL (68.36% done)
 
