@@ -67,7 +67,7 @@
 
 
 
-# library (63.88% done)
+# library (64.38% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           307 / 413 ( 74.0% translated).
@@ -106,7 +106,6 @@
 - faulthandler.po                  4 /  53 (  7.0% translated).
 - ftplib.po                       11 /  99 ( 11.0% translated).
 - functools.po                    20 / 126 ( 15.0% translated).
-- gc.po                           55 /  73 ( 75.0% translated).
 - hashlib.po                      75 / 170 ( 44.0% translated).
 - heapq.po                        48 /  67 ( 71.0% translated).
 - html.parser.po                   3 /  60 (  5.0% translated).
@@ -117,7 +116,6 @@
 - http.server.po                  15 / 129 ( 11.0% translated).
 - idle.po                         17 / 293 (  5.0% translated).
 - imaplib.po                      13 / 130 ( 10.0% translated).
-- importlib.metadata.po          106 / 120 ( 88.0% translated).
 - importlib.po                   244 / 312 ( 78.0% translated).
 - inspect.po                      79 / 397 ( 19.0% translated).
 - io.po                           22 / 284 (  7.0% translated).
@@ -131,12 +129,9 @@
 - mmap.po                         12 /  65 ( 18.0% translated).
 - msvcrt.po                       22 /  46 ( 47.0% translated).
 - multiprocessing.po             320 / 605 ( 52.0% translated).
-- os.po                          1041 / 1053 ( 98.0% translated).
 - pathlib.po                     242 / 443 ( 54.0% translated).
 - pdb.po                         145 / 178 ( 81.0% translated).
-- pickle.po                      236 / 253 ( 93.0% translated).
 - pkgutil.po                       6 /  44 ( 13.0% translated).
-- platform.po                     75 /  89 ( 84.0% translated).
 - poplib.po                       10 /  53 ( 18.0% translated).
 - profile.po                      34 / 181 ( 18.0% translated).
 - pyexpat.po                      21 / 145 ( 14.0% translated).
@@ -158,7 +153,6 @@
 - tempfile.po                      8 /  87 (  9.0% translated).
 - test.po                        118 / 329 ( 35.0% translated).
 - threading.po                    35 / 284 ( 12.0% translated).
-- timeit.po                       52 /  68 ( 76.0% translated).
 - tkinter.ttk.po                 141 / 429 ( 32.0% translated).
 - traceback.po                    10 / 118 (  8.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
@@ -172,16 +166,14 @@
 - urllib.request.po               40 / 289 ( 13.0% translated).
 - warnings.po                     72 / 149 ( 48.0% translated).
 - wave.po                         17 /  54 ( 31.0% translated).
-- winreg.po                       30 / 176 ( 17.0% translated).
+- winreg.po                       90 / 176 ( 51.0% translated).
 - wsgiref.po                      78 / 134 ( 58.0% translated).
-- xml.dom.minidom.po               6 /  56 ( 10.0% translated).
+- xml.dom.minidom.po               7 /  56 ( 12.0% translated).
 - xml.dom.po                      67 / 235 ( 28.0% translated).
-- xml.dom.pulldom.po              13 /  30 ( 43.0% translated).
-- xml.etree.elementtree.po        67 / 266 ( 25.0% translated).
+- xml.etree.elementtree.po        68 / 266 ( 25.0% translated).
 - xml.sax.handler.po               4 / 103 (  3.0% translated).
 - xml.sax.po                       2 /  32 (  6.0% translated).
 - xml.sax.reader.po                2 /  75 (  2.0% translated).
-- xml.sax.utils.po                 1 /  15 (  6.0% translated).
 - xmlrpc.client.po                54 / 113 ( 47.0% translated).
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
@@ -217,5 +209,5 @@
 - changelog.po                   2859 / 13331 ( 21.0% translated).
 
 
-# TOTAL (60.18% done)
+# TOTAL (60.41% done)
 
