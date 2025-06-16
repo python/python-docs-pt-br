@@ -65,7 +65,7 @@
 
 
 
-# library (64.56% done)
+# library (64.92% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 409 ( 75.0% translated).
@@ -124,9 +124,7 @@
 - msvcrt.po                       22 /  46 ( 47.0% translated).
 - multiprocessing.po             326 / 596 ( 54.0% translated).
 - pathlib.po                     252 / 418 ( 60.0% translated).
-- pickle.po                      237 / 245 ( 96.0% translated).
 - pkgutil.po                       6 /  50 ( 12.0% translated).
-- platform.po                     74 /  87 ( 85.0% translated).
 - poplib.po                       10 /  53 ( 18.0% translated).
 - profile.po                      34 / 181 ( 18.0% translated).
 - pyexpat.po                      21 / 144 ( 14.0% translated).
@@ -148,7 +146,6 @@
 - tempfile.po                      8 /  87 (  9.0% translated).
 - test.po                        119 / 321 ( 37.0% translated).
 - threading.po                    34 / 274 ( 12.0% translated).
-- timeit.po                       52 /  68 ( 76.0% translated).
 - tkinter.ttk.po                 141 / 429 ( 32.0% translated).
 - traceback.po                     9 / 116 (  7.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
@@ -161,16 +158,14 @@
 - urllib.request.po               41 / 298 ( 13.0% translated).
 - warnings.po                     72 / 138 ( 52.0% translated).
 - wave.po                         17 /  54 ( 31.0% translated).
-- winreg.po                       30 / 176 ( 17.0% translated).
+- winreg.po                       90 / 176 ( 51.0% translated).
 - wsgiref.po                      78 / 134 ( 58.0% translated).
-- xml.dom.minidom.po               6 /  56 ( 10.0% translated).
+- xml.dom.minidom.po               7 /  56 ( 12.0% translated).
 - xml.dom.po                      67 / 235 ( 28.0% translated).
-- xml.dom.pulldom.po              13 /  30 ( 43.0% translated).
-- xml.etree.elementtree.po        67 / 266 ( 25.0% translated).
+- xml.etree.elementtree.po        68 / 266 ( 25.0% translated).
 - xml.sax.handler.po               4 / 103 (  3.0% translated).
 - xml.sax.po                       2 /  32 (  6.0% translated).
 - xml.sax.reader.po                2 /  75 (  2.0% translated).
-- xml.sax.utils.po                 1 /  15 (  6.0% translated).
 - xmlrpc.client.po                54 / 113 ( 47.0% translated).
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
@@ -205,5 +200,5 @@
 - changelog.po                   2494 / 12384 ( 20.0% translated).
 
 
-# TOTAL (61.60% done)
+# TOTAL (61.77% done)
 
