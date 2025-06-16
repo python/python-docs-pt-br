@@ -85,7 +85,7 @@
 
 
 
-# library (62.75% done)
+# library (63.02% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          48 /  49 ( 97.0% translated).
@@ -242,7 +242,6 @@
 - textwrap.po                     46 /  48 ( 95.0% translated).
 - threading.po                    39 / 217 ( 17.0% translated).
 - time.po                        257 / 260 ( 98.0% translated).
-- timeit.po                       51 /  55 ( 92.0% translated).
 - tkinter.font.po                 34 /  35 ( 97.0% translated).
 - tkinter.tix.po                   5 /  72 (  6.0% translated).
 - tkinter.ttk.po                 141 / 410 ( 34.0% translated).
@@ -264,17 +263,17 @@
 - warnings.po                     66 / 112 ( 58.0% translated).
 - wave.po                         17 /  52 ( 32.0% translated).
 - webbrowser.po                   68 /  86 ( 79.0% translated).
-- winreg.po                       31 / 173 ( 17.0% translated).
+- winreg.po                       89 / 173 ( 51.0% translated).
 - wsgiref.po                      70 / 124 ( 56.0% translated).
 - xdrlib.po                        5 /  56 (  8.0% translated).
-- xml.dom.minidom.po               6 /  51 ( 11.0% translated).
+- xml.dom.minidom.po               7 /  51 ( 13.0% translated).
 - xml.dom.po                      67 / 234 ( 28.0% translated).
-- xml.dom.pulldom.po              13 /  27 ( 48.0% translated).
-- xml.etree.elementtree.po        67 / 233 ( 28.0% translated).
+- xml.dom.pulldom.po              26 /  27 ( 96.0% translated).
+- xml.etree.elementtree.po        68 / 233 ( 29.0% translated).
 - xml.sax.handler.po               5 / 103 (  4.0% translated).
 - xml.sax.po                       2 /  32 (  6.0% translated).
 - xml.sax.reader.po                2 /  75 (  2.0% translated).
-- xml.sax.utils.po                 1 /  13 (  7.0% translated).
+- xml.sax.utils.po                12 /  13 ( 92.0% translated).
 - xmlrpc.client.po                57 / 100 ( 57.0% translated).
 - zipapp.po                       66 /  79 ( 83.0% translated).
 - zipfile.po                     192 / 193 ( 99.0% translated).
@@ -326,5 +325,5 @@
 - 3.8.po                         468 / 469 ( 99.0% translated).
 
 
-# TOTAL (67.38% done)
+# TOTAL (67.53% done)
 
