@@ -65,7 +65,7 @@
 
 
 
-# library (64.92% done)
+# library (65.18% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 409 ( 75.0% translated).
@@ -119,17 +119,16 @@
 - logging.handlers.po             51 / 273 ( 18.0% translated).
 - logging.po                      99 / 369 ( 26.0% translated).
 - mailbox.po                      10 / 307 (  3.0% translated).
-- mimetypes.po                    20 /  54 ( 37.0% translated).
+- mimetypes.po                    21 /  54 ( 38.0% translated).
 - mmap.po                         12 /  65 ( 18.0% translated).
 - msvcrt.po                       22 /  46 ( 47.0% translated).
 - multiprocessing.po             326 / 596 ( 54.0% translated).
 - pathlib.po                     252 / 418 ( 60.0% translated).
-- pkgutil.po                       6 /  50 ( 12.0% translated).
+- pkgutil.po                      44 /  50 ( 88.0% translated).
 - poplib.po                       10 /  53 ( 18.0% translated).
 - profile.po                      34 / 181 ( 18.0% translated).
 - pyexpat.po                      21 / 144 ( 14.0% translated).
 - queue.po                         9 /  53 ( 16.0% translated).
-- sched.po                         4 /  25 ( 16.0% translated).
 - select.po                       78 / 206 ( 37.0% translated).
 - selectors.po                    13 /  58 ( 22.0% translated).
 - shelve.po                       11 /  40 ( 27.0% translated).
@@ -158,7 +157,7 @@
 - urllib.request.po               41 / 298 ( 13.0% translated).
 - warnings.po                     72 / 138 ( 52.0% translated).
 - wave.po                         17 /  54 ( 31.0% translated).
-- winreg.po                       90 / 176 ( 51.0% translated).
+- winreg.po                      122 / 176 ( 69.0% translated).
 - wsgiref.po                      78 / 134 ( 58.0% translated).
 - xml.dom.minidom.po               7 /  56 ( 12.0% translated).
 - xml.dom.po                      67 / 235 ( 28.0% translated).
@@ -200,5 +199,5 @@
 - changelog.po                   2494 / 12384 ( 20.0% translated).
 
 
-# TOTAL (61.77% done)
+# TOTAL (61.89% done)
 
