@@ -87,7 +87,7 @@
 
 
 
-# library (61.15% done)
+# library (61.42% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    256 / 290 ( 88.0% translated).
@@ -238,7 +238,7 @@
 - test.po                        115 / 295 ( 38.0% translated).
 - textwrap.po                     41 /  46 ( 89.0% translated).
 - threading.po                    31 / 210 ( 14.0% translated).
-- timeit.po                       46 /  53 ( 86.0% translated).
+- timeit.po                       49 /  53 ( 92.0% translated).
 - tkinter.font.po                 34 /  35 ( 97.0% translated).
 - tkinter.po                     303 / 304 ( 99.0% translated).
 - tkinter.tix.po                   4 /  71 (  5.0% translated).
@@ -261,19 +261,19 @@
 - wave.po                         18 /  49 ( 36.0% translated).
 - weakref.po                      74 /  84 ( 88.0% translated).
 - webbrowser.po                   76 /  82 ( 92.0% translated).
-- winreg.po                       29 / 171 ( 16.0% translated).
+- winreg.po                       86 / 171 ( 50.0% translated).
 - winsound.po                     32 /  34 ( 94.0% translated).
 - wsgiref.po                      65 / 116 ( 56.0% translated).
 - xdrlib.po                        4 /  54 (  7.0% translated).
-- xml.dom.minidom.po               6 /  51 ( 11.0% translated).
+- xml.dom.minidom.po               7 /  51 ( 13.0% translated).
 - xml.dom.po                      67 / 234 ( 28.0% translated).
-- xml.dom.pulldom.po              12 /  27 ( 44.0% translated).
+- xml.dom.pulldom.po              25 /  27 ( 92.0% translated).
 - xml.etree.elementtree.po        66 / 233 ( 28.0% translated).
 - xml.po                          49 /  53 ( 92.0% translated).
 - xml.sax.handler.po               5 / 103 (  4.0% translated).
 - xml.sax.po                       2 /  32 (  6.0% translated).
 - xml.sax.reader.po                2 /  75 (  2.0% translated).
-- xml.sax.utils.po                 1 /  13 (  7.0% translated).
+- xml.sax.utils.po                10 /  13 ( 76.0% translated).
 - xmlrpc.client.po                54 /  98 ( 55.0% translated).
 - zipapp.po                       64 /  79 ( 81.0% translated).
 - zipimport.po                    34 /  38 ( 89.0% translated).
@@ -324,5 +324,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (64.76% done)
+# TOTAL (64.92% done)
 
