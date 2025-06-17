@@ -67,7 +67,7 @@
 
 
 
-# library (64.53% done)
+# library (64.62% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           307 / 413 ( 74.0% translated).
@@ -125,7 +125,7 @@
 - logging.po                      98 / 369 ( 26.0% translated).
 - mailbox.po                      10 / 307 (  3.0% translated).
 - marshal.po                      35 /  56 ( 62.0% translated).
-- mimetypes.po                    22 /  68 ( 32.0% translated).
+- mimetypes.po                    24 /  68 ( 35.0% translated).
 - mmap.po                         12 /  65 ( 18.0% translated).
 - msvcrt.po                       22 /  46 ( 47.0% translated).
 - multiprocessing.po             320 / 605 ( 52.0% translated).
@@ -164,7 +164,7 @@
 - urllib.request.po               40 / 289 ( 13.0% translated).
 - warnings.po                     72 / 149 ( 48.0% translated).
 - wave.po                         17 /  54 ( 31.0% translated).
-- winreg.po                       90 / 176 ( 51.0% translated).
+- winreg.po                      122 / 176 ( 69.0% translated).
 - wsgiref.po                      78 / 134 ( 58.0% translated).
 - xml.dom.minidom.po               7 /  56 ( 12.0% translated).
 - xml.dom.po                      67 / 235 ( 28.0% translated).
@@ -207,5 +207,5 @@
 - changelog.po                   2859 / 13331 ( 21.0% translated).
 
 
-# TOTAL (60.49% done)
+# TOTAL (60.53% done)
 
