@@ -85,7 +85,7 @@
 
 
 
-# library (63.02% done)
+# library (63.27% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          48 /  49 ( 97.0% translated).
@@ -199,7 +199,7 @@
 - pathlib.po                     217 / 230 ( 94.0% translated).
 - pdb.po                         114 / 115 ( 99.0% translated).
 - pipes.po                         5 /  20 ( 25.0% translated).
-- pkgutil.po                       7 /  51 ( 13.0% translated).
+- pkgutil.po                      40 /  51 ( 78.0% translated).
 - platform.po                     54 /  57 ( 94.0% translated).
 - plistlib.po                     42 /  43 ( 97.0% translated).
 - poplib.po                       10 /  54 ( 18.0% translated).
@@ -211,7 +211,7 @@
 - re.po                          382 / 386 ( 98.0% translated).
 - resource.po                    113 / 115 ( 98.0% translated).
 - runpy.po                        35 /  38 ( 92.0% translated).
-- sched.po                         4 /  24 ( 16.0% translated).
+- sched.po                        23 /  24 ( 95.0% translated).
 - select.po                       79 / 207 ( 38.0% translated).
 - selectors.po                    13 /  56 ( 23.0% translated).
 - shelve.po                       12 /  38 ( 31.0% translated).
@@ -263,7 +263,7 @@
 - warnings.po                     66 / 112 ( 58.0% translated).
 - wave.po                         17 /  52 ( 32.0% translated).
 - webbrowser.po                   68 /  86 ( 79.0% translated).
-- winreg.po                       89 / 173 ( 51.0% translated).
+- winreg.po                      121 / 173 ( 69.0% translated).
 - wsgiref.po                      70 / 124 ( 56.0% translated).
 - xdrlib.po                        5 /  56 (  8.0% translated).
 - xml.dom.minidom.po               7 /  51 ( 13.0% translated).
@@ -325,5 +325,5 @@
 - 3.8.po                         468 / 469 ( 99.0% translated).
 
 
-# TOTAL (67.53% done)
+# TOTAL (67.68% done)
 
