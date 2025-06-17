@@ -67,7 +67,7 @@
 
 
 
-# library (64.38% done)
+# library (64.53% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           307 / 413 ( 74.0% translated).
@@ -131,12 +131,10 @@
 - multiprocessing.po             320 / 605 ( 52.0% translated).
 - pathlib.po                     242 / 443 ( 54.0% translated).
 - pdb.po                         145 / 178 ( 81.0% translated).
-- pkgutil.po                       6 /  44 ( 13.0% translated).
 - poplib.po                       10 /  53 ( 18.0% translated).
 - profile.po                      34 / 181 ( 18.0% translated).
 - pyexpat.po                      21 / 145 ( 14.0% translated).
 - queue.po                         9 /  53 ( 16.0% translated).
-- sched.po                         4 /  25 ( 16.0% translated).
 - select.po                       78 / 209 ( 37.0% translated).
 - selectors.po                    13 /  58 ( 22.0% translated).
 - shelve.po                       11 /  40 ( 27.0% translated).
@@ -209,5 +207,5 @@
 - changelog.po                   2859 / 13331 ( 21.0% translated).
 
 
-# TOTAL (60.41% done)
+# TOTAL (60.49% done)
 
