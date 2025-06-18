@@ -67,7 +67,7 @@
 
 
 
-# library (64.62% done)
+# library (64.77% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           307 / 413 ( 74.0% translated).
@@ -164,7 +164,6 @@
 - urllib.request.po               40 / 289 ( 13.0% translated).
 - warnings.po                     72 / 149 ( 48.0% translated).
 - wave.po                         17 /  54 ( 31.0% translated).
-- winreg.po                      122 / 176 ( 69.0% translated).
 - wsgiref.po                      78 / 134 ( 58.0% translated).
 - xml.dom.minidom.po               7 /  56 ( 12.0% translated).
 - xml.dom.po                      67 / 235 ( 28.0% translated).
@@ -190,7 +189,7 @@
 - windows.po                     338 / 536 ( 63.0% translated).
 
 
-# whatsnew (45.88% done)
+# whatsnew (46.01% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -204,8 +203,8 @@
 - 3.5.po                         126 / 578 ( 21.0% translated).
 - 3.6.po                         236 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   2859 / 13331 ( 21.0% translated).
+- changelog.po                   2891 / 13331 ( 21.0% translated).
 
 
-# TOTAL (60.53% done)
+# TOTAL (60.64% done)
 
