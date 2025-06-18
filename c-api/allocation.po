@@ -4,7 +4,6 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Felipefpl, 2021
 # Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2025
 # Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
@@ -13,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 14:22+0000\n"
+"POT-Creation-Date: 2025-06-13 14:21+0000\n"
 "PO-Revision-Date: 2021-06-28 00:47+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -27,7 +26,7 @@ msgstr ""
 
 #: ../../c-api/allocation.rst:6
 msgid "Allocating Objects on the Heap"
-msgstr "Alocando Objetos na Pilha"
+msgstr "Alocando objetos na heap"
 
 #: ../../c-api/allocation.rst:17
 msgid ""
@@ -38,6 +37,12 @@ msgid ""
 "slot).  Specifically, this function does **not** call the object's :meth:`!"
 "__init__` method."
 msgstr ""
+"Inicializa um objeto *op* recém-alocado com seu tipo e referência inicial. "
+"Retorna o objeto inicializado. Outros campos do objeto não são "
+"inicializados. Apesar do nome, esta função não tem relação com o método :"
+"meth:`~object.__init__` do objeto (slot:c:member:`~PyTypeObject.tp_init`). "
+"Especificamente, esta função **não** chama o método :meth:`!__init__` do "
+"objeto."
 
 #: ../../c-api/allocation.rst:24
 msgid ""
@@ -46,12 +51,18 @@ msgid ""
 "tp_alloc` for your type, prefer :c:func:`PyType_GenericAlloc` or :c:func:"
 "`PyObject_New`."
 msgstr ""
+"Em geral, considere esta função como uma rotina de baixo nível. Use :c:"
+"member:`~PyTypeObject.tp_alloc` sempre que possível. Para implementar :c:"
+"member:`!tp_alloc` para o seu tipo, prefira :c:func:`PyType_GenericAlloc` "
+"ou :c:func:`PyObject_New`."
 
 #: ../../c-api/allocation.rst:31
 msgid ""
 "This function only initializes the object's memory corresponding to the "
 "initial :c:type:`PyObject` structure.  It does not zero the rest."
 msgstr ""
+"Esta função inicializa apenas a memória do objeto correspondente à estrutura "
+"inicial :c:type:`PyObject`. Não zera o restante."
 
 #: ../../c-api/allocation.rst:37
 msgid ""
@@ -66,6 +77,8 @@ msgid ""
 "This function only initializes some of the object's memory.  It does not "
 "zero the rest."
 msgstr ""
+"Esta função inicializa apenas parte da memória do objeto. Não zera o "
+"restante."
 
 #: ../../c-api/allocation.rst:48
 msgid ""
@@ -75,12 +88,19 @@ msgid ""
 "`PyObject_Init`.  The caller will own the only reference to the object (i.e. "
 "its reference count will be one)."
 msgstr ""
+"Aloca um novo objeto Python usando o tipo de estrutura C *TYPE* ​​e o objeto "
+"de tipo Python *typeobj* (``PyTypeObject*``) chamando :c:func:"
+"`PyObject_Malloc` para alocar memória e inicializando-o como :c:func:"
+"`PyObject_Init`. O chamador possuirá a única referência ao objeto (ou seja, "
+"sua contagem de referências será um)."
 
 #: ../../c-api/allocation.rst:54 ../../c-api/allocation.rst:107
 msgid ""
 "Avoid calling this directly to allocate memory for an object; call the "
 "type's :c:member:`~PyTypeObject.tp_alloc` slot instead."
 msgstr ""
+"Evite chamar isso diretamente para alocar memória para um objeto; em vez "
+"disso, chame o slot :c:member:`~PyTypeObject.tp_alloc` do tipo."
 
 #: ../../c-api/allocation.rst:57 ../../c-api/allocation.rst:110
 msgid ""
@@ -88,6 +108,9 @@ msgid ""
 "`PyType_GenericAlloc` is preferred over a custom function that simply calls "
 "this macro."
 msgstr ""
+"Ao preencher o slot :c:member:`~PyTypeObject.tp_alloc` de um tipo, :c:func:"
+"`PyType_GenericAlloc` é preferível a uma função personalizada que "
+"simplesmente chama esta macro."
 
 #: ../../c-api/allocation.rst:61
 msgid ""
@@ -95,24 +118,35 @@ msgid ""
 "`~PyTypeObject.tp_new` (:meth:`~object.__new__`), or :c:member:"
 "`~PyTypeObject.tp_init` (:meth:`~object.__init__`)."
 msgstr ""
+"Esta macro não chama :c:member:`~PyTypeObject.tp_alloc`, :c:member:"
+"`~PyTypeObject.tp_new` (:meth:`~object.__new__`) ou :c:member:`~PyTypeObject."
+"tp_init` (:meth:`~object.__init__`)."
 
 #: ../../c-api/allocation.rst:65
 msgid ""
 "This cannot be used for objects with :c:macro:`Py_TPFLAGS_HAVE_GC` set in :c:"
 "member:`~PyTypeObject.tp_flags`; use :c:macro:`PyObject_GC_New` instead."
 msgstr ""
+"Isso não pode ser usado para objetos com :c:macro:`Py_TPFLAGS_HAVE_GC` "
+"definido em :c:member:`~PyTypeObject.tp_flags`; use :c:macro:"
+"`PyObject_GC_New` em vez disso."
 
 #: ../../c-api/allocation.rst:68
 msgid ""
 "Memory allocated by this macro must be freed with :c:func:`PyObject_Free` "
 "(usually called via the object's :c:member:`~PyTypeObject.tp_free` slot)."
 msgstr ""
+"A memória alocada por esta macro deve ser liberada com :c:func:"
+"`PyObject_Free` (geralmente chamado por meio do slot :c:member:"
+"`~PyTypeObject.tp_free` do objeto)."
 
 #: ../../c-api/allocation.rst:73 ../../c-api/allocation.rst:123
 msgid ""
 "The returned memory is not guaranteed to have been completely zeroed before "
 "it was initialized."
 msgstr ""
+"Não há garantia de que a memória retornada tenha sido completamente zerada "
+"antes de ser inicializada."
 
 #: ../../c-api/allocation.rst:78 ../../c-api/allocation.rst:128
 msgid ""
@@ -121,10 +155,14 @@ msgid ""
 "member:`~PyTypeObject.tp_init`.  To construct a fully initialized object, "
 "call *typeobj* instead.  For example::"
 msgstr ""
+"Esta macro não constrói um objeto totalmente inicializado do tipo fornecido; "
+"ela apenas aloca memória e a prepara para inicialização posterior por :c:"
+"member:`~PyTypeObject.tp_init`. Para construir um objeto totalmente "
+"inicializado, chame *typeobj*. Por exemplo:"
 
 #: ../../c-api/allocation.rst:83
 msgid "PyObject *foo = PyObject_CallNoArgs((PyObject *)&PyFoo_Type);"
-msgstr ""
+msgstr "PyObject *foo = PyObject_CallNoArgs((PyObject *)&PyFoo_Type);"
 
 #: ../../c-api/allocation.rst:87 ../../c-api/allocation.rst:137
 msgid ":c:func:`PyObject_Free`"
@@ -132,11 +170,11 @@ msgstr ":c:func:`PyObject_Free`"
 
 #: ../../c-api/allocation.rst:88
 msgid ":c:macro:`PyObject_GC_New`"
-msgstr ""
+msgstr ":c:macro:`PyObject_GC_New`"
 
 #: ../../c-api/allocation.rst:89 ../../c-api/allocation.rst:139
 msgid ":c:func:`PyType_GenericAlloc`"
-msgstr ""
+msgstr ":c:func:`PyType_GenericAlloc`"
 
 #: ../../c-api/allocation.rst:90 ../../c-api/allocation.rst:140
 msgid ":c:member:`~PyTypeObject.tp_alloc`"
@@ -144,7 +182,7 @@ msgstr ":c:member:`~PyTypeObject.tp_alloc`"
 
 #: ../../c-api/allocation.rst:95
 msgid "Like :c:macro:`PyObject_New` except:"
-msgstr ""
+msgstr "Como :c:macro:`PyObject_New`, exceto que:"
 
 #: ../../c-api/allocation.rst:97
 msgid ""
@@ -152,10 +190,13 @@ msgid ""
 "(``Py_ssize_t``) fields of the size given by the :c:member:`~PyTypeObject."
 "tp_itemsize` field of *typeobj*."
 msgstr ""
+"Ela aloca memória suficiente para a estrutura *TYPE* ​​mais os *size* "
+"(``Py_ssize_t``) campos do tamanho fornecido pelo campo :c:member:"
+"`~PyTypeObject.tp_itemsize` de *typeobj*."
 
 #: ../../c-api/allocation.rst:100
 msgid "The memory is initialized like :c:func:`PyObject_InitVar`."
-msgstr ""
+msgstr "A memória é inicializada como :c:func:`PyObject_InitVar`."
 
 #: ../../c-api/allocation.rst:102
 msgid ""
@@ -164,27 +205,38 @@ msgid ""
 "into the same allocation decreases the number of allocations, improving the "
 "memory management efficiency."
 msgstr ""
+"Isso é útil para implementar objetos como tuplas, que conseguem determinar "
+"seu tamanho em tempo de construção. Incorporar o vetor de campos na mesma "
+"alocação diminui o número de alocações, melhorando a eficiência do "
+"gerenciamento de memória."
 
 #: ../../c-api/allocation.rst:114
 msgid ""
 "This cannot be used for objects with :c:macro:`Py_TPFLAGS_HAVE_GC` set in :c:"
 "member:`~PyTypeObject.tp_flags`; use :c:macro:`PyObject_GC_NewVar` instead."
 msgstr ""
+"Isso não pode ser usado para objetos com :c:macro:`Py_TPFLAGS_HAVE_GC` "
+"definido em :c:member:`~PyTypeObject.tp_flags`; use :c:macro:"
+"`PyObject_GC_NewVar` em vez disso."
 
 #: ../../c-api/allocation.rst:118
 msgid ""
 "Memory allocated by this function must be freed with :c:func:`PyObject_Free` "
 "(usually called via the object's :c:member:`~PyTypeObject.tp_free` slot)."
 msgstr ""
+"A memória alocada por esta função deve ser liberada com :c:func:"
+"`PyObject_Free` (geralmente chamado por meio do slot :c:member:"
+"`~PyTypeObject.tp_free` do objeto)."
 
 #: ../../c-api/allocation.rst:133
 msgid ""
 "PyObject *list_instance = PyObject_CallNoArgs((PyObject *)&PyList_Type);"
 msgstr ""
+"PyObject *list_instance = PyObject_CallNoArgs((PyObject *)&PyList_Type);"
 
 #: ../../c-api/allocation.rst:138
 msgid ":c:macro:`PyObject_GC_NewVar`"
-msgstr ""
+msgstr ":c:macro:`PyObject_GC_NewVar`"
 
 #: ../../c-api/allocation.rst:145
 msgid "Same as :c:func:`PyObject_Free`."
@@ -202,7 +254,7 @@ msgstr ""
 
 #: ../../c-api/allocation.rst:156
 msgid ":ref:`moduleobjects`"
-msgstr ""
+msgstr ":ref:`moduleobjects`"
 
 #: ../../c-api/allocation.rst:157
 msgid "To allocate and create extension modules."

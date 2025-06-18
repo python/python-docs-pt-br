@@ -4,20 +4,19 @@
 
 
 
-# c-api (49.66% done)
+# c-api (50.15% done)
 
-- allocation.po                    7 /  31 ( 22.0% translated).
 - apiabiversion.po                17 /  59 ( 28.0% translated).
 - exceptions.po                  193 / 382 ( 50.0% translated).
 - float.po                        15 /  36 ( 41.0% translated).
 - frame.po                        20 /  42 ( 47.0% translated).
-- gcsupport.po                    11 /  67 ( 16.0% translated).
+- gcsupport.po                    15 /  67 ( 22.0% translated).
 - import.po                       33 /  66 ( 50.0% translated).
 - init.po                        168 / 497 ( 33.0% translated).
 - init_config.po                 142 / 638 ( 22.0% translated).
 - intro.po                        98 / 157 ( 62.0% translated).
 - long.po                         37 / 170 ( 21.0% translated).
-- memory.po                       54 / 207 ( 26.0% translated).
+- memory.po                       55 / 207 ( 26.0% translated).
 - module.po                       63 / 135 ( 46.0% translated).
 - number.po                       14 /  48 ( 29.0% translated).
 - object.po                       43 / 144 ( 29.0% translated).
@@ -206,5 +205,5 @@
 - changelog.po                   2891 / 13331 ( 21.0% translated).
 
 
-# TOTAL (60.67% done)
+# TOTAL (60.70% done)
 
