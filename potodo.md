@@ -87,7 +87,7 @@
 
 
 
-# library (61.42% done)
+# library (61.67% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    256 / 290 ( 88.0% translated).
@@ -197,7 +197,7 @@
 - pdb.po                          98 /  99 ( 98.0% translated).
 - pickle.po                      205 / 206 ( 99.0% translated).
 - pipes.po                         4 /  20 ( 20.0% translated).
-- pkgutil.po                       6 /  51 ( 11.0% translated).
+- pkgutil.po                      39 /  51 ( 76.0% translated).
 - platform.po                     53 /  57 ( 92.0% translated).
 - plistlib.po                     38 /  40 ( 95.0% translated).
 - poplib.po                        7 /  50 ( 14.0% translated).
@@ -209,7 +209,7 @@
 - readline.po                     47 /  48 ( 97.0% translated).
 - reprlib.po                      17 /  21 ( 80.0% translated).
 - resource.po                    103 / 114 ( 90.0% translated).
-- sched.po                         4 /  23 ( 17.0% translated).
+- sched.po                        21 /  23 ( 91.0% translated).
 - select.po                       73 / 202 ( 36.0% translated).
 - selectors.po                    13 /  56 ( 23.0% translated).
 - shelve.po                        7 /  32 ( 21.0% translated).
@@ -261,7 +261,7 @@
 - wave.po                         18 /  49 ( 36.0% translated).
 - weakref.po                      74 /  84 ( 88.0% translated).
 - webbrowser.po                   76 /  82 ( 92.0% translated).
-- winreg.po                       86 / 171 ( 50.0% translated).
+- winreg.po                      116 / 171 ( 67.0% translated).
 - winsound.po                     32 /  34 ( 94.0% translated).
 - wsgiref.po                      65 / 116 ( 56.0% translated).
 - xdrlib.po                        4 /  54 (  7.0% translated).
@@ -324,5 +324,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (64.92% done)
+# TOTAL (65.08% done)
 
