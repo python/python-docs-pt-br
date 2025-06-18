@@ -4,9 +4,8 @@
 
 
 
-# c-api (54.45% done)
+# c-api (54.47% done)
 
-- allocation.po                   10 /  11 ( 90.0% translated).
 - exceptions.po                  194 / 378 ( 51.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
 - frame.po                        20 /  42 ( 47.0% translated).
@@ -65,7 +64,7 @@
 
 
 
-# library (65.18% done)
+# library (65.32% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 409 ( 75.0% translated).
@@ -157,7 +156,6 @@
 - urllib.request.po               41 / 298 ( 13.0% translated).
 - warnings.po                     72 / 138 ( 52.0% translated).
 - wave.po                         17 /  54 ( 31.0% translated).
-- winreg.po                      122 / 176 ( 69.0% translated).
 - wsgiref.po                      78 / 134 ( 58.0% translated).
 - xml.dom.minidom.po               7 /  56 ( 12.0% translated).
 - xml.dom.po                      67 / 235 ( 28.0% translated).
@@ -199,5 +197,5 @@
 - changelog.po                   2494 / 12384 ( 20.0% translated).
 
 
-# TOTAL (61.89% done)
+# TOTAL (61.96% done)
 
