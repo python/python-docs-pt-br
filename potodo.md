@@ -66,7 +66,7 @@
 
 
 
-# library (64.77% done)
+# library (64.87% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           307 / 413 ( 74.0% translated).
@@ -117,7 +117,7 @@
 - imaplib.po                      13 / 130 ( 10.0% translated).
 - importlib.po                   244 / 312 ( 78.0% translated).
 - inspect.po                      79 / 397 ( 19.0% translated).
-- io.po                           22 / 284 (  7.0% translated).
+- io.po                           58 / 284 ( 20.0% translated).
 - itertools.po                   155 / 201 ( 77.0% translated).
 - logging.config.po               18 / 171 ( 10.0% translated).
 - logging.handlers.po             52 / 275 ( 18.0% translated).
@@ -205,5 +205,5 @@
 - changelog.po                   2891 / 13331 ( 21.0% translated).
 
 
-# TOTAL (60.70% done)
+# TOTAL (60.75% done)
 
