@@ -79,7 +79,7 @@
 
 
 
-# library (61.35% done)
+# library (61.45% done)
 
 - argparse.po                    262 / 290 ( 90.0% translated).
 - ast.po                         179 / 193 ( 92.0% translated).
@@ -242,7 +242,7 @@
 - wave.po                         18 /  49 ( 36.0% translated).
 - weakref.po                      71 /  81 ( 87.0% translated).
 - webbrowser.po                   75 /  82 ( 91.0% translated).
-- winreg.po                      134 / 172 ( 77.0% translated).
+- winreg.po                      164 / 172 ( 95.0% translated).
 - winsound.po                     32 /  34 ( 94.0% translated).
 - wsgiref.po                      63 / 115 ( 54.0% translated).
 - xdrlib.po                        4 /  54 (  7.0% translated).
@@ -302,5 +302,5 @@
 - 3.9.po                         383 / 393 ( 97.0% translated).
 
 
-# TOTAL (64.49% done)
+# TOTAL (64.55% done)
 
