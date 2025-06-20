@@ -79,7 +79,7 @@
 
 
 
-# library (61.45% done)
+# library (61.50% done)
 
 - argparse.po                    262 / 290 ( 90.0% translated).
 - ast.po                         179 / 193 ( 92.0% translated).
@@ -162,7 +162,7 @@
 - importlib.metadata.po           22 /  41 ( 53.0% translated).
 - importlib.po                   220 / 339 ( 64.0% translated).
 - inspect.po                      83 / 315 ( 26.0% translated).
-- io.po                           17 / 229 (  7.0% translated).
+- io.po                           32 / 229 ( 13.0% translated).
 - ipaddress.po                   155 / 158 ( 98.0% translated).
 - itertools.po                   125 / 148 ( 84.0% translated).
 - logging.config.po               17 / 119 ( 14.0% translated).
@@ -302,5 +302,5 @@
 - 3.9.po                         383 / 393 ( 97.0% translated).
 
 
-# TOTAL (64.55% done)
+# TOTAL (64.58% done)
 
