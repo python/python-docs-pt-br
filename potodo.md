@@ -156,7 +156,7 @@
 - pathlib.po                     209 / 346 ( 60.0% translated).
 - pdb.po                         134 / 139 ( 96.0% translated).
 - pipes.po                         5 /  21 ( 23.0% translated).
-- pkgutil.po                      44 /  50 ( 88.0% translated).
+- pkgutil.po                      43 /  50 ( 86.0% translated).
 - poplib.po                       10 /  53 ( 18.0% translated).
 - profile.po                      34 / 179 ( 18.0% translated).
 - pyexpat.po                      21 / 144 ( 14.0% translated).
