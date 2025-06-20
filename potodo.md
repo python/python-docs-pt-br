@@ -85,7 +85,7 @@
 
 
 
-# library (63.51% done)
+# library (63.50% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          48 /  49 ( 97.0% translated).
@@ -199,7 +199,7 @@
 - pathlib.po                     217 / 230 ( 94.0% translated).
 - pdb.po                         114 / 115 ( 99.0% translated).
 - pipes.po                         5 /  20 ( 25.0% translated).
-- pkgutil.po                      40 /  51 ( 78.0% translated).
+- pkgutil.po                      39 /  51 ( 76.0% translated).
 - platform.po                     54 /  57 ( 94.0% translated).
 - plistlib.po                     42 /  43 ( 97.0% translated).
 - poplib.po                       10 /  54 ( 18.0% translated).
