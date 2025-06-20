@@ -87,7 +87,7 @@
 
 
 
-# library (61.84% done)
+# library (61.90% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    256 / 290 ( 88.0% translated).
@@ -177,7 +177,7 @@
 - importlib.metadata.po           36 /  53 ( 67.0% translated).
 - importlib.po                   225 / 346 ( 65.0% translated).
 - inspect.po                      86 / 338 ( 25.0% translated).
-- io.po                           18 / 245 (  7.0% translated).
+- io.po                           38 / 245 ( 15.0% translated).
 - ipaddress.po                   155 / 158 ( 98.0% translated).
 - itertools.po                   128 / 153 ( 83.0% translated).
 - logging.config.po               17 / 133 ( 12.0% translated).
@@ -324,5 +324,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (65.17% done)
+# TOTAL (65.21% done)
 
