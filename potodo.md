@@ -4,16 +4,15 @@
 
 
 
-# c-api (54.46% done)
+# c-api (55.58% done)
 
 - exceptions.po                  194 / 380 ( 51.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
 - frame.po                        20 /  42 ( 47.0% translated).
 - gcsupport.po                     9 /  52 ( 17.0% translated).
 - import.po                       33 /  62 ( 53.0% translated).
-- init.po                        163 / 480 ( 33.0% translated).
+- init.po                        165 / 480 ( 34.0% translated).
 - init_config.po                 135 / 417 ( 32.0% translated).
-- intro.po                        98 / 154 ( 63.0% translated).
 - long.po                         37 / 104 ( 35.0% translated).
 - memory.po                       53 / 200 ( 26.0% translated).
 - module.po                       64 / 135 ( 47.0% translated).
@@ -48,7 +47,7 @@
 
 
 
-# howto (63.79% done)
+# howto (63.91% done)
 
 - curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                  187 / 230 ( 81.0% translated).
@@ -56,7 +55,6 @@
 - functional.po                  138 / 252 ( 54.0% translated).
 - logging-cookbook.po             40 / 421 (  9.0% translated).
 - logging.po                     121 / 250 ( 48.0% translated).
-- regex.po                       330 / 334 ( 98.0% translated).
 - sockets.po                      35 /  63 ( 55.0% translated).
 - sorting.po                      46 /  75 ( 61.0% translated).
 - unicode.po                      30 / 145 ( 20.0% translated).
@@ -66,7 +64,7 @@
 
 
 
-# library (65.40% done)
+# library (65.41% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 409 ( 75.0% translated).
@@ -125,7 +123,7 @@
 - msvcrt.po                       22 /  46 ( 47.0% translated).
 - multiprocessing.po             326 / 596 ( 54.0% translated).
 - pathlib.po                     252 / 418 ( 60.0% translated).
-- pkgutil.po                      43 /  50 ( 86.0% translated).
+- pkgutil.po                      44 /  50 ( 88.0% translated).
 - poplib.po                       10 /  53 ( 18.0% translated).
 - profile.po                      34 / 181 ( 18.0% translated).
 - pyexpat.po                      21 / 144 ( 14.0% translated).
@@ -134,12 +132,10 @@
 - selectors.po                    13 /  58 ( 22.0% translated).
 - shelve.po                       11 /  40 ( 27.0% translated).
 - shlex.po                         3 /  77 (  3.0% translated).
-- shutil.po                      185 / 186 ( 99.0% translated).
 - smtplib.po                      30 / 116 ( 25.0% translated).
 - socket.po                       53 / 368 ( 14.0% translated).
 - sqlite3.po                     116 / 477 ( 24.0% translated).
 - ssl.po                          61 / 544 ( 11.0% translated).
-- stdtypes.po                    1388 / 1390 ( 99.0% translated).
 - string.po                      218 / 220 ( 99.0% translated).
 - struct.po                       96 / 195 ( 49.0% translated).
 - subprocess.po                  149 / 327 ( 45.0% translated).
@@ -171,9 +167,8 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (99.93% done)
+# reference (99.97% done)
 
-- expressions.po                 536 / 537 ( 99.0% translated).
 - grammar.po                       3 /   4 ( 75.0% translated).
 
 
@@ -181,12 +176,12 @@
 
 
 
-# using (98.48% done)
+# using (99.77% done)
 
-- mac.po                          76 /  96 ( 79.0% translated).
+- mac.po                          93 /  96 ( 96.0% translated).
 
 
-# whatsnew (46.39% done)
+# whatsnew (46.43% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -200,8 +195,8 @@
 - 3.5.po                         126 / 578 ( 21.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   2498 / 12397 ( 20.0% translated).
+- changelog.po                   2506 / 12397 ( 20.0% translated).
 
 
-# TOTAL (61.96% done)
+# TOTAL (62.08% done)
 
