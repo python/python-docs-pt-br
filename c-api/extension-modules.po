@@ -193,19 +193,23 @@ msgstr ""
 
 #: ../../c-api/extension-modules.rst:89
 msgid "Initialization function"
-msgstr ""
+msgstr "Função de inicialização"
 
 #: ../../c-api/extension-modules.rst:91
 msgid ""
 "The initialization function defined by an extension module has the following "
 "signature:"
 msgstr ""
+"A função de inicialização definida por um módulo de extensão tem a seguinte "
+"assinatura:"
 
 #: ../../c-api/extension-modules.rst:96
 msgid ""
 "Its name should be :samp:`PyInit_{<name>}`, with ``<name>`` replaced by the "
 "name of the module."
 msgstr ""
+"Seu nome deve ser :samp:`PyInit_{<nome>}`, com ``<nome>`` substituído pelo "
+"nome do módulo."
 
 #: ../../c-api/extension-modules.rst:99
 msgid ""
@@ -216,6 +220,12 @@ msgid ""
 "with ``<name>`` encoded using Python's *punycode* encoding with hyphens "
 "replaced by underscores. In Python:"
 msgstr ""
+"Para módulos com nomes com somente ASCII, a função deve ser nomeada :samp:"
+"`PyInit_{<nome>}`, com ``<nome>`` substituído pelo nome do módulo. Ao usar :"
+"ref:`multi-phase-initialization`, nomes de módulos não ASCII são permitidos. "
+"Neste caso, o nome da função de inicialização é :samp:`PyInitU_{<nome>}`, "
+"com ``<nome>`` codificado usando a codificação *punycode* do Python com "
+"hífenes substituídos por sublinhados. Em Python::"
 
 #: ../../c-api/extension-modules.rst:106
 msgid ""
@@ -237,26 +247,29 @@ msgstr ""
 msgid ""
 "It is recommended to define the initialization function using a helper macro:"
 msgstr ""
+"É recomendável definir a função de inicialização usando uma macro auxiliar:"
 
 #: ../../c-api/extension-modules.rst:119
 msgid "Declare an extension module initialization function. This macro:"
-msgstr ""
+msgstr "Declara uma função de inicialização do módulo de extensão. Esta macro:"
 
 #: ../../c-api/extension-modules.rst:122
 msgid "specifies the :c:expr:`PyObject*` return type,"
-msgstr ""
+msgstr "especifica o tipo de retorno :c:expr:`PyObject*`,"
 
 #: ../../c-api/extension-modules.rst:123
 msgid "adds any special linkage declarations required by the platform, and"
 msgstr ""
+"adiciona quaisquer declarações de vinculação especiais exigidas pela "
+"plataforma e"
 
 #: ../../c-api/extension-modules.rst:124
 msgid "for C++, declares the function as ``extern \"C\"``."
-msgstr ""
+msgstr "para C++, declara a função como ``extern \"C\"``."
 
 #: ../../c-api/extension-modules.rst:126
 msgid "For example, a module called ``spam`` would be defined like this::"
-msgstr ""
+msgstr "Por exemplo, um módulo chamado ``spam`` seria definido assim::"
 
 #: ../../c-api/extension-modules.rst:128
 msgid ""
@@ -272,6 +285,17 @@ msgid ""
 "    return PyModuleDef_Init(&spam_module);\n"
 "}"
 msgstr ""
+"static struct PyModuleDef spam_module = {\n"
+"    .m_base = PyModuleDef_HEAD_INIT,\n"
+"    .m_name = \"spam\",\n"
+"    ...\n"
+"};\n"
+"\n"
+"PyMODINIT_FUNC\n"
+"PyInit_spam(void)\n"
+"{\n"
+"    return PyModuleDef_Init(&spam_module);\n"
+"}"
 
 #: ../../c-api/extension-modules.rst:140
 msgid ""
@@ -282,12 +306,20 @@ msgid ""
 "in one library <https://peps.python.org/pep-0489/#multiple-modules-in-one-"
 "library>`__ section in :pep:`489` for details."
 msgstr ""
+"É possível exportar vários módulos de uma única biblioteca compartilhada, "
+"definindo várias funções de inicialização. No entanto, importá-los requer o "
+"uso de links simbólicos ou um importador personalizado, porque por padrão "
+"apenas a função correspondente ao nome do arquivo é encontrada. Veja a seção "
+"`Multiple modules in one library <https://peps.python.org/pep-0489/#multiple-"
+"modules-in-one-library>`__ na :pep:`489` para detalhes."
 
 #: ../../c-api/extension-modules.rst:147
 msgid ""
 "The initialization function is typically the only non-\\ ``static`` item "
 "defined in the module's C source."
 msgstr ""
+"A função de inicialização normalmente é o único item não ``static`` definido "
+"no código-fonte C do módulo."
 
 #: ../../c-api/extension-modules.rst:154
 msgid "Multi-phase initialization"
@@ -300,22 +332,31 @@ msgid ""
 "``NULL`` :c:member:`~PyModuleDef.m_slots`. Before it is returned, the "
 "``PyModuleDef`` instance must be initialized using the following function:"
 msgstr ""
+"Normalmente, a :ref:`função de inicialização <extension-export-hook>` "
+"(``PyInit_modulename``) retorna uma instância de :c:type:`PyModuleDef` com :"
+"c:member:`~PyModuleDef.m_slots` não ``NULL``. Antes de ser retornada, a "
+"instância ``PyModuleDef`` deve ser inicializada usando a seguinte função:"
 
 #: ../../c-api/extension-modules.rst:165
 msgid ""
 "Ensure a module definition is a properly initialized Python object that "
 "correctly reports its type and a reference count."
 msgstr ""
+"Garante que uma definição de módulo é um objeto Python devidamente "
+"inicializado que reporta corretamente seu tipo e uma contagem de referências."
 
 #: ../../c-api/extension-modules.rst:168
 msgid "Return *def* cast to ``PyObject*``, or ``NULL`` if an error occurred."
 msgstr ""
+"Retorna *def* convertido para ``PyObject*``, ou ``NULL`` se ocorrer um erro."
 
 #: ../../c-api/extension-modules.rst:170
 msgid ""
 "Calling this function is required for :ref:`multi-phase-initialization`. It "
 "should not be used in other contexts."
 msgstr ""
+"A chamada desta função é necessária para :ref:`multi-phase-initialization`. "
+"Ela não deve ser usada em outros contextos."
 
 #: ../../c-api/extension-modules.rst:173
 msgid ""
@@ -323,10 +364,13 @@ msgid ""
 "allocated. This function may return either a new reference or a borrowed "
 "one; this reference must not be released."
 msgstr ""
+"Observe que o Python assume que as estruturas ``PyModuleDef`` são alocadas "
+"estaticamente. Esta função pode retornar uma nova referência ou uma "
+"referência emprestada; esta referência não deve ser liberada."
 
 #: ../../c-api/extension-modules.rst:184
 msgid "Legacy single-phase initialization"
-msgstr ""
+msgstr "Inicialização monofásica legada"
 
 #: ../../c-api/extension-modules.rst:187
 msgid ""
@@ -334,6 +378,9 @@ msgid ""
 "modules, with known drawbacks and design flaws. Extension module authors are "
 "encouraged to use multi-phase initialization instead."
 msgstr ""
+"A inicialização monofásica é um mecanismo legado para inicializar módulos de "
+"extensão, com desvantagens e falhas de projeto conhecidas. Os autores de "
+"módulos de extensão são incentivados a utilizar a inicialização multifásica."
 
 #: ../../c-api/extension-modules.rst:191
 msgid ""
@@ -342,22 +389,31 @@ msgid ""
 "module object. This is typically done using :c:func:`PyModule_Create` and "
 "functions like :c:func:`PyModule_AddObjectRef`."
 msgstr ""
+"Na inicialização monofásica, a :ref:`função de inicialização <extension-"
+"export-hook>` (``PyInit_modulename``) deve criar, preencher e retornar um "
+"objeto de módulo. Isso normalmente é feito usando :c:func:`PyModule_Create` "
+"e funções como :c:func:`PyModule_AddObjectRef`."
 
 #: ../../c-api/extension-modules.rst:197
 msgid ""
 "Single-phase initialization differs from the :ref:`default <multi-phase-"
 "initialization>` in the following ways:"
 msgstr ""
+"A inicialização monofásica difere do :ref:`padrão <multi-phase-"
+"initialization>` nas seguintes maneiras:"
 
 #: ../../c-api/extension-modules.rst:200
 msgid "Single-phase modules are, or rather *contain*, “singletons”."
-msgstr ""
+msgstr "Módulos monofásicos são, ou melhor, *contêm*, “singletons”."
 
 #: ../../c-api/extension-modules.rst:202
 msgid ""
 "When the module is first initialized, Python saves the contents of the "
 "module's ``__dict__`` (that is, typically, the module's functions and types)."
 msgstr ""
+"Quando o módulo é inicializado pela primeira vez, o Python salva o conteúdo "
+"do ``__dict__`` do módulo (ou seja, normalmente, as funções e os tipos do "
+"módulo)."
 
 #: ../../c-api/extension-modules.rst:206
 msgid ""
@@ -367,6 +423,11 @@ msgid ""
 "``_testsinglephase`` [#testsinglephase]_ that defines a function ``sum`` and "
 "an exception class ``error``:"
 msgstr ""
+"Para importações subsequentes, o Python não chama a função de inicialização "
+"novamente. Em vez disso, ele cria um novo objeto de módulo com um novo "
+"``__dict__`` e copia o conteúdo salvo para ele. Por exemplo, dado um módulo "
+"monofásico ``_testsinglephase`` [#testsinglephase]_ que define uma função "
+"``sum`` e uma classe de exceção ``error``:"
 
 #: ../../c-api/extension-modules.rst:214
 msgid ""
@@ -383,11 +444,25 @@ msgid ""
 ">>> one.error is two.error\n"
 "True"
 msgstr ""
+">>> import sys\n"
+">>> import _testsinglephase as one\n"
+">>> del sys.modules['_testsinglephase']\n"
+">>> import _testsinglephase as two\n"
+">>> one is two\n"
+"False\n"
+">>> one.__dict__ is two.__dict__\n"
+"False\n"
+">>> one.sum is two.sum\n"
+"True\n"
+">>> one.error is two.error\n"
+"True"
 
 #: ../../c-api/extension-modules.rst:229
 msgid ""
 "The exact behavior should be considered a CPython implementation detail."
 msgstr ""
+"O comportamento exato deve ser considerado um detalhe da implementação do "
+"CPython."
 
 #: ../../c-api/extension-modules.rst:231
 msgid ""
@@ -397,25 +472,38 @@ msgid ""
 "Specifically, when a sub-module is imported, this mechanism prepends the "
 "parent package name to the name of the module."
 msgstr ""
+"Para contornar o fato de que ``PyInit_modulename`` não aceita um argumento "
+"*spec*, parte do estado do mecanismo de importação é salvo e aplicado ao "
+"primeiro módulo adequado criado durante a chamada ``PyInit_modulename``. "
+"Especificamente, quando um submódulo é importado, esse mecanismo adiciona o "
+"nome do pacote pai ao nome do módulo."
 
 #: ../../c-api/extension-modules.rst:237
 msgid ""
 "A single-phase ``PyInit_modulename`` function should create “its” module "
 "object as soon as possible, before any other module objects can be created."
 msgstr ""
+"Uma função monofásica ``PyInit_modulename`` deve criar “seu” objeto de "
+"módulo o mais rápido possível, antes que qualquer outro objeto de módulo "
+"possa ser criado."
 
 #: ../../c-api/extension-modules.rst:240
 msgid "Non-ASCII module names (``PyInitU_modulename``) are not supported."
 msgstr ""
+"Nomes de módulos não ASCII (``PyInitU_modulename``) não são suportados."
 
 #: ../../c-api/extension-modules.rst:242
 msgid ""
 "Single-phase modules support module lookup functions like :c:func:"
 "`PyState_FindModule`."
 msgstr ""
+"Módulos monofásicos oferecem suporte a funções de pesquisa de módulos como :"
+"c:func:`PyState_FindModule`."
 
 #: ../../c-api/extension-modules.rst:245
 msgid ""
 "``_testsinglephase`` is an internal module used \\ in CPython's self-test "
 "suite; your installation may or may not \\ include it."
 msgstr ""
+"``_testsinglephase`` é um módulo interno usado no conjunto de autotestes do "
+"CPython; sua instalação pode ou não incluí-lo."
