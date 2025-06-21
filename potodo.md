@@ -197,7 +197,7 @@
 - pdb.po                          98 /  99 ( 98.0% translated).
 - pickle.po                      205 / 206 ( 99.0% translated).
 - pipes.po                         4 /  20 ( 20.0% translated).
-- pkgutil.po                      39 /  51 ( 76.0% translated).
+- pkgutil.po                      38 /  51 ( 74.0% translated).
 - platform.po                     53 /  57 ( 92.0% translated).
 - plistlib.po                     38 /  40 ( 95.0% translated).
 - poplib.po                        7 /  50 ( 14.0% translated).
