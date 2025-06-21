@@ -87,17 +87,20 @@ msgstr ""
 
 #: ../../c-api/intro.rst:34
 msgid "Language version compatibility"
-msgstr ""
+msgstr "Compatibilidade com a versão da linguagem"
 
 #: ../../c-api/intro.rst:36
 msgid "Python's C API is compatible with C11 and C++11 versions of C and C++."
-msgstr ""
+msgstr "A API C do Python é compatível com as versões C11 e C++11 do C e C++."
 
 #: ../../c-api/intro.rst:38
 msgid ""
 "This is a lower limit: the C API does not require features from later C/C++ "
 "versions. You do *not* need to enable your compiler's \"c11 mode\"."
 msgstr ""
+"Este é um limite inferior: a API C não requer recursos de versões "
+"posteriores de C/C++. Você *não* precisa habilitar o \"modo c11\" do seu "
+"compilador."
 
 #: ../../c-api/intro.rst:44
 msgid "Coding standards"
@@ -251,6 +254,10 @@ msgid ""
 "`Py_RETURN_NONE`, :c:macro:`PyMODINIT_FUNC`). Others of a more general "
 "utility are defined here.  This is not necessarily a complete listing."
 msgstr ""
+"Diversas macros úteis são definidas nos arquivos de cabeçalho do Python. "
+"Muitas são definidas mais próximas de onde são úteis (por exemplo, :c:macro:"
+"`Py_RETURN_NONE`, :c:macro:`PyMODINIT_FUNC`). Outras de utilidade mais geral "
+"são definidas aqui. Esta não é necessariamente uma lista completa."
 
 #: ../../c-api/intro.rst:122
 msgid "Return the absolute value of ``x``."
@@ -261,6 +268,8 @@ msgid ""
 "Ask the compiler to always inline a static inline function. The compiler can "
 "ignore it and decide to not inline the function."
 msgstr ""
+"Pede ao compilador para sempre embutir uma função em linha estática. O "
+"compilador pode ignorá-lo e decide não inserir a função."
 
 #: ../../c-api/intro.rst:131
 msgid ""
@@ -300,7 +309,7 @@ msgstr "Deve ser especificado antes do tipo de retorno da função. Uso::"
 
 #: ../../c-api/intro.rst:144
 msgid "static inline Py_ALWAYS_INLINE int random(void) { return 4; }"
-msgstr ""
+msgstr "static inline Py_ALWAYS_INLINE int random(void) { return 4; }"
 
 #: ../../c-api/intro.rst:150
 msgid ""
@@ -368,7 +377,7 @@ msgstr "Uso::"
 
 #: ../../c-api/intro.rst:196
 msgid "Py_NO_INLINE static int random(void) { return 4; }"
-msgstr ""
+msgstr "Py_NO_INLINE static int random(void) { return 4; }"
 
 #: ../../c-api/intro.rst:202
 msgid ""
@@ -458,6 +467,13 @@ msgid ""
 "    // ...\n"
 "}"
 msgstr ""
+"PyDoc_STRVAR(pop_doc, \"Remove e retorna o elemento mais à direita.\");\n"
+"\n"
+"static PyMethodDef deque_methods[] = {\n"
+"    // ...\n"
+"    {\"pop\", (PyCFunction)deque_pop, METH_NOARGS, pop_doc},\n"
+"    // ...\n"
+"}"
 
 #: ../../c-api/intro.rst:256
 msgid ""
@@ -483,6 +499,11 @@ msgid ""
 "    {NULL, NULL}\n"
 "};"
 msgstr ""
+"static PyMethodDef pysqlite_row_methods[] = {\n"
+"    {\"keys\", (PyCFunction)pysqlite_row_keys, METH_NOARGS,\n"
+"        PyDoc_STR(\"Retorna as chaves da linha.\")},\n"
+"    {NULL, NULL}\n"
+"};"
 
 #: ../../c-api/intro.rst:274
 msgid "Objects, Types and Reference Counts"
@@ -551,6 +572,17 @@ msgid ""
 "objects that reference each other here; for now, the solution is \"don't do "
 "that.\")"
 msgstr ""
+"A contagem de referências é importante porque os computadores atuais têm um "
+"tamanho de memória finito (e frequentemente severamente limitado); ela conta "
+"quantos lugares diferentes existem que possuem uma :term:`referência forte` "
+"a um objeto. Tal lugar pode ser outro objeto, ou uma variável C global (ou "
+"estática), ou uma variável local em alguma função C. Quando a última :term:"
+"`referência forte` a um objeto é liberada (ou seja, sua contagem de "
+"referências se torna zero), o objeto é desalocado. Se ele contiver "
+"referências a outros objetos, essas referências são liberadas. Esses outros "
+"objetos podem ser desalocados por sua vez, se não houver mais referências a "
+"eles, e assim por diante. (Há um problema óbvio com objetos que referenciam "
+"uns aos outros aqui; por enquanto, a solução é \"não faça isso\".)"
 
 #: ../../c-api/intro.rst:319
 msgid ""
@@ -570,6 +602,22 @@ msgid ""
 "``sizeof(Py_ssize_t) >= sizeof(void*)``). Thus, the reference count "
 "increment is a simple operation."
 msgstr ""
+"Contagens de referências são sempre manipuladas explicitamente. A maneira "
+"normal é usar a macro :c:func:`Py_INCREF` para obter uma nova referência a "
+"um objeto (ou seja, incrementar sua contagem de referências em um), e :c:"
+"func:`Py_DECREF` para liberar essa referência (ou seja, decrementar a "
+"contagem de referências em um). A macro :c:func:`Py_DECREF` é "
+"consideravelmente mais complexa do que a incref, pois deve verificar se a "
+"contagem de referências se torna zero e, em seguida, fazer com que o "
+"desalocador do objeto seja chamado. O desalocador é um ponteiro para função "
+"contido na estrutura de tipo do objeto. O desalocador específico do tipo "
+"cuida da liberação de referências para outros objetos contidos no objeto se "
+"este for um tipo de objeto composto, como uma lista, bem como de executar "
+"qualquer finalização adicional necessária. Não há chance de a contagem de "
+"referências transbordar; pelo menos tantos bits são usados ​​para armazenar a "
+"contagem de referência quantos forem os locais de memória distintos na "
+"memória virtual (presumindo ``sizeof(Py_ssize_t) >= sizeof(void*)``). "
+"Portanto, o incremento da contagem de referências é uma operação simples."
 
 #: ../../c-api/intro.rst:335
 msgid ""
@@ -588,6 +636,21 @@ msgid ""
 "that are called from Python; the call mechanism guarantees to hold a  "
 "reference to every argument for the duration of the call."
 msgstr ""
+"Não é necessário manter uma :term:`referência forte` (ou seja, incrementar a "
+"contagem de referências) para cada variável local que contém um ponteiro "
+"para um objeto. Em teoria, a contagem de referências do objeto aumenta em um "
+"quando a variável é feita para apontar para ele e diminui em um quando a "
+"variável sai do escopo. No entanto, esses dois se cancelam, portanto, no "
+"final, a contagem de referências não mudou. A única razão real para usar a "
+"contagem de referências é evitar que o objeto seja desalocado enquanto nossa "
+"variável estiver apontando para ele. Se sabemos que existe pelo menos uma "
+"outra referência ao objeto que vive pelo menos tanto quanto nossa variável, "
+"não há necessidade de tomar uma nova :term:`referência forte` (ou seja, "
+"incrementar a contagem de referências) temporariamente. Uma situação "
+"importante em que isso ocorre é em objetos que são passados como argumentos "
+"para funções C em um módulo de extensão que são chamados de Python; o "
+"mecanismo de chamada garante manter uma referência a todos os argumentos "
+"durante a chamada."
 
 #: ../../c-api/intro.rst:351
 msgid ""
@@ -599,6 +662,14 @@ msgid ""
 "code path which allows control to flow back to the user from a :c:func:"
 "`Py_DECREF`, so almost any operation is potentially dangerous."
 msgstr ""
+"No entanto, uma armadilha comum é extrair um objeto de uma lista e mantê-lo "
+"por um tempo, sem tomar uma nova referência. Alguma outra operação poderia "
+"remover o objeto da lista, liberando essa referência e possivelmente "
+"desalocando-o. O perigo real é que operações aparentemente inocentes podem "
+"invocar código Python arbitrário que poderia fazer isso; existe um caminho "
+"de código que permite que o controle flua de volta para o usuário a partir "
+"de um :c:func:`Py_DECREF`, então quase qualquer operação é potencialmente "
+"perigosa."
 
 #: ../../c-api/intro.rst:359
 msgid ""
@@ -609,6 +680,12 @@ msgid ""
 "This leaves the caller with the responsibility to call :c:func:`Py_DECREF` "
 "when they are done with the result; this soon becomes second nature."
 msgstr ""
+"Uma abordagem segura é sempre usar as operações genéricas (funções cujo nome "
+"começa com ``PyObject_``, ``PyNumber_``, ``PySequence_`` ou ``PyMapping_``). "
+"Essas operações sempre criam uma nova :term:`referência forte` (ou seja, "
+"incrementam a contagem de referências) do objeto que retornam. Isso deixa o "
+"chamador com a responsabilidade de chamar :c:func:`Py_DECREF` quando "
+"terminar com o resultado; isso logo se torna uma segunda natureza."
 
 #: ../../c-api/intro.rst:370
 msgid "Reference Count Details"
@@ -630,6 +707,20 @@ msgid ""
 "said to *borrow* the reference. Nothing needs to be done for a :term:"
 "`borrowed reference`."
 msgstr ""
+"O comportamento da contagem de referências de funções na API C/Python é "
+"melhor explicado em termos de *propriedade de referências*. A propriedade "
+"pertence às referências, nunca aos objetos (os objetos não são possuídos: "
+"eles são sempre compartilhados). \"Possuir uma referência\" significa ser "
+"responsável por chamar Py_DECREF nela quando a referência não for mais "
+"necessária. A propriedade também pode ser transferida, o que significa que o "
+"código que recebe a propriedade da referência torna-se responsável por "
+"eventualmente efetuar um liberando ela chamando :c:func:`Py_DECREF` ou :c:"
+"func:`Py_XDECREF` quando não é mais necessário -- ou passando essa "
+"responsabilidade (geralmente para o responsável pela chamada). Quando uma "
+"função passa a propriedade de uma referência para seu chamador, diz-se que o "
+"chamador recebe uma *nova* referência. Quando nenhuma propriedade é "
+"transferida, diz-se que o chamador *toma emprestado* a referência. Nada "
+"precisa ser feito para uma :term:`referência emprestada`."
 
 #: ../../c-api/intro.rst:385
 msgid ""
@@ -674,6 +765,12 @@ msgid ""
 "PyTuple_SetItem(t, 1, PyLong_FromLong(2L));\n"
 "PyTuple_SetItem(t, 2, PyUnicode_FromString(\"three\"));"
 msgstr ""
+"PyObject *t;\n"
+"\n"
+"t = PyTuple_New(3);\n"
+"PyTuple_SetItem(t, 0, PyLong_FromLong(1L));\n"
+"PyTuple_SetItem(t, 1, PyLong_FromLong(2L));\n"
+"PyTuple_SetItem(t, 2, PyUnicode_FromString(\"três\"));"
 
 #: ../../c-api/intro.rst:410
 msgid ""
@@ -730,6 +827,10 @@ msgid ""
 "tuple = Py_BuildValue(\"(iis)\", 1, 2, \"three\");\n"
 "list = Py_BuildValue(\"[iis]\", 1, 2, \"three\");"
 msgstr ""
+"PyObject *tuple, *list;\n"
+"\n"
+"tuple = Py_BuildValue(\"(iis)\", 1, 2, \"três\");\n"
+"list = Py_BuildValue(\"[iis]\", 1, 2, \"três\");"
 
 #: ../../c-api/intro.rst:434
 msgid ""
@@ -741,6 +842,13 @@ msgid ""
 "For example, this function sets all items of a list (actually, any mutable "
 "sequence) to a given item::"
 msgstr ""
+"É muito mais comum usar :c:func:`PyObject_SetItem` e amigos com itens cujas "
+"referências você está apenas pegando emprestado, como argumentos que foram "
+"passados para a função que você está escrevendo. Nesse caso, o comportamento "
+"deles em relação às referências é muito mais são, já que você não precisa "
+"tomar uma nova referência só para poder doá-la (\"mande-a ser roubada\"). "
+"Por exemplo, esta função define todos os itens de uma lista (na verdade, "
+"qualquer sequência mutável) para um determinado item::"
 
 #: ../../c-api/intro.rst:441
 msgid ""
@@ -765,6 +873,26 @@ msgid ""
 "    return 0;\n"
 "}"
 msgstr ""
+"int\n"
+"set_all(PyObject *target, PyObject *item)\n"
+"{\n"
+"    Py_ssize_t i, n;\n"
+"\n"
+"    n = PyObject_Length(target);\n"
+"    if (n < 0)\n"
+"        return -1;\n"
+"    for (i = 0; i < n; i++) {\n"
+"        PyObject *index = PyLong_FromSsize_t(i);\n"
+"        if (!index)\n"
+"            return -1;\n"
+"        if (PyObject_SetItem(target, index, item) < 0) {\n"
+"            Py_DECREF(index);\n"
+"            return -1;\n"
+"        }\n"
+"        Py_DECREF(index);\n"
+"    }\n"
+"    return 0;\n"
+"}"
 
 #: ../../c-api/intro.rst:464
 msgid ""
@@ -840,6 +968,27 @@ msgid ""
 "    return total;\n"
 "}"
 msgstr ""
+"long\n"
+"sum_list(PyObject *list)\n"
+"{\n"
+"    Py_ssize_t i, n;\n"
+"    long total = 0, value;\n"
+"    PyObject *item;\n"
+"\n"
+"    n = PyList_Size(list);\n"
+"    if (n < 0)\n"
+"        return -1; /* Não é uma lista */\n"
+"    for (i = 0; i < n; i++) {\n"
+"        item = PyList_GetItem(list, i); /* Não pode falhar */\n"
+"        if (!PyLong_Check(item)) continue; /* Ignora não-inteiros */\n"
+"        value = PyLong_AsLong(item);\n"
+"        if (value == -1 && PyErr_Occurred())\n"
+"            /* Inteiro muito grande para caber em um C longo, sai */\n"
+"            return -1;\n"
+"        total += value;\n"
+"    }\n"
+"    return total;\n"
+"}"
 
 #: ../../c-api/intro.rst:515
 msgid ""
@@ -871,6 +1020,33 @@ msgid ""
 "    return total;\n"
 "}"
 msgstr ""
+"long\n"
+"sum_sequence(PyObject *sequence)\n"
+"{\n"
+"    Py_ssize_t i, n;\n"
+"    long total = 0, value;\n"
+"    PyObject *item;\n"
+"    n = PySequence_Length(sequence);\n"
+"    if (n < 0)\n"
+"        return -1; /* Não tem comprimento */\n"
+"    for (i = 0; i < n; i++) {\n"
+"        item = PySequence_GetItem(sequence, i);\n"
+"        if (item == NULL)\n"
+"            return -1; /* Não é uma sequência ou outra falha */\n"
+"        if (PyLong_Check(item)) {\n"
+"            value = PyLong_AsLong(item);\n"
+"            Py_DECREF(item);\n"
+"            if (value == -1 && PyErr_Occurred())\n"
+"                /* Inteiro muito grande para caber em um C longo, sai */\n"
+"                return -1;\n"
+"            total += value;\n"
+"        }\n"
+"        else {\n"
+"            Py_DECREF(item); /* Descartar propriedade de referência */\n"
+"        }\n"
+"    }\n"
+"    return total;\n"
+"}"
 
 #: ../../c-api/intro.rst:549
 msgid "Types"
@@ -1046,6 +1222,11 @@ msgid ""
 "following example function shows some error cleanup.  First, to remind you "
 "why you like Python, we show the equivalent Python code::"
 msgstr ""
+"Um exemplo simples de detecção de exceções e transmiti-las é mostrado no "
+"exemplo :c:func:`!sum_sequence` acima. Acontece que este exemplo não precisa "
+"limpar nenhuma referência de propriedade quando detecta um erro. A função de "
+"exemplo a seguir mostra alguma limpeza de erro. Primeiro, para lembrar por "
+"que você gosta de Python, mostramos o código Python equivalente::"
 
 #: ../../c-api/intro.rst:643
 msgid ""
@@ -1056,6 +1237,12 @@ msgid ""
 "        item = 0\n"
 "    dict[key] = item + 1"
 msgstr ""
+"def incr_item(dict, key):\n"
+"    try:\n"
+"        item = dict[key]\n"
+"    except KeyError:\n"
+"        item = 0\n"
+"    dict[key] = item + 1"
 
 #: ../../c-api/intro.rst:652
 msgid "Here is the corresponding C code, in all its glory::"
@@ -1106,6 +1293,48 @@ msgid ""
 "    return rv; /* -1 for error, 0 for success */\n"
 "}"
 msgstr ""
+"int\n"
+"incr_item(PyObject *dict, PyObject *key)\n"
+"{\n"
+"    /* Objetos todos inicializados para NULL para Py_XDECREF */\n"
+"    PyObject *item = NULL, *const_one = NULL, *incremented_item = NULL;\n"
+"    int rv = -1; /* Retorna valor inicializado para -1 (falha) */\n"
+"\n"
+"    item = PyObject_GetItem(dict, key);\n"
+"    if (item == NULL) {\n"
+"        /* Trata de KeyError apenas: */\n"
+"        if (!PyErr_ExceptionMatches(PyExc_KeyError))\n"
+"            goto error;\n"
+"\n"
+"        /* Limpa o erro e usa zero: */\n"
+"        PyErr_Clear();\n"
+"        item = PyLong_FromLong(0L);\n"
+"        if (item == NULL)\n"
+"            goto error;\n"
+"    }\n"
+"    const_one = PyLong_FromLong(1L);\n"
+"    if (const_one == NULL)\n"
+"        goto error;\n"
+"\n"
+"    incremented_item = PyNumber_Add(item, const_one);\n"
+"    if (incremented_item == NULL)\n"
+"        goto error;\n"
+"\n"
+"    if (PyObject_SetItem(dict, key, incremented_item) < 0)\n"
+"        goto error;\n"
+"    rv = 0; /* Success */\n"
+"    /* Continua com o código de limpeza */\n"
+"\n"
+" error:\n"
+"    /* Código de limpeza, compartilhado pelo caminho sucesso e falha */\n"
+"\n"
+"    /* Usa Py_XDECREF() para ignorar referências NULL */\n"
+"    Py_XDECREF(item);\n"
+"    Py_XDECREF(const_one);\n"
+"    Py_XDECREF(incremented_item);\n"
+"\n"
+"    return rv; /* -1 para erro, 0 para sucesso */\n"
+"}"
 
 #: ../../c-api/intro.rst:704
 msgid ""
@@ -1221,6 +1450,13 @@ msgid ""
 "`Py_GetPath`, :c:func:`Py_GetPrefix`, :c:func:`Py_GetExecPrefix`, and :c:"
 "func:`Py_GetProgramFullPath` (all defined in :file:`Modules/getpath.c`)."
 msgstr ""
+"A aplicação de incorporação pode orientar a pesquisa definindo :c:member:"
+"`PyConfig.program_name` *antes* de chamar :c:func:`Py_InitializeFromConfig`. "
+"Observe que :envvar:`PYTHONHOME` ainda substitui isso e :envvar:`PYTHONPATH` "
+"ainda é inserido na frente do caminho padrão. Uma aplicação que requer "
+"controle total deve fornecer sua própria implementação de :c:func:"
+"`Py_GetPath`, :c:func:`Py_GetPrefix`, :c:func:`Py_GetExecPrefix` e :c:func:"
+"`Py_GetProgramFullPath` (todas definidas em :file:`Modules/getpath.c`)."
 
 #: ../../c-api/intro.rst:777
 msgid ""
@@ -1288,6 +1524,13 @@ msgid ""
 "macro:`!Py_DEBUG` is enabled in the Unix build, compiler optimization is "
 "disabled."
 msgstr ""
+"Compilar o interpretador com a macro :c:macro:`!Py_DEBUG` definida produz o "
+"que geralmente se entende por :ref:`uma construção de depuração do Python "
+"<debug-build>`. :c:macro:`!Py_DEBUG` é habilitada na construção Unix "
+"adicionando :option:`--with-pydebug` ao comando :file:`./configure`. Também "
+"está implícito na presença da macro não específica do Python :c:macro:`!"
+"_DEBUG`. Quando :c:macro:`!Py_DEBUG` está habilitado na construção do Unix, "
+"a otimização do compilador é desabilitada."
 
 #: ../../c-api/intro.rst:813
 msgid ""
@@ -1332,38 +1575,40 @@ msgid ""
 "The following third party tools offer both simpler and more sophisticated "
 "approaches to creating C, C++ and Rust extensions for Python:"
 msgstr ""
+"As seguintes ferramentas de terceiros oferecem abordagens mais simples e "
+"mais sofisticadas para criar extensões C, C++ e Rust para Python:"
 
 #: ../../c-api/intro.rst:835
 msgid "`Cython <https://cython.org/>`_"
-msgstr ""
+msgstr "`Cython <https://cython.org/>`_"
 
 #: ../../c-api/intro.rst:836
 msgid "`cffi <https://cffi.readthedocs.io>`_"
-msgstr ""
+msgstr "`cffi <https://cffi.readthedocs.io>`_"
 
 #: ../../c-api/intro.rst:837
 msgid "`HPy <https://hpyproject.org/>`_"
-msgstr ""
+msgstr "`HPy <https://hpyproject.org/>`_"
 
 #: ../../c-api/intro.rst:838
 msgid "`nanobind <https://github.com/wjakob/nanobind>`_ (C++)"
-msgstr ""
+msgstr "`nanobind <https://github.com/wjakob/nanobind>`_ (C++)"
 
 #: ../../c-api/intro.rst:839
 msgid "`Numba <https://numba.pydata.org/>`_"
-msgstr ""
+msgstr "`Numba <https://numba.pydata.org/>`_"
 
 #: ../../c-api/intro.rst:840
 msgid "`pybind11 <https://pybind11.readthedocs.io/>`_ (C++)"
-msgstr ""
+msgstr "`pybind11 <https://pybind11.readthedocs.io/>`_ (C++)"
 
 #: ../../c-api/intro.rst:841
 msgid "`PyO3 <https://pyo3.rs/>`_ (Rust)"
-msgstr ""
+msgstr "`PyO3 <https://pyo3.rs/>`_ (Rust)"
 
 #: ../../c-api/intro.rst:842
 msgid "`SWIG <https://www.swig.org>`_"
-msgstr ""
+msgstr "`SWIG <https://www.swig.org>`_"
 
 #: ../../c-api/intro.rst:844
 msgid ""
@@ -1375,6 +1620,14 @@ msgid ""
 "support compiling for other implementations of Python from a single set of "
 "sources."
 msgstr ""
+"O uso de ferramentas como essas pode ajudar a evitar a criação de código "
+"estritamente vinculado a uma versão específica do CPython, evitar erros de "
+"contagem de referências e focar mais no seu próprio código do que em usar a "
+"API do CPython. Em geral, novas versões do Python podem ser suportadas "
+"atualizando a ferramenta, e seu código frequentemente usará APIs mais novas "
+"e eficientes automaticamente. Algumas ferramentas também oferecem suporte à "
+"compilação para outras implementações do Python a partir de um único "
+"conjunto de fontes."
 
 #: ../../c-api/intro.rst:851
 msgid ""
@@ -1383,6 +1636,10 @@ msgid ""
 "the project is still maintained and supported, as the list above may become "
 "outdated."
 msgstr ""
+"Esses projetos não são suportados pelas mesmas pessoas que mantêm o Python, "
+"e quaisquer problemas precisam ser relatados diretamente aos projetos. "
+"Lembre-se de verificar se o projeto ainda é mantido e tem suporte, pois a "
+"lista acima pode ficar desatualizada."
 
 #: ../../c-api/intro.rst:858
 msgid ""
@@ -1413,51 +1670,51 @@ msgstr "tipo"
 
 #: ../../c-api/intro.rst:315
 msgid "Py_INCREF (C function)"
-msgstr ""
+msgstr "Py_INCREF (função C)"
 
 #: ../../c-api/intro.rst:315
 msgid "Py_DECREF (C function)"
-msgstr ""
+msgstr "Py_DECREF (função C)"
 
 #: ../../c-api/intro.rst:391
 msgid "PyList_SetItem (C function)"
-msgstr ""
+msgstr "PyList_SetItem (função C)"
 
 #: ../../c-api/intro.rst:391
 msgid "PyTuple_SetItem (C function)"
-msgstr ""
+msgstr "PyTuple_SetItem (função C)"
 
 #: ../../c-api/intro.rst:462
 msgid "set_all()"
-msgstr ""
+msgstr "set_all()"
 
 #: ../../c-api/intro.rst:481
 msgid "PyList_GetItem (C function)"
-msgstr ""
+msgstr "PyList_GetItem (função C)"
 
 #: ../../c-api/intro.rst:481
 msgid "PySequence_GetItem (C function)"
-msgstr ""
+msgstr "PySequence_GetItem (função C)"
 
 #: ../../c-api/intro.rst:511
 msgid "sum_list()"
-msgstr ""
+msgstr "sum_list()"
 
 #: ../../c-api/intro.rst:543 ../../c-api/intro.rst:635
 msgid "sum_sequence()"
-msgstr ""
+msgstr "sum_sequence()"
 
 #: ../../c-api/intro.rst:578
 msgid "PyErr_Occurred (C function)"
-msgstr ""
+msgstr "PyErr_Occurred (função C)"
 
 #: ../../c-api/intro.rst:591
 msgid "PyErr_SetString (C function)"
-msgstr ""
+msgstr "PyErr_SetString (função C)"
 
 #: ../../c-api/intro.rst:591 ../../c-api/intro.rst:699
 msgid "PyErr_Clear (C function)"
-msgstr ""
+msgstr "PyErr_Clear (função C)"
 
 #: ../../c-api/intro.rst:615
 msgid "exc_info (in module sys)"
@@ -1465,19 +1722,19 @@ msgstr "exc_info (no módulo sys)"
 
 #: ../../c-api/intro.rst:650 ../../c-api/intro.rst:697
 msgid "incr_item()"
-msgstr ""
+msgstr "incr_item()"
 
 #: ../../c-api/intro.rst:699
 msgid "PyErr_ExceptionMatches (C function)"
-msgstr ""
+msgstr "PyErr_ExceptionMatches (função C)"
 
 #: ../../c-api/intro.rst:699
 msgid "Py_XDECREF (C function)"
-msgstr ""
+msgstr "Py_XDECREF (função C)"
 
 #: ../../c-api/intro.rst:725
 msgid "Py_Initialize (C function)"
-msgstr ""
+msgstr "Py_Initialize (função C)"
 
 #: ../../c-api/intro.rst:725
 msgid "module"
@@ -1505,24 +1762,24 @@ msgstr "caminho"
 
 #: ../../c-api/intro.rst:725
 msgid "path (in module sys)"
-msgstr ""
+msgstr "path (no módulo sys)"
 
 #: ../../c-api/intro.rst:760
 msgid "Py_GetPath (C function)"
-msgstr ""
+msgstr "Py_GetPath (função C)"
 
 #: ../../c-api/intro.rst:760
 msgid "Py_GetPrefix (C function)"
-msgstr ""
+msgstr "Py_GetPrefix (função C)"
 
 #: ../../c-api/intro.rst:760
 msgid "Py_GetExecPrefix (C function)"
-msgstr ""
+msgstr "Py_GetExecPrefix (função C)"
 
 #: ../../c-api/intro.rst:760
 msgid "Py_GetProgramFullPath (C function)"
-msgstr ""
+msgstr "Py_GetProgramFullPath (função C)"
 
 #: ../../c-api/intro.rst:775
 msgid "Py_IsInitialized (C function)"
-msgstr ""
+msgstr "Py_IsInitialized (função C)"

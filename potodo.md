@@ -4,7 +4,7 @@
 
 
 
-# c-api (50.32% done)
+# c-api (51.36% done)
 
 - apiabiversion.po                17 /  59 ( 28.0% translated).
 - exceptions.po                  193 / 384 ( 50.0% translated).
@@ -12,9 +12,8 @@
 - frame.po                        20 /  42 ( 47.0% translated).
 - gcsupport.po                    15 /  67 ( 22.0% translated).
 - import.po                       33 /  66 ( 50.0% translated).
-- init.po                        168 / 497 ( 33.0% translated).
+- init.po                        170 / 497 ( 34.0% translated).
 - init_config.po                 142 / 638 ( 22.0% translated).
-- intro.po                        95 / 154 ( 61.0% translated).
 - long.po                         37 / 170 ( 21.0% translated).
 - memory.po                       55 / 207 ( 26.0% translated).
 - module.po                       48 / 129 ( 37.0% translated).
@@ -173,9 +172,8 @@
 - zoneinfo.po                      7 /  83 (  8.0% translated).
 
 
-# reference (97.73% done)
+# reference (98.61% done)
 
-- introduction.po                 26 /  52 ( 50.0% translated).
 - lexical_analysis.po            320 / 361 ( 88.0% translated).
 
 
@@ -188,7 +186,7 @@
 - windows.po                     338 / 536 ( 63.0% translated).
 
 
-# whatsnew (46.05% done)
+# whatsnew (46.13% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -202,8 +200,8 @@
 - 3.5.po                         126 / 578 ( 21.0% translated).
 - 3.6.po                         236 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   2890 / 13355 ( 21.0% translated).
+- changelog.po                   2910 / 13355 ( 21.0% translated).
 
 
-# TOTAL (60.73% done)
+# TOTAL (60.87% done)
 
