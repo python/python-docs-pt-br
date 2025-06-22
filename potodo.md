@@ -85,7 +85,7 @@
 
 
 
-# library (63.50% done)
+# library (63.53% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          48 /  49 ( 97.0% translated).
@@ -277,7 +277,7 @@
 - zipapp.po                       66 /  79 ( 83.0% translated).
 - zipfile.po                     192 / 193 ( 99.0% translated).
 - zipimport.po                    34 /  38 ( 89.0% translated).
-- zoneinfo.po                      8 /  75 ( 10.0% translated).
+- zoneinfo.po                     16 /  75 ( 21.0% translated).
 
 
 # reference (98.62% done)
@@ -324,5 +324,5 @@
 - 3.8.po                         468 / 469 ( 99.0% translated).
 
 
-# TOTAL (67.88% done)
+# TOTAL (67.90% done)
 
