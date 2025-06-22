@@ -69,7 +69,7 @@
 
 
 
-# library (64.01% done)
+# library (64.05% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        78 /  84 ( 92.0% translated).
@@ -209,7 +209,7 @@
 - xml.sax.po                       2 /  32 (  6.0% translated).
 - xml.sax.reader.po                2 /  75 (  2.0% translated).
 - xmlrpc.client.po                54 / 113 ( 47.0% translated).
-- zoneinfo.po                      7 /  83 (  8.0% translated).
+- zoneinfo.po                     23 /  83 ( 27.0% translated).
 
 
 # reference (99.96% done)
@@ -247,5 +247,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (68.72% done)
+# TOTAL (68.75% done)
 
