@@ -65,7 +65,7 @@
 
 
 
-# library (64.96% done)
+# library (65.00% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           307 / 413 ( 74.0% translated).
@@ -169,7 +169,7 @@
 - xml.sax.po                       2 /  32 (  6.0% translated).
 - xml.sax.reader.po                2 /  75 (  2.0% translated).
 - xmlrpc.client.po                54 / 113 ( 47.0% translated).
-- zoneinfo.po                      7 /  83 (  8.0% translated).
+- zoneinfo.po                     23 /  83 ( 27.0% translated).
 
 
 # reference (98.61% done)
@@ -181,8 +181,9 @@
 
 
 
-# using (86.68% done)
+# using (86.55% done)
 
+- mac.po                          92 /  94 ( 97.0% translated).
 - windows.po                     338 / 536 ( 63.0% translated).
 
 
@@ -203,5 +204,5 @@
 - changelog.po                   2915 / 13355 ( 21.0% translated).
 
 
-# TOTAL (60.92% done)
+# TOTAL (60.94% done)
 
