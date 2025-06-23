@@ -6,8 +6,8 @@
 # Translators:
 # André Filipe de Assunção e Brito <decko@birosca.mobi>, 2025
 # Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2025
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 # Adorilson Bezerra <adorilson@gmail.com>, 2025
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-20 14:21+0000\n"
 "PO-Revision-Date: 2025-05-08 06:05+0000\n"
-"Last-Translator: Adorilson Bezerra <adorilson@gmail.com>, 2025\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -668,7 +668,7 @@ msgstr ":pep:`750`."
 
 #: ../../whatsnew/3.14.rst:324
 msgid "PEP 768: Safe external debugger interface for CPython"
-msgstr ""
+msgstr "PEP 768: Interface segura para depurador externo para o CPython"
 
 #: ../../whatsnew/3.14.rst:326
 msgid ""
@@ -679,6 +679,13 @@ msgid ""
 "pdb>` for how this feature is leveraged to implement the new :mod:`pdb` "
 "module's remote attaching capabilities."
 msgstr ""
+":pep:`768` introduz uma interface de depuração sem overhead que permite que "
+"depuradores e profilers se conectem com segurança a processos Python em "
+"execução. Esta é uma melhoria significativa nos recursos de depuração do "
+"Python, permitindo que depuradores renunciem a alternativas inseguras. Veja :"
+"ref:`abaixo <whatsnew314-remote-pdb>` para saber como este recurso é "
+"utilizado para implementar os recursos de conexão remota do novo módulo :mod:"
+"`pdb`."
 
 #: ../../whatsnew/3.14.rst:332
 msgid ""
@@ -688,16 +695,24 @@ msgid ""
 "applications in real-time without stopping or restarting them — a crucial "
 "capability for high-availability systems and production environments."
 msgstr ""
+"A nova interface fornece pontos de execução seguros para anexar código do "
+"depurador sem modificar o caminho de execução normal do interpretador ou "
+"adicionar sobrecarga de tempo de execução. Isso permite que as ferramentas "
+"inspecionem e interajam com aplicações Python em tempo real sem interrompê-"
+"las ou reiniciá-las — um recurso crucial para sistemas de alta "
+"disponibilidade e ambientes de produção."
 
 #: ../../whatsnew/3.14.rst:337
 msgid ""
 "For convenience, CPython implements this interface through the :mod:`sys` "
 "module with a :func:`sys.remote_exec` function::"
 msgstr ""
+"Para conveniência, o CPython implementa essa interface por meio do módulo :"
+"mod:`sys` com uma função :func:`sys.remote_exec`::"
 
 #: ../../whatsnew/3.14.rst:340
 msgid "sys.remote_exec(pid, script_path)"
-msgstr ""
+msgstr "sys.remote_exec(pid, script_path)"
 
 #: ../../whatsnew/3.14.rst:342
 msgid ""
@@ -706,12 +721,19 @@ msgid ""
 "the protocol directly as described in the PEP, which details the underlying "
 "mechanisms used to safely attach to running processes."
 msgstr ""
+"Esta função permite o envio de código Python para ser executado em um "
+"processo de destino no próximo ponto de execução seguro. No entanto, os "
+"autores da ferramenta também podem implementar o protocolo diretamente, "
+"conforme descrito no PEP, que detalha os mecanismos subjacentes usados ​​para "
+"anexar com segurança a processos em execução."
 
 #: ../../whatsnew/3.14.rst:346
 msgid ""
 "Here's a simple example that inspects object types in a running Python "
 "process:"
 msgstr ""
+"Aqui está um exemplo simples que inspeciona tipos de objetos em um processo "
+"Python em execução:"
 
 #: ../../whatsnew/3.14.rst:348
 msgid ""
@@ -731,26 +753,45 @@ msgid ""
 "finally:\n"
 "    os.unlink(script_path)"
 msgstr ""
+"import os\n"
+"import sys\n"
+"import tempfile\n"
+"\n"
+"# Cria um script temporário\n"
+"with tempfile.NamedTemporaryFile(mode='w', suffix='.py', delete=False) as "
+"f:\n"
+"    script_path = f.name\n"
+"    f.write(f\"import my_debugger; my_debugger.connect({os.getpid()})\")\n"
+"try:\n"
+"    # Executa no processo com PID 1234\n"
+"    print(\"Vejam! Eis uma oferta!:\")\n"
+"    sys.remote_exec(1234, script_path)\n"
+"finally:\n"
+"    os.unlink(script_path)"
 
 #: ../../whatsnew/3.14.rst:365
 msgid ""
 "The debugging interface has been carefully designed with security in mind "
 "and includes several mechanisms to control access:"
 msgstr ""
+"A interface de depuração foi cuidadosamente projetada com a segurança em "
+"mente e inclui vários mecanismos para controlar o acesso:"
 
 #: ../../whatsnew/3.14.rst:368
 msgid "A :envvar:`PYTHON_DISABLE_REMOTE_DEBUG` environment variable."
-msgstr ""
+msgstr "Uma variável de ambiente :envvar:`PYTHON_DISABLE_REMOTE_DEBUG`."
 
 #: ../../whatsnew/3.14.rst:369
 msgid "A :option:`-X disable-remote-debug` command-line option."
-msgstr ""
+msgstr "Uma opção de linha de comando :option:`-X disable-remote-debug`."
 
 #: ../../whatsnew/3.14.rst:370
 msgid ""
 "A :option:`--without-remote-debug` configure flag to completely disable the "
 "feature at build time."
 msgstr ""
+"Um sinalizador de configuração :option:`--without-remote-debug` para "
+"desabilitar completamente o recurso no momento da construção."
 
 #: ../../whatsnew/3.14.rst:372
 msgid ""
