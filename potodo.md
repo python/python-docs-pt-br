@@ -64,7 +64,7 @@
 
 
 
-# library (65.45% done)
+# library (65.56% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 409 ( 75.0% translated).
@@ -143,11 +143,10 @@
 - tarfile.po                     103 / 341 ( 30.0% translated).
 - tempfile.po                      8 /  87 (  9.0% translated).
 - test.po                        119 / 321 ( 37.0% translated).
-- threading.po                    34 / 274 ( 12.0% translated).
+- threading.po                    38 / 274 ( 13.0% translated).
 - tkinter.ttk.po                 141 / 429 ( 32.0% translated).
 - traceback.po                     9 / 116 (  7.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
-- typing.po                      785 / 800 ( 98.0% translated).
 - unicodedata.po                   5 /  32 ( 15.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               103 / 448 ( 22.0% translated).
@@ -164,7 +163,7 @@
 - xml.sax.po                       2 /  32 (  6.0% translated).
 - xml.sax.reader.po                2 /  75 (  2.0% translated).
 - xmlrpc.client.po                54 / 113 ( 47.0% translated).
-- zoneinfo.po                     23 /  83 ( 27.0% translated).
+- zoneinfo.po                     42 /  83 ( 50.0% translated).
 
 
 # reference (99.97% done)
@@ -198,5 +197,5 @@
 - changelog.po                   2506 / 12397 ( 20.0% translated).
 
 
-# TOTAL (62.10% done)
+# TOTAL (62.15% done)
 
