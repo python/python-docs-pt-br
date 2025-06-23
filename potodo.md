@@ -69,7 +69,7 @@
 
 
 
-# library (64.05% done)
+# library (64.11% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        78 /  84 ( 92.0% translated).
@@ -184,7 +184,7 @@
 - telnetlib.po                    10 /  53 ( 18.0% translated).
 - tempfile.po                      8 /  87 (  9.0% translated).
 - test.po                        118 / 320 ( 36.0% translated).
-- threading.po                    35 / 239 ( 14.0% translated).
+- threading.po                    37 / 239 ( 15.0% translated).
 - tkinter.tix.po                   5 /  75 (  6.0% translated).
 - tkinter.ttk.po                 141 / 421 ( 33.0% translated).
 - traceback.po                     9 / 111 (  8.0% translated).
@@ -209,7 +209,7 @@
 - xml.sax.po                       2 /  32 (  6.0% translated).
 - xml.sax.reader.po                2 /  75 (  2.0% translated).
 - xmlrpc.client.po                54 / 113 ( 47.0% translated).
-- zoneinfo.po                     23 /  83 ( 27.0% translated).
+- zoneinfo.po                     42 /  83 ( 50.0% translated).
 
 
 # reference (99.96% done)
@@ -247,5 +247,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (68.75% done)
+# TOTAL (68.78% done)
 
