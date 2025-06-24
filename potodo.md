@@ -79,7 +79,7 @@
 
 
 
-# library (61.52% done)
+# library (61.58% done)
 
 - argparse.po                    262 / 290 ( 90.0% translated).
 - ast.po                         179 / 193 ( 92.0% translated).
@@ -260,7 +260,7 @@
 - zipfile.po                     173 / 174 ( 99.0% translated).
 - zipimport.po                    25 /  31 ( 80.0% translated).
 - zlib.po                         61 /  64 ( 95.0% translated).
-- zoneinfo.po                     13 /  72 ( 18.0% translated).
+- zoneinfo.po                     30 /  72 ( 41.0% translated).
 
 
 # reference (92.60% done)
@@ -302,5 +302,5 @@
 - 3.9.po                         383 / 393 ( 97.0% translated).
 
 
-# TOTAL (64.59% done)
+# TOTAL (64.63% done)
 
