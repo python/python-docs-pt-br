@@ -64,7 +64,7 @@
 
 
 
-# library (65.56% done)
+# library (65.62% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 409 ( 75.0% translated).
@@ -84,7 +84,7 @@
 - contextlib.po                   55 / 172 ( 31.0% translated).
 - ctypes.po                      104 / 530 ( 19.0% translated).
 - curses.po                       66 / 486 ( 13.0% translated).
-- dataclasses.po                  49 / 155 ( 31.0% translated).
+- dataclasses.po                  71 / 155 ( 45.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
 - dis.po                         208 / 396 ( 52.0% translated).
 - doctest.po                      99 / 376 ( 26.0% translated).
@@ -197,5 +197,5 @@
 - changelog.po                   2506 / 12397 ( 20.0% translated).
 
 
-# TOTAL (62.15% done)
+# TOTAL (62.18% done)
 
