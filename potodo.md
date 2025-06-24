@@ -125,7 +125,7 @@
 - curses.ascii.po                 68 /  69 ( 98.0% translated).
 - curses.panel.po                 22 /  23 ( 95.0% translated).
 - curses.po                       64 / 485 ( 13.0% translated).
-- dataclasses.po                  62 / 124 ( 50.0% translated).
+- dataclasses.po                  64 / 124 ( 51.0% translated).
 - datetime.po                    575 / 586 ( 98.0% translated).
 - dbm.po                          81 /  85 ( 95.0% translated).
 - difflib.po                      14 / 134 ( 10.0% translated).
