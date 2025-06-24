@@ -65,7 +65,7 @@
 
 
 
-# library (65.18% done)
+# library (65.24% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           307 / 413 ( 74.0% translated).
@@ -87,7 +87,7 @@
 - contextlib.po                   55 / 172 ( 31.0% translated).
 - ctypes.po                      106 / 604 ( 17.0% translated).
 - curses.po                       66 / 490 ( 13.0% translated).
-- dataclasses.po                  49 / 157 ( 31.0% translated).
+- dataclasses.po                  72 / 157 ( 45.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
 - dis.po                         200 / 403 ( 49.0% translated).
 - doctest.po                     100 / 377 ( 26.0% translated).
@@ -128,7 +128,7 @@
 - msvcrt.po                       22 /  46 ( 47.0% translated).
 - multiprocessing.po             320 / 605 ( 52.0% translated).
 - pathlib.po                     242 / 443 ( 54.0% translated).
-- pdb.po                         145 / 178 ( 81.0% translated).
+- pdb.po                         146 / 178 ( 82.0% translated).
 - poplib.po                       10 /  53 ( 18.0% translated).
 - profile.po                      34 / 181 ( 18.0% translated).
 - pyexpat.po                      21 / 145 ( 14.0% translated).
@@ -185,7 +185,7 @@
 - windows.po                     338 / 536 ( 63.0% translated).
 
 
-# whatsnew (46.36% done)
+# whatsnew (46.68% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -193,7 +193,7 @@
 - 2.6.po                         541 / 626 ( 86.0% translated).
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
-- 3.14.po                        423 / 966 ( 43.0% translated).
+- 3.14.po                        504 / 966 ( 52.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
 - 3.5.po                         126 / 578 ( 21.0% translated).
@@ -202,5 +202,5 @@
 - changelog.po                   2915 / 13355 ( 21.0% translated).
 
 
-# TOTAL (61.09% done)
+# TOTAL (61.22% done)
 

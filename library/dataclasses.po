@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-13 14:21+0000\n"
+"POT-Creation-Date: 2025-06-20 14:21+0000\n"
 "PO-Revision-Date: 2021-06-28 01:03+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -385,6 +385,12 @@ msgid ""
 "__match_args__` is already defined in the class, then :attr:`!"
 "__match_args__` will not be generated."
 msgstr ""
+"*match_args*: Se verdadeiro (o padrão é ``True``), a tupla :attr:`~object."
+"__match_args__` será criada a partir da lista de parâmetros não-somente-"
+"nomeado para o método :meth:`~object.__init__` gerado (mesmo se :meth:`!"
+"__init__` não for gerado, veja acima). Se falso, ou se :attr:`!"
+"__match_args__` já estiver definido na classe, então :attr:`!__match_args__` "
+"não será gerado."
 
 #: ../../library/dataclasses.rst:177
 msgid ""
@@ -395,10 +401,16 @@ msgid ""
 "is called. See the :term:`parameter` glossary entry for details.  Also see "
 "the :const:`KW_ONLY` section."
 msgstr ""
+"*kw_only*: Se verdadeiro (o valor padrão é ``False``), então todos os campos "
+"serão marcados como somente-nomeado. Se um campo for marcado como somente-"
+"nomeado, então o único efeito é que o parâmetro :meth:`~object.__init__` "
+"gerado a partir de um campo somente-nomeado deve ser especificado com um "
+"campo quando :meth:`!__init__` é chamado. Veja a entrada :term:`parâmetro` "
+"do glossário para detalhes. Veja também a seção :const:`KW_ONLY`."
 
 #: ../../library/dataclasses.rst:185
 msgid "Keyword-only fields are not included in :attr:`!__match_args__`."
-msgstr ""
+msgstr "Campos somente-nomeados não são incluídos em :attr:`!__match_args__`."
 
 #: ../../library/dataclasses.rst:189
 msgid ""
@@ -407,6 +419,10 @@ msgid ""
 "original one. If :attr:`!__slots__` is already defined in the class, then :"
 "exc:`TypeError` is raised."
 msgstr ""
+"*slots*: Se true (o padrão é ``False``), o atributo :attr:`~object."
+"__slots__` será gerado e uma nova classe será retornada no lugar da "
+"original. Se :attr:`!__slots__` já estiver definido na classe, então :exc:"
+"`TypeError` será levantada."
 
 #: ../../library/dataclasses.rst:195
 msgid ""
@@ -415,6 +431,10 @@ msgid ""
 "``__init_subclass__`` with no parameters or use default values as a "
 "workaround. See :gh:`91126` for full details."
 msgstr ""
+"Passar parâmetros para uma classe base :meth:`~object.__init_subclass__` ao "
+"usar ``slots=True`` resultará em um :exc:`TypeError`. Use "
+"``__init_subclass__`` sem parâmetros ou use valores padrão como solução "
+"alternativa. Consulte :gh:`91126` para obter detalhes completos."
 
 #: ../../library/dataclasses.rst:203
 msgid ""
@@ -425,6 +445,12 @@ msgid ""
 "`fields` instead. To be able to determine inherited slots, base class :attr:"
 "`!__slots__` may be any iterable, but *not* an iterator."
 msgstr ""
+"Se um nome de campo já estiver incluído no :attr:`!__slots__` de uma classe "
+"base, ele não será incluído no :attr:`!__slots__` gerado para evitar :ref:"
+"`substitui-los <datamodel-note-slots>`. Portanto, não use :attr:`!__slots__` "
+"para recuperar os nomes dos campos de uma classe de dados. Use :func:"
+"`fields` em vez disso. Para poder determinar os slots herdados, a classe "
+"base :attr:`!__slots__` pode ser qualquer iterável, mas *não* um iterador."
 
 #: ../../library/dataclasses.rst:213
 msgid ""
@@ -433,6 +459,10 @@ msgid ""
 "<weakref.ref>`. It is an error to specify ``weakref_slot=True`` without also "
 "specifying ``slots=True``."
 msgstr ""
+"*weakref_slot*: Se verdadeiro (o padrão é ``False``), adicione um slot "
+"chamado \"__weakref__\", que é necessário para tornar uma instância :func:"
+"`fraca <weakref.ref>`. É um erro especificar ``weakref_slot=True`` sem "
+"também especificar ``slots=True``."
 
 #: ../../library/dataclasses.rst:221
 msgid ""
@@ -449,16 +479,22 @@ msgid ""
 "    a: int       # 'a' has no default value\n"
 "    b: int = 0   # assign a default value for 'b'"
 msgstr ""
+"@dataclass\n"
+"class C:\n"
+"    a: int       # 'a' tem nenhum valor mínimo\n"
+"    b: int = 0   # atribui um valor padrão para 'b'"
 
 #: ../../library/dataclasses.rst:229
 msgid ""
 "In this example, both :attr:`!a` and :attr:`!b` will be included in the "
 "added :meth:`~object.__init__` method, which will be defined as::"
 msgstr ""
+"Nesse exemplo, :attr:`!a` e :attr:`!b` serão incluídos no método :meth:"
+"`~object.__init__` adicionado, que será definido como::"
 
 #: ../../library/dataclasses.rst:232
 msgid "def __init__(self, a: int, b: int = 0):"
-msgstr ""
+msgstr "def __init__(self, a: int, b: int = 0):"
 
 #: ../../library/dataclasses.rst:234
 msgid ""
@@ -478,6 +514,11 @@ msgid ""
 "replace the default field value with a call to the provided :func:`!field` "
 "function.  For example::"
 msgstr ""
+"Para casos de uso comuns e simples, nenhuma outra funcionalidade é "
+"necessária. Existem, no entanto, alguns recursos que requerem informações "
+"adicionais por campo. Para satisfazer essa necessidade de informações "
+"adicionais, você pode substituir o valor do campo padrão por uma chamada "
+"para a função :func:`!field` fornecida. Por exemplo::"
 
 #: ../../library/dataclasses.rst:246
 msgid ""
@@ -488,6 +529,12 @@ msgid ""
 "c = C()\n"
 "c.mylist += [1, 2, 3]"
 msgstr ""
+"@dataclass\n"
+"class C:\n"
+"    mylist: list[int] = field(default_factory=list)\n"
+"\n"
+"c = C()\n"
+"c.mylist += [1, 2, 3]"
 
 #: ../../library/dataclasses.rst:253
 msgid ""
@@ -504,7 +551,7 @@ msgstr ""
 
 #: ../../library/dataclasses.rst:258
 msgid "The parameters to :func:`!field` are:"
-msgstr ""
+msgstr "Os parâmetros de :func:`!field` são:"
 
 #: ../../library/dataclasses.rst:260
 msgid ""
@@ -512,6 +559,9 @@ msgid ""
 "is needed because the :func:`!field` call itself replaces the normal "
 "position of the default value."
 msgstr ""
+"*default*: Se fornecido, este será o valor padrão para este campo. Isso é "
+"necessário porque a própria chamada :func:`!field` substitui a posição "
+"normal do valor padrão."
 
 #: ../../library/dataclasses.rst:264
 msgid ""
@@ -521,18 +571,27 @@ msgid ""
 "discussed below.  It is an error to specify both *default* and "
 "*default_factory*."
 msgstr ""
+"*default_factory*: Se fornecido, deve ser um chamável sem argumento que será "
+"chamado quando um valor padrão for necessário para este campo. Entre outras "
+"finalidades, isso pode ser usado para especificar campos com valores padrão "
+"mutáveis, conforme discutido abaixo. É um erro especificar ambos *default* e "
+"*default_factory*."
 
 #: ../../library/dataclasses.rst:270
 msgid ""
 "*init*: If true (the default), this field is included as a parameter to the "
 "generated :meth:`~object.__init__` method."
 msgstr ""
+"*init*: Se verdadeiro (o padrão), este campo é incluído como um parâmetro "
+"para o método :meth:`~object.__init__` gerado."
 
 #: ../../library/dataclasses.rst:273
 msgid ""
 "*repr*: If true (the default), this field is included in the string returned "
 "by the generated :meth:`~object.__repr__` method."
 msgstr ""
+"*repr*: Se verdadeiro (o padrão), este campo é incluído na string retornada "
+"pelo método :meth:`~object.__repr__` gerado."
 
 #: ../../library/dataclasses.rst:276
 msgid ""
@@ -544,6 +603,12 @@ msgid ""
 "comparisons.  Setting this value to anything other than ``None`` is "
 "discouraged."
 msgstr ""
+"*hash*: Pode ser um bool ou ``None``. Se verdadeiro, este campo é incluído "
+"no método :meth:`~object.__hash__` gerado. Se false, este campo é excluído "
+"do :meth:`~object.__hash__` gerado. Se ``None`` (o padrão), usa o valor de "
+"*compare*: este seria normalmente o comportamento esperado, já que um campo "
+"deve ser incluído no hash se for usado para comparações. Definir este valor "
+"para algo diferente de ``None`` é desencorajado."
 
 #: ../../library/dataclasses.rst:284
 msgid ""
@@ -565,6 +630,9 @@ msgid ""
 "equality and comparison methods (:meth:`~object.__eq__`, :meth:`~object."
 "__gt__`, et al.)."
 msgstr ""
+"*compare*: Se verdadeiro (o padrão), este campo é incluído nos métodos de "
+"igualdade e comparação gerados (:meth:`~object.__eq__`, :meth:`~object."
+"__gt__`, etc.)."
 
 #: ../../library/dataclasses.rst:294
 msgid ""
@@ -575,20 +643,30 @@ msgid ""
 "mechanism. Multiple third-parties can each have their own key, to use as a "
 "namespace in the metadata."
 msgstr ""
+"*metadata*: Pode ser um mapeamento ou ``None``. ``None`` é tratado como um "
+"dicionário vazio. Este valor é agrupado em :func:`~types.MappingProxyType` "
+"para torná-lo somente leitura e exposto no objeto :class:`Field`. Ele não é "
+"usado por Data Classes e é fornecido como um mecanismo de extensão de "
+"terceiros. Vários terceiros podem ter sua própria chave, para usar como um "
+"espaço de nomes nos metadados."
 
 #: ../../library/dataclasses.rst:302
 msgid ""
 "*kw_only*: If true, this field will be marked as keyword-only. This is used "
 "when the generated :meth:`~object.__init__` method's parameters are computed."
 msgstr ""
+"*kw_only*: Se verdadeiro, este campo será marcado como somente-nomeado. Isso "
+"é usado quando os parâmetros do método :meth:`~object.__init__` gerados são "
+"calculados."
 
 #: ../../library/dataclasses.rst:306
 msgid "Keyword-only fields are also not included in :attr:`!__match_args__`."
 msgstr ""
+"Campos somente-nomeados também não são incluídos em :attr:`!__match_args__`."
 
 #: ../../library/dataclasses.rst:310
 msgid "*doc*: optional docstring for this field."
-msgstr ""
+msgstr "*doc*: docstring opcional para este campo."
 
 #: ../../library/dataclasses.rst:314
 msgid ""
