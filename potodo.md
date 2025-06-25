@@ -5,18 +5,18 @@
 - license.po                     116 / 125 ( 92.0% translated).
 
 
-# c-api (55.09% done)
+# c-api (55.40% done)
 
 - exceptions.po                  194 / 366 ( 53.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
 - frame.po                        20 /  36 ( 55.0% translated).
 - gcsupport.po                     9 /  52 ( 17.0% translated).
 - import.po                       36 /  57 ( 63.0% translated).
-- init.po                        145 / 434 ( 33.0% translated).
+- init.po                        146 / 434 ( 33.0% translated).
 - init_config.po                 133 / 410 ( 32.0% translated).
 - intro.po                       140 / 141 ( 99.0% translated).
 - long.po                         30 /  69 ( 43.0% translated).
-- memory.po                       53 / 195 ( 27.0% translated).
+- memory.po                       55 / 195 ( 28.0% translated).
 - module.po                       63 / 124 ( 50.0% translated).
 - number.po                       14 /  48 ( 29.0% translated).
 - object.po                       14 /  80 ( 17.0% translated).
@@ -25,7 +25,7 @@
 - sys.po                          28 /  77 ( 36.0% translated).
 - type.po                         19 /  99 ( 19.0% translated).
 - typeobj.po                     228 / 674 ( 33.0% translated).
-- unicode.po                      67 / 325 ( 20.0% translated).
+- unicode.po                      79 / 325 ( 24.0% translated).
 - veryhigh.po                     54 /  57 ( 94.0% translated).
 
 
@@ -69,7 +69,7 @@
 
 
 
-# library (64.17% done)
+# library (64.24% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        78 /  84 ( 92.0% translated).
@@ -129,19 +129,19 @@
 - http.client.po                  45 / 117 ( 38.0% translated).
 - http.cookiejar.po                9 / 159 (  5.0% translated).
 - http.cookies.po                  7 /  49 ( 14.0% translated).
-- http.po                        210 / 246 ( 85.0% translated).
+- http.po                        229 / 246 ( 93.0% translated).
 - http.server.po                  15 / 113 ( 13.0% translated).
 - idle.po                         17 / 293 (  5.0% translated).
 - imaplib.po                      13 / 117 ( 11.0% translated).
 - imghdr.po                       20 /  42 ( 47.0% translated).
 - importlib.po                   240 / 304 ( 78.0% translated).
 - importlib.resources.po          38 /  47 ( 80.0% translated).
-- inspect.po                      81 / 383 ( 21.0% translated).
+- inspect.po                      82 / 383 ( 21.0% translated).
 - io.po                           56 / 271 ( 20.0% translated).
 - itertools.po                   149 / 193 ( 77.0% translated).
 - logging.config.po               18 / 171 ( 10.0% translated).
 - logging.handlers.po             51 / 270 ( 18.0% translated).
-- logging.po                     105 / 368 ( 28.0% translated).
+- logging.po                     106 / 368 ( 28.0% translated).
 - mailbox.po                      10 / 290 (  3.0% translated).
 - mailcap.po                       2 /  16 ( 12.0% translated).
 - marshal.po                      24 /  30 ( 80.0% translated).
@@ -170,17 +170,17 @@
 - site.po                         56 /  58 ( 96.0% translated).
 - smtplib.po                      30 / 116 ( 25.0% translated).
 - sndhdr.po                       12 /  38 ( 31.0% translated).
-- socket.po                       53 / 362 ( 14.0% translated).
+- socket.po                       56 / 362 ( 15.0% translated).
 - sqlite3.po                     114 / 469 ( 24.0% translated).
 - ssl.po                          59 / 520 ( 11.0% translated).
 - statistics.po                  229 / 241 ( 95.0% translated).
 - string.po                      218 / 220 ( 99.0% translated).
 - struct.po                       96 / 194 ( 49.0% translated).
-- subprocess.po                  149 / 321 ( 46.0% translated).
+- subprocess.po                  150 / 321 ( 46.0% translated).
 - symtable.po                      4 /  50 (  8.0% translated).
 - sys.po                         419 / 431 ( 97.0% translated).
 - syslog.po                       26 /  33 ( 78.0% translated).
-- tarfile.po                     103 / 337 ( 30.0% translated).
+- tarfile.po                     104 / 337 ( 30.0% translated).
 - telnetlib.po                    10 /  53 ( 18.0% translated).
 - tempfile.po                      8 /  87 (  9.0% translated).
 - test.po                        118 / 320 ( 36.0% translated).
@@ -247,5 +247,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (68.82% done)
+# TOTAL (68.88% done)
 
