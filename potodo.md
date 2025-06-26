@@ -4,14 +4,14 @@
 
 
 
-# c-api (61.19% done)
+# c-api (61.27% done)
 
 - exceptions.po                  196 / 266 ( 73.0% translated).
 - gcsupport.po                    10 /  33 ( 30.0% translated).
-- init.po                        120 / 308 ( 38.0% translated).
+- init.po                        121 / 308 ( 39.0% translated).
 - init_config.po                 127 / 281 ( 45.0% translated).
 - long.po                         51 /  52 ( 98.0% translated).
-- memory.po                       50 / 150 ( 33.0% translated).
+- memory.po                       52 / 150 ( 34.0% translated).
 - module.po                       47 /  92 ( 51.0% translated).
 - number.po                        7 /  41 ( 17.0% translated).
 - object.po                        4 /  47 (  8.0% translated).
@@ -79,7 +79,7 @@
 
 
 
-# library (61.58% done)
+# library (61.59% done)
 
 - argparse.po                    262 / 290 ( 90.0% translated).
 - ast.po                         179 / 193 ( 92.0% translated).
@@ -161,13 +161,13 @@
 - imp.po                           8 /  68 ( 11.0% translated).
 - importlib.metadata.po           22 /  41 ( 53.0% translated).
 - importlib.po                   220 / 339 ( 64.0% translated).
-- inspect.po                      83 / 315 ( 26.0% translated).
+- inspect.po                      84 / 315 ( 26.0% translated).
 - io.po                           32 / 229 ( 13.0% translated).
 - ipaddress.po                   155 / 158 ( 98.0% translated).
 - itertools.po                   125 / 148 ( 84.0% translated).
 - logging.config.po               17 / 119 ( 14.0% translated).
 - logging.handlers.po             51 / 261 ( 19.0% translated).
-- logging.po                      94 / 321 ( 29.0% translated).
+- logging.po                      95 / 321 ( 29.0% translated).
 - lzma.po                        106 / 107 ( 99.0% translated).
 - mailbox.po                      20 / 282 (  7.0% translated).
 - mailcap.po                       2 /  15 ( 13.0% translated).
@@ -204,7 +204,7 @@
 - site.po                         34 /  39 ( 87.0% translated).
 - smtpd.po                        10 /  79 ( 12.0% translated).
 - smtplib.po                      25 / 109 ( 22.0% translated).
-- socket.po                       58 / 320 ( 18.0% translated).
+- socket.po                       59 / 320 ( 18.0% translated).
 - socketserver.po                 64 /  79 ( 81.0% translated).
 - sqlite3.po                      33 / 210 ( 15.0% translated).
 - ssl.po                          61 / 496 ( 12.0% translated).
@@ -215,7 +215,7 @@
 - symtable.po                      3 /  44 (  6.0% translated).
 - sys.po                         326 / 402 ( 81.0% translated).
 - sysconfig.po                    69 /  74 ( 93.0% translated).
-- tarfile.po                      96 / 301 ( 31.0% translated).
+- tarfile.po                      97 / 301 ( 32.0% translated).
 - telnetlib.po                     7 /  47 ( 14.0% translated).
 - tempfile.po                      8 /  61 ( 13.0% translated).
 - test.po                        113 / 282 ( 40.0% translated).
@@ -302,5 +302,5 @@
 - 3.9.po                         383 / 393 ( 97.0% translated).
 
 
-# TOTAL (64.63% done)
+# TOTAL (64.64% done)
 
