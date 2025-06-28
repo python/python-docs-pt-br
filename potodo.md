@@ -5,7 +5,7 @@
 - license.po                     116 / 125 ( 92.0% translated).
 
 
-# c-api (55.40% done)
+# c-api (55.50% done)
 
 - exceptions.po                  194 / 366 ( 53.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
@@ -15,7 +15,7 @@
 - init.po                        146 / 434 ( 33.0% translated).
 - init_config.po                 133 / 410 ( 32.0% translated).
 - intro.po                       140 / 141 ( 99.0% translated).
-- long.po                         30 /  69 ( 43.0% translated).
+- long.po                         35 /  69 ( 50.0% translated).
 - memory.po                       55 / 195 ( 28.0% translated).
 - module.po                       63 / 124 ( 50.0% translated).
 - number.po                       14 /  48 ( 29.0% translated).
@@ -37,12 +37,12 @@
 
 
 
-# extending (16.09% done)
+# extending (16.58% done)
 
 - embedding.po                     4 /  58 (  6.0% translated).
 - extending.po                    16 / 207 (  7.0% translated).
 - newtypes.po                      8 / 117 (  6.0% translated).
-- newtypes_tutorial.po            25 / 177 ( 14.0% translated).
+- newtypes_tutorial.po            28 / 177 ( 15.0% translated).
 
 
 # faq (99.54% done)
@@ -69,7 +69,7 @@
 
 
 
-# library (64.24% done)
+# library (64.47% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        78 /  84 ( 92.0% translated).
@@ -97,7 +97,7 @@
 - contextvars.po                  49 /  51 ( 96.0% translated).
 - copy.po                         27 /  28 ( 96.0% translated).
 - crypt.po                         6 /  36 ( 16.0% translated).
-- ctypes.po                      103 / 523 ( 19.0% translated).
+- ctypes.po                      123 / 523 ( 23.0% translated).
 - curses.po                       64 / 484 ( 13.0% translated).
 - dataclasses.po                  71 / 153 ( 46.0% translated).
 - datetime.po                    633 / 637 ( 99.0% translated).
@@ -153,7 +153,7 @@
 - nntplib.po                      10 /  92 ( 10.0% translated).
 - os.path.po                      95 /  98 ( 96.0% translated).
 - ossaudiodev.po                  18 / 102 ( 17.0% translated).
-- pathlib.po                     209 / 346 ( 60.0% translated).
+- pathlib.po                     273 / 346 ( 78.0% translated).
 - pdb.po                         134 / 139 ( 96.0% translated).
 - pipes.po                         5 /  21 ( 23.0% translated).
 - pkgutil.po                      43 /  50 ( 86.0% translated).
@@ -247,5 +247,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (68.88% done)
+# TOTAL (69.03% done)
 
