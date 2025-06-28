@@ -5,7 +5,7 @@
 - license.po                      95 /  99 ( 95.0% translated).
 
 
-# c-api (57.73% done)
+# c-api (57.82% done)
 
 - exceptions.po                  193 / 347 ( 55.0% translated).
 - float.po                        14 /  35 ( 40.0% translated).
@@ -15,7 +15,7 @@
 - init.po                        125 / 372 ( 33.0% translated).
 - init_config.po                 135 / 396 ( 34.0% translated).
 - intro.po                       126 / 127 ( 99.0% translated).
-- long.po                         30 /  59 ( 50.0% translated).
+- long.po                         34 /  59 ( 57.0% translated).
 - memory.po                       55 / 189 ( 29.0% translated).
 - module.po                       61 / 109 ( 55.0% translated).
 - number.po                       14 /  48 ( 29.0% translated).
@@ -43,12 +43,12 @@
 - sourcedist.po                   27 /  74 ( 36.0% translated).
 
 
-# extending (23.01% done)
+# extending (23.63% done)
 
 - embedding.po                     4 /  45 (  8.0% translated).
 - extending.po                    15 / 162 (  9.0% translated).
 - newtypes.po                     11 / 105 ( 10.0% translated).
-- newtypes_tutorial.po            27 / 123 ( 21.0% translated).
+- newtypes_tutorial.po            30 / 123 ( 24.0% translated).
 
 
 # faq (97.48% done)
@@ -85,7 +85,7 @@
 
 
 
-# library (63.63% done)
+# library (63.65% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          48 /  49 ( 97.0% translated).
@@ -121,7 +121,7 @@
 - contextlib.po                   42 / 130 ( 32.0% translated).
 - crypt.po                         7 /  35 ( 20.0% translated).
 - csv.po                          97 /  99 ( 97.0% translated).
-- ctypes.po                       96 / 436 ( 22.0% translated).
+- ctypes.po                      103 / 436 ( 23.0% translated).
 - curses.ascii.po                 68 /  69 ( 98.0% translated).
 - curses.panel.po                 22 /  23 ( 95.0% translated).
 - curses.po                       64 / 485 ( 13.0% translated).
@@ -324,5 +324,5 @@
 - 3.8.po                         468 / 469 ( 99.0% translated).
 
 
-# TOTAL (67.96% done)
+# TOTAL (67.99% done)
 
