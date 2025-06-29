@@ -4,13 +4,12 @@
 
 
 
-# c-api (61.27% done)
+# c-api (61.30% done)
 
 - exceptions.po                  196 / 266 ( 73.0% translated).
 - gcsupport.po                    10 /  33 ( 30.0% translated).
 - init.po                        121 / 308 ( 39.0% translated).
 - init_config.po                 127 / 281 ( 45.0% translated).
-- long.po                         51 /  52 ( 98.0% translated).
 - memory.po                       52 / 150 ( 34.0% translated).
 - module.po                       47 /  92 ( 51.0% translated).
 - number.po                        7 /  41 ( 17.0% translated).
@@ -36,12 +35,12 @@
 - sourcedist.po                   27 /  74 ( 36.0% translated).
 
 
-# extending (23.84% done)
+# extending (24.05% done)
 
 - embedding.po                     4 /  45 (  8.0% translated).
 - extending.po                    15 / 158 (  9.0% translated).
 - newtypes.po                     10 /  92 ( 10.0% translated).
-- newtypes_tutorial.po            28 / 123 ( 22.0% translated).
+- newtypes_tutorial.po            29 / 123 ( 23.0% translated).
 
 
 # faq (93.30% done)
@@ -79,7 +78,7 @@
 
 
 
-# library (61.59% done)
+# library (61.62% done)
 
 - argparse.po                    262 / 290 ( 90.0% translated).
 - ast.po                         179 / 193 ( 92.0% translated).
@@ -112,7 +111,7 @@
 - constants.po                    15 /  18 ( 83.0% translated).
 - contextlib.po                   30 / 113 ( 26.0% translated).
 - crypt.po                         3 /  30 ( 10.0% translated).
-- ctypes.po                       94 / 429 ( 21.0% translated).
+- ctypes.po                      101 / 429 ( 23.0% translated).
 - curses.ascii.po                100 / 101 ( 99.0% translated).
 - curses.panel.po                 22 /  23 ( 95.0% translated).
 - curses.po                      230 / 634 ( 36.0% translated).
@@ -302,5 +301,5 @@
 - 3.9.po                         383 / 393 ( 97.0% translated).
 
 
-# TOTAL (64.64% done)
+# TOTAL (64.66% done)
 
