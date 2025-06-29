@@ -4,7 +4,7 @@
 
 
 
-# c-api (57.94% done)
+# c-api (58.04% done)
 
 - allocation.po                    8 /   9 ( 88.0% translated).
 - arg.po                         193 / 195 ( 98.0% translated).
@@ -14,7 +14,7 @@
 - gcsupport.po                    10 /  40 ( 25.0% translated).
 - init.po                        120 / 310 ( 38.0% translated).
 - init_config.po                 129 / 375 ( 34.0% translated).
-- long.po                         30 /  51 ( 58.0% translated).
+- long.po                         34 /  51 ( 66.0% translated).
 - memory.po                       59 / 184 ( 32.0% translated).
 - module.po                       48 /  99 ( 48.0% translated).
 - number.po                        8 /  42 ( 19.0% translated).
@@ -43,12 +43,12 @@
 - sourcedist.po                   27 /  74 ( 36.0% translated).
 
 
-# extending (23.14% done)
+# extending (23.57% done)
 
 - embedding.po                     4 /  45 (  8.0% translated).
 - extending.po                    15 / 158 (  9.0% translated).
 - newtypes.po                      7 /  89 (  7.0% translated).
-- newtypes_tutorial.po            27 / 123 ( 21.0% translated).
+- newtypes_tutorial.po            29 / 123 ( 23.0% translated).
 
 
 # faq (96.03% done)
@@ -86,7 +86,7 @@
 
 
 
-# library (62.00% done)
+# library (62.02% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    256 / 290 ( 88.0% translated).
@@ -125,7 +125,7 @@
 - contextlib.po                   39 / 125 ( 31.0% translated).
 - copyreg.po                       8 /   9 ( 88.0% translated).
 - crypt.po                         3 /  30 ( 10.0% translated).
-- ctypes.po                       93 / 434 ( 21.0% translated).
+- ctypes.po                      100 / 434 ( 23.0% translated).
 - curses.ascii.po                101 / 102 ( 99.0% translated).
 - curses.panel.po                 22 /  23 ( 95.0% translated).
 - curses.po                      231 / 639 ( 36.0% translated).
@@ -323,5 +323,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (65.29% done)
+# TOTAL (65.32% done)
 
