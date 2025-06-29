@@ -171,24 +171,21 @@
 - zoneinfo.po                     42 /  83 ( 50.0% translated).
 
 
-# reference (99.97% done)
+# reference (100.00% done)
 
-- expressions.po                 537 / 538 ( 99.0% translated).
 
 
 # tutorial (100.00% done)
 
 
 
-# using (88.40% done)
+# using (89.00% done)
 
-- cmdline.po                     259 / 264 ( 98.0% translated).
-- ios.po                          83 /  87 ( 95.0% translated).
 - mac.po                          92 /  94 ( 97.0% translated).
 - windows.po                     374 / 536 ( 69.0% translated).
 
 
-# whatsnew (46.82% done)
+# whatsnew (46.96% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -196,14 +193,14 @@
 - 2.6.po                         541 / 626 ( 86.0% translated).
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
-- 3.14.po                        525 / 971 ( 54.0% translated).
+- 3.14.po                        526 / 971 ( 54.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
 - 3.5.po                         126 / 578 ( 21.0% translated).
 - 3.6.po                         236 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   2940 / 13373 ( 21.0% translated).
+- changelog.po                   2974 / 13373 ( 22.0% translated).
 
 
-# TOTAL (61.63% done)
+# TOTAL (61.69% done)
 
