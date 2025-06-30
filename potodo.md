@@ -85,7 +85,7 @@
 
 
 
-# library (63.65% done)
+# library (63.66% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          48 /  49 ( 97.0% translated).
@@ -196,7 +196,7 @@
 - os.path.po                      83 /  84 ( 98.0% translated).
 - os.po                          918 / 931 ( 98.0% translated).
 - ossaudiodev.po                  18 /  98 ( 18.0% translated).
-- pathlib.po                     217 / 230 ( 94.0% translated).
+- pathlib.po                     218 / 230 ( 94.0% translated).
 - pdb.po                         114 / 115 ( 99.0% translated).
 - pipes.po                         5 /  20 ( 25.0% translated).
 - pkgutil.po                      39 /  51 ( 76.0% translated).
