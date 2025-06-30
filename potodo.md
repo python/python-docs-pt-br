@@ -65,7 +65,7 @@
 
 
 
-# library (65.66% done)
+# library (65.72% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           307 / 413 ( 74.0% translated).
@@ -127,7 +127,7 @@
 - mmap.po                         12 /  65 ( 18.0% translated).
 - msvcrt.po                       22 /  46 ( 47.0% translated).
 - multiprocessing.po             320 / 605 ( 52.0% translated).
-- pathlib.po                     331 / 443 ( 74.0% translated).
+- pathlib.po                     353 / 443 ( 79.0% translated).
 - pdb.po                         146 / 178 ( 82.0% translated).
 - poplib.po                       10 /  53 ( 18.0% translated).
 - profile.po                      34 / 181 ( 18.0% translated).
@@ -199,8 +199,8 @@
 - 3.5.po                         126 / 578 ( 21.0% translated).
 - 3.6.po                         236 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   2974 / 13373 ( 22.0% translated).
+- changelog.po                   2975 / 13373 ( 22.0% translated).
 
 
-# TOTAL (61.69% done)
+# TOTAL (61.72% done)
 
