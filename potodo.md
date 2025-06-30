@@ -69,7 +69,7 @@
 
 
 
-# library (64.47% done)
+# library (64.52% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        78 /  84 ( 92.0% translated).
@@ -153,7 +153,7 @@
 - nntplib.po                      10 /  92 ( 10.0% translated).
 - os.path.po                      95 /  98 ( 96.0% translated).
 - ossaudiodev.po                  18 / 102 ( 17.0% translated).
-- pathlib.po                     273 / 346 ( 78.0% translated).
+- pathlib.po                     288 / 346 ( 83.0% translated).
 - pdb.po                         134 / 139 ( 96.0% translated).
 - pipes.po                         5 /  21 ( 23.0% translated).
 - pkgutil.po                      43 /  50 ( 86.0% translated).
@@ -247,5 +247,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (69.03% done)
+# TOTAL (69.06% done)
 
