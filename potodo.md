@@ -47,9 +47,8 @@
 
 
 
-# howto (63.91% done)
+# howto (65.86% done)
 
-- curses.po                       58 / 121 ( 47.0% translated).
 - descriptor.po                  187 / 230 ( 81.0% translated).
 - enum.po                         62 / 327 ( 18.0% translated).
 - functional.po                  138 / 252 ( 54.0% translated).
@@ -174,9 +173,9 @@
 
 
 
-# using (99.70% done)
+# using (99.77% done)
 
-- mac.po                          92 /  96 ( 95.0% translated).
+- mac.po                          93 /  96 ( 96.0% translated).
 
 
 # whatsnew (46.57% done)
@@ -190,11 +189,11 @@
 - 3.13.po                        880 / 889 ( 98.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
-- 3.5.po                         126 / 578 ( 21.0% translated).
+- 3.5.po                         127 / 578 ( 21.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
 - changelog.po                   2544 / 12410 ( 20.0% translated).
 
 
-# TOTAL (62.44% done)
+# TOTAL (62.52% done)
 
