@@ -2062,6 +2062,13 @@ msgid ""
 "context manager behave predicably when used with multiple threads or "
 "asynchronous tasks."
 msgstr ""
+"Um novo sinalizador foi adicionado, :data:`~sys.flags."
+"context_aware_warnings`. Este sinalizador assume como padrão true para a "
+"construção com threads livres e false para a construção com GIL habilitada. "
+"Se o sinalizador for true, o gerenciador de contexto :class:`warnings."
+"catch_warnings` usa uma variável de contexto para filtros de aviso. Isso faz "
+"com que o gerenciador de contexto se comporte de forma previsível quando "
+"usado com múltiplas threads ou tarefas assíncronas."
 
 #: ../../whatsnew/3.14.rst:988
 msgid ""
@@ -2075,6 +2082,16 @@ msgid ""
 "within that context.  It also affects other modules that use context "
 "variables, such as the :mod:`decimal` context manager."
 msgstr ""
+"Um novo sinalizador foi adicionado, :data:`~sys.flags."
+"thread_inherit_context`. Esta flag assume como padrão true para a construção "
+"com threads livres e false para a construção com GIL habilitada. Se o "
+"sinalizador for true, as threads criadas com :class:`threading.Thread` "
+"iniciam com uma cópia de :class:`~contextvars.Context()` do chamador de :"
+"meth:`~threading.Thread.start`. Mais significativamente, isso faz com que o "
+"contexto de filtragem de avisos estabelecido por :class:`~warnings."
+"catch_warnings` seja \"herdado\" por threads (ou tarefas assíncronas) "
+"iniciadas nesse contexto. Também afeta outros módulos que usam variáveis de "
+"contexto, como o gerenciador de contexto :mod:`decimal`."
 
 #: ../../whatsnew/3.14.rst:1002
 msgid "Syntax highlighting in PyREPL"
@@ -2179,7 +2196,7 @@ msgstr ":pep:`744`"
 
 #: ../../whatsnew/3.14.rst:1049
 msgid "Concurrent safe warnings control"
-msgstr ""
+msgstr "Controle de avisos seguros simultâneos"
 
 #: ../../whatsnew/3.14.rst:1051
 msgid ""
@@ -2191,10 +2208,18 @@ msgid ""
 "multiple threads or asynchronous tasks. The flag defaults to true for the "
 "free-threaded build and false for the GIL-enabled build."
 msgstr ""
+"O gerenciador de contexto :class:`warnings.catch_warnings` agora usará "
+"opcionalmente uma variável de contexto para filtros de aviso. Isso é "
+"habilitado definindo o sinalizador :data:`~sys.flags."
+"context_aware_warnings`, seja com a opção de linha de comando ``-X`` ou com "
+"uma variável de ambiente. Isso fornece controle previsível de avisos ao "
+"usar :class:`~warnings.catch_warnings` combinado com múltiplas threads ou "
+"tarefas assíncronas. O sinalizador padrão é true para a construção com "
+"threads livres e false para a construção com GIL habilitada."
 
 #: ../../whatsnew/3.14.rst:1059
 msgid "(Contributed by Neil Schemenauer and Kumar Aditya in :gh:`130010`.)"
-msgstr ""
+msgstr "(Contribuição de Neil Schemenauer e Kumar Aditya em :gh:`130010`.)"
 
 #: ../../whatsnew/3.14.rst:1062
 msgid "Other language changes"
@@ -2338,6 +2363,9 @@ msgid ""
 "Now it is always the opposite of ``\\b``. (Contributed by Serhiy Storchaka "
 "in :gh:`124130`.)"
 msgstr ""
+"``\\B`` em :mod:`expressão regular <re>` agora corresponde a uma string de "
+"entrada vazia. Agora é sempre o oposto de ``\\b``. (Contribuição de Serhiy "
+"Storchaka em :gh:`124130`.)"
 
 #: ../../whatsnew/3.14.rst:1123
 msgid ""
@@ -2345,6 +2373,9 @@ msgid ""
 "``stderr`` content to the system log. (Contributed by Russell Keith-Magee "
 "in :gh:`127592`.)"
 msgstr ""
+"Aplicações iOS e macOS agora podem ser configurados para redirecionar o "
+"conteúdo ``stdout`` e ``stderr`` para o log do sistema. (Contribuição de "
+"Russell Keith-Magee em :gh:`127592`.)"
 
 #: ../../whatsnew/3.14.rst:1127
 msgid ""
@@ -2352,6 +2383,10 @@ msgid ""
 "The testbed can also be used to run the test suite of projects other than "
 "CPython itself. (Contributed by Russell Keith-Magee in :gh:`127592`.)"
 msgstr ""
+"O ambiente de teste do iOS agora pode transmitir a saída do teste enquanto "
+"ele está em execução. O ambiente de teste também pode ser usado para "
+"executar o conjunto de testes de outros projetos além do CPython. "
+"(Contribuição de Russell Keith-Magee em :gh:`127592`.)"
 
 #: ../../whatsnew/3.14.rst:1131
 msgid ""
@@ -2359,6 +2394,10 @@ msgid ""
 "necessary. Previously it was only called in two-argument :func:`!pow` and "
 "the binary power operator. (Contributed by Serhiy Storchaka in :gh:`130104`.)"
 msgstr ""
+":func:`pow` de três argumentos agora tenta chamar :meth:`~object.__rpow__` "
+"se necessário. Anteriormente, ele só era chamado em :func:`!pow` de dois "
+"argumentos e no operador binário de potência. (Contribuição de Serhiy "
+"Storchaka em :gh:`130104`.)"
 
 #: ../../whatsnew/3.14.rst:1136
 msgid ""
@@ -2367,6 +2406,11 @@ msgid ""
 "This implementation is used as a fallback when the OpenSSL implementation of "
 "HMAC is not available. (Contributed by Bénédikt Tran in :gh:`99108`.)"
 msgstr ""
+"Adiciona uma implementação embutido para HMAC (:rfc:`2104`) usando código "
+"formalmente verificado do projeto `HACL* <https://github.com/hacl-star/hacl-"
+"star/>`__. Esta implementação é usada como fallback quando a implementação "
+"OpenSSL do HMAC não está disponível. (Contribuição de Bénédikt Tran em :gh:"
+"`99108`.)"
 
 #: ../../whatsnew/3.14.rst:1142
 msgid ""
@@ -2376,6 +2420,12 @@ msgid ""
 "string ``cached``. Values above ``2`` for ``-X importtime`` are now reserved "
 "for future use. (Contributed by Noah Kim and Adam Turner in :gh:`118655`.)"
 msgstr ""
+"O sinalizador de tempo de importação agora pode rastrear módulos já "
+"carregados ('em cache'), por meio da nova opção :option:`-X importtime=2 <-"
+"X>`. Quando um módulo desse tipo é importado, os tempos ``self`` e "
+"``cumulative`` são substituídos pela string ``cached``. Valores acima de "
+"``2`` para ``-X importtime`` agora são reservados para uso futuro. "
+"(Contribuição de Noah Kim e Adam Turner em :gh:`118655`.)"
 
 #: ../../whatsnew/3.14.rst:1149
 msgid ""
@@ -2384,6 +2434,10 @@ msgid ""
 "explicitly overridden in the subclass. (Contributed by Tomasz Pytel in :gh:"
 "`132329`.)"
 msgstr ""
+"Ao criar uma subclasse de um tipo C puro, os slots C para o novo tipo não "
+"são mais substituídos por uma versão encapsulada na criação da classe, caso "
+"não sejam explicitamente substituídos na subclasse. (Contribuição de Tomasz "
+"Pytel em :gh:`132329`.)"
 
 #: ../../whatsnew/3.14.rst:1154
 msgid ""
@@ -2391,6 +2445,10 @@ msgid ""
 "argument before execution. The auto-dedentation behavior mirrors :func:"
 "`textwrap.dedent`. (Contributed by Jon Crall and Steven Sun in :gh:`103998`.)"
 msgstr ""
+"A opção de linha de comando :option:`-c` agora recua automaticamente seu "
+"argumento de código antes da execução. O comportamento de dedentação "
+"automática espelha :func:`textwrap.dedent`. (Contribuição de Jon Crall e "
+"Steven Sun em :gh:`103998`.)"
 
 #: ../../whatsnew/3.14.rst:1159
 msgid ""
@@ -2399,18 +2457,28 @@ msgid ""
 "`with`. And vice versa with the asynchronous context manager protocol. "
 "(Contributed by Bénédikt Tran in :gh:`128398`.)"
 msgstr ""
+"Melhoria na mensagem de erro quando um objeto que oferece suporte ao "
+"protocolo do gerenciador de contexto síncrono é inserido usando :keyword:"
+"`async with` em vez de :keyword:`with`. E vice-versa com o protocolo do "
+"gerenciador de contexto assíncrono. (Contribuição de Bénédikt Tran em :gh:"
+"`128398`.)"
 
 #: ../../whatsnew/3.14.rst:1165
 msgid ""
 ":option:`!-J` is no longer a reserved flag for Jython_, and now has no "
 "special meaning. (Contributed by Adam Turner in :gh:`133336`.)"
 msgstr ""
+":option:`!-J` não é mais um sinalizador reservado para Jython_ e agora não "
+"tem nenhum significado especial. (Contribuição de Adam Turner em :gh:"
+"`133336`.)"
 
 #: ../../whatsnew/3.14.rst:1174
 msgid ""
 "PEP 765: Disallow ``return``/``break``/``continue`` that exit a ``finally`` "
 "block"
 msgstr ""
+"PEP 765: não permitir ``return``/``break``/``continue`` que saia de um bloco "
+"``finally``"
 
 #: ../../whatsnew/3.14.rst:1176
 msgid ""
@@ -2418,6 +2486,9 @@ msgid ""
 "`break` or :keyword:`continue` statements appears where it exits a :keyword:"
 "`finally` block. This change is specified in :pep:`765`."
 msgstr ""
+"O compilador emite uma :exc:`SyntaxWarning` quando uma instrução :keyword:"
+"`return`, :keyword:`break` ou :keyword:`continue` aparece onde sai de um "
+"bloco :keyword:`finally`. Essa alteração é especificada na :pep:`765`."
 
 #: ../../whatsnew/3.14.rst:1182
 msgid "New modules"
@@ -2429,10 +2500,13 @@ msgid ""
 "See :pep:`749` for more details. (Contributed by Jelle Zijlstra in :gh:"
 "`119180`.)"
 msgstr ""
+":mod:`annotationlib`: Para introspecção de :term:`anotações <annotation>`. "
+"Veja :pep:`749` para mais detalhes. (Contribuição de Jelle Zijlstra em :gh:"
+"`119180`.)"
 
 #: ../../whatsnew/3.14.rst:1190
 msgid "Improved modules"
-msgstr ""
+msgstr "Módulos melhorados"
 
 #: ../../whatsnew/3.14.rst:1193 ../../whatsnew/3.14.rst:2424
 msgid "argparse"
@@ -2445,6 +2519,10 @@ msgid ""
 "to find the ``__main__`` module code. (Contributed by Serhiy Storchaka and "
 "Alyssa Coghlan in :gh:`66436`.)"
 msgstr ""
+"O valor padrão do :ref:`nome do programa <prog>` para :class:`argparse."
+"ArgumentParser` agora reflete a maneira como o interpretador Python foi "
+"instruído a encontrar o código do módulo ``__main__``. (Contribuição de "
+"Serhiy Storchaka e Alyssa Coghlan em :gh:`66436`.)"
 
 #: ../../whatsnew/3.14.rst:1200
 msgid ""
@@ -2453,6 +2531,10 @@ msgid ""
 "names if mistyped by the user. (Contributed by Savannah Ostrowski in :gh:"
 "`124456`.)"
 msgstr ""
+"Foi introduzido o parâmetro opcional *suggest_on_error* em :class:`argparse."
+"ArgumentParser`, permitindo sugestões para escolhas de argumentos e nomes de "
+"subanalisadores caso sejam digitados incorretamente pelo usuário. "
+"(Contribuição de Savannah Ostrowski em :gh:`124456`.)"
 
 #: ../../whatsnew/3.14.rst:1207
 msgid ""
@@ -2462,6 +2544,12 @@ msgid ""
 "been enabled for help in the :ref:`stdlib CLIs <library-cmdline>` which use :"
 "mod:`!argparse`. (Contributed by Hugo van Kemenade in :gh:`130645`.)"
 msgstr ""
+"Introduzido o parâmetro opcional *color* em :class:`argparse."
+"ArgumentParser`, habilitando a cor para o texto de ajuda. Isso pode ser "
+"controlado por :ref:`variáveis de ambiente <using-on-controlling-color>`. A "
+"cor também foi habilitada para ajuda nas :ref:`CLIs da biblioteca padrão "
+"<library-cmdline>` que usam :mod:`!argparse`. (Contribuição de Hugo van "
+"Kemenade em :gh:`130645`.)"
 
 #: ../../whatsnew/3.14.rst:1216 ../../whatsnew/3.14.rst:2439
 msgid "ast"
@@ -2472,24 +2560,32 @@ msgid ""
 "Add :func:`ast.compare` for comparing two ASTs. (Contributed by Batuhan "
 "Taskaya and Jeremy Hylton in :gh:`60191`.)"
 msgstr ""
+"Adiciona :func:`ast.compare` para comparar dois ASTs. (Contribuição de "
+"Batuhan Taskaya e Jeremy Hylton em :gh:`60191`.)"
 
 #: ../../whatsnew/3.14.rst:1221
 msgid ""
 "Add support for :func:`copy.replace` for AST nodes. (Contributed by Bénédikt "
 "Tran in :gh:`121141`.)"
 msgstr ""
+"Adiciona suporte para :func:`copy.replace` para nós AST. (Contribuição de "
+"Bénédikt Tran em :gh:`121141`.)"
 
 #: ../../whatsnew/3.14.rst:1224
 msgid ""
 "Docstrings are now removed from an optimized AST in optimization level 2. "
 "(Contributed by Irit Katriel in :gh:`123958`.)"
 msgstr ""
+"Docstrings agora são removidas de um AST otimizado no nível de otimização 2. "
+"(Contribuição de Irit Katriel em :gh:`123958`.)"
 
 #: ../../whatsnew/3.14.rst:1227
 msgid ""
 "The ``repr()`` output for AST nodes now includes more information. "
 "(Contributed by Tomas Roun in :gh:`116022`.)"
 msgstr ""
+"A saída ``repr()`` para nós AST agora inclui mais informações. (Contribuição "
+"de Tomas Roun em :gh:`116022`.)"
 
 #: ../../whatsnew/3.14.rst:1230
 msgid ""
@@ -2497,12 +2593,18 @@ msgid ""
 "that the root node type is appropriate. (Contributed by Irit Katriel in :gh:"
 "`130139`.)"
 msgstr ""
+":func:`ast.parse`, quando chamado com um AST como entrada, agora sempre "
+"verifica se o tipo de nó raiz é apropriado. (Contribuição de Irit Katriel "
+"em :gh:`130139`.)"
 
 #: ../../whatsnew/3.14.rst:1234
 msgid ""
 "Add new ``--feature-version``, ``--optimize``, ``--show-empty`` options to "
 "command-line interface. (Contributed by Semyon Moroz in :gh:`133367`.)"
 msgstr ""
+"Adiciona as novas opções ``--feature-version``, ``--optimize`` e ``--show-"
+"empty`` à interface de linha de comando. (Contribuição de Semyon Moroz em :"
+"gh:`133367`.)"
 
 #: ../../whatsnew/3.14.rst:1240 ../../whatsnew/3.14.rst:2215
 #: ../../whatsnew/3.14.rst:2467
@@ -2518,6 +2620,13 @@ msgid ""
 "arguments are no longer special; the name should now be set using the "
 "``name`` keyword argument of the factory, and ``context`` may be ``None``."
 msgstr ""
+"A função e os métodos denominados :func:`!create_task` agora aceitam uma "
+"lista arbitrária de argumentos nomeados. Todos os argumentos nomeados são "
+"passados ​​para o construtor :class:`~asyncio.Task` ou para a fábrica de "
+"tarefas personalizada. (Consulte :meth:`~asyncio.loop.set_task_factory` para "
+"obter detalhes.) Os argumentos nomeados ``name`` e ``context`` não são mais "
+"especiais; o nome agora deve ser definido usando o argumento nomeados "
+"``name`` da fábrica, e ``context`` pode ser ``None``."
 
 #: ../../whatsnew/3.14.rst:1250
 msgid ""
@@ -2538,6 +2647,8 @@ msgid ""
 "The :mod:`bdb` module now supports the :mod:`sys.monitoring` backend. "
 "(Contributed by Tian Gao in :gh:`124533`.)"
 msgstr ""
+"O módulo :mod:`bdb` agora oferece suporte ao backend :mod:`sys.monitoring`. "
+"(Contribuição de Tian Gao em :gh:`124533`.)"
 
 #: ../../whatsnew/3.14.rst:1267
 msgid "calendar"
@@ -2550,6 +2661,10 @@ msgid ""
 "`environment variables <using-on-controlling-color>`. (Contributed by Hugo "
 "van Kemenade in :gh:`128317`.)"
 msgstr ""
+"Por padrão, a data de hoje é destacada em cores na saída de texto da :ref:"
+"`linha de comando <calendar-cli>` do :mod:`calendar`. Isso pode ser "
+"controlado pelas :ref:`variáveis de ambiente <using-on-controlling-color>`. "
+"(Contribuição de Hugo van Kemenade em :gh:`128317`.)"
 
 #: ../../whatsnew/3.14.rst:1277
 msgid "concurrent.futures"
@@ -2562,6 +2677,10 @@ msgid ""
 "Python code.  This is separate from the proposed API in :pep:`734`. "
 "(Contributed by Eric Snow in :gh:`124548`.)"
 msgstr ""
+"Adiciona :class:`~concurrent.futures.InterpreterPoolExecutor`, que expõe "
+"\"subinterpretadores\" (vários interpretadores Python no mesmo processo) ao "
+"código Python. Isso é separado da API proposta na :pep:`734`. (Contribuição "
+"de Eric Snow em :gh:`124548`.)"
 
 #: ../../whatsnew/3.14.rst:1289
 msgid ""
@@ -2571,6 +2690,11 @@ msgid ""
 "start-method-forkserver>` on platforms other than macOS and Windows where it "
 "was already :ref:`spawn <multiprocessing-start-method-spawn>`."
 msgstr ""
+"O método :class:`~concurrent.futures.ProcessPoolExecutor` :ref:`método de "
+"início <multiprocessing-start-methods>` padrão foi alterado de :ref:`fork "
+"<multiprocessing-start-method-fork>` para :ref:`forkserver <multiprocessing-"
+"start-method-forkserver>` em plataformas diferentes de macOS e Windows, onde "
+"já era :ref:`spawn <multiprocessing-start-method-spawn>`."
 
 #: ../../whatsnew/3.14.rst:1295
 msgid ""
@@ -2578,6 +2702,9 @@ msgid ""
 "request it by supplying a multiprocessing context *mp_context* to :class:"
 "`~concurrent.futures.ProcessPoolExecutor`."
 msgstr ""
+"Se o método *fork* incompatível com threading for necessário, você deverá "
+"solicitá-lo explicitamente fornecendo um contexto de multiprocessamento "
+"*mp_context* para :class:`~concurrent.futures.ProcessPoolExecutor`."
 
 #: ../../whatsnew/3.14.rst:1299 ../../whatsnew/3.14.rst:1729
 msgid ""
@@ -2586,10 +2713,15 @@ msgid ""
 "may affect existing code with mutable global shared variables and/or shared "
 "objects that can not be automatically :mod:`pickled <pickle>`."
 msgstr ""
+"Veja as :ref:`restrições de forkserver <multiprocessing-programming-"
+"forkserver>` para obter informações e diferenças com o método *fork* e como "
+"essa alteração pode afetar o código existente com variáveis ​​globais "
+"compartilhadas mutáveis ​​e/ou objetos compartilhados que não podem ser "
+"automaticamente :mod:`serializadas com pickle <pickle>`."
 
 #: ../../whatsnew/3.14.rst:1304 ../../whatsnew/3.14.rst:1734
 msgid "(Contributed by Gregory P. Smith in :gh:`84559`.)"
-msgstr ""
+msgstr "(Contribuição de Gregory P. Smith em :gh:`84559`.)"
 
 #: ../../whatsnew/3.14.rst:1306
 msgid ""
@@ -2598,6 +2730,10 @@ msgid ""
 "terminate or kill all living worker processes in the given pool. "
 "(Contributed by Charles Machalow in :gh:`130849`.)"
 msgstr ""
+"Adiciona :meth:`concurrent.futures.ProcessPoolExecutor.terminate_workers` e :"
+"meth:`concurrent.futures.ProcessPoolExecutor.kill_workers` como formas de "
+"encerrar ou eliminar todos os processos de trabalho ativos no pool "
+"fornecido. (Contribuição de Charles Machalow em :gh:`130849`.)"
 
 #: ../../whatsnew/3.14.rst:1311
 msgid ""
@@ -2607,6 +2743,11 @@ msgid ""
 "pauses until a result is yielded from the buffer. (Contributed by Enzo "
 "Bonnal and Josh Rosenberg in :gh:`74028`.)"
 msgstr ""
+"Adiciona o parâmetro opcional ``buffersize`` a :meth:`concurrent.futures."
+"Executor.map` para limitar o número de tarefas enviadas cujos resultados "
+"ainda não foram gerados. Se o buffer estiver cheio, a iteração sobre os "
+"*iteráveis* será pausada até que um resultado seja produzido pelo buffer. "
+"(Contribuição de Enzo Bonnal e Josh Rosenberg em :gh:`74028`.)"
 
 #: ../../whatsnew/3.14.rst:1319
 msgid "configparser"
@@ -2619,6 +2760,11 @@ msgid ""
 "beginning with the section header pattern will raise a :class:`configparser."
 "InvalidWriteError`. (Contributed by Jacob Lincoln in :gh:`129270`.)"
 msgstr ""
+"Correção de segurança: não gravará mais arquivos de configuração que não "
+"consegue ler. Tentar usar :meth:`configparser.ConfigParser.write` em chaves "
+"contendo delimitadores ou começando com o padrão de cabeçalho de seção "
+"levantará um :class:`configparser.InvalidWriteError`. (Contribuição de Jacob "
+"Lincoln em :gh:`129270`.)"
 
 #: ../../whatsnew/3.14.rst:1328
 msgid "contextvars"
@@ -2629,6 +2775,8 @@ msgid ""
 "Support context manager protocol by :class:`contextvars.Token`. (Contributed "
 "by Andrew Svetlov in :gh:`129889`.)"
 msgstr ""
+"Adiciona suporte ao protocolo do gerenciador de contexto por :class:"
+"`contextvars.Token`. (Contribuição de Andrew Svetlov em :gh:`129889`.)"
 
 #: ../../whatsnew/3.14.rst:1335
 msgid "ctypes"
@@ -2641,12 +2789,20 @@ msgid ""
 "defaults (GCC/Clang or MSVC) more closely. In particular, fields no longer "
 "overlap. (Contributed by Matthias Görgens in :gh:`97702`.)"
 msgstr ""
+"O layout dos :ref:`campos de bit <ctypes-bit-fields-in-structures-unions>` "
+"em :class:`~ctypes.Structure` e :class:`~ctypes.Union` agora corresponde "
+"mais fielmente aos padrões da plataforma (GCC/Clang ou MSVC). Em particular, "
+"os campos não se sobrepõem mais. (Contribuição de Matthias Görgens em :gh:"
+"`97702`.)"
 
 #: ../../whatsnew/3.14.rst:1343
 msgid ""
 "The :attr:`.Structure._layout_` class attribute can now be set to help match "
 "a non-default ABI. (Contributed by Petr Viktorin in :gh:`97702`.)"
 msgstr ""
+"O atributo de classe :attr:`.Structure._layout_` agora pode ser definido "
+"para ajudar a corresponder a uma ABI não padrão. (Contribuição de Petr "
+"Viktorin em :gh:`97702`.)"
 
 #: ../../whatsnew/3.14.rst:1347
 msgid ""
@@ -2655,18 +2811,26 @@ msgid ""
 "attributes to aid debugging and introspection. (Contributed by Petr Viktorin "
 "in :gh:`128715`.)"
 msgstr ""
+"A classe de descritores de campo :class:`~ctypes.Structure`/:class:`~ctypes."
+"Union` agora está disponível como :class:`~ctypes.CField` e possui novos "
+"atributos para auxiliar na depuração e na introspecção. (Contribuição de "
+"Petr Viktorin em :gh:`128715`.)"
 
 #: ../../whatsnew/3.14.rst:1352
 msgid ""
 "On Windows, the :exc:`~ctypes.COMError` exception is now public. "
 "(Contributed by Jun Komoda in :gh:`126686`.)"
 msgstr ""
+"No Windows, a exceção :exc:`~ctypes.COMError` agora é pública. (Contribuição "
+"de Jun Komoda em :gh:`126686`.)"
 
 #: ../../whatsnew/3.14.rst:1355
 msgid ""
 "On Windows, the :func:`~ctypes.CopyComPointer` function is now public. "
 "(Contributed by Jun Komoda in :gh:`127275`.)"
 msgstr ""
+"No Windows, a função :func:`~ctypes.CopyComPointer` agora é pública. "
+"(Contribuição de Jun Komoda em :gh:`127275`.)"
 
 #: ../../whatsnew/3.14.rst:1358
 msgid ""
@@ -2676,6 +2840,12 @@ msgid ""
 "when implementing pure Python callback functions that are passed dynamically-"
 "sized buffers. (Contributed by Rian Hunter in :gh:`112018`.)"
 msgstr ""
+":func:`ctypes.memoryview_at` agora existe para criar um objeto :class:"
+"`memoryview` que se refere ao ponteiro e comprimento fornecidos. Isso "
+"funciona como :func:`ctypes.string_at`, exceto que evita uma cópia de buffer "
+"e é normalmente útil ao implementar funções de retorno de chamada Python "
+"puras que recebem buffers de tamanho dinâmico. (Contribuição de Rian Hunter "
+"em :gh:`112018`.)"
 
 #: ../../whatsnew/3.14.rst:1365
 msgid ""
@@ -2684,12 +2854,20 @@ msgid ""
 "available if both the compiler and the ``libffi`` library support complex C "
 "types. (Contributed by Sergey B Kirpichev in :gh:`61103`.)"
 msgstr ""
+"Tipos complexos, :class:`~ctypes.c_float_complex`, :class:`~ctypes."
+"c_double_complex` e :class:`~ctypes.c_longdouble_complex`, agora estão "
+"disponíveis se tanto o compilador quanto a biblioteca ``libffi`` oferecerem "
+"suporte a tipos C complexos. (Contribuição de Sergey B Kirpichev em :gh:"
+"`61103`.)"
 
 #: ../../whatsnew/3.14.rst:1371
 msgid ""
 "Add :func:`ctypes.util.dllist` for listing the shared libraries loaded by "
 "the current process. (Contributed by Brian Ward in :gh:`119349`.)"
 msgstr ""
+"Adiciona :func:`ctypes.util.dllist` para listar as bibliotecas "
+"compartilhadas carregadas pelo processo atual. (Contribuição de Brian Ward "
+"em :gh:`119349`.)"
 
 #: ../../whatsnew/3.14.rst:1375
 msgid ""
@@ -2699,18 +2877,29 @@ msgid ""
 "from growing without limits in some situations. (Contributed by Sergey "
 "Miryanov in :gh:`100926`.)"
 msgstr ""
+"Move o cache de tipos :func:`ctypes.POINTER` de um cache interno global "
+"(``_pointer_type_cache``) para o atributo :attr:`ctypes._CData."
+"__pointer_type__` dos tipos :mod:`ctypes` correspondentes. Isso impedirá que "
+"o cache cresça sem limites em algumas situações. (Contribuição de Sergey "
+"Miryanov em :gh:`100926`.)"
 
 #: ../../whatsnew/3.14.rst:1381
 msgid ""
 "The :class:`ctypes.py_object` type now supports subscription, making it a :"
 "term:`generic type`. (Contributed by Brian Schubert in :gh:`132168`.)"
 msgstr ""
+"O tipo :class:`ctypes.py_object` agora oferece suporte a subscrição, "
+"tornando-o um :term:`tipo genérico`. (Contribuição de Brian Schubert em :gh:"
+"`132168`.)"
 
 #: ../../whatsnew/3.14.rst:1385
 msgid ""
 ":mod:`ctypes` now supports :term:`free-threading builds <free threading>`. "
 "(Contributed by Kumar Aditya and Peter Bierma in :gh:`127945`.)"
 msgstr ""
+":mod:`ctypes` agora oferece suporte a :term:`construções com threads livres "
+"<free threading>`. (Contribuição de Kumar Aditya e Peter Bierma em :gh:"
+"`127945`.)"
 
 #: ../../whatsnew/3.14.rst:1389
 msgid "curses"
@@ -2722,6 +2911,9 @@ msgid ""
 "func:`~curses.use_default_colors` function which allows to change the color "
 "pair ``0``. (Contributed by Serhiy Storchaka in :gh:`133139`.)"
 msgstr ""
+"Adiciona a função :func:`~curses.assume_default_colors`, um refinamento da "
+"função :func:`~curses.use_default_colors` que permite alterar o par de cores "
+"``0``. (Contribuição de Serhiy Storchaka em :gh:`133139`.)"
 
 #: ../../whatsnew/3.14.rst:1397
 msgid "datetime"
@@ -2732,6 +2924,8 @@ msgid ""
 "Add :meth:`datetime.time.strptime` and :meth:`datetime.date.strptime`. "
 "(Contributed by Wannes Boeykens in :gh:`41431`.)"
 msgstr ""
+"Adiciona :meth:`datetime.time.strptime` e :meth:`datetime.date.strptime`. "
+"(Contribuição de Wannes Boeykens em :gh:`41431`.)"
 
 #: ../../whatsnew/3.14.rst:1403
 msgid "decimal"
@@ -2743,6 +2937,9 @@ msgid ""
 "from_number() <decimal.Decimal.from_number>`. (Contributed by Serhiy "
 "Storchaka in :gh:`121798`.)"
 msgstr ""
+"Adiciona o construtor alternativo :class:`~decimal.Decimal` :meth:`Decimal."
+"from_number() <decimal.Decimal.from_number>`. (Contribuição de Serhiy "
+"Storchaka em :gh:`121798`.)"
 
 #: ../../whatsnew/3.14.rst:1409
 msgid ""
@@ -2750,10 +2947,13 @@ msgid ""
 "corresponding to the IEEE 754 (2008) decimal interchange formats. "
 "(Contributed by Sergey B Kirpichev in :gh:`53032`.)"
 msgstr ""
+"Expõe :func:`decimal.IEEEContext` para oferecer suporte à criação de "
+"contextos correspondentes aos formatos de intercâmbio decimal do IEEE 754 "
+"(2008). (Contribuição de Sergey B Kirpichev em :gh:`53032`.)"
 
 #: ../../whatsnew/3.14.rst:1414
 msgid "difflib"
-msgstr ""
+msgstr "difflib"
 
 #: ../../whatsnew/3.14.rst:1416
 msgid ""
@@ -2761,6 +2961,9 @@ msgid ""
 "HtmlDiff` class now support dark mode. (Contributed by Jiahao Li in :gh:"
 "`129939`.)"
 msgstr ""
+"Páginas de comparação com alterações destacadas geradas pela classe :class:"
+"`difflib.HtmlDiff` agora oferecem suporte ao modo escuro. (Contribuição de "
+"Jiahao Li em :gh:`129939`.)"
 
 #: ../../whatsnew/3.14.rst:1421
 msgid "dis"
@@ -2773,34 +2976,43 @@ msgid ""
 "feature is added to the following interfaces via the *show_positions* "
 "keyword argument:"
 msgstr ""
+"Adiciona suporte para renderizar informações completas sobre o local da "
+"fonte de :class:`instruções <dis.Instruction>`, em vez de apenas o número da "
+"linha. Este recurso é adicionado às seguintes interfaces por meio do "
+"argumento nomeado *show_positions*:"
 
 #: ../../whatsnew/3.14.rst:1428
 msgid ":class:`dis.Bytecode`"
-msgstr ""
+msgstr ":class:`dis.Bytecode`"
 
 #: ../../whatsnew/3.14.rst:1429
 msgid ":func:`dis.dis`"
-msgstr ""
+msgstr ":func:`dis.dis`"
 
 #: ../../whatsnew/3.14.rst:1430
 msgid ":func:`dis.distb`"
-msgstr ""
+msgstr ":func:`dis.distb`"
 
 #: ../../whatsnew/3.14.rst:1431
 msgid ":func:`dis.disassemble`"
-msgstr ""
+msgstr ":func:`dis.disassemble`"
 
 #: ../../whatsnew/3.14.rst:1433
 msgid ""
 "This feature is also exposed via :option:`dis --show-positions`. "
 "(Contributed by Bénédikt Tran in :gh:`123165`.)"
 msgstr ""
+"Esse recurso também é exposto via :option:`dis --show-positions`. "
+"(Contribuição de Bénédikt Tran em :gh:`123165`.)"
 
 #: ../../whatsnew/3.14.rst:1436
 msgid ""
 "Add the :option:`dis --specialized` command-line option to show specialized "
 "bytecode. (Contributed by Bénédikt Tran in :gh:`127413`.)"
 msgstr ""
+"Adiciona a opção de linha de comando :option:`dis --specialized` para "
+"mostrar o bytecode especializado. (Contribuição de Bénédikt Tran em :gh:"
+"`127413`.)"
 
 #: ../../whatsnew/3.14.rst:1442
 msgid "errno"
@@ -2811,6 +3023,8 @@ msgid ""
 "Add :data:`errno.EHWPOISON` error code. (Contributed by James Roy in :gh:"
 "`126585`.)"
 msgstr ""
+"Adiciona o código de erro :data:`errno.EHWPOISON`. (Contribuição de James "
+"Roy em :gh:`126585`.)"
 
 #: ../../whatsnew/3.14.rst:1449
 msgid "faulthandler"
@@ -2823,16 +3037,22 @@ msgid ""
 "*c_stack* argument in :func:`faulthandler.enable`. (Contributed by Peter "
 "Bierma in :gh:`127604`.)"
 msgstr ""
+"Adiciona suporte para exibir o stack trace (situação da pilha de execução) C "
+"em sistemas que :ref:`o suportam <c-stack-compatibility>` via :func:"
+"`faulthandler.dump_c_stack` ou via o argumento *c_stack* em :func:"
+"`faulthandler.enable`. (Contribuição de Peter Bierma em :gh:`127604`.)"
 
 #: ../../whatsnew/3.14.rst:1458
 msgid "fnmatch"
-msgstr ""
+msgstr "fnmatch"
 
 #: ../../whatsnew/3.14.rst:1460
 msgid ""
 "Added :func:`fnmatch.filterfalse` for excluding names matching a pattern. "
 "(Contributed by Bénédikt Tran in :gh:`74598`.)"
 msgstr ""
+"Adicionada :func:`fnmatch.filterfalse` para excluir nomes que correspondem a "
+"um padrão. (Contribuição de Bénédikt Tran em :gh:`74598`.)"
 
 #: ../../whatsnew/3.14.rst:1465
 msgid "fractions"
