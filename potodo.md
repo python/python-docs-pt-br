@@ -50,9 +50,9 @@
 - library.po                     157 / 162 ( 96.0% translated).
 
 
-# howto (61.95% done)
+# howto (63.96% done)
 
-- curses.po                       58 / 121 ( 47.0% translated).
+- curses.po                      120 / 121 ( 99.0% translated).
 - descriptor.po                  181 / 233 ( 77.0% translated).
 - enum.po                         63 / 319 ( 19.0% translated).
 - functional.po                  138 / 252 ( 54.0% translated).
@@ -231,7 +231,7 @@
 - windows.po                     374 / 378 ( 98.0% translated).
 
 
-# whatsnew (74.88% done)
+# whatsnew (74.89% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -242,10 +242,10 @@
 - 3.12.po                        836 / 842 ( 99.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
-- 3.5.po                         126 / 578 ( 21.0% translated).
+- 3.5.po                         127 / 578 ( 21.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (69.06% done)
+# TOTAL (69.16% done)
 
