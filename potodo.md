@@ -47,10 +47,10 @@
 
 
 
-# howto (65.86% done)
+# howto (66.23% done)
 
 - descriptor.po                  187 / 230 ( 81.0% translated).
-- enum.po                         62 / 327 ( 18.0% translated).
+- enum.po                         74 / 327 ( 22.0% translated).
 - functional.po                  138 / 252 ( 54.0% translated).
 - logging-cookbook.po             40 / 421 (  9.0% translated).
 - logging.po                     121 / 250 ( 48.0% translated).
@@ -63,7 +63,7 @@
 
 
 
-# library (66.00% done)
+# library (66.31% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 409 ( 75.0% translated).
@@ -81,7 +81,7 @@
 - codecs.po                      250 / 532 ( 46.0% translated).
 - concurrent.futures.po           14 / 100 ( 14.0% translated).
 - contextlib.po                   55 / 172 ( 31.0% translated).
-- ctypes.po                      124 / 530 ( 23.0% translated).
+- ctypes.po                      138 / 530 ( 26.0% translated).
 - curses.po                       66 / 486 ( 13.0% translated).
 - dataclasses.po                  71 / 155 ( 45.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
@@ -107,7 +107,7 @@
 - http.cookies.po                  7 /  49 ( 14.0% translated).
 - http.po                        186 / 247 ( 75.0% translated).
 - http.server.po                  15 / 115 ( 13.0% translated).
-- idle.po                         17 / 293 (  5.0% translated).
+- idle.po                         28 / 293 (  9.0% translated).
 - imaplib.po                      13 / 117 ( 11.0% translated).
 - importlib.po                   245 / 312 ( 78.0% translated).
 - inspect.po                      82 / 390 ( 21.0% translated).
@@ -118,10 +118,10 @@
 - logging.po                     100 / 369 ( 27.0% translated).
 - mailbox.po                      10 / 307 (  3.0% translated).
 - mimetypes.po                    21 /  54 ( 38.0% translated).
-- mmap.po                         12 /  65 ( 18.0% translated).
+- mmap.po                         23 /  65 ( 35.0% translated).
 - msvcrt.po                       22 /  46 ( 47.0% translated).
 - multiprocessing.po             326 / 596 ( 54.0% translated).
-- pathlib.po                     341 / 418 ( 81.0% translated).
+- pathlib.po                     417 / 418 ( 99.0% translated).
 - pkgutil.po                      44 /  50 ( 88.0% translated).
 - poplib.po                       10 /  53 ( 18.0% translated).
 - profile.po                      34 / 181 ( 18.0% translated).
@@ -195,5 +195,5 @@
 - changelog.po                   2544 / 12410 ( 20.0% translated).
 
 
-# TOTAL (62.52% done)
+# TOTAL (62.69% done)
 

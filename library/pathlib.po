@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-06 14:57+0000\n"
+"POT-Creation-Date: 2025-06-27 14:55+0000\n"
 "PO-Revision-Date: 2025-05-08 05:09+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -2776,6 +2776,12 @@ msgid ""
 "if *target* exists, :exc:`FileExistsError` will be raised. *target* can be "
 "either a string or another path object::"
 msgstr ""
+"Renomeia este arquivo ou diretório para o *target* fornecido e retorna uma "
+"nova instância de :class:`!Path` apontando para *target*. No Unix, se "
+"*target* existir e for um arquivo, ele será substituído silenciosamente se o "
+"usuário tiver permissão. No Windows, se *target* existir, a exceção :exc:"
+"`FileExistsError` será levantada. *target* pode ser uma string ou outro "
+"objeto caminho::"
 
 #: ../../library/pathlib.rst:1532
 msgid ""
@@ -2788,6 +2794,14 @@ msgid ""
 ">>> target.open().read()\n"
 "'some text'"
 msgstr ""
+">>> p = Path('foo')\n"
+">>> p.open('w').write('algum texto')\n"
+"9\n"
+">>> target = Path('bar')\n"
+">>> p.rename(target)\n"
+"PosixPath('bar')\n"
+">>> target.open().read()\n"
+"'algum texto'"
 
 #: ../../library/pathlib.rst:1541 ../../library/pathlib.rst:1557
 msgid ""
@@ -2795,6 +2809,9 @@ msgid ""
 "relative to the current working directory, *not* the directory of the :class:"
 "`!Path` object."
 msgstr ""
+"O caminho de destino pode ser absoluto ou relativo. Caminhos relativos são "
+"interpretados em relação ao diretório de trabalho atual, *não* ao diretório "
+"do objeto :class:`!Path`."
 
 #: ../../library/pathlib.rst:1545
 msgid ""
@@ -2807,6 +2824,7 @@ msgstr ""
 #: ../../library/pathlib.rst:1547 ../../library/pathlib.rst:1561
 msgid "Added return value, return the new :class:`!Path` instance."
 msgstr ""
+"Adicionado valor de retorno, retorna a nova instância de :class:`!Path`."
 
 #: ../../library/pathlib.rst:1553
 msgid ""
@@ -2814,6 +2832,10 @@ msgid ""
 "`!Path` instance pointing to *target*.  If *target* points to an existing "
 "file or empty directory, it will be unconditionally replaced."
 msgstr ""
+"Renomeia este arquivo ou diretório para o *target* fornecido e retorna uma "
+"nova instância de :class:`!Path` apontando para *target*. Se *target* "
+"apontar para um arquivo ou diretório vazio, ele será substituído "
+"incondicionalmente."
 
 #: ../../library/pathlib.rst:1567
 msgid ""
@@ -2849,14 +2871,14 @@ msgstr "Remove este diretório. O diretório deve estar vazio."
 
 #: ../../library/pathlib.rst:1586
 msgid "Permissions and ownership"
-msgstr ""
+msgstr "Permissões e propriedade"
 
 #: ../../library/pathlib.rst:1590
 msgid ""
 "Return the name of the user owning the file. :exc:`KeyError` is raised if "
 "the file's user identifier (UID) isn't found in the system database."
 msgstr ""
-"Retorna o nome do usuário que possui o arquivo. :exc:`KeyError` é levantado "
+"Retorna o nome do usuário que possui o arquivo. :exc:`KeyError` é levantada "
 "caso o identificador de usuário (UID) não for encontrado no banco de dados "
 "do sistema."
 
@@ -2865,32 +2887,41 @@ msgid ""
 "This method normally follows symlinks; to get the owner of the symlink, add "
 "the argument ``follow_symlinks=False``."
 msgstr ""
-"Esse método normalmente segue symlinks; para retornar o dono do symlink, "
-"adcione o argumento ``follow_symlinks=False`` ."
+"Esse método normalmente segue links simbólicos; para retornar o dono do link "
+"simbólico, adicione o argumento ``follow_symlinks=False``."
 
 #: ../../library/pathlib.rst:1596
 msgid ""
 "Raises :exc:`UnsupportedOperation` if the :mod:`pwd` module is not "
 "available. In earlier versions, :exc:`NotImplementedError` was raised."
 msgstr ""
+"Levanta :exc:`UnsupportedOperation` se o módulo :mod:`pwd` não estiver "
+"disponível. Em versões anteriores, :exc:`NotImplementedError` era levantada."
 
 #: ../../library/pathlib.rst:1606
 msgid ""
 "Return the name of the group owning the file. :exc:`KeyError` is raised if "
 "the file's group identifier (GID) isn't found in the system database."
 msgstr ""
+"Retorna o nome do usuário que possui o grupo. :exc:`KeyError` é levantada "
+"caso o identificador de grupo (GID) não for encontrado no banco de dados do "
+"sistema."
 
 #: ../../library/pathlib.rst:1609
 msgid ""
 "This method normally follows symlinks; to get the group of the symlink, add "
 "the argument ``follow_symlinks=False``."
 msgstr ""
+"Esse método normalmente segue links simbólicos; para retornar o grupo do "
+"link simbólico, adicione o argumento ``follow_symlinks=False``."
 
 #: ../../library/pathlib.rst:1612
 msgid ""
 "Raises :exc:`UnsupportedOperation` if the :mod:`grp` module is not "
 "available. In earlier versions, :exc:`NotImplementedError` was raised."
 msgstr ""
+"Levanta :exc:`UnsupportedOperation` se o módulo :mod:`grp` não estiver "
+"disponível. Em versões anteriores, :exc:`NotImplementedError` era levantada."
 
 #: ../../library/pathlib.rst:1622
 msgid "Change the file mode and permissions, like :func:`os.chmod`."
@@ -2916,6 +2947,12 @@ msgid ""
 ">>> p.stat().st_mode\n"
 "33060"
 msgstr ""
+">>> p = Path('setup.py')\n"
+">>> p.stat().st_mode\n"
+"33277\n"
+">>> p.chmod(0o444)\n"
+">>> p.stat().st_mode\n"
+"33060"
 
 #: ../../library/pathlib.rst:1643
 msgid ""
@@ -2927,37 +2964,42 @@ msgstr ""
 
 #: ../../library/pathlib.rst:1650
 msgid "Pattern language"
-msgstr ""
+msgstr "Linguagem de padrões"
 
 #: ../../library/pathlib.rst:1652
 msgid ""
 "The following wildcards are supported in patterns for :meth:`~PurePath."
 "full_match`, :meth:`~Path.glob` and :meth:`~Path.rglob`:"
 msgstr ""
+"Os seguintes curingas são suportados em padrões para :meth:`~PurePath."
+"full_match`, :meth:`~Path.glob` e :meth:`~Path.rglob`:"
 
 #: ../../library/pathlib.rst:1655
 msgid "``**`` (entire segment)"
-msgstr ""
+msgstr "``**`` (todo o segmento)"
 
 #: ../../library/pathlib.rst:1656
 msgid "Matches any number of file or directory segments, including zero."
 msgstr ""
+"Corresponde a qualquer número de segmentos de arquivo ou diretório, "
+"incluindo zero."
 
 #: ../../library/pathlib.rst:1657
 msgid "``*`` (entire segment)"
-msgstr ""
+msgstr "``*`` (todo o segmento)"
 
 #: ../../library/pathlib.rst:1658
 msgid "Matches one file or directory segment."
-msgstr ""
+msgstr "Corresponde a um segmento de arquivo ou diretório."
 
 #: ../../library/pathlib.rst:1659
 msgid "``*`` (part of a segment)"
-msgstr ""
+msgstr "``*`` (parte de um segmento)"
 
 #: ../../library/pathlib.rst:1660
 msgid "Matches any number of non-separator characters, including zero."
 msgstr ""
+"Corresponde a qualquer número de caracteres não separadores, incluindo zero."
 
 #: ../../library/pathlib.rst:1661
 msgid "``?``"
@@ -2965,7 +3007,7 @@ msgstr "``?``"
 
 #: ../../library/pathlib.rst:1662
 msgid "Matches one non-separator character."
-msgstr ""
+msgstr "Corresponde a um caractere não separador."
 
 #: ../../library/pathlib.rst:1663
 msgid "``[seq]``"
@@ -2978,6 +3020,11 @@ msgid ""
 "lowercase ASCII letter. Multiple ranges can be combined: ``[a-zA-Z0-9_]`` "
 "matches any ASCII letter, digit, or underscore."
 msgstr ""
+"Corresponde a um caractere em *seq*, onde *seq* é uma sequência de "
+"caracteres. Expressões de intervalo são suportadas; por exemplo, ``[a-z]`` "
+"corresponde a qualquer letra ASCII minúscula. Vários intervalos podem ser "
+"combinados: ``[a-zA-Z0-9_]`` corresponde a qualquer letra, dígito ou "
+"sublinhado ASCII."
 
 #: ../../library/pathlib.rst:1668
 msgid "``[!seq]``"
@@ -2988,16 +3035,20 @@ msgid ""
 "Matches one character not in *seq*, where *seq* follows the same rules as "
 "above."
 msgstr ""
+"Corresponde a um caractere que não está em *seq*, onde *seq* segue as mesmas "
+"regras acima."
 
 #: ../../library/pathlib.rst:1671
 msgid ""
 "For a literal match, wrap the meta-characters in brackets. For example, "
 "``\"[?]\"`` matches the character ``\"?\"``."
 msgstr ""
+"Para uma correspondência literal, coloque os metacaracteres entre colchetes. "
+"Por exemplo, ``\"[?]\"`` corresponde ao caractere ``\"?\"``."
 
 #: ../../library/pathlib.rst:1674
 msgid "The \"``**``\" wildcard enables recursive globbing. A few examples:"
-msgstr ""
+msgstr "O curinga \"``**``\" habilita fazer glob recursivo. Alguns exemplos:"
 
 #: ../../library/pathlib.rst:1677
 msgid "Pattern"
@@ -3009,82 +3060,98 @@ msgstr "Significado"
 
 #: ../../library/pathlib.rst:1679
 msgid "\"``**/*``\""
-msgstr ""
+msgstr "\"``**/*``\""
 
 #: ../../library/pathlib.rst:1679
 msgid "Any path with at least one segment."
-msgstr ""
+msgstr "Qualquer caminho com pelo menos um segmento."
 
 #: ../../library/pathlib.rst:1680
 msgid "\"``**/*.py``\""
-msgstr ""
+msgstr "\"``**/*.py``\""
 
 #: ../../library/pathlib.rst:1680
 msgid "Any path with a final segment ending \"``.py``\"."
-msgstr ""
+msgstr "Qualquer caminho com um segmento final terminando em \"``.py``\"."
 
 #: ../../library/pathlib.rst:1681
 msgid "\"``assets/**``\""
-msgstr ""
+msgstr "\"``assets/**``\""
 
 #: ../../library/pathlib.rst:1681
 msgid "Any path starting with \"``assets/``\"."
-msgstr ""
+msgstr "Qualquer caminho que comece com \"``assets/``\"."
 
 #: ../../library/pathlib.rst:1682
 msgid "\"``assets/**/*``\""
-msgstr ""
+msgstr "\"``assets/**/*``\""
 
 #: ../../library/pathlib.rst:1682
 msgid ""
 "Any path starting with \"``assets/``\", excluding \"``assets/``\" itself."
 msgstr ""
+"Qualquer caminho que comece com \"``assets/``\", excluindo o próprio "
+"\"``assets/``\"."
 
 #: ../../library/pathlib.rst:1686
 msgid ""
 "Globbing with the \"``**``\" wildcard visits every directory in the tree. "
 "Large directory trees may take a long time to search."
 msgstr ""
+"Fazer globs com o curinga \"``**``\" visita todos os diretórios da árvore. "
+"Árvores de diretórios grandes podem levar muito tempo para serem pesquisadas."
 
 #: ../../library/pathlib.rst:1689
 msgid ""
 "Globbing with a pattern that ends with \"``**``\" returns both files and "
 "directories. In previous versions, only directories were returned."
 msgstr ""
+"Fazer glob com um padrão que termina com \"``**``\" retorna arquivos e "
+"diretórios. Em versões anteriores, apenas diretórios eram retornados."
 
 #: ../../library/pathlib.rst:1693
 msgid ""
 "In :meth:`Path.glob` and :meth:`~Path.rglob`, a trailing slash may be added "
 "to the pattern to match only directories."
 msgstr ""
+"Em :meth:`Path.glob` e :meth:`~Path.rglob`, uma barra final pode ser "
+"adicionada ao padrão para corresponder apenas aos diretórios."
 
 #: ../../library/pathlib.rst:1696
 msgid ""
 "Globbing with a pattern that ends with a pathname components separator (:"
 "data:`~os.sep` or :data:`~os.altsep`) returns only directories."
 msgstr ""
+"Fazer glob com um padrão que termina com um separador de componentes de "
+"caminho (:data:`~os.sep` ou :data:`~os.altsep`) retorna apenas diretórios."
 
 #: ../../library/pathlib.rst:1702
 msgid "Comparison to the :mod:`glob` module"
-msgstr ""
+msgstr "Comparação com o módulo :mod:`glob`"
 
 #: ../../library/pathlib.rst:1704
 msgid ""
 "The patterns accepted and results generated by :meth:`Path.glob` and :meth:"
 "`Path.rglob` differ slightly from those by the :mod:`glob` module:"
 msgstr ""
+"Os padrões aceitos e os resultados gerados por :meth:`Path.glob` e :meth:"
+"`Path.rglob` diferem ligeiramente daqueles pelo módulo :mod:`glob`:"
 
 #: ../../library/pathlib.rst:1707
 msgid ""
 "Files beginning with a dot are not special in pathlib. This is like passing "
 "``include_hidden=True`` to :func:`glob.glob`."
 msgstr ""
+"Arquivos que começam com um ponto não são especiais em pathlib. Isso é como "
+"passar ``include_hidden=True`` para :func:`glob.glob`."
 
 #: ../../library/pathlib.rst:1709
 msgid ""
 "\"``**``\" pattern components are always recursive in pathlib. This is like "
 "passing ``recursive=True`` to :func:`glob.glob`."
 msgstr ""
+"Os componentes do padrão \"``**``\" são sempre recursivos em pathlib. Isso é "
+"como passar ``recursive=True`` para :func:`glob.glob`."
 
 #: ../../library/pathlib.rst:1711
 msgid ""
@@ -3092,12 +3159,19 @@ msgid ""
 "This behaviour has no equivalent in :func:`glob.glob`, but you can pass "
 "``recurse_symlinks=True`` to :meth:`Path.glob` for compatible behaviour."
 msgstr ""
+"Os componentes do padrão \"``**``\" não seguem links simbólicos por padrão "
+"em pathlib. Esse comportamento não tem equivalente em :func:`glob.glob`, mas "
+"você pode passar ``recurse_symlinks=True`` para :meth:`Path.glob` para obter "
+"um comportamento compatível."
 
 #: ../../library/pathlib.rst:1714
 msgid ""
 "Like all :class:`PurePath` and :class:`Path` objects, the values returned "
 "from :meth:`Path.glob` and :meth:`Path.rglob` don't include trailing slashes."
 msgstr ""
+"Como todos os objetos :class:`PurePath` e :class:`Path`, os valores "
+"retornados de :meth:`Path.glob` e :meth:`Path.rglob` não incluem barras "
+"finais."
 
 #: ../../library/pathlib.rst:1717
 msgid ""
@@ -3105,6 +3179,9 @@ msgid ""
 "include the *path* as a prefix, unlike the results of ``glob."
 "glob(root_dir=path)``."
 msgstr ""
+"Os valores retornados de ``path.glob()`` e ``path.rglob()`` do pathlib "
+"incluem o *path* como prefixo, diferente dos resultados de ``glob."
+"glob(root_dir=path)``."
 
 #: ../../library/pathlib.rst:1720
 msgid ""
@@ -3113,10 +3190,14 @@ msgid ""
 "results of ``glob.glob(root_dir=path)`` never include an empty string that "
 "would correspond to *path*."
 msgstr ""
+"Os valores retornados de ``path.glob()`` e ``path.rglob()`` do pathlib podem "
+"incluir o próprio *path*, por exemplo, ao globar \"``**``\", enquanto os "
+"resultados de ``glob.glob(root_dir=path)`` nunca incluem uma string vazia "
+"que corresponderia a *path*."
 
 #: ../../library/pathlib.rst:1727
 msgid "Comparison to the :mod:`os` and :mod:`os.path` modules"
-msgstr ""
+msgstr "Comparação com os módulos :mod:`os` e :mod:`os.path`"
 
 #: ../../library/pathlib.rst:1729
 msgid ""
@@ -3126,6 +3207,12 @@ msgid ""
 "level ``str`` and ``bytes`` objects, which is a more *procedural* approach. "
 "Some users consider the object-oriented style to be more readable."
 msgstr ""
+"pathlib implementa operações de caminho usando os objetos :class:`PurePath` "
+"e :class:`Path`, e por isso é considerado *orientado a objetos*. Por outro "
+"lado, os módulos :mod:`os` e :mod:`os.path` fornecem funções que funcionam "
+"com objetos de baixo nível ``str`` e ``bytes``, o que é uma abordagem mais "
+"*procedimental*. Alguns usuários consideram o estilo orientado a objetos "
+"mais legível."
 
 #: ../../library/pathlib.rst:1735
 msgid ""
@@ -3133,6 +3220,9 @@ msgid ""
 "ref:`paths relative to directory descriptors <dir_fd>`. These features "
 "aren't available in pathlib."
 msgstr ""
+"Muitas funções em :mod:`os` e :mod:`os.path` oferecem suporte a caminhos "
+"``bytes`` e :ref:`caminhos relativos aos descritores de diretório <dir_fd>`. "
+"Esses recursos não estão disponíveis em pathlib."
 
 #: ../../library/pathlib.rst:1739
 msgid ""
@@ -3140,6 +3230,10 @@ msgid ""
 "`os.path` modules, are written in C and are very speedy. pathlib is written "
 "in pure Python and is often slower, but rarely slow enough to matter."
 msgstr ""
+"Os tipos ``str`` e ``bytes`` do Python e partes dos módulos :mod:`os` e :mod:"
+"`os.path` são escritos em C e são muito rápidos. pathlib é escrito em Python "
+"puro e geralmente é mais lento, mas raramente lento o suficiente para fazer "
+"diferença."
 
 #: ../../library/pathlib.rst:1743
 msgid ""
@@ -3149,11 +3243,18 @@ msgid ""
 "are involved, :meth:`Path.absolute` preserves these segments for greater "
 "safety."
 msgstr ""
+"A normalização de caminho do pathlib é um pouco mais opinativa e consistente "
+"do que a do :mod:`os.path`. Por exemplo, enquanto :func:`os.path.abspath` "
+"elimina segmentos \"``..``\" de um caminho, o que pode alterar seu "
+"significado se links simbólicos estiverem envolvidos, :meth:`Path.absolute` "
+"preserva esses segmentos para maior segurança."
 
 #: ../../library/pathlib.rst:1748
 msgid ""
 "pathlib's path normalization may render it unsuitable for some applications:"
 msgstr ""
+"A normalização de caminho do pathlib pode torná-lo inadequado para algumas "
+"aplicações:"
 
 #: ../../library/pathlib.rst:1750
 msgid ""
@@ -3163,6 +3264,11 @@ msgid ""
 "separator may allow the path to be resolved as either a file or directory, "
 "rather than a directory only."
 msgstr ""
+"pathlib normaliza ``Path(\"minha_pasta/\")`` para ``Path(\"minha_pasta\")``, "
+"o que altera o significado de um caminho quando fornecido a diversas APIs de "
+"sistemas operacionais e utilitários de linha de comando. Especificamente, a "
+"ausência de um separador final pode permitir que o caminho seja resolvido "
+"como um arquivo ou diretório, em vez de apenas um diretório."
 
 #: ../../library/pathlib.rst:1755
 msgid ""
@@ -3172,16 +3278,23 @@ msgid ""
 "a separator in the path may force it to be looked up in :envvar:`PATH` "
 "rather than the current directory."
 msgstr ""
+"pathlib normaliza ``Path(\"./meu_programa\")`` para "
+"``Path(\"meu_programa\")``, o que altera o significado de um caminho quando "
+"usado como um caminho de pesquisa executável, como em um shell ou ao gerar "
+"um processo filho. Especificamente, a ausência de um separador no caminho "
+"pode forçar a busca em :envvar:`PATH` em vez do diretório atual."
 
 #: ../../library/pathlib.rst:1761
 msgid ""
 "As a consequence of these differences, pathlib is not a drop-in replacement "
 "for :mod:`os.path`."
 msgstr ""
+"Como consequência dessas diferenças, pathlib não é um substituto imediato "
+"para :mod:`os.path`."
 
 #: ../../library/pathlib.rst:1766
 msgid "Corresponding tools"
-msgstr ""
+msgstr "Ferramentas correspondentes"
 
 #: ../../library/pathlib.rst:1768
 msgid ""
@@ -3221,7 +3334,7 @@ msgstr ":func:`os.path.splitext`"
 
 #: ../../library/pathlib.rst:1776
 msgid ":attr:`PurePath.stem`, :attr:`PurePath.suffix`"
-msgstr ""
+msgstr ":attr:`PurePath.stem`, :attr:`PurePath.suffix`"
 
 #: ../../library/pathlib.rst:1777
 msgid ":func:`os.path.join`"
@@ -3229,7 +3342,7 @@ msgstr ":func:`os.path.join`"
 
 #: ../../library/pathlib.rst:1777
 msgid ":meth:`PurePath.joinpath`"
-msgstr ""
+msgstr ":meth:`PurePath.joinpath`"
 
 #: ../../library/pathlib.rst:1778
 msgid ":func:`os.path.isabs`"
@@ -3245,7 +3358,7 @@ msgstr ":func:`os.path.relpath`"
 
 #: ../../library/pathlib.rst:1779
 msgid ":meth:`PurePath.relative_to` [1]_"
-msgstr ""
+msgstr ":meth:`PurePath.relative_to` [1]_"
 
 #: ../../library/pathlib.rst:1780
 msgid ":func:`os.path.expanduser`"
@@ -3253,7 +3366,7 @@ msgstr ":func:`os.path.expanduser`"
 
 #: ../../library/pathlib.rst:1780
 msgid ":meth:`Path.expanduser` [2]_"
-msgstr ""
+msgstr ":meth:`Path.expanduser` [2]_"
 
 #: ../../library/pathlib.rst:1781
 msgid ":func:`os.path.realpath`"
@@ -3269,7 +3382,7 @@ msgstr ":func:`os.path.abspath`"
 
 #: ../../library/pathlib.rst:1782
 msgid ":meth:`Path.absolute` [3]_"
-msgstr ""
+msgstr ":meth:`Path.absolute` [3]_"
 
 #: ../../library/pathlib.rst:1783
 msgid ":func:`os.path.exists`"
@@ -3305,19 +3418,19 @@ msgstr ":meth:`Path.is_symlink`"
 
 #: ../../library/pathlib.rst:1787
 msgid ":func:`os.path.isjunction`"
-msgstr ""
+msgstr ":func:`os.path.isjunction`"
 
 #: ../../library/pathlib.rst:1787
 msgid ":meth:`Path.is_junction`"
-msgstr ""
+msgstr ":meth:`Path.is_junction`"
 
 #: ../../library/pathlib.rst:1788
 msgid ":func:`os.path.ismount`"
-msgstr ""
+msgstr ":func:`os.path.ismount`"
 
 #: ../../library/pathlib.rst:1788
 msgid ":meth:`Path.is_mount`"
-msgstr ""
+msgstr ":meth:`Path.is_mount`"
 
 #: ../../library/pathlib.rst:1789
 msgid ":func:`os.path.samefile`"
@@ -3333,7 +3446,7 @@ msgstr ":func:`os.getcwd`"
 
 #: ../../library/pathlib.rst:1790
 msgid ":meth:`Path.cwd`"
-msgstr ""
+msgstr ":meth:`Path.cwd`"
 
 #: ../../library/pathlib.rst:1791
 msgid ":func:`os.stat`"
@@ -3341,15 +3454,15 @@ msgstr ":func:`os.stat`"
 
 #: ../../library/pathlib.rst:1791
 msgid ":meth:`Path.stat`"
-msgstr ""
+msgstr ":meth:`Path.stat`"
 
 #: ../../library/pathlib.rst:1792
 msgid ":func:`os.lstat`"
-msgstr ""
+msgstr ":func:`os.lstat`"
 
 #: ../../library/pathlib.rst:1792
 msgid ":meth:`Path.lstat`"
-msgstr ""
+msgstr ":meth:`Path.lstat`"
 
 #: ../../library/pathlib.rst:1793
 msgid ":func:`os.listdir`"
@@ -3361,15 +3474,15 @@ msgstr ":meth:`Path.iterdir`"
 
 #: ../../library/pathlib.rst:1794
 msgid ":func:`os.walk`"
-msgstr ""
+msgstr ":func:`os.walk`"
 
 #: ../../library/pathlib.rst:1794
 msgid ":meth:`Path.walk` [4]_"
-msgstr ""
+msgstr ":meth:`Path.walk` [4]_"
 
 #: ../../library/pathlib.rst:1795
 msgid ":func:`os.mkdir`, :func:`os.makedirs`"
-msgstr ""
+msgstr ":func:`os.mkdir`, :func:`os.makedirs`"
 
 #: ../../library/pathlib.rst:1795
 msgid ":meth:`Path.mkdir`"
@@ -3441,11 +3554,11 @@ msgstr ":meth:`Path.chmod`"
 
 #: ../../library/pathlib.rst:1804
 msgid ":func:`os.lchmod`"
-msgstr ""
+msgstr ":func:`os.lchmod`"
 
 #: ../../library/pathlib.rst:1804
 msgid ":meth:`Path.lchmod`"
-msgstr ""
+msgstr ":meth:`Path.lchmod`"
 
 #: ../../library/pathlib.rst:1808
 msgid "Footnotes"
@@ -3458,6 +3571,11 @@ msgid ""
 "is a lexical operation that raises :exc:`ValueError` when its inputs' "
 "anchors differ (e.g. if one path is absolute and the other relative.)"
 msgstr ""
+":func:`os.path.relpath` chama :func:`~os.path.abspath` para tornar os "
+"caminhos absolutos e remover partes \"``..``\", enquanto :meth:`PurePath."
+"relative_to` é uma operação lexical que levanta :exc:`ValueError` quando as "
+"âncoras de suas entradas são diferentes (por exemplo, se um caminho for "
+"absoluto e o outro relativo)."
 
 #: ../../library/pathlib.rst:1813
 msgid ""
@@ -3465,6 +3583,9 @@ msgid ""
 "can't be resolved, whereas :meth:`Path.expanduser` raises :exc:"
 "`RuntimeError`."
 msgstr ""
+":func:`os.path.expanduser` retorna o caminho inalterado se o diretório "
+"inicial não puder ser resolvido, enquanto :meth:`Path.expanduser` levanta :"
+"exc:`RuntimeError`."
 
 #: ../../library/pathlib.rst:1816
 msgid ""
@@ -3472,6 +3593,9 @@ msgid ""
 "symlinks, which may change the meaning of the path, whereas :meth:`Path."
 "absolute` leaves any \"``..``\" components in the path."
 msgstr ""
+":func:`os.path.abspath` remove componentes \"``..``\" sem resolver links "
+"simbólicos, o que pode alterar o significado do caminho, enquanto :meth:"
+"`Path.absolute` deixa quaisquer componentes \"``..``\" no caminho."
 
 #: ../../library/pathlib.rst:1819
 msgid ""
@@ -3479,6 +3603,9 @@ msgid ""
 "*dirnames* and *filenames*, whereas :meth:`Path.walk` categorizes all "
 "symlinks into *filenames* when *follow_symlinks* is false (the default.)"
 msgstr ""
+":func:`os.walk` sempre segue links simbólicos ao categorizar caminhos em "
+"*dirnames* e *filenames*, enquanto :meth:`Path.walk` categoriza todos os "
+"links simbólicos em *filenames* quando *follow_symlinks* é falso (o padrão)."
 
 #: ../../library/pathlib.rst:11
 msgid "path"
