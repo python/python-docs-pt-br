@@ -47,10 +47,10 @@
 
 
 
-# howto (63.82% done)
+# howto (64.17% done)
 
 - descriptor.po                  187 / 230 ( 81.0% translated).
-- enum.po                         62 / 327 ( 18.0% translated).
+- enum.po                         74 / 327 ( 22.0% translated).
 - functional.po                  138 / 252 ( 54.0% translated).
 - logging-cookbook.po             40 / 423 (  9.0% translated).
 - logging.po                     120 / 250 ( 48.0% translated).
@@ -64,7 +64,7 @@
 
 
 
-# library (65.72% done)
+# library (66.12% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           307 / 413 ( 74.0% translated).
@@ -84,7 +84,7 @@
 - compression.zstd.po             85 / 171 ( 49.0% translated).
 - concurrent.futures.po           12 / 119 ( 10.0% translated).
 - contextlib.po                   55 / 172 ( 31.0% translated).
-- ctypes.po                      126 / 604 ( 20.0% translated).
+- ctypes.po                      147 / 604 ( 24.0% translated).
 - curses.po                       66 / 490 ( 13.0% translated).
 - dataclasses.po                  72 / 157 ( 45.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
@@ -111,7 +111,7 @@
 - http.cookies.po                  7 /  52 ( 13.0% translated).
 - http.po                        186 / 247 ( 75.0% translated).
 - http.server.po                  15 / 129 ( 11.0% translated).
-- idle.po                         17 / 293 (  5.0% translated).
+- idle.po                         28 / 293 (  9.0% translated).
 - imaplib.po                      13 / 130 ( 10.0% translated).
 - importlib.po                   244 / 312 ( 78.0% translated).
 - inspect.po                      80 / 397 ( 20.0% translated).
@@ -123,10 +123,10 @@
 - mailbox.po                      10 / 307 (  3.0% translated).
 - marshal.po                      36 /  56 ( 64.0% translated).
 - mimetypes.po                    24 /  68 ( 35.0% translated).
-- mmap.po                         12 /  65 ( 18.0% translated).
+- mmap.po                         23 /  65 ( 35.0% translated).
 - msvcrt.po                       22 /  46 ( 47.0% translated).
 - multiprocessing.po             320 / 605 ( 52.0% translated).
-- pathlib.po                     353 / 443 ( 79.0% translated).
+- pathlib.po                     435 / 443 ( 98.0% translated).
 - pdb.po                         146 / 178 ( 82.0% translated).
 - poplib.po                       10 /  53 ( 18.0% translated).
 - profile.po                      34 / 181 ( 18.0% translated).
@@ -140,7 +140,7 @@
 - socket.po                       54 / 384 ( 14.0% translated).
 - sqlite3.po                     116 / 475 ( 24.0% translated).
 - ssl.po                          61 / 545 ( 11.0% translated).
-- struct.po                       99 / 204 ( 48.0% translated).
+- struct.po                      101 / 204 ( 49.0% translated).
 - subprocess.po                  150 / 311 ( 48.0% translated).
 - symtable.po                      6 /  73 (  8.0% translated).
 - tarfile.po                     104 / 346 ( 30.0% translated).
@@ -150,7 +150,6 @@
 - tkinter.ttk.po                 141 / 429 ( 32.0% translated).
 - traceback.po                    10 / 118 (  8.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
-- turtle.po                      657 / 683 ( 96.0% translated).
 - unicodedata.po                   5 /  32 ( 15.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               103 / 448 ( 22.0% translated).
@@ -200,5 +199,5 @@
 - changelog.po                   2975 / 13373 ( 22.0% translated).
 
 
-# TOTAL (61.89% done)
+# TOTAL (62.09% done)
 

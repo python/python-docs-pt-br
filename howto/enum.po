@@ -13,15 +13,16 @@
 # Adorilson Bezerra <adorilson@gmail.com>, 2024
 # Alfredo Braga <alfredorodruguesbraga@gmail.com>, 2024
 # Rafael Fontenelle <rffontenelle@gmail.com>, 2024
+# Pedro Fonini <fonini@protonmail.ch>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-09 14:19+0000\n"
+"POT-Creation-Date: 2025-06-27 14:20+0000\n"
 "PO-Revision-Date: 2021-06-28 00:53+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
+"Last-Translator: Pedro Fonini <fonini@protonmail.ch>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -65,6 +66,15 @@ msgid ""
 "...     SATURDAY = 6\n"
 "...     SUNDAY = 7"
 msgstr ""
+">>> from enum import Enum\n"
+">>> class DiaDaSemana(Enum):\n"
+"...     SEGUNDA = 1\n"
+"...     TERÇA = 2\n"
+"...     QUARTA = 3\n"
+"...     QUINTA = 4\n"
+"...     SEXTA = 5\n"
+"...     SÁBADO = 6\n"
+"...     DOMINGO = 7"
 
 #: ../../howto/enum.rst:28
 msgid "Or perhaps the RGB primary colors::"
@@ -78,6 +88,11 @@ msgid ""
 "...     GREEN = 2\n"
 "...     BLUE = 3"
 msgstr ""
+">>> from enum import Enum\n"
+">>> class Cor(Enum):\n"
+"...     RED = 1\n"
+"...     GREEN = 2\n"
+"...     BLUE = 3"
 
 #: ../../howto/enum.rst:36
 msgid ""
@@ -89,7 +104,7 @@ msgstr ""
 
 #: ../../howto/enum.rst:39
 msgid "Case of Enum Members"
-msgstr "Caso de membros de Enums"
+msgstr "Maiúsculas em membros de Enums"
 
 #: ../../howto/enum.rst:41
 msgid ""
@@ -100,7 +115,7 @@ msgid ""
 msgstr ""
 "Como os Enums são usados para representar constantes, e para ajudar a evitar "
 "problemas com nomes conflitando entre métodos/atributos de classes mixin e "
-"nomes enum, nós fortemente recomendamos o uso de nomes em UPPER_CASE(em "
+"nomes enum, nós fortemente recomendamos o uso de nomes em UPPER_CASE (em "
 "caixa alta) para membros, e usaremos esse estilo em nossos exemplos."
 
 #: ../../howto/enum.rst:46
@@ -118,6 +133,8 @@ msgid ""
 ">>> Weekday(3)\n"
 "<Weekday.WEDNESDAY: 3>"
 msgstr ""
+">>> DiaDaSemana(3)\n"
+"<DiaDaSemana.QUARTA: 3>"
 
 #: ../../howto/enum.rst:53
 msgid ""
@@ -134,6 +151,8 @@ msgid ""
 ">>> print(Weekday.THURSDAY)\n"
 "Weekday.THURSDAY"
 msgstr ""
+">>> print(DiaDaSemana.QUINTA)\n"
+"DiaDaSemana.QUINTA"
 
 #: ../../howto/enum.rst:60
 msgid "The *type* of an enumeration member is the enum it belongs to::"
@@ -146,26 +165,35 @@ msgid ""
 ">>> isinstance(Weekday.FRIDAY, Weekday)\n"
 "True"
 msgstr ""
+">>> type(DiaDaSemana.SEGUNDA)\n"
+"<enum 'DiaDaSemana'>\n"
+">>> isinstance(DiaDaSemana.SEXTA, DiaDaSemana)\n"
+"True"
 
 #: ../../howto/enum.rst:67
 msgid "Enum members have an attribute that contains just their :attr:`!name`::"
 msgstr ""
+"Os membros do Enum têm um atributo que contém apenas seu :attr:`!name`::"
 
 #: ../../howto/enum.rst:69
 msgid ""
 ">>> print(Weekday.TUESDAY.name)\n"
 "TUESDAY"
 msgstr ""
+">>> print(DiaDaSemana.TERÇA.name)\n"
+"TERÇA"
 
 #: ../../howto/enum.rst:72
 msgid "Likewise, they have an attribute for their :attr:`!value`::"
-msgstr ""
+msgstr "Da mesma forma, eles têm um atributo para seu :attr:`!value`::"
 
 #: ../../howto/enum.rst:75
 msgid ""
 ">>> Weekday.WEDNESDAY.value\n"
 "3"
 msgstr ""
+">>> DiaDaSemana.QUARTA.value\n"
+"3"
 
 #: ../../howto/enum.rst:78
 msgid ""
@@ -178,6 +206,14 @@ msgid ""
 "day from the :class:`~datetime.date` instance and return the matching enum "
 "member::"
 msgstr ""
+"Ao contrário de muitas linguagens que tratam enumerações apenas como pares "
+"de nome/valor, Enums do Python podem ter comportamento adicionado. Por "
+"exemplo, :class:`datetime.date` tem dois métodos para retornar o dia da "
+"semana: :meth:`~datetime.date.weekday` e :meth:`~datetime.date.isoweekday`. "
+"A diferença é que um deles conta de 0 a 6 e o outro de 1 a 7. Em vez de "
+"tomar conta disso nós mesmos, podemos adicionar um método ao enum de :class:"
+"`!DiaDaSemana` para extrair o dia da instância de :class:`~datetime.date` e "
+"retornar o membro enum correspondente::"
 
 #: ../../howto/enum.rst:87
 msgid ""
@@ -185,10 +221,13 @@ msgid ""
 "def from_date(cls, date):\n"
 "    return cls(date.isoweekday())"
 msgstr ""
+"@classmethod\n"
+"def from_date(cls, date):\n"
+"    return cls(date.isoweekday())"
 
 #: ../../howto/enum.rst:91
 msgid "The complete :class:`!Weekday` enum now looks like this::"
-msgstr ""
+msgstr "A enum :class:`!DiaDaSemana` completa fica então assim:"
 
 #: ../../howto/enum.rst:93
 msgid ""
