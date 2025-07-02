@@ -50,11 +50,11 @@
 - library.po                     157 / 162 ( 96.0% translated).
 
 
-# howto (63.96% done)
+# howto (64.35% done)
 
 - curses.po                      120 / 121 ( 99.0% translated).
 - descriptor.po                  181 / 233 ( 77.0% translated).
-- enum.po                         63 / 319 ( 19.0% translated).
+- enum.po                         75 / 319 ( 23.0% translated).
 - functional.po                  138 / 252 ( 54.0% translated).
 - logging-cookbook.po             40 / 421 (  9.0% translated).
 - logging.po                     121 / 250 ( 48.0% translated).
@@ -69,7 +69,7 @@
 
 
 
-# library (64.52% done)
+# library (64.69% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        78 /  84 ( 92.0% translated).
@@ -97,7 +97,7 @@
 - contextvars.po                  49 /  51 ( 96.0% translated).
 - copy.po                         27 /  28 ( 96.0% translated).
 - crypt.po                         6 /  36 ( 16.0% translated).
-- ctypes.po                      123 / 523 ( 23.0% translated).
+- ctypes.po                      135 / 523 ( 25.0% translated).
 - curses.po                       64 / 484 ( 13.0% translated).
 - dataclasses.po                  71 / 153 ( 46.0% translated).
 - datetime.po                    633 / 637 ( 99.0% translated).
@@ -131,7 +131,7 @@
 - http.cookies.po                  7 /  49 ( 14.0% translated).
 - http.po                        229 / 246 ( 93.0% translated).
 - http.server.po                  15 / 113 ( 13.0% translated).
-- idle.po                         17 / 293 (  5.0% translated).
+- idle.po                         28 / 293 (  9.0% translated).
 - imaplib.po                      13 / 117 ( 11.0% translated).
 - imghdr.po                       20 /  42 ( 47.0% translated).
 - importlib.po                   240 / 304 ( 78.0% translated).
@@ -146,14 +146,14 @@
 - mailcap.po                       2 /  16 ( 12.0% translated).
 - marshal.po                      24 /  30 ( 80.0% translated).
 - mimetypes.po                    16 /  51 ( 31.0% translated).
-- mmap.po                         12 /  59 ( 20.0% translated).
+- mmap.po                         22 /  59 ( 37.0% translated).
 - msilib.po                        7 /  97 (  7.0% translated).
 - multiprocessing.po             327 / 594 ( 55.0% translated).
 - multiprocessing.shared_memory.po  51 /  53 ( 96.0% translated).
 - nntplib.po                      10 /  92 ( 10.0% translated).
 - os.path.po                      95 /  98 ( 96.0% translated).
 - ossaudiodev.po                  18 / 102 ( 17.0% translated).
-- pathlib.po                     288 / 346 ( 83.0% translated).
+- pathlib.po                     317 / 346 ( 91.0% translated).
 - pdb.po                         134 / 139 ( 96.0% translated).
 - pipes.po                         5 /  21 ( 23.0% translated).
 - pkgutil.po                      43 /  50 ( 86.0% translated).
@@ -247,5 +247,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (69.16% done)
+# TOTAL (69.28% done)
 
