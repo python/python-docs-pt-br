@@ -51,11 +51,11 @@
 - programming.po                 349 / 372 ( 93.0% translated).
 
 
-# howto (56.70% done)
+# howto (57.95% done)
 
 - argparse.po                     83 /  84 ( 98.0% translated).
 - clinic.po                      101 / 415 ( 24.0% translated).
-- curses.po                       69 / 105 ( 65.0% translated).
+- curses.po                       97 / 105 ( 92.0% translated).
 - descriptor.po                  114 / 174 ( 65.0% translated).
 - functional.po                  140 / 206 ( 67.0% translated).
 - instrumentation.po              49 /  59 ( 83.0% translated).
@@ -283,7 +283,7 @@
 - windows.po                     300 / 303 ( 99.0% translated).
 
 
-# whatsnew (67.67% done)
+# whatsnew (67.69% done)
 
 - 2.0.po                         135 / 182 ( 74.0% translated).
 - 2.2.po                         136 / 192 ( 70.0% translated).
@@ -295,11 +295,11 @@
 - 3.2.po                          69 / 518 ( 13.0% translated).
 - 3.3.po                         159 / 660 ( 24.0% translated).
 - 3.4.po                         509 / 511 ( 99.0% translated).
-- 3.5.po                         125 / 541 ( 23.0% translated).
+- 3.5.po                         126 / 541 ( 23.0% translated).
 - 3.6.po                         241 / 517 ( 46.0% translated).
 - 3.7.po                         242 / 555 ( 43.0% translated).
 - 3.9.po                         383 / 393 ( 97.0% translated).
 
 
-# TOTAL (64.66% done)
+# TOTAL (64.72% done)
 
