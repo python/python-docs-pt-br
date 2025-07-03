@@ -86,7 +86,7 @@
 
 
 
-# library (62.02% done)
+# library (62.10% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    256 / 290 ( 88.0% translated).
@@ -125,7 +125,7 @@
 - contextlib.po                   39 / 125 ( 31.0% translated).
 - copyreg.po                       8 /   9 ( 88.0% translated).
 - crypt.po                         3 /  30 ( 10.0% translated).
-- ctypes.po                      100 / 434 ( 23.0% translated).
+- ctypes.po                      107 / 434 ( 24.0% translated).
 - curses.ascii.po                101 / 102 ( 99.0% translated).
 - curses.panel.po                 22 /  23 ( 95.0% translated).
 - curses.po                      231 / 639 ( 36.0% translated).
@@ -169,7 +169,7 @@
 - http.cookiejar.po                9 / 154 (  5.0% translated).
 - http.cookies.po                 17 /  56 ( 30.0% translated).
 - http.server.po                   8 /  92 (  8.0% translated).
-- idle.po                         15 / 281 (  5.0% translated).
+- idle.po                         26 / 281 (  9.0% translated).
 - imaplib.po                       9 / 107 (  8.0% translated).
 - imghdr.po                       20 /  41 ( 48.0% translated).
 - imp.po                           8 /  68 ( 11.0% translated).
@@ -186,7 +186,7 @@
 - mailcap.po                       2 /  15 ( 13.0% translated).
 - math.po                        117 / 118 ( 99.0% translated).
 - mimetypes.po                    16 /  45 ( 35.0% translated).
-- mmap.po                         13 /  50 ( 26.0% translated).
+- mmap.po                         20 /  50 ( 40.0% translated).
 - msilib.po                        7 /  96 (  7.0% translated).
 - multiprocessing.po             272 / 519 ( 52.0% translated).
 - nntplib.po                       7 /  84 (  8.0% translated).
@@ -323,5 +323,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (65.38% done)
+# TOTAL (65.43% done)
 
