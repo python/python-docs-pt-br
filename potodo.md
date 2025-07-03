@@ -50,11 +50,11 @@
 - library.po                     157 / 162 ( 96.0% translated).
 
 
-# howto (64.35% done)
+# howto (64.61% done)
 
 - curses.po                      120 / 121 ( 99.0% translated).
 - descriptor.po                  181 / 233 ( 77.0% translated).
-- enum.po                         75 / 319 ( 23.0% translated).
+- enum.po                         83 / 319 ( 26.0% translated).
 - functional.po                  138 / 252 ( 54.0% translated).
 - logging-cookbook.po             40 / 421 (  9.0% translated).
 - logging.po                     121 / 250 ( 48.0% translated).
@@ -247,5 +247,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (69.28% done)
+# TOTAL (69.29% done)
 
