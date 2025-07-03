@@ -47,10 +47,10 @@
 
 
 
-# howto (64.17% done)
+# howto (64.41% done)
 
 - descriptor.po                  187 / 230 ( 81.0% translated).
-- enum.po                         74 / 327 ( 22.0% translated).
+- enum.po                         82 / 327 ( 25.0% translated).
 - functional.po                  138 / 252 ( 54.0% translated).
 - logging-cookbook.po             40 / 423 (  9.0% translated).
 - logging.po                     120 / 250 ( 48.0% translated).
@@ -182,7 +182,7 @@
 - windows.po                     374 / 536 ( 69.0% translated).
 
 
-# whatsnew (47.24% done)
+# whatsnew (47.26% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -190,7 +190,7 @@
 - 2.6.po                         541 / 626 ( 86.0% translated).
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
-- 3.14.po                        594 / 971 ( 61.0% translated).
+- 3.14.po                        598 / 971 ( 61.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
 - 3.5.po                         127 / 578 ( 21.0% translated).
@@ -199,5 +199,5 @@
 - changelog.po                   2975 / 13373 ( 22.0% translated).
 
 
-# TOTAL (62.09% done)
+# TOTAL (62.11% done)
 
