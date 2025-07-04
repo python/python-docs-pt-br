@@ -50,11 +50,11 @@
 - library.po                     157 / 162 ( 96.0% translated).
 
 
-# howto (64.61% done)
+# howto (64.74% done)
 
 - curses.po                      120 / 121 ( 99.0% translated).
 - descriptor.po                  181 / 233 ( 77.0% translated).
-- enum.po                         83 / 319 ( 26.0% translated).
+- enum.po                         87 / 319 ( 27.0% translated).
 - functional.po                  138 / 252 ( 54.0% translated).
 - logging-cookbook.po             40 / 421 (  9.0% translated).
 - logging.po                     121 / 250 ( 48.0% translated).
@@ -69,7 +69,7 @@
 
 
 
-# library (64.69% done)
+# library (64.79% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        78 /  84 ( 92.0% translated).
@@ -180,7 +180,7 @@
 - symtable.po                      4 /  50 (  8.0% translated).
 - sys.po                         419 / 431 ( 97.0% translated).
 - syslog.po                       26 /  33 ( 78.0% translated).
-- tarfile.po                     104 / 337 ( 30.0% translated).
+- tarfile.po                     142 / 337 ( 42.0% translated).
 - telnetlib.po                    10 /  53 ( 18.0% translated).
 - tempfile.po                      8 /  87 (  9.0% translated).
 - test.po                        118 / 320 ( 36.0% translated).
@@ -247,5 +247,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (69.29% done)
+# TOTAL (69.36% done)
 
