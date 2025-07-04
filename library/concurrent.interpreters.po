@@ -7,17 +7,18 @@
 # Hildeberto Abreu Magalhães <hildeberto@gmail.com>, 2025
 # Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2025
 # Leticia Portella <leportella@gmail.com>, 2025
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 # Adorilson Bezerra <adorilson@gmail.com>, 2025
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
+# Marco Rougeth <marco@rougeth.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-13 14:21+0000\n"
+"POT-Creation-Date: 2025-07-04 14:20+0000\n"
 "PO-Revision-Date: 2025-06-13 14:23+0000\n"
-"Last-Translator: Adorilson Bezerra <adorilson@gmail.com>, 2025\n"
+"Last-Translator: Marco Rougeth <marco@rougeth.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -38,11 +39,7 @@ msgstr ""
 msgid "**Source code:** :source:`Lib/concurrent/interpreters.py`"
 msgstr "**Código-fonte:** :source:`Lib/concurrent/interpreters.py`"
 
-#: ../../library/concurrent.interpreters.rst:18
-msgid "Introduction"
-msgstr "Introdução"
-
-#: ../../library/concurrent.interpreters.rst:20
+#: ../../library/concurrent.interpreters.rst:16
 msgid ""
 "The :mod:`!concurrent.interpreters` module constructs higher-level "
 "interfaces on top of the lower level :mod:`!_interpreters` module."
@@ -50,25 +47,49 @@ msgstr ""
 "O módulo :mod:`!concurrent.interpreters` constrói interfaces de nível mais "
 "alto sobre o módulo de mais baixo nível :mod:`!_interpreters`."
 
-#: ../../library/concurrent.interpreters.rst:27
+#: ../../library/concurrent.interpreters.rst:19
+msgid ""
+"The module is primarily meant to provide a basic API for managing "
+"interpreters (AKA \"subinterpreters\") and running things in them. Running "
+"mostly involves switching to an interpreter (in the current thread) and "
+"calling a function in that execution context."
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:24
+msgid ""
+"For concurrency, interpreters themselves (and this module) don't provide "
+"much more than isolation, which on its own isn't useful. Actual concurrency "
+"is available separately through :mod:`threads <threading>`  See `below "
+"<interp-concurrency_>`_"
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:31
+msgid ":class:`~concurrent.futures.InterpreterPoolExecutor`"
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:32
+msgid "combines threads with interpreters in a familiar interface."
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:36
 msgid ":ref:`isolating-extensions-howto`"
 msgstr ":ref:`isolating-extensions-howto`"
 
-#: ../../library/concurrent.interpreters.rst:28
+#: ../../library/concurrent.interpreters.rst:37
 msgid "how to update an extension module to support multiple interpreters"
 msgstr ""
 "como atualizar um módulo de extensão para oferecer suporte a vários "
 "interpretadores"
 
-#: ../../library/concurrent.interpreters.rst:30
+#: ../../library/concurrent.interpreters.rst:39
 msgid ":pep:`554`"
 msgstr ":pep:`554`"
 
-#: ../../library/concurrent.interpreters.rst:32
+#: ../../library/concurrent.interpreters.rst:41
 msgid ":pep:`734`"
 msgstr ":pep:`734`"
 
-#: ../../library/concurrent.interpreters.rst:34
+#: ../../library/concurrent.interpreters.rst:43
 msgid ":pep:`684`"
 msgstr ":pep:`684`"
 
@@ -84,52 +105,251 @@ msgstr ""
 "Este módulo não funciona ou não está disponível em WebAssembly. Veja :ref:"
 "`wasm-availability` para mais informações."
 
-#: ../../library/concurrent.interpreters.rst:42
+#: ../../library/concurrent.interpreters.rst:51
 msgid "Key details"
 msgstr "Detalhes-chave"
 
-#: ../../library/concurrent.interpreters.rst:44
+#: ../../library/concurrent.interpreters.rst:53
 msgid ""
-"Before we dive into examples, there are a small number of details to keep in "
+"Before we dive in further, there are a small number of details to keep in "
 "mind about using multiple interpreters:"
 msgstr ""
-"Antes de mergulharmos nos exemplos, há alguns detalhes a serem lembrados "
-"sobre o uso de múltiplos interpretadores:"
 
-#: ../../library/concurrent.interpreters.rst:47
-msgid "isolated, by default"
-msgstr "isolados, por padrão"
+#: ../../library/concurrent.interpreters.rst:56
+msgid "`isolated <interp-isolation_>`_, by default"
+msgstr ""
 
-#: ../../library/concurrent.interpreters.rst:48
+#: ../../library/concurrent.interpreters.rst:57
 msgid "no implicit threads"
 msgstr "nenhuma thread implícita"
 
-#: ../../library/concurrent.interpreters.rst:49
+#: ../../library/concurrent.interpreters.rst:58
 msgid "not all PyPI packages support use in multiple interpreters yet"
 msgstr ""
 "nem todos os pacotes PyPI oferecem suporte ao uso em múltiplos "
 "interpretadores ainda"
 
-#: ../../library/concurrent.interpreters.rst:53
-msgid ""
-"In the context of multiple interpreters, \"isolated\" means that different "
-"interpreters do not share any state.  In practice, there is some process-"
-"global data they all share, but that is managed by the runtime."
-msgstr ""
-"No contexto de múltiplos interpretadores, \"isolados\" significa que "
-"diferentes interpretadores não compartilham nenhum estado. Na prática, há "
-"alguns dados globais do processo que todos eles compartilham, mas isso é "
-"gerenciado pelo tempo de execução."
+#: ../../library/concurrent.interpreters.rst:66
+msgid "Introduction"
+msgstr "Introdução"
 
-#: ../../library/concurrent.interpreters.rst:59
+#: ../../library/concurrent.interpreters.rst:68
+msgid ""
+"An \"interpreter\" is effectively the execution context of the Python "
+"runtime.  It contains all of the state the runtime needs to execute a "
+"program.  This includes things like the import state and builtins. (Each "
+"thread, even if there's only the main thread, has some extra runtime state, "
+"in addition to the current interpreter, related to the current exception and "
+"the bytecode eval loop.)"
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:75
+msgid ""
+"The concept and functionality of the interpreter have been a part of Python "
+"since version 2.2, but the feature was only available through the C-API and "
+"not well known, and the `isolation <interp-isolation_>`_ was relatively "
+"incomplete until version 3.12."
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:83
+msgid "Multiple Interpreters and Isolation"
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:85
+msgid ""
+"A Python implementation may support using multiple interpreters in the same "
+"process.  CPython has this support.  Each interpreter is effectively "
+"isolated from the others (with a limited number of carefully managed process-"
+"global exceptions to the rule)."
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:90
+msgid ""
+"That isolation is primarily useful as a strong separation between distinct "
+"logical components of a program, where you want to have careful control of "
+"how those components interact."
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:96
+msgid ""
+"Interpreters in the same process can technically never be strictly isolated "
+"from one another since there are few restrictions on memory access within "
+"the same process.  The Python runtime makes a best effort at isolation but "
+"extension modules may easily violate that. Therefore, do not use multiple "
+"interpreters in security-sensitive situations, where they shouldn't have "
+"access to each other's data."
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:104
+msgid "Running in an Interpreter"
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:106
+msgid ""
+"Running in a different interpreter involves switching to it in the current "
+"thread and then calling some function.  The runtime will execute the "
+"function using the current interpreter's state.  The :mod:`!concurrent."
+"interpreters` module provides a basic API for creating and managing "
+"interpreters, as well as the switch-and-call operation."
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:113
+msgid ""
+"No other threads are automatically started for the operation. There is `a "
+"helper <interp-call-in-thread_>`_ for that though. There is another "
+"dedicated helper for calling the builtin :func:`exec` in an interpreter."
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:118
+msgid ""
+"When :func:`exec` (or :func:`eval`) are called in an interpreter, they run "
+"using the interpreter's :mod:`!__main__` module as the \"globals\" "
+"namespace.  The same is true for functions that aren't associated with any "
+"module.  This is the same as how scripts invoked from the command-line run "
+"in the :mod:`!__main__` module."
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:128
+msgid "Concurrency and Parallelism"
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:130
+msgid ""
+"As noted earlier, interpreters do not provide any concurrency on their own.  "
+"They strictly represent the isolated execution context the runtime will use "
+"*in the current thread*.  That isolation makes them similar to processes, "
+"but they still enjoy in-process efficiency, like threads."
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:136
+msgid ""
+"All that said, interpreters do naturally support certain flavors of "
+"concurrency, as a powerful side effect of that isolation. There's a powerful "
+"side effect of that isolation.  It enables a different approach to "
+"concurrency than you can take with async or threads.  It's a similar "
+"concurrency model to CSP or the actor model, a model which is relatively "
+"easy to reason about."
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:143
+msgid ""
+"You can take advantage of that concurrency model in a single thread, "
+"switching back and forth between interpreters, Stackless-style. However, "
+"this model is more useful when you combine interpreters with multiple "
+"threads.  This mostly involves starting a new thread, where you switch to "
+"another interpreter and run what you want there."
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:149
+msgid ""
+"Each actual thread in Python, even if you're only running in the main "
+"thread, has its own *current* execution context.  Multiple threads can use "
+"the same interpreter or different ones."
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:153
+msgid ""
+"At a high level, you can think of the combination of threads and "
+"interpreters as threads with opt-in sharing."
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:156
+msgid ""
+"As a significant bonus, interpreters are sufficiently isolated that they do "
+"not share the :term:`GIL`, which means combining threads with multiple "
+"interpreters enables full multi-core parallelism. (This has been the case "
+"since Python 3.12.)"
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:162
+msgid "Communication Between Interpreters"
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:164
+msgid ""
+"In practice, multiple interpreters are useful only if we have a way to "
+"communicate between them.  This usually involves some form of message "
+"passing, but can even mean sharing data in some carefully managed way."
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:169
+msgid ""
+"With this in mind, the :mod:`!concurrent.interpreters` module provides a :"
+"class:`queue.Queue` implementation, available through :func:`create_queue`."
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:176
+msgid "\"Sharing\" Objects"
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:178
+msgid ""
+"Any data actually shared between interpreters loses the thread-safety "
+"provided by the :term:`GIL`.  There are various options for dealing with "
+"this in extension modules.  However, from Python code the lack of thread-"
+"safety means objects can't actually be shared, with a few exceptions.  "
+"Instead, a copy must be created, which means mutable objects won't stay in "
+"sync."
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:185
+msgid ""
+"By default, most objects are copied with :mod:`pickle` when they are passed "
+"to another interpreter.  Nearly all of the immutable builtin objects are "
+"either directly shared or copied efficiently.  For example:"
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:189
+msgid ":const:`None`"
+msgstr ":const:`None`"
+
+#: ../../library/concurrent.interpreters.rst:190
+msgid ":class:`bool` (:const:`True` and :const:`False`)"
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:191
+msgid ":class:`bytes`"
+msgstr ":class:`bytes`"
+
+#: ../../library/concurrent.interpreters.rst:192
+msgid ":class:`str`"
+msgstr ":class:`str`"
+
+#: ../../library/concurrent.interpreters.rst:193
+msgid ":class:`int`"
+msgstr ":class:`int`"
+
+#: ../../library/concurrent.interpreters.rst:194
+msgid ":class:`float`"
+msgstr ":class:`float`"
+
+#: ../../library/concurrent.interpreters.rst:195
+msgid ":class:`tuple` (of similarly supported objects)"
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:197
+msgid ""
+"There is a small number of Python types that actually share mutable data "
+"between interpreters:"
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:200
+msgid ":class:`memoryview`"
+msgstr ":class:`memoryview`"
+
+#: ../../library/concurrent.interpreters.rst:201
+msgid ":class:`Queue`"
+msgstr ":class:`Queue`"
+
+#: ../../library/concurrent.interpreters.rst:205
 msgid "Reference"
 msgstr "Referência"
 
-#: ../../library/concurrent.interpreters.rst:61
+#: ../../library/concurrent.interpreters.rst:207
 msgid "This module defines the following functions:"
 msgstr "Este módulo define as seguintes funções:"
 
-#: ../../library/concurrent.interpreters.rst:65
+#: ../../library/concurrent.interpreters.rst:211
 msgid ""
 "Return a :class:`list` of :class:`Interpreter` objects, one for each "
 "existing interpreter."
@@ -137,18 +357,21 @@ msgstr ""
 "Retorna :class:`list` de objetos :class:`Interpreter`, um para cada "
 "interpretador existente."
 
-#: ../../library/concurrent.interpreters.rst:70
+#: ../../library/concurrent.interpreters.rst:216
 msgid ""
 "Return an :class:`Interpreter` object for the currently running interpreter."
 msgstr ""
 "Retorna um objeto :class:`Interpreter` para o interpretador em execução no "
 "momento."
 
-#: ../../library/concurrent.interpreters.rst:75
-msgid "Return an :class:`Interpreter` object for the main interpreter."
-msgstr "Retorna um objeto :class:`Interpreter` para o interpretador principal."
+#: ../../library/concurrent.interpreters.rst:221
+msgid ""
+"Return an :class:`Interpreter` object for the main interpreter. This is the "
+"interpreter the runtime created to run the :term:`REPL` or the script given "
+"at the command-line.  It is usually the only one."
+msgstr ""
 
-#: ../../library/concurrent.interpreters.rst:79
+#: ../../library/concurrent.interpreters.rst:227
 msgid ""
 "Initialize a new (idle) Python interpreter and return a :class:`Interpreter` "
 "object for it."
@@ -156,15 +379,21 @@ msgstr ""
 "Inicializa um novo interpretador Python (ocioso) e retorna um objeto :class:"
 "`Interpreter` para ele."
 
-#: ../../library/concurrent.interpreters.rst:84
+#: ../../library/concurrent.interpreters.rst:232
+msgid ""
+"Initialize a new cross-interpreter queue and return a :class:`Queue` object "
+"for it."
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:237
 msgid "Interpreter objects"
 msgstr "Objetos interpretador"
 
-#: ../../library/concurrent.interpreters.rst:88
+#: ../../library/concurrent.interpreters.rst:241
 msgid "A single interpreter in the current process."
 msgstr "Um único interpretador no processo atual."
 
-#: ../../library/concurrent.interpreters.rst:90
+#: ../../library/concurrent.interpreters.rst:243
 msgid ""
 "Generally, :class:`Interpreter` shouldn't be called directly. Instead, use :"
 "func:`create` or one of the other module functions."
@@ -172,20 +401,21 @@ msgstr ""
 "Geralmente, :class:`Interpreter` não deve ser chamado diretamente. Em vez "
 "disso, use :func:`create` ou uma das outras funções do módulo."
 
-#: ../../library/concurrent.interpreters.rst:95
-#: ../../library/concurrent.interpreters.rst:101
+#: ../../library/concurrent.interpreters.rst:248
+#: ../../library/concurrent.interpreters.rst:254
+#: ../../library/concurrent.interpreters.rst:333
 msgid "(read-only)"
 msgstr "(somente leitura)"
 
-#: ../../library/concurrent.interpreters.rst:97
-msgid "The interpreter's ID."
-msgstr "O ID do interpretador."
+#: ../../library/concurrent.interpreters.rst:250
+msgid "The underlying interpreter's ID."
+msgstr ""
 
-#: ../../library/concurrent.interpreters.rst:103
+#: ../../library/concurrent.interpreters.rst:256
 msgid "A string describing where the interpreter came from."
 msgstr "Uma string descrevendo de onde o interpretador veio."
 
-#: ../../library/concurrent.interpreters.rst:107
+#: ../../library/concurrent.interpreters.rst:260
 msgid ""
 "Return ``True`` if the interpreter is currently executing code in its :mod:`!"
 "__main__` module and ``False`` otherwise."
@@ -193,21 +423,26 @@ msgstr ""
 "Retorna ``True`` se o interpretador estiver executando código em seu módulo :"
 "mod:`!__main__` e ``False`` caso contrário."
 
-#: ../../library/concurrent.interpreters.rst:112
+#: ../../library/concurrent.interpreters.rst:265
 msgid "Finalize and destroy the interpreter."
 msgstr "Finaliza e destrói o interpretador."
 
-#: ../../library/concurrent.interpreters.rst:116
-msgid ""
-"Bind \"shareable\" objects in the interpreter's :mod:`!__main__` module."
+#: ../../library/concurrent.interpreters.rst:269
+msgid "Bind objects in the interpreter's :mod:`!__main__` module."
 msgstr ""
-"Liga objetos \"compartilháveis\" no módulo :mod:`!__main__` do interpretador."
 
-#: ../../library/concurrent.interpreters.rst:121
+#: ../../library/concurrent.interpreters.rst:271
+#: ../../library/concurrent.interpreters.rst:328
+msgid ""
+"Some objects are actually shared and some are copied efficiently, but most "
+"are copied via :mod:`pickle`.  See :ref:`interp-object-sharing`."
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:276
 msgid "Run the given source code in the interpreter (in the current thread)."
 msgstr "Executa o código-fonte fornecido no interpretador (na thread atual)."
 
-#: ../../library/concurrent.interpreters.rst:125
+#: ../../library/concurrent.interpreters.rst:280
 msgid ""
 "Return the result of calling running the given function in the interpreter "
 "(in the current thread)."
@@ -215,15 +450,15 @@ msgstr ""
 "Retorna o resultado da chamada da execução da função fornecida no "
 "interpretador (na thread atual)."
 
-#: ../../library/concurrent.interpreters.rst:130
+#: ../../library/concurrent.interpreters.rst:287
 msgid "Run the given function in the interpreter (in a new thread)."
 msgstr "Executa a função fornecida no interpretador (em uma nova thread)."
 
-#: ../../library/concurrent.interpreters.rst:133
+#: ../../library/concurrent.interpreters.rst:290
 msgid "Exceptions"
 msgstr "Exceções"
 
-#: ../../library/concurrent.interpreters.rst:137
+#: ../../library/concurrent.interpreters.rst:294
 msgid ""
 "This exception, a subclass of :exc:`Exception`, is raised when an "
 "interpreter-related error happens."
@@ -231,7 +466,7 @@ msgstr ""
 "Esta exceção, uma subclasse de :exc:`Exception`, é levantada quando ocorre "
 "um erro relacionado ao interpretador."
 
-#: ../../library/concurrent.interpreters.rst:142
+#: ../../library/concurrent.interpreters.rst:299
 msgid ""
 "This exception, a subclass of :exc:`InterpreterError`, is raised when the "
 "targeted interpreter no longer exists."
@@ -239,7 +474,7 @@ msgstr ""
 "Esta exceção, uma subclasse de :exc:`InterpreterError`, é levantada quando o "
 "interpretador de destino não existe mais."
 
-#: ../../library/concurrent.interpreters.rst:147
+#: ../../library/concurrent.interpreters.rst:304
 msgid ""
 "This exception, a subclass of :exc:`InterpreterError`, is raised when the "
 "running code raised an uncaught exception."
@@ -247,11 +482,11 @@ msgstr ""
 "Esta exceção, uma subclasse de :exc:`InterpreterError`, é levantada quando o "
 "código em execução levanta uma exceção não capturada."
 
-#: ../../library/concurrent.interpreters.rst:152
+#: ../../library/concurrent.interpreters.rst:309
 msgid "A basic snapshot of the exception raised in the other interpreter."
 msgstr "Um snapshot básico da exceção levantada no outro interpretador."
 
-#: ../../library/concurrent.interpreters.rst:158
+#: ../../library/concurrent.interpreters.rst:315
 msgid ""
 "This exception, a subclass of :exc:`TypeError`, is raised when an object "
 "cannot be sent to another interpreter."
@@ -259,15 +494,42 @@ msgstr ""
 "Esta exceção, uma subclasse de :exc:`TypeError`, é levantada quando um "
 "objeto não pode ser enviado para outro interpretador."
 
-#: ../../library/concurrent.interpreters.rst:166
+#: ../../library/concurrent.interpreters.rst:320
+msgid "Communicating Between Interpreters"
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:324
+msgid ""
+"A wrapper around a low-level, cross-interpreter queue, which implements the :"
+"class:`queue.Queue` interface.  The underlying queue can only be created "
+"through :func:`create_queue`."
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:335
+msgid "The queue's ID."
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:340
+msgid ""
+"This exception, a subclass of :exc:`queue.Empty`, is raised from :meth:`!"
+"Queue.get` and :meth:`!Queue.get_nowait` when the queue is empty."
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:346
+msgid ""
+"This exception, a subclass of :exc:`queue.Full`, is raised from :meth:`!"
+"Queue.put` and :meth:`!Queue.put_nowait` when the queue is full."
+msgstr ""
+
+#: ../../library/concurrent.interpreters.rst:352
 msgid "Basic usage"
 msgstr "Uso básico"
 
-#: ../../library/concurrent.interpreters.rst:168
+#: ../../library/concurrent.interpreters.rst:354
 msgid "Creating an interpreter and running code in it::"
 msgstr "Criando um interpretador e executando código nele::"
 
-#: ../../library/concurrent.interpreters.rst:170
+#: ../../library/concurrent.interpreters.rst:356
 msgid ""
 "from concurrent import interpreters\n"
 "\n"
@@ -286,6 +548,12 @@ msgid ""
 "    print('spam!')\n"
 "    \"\"\"))\n"
 "\n"
+"def run(arg):\n"
+"    return arg\n"
+"\n"
+"res = interp.call(run, 'spam!')\n"
+"print(res)\n"
+"\n"
 "def run():\n"
 "    print('spam!')\n"
 "\n"
@@ -296,29 +564,3 @@ msgid ""
 "t = interp.call_in_thread(run)\n"
 "t.join()"
 msgstr ""
-"from concurrent import interpreters\n"
-"\n"
-"interp = interpreters.create()\n"
-"\n"
-"# Executa na thread atual do sistema operacional.\n"
-"\n"
-"interp.exec('print(\"spam!\")')\n"
-"\n"
-"interp.exec(\"\"\"if True:\n"
-"    print('spam!')\n"
-"    \"\"\")\n"
-"\n"
-"from textwrap import dedent\n"
-"interp.exec(dedent(\"\"\"\n"
-"    print('spam!')\n"
-"    \"\"\"))\n"
-"\n"
-"def run():\n"
-"    print('spam!')\n"
-"\n"
-"interp.call(run)\n"
-"\n"
-"# Executa uma nova thread do sistema operacional.\n"
-"\n"
-"t = interp.call_in_thread(run)\n"
-"t.join()"
