@@ -86,7 +86,7 @@
 
 
 
-# library (62.10% done)
+# library (62.20% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    256 / 290 ( 88.0% translated).
@@ -231,7 +231,7 @@
 - symtable.po                      3 /  44 (  6.0% translated).
 - sys.po                         358 / 412 ( 86.0% translated).
 - sysconfig.po                    75 /  81 ( 92.0% translated).
-- tarfile.po                      97 / 301 ( 32.0% translated).
+- tarfile.po                     128 / 301 ( 42.0% translated).
 - telnetlib.po                     7 /  47 ( 14.0% translated).
 - tempfile.po                      8 /  64 ( 12.0% translated).
 - test.po                        115 / 295 ( 38.0% translated).
@@ -323,5 +323,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (65.43% done)
+# TOTAL (65.49% done)
 
