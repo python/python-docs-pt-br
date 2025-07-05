@@ -4,9 +4,8 @@
 
 
 
-# c-api (56.06% done)
+# c-api (56.10% done)
 
-- capsule.po                      33 /  35 ( 94.0% translated).
 - exceptions.po                  194 / 380 ( 51.0% translated).
 - float.po                        15 /  35 ( 42.0% translated).
 - frame.po                        20 /  42 ( 47.0% translated).
@@ -48,12 +47,11 @@
 
 
 
-# howto (66.57% done)
+# howto (67.69% done)
 
 - descriptor.po                  187 / 230 ( 81.0% translated).
-- enum.po                         86 / 327 ( 26.0% translated).
-- functional.po                  138 / 252 ( 54.0% translated).
-- isolating-extensions.po        133 / 134 ( 99.0% translated).
+- enum.po                        101 / 327 ( 30.0% translated).
+- functional.po                  158 / 252 ( 62.0% translated).
 - logging-cookbook.po             40 / 421 (  9.0% translated).
 - logging.po                     121 / 250 ( 48.0% translated).
 - sockets.po                      35 /  63 ( 55.0% translated).
@@ -65,7 +63,7 @@
 
 
 
-# library (66.40% done)
+# library (66.42% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 409 ( 75.0% translated).
@@ -83,7 +81,6 @@
 - codecs.po                      250 / 533 ( 46.0% translated).
 - concurrent.futures.po           14 / 100 ( 14.0% translated).
 - contextlib.po                   55 / 172 ( 31.0% translated).
-- csv.po                         115 / 122 ( 94.0% translated).
 - ctypes.po                      138 / 530 ( 26.0% translated).
 - curses.po                       66 / 486 ( 13.0% translated).
 - dataclasses.po                  71 / 155 ( 45.0% translated).
@@ -98,7 +95,7 @@
 - email.message.po                 7 / 110 (  6.0% translated).
 - email.parser.po                  3 /  48 (  6.0% translated).
 - email.policy.po                 11 / 107 ( 10.0% translated).
-- enum.po                         73 / 244 ( 29.0% translated).
+- enum.po                         74 / 244 ( 30.0% translated).
 - errno.po                       115 / 160 ( 71.0% translated).
 - faulthandler.po                  4 /  43 (  9.0% translated).
 - ftplib.po                       11 /  99 ( 11.0% translated).
@@ -181,11 +178,11 @@
 - mac.po                          92 /  96 ( 95.0% translated).
 
 
-# whatsnew (46.54% done)
+# whatsnew (46.55% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
-- 2.5.po                         388 / 452 ( 85.0% translated).
+- 2.5.po                         389 / 452 ( 86.0% translated).
 - 2.6.po                         542 / 626 ( 86.0% translated).
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
@@ -198,5 +195,5 @@
 - changelog.po                   2545 / 12427 ( 20.0% translated).
 
 
-# TOTAL (62.73% done)
+# TOTAL (62.79% done)
 
