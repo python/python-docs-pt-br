@@ -59,12 +59,12 @@
 - programming.po                 391 / 393 ( 99.0% translated).
 
 
-# howto (66.23% done)
+# howto (66.58% done)
 
 - curses.po                      103 / 105 ( 98.0% translated).
 - descriptor.po                  120 / 177 ( 67.0% translated).
-- enum.po                         79 / 224 ( 35.0% translated).
-- functional.po                  137 / 206 ( 66.0% translated).
+- enum.po                         80 / 224 ( 35.0% translated).
+- functional.po                  144 / 206 ( 69.0% translated).
 - instrumentation.po              58 /  59 ( 98.0% translated).
 - isolating-extensions.po        117 / 118 ( 99.0% translated).
 - logging-cookbook.po             34 / 308 ( 11.0% translated).
@@ -324,5 +324,5 @@
 - 3.8.po                         468 / 469 ( 99.0% translated).
 
 
-# TOTAL (68.18% done)
+# TOTAL (68.20% done)
 
