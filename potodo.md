@@ -50,12 +50,12 @@
 - library.po                     157 / 162 ( 96.0% translated).
 
 
-# howto (64.74% done)
+# howto (65.84% done)
 
 - curses.po                      120 / 121 ( 99.0% translated).
 - descriptor.po                  181 / 233 ( 77.0% translated).
-- enum.po                         87 / 319 ( 27.0% translated).
-- functional.po                  138 / 252 ( 54.0% translated).
+- enum.po                        102 / 319 ( 31.0% translated).
+- functional.po                  157 / 252 ( 62.0% translated).
 - logging-cookbook.po             40 / 421 (  9.0% translated).
 - logging.po                     121 / 250 ( 48.0% translated).
 - perf_profiling.po               29 /  32 ( 90.0% translated).
@@ -115,7 +115,7 @@
 - email.message.po                 7 / 110 (  6.0% translated).
 - email.parser.po                  3 /  48 (  6.0% translated).
 - email.policy.po                 11 / 107 ( 10.0% translated).
-- enum.po                         71 / 231 ( 30.0% translated).
+- enum.po                         72 / 231 ( 31.0% translated).
 - errno.po                       115 / 160 ( 71.0% translated).
 - faulthandler.po                  4 /  43 (  9.0% translated).
 - fcntl.po                        38 /  48 ( 79.0% translated).
@@ -231,11 +231,11 @@
 - windows.po                     374 / 378 ( 98.0% translated).
 
 
-# whatsnew (74.89% done)
+# whatsnew (74.90% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
-- 2.5.po                         384 / 452 ( 84.0% translated).
+- 2.5.po                         385 / 452 ( 85.0% translated).
 - 2.6.po                         537 / 626 ( 85.0% translated).
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
@@ -247,5 +247,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (69.36% done)
+# TOTAL (69.42% done)
 
