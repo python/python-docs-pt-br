@@ -4,10 +4,9 @@
 
 
 
-# c-api (53.33% done)
+# c-api (53.37% done)
 
 - apiabiversion.po                32 /  59 ( 54.0% translated).
-- capsule.po                      33 /  35 ( 94.0% translated).
 - exceptions.po                  193 / 384 ( 50.0% translated).
 - float.po                        15 /  36 ( 41.0% translated).
 - frame.po                        20 /  42 ( 47.0% translated).
@@ -48,12 +47,11 @@
 
 
 
-# howto (64.49% done)
+# howto (65.55% done)
 
 - descriptor.po                  187 / 230 ( 81.0% translated).
-- enum.po                         86 / 327 ( 26.0% translated).
-- functional.po                  138 / 252 ( 54.0% translated).
-- isolating-extensions.po        133 / 134 ( 99.0% translated).
+- enum.po                        101 / 327 ( 30.0% translated).
+- functional.po                  158 / 252 ( 62.0% translated).
 - logging-cookbook.po             40 / 423 (  9.0% translated).
 - logging.po                     120 / 250 ( 48.0% translated).
 - remote_debugging.po              0 / 106 (  0.0% translated).
@@ -66,7 +64,7 @@
 
 
 
-# library (66.16% done)
+# library (66.20% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           307 / 413 ( 74.0% translated).
@@ -87,7 +85,6 @@
 - concurrent.futures.po           12 / 119 ( 10.0% translated).
 - concurrent.interpreters.po      44 /  87 ( 50.0% translated).
 - contextlib.po                   55 / 172 ( 31.0% translated).
-- csv.po                         115 / 122 ( 94.0% translated).
 - ctypes.po                      147 / 604 ( 24.0% translated).
 - curses.po                       66 / 490 ( 13.0% translated).
 - dataclasses.po                  72 / 157 ( 45.0% translated).
@@ -102,7 +99,7 @@
 - email.message.po                 7 / 110 (  6.0% translated).
 - email.parser.po                  3 /  48 (  6.0% translated).
 - email.policy.po                 11 / 107 ( 10.0% translated).
-- enum.po                         73 / 245 ( 29.0% translated).
+- enum.po                         74 / 245 ( 30.0% translated).
 - errno.po                       115 / 161 ( 71.0% translated).
 - faulthandler.po                  4 /  53 (  7.0% translated).
 - ftplib.po                       11 /  99 ( 11.0% translated).
@@ -130,7 +127,6 @@
 - mmap.po                         23 /  65 ( 35.0% translated).
 - msvcrt.po                       22 /  46 ( 47.0% translated).
 - multiprocessing.po             320 / 605 ( 52.0% translated).
-- pathlib.po                     435 / 443 ( 98.0% translated).
 - pdb.po                         146 / 178 ( 82.0% translated).
 - poplib.po                       10 /  53 ( 18.0% translated).
 - profile.po                      34 / 181 ( 18.0% translated).
@@ -187,15 +183,15 @@
 - windows.po                     374 / 536 ( 69.0% translated).
 
 
-# whatsnew (47.22% done)
+# whatsnew (47.25% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
-- 2.5.po                         388 / 452 ( 85.0% translated).
+- 2.5.po                         389 / 452 ( 86.0% translated).
 - 2.6.po                         541 / 626 ( 86.0% translated).
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
-- 3.14.po                        598 / 971 ( 61.0% translated).
+- 3.14.po                        604 / 971 ( 62.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
 - 3.5.po                         127 / 578 ( 21.0% translated).
@@ -204,5 +200,5 @@
 - changelog.po                   2975 / 13392 ( 22.0% translated).
 
 
-# TOTAL (62.11% done)
+# TOTAL (62.19% done)
 

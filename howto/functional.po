@@ -14,8 +14,8 @@
 # Alexandre B A Villares, 2022
 # Vitor Buxbaum Orlandi, 2023
 # Alfredo Braga <alfredorodruguesbraga@gmail.com>, 2024
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
 # Adorilson Bezerra <adorilson@gmail.com>, 2025
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
@@ -24,7 +24,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-04 14:20+0000\n"
 "PO-Revision-Date: 2021-06-28 00:53+0000\n"
-"Last-Translator: Adorilson Bezerra <adorilson@gmail.com>, 2025\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -503,6 +503,11 @@ msgid ""
 "for i in obj:\n"
 "    print(i)"
 msgstr ""
+"for i in iter(obj):\n"
+"    print(i)\n"
+"\n"
+"for i in obj:\n"
+"    print(i)"
 
 #: ../../howto/functional.rst:230
 msgid ""
@@ -597,6 +602,22 @@ msgid ""
 "Nov 11\n"
 "Dec 12"
 msgstr ""
+">>> m = {'Jan': 1, 'Fev': 2, 'Mar': 3, 'Abr': 4, 'Mai': 5, 'Jun': 6,\n"
+"...      'Jul': 7, 'Ago': 8, 'Set': 9, 'Out': 10, 'Nov': 11, 'Dez': 12}\n"
+">>> for key in m:\n"
+"...     print(key, m[key])\n"
+"Jan 1\n"
+"Fev 2\n"
+"Mar 3\n"
+"Abr 4\n"
+"Mai 5\n"
+"Jun 6\n"
+"Jul 7\n"
+"Ago 8\n"
+"Set 9\n"
+"Out 10\n"
+"Nov 11\n"
+"Dez 12"
 
 #: ../../howto/functional.rst:292
 msgid ""
@@ -669,6 +690,15 @@ msgid ""
 "11\n"
 "13"
 msgstr ""
+">>> S = {2, 3, 5, 7, 11, 13}\n"
+">>> for i in S:\n"
+"...     print(i)\n"
+"2\n"
+"3\n"
+"5\n"
+"7\n"
+"11\n"
+"13"
 
 #: ../../howto/functional.rst:333
 msgid "Generator expressions and list comprehensions"
@@ -712,6 +742,13 @@ msgid ""
 ">>> # List comprehension -- returns list\n"
 ">>> stripped_list = [line.strip() for line in line_list]"
 msgstr ""
+">>> line_list = ['  line 1\\n', 'line 2  \\n', ' \\n', '']\n"
+"\n"
+">>> # Expressão geradora -- retorna iterador\n"
+">>> stripped_iter = (line.strip() for line in line_list)\n"
+"\n"
+">>> # Compreensão de lista -- retorna uma lista\n"
+">>> stripped_list = [line.strip() for line in line_list]"
 
 #: ../../howto/functional.rst:354
 msgid ""
@@ -725,6 +762,8 @@ msgid ""
 ">>> stripped_list = [line.strip() for line in line_list\n"
 "...                  if line != \"\"]"
 msgstr ""
+">>> stripped_list = [line.strip() for line in line_list\n"
+"...                  if line != \"\"]"
 
 #: ../../howto/functional.rst:359
 msgid ""
@@ -767,6 +806,15 @@ msgid ""
 "             for exprN in sequenceN\n"
 "             if conditionN )"
 msgstr ""
+"( expression for expr in sequence1\n"
+"             if condition1\n"
+"             for expr2 in sequence2\n"
+"             if condition2\n"
+"             for expr3 in sequence3\n"
+"             ...\n"
+"             if condition3\n"
+"             for exprN in sequenceN\n"
+"             if conditionN )"
 
 #: ../../howto/functional.rst:380
 msgid ""
@@ -801,7 +849,7 @@ msgstr ""
 
 #: ../../howto/functional.rst:391
 msgid "obj_total = sum(obj.count for obj in list_all_objects())"
-msgstr ""
+msgstr "obj_total = sum(obj.count for obj in list_all_objects())"
 
 #: ../../howto/functional.rst:393
 msgid ""
@@ -843,6 +891,18 @@ msgid ""
 "            # Output the value of\n"
 "            # the expression."
 msgstr ""
+"for expr1 in sequence1:\n"
+"    if not (condition1):\n"
+"        continue   # Ignora este elemento\n"
+"    for expr2 in sequence2:\n"
+"        if not (condition2):\n"
+"            continue   # Ignora este elemento\n"
+"        ...\n"
+"        for exprN in sequenceN:\n"
+"            if not (conditionN):\n"
+"                continue   # Ignora este elemento\n"
+"\n"
+"            # Emite o valor da expressão,"
 
 #: ../../howto/functional.rst:416
 msgid ""
@@ -874,6 +934,10 @@ msgid ""
 "# Correct\n"
 "[(x, y) for x in seq1 for y in seq2]"
 msgstr ""
+"# Erro de sintaxe\n"
+"[x, y for x in seq1 for y in seq2]\n"
+"# Correto\n"
+"[(x, y) for x in seq1 for y in seq2]"
 
 #: ../../howto/functional.rst:439
 msgid "Generators"
@@ -1013,6 +1077,16 @@ msgid ""
 "        for x in inorder(t.right):\n"
 "            yield x"
 msgstr ""
+"# Um gerador recursivo que gera folhas da árvore em ordem.\n"
+"def inorder(t):\n"
+"    if t:\n"
+"        for x in inorder(t.left):\n"
+"            yield x\n"
+"\n"
+"        yield t.label\n"
+"\n"
+"        for x in inorder(t.right):\n"
+"            yield x"
 
 #: ../../howto/functional.rst:522
 msgid ""
@@ -1060,7 +1134,7 @@ msgstr ""
 
 #: ../../howto/functional.rst:543
 msgid "val = (yield i)"
-msgstr ""
+msgstr "val = (yield i)"
 
 #: ../../howto/functional.rst:545
 msgid ""
@@ -1120,6 +1194,15 @@ msgid ""
 "        else:\n"
 "            i += 1"
 msgstr ""
+"def counter(maximum):\n"
+"    i = 0\n"
+"    while i < maximum:\n"
+"        val = (yield i)\n"
+"        # Se o valor foi fornecido, altera o contador\n"
+"        if val is not None:\n"
+"            i = val\n"
+"        else:\n"
+"            i += 1"
 
 #: ../../howto/functional.rst:576
 msgid "And here's an example of changing the counter:"
@@ -1141,7 +1224,7 @@ msgstr ""
 msgid ""
 "In addition to :meth:`~generator.send`, there are two other methods on "
 "generators:"
-msgstr ""
+msgstr "Além de :meth:`~generator.send`, há dois outros métodos em geradores:"
 
 #: ../../howto/functional.rst:601
 msgid ""
@@ -1149,6 +1232,9 @@ msgid ""
 "the generator; the exception is raised by the ``yield`` expression where the "
 "generator's execution is paused."
 msgstr ""
+":meth:`throw(value) <generator.throw>` é usado para gerar uma exceção dentro "
+"do gerador; a exceção é levantada pela expressão ``yield`` onde a execução "
+"do gerador é pausada."
 
 #: ../../howto/functional.rst:605
 msgid ""
@@ -1160,6 +1246,12 @@ msgid ""
 "be called by Python's garbage collector when the generator is garbage-"
 "collected."
 msgstr ""
+":meth:`~generator.close` envia uma exceção :exc:`GeneratorExit` ao gerador "
+"para encerrar a iteração. Ao receber essa exceção, o código do gerador deve "
+"levantar :exc:`GeneratorExit` ou :exc:`StopIteration`; capturar a exceção e "
+"fazer qualquer outra coisa é ilegal e disparará um :exc:`RuntimeError`. :"
+"meth:`~generator.close` também será chamado pelo coletor de lixo do Python "
+"quando o gerador for coletado como lixo."
 
 #: ../../howto/functional.rst:613
 msgid ""
@@ -1167,6 +1259,9 @@ msgid ""
 "suggest using a ``try: ... finally:`` suite instead of catching :exc:"
 "`GeneratorExit`."
 msgstr ""
+"Se você precisar executar um código de limpeza quando ocorrer um :exc:"
+"`GeneratorExit`, sugiro usar um conjunto ``try: ... finally:`` em vez de "
+"capturar :exc:`GeneratorExit`."
 
 #: ../../howto/functional.rst:616
 msgid ""
@@ -1184,6 +1279,11 @@ msgid ""
 "can be entered, exited, and resumed at many different points (the ``yield`` "
 "statements)."
 msgstr ""
+"Geradores também se tornam **corrotinas**, uma forma mais generalizada de "
+"subrotinas. As subrotinas são inseridas em um ponto e encerradas em outro (o "
+"topo da função e uma instrução ``return``), mas as corrotinas podem ser "
+"inseridas, encerradas e retomadas em muitos pontos diferentes (as instruções "
+"``yield``)."
 
 #: ../../howto/functional.rst:626
 msgid "Built-in functions"
@@ -1201,16 +1301,20 @@ msgid ""
 "Two of Python's built-in functions, :func:`map` and :func:`filter` duplicate "
 "the features of generator expressions:"
 msgstr ""
+"Duas das funções embutidas do Python, :func:`map` e :func:`filter` duplicam "
+"os recursos das expressões geradoras:"
 
 #: ../../howto/functional.rst:633
 msgid ""
 ":func:`map(f, iterA, iterB, ...) <map>` returns an iterator over the sequence"
 msgstr ""
+":func:`map(f, iterA, iterB, ...) <map>` retorna um iterador sobre a sequência"
 
 #: ../../howto/functional.rst:634
 msgid ""
 "``f(iterA[0], iterB[0]), f(iterA[1], iterB[1]), f(iterA[2], iterB[2]), ...``."
 msgstr ""
+"``f(iterA[0], iterB[0]), f(iterA[1], iterB[1]), f(iterA[2], iterB[2]), ...``."
 
 #: ../../howto/functional.rst:644
 msgid "You can of course achieve the same effect with a list comprehension."
