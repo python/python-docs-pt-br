@@ -51,13 +51,13 @@
 - programming.po                 349 / 372 ( 93.0% translated).
 
 
-# howto (57.95% done)
+# howto (58.26% done)
 
 - argparse.po                     83 /  84 ( 98.0% translated).
 - clinic.po                      101 / 415 ( 24.0% translated).
 - curses.po                       97 / 105 ( 92.0% translated).
 - descriptor.po                  114 / 174 ( 65.0% translated).
-- functional.po                  140 / 206 ( 67.0% translated).
+- functional.po                  147 / 206 ( 71.0% translated).
 - instrumentation.po              49 /  59 ( 83.0% translated).
 - logging-cookbook.po             25 / 237 ( 10.0% translated).
 - logging.po                     125 / 219 ( 57.0% translated).
@@ -301,5 +301,5 @@
 - 3.9.po                         383 / 393 ( 97.0% translated).
 
 
-# TOTAL (64.83% done)
+# TOTAL (64.85% done)
 
