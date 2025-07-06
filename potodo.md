@@ -189,7 +189,7 @@
 - 3.13.po                        880 / 889 ( 98.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
-- 3.5.po                         127 / 578 ( 21.0% translated).
+- 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
 - changelog.po                   2545 / 12427 ( 20.0% translated).
