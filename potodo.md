@@ -178,7 +178,7 @@
 - mac.po                          92 /  96 ( 95.0% translated).
 
 
-# whatsnew (46.55% done)
+# whatsnew (46.62% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -192,8 +192,8 @@
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   2545 / 12427 ( 20.0% translated).
+- changelog.po                   2561 / 12427 ( 20.0% translated).
 
 
-# TOTAL (62.79% done)
+# TOTAL (62.81% done)
 
