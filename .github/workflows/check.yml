@@ -164,3 +164,26 @@ jobs:
         with:
           name: ${{ inputs.version }}-lint-logs
           path: logs/*
+
+
+  # Check for zero-width space charcters in translations.
+  # These are known to come together with (some?) machine translation like Google translate,
+  # and - as one of the consequences - it may avoid Transifex glossary matching (e.g. variáveis)
+  zero-width-space:
+    name: Check for zero-width space characters
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.version }}
+
+      - name: Make sure the repository is up to date
+        if: github.event_name != 'pull_request'
+        run: git pull --rebase
+
+      - name: Remove zero-width space characters
+        run: |
+          sed -i 's/\xe2\x80\x8b//g' *.po **/*.po
+
+      - name: Show difference (error if there is any)
+          git diff --exit-code
