@@ -64,7 +64,7 @@
 
 
 
-# library (66.20% done)
+# library (66.22% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           307 / 413 ( 74.0% translated).
@@ -143,7 +143,7 @@
 - struct.po                      101 / 204 ( 49.0% translated).
 - subprocess.po                  150 / 311 ( 48.0% translated).
 - symtable.po                      6 /  73 (  8.0% translated).
-- tarfile.po                     159 / 358 ( 44.0% translated).
+- tarfile.po                     167 / 358 ( 46.0% translated).
 - tempfile.po                      8 /  87 (  9.0% translated).
 - test.po                        118 / 329 ( 35.0% translated).
 - threading.po                    39 / 284 ( 13.0% translated).
@@ -200,5 +200,5 @@
 - changelog.po                   2994 / 13392 ( 22.0% translated).
 
 
-# TOTAL (62.23% done)
+# TOTAL (62.24% done)
 
