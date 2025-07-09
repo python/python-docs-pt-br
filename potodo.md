@@ -214,7 +214,7 @@
 - symtable.po                      3 /  44 (  6.0% translated).
 - sys.po                         326 / 402 ( 81.0% translated).
 - sysconfig.po                    69 /  74 ( 93.0% translated).
-- tarfile.po                     129 / 301 ( 42.0% translated).
+- tarfile.po                     130 / 301 ( 43.0% translated).
 - telnetlib.po                     7 /  47 ( 14.0% translated).
 - tempfile.po                      8 /  61 ( 13.0% translated).
 - test.po                        113 / 282 ( 40.0% translated).
