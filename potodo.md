@@ -4,11 +4,10 @@
 
 
 
-# c-api (53.37% done)
+# c-api (54.08% done)
 
-- apiabiversion.po                32 /  59 ( 54.0% translated).
 - exceptions.po                  193 / 384 ( 50.0% translated).
-- float.po                        15 /  36 ( 41.0% translated).
+- float.po                        30 /  36 ( 83.0% translated).
 - frame.po                        20 /  42 ( 47.0% translated).
 - gcsupport.po                    15 /  67 ( 22.0% translated).
 - import.po                       33 /  66 ( 50.0% translated).
@@ -64,7 +63,7 @@
 
 
 
-# library (66.22% done)
+# library (66.31% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           307 / 413 ( 74.0% translated).
@@ -104,7 +103,7 @@
 - faulthandler.po                  4 /  53 (  7.0% translated).
 - ftplib.po                       11 /  99 ( 11.0% translated).
 - functools.po                    20 / 126 ( 15.0% translated).
-- hashlib.po                      75 / 170 ( 44.0% translated).
+- hashlib.po                      76 / 170 ( 44.0% translated).
 - heapq.po                        48 /  67 ( 71.0% translated).
 - html.parser.po                   3 /  60 (  5.0% translated).
 - http.client.po                  45 / 117 ( 38.0% translated).
@@ -127,7 +126,6 @@
 - mmap.po                         23 /  65 ( 35.0% translated).
 - msvcrt.po                       22 /  46 ( 47.0% translated).
 - multiprocessing.po             320 / 605 ( 52.0% translated).
-- pdb.po                         146 / 178 ( 82.0% translated).
 - poplib.po                       10 /  53 ( 18.0% translated).
 - profile.po                      34 / 181 ( 18.0% translated).
 - pyexpat.po                      21 / 145 ( 14.0% translated).
@@ -140,7 +138,7 @@
 - socket.po                       54 / 384 ( 14.0% translated).
 - sqlite3.po                     116 / 475 ( 24.0% translated).
 - ssl.po                          61 / 545 ( 11.0% translated).
-- struct.po                      101 / 204 ( 49.0% translated).
+- struct.po                      102 / 204 ( 50.0% translated).
 - subprocess.po                  150 / 311 ( 48.0% translated).
 - symtable.po                      6 /  73 (  8.0% translated).
 - tarfile.po                     167 / 358 ( 46.0% translated).
@@ -200,5 +198,5 @@
 - changelog.po                   2994 / 13392 ( 22.0% translated).
 
 
-# TOTAL (62.24% done)
+# TOTAL (62.33% done)
 
