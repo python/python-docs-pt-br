@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-03 14:53+0000\n"
+"POT-Creation-Date: 2025-06-20 15:39+0000\n"
 "PO-Revision-Date: 2024-05-11 00:32+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -127,7 +127,7 @@ msgstr ""
 
 #: ../../c-api/float.rst:82
 msgid "Pack and Unpack functions"
-msgstr ""
+msgstr "Asa funções Pack e Unpack"
 
 #: ../../c-api/float.rst:84
 msgid ""
@@ -137,6 +137,12 @@ msgid ""
 "c:expr:`double` from such a bytes string. The suffix (2, 4 or 8) specifies "
 "the number of bytes in the bytes string."
 msgstr ""
+"As funções de empacotamento e desempacotamento, pack e unpack "
+"respectivamente, fornecem uma maneira eficiente e independente de plataforma "
+"de armazenar valores de ponto flutuante como strings de bytes. As rotinas de "
+"Pack produzem uma string de bytes a partir de um C :c:expr:`double`, e as "
+"rotinas de Unpack produzem um C :c:expr:`double` a partir dessa string de "
+"bytes. O sufixo (2, 4 ou 8) especifica o número de bytes na string de bytes."
 
 #: ../../c-api/float.rst:90
 msgid ""
@@ -149,6 +155,14 @@ msgid ""
 "attempting to unpack a bytes string containing an IEEE INF or NaN will raise "
 "an exception."
 msgstr ""
+"Em plataformas que parecem usar o formato IEEE 754, essas funções funcionam "
+"copiando bits. Em outras plataformas, o formato de 2 bytes é idêntico ao "
+"formato de meia precisão binário 16 do IEEE 754, o formato de 4 bytes (32 "
+"bits) é idêntico ao formato de precisão simples binário 32 do IEEE 754 e o "
+"formato de 8 bytes ao formato de precisão dupla binário 64 do IEEE 754, "
+"embora o empacotamento de INFs e NaNs (se tais recursos existirem na "
+"plataforma) não seja tratado corretamente, e tentar desempacotar uma string "
+"de bytes contendo um INF ou NaN do IEEE levantará uma exceção."
 
 #: ../../c-api/float.rst:99
 msgid ""
@@ -157,10 +171,15 @@ msgid ""
 "less precision, or smaller dynamic range, not all values can be unpacked. "
 "What happens in such cases is partly accidental (alas)."
 msgstr ""
+"Em plataformas que não aderem IEEE com maior precisão ou maior alcance "
+"dinâmico do que o suportado pelo IEEE 754, nem todos os valores podem ser "
+"empacotados; em plataformas que não aderem IEEE com menor precisão ou menor "
+"alcance dinâmico, nem todos os valores podem ser desempacotados. O que "
+"acontece nesses casos é em parte acidental (infelizmente)."
 
 #: ../../c-api/float.rst:107
 msgid "Pack functions"
-msgstr ""
+msgstr "Funções Pack"
 
 #: ../../c-api/float.rst:109
 msgid ""
@@ -171,24 +190,33 @@ msgid ""
 "`PY_BIG_ENDIAN` constant can be used to use the native endian: it is equal "
 "to ``1`` on big endian processor, or ``0`` on little endian processor."
 msgstr ""
+"As rotinas de empacotamento gravam 2, 4 ou 8 bytes, começando em *p*. *le* é "
+"um argumento :c:expr:`int`, diferente de zero se você quiser a sequência de "
+"bytes no formato little-endian (expoente por último, em ``p+1``, ``p+3`` ou "
+"``p+6`` ``p+7``), zero se você quiser o formato big-endian (expoente "
+"primeiro, em *p*). A constante :c:macro:`PY_BIG_ENDIAN` pode ser usada para "
+"usar o endian nativo: é igual a ``1`` em processadores big-endian ou ``0`` "
+"em processadores little-endian."
 
 #: ../../c-api/float.rst:116
 msgid ""
 "Return value: ``0`` if all is OK, ``-1`` if error (and an exception is set, "
 "most likely :exc:`OverflowError`)."
 msgstr ""
+"Valor de retorno: ``0`` se tudo estiver OK, ``-1`` se houver erro (e uma "
+"exceção for definida, provavelmente :exc:`OverflowError`)."
 
 #: ../../c-api/float.rst:119
 msgid "There are two problems on non-IEEE platforms:"
-msgstr ""
+msgstr "Existem dois problemas em plataformas não IEEE:"
 
 #: ../../c-api/float.rst:121
 msgid "What this does is undefined if *x* is a NaN or infinity."
-msgstr ""
+msgstr "O que isso faz é indefinido se *x* é um NaN ou infinito."
 
 #: ../../c-api/float.rst:122
 msgid "``-0.0`` and ``+0.0`` produce the same bytes string."
-msgstr ""
+msgstr "``-0.0`` e ``+0.0`` produzem a mesma sequência de bytes."
 
 #: ../../c-api/float.rst:126
 msgid "Pack a C double as the IEEE 754 binary16 half-precision format."
@@ -204,7 +232,7 @@ msgstr ""
 
 #: ../../c-api/float.rst:138
 msgid "Unpack functions"
-msgstr ""
+msgstr "Funções de Unpack"
 
 #: ../../c-api/float.rst:140
 msgid ""
@@ -215,6 +243,13 @@ msgid ""
 "be used to use the native endian: it is equal to ``1`` on big endian "
 "processor, or ``0`` on little endian processor."
 msgstr ""
+"As rotinas de desempacotamento leem 2, 4 ou 8 bytes, começando em *p*. *le* "
+"é um argumento :c:expr:`int`, diferente de zero se a sequência de bytes "
+"estiver no formato little-endian (expoente por último, em ``p+1``, ``p+3`` "
+"ou ``p+6`` e ``p+7``), zero se big-endian (expoente primeiro, em *p*). A "
+"constante :c:macro:`PY_BIG_ENDIAN` pode ser usada para usar o endian nativo: "
+"é igual a ``1`` em processadores big-endian ou ``0`` em processadores little-"
+"endian."
 
 #: ../../c-api/float.rst:147
 msgid ""
@@ -222,12 +257,17 @@ msgid ""
 "`PyErr_Occurred` is true (and an exception is set, most likely :exc:"
 "`OverflowError`)."
 msgstr ""
+"Valor de retorno: O double descompactado. Em caso de erro, é ``-1.0`` e :c:"
+"func:`PyErr_Occurred` é verdadeiro (e uma exceção é definida, provavelmente :"
+"exc:`OverflowError`)."
 
 #: ../../c-api/float.rst:151
 msgid ""
 "Note that on a non-IEEE platform this will refuse to unpack a bytes string "
 "that represents a NaN or infinity."
 msgstr ""
+"Observe que em uma plataforma que não adere IEEE isso se recusará a "
+"descompactar uma sequência de bytes que representa um NaN ou infinito."
 
 #: ../../c-api/float.rst:156
 msgid "Unpack the IEEE 754 binary16 half-precision format as a C double."
