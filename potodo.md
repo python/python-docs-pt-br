@@ -4,10 +4,10 @@
 
 
 
-# c-api (56.10% done)
+# c-api (56.37% done)
 
 - exceptions.po                  194 / 380 ( 51.0% translated).
-- float.po                        15 /  35 ( 42.0% translated).
+- float.po                        29 /  35 ( 82.0% translated).
 - frame.po                        20 /  42 ( 47.0% translated).
 - gcsupport.po                     9 /  52 ( 17.0% translated).
 - import.po                       33 /  62 ( 53.0% translated).
@@ -100,7 +100,7 @@
 - faulthandler.po                  4 /  43 (  9.0% translated).
 - ftplib.po                       11 /  99 ( 11.0% translated).
 - functools.po                    20 / 115 ( 17.0% translated).
-- hashlib.po                      75 / 170 ( 44.0% translated).
+- hashlib.po                      76 / 170 ( 44.0% translated).
 - html.parser.po                   3 /  60 (  5.0% translated).
 - http.client.po                  45 / 117 ( 38.0% translated).
 - http.cookiejar.po                9 / 159 (  5.0% translated).
@@ -195,5 +195,5 @@
 - changelog.po                   2561 / 12427 ( 20.0% translated).
 
 
-# TOTAL (62.82% done)
+# TOTAL (62.84% done)
 
