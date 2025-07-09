@@ -5,10 +5,10 @@
 - license.po                      95 /  99 ( 95.0% translated).
 
 
-# c-api (57.82% done)
+# c-api (58.14% done)
 
 - exceptions.po                  193 / 347 ( 55.0% translated).
-- float.po                        14 /  35 ( 40.0% translated).
+- float.po                        28 /  35 ( 80.0% translated).
 - frame.po                        20 /  24 ( 83.0% translated).
 - gcsupport.po                     9 /  42 ( 21.0% translated).
 - import.po                       39 /  53 ( 73.0% translated).
@@ -158,7 +158,7 @@
 - glob.po                         32 /  33 ( 96.0% translated).
 - grp.po                          28 /  29 ( 96.0% translated).
 - gzip.po                         54 /  60 ( 90.0% translated).
-- hashlib.po                      64 / 161 ( 39.0% translated).
+- hashlib.po                      65 / 161 ( 40.0% translated).
 - heapq.po                        50 /  51 ( 98.0% translated).
 - hmac.po                         26 /  27 ( 96.0% translated).
 - html.entities.po                 7 /   9 ( 77.0% translated).
@@ -324,5 +324,5 @@
 - 3.8.po                         468 / 469 ( 99.0% translated).
 
 
-# TOTAL (68.21% done)
+# TOTAL (68.24% done)
 
