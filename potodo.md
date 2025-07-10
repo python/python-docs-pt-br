@@ -146,7 +146,7 @@
 - gc.po                           54 /  55 ( 98.0% translated).
 - grp.po                          26 /  28 ( 92.0% translated).
 - gzip.po                         46 /  57 ( 80.0% translated).
-- hashlib.po                      37 / 139 ( 26.0% translated).
+- hashlib.po                      38 / 139 ( 27.0% translated).
 - heapq.po                        49 /  51 ( 96.0% translated).
 - hmac.po                         22 /  27 ( 81.0% translated).
 - html.parser.po                   2 /  48 (  4.0% translated).
