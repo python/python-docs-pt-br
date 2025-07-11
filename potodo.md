@@ -5,9 +5,9 @@
 - license.po                      95 /  99 ( 95.0% translated).
 
 
-# c-api (58.14% done)
+# c-api (58.16% done)
 
-- exceptions.po                  193 / 347 ( 55.0% translated).
+- exceptions.po                  194 / 347 ( 55.0% translated).
 - float.po                        28 /  35 ( 80.0% translated).
 - frame.po                        20 /  24 ( 83.0% translated).
 - gcsupport.po                     9 /  42 ( 21.0% translated).
@@ -267,7 +267,7 @@
 - xdrlib.po                        5 /  56 (  8.0% translated).
 - xml.dom.minidom.po               7 /  51 ( 13.0% translated).
 - xml.dom.po                      67 / 234 ( 28.0% translated).
-- xml.dom.pulldom.po              26 /  27 ( 96.0% translated).
+- xml.dom.pulldom.po              25 /  27 ( 92.0% translated).
 - xml.etree.elementtree.po        68 / 233 ( 29.0% translated).
 - xml.sax.handler.po               5 / 103 (  4.0% translated).
 - xml.sax.po                       2 /  32 (  6.0% translated).
