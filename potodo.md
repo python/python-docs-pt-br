@@ -4,12 +4,12 @@
 
 
 
-# c-api (58.04% done)
+# c-api (58.06% done)
 
 - allocation.po                    8 /   9 ( 88.0% translated).
 - arg.po                         193 / 195 ( 98.0% translated).
 - call.po                         90 /  95 ( 94.0% translated).
-- exceptions.po                  197 / 275 ( 71.0% translated).
+- exceptions.po                  198 / 275 ( 72.0% translated).
 - float.po                        12 /  13 ( 92.0% translated).
 - gcsupport.po                    10 /  40 ( 25.0% translated).
 - init.po                        120 / 310 ( 38.0% translated).
@@ -266,7 +266,7 @@
 - xdrlib.po                        4 /  54 (  7.0% translated).
 - xml.dom.minidom.po               7 /  51 ( 13.0% translated).
 - xml.dom.po                      67 / 234 ( 28.0% translated).
-- xml.dom.pulldom.po              25 /  27 ( 92.0% translated).
+- xml.dom.pulldom.po              24 /  27 ( 88.0% translated).
 - xml.etree.elementtree.po        66 / 233 ( 28.0% translated).
 - xml.po                          49 /  53 ( 92.0% translated).
 - xml.sax.handler.po               5 / 103 (  4.0% translated).
