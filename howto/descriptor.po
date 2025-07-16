@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.11\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-20 16:15+0000\n"
+"POT-Creation-Date: 2025-07-11 16:41+0000\n"
 "PO-Revision-Date: 2023-05-24 02:11+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -883,6 +883,8 @@ msgid ""
 "To see how :func:`property` is implemented in terms of the descriptor "
 "protocol, here is a pure Python equivalent:"
 msgstr ""
+"Щоб побачити, як :func:`property` реалізовано в термінах протоколу "
+"дескриптора, ось чистий еквівалент Python:"
 
 #: ../../howto/descriptor.rst:1095
 msgid ""
@@ -1083,12 +1085,18 @@ msgid ""
 "result, the function becomes identically accessible from either an object or "
 "a class."
 msgstr ""
+"Статичні методи повертають базову функцію без змін. Виклик ``c.f`` або ``C."
+"f`` є еквівалентом прямого пошуку ``object.__getattribute__(c, \"f\")`` або "
+"``object.__getattribute__(C, \"f\")`` . У результаті функція стає однаково "
+"доступною з об’єкта або класу."
 
 #: ../../howto/descriptor.rst:1246
 msgid ""
 "Good candidates for static methods are methods that do not reference the "
 "``self`` variable."
 msgstr ""
+"Хорошими кандидатами на статичні методи є методи, які не посилаються на "
+"змінну ``self``."
 
 #: ../../howto/descriptor.rst:1249
 msgid ""
@@ -1101,18 +1109,31 @@ msgid ""
 "particular dataset. It can be called either from an object or the class:  "
 "``s.erf(1.5) --> .9332`` or ``Sample.erf(1.5) --> .9332``."
 msgstr ""
+"Наприклад, пакет статистики може містити клас контейнера для "
+"експериментальних даних. Клас надає звичайні методи для обчислення "
+"середнього, середнього, медіани та іншої описової статистики, яка залежить "
+"від даних. Однак можуть існувати корисні функції, які концептуально "
+"пов’язані, але не залежать від даних. Наприклад, ``erf(x)`` — це зручна "
+"процедура перетворення, яка виникає в статистичній роботі, але безпосередньо "
+"не залежить від конкретного набору даних. Його можна викликати або з "
+"об’єкта, або з класу: ``s.erf(1.5) --> .9332`` або ``Sample.erf(1.5) --"
+"> .9332``."
 
 #: ../../howto/descriptor.rst:1258
 msgid ""
 "Since static methods return the underlying function with no changes, the "
 "example calls are unexciting:"
 msgstr ""
+"Оскільки статичні методи повертають базову функцію без змін, приклади "
+"викликів нецікаві:"
 
 #: ../../howto/descriptor.rst:1275
 msgid ""
 "Using the non-data descriptor protocol, a pure Python version of :func:"
 "`staticmethod` would look like this:"
 msgstr ""
+"Використовуючи протокол дескриптора без даних, чиста версія :func:"
+"`staticmethod` на Python виглядала б так:"
 
 #: ../../howto/descriptor.rst:1295
 msgid ""
@@ -1122,6 +1143,11 @@ msgid ""
 "attr:`~function.__name__`, :attr:`~function.__qualname__`, :attr:`~function."
 "__doc__`, and :attr:`~function.__annotations__`."
 msgstr ""
+"Вызов :func:`functools.update_wrapper` добавляет атрибут ``__wrapped__``, "
+"который ссылается на базовую функцию. Также он переносит атрибуты, "
+"необходимые для того, чтобы оболочка выглядела как завернутая функция: :attr:"
+"`~function.__name__`, :attr:`~function.__qualname__`, :attr:`~function."
+"__doc__` и :attr :`~function.__annotations__`."
 
 #: ../../howto/descriptor.rst:1364
 msgid "Class methods"
@@ -1133,6 +1159,9 @@ msgid ""
 "argument list before calling the function.  This format is the same for "
 "whether the caller is an object or a class:"
 msgstr ""
+"На відміну від статичних методів, методи класу додають посилання на клас до "
+"списку аргументів перед викликом функції. Цей формат є однаковим для того, "
+"чи є викликаючий об’єкт чи клас:"
 
 #: ../../howto/descriptor.rst:1384
 msgid ""
@@ -1142,16 +1171,23 @@ msgid ""
 "the classmethod :func:`dict.fromkeys` creates a new dictionary from a list "
 "of keys.  The pure Python equivalent is:"
 msgstr ""
+"Така поведінка корисна, коли метод потребує лише посилання на клас і не "
+"покладається на дані, що зберігаються в конкретному екземплярі. Одним із "
+"способів використання методів класу є створення альтернативних конструкторів "
+"класу. Наприклад, метод класу :func:`dict.fromkeys` створює новий словник зі "
+"списку ключів. Чистий еквівалент Python:"
 
 #: ../../howto/descriptor.rst:1401
 msgid "Now a new dictionary of unique keys can be constructed like this:"
-msgstr ""
+msgstr "Тепер новий словник унікальних ключів можна сконструювати так:"
 
 #: ../../howto/descriptor.rst:1411
 msgid ""
 "Using the non-data descriptor protocol, a pure Python version of :func:"
 "`classmethod` would look like this:"
 msgstr ""
+"Використовуючи протокол дескриптора без даних, чиста версія :func:"
+"`classmethod` на Python виглядала б так:"
 
 #: ../../howto/descriptor.rst:1489
 msgid ""
@@ -1160,6 +1196,10 @@ msgid ""
 "decorators.  For example, a classmethod and property could be chained "
 "together.  In Python 3.11, this functionality was deprecated."
 msgstr ""
+"Путь кода для ``hasattr(type(self.f), '__get__')`` был добавлен в Python 3.9 "
+"и позволяет :func:`classmethod` поддерживать связанные декораторы. Например, "
+"метод класса и свойство могут быть связаны вместе. В Python 3.11 эта функция "
+"устарела."
 
 #: ../../howto/descriptor.rst:1507
 msgid ""
@@ -1170,10 +1210,15 @@ msgid ""
 "__qualname__`, :attr:`~function.__doc__`, and :attr:`~function."
 "__annotations__`."
 msgstr ""
+"Вызов :func:`functools.update_wrapper` в ``ClassMethod`` добавляет атрибут "
+"``__wrapped__``, который ссылается на базовую функцию. Также он переносит "
+"атрибуты, необходимые для того, чтобы оболочка выглядела как завернутая "
+"функция: :attr:`~function.__name__`, :attr:`~function.__qualname__`, :attr:"
+"`~function.__doc__` и :attr :`~function.__annotations__`."
 
 #: ../../howto/descriptor.rst:1516
 msgid "Member objects and __slots__"
-msgstr ""
+msgstr "Об'єкти-члени та __slots__"
 
 #: ../../howto/descriptor.rst:1518
 msgid ""
@@ -1181,18 +1226,25 @@ msgid ""
 "fixed-length array of slot values.  From a user point of view that has "
 "several effects:"
 msgstr ""
+"Коли клас визначає ``__slots__``, він замінює словники примірників на масив "
+"значень слотів фіксованої довжини. З точки зору користувача, це має кілька "
+"ефектів:"
 
 #: ../../howto/descriptor.rst:1522
 msgid ""
 "1. Provides immediate detection of bugs due to misspelled attribute "
 "assignments.  Only attribute names specified in ``__slots__`` are allowed:"
 msgstr ""
+"1. Забезпечує негайне виявлення помилок через неправильно написані атрибути. "
+"Дозволяються лише імена атрибутів, указані в ``__slots__``:"
 
 #: ../../howto/descriptor.rst:1538
 msgid ""
 "2. Helps create immutable objects where descriptors manage access to private "
 "attributes stored in ``__slots__``:"
 msgstr ""
+"2. Допомагає створювати незмінні об’єкти, де дескриптори керують доступом до "
+"приватних атрибутів, що зберігаються в ``__slots__``:"
 
 #: ../../howto/descriptor.rst:1573
 msgid ""
@@ -1201,18 +1253,28 @@ msgid ""
 "design pattern <https://en.wikipedia.org/wiki/Flyweight_pattern>`_ likely "
 "only matters when a large number of instances are going to be created."
 msgstr ""
+"3. Економить пам'ять. У 64-розрядній збірці Linux екземпляр із двома "
+"атрибутами займає 48 байтів із ``__slots__`` і 152 байти без. Цей `шаблон "
+"проектування легкої ваги <https://en.wikipedia.org/wiki/"
+"Flyweight_pattern>`_, ймовірно, має значення лише тоді, коли буде створено "
+"велику кількість екземплярів."
 
 #: ../../howto/descriptor.rst:1578
 msgid ""
 "4. Improves speed.  Reading instance variables is 35% faster with "
 "``__slots__`` (as measured with Python 3.10 on an Apple M1 processor)."
 msgstr ""
+"4. Покращує швидкість. Читання змінних екземплярів відбувається на 35% "
+"швидше за допомогою ``__slots__`` (виміряно за допомогою Python 3.10 на "
+"процесорі Apple M1)."
 
 #: ../../howto/descriptor.rst:1581
 msgid ""
 "5. Blocks tools like :func:`functools.cached_property` which require an "
 "instance dictionary to function correctly:"
 msgstr ""
+"5. Блокує такі інструменти, як :func:`functools.cached_property`, яким для "
+"коректної роботи потрібен словник екземплярів:"
 
 #: ../../howto/descriptor.rst:1603
 msgid ""
@@ -1223,6 +1285,12 @@ msgid ""
 "``_slotvalues`` list.  Reads and writes to that private structure are "
 "managed by member descriptors:"
 msgstr ""
+"Неможливо створити точну версію ``__slots__`` на Python, оскільки для цього "
+"потрібен прямий доступ до структур C і контроль над розподілом пам’яті "
+"об’єктів. Однак ми можемо побудувати здебільшого точну симуляцію, де "
+"фактична структура C для слотів емулюється приватним списком "
+"``_slotvalues``. Читанням і записом у цю приватну структуру керують "
+"дескриптори членів:"
 
 #: ../../howto/descriptor.rst:1648
 msgid ""
@@ -1236,6 +1304,9 @@ msgid ""
 "slots instead of an instance dictionary.  Here is a rough simulation in pure "
 "Python:"
 msgstr ""
+"Метод :meth:`object.__new__` піклується про створення екземплярів, які мають "
+"слоти замість словника екземплярів. Ось приблизне моделювання на чистому "
+"Python:"
 
 #: ../../howto/descriptor.rst:1699
 msgid ""
@@ -1246,14 +1317,16 @@ msgstr ""
 #: ../../howto/descriptor.rst:1713
 msgid ""
 "At this point, the metaclass has loaded member objects for *x* and *y*::"
-msgstr ""
+msgstr "На даний момент метаклас завантажив об’єкти-члени для *x* і *y*::"
 
 #: ../../howto/descriptor.rst:1734
 msgid ""
 "When instances are created, they have a ``slot_values`` list where the "
 "attributes are stored:"
 msgstr ""
+"Коли екземпляри створюються, вони мають список ``slot_values``, де "
+"зберігаються атрибути:"
 
 #: ../../howto/descriptor.rst:1746
 msgid "Misspelled or unassigned attributes will raise an exception:"
-msgstr ""
+msgstr "Помилково введені або непризначені атрибути викликають виняток:"

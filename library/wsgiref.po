@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.11\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-27 16:11+0000\n"
+"POT-Creation-Date: 2025-07-11 16:41+0000\n"
 "PO-Revision-Date: 2023-05-24 02:21+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -789,6 +789,11 @@ msgid ""
 "multithread`` and ``wsgi.multiprocess`` flags for any applications run by "
 "the handler instance."
 msgstr ""
+"Подібно до :class:`CGIHandler`, але замість використання модулів :mod:`sys` "
+"і :mod:`os` середовище CGI та потоки введення/виведення вказуються явно. "
+"Значення *multithread* і *multiprocess* використовуються для встановлення "
+"прапорів ``wsgi.multithread`` і ``wsgi.multiprocess`` для будь-яких програм, "
+"запущених екземпляром обробника."
 
 #: ../../library/wsgiref.rst:510
 msgid ""
@@ -798,6 +803,11 @@ msgid ""
 "``Status:`` header to send an HTTP status, you probably want to subclass "
 "this instead of :class:`SimpleHandler`."
 msgstr ""
+"Цей клас є підкласом :class:`SimpleHandler`, призначеного для використання з "
+"програмним забезпеченням, відмінним від HTTP-серверів. Якщо ви пишете "
+"реалізацію протоколу шлюзу (наприклад, CGI, FastCGI, SCGI тощо), яка "
+"використовує заголовок ``Status:`` для надсилання статусу HTTP, можливо, ви "
+"захочете створити підклас цього замість :class:`SimpleHandler` ."
 
 #: ../../library/wsgiref.rst:519
 msgid ""
@@ -805,6 +815,9 @@ msgid ""
 "servers.  If you are writing an HTTP server implementation, you will "
 "probably want to subclass this instead of :class:`BaseCGIHandler`."
 msgstr ""
+"Подібний до :class:`BaseCGIHandler`, але призначений для використання з "
+"вихідними серверами HTTP. Якщо ви пишете реалізацію сервера HTTP, ви, "
+"ймовірно, захочете створити підклас цього замість :class:`BaseCGIHandler`."
 
 #: ../../library/wsgiref.rst:523
 msgid ""
@@ -816,12 +829,20 @@ msgid ""
 "stored in the :attr:`stdin`, :attr:`stdout`, :attr:`stderr`, and :attr:"
 "`environ` attributes."
 msgstr ""
+"Этот класс является подклассом :class:`BaseHandler`. Он переопределяет :meth:"
+"`!__init__`, :meth:`~BaseHandler.get_stdin`, :meth:`~BaseHandler."
+"get_stderr`, :meth:`~BaseHandler.add_cgi_vars`, :meth:`~BaseHandler._write` "
+"и :meth:`~BaseHandler._flush` для поддержки явной настройки среды и потоков "
+"через конструктор. Предоставленная среда и потоки хранятся в атрибутах :attr:"
+"`stdin`, :attr:`stdout`, :attr:`stderr` и :attr:`environ`."
 
 #: ../../library/wsgiref.rst:532
 msgid ""
 "The :meth:`~io.BufferedIOBase.write` method of *stdout* should write each "
 "chunk in full, like :class:`io.BufferedIOBase`."
 msgstr ""
+"Метод :meth:`~io.BufferedIOBase.write` *stdout* має записувати кожен "
+"фрагмент повністю, як :class:`io.BufferedIOBase`."
 
 #: ../../library/wsgiref.rst:538
 msgid ""
@@ -829,16 +850,21 @@ msgid ""
 "will handle a single HTTP request, although in principle you could create a "
 "subclass that was reusable for multiple requests."
 msgstr ""
+"Це абстрактний базовий клас для запуску програм WSGI. Кожен екземпляр "
+"оброблятиме один HTTP-запит, хоча в принципі ви можете створити підклас, "
+"який можна повторно використовувати для кількох запитів."
 
 #: ../../library/wsgiref.rst:542
 msgid ""
 ":class:`BaseHandler` instances have only one method intended for external "
 "use:"
 msgstr ""
+"Екземпляри :class:`BaseHandler` мають лише один метод, призначений для "
+"зовнішнього використання:"
 
 #: ../../library/wsgiref.rst:547
 msgid "Run the specified WSGI application, *app*."
-msgstr ""
+msgstr "Запустіть вказану програму WSGI, *app*."
 
 #: ../../library/wsgiref.rst:549
 msgid ""
@@ -846,10 +872,13 @@ msgid ""
 "the process of running the application, and thus exist primarily to allow "
 "customizing the process."
 msgstr ""
+"Усі інші методи :class:`BaseHandler` викликаються цим методом у процесі "
+"запуску програми, і, отже, існують, перш за все, щоб дозволити налаштувати "
+"процес."
 
 #: ../../library/wsgiref.rst:553
 msgid "The following methods MUST be overridden in a subclass:"
-msgstr ""
+msgstr "Наступні методи ПОВИННІ бути замінені в підкласі:"
 
 #: ../../library/wsgiref.rst:558
 msgid ""
@@ -858,12 +887,18 @@ msgid ""
 "write and flush operations for greater efficiency when the underlying system "
 "actually has such a distinction."
 msgstr ""
+"Буферизуйте байти *data* для передачі клієнту. Це нормально, якщо цей метод "
+"дійсно передає дані; :class:`BaseHandler` просто розділяє операції запису та "
+"очищення для більшої ефективності, коли основна система насправді має таку "
+"відмінність."
 
 #: ../../library/wsgiref.rst:566
 msgid ""
 "Force buffered data to be transmitted to the client.  It's okay if this "
 "method is a no-op (i.e., if :meth:`_write` actually sends the data)."
 msgstr ""
+"Примусова передача буферизованих даних клієнту. Це нормально, якщо цей метод "
+"є безопераційним (тобто якщо :meth:`_write` справді надсилає дані)."
 
 #: ../../library/wsgiref.rst:572
 msgid ""
@@ -871,6 +906,9 @@ msgid ""
 "suitable for use as the ``wsgi.input`` of the request currently being "
 "processed."
 msgstr ""
+"Возвращает объект, совместимый с :class:`~wsgiref.types.InputStream`, "
+"подходящий для использования в качестве ``wsgi.input`` обрабатываемого в "
+"данный момент запроса."
 
 #: ../../library/wsgiref.rst:579
 msgid ""
@@ -878,12 +916,15 @@ msgid ""
 "suitable for use as the ``wsgi.errors`` of the request currently being "
 "processed."
 msgstr ""
+"Возвращает объект, совместимый с :class:`~wsgiref.types.ErrorStream`, "
+"подходящий для использования в качестве ``wsgi.errors`` запроса, "
+"обрабатываемого в данный момент."
 
 #: ../../library/wsgiref.rst:586
 msgid ""
 "Insert CGI variables for the current request into the :attr:`environ` "
 "attribute."
-msgstr ""
+msgstr "Вставте змінні CGI для поточного запиту в атрибут :attr:`environ`."
 
 #: ../../library/wsgiref.rst:588
 msgid ""
@@ -893,10 +934,15 @@ msgid ""
 "additional information before attempting to create a customized :class:"
 "`BaseHandler` subclass."
 msgstr ""
+"Ось деякі інші методи та атрибути, які ви можете змінити. Однак цей список є "
+"лише підсумковим і не включає всі методи, які можна замінити. Перш ніж "
+"намагатися створити налаштований підклас :class:`BaseHandler`, вам слід "
+"переглянути рядки документації та вихідний код для отримання додаткової "
+"інформації."
 
 #: ../../library/wsgiref.rst:594
 msgid "Attributes and methods for customizing the WSGI environment:"
-msgstr ""
+msgstr "Атрибути та методи налаштування середовища WSGI:"
 
 #: ../../library/wsgiref.rst:599
 msgid ""
@@ -904,6 +950,10 @@ msgid ""
 "defaults to true in :class:`BaseHandler`, but may have a different default "
 "(or be set by the constructor) in the other subclasses."
 msgstr ""
+"Значення, яке буде використовуватися для змінної середовища ``wsgi."
+"multithread``. За замовчуванням у :class:`BaseHandler` він має значення "
+"true, але може мати інше значення за замовчуванням (або бути встановленим "
+"конструктором) в інших підкласах."
 
 #: ../../library/wsgiref.rst:606
 msgid ""
@@ -911,6 +961,10 @@ msgid ""
 "defaults to true in :class:`BaseHandler`, but may have a different default "
 "(or be set by the constructor) in the other subclasses."
 msgstr ""
+"Значення, яке буде використовуватися для змінної середовища ``wsgi."
+"multiprocess``. За замовчуванням у :class:`BaseHandler` він має значення "
+"true, але може мати інше значення за замовчуванням (або бути встановленим "
+"конструктором) в інших підкласах."
 
 #: ../../library/wsgiref.rst:613
 msgid ""
@@ -918,6 +972,9 @@ msgid ""
 "defaults to false in :class:`BaseHandler`, but :class:`CGIHandler` sets it "
 "to true by default."
 msgstr ""
+"Значення, яке буде використовуватися для змінної середовища ``wsgi."
+"run_once``. За замовчуванням у :class:`BaseHandler` встановлено значення "
+"false, але :class:`CGIHandler` за замовчуванням встановлює значення true."
 
 #: ../../library/wsgiref.rst:620
 msgid ""
@@ -928,6 +985,12 @@ msgid ""
 "considered read-only, since the default value is shared between multiple "
 "classes and instances."
 msgstr ""
+"Змінні середовища за замовчуванням, які будуть включені в середовище WSGI "
+"кожного запиту. За замовчуванням це копія ``os.environ`` на момент імпорту :"
+"mod:`wsgiref.handlers`, але підкласи можуть створювати власні на рівні класу "
+"або екземпляра. Зауважте, що словник слід вважати доступним лише для "
+"читання, оскільки значення за замовчуванням використовується між кількома "
+"класами та примірниками."
 
 #: ../../library/wsgiref.rst:630
 msgid ""
@@ -937,12 +1000,20 @@ msgid ""
 "for handlers (such as :class:`BaseCGIHandler` and :class:`CGIHandler`) that "
 "are not HTTP origin servers."
 msgstr ""
+"Якщо встановлено атрибут :attr:`origin_server`, значення цього атрибута "
+"використовується для встановлення змінної середовища WSGI за замовчуванням "
+"``SERVER_SOFTWARE``, а також для встановлення заголовка ``Server:`` за "
+"замовчуванням у відповідях HTTP. Він ігнорується для обробників (таких як :"
+"class:`BaseCGIHandler` і :class:`CGIHandler`), які не є вихідними серверами "
+"HTTP."
 
 #: ../../library/wsgiref.rst:636
 msgid ""
 "The term \"Python\" is replaced with implementation specific term like "
 "\"CPython\", \"Jython\" etc."
 msgstr ""
+"Термін \"Python\" замінено терміном для конкретної реалізації, наприклад "
+"\"CPython\", \"Jython\" тощо."
 
 #: ../../library/wsgiref.rst:642
 msgid ""
@@ -951,6 +1022,10 @@ msgid ""
 "util` to guess whether the scheme should be \"http\" or \"https\", based on "
 "the current request's :attr:`environ` variables."
 msgstr ""
+"Повертає схему URL-адреси, яка використовується для поточного запиту. "
+"Реалізація за замовчуванням використовує функцію :func:`guess_scheme` з :mod:"
+"`wsgiref.util`, щоб визначити, чи має бути схема \"http\" чи \"https\", на "
+"основі змінних :attr:`environ` поточного запиту."
 
 #: ../../library/wsgiref.rst:650
 msgid ""
@@ -961,10 +1036,16 @@ msgid ""
 "``SERVER_SOFTWARE`` key if not present, as long as the :attr:`origin_server` "
 "attribute is a true value and the :attr:`server_software` attribute is set."
 msgstr ""
+"Установите атрибут :attr:`environ` для полностью заполненной среды WSGI. "
+"Реализация по умолчанию использует все вышеперечисленные методы и атрибуты, "
+"а также методы :meth:`get_stdin`, :meth:`get_stderr` и :meth:`add_cgi_vars` "
+"и атрибут :attr:`wsgi_file_wrapper`. Он также вставляет ключ "
+"``SERVER_SOFTWARE``, если он отсутствует, если атрибут :attr:`origin_server` "
+"имеет истинное значение и установлен атрибут :attr:`server_software`."
 
 #: ../../library/wsgiref.rst:657
 msgid "Methods and attributes for customizing exception handling:"
-msgstr ""
+msgstr "Методи та атрибути для налаштування обробки винятків:"
 
 #: ../../library/wsgiref.rst:662
 msgid ""
@@ -975,18 +1056,30 @@ msgid ""
 "traceback to an administrator, or whatever other action may be deemed "
 "suitable."
 msgstr ""
+"Зареєструйте кортеж *exc_info* у журналі сервера. *exc_info* — це кортеж "
+"``(тип, значення, відстеження)``. Реалізація за замовчуванням просто записує "
+"трасування в потік ``wsgi.errors`` запиту та очищає його. Підкласи можуть "
+"замінити цей метод, щоб змінити формат або перенацілити вивід, надіслати "
+"трасування поштою адміністратору або зробити будь-яку іншу дію, яку можна "
+"вважати прийнятною."
 
 #: ../../library/wsgiref.rst:671
 msgid ""
 "The maximum number of frames to include in tracebacks output by the default :"
 "meth:`log_exception` method.  If ``None``, all frames are included."
 msgstr ""
+"Максимальна кількість фреймів, які можна включити у вивід трасування "
+"методом :meth:`log_exception` за замовчуванням. Якщо ``None``, усі кадри "
+"включені."
 
 #: ../../library/wsgiref.rst:677
 msgid ""
 "This method is a WSGI application to generate an error page for the user.  "
 "It is only invoked if an error occurs before headers are sent to the client."
 msgstr ""
+"Цей метод є програмою WSGI для створення сторінки помилки для користувача. "
+"Він викликається, лише якщо виникає помилка до того, як заголовки будуть "
+"надіслані клієнту."
 
 #: ../../library/wsgiref.rst:680
 msgid ""
@@ -1001,6 +1094,10 @@ msgid ""
 "`error_headers`, and :attr:`error_body` attributes to generate an output "
 "page.  Subclasses can override this to produce more dynamic error output."
 msgstr ""
+"Реалізація за замовчуванням просто використовує атрибути :attr:"
+"`error_status`, :attr:`error_headers` і :attr:`error_body` для створення "
+"сторінки виводу. Підкласи можуть замінити це, щоб створити більш динамічний "
+"вихід помилок."
 
 #: ../../library/wsgiref.rst:688
 msgid ""
@@ -1009,12 +1106,19 @@ msgid ""
 "special to enable diagnostic output, which is why the default implementation "
 "doesn't include any."
 msgstr ""
+"Однак зауважте, що з точки зору безпеки не рекомендується передавати "
+"діагностику старим користувачам; в ідеалі, ви повинні зробити щось особливе, "
+"щоб увімкнути діагностичний вихід, тому реалізація за замовчуванням не "
+"включає жодного."
 
 #: ../../library/wsgiref.rst:696
 msgid ""
 "The HTTP status used for error responses.  This should be a status string as "
 "defined in :pep:`3333`; it defaults to a 500 code and message."
 msgstr ""
+"Статус HTTP, який використовується для відповідей на помилки. Це має бути "
+"рядок стану, як визначено в :pep:`3333`; за замовчуванням це код і "
+"повідомлення 500."
 
 #: ../../library/wsgiref.rst:702
 msgid ""
@@ -1022,6 +1126,10 @@ msgid ""
 "response headers (``(name, value)`` tuples), as described in :pep:`3333`.  "
 "The default list just sets the content type to ``text/plain``."
 msgstr ""
+"Заголовки HTTP, які використовуються для відповідей на помилки. Це має бути "
+"список заголовків відповіді WSGI (кортежі ``(ім’я, значення)``), як описано "
+"в :pep:`3333`. Список за замовчуванням лише встановлює тип вмісту ``text/"
+"plain``."
 
 #: ../../library/wsgiref.rst:709
 msgid ""
@@ -1029,12 +1137,17 @@ msgid ""
 "It defaults to the plain text, \"A server error occurred.  Please contact "
 "the administrator.\""
 msgstr ""
+"Тіло відповіді на помилку. Це має бути байтовий рядок тіла відповіді HTTP. "
+"За замовчуванням це простий текст: \"Сталася помилка сервера. Зверніться до "
+"адміністратора\"."
 
 #: ../../library/wsgiref.rst:713
 msgid ""
 "Methods and attributes for :pep:`3333`'s \"Optional Platform-Specific File "
 "Handling\" feature:"
 msgstr ""
+"Методи та атрибути для функції :pep:`3333` \"Додаткова обробка файлів на "
+"певній платформі\":"
 
 #: ../../library/wsgiref.rst:719
 msgid ""
@@ -1042,6 +1155,9 @@ msgid ""
 "FileWrapper`, or ``None``.  The default value of this attribute is the :"
 "class:`wsgiref.util.FileWrapper` class."
 msgstr ""
+"Фабрика ``wsgi.file_wrapper``, совместимая с ``wsgiref.types.FileWrapper`` "
+"или ``None``. Значением по умолчанию для этого атрибута является класс :"
+"class:`wsgiref.util.FileWrapper`."
 
 #: ../../library/wsgiref.rst:726
 msgid ""
@@ -1052,10 +1168,16 @@ msgid ""
 "default transmission code will not be executed. The default implementation "
 "of this method just returns a false value."
 msgstr ""
+"Перевизначення для реалізації передачі файлів на платформі. Цей метод "
+"викликається, лише якщо значення, яке повертає програма, є екземпляром "
+"класу, указаного атрибутом :attr:`wsgi_file_wrapper`. Він має повернути "
+"справжнє значення, якщо вдалося успішно передати файл, щоб код передачі за "
+"замовчуванням не виконувався. Стандартна реалізація цього методу просто "
+"повертає хибне значення."
 
 #: ../../library/wsgiref.rst:733
 msgid "Miscellaneous methods and attributes:"
-msgstr ""
+msgstr "Різні методи та атрибути:"
 
 #: ../../library/wsgiref.rst:738
 msgid ""
@@ -1064,18 +1186,27 @@ msgid ""
 "rather than via a CGI-like gateway protocol that wants the HTTP status in a "
 "special ``Status:`` header."
 msgstr ""
+"Для цього атрибута слід встановити справжнє значення, якщо :meth:`_write` і :"
+"meth:`_flush` обробника використовуються для безпосереднього зв’язку з "
+"клієнтом, а не через CGI-подібний протокол шлюзу, якому потрібен статус HTTP "
+"у спеціальний заголовок ``Status:``."
 
 #: ../../library/wsgiref.rst:743
 msgid ""
 "This attribute's default value is true in :class:`BaseHandler`, but false "
 "in :class:`BaseCGIHandler` and :class:`CGIHandler`."
 msgstr ""
+"Значення цього атрибута за замовчуванням є true у :class:`BaseHandler`, але "
+"false у :class:`BaseCGIHandler` і :class:`CGIHandler`."
 
 #: ../../library/wsgiref.rst:749
 msgid ""
 "If :attr:`origin_server` is true, this string attribute is used to set the "
 "HTTP version of the response set to the client.  It defaults to ``\"1.0\"``."
 msgstr ""
+"Якщо :attr:`origin_server` має значення true, цей рядковий атрибут "
+"використовується для встановлення HTTP-версії набору відповідей для клієнта. "
+"За замовчуванням ``\"1.0\"``."
 
 #: ../../library/wsgiref.rst:755
 msgid ""
@@ -1088,6 +1219,14 @@ msgid ""
 "bytes, but the system encoding used by Python to decode it is anything other "
 "than ISO-8859-1 (e.g. Unix systems using UTF-8)."
 msgstr ""
+"Транскодує змінні CGI з ``os.environ`` в :pep:`3333` рядки \"байтів у "
+"юнікоді\", повертаючи новий словник. Ця функція використовується :class:"
+"`CGIHandler` і :class:`IISCGIHandler` замість безпосереднього використання "
+"``os.environ``, який не обов’язково є сумісним з WSGI на всіх платформах і "
+"веб-серверах, які використовують Python 3, зокрема , де фактичне середовище "
+"ОС є Unicode (тобто Windows), або ті, де середовищем є байти, але системне "
+"кодування, яке використовує Python для його декодування, є будь-яким іншим, "
+"ніж ISO-8859-1 (наприклад, системи Unix використовують UTF-8) ."
 
 #: ../../library/wsgiref.rst:764
 msgid ""
@@ -1095,16 +1234,21 @@ msgid ""
 "to use this routine instead of just copying values out of ``os.environ`` "
 "directly."
 msgstr ""
+"Якщо ви впроваджуєте власний обробник на основі CGI, ви, ймовірно, захочете "
+"використовувати цю процедуру замість того, щоб просто копіювати значення "
+"безпосередньо з ``os.environ``."
 
 #: ../../library/wsgiref.rst:772
 msgid ":mod:`wsgiref.types` -- WSGI types for static type checking"
-msgstr ""
+msgstr ":mod:`wsgiref.types` -- типы WSGI для статической проверки типов"
 
 #: ../../library/wsgiref.rst:778
 msgid ""
 "This module provides various types for static type checking as described in :"
 "pep:`3333`."
 msgstr ""
+"Этот модуль предоставляет различные типы для статической проверки типов, как "
+"описано в :pep:`3333`."
 
 #: ../../library/wsgiref.rst:786
 msgid ""
@@ -1114,11 +1258,11 @@ msgstr ""
 
 #: ../../library/wsgiref.rst:792
 msgid "A type alias describing a WSGI environment dictionary."
-msgstr ""
+msgstr "Псевдоним типа, описывающий словарь среды WSGI."
 
 #: ../../library/wsgiref.rst:796
 msgid "A type alias describing a WSGI application callable."
-msgstr ""
+msgstr "Псевдоним типа, описывающий вызываемое приложение WSGI."
 
 #: ../../library/wsgiref.rst:800
 msgid ""
@@ -1152,3 +1296,6 @@ msgid ""
 "Example of a WSGI application serving the current directory, accept optional "
 "directory and port number (default: 8000) on the command line::"
 msgstr ""
+"Пример приложения WSGI, обслуживающего текущий каталог: примите "
+"необязательный каталог и номер порта (по умолчанию: 8000) в командной "
+"строке::"

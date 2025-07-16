@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.11\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-10 15:26+0000\n"
+"POT-Creation-Date: 2025-07-11 16:41+0000\n"
 "PO-Revision-Date: 2023-05-24 02:10+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "Language: pt_BR\n"
@@ -25,19 +25,23 @@ msgstr ""
 
 #: ../../extending/newtypes.rst:7
 msgid "Defining Extension Types: Assorted Topics"
-msgstr ""
+msgstr "Визначення типів розширень: різні теми"
 
 #: ../../extending/newtypes.rst:11
 msgid ""
 "This section aims to give a quick fly-by on the various type methods you can "
 "implement and what they do."
 msgstr ""
+"Ten rozdział ma na celu szybko oblecieć różne sposoby postępowania typów "
+"które możesz wypełnić i omówić co one robią."
 
 #: ../../extending/newtypes.rst:14
 msgid ""
 "Here is the definition of :c:type:`PyTypeObject`, with some fields only used "
 "in :ref:`debug builds <debug-build>` omitted:"
 msgstr ""
+"Ось визначення :c:type:`PyTypeObject` з деякими полями, які використовуються "
+"лише в :ref:`debug builds <debug-build>` опущено:"
 
 #: ../../extending/newtypes.rst:20
 msgid ""
@@ -45,6 +49,9 @@ msgid ""
 "type you want to define, the chances are very good that you will only "
 "implement a handful of these."
 msgstr ""
+"Тепер це *багато* методів. Однак не надто хвилюйтеся - якщо у вас є тип, "
+"який ви хочете визначити, дуже високі шанси, що ви реалізуєте лише кілька з "
+"них."
 
 #: ../../extending/newtypes.rst:24
 msgid ""
@@ -55,6 +62,11 @@ msgid ""
 "that includes the fields you need and then change the values to suit your "
 "new type. ::"
 msgstr ""
+"Як ви, мабуть, очікуєте, ми розглянемо це та надамо більше інформації про "
+"різні обробники. Ми не будемо йти в тому порядку, в якому вони визначені в "
+"структурі, тому що існує багато історичного багажу, який впливає на порядок "
+"розташування полів. Зазвичай найлегше знайти приклад, який містить потрібні "
+"вам поля, а потім змінити значення відповідно до нового типу. ::"
 
 #: ../../extending/newtypes.rst:33
 msgid ""
@@ -62,6 +74,9 @@ msgid ""
 "appear in various places, almost entirely for diagnostic purposes. Try to "
 "choose something that will be helpful in such a situation! ::"
 msgstr ""
+"Назва типу — як згадувалося в попередньому розділі, вона з’являтиметься в "
+"різних місцях, майже виключно для діагностичних цілей. Спробуйте вибрати те, "
+"що допоможе в такій ситуації! ::"
 
 #: ../../extending/newtypes.rst:39
 msgid ""
@@ -71,22 +86,31 @@ msgid ""
 "`~PyTypeObject.tp_itemsize` field comes in.  This will be dealt with "
 "later. ::"
 msgstr ""
+"Ці поля повідомляють середовищі виконання, скільки пам’яті виділяти під час "
+"створення нових об’єктів цього типу. У Python є деяка вбудована підтримка "
+"структур змінної довжини (наприклад, рядків, кортежів), у яких і з’являється "
+"поле :c:member:`~PyTypeObject.tp_itemsize`. Це буде розглянуто пізніше. ::"
 
 #: ../../extending/newtypes.rst:46
 msgid ""
 "Here you can put a string (or its address) that you want returned when the "
 "Python script references ``obj.__doc__`` to retrieve the doc string."
 msgstr ""
+"Tu możesz wstawić ciąg znaków (lub jego adres) który chcesz zwrócić gdy "
+"skrypt języka pytonowskiego odnosi się do ``obj.__doc__`` aby otrzymać ciąg "
+"znaków dokumentacji."
 
 #: ../../extending/newtypes.rst:49
 msgid ""
 "Now we come to the basic type methods -- the ones most extension types will "
 "implement."
 msgstr ""
+"Тепер ми підходимо до методів базового типу — тих, які реалізовуватимуть "
+"більшість типів розширень."
 
 #: ../../extending/newtypes.rst:54
 msgid "Finalization and De-allocation"
-msgstr ""
+msgstr "Finalizowanie i de-alokacja"
 
 #: ../../extending/newtypes.rst:66
 msgid ""
@@ -96,12 +120,19 @@ msgid ""
 "here.  The object itself needs to be freed here as well.  Here is an example "
 "of this function::"
 msgstr ""
+"Ця функція викликається, коли кількість посилань екземпляра вашого типу "
+"зменшується до нуля, і інтерпретатор Python хоче відновити його. Якщо у "
+"вашому типі є пам’ять, яку потрібно звільнити або виконати інше очищення, ви "
+"можете розмістити це тут. Тут також потрібно звільнити сам об'єкт. Ось "
+"приклад цієї функції:"
 
 #: ../../extending/newtypes.rst:79
 msgid ""
 "If your type supports garbage collection, the destructor should call :c:func:"
 "`PyObject_GC_UnTrack` before clearing any member fields::"
 msgstr ""
+"Якщо ваш тип підтримує збирання сміття, деструктор має викликати :c:func:"
+"`PyObject_GC_UnTrack` перед очищенням будь-яких полів-членів::"
 
 #: ../../extending/newtypes.rst:95
 msgid ""
@@ -117,6 +148,17 @@ msgid ""
 "the unsafe action, and restoring it when done.  This can be done using the :"
 "c:func:`PyErr_Fetch` and :c:func:`PyErr_Restore` functions::"
 msgstr ""
+"Однією з важливих вимог до функції розповсюджувача є те, що вона залишає "
+"будь-які незавершені винятки. Це важливо, оскільки делокатори часто "
+"викликаються, коли інтерпретатор розгортає стек Python; коли стек "
+"розгортається через виняток (а не звичайні повернення), нічого не робиться "
+"для захисту розповсюджувачів від того, що виняток уже встановлено. Будь-які "
+"дії, які виконує розповсюджувач, які можуть спричинити виконання додаткового "
+"коду Python, можуть виявити, що встановлено виняток. Це може призвести до "
+"оманливих помилок перекладача. Правильний спосіб захисту від цього — "
+"зберегти очікуваний виняток перед виконанням небезпечної дії та відновити "
+"його після завершення. Це можна зробити за допомогою функцій :c:func:"
+"`PyErr_Fetch` і :c:func:`PyErr_Restore`:"
 
 #: ../../extending/newtypes.rst:134
 msgid ""
@@ -130,6 +172,16 @@ msgid ""
 "(as in the example above) might end up calling :c:member:`~PyTypeObject."
 "tp_dealloc` again, causing a double free and a crash."
 msgstr ""
+"Існують обмеження щодо того, що ви можете безпечно робити у функції "
+"розповсюджувача. По-перше, якщо ваш тип підтримує збирання сміття (за "
+"допомогою :c:member:`~PyTypeObject.tp_traverse` та/або :c:member:"
+"`~PyTypeObject.tp_clear`), деякі члени об’єкта можуть бути очищені або "
+"завершені за допомогою час виклику :c:member:`~PyTypeObject.tp_dealloc`. По-"
+"друге, у :c:member:`~PyTypeObject.tp_dealloc` ваш об’єкт перебуває в "
+"нестабільному стані: його кількість посилань дорівнює нулю. Будь-який виклик "
+"нетривіального об’єкта або API (як у наведеному вище прикладі) може "
+"призвести до повторного виклику :c:member:`~PyTypeObject.tp_dealloc`, "
+"викликаючи подвійне звільнення та збій."
 
 #: ../../extending/newtypes.rst:143
 msgid ""
@@ -137,14 +189,17 @@ msgid ""
 "finalization code in :c:member:`~PyTypeObject.tp_dealloc`, and instead use "
 "the new :c:member:`~PyTypeObject.tp_finalize` type method."
 msgstr ""
+"Починаючи з Python 3.4, рекомендується не розміщувати будь-який складний код "
+"фіналізації в :c:member:`~PyTypeObject.tp_dealloc`, а замість цього "
+"використовувати новий метод типу :c:member:`~PyTypeObject.tp_finalize`."
 
 #: ../../extending/newtypes.rst:148
 msgid ":pep:`442` explains the new finalization scheme."
-msgstr ""
+msgstr ":pep:`442` пояснює нову схему завершення."
 
 #: ../../extending/newtypes.rst:155
 msgid "Object Presentation"
-msgstr ""
+msgstr "Prezentacja Przedmiotów"
 
 #: ../../extending/newtypes.rst:157
 msgid ""
@@ -152,6 +207,10 @@ msgid ""
 "object: the :func:`repr` function, and the :func:`str` function.  (The :func:"
 "`print` function just calls :func:`str`.)  These handlers are both optional."
 msgstr ""
+"W Pythonie istnieją dwa sposoby aby wygenerować tekstową reprezentację "
+"przedmiotu: funkcja :func:`repr`, i funkcja :func:`str`. (Zadanie :func:"
+"`print` po prostu wywołuje zadanie :func:`str`.) Ta zadania obsługi są oba "
+"opcjonalne."
 
 #: ../../extending/newtypes.rst:166
 msgid ""
@@ -159,6 +218,9 @@ msgid ""
 "containing a representation of the instance for which it is called.  Here is "
 "a simple example::"
 msgstr ""
+"Обробник :c:member:`~PyTypeObject.tp_repr` має повертати рядковий об’єкт, що "
+"містить представлення примірника, для якого він викликається. Ось простий "
+"приклад::"
 
 #: ../../extending/newtypes.rst:177
 msgid ""
@@ -166,6 +228,9 @@ msgid ""
 "interpreter will supply a representation that uses the type's :c:member:"
 "`~PyTypeObject.tp_name` and a uniquely identifying value for the object."
 msgstr ""
+"Если обработчик :c:member:`~PyTypeObject.tp_repr` не указан, интерпретатор "
+"предоставит представление, которое использует тип :c:member:`~PyTypeObject."
+"tp_name` и уникально идентифицирующее значение для объекта."
 
 #: ../../extending/newtypes.rst:181
 msgid ""
@@ -177,14 +242,21 @@ msgid ""
 "human consumption.  If :c:member:`~PyTypeObject.tp_str` is not specified, "
 "the :c:member:`~PyTypeObject.tp_repr` handler is used instead."
 msgstr ""
+"Обробник :c:member:`~PyTypeObject.tp_str` є :func:`str` тим же, що описаний "
+"вище обробник :c:member:`~PyTypeObject.tp_repr` :func:`repr`; тобто він "
+"викликається, коли код Python викликає :func:`str` для екземпляра вашого "
+"об’єкта. Його реалізація дуже схожа на функцію :c:member:`~PyTypeObject."
+"tp_repr`, але отриманий рядок призначений для використання людиною. Якщо :c:"
+"member:`~PyTypeObject.tp_str` не вказано, замість нього використовується "
+"обробник :c:member:`~PyTypeObject.tp_repr`."
 
 #: ../../extending/newtypes.rst:188
 msgid "Here is a simple example::"
-msgstr ""
+msgstr "Tu jest prosty przykład::"
 
 #: ../../extending/newtypes.rst:200
 msgid "Attribute Management"
-msgstr ""
+msgstr "Zarządzanie własnościami"
 
 #: ../../extending/newtypes.rst:202
 msgid ""
@@ -195,6 +267,12 @@ msgid ""
 "an attribute is a special case, for which the new value passed to the "
 "handler is ``NULL``."
 msgstr ""
+"Для кожного об’єкта, який може підтримувати атрибути, відповідний тип "
+"повинен забезпечувати функції, які контролюють, як атрибути вирішуються. "
+"Потрібна функція, яка може отримувати атрибути (якщо такі визначені), і інша "
+"для встановлення атрибутів (якщо встановлення атрибутів дозволено). "
+"Видалення атрибута є особливим випадком, для якого нове значення, передане "
+"обробнику, є ``NULL``."
 
 #: ../../extending/newtypes.rst:208
 msgid ""
@@ -204,6 +282,11 @@ msgid ""
 "`char\\*`, while the other accepts a :c:expr:`PyObject*`.  Each type can use "
 "whichever pair makes more sense for the implementation's convenience. ::"
 msgstr ""
+"Python поддерживает две пары обработчиков атрибутов; тип, поддерживающий "
+"атрибуты, должен реализовывать функции только для одной пары. Разница в том, "
+"что одна пара принимает имя атрибута как :c:expr:`char\\*`, а другая "
+"принимает :c:expr:`PyObject*`. Каждый тип может использовать любую пару, "
+"которая имеет больше смысла для удобства реализации. ::"
 
 #: ../../extending/newtypes.rst:220
 msgid ""
@@ -215,34 +298,51 @@ msgid ""
 "examples which have not been updated to use some of the new generic "
 "mechanism that is available."
 msgstr ""
+"Если доступ к атрибутам объекта всегда является простой операцией (это будет "
+"объяснено ниже), существуют общие реализации, которые можно использовать для "
+"предоставления версии :c:expr:`PyObject*` функций управления атрибутами. "
+"Фактическая необходимость в обработчиках атрибутов, специфичных для "
+"конкретного типа, почти полностью исчезла, начиная с Python 2.2, хотя "
+"существует множество примеров, которые не были обновлены для использования "
+"некоторых доступных новых универсальных механизмов."
 
 #: ../../extending/newtypes.rst:231
 msgid "Generic Attribute Management"
-msgstr ""
+msgstr "Zastępcze zarządzanie właściwościami"
 
 #: ../../extending/newtypes.rst:233
 msgid ""
 "Most extension types only use *simple* attributes.  So, what makes the "
 "attributes simple?  There are only a couple of conditions that must be met:"
 msgstr ""
+"Większość typów rozszerzeń używa tylko *prostych* właściwości. Więc, co "
+"sprawia że właściwości są proste? Istnieje tylko kilka warunków które należy "
+"spełnić:"
 
 #: ../../extending/newtypes.rst:236
 msgid ""
 "The name of the attributes must be known when :c:func:`PyType_Ready` is "
 "called."
 msgstr ""
+"Під час виклику :c:func:`PyType_Ready` мають бути відомі назви атрибутів."
 
 #: ../../extending/newtypes.rst:239
 msgid ""
 "No special processing is needed to record that an attribute was looked up or "
 "set, nor do actions need to be taken based on the value."
 msgstr ""
+"Żadne szczególne przetwarzanie nie jest potrzebne aby zarejestrować, że "
+"właściwość została pobrana lub ustawiona, ani też działania nie muszą być "
+"podejmowane w oparciu o wartość."
 
 #: ../../extending/newtypes.rst:242
 msgid ""
 "Note that this list does not place any restrictions on the values of the "
 "attributes, when the values are computed, or how relevant data is stored."
 msgstr ""
+"Zauważ że ta lista nie umieszcza żadnych ograniczeń na wartościach "
+"właściwości, gdy wartości są obliczane, lub jak istotne dane są "
+"przechowywane."
 
 #: ../../extending/newtypes.rst:245
 msgid ""
@@ -255,10 +355,18 @@ msgid ""
 "`~PyTypeObject.tp_getattro` and :c:member:`~PyTypeObject.tp_setattro` fields "
 "``NULL`` as well, allowing the base type to handle attributes."
 msgstr ""
+"Коли викликається :c:func:`PyType_Ready`, він використовує три таблиці, на "
+"які посилається об’єкт типу, щоб створити :term:`descriptor`\\, які "
+"розміщуються в словнику об’єкта типу. Кожен дескриптор керує доступом до "
+"одного атрибута об'єкта екземпляра. Кожна з таблиць необов'язкова; якщо всі "
+"три мають значення ``NULL``, екземпляри типу матимуть лише атрибути, "
+"успадковані від їх базового типу, і повинні залишити поля :c:member:"
+"`~PyTypeObject.tp_getattro` і :c:member:`~PyTypeObject.tp_setattro` як "
+"``NULL``, що дозволяє базовому типу обробляти атрибути."
 
 #: ../../extending/newtypes.rst:253
 msgid "The tables are declared as three fields of the type object::"
-msgstr ""
+msgstr "Tabele są zadeklarowane jako trzy pola przedmiotu typu::"
 
 #: ../../extending/newtypes.rst:259
 msgid ""
@@ -266,6 +374,9 @@ msgid ""
 "array of :c:type:`PyMethodDef` structures.  Each entry in the table is an "
 "instance of this structure::"
 msgstr ""
+"Якщо :c:member:`~PyTypeObject.tp_methods` не є ``NULL``, він має посилатися "
+"на масив структур :c:type:`PyMethodDef`. Кожен запис у таблиці є екземпляром "
+"цієї структури:"
 
 #: ../../extending/newtypes.rst:270
 msgid ""
@@ -274,6 +385,10 @@ msgid ""
 "needed at the end; it is a sentinel that marks the end of the array.  The :c:"
 "member:`~PyMethodDef.ml_name` field of the sentinel must be ``NULL``."
 msgstr ""
+"Для каждого метода, предоставляемого типом, должна быть определена одна "
+"запись; для методов, унаследованных от базового типа, записи не требуются. В "
+"конце необходима еще одна запись; это индикатор, отмечающий конец массива. "
+"Поле :c:member:`~PyMethodDef.ml_name` дозорного должно быть ``NULL``."
 
 #: ../../extending/newtypes.rst:275
 msgid ""
@@ -282,6 +397,10 @@ msgid ""
 "access may be read-only or read-write.  The structures in the table are "
 "defined as::"
 msgstr ""
+"Druga tabela jest używana aby określać właściwości które odnoszą się "
+"bezpośrednio do danych przechowywanych w przykładzie. Różnorodne podstawowe "
+"typy C są wspierane, i dostęp może być albo tylko-do-odczytu lub odczyt-i-"
+"zapis. Struktury w tabeli są określone jako::"
 
 #: ../../extending/newtypes.rst:287
 msgid ""
@@ -349,10 +468,13 @@ msgid ""
 "As with the :c:member:`~PyTypeObject.tp_methods` table, a sentinel entry "
 "with a :c:member:`~PyMethodDef.ml_name` value of ``NULL`` is required."
 msgstr ""
+"Как и в случае с таблицей :c:member:`~PyTypeObject.tp_methods`, требуется "
+"контрольная запись со значением :c:member:`~PyMethodDef.ml_name`, равным "
+"``NULL``."
 
 #: ../../extending/newtypes.rst:340
 msgid "Type-specific Attribute Management"
-msgstr ""
+msgstr "Szczególne-dla-typu-przedmiotu zarządzanie właściwościami"
 
 #: ../../extending/newtypes.rst:342
 msgid ""
@@ -364,6 +486,13 @@ msgid ""
 "handler functions are called, so that if you do need to extend their "
 "functionality, you'll understand what needs to be done."
 msgstr ""
+"Для простоты здесь будет продемонстрирована только версия :c:expr:`char\\*`; "
+"тип параметра name — единственное различие между вариантами интерфейса :c:"
+"expr:`char\\*` и :c:expr:`PyObject*`. Этот пример фактически делает то же "
+"самое, что и общий пример выше, но не использует универсальную поддержку, "
+"добавленную в Python 2.2. Там объясняется, как вызываются функции-"
+"обработчики, так что если вам понадобится расширить их функциональность, вы "
+"поймете, что нужно сделать."
 
 #: ../../extending/newtypes.rst:350
 msgid ""
@@ -371,6 +500,9 @@ msgid ""
 "requires an attribute look-up.  It is called in the same situations where "
 "the :meth:`~object.__getattr__` method of a class would be called."
 msgstr ""
+"Обработчик :c:member:`~PyTypeObject.tp_getattr` вызывается, когда объекту "
+"требуется поиск атрибута. Он вызывается в тех же ситуациях, когда вызывается "
+"метод :meth:`~object.__getattr__` класса."
 
 #: ../../extending/newtypes.rst:354
 msgid "Here is an example::"
@@ -385,10 +517,16 @@ msgid ""
 "exception; if this were really all you wanted, the :c:member:`~PyTypeObject."
 "tp_setattr` handler should be set to ``NULL``. ::"
 msgstr ""
+"Обработчик :c:member:`~PyTypeObject.tp_setattr` вызывается, когда будет "
+"вызван метод :meth:`~object.__setattr__` или :meth:`~object.__delattr__` "
+"экземпляра класса. Если атрибут необходимо удалить, третьим параметром будет "
+"значение NULL. Вот пример, который просто вызывает исключение; если бы это "
+"было действительно все, что вам нужно, обработчик :c:member:`~PyTypeObject."
+"tp_setattr` должен быть установлен в значение ``NULL``. ::"
 
 #: ../../extending/newtypes.rst:384
 msgid "Object Comparison"
-msgstr ""
+msgstr "Porównywanie przedmiotów"
 
 #: ../../extending/newtypes.rst:390
 msgid ""
@@ -397,6 +535,10 @@ msgid ""
 "methods <richcmpfuncs>`, like :meth:`!__lt__`, and also called by :c:func:"
 "`PyObject_RichCompare` and :c:func:`PyObject_RichCompareBool`."
 msgstr ""
+"Обработчик :c:member:`~PyTypeObject.tp_richcompare` вызывается, когда "
+"необходимо сравнение. Он аналогичен :ref:`методам расширенного сравнения "
+"<richcmpfuncs>`, например :meth:`!__lt__`, и также вызывается :c:func:"
+"`PyObject_RichCompare` и :c:func:`PyObject_RichCompareBool`."
 
 #: ../../extending/newtypes.rst:395
 msgid ""
@@ -408,22 +550,33 @@ msgid ""
 "comparison is not implemented and the other object's comparison method "
 "should be tried, or ``NULL`` if an exception was set."
 msgstr ""
+"Ця функція викликається з двома об’єктами Python і оператором як "
+"аргументами, де оператор є одним із ``Py_EQ``, ``Py_NE``, ``Py_LE``, "
+"``Py_GE``, ``Py_LT`` або ``Py_GT``. Він має порівняти два об’єкти щодо "
+"вказаного оператора та повернути ``Py_True`` або ``Py_False``, якщо "
+"порівняння успішне, ``Py_NotImplemented``, щоб вказати, що порівняння не "
+"реалізовано, а метод порівняння іншого об’єкта має спробувати, або ``NULL``, "
+"якщо встановлено виняток."
 
 #: ../../extending/newtypes.rst:403
 msgid ""
 "Here is a sample implementation, for a datatype that is considered equal if "
 "the size of an internal pointer is equal::"
 msgstr ""
+"Tu jest przykładowe wypełnienie, dla typu danych który jest uznawany za "
+"równy, jeśli rozmiar wewnętrznego wskaźnika jest równy::"
 
 #: ../../extending/newtypes.rst:433
 msgid "Abstract Protocol Support"
-msgstr ""
+msgstr "Wsparcie protokołu abstrakcyjnego"
 
 #: ../../extending/newtypes.rst:435
 msgid ""
 "Python supports a variety of *abstract* 'protocols;' the specific interfaces "
 "provided to use these interfaces are documented in :ref:`abstract`."
 msgstr ""
+"Python wspiera różne *abstrakcyjne* 'protokoły;' szczegółowe interfejsy "
+"dostarczone do użycia tych interfejsów są udokumentowane w :ref:`abstract`."
 
 #: ../../extending/newtypes.rst:439
 msgid ""
@@ -439,6 +592,16 @@ msgid ""
 "values are non-``NULL``. The flag may be set to indicate the presence of a "
 "slot, but a slot may still be unfilled.) ::"
 msgstr ""
+"Деякі з цих абстрактних інтерфейсів були визначені на початку розробки "
+"реалізації Python. Зокрема, протоколи чисел, відображення та послідовності "
+"були частиною Python з самого початку. З часом були додані інші протоколи. "
+"Для протоколів, які залежать від кількох підпрограм обробників із реалізації "
+"типу, старіші протоколи були визначені як додаткові блоки обробників, на які "
+"посилається об’єкт типу. Для новіших протоколів є додаткові слоти в об’єкті "
+"основного типу, із встановленим бітом прапора, який вказує, що слоти "
+"присутні та повинні бути перевірені інтерпретатором. (Біт прапора не вказує "
+"на те, що значення слота не є ``NULL``. Прапор може бути встановлений для "
+"вказівки на наявність слота, але слот все ще може бути незаповненим.) ::"
 
 #: ../../extending/newtypes.rst:454
 msgid ""
@@ -450,12 +613,20 @@ msgid ""
 "of these in the :file:`Objects` directory of the Python source "
 "distribution. ::"
 msgstr ""
+"Якщо ви бажаєте, щоб ваш об’єкт діяв як число, послідовність або об’єкт "
+"відображення, тоді ви розміщуєте адресу структури, яка реалізує тип C :c:"
+"type:`PyNumberMethods`, :c:type:`PySequenceMethods` або :c:type:"
+"`PyMappingMethods` відповідно. Ви повинні заповнити цю структуру "
+"відповідними значеннями. Ви можете знайти приклади використання кожного з "
+"них у каталозі :file:`Objects` вихідного коду Python. ::"
 
 #: ../../extending/newtypes.rst:463
 msgid ""
 "This function, if you choose to provide it, should return a hash number for "
 "an instance of your data type. Here is a simple example::"
 msgstr ""
+"Ця функція, якщо ви вирішите її надати, має повертати хеш-номер для "
+"екземпляра вашого типу даних. Ось простий приклад::"
 
 #: ../../extending/newtypes.rst:476
 msgid ""
@@ -464,6 +635,10 @@ msgid ""
 "which is why you should be careful to avoid returning it when hash "
 "computation is successful, as seen above."
 msgstr ""
+":c:type:`!Py_hash_t` — это целочисленный тип со знаком, ширина которого "
+"зависит от платформы. Возврат ``-1`` из :c:member:`~PyTypeObject.tp_hash` "
+"указывает на ошибку, поэтому вам следует быть осторожным, чтобы не "
+"возвращать его при успешном вычислении хэша, как показано выше."
 
 #: ../../extending/newtypes.rst:485
 msgid ""
@@ -472,22 +647,30 @@ msgid ""
 "script contains ``obj1('hello')``, the :c:member:`~PyTypeObject.tp_call` "
 "handler is invoked."
 msgstr ""
+"Ця функція викликається, коли \"викликається\" екземпляр вашого типу даних, "
+"наприклад, якщо ``obj1`` є екземпляром вашого типу даних і сценарій Python "
+"містить ``obj1('hello')``, то :c:member:`~PyTypeObject.tp_call` обробник "
+"викликається."
 
 #: ../../extending/newtypes.rst:489
 msgid "This function takes three arguments:"
-msgstr ""
+msgstr "To zadanie pobiera trzy parametry:"
 
 #: ../../extending/newtypes.rst:491
 msgid ""
 "*self* is the instance of the data type which is the subject of the call. If "
 "the call is ``obj1('hello')``, then *self* is ``obj1``."
 msgstr ""
+"*self* — це екземпляр типу даних, який є предметом виклику. Якщо виклик "
+"``obj1('hello')``, то *self* є ``obj1``."
 
 #: ../../extending/newtypes.rst:494
 msgid ""
 "*args* is a tuple containing the arguments to the call.  You can use :c:func:"
 "`PyArg_ParseTuple` to extract the arguments."
 msgstr ""
+"*args* — це кортеж, що містить аргументи виклику. Ви можете використовувати :"
+"c:func:`PyArg_ParseTuple`, щоб отримати аргументи."
 
 #: ../../extending/newtypes.rst:497
 msgid ""
@@ -497,10 +680,16 @@ msgid ""
 "to support keyword arguments and this is non-``NULL``, raise a :exc:"
 "`TypeError` with a message saying that keyword arguments are not supported."
 msgstr ""
+"*kwds* — це словник переданих ключових аргументів. Якщо це не ``NULL`` і ви "
+"підтримуєте аргументи ключових слів, використовуйте :c:func:"
+"`PyArg_ParseTupleAndKeywords`, щоб отримати аргументи. Якщо ви не хочете "
+"підтримувати аргументи ключових слів і це не ``NULL``, викличте :exc:"
+"`TypeError` із повідомленням про те, що аргументи ключових слів не "
+"підтримуються."
 
 #: ../../extending/newtypes.rst:503
 msgid "Here is a toy ``tp_call`` implementation::"
-msgstr ""
+msgstr "Ось реалізація іграшки ``tp_call``::"
 
 #: ../../extending/newtypes.rst:529
 msgid ""
@@ -512,6 +701,12 @@ msgid ""
 "`~PyTypeObject.tp_iternext` corresponds to the Python :meth:`~iterator."
 "__next__` method."
 msgstr ""
+"Эти функции обеспечивают поддержку протокола итератора. Оба обработчика "
+"принимают ровно один параметр — экземпляр, для которого они вызываются, — и "
+"возвращают новую ссылку. В случае ошибки они должны установить исключение и "
+"вернуть NULL. :c:member:`~PyTypeObject.tp_iter` соответствует методу Python :"
+"meth:`~object.__iter__`, а :c:member:`~PyTypeObject.tp_iternext` "
+"соответствует методу Python :meth:`~iterator.__next__ `метод."
 
 #: ../../extending/newtypes.rst:536
 msgid ""
@@ -519,6 +714,9 @@ msgid ""
 "tp_iter` handler, which must return an :term:`iterator` object.  Here the "
 "same guidelines apply as for Python classes:"
 msgstr ""
+"Будь-який об’єкт :term:`iterable` повинен реалізовувати обробник :c:member:"
+"`~PyTypeObject.tp_iter`, який має повертати об’єкт :term:`iterator`. Тут "
+"застосовуються ті самі правила, що й для класів Python:"
 
 #: ../../extending/newtypes.rst:540
 msgid ""
@@ -526,6 +724,9 @@ msgid ""
 "independent iterators, a new iterator should be created and returned by each "
 "call to :c:member:`~PyTypeObject.tp_iter`."
 msgstr ""
+"Для колекцій (таких як списки та кортежі), які можуть підтримувати кілька "
+"незалежних ітераторів, новий ітератор слід створювати та повертати під час "
+"кожного виклику :c:member:`~PyTypeObject.tp_iter`."
 
 #: ../../extending/newtypes.rst:543
 msgid ""
@@ -534,6 +735,10 @@ msgid ""
 "tp_iter` by returning a new reference to themselves -- and should also "
 "therefore implement the :c:member:`~PyTypeObject.tp_iternext`  handler."
 msgstr ""
+"Об’єкти, які можна повторити лише один раз (зазвичай через побічні ефекти "
+"ітерації, такі як файлові об’єкти), можуть реалізувати :c:member:"
+"`~PyTypeObject.tp_iter`, повертаючи нове посилання на себе — і тому також "
+"повинні реалізувати :c:member:`~PyTypeObject.tp_iternext` обробник."
 
 #: ../../extending/newtypes.rst:548
 msgid ""
@@ -549,10 +754,21 @@ msgid ""
 "`~PyTypeObject.tp_iternext` should always set an exception and return "
 "``NULL``."
 msgstr ""
+"Будь-який об’єкт :term:`iterator` повинен реалізовувати як :c:member:"
+"`~PyTypeObject.tp_iter`, так і :c:member:`~PyTypeObject.tp_iternext`. "
+"Обробник :c:member:`~PyTypeObject.tp_iter` ітератора має повертати нове "
+"посилання на ітератор. Його :c:member:`~PyTypeObject.tp_iternext` обробник "
+"має повернути нове посилання на наступний об’єкт у ітерації, якщо він є. "
+"Якщо ітерація досягла кінця, :c:member:`~PyTypeObject.tp_iternext` може "
+"повернути ``NULL`` без встановлення винятку, або він може встановити :exc:"
+"`StopIteration` *на додаток* до повернення ``NULL``; уникнення винятку може "
+"дати трохи кращу продуктивність. Якщо сталася фактична помилка, :c:member:"
+"`~PyTypeObject.tp_iternext` має завжди встановлювати виняток і повертати "
+"``NULL``."
 
 #: ../../extending/newtypes.rst:564
 msgid "Weak Reference Support"
-msgstr ""
+msgstr "Wsparcie dla słabych odniesień"
 
 #: ../../extending/newtypes.rst:566
 msgid ""
@@ -560,6 +776,9 @@ msgid ""
 "type to participate in the weak reference mechanism without incurring the "
 "overhead on performance-critical objects (such as numbers)."
 msgstr ""
+"Одна з цілей реалізації слабкого посилання Python полягає в тому, щоб "
+"дозволити будь-якому типу брати участь у механізмі слабкого посилання без "
+"накладних витрат на критичні для продуктивності об’єкти (наприклад, числа)."
 
 #: ../../extending/newtypes.rst:571
 msgid "Documentation for the :mod:`weakref` module."
@@ -605,7 +824,7 @@ msgstr ""
 
 #: ../../extending/newtypes.rst:616
 msgid "More Suggestions"
-msgstr ""
+msgstr "Więcej sugestii"
 
 #: ../../extending/newtypes.rst:618
 msgid ""
@@ -615,6 +834,11 @@ msgid ""
 "want (for example, ``tp_richcompare``).  You will find examples of the "
 "function you want to implement."
 msgstr ""
+"Щоб дізнатися, як реалізувати певний метод для вашого нового типу даних, "
+"отримайте вихідний код :term:`CPython`. Перейдіть до каталогу :file:"
+"`Objects`, потім знайдіть у вихідних файлах C ``tp_`` і потрібну функцію "
+"(наприклад, ``tp_richcompare``). Ви знайдете приклади функцій, які ви хочете "
+"реалізувати."
 
 #: ../../extending/newtypes.rst:624
 msgid ""
@@ -622,10 +846,13 @@ msgid ""
 "you are implementing, use the :c:func:`PyObject_TypeCheck` function.  A "
 "sample of its use might be something like the following::"
 msgstr ""
+"Якщо вам потрібно перевірити, чи об’єкт є конкретним екземпляром типу, який "
+"ви реалізуєте, використовуйте функцію :c:func:`PyObject_TypeCheck`. Приклад "
+"його використання може бути приблизно таким:"
 
 #: ../../extending/newtypes.rst:635
 msgid "Download CPython source releases."
-msgstr ""
+msgstr "Завантажте вихідні версії CPython."
 
 #: ../../extending/newtypes.rst:635
 msgid "https://www.python.org/downloads/source/"
@@ -634,7 +861,7 @@ msgstr "https://www.python.org/downloads/source/"
 #: ../../extending/newtypes.rst:637
 msgid ""
 "The CPython project on GitHub, where the CPython source code is developed."
-msgstr ""
+msgstr "Проект CPython на GitHub, де розробляється вихідний код CPython."
 
 #: ../../extending/newtypes.rst:638
 msgid "https://github.com/python/cpython"
@@ -646,27 +873,27 @@ msgstr "objeto"
 
 #: ../../extending/newtypes.rst:56
 msgid "deallocation"
-msgstr ""
+msgstr "освобождение"
 
 #: ../../extending/newtypes.rst:56
 msgid "deallocation, object"
-msgstr ""
+msgstr "освобождение, объект"
 
 #: ../../extending/newtypes.rst:56
 msgid "finalization"
-msgstr ""
+msgstr "завершение"
 
 #: ../../extending/newtypes.rst:56
 msgid "finalization, of objects"
-msgstr ""
+msgstr "доработка объектов"
 
 #: ../../extending/newtypes.rst:91
 msgid "PyErr_Fetch (C function)"
-msgstr ""
+msgstr "PyErr_Fetch (C функция)"
 
 #: ../../extending/newtypes.rst:91
 msgid "PyErr_Restore (C function)"
-msgstr ""
+msgstr "PyErr_Restore (C функция)"
 
 #: ../../extending/newtypes.rst:150
 msgid "string"
@@ -674,7 +901,7 @@ msgstr "string"
 
 #: ../../extending/newtypes.rst:150
 msgid "object representation"
-msgstr ""
+msgstr "представление объекта"
 
 #: ../../extending/newtypes.rst:150
 msgid "built-in function"

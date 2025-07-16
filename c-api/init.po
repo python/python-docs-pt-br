@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.11\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-13 16:17+0000\n"
+"POT-Creation-Date: 2025-07-11 16:41+0000\n"
 "PO-Revision-Date: 2023-05-24 02:09+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -364,7 +364,7 @@ msgstr "Veja :pep:`529` para mais detalhes."
 
 #: ../../c-api/init.rst:163 ../../c-api/init.rst:175
 msgid ":ref:`Availability <availability>`: Windows."
-msgstr ":ref:`Disponibilidade <availability>`: Windows."
+msgstr ":ref:`Availability <availability>`: Windows."
 
 #: ../../c-api/init.rst:167
 msgid ""
@@ -494,6 +494,13 @@ msgid ""
 "called for a second time (without calling :c:func:`Py_FinalizeEx` first).  "
 "There is no return value; it is a fatal error if the initialization fails."
 msgstr ""
+"Це ініціалізує таблицю завантажених модулів (``sys.modules``) і створює "
+"фундаментальні модулі :mod:`builtins`, :mod:`__main__` і :mod:`sys`. Він "
+"також ініціалізує шлях пошуку модуля (``sys.path``). Він не встановлює ``sys."
+"argv``; використовуйте для цього :c:func:`PySys_SetArgvEx`. Під час другого "
+"виклику це не виконується (без першого виклику :c:func:`Py_FinalizeEx`). "
+"Немає значення, що повертається; це фатальна помилка, якщо ініціалізація не "
+"вдається."
 
 #: ../../c-api/init.rst:257
 msgid ""
@@ -509,6 +516,10 @@ msgid ""
 "*initsigs* is ``0``, it skips initialization registration of signal "
 "handlers, which might be useful when Python is embedded."
 msgstr ""
+"Ця функція працює як :c:func:`Py_Initialize`, якщо *initsigs* дорівнює "
+"``1``. Якщо *initsigs* дорівнює ``0``, він пропускає реєстрацію "
+"ініціалізації обробників сигналів, що може бути корисним, якщо Python "
+"вбудовано."
 
 #: ../../c-api/init.rst:270
 msgid ""
@@ -564,6 +575,18 @@ msgid ""
 "an application calls :c:func:`Py_Initialize` and :c:func:`Py_FinalizeEx` "
 "more than once."
 msgstr ""
+"**Ошибки и замечания:** Уничтожение модулей и объектов в модулях "
+"производится в случайном порядке; это может привести к сбою деструкторов "
+"(методов:meth:`~object.__del__`), когда они зависят от других объектов (даже "
+"функций) или модулей. Динамически загружаемые модули расширения, загруженные "
+"Python, не выгружаются. Небольшие объемы памяти, выделенные интерпретатором "
+"Python, могут быть не освобождены (если вы обнаружите утечку, сообщите об "
+"этом). Память, связанная циклическими ссылками между объектами, не "
+"освобождается. Некоторая память, выделенная модулями расширения, может быть "
+"не освобождена. Некоторые расширения могут работать некорректно, если их "
+"процедура инициализации вызывается более одного раза; это может произойти, "
+"если приложение вызывает :c:func:`Py_Initialize` и :c:func:`Py_FinalizeEx` "
+"более одного раза."
 
 #: ../../c-api/init.rst:305
 msgid ""
@@ -583,7 +606,7 @@ msgstr ""
 
 #: ../../c-api/init.rst:316
 msgid "Process-wide parameters"
-msgstr ""
+msgstr "Параметри для всього процесу"
 
 #: ../../c-api/init.rst:326
 msgid ""
@@ -591,6 +614,10 @@ msgid ""
 "stdio_encoding` and :c:member:`PyConfig.stdio_errors` should be used "
 "instead, see :ref:`Python Initialization Configuration <init-config>`."
 msgstr ""
+"Этот API сохранен для обратной совместимости: вместо него следует "
+"использовать настройки :c:member:`PyConfig.stdio_encoding` и :c:member:"
+"`PyConfig.stdio_errors`, см. :ref:`Конфигурация инициализации Python <init-"
+"config>`."
 
 #: ../../c-api/init.rst:331
 msgid ""
@@ -598,36 +625,51 @@ msgid ""
 "called at all. It specifies which encoding and error handling to use with "
 "standard IO, with the same meanings as in :func:`str.encode`."
 msgstr ""
+"Цю функцію слід викликати перед :c:func:`Py_Initialize`, якщо вона взагалі "
+"викликається. Він визначає, яке кодування та обробку помилок використовувати "
+"зі стандартним вводом-виводом із тим самим значенням, що й у :func:`str."
+"encode`."
 
 #: ../../c-api/init.rst:335
 msgid ""
 "It overrides :envvar:`PYTHONIOENCODING` values, and allows embedding code to "
 "control IO encoding when the environment variable does not work."
 msgstr ""
+"Він замінює значення :envvar:`PYTHONIOENCODING` і дозволяє вставляти код для "
+"керування кодуванням вводу/виводу, коли змінна середовища не працює."
 
 #: ../../c-api/init.rst:338
 msgid ""
 "*encoding* and/or *errors* may be ``NULL`` to use :envvar:`PYTHONIOENCODING` "
 "and/or default values (depending on other settings)."
 msgstr ""
+"*кодування* та/або *помилки* можуть бути ``NULL`` для використання :envvar:"
+"`PYTHONIOENCODING` та/або значень за замовчуванням (залежно від інших "
+"налаштувань)."
 
 #: ../../c-api/init.rst:342
 msgid ""
 "Note that :data:`sys.stderr` always uses the \"backslashreplace\" error "
 "handler, regardless of this (or any other) setting."
 msgstr ""
+"Зауважте, що :data:`sys.stderr` завжди використовує обробник помилок "
+"\"backslashreplace\", незалежно від цього (або будь-якого іншого) параметра."
 
 #: ../../c-api/init.rst:345
 msgid ""
 "If :c:func:`Py_FinalizeEx` is called, this function will need to be called "
 "again in order to affect subsequent calls to :c:func:`Py_Initialize`."
 msgstr ""
+"Якщо викликається :c:func:`Py_FinalizeEx`, цю функцію потрібно буде "
+"викликати знову, щоб вплинути на наступні виклики :c:func:`Py_Initialize`."
 
 #: ../../c-api/init.rst:348
 msgid ""
 "Returns ``0`` if successful, a nonzero value on error (e.g. calling after "
 "the interpreter has already been initialized)."
 msgstr ""
+"У разі успіху повертає ``0``, відмінне від нуля значення в разі помилки "
+"(наприклад, виклик після того, як інтерпретатор уже ініціалізовано)."
 
 #: ../../c-api/init.rst:363
 msgid ""
@@ -635,6 +677,9 @@ msgid ""
 "program_name` should be used instead, see :ref:`Python Initialization "
 "Configuration <init-config>`."
 msgstr ""
+"Этот API сохранен для обратной совместимости: вместо него следует "
+"использовать настройку :c:member:`PyConfig.program_name`, см. :ref:"
+"`Конфигурация инициализации Python <init-config>`."
 
 #: ../../c-api/init.rst:367
 msgid ""
@@ -666,6 +711,8 @@ msgid ""
 "Use :c:func:`Py_DecodeLocale` to decode a bytes string to get a :c:expr:"
 "`wchar_*` string."
 msgstr ""
+"Используйте :c:func:`Py_DecodeLocale` для декодирования строки байтов и "
+"получения строки :c:expr:`wchar_*`."
 
 #: ../../c-api/init.rst:388
 msgid ""
@@ -673,6 +720,9 @@ msgid ""
 "default. The returned string points into static storage; the caller should "
 "not modify its value."
 msgstr ""
+"Повертає назву програми, встановлену за допомогою :c:func:"
+"`Py_SetProgramName`, або за замовчуванням. Повернений рядок вказує на "
+"статичне сховище; абонент не повинен змінювати його значення."
 
 #: ../../c-api/init.rst:392 ../../c-api/init.rst:411 ../../c-api/init.rst:452
 #: ../../c-api/init.rst:471 ../../c-api/init.rst:495 ../../c-api/init.rst:718
@@ -680,11 +730,14 @@ msgid ""
 "This function should not be called before :c:func:`Py_Initialize`, otherwise "
 "it returns ``NULL``."
 msgstr ""
+"Цю функцію не слід викликати перед :c:func:`Py_Initialize`, інакше вона "
+"повертає ``NULL``."
 
 #: ../../c-api/init.rst:395 ../../c-api/init.rst:414 ../../c-api/init.rst:455
 #: ../../c-api/init.rst:474 ../../c-api/init.rst:500 ../../c-api/init.rst:721
 msgid "It now returns ``NULL`` if called before :c:func:`Py_Initialize`."
 msgstr ""
+"Тепер він повертає ``NULL``, якщо викликаний перед :c:func:`Py_Initialize`."
 
 #: ../../c-api/init.rst:401
 msgid ""
@@ -699,6 +752,16 @@ msgid ""
 "available to Python code as ``sys.prefix``. It is only useful on Unix.  See "
 "also the next function."
 msgstr ""
+"Верните *префикс* для установленных файлов, независимых от платформы. Это "
+"получается с помощью ряда сложных правил из имени программы, заданного с "
+"помощью :c:func:`Py_SetProgramName` и некоторых переменных среды; например, "
+"если имя программы ``'/usr/local/bin/python'``, префикс будет ``'/usr/"
+"local'``. Возвращенная строка указывает на статическое хранилище; вызывающая "
+"сторона не должна изменять его значение. Это соответствует переменной :"
+"makevar:`prefix` в :file:`Makefile` верхнего уровня и аргументу :option:`--"
+"prefix` скрипта :program:`configure` во время сборки. Это значение доступно "
+"для кода Python как ``sys.prefix``. Это полезно только в Unix. См. также "
+"следующую функцию."
 
 #: ../../c-api/init.rst:420
 msgid ""
@@ -713,6 +776,15 @@ msgid ""
 "value is available to Python code as ``sys.exec_prefix``.  It is only useful "
 "on Unix."
 msgstr ""
+"Повертає *префікс exec* для встановлених *залежних* від платформи файлів. Це "
+"виводиться через низку складних правил із назви програми, встановленої за "
+"допомогою :c:func:`Py_SetProgramName` та деяких змінних середовища; "
+"наприклад, якщо назва програми ``'/usr/local/bin/python'``, префікс exec ``'/"
+"usr/local'``. Повернений рядок вказує на статичне сховище; абонент не "
+"повинен змінювати його значення. Це відповідає змінній :makevar:"
+"`exec_prefix` у :file:`Makefile` верхнього рівня та аргументу ``--exec-"
+"prefix`` сценарію :program:`configure` під час збирання. Значення доступне "
+"для коду Python як ``sys.exec_prefix``. Це корисно лише в Unix."
 
 #: ../../c-api/init.rst:430
 msgid ""
@@ -722,6 +794,11 @@ msgid ""
 "files may be installed in the :file:`/usr/local/plat` subtree while platform "
 "independent may be installed in :file:`/usr/local`."
 msgstr ""
+"Довідкова інформація: префікс exec відрізняється від префікса, коли залежні "
+"від платформи файли (такі як виконувані файли та спільні бібліотеки) "
+"інстальовано в іншому дереві каталогів. У типовій інсталяції залежні від "
+"платформи файли можна інсталювати у піддереві :file:`/usr/local/plat`, а "
+"незалежні від платформи — у :file:`/usr/local`."
 
 #: ../../c-api/init.rst:436
 msgid ""
@@ -736,6 +813,17 @@ msgid ""
 "Note that compiled Python bytecode files are platform independent (but not "
 "independent from the Python version by which they were compiled!)."
 msgstr ""
+"Загалом, платформа – це комбінація сімейства апаратного та програмного "
+"забезпечення, напр. Машини Sparc під керуванням операційної системи Solaris "
+"2.x вважаються тією самою платформою, але машини Intel під керуванням "
+"Solaris 2.x є іншою платформою, а машини Intel під керуванням Linux є ще "
+"іншою платформою. Різні основні версії однієї операційної системи, як "
+"правило, створюють різні платформи. Інша історія — операційні системи, "
+"відмінні від Unix; стратегії встановлення в цих системах настільки різні, що "
+"префікс і префікс exec не мають сенсу та встановлюються як порожній рядок. "
+"Зауважте, що скомпільовані файли байт-коду Python не залежать від платформи "
+"(але не залежать від версії Python, за допомогою якої вони були "
+"скомпільовані!)."
 
 #: ../../c-api/init.rst:447
 msgid ""
@@ -744,6 +832,10 @@ msgid ""
 "while having :file:`/usr/local/plat` be a different filesystem for each "
 "platform."
 msgstr ""
+"Системні адміністратори знатимуть, як налаштувати програми :program:`mount` "
+"або :program:`automount` для спільного використання :file:`/usr/local` між "
+"платформами, використовуючи :file:`/usr/local/plat` різні файлові системи "
+"для кожної платформи."
 
 #: ../../c-api/init.rst:465
 msgid ""
@@ -753,6 +845,11 @@ msgid ""
 "into static storage; the caller should not modify its value.  The value is "
 "available to Python code as ``sys.executable``."
 msgstr ""
+"Повертає повну назву програми виконуваного файлу Python; це обчислюється як "
+"побічний ефект отримання шляху пошуку модуля за замовчуванням з назви "
+"програми (встановленої :c:func:`Py_SetProgramName` вище). Повернений рядок "
+"вказує на статичне сховище; абонент не повинен змінювати його значення. "
+"Значення доступне для коду Python як ``sys.executable``."
 
 #: ../../c-api/init.rst:485
 msgid ""
@@ -766,6 +863,15 @@ msgid ""
 "startup; it can be (and usually is) modified later to change the search path "
 "for loading modules."
 msgstr ""
+"Повертає стандартний шлях пошуку модуля; це обчислюється з назви програми "
+"(встановленої :c:func:`Py_SetProgramName` вище) і деяких змінних середовища. "
+"Повернений рядок складається з назв каталогів, розділених символом-"
+"роздільником, що залежить від платформи. Роздільником є ``':''`` в Unix і "
+"macOS, ``';''`` у Windows. Повернений рядок вказує на статичне сховище; "
+"абонент не повинен змінювати його значення. Список :data:`sys.path` "
+"ініціалізується цим значенням під час запуску інтерпретатора; його можна (і "
+"зазвичай так) змінити пізніше, щоб змінити шлях пошуку для завантаження "
+"модулів."
 
 #: ../../c-api/init.rst:511
 msgid ""
@@ -774,6 +880,10 @@ msgid ""
 "be used instead, see :ref:`Python Initialization Configuration <init-"
 "config>`."
 msgstr ""
+"Этот API сохранен для обратной совместимости: вместо него следует "
+"использовать настройки :c:member:`PyConfig.module_search_paths` и :c:member:"
+"`PyConfig.module_search_paths_set`, см. :ref:`Конфигурация инициализации "
+"Python <init-config>`."
 
 #: ../../c-api/init.rst:516
 msgid ""
@@ -785,6 +895,13 @@ msgid ""
 "dependent delimiter character, which is ``':'`` on Unix and macOS, ``';'`` "
 "on Windows."
 msgstr ""
+"Встановіть шлях пошуку модуля за замовчуванням. Якщо ця функція викликається "
+"перед :c:func:`Py_Initialize`, тоді :c:func:`Py_GetPath` не намагатиметься "
+"обчислити шлях пошуку за замовчуванням, а замість цього використовуватиме "
+"наданий. Це корисно, якщо Python вбудовано програмою, яка має повні "
+"відомості про розташування всіх модулів. Компоненти шляху мають бути "
+"розділені залежним від платформи символом роздільника, яким є ``':''`` в "
+"Unix і macOS, ``';''`` у Windows."
 
 #: ../../c-api/init.rst:524
 msgid ""
@@ -793,6 +910,11 @@ msgid ""
 "`sys.exec_prefix` to be empty.  It is up to the caller to modify these if "
 "required after calling :c:func:`Py_Initialize`."
 msgstr ""
+"Це також призводить до того, що для :data:`sys.executable` буде встановлено "
+"повний шлях до програми (див. :c:func:`Py_GetProgramFullPath`), а для :data:"
+"`sys.prefix` і :data:`sys.exec_prefix` — бути порожнім. Користувач, який "
+"викликає, може змінити їх, якщо потрібно, після виклику :c:func:"
+"`Py_Initialize`."
 
 #: ../../c-api/init.rst:532
 msgid ""
@@ -826,10 +948,14 @@ msgid ""
 "not modify its value.  The value is available to Python code as :data:`sys."
 "version`."
 msgstr ""
+"Перше слово (до першого символу пробілу) є поточною версією Python; перші "
+"символи — це головна та другорядна версії, розділені крапкою. Повернений "
+"рядок вказує на статичне сховище; абонент не повинен змінювати його "
+"значення. Значення доступне для коду Python як :data:`sys.version`."
 
 #: ../../c-api/init.rst:556
 msgid "See also the :c:var:`Py_Version` constant."
-msgstr ""
+msgstr "См. также константу :c:var:`Py_Version`."
 
 #: ../../c-api/init.rst:563
 msgid ""
@@ -841,6 +967,13 @@ msgid ""
 "into static storage; the caller should not modify its value.  The value is "
 "available to Python code as ``sys.platform``."
 msgstr ""
+"Повертає ідентифікатор платформи для поточної платформи. В Unix це "
+"формується з \"офіційної\" назви операційної системи, перетвореної на нижній "
+"регістр, за якою йде основний номер версії; наприклад, для Solaris 2.x, яка "
+"також відома як SunOS 5.x, значенням є ``'sunos5``. У macOS це ``'darwin'``. "
+"У Windows це ``'win'``. Повернений рядок вказує на статичне сховище; абонент "
+"не повинен змінювати його значення. Значення доступне для коду Python як "
+"``sys.platform``."
 
 #: ../../c-api/init.rst:574
 msgid ""
@@ -859,6 +992,8 @@ msgid ""
 "The returned string points into static storage; the caller should not modify "
 "its value.  The value is available to Python code as ``sys.copyright``."
 msgstr ""
+"Повернений рядок вказує на статичне сховище; абонент не повинен змінювати "
+"його значення. Значення доступне для коду Python як ``sys.copyright``."
 
 #: ../../c-api/init.rst:586
 msgid ""
@@ -874,6 +1009,9 @@ msgid ""
 "its value.  The value is available to Python code as part of the variable "
 "``sys.version``."
 msgstr ""
+"Повернений рядок вказує на статичне сховище; абонент не повинен змінювати "
+"його значення. Значення доступне для коду Python як частина змінної ``sys."
+"version``."
 
 #: ../../c-api/init.rst:600
 msgid ""
@@ -890,6 +1028,10 @@ msgid ""
 "should be used instead, see :ref:`Python Initialization Configuration <init-"
 "config>`."
 msgstr ""
+"Этот API сохранен для обратной совместимости: вместо этого следует "
+"использовать настройки :c:member:`PyConfig.argv`, :c:member:`PyConfig."
+"parse_argv` и :c:member:`PyConfig.safe_path`, см. :ref: `Конфигурация "
+"инициализации Python <init-config>`."
 
 #: ../../c-api/init.rst:624
 msgid ""
@@ -901,6 +1043,13 @@ msgid ""
 "empty string.  If this function fails to initialize :data:`sys.argv`, a "
 "fatal condition is signalled using :c:func:`Py_FatalError`."
 msgstr ""
+"Встановити :data:`sys.argv` на основі *argc* і *argv*. Ці параметри подібні "
+"до тих, що передаються до функції програми :c:func:`main` з тією різницею, "
+"що перший запис має посилатися на файл сценарію, який буде виконано, а не на "
+"виконуваний файл, у якому розміщено інтерпретатор Python. Якщо сценарію, "
+"який буде запущено, немає, перший запис у *argv* може бути порожнім рядком. "
+"Якщо цій функції не вдається ініціалізувати :data:`sys.argv`, за допомогою :"
+"c:func:`Py_FatalError` повідомляється про фатальну умову."
 
 #: ../../c-api/init.rst:632
 msgid ""
@@ -918,6 +1067,8 @@ msgid ""
 "path of the directory where the script is located is prepended to :data:`sys."
 "path`."
 msgstr ""
+"Якщо ім’я існуючого сценарію передається в ``argv[0]``, абсолютний шлях до "
+"каталогу, де розташований сценарій, додається до :data:`sys.path`."
 
 #: ../../c-api/init.rst:639
 msgid ""
@@ -925,12 +1076,17 @@ msgid ""
 "existing file name), an empty string is prepended to :data:`sys.path`, which "
 "is the same as prepending the current working directory (``\".\"``)."
 msgstr ""
+"В іншому випадку (тобто, якщо *argc* дорівнює ``0`` або ``argv[0]`` не "
+"вказує на існуюче ім’я файлу), до :data:`sys.path` додається порожній рядок, "
+"що те саме, що додавати поточний робочий каталог (``\".\"``)."
 
 #: ../../c-api/init.rst:647 ../../c-api/init.rst:683
 msgid ""
 "See also :c:member:`PyConfig.orig_argv` and :c:member:`PyConfig.argv` "
 "members of the :ref:`Python Initialization Configuration <init-config>`."
 msgstr ""
+"См. также члены :c:member:`PyConfig.orig_argv` и :c:member:`PyConfig.argv` "
+"в :ref:`Конфигурация инициализации Python <init-config>`."
 
 #: ../../c-api/init.rst:651
 msgid ""
@@ -946,6 +1102,9 @@ msgid ""
 "popping the first :data:`sys.path` element after having called :c:func:"
 "`PySys_SetArgv`, for example using::"
 msgstr ""
+"У версіях до 3.1.3 ви можете досягти того самого ефекту, вручну витягнувши "
+"перший елемент :data:`sys.path` після виклику :c:func:`PySys_SetArgv`, "
+"наприклад, використовуючи::"
 
 #: ../../c-api/init.rst:672
 msgid ""
@@ -953,6 +1112,9 @@ msgid ""
 "argv` and :c:member:`PyConfig.parse_argv` should be used instead, see :ref:"
 "`Python Initialization Configuration <init-config>`."
 msgstr ""
+"Этот API сохранен для обратной совместимости: вместо него следует "
+"использовать настройки :c:member:`PyConfig.argv` и :c:member:`PyConfig."
+"parse_argv`, см. :ref:`Конфигурация инициализации Python <init-config>`."
 
 #: ../../c-api/init.rst:676
 msgid ""
@@ -960,10 +1122,13 @@ msgid ""
 "``1`` unless the :program:`python` interpreter was started with the :option:"
 "`-I`."
 msgstr ""
+"Ця функція працює як :c:func:`PySys_SetArgvEx` з *updatepath*, встановленим "
+"на ``1``, якщо інтерпретатор :program:`python` не було запущено з :option:`-"
+"I`."
 
 #: ../../c-api/init.rst:686
 msgid "The *updatepath* value depends on :option:`-I`."
-msgstr ""
+msgstr "Значення *updatepath* залежить від :option:`-I`."
 
 #: ../../c-api/init.rst:693
 msgid ""
@@ -971,6 +1136,9 @@ msgid ""
 "home` should be used instead, see :ref:`Python Initialization Configuration "
 "<init-config>`."
 msgstr ""
+"Этот API сохранен для обратной совместимости: вместо него следует "
+"использовать настройку :c:member:`PyConfig.home`, см. :ref:`Конфигурация "
+"инициализации Python <init-config>`."
 
 #: ../../c-api/init.rst:697
 msgid ""
@@ -978,6 +1146,9 @@ msgid ""
 "Python libraries.  See :envvar:`PYTHONHOME` for the meaning of the argument "
 "string."
 msgstr ""
+"Встановіть типовий \"домашній\" каталог, тобто розташування стандартних "
+"бібліотек Python. Дивіться :envvar:`PYTHONHOME` для визначення значення "
+"рядка аргументу."
 
 #: ../../c-api/init.rst:701
 msgid ""
@@ -986,6 +1157,9 @@ msgid ""
 "execution.  No code in the Python interpreter will change the contents of "
 "this storage."
 msgstr ""
+"Аргумент має вказувати на символьний рядок із нульовим закінченням у "
+"статичному сховищі, вміст якого не змінюватиметься протягом виконання "
+"програми. Жоден код інтерпретатора Python не змінить вміст цього сховища."
 
 #: ../../c-api/init.rst:714
 msgid ""
@@ -993,6 +1167,9 @@ msgid ""
 "func:`Py_SetPythonHome`, or the value of the :envvar:`PYTHONHOME` "
 "environment variable if it is set."
 msgstr ""
+"Повертає типовий \"home\", тобто значення, встановлене попереднім викликом :"
+"c:func:`Py_SetPythonHome`, або значення змінної середовища :envvar:"
+"`PYTHONHOME`, якщо воно встановлено."
 
 #: ../../c-api/init.rst:728
 msgid "Thread State and the Global Interpreter Lock"
@@ -1009,6 +1186,14 @@ msgid ""
 "the same object, the reference count could end up being incremented only "
 "once instead of twice."
 msgstr ""
+"Інтерпретатор Python не є повністю потокобезпечним. Щоб підтримувати "
+"багатопотокові програми Python, існує глобальне блокування, яке називається :"
+"term:`global interpreter lock` або :term:`GIL`, яке має утримуватися "
+"поточним потоком, перш ніж він зможе безпечно отримати доступ до об’єктів "
+"Python. Без блокування навіть найпростіші операції можуть спричинити "
+"проблеми в багатопотоковій програмі: наприклад, коли два потоки одночасно "
+"збільшують кількість посилань на один і той же об’єкт, кількість посилань "
+"може збільшитися лише один раз, а не двічі."
 
 #: ../../c-api/init.rst:745
 msgid ""
@@ -1034,10 +1219,14 @@ msgid ""
 "global variable pointing to the current :c:type:`PyThreadState`: it can be "
 "retrieved using :c:func:`PyThreadState_Get`."
 msgstr ""
+"Інтерпретатор Python зберігає певну облікову інформацію про потоки в "
+"структурі даних під назвою :c:type:`PyThreadState`. Існує також одна "
+"глобальна змінна, яка вказує на поточний :c:type:`PyThreadState`: її можна "
+"отримати за допомогою :c:func:`PyThreadState_Get`."
 
 #: ../../c-api/init.rst:761
 msgid "Releasing the GIL from extension code"
-msgstr ""
+msgstr "Реліз GIL від коду розширення"
 
 #: ../../c-api/init.rst:763
 msgid ""
@@ -1050,6 +1239,7 @@ msgstr ""
 #: ../../c-api/init.rst:772
 msgid "This is so common that a pair of macros exists to simplify it::"
 msgstr ""
+"Це настільки поширене явище, що для його спрощення існує пара макросів:"
 
 #: ../../c-api/init.rst:782
 msgid ""
@@ -1062,7 +1252,7 @@ msgstr ""
 
 #: ../../c-api/init.rst:786
 msgid "The block above expands to the following code::"
-msgstr ""
+msgstr "Блок вище розширюється до наступного коду::"
 
 #: ../../c-api/init.rst:798
 msgid ""
@@ -1074,6 +1264,14 @@ msgid ""
 "variable). Conversely, when acquiring the lock and restoring the thread "
 "state, the lock must be acquired before storing the thread state pointer."
 msgstr ""
+"Ось як ці функції працюють: глобальне блокування інтерпретатора "
+"використовується для захисту вказівника на поточний стан потоку. При знятті "
+"блокування та збереженні стану потоку вказівник поточного стану потоку "
+"повинен бути отриманий до зняття блокування (оскільки інший потік може "
+"негайно отримати блокування та зберегти свій власний стан потоку в "
+"глобальній змінній). І навпаки, під час отримання блокування та відновлення "
+"стану потоку, блокування має бути отримано перед збереженням покажчика стану "
+"потоку."
 
 #: ../../c-api/init.rst:807
 msgid ""
@@ -1084,10 +1282,16 @@ msgid ""
 "standard :mod:`zlib` and :mod:`hashlib` modules release the GIL when "
 "compressing or hashing data."
 msgstr ""
+"Виклик системних функцій вводу-виводу є найпоширенішим варіантом "
+"використання для випуску GIL, але він також може бути корисним перед "
+"викликом тривалих обчислень, яким не потрібен доступ до об’єктів Python, "
+"таких як стиснення або криптографічні функції, що працюють над буферами "
+"пам’яті. Наприклад, стандартні модулі :mod:`zlib` і :mod:`hashlib` "
+"звільняють GIL під час стиснення або хешування даних."
 
 #: ../../c-api/init.rst:818
 msgid "Non-Python created threads"
-msgstr ""
+msgstr "Потоки, створені не на Python"
 
 #: ../../c-api/init.rst:820
 msgid ""
@@ -1098,6 +1302,11 @@ msgid ""
 "management), they don't hold the GIL, nor is there a thread state structure "
 "for them."
 msgstr ""
+"Коли потоки створюються за допомогою спеціальних API Python (таких як "
+"модуль :mod:`threading`), стан потоку автоматично пов’язується з ними, і "
+"код, показаний вище, є правильним. Однак, коли потоки створюються з C "
+"(наприклад, сторонньою бібліотекою з власним керуванням потоками), вони не "
+"містять GIL, а також для них не існує структури стану потоку."
 
 #: ../../c-api/init.rst:827
 msgid ""
@@ -1109,6 +1318,14 @@ msgid ""
 "are done, you should reset the thread state pointer, release the GIL, and "
 "finally free the thread state data structure."
 msgstr ""
+"Якщо вам потрібно викликати код Python із цих потоків (часто це буде "
+"частиною API зворотного виклику, наданого вищезгаданою сторонньою "
+"бібліотекою), ви повинні спочатку зареєструвати ці потоки в інтерпретаторі, "
+"створивши структуру даних стану потоку, а потім отримати GIL і, нарешті, "
+"збереження покажчика стану потоку, перш ніж ви зможете почати "
+"використовувати API Python/C. Коли ви закінчите, ви повинні скинути "
+"вказівник стану потоку, звільнити GIL і, нарешті, звільнити структуру даних "
+"стану потоку."
 
 #: ../../c-api/init.rst:835
 msgid ""
@@ -1116,6 +1333,8 @@ msgid ""
 "do all of the above automatically.  The typical idiom for calling into "
 "Python from a C thread is::"
 msgstr ""
+"Функції :c:func:`PyGILState_Ensure` і :c:func:`PyGILState_Release` виконують "
+"усе вищезазначене автоматично. Типова ідіома виклику Python із потоку C:"
 
 #: ../../c-api/init.rst:849
 msgid ""
@@ -1125,6 +1344,12 @@ msgid ""
 "`Py_NewInterpreter`), but mixing multiple interpreters and the "
 "``PyGILState_*`` API is unsupported."
 msgstr ""
+"Обратите внимание, что функции ``PyGILState_*`` предполагают, что существует "
+"только один глобальный интерпретатор (созданный автоматически :c:func:"
+"`Py_Initialize`). Python поддерживает создание дополнительных "
+"интерпретаторов (с использованием :c:func:`Py_NewInterpreter`), но "
+"смешивание нескольких интерпретаторов и API ``PyGILState_*`` не "
+"поддерживается."
 
 #: ../../c-api/init.rst:859
 msgid "Cautions about fork()"
@@ -1138,6 +1363,11 @@ msgid ""
 "concrete impact both on how locks must be handled and on all stored state in "
 "CPython's runtime."
 msgstr ""
+"Ще одна важлива річ, на яку слід звернути увагу щодо потоків, це їхня "
+"поведінка перед викликом C :c:func:`fork`. У більшості систем із :c:func:"
+"`fork` після розгалуження процесу існуватиме лише потік, який видав "
+"розгалуження. Це має конкретний вплив як на те, як потрібно обробляти "
+"блокування, так і на весь збережений стан у середовищі виконання CPython."
 
 #: ../../c-api/init.rst:867
 msgid ""
@@ -1155,6 +1385,21 @@ msgid ""
 "after the fork. :c:func:`PyOS_AfterFork_Child` tries to reset the necessary "
 "locks, but is not always able to."
 msgstr ""
+"Тот факт, что остается только «текущий» поток, означает, что любые "
+"блокировки, удерживаемые другими потоками, никогда не будут сняты. Python "
+"решает эту проблему для :func:`os.fork`, получая внутренние блокировки, "
+"которые он использует перед разветвлением, и освобождая их после этого. "
+"Кроме того, он сбрасывает любые :ref:`lock-objects` в дочернем объекте. При "
+"расширении или внедрении Python невозможно сообщить Python о дополнительных "
+"(не Python) блокировках, которые необходимо получить до или сбросить после "
+"разветвления. Для достижения той же цели необходимо будет использовать такие "
+"средства ОС, как :c:func:`!pthread_atfork`. Кроме того, при расширении или "
+"встраивании Python вызов :c:func:`fork` напрямую, а не через :func:`os.fork` "
+"(и возврат или вызов Python) может привести к взаимоблокировке из-за того, "
+"что одна из внутренних блокировок Python удерживается потоком, который "
+"прекратил свое существование после разветвления. :c:func:"
+"`PyOS_AfterFork_Child` пытается сбросить необходимые блокировки, но не "
+"всегда это удается."
 
 #: ../../c-api/init.rst:882
 msgid ""
@@ -1168,10 +1413,19 @@ msgid ""
 "originally initialized. The only exception is if :c:func:`exec` will be "
 "called immediately after."
 msgstr ""
+"Той факт, що всі інші потоки зникають, також означає, що стан виконання "
+"CPython там має бути належним чином очищено, що й робить :func:`os.fork`. Це "
+"означає завершення всіх інших об’єктів :c:type:`PyThreadState`, що належать "
+"поточному інтерпретатору, і всіх інших об’єктів :c:type:"
+"`PyInterpreterState`. Через це та особливу природу :ref:`\"main\" "
+"інтерпретатора <sub-interpreter-support>`, :c:func:`fork` слід викликати "
+"лише в тому \"main\" потоці цього інтерпретатора, де початково "
+"ініціалізовано глобальне середовище виконання CPython. Єдиним винятком є те, "
+"що :c:func:`exec` буде викликано одразу після."
 
 #: ../../c-api/init.rst:895
 msgid "High-level API"
-msgstr ""
+msgstr "API високого рівня"
 
 #: ../../c-api/init.rst:897
 msgid ""
@@ -1188,6 +1442,10 @@ msgid ""
 "administration and a few other internal items. There are no public members "
 "in this structure."
 msgstr ""
+"Ця структура даних представляє стан, спільний для кількох взаємодіючих "
+"потоків. Потоки, що належать одному інтерпретатору, спільно використовують "
+"адміністрування модуля та кілька інших внутрішніх елементів. У цій структурі "
+"немає громадських учасників."
 
 #: ../../c-api/init.rst:907
 msgid ""
@@ -1196,16 +1454,23 @@ msgid ""
 "global interpreter lock is also shared by all threads, regardless of to "
 "which interpreter they belong."
 msgstr ""
+"Потоки, що належать різним інтерпретаторам, спочатку нічого спільного не "
+"мають, окрім стану процесу, наприклад доступної пам’яті, відкритих файлових "
+"дескрипторів тощо. Глобальне блокування інтерпретатора також "
+"використовується для всіх потоків, незалежно від того, до якого "
+"інтерпретатора вони належать."
 
 #: ../../c-api/init.rst:915
 msgid ""
 "This data structure represents the state of a single thread.  The only "
 "public data member is:"
 msgstr ""
+"Эта структура данных представляет состояние одного потока. Единственный "
+"общедоступный элемент данных:"
 
 #: ../../c-api/init.rst:920
 msgid "This thread's interpreter state."
-msgstr ""
+msgstr "Состояние интерпретатора этого потока."
 
 #: ../../c-api/init.rst:931
 msgid "Deprecated function which does nothing."
@@ -1215,10 +1480,12 @@ msgstr "Função descontinuada que não faz nada."
 msgid ""
 "In Python 3.6 and older, this function created the GIL if it didn't exist."
 msgstr ""
+"У Python 3.6 і старіших версіях ця функція створювала GIL, якщо його не "
+"існувало."
 
 #: ../../c-api/init.rst:935
 msgid "The function now does nothing."
-msgstr ""
+msgstr "Тепер функція нічого не робить."
 
 #: ../../c-api/init.rst:938
 msgid ""
@@ -1240,10 +1507,15 @@ msgid ""
 "This function can be called without holding the GIL, and therefore can be "
 "used to avoid calls to the locking API when running single-threaded."
 msgstr ""
+"Повертає ненульове значення, якщо було викликано :c:func:"
+"`PyEval_InitThreads`. Цю функцію можна викликати без утримання GIL, і тому "
+"її можна використовувати, щоб уникнути викликів API блокування під час "
+"однопотокового виконання."
 
 #: ../../c-api/init.rst:956
 msgid "The :term:`GIL` is now initialized by :c:func:`Py_Initialize()`."
 msgstr ""
+":term:`GIL` тепер ініціалізовано за допомогою :c:func:`Py_Initialize()`."
 
 #: ../../c-api/init.rst:964
 msgid ""
@@ -1252,6 +1524,10 @@ msgid ""
 "``NULL``).  If the lock has been created, the current thread must have "
 "acquired it."
 msgstr ""
+"Звільніть глобальне блокування інтерпретатора (якщо його було створено) і "
+"скиньте стан потоку до ``NULL``, повертаючи попередній стан потоку (який не "
+"є ``NULL``). Якщо блокування було створено, поточний потік повинен отримати "
+"його."
 
 #: ../../c-api/init.rst:972
 msgid ""
@@ -1260,6 +1536,10 @@ msgid ""
 "created, the current thread must not have acquired it, otherwise deadlock "
 "ensues."
 msgstr ""
+"Отримайте глобальне блокування інтерпретатора (якщо його було створено) і "
+"встановіть стан потоку на *tstate*, який не має бути ``NULL``. Якщо "
+"блокування було створено, поточний потік не повинен отримати його, інакше "
+"виникає взаємоблокування."
 
 #: ../../c-api/init.rst:978 ../../c-api/init.rst:1024 ../../c-api/init.rst:1306
 msgid ""
@@ -1269,6 +1549,11 @@ msgid ""
 "interpreter is in process of being finalized before calling this function to "
 "avoid unwanted termination."
 msgstr ""
+"Вызов этой функции из потока во время завершения среды выполнения приведет к "
+"завершению потока, даже если поток не был создан Python. Вы можете "
+"использовать :c:func:`!_Py_IsFinalizing` или :func:`sys.is_finalizing`, "
+"чтобы проверить, находится ли интерпретатор в процессе завершения, прежде "
+"чем вызывать эту функцию, чтобы избежать нежелательного завершения."
 
 #: ../../c-api/init.rst:986
 msgid ""
@@ -1276,6 +1561,9 @@ msgid ""
 "When the current thread state is ``NULL``, this issues a fatal error (so "
 "that the caller needn't check for ``NULL``)."
 msgstr ""
+"Повертає поточний стан потоку. Необхідно утримувати глобальне блокування "
+"інтерпретатора. Коли поточний стан потоку ``NULL``, це викликає фатальну "
+"помилку (тому абоненту не потрібно перевіряти ``NULL``)."
 
 #: ../../c-api/init.rst:993
 msgid ""
@@ -1283,12 +1571,17 @@ msgid ""
 "*tstate*, which may be ``NULL``.  The global interpreter lock must be held "
 "and is not released."
 msgstr ""
+"Замінити поточний стан потоку на стан потоку, заданий аргументом *tstate*, "
+"який може бути ``NULL``. Глобальне блокування інтерпретатора має бути "
+"утримано та не звільнене."
 
 #: ../../c-api/init.rst:998
 msgid ""
 "The following functions use thread-local storage, and are not compatible "
 "with sub-interpreters:"
 msgstr ""
+"Наступні функції використовують локальне сховище потоків і несумісні з "
+"підінтерпретаторами:"
 
 #: ../../c-api/init.rst:1003
 msgid ""
@@ -1321,12 +1614,20 @@ msgid ""
 "call to :c:func:`PyGILState_Ensure` must save the handle for its call to :c:"
 "func:`PyGILState_Release`."
 msgstr ""
+"Значення, що повертається, є непрозорим \"дескриптором\" стану потоку під "
+"час виклику :c:func:`PyGILState_Ensure`, і його потрібно передати в :c:func:"
+"`PyGILState_Release`, щоб Python залишався в тому самому стані. Незважаючи "
+"на те, що рекурсивні виклики дозволені, ці дескриптори *не можна* спільно "
+"використовувати — кожен унікальний виклик :c:func:`PyGILState_Ensure` "
+"повинен зберігати дескриптор для свого виклику :c:func:`PyGILState_Release`."
 
 #: ../../c-api/init.rst:1020
 msgid ""
 "When the function returns, the current thread will hold the GIL and be able "
 "to call arbitrary Python code.  Failure is a fatal error."
 msgstr ""
+"Коли функція повертається, поточний потік зберігатиме GIL і зможе викликати "
+"довільний код Python. Невдача є фатальною помилкою."
 
 #: ../../c-api/init.rst:1032
 msgid ""
@@ -1335,12 +1636,18 @@ msgid ""
 "`PyGILState_Ensure` call (but generally this state will be unknown to the "
 "caller, hence the use of the GILState API)."
 msgstr ""
+"Вивільніть будь-які раніше отримані ресурси. Після цього виклику стан Python "
+"буде таким же, як і до відповідного виклику :c:func:`PyGILState_Ensure` (але "
+"зазвичай цей стан буде невідомий абоненту, тому використовується GILState "
+"API)."
 
 #: ../../c-api/init.rst:1037
 msgid ""
 "Every call to :c:func:`PyGILState_Ensure` must be matched by a call to :c:"
 "func:`PyGILState_Release` on the same thread."
 msgstr ""
+"Кожен виклик :c:func:`PyGILState_Ensure` має відповідати виклику :c:func:"
+"`PyGILState_Release` у тому самому потоці."
 
 #: ../../c-api/init.rst:1043
 msgid ""
@@ -1349,6 +1656,11 @@ msgid ""
 "always has such a thread-state, even if no auto-thread-state call has been "
 "made on the main thread.  This is mainly a helper/diagnostic function."
 msgstr ""
+"Отримати поточний стан потоку для цього потоку. Може повертати ``NULL``, "
+"якщо API GILState не використовувався в поточному потоці. Зверніть увагу, що "
+"основний потік завжди має такий стан потоку, навіть якщо в основному потоці "
+"не було зроблено виклик автоматичного стану потоку. Це в основному допоміжна/"
+"діагностична функція."
 
 #: ../../c-api/init.rst:1051
 msgid ""
@@ -1360,12 +1672,21 @@ msgid ""
 "that the GIL is locked can allow the caller to perform sensitive actions or "
 "otherwise behave differently."
 msgstr ""
+"Повертає ``1``, якщо поточний потік містить GIL, і ``0`` інакше. Цю функцію "
+"можна викликати з будь-якого потоку в будь-який час. Лише якщо він "
+"ініціалізував стан потоку Python і зараз утримує GIL, він поверне ``1``. Це "
+"в основному допоміжна/діагностична функція. Це може бути корисно, наприклад, "
+"у контекстах зворотного виклику або функціях виділення пам’яті, коли знання "
+"про те, що GIL заблоковано, може дозволити абоненту виконувати конфіденційні "
+"дії або іншим чином поводитися по-іншому."
 
 #: ../../c-api/init.rst:1063
 msgid ""
 "The following macros are normally used without a trailing semicolon; look "
 "for example usage in the Python source distribution."
 msgstr ""
+"Наступні макроси зазвичай використовуються без крапки з комою в кінці; "
+"подивіться, наприклад, використання в вихідному дистрибутиві Python."
 
 #: ../../c-api/init.rst:1069
 msgid ""
@@ -1411,16 +1732,17 @@ msgstr ""
 
 #: ../../c-api/init.rst:1097
 msgid "Low-level API"
-msgstr ""
+msgstr "API низького рівня"
 
 #: ../../c-api/init.rst:1099
 msgid ""
 "All of the following functions must be called after :c:func:`Py_Initialize`."
 msgstr ""
+"Усі наведені нижче функції мають викликатися після :c:func:`Py_Initialize`."
 
 #: ../../c-api/init.rst:1101
 msgid ":c:func:`Py_Initialize()` now initializes the :term:`GIL`."
-msgstr ""
+msgstr ":c:func:`Py_Initialize()` тепер ініціалізує :term:`GIL`."
 
 #: ../../c-api/init.rst:1107
 msgid ""
@@ -1428,6 +1750,9 @@ msgid ""
 "be held, but may be held if it is necessary to serialize calls to this "
 "function."
 msgstr ""
+"Створіть новий об’єкт стану інтерпретатора. Глобальне блокування "
+"інтерпретатора не потрібно утримувати, але можна утримувати, якщо необхідно "
+"серіалізувати виклики цієї функції."
 
 #: ../../c-api/init.rst:1111
 msgid ""
@@ -1442,6 +1767,8 @@ msgid ""
 "Reset all information in an interpreter state object.  The global "
 "interpreter lock must be held."
 msgstr ""
+"Скинути всю інформацію в об’єкті стану інтерпретатора. Необхідно утримувати "
+"глобальне блокування інтерпретатора."
 
 #: ../../c-api/init.rst:1119
 msgid ""
@@ -1457,6 +1784,9 @@ msgid ""
 "be held.  The interpreter state must have been reset with a previous call "
 "to :c:func:`PyInterpreterState_Clear`."
 msgstr ""
+"Знищити об’єкт стану інтерпретатора. Глобальне блокування інтерпретатора не "
+"потрібно утримувати. Стан інтерпретатора має бути скинуто за допомогою "
+"попереднього виклику :c:func:`PyInterpreterState_Clear`."
 
 #: ../../c-api/init.rst:1131
 msgid ""
@@ -1464,18 +1794,25 @@ msgid ""
 "The global interpreter lock need not be held, but may be held if it is "
 "necessary to serialize calls to this function."
 msgstr ""
+"Створіть новий об’єкт стану потоку, що належить даному об’єкту "
+"інтерпретатора. Глобальне блокування інтерпретатора не потрібно утримувати, "
+"але можна утримувати, якщо необхідно серіалізувати виклики цієї функції."
 
 #: ../../c-api/init.rst:1138
 msgid ""
 "Reset all information in a thread state object.  The global interpreter lock "
 "must be held."
 msgstr ""
+"Скинути всю інформацію в об’єкті стану потоку. Необхідно утримувати "
+"глобальне блокування інтерпретатора."
 
 #: ../../c-api/init.rst:1141
 msgid ""
 "This function now calls the :c:member:`PyThreadState.on_delete` callback. "
 "Previously, that happened in :c:func:`PyThreadState_Delete`."
 msgstr ""
+"Ця функція тепер викликає зворотний виклик :c:member:`PyThreadState."
+"on_delete`. Раніше це траплялося в :c:func:`PyThreadState_Delete`."
 
 #: ../../c-api/init.rst:1148
 msgid ""
@@ -1483,6 +1820,9 @@ msgid ""
 "held. The thread state must have been reset with a previous call to :c:func:"
 "`PyThreadState_Clear`."
 msgstr ""
+"Знищити об’єкт стану потоку. Глобальне блокування інтерпретатора не потрібно "
+"утримувати. Стан потоку має бути скинуто попереднім викликом :c:func:"
+"`PyThreadState_Clear`."
 
 #: ../../c-api/init.rst:1155
 msgid ""
@@ -1494,70 +1834,82 @@ msgstr ""
 
 #: ../../c-api/init.rst:1163
 msgid "Get the current frame of the Python thread state *tstate*."
-msgstr ""
+msgstr "Отримати поточний кадр стану потоку Python *tstate*."
 
 #: ../../c-api/init.rst:1165
 msgid ""
 "Return a :term:`strong reference`. Return ``NULL`` if no frame is currently "
 "executing."
 msgstr ""
+"Повертає :term:`strong reference`. Повертає ``NULL``, якщо наразі не "
+"виконується жоден кадр."
 
 #: ../../c-api/init.rst:1168
 msgid "See also :c:func:`PyEval_GetFrame`."
-msgstr ""
+msgstr "Дивіться також :c:func:`PyEval_GetFrame`."
 
 #: ../../c-api/init.rst:1170 ../../c-api/init.rst:1179
 #: ../../c-api/init.rst:1188
 msgid "*tstate* must not be ``NULL``."
-msgstr ""
+msgstr "*tstate* не має бути ``NULL``."
 
 #: ../../c-api/init.rst:1177
 msgid ""
 "Get the unique thread state identifier of the Python thread state *tstate*."
-msgstr ""
+msgstr "Отримайте унікальний ідентифікатор стану потоку Python *tstate*."
 
 #: ../../c-api/init.rst:1186
 msgid "Get the interpreter of the Python thread state *tstate*."
-msgstr ""
+msgstr "Отримайте інтерпретатор стану потоку Python *tstate*."
 
 #: ../../c-api/init.rst:1195
 msgid "Suspend tracing and profiling in the Python thread state *tstate*."
 msgstr ""
+"Приостановить трассировку и профилирование в состоянии потока Python "
+"*tstate*."
 
 #: ../../c-api/init.rst:1197
 msgid "Resume them using the :c:func:`PyThreadState_LeaveTracing` function."
 msgstr ""
+"Возобновите их, используя функцию :c:func:`PyThreadState_LeaveTracing`."
 
 #: ../../c-api/init.rst:1204
 msgid ""
 "Resume tracing and profiling in the Python thread state *tstate* suspended "
 "by the :c:func:`PyThreadState_EnterTracing` function."
 msgstr ""
+"Возобновите трассировку и профилирование в состоянии потока Python *tstate*, "
+"приостановленном функцией :c:func:`PyThreadState_EnterTracing`."
 
 #: ../../c-api/init.rst:1207
 msgid ""
 "See also :c:func:`PyEval_SetTrace` and :c:func:`PyEval_SetProfile` functions."
 msgstr ""
+"См. также функции :c:func:`PyEval_SetTrace` и :c:func:`PyEval_SetProfile`."
 
 #: ../../c-api/init.rst:1215
 msgid "Get the current interpreter."
-msgstr ""
+msgstr "Отримати поточний перекладач."
 
 #: ../../c-api/init.rst:1217
 msgid ""
 "Issue a fatal error if there no current Python thread state or no current "
 "interpreter. It cannot return NULL."
 msgstr ""
+"Видає фатальну помилку, якщо немає поточного стану потоку Python або "
+"поточного інтерпретатора. Він не може повертати NULL."
 
 #: ../../c-api/init.rst:1220 ../../c-api/init.rst:1230
 msgid "The caller must hold the GIL."
-msgstr ""
+msgstr "Абонент повинен тримати GIL."
 
 #: ../../c-api/init.rst:1227
 msgid ""
 "Return the interpreter's unique ID.  If there was any error in doing so then "
 "``-1`` is returned and an error is set."
 msgstr ""
+"Повернути унікальний ідентифікатор перекладача. Якщо під час цього сталася "
+"якась помилка, повертається ``-1`` і встановлюється помилка."
 
 #: ../../c-api/init.rst:1237
 msgid ""
@@ -1565,44 +1917,52 @@ msgid ""
 "this function returns ``NULL`` then no exception has been raised and the "
 "caller should assume no interpreter-specific dict is available."
 msgstr ""
+"Повертає словник, у якому можуть зберігатися дані інтерпретатора. Якщо ця "
+"функція повертає ``NULL``, це означає, що жодного винятку не було викликано, "
+"і абонент повинен припустити, що недоступний dict інтерпретатора."
 
 #: ../../c-api/init.rst:1241
 msgid ""
 "This is not a replacement for :c:func:`PyModule_GetState()`, which "
 "extensions should use to store interpreter-specific state information."
 msgstr ""
+"Це не заміна :c:func:`PyModule_GetState()`, який розширення мають "
+"використовувати для зберігання інформації про стан інтерпретатора."
 
 #: ../../c-api/init.rst:1248
 msgid "Type of a frame evaluation function."
-msgstr ""
+msgstr "Тип функції оцінки фрейму."
 
 #: ../../c-api/init.rst:1250
 msgid ""
 "The *throwflag* parameter is used by the ``throw()`` method of generators: "
 "if non-zero, handle the current exception."
 msgstr ""
+"Параметр *throwflag* використовується методом ``throw()`` генераторів: якщо "
+"він відмінний від нуля, обробити поточний виняток."
 
 #: ../../c-api/init.rst:1253
 msgid "The function now takes a *tstate* parameter."
-msgstr ""
+msgstr "Тепер функція приймає параметр *tstate*."
 
 #: ../../c-api/init.rst:1256
 msgid ""
 "The *frame* parameter changed from ``PyFrameObject*`` to "
 "``_PyInterpreterFrame*``."
 msgstr ""
+"Параметр *frame* изменен с ``PyFrameObject*`` на ``_PyInterpreterFrame*``."
 
 #: ../../c-api/init.rst:1261
 msgid "Get the frame evaluation function."
-msgstr ""
+msgstr "Отримати функцію оцінки фрейму."
 
 #: ../../c-api/init.rst:1263 ../../c-api/init.rst:1271
 msgid "See the :pep:`523` \"Adding a frame evaluation API to CPython\"."
-msgstr ""
+msgstr "Перегляньте :pep:`523` \"Додавання API оцінки фрейму до CPython\"."
 
 #: ../../c-api/init.rst:1269
 msgid "Set the frame evaluation function."
-msgstr ""
+msgstr "Встановіть функцію оцінки кадру."
 
 #: ../../c-api/init.rst:1278
 msgid ""
@@ -1612,6 +1972,12 @@ msgid ""
 "state is available. If this function returns ``NULL``, no exception has been "
 "raised and the caller should assume no current thread state is available."
 msgstr ""
+"Повертає словник, у якому розширення можуть зберігати інформацію про стан "
+"потоку. Кожне розширення має використовувати унікальний ключ для збереження "
+"стану в словнику. Цю функцію можна викликати, якщо поточний стан потоку "
+"недоступний. Якщо ця функція повертає ``NULL``, це означає, що жодного "
+"винятку не було викликано, і абонент повинен вважати, що поточний стан "
+"потоку недоступний."
 
 #: ../../c-api/init.rst:1287
 msgid ""
@@ -1624,12 +1990,21 @@ msgid ""
 "``NULL``, the pending exception (if any) for the thread is cleared. This "
 "raises no exceptions."
 msgstr ""
+"Асинхронно вызвать исключение в потоке. Аргумент *id* — это идентификатор "
+"целевого потока; *exc* — это вызываемый объект исключения. Эта функция не "
+"крадет ссылки на *exc*. Чтобы предотвратить наивное неправильное "
+"использование, вы должны написать собственное расширение C для вызова этого. "
+"Должен быть вызван с удержанием GIL. Возвращает количество измененных "
+"состояний потока; Обычно это единица, но будет равна нулю, если "
+"идентификатор потока не найден. Если *exc* имеет значение NULL, ожидающее "
+"исключение (если оно есть) для потока очищается. Это не вызывает исключений."
 
 #: ../../c-api/init.rst:1295
 msgid ""
 "The type of the *id* parameter changed from :c:expr:`long` to :c:expr:"
 "`unsigned long`."
 msgstr ""
+"Тип параметра *id* изменен с :c:expr:`long` на :c:expr:`unsigned long`."
 
 #: ../../c-api/init.rst:1301
 msgid ""
@@ -1637,6 +2012,9 @@ msgid ""
 "*tstate*, which must not be ``NULL``.  The lock must have been created "
 "earlier. If this thread already has the lock, deadlock ensues."
 msgstr ""
+"Отримайте глобальне блокування інтерпретатора та встановіть поточний стан "
+"потоку на *tstate*, який не має бути ``NULL``. Замок повинен бути створений "
+"раніше. Якщо цей потік уже має блокування, виникає взаємоблокування."
 
 #: ../../c-api/init.rst:1312 ../../c-api/init.rst:1350
 msgid ""
@@ -1644,12 +2022,17 @@ msgid ""
 "`Py_END_ALLOW_THREADS`, and :c:func:`PyGILState_Ensure`, and terminate the "
 "current thread if called while the interpreter is finalizing."
 msgstr ""
+"Оновлено для узгодження з :c:func:`PyEval_RestoreThread`, :c:func:"
+"`Py_END_ALLOW_THREADS` і :c:func:`PyGILState_Ensure`, а також завершує "
+"поточний потік, якщо він викликається, поки інтерпретатор завершує роботу."
 
 #: ../../c-api/init.rst:1317
 msgid ""
 ":c:func:`PyEval_RestoreThread` is a higher-level function which is always "
 "available (even when threads have not been initialized)."
 msgstr ""
+":c:func:`PyEval_RestoreThread` — це функція вищого рівня, яка завжди "
+"доступна (навіть якщо потоки не ініціалізовано)."
 
 #: ../../c-api/init.rst:1323
 msgid ""
@@ -1659,24 +2042,35 @@ msgid ""
 "is only used to check that it represents the current thread state --- if it "
 "isn't, a fatal error is reported."
 msgstr ""
+"Скиньте поточний стан потоку на ``NULL`` і звільніть глобальне блокування "
+"інтерпретатора. Блокування має бути створено раніше та утримуватися поточним "
+"потоком. Аргумент *tstate*, який не має бути ``NULL``, використовується лише "
+"для перевірки того, що він представляє поточний стан потоку --- якщо це не "
+"так, повідомляється про фатальну помилку."
 
 #: ../../c-api/init.rst:1329
 msgid ""
 ":c:func:`PyEval_SaveThread` is a higher-level function which is always "
 "available (even when threads have not been initialized)."
 msgstr ""
+":c:func:`PyEval_SaveThread` — це функція вищого рівня, яка завжди доступна "
+"(навіть якщо потоки не ініціалізовано)."
 
 #: ../../c-api/init.rst:1335
 msgid ""
 "Acquire the global interpreter lock.  The lock must have been created "
 "earlier. If this thread already has the lock, a deadlock ensues."
 msgstr ""
+"Отримайте глобальне блокування інтерпретатора. Замок повинен бути створений "
+"раніше. Якщо цей потік уже має блокування, виникає взаємоблокування."
 
 #: ../../c-api/init.rst:1338
 msgid ""
 "This function does not update the current thread state.  Please use :c:func:"
 "`PyEval_RestoreThread` or :c:func:`PyEval_AcquireThread` instead."
 msgstr ""
+"Ця функція не оновлює поточний стан потоку. Натомість використовуйте :c:func:"
+"`PyEval_RestoreThread` або :c:func:`PyEval_AcquireThread`."
 
 #: ../../c-api/init.rst:1344
 msgid ""
@@ -1686,22 +2080,31 @@ msgid ""
 "interpreter is in process of being finalized before calling this function to "
 "avoid unwanted termination."
 msgstr ""
+"Виклик цієї функції з потоку під час завершення виконання призведе до "
+"завершення потоку, навіть якщо він не був створений Python. Ви можете "
+"використовувати :c:func:`_Py_IsFinalizing` або :func:`sys.is_finalizing`, "
+"щоб перевірити, чи завершується інтерпретатор перед викликом цієї функції, "
+"щоб уникнути небажаного завершення."
 
 #: ../../c-api/init.rst:1358
 msgid ""
 "Release the global interpreter lock.  The lock must have been created "
 "earlier."
 msgstr ""
+"Звільніть глобальне блокування інтерпретатора. Замок повинен бути створений "
+"раніше."
 
 #: ../../c-api/init.rst:1360
 msgid ""
 "This function does not update the current thread state.  Please use :c:func:"
 "`PyEval_SaveThread` or :c:func:`PyEval_ReleaseThread` instead."
 msgstr ""
+"Ця функція не оновлює поточний стан потоку. Натомість використовуйте :c:func:"
+"`PyEval_SaveThread` або :c:func:`PyEval_ReleaseThread`."
 
 #: ../../c-api/init.rst:1369
 msgid "Sub-interpreter support"
-msgstr ""
+msgstr "Підтримка субінтерпретатора"
 
 #: ../../c-api/init.rst:1371
 msgid ""
@@ -1710,6 +2113,10 @@ msgid ""
 "same process and perhaps even in the same thread. Sub-interpreters allow you "
 "to do that."
 msgstr ""
+"Хоча в більшості випадків ви вбудовуєте лише один інтерпретатор Python, є "
+"випадки, коли вам потрібно створити кілька незалежних інтерпретаторів в "
+"одному процесі і, можливо, навіть в одному потоці. Суб-інтерпретатори "
+"дозволяють це зробити."
 
 #: ../../c-api/init.rst:1376
 msgid ""
@@ -1721,6 +2128,13 @@ msgid ""
 "runtime finalization.  The :c:func:`PyInterpreterState_Main` function "
 "returns a pointer to its state."
 msgstr ""
+"\"Головний\" інтерпретатор є першим, який створюється під час ініціалізації "
+"середовища виконання. Зазвичай це єдиний інтерпретатор Python у процесі. На "
+"відміну від субінтерпретаторів, головний інтерпретатор має унікальні "
+"глобальні обов’язки процесу, такі як обробка сигналів. Він також відповідає "
+"за виконання під час ініціалізації середовища виконання та зазвичай є "
+"активним інтерпретатором під час завершення виконання. Функція :c:func:"
+"`PyInterpreterState_Main` повертає вказівник на його стан."
 
 #: ../../c-api/init.rst:1383
 msgid ""
@@ -1728,6 +2142,9 @@ msgid ""
 "`PyThreadState_Swap` function. You can create and destroy them using the "
 "following functions:"
 msgstr ""
+"Ви можете перемикатися між підінтерпретаторами за допомогою функції :c:func:"
+"`PyThreadState_Swap`. Ви можете створювати та знищувати їх за допомогою "
+"таких функцій:"
 
 #: ../../c-api/init.rst:1397
 msgid ""
@@ -1741,6 +2158,14 @@ msgid ""
 "``sys.stdout`` and ``sys.stderr`` (however these refer to the same "
 "underlying file descriptors)."
 msgstr ""
+"Створіть новий підінтерпретатор. Це (майже) повністю окреме середовище для "
+"виконання коду Python. Зокрема, новий інтерпретатор має окремі незалежні "
+"версії всіх імпортованих модулів, включаючи фундаментальні модулі :mod:"
+"`builtins`, :mod:`__main__` і :mod:`sys`. Таблиця завантажених модулів "
+"(``sys.modules``) і шлях пошуку модуля (``sys.path``) також окремі. Нове "
+"середовище не має змінної ``sys.argv``. Він має нові стандартні файлові "
+"об’єкти потоку вводу/виводу ``sys.stdin``, ``sys.stdout`` і ``sys.stderr`` "
+"(однак вони посилаються на ті самі основні дескриптори файлів)."
 
 #: ../../c-api/init.rst:1407
 msgid ""
@@ -1759,6 +2184,7 @@ msgstr ""
 #: ../../c-api/init.rst:1422
 msgid "Extension modules are shared between (sub-)interpreters as follows:"
 msgstr ""
+"Модулі розширення розподіляються між (під)інтерпретаторами наступним чином:"
 
 #: ../../c-api/init.rst:1424
 msgid ""
@@ -1767,6 +2193,10 @@ msgid ""
 "initialized for each interpreter. Only C-level static and global variables "
 "are shared between these module objects."
 msgstr ""
+"Для модулів, які використовують багатофазову ініціалізацію, напр. :c:func:"
+"`PyModule_FromDefAndSpec`, окремий об’єкт модуля створюється та "
+"ініціалізується для кожного інтерпретатора. Лише статичні та глобальні "
+"змінні рівня C використовуються між цими об’єктами модуля."
 
 #: ../../c-api/init.rst:1430
 msgid ""
@@ -1779,6 +2209,14 @@ msgid ""
 "the module's dictionary thus end up shared across (sub-)interpreters, which "
 "might cause unwanted behavior (see `Bugs and caveats`_ below)."
 msgstr ""
+"Для модулів, які використовують однофазну ініціалізацію, напр. :c:func:"
+"`PyModule_Create`, коли конкретне розширення імпортується вперше, воно "
+"ініціалізується звичайним чином, а (неглибока) копія словника його модуля "
+"видаляється. Коли те саме розширення імпортується іншим "
+"(під)інтерпретатором, новий модуль ініціалізується та заповнюється вмістом "
+"цієї копії; функція ``init`` розширення не викликається. Таким чином, "
+"об’єкти в словнику модуля розподіляються між (суб-)інтерпретаторами, що може "
+"спричинити небажану поведінку (див. `Bugs and caveats`_  нижче)."
 
 #: ../../c-api/init.rst:1441
 msgid ""
@@ -1789,6 +2227,12 @@ msgid ""
 "initialization, this means that only C-level static and global variables are "
 "shared between these modules."
 msgstr ""
+"Зауважте, що це відрізняється від того, що відбувається, коли розширення "
+"імпортується після повної повторної ініціалізації інтерпретатора викликом :c:"
+"func:`Py_FinalizeEx` і :c:func:`Py_Initialize`; у цьому випадку функція "
+"``initmodule`` розширення *викликається* знову. Як і у випадку з "
+"багатофазною ініціалізацією, це означає, що ці модулі спільно використовують "
+"лише статичні та глобальні змінні рівня C."
 
 #: ../../c-api/init.rst:1455
 msgid ""
@@ -1804,7 +2248,7 @@ msgstr ""
 
 #: ../../c-api/init.rst:1465
 msgid "Bugs and caveats"
-msgstr ""
+msgstr "Помилки та застереження"
 
 #: ../../c-api/init.rst:1467
 msgid ""
@@ -1818,6 +2262,15 @@ msgid ""
 "one sub-interpreter into a namespace of another (sub-)interpreter; this "
 "should be avoided if possible."
 msgstr ""
+"Оскільки субінтерпретатори (і головний інтерпретатор) є частиною одного "
+"процесу, ізоляція між ними не є ідеальною --- наприклад, використовуючи "
+"низькорівневі файлові операції, такі як :func:`os.close`, вони можуть "
+"(випадково або зловмисно) впливають на відкриті файли один одного. Через те, "
+"як розширення розподіляються між (під)інтерпретаторами, деякі розширення "
+"можуть не працювати належним чином; це особливо ймовірно при використанні "
+"однофазної ініціалізації або (статичних) глобальних змінних. Можна вставляти "
+"об’єкти, створені в одному суб-інтерпретаторі, у простір імен іншого "
+"(суб-)інтерпретатора; цього слід уникати, якщо це можливо."
 
 #: ../../c-api/init.rst:1477
 msgid ""
@@ -1827,6 +2280,12 @@ msgid ""
 "dictionary of loaded modules. It is equally important to avoid sharing "
 "objects from which the above are reachable."
 msgstr ""
+"Слід приділяти особливу увагу уникненню спільного використання визначених "
+"користувачем функцій, методів, екземплярів або класів між "
+"підінтерпретаторами, оскільки операції імпорту, які виконуються такими "
+"об’єктами, можуть вплинути на неправильний (під)інтерпретатор словник "
+"завантажених модулів. Не менш важливо уникати спільного використання "
+"об’єктів, з яких доступні вищевказані."
 
 #: ../../c-api/init.rst:1483
 msgid ""
@@ -1839,6 +2298,15 @@ msgid ""
 "`ctypes`) using these APIs to allow calling of Python code from non-Python "
 "created threads will probably be broken when using sub-interpreters."
 msgstr ""
+"Также обратите внимание, что объединение этой функциональности с API "
+"PyGILState_*`` является деликатным, поскольку эти API предполагают биекцию "
+"между состояниями потоков Python и потоками уровня ОС, что нарушается "
+"наличием субинтерпретаторов. Настоятельно рекомендуется не переключать "
+"подинтерпретаторы между парой совпадающих вызовов :c:func:"
+"`PyGILState_Ensure` и :c:func:`PyGILState_Release`. Более того, расширения "
+"(такие как :mod:`ctypes`), использующие эти API для разрешения вызова кода "
+"Python из потоков, созданных не на Python, вероятно, будут нарушены при "
+"использовании субинтерпретаторов."
 
 #: ../../c-api/init.rst:1494
 msgid "Asynchronous Notifications"
@@ -1850,6 +2318,9 @@ msgid ""
 "interpreter thread.  These notifications take the form of a function pointer "
 "and a void pointer argument."
 msgstr ""
+"Надається механізм для створення асинхронних сповіщень головному потоку "
+"інтерпретатора. Ці сповіщення приймають форму вказівника функції та "
+"аргументу вказівника void."
 
 #: ../../c-api/init.rst:1503
 msgid ""
@@ -1857,6 +2328,9 @@ msgid ""
 "success, ``0`` is returned and *func* is queued for being called in the main "
 "thread.  On failure, ``-1`` is returned without setting any exception."
 msgstr ""
+"Заплануйте виклик функції з основного потоку інтерпретатора. У разі успіху "
+"повертається ``0`` і *func* ставиться в чергу для виклику в основному "
+"потоці. У разі помилки повертається ``-1`` без встановлення винятків."
 
 #: ../../c-api/init.rst:1507
 msgid ""
@@ -1865,16 +2339,22 @@ msgid ""
 "asynchronously with respect to normally running Python code, but with both "
 "these conditions met:"
 msgstr ""
+"Після успішного розміщення в черзі *func* буде *зрештою* викликано з "
+"основного потоку інтерпретатора з аргументом *arg*. Його буде викликано "
+"асинхронно щодо нормально запущеного коду Python, але з дотриманням обох цих "
+"умов:"
 
 #: ../../c-api/init.rst:1512
 msgid "on a :term:`bytecode` boundary;"
-msgstr ""
+msgstr "на межі :term:`bytecode`;"
 
 #: ../../c-api/init.rst:1513
 msgid ""
 "with the main thread holding the :term:`global interpreter lock` (*func* can "
 "therefore use the full C API)."
 msgstr ""
+"з головним потоком, який утримує :term:`global interpreter lock` (*func* "
+"може використовувати повний C API)."
 
 #: ../../c-api/init.rst:1516
 msgid ""
@@ -1883,12 +2363,18 @@ msgid ""
 "notification recursively, but it can still be interrupted to switch threads "
 "if the global interpreter lock is released."
 msgstr ""
+"*func* має повернути ``0`` у разі успіху або ``-1`` у разі помилки з набором "
+"винятків. *func* не буде перервано для рекурсивного виконання іншого "
+"асинхронного сповіщення, але його все одно можна перервати для перемикання "
+"потоків, якщо глобальне блокування інтерпретатора звільнено."
 
 #: ../../c-api/init.rst:1521
 msgid ""
 "This function doesn't need a current thread state to run, and it doesn't "
 "need the global interpreter lock."
 msgstr ""
+"Цій функції не потрібен поточний стан потоку для запуску, і їй не потрібне "
+"блокування глобального інтерпретатора."
 
 #: ../../c-api/init.rst:1524
 msgid ""
@@ -1896,6 +2382,9 @@ msgid ""
 "Otherwise, the function *func* can be scheduled to be called from the wrong "
 "interpreter."
 msgstr ""
+"Щоб викликати цю функцію в підінтерпретаторі, абонент, що викликає, повинен "
+"мати GIL. В іншому випадку функція *func* може бути запланована для виклику "
+"з неправильного інтерпретатора."
 
 #: ../../c-api/init.rst:1529
 msgid ""
@@ -1906,6 +2395,12 @@ msgid ""
 "calling Python code from arbitrary C threads.  Instead, use the :ref:"
 "`PyGILState API<gilstate>`."
 msgstr ""
+"Це функція низького рівня, корисна лише в дуже особливих випадках. Немає "
+"гарантії, що *func* буде викликано якомога швидше. Якщо основний потік "
+"зайнятий виконанням системного виклику, *func* не буде викликано до "
+"повернення системного виклику. Ця функція зазвичай **не** підходить для "
+"виклику коду Python із довільних потоків C. Замість цього використовуйте :"
+"ref:`PyGILState API <gilstate>`."
 
 #: ../../c-api/init.rst:1538
 msgid ""
@@ -1914,10 +2409,14 @@ msgid ""
 "from the main interpreter. Each subinterpreter now has its own list of "
 "scheduled calls."
 msgstr ""
+"Якщо ця функція викликається у підінтерпретаторі, функція *func* тепер "
+"запланована для виклику з підінтерпретатора, а не з основного "
+"інтерпретатора. Кожен субінтерпретатор тепер має власний список запланованих "
+"викликів."
 
 #: ../../c-api/init.rst:1547
 msgid "Profiling and Tracing"
-msgstr ""
+msgstr "Профілювання та трасування"
 
 #: ../../c-api/init.rst:1552
 msgid ""
@@ -1925,6 +2424,9 @@ msgid ""
 "profiling and execution tracing facilities.  These are used for profiling, "
 "debugging, and coverage analysis tools."
 msgstr ""
+"Інтерпретатор Python надає деяку низькорівневу підтримку для підключення "
+"засобів профілювання та трасування виконання. Вони використовуються для "
+"інструментів профілювання, налагодження та аналізу покриття."
 
 #: ../../c-api/init.rst:1556
 msgid ""
@@ -1935,6 +2437,12 @@ msgid ""
 "basic events reported to the trace function are the same as had been "
 "reported to the Python-level trace functions in previous versions."
 msgstr ""
+"Цей інтерфейс C дозволяє коду профілювання або трасування уникнути накладних "
+"витрат на виклик через викликані об’єкти на рівні Python, замість цього "
+"здійснюючи прямий виклик функції C. Основні атрибути закладу не змінилися; "
+"інтерфейс дозволяє встановлювати функції трасування для кожного потоку, а "
+"основні події, які повідомляються у функцію трасування, є такими самими, як "
+"повідомлялося функціям трасування на рівні Python у попередніх версіях."
 
 #: ../../c-api/init.rst:1566
 msgid ""
@@ -1947,65 +2455,74 @@ msgid ""
 "`PyTrace_C_RETURN`, or :c:data:`PyTrace_OPCODE`, and *arg* depends on the "
 "value of *what*:"
 msgstr ""
+"Тип функции трассировки, зарегистрированной с помощью :c:func:"
+"`PyEval_SetProfile` и :c:func:`PyEval_SetTrace`. Первый параметр — это "
+"объект, передаваемый в функцию регистрации как *obj*, *frame* — объект "
+"кадра, к которому относится событие, *what* — одна из констант :c:data:"
+"`PyTrace_CALL`, :c:data :`PyTrace_EXCEPTION`, :c:data:`PyTrace_LINE`, :c:"
+"data:`PyTrace_RETURN`, :c:data:`PyTrace_C_CALL`, :c:data:"
+"`PyTrace_C_EXCEPTION`, :c:data:`PyTrace_C_RETURN`, или :c:data:"
+"`PyTrace_OPCODE`, а *arg* зависит от значения *what*:"
 
 #: ../../c-api/init.rst:1575
 msgid "Value of *what*"
-msgstr ""
+msgstr "Значення *чого*"
 
 #: ../../c-api/init.rst:1575
 msgid "Meaning of *arg*"
-msgstr ""
+msgstr "Значення *arg*"
 
 #: ../../c-api/init.rst:1577
 msgid ":c:data:`PyTrace_CALL`"
-msgstr ""
+msgstr ":c:data:`PyTrace_CALL`"
 
 #: ../../c-api/init.rst:1577 ../../c-api/init.rst:1582
 #: ../../c-api/init.rst:1593
 msgid "Always :c:data:`Py_None`."
-msgstr ""
+msgstr "Zawsze :c:data:`Py_None`."
 
 #: ../../c-api/init.rst:1579
 msgid ":c:data:`PyTrace_EXCEPTION`"
-msgstr ""
+msgstr ":c:data:`PyTrace_EXCEPTION`"
 
 #: ../../c-api/init.rst:1579
 msgid "Exception information as returned by :func:`sys.exc_info`."
-msgstr ""
+msgstr "Інформація про винятки, яку повертає :func:`sys.exc_info`."
 
 #: ../../c-api/init.rst:1582
 msgid ":c:data:`PyTrace_LINE`"
-msgstr ""
+msgstr ":c:data:`PyTrace_LINE`"
 
 #: ../../c-api/init.rst:1584
 msgid ":c:data:`PyTrace_RETURN`"
-msgstr ""
+msgstr ":c:data:`PyTrace_RETURN`"
 
 #: ../../c-api/init.rst:1584
 msgid ""
 "Value being returned to the caller, or ``NULL`` if caused by an exception."
 msgstr ""
+"Значення, що повертається абоненту, або ``NULL``, якщо викликано винятком."
 
 #: ../../c-api/init.rst:1587
 msgid ":c:data:`PyTrace_C_CALL`"
-msgstr ""
+msgstr ":c:data:`PyTrace_C_CALL`"
 
 #: ../../c-api/init.rst:1587 ../../c-api/init.rst:1589
 #: ../../c-api/init.rst:1591
 msgid "Function object being called."
-msgstr ""
+msgstr "Об’єкт функції, що викликається."
 
 #: ../../c-api/init.rst:1589
 msgid ":c:data:`PyTrace_C_EXCEPTION`"
-msgstr ""
+msgstr ":c:data:`PyTrace_C_EXCEPTION`"
 
 #: ../../c-api/init.rst:1591
 msgid ":c:data:`PyTrace_C_RETURN`"
-msgstr ""
+msgstr ":c:data:`PyTrace_C_RETURN`"
 
 #: ../../c-api/init.rst:1593
 msgid ":c:data:`PyTrace_OPCODE`"
-msgstr ""
+msgstr ":c:data:`PyTrace_OPCODE`"
 
 #: ../../c-api/init.rst:1598
 msgid ""
@@ -2015,6 +2532,11 @@ msgid ""
 "is not reported as there is no control transfer to the Python bytecode in "
 "the corresponding frame."
 msgstr ""
+"Значення параметра *what* для функції :c:type:`Py_tracefunc`, коли "
+"повідомляється про новий виклик функції чи методу або новий запис у "
+"генераторі. Зауважте, що створення ітератора для функції генератора не "
+"повідомляється, оскільки немає передачі керування до байт-коду Python у "
+"відповідному кадрі."
 
 #: ../../c-api/init.rst:1607
 msgid ""
@@ -2027,6 +2549,13 @@ msgid ""
 "Only trace functions receives these events; they are not needed by the "
 "profiler."
 msgstr ""
+"Значення параметра *what* для функції :c:type:`Py_tracefunc`, коли виникає "
+"виняткова ситуація. Функція зворотного виклику викликається з цим значенням "
+"для *what*, коли після обробки будь-якого байт-коду, після чого виняток стає "
+"встановленим у кадрі, що виконується. Наслідком цього є те, що коли "
+"розповсюдження винятку спричиняє розгортання стека Python, зворотний виклик "
+"викликається після повернення до кожного кадру під час поширення винятку. "
+"Лише функції трасування отримують ці події; вони не потрібні профайлеру."
 
 #: ../../c-api/init.rst:1618
 msgid ""
@@ -2035,30 +2564,42 @@ msgid ""
 "reported. It may be disabled for a frame by setting :attr:`~frame."
 "f_trace_lines` to *0* on that frame."
 msgstr ""
+"Значение передается как параметр *what* в функцию :c:type:`Py_tracefunc` (но "
+"не в функцию профилирования), когда сообщается о событии с номером строки. "
+"Его можно отключить для кадра, установив для :attr:`~frame.f_trace_lines` "
+"значение *0* в этом кадре."
 
 #: ../../c-api/init.rst:1626
 msgid ""
 "The value for the *what* parameter to :c:type:`Py_tracefunc` functions when "
 "a call is about to return."
 msgstr ""
+"Значення для параметра *what* для :c:type:`Py_tracefunc` функціонує, коли "
+"виклик збирається повернутися."
 
 #: ../../c-api/init.rst:1632
 msgid ""
 "The value for the *what* parameter to :c:type:`Py_tracefunc` functions when "
 "a C function is about to be called."
 msgstr ""
+"Значення параметра *what* для функцій :c:type:`Py_tracefunc`, коли має бути "
+"викликана функція C."
 
 #: ../../c-api/init.rst:1638
 msgid ""
 "The value for the *what* parameter to :c:type:`Py_tracefunc` functions when "
 "a C function has raised an exception."
 msgstr ""
+"Значення для параметра *what* для функцій :c:type:`Py_tracefunc`, коли "
+"функція C викликала виняткову ситуацію."
 
 #: ../../c-api/init.rst:1644
 msgid ""
 "The value for the *what* parameter to :c:type:`Py_tracefunc` functions when "
 "a C function has returned."
 msgstr ""
+"Значення для параметра *what* для функцій :c:type:`Py_tracefunc`, коли "
+"функція C повертає."
 
 #: ../../c-api/init.rst:1650
 msgid ""
@@ -2067,6 +2608,10 @@ msgid ""
 "event is not emitted by default: it must be explicitly requested by setting :"
 "attr:`~frame.f_trace_opcodes` to *1* on the frame."
 msgstr ""
+"Значение параметра *what* для функций :c:type:`Py_tracefunc` (но не для "
+"функций профилирования), когда новый код операции должен быть выполнен. Это "
+"событие не генерируется по умолчанию: его необходимо явно запросить, "
+"установив для :attr:`~frame.f_trace_opcodes` значение *1* в кадре."
 
 #: ../../c-api/init.rst:1658
 msgid ""
@@ -2077,14 +2622,21 @@ msgid ""
 "it.  The profile function is called for all monitored events except :c:data:"
 "`PyTrace_LINE` :c:data:`PyTrace_OPCODE` and :c:data:`PyTrace_EXCEPTION`."
 msgstr ""
+"Установите для функции профилировщика значение *func*. Параметр *obj* "
+"передается функции в качестве первого параметра и может быть любым объектом "
+"Python или ``NULL``. Если функции профиля необходимо сохранять состояние, "
+"использование разных значений *obj* для каждого потока обеспечивает удобное "
+"и потокобезопасное место для его хранения. Функция профиля вызывается для "
+"всех отслеживаемых событий, кроме :c:data:`PyTrace_LINE` :c:data:"
+"`PyTrace_OPCODE` и :c:data:`PyTrace_EXCEPTION`."
 
 #: ../../c-api/init.rst:1665
 msgid "See also the :func:`sys.setprofile` function."
-msgstr ""
+msgstr "См. также функцию :func:`sys.setprofile`."
 
 #: ../../c-api/init.rst:1667 ../../c-api/init.rst:1681
 msgid "The caller must hold the :term:`GIL`."
-msgstr ""
+msgstr "Абонент повинен утримувати :term:`GIL`."
 
 #: ../../c-api/init.rst:1672
 msgid ""
@@ -2096,51 +2648,67 @@ msgid ""
 "`PyTrace_C_EXCEPTION` or :c:data:`PyTrace_C_RETURN` as a value for the "
 "*what* parameter."
 msgstr ""
+"Установите для функции трассировки значение *func*. Это похоже на :c:func:"
+"`PyEval_SetProfile`, за исключением того, что функция трассировки получает "
+"события номера строки и события для каждого кода операции, но не получает "
+"никаких событий, связанных с вызываемыми объектами функции C. Любая функция "
+"трассировки, зарегистрированная с использованием :c:func:`PyEval_SetTrace`, "
+"не получит :c:data:`PyTrace_C_CALL`, :c:data:`PyTrace_C_EXCEPTION` или :c:"
+"data:`PyTrace_C_RETURN` в качестве значения для *what* параметр."
 
 #: ../../c-api/init.rst:1679
 msgid "See also the :func:`sys.settrace` function."
-msgstr ""
+msgstr "См. также функцию :func:`sys.settrace`."
 
 #: ../../c-api/init.rst:1687
 msgid "Advanced Debugger Support"
-msgstr ""
+msgstr "Розширена підтримка налагоджувача"
 
 #: ../../c-api/init.rst:1692
 msgid ""
 "These functions are only intended to be used by advanced debugging tools."
 msgstr ""
+"Ці функції призначені лише для використання розширеними інструментами "
+"налагодження."
 
 #: ../../c-api/init.rst:1697
 msgid ""
 "Return the interpreter state object at the head of the list of all such "
 "objects."
 msgstr ""
+"Повертає об’єкт стану інтерпретатора на початку списку всіх таких об’єктів."
 
 #: ../../c-api/init.rst:1702
 msgid "Return the main interpreter state object."
-msgstr ""
+msgstr "Повертає основний об'єкт стану інтерпретатора."
 
 #: ../../c-api/init.rst:1707
 msgid ""
 "Return the next interpreter state object after *interp* from the list of all "
 "such objects."
 msgstr ""
+"Повертає наступний об’єкт стану інтерпретатора після *interp* зі списку всіх "
+"таких об’єктів."
 
 #: ../../c-api/init.rst:1713
 msgid ""
 "Return the pointer to the first :c:type:`PyThreadState` object in the list "
 "of threads associated with the interpreter *interp*."
 msgstr ""
+"Поверніть вказівник на перший об’єкт :c:type:`PyThreadState` у списку "
+"потоків, пов’язаних з інтерпретатором *interp*."
 
 #: ../../c-api/init.rst:1719
 msgid ""
 "Return the next thread state object after *tstate* from the list of all such "
 "objects belonging to the same :c:type:`PyInterpreterState` object."
 msgstr ""
+"Повертає наступний об’єкт стану потоку після *tstate* зі списку всіх таких "
+"об’єктів, що належать до того самого об’єкта :c:type:`PyInterpreterState`."
 
 #: ../../c-api/init.rst:1726
 msgid "Thread Local Storage Support"
-msgstr ""
+msgstr "Підтримка потокового локального сховища"
 
 #: ../../c-api/init.rst:1730
 msgid ""
@@ -2151,18 +2719,28 @@ msgid ""
 "use a thread key and functions to associate a :c:expr:`void*` value per "
 "thread."
 msgstr ""
+"Интерпретатор Python обеспечивает низкоуровневую поддержку локального "
+"хранилища потоков (TLS), которое оборачивает базовую собственную реализацию "
+"TLS для поддержки API локального хранилища потоков уровня Python (:class:"
+"`threading.local`). API-интерфейсы уровня C CPython аналогичны API-"
+"интерфейсам, предлагаемым pthreads и Windows: используйте ключ потока и "
+"функции для связывания значения :c:expr:`void*` с каждым потоком."
 
 #: ../../c-api/init.rst:1737
 msgid ""
 "The GIL does *not* need to be held when calling these functions; they supply "
 "their own locking."
 msgstr ""
+"GIL *не* потрібно утримувати під час виклику цих функцій; вони забезпечують "
+"власний замок."
 
 #: ../../c-api/init.rst:1740
 msgid ""
 "Note that :file:`Python.h` does not include the declaration of the TLS APIs, "
 "you need to include :file:`pythread.h` to use thread-local storage."
 msgstr ""
+"Зауважте, що :file:`Python.h` не містить оголошення TLS API, вам потрібно "
+"включити :file:`pythread.h`, щоб використовувати локальне сховище потоків."
 
 #: ../../c-api/init.rst:1744
 msgid ""
@@ -2171,10 +2749,14 @@ msgid ""
 "the :c:expr:`void*` values happen to be :c:expr:`PyObject*`, these functions "
 "don't do refcount operations on them either."
 msgstr ""
+"Ни одна из этих функций API не обрабатывает управление памятью от имени "
+"значений :c:expr:`void*`. Вам нужно выделить и освободить их самостоятельно. "
+"Если значения :c:expr:`void*` оказались :c:expr:`PyObject*`, эти функции "
+"также не выполняют над ними операции подсчета ссылок."
 
 #: ../../c-api/init.rst:1752
 msgid "Thread Specific Storage (TSS) API"
-msgstr ""
+msgstr "API для спеціального зберігання потоків (TSS)."
 
 #: ../../c-api/init.rst:1754
 msgid ""
@@ -2182,10 +2764,14 @@ msgid ""
 "the CPython interpreter.  This API uses a new type :c:type:`Py_tss_t` "
 "instead of :c:expr:`int` to represent thread keys."
 msgstr ""
+"TSS API заменяет использование существующего TLS API в интерпретаторе "
+"CPython. Этот API использует новый тип :c:type:`Py_tss_t` вместо :c:expr:"
+"`int` для представления ключей потока."
 
 #: ../../c-api/init.rst:1760
 msgid "\"A New C-API for Thread-Local Storage in CPython\" (:pep:`539`)"
 msgstr ""
+"\"Новий C-API для локального зберігання потоків у CPython\" (:pep:`539`)"
 
 #: ../../c-api/init.rst:1765
 msgid ""
@@ -2194,6 +2780,10 @@ msgid ""
 "internal field representing the key's initialization state.  There are no "
 "public members in this structure."
 msgstr ""
+"Ця структура даних представляє стан ключа потоку, визначення якого може "
+"залежати від базової реалізації TLS, і вона має внутрішнє поле, що "
+"представляє стан ініціалізації ключа. У цій структурі немає громадських "
+"учасників."
 
 #: ../../c-api/init.rst:1770
 msgid ""
@@ -2208,6 +2798,9 @@ msgid ""
 "This macro expands to the initializer for :c:type:`Py_tss_t` variables. Note "
 "that this macro won't be defined with :ref:`Py_LIMITED_API <stable>`."
 msgstr ""
+"Цей макрос розширюється до ініціалізатора для змінних :c:type:`Py_tss_t`. "
+"Зауважте, що цей макрос не буде визначено за допомогою :ref:`Py_LIMITED_API "
+"<stable>`."
 
 #: ../../c-api/init.rst:1781
 msgid "Dynamic Allocation"
@@ -2219,6 +2812,10 @@ msgid ""
 "built with :ref:`Py_LIMITED_API <stable>`, where static allocation of this "
 "type is not possible due to its implementation being opaque at build time."
 msgstr ""
+"Динамічне розміщення :c:type:`Py_tss_t`, необхідне в модулях розширення, "
+"створених за допомогою :ref:`Py_LIMITED_API <stable>`, де статичне "
+"розміщення цього типу неможливе через те, що його реалізація непрозора під "
+"час створення."
 
 #: ../../c-api/init.rst:1790
 msgid ""
@@ -2234,11 +2831,17 @@ msgid ""
 "calling :c:func:`PyThread_tss_delete` to ensure any associated thread locals "
 "have been unassigned. This is a no-op if the *key* argument is ``NULL``."
 msgstr ""
+"Освободите данный *ключ*, выделенный :c:func:`PyThread_tss_alloc`, после "
+"первого вызова :c:func:`PyThread_tss_delete`, чтобы убедиться, что все "
+"связанные локальные переменные потока не назначены. Это пустая операция, "
+"если аргумент *key* равен ``NULL``."
 
 #: ../../c-api/init.rst:1803
 msgid ""
 "A freed key becomes a dangling pointer. You should reset the key to ``NULL``."
 msgstr ""
+"Освобожденная клавиша становится висячим указателем. Вам следует сбросить "
+"ключ на ``NULL``."
 
 #: ../../c-api/init.rst:1808
 msgid "Methods"
@@ -2251,12 +2854,18 @@ msgid ""
 "undefined if the given :c:type:`Py_tss_t` has not been initialized by :c:"
 "func:`PyThread_tss_create`."
 msgstr ""
+"Параметр *key* цих функцій не має бути ``NULL``. Крім того, поведінка :c:"
+"func:`PyThread_tss_set` і :c:func:`PyThread_tss_get` є невизначеною, якщо "
+"даний :c:type:`Py_tss_t` не був ініціалізований :c:func:"
+"`PyThread_tss_create`."
 
 #: ../../c-api/init.rst:1818
 msgid ""
 "Return a non-zero value if the given :c:type:`Py_tss_t` has been initialized "
 "by :c:func:`PyThread_tss_create`."
 msgstr ""
+"Повертає ненульове значення, якщо заданий :c:type:`Py_tss_t` ініціалізовано :"
+"c:func:`PyThread_tss_create`."
 
 #: ../../c-api/init.rst:1824
 msgid ""
@@ -2280,6 +2889,11 @@ msgid ""
 "`PyThread_tss_create`. This function can be called repeatedly on the same "
 "key -- calling it on an already destroyed key is a no-op."
 msgstr ""
+"Знищіть ключ TSS, щоб забути значення, пов’язані з ключем у всіх потоках, і "
+"змініть стан ініціалізації ключа на неініціалізований. Знищений ключ можна "
+"знову ініціалізувати за допомогою :c:func:`PyThread_tss_create`. Цю функцію "
+"можна багаторазово викликати для одного і того ж ключа – виклик її для вже "
+"знищеного ключа є безопераційним."
 
 #: ../../c-api/init.rst:1842
 msgid ""
@@ -2287,6 +2901,9 @@ msgid ""
 "value with a TSS key in the current thread.  Each thread has a distinct "
 "mapping of the key to a :c:expr:`void*` value."
 msgstr ""
+"Возвращает нулевое значение, чтобы указать успешное связывание значения :c:"
+"expr:`void*` с ключом TSS в текущем потоке. Каждый поток имеет отдельное "
+"сопоставление ключа со значением :c:expr:`void*`."
 
 #: ../../c-api/init.rst:1849
 msgid ""
@@ -2294,16 +2911,21 @@ msgid ""
 "thread.  This returns ``NULL`` if no value is associated with the key in the "
 "current thread."
 msgstr ""
+"Возвращает значение :c:expr:`void*`, связанное с ключом TSS в текущем "
+"потоке. Это возвращает NULL, если с ключом в текущем потоке не связано "
+"никакое значение."
 
 #: ../../c-api/init.rst:1857
 msgid "Thread Local Storage (TLS) API"
-msgstr ""
+msgstr "API локального зберігання потоків (TLS)."
 
 #: ../../c-api/init.rst:1859
 msgid ""
 "This API is superseded by :ref:`Thread Specific Storage (TSS) API <thread-"
 "specific-storage-api>`."
 msgstr ""
+"Цей API замінено :ref:`API спеціального зберігання потоків (TSS) <thread-"
+"specific-storage-api>`."
 
 #: ../../c-api/init.rst:1864
 msgid ""
@@ -2313,24 +2935,30 @@ msgid ""
 "failure status, and the other TLS functions will all be no-ops on such "
 "platforms."
 msgstr ""
+"Ця версія API не підтримує платформи, де власний ключ TLS визначено таким "
+"чином, що його неможливо безпечно перевести в ``int``. На таких платформах :"
+"c:func:`PyThread_create_key` негайно повернеться зі статусом помилки, а всі "
+"інші функції TLS будуть безопераційними на таких платформах."
 
 #: ../../c-api/init.rst:1869
 msgid ""
 "Due to the compatibility problem noted above, this version of the API should "
 "not be used in new code."
 msgstr ""
+"Через проблему сумісності, зазначену вище, цю версію API не слід "
+"використовувати в новому коді."
 
 #: ../../c-api/init.rst:231 ../../c-api/init.rst:386 ../../c-api/init.rst:461
 msgid "Py_SetProgramName()"
-msgstr ""
+msgstr "Py_SetProgramName()"
 
 #: ../../c-api/init.rst:231
 msgid "PyEval_InitThreads()"
-msgstr ""
+msgstr "PyEval_InitThreads()"
 
 #: ../../c-api/init.rst:231
 msgid "modules (in module sys)"
-msgstr ""
+msgstr "modules (in module sys)"
 
 #: ../../c-api/init.rst:231 ../../c-api/init.rst:480 ../../c-api/init.rst:506
 msgid "path (in module sys)"
@@ -2363,67 +2991,67 @@ msgstr "caminho"
 
 #: ../../c-api/init.rst:231
 msgid "PySys_SetArgv (C function)"
-msgstr ""
+msgstr "PySys_SetArgv (C функция)"
 
 #: ../../c-api/init.rst:231
 msgid "PySys_SetArgvEx (C function)"
-msgstr ""
+msgstr "PySys_SetArgvEx (C функция)"
 
 #: ../../c-api/init.rst:231 ../../c-api/init.rst:1418 ../../c-api/init.rst:1453
 msgid "Py_FinalizeEx (C function)"
-msgstr ""
+msgstr "Py_FinalizeEx (C функция)"
 
 #: ../../c-api/init.rst:321 ../../c-api/init.rst:358
 msgid "Py_Initialize()"
-msgstr ""
+msgstr "Py_Initialize()"
 
 #: ../../c-api/init.rst:321 ../../c-api/init.rst:358 ../../c-api/init.rst:614
 msgid "main()"
-msgstr ""
+msgstr "main()"
 
 #: ../../c-api/init.rst:321
 msgid "stdin"
-msgstr ""
+msgstr "стандартный поток ввода"
 
 #: ../../c-api/init.rst:321
 msgid "stdout"
-msgstr ""
+msgstr "стандартный поток вывода"
 
 #: ../../c-api/init.rst:321
 msgid "sdterr"
-msgstr ""
+msgstr "sdterr"
 
 #: ../../c-api/init.rst:358 ../../c-api/init.rst:506
 msgid "Py_GetPath()"
-msgstr ""
+msgstr "Py_GetPath()"
 
 #: ../../c-api/init.rst:461
 msgid "executable (in module sys)"
-msgstr ""
+msgstr "executable (in module sys)"
 
 #: ../../c-api/init.rst:480
 msgid "Py_SetPath()"
-msgstr ""
+msgstr "Py_SetPath()"
 
 #: ../../c-api/init.rst:549 ../../c-api/init.rst:591 ../../c-api/init.rst:605
 msgid "version (in module sys)"
-msgstr ""
+msgstr "version (in module sys)"
 
 #: ../../c-api/init.rst:561
 msgid "platform (in module sys)"
-msgstr ""
+msgstr "platform (in module sys)"
 
 #: ../../c-api/init.rst:578
 msgid "copyright (in module sys)"
-msgstr ""
+msgstr "copyright (in module sys)"
 
 #: ../../c-api/init.rst:614
 msgid "Py_FatalError()"
-msgstr ""
+msgstr "Py_FatalError()"
 
 #: ../../c-api/init.rst:614
 msgid "argv (in module sys)"
-msgstr ""
+msgstr "argv (in module sys)"
 
 #: ../../c-api/init.rst:730
 msgid "global interpreter lock"
@@ -2431,51 +3059,51 @@ msgstr "trava global do interpretador"
 
 #: ../../c-api/init.rst:730
 msgid "interpreter lock"
-msgstr ""
+msgstr "interpreter lock"
 
 #: ../../c-api/init.rst:730
 msgid "lock, interpreter"
-msgstr ""
+msgstr "lock, interpreter"
 
 #: ../../c-api/init.rst:743
 msgid "setswitchinterval (in module sys)"
-msgstr ""
+msgstr "setswitchinterval (in module sys)"
 
 #: ../../c-api/init.rst:752
 msgid "PyThreadState (C type)"
-msgstr ""
+msgstr "PyThreadState (тип C)"
 
 #: ../../c-api/init.rst:778
 msgid "Py_BEGIN_ALLOW_THREADS (C macro)"
-msgstr ""
+msgstr "Py_BEGIN_ALLOW_THREADS (C макрос)"
 
 #: ../../c-api/init.rst:778
 msgid "Py_END_ALLOW_THREADS (C macro)"
-msgstr ""
+msgstr "Py_END_ALLOW_THREADS (C макрос)"
 
 #: ../../c-api/init.rst:794
 msgid "PyEval_RestoreThread (C function)"
-msgstr ""
+msgstr "PyEval_RestoreThread (C функция)"
 
 #: ../../c-api/init.rst:794
 msgid "PyEval_SaveThread (C function)"
-msgstr ""
+msgstr "PyEval_SaveThread (C функция)"
 
 #: ../../c-api/init.rst:925
 msgid "PyEval_AcquireThread()"
-msgstr ""
+msgstr "PyEval_AcquireThread()"
 
 #: ../../c-api/init.rst:925
 msgid "PyEval_ReleaseThread()"
-msgstr ""
+msgstr "PyEval_ReleaseThread()"
 
 #: ../../c-api/init.rst:925
 msgid "PyEval_SaveThread()"
-msgstr ""
+msgstr "PyEval_SaveThread()"
 
 #: ../../c-api/init.rst:925
 msgid "PyEval_RestoreThread()"
-msgstr ""
+msgstr "PyEval_RestoreThread()"
 
 #: ../../c-api/init.rst:947
 msgid "_thread"
@@ -2499,4 +3127,4 @@ msgstr "Py_Initialize (função C)"
 
 #: ../../c-api/init.rst:1448
 msgid "close (in module os)"
-msgstr ""
+msgstr "close (in module os)"
