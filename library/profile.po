@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-07 14:18+0000\n"
+"POT-Creation-Date: 2025-07-11 15:02+0000\n"
 "PO-Revision-Date: 2025-05-08 05:10+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -42,6 +42,10 @@ msgid ""
 "often and for how long various parts of the program executed. These "
 "statistics can be formatted into reports via the :mod:`pstats` module."
 msgstr ""
+":mod:`cProfile` і :mod:`profile` забезпечують :dfn:`детермінізоване "
+"профілювання` програм Python. :dfn:`profile` — це набір статистичних даних, "
+"який описує, як часто та як довго виконуються різні частини програми. Цю "
+"статистику можна форматувати у звіти за допомогою модуля :mod:`pstats`."
 
 #: ../../library/profile.rst:25
 msgid ""
@@ -58,6 +62,10 @@ msgid ""
 "programs.  Based on :mod:`lsprof`, contributed by Brett Rosen and Ted "
 "Czotter."
 msgstr ""
+":mod:`cProfile` рекомендується для більшості користувачів; це розширення C "
+"із розумними накладними витратами, що робить його придатним для профілювання "
+"довгострокових програм. На основі :mod:`lsprof`, внесли Бретт Розен і Тед "
+"Чоттер."
 
 #: ../../library/profile.rst:33
 msgid ""
@@ -66,6 +74,10 @@ msgid ""
 "you're trying to extend the profiler in some way, the task might be easier "
 "with this module.  Originally designed and written by Jim Roskind."
 msgstr ""
+":mod:`profile`, чистий модуль Python, інтерфейс якого імітується :mod:"
+"`cProfile`, але який додає значні накладні витрати на профільовані програми. "
+"Якщо ви намагаєтеся якимось чином розширити профайлер, завдання може бути "
+"легшим із цим модулем. Спочатку розроблений і написаний Джимом Роскіндом."
 
 #: ../../library/profile.rst:40
 msgid ""
@@ -76,10 +88,15 @@ msgid ""
 "for Python code, but not for C-level functions, and so the C code would seem "
 "faster than any Python one."
 msgstr ""
+"Модулі профайлера призначені для надання профілю виконання для даної "
+"програми, а не для порівняльного аналізу (для цього існує :mod:`timeit` для "
+"достатньо точних результатів). Це особливо стосується порівняння коду Python "
+"із кодом C: профайлери вводять додаткові витрати для коду Python, але не для "
+"функцій рівня C, тому код C здається швидшим за будь-який Python."
 
 #: ../../library/profile.rst:51
 msgid "Instant User's Manual"
-msgstr ""
+msgstr "Посібник користувача Instant"
 
 #: ../../library/profile.rst:53
 msgid ""
@@ -87,6 +104,9 @@ msgid ""
 "It provides a very brief overview, and allows a user to rapidly perform "
 "profiling on an existing application."
 msgstr ""
+"Цей розділ призначений для користувачів, які \"не хочуть читати посібник\". "
+"Він надає дуже короткий огляд і дозволяє користувачеві швидко виконувати "
+"профілювання існуючої програми."
 
 #: ../../library/profile.rst:57
 msgid "To profile a function that takes a single argument, you can do::"
@@ -100,18 +120,25 @@ msgid ""
 "import re\n"
 "cProfile.run('re.compile(\"foo|bar\")')"
 msgstr ""
+"import cProfile\n"
+"import re\n"
+"cProfile.run('re.compile(\"foo|bar\")')"
 
 #: ../../library/profile.rst:63
 msgid ""
 "(Use :mod:`profile` instead of :mod:`cProfile` if the latter is not "
 "available on your system.)"
 msgstr ""
+"(Використовуйте :mod:`profile` замість :mod:`cProfile`, якщо останній "
+"недоступний у вашій системі.)"
 
 #: ../../library/profile.rst:66
 msgid ""
 "The above action would run :func:`re.compile` and print profile results like "
 "the following::"
 msgstr ""
+"Наведена вище дія запустить :func:`re.compile` і надрукує результати "
+"профілю, як показано нижче:"
 
 #: ../../library/profile.rst:69
 msgid ""
@@ -129,6 +156,19 @@ msgid ""
 "     1    0.000    0.000    0.000    0.000 _compiler.py:598(_code)\n"
 "     1    0.000    0.000    0.000    0.000 _parser.py:435(_parse_sub)"
 msgstr ""
+"      214 function calls (207 primitive calls) in 0.002 seconds\n"
+"\n"
+"Ordered by: cumulative time\n"
+"\n"
+"ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n"
+"     1    0.000    0.000    0.002    0.002 {built-in method builtins.exec}\n"
+"     1    0.000    0.000    0.001    0.001 <string>:1(<module>)\n"
+"     1    0.000    0.000    0.001    0.001 __init__.py:250(compile)\n"
+"     1    0.000    0.000    0.001    0.001 __init__.py:289(_compile)\n"
+"     1    0.000    0.000    0.000    0.000 _compiler.py:759(compile)\n"
+"     1    0.000    0.000    0.000    0.000 _parser.py:937(parse)\n"
+"     1    0.000    0.000    0.000    0.000 _compiler.py:598(_code)\n"
+"     1    0.000    0.000    0.000    0.000 _parser.py:435(_parse_sub)"
 
 #: ../../library/profile.rst:83
 msgid ""
@@ -137,54 +177,63 @@ msgid ""
 "The next line: ``Ordered by: cumulative time`` indicates the output is "
 "sorted by the ``cumtime`` values. The column headings include:"
 msgstr ""
+"В первой строке указано, что было прослежено 214 звонков. Из этих вызовов "
+"207 были :dfn:`примитивными`, что означает, что вызов не был вызван "
+"рекурсией. Следующая строка: ``Упорядочено по: совокупному времени`` "
+"указывает, что выходные данные отсортированы по значениям ``cumtime``. "
+"Заголовки столбцов включают в себя:"
 
 #: ../../library/profile.rst:88
 msgid "ncalls"
-msgstr ""
+msgstr "виклики"
 
 #: ../../library/profile.rst:89
 msgid "for the number of calls."
-msgstr ""
+msgstr "за кількість дзвінків."
 
 #: ../../library/profile.rst:91
 msgid "tottime"
-msgstr ""
+msgstr "tottime"
 
 #: ../../library/profile.rst:92
 msgid ""
 "for the total time spent in the given function (and excluding time made in "
 "calls to sub-functions)"
 msgstr ""
+"для загального часу, витраченого на дану функцію (за винятком часу, "
+"витраченого на виклики підфункцій)"
 
 #: ../../library/profile.rst:95 ../../library/profile.rst:102
 msgid "percall"
-msgstr ""
+msgstr "percall"
 
 #: ../../library/profile.rst:96
 msgid "is the quotient of ``tottime`` divided by ``ncalls``"
-msgstr ""
+msgstr "це частка ``tottime``, поділена на ``ncalls``"
 
 #: ../../library/profile.rst:98
 msgid "cumtime"
-msgstr ""
+msgstr "cumtime"
 
 #: ../../library/profile.rst:99
 msgid ""
 "is the cumulative time spent in this and all subfunctions (from invocation "
 "till exit). This figure is accurate *even* for recursive functions."
 msgstr ""
+"це сукупний час, витрачений на цю та всі підфункції (від виклику до виходу). "
+"Ця цифра точна *навіть* для рекурсивних функцій."
 
 #: ../../library/profile.rst:103
 msgid "is the quotient of ``cumtime`` divided by primitive calls"
-msgstr ""
+msgstr "це частка ``cumtime``, поділена на примітивні виклики"
 
 #: ../../library/profile.rst:105
 msgid "filename:lineno(function)"
-msgstr ""
+msgstr "filename:lineno(function)"
 
 #: ../../library/profile.rst:106
 msgid "provides the respective data of each function"
-msgstr ""
+msgstr "надає відповідні дані кожної функції"
 
 #: ../../library/profile.rst:108
 msgid ""
@@ -194,12 +243,18 @@ msgid ""
 "the function does not recurse, these two values are the same, and only the "
 "single figure is printed."
 msgstr ""
+"Якщо в першому стовпці є два числа (наприклад, ``3/1``), це означає, що "
+"функція рекурсувала. Друге значення — це кількість первинних викликів, а "
+"перше — загальна кількість викликів. Зауважте, що коли функція не рекурсує, "
+"ці два значення однакові, і друкується лише одна цифра."
 
 #: ../../library/profile.rst:114
 msgid ""
 "Instead of printing the output at the end of the profile run, you can save "
 "the results to a file by specifying a filename to the :func:`run` function::"
 msgstr ""
+"Замість того, щоб друкувати вихідні дані в кінці запуску профілю, ви можете "
+"зберегти результати у файлі, вказавши ім’я файлу у функції :func:`run`::"
 
 #: ../../library/profile.rst:117
 msgid ""
@@ -207,27 +262,35 @@ msgid ""
 "import re\n"
 "cProfile.run('re.compile(\"foo|bar\")', 'restats')"
 msgstr ""
+"import cProfile\n"
+"import re\n"
+"cProfile.run('re.compile(\"foo|bar\")', 'restats')"
 
 #: ../../library/profile.rst:121
 msgid ""
 "The :class:`pstats.Stats` class reads profile results from a file and "
 "formats them in various ways."
 msgstr ""
+"Клас :class:`pstats.Stats` читає результати профілю з файлу та форматує їх "
+"різними способами."
 
 #: ../../library/profile.rst:128
 msgid ""
 "The files :mod:`cProfile` and :mod:`profile` can also be invoked as a script "
 "to profile another script.  For example::"
 msgstr ""
+"Файли :mod:`cProfile` і :mod:`profile` також можна викликати як сценарій для "
+"профілювання іншого сценарію. Наприклад::"
 
 #: ../../library/profile.rst:131
 msgid ""
 "python -m cProfile [-o output_file] [-s sort_order] (-m module | myscript.py)"
 msgstr ""
+"python -m cProfile [-o output_file] [-s sort_order] (-m module | myscript.py)"
 
 #: ../../library/profile.rst:135
 msgid "Writes the profile results to a file instead of to stdout."
-msgstr ""
+msgstr "将性能分析结果写入到文件而不是标准输出。"
 
 #: ../../library/profile.rst:139
 msgid ""
@@ -235,18 +298,20 @@ msgid ""
 "the output by. This only applies when :option:`-o <cProfile -o>` is not "
 "supplied."
 msgstr ""
+"指定某个 :func:`~pstats.Stats.sort_stats` 排序值以对输出进行排序。 这仅适用于"
+"未提供 :option:`-o <cProfile -o>` 的情况。"
 
 #: ../../library/profile.rst:145
 msgid "Specifies that a module is being profiled instead of a script."
-msgstr ""
+msgstr "指定要分析的是一个模块而不是脚本。"
 
 #: ../../library/profile.rst:147
 msgid "Added the ``-m`` option to :mod:`cProfile`."
-msgstr ""
+msgstr "Додано опцію ``-m`` до :mod:`cProfile`."
 
 #: ../../library/profile.rst:150
 msgid "Added the ``-m`` option to :mod:`profile`."
-msgstr ""
+msgstr "Додано опцію ``-m`` до :mod:`profile`."
 
 #: ../../library/profile.rst:153
 msgid ""
@@ -254,6 +319,8 @@ msgid ""
 "methods for manipulating and printing the data saved into a profile results "
 "file::"
 msgstr ""
+"Клас :class:`~pstats.Stats` модуля :mod:`pstats` має різноманітні методи для "
+"обробки та друку даних, збережених у файлі результатів профілю:"
 
 #: ../../library/profile.rst:156
 msgid ""
@@ -262,6 +329,10 @@ msgid ""
 "p = pstats.Stats('restats')\n"
 "p.strip_dirs().sort_stats(-1).print_stats()"
 msgstr ""
+"import pstats\n"
+"from pstats import SortKey\n"
+"p = pstats.Stats('restats')\n"
+"p.strip_dirs().sort_stats(-1).print_stats()"
 
 #: ../../library/profile.rst:161
 msgid ""
@@ -271,12 +342,19 @@ msgid ""
 "printed. The :meth:`~pstats.Stats.print_stats` method printed out all the "
 "statistics.  You might try the following sort calls::"
 msgstr ""
+"Метод :meth:`~pstats.Stats.strip_dirs` видалив зайвий шлях з усіх імен "
+"модулів. Метод :meth:`~pstats.Stats.sort_stats` відсортував усі записи "
+"відповідно до стандартного рядка модуля/рядка/назви, який друкується. Метод :"
+"meth:`~pstats.Stats.print_stats` виводить всю статистику. Ви можете "
+"спробувати такі виклики сортування:"
 
 #: ../../library/profile.rst:167
 msgid ""
 "p.sort_stats(SortKey.NAME)\n"
 "p.print_stats()"
 msgstr ""
+"p.sort_stats(SortKey.NAME)\n"
+"p.print_stats()"
 
 #: ../../library/profile.rst:170
 msgid ""
@@ -284,10 +362,13 @@ msgid ""
 "call will print out the statistics.  The following are some interesting "
 "calls to experiment with::"
 msgstr ""
+"Перший виклик фактично відсортує список за назвою функції, а другий виклик "
+"роздрукує статистику. Нижче наведено кілька цікавих викликів для "
+"експериментів:"
 
 #: ../../library/profile.rst:174
 msgid "p.sort_stats(SortKey.CUMULATIVE).print_stats(10)"
-msgstr ""
+msgstr "p.sort_stats(SortKey.CUMULATIVE).print_stats(10)"
 
 #: ../../library/profile.rst:176
 msgid ""
@@ -295,22 +376,29 @@ msgid ""
 "prints the ten most significant lines.  If you want to understand what "
 "algorithms are taking time, the above line is what you would use."
 msgstr ""
+"Це сортує профіль за сукупним часом у функції, а потім друкує лише десять "
+"найважливіших рядків. Якщо ви хочете зрозуміти, які алгоритми потребують "
+"часу, ви б використали рядок вище."
 
 #: ../../library/profile.rst:180
 msgid ""
 "If you were looking to see what functions were looping a lot, and taking a "
 "lot of time, you would do::"
 msgstr ""
+"Якби ви хотіли побачити, які функції часто зациклюються та займають багато "
+"часу, ви б зробили:"
 
 #: ../../library/profile.rst:183
 msgid "p.sort_stats(SortKey.TIME).print_stats(10)"
-msgstr ""
+msgstr "p.sort_stats(SortKey.TIME).print_stats(10)"
 
 #: ../../library/profile.rst:185
 msgid ""
 "to sort according to time spent within each function, and then print the "
 "statistics for the top ten functions."
 msgstr ""
+"щоб відсортувати відповідно до часу, витраченого на виконання кожної "
+"функції, а потім надрукувати статистику для перших десяти функцій."
 
 #: ../../library/profile.rst:188
 msgid "You might also try::"
@@ -318,7 +406,7 @@ msgstr "Você pode tentar também::"
 
 #: ../../library/profile.rst:190
 msgid "p.sort_stats(SortKey.FILENAME).print_stats('__init__')"
-msgstr ""
+msgstr "p.sort_stats(SortKey.FILENAME).print_stats('__init__')"
 
 #: ../../library/profile.rst:192
 msgid ""
@@ -326,10 +414,13 @@ msgid ""
 "statistics for only the class init methods (since they are spelled with "
 "``__init__`` in them).  As one final example, you could try::"
 msgstr ""
+"Це відсортує всю статистику за назвою файлу, а потім роздрукує статистику "
+"лише для методів ініціалізації класу (оскільки в них пишеться ``__init__``). "
+"Як останній приклад, ви можете спробувати:"
 
 #: ../../library/profile.rst:196
 msgid "p.sort_stats(SortKey.TIME, SortKey.CUMULATIVE).print_stats(.5, 'init')"
-msgstr ""
+msgstr "p.sort_stats(SortKey.TIME, SortKey.CUMULATIVE).print_stats(.5, 'init')"
 
 #: ../../library/profile.rst:198
 msgid ""
@@ -339,32 +430,43 @@ msgid ""
 "size, then only lines containing ``init`` are maintained, and that sub-sub-"
 "list is printed."
 msgstr ""
+"Цей рядок сортує статистичні дані за первинним ключем часу та вторинним "
+"ключем сукупного часу, а потім роздруковує деякі статистичні дані. Щоб бути "
+"конкретним, список спочатку відбирається до 50% (re: ``.5``) від його "
+"початкового розміру, потім зберігаються лише рядки, що містять ``init``, і "
+"цей підпідсписок друкується."
 
 #: ../../library/profile.rst:203
 msgid ""
 "If you wondered what functions called the above functions, you could now "
 "(``p`` is still sorted according to the last criteria) do::"
 msgstr ""
+"Якщо вам було цікаво, які функції називають наведені вище функції, ви можете "
+"тепер (``p`` все ще сортується за останнім критерієм) зробити::"
 
 #: ../../library/profile.rst:206
 msgid "p.print_callers(.5, 'init')"
-msgstr ""
+msgstr "p.print_callers(.5, 'init')"
 
 #: ../../library/profile.rst:208
 msgid "and you would get a list of callers for each of the listed functions."
-msgstr ""
+msgstr "і ви отримаєте список абонентів для кожної з перелічених функцій."
 
 #: ../../library/profile.rst:210
 msgid ""
 "If you want more functionality, you're going to have to read the manual, or "
 "guess what the following functions do::"
 msgstr ""
+"Якщо ви хочете отримати більше функціональних можливостей, вам доведеться "
+"прочитати посібник або здогадатися, що роблять такі функції:"
 
 #: ../../library/profile.rst:213
 msgid ""
 "p.print_callees()\n"
 "p.add('restats')"
 msgstr ""
+"p.print_callees()\n"
+"p.add('restats')"
 
 #: ../../library/profile.rst:216
 msgid ""
@@ -372,26 +474,32 @@ msgid ""
 "reading and examining profile dumps.  It has a simple line-oriented "
 "interface (implemented using :mod:`cmd`) and interactive help."
 msgstr ""
+"Викликаний як скрипт, модуль :mod:`pstats` є браузером статистики для "
+"читання та вивчення дампів профілю. Він має простий рядково-орієнтований "
+"інтерфейс (реалізований за допомогою :mod:`cmd`) та інтерактивну довідку."
 
 #: ../../library/profile.rst:221
 msgid ":mod:`profile` and :mod:`cProfile` Module Reference"
-msgstr ""
+msgstr "Довідка про модуль :mod:`profile` і :mod:`cProfile`"
 
 #: ../../library/profile.rst:227
 msgid ""
 "Both the :mod:`profile` and :mod:`cProfile` modules provide the following "
 "functions:"
 msgstr ""
+"Обидва модулі :mod:`profile` і :mod:`cProfile` забезпечують такі функції:"
 
 #: ../../library/profile.rst:232
 msgid ""
 "This function takes a single argument that can be passed to the :func:`exec` "
 "function, and an optional file name.  In all cases this routine executes::"
 msgstr ""
+"Ця функція приймає один аргумент, який можна передати функції :func:`exec`, "
+"і необов’язкове ім’я файлу. У всіх випадках ця процедура виконує:"
 
 #: ../../library/profile.rst:235
 msgid "exec(command, __main__.__dict__, __main__.__dict__)"
-msgstr ""
+msgstr "exec(command, __main__.__dict__, __main__.__dict__)"
 
 #: ../../library/profile.rst:237
 msgid ""
@@ -401,26 +509,36 @@ msgid ""
 "specified, it is passed to this :class:`~pstats.Stats` instance to control "
 "how the results are sorted."
 msgstr ""
+"і збирає статистику профілювання від виконання. Якщо ім’я файлу відсутнє, ця "
+"функція автоматично створює екземпляр :class:`~pstats.Stats` і друкує "
+"простий звіт профілювання. Якщо вказано значення сортування, воно "
+"передається цьому екземпляру :class:`~pstats.Stats` для керування "
+"сортуванням результатів."
 
 #: ../../library/profile.rst:245
 msgid ""
 "This function is similar to :func:`run`, with added arguments to supply the "
 "globals and locals mappings for the *command* string. This routine executes::"
 msgstr ""
+"Эта функция аналогична :func:`run`, с добавленными аргументами для "
+"предоставления сопоставлений глобальных и локальных переменных для строки "
+"*command*. Эта процедура выполняет::"
 
 #: ../../library/profile.rst:249
 msgid "exec(command, globals, locals)"
-msgstr ""
+msgstr "exec(command, globals, locals)"
 
 #: ../../library/profile.rst:251
 msgid "and gathers profiling statistics as in the :func:`run` function above."
-msgstr ""
+msgstr "і збирає статистику профілювання, як у функції :func:`run` вище."
 
 #: ../../library/profile.rst:255
 msgid ""
 "This class is normally only used if more precise control over profiling is "
 "needed than what the :func:`cProfile.run` function provides."
 msgstr ""
+"Зазвичай цей клас використовується, лише якщо потрібен більш точний контроль "
+"над профілюванням, ніж той, який забезпечує функція :func:`cProfile.run`."
 
 #: ../../library/profile.rst:258
 msgid ""
@@ -431,12 +549,19 @@ msgid ""
 "example, if the timer returns times measured in thousands of seconds, the "
 "time unit would be ``.001``."
 msgstr ""
+"Можна надати власний таймер для вимірювання тривалості виконання коду за "
+"допомогою аргументу *timer*. Це має бути функція, яка повертає одне число, "
+"що відповідає поточному часу. Якщо число є цілим числом, *timeunit* визначає "
+"множник, який визначає тривалість кожної одиниці часу. Наприклад, якщо "
+"таймер повертає час, виміряний у тисячах секунд, одиницею часу буде ``.001``."
 
 #: ../../library/profile.rst:265
 msgid ""
 "Directly using the :class:`Profile` class allows formatting profile results "
 "without writing the profile data to a file::"
 msgstr ""
+"Безпосереднє використання класу :class:`Profile` дозволяє форматувати "
+"результати профілю без запису даних профілю у файл::"
 
 #: ../../library/profile.rst:268
 msgid ""
@@ -452,12 +577,26 @@ msgid ""
 "ps.print_stats()\n"
 "print(s.getvalue())"
 msgstr ""
+"import cProfile, pstats, io\n"
+"from pstats import SortKey\n"
+"pr = cProfile.Profile()\n"
+"pr.enable()\n"
+"# ... do something ...\n"
+"pr.disable()\n"
+"s = io.StringIO()\n"
+"sortby = SortKey.CUMULATIVE\n"
+"ps = pstats.Stats(pr, stream=s).sort_stats(sortby)\n"
+"ps.print_stats()\n"
+"print(s.getvalue())"
 
 #: ../../library/profile.rst:280
 msgid ""
 "The :class:`Profile` class can also be used as a context manager (supported "
 "only in :mod:`cProfile` module. see :ref:`typecontextmanager`)::"
 msgstr ""
+"Клас :class:`Profile` також можна використовувати як менеджер контексту "
+"(підтримується лише в модулі :mod:`cProfile`. Див. :ref:"
+"`typecontextmanager`)::"
 
 #: ../../library/profile.rst:283
 msgid ""
@@ -468,6 +607,12 @@ msgid ""
 "\n"
 "    pr.print_stats()"
 msgstr ""
+"import cProfile\n"
+"\n"
+"with cProfile.Profile() as pr:\n"
+"    # ... do something ...\n"
+"\n"
+"    pr.print_stats()"
 
 #: ../../library/profile.rst:290
 msgid "Added context manager support."
@@ -486,6 +631,8 @@ msgid ""
 "Stop collecting profiling data and record the results internally as the "
 "current profile."
 msgstr ""
+"Припиніть збір даних профілювання та запишіть результати внутрішньо як "
+"поточний профіль."
 
 #: ../../library/profile.rst:308
 msgid ""
@@ -501,10 +648,13 @@ msgid ""
 "statistics. It accepts a single key or a tuple of keys to enable multi-level "
 "sorting, as in :func:`Stats.sort_stats <pstats.Stats.sort_stats>`."
 msgstr ""
+"Параметр *sort* определяет порядок сортировки отображаемой статистики. Он "
+"принимает один ключ или кортеж ключей для включения многоуровневой "
+"сортировки, как в :func:`Stats.sort_stats <pstats.Stats.sort_stats>`."
 
 #: ../../library/profile.rst:315
 msgid ":meth:`~Profile.print_stats` now accepts a tuple of keys."
-msgstr ""
+msgstr ":meth:`~Profile.print_stats` теперь принимает кортеж ключей."
 
 #: ../../library/profile.rst:320
 msgid "Write the results of the current profile to *filename*."
@@ -512,17 +662,19 @@ msgstr "Escreve os resultados do profile atual para *filename*."
 
 #: ../../library/profile.rst:324
 msgid "Profile the cmd via :func:`exec`."
-msgstr ""
+msgstr "Профілюйте cmd через :func:`exec`."
 
 #: ../../library/profile.rst:328
 msgid ""
 "Profile the cmd via :func:`exec` with the specified global and local "
 "environment."
 msgstr ""
+"Профілюйте cmd через :func:`exec` із зазначеним глобальним і локальним "
+"середовищем."
 
 #: ../../library/profile.rst:333
 msgid "Profile ``func(*args, **kwargs)``"
-msgstr ""
+msgstr "Профіль ``func(*args, **kwargs)``"
 
 #: ../../library/profile.rst:335
 msgid ""
@@ -531,6 +683,10 @@ msgid ""
 "during the called command/function execution) no profiling results will be "
 "printed."
 msgstr ""
+"Зауважте, що профілювання працюватиме, лише якщо викликана команда/функція "
+"дійсно повернеться. Якщо інтерпретатор завершується (наприклад, через "
+"виклик :func:`sys.exit` під час виконання викликаної команди/функції), "
+"результати профілювання не друкуються."
 
 #: ../../library/profile.rst:343
 msgid "The :class:`Stats` Class"
@@ -540,6 +696,8 @@ msgstr "A classe :class:`Stats`"
 msgid ""
 "Analysis of the profiler data is done using the :class:`~pstats.Stats` class."
 msgstr ""
+"Аналіз даних профайлера виконується за допомогою класу :class:`~pstats."
+"Stats`."
 
 #: ../../library/profile.rst:352
 msgid ""
@@ -547,6 +705,9 @@ msgid ""
 "*filename* (or list of filenames) or from a :class:`Profile` instance. "
 "Output will be printed to the stream specified by *stream*."
 msgstr ""
+"Цей конструктор класу створює екземпляр \"статистичного об’єкта\" з *імені "
+"файлу* (або списку імен файлів) або з екземпляра :class:`Profile`. Вихід "
+"буде надруковано в потік, указаний *stream*."
 
 #: ../../library/profile.rst:356
 msgid ""
@@ -561,12 +722,23 @@ msgid ""
 "existing :class:`~pstats.Stats` object, the :meth:`~pstats.Stats.add` method "
 "can be used."
 msgstr ""
+"Файл, вибраний конструктором вище, має бути створений відповідною версією :"
+"mod:`profile` або :mod:`cProfile`. Якщо бути конкретнішим, *немає* гарантії "
+"сумісності файлів із майбутніми версіями цього профайлера, а також немає "
+"сумісності з файлами, створеними іншими профайлерами, або тим самим "
+"профайлером, що працює в іншій операційній системі. Якщо надано кілька "
+"файлів, усі статистичні дані для ідентичних функцій будуть об’єднані, щоб "
+"загальний огляд кількох процесів можна було розглянути в одному звіті. Якщо "
+"додаткові файли потрібно об’єднати з даними в існуючому об’єкті :class:"
+"`~pstats.Stats`, можна використати метод :meth:`~pstats.Stats.add`."
 
 #: ../../library/profile.rst:367
 msgid ""
 "Instead of reading the profile data from a file, a :class:`cProfile.Profile` "
 "or :class:`profile.Profile` object can be used as the profile data source."
 msgstr ""
+"Замість читання даних профілю з файлу, об’єкт :class:`cProfile.Profile` або :"
+"class:`profile.Profile` можна використовувати як джерело даних профілю."
 
 #: ../../library/profile.rst:370
 msgid ":class:`Stats` objects have the following methods:"
@@ -585,6 +757,15 @@ msgid ""
 "name), then the statistics for these two entries are accumulated into a "
 "single entry."
 msgstr ""
+"Цей метод для класу :class:`Stats` видаляє всю інформацію про початковий "
+"шлях із імен файлів. Це дуже корисно для зменшення розміру роздруківки до "
+"(близько) 80 стовпців. Цей метод змінює об’єкт, і видалена інформація "
+"втрачається. Після виконання операції видалення вважається, що об’єкт має "
+"свої записи у \"випадковому\" порядку, як це було одразу після ініціалізації "
+"та завантаження об’єкта. Якщо :meth:`~pstats.Stats.strip_dirs` спричиняє "
+"нерозрізнення двох імен функцій (вони знаходяться в одному рядку того самого "
+"імені файлу та мають однакову назву функції), тоді статистика для цих двох "
+"записів накопичується в єдиний вхід."
 
 #: ../../library/profile.rst:388
 msgid ""
@@ -594,6 +775,11 @@ msgid ""
 "func:`cProfile.run`. Statistics for identically named (re: file, line, name) "
 "functions are automatically accumulated into single function statistics."
 msgstr ""
+"Цей метод класу :class:`Stats` накопичує додаткову інформацію профілювання в "
+"поточному об’єкті профілювання. Його аргументи мають посилатися на імена "
+"файлів, створені відповідною версією :func:`profile.run` або :func:`cProfile."
+"run`. Статистика для функцій з ідентичними назвами (re: файл, рядок, ім’я) "
+"автоматично накопичується в одній статистиці функції."
 
 #: ../../library/profile.rst:398
 msgid ""
@@ -602,6 +788,10 @@ msgid ""
 "it already exists.  This is equivalent to the method of the same name on "
 "the :class:`profile.Profile` and :class:`cProfile.Profile` classes."
 msgstr ""
+"Збережіть дані, завантажені в об’єкт :class:`Stats`, у файл з назвою "
+"*filename*. Файл створюється, якщо він не існує, і перезаписується, якщо він "
+"уже існує. Це еквівалентно однойменному методу в класах :class:`profile."
+"Profile` і :class:`cProfile.Profile`."
 
 #: ../../library/profile.rst:406
 msgid ""
@@ -612,6 +802,11 @@ msgid ""
 "advantage over the string argument in that it is more robust and less error "
 "prone."
 msgstr ""
+"Цей метод змінює об’єкт :class:`Stats`, сортуючи його відповідно до наданих "
+"критеріїв. Аргументом може бути рядок або перелік SortKey, що визначає "
+"основу сортування (приклад: ``'time'``, ``'name'``, ``SortKey.TIME`` або "
+"``SortKey.NAME``). Аргумент переліку SortKey має перевагу над рядковим "
+"аргументом у тому, що він більш надійний і менш схильний до помилок."
 
 #: ../../library/profile.rst:413
 msgid ""
@@ -621,24 +816,31 @@ msgid ""
 "entries according to their function name, and resolve all ties (identical "
 "function names) by sorting by file name."
 msgstr ""
+"Якщо надається більше одного ключа, то додаткові ключі використовуються як "
+"вторинні критерії, якщо є рівність у всіх ключах, вибраних перед ними. "
+"Наприклад, ``sort_stats(SortKey.NAME, SortKey.FILE)`` відсортує всі записи "
+"відповідно до їхньої назви функції та розв’яже всі зв’язки (ідентичні назви "
+"функції) шляхом сортування за назвою файлу."
 
 #: ../../library/profile.rst:419
 msgid ""
 "For the string argument, abbreviations can be used for any key names, as "
 "long as the abbreviation is unambiguous."
 msgstr ""
+"Для рядкового аргументу можна використовувати абревіатури для будь-яких імен "
+"ключів, за умови, що скорочення є однозначним."
 
 #: ../../library/profile.rst:422
 msgid "The following are the valid string and SortKey:"
-msgstr ""
+msgstr "Нижче наведено дійсний рядок і SortKey:"
 
 #: ../../library/profile.rst:425
 msgid "Valid String Arg"
-msgstr ""
+msgstr "Дійсний рядковий аргумент"
 
 #: ../../library/profile.rst:425
 msgid "Valid enum Arg"
-msgstr ""
+msgstr "Дійсний перелік Arg"
 
 #: ../../library/profile.rst:425
 msgid "Meaning"
@@ -650,7 +852,7 @@ msgstr "``'calls'``"
 
 #: ../../library/profile.rst:427
 msgid "SortKey.CALLS"
-msgstr ""
+msgstr "SortKey.CALLS"
 
 #: ../../library/profile.rst:427 ../../library/profile.rst:439
 msgid "call count"
@@ -662,7 +864,7 @@ msgstr "``'cumulative'``"
 
 #: ../../library/profile.rst:429
 msgid "SortKey.CUMULATIVE"
-msgstr ""
+msgstr "SortKey.CUMULATIVE"
 
 #: ../../library/profile.rst:429 ../../library/profile.rst:431
 msgid "cumulative time"
@@ -685,7 +887,7 @@ msgstr "``'file'``"
 #: ../../library/profile.rst:433 ../../library/profile.rst:435
 #: ../../library/profile.rst:437
 msgid "file name"
-msgstr ""
+msgstr "ім'я файлу"
 
 #: ../../library/profile.rst:435
 msgid "``'filename'``"
@@ -693,7 +895,7 @@ msgstr "``'filename'``"
 
 #: ../../library/profile.rst:435
 msgid "SortKey.FILENAME"
-msgstr ""
+msgstr "SortKey.FILENAME"
 
 #: ../../library/profile.rst:437
 msgid "``'module'``"
@@ -709,11 +911,11 @@ msgstr "``'pcalls'``"
 
 #: ../../library/profile.rst:441
 msgid "SortKey.PCALLS"
-msgstr ""
+msgstr "SortKey.PCALLS"
 
 #: ../../library/profile.rst:441
 msgid "primitive call count"
-msgstr ""
+msgstr "примітивний підрахунок викликів"
 
 #: ../../library/profile.rst:443
 msgid "``'line'``"
@@ -721,11 +923,11 @@ msgstr "``'line'``"
 
 #: ../../library/profile.rst:443
 msgid "SortKey.LINE"
-msgstr ""
+msgstr "SortKey.LINE"
 
 #: ../../library/profile.rst:443
 msgid "line number"
-msgstr ""
+msgstr "номер рядка"
 
 #: ../../library/profile.rst:445
 msgid "``'name'``"
@@ -733,11 +935,11 @@ msgstr "``'name'``"
 
 #: ../../library/profile.rst:445
 msgid "SortKey.NAME"
-msgstr ""
+msgstr "SortKey.NAME"
 
 #: ../../library/profile.rst:445
 msgid "function name"
-msgstr ""
+msgstr "назва функції"
 
 #: ../../library/profile.rst:447
 msgid "``'nfl'``"
@@ -745,11 +947,11 @@ msgstr "``'nfl'``"
 
 #: ../../library/profile.rst:447
 msgid "SortKey.NFL"
-msgstr ""
+msgstr "SortKey.NFL"
 
 #: ../../library/profile.rst:447
 msgid "name/file/line"
-msgstr ""
+msgstr "ім'я/файл/рядок"
 
 #: ../../library/profile.rst:449
 msgid "``'stdname'``"
@@ -757,11 +959,11 @@ msgstr "``'stdname'``"
 
 #: ../../library/profile.rst:449
 msgid "SortKey.STDNAME"
-msgstr ""
+msgstr "SortKey.STDNAME"
 
 #: ../../library/profile.rst:449
 msgid "standard name"
-msgstr ""
+msgstr "стандартна назва"
 
 #: ../../library/profile.rst:451
 msgid "``'time'``"
@@ -769,11 +971,11 @@ msgstr "``'time'``"
 
 #: ../../library/profile.rst:451
 msgid "SortKey.TIME"
-msgstr ""
+msgstr "SortKey.TIME"
 
 #: ../../library/profile.rst:451 ../../library/profile.rst:453
 msgid "internal time"
-msgstr ""
+msgstr "внутрішній час"
 
 #: ../../library/profile.rst:453
 msgid "``'tottime'``"
@@ -792,6 +994,16 @@ msgid ""
 "``sort_stats(SortKey.NFL)`` is the same as ``sort_stats(SortKey.NAME, "
 "SortKey.FILENAME, SortKey.LINE)``."
 msgstr ""
+"Зауважте, що всі сортування в статистиці виконуються в порядку спадання "
+"(першими розміщуються елементи, що вимагають більше часу), а пошук імені, "
+"файлу та номера рядка здійснюється в порядку зростання (за алфавітом). Тонка "
+"різниця між ``SortKey.NFL`` і ``SortKey.STDNAME`` полягає в тому, що "
+"стандартна назва є різновидом назви, як надруковано, що означає, що "
+"вбудовані номери рядків порівнюються дивним чином. Наприклад, рядки 3, 20 і "
+"40 (якби імена файлів були однаковими) відображалися б у порядку рядків 20, "
+"3 і 40. На відміну від цього, ``SortKey.NFL`` виконує числове порівняння "
+"номерів рядків. Фактично, ``sort_stats(SortKey.NFL)`` те саме, що "
+"``sort_stats(SortKey.NAME, SortKey.FILENAME, SortKey.LINE)``."
 
 #: ../../library/profile.rst:467
 msgid ""
@@ -801,10 +1013,15 @@ msgid ""
 "style format (numeric) is used, only one sort key (the numeric key) will be "
 "used, and additional arguments will be silently ignored."
 msgstr ""
+"З міркувань зворотної сумісності дозволені числові аргументи ``-1``, ``0``, "
+"``1`` і ``2``. Вони інтерпретуються як ``'stdname'``, ``'calls'``, "
+"``'time'`` і ``'cumulative'`` відповідно. Якщо використовується цей формат "
+"старого стилю (числовий), використовуватиметься лише один ключ сортування "
+"(числовий ключ), а додаткові аргументи мовчки ігноруватимуться."
 
 #: ../../library/profile.rst:475
 msgid "Added the SortKey enum."
-msgstr ""
+msgstr "Додано перелік SortKey."
 
 #: ../../library/profile.rst:480
 msgid ""
@@ -812,12 +1029,17 @@ msgid ""
 "list within the object.  Note that by default ascending vs descending order "
 "is properly selected based on the sort key of choice."
 msgstr ""
+"Цей метод для класу :class:`Stats` змінює порядок базового списку в об’єкті "
+"на протилежний. Зверніть увагу, що за замовчуванням порядок зростання чи "
+"спадання вибрано належним чином на основі вибраного ключа сортування."
 
 #: ../../library/profile.rst:490
 msgid ""
 "This method for the :class:`Stats` class prints out a report as described in "
 "the :func:`profile.run` definition."
 msgstr ""
+"Цей метод для класу :class:`Stats` друкує звіт, як описано у визначенні :"
+"func:`profile.run`."
 
 #: ../../library/profile.rst:493
 msgid ""
@@ -825,6 +1047,9 @@ msgid ""
 "sort_stats` operation done on the object (subject to caveats in :meth:"
 "`~pstats.Stats.add` and :meth:`~pstats.Stats.strip_dirs`)."
 msgstr ""
+"Порядок друку базується на останній операції :meth:`~pstats.Stats."
+"sort_stats`, виконаній над об’єктом (з урахуванням застережень у :meth:"
+"`~pstats.Stats.add` і :meth:`~pstats. Stats.strip_dirs`)."
 
 #: ../../library/profile.rst:498
 msgid ""
@@ -837,10 +1062,17 @@ msgid ""
 "several restrictions are provided, then they are applied sequentially. For "
 "example::"
 msgstr ""
+"Надані аргументи (якщо такі є) можна використовувати, щоб обмежити список до "
+"значущих записів. Спочатку список розглядається як повний набір "
+"профільованих функцій. Кожне обмеження є або цілим числом (щоб вибрати "
+"кількість рядків), або десятковим дробом від 0,0 до 1,0 включно (щоб вибрати "
+"відсоток рядків), або рядком, який інтерпретуватиметься як регулярний вираз "
+"(щоб шаблон відповідав стандартній назві що друкується). Якщо передбачено "
+"кілька обмежень, то вони застосовуються послідовно. Наприклад::"
 
 #: ../../library/profile.rst:507
 msgid "print_stats(.1, 'foo:')"
-msgstr ""
+msgstr "print_stats(.1, 'foo:')"
 
 #: ../../library/profile.rst:509
 msgid ""
@@ -848,16 +1080,20 @@ msgid ""
 "functions that were part of filename :file:`.\\*foo:`.  In contrast, the "
 "command::"
 msgstr ""
+"спочатку обмежує друк до перших 10% списку, а потім друкує лише функції, які "
+"є частиною імені файлу :file:`.\\*foo:`. Навпаки, команда::"
 
 #: ../../library/profile.rst:513
 msgid "print_stats('foo:', .1)"
-msgstr ""
+msgstr "print_stats('foo:', .1)"
 
 #: ../../library/profile.rst:515
 msgid ""
 "would limit the list to all functions having file names :file:`.\\*foo:`, "
 "and then proceed to only print the first 10% of them."
 msgstr ""
+"обмежить список усіма функціями, що мають імена файлів :file:`.\\*foo:`, а "
+"потім перейде до друку лише перших 10% із них."
 
 #: ../../library/profile.rst:521
 msgid ""
@@ -868,6 +1104,11 @@ msgid ""
 "own line.  The format differs slightly depending on the profiler that "
 "produced the stats:"
 msgstr ""
+"Цей метод для класу :class:`Stats` друкує список усіх функцій, які викликали "
+"кожну функцію в профільованій базі даних. Порядок ідентичний тому, який "
+"надає :meth:`~pstats.Stats.print_stats`, і визначення обмежувального "
+"аргументу також ідентичне. Кожен абонент повідомляється на своїй лінії. "
+"Формат дещо відрізняється залежно від профайлера, який створив статистику:"
 
 #: ../../library/profile.rst:528
 msgid ""
@@ -876,6 +1117,10 @@ msgid ""
 "non-parenthesized number repeats the cumulative time spent in the function "
 "at the right."
 msgstr ""
+"За допомогою :mod:`profile` число відображається в дужках після кожного "
+"абонента, щоб показати, скільки разів було зроблено цей конкретний виклик. "
+"Для зручності друге число без дужок повторює сукупний час, витрачений на "
+"функцію праворуч."
 
 #: ../../library/profile.rst:533
 msgid ""
@@ -883,6 +1128,10 @@ msgid ""
 "of times this specific call was made, and the total and cumulative times "
 "spent in the current function while it was invoked by this specific caller."
 msgstr ""
+"За допомогою :mod:`cProfile` перед кожним викликом стоять три числа: "
+"кількість разів, коли цей конкретний виклик було здійснено, а також "
+"загальний і сукупний час, витрачений на поточну функцію під час її виклику "
+"цим конкретним викликом."
 
 #: ../../library/profile.rst:541
 msgid ""
@@ -891,6 +1140,10 @@ msgid ""
 "direction of calls (re: called vs was called by), the arguments and ordering "
 "are identical to the :meth:`~pstats.Stats.print_callers` method."
 msgstr ""
+"Цей метод для класу :class:`Stats` друкує список усіх функцій, викликаних "
+"зазначеною функцією. Окрім зміни напрямку викликів (re: called проти was "
+"called by), аргументи та порядок ідентичні методу :meth:`~pstats.Stats."
+"print_callers`."
 
 #: ../../library/profile.rst:549
 msgid ""
@@ -899,16 +1152,22 @@ msgid ""
 "instance holds information related to the function's profile such as how "
 "long the function took to run, how many times it was called, etc..."
 msgstr ""
+"Цей метод повертає екземпляр StatsProfile, який містить зіставлення імен "
+"функцій з екземплярами FunctionProfile. Кожен екземпляр FunctionProfile "
+"містить інформацію, пов’язану з профілем функції, наприклад, скільки часу "
+"знадобилося для виконання функції, скільки разів її викликали тощо..."
 
 #: ../../library/profile.rst:554
 msgid ""
 "Added the following dataclasses: StatsProfile, FunctionProfile. Added the "
 "following function: get_stats_profile."
 msgstr ""
+"Додано такі класи даних: StatsProfile, FunctionProfile. Додано таку функцію: "
+"get_stats_profile."
 
 #: ../../library/profile.rst:561
 msgid "What Is Deterministic Profiling?"
-msgstr ""
+msgstr "Що таке детерміноване профілювання?"
 
 #: ../../library/profile.rst:563
 msgid ""
@@ -922,6 +1181,15 @@ msgid ""
 "be instrumented), but provides only relative indications of where time is "
 "being spent."
 msgstr ""
+":dfn:`Deterministic profiling` призначене для відображення того факту, що "
+"всі події *виклику функції*, *повернення функції* та *виключення* "
+"відстежуються, а також точні часові інтервали між цими подіями (протягом "
+"часу, протягом якого користувач код виконується). На відміну від цього, :dfn:"
+"`statistical profiling` (яке не виконується цим модулем) випадково відбирає "
+"ефективний вказівник інструкції та визначає, де витрачається час. Останній "
+"метод традиційно передбачає менше накладних витрат (оскільки код не потребує "
+"інструментарію), але забезпечує лише відносні показники того, де "
+"витрачається час."
 
 #: ../../library/profile.rst:572
 msgid ""
@@ -934,6 +1202,15 @@ msgid ""
 "deterministic profiling is not that expensive, yet provides extensive run "
 "time statistics about the execution of a Python program."
 msgstr ""
+"У Python, оскільки під час виконання активний інтерпретатор, наявність "
+"інструментального коду не потрібна для виконання детермінованого "
+"профілювання. Python автоматично надає :dfn:`hook` (додатковий зворотний "
+"виклик) для кожної події. Крім того, інтерпретована природа Python має "
+"тенденцію додавати стільки накладних витрат на виконання, що детерміноване "
+"профілювання має тенденцію лише додавати невеликі накладні витрати на "
+"обробку в типових програмах. Результатом є те, що детерміноване профілювання "
+"не таке вже й дороге, але забезпечує розширену статистику часу виконання про "
+"виконання програми Python."
 
 #: ../../library/profile.rst:581
 msgid ""
@@ -946,6 +1223,14 @@ msgid ""
 "statistics for recursive implementations of algorithms to be directly "
 "compared to iterative implementations."
 msgstr ""
+"Статистику кількості викликів можна використовувати для виявлення помилок у "
+"коді (несподівана кількість) і для визначення можливих точок вбудованого "
+"розширення (висока кількість викликів). Внутрішню статистику часу можна "
+"використовувати для виявлення \"гарячих циклів\", які слід ретельно "
+"оптимізувати. Кумулятивну статистику часу слід використовувати для виявлення "
+"помилок високого рівня у виборі алгоритмів. Зауважте, що незвичайна обробка "
+"сукупного часу в цьому профайлері дозволяє прямо порівнювати статистику для "
+"рекурсивних реалізацій алгоритмів з ітеративними реалізаціями."
 
 #: ../../library/profile.rst:594
 msgid "Limitations"
@@ -961,6 +1246,13 @@ msgid ""
 "then the \"error\" will tend to average out. Unfortunately, removing this "
 "first error induces a second source of error."
 msgstr ""
+"Одне обмеження пов’язане з точністю інформації про час. Існує фундаментальна "
+"проблема з детермінованим профайлером, пов’язана з точністю. Найбільш "
+"очевидним обмеженням є те, що основний \"годинник\" цокає лише зі швидкістю "
+"(зазвичай) приблизно 0,001 секунди. Тому жодні вимірювання не будуть "
+"точнішими, ніж базовий годинник. Якщо проведено достатньо вимірювань, "
+"\"похибка\" матиме тенденцію до усереднення. На жаль, видалення цієї першої "
+"помилки спричиняє друге джерело помилки."
 
 #: ../../library/profile.rst:604
 msgid ""
@@ -974,6 +1266,15 @@ msgid ""
 "fashion is typically less than the accuracy of the clock (less than one "
 "clock tick), but it *can* accumulate and become very significant."
 msgstr ""
+"Друга проблема полягає в тому, що \"потрібен деякий час\" від моменту "
+"надсилання події до моменту, коли виклик профайлера для отримання часу "
+"фактично *отримує* стан годинника. Подібним чином існує певна затримка під "
+"час виходу з обробника подій профайлера з моменту, коли було отримано "
+"значення годинника (і потім вилучено), до моменту, коли код користувача "
+"знову виконується. У результаті функції, які викликаються багато разів або "
+"викликають багато функцій, зазвичай накопичуватимуть цю помилку. Похибка, "
+"яка накопичується таким чином, зазвичай менша, ніж точність годинника (менше "
+"одного такту), але вона *може* накопичуватися і стати дуже значною."
 
 #: ../../library/profile.rst:614
 msgid ""
@@ -988,10 +1289,19 @@ msgid ""
 "calibrated your profiler, and the results are actually better than without "
 "calibration."
 msgstr ""
+"Проблема важливіша з :mod:`profile`, ніж з нижчими накладними :mod:"
+"`cProfile`. З цієї причини :mod:`profile` забезпечує засіб самокалібрування "
+"для певної платформи, щоб цю помилку можна було ймовірно (в середньому) "
+"усунути. Після калібрування профайлера він буде більш точним (у сенсі "
+"найменших квадратів), але іноді він видаватиме від’ємні числа (коли "
+"кількість викликів надзвичайно низька, і боги ймовірності працюють проти "
+"вас :-). ) *Не* лякайтеся негативних цифр в профілі. Вони мають з’являтися "
+"*тільки*, якщо ви відкалібрували свій профайлер, і результати насправді "
+"кращі, ніж без калібрування."
 
 #: ../../library/profile.rst:628
 msgid "Calibration"
-msgstr ""
+msgstr "Калібрування"
 
 #: ../../library/profile.rst:630
 msgid ""
@@ -1001,6 +1311,11 @@ msgid ""
 "following procedure can be used to obtain a better constant for a given "
 "platform (see :ref:`profile-limitations`). ::"
 msgstr ""
+"Профайлер модуля :mod:`profile` віднімає константу від часу обробки кожної "
+"події, щоб компенсувати накладні витрати на виклик функції часу та "
+"накопичення результатів. За замовчуванням константа дорівнює 0. Наступну "
+"процедуру можна використати, щоб отримати кращу константу для даної "
+"платформи (див. :ref:`profile-limitations`). ::"
 
 #: ../../library/profile.rst:636
 msgid ""
@@ -1009,6 +1324,10 @@ msgid ""
 "for i in range(5):\n"
 "    print(pr.calibrate(10000))"
 msgstr ""
+"import profile\n"
+"pr = profile.Profile()\n"
+"for i in range(5):\n"
+"    print(pr.calibrate(10000))"
 
 #: ../../library/profile.rst:641
 msgid ""
@@ -1019,6 +1338,12 @@ msgid ""
 "Python's time.process_time() as the timer, the magical number is about "
 "4.04e-6."
 msgstr ""
+"Метод виконує кількість викликів Python, заданих аргументом, безпосередньо "
+"та знову під профайлером, вимірюючи час для обох. Потім він обчислює "
+"приховані накладні витрати на кожну подію профілювача та повертає їх як "
+"число з плаваючою точкою. Наприклад, на процесорі Intel Core i5 з тактовою "
+"частотою 1,8 ГГц, який працює під керуванням macOS і використовує Python "
+"time.process_time() як таймер, магічне число становить приблизно 4,04e-6."
 
 #: ../../library/profile.rst:647
 msgid ""
@@ -1026,11 +1351,17 @@ msgid ""
 "computer is *very* fast, or your timer function has poor resolution, you "
 "might have to pass 100000, or even 1000000, to get consistent results."
 msgstr ""
+"Мета цієї вправи — отримати досить послідовний результат. Якщо ваш комп’ютер "
+"*дуже* швидкий або ваша функція таймера має низьку роздільну здатність, вам, "
+"можливо, доведеться передати 100 000 або навіть 1000 000, щоб отримати "
+"стабільні результати."
 
 #: ../../library/profile.rst:651
 msgid ""
 "When you have a consistent answer, there are three ways you can use it::"
 msgstr ""
+"Якщо у вас є послідовна відповідь, ви можете використовувати її трьома "
+"способами:"
 
 #: ../../library/profile.rst:653
 msgid ""
@@ -1046,6 +1377,17 @@ msgid ""
 "# 3. Specify computed bias in instance constructor.\n"
 "pr = profile.Profile(bias=your_computed_bias)"
 msgstr ""
+"import profile\n"
+"\n"
+"# 1. Apply computed bias to all Profile instances created hereafter.\n"
+"profile.Profile.bias = your_computed_bias\n"
+"\n"
+"# 2. Apply computed bias to a specific Profile instance.\n"
+"pr = profile.Profile()\n"
+"pr.bias = your_computed_bias\n"
+"\n"
+"# 3. Specify computed bias in instance constructor.\n"
+"pr = profile.Profile(bias=your_computed_bias)"
 
 #: ../../library/profile.rst:665
 msgid ""
@@ -1053,10 +1395,12 @@ msgid ""
 "then your results will \"less often\" show up as negative in profile "
 "statistics."
 msgstr ""
+"Якщо у вас є вибір, краще вибрати меншу константу, і тоді ваші результати "
+"будуть \"рідше\" відображатися в статистиці профілю як негативні."
 
 #: ../../library/profile.rst:671
 msgid "Using a custom timer"
-msgstr ""
+msgstr "Використання спеціального таймера"
 
 #: ../../library/profile.rst:673
 msgid ""
@@ -1064,10 +1408,14 @@ msgid ""
 "use of wall-clock time or elapsed process time), pass the timing function "
 "you want to the :class:`Profile` class constructor::"
 msgstr ""
+"Якщо ви хочете змінити спосіб визначення поточного часу (наприклад, щоб "
+"примусово використовувати час настінного годинника або час, що минув), "
+"передайте потрібну функцію синхронізації в конструктор класу :class:"
+"`Profile`::"
 
 #: ../../library/profile.rst:677
 msgid "pr = profile.Profile(your_time_func)"
-msgstr ""
+msgstr "pr = profile.Profile(your_time_func)"
 
 #: ../../library/profile.rst:679
 msgid ""
@@ -1075,6 +1423,10 @@ msgid ""
 "whether you are using :class:`profile.Profile` or :class:`cProfile.Profile`, "
 "``your_time_func``'s return value will be interpreted differently:"
 msgstr ""
+"Потім отриманий профайлер викличе ``your_time_func``. Залежно від того, чи "
+"використовуєте ви :class:`profile.Profile` чи :class:`cProfile.Profile`, "
+"значення, що повертається ``your_time_func``, буде інтерпретуватися по-"
+"різному:"
 
 #: ../../library/profile.rst:683
 msgid ":class:`profile.Profile`"
@@ -1088,6 +1440,10 @@ msgid ""
 "length 2, then you will get an especially fast version of the dispatch "
 "routine."
 msgstr ""
+"``your_time_func`` має повертати одне число або список чисел, сума яких є "
+"поточним часом (як те, що повертає :func:`os.times`). Якщо функція повертає "
+"єдине число часу або список повернутих чисел має довжину 2, тоді ви "
+"отримаєте особливо швидку версію процедури відправки."
 
 #: ../../library/profile.rst:690
 msgid ""
@@ -1100,6 +1456,15 @@ msgid ""
 "hardwire a replacement dispatch method that best handles your timer call, "
 "along with the appropriate calibration constant."
 msgstr ""
+"Имейте в виду, что вам следует откалибровать класс профилировщика для "
+"выбранной вами функции таймера (см. :ref:`profile-калибровка`). Для "
+"большинства машин таймер, возвращающий единственное целое значение, "
+"обеспечит наилучшие результаты с точки зрения низких накладных расходов во "
+"время профилирования. (:func:`os.times` *довольно* плох, поскольку "
+"возвращает кортеж значений с плавающей запятой). Если вы хотите заменить "
+"лучший таймер наиболее чистым способом, создайте класс и закрепите метод "
+"диспетчеризации замены, который лучше всего обрабатывает вызов вашего "
+"таймера, вместе с соответствующей калибровочной константой."
 
 #: ../../library/profile.rst:699
 msgid ":class:`cProfile.Profile`"
@@ -1113,10 +1478,15 @@ msgid ""
 "``your_integer_time_func`` returns times measured in thousands of seconds, "
 "you would construct the :class:`Profile` instance as follows::"
 msgstr ""
+"``your_time_func`` має повертати одне число. Якщо він повертає цілі числа, "
+"ви також можете викликати конструктор класу з другим аргументом, який "
+"визначає реальну тривалість однієї одиниці часу. Наприклад, якщо "
+"``your_integer_time_func`` повертає час, виміряний у тисячах секунд, ви "
+"повинні створити екземпляр :class:`Profile` наступним чином::"
 
 #: ../../library/profile.rst:706
 msgid "pr = cProfile.Profile(your_integer_time_func, 0.001)"
-msgstr ""
+msgstr "pr = cProfile.Profile(your_integer_time_func, 0.001)"
 
 #: ../../library/profile.rst:708
 msgid ""
@@ -1125,6 +1495,11 @@ msgid ""
 "the best results with a custom timer, it might be necessary to hard-code it "
 "in the C source of the internal :mod:`!_lsprof` module."
 msgstr ""
+"Поскольку класс :class:`cProfile.Profile` не может быть откалиброван, "
+"пользовательские функции таймера следует использовать с осторожностью и "
+"должны работать как можно быстрее. Для достижения наилучших результатов при "
+"использовании специального таймера может потребоваться жестко "
+"запрограммировать его в исходном коде C внутреннего модуля :mod:`!_lsprof`."
 
 #: ../../library/profile.rst:713
 msgid ""
@@ -1132,11 +1507,14 @@ msgid ""
 "make precise measurements of process or wall-clock time. For example, see :"
 "func:`time.perf_counter`."
 msgstr ""
+"Python 3.3 додає кілька нових функцій у :mod:`time`, які можна "
+"використовувати для точного вимірювання часу процесу або настінного "
+"годинника. Наприклад, перегляньте :func:`time.perf_counter`."
 
 #: ../../library/profile.rst:16
 msgid "deterministic profiling"
-msgstr ""
+msgstr "детерминированное профилирование"
 
 #: ../../library/profile.rst:16
 msgid "profiling, deterministic"
-msgstr ""
+msgstr "профилирование, детерминированный"
