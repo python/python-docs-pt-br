@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-28 14:56+0000\n"
+"POT-Creation-Date: 2025-07-11 15:45+0000\n"
 "PO-Revision-Date: 2024-05-11 00:32+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -388,6 +388,9 @@ msgid ""
 "version *module_api_version*.  If that version does not match the version of "
 "the running interpreter, a :exc:`RuntimeWarning` is emitted."
 msgstr ""
+"Створіть новий об’єкт модуля, враховуючи визначення в *def*, припускаючи "
+"версію API *module_api_version*. Якщо ця версія не збігається з версією "
+"запущеного інтерпретатора, видається :exc:`RuntimeWarning`."
 
 #: ../../c-api/module.rst:276
 msgid ""
@@ -403,6 +406,9 @@ msgid ""
 "module object is typically populated using functions like :c:func:"
 "`PyModule_AddObjectRef`."
 msgstr ""
+"Перед поверненням у функції ініціалізації результуючий об’єкт модуля "
+"зазвичай заповнюється за допомогою таких функцій, як :c:func:"
+"`PyModule_AddObjectRef`."
 
 #: ../../c-api/module.rst:285
 msgid "Multi-phase initialization"
@@ -445,6 +451,10 @@ msgid ""
 "c:member:`~PyModuleDef.m_slots`. Before it is returned, the ``PyModuleDef`` "
 "instance must be initialized with the following function:"
 msgstr ""
+"Для запиту багатофазної ініціалізації функція ініціалізації "
+"(PyInit_modulename) повертає екземпляр :c:type:`PyModuleDef` з непорожнім :c:"
+"member:`~PyModuleDef.m_slots`. Перш ніж його буде повернуто, примірник "
+"``PyModuleDef`` має бути ініціалізований такою функцією:"
 
 #: ../../c-api/module.rst:315
 msgid ""
@@ -457,12 +467,16 @@ msgstr ""
 #: ../../c-api/module.rst:318
 msgid "Returns *def* cast to ``PyObject*``, or ``NULL`` if an error occurred."
 msgstr ""
+"Повертає *def* приведення до ``PyObject*`` або ``NULL``, якщо сталася "
+"помилка."
 
 #: ../../c-api/module.rst:322
 msgid ""
 "The *m_slots* member of the module definition must point to an array of "
 "``PyModuleDef_Slot`` structures:"
 msgstr ""
+"Член *m_slots* у визначенні модуля має вказувати на масив структур "
+"``PyModuleDef_Slot``:"
 
 #: ../../c-api/module.rst:329
 msgid "A slot ID, chosen from the available values explained below."
@@ -475,7 +489,7 @@ msgstr "Valor do slot, cujo significado depende do ID do slot."
 
 #: ../../c-api/module.rst:337
 msgid "The *m_slots* array must be terminated by a slot with id 0."
-msgstr ""
+msgstr "Масив *m_slots* повинен закінчуватися слотом з ідентифікатором 0."
 
 #: ../../c-api/module.rst:339
 msgid "The available slot types are:"
@@ -486,6 +500,8 @@ msgid ""
 "Specifies a function that is called to create the module object itself. The "
 "*value* pointer of this slot must point to a function of the signature:"
 msgstr ""
+"Визначає функцію, яка викликається для створення самого об’єкта модуля. "
+"Покажчик *значення* цього слота має вказувати на функцію підпису:"
 
 #: ../../c-api/module.rst:350
 msgid ""
@@ -493,6 +509,9 @@ msgid ""
 "instance, as defined in :PEP:`451`, and the module definition. It should "
 "return a new module object, or set an error and return ``NULL``."
 msgstr ""
+"Функція отримує екземпляр :py:class:`~importlib.machinery.ModuleSpec`, як "
+"визначено в :PEP:`451`, і визначення модуля. Він має повернути новий об’єкт "
+"модуля або встановити помилку та повернути ``NULL``."
 
 #: ../../c-api/module.rst:355
 msgid ""
@@ -500,6 +519,9 @@ msgid ""
 "arbitrary Python code, as trying to import the same module again may result "
 "in an infinite loop."
 msgstr ""
+"Ця функція повинна бути мінімальною. Зокрема, він не повинен викликати "
+"довільний код Python, оскільки повторна спроба імпортувати той самий модуль "
+"може призвести до нескінченного циклу."
 
 #: ../../c-api/module.rst:359
 msgid ""
@@ -517,6 +539,12 @@ msgid ""
 "to their place in the module hierarchy and be imported under different names "
 "through symlinks, all while sharing a single module definition."
 msgstr ""
+"Якщо ``Py_mod_create`` не вказано, механізм імпорту створить звичайний "
+"об’єкт модуля за допомогою :c:func:`PyModule_New`. Ім’я взято з *spec*, а не "
+"з визначення, щоб дозволити модулям розширення динамічно адаптуватися до "
+"свого місця в ієрархії модулів і імпортуватися під різними іменами за "
+"допомогою символічних посилань, водночас користуючись єдиним визначенням "
+"модуля."
 
 #: ../../c-api/module.rst:368
 msgid ""
@@ -527,6 +555,12 @@ msgid ""
 "``m_clear``, ``m_free``; non-zero ``m_size``; or slots other than "
 "``Py_mod_create``."
 msgstr ""
+"Немає вимоги, щоб повернутий об’єкт був екземпляром :c:type:`PyModule_Type`. "
+"Можна використовувати будь-який тип, якщо він підтримує встановлення та "
+"отримання пов’язаних з імпортом атрибутів. Однак лише екземпляри "
+"``PyModule_Type`` можуть повертатися, якщо ``PyModuleDef`` має не-``NULL`` "
+"``m_traverse``, ``m_clear``, ``m_free``; ненульовий ``m_size``; або слоти, "
+"відмінні від ``Py_mod_create``."
 
 #: ../../c-api/module.rst:377
 msgid ""
@@ -535,6 +569,9 @@ msgid ""
 "function adds classes and constants to the module. The signature of the "
 "function is:"
 msgstr ""
+"Визначає функцію, яка викликається для *виконання* модуля. Це еквівалентно "
+"виконанню коду модуля Python: зазвичай ця функція додає класи та константи "
+"до модуля. Сигнатура функції:"
 
 #: ../../c-api/module.rst:386
 msgid ""
@@ -546,41 +583,52 @@ msgstr ""
 
 #: ../../c-api/module.rst:391
 msgid "Specifies one of the following values:"
-msgstr ""
+msgstr "Указывает одно из следующих значений:"
 
 #: ../../c-api/module.rst:397
 msgid "The module does not support being imported in subinterpreters."
-msgstr ""
+msgstr "Модуль не поддерживает импорт в субинтерпретаторы."
 
 #: ../../c-api/module.rst:401
 msgid ""
 "The module supports being imported in subinterpreters, but only when they "
 "share the main interpreter's GIL. (See :ref:`isolating-extensions-howto`.)"
 msgstr ""
+"Модуль поддерживает импорт в подинтерпретаторы, но только если они "
+"используют GIL основного интерпретатора. (См. :ref:`isolating-extensions-"
+"howto`.)"
 
 #: ../../c-api/module.rst:407
 msgid ""
 "The module supports being imported in subinterpreters, even when they have "
 "their own GIL. (See :ref:`isolating-extensions-howto`.)"
 msgstr ""
+"Модуль поддерживает импорт в субинтерпретаторы, даже если у них есть "
+"собственный GIL. (См. :ref:`isolating-extensions-howto`.)"
 
 #: ../../c-api/module.rst:411
 msgid ""
 "This slot determines whether or not importing this module in a "
 "subinterpreter will fail."
 msgstr ""
+"Этот слот определяет, завершится ли импорт этого модуля в субинтерпретаторе "
+"неудачно."
 
 #: ../../c-api/module.rst:414
 msgid ""
 "Multiple ``Py_mod_multiple_interpreters`` slots may not be specified in one "
 "module definition."
 msgstr ""
+"Несколько слотов Py_mod_multiple_interpreters не могут быть указаны в одном "
+"определении модуля."
 
 #: ../../c-api/module.rst:417
 msgid ""
 "If ``Py_mod_multiple_interpreters`` is not specified, the import machinery "
 "defaults to ``Py_MOD_MULTIPLE_INTERPRETERS_SUPPORTED``."
 msgstr ""
+"Если ``Py_mod_multiple_interpreters`` не указан, механизм импорта по "
+"умолчанию будет ``Py_MOD_MULTIPLE_INTERPRETERS_SUPPORTED``."
 
 #: ../../c-api/module.rst:422
 msgid "See :PEP:`489` for more details on multi-phase initialization."
@@ -598,6 +646,11 @@ msgid ""
 "objects dynamically. Note that both ``PyModule_FromDefAndSpec`` and "
 "``PyModule_ExecDef`` must be called to fully initialize a module."
 msgstr ""
+"Наступні функції викликаються під капотом під час використання багатофазної "
+"ініціалізації. Їх можна використовувати безпосередньо, наприклад, при "
+"динамічному створенні об’єктів модуля. Зауважте, що для повної ініціалізації "
+"модуля необхідно викликати як ``PyModule_FromDefAndSpec``, так і "
+"``PyModule_ExecDef``."
 
 #: ../../c-api/module.rst:434
 msgid ""
@@ -605,6 +658,9 @@ msgid ""
 "*spec*.  This behaves like :c:func:`PyModule_FromDefAndSpec2` with "
 "*module_api_version* set to :c:macro:`PYTHON_API_VERSION`."
 msgstr ""
+"Создайте новый объект модуля, используя определение в *def* и *spec* "
+"ModuleSpec. Это ведет себя как :c:func:`PyModule_FromDefAndSpec2` с "
+"*module_api_version*, установленным в :c:macro:`PYTHON_API_VERSION`."
 
 #: ../../c-api/module.rst:442
 msgid ""
@@ -613,16 +669,24 @@ msgid ""
 "not match the version of the running interpreter, a :exc:`RuntimeWarning` is "
 "emitted."
 msgstr ""
+"Создайте новый объект модуля, учитывая определение в *def* и ModuleSpec "
+"*spec*, предполагая версию API *module_api_version*. Если эта версия не "
+"соответствует версии работающего интерпретатора, выдается :exc:"
+"`RuntimeWarning`."
 
 #: ../../c-api/module.rst:451
 msgid ""
 "Most uses of this function should be using :c:func:`PyModule_FromDefAndSpec` "
 "instead; only use this if you are sure you need it."
 msgstr ""
+"У більшості випадків використання цієї функції має використовувати :c:func:"
+"`PyModule_FromDefAndSpec`; використовуйте це, лише якщо ви впевнені, що це "
+"вам потрібно."
 
 #: ../../c-api/module.rst:458
 msgid "Process any execution slots (:c:data:`Py_mod_exec`) given in *def*."
 msgstr ""
+"Обробити будь-які слоти виконання (:c:data:`Py_mod_exec`), указані в *def*."
 
 #: ../../c-api/module.rst:464
 msgid ""
@@ -630,6 +694,9 @@ msgid ""
 "automatically when creating a module from ``PyModuleDef``, using either "
 "``PyModule_Create`` or ``PyModule_FromDefAndSpec``."
 msgstr ""
+"Встановіть рядок документації для *module* на *string*. Ця функція "
+"викликається автоматично під час створення модуля з ``PyModuleDef`` за "
+"допомогою ``PyModule_Create`` або ``PyModule_FromDefAndSpec``."
 
 #: ../../c-api/module.rst:473
 msgid ""
@@ -642,10 +709,17 @@ msgid ""
 "``PyModuleDef``, using either ``PyModule_Create`` or "
 "``PyModule_FromDefAndSpec``."
 msgstr ""
+"Додайте функції з масиву *functions* із закінченням ``NULL`` до *module*. "
+"Зверніться до документації :c:type:`PyMethodDef`, щоб дізнатися більше про "
+"окремі записи (через відсутність спільного простору імен модуля \"функції\" "
+"рівня модуля, реалізовані в C, зазвичай отримують модуль як свій перший "
+"параметр, що робить їх схожими на екземпляр методи на класах Python). Ця "
+"функція викликається автоматично під час створення модуля з ``PyModuleDef`` "
+"за допомогою ``PyModule_Create`` або ``PyModule_FromDefAndSpec``."
 
 #: ../../c-api/module.rst:485
 msgid "Support functions"
-msgstr ""
+msgstr "Допоміжні функції"
 
 #: ../../c-api/module.rst:487
 msgid ""
@@ -654,17 +728,25 @@ msgid ""
 "initialization), can use the following functions to help initialize the "
 "module state:"
 msgstr ""
+"Функція ініціалізації модуля (якщо використовується однофазна ініціалізація) "
+"або функція, що викликається зі слота виконання модуля (якщо "
+"використовується багатофазова ініціалізація), може використовувати такі "
+"функції, щоб допомогти ініціалізувати стан модуля:"
 
 #: ../../c-api/module.rst:494
 msgid ""
 "Add an object to *module* as *name*.  This is a convenience function which "
 "can be used from the module's initialization function."
 msgstr ""
+"Додайте об’єкт до *модуля* як *ім’я*. Це зручна функція, яку можна "
+"використовувати з функції ініціалізації модуля."
 
 #: ../../c-api/module.rst:497
 msgid ""
 "On success, return ``0``. On error, raise an exception and return ``-1``."
 msgstr ""
+"У разі успіху поверніть ``0``. У разі помилки викликає виняток і повертає "
+"``-1``."
 
 #: ../../c-api/module.rst:499 ../../c-api/module.rst:560
 msgid "Example usage::"
@@ -684,6 +766,17 @@ msgid ""
 "    return res;\n"
 " }"
 msgstr ""
+"static int\n"
+"add_spam(PyObject *module, int value)\n"
+"{\n"
+"    PyObject *obj = PyLong_FromLong(value);\n"
+"    if (obj == NULL) {\n"
+"        return -1;\n"
+"    }\n"
+"    int res = PyModule_AddObjectRef(module, \"spam\", obj);\n"
+"    Py_DECREF(obj);\n"
+"    return res;\n"
+" }"
 
 #: ../../c-api/module.rst:513
 msgid ""
@@ -691,6 +784,8 @@ msgid ""
 "set. In this case, return ``-1`` and just leave the raised exception "
 "unchanged."
 msgstr ""
+"Для удобства функция принимает ``NULL`` *value* с набором исключений. В этом "
+"случае верните ``-1`` и просто оставьте вызванное исключение без изменений."
 
 #: ../../c-api/module.rst:517 ../../c-api/module.rst:578
 msgid ""
@@ -711,12 +806,22 @@ msgid ""
 "    return res;\n"
 " }"
 msgstr ""
+"static int\n"
+"add_spam(PyObject *module, int value)\n"
+"{\n"
+"    PyObject *obj = PyLong_FromLong(value);\n"
+"    int res = PyModule_AddObjectRef(module, \"spam\", obj);\n"
+"    Py_XDECREF(obj);\n"
+"    return res;\n"
+" }"
 
 #: ../../c-api/module.rst:529 ../../c-api/module.rst:594
 msgid ""
 "Note that ``Py_XDECREF()`` should be used instead of ``Py_DECREF()`` in this "
 "case, since *obj* can be ``NULL``."
 msgstr ""
+"Зверніть увагу, що в цьому випадку слід використовувати ``Py_XDECREF()`` "
+"замість ``Py_DECREF()``, оскільки *obj* може бути ``NULL``."
 
 #: ../../c-api/module.rst:532
 msgid ""
@@ -727,12 +832,21 @@ msgid ""
 "details, see :c:func:`PyUnicode_InternFromString`, which may be used "
 "internally to create a key object."
 msgstr ""
+"Количество различных строк *name*, передаваемых в эту функцию, должно быть "
+"небольшим, обычно за счет использования только статически выделенных строк в "
+"качестве *name*. Для имен, которые неизвестны во время компиляции, "
+"предпочтительнее вызывать :c:func:`PyUnicode_FromString` и :c:func:"
+"`PyObject_SetAttr` напрямую. Для получения более подробной информации см. :c:"
+"func:`PyUnicode_InternFromString`, который можно использовать внутри "
+"компании для создания ключевого объекта."
 
 #: ../../c-api/module.rst:545
 msgid ""
 "Similar to :c:func:`PyModule_AddObjectRef`, but steals a reference to "
 "*value* on success (if it returns ``0``)."
 msgstr ""
+"Подібно до :c:func:`PyModule_AddObjectRef`, але в разі успіху викрадає "
+"посилання на *value* (якщо повертає ``0``)."
 
 #: ../../c-api/module.rst:548
 msgid ""
@@ -746,6 +860,8 @@ msgid ""
 "Unlike other functions that steal references, ``PyModule_AddObject()`` only "
 "releases the reference to *value* **on success**."
 msgstr ""
+"В отличие от других функций, которые крадут ссылки, PyModule_AddObject() "
+"освобождает ссылку на *value* только **в случае успеха**."
 
 #: ../../c-api/module.rst:557
 msgid ""
@@ -794,12 +910,17 @@ msgid ""
 "can be used from the module's initialization function. Return ``-1`` with an "
 "exception set on error, ``0`` on success."
 msgstr ""
+"Добавьте целочисленную константу в *module* как *name*. Эту удобную функцию "
+"можно использовать из функции инициализации модуля. Возвращает ``-1`` с "
+"установленным исключением в случае ошибки и ``0`` в случае успеха."
 
 #: ../../c-api/module.rst:604
 msgid ""
 "This is a convenience function that calls :c:func:`PyLong_FromLong` and :c:"
 "func:`PyModule_AddObjectRef`; see their documentation for details."
 msgstr ""
+"Это удобная функция, которая вызывает :c:func:`PyLong_FromLong` и :c:func:"
+"`PyModule_AddObjectRef`; подробности см. в их документации."
 
 #: ../../c-api/module.rst:610
 msgid ""
@@ -808,6 +929,10 @@ msgid ""
 "be ``NULL``-terminated. Return ``-1`` with an exception set on error, ``0`` "
 "on success."
 msgstr ""
+"Добавьте строковую константу в *module* как *name*. Эту удобную функцию "
+"можно использовать из функции инициализации модуля. Строка *value* должна "
+"заканчиваться NULL. Возвращает ``-1`` с установленным исключением в случае "
+"ошибки и ``0`` в случае успеха."
 
 #: ../../c-api/module.rst:615
 msgid ""
@@ -815,6 +940,8 @@ msgid ""
 "`PyUnicode_InternFromString` and :c:func:`PyModule_AddObjectRef`; see their "
 "documentation for details."
 msgstr ""
+"Это удобная функция, которая вызывает :c:func:`PyUnicode_InternFromString` "
+"и :c:func:`PyModule_AddObjectRef`; подробности см. в их документации."
 
 #: ../../c-api/module.rst:622
 msgid ""
@@ -823,10 +950,14 @@ msgid ""
 "constant *AF_INET* with the value of *AF_INET* to *module*. Return ``-1`` "
 "with an exception set on error, ``0`` on success."
 msgstr ""
+"Добавьте константу int в *module*. Имя и значение взяты из *macro*. "
+"Например, PyModule_AddIntMacro(module, AF_INET) добавляет константу int "
+"*AF_INET* со значением *AF_INET* к *module*. Возвращает ``-1`` с "
+"установленным исключением в случае ошибки и ``0`` в случае успеха."
 
 #: ../../c-api/module.rst:630
 msgid "Add a string constant to *module*."
-msgstr ""
+msgstr "Додайте рядкову константу до *module*."
 
 #: ../../c-api/module.rst:634
 msgid ""
@@ -835,6 +966,10 @@ msgid ""
 "the last component of :c:member:`~PyTypeObject.tp_name` after dot. Return "
 "``-1`` with an exception set on error, ``0`` on success."
 msgstr ""
+"Добавьте объект типа в *module*. Объект типа завершается внутренним вызовом :"
+"c:func:`PyType_Ready`. Имя объекта типа берется из последнего компонента :c:"
+"member:`~PyTypeObject.tp_name` после точки. Возвращает ``-1`` с "
+"установленным исключением в случае ошибки и ``0`` в случае успеха."
 
 #: ../../c-api/module.rst:644
 msgid "Module lookup"
@@ -846,6 +981,9 @@ msgid ""
 "in the context of the current interpreter. This allows the module object to "
 "be retrieved later with only a reference to the module definition."
 msgstr ""
+"Однофазова ініціалізація створює однотонні модулі, які можна шукати в "
+"контексті поточного інтерпретатора. Це дозволяє пізніше отримати об’єкт "
+"модуля лише з посиланням на визначення модуля."
 
 #: ../../c-api/module.rst:650
 msgid ""
@@ -853,6 +991,9 @@ msgid ""
 "initialization, since multiple such modules can be created from a single "
 "definition."
 msgstr ""
+"Ці функції не працюватимуть на модулях, створених за допомогою багатофазної "
+"ініціалізації, оскільки кілька таких модулів можна створити з одного "
+"визначення."
 
 #: ../../c-api/module.rst:655
 msgid ""
@@ -862,6 +1003,11 @@ msgid ""
 "case the corresponding module object is not found or has not been attached "
 "to the interpreter state yet, it returns ``NULL``."
 msgstr ""
+"Повертає об’єкт модуля, який було створено з *def* для поточного "
+"інтерпретатора. Цей метод вимагає, щоб об’єкт модуля був прикріплений до "
+"стану інтерпретатора за допомогою :c:func:`PyState_AddModule` заздалегідь. "
+"Якщо відповідний об’єкт модуля не знайдено або ще не приєднано до стану "
+"інтерпретатора, він повертає ``NULL``."
 
 #: ../../c-api/module.rst:662
 msgid ""
@@ -869,10 +1015,12 @@ msgid ""
 "This allows the module object to be accessible via :c:func:"
 "`PyState_FindModule`."
 msgstr ""
+"Приєднує об’єкт модуля, переданий у функцію, до стану інтерпретатора. Це "
+"дозволяє об’єкту модуля бути доступним через :c:func:`PyState_FindModule`."
 
 #: ../../c-api/module.rst:665
 msgid "Only effective on modules created using single-phase initialization."
-msgstr ""
+msgstr "Діє лише для модулів, створених за допомогою однофазної ініціалізації."
 
 #: ../../c-api/module.rst:667
 msgid ""
@@ -884,10 +1032,17 @@ msgid ""
 "directly, or by referring to its implementation for details of the required "
 "state updates)."
 msgstr ""
+"Python автоматично викликає ``PyState_AddModule`` після імпортування модуля, "
+"тому непотрібно (але нешкідливо) викликати його з коду ініціалізації модуля. "
+"Явний виклик потрібен, лише якщо власний код ініціалізації модуля згодом "
+"викликає ``PyState_FindModule``. Ця функція в основному призначена для "
+"впровадження альтернативних механізмів імпорту (або через її прямий виклик, "
+"або шляхом посилання на її реалізацію для отримання деталей необхідних "
+"оновлень стану)."
 
 #: ../../c-api/module.rst:675 ../../c-api/module.rst:686
 msgid "The caller must hold the GIL."
-msgstr ""
+msgstr "Абонент повинен тримати GIL."
 
 #: ../../c-api/module.rst:677
 msgid "Return ``-1`` with an exception set on error, ``0`` on success."
@@ -900,6 +1055,9 @@ msgid ""
 "Removes the module object created from *def* from the interpreter state. "
 "Return ``-1`` with an exception set on error, ``0`` on success."
 msgstr ""
+"Удаляет объект модуля, созданный из *def*, из состояния интерпретатора. "
+"Возвращает ``-1`` с установленным исключением в случае ошибки и ``0`` в "
+"случае успеха."
 
 #: ../../c-api/module.rst:8
 msgid "object"
@@ -911,7 +1069,7 @@ msgstr "módulo"
 
 #: ../../c-api/module.rst:13
 msgid "ModuleType (in module types)"
-msgstr ""
+msgstr "ModuleType (в типах модулей)"
 
 #: ../../c-api/module.rst:33 ../../c-api/module.rst:77
 msgid "__name__ (module attribute)"
@@ -939,4 +1097,4 @@ msgstr "__dict__ (atributo de módulo)"
 
 #: ../../c-api/module.rst:77 ../../c-api/module.rst:108
 msgid "SystemError (built-in exception)"
-msgstr ""
+msgstr "SystemError (встроенное исключение)"

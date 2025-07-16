@@ -799,12 +799,20 @@ msgid ""
 ">>> Color.RED is not Color.BLUE\n"
 "True"
 msgstr ""
+">>> Color.RED is Color.RED\n"
+"True\n"
+">>> Color.RED is Color.BLUE\n"
+"False\n"
+">>> Color.RED is not Color.BLUE\n"
+"True"
 
 #: ../../howto/enum.rst:357
 msgid ""
 "Ordered comparisons between enumeration values are *not* supported.  Enum "
 "members are not integers (but see `IntEnum`_ below)::"
 msgstr ""
+"Упорядковані порівняння між значеннями перерахування *не* підтримуються. "
+"Члени Enum не є цілими числами (але дивіться `IntEnum`_ нижче):"
 
 #: ../../howto/enum.rst:360
 msgid ""
@@ -813,10 +821,14 @@ msgid ""
 "  File \"<stdin>\", line 1, in <module>\n"
 "TypeError: '<' not supported between instances of 'Color' and 'Color'"
 msgstr ""
+">>> Color.RED < Color.BLUE\n"
+"Traceback (most recent call last):\n"
+"  File \"<stdin>\", line 1, in <module>\n"
+"TypeError: '<' not supported between instances of 'Color' and 'Color'"
 
 #: ../../howto/enum.rst:365
 msgid "Equality comparisons are defined though::"
-msgstr ""
+msgstr "Однак порівняння рівності визначено:"
 
 #: ../../howto/enum.rst:367
 msgid ""
@@ -827,6 +839,12 @@ msgid ""
 ">>> Color.BLUE == Color.BLUE\n"
 "True"
 msgstr ""
+">>> Color.BLUE == Color.RED\n"
+"False\n"
+">>> Color.BLUE != Color.RED\n"
+"True\n"
+">>> Color.BLUE == Color.BLUE\n"
+"True"
 
 #: ../../howto/enum.rst:374
 msgid ""
@@ -834,12 +852,17 @@ msgid ""
 "(again, :class:`IntEnum` was explicitly designed to behave differently, see "
 "below)::"
 msgstr ""
+"Порівняння зі значеннями, не пов’язаними з перерахуванням, завжди "
+"порівнюватиметься нерівними (знову ж таки, :class:`IntEnum` був явно "
+"розроблений для іншої поведінки, див. нижче)::"
 
 #: ../../howto/enum.rst:378
 msgid ""
 ">>> Color.BLUE == 2\n"
 "False"
 msgstr ""
+">>> Color.BLUE == 2\n"
+"False"
 
 #: ../../howto/enum.rst:383
 msgid ""
@@ -896,6 +919,22 @@ msgid ""
 "...         return cls.HAPPY\n"
 "..."
 msgstr ""
+">>> class Mood(Enum):\n"
+"...     FUNKY = 1\n"
+"...     HAPPY = 3\n"
+"...\n"
+"...     def describe(self):\n"
+"...         # self is the member here\n"
+"...         return self.name, self.value\n"
+"...\n"
+"...     def __str__(self):\n"
+"...         return 'my custom str! {0}'.format(self.value)\n"
+"...\n"
+"...     @classmethod\n"
+"...     def favorite_mood(cls):\n"
+"...         # cls here is the enumeration\n"
+"...         return cls.HAPPY\n"
+"..."
 
 #: ../../howto/enum.rst:416
 msgid "Then::"
@@ -910,6 +949,12 @@ msgid ""
 ">>> str(Mood.FUNKY)\n"
 "'my custom str! 1'"
 msgstr ""
+">>> Mood.favorite_mood()\n"
+"<Mood.HAPPY: 3>\n"
+">>> Mood.HAPPY.describe()\n"
+"('HAPPY', 3)\n"
+">>> str(Mood.FUNKY)\n"
+"'my custom str! 1'"
 
 #: ../../howto/enum.rst:425
 msgid ""
@@ -920,6 +965,13 @@ msgid ""
 "__str__`, :meth:`~object.__add__`, etc.), descriptors (methods are also "
 "descriptors), and variable names listed in :attr:`~Enum._ignore_`."
 msgstr ""
+"Правила разрешенного использования следующие: имена, которые начинаются и "
+"заканчиваются одним подчеркиванием, зарезервированы перечислением и не могут "
+"использоваться; все остальные атрибуты, определенные в перечислении, станут "
+"членами этого перечисления, за исключением специальных методов (:meth:"
+"`~object.__str__`, :meth:`~object.__add__` и т. д.), дескрипторов (методы "
+"также дескрипторы) и имена переменных, перечисленные в :attr:`~Enum."
+"_ignore_`."
 
 #: ../../howto/enum.rst:432
 msgid ""
@@ -927,6 +979,9 @@ msgid ""
 "`~object.__init__`, any value(s) given to the enum member will be passed "
 "into those methods. See `Planet`_ for an example."
 msgstr ""
+"Примечание. Если ваше перечисление определяет :meth:`~object.__new__` и/или :"
+"meth:`~object.__init__`, любые значения, переданные члену перечисления, "
+"будут переданы в эти методы. См. пример в `Planet`_."
 
 #: ../../howto/enum.rst:438
 msgid ""
@@ -935,10 +990,14 @@ msgid ""
 "which is used after class creation for lookup of existing members.  See :ref:"
 "`new-vs-init` for more details."
 msgstr ""
+"Метод :meth:`~object.__new__`, если он определен, используется во время "
+"создания членов Enum; затем он заменяется :meth:`~object.__new__` из Enum, "
+"который используется после создания класса для поиска существующих членов. "
+"Дополнительную информацию см. в :ref:`new-vs-init`."
 
 #: ../../howto/enum.rst:445
 msgid "Restricted Enum subclassing"
-msgstr ""
+msgstr "Обмежений підклас Enum"
 
 #: ../../howto/enum.rst:447
 msgid ""
@@ -946,12 +1005,16 @@ msgid ""
 "data type, and as many :class:`object`-based mixin classes as needed.  The "
 "order of these base classes is::"
 msgstr ""
+"Новий клас :class:`Enum` повинен мати один базовий клас enum, до одного "
+"конкретного типу даних і стільки класів міксину на основі :class:`object`, "
+"скільки потрібно. Порядок цих базових класів:"
 
 #: ../../howto/enum.rst:451
 msgid ""
 "class EnumName([mix-in, ...,] [data-type,] base-enum):\n"
 "    pass"
 msgstr ""
+"class EnumName([примесь, ...,] [тип-данных,] базовое-перечисление): проходить"
 
 #: ../../howto/enum.rst:454
 msgid ""
@@ -970,6 +1033,12 @@ msgid ""
 "...\n"
 "TypeError: <enum 'MoreColor'> cannot extend <enum 'Color'>"
 msgstr ""
+">>> class MoreColor(Color):\n"
+"...     PINK = 17\n"
+"...\n"
+"Traceback (most recent call last):\n"
+"...\n"
+"TypeError: <enum 'MoreColor'> cannot extend <enum 'Color'>"
 
 #: ../../howto/enum.rst:464
 msgid "But this is allowed::"
@@ -986,6 +1055,14 @@ msgid ""
 "...     SAD = 2\n"
 "..."
 msgstr ""
+">>> class Foo(Enum):\n"
+"...     def some_behavior(self):\n"
+"...         pass\n"
+"...\n"
+">>> class Bar(Foo):\n"
+"...     HAPPY = 1\n"
+"...     SAD = 2\n"
+"..."
 
 #: ../../howto/enum.rst:475
 msgid ""
@@ -994,6 +1071,10 @@ msgid ""
 "makes sense to allow sharing some common behavior between a group of "
 "enumerations. (See `OrderedEnum`_ for an example.)"
 msgstr ""
+"Дозвіл створення підкласів для переліків, які визначають члени, призведе до "
+"порушення деяких важливих інваріантів типів і екземплярів. З іншого боку, "
+"має сенс дозволити спільну поведінку між групою перерахувань. (Див. "
+"`OrderedEnum`_ для прикладу.)"
 
 #: ../../howto/enum.rst:484
 msgid "Dataclass support"
@@ -1004,6 +1085,8 @@ msgid ""
 "When inheriting from a :class:`~dataclasses.dataclass`, the :meth:`~Enum."
 "__repr__` omits the inherited class' name.  For example::"
 msgstr ""
+"При наследовании от :class:`~dataclasses.dataclass` :meth:`~Enum.__repr__` "
+"опускает имя унаследованного класса. Например::"
 
 #: ../../howto/enum.rst:489
 msgid ""
@@ -1021,6 +1104,19 @@ msgid ""
 ">>> Creature.DOG\n"
 "<Creature.DOG: size='medium', legs=4>"
 msgstr ""
+">>> from dataclasses import dataclass, field\n"
+">>> @dataclass\n"
+"... class CreatureDataMixin:\n"
+"...     size: str\n"
+"...     legs: int\n"
+"...     tail: bool = field(repr=False, default=True)\n"
+"...\n"
+">>> class Creature(CreatureDataMixin, Enum):\n"
+"...     BEETLE = 'small', 6\n"
+"...     DOG = 'medium', 4\n"
+"...\n"
+">>> Creature.DOG\n"
+"<Creature.DOG: size='medium', legs=4>"
 
 #: ../../howto/enum.rst:503
 msgid ""
@@ -1033,6 +1129,8 @@ msgid ""
 "Only the dataclass fields are shown in the value area, not the dataclass' "
 "name."
 msgstr ""
+"В области значений отображаются только поля класса данных, а не имя класса "
+"данных."
 
 #: ../../howto/enum.rst:512
 msgid "Pickling"
@@ -1040,7 +1138,7 @@ msgstr "Pickling"
 
 #: ../../howto/enum.rst:514
 msgid "Enumerations can be pickled and unpickled::"
-msgstr ""
+msgstr "Перерахування можна маринувати і не маринувати:"
 
 #: ../../howto/enum.rst:516
 msgid ""
@@ -1049,6 +1147,10 @@ msgid ""
 ">>> Fruit.TOMATO is loads(dumps(Fruit.TOMATO))\n"
 "True"
 msgstr ""
+">>> from test.test_enum import Fruit\n"
+">>> from pickle import dumps, loads\n"
+">>> Fruit.TOMATO is loads(dumps(Fruit.TOMATO))\n"
+"True"
 
 #: ../../howto/enum.rst:521
 msgid ""
@@ -1056,12 +1158,17 @@ msgid ""
 "in the top level of a module, since unpickling requires them to be "
 "importable from that module."
 msgstr ""
+"Застосовуються звичайні обмеження для маркування: переліки, які можна "
+"піклувати, повинні бути визначені на верхньому рівні модуля, оскільки для "
+"скасування потрібно, щоб їх можна було імпортувати з цього модуля."
 
 #: ../../howto/enum.rst:527
 msgid ""
 "With pickle protocol version 4 it is possible to easily pickle enums nested "
 "in other classes."
 msgstr ""
+"За допомогою протоколу pickle версії 4 можна легко маринувати переліки, "
+"вкладені в інші класи."
 
 #: ../../howto/enum.rst:530
 msgid ""
@@ -1069,6 +1176,10 @@ msgid ""
 "meth:`~object.__reduce_ex__` in the enumeration class.  The default method "
 "is by-value, but enums with complicated values may want to use by-name::"
 msgstr ""
+"Можно изменить способ консервирования/расконсервации членов перечисления, "
+"определив :meth:`~object.__reduce_ex__` в классе перечисления. По умолчанию "
+"используется метод по значению, но перечисления со сложными значениями могут "
+"использовать метод по имени::"
 
 #: ../../howto/enum.rst:534
 msgid ""
@@ -1076,12 +1187,17 @@ msgid ""
 ">>> class MyEnum(enum.Enum):\n"
 "...     __reduce_ex__ = enum.pickle_by_enum_name"
 msgstr ""
+">>> import enum\n"
+">>> class MyEnum(enum.Enum):\n"
+"...     __reduce_ex__ = enum.pickle_by_enum_name"
 
 #: ../../howto/enum.rst:540
 msgid ""
 "Using by-name for flags is not recommended, as unnamed aliases will not "
 "unpickle."
 msgstr ""
+"Использование для флагов по имени не рекомендуется, так как безымянные "
+"псевдонимы не будут распакованы."
 
 #: ../../howto/enum.rst:545
 msgid "Functional API"
@@ -1103,12 +1219,21 @@ msgid ""
 ">>> list(Animal)\n"
 "[<Animal.ANT: 1>, <Animal.BEE: 2>, <Animal.CAT: 3>, <Animal.DOG: 4>]"
 msgstr ""
+">>> Animal = Enum('Animal', 'ANT BEE CAT DOG')\n"
+">>> Animal\n"
+"<enum 'Animal'>\n"
+">>> Animal.ANT\n"
+"<Animal.ANT: 1>\n"
+">>> list(Animal)\n"
+"[<Animal.ANT: 1>, <Animal.BEE: 2>, <Animal.CAT: 3>, <Animal.DOG: 4>]"
 
 #: ../../howto/enum.rst:557
 msgid ""
 "The semantics of this API resemble :class:`~collections.namedtuple`. The "
 "first argument of the call to :class:`Enum` is the name of the enumeration."
 msgstr ""
+"Семантика цього API нагадує :class:`~collections.namedtuple`. Першим "
+"аргументом виклику :class:`Enum` є назва переліку."
 
 #: ../../howto/enum.rst:560
 msgid ""
@@ -1121,6 +1246,15 @@ msgid ""
 "class derived from :class:`Enum` is returned.  In other words, the above "
 "assignment to :class:`!Animal` is equivalent to::"
 msgstr ""
+"Второй аргумент — это *источник* имен членов перечисления. Это может быть "
+"строка имен, разделенных пробелами, последовательность имен, "
+"последовательность двух кортежей с парами ключ/значение или сопоставление "
+"(например, словарь) имен со значениями. Последние две опции позволяют "
+"присваивать перечислениям произвольные значения; остальные автоматически "
+"назначают возрастающие целые числа, начиная с 1 (используйте параметр start, "
+"чтобы указать другое начальное значение). Возвращается новый класс, "
+"производный от :class:`Enum`. Другими словами, приведенное выше присвоение :"
+"class:`!Animal` эквивалентно::"
 
 #: ../../howto/enum.rst:569
 msgid ""
@@ -1131,6 +1265,12 @@ msgid ""
 "...     DOG = 4\n"
 "..."
 msgstr ""
+">>> class Animal(Enum):\n"
+"...     ANT = 1\n"
+"...     BEE = 2\n"
+"...     CAT = 3\n"
+"...     DOG = 4\n"
+"..."
 
 #: ../../howto/enum.rst:576
 msgid ""
@@ -1138,6 +1278,9 @@ msgid ""
 "that ``0`` is ``False`` in a boolean sense, but by default enum members all "
 "evaluate to ``True``."
 msgstr ""
+"Причина того, що за замовчуванням початковим числом є ``1``, а не ``0``, "
+"полягає в тому, що ``0`` є ``False`` у логічному сенсі, але за замовчуванням "
+"усі члени enum оцінюються як ``True``."
 
 #: ../../howto/enum.rst:580
 msgid ""
@@ -1147,10 +1290,17 @@ msgid ""
 "function in a separate module, and also may not work on IronPython or "
 "Jython). The solution is to specify the module name explicitly as follows::"
 msgstr ""
+"Выборка перечислений, созданных с помощью функционального API, может быть "
+"сложной задачей, поскольку детали реализации стека кадров используются для "
+"того, чтобы попытаться выяснить, в каком модуле создается перечисление "
+"(например, оно завершится неудачей, если вы используете служебную функцию в "
+"отдельном модуле, а также может не получиться). работать на IronPython или "
+"Jython). Решение состоит в том, чтобы явно указать имя модуля следующим "
+"образом:"
 
 #: ../../howto/enum.rst:586
 msgid ">>> Animal = Enum('Animal', 'ANT BEE CAT DOG', module=__name__)"
-msgstr ""
+msgstr ">>> Animal = Enum('Animal', 'ANT BEE CAT DOG', module=__name__)"
 
 #: ../../howto/enum.rst:590
 msgid ""
@@ -1158,6 +1308,9 @@ msgid ""
 "Enum members will not be unpicklable; to keep errors closer to the source, "
 "pickling will be disabled."
 msgstr ""
+"Якщо ``module`` не вказано, і Enum не може визначити, що це таке, нові члени "
+"Enum не можна буде вибрати; щоб зберегти помилки ближче до джерела, "
+"травлення буде вимкнено."
 
 #: ../../howto/enum.rst:594
 msgid ""
@@ -1166,11 +1319,16 @@ msgid ""
 "find the class.  For example, if the class was made available in class "
 "SomeData in the global scope::"
 msgstr ""
+"Новый протокол Pickle 4 также в некоторых случаях опирается на то, что :attr:"
+"`~type.__qualname__` устанавливается в место, где Pickle сможет найти класс. "
+"Например, если класс был доступен в классе SomeData в глобальной области "
+"видимости:"
 
 #: ../../howto/enum.rst:599
 msgid ""
 ">>> Animal = Enum('Animal', 'ANT BEE CAT DOG', qualname='SomeData.Animal')"
 msgstr ""
+">>> Animal = Enum('Animal', 'ANT BEE CAT DOG', qualname='SomeData.Animal')"
 
 #: ../../howto/enum.rst:601
 msgid "The complete signature is::"
@@ -1188,68 +1346,81 @@ msgid ""
 "    start=1,\n"
 "    )"
 msgstr ""
+"Enum(\n"
+"    value='NewEnumName',\n"
+"    names=<...>,\n"
+"    *,\n"
+"    module='...',\n"
+"    qualname='...',\n"
+"    type=<mixed-in class>,\n"
+"    start=1,\n"
+"    )"
 
 #: ../../howto/enum.rst:613
 msgid "*value*: What the new enum class will record as its name."
 msgstr ""
+"*значение*: то, что новый класс перечисления запишет в качестве своего имени."
 
 #: ../../howto/enum.rst:615
 msgid ""
 "*names*: The enum members.  This can be a whitespace- or comma-separated "
 "string (values will start at 1 unless otherwise specified)::"
 msgstr ""
+"*имена*: члены перечисления. Это может быть строка, разделенная пробелами "
+"или запятыми (значения начинаются с 1, если не указано иное)::"
 
 #: ../../howto/enum.rst:618
 msgid "'RED GREEN BLUE' | 'RED,GREEN,BLUE' | 'RED, GREEN, BLUE'"
-msgstr ""
+msgstr "'RED GREEN BLUE' | 'RED,GREEN,BLUE' | 'RED, GREEN, BLUE'"
 
 #: ../../howto/enum.rst:620
 msgid "or an iterator of names::"
-msgstr ""
+msgstr "або ітератор імен::"
 
 #: ../../howto/enum.rst:622
 msgid "['RED', 'GREEN', 'BLUE']"
-msgstr ""
+msgstr "['RED', 'GREEN', 'BLUE']"
 
 #: ../../howto/enum.rst:624
 msgid "or an iterator of (name, value) pairs::"
-msgstr ""
+msgstr "або ітератор пар (ім'я, значення)::"
 
 #: ../../howto/enum.rst:626
 msgid "[('CYAN', 4), ('MAGENTA', 5), ('YELLOW', 6)]"
-msgstr ""
+msgstr "[('CYAN', 4), ('MAGENTA', 5), ('YELLOW', 6)]"
 
 #: ../../howto/enum.rst:628
 msgid "or a mapping::"
-msgstr ""
+msgstr "або відображення::"
 
 #: ../../howto/enum.rst:630
 msgid "{'CHARTREUSE': 7, 'SEA_GREEN': 11, 'ROSEMARY': 42}"
-msgstr ""
+msgstr "{'CHARTREUSE': 7, 'SEA_GREEN': 11, 'ROSEMARY': 42}"
 
 #: ../../howto/enum.rst:632
 msgid "*module*: name of module where new enum class can be found."
-msgstr ""
+msgstr "*модуль*: имя модуля, в котором можно найти новый класс перечисления."
 
 #: ../../howto/enum.rst:634
 msgid "*qualname*: where in module new enum class can be found."
-msgstr ""
+msgstr "*qualname*: где в модуле можно найти новый класс перечисления."
 
 #: ../../howto/enum.rst:636
 msgid "*type*: type to mix in to new enum class."
-msgstr ""
+msgstr "*type*: тип для добавления в новый класс перечисления."
 
 #: ../../howto/enum.rst:638
 msgid "*start*: number to start counting at if only names are passed in."
 msgstr ""
+"*start*: номер, с которого начинается отсчет, если переданы только имена."
 
 #: ../../howto/enum.rst:640
 msgid "The *start* parameter was added."
-msgstr ""
+msgstr "Додано параметр *start*."
 
 #: ../../howto/enum.rst:645
 msgid "Derived Enumerations"
-msgstr ""
+msgstr "Похідні перерахування"
 
 #: ../../howto/enum.rst:648
 msgid "IntEnum"
@@ -1262,6 +1433,9 @@ msgid ""
 "extension, integer enumerations of different types can also be compared to "
 "each other::"
 msgstr ""
+"Перший наданий варіант :class:`Enum` також є підкласом :class:`int`. Члени :"
+"class:`IntEnum` можна порівняти з цілими числами; за розширенням, "
+"цілочисельні перерахування різних типів також можна порівнювати один з одним:"
 
 #: ../../howto/enum.rst:655
 msgid ""
@@ -1281,12 +1455,29 @@ msgid ""
 ">>> Shape.CIRCLE == Request.POST\n"
 "True"
 msgstr ""
+">>> from enum import IntEnum\n"
+">>> class Shape(IntEnum):\n"
+"...     CIRCLE = 1\n"
+"...     SQUARE = 2\n"
+"...\n"
+">>> class Request(IntEnum):\n"
+"...     POST = 1\n"
+"...     GET = 2\n"
+"...\n"
+">>> Shape == 1\n"
+"False\n"
+">>> Shape.CIRCLE == 1\n"
+"True\n"
+">>> Shape.CIRCLE == Request.POST\n"
+"True"
 
 #: ../../howto/enum.rst:671
 msgid ""
 "However, they still can't be compared to standard :class:`Enum` "
 "enumerations::"
 msgstr ""
+"Однак їх все ще не можна порівняти зі стандартними перерахуваннями :class:"
+"`Enum`::"
 
 #: ../../howto/enum.rst:673
 msgid ""
@@ -1301,11 +1492,21 @@ msgid ""
 ">>> Shape.CIRCLE == Color.RED\n"
 "False"
 msgstr ""
+">>> class Shape(IntEnum):\n"
+"...     CIRCLE = 1\n"
+"...     SQUARE = 2\n"
+"...\n"
+">>> class Color(Enum):\n"
+"...     RED = 1\n"
+"...     GREEN = 2\n"
+"...\n"
+">>> Shape.CIRCLE == Color.RED\n"
+"False"
 
 #: ../../howto/enum.rst:684
 msgid ""
 ":class:`IntEnum` values behave like integers in other ways you'd expect::"
-msgstr ""
+msgstr "Значення :class:`IntEnum` поводяться як цілі числа іншим чином:"
 
 #: ../../howto/enum.rst:686
 msgid ""
@@ -1316,6 +1517,12 @@ msgid ""
 ">>> [i for i in range(Shape.SQUARE)]\n"
 "[0, 1]"
 msgstr ""
+">>> int(Shape.CIRCLE)\n"
+"1\n"
+">>> ['a', 'b', 'c'][Shape.CIRCLE]\n"
+"'b'\n"
+">>> [i for i in range(Shape.SQUARE)]\n"
+"[0, 1]"
 
 #: ../../howto/enum.rst:695
 msgid "StrEnum"
@@ -1328,6 +1535,10 @@ msgid ""
 "by extension, string enumerations of different types can also be compared to "
 "each other."
 msgstr ""
+"Второй предоставленный вариант :class:`Enum` также является подклассом :"
+"class:`str`. Члены :class:`StrEnum` можно сравнивать со строками; в более "
+"широком смысле, перечисления строк разных типов также можно сравнивать друг "
+"с другом."
 
 #: ../../howto/enum.rst:706
 msgid "IntFlag"
@@ -1342,22 +1553,33 @@ msgid ""
 "`IntFlag` members are also integers and can be used wherever an :class:`int` "
 "is used."
 msgstr ""
+"Следующий вариант :class:`Enum`, :class:`IntFlag`, также основан на :class:"
+"`int`. Разница в том, что члены :class:`IntFlag` можно комбинировать с "
+"помощью побитовых операторов (&, \\|, ^, ~), и результатом по-прежнему будет "
+"член :class:`IntFlag`, если это возможно. Как и :class:`IntEnum`, члены :"
+"class:`IntFlag` также являются целыми числами и могут использоваться везде, "
+"где используется :class:`int`."
 
 #: ../../howto/enum.rst:716
 msgid ""
 "Any operation on an :class:`IntFlag` member besides the bit-wise operations "
 "will lose the :class:`IntFlag` membership."
 msgstr ""
+"Будь-яка операція з членом :class:`IntFlag`, крім побітових операцій, "
+"втрачає членство :class:`IntFlag`."
 
 #: ../../howto/enum.rst:719
 msgid ""
 "Bit-wise operations that result in invalid :class:`IntFlag` values will lose "
 "the :class:`IntFlag` membership.  See :class:`FlagBoundary` for details."
 msgstr ""
+"Побітові операції, які призводять до недійсних значень :class:`IntFlag`, "
+"втратять членство :class:`IntFlag`. Перегляньте :class:`FlagBoundary` для "
+"деталей."
 
 #: ../../howto/enum.rst:726
 msgid "Sample :class:`IntFlag` class::"
-msgstr ""
+msgstr "Приклад :class:`IntFlag` class::"
 
 #: ../../howto/enum.rst:728
 msgid ""
@@ -1375,10 +1597,23 @@ msgid ""
 ">>> Perm.R in RW\n"
 "True"
 msgstr ""
+">>> from enum import IntFlag\n"
+">>> class Perm(IntFlag):\n"
+"...     R = 4\n"
+"...     W = 2\n"
+"...     X = 1\n"
+"...\n"
+">>> Perm.R | Perm.W\n"
+"<Perm.R|W: 6>\n"
+">>> Perm.R + Perm.W\n"
+"6\n"
+">>> RW = Perm.R | Perm.W\n"
+">>> Perm.R in RW\n"
+"True"
 
 #: ../../howto/enum.rst:742
 msgid "It is also possible to name the combinations::"
-msgstr ""
+msgstr "Також можна назвати комбінації:"
 
 #: ../../howto/enum.rst:744
 msgid ""
@@ -1395,6 +1630,18 @@ msgid ""
 ">>> Perm(7)\n"
 "<Perm.RWX: 7>"
 msgstr ""
+">>> class Perm(IntFlag):\n"
+"...     R = 4\n"
+"...     W = 2\n"
+"...     X = 1\n"
+"...     RWX = 7\n"
+"...\n"
+">>> Perm.RWX\n"
+"<Perm.RWX: 7>\n"
+">>> ~Perm.RWX\n"
+"<Perm: 0>\n"
+">>> Perm(7)\n"
+"<Perm.RWX: 7>"
 
 #: ../../howto/enum.rst:759
 msgid ""
@@ -1410,6 +1657,9 @@ msgid ""
 "that if no flags are set (the value is 0), its boolean evaluation is :data:"
 "`False`::"
 msgstr ""
+"Ще одна важлива відмінність між :class:`IntFlag` і :class:`Enum` полягає в "
+"тому, що якщо не встановлено жодного прапора (значення дорівнює 0), його "
+"логічна оцінка буде :data:`False`::"
 
 #: ../../howto/enum.rst:767
 msgid ""
@@ -1418,12 +1668,18 @@ msgid ""
 ">>> bool(Perm.R & Perm.X)\n"
 "False"
 msgstr ""
+">>> Perm.R & Perm.X\n"
+"<Perm: 0>\n"
+">>> bool(Perm.R & Perm.X)\n"
+"False"
 
 #: ../../howto/enum.rst:772
 msgid ""
 "Because :class:`IntFlag` members are also subclasses of :class:`int` they "
 "can be combined with them (but may lose :class:`IntFlag` membership::"
 msgstr ""
+"Оскільки члени :class:`IntFlag` також є підкласами :class:`int`, їх можна "
+"поєднувати з ними (але вони можуть втратити членство :class:`IntFlag`::"
 
 #: ../../howto/enum.rst:775
 msgid ""
@@ -1433,28 +1689,39 @@ msgid ""
 ">>> Perm.X + 8\n"
 "9"
 msgstr ""
+">>> Perm.X | 4\n"
+"<Perm.R|X: 5>\n"
+"\n"
+">>> Perm.X + 8\n"
+"9"
 
 #: ../../howto/enum.rst:783
 msgid ""
 "The negation operator, ``~``, always returns an :class:`IntFlag` member with "
 "a positive value::"
 msgstr ""
+"Оператор заперечення, ``~``, завжди повертає член :class:`IntFlag` із "
+"позитивним значенням::"
 
 #: ../../howto/enum.rst:786
 msgid ""
 ">>> (~Perm.X).value == (Perm.R|Perm.W).value == 6\n"
 "True"
 msgstr ""
+">>> (~Perm.X).value == (Perm.R|Perm.W).value == 6\n"
+"True"
 
 #: ../../howto/enum.rst:789
 msgid ":class:`IntFlag` members can also be iterated over::"
-msgstr ""
+msgstr "Члени :class:`IntFlag` також можна повторювати:"
 
 #: ../../howto/enum.rst:791
 msgid ""
 ">>> list(RW)\n"
 "[<Perm.R: 4>, <Perm.W: 2>]"
 msgstr ""
+">>> list(RW)\n"
+"[<Perm.R: 4>, <Perm.W: 2>]"
 
 #: ../../howto/enum.rst:798
 msgid "Flag"
@@ -1469,12 +1736,20 @@ msgid ""
 "specify the values directly it is recommended to use :class:`auto` as the "
 "value and let :class:`Flag` select an appropriate value."
 msgstr ""
+"Останнім варіантом є :class:`Flag`. Подібно до :class:`IntFlag`, члени :"
+"class:`Flag` можна комбінувати за допомогою порозрядних операторів (&, \\|, "
+"^, ~). На відміну від :class:`IntFlag`, їх не можна комбінувати з будь-яким "
+"іншим переліком :class:`Flag` або :class:`int`, ані порівнювати з ними. Хоча "
+"можна вказати значення безпосередньо, рекомендується використовувати :class:"
+"`auto` як значення, а :class:`Flag` вибрати відповідне значення."
 
 #: ../../howto/enum.rst:809
 msgid ""
 "Like :class:`IntFlag`, if a combination of :class:`Flag` members results in "
 "no flags being set, the boolean evaluation is :data:`False`::"
 msgstr ""
+"Подібно до :class:`IntFlag`, якщо комбінація членів :class:`Flag` не "
+"призводить до встановлення прапорів, логічна оцінка буде :data:`False`::"
 
 #: ../../howto/enum.rst:812
 msgid ""
@@ -1489,12 +1764,24 @@ msgid ""
 ">>> bool(Color.RED & Color.GREEN)\n"
 "False"
 msgstr ""
+">>> from enum import Flag, auto\n"
+">>> class Color(Flag):\n"
+"...     RED = auto()\n"
+"...     BLUE = auto()\n"
+"...     GREEN = auto()\n"
+"...\n"
+">>> Color.RED & Color.GREEN\n"
+"<Color: 0>\n"
+">>> bool(Color.RED & Color.GREEN)\n"
+"False"
 
 #: ../../howto/enum.rst:823
 msgid ""
 "Individual flags should have values that are powers of two (1, 2, 4, "
 "8, ...), while combinations of flags will not::"
 msgstr ""
+"Отдельные флаги должны иметь значения, являющиеся степенью двойки (1, 2, 4, "
+"8, ...), тогда как комбинации флагов не будут:"
 
 #: ../../howto/enum.rst:826
 msgid ""
@@ -1507,12 +1794,22 @@ msgid ""
 ">>> Color.WHITE\n"
 "<Color.WHITE: 7>"
 msgstr ""
+">>> class Color(Flag):\n"
+"...     RED = auto()\n"
+"...     BLUE = auto()\n"
+"...     GREEN = auto()\n"
+"...     WHITE = RED | BLUE | GREEN\n"
+"...\n"
+">>> Color.WHITE\n"
+"<Color.WHITE: 7>"
 
 #: ../../howto/enum.rst:835
 msgid ""
 "Giving a name to the \"no flags set\" condition does not change its boolean "
 "value::"
 msgstr ""
+"Присвоєння назви умові \"прапори не встановлено\" не змінює її логічного "
+"значення::"
 
 #: ../../howto/enum.rst:838
 msgid ""
@@ -1527,10 +1824,20 @@ msgid ""
 ">>> bool(Color.BLACK)\n"
 "False"
 msgstr ""
+">>> class Color(Flag):\n"
+"...     BLACK = 0\n"
+"...     RED = auto()\n"
+"...     BLUE = auto()\n"
+"...     GREEN = auto()\n"
+"...\n"
+">>> Color.BLACK\n"
+"<Color.BLACK: 0>\n"
+">>> bool(Color.BLACK)\n"
+"False"
 
 #: ../../howto/enum.rst:849
 msgid ":class:`Flag` members can also be iterated over::"
-msgstr ""
+msgstr "Члени :class:`Flag` також можна повторювати:"
 
 #: ../../howto/enum.rst:851
 msgid ""
@@ -1538,6 +1845,9 @@ msgid ""
 ">>> list(purple)\n"
 "[<Color.RED: 1>, <Color.BLUE: 2>]"
 msgstr ""
+">>> purple = Color.RED | Color.BLUE\n"
+">>> list(purple)\n"
+"[<Color.RED: 1>, <Color.BLUE: 2>]"
 
 #: ../../howto/enum.rst:859
 msgid ""
@@ -1549,6 +1859,14 @@ msgid ""
 "will not do; for example, when integer constants are replaced with "
 "enumerations, or for interoperability with other systems."
 msgstr ""
+"Для більшості нового коду наполегливо рекомендується використовувати :class:"
+"`Enum` і :class:`Flag`, оскільки :class:`IntEnum` і :class:`IntFlag` "
+"порушують деякі семантичні обіцянки перерахування (через їх порівняння з "
+"цілі числа, і, таким чином, через перехідність до інших непов’язаних "
+"перерахувань). :class:`IntEnum` і :class:`IntFlag` слід використовувати лише "
+"у випадках, коли :class:`Enum` і :class:`Flag` не підходять; наприклад, коли "
+"цілі константи замінюються перерахуваннями або для взаємодії з іншими "
+"системами."
 
 #: ../../howto/enum.rst:869
 msgid "Others"
@@ -1559,6 +1877,8 @@ msgid ""
 "While :class:`IntEnum` is part of the :mod:`enum` module, it would be very "
 "simple to implement independently::"
 msgstr ""
+"Хоча :class:`IntEnum` є частиною модуля :mod:`enum`, його було б дуже просто "
+"реалізувати незалежно:"
 
 #: ../../howto/enum.rst:874
 msgid ""
@@ -1572,6 +1892,9 @@ msgid ""
 "example a :class:`!FloatEnum` that mixes in :class:`float` instead of :class:"
 "`int`."
 msgstr ""
+"Это демонстрирует, как могут быть определены похожие производные "
+"перечисления; например :class:`!FloatEnum`, который смешивается с :class:"
+"`float` вместо :class:`int`."
 
 #: ../../howto/enum.rst:880
 msgid "Some rules:"
@@ -1590,6 +1913,9 @@ msgid ""
 "`range` are not subclassable and will throw an error during Enum creation if "
 "used as the mix-in type."
 msgstr ""
+"Типы примесей должны быть подклассами. Например, :class:`bool` и :class:"
+"`range` не являются подклассами и выдадут ошибку во время создания Enum, "
+"если они используются в качестве подкласса."
 
 #: ../../howto/enum.rst:888
 msgid ""
@@ -1598,6 +1924,10 @@ msgid ""
 "`int` above.  This restriction does not apply to mix-ins which only add "
 "methods and don't specify another type."
 msgstr ""
+"Хоча :class:`Enum` може мати члени будь-якого типу, коли ви додаєте "
+"додатковий тип, усі члени повинні мати значення цього типу, наприклад. :"
+"class:`int` вище. Це обмеження не стосується змішувань, які лише додають "
+"методи і не вказують інший тип."
 
 #: ../../howto/enum.rst:892
 msgid ""
@@ -1605,12 +1935,17 @@ msgid ""
 "*not the same* as the enum member itself, although it is equivalent and will "
 "compare equal."
 msgstr ""
+"Когда добавляется другой тип данных, атрибут :attr:`~Enum.value` *не "
+"совпадает* с самим элементом перечисления, хотя он эквивалентен и будет "
+"сравниваться равным."
 
 #: ../../howto/enum.rst:895
 msgid ""
 "A ``data type`` is a mixin that defines :meth:`~object.__new__`, or a :class:"
 "`~dataclasses.dataclass`"
 msgstr ""
+"``Тип данных`` — это примесь, определяющая :meth:`~object.__new__` или :"
+"class:`~dataclasses.dataclass`"
 
 #: ../../howto/enum.rst:897
 msgid ""
@@ -1619,12 +1954,18 @@ msgid ""
 "(such as ``%i`` or ``%h`` for IntEnum) treat the enum member as its mixed-in "
 "type."
 msgstr ""
+"%-s столько форматирования: `` %s `` и ``%r`` вызывают классы :class:`Enum` :"
+"meth:`~object.__str__` и :meth:`~object.__repr__` соответственно; другие "
+"коды (например, `` %я `` или ``%h`` для IntEnum) рассматривают член "
+"перечисления как смешанный тип."
 
 #: ../../howto/enum.rst:900
 msgid ""
 ":ref:`Formatted string literals <f-strings>`, :meth:`str.format`, and :func:"
 "`format` will use the enum's :meth:`~object.__str__` method."
 msgstr ""
+":ref:`Форматированные строковые литералы <f-strings>`, :meth:`str.format` и :"
+"func:`format` будут использовать метод :meth:`~object.__str__` перечисления."
 
 #: ../../howto/enum.rst:905
 msgid ""
@@ -1633,10 +1974,14 @@ msgid ""
 "`~object.__str__` method has been reset to their data types' :meth:`~object."
 "__str__` method."
 msgstr ""
+"Поскольку :class:`IntEnum`, :class:`IntFlag` и :class:`StrEnum` "
+"предназначены для замены существующих констант, их метод :meth:`~object."
+"__str__` был сброшен до их значения. типы данных' :meth:`~object.__str__`."
 
 #: ../../howto/enum.rst:913
 msgid "When to use :meth:`~object.__new__` vs. :meth:`~object.__init__`"
 msgstr ""
+"Когда использовать :meth:`~object.__new__` вместо :meth:`~object.__init__`"
 
 #: ../../howto/enum.rst:915
 msgid ""
@@ -1645,12 +1990,18 @@ msgid ""
 "either :meth:`~object.__new__` or :meth:`~object.__init__`, with :meth:"
 "`~object.__init__` being preferred."
 msgstr ""
+":meth:`~object.__new__` необходимо использовать всякий раз, когда вы хотите "
+"настроить фактическое значение члена :class:`Enum`. Любые другие модификации "
+"могут входить либо в :meth:`~object.__new__`, либо в :meth:`~object."
+"__init__`, причем предпочтительным является :meth:`~object.__init__`."
 
 #: ../../howto/enum.rst:919
 msgid ""
 "For example, if you want to pass several items to the constructor, but only "
 "want one of them to be the value::"
 msgstr ""
+"Наприклад, якщо ви хочете передати кілька елементів у конструктор, але "
+"хочете, щоб лише один із них був значенням::"
 
 #: ../../howto/enum.rst:922
 msgid ""
@@ -1676,16 +2027,40 @@ msgid ""
 ">>> print(Coordinate(3))\n"
 "Coordinate.VY"
 msgstr ""
+">>> class Coordinate(bytes, Enum):\n"
+"...     \"\"\"\n"
+"...     Coordinate with binary codes that can be indexed by the int code.\n"
+"...     \"\"\"\n"
+"...     def __new__(cls, value, label, unit):\n"
+"...         obj = bytes.__new__(cls, [value])\n"
+"...         obj._value_ = value\n"
+"...         obj.label = label\n"
+"...         obj.unit = unit\n"
+"...         return obj\n"
+"...     PX = (0, 'P.X', 'km')\n"
+"...     PY = (1, 'P.Y', 'km')\n"
+"...     VX = (2, 'V.X', 'km/s')\n"
+"...     VY = (3, 'V.Y', 'km/s')\n"
+"...\n"
+"\n"
+">>> print(Coordinate['PY'])\n"
+"Coordinate.PY\n"
+"\n"
+">>> print(Coordinate(3))\n"
+"Coordinate.VY"
 
 #: ../../howto/enum.rst:946
 msgid ""
 "*Do not* call ``super().__new__()``, as the lookup-only ``__new__`` is the "
 "one that is found; instead, use the data type directly."
 msgstr ""
+"*Не* вызывайте ``super().__new__()``, так как найден только ``__new__``, "
+"предназначенный только для поиска; вместо этого используйте тип данных "
+"напрямую."
 
 #: ../../howto/enum.rst:951
 msgid "Finer Points"
-msgstr ""
+msgstr "Більш тонкі точки"
 
 #: ../../howto/enum.rst:954
 msgid "Supported ``__dunder__`` names"
@@ -1696,6 +2071,9 @@ msgid ""
 ":attr:`~enum.EnumType.__members__` is a read-only ordered mapping of "
 "``member_name``:``member`` items.  It is only available on the class."
 msgstr ""
+":attr:`~enum.EnumType.__members__` — это упорядоченное сопоставление "
+"элементов ``member_name``:``member``, доступное только для чтения. Это "
+"доступно только в классе."
 
 #: ../../howto/enum.rst:959
 msgid ""
@@ -1704,6 +2082,9 @@ msgid ""
 "_value_` appropriately.  Once all the members are created it is no longer "
 "used."
 msgstr ""
+":meth:`~object.__new__`, если он указан, должен создавать и возвращать члены "
+"перечисления; Также очень хорошей идеей будет правильно установить :attr:"
+"`~Enum._value_` члена. После создания всех членов он больше не используется."
 
 #: ../../howto/enum.rst:965
 msgid "Supported ``_sunder_`` names"
@@ -1711,7 +2092,7 @@ msgstr "Nomes ``_sunder_`` suportados"
 
 #: ../../howto/enum.rst:967
 msgid ":attr:`~Enum._name_` -- name of the member"
-msgstr ""
+msgstr ":attr:`~Enum._name_` -- имя члена"
 
 #: ../../howto/enum.rst:968
 msgid ""
@@ -1724,6 +2105,8 @@ msgid ""
 ":meth:`~Enum._missing_` -- a lookup function used when a value is not found; "
 "may be overridden"
 msgstr ""
+":meth:`~Enum._missing_` -- функция поиска, используемая, когда значение не "
+"найдено; может быть переопределено"
 
 #: ../../howto/enum.rst:972
 msgid ""
@@ -1731,6 +2114,8 @@ msgid ""
 "class:`str`, that will not be transformed into members, and will be removed "
 "from the final class"
 msgstr ""
+":attr:`~Enum._ignore_` -- список имен в виде :class:`list` или :class:`str`, "
+"который не будет преобразован в члены и будет удален из конечного класса."
 
 #: ../../howto/enum.rst:975
 msgid ""
@@ -1775,6 +2160,9 @@ msgid ""
 "attribute can be provided.  It will be checked against the actual order of "
 "the enumeration and raise an error if the two do not match::"
 msgstr ""
+"Чтобы синхронизировать код Python 2/Python 3, можно предоставить атрибут :"
+"attr:`~Enum._order_`. Он будет проверен на соответствие фактическому порядку "
+"перечисления и выдаст ошибку, если они не совпадают:"
 
 #: ../../howto/enum.rst:996
 msgid ""
@@ -1790,26 +2178,41 @@ msgid ""
 "  ['RED', 'BLUE', 'GREEN']\n"
 "  ['RED', 'GREEN', 'BLUE']"
 msgstr ""
+">>> class Color(Enum):\n"
+"...     _order_ = 'RED GREEN BLUE'\n"
+"...     RED = 1\n"
+"...     BLUE = 3\n"
+"...     GREEN = 2\n"
+"...\n"
+"Traceback (most recent call last):\n"
+"...\n"
+"TypeError: member order does not match _order_:\n"
+"  ['RED', 'BLUE', 'GREEN']\n"
+"  ['RED', 'GREEN', 'BLUE']"
 
 #: ../../howto/enum.rst:1010
 msgid ""
 "In Python 2 code the :attr:`~Enum._order_` attribute is necessary as "
 "definition order is lost before it can be recorded."
 msgstr ""
+"В коде Python 2 атрибут :attr:`~Enum._order_` необходим, поскольку порядок "
+"определения теряется до того, как его можно будет записать."
 
 #: ../../howto/enum.rst:1015
 msgid "_Private__names"
-msgstr ""
+msgstr "_Private__names"
 
 #: ../../howto/enum.rst:1017
 msgid ""
 ":ref:`Private names <private-name-mangling>` are not converted to enum "
 "members, but remain normal attributes."
 msgstr ""
+":ref:`Частные имена <private-name-mangling>` не преобразуются в члены "
+"перечисления, а остаются обычными атрибутами."
 
 #: ../../howto/enum.rst:1024
 msgid "``Enum`` member type"
-msgstr ""
+msgstr "Тип члена ``Enum``"
 
 #: ../../howto/enum.rst:1026
 msgid ""
@@ -1820,10 +2223,17 @@ msgid ""
 "names and attributes/methods from mixed-in classes, upper-case names are "
 "strongly recommended."
 msgstr ""
+"Члены перечисления являются экземплярами своего класса перечисления и обычно "
+"доступны как EnumClass.member. В определенных ситуациях, например при "
+"написании пользовательского поведения перечисления, возможность доступа к "
+"одному члену напрямую из другого полезна и поддерживается; однако, чтобы "
+"избежать конфликтов имен между именами членов и атрибутами/методами из "
+"смешанных классов, настоятельно рекомендуется использовать имена в верхнем "
+"регистре."
 
 #: ../../howto/enum.rst:1037
 msgid "Creating members that are mixed with other data types"
-msgstr ""
+msgstr "Створення елементів, змішаних з іншими типами даних"
 
 #: ../../howto/enum.rst:1039
 msgid ""
@@ -1831,6 +2241,9 @@ msgid ""
 "with an :class:`Enum`, all values after the ``=`` are passed to that data "
 "type's constructor.  For example::"
 msgstr ""
+"При создании подклассов других типов данных, таких как :class:`int` или :"
+"class:`str`, с помощью :class:`Enum`, все значения после ``=`` передаются "
+"конструктору этого типа данных. Например::"
 
 #: ../../howto/enum.rst:1043
 msgid ""
@@ -1840,10 +2253,15 @@ msgid ""
 ">>> MyEnum.example.value        # and hex(11) is...\n"
 "17"
 msgstr ""
+">>> class MyEnum(IntEnum):      # help(int) -> int(x, base=10) -> integer\n"
+"...     example = '11', 16      # so x='11' and base=16\n"
+"...\n"
+">>> MyEnum.example.value        # and hex(11) is...\n"
+"17"
 
 #: ../../howto/enum.rst:1051
 msgid "Boolean value of ``Enum`` classes and members"
-msgstr ""
+msgstr "Логічне значення класів і членів ``Enum``"
 
 #: ../../howto/enum.rst:1053
 msgid ""
@@ -1853,20 +2271,27 @@ msgid ""
 "enum's boolean evaluation depend on the member's value add the following to "
 "your class::"
 msgstr ""
+"Класи Enum, змішані з типами не :class:`Enum` (такими як :class:`int`, :"
+"class:`str` тощо), оцінюються відповідно до правил змішаного типу; інакше "
+"всі члени оцінюються як :data:`True`. Щоб зробити логічне обчислення вашого "
+"власного переліку залежним від значення члена, додайте наступне до свого "
+"класу:"
 
 #: ../../howto/enum.rst:1059
 msgid ""
 "def __bool__(self):\n"
 "    return bool(self.value)"
 msgstr ""
+"def __bool__(self):\n"
+"    return bool(self.value)"
 
 #: ../../howto/enum.rst:1062
 msgid "Plain :class:`Enum` classes always evaluate as :data:`True`."
-msgstr ""
+msgstr "Класи Plain :class:`Enum` завжди оцінюються як :data:`True`."
 
 #: ../../howto/enum.rst:1066
 msgid "``Enum`` classes with methods"
-msgstr ""
+msgstr "``Enum`` класи з методами"
 
 #: ../../howto/enum.rst:1068
 msgid ""
@@ -1874,6 +2299,9 @@ msgid ""
 "below, those methods will show up in a :func:`dir` of the member, but not of "
 "the class::"
 msgstr ""
+"Если вы дадите своему подклассу перечисления дополнительные методы, такие "
+"как класс `Planet`_ ниже, эти методы будут отображаться в :func:`dir` члена, "
+"но не в классе::"
 
 #: ../../howto/enum.rst:1072
 msgid ""
@@ -1884,16 +2312,24 @@ msgid ""
 "['__class__', '__doc__', '__module__', 'mass', 'name', 'radius', "
 "'surface_gravity', 'value']"
 msgstr ""
+">>> dir(Planet)\n"
+"['EARTH', 'JUPITER', 'MARS', 'MERCURY', 'NEPTUNE', 'SATURN', 'URANUS', "
+"'VENUS', '__class__', '__doc__', '__members__', '__module__']\n"
+">>> dir(Planet.EARTH)\n"
+"['__class__', '__doc__', '__module__', 'mass', 'name', 'radius', "
+"'surface_gravity', 'value']"
 
 #: ../../howto/enum.rst:1079
 msgid "Combining members of ``Flag``"
-msgstr ""
+msgstr "Об'єднання членів ``Прапора``"
 
 #: ../../howto/enum.rst:1081
 msgid ""
 "Iterating over a combination of :class:`Flag` members will only return the "
 "members that are comprised of a single bit::"
 msgstr ""
+"Ітерація по комбінації елементів :class:`Flag` поверне лише елементи, які "
+"складаються з одного біта::"
 
 #: ../../howto/enum.rst:1084
 msgid ""
@@ -1910,14 +2346,26 @@ msgid ""
 ">>> Color(7)      # not named combination\n"
 "<Color.RED|GREEN|BLUE: 7>"
 msgstr ""
+">>> class Color(Flag):\n"
+"...     RED = auto()\n"
+"...     GREEN = auto()\n"
+"...     BLUE = auto()\n"
+"...     MAGENTA = RED | BLUE\n"
+"...     YELLOW = RED | GREEN\n"
+"...     CYAN = GREEN | BLUE\n"
+"...\n"
+">>> Color(3)  # named combination\n"
+"<Color.YELLOW: 3>\n"
+">>> Color(7)      # not named combination\n"
+"<Color.RED|GREEN|BLUE: 7>"
 
 #: ../../howto/enum.rst:1099
 msgid "``Flag`` and ``IntFlag`` minutia"
-msgstr ""
+msgstr "Деталі ``Flag`` і ``IntFlag``"
 
 #: ../../howto/enum.rst:1101
 msgid "Using the following snippet for our examples::"
-msgstr ""
+msgstr "Використовуючи наступний фрагмент для наших прикладів:"
 
 #: ../../howto/enum.rst:1103
 msgid ""
@@ -1930,34 +2378,46 @@ msgid ""
 "...     WHITE = RED | GREEN | BLUE\n"
 "..."
 msgstr ""
+">>> class Color(IntFlag):\n"
+"...     BLACK = 0\n"
+"...     RED = 1\n"
+"...     GREEN = 2\n"
+"...     BLUE = 4\n"
+"...     PURPLE = RED | BLUE\n"
+"...     WHITE = RED | GREEN | BLUE\n"
+"..."
 
 #: ../../howto/enum.rst:1112
 msgid "the following are true:"
-msgstr ""
+msgstr "вірно наступне:"
 
 #: ../../howto/enum.rst:1114
 msgid "single-bit flags are canonical"
-msgstr ""
+msgstr "однобітові прапори є канонічними"
 
 #: ../../howto/enum.rst:1115
 msgid "multi-bit and zero-bit flags are aliases"
-msgstr ""
+msgstr "багатобітні та нульові бітові прапорці є псевдонімами"
 
 #: ../../howto/enum.rst:1116
 msgid "only canonical flags are returned during iteration::"
-msgstr ""
+msgstr "під час ітерації повертаються лише канонічні прапори::"
 
 #: ../../howto/enum.rst:1118
 msgid ""
 ">>> list(Color.WHITE)\n"
 "[<Color.RED: 1>, <Color.GREEN: 2>, <Color.BLUE: 4>]"
 msgstr ""
+">>> list(Color.WHITE)\n"
+"[<Color.RED: 1>, <Color.GREEN: 2>, <Color.BLUE: 4>]"
 
 #: ../../howto/enum.rst:1121
 msgid ""
 "negating a flag or flag set returns a new flag/flag set with the "
 "corresponding positive integer value::"
 msgstr ""
+"заперечення прапора або набору прапорів повертає новий прапор/набір прапорів "
+"із відповідним додатним цілим значенням::"
 
 #: ../../howto/enum.rst:1124
 msgid ""
@@ -1967,10 +2427,15 @@ msgid ""
 ">>> ~Color.BLUE\n"
 "<Color.RED|GREEN: 3>"
 msgstr ""
+">>> Color.BLUE\n"
+"<Color.BLUE: 4>\n"
+"\n"
+">>> ~Color.BLUE\n"
+"<Color.RED|GREEN: 3>"
 
 #: ../../howto/enum.rst:1130
 msgid "names of pseudo-flags are constructed from their members' names::"
-msgstr ""
+msgstr "імена псевдо-прапорів складаються з імен їх членів::"
 
 #: ../../howto/enum.rst:1132
 msgid ""
@@ -1985,10 +2450,14 @@ msgid ""
 ">>> (Perm.R & Perm.W).name is None  # effectively Perm(0)\n"
 "True"
 msgstr ""
+">>> (Цвет.КРАСНЫЙ | Цвет.ЗЕЛЕНЫЙ).имя 'КРАСНЫЙ|ЗЕЛЕНЫЙ' >>> класс "
+"Пермь(IntFlag): ... Р = 4 ... Вт = 2 ... Х = 1 ... >>> (Perm.R и Perm.W)."
+"name — None # эффективно Perm(0) Истинный"
 
 #: ../../howto/enum.rst:1143
 msgid "multi-bit flags, aka aliases, can be returned from operations::"
 msgstr ""
+"багатобітові прапорці, або псевдоніми, можуть бути повернуті з операцій::"
 
 #: ../../howto/enum.rst:1145
 msgid ""
@@ -2001,24 +2470,38 @@ msgid ""
 ">>> Color(0)\n"
 "<Color.BLACK: 0>"
 msgstr ""
+">>> Color.RED | Color.BLUE\n"
+"<Color.PURPLE: 5>\n"
+"\n"
+">>> Color(7)  # or Color(-1)\n"
+"<Color.WHITE: 7>\n"
+"\n"
+">>> Color(0)\n"
+"<Color.BLACK: 0>"
 
 #: ../../howto/enum.rst:1154
 msgid ""
 "membership / containment checking: zero-valued flags are always considered "
 "to be contained::"
 msgstr ""
+"Проверка членства/включения: флаги с нулевым значением всегда считаются "
+"содержащимися::"
 
 #: ../../howto/enum.rst:1157
 msgid ""
 ">>> Color.BLACK in Color.WHITE\n"
 "True"
 msgstr ""
+">>> Color.BLACK in Color.WHITE\n"
+"True"
 
 #: ../../howto/enum.rst:1160
 msgid ""
 "otherwise, only if all bits of one flag are in the other flag will True be "
 "returned::"
 msgstr ""
+"в противном случае, только если все биты одного флага находятся в другом "
+"флаге, будет возвращено значение True::"
 
 #: ../../howto/enum.rst:1163
 msgid ""
@@ -2028,40 +2511,48 @@ msgid ""
 ">>> Color.GREEN in Color.PURPLE\n"
 "False"
 msgstr ""
+">>> Color.PURPLE in Color.WHITE\n"
+"True\n"
+"\n"
+">>> Color.GREEN in Color.PURPLE\n"
+"False"
 
 #: ../../howto/enum.rst:1169
 msgid ""
 "There is a new boundary mechanism that controls how out-of-range / invalid "
 "bits are handled: ``STRICT``, ``CONFORM``, ``EJECT``, and ``KEEP``:"
 msgstr ""
+"Існує новий граничний механізм, який контролює, як обробляються біти за "
+"межами діапазону/недійсні: ``STRICT``, ``CONFORM``, ``EJECT`` і ``KEEP``:"
 
 #: ../../howto/enum.rst:1172
 msgid "STRICT --> raises an exception when presented with invalid values"
-msgstr ""
+msgstr "STRICT --> створює виняток, якщо надає недійсні значення"
 
 #: ../../howto/enum.rst:1173
 msgid "CONFORM --> discards any invalid bits"
-msgstr ""
+msgstr "CONFORM --> відкидає всі недійсні біти"
 
 #: ../../howto/enum.rst:1174
 msgid "EJECT --> lose Flag status and become a normal int with the given value"
 msgstr ""
+"EJECT --> втрачає статус прапора та стає звичайним int із заданим значенням"
 
 #: ../../howto/enum.rst:1175
 msgid "KEEP --> keep the extra bits"
-msgstr ""
+msgstr "KEEP --> збережіть зайві біти"
 
 #: ../../howto/enum.rst:1177
 msgid "keeps Flag status and extra bits"
-msgstr ""
+msgstr "зберігає статус прапора та додаткові біти"
 
 #: ../../howto/enum.rst:1178
 msgid "extra bits do not show up in iteration"
-msgstr ""
+msgstr "зайві біти не відображаються в ітерації"
 
 #: ../../howto/enum.rst:1179
 msgid "extra bits do show up in repr() and str()"
-msgstr ""
+msgstr "додаткові біти з’являються в repr() і str()"
 
 #: ../../howto/enum.rst:1181
 msgid ""
@@ -2069,20 +2560,25 @@ msgid ""
 "``EJECT``, and the default for ``_convert_`` is ``KEEP`` (see ``ssl."
 "Options`` for an example of when ``KEEP`` is needed)."
 msgstr ""
+"Типовим значенням для прапора є ``STRICT``, значенням за замовчуванням "
+"``IntFlag`` є ``EJECT``, а за умовчанням для ``_convert_`` є ``KEEP`` (див. "
+"``ssl.Options`` для прикладу того, коли потрібен ``KEEP``)."
 
 #: ../../howto/enum.rst:1189
 msgid "How are Enums and Flags different?"
-msgstr ""
+msgstr "Чем отличаются перечисления и флаги?"
 
 #: ../../howto/enum.rst:1191
 msgid ""
 "Enums have a custom metaclass that affects many aspects of both derived :"
 "class:`Enum` classes and their instances (members)."
 msgstr ""
+"Переліки мають спеціальний метаклас, який впливає на багато аспектів як "
+"похідних класів :class:`Enum`, так і їх екземплярів (членів)."
 
 #: ../../howto/enum.rst:1196
 msgid "Enum Classes"
-msgstr ""
+msgstr "Класи Enum"
 
 #: ../../howto/enum.rst:1198
 msgid ""
@@ -2095,10 +2591,18 @@ msgid ""
 "__new__`, :meth:`~object.__getnewargs__`, :meth:`~object.__str__` and :meth:"
 "`~object.__repr__`)."
 msgstr ""
+"Метакласс :class:`EnumType` отвечает за предоставление :meth:`~object."
+"__contains__`, :meth:`~object.__dir__`, :meth:`~object.__iter__` и других "
+"методов, которые позволяют делать вещи с классом :class:`Enum`, которые "
+"терпят неудачу в типичном классе, таком как ``list(Color)`` "
+"или``some_enum_var in Color``. :class:`EnumType` отвечает за корректность "
+"различных других методов конечного класса :class:`Enum` (например, :meth:"
+"`~object.__new__`, :meth:`~object.__getnewargs__`, : meth:`~object.__str__` "
+"и :meth:`~object.__repr__`)."
 
 #: ../../howto/enum.rst:1207
 msgid "Flag Classes"
-msgstr ""
+msgstr "Классы флагов"
 
 #: ../../howto/enum.rst:1209
 msgid ""
@@ -2108,10 +2612,15 @@ msgid ""
 "a. ``0``) or with more than one power-of-two value (e.g. ``3``) is "
 "considered an alias."
 msgstr ""
+"Флаги имеют расширенное представление о псевдонимах: чтобы быть "
+"каноническим, значение флага должно быть значением степени двойки, а не "
+"повторяющимся именем. Таким образом, в дополнение к определению псевдонима "
+"в :class:`Enum`, рассматривается флаг без значения (он же ``0``) или с более "
+"чем одним значением степени двойки (например, ``3``). псевдоним."
 
 #: ../../howto/enum.rst:1215
 msgid "Enum Members (aka instances)"
-msgstr ""
+msgstr "Члени Enum (також відомі як екземпляри)"
 
 #: ../../howto/enum.rst:1217
 msgid ""
@@ -2121,54 +2630,73 @@ msgid ""
 "that no new ones are ever instantiated by returning only the existing member "
 "instances."
 msgstr ""
+"Самое интересное в членах перечисления то, что они являются одиночками. :"
+"class:`EnumType` создает их все во время создания самого класса "
+"перечисления, а затем помещает собственный :meth:`~object.__new__`, чтобы "
+"гарантировать, что никакие новые экземпляры никогда не будут созданы, "
+"возвращая только существующие экземпляры членов. ."
 
 #: ../../howto/enum.rst:1223
 msgid "Flag Members"
-msgstr ""
+msgstr "Пометить участников"
 
 #: ../../howto/enum.rst:1225
 msgid ""
 "Flag members can be iterated over just like the :class:`Flag` class, and "
 "only the canonical members will be returned.  For example::"
 msgstr ""
+"Члены флага можно перебирать так же, как и класс :class:`Flag`, и будут "
+"возвращены только канонические члены. Например::"
 
 #: ../../howto/enum.rst:1228
 msgid ""
 ">>> list(Color)\n"
 "[<Color.RED: 1>, <Color.GREEN: 2>, <Color.BLUE: 4>]"
 msgstr ""
+">>> list(Color)\n"
+"[<Color.RED: 1>, <Color.GREEN: 2>, <Color.BLUE: 4>]"
 
 #: ../../howto/enum.rst:1231
 msgid "(Note that ``BLACK``, ``PURPLE``, and ``WHITE`` do not show up.)"
 msgstr ""
+"(Обратите внимание, что ``ЧЕРНЫЙ``, ``ФИОЛЕТОВЫЙ`` и ``БЕЛЫЙ`` не "
+"отображаются.)"
 
 #: ../../howto/enum.rst:1233
 msgid ""
 "Inverting a flag member returns the corresponding positive value, rather "
 "than a negative value --- for example::"
 msgstr ""
+"Инвертирование члена-флага возвращает соответствующее положительное "
+"значение, а не отрицательное, например::"
 
 #: ../../howto/enum.rst:1236
 msgid ""
 ">>> ~Color.RED\n"
 "<Color.GREEN|BLUE: 6>"
 msgstr ""
+">>> ~Color.RED\n"
+"<Color.GREEN|BLUE: 6>"
 
 #: ../../howto/enum.rst:1239
 msgid ""
 "Flag members have a length corresponding to the number of power-of-two "
 "values they contain.  For example::"
 msgstr ""
+"Члены флага имеют длину, соответствующую количеству содержащихся в них "
+"значений степени двойки. Например::"
 
 #: ../../howto/enum.rst:1242
 msgid ""
 ">>> len(Color.PURPLE)\n"
 "2"
 msgstr ""
+">>> len(Color.PURPLE)\n"
+"2"
 
 #: ../../howto/enum.rst:1249
 msgid "Enum Cookbook"
-msgstr ""
+msgstr "Поваренная книга перечисления"
 
 #: ../../howto/enum.rst:1252
 msgid ""
@@ -2177,34 +2705,44 @@ msgid ""
 "cover them all.  Here are recipes for some different types of enumerations "
 "that can be used directly, or as examples for creating one's own."
 msgstr ""
+"Хоча очікується, що :class:`Enum`, :class:`IntEnum`, :class:`StrEnum`, :"
+"class:`Flag` і :class:`IntFlag` охоплять більшість варіантів використання, "
+"вони не можуть охопити їх усіх. Ось рецепти для деяких різних типів "
+"перерахувань, які можна використовувати безпосередньо або як приклади для "
+"створення власних."
 
 #: ../../howto/enum.rst:1259
 msgid "Omitting values"
-msgstr ""
+msgstr "Пропуск значень"
 
 #: ../../howto/enum.rst:1261
 msgid ""
 "In many use-cases, one doesn't care what the actual value of an enumeration "
 "is. There are several ways to define this type of simple enumeration:"
 msgstr ""
+"Во многих случаях использования неважно, каково фактическое значение "
+"перечисления. Существует несколько способов определения этого типа простого "
+"перечисления:"
 
 #: ../../howto/enum.rst:1264
 msgid "use instances of :class:`auto` for the value"
-msgstr ""
+msgstr "використовувати екземпляри :class:`auto` для значення"
 
 #: ../../howto/enum.rst:1265
 msgid "use instances of :class:`object` as the value"
-msgstr ""
+msgstr "використовуйте екземпляри :class:`object` як значення"
 
 #: ../../howto/enum.rst:1266
 msgid "use a descriptive string as the value"
-msgstr ""
+msgstr "використовуйте описовий рядок як значення"
 
 #: ../../howto/enum.rst:1267
 msgid ""
 "use a tuple as the value and a custom :meth:`~object.__new__` to replace the "
 "tuple with an :class:`int` value"
 msgstr ""
+"используйте кортеж в качестве значения и собственный :meth:`~object."
+"__new__`, чтобы заменить кортеж значением :class:`int`"
 
 #: ../../howto/enum.rst:1270
 msgid ""
@@ -2212,14 +2750,17 @@ msgid ""
 "important, and also enables one to add, remove, or reorder members without "
 "having to renumber the remaining members."
 msgstr ""
+"Використання будь-якого з цих методів означає для користувача, що ці "
+"значення не є важливими, а також дозволяє додавати, видаляти або змінювати "
+"порядок членів без необхідності перенумеровувати решту членів."
 
 #: ../../howto/enum.rst:1276
 msgid "Using :class:`auto`"
-msgstr ""
+msgstr "Використання :class:`auto`"
 
 #: ../../howto/enum.rst:1278
 msgid "Using :class:`auto` would look like::"
-msgstr ""
+msgstr "Використання :class:`auto` виглядатиме так::"
 
 #: ../../howto/enum.rst:1280
 msgid ""
@@ -2231,14 +2772,21 @@ msgid ""
 ">>> Color.GREEN\n"
 "<Color.GREEN: 3>"
 msgstr ""
+">>> class Color(Enum):\n"
+"...     RED = auto()\n"
+"...     BLUE = auto()\n"
+"...     GREEN = auto()\n"
+"...\n"
+">>> Color.GREEN\n"
+"<Color.GREEN: 3>"
 
 #: ../../howto/enum.rst:1290
 msgid "Using :class:`object`"
-msgstr ""
+msgstr "Використання :class:`object`"
 
 #: ../../howto/enum.rst:1292
 msgid "Using :class:`object` would look like::"
-msgstr ""
+msgstr "Використання :class:`object` виглядатиме так::"
 
 #: ../../howto/enum.rst:1294
 msgid ""
@@ -2250,12 +2798,21 @@ msgid ""
 ">>> Color.GREEN\n"
 "<Color.GREEN: <object object at 0x...>>"
 msgstr ""
+">>> class Color(Enum):\n"
+"...     RED = object()\n"
+"...     GREEN = object()\n"
+"...     BLUE = object()\n"
+"...\n"
+">>> Color.GREEN\n"
+"<Color.GREEN: <object object at 0x...>>"
 
 #: ../../howto/enum.rst:1302
 msgid ""
 "This is also a good example of why you might want to write your own :meth:"
 "`~object.__repr__`::"
 msgstr ""
+"Это также хороший пример того, почему вам может понадобиться написать свой "
+"собственный :meth:`~object.__repr__`::"
 
 #: ../../howto/enum.rst:1305
 msgid ""
@@ -2269,14 +2826,23 @@ msgid ""
 ">>> Color.GREEN\n"
 "<Color.GREEN>"
 msgstr ""
+">>> class Color(Enum):\n"
+"...     RED = object()\n"
+"...     GREEN = object()\n"
+"...     BLUE = object()\n"
+"...     def __repr__(self):\n"
+"...         return \"<%s.%s>\" % (self.__class__.__name__, self._name_)\n"
+"...\n"
+">>> Color.GREEN\n"
+"<Color.GREEN>"
 
 #: ../../howto/enum.rst:1318
 msgid "Using a descriptive string"
-msgstr ""
+msgstr "Використання описового рядка"
 
 #: ../../howto/enum.rst:1320
 msgid "Using a string as the value would look like::"
-msgstr ""
+msgstr "Використання рядка як значення виглядатиме так::"
 
 #: ../../howto/enum.rst:1322
 msgid ""
@@ -2288,14 +2854,23 @@ msgid ""
 ">>> Color.GREEN\n"
 "<Color.GREEN: 'go'>"
 msgstr ""
+">>> class Color(Enum):\n"
+"...     RED = 'stop'\n"
+"...     GREEN = 'go'\n"
+"...     BLUE = 'too fast!'\n"
+"...\n"
+">>> Color.GREEN\n"
+"<Color.GREEN: 'go'>"
 
 #: ../../howto/enum.rst:1332
 msgid "Using a custom :meth:`~object.__new__`"
-msgstr ""
+msgstr "Использование специального :meth:`~object.__new__`"
 
 #: ../../howto/enum.rst:1334
 msgid "Using an auto-numbering :meth:`~object.__new__` would look like::"
 msgstr ""
+"Использование автоматической нумерации :meth:`~object.__new__` будет "
+"выглядеть так::"
 
 #: ../../howto/enum.rst:1336
 msgid ""
@@ -2314,12 +2889,28 @@ msgid ""
 ">>> Color.GREEN\n"
 "<Color.GREEN: 2>"
 msgstr ""
+">>> class AutoNumber(Enum):\n"
+"...     def __new__(cls):\n"
+"...         value = len(cls.__members__) + 1\n"
+"...         obj = object.__new__(cls)\n"
+"...         obj._value_ = value\n"
+"...         return obj\n"
+"...\n"
+">>> class Color(AutoNumber):\n"
+"...     RED = ()\n"
+"...     GREEN = ()\n"
+"...     BLUE = ()\n"
+"...\n"
+">>> Color.GREEN\n"
+"<Color.GREEN: 2>"
 
 #: ../../howto/enum.rst:1351
 msgid ""
 "To make a more general purpose ``AutoNumber``, add ``*args`` to the "
 "signature::"
 msgstr ""
+"Щоб зробити ``AutoNumber`` більш загального призначення, додайте ``*args`` "
+"до підпису::"
 
 #: ../../howto/enum.rst:1353
 msgid ""
@@ -2331,12 +2922,21 @@ msgid ""
 "...         return obj\n"
 "..."
 msgstr ""
+">>> class AutoNumber(Enum):\n"
+"...     def __new__(cls, *args):      # this is the only change from above\n"
+"...         value = len(cls.__members__) + 1\n"
+"...         obj = object.__new__(cls)\n"
+"...         obj._value_ = value\n"
+"...         return obj\n"
+"..."
 
 #: ../../howto/enum.rst:1361
 msgid ""
 "Then when you inherit from ``AutoNumber`` you can write your own "
 "``__init__`` to handle any extra arguments::"
 msgstr ""
+"Тоді, коли ви успадкуєте від ``AutoNumber``, ви можете написати свій власний "
+"``__init__`` для обробки будь-яких додаткових аргументів::"
 
 #: ../../howto/enum.rst:1364
 msgid ""
@@ -2354,6 +2954,19 @@ msgid ""
 ">>> Swatch.BLEACHED_CORAL.pantone\n"
 "'unknown'"
 msgstr ""
+">>> class Swatch(AutoNumber):\n"
+"...     def __init__(self, pantone='unknown'):\n"
+"...         self.pantone = pantone\n"
+"...     AUBURN = '3497'\n"
+"...     SEA_GREEN = '1246'\n"
+"...     BLEACHED_CORAL = () # New color, no Pantone code yet!\n"
+"...\n"
+">>> Swatch.SEA_GREEN\n"
+"<Swatch.SEA_GREEN: 2>\n"
+">>> Swatch.SEA_GREEN.pantone\n"
+"'1246'\n"
+">>> Swatch.BLEACHED_CORAL.pantone\n"
+"'unknown'"
 
 #: ../../howto/enum.rst:1380
 msgid ""
@@ -2361,16 +2974,22 @@ msgid ""
 "the Enum members; it is then replaced by Enum's :meth:`~object.__new__` "
 "which is used after class creation for lookup of existing members."
 msgstr ""
+"Метод :meth:`~object.__new__`, если он определен, используется во время "
+"создания членов Enum; затем он заменяется :meth:`~object.__new__` из Enum, "
+"который используется после создания класса для поиска существующих членов."
 
 #: ../../howto/enum.rst:1386
 msgid ""
 "*Do not* call ``super().__new__()``, as the lookup-only ``__new__`` is the "
 "one that is found; instead, use the data type directly -- e.g.::"
 msgstr ""
+"*Не* вызывайте ``super().__new__()``, так как найден только ``__new__``, "
+"предназначенный только для поиска; вместо этого используйте тип данных "
+"напрямую, например::"
 
 #: ../../howto/enum.rst:1389
 msgid "obj = int.__new__(cls, value)"
-msgstr ""
+msgstr "obj = int.__new__(cls, value)"
 
 #: ../../howto/enum.rst:1393
 msgid "OrderedEnum"
@@ -2382,6 +3001,9 @@ msgid ""
 "maintains the normal :class:`Enum` invariants (such as not being comparable "
 "to other enumerations)::"
 msgstr ""
+"Упорядковане перерахування, яке не базується на :class:`IntEnum` і тому "
+"підтримує звичайні інваріанти :class:`Enum` (наприклад, не порівнюється з "
+"іншими переліками):"
 
 #: ../../howto/enum.rst:1399
 msgid ""
@@ -2413,6 +3035,33 @@ msgid ""
 ">>> Grade.C < Grade.A\n"
 "True"
 msgstr ""
+">>> class OrderedEnum(Enum):\n"
+"...     def __ge__(self, other):\n"
+"...         if self.__class__ is other.__class__:\n"
+"...             return self.value >= other.value\n"
+"...         return NotImplemented\n"
+"...     def __gt__(self, other):\n"
+"...         if self.__class__ is other.__class__:\n"
+"...             return self.value > other.value\n"
+"...         return NotImplemented\n"
+"...     def __le__(self, other):\n"
+"...         if self.__class__ is other.__class__:\n"
+"...             return self.value <= other.value\n"
+"...         return NotImplemented\n"
+"...     def __lt__(self, other):\n"
+"...         if self.__class__ is other.__class__:\n"
+"...             return self.value < other.value\n"
+"...         return NotImplemented\n"
+"...\n"
+">>> class Grade(OrderedEnum):\n"
+"...     A = 5\n"
+"...     B = 4\n"
+"...     C = 3\n"
+"...     D = 2\n"
+"...     F = 1\n"
+"...\n"
+">>> Grade.C < Grade.A\n"
+"True"
 
 #: ../../howto/enum.rst:1429
 msgid "DuplicateFreeEnum"
@@ -2423,6 +3072,9 @@ msgid ""
 "Raises an error if a duplicate member value is found instead of creating an "
 "alias::"
 msgstr ""
+"Упорядоченное перечисление, не основанное на :class:`IntEnum` и поэтому "
+"поддерживающее обычные инварианты :class:`Enum` (например, не сравнимое с "
+"другими перечислениями)::"
 
 #: ../../howto/enum.rst:1434
 msgid ""
@@ -2447,6 +3099,26 @@ msgid ""
 "  ...\n"
 "ValueError: aliases not allowed in DuplicateFreeEnum:  'GRENE' --> 'GREEN'"
 msgstr ""
+">>> class DuplicateFreeEnum(Enum):\n"
+"...     def __init__(self, *args):\n"
+"...         cls = self.__class__\n"
+"...         if any(self.value == e.value for e in cls):\n"
+"...             a = self.name\n"
+"...             e = cls(self.value).name\n"
+"...             raise ValueError(\n"
+"...                 \"aliases not allowed in DuplicateFreeEnum:  %r --> "
+"%r\"\n"
+"...                 % (a, e))\n"
+"...\n"
+">>> class Color(DuplicateFreeEnum):\n"
+"...     RED = 1\n"
+"...     GREEN = 2\n"
+"...     BLUE = 3\n"
+"...     GRENE = 2\n"
+"...\n"
+"Traceback (most recent call last):\n"
+"  ...\n"
+"ValueError: aliases not allowed in DuplicateFreeEnum:  'GRENE' --> 'GREEN'"
 
 #: ../../howto/enum.rst:1456
 msgid ""
@@ -2454,16 +3126,21 @@ msgid ""
 "behaviors as well as disallowing aliases.  If the only desired change is "
 "disallowing aliases, the :func:`unique` decorator can be used instead."
 msgstr ""
+"Це корисний приклад для підкласу Enum для додавання або зміни іншої "
+"поведінки, а також заборони псевдонімів. Якщо єдиною бажаною зміною є "
+"заборона псевдонімів, натомість можна використати декоратор :func:`unique`."
 
 #: ../../howto/enum.rst:1462
 msgid "Planet"
-msgstr ""
+msgstr "Планета"
 
 #: ../../howto/enum.rst:1464
 msgid ""
 "If :meth:`~object.__new__` or :meth:`~object.__init__` is defined, the value "
 "of the enum member will be passed to those methods::"
 msgstr ""
+"Если :meth:`~object.__new__` или :meth:`~object.__init__` определен, "
+"значение члена перечисления будет передано этим методам:"
 
 #: ../../howto/enum.rst:1467
 msgid ""
@@ -2490,6 +3167,28 @@ msgid ""
 ">>> Planet.EARTH.surface_gravity\n"
 "9.802652743337129"
 msgstr ""
+">>> class Planet(Enum):\n"
+"...     MERCURY = (3.303e+23, 2.4397e6)\n"
+"...     VENUS   = (4.869e+24, 6.0518e6)\n"
+"...     EARTH   = (5.976e+24, 6.37814e6)\n"
+"...     MARS    = (6.421e+23, 3.3972e6)\n"
+"...     JUPITER = (1.9e+27,   7.1492e7)\n"
+"...     SATURN  = (5.688e+26, 6.0268e7)\n"
+"...     URANUS  = (8.686e+25, 2.5559e7)\n"
+"...     NEPTUNE = (1.024e+26, 2.4746e7)\n"
+"...     def __init__(self, mass, radius):\n"
+"...         self.mass = mass       # in kilograms\n"
+"...         self.radius = radius   # in meters\n"
+"...     @property\n"
+"...     def surface_gravity(self):\n"
+"...         # universal gravitational constant  (m3 kg-1 s-2)\n"
+"...         G = 6.67300E-11\n"
+"...         return G * self.mass / (self.radius * self.radius)\n"
+"...\n"
+">>> Planet.EARTH.value\n"
+"(5.976e+24, 6378140.0)\n"
+">>> Planet.EARTH.surface_gravity\n"
+"9.802652743337129"
 
 #: ../../howto/enum.rst:1493
 msgid "TimePeriod"
@@ -2497,7 +3196,7 @@ msgstr "TimePeriod"
 
 #: ../../howto/enum.rst:1495
 msgid "An example to show the :attr:`~Enum._ignore_` attribute in use::"
-msgstr ""
+msgstr "Пример использования атрибута :attr:`~Enum._ignore_`::"
 
 #: ../../howto/enum.rst:1497
 msgid ""
@@ -2516,10 +3215,24 @@ msgid ""
 "[<Period.day_365: datetime.timedelta(days=365)>, <Period.day_366: datetime."
 "timedelta(days=366)>]"
 msgstr ""
+">>> from datetime import timedelta\n"
+">>> class Period(timedelta, Enum):\n"
+"...     \"different lengths of time\"\n"
+"...     _ignore_ = 'Period i'\n"
+"...     Period = vars()\n"
+"...     for i in range(367):\n"
+"...         Period['day_%d' % i] = i\n"
+"...\n"
+">>> list(Period)[:2]\n"
+"[<Period.day_0: datetime.timedelta(0)>, <Period.day_1: datetime."
+"timedelta(days=1)>]\n"
+">>> list(Period)[-2:]\n"
+"[<Period.day_365: datetime.timedelta(days=365)>, <Period.day_366: datetime."
+"timedelta(days=366)>]"
 
 #: ../../howto/enum.rst:1514
 msgid "Subclassing EnumType"
-msgstr ""
+msgstr "Підклас EnumType"
 
 #: ../../howto/enum.rst:1516
 msgid ""
@@ -2527,3 +3240,7 @@ msgid ""
 "either with class decorators or custom functions, :class:`EnumType` can be "
 "subclassed to provide a different Enum experience."
 msgstr ""
+"У той час як більшість потреб enum можна задовольнити, налаштувавши "
+"підкласи :class:`Enum`, або за допомогою декораторів класів, або "
+"користувацьких функцій, :class:`EnumType` можна створити підкласи, щоб "
+"забезпечити інший досвід Enum."

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-20 15:39+0000\n"
+"POT-Creation-Date: 2025-07-11 15:45+0000\n"
 "PO-Revision-Date: 2024-05-11 00:33+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -37,9 +37,9 @@ msgid ""
 "``wasm32-emscripten`` and ``wasm32-wasi``. See :ref:`wasm-availability` for "
 "more information."
 msgstr ""
-"Este módulo não funciona ou não está disponível em plataformas WebAssembly "
-"``wasm32-emscripten`` e ``wasm32-wasi``. Veja :ref:`wasm-availability` para "
-"mais informações."
+"このモジュールは WebAssembly プラットフォーム ``wasm32-emscripten`` と "
+"``wasm32-wasi`` では動作しないか、利用不可です。詳しくは、:ref:`wasm-"
+"availability` を見てください。"
 
 #: ../../library/mmap.rst:11
 msgid ""
@@ -266,6 +266,7 @@ msgstr ""
 #: ../../library/mmap.rst:109
 msgid "This example shows a simple way of using :class:`~mmap.mmap`::"
 msgstr ""
+"У цьому прикладі показано простий спосіб використання :class:`~mmap.mmap`::"
 
 #: ../../library/mmap.rst:111
 msgid ""
@@ -291,12 +292,35 @@ msgid ""
 "    # close the map\n"
 "    mm.close()"
 msgstr ""
+"import mmap\n"
+"\n"
+"# write a simple example file\n"
+"with open(\"hello.txt\", \"wb\") as f:\n"
+"    f.write(b\"Hello Python!\\n\")\n"
+"\n"
+"with open(\"hello.txt\", \"r+b\") as f:\n"
+"    # memory-map the file, size 0 means whole file\n"
+"    mm = mmap.mmap(f.fileno(), 0)\n"
+"    # read content via standard file methods\n"
+"    print(mm.readline())  # prints b\"Hello Python!\\n\"\n"
+"    # read content via slice notation\n"
+"    print(mm[:5])  # prints b\"Hello\"\n"
+"    # update content using slice notation;\n"
+"    # note that new content must have same size\n"
+"    mm[6:] = b\" world!\\n\"\n"
+"    # ... and read again using standard file methods\n"
+"    mm.seek(0)\n"
+"    print(mm.readline())  # prints b\"Hello  world!\\n\"\n"
+"    # close the map\n"
+"    mm.close()"
 
 #: ../../library/mmap.rst:134
 msgid ""
 ":class:`~mmap.mmap` can also be used as a context manager in a :keyword:"
 "`with` statement::"
 msgstr ""
+":class:`~mmap.mmap` також можна використовувати як менеджер контексту в "
+"операторі :keyword:`with`::"
 
 #: ../../library/mmap.rst:137
 msgid ""
@@ -305,6 +329,10 @@ msgid ""
 "with mmap.mmap(-1, 13) as mm:\n"
 "    mm.write(b\"Hello world!\")"
 msgstr ""
+"import mmap\n"
+"\n"
+"with mmap.mmap(-1, 13) as mm:\n"
+"    mm.write(b\"Hello world!\")"
 
 #: ../../library/mmap.rst:142
 msgid "Context manager support."
@@ -315,6 +343,8 @@ msgid ""
 "The next example demonstrates how to create an anonymous map and exchange "
 "data between the parent and child processes::"
 msgstr ""
+"Наступний приклад демонструє, як створити анонімне відображення(мапінг) та "
+"обмінюватися даними між батьківським і дочірнім процесами:"
 
 #: ../../library/mmap.rst:149
 msgid ""
@@ -332,20 +362,35 @@ msgid ""
 "\n"
 "    mm.close()"
 msgstr ""
+"import mmap\n"
+"import os\n"
+"\n"
+"mm = mmap.mmap(-1, 13)\n"
+"mm.write(b\"Hello world!\")\n"
+"\n"
+"pid = os.fork()\n"
+"\n"
+"if pid == 0:  # In a child process\n"
+"    mm.seek(0)\n"
+"    print(mm.readline())\n"
+"\n"
+"    mm.close()"
 
 #: ../../library/mmap.rst:165
 msgid "Memory-mapped file objects support the following methods:"
-msgstr ""
+msgstr "Файлові об’єкти, відображені в пам’яті, підтримують такі методи:"
 
 #: ../../library/mmap.rst:169
 msgid ""
 "Closes the mmap. Subsequent calls to other methods of the object will result "
 "in a ValueError exception being raised. This will not close the open file."
 msgstr ""
+"Закриває mmap. Подальші виклики інших методів об’єкта призведуть до "
+"виникнення винятку ValueError. Це не закриє відкритий файл."
 
 #: ../../library/mmap.rst:176
 msgid "``True`` if the file is closed."
-msgstr ""
+msgstr "``True``, якщо файл закрито."
 
 #: ../../library/mmap.rst:183
 msgid ""
@@ -354,11 +399,15 @@ msgid ""
 "arguments *start* and *end* are interpreted as in slice notation. Returns "
 "``-1`` on failure."
 msgstr ""
+"Повертає найменший індекс в об’єкті, де знайдено підпослідовність *sub*, так "
+"що *sub* міститься в діапазоні [*start*, *end*]. Необов’язкові аргументи "
+"*start* і *end* інтерпретуються як у slice нотації (нотації зрізів). "
+"Повертає ``-1`` у разі помилки."
 
 #: ../../library/mmap.rst:188 ../../library/mmap.rst:277
 #: ../../library/mmap.rst:309
 msgid "Writable :term:`bytes-like object` is now accepted."
-msgstr ""
+msgstr "Записуваний :term:`bytes-like object` тепер приймається."
 
 #: ../../library/mmap.rst:194
 msgid ""
@@ -369,12 +418,20 @@ msgid ""
 "extent of the mapping is flushed.  *offset* must be a multiple of the :const:"
 "`PAGESIZE` or :const:`ALLOCATIONGRANULARITY`."
 msgstr ""
+"Скидає зміни, внесені до копії файлу в пам’яті, назад на диск. Без "
+"використання цього виклику немає гарантії, що зміни будуть записані назад до "
+"того, як об’єкт буде знищено. Якщо вказано *offset* і *size*, на диск буде "
+"скинуто лише зміни в заданому діапазоні байтів; інакше весь контент "
+"відображення скидається. *offset* має бути кратним :const:`PAGESIZE` або :"
+"const:`ALLOCATIONGRANULARITY`."
 
 #: ../../library/mmap.rst:201
 msgid ""
 "``None`` is returned to indicate success.  An exception is raised when the "
 "call failed."
 msgstr ""
+"``None`` повертається, щоб вказати успішний результат. У разі невдачі "
+"виклику виникає виняток."
 
 #: ../../library/mmap.rst:204
 msgid ""
@@ -382,6 +439,9 @@ msgid ""
 "error under Windows.  A zero value was returned on success; an exception was "
 "raised on error under Unix."
 msgstr ""
+"Раніше в разі успіху поверталося ненульове значення; нуль повертався на "
+"помилку у Windows. У разі успіху поверталось нульове значення; виняток "
+"викликався на помилку під Unix."
 
 #: ../../library/mmap.rst:212
 msgid ""
@@ -391,10 +451,15 @@ msgid ""
 "and *length* are omitted, the entire mapping is spanned.  On some systems "
 "(including Linux), *start* must be a multiple of the :const:`PAGESIZE`."
 msgstr ""
+"Надіслати пораду *option* ядру щодо області пам’яті, яка починається з "
+"*start* і має довжину *length*. *option* має бути однією з констант :ref:"
+"`MADV_* <madvise-constants>`, доступних у системі. Якщо *start* і *end* "
+"опущені, охоплюється все відображення. У деяких системах (включаючи Linux) "
+"*start* має бути кратним :const:`PAGESIZE`."
 
 #: ../../library/mmap.rst:219
 msgid "Availability: Systems with the ``madvise()`` system call."
-msgstr ""
+msgstr "Доступність: системи з системним викликом ``madvise()``."
 
 #: ../../library/mmap.rst:226
 msgid ""
@@ -402,6 +467,9 @@ msgid ""
 "*dest*.  If the mmap was created with :const:`ACCESS_READ`, then calls to "
 "move will raise a :exc:`TypeError` exception."
 msgstr ""
+"Копіювання *count* байтів, починаючи із зміщення *src*, до індексу "
+"призначення *dest*. Якщо mmap було створено за допомогою :const:"
+"`ACCESS_READ`, тоді виклик переміщення призведе до винятку :exc:`TypeError`."
 
 #: ../../library/mmap.rst:233
 msgid ""
@@ -410,16 +478,23 @@ msgid ""
 "bytes from the current file position to the end of the mapping. The file "
 "position is updated to point after the bytes that were returned."
 msgstr ""
+"Повертає :class:`bytes`, що містить до *n* байтів, починаючи з поточної "
+"позиції файлу. Якщо аргумент пропущений, ``None`` або негативний, "
+"повертаються всі байти від поточної позиції файлу до кінця відображення. "
+"Позиція файлу оновлюється, щоб вказувати одразу після байтів, які були "
+"повернуті."
 
 #: ../../library/mmap.rst:239
 msgid "Argument can be omitted or ``None``."
-msgstr ""
+msgstr "Аргумент можна опустити або бути ``None``."
 
 #: ../../library/mmap.rst:244
 msgid ""
 "Returns a byte at the current file position as an integer, and advances the "
 "file position by 1."
 msgstr ""
+"Повертає байт у поточній позиції файлу як ціле число integer та переміщує "
+"позицію у файлі на 1."
 
 #: ../../library/mmap.rst:250
 msgid ""
@@ -427,6 +502,9 @@ msgid ""
 "next newline. The file position is updated to point after the bytes that "
 "were returned."
 msgstr ""
+"Повертає один рядок, починаючи з поточної позиції файлу й до наступного "
+"нового рядка. Позиція файлу оновлюється, щоб вказувати після байтів, які "
+"були повернуті."
 
 #: ../../library/mmap.rst:257
 msgid ""
@@ -442,12 +520,18 @@ msgid ""
 "against the pagefile) will silently create a new map with the original data "
 "copied over up to the length of the new size."
 msgstr ""
+"**В Windows**: изменение размера карты вызовет ошибку :exc:`OSError`, если "
+"существуют другие карты для файла с тем же именем. Изменение размера "
+"анонимной карты (т. е. относительно файла подкачки) автоматически создаст "
+"новую карту с скопированными исходными данными до длины нового размера."
 
 #: ../../library/mmap.rst:266
 msgid ""
 "Correctly fails if attempting to resize when another map is held Allows "
 "resize against an anonymous map on Windows"
 msgstr ""
+"Исправлена ​​ошибка при попытке изменить размер, когда удерживается другая "
+"карта. Позволяет изменять размер анонимной карты в Windows."
 
 #: ../../library/mmap.rst:272
 msgid ""
@@ -456,6 +540,10 @@ msgid ""
 "arguments *start* and *end* are interpreted as in slice notation. Returns "
 "``-1`` on failure."
 msgstr ""
+"Повертає останній індекс в об’єкті, де знайдено підпослідовність *sub*, так "
+"що *sub* міститься в діапазоні [*start*, *end*]. Необов’язкові аргументи "
+"*start* та *end* інтерпретуються як у нотації зрізів (slice нотація). "
+"Повертає ``-1`` у разі помилки."
 
 #: ../../library/mmap.rst:283
 msgid ""
@@ -464,16 +552,22 @@ msgid ""
 "``os.SEEK_CUR`` or ``1`` (seek relative to the current position) and ``os."
 "SEEK_END`` or ``2`` (seek relative to the file's end)."
 msgstr ""
+"Встановлює поточну позицію в файлі. Аргумент *whence* є необов’язковим і за "
+"замовчуванням має значення ``os.SEEK_SET`` або ``0`` (абсолютне розташування "
+"файлу); іншими значеннями є ``os.SEEK_CUR`` або ``1`` (пошук відносно "
+"поточної позиції) і ``os.SEEK_END`` або ``2`` (пошук відносно кінця файлу)."
 
 #: ../../library/mmap.rst:291
 msgid ""
 "Return the length of the file, which can be larger than the size of the "
 "memory-mapped area."
 msgstr ""
+"Повертає довжину файлу, яка може перевищувати розмір відображеної області "
+"пам’яті."
 
 #: ../../library/mmap.rst:297
 msgid "Returns the current position of the file pointer."
-msgstr ""
+msgstr "Повертає поточну позицію покажчика файлу."
 
 #: ../../library/mmap.rst:302
 msgid ""
@@ -484,10 +578,16 @@ msgid ""
 "written.  If the mmap was created with :const:`ACCESS_READ`, then writing to "
 "it will raise a :exc:`TypeError` exception."
 msgstr ""
+"Записує байти в *bytes* у пам’ять у поточній позиції вказівника файлу та "
+"повертає кількість записаних байтів (ніколи не менше ніж ``len(bytes)``, але "
+"якщо запис не вдається то це призведе до винятку :exc:`ValueError` ). "
+"Позиція файлу оновлюється, щоб вказувати після записаних байтів. Якщо mmap "
+"було створено за допомогою :const:`ACCESS_READ`, то запис у нього призведе "
+"до виключення :exc:`TypeError`."
 
 #: ../../library/mmap.rst:312
 msgid "The number of bytes written is now returned."
-msgstr ""
+msgstr "Додано повернення кількості записаних байтів."
 
 #: ../../library/mmap.rst:318
 msgid ""
@@ -496,6 +596,10 @@ msgid ""
 "with :const:`ACCESS_READ`, then writing to it will raise a :exc:`TypeError` "
 "exception."
 msgstr ""
+"Записує ціле *byte* у пам'ять у поточній позиції покажчика файлу; позиція "
+"файлу просувається вперед на ``1``. Якщо mmap було створено за допомогою :"
+"const:`ACCESS_READ`, то запис у нього призведе до виключення :exc:"
+"`TypeError`."
 
 #: ../../library/mmap.rst:326
 msgid "MADV_* Constants"
@@ -506,10 +610,12 @@ msgid ""
 "These options can be passed to :meth:`mmap.madvise`.  Not every option will "
 "be present on every system."
 msgstr ""
+"Ці параметри можна передати в :meth:`mmap.madvise`. Не кожен параметр буде "
+"присутній у кожній системі."
 
 #: ../../library/mmap.rst:356
 msgid "Availability: Systems with the madvise() system call."
-msgstr ""
+msgstr "Доступність: системи з системним викликом madvise()."
 
 #: ../../library/mmap.rst:363
 msgid "MAP_* Constants"
@@ -522,14 +628,18 @@ msgid ""
 "only available at OpenBSD.  Note that some options might not be present on "
 "some systems."
 msgstr ""
+"Это различные флаги, которые можно передать в :meth:`mmap.mmap`. :data:"
+"`MAP_ALIGNED_SUPER` доступен только во FreeBSD, а :data:`MAP_CONCEAL` "
+"доступен только в OpenBSD. Обратите внимание, что некоторые параметры могут "
+"отсутствовать в некоторых системах."
 
 #: ../../library/mmap.rst:380
 msgid "Added :data:`MAP_POPULATE` constant."
-msgstr ""
+msgstr "Добавлена ​​константа :data:`MAP_POPULATE`."
 
 #: ../../library/mmap.rst:383
 msgid "Added :data:`MAP_STACK` constant."
-msgstr ""
+msgstr "Добавлена ​​константа :data:`MAP_STACK`."
 
 #: ../../library/mmap.rst:386
 msgid ""
