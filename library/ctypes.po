@@ -5,9 +5,6 @@
 #
 # Translators:
 # Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2017
-# i17obot <i17obot@rougeth.com>, 2021
-# Adorilson Bezerra <adorilson@gmail.com>, 2024
-# Wagner Marques Oliveira <wagnermarques00@gmail.com>, 2025
 # Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
@@ -15,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-27 17:24+0000\n"
+"POT-Creation-Date: 2025-07-11 17:51+0000\n"
 "PO-Revision-Date: 2017-02-16 23:05+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -92,6 +89,14 @@ msgid ""
 "error code is used to automatically raise an :class:`OSError` exception when "
 "the function call fails."
 msgstr ""
+"Ви завантажуєте бібліотеки, звертаючись до них як до атрибутів цих об’єктів. "
+"*cdll* завантажує бібліотеки, які експортують функції за допомогою "
+"стандартної угоди про виклики ``cdecl``, тоді як бібліотеки *windll* "
+"викликають функції за допомогою угоди про виклики ``stdcall``. *oledll* "
+"також використовує угоду про виклики ``stdcall`` і передбачає, що функції "
+"повертають код помилки Windows :c:type:`HRESULT`. Код помилки "
+"використовується для автоматичного виклику винятку :class:`OSError`, коли "
+"виклик функції не вдається."
 
 #: ../../library/ctypes.rst:46
 msgid ""
@@ -107,6 +112,9 @@ msgid ""
 "C library containing most standard C functions, and uses the cdecl calling "
 "convention::"
 msgstr ""
+"Ось кілька прикладів для Windows. Зауважте, що msvcrt — це стандартна "
+"бібліотека C MS, яка містить більшість стандартних функцій C і використовує "
+"угоду про виклик cdecl:"
 
 #: ../../library/ctypes.rst:63
 msgid "Windows appends the usual ``.dll`` file suffix automatically."
@@ -133,6 +141,11 @@ msgid ""
 "you should load the library by creating an instance of CDLL by calling the "
 "constructor::"
 msgstr ""
+"У Linux для завантаження бібліотеки потрібно вказати назву файлу *включаючи* "
+"розширення, тому доступ до атрибутів не можна використовувати для "
+"завантаження бібліотек. Слід використовувати або метод :meth:`LoadLibrary` "
+"завантажувачів dll, або ви повинні завантажити бібліотеку, створивши "
+"екземпляр CDLL, викликавши конструктор::"
 
 #: ../../library/ctypes.rst:89
 msgid "Accessing functions from loaded dlls"
@@ -152,6 +165,13 @@ msgid ""
 "following C prototype, and a macro is used to expose one of them as "
 "``GetModuleHandle`` depending on whether UNICODE is defined or not::"
 msgstr ""
+"Зауважте, що системні бібліотеки win32, такі як ``kernel32`` і ``user32``, "
+"часто експортують версії функції ANSI, а також UNICODE. Версія UNICODE "
+"експортується з буквою ``W``, доданою до назви, тоді як версія ANSI "
+"експортується з ``A``, доданою до назви. Функція ``GetModuleHandle`` win32, "
+"яка повертає *дескриптор модуля* для даного імені модуля, має наступний "
+"прототип C, і макрос використовується для надання одного з них як "
+"``GetModuleHandle`` залежно від того, чи визначено UNICODE чи ні::"
 
 #: ../../library/ctypes.rst:119
 msgid ""
@@ -194,12 +214,18 @@ msgid ""
 "Unix epoch, and the ``GetModuleHandleA()`` function, which returns a win32 "
 "module handle."
 msgstr ""
+"Ви можете викликати ці функції, як і будь-які інші виклики Python. У цьому "
+"прикладі використовується функція ``time()``, яка повертає системний час у "
+"секундах з епохи Unix, і ``GetModuleHandleA()`` функція, яка повертає "
+"дескриптор модуля win32."
 
 #: ../../library/ctypes.rst:155
 msgid ""
 "This example calls both functions with a ``NULL`` pointer (``None`` should "
 "be used as the ``NULL`` pointer)::"
 msgstr ""
+"У цьому прикладі обидві функції викликаються за допомогою вказівника "
+"``NULL`` (``None`` слід використовувати як вказівник ``NULL``):"
 
 #: ../../library/ctypes.rst:164
 msgid ""
@@ -508,6 +534,10 @@ msgid ""
 "point to, *not the contents* of the memory block (of course not, because "
 "Python bytes objects are immutable)::"
 msgstr ""
+"Присвоєння нового значення екземплярам типів покажчиків :class:`c_char_p`, :"
+"class:`c_wchar_p` і :class:`c_void_p` змінює *місце пам’яті*, на яке вони "
+"вказують, *не вміст* блоку пам’яті (звичайно, ні, оскільки об’єкти Python "
+"bytes незмінні)::"
 
 #: ../../library/ctypes.rst:309
 msgid ""
@@ -554,10 +584,13 @@ msgid ""
 "bytes objects have to be wrapped in their corresponding :mod:`ctypes` type, "
 "so that they can be converted to the required C data type::"
 msgstr ""
+"Як уже згадувалося раніше, усі типи Python, окрім цілих, рядкових і байтових "
+"об’єктів, мають бути загорнуті у відповідний тип :mod:`ctypes`, щоб їх можна "
+"було перетворити на необхідний тип даних C::"
 
 #: ../../library/ctypes.rst:378
 msgid "Calling functions with your own custom data types"
-msgstr ""
+msgstr "Виклик функцій із власними типами даних"
 
 #: ../../library/ctypes.rst:380
 msgid ""
@@ -566,6 +599,10 @@ msgid ""
 "an :attr:`_as_parameter_` attribute and uses this as the function argument.  "
 "Of course, it must be one of integer, string, or bytes::"
 msgstr ""
+"Ви також можете налаштувати перетворення аргументів :mod:`ctypes`, щоб "
+"екземпляри ваших власних класів могли використовуватися як аргументи "
+"функції. :mod:`ctypes` шукає атрибут :attr:`_as_parameter_` і використовує "
+"його як аргумент функції. Звичайно, це має бути ціле число, рядок або байти::"
 
 #: ../../library/ctypes.rst:395
 msgid ""
@@ -573,16 +610,21 @@ msgid ""
 "instance variable, you could define a :class:`property` which makes the "
 "attribute available on request."
 msgstr ""
+"Якщо ви не хочете зберігати дані екземпляра в змінній екземпляра :attr:"
+"`_as_parameter_`, ви можете визначити :class:`property`, що робить атрибут "
+"доступним за запитом."
 
 #: ../../library/ctypes.rst:403
 msgid "Specifying the required argument types (function prototypes)"
-msgstr ""
+msgstr "Вказівка необхідних типів аргументів (прототипів функцій)"
 
 #: ../../library/ctypes.rst:405
 msgid ""
 "It is possible to specify the required argument types of functions exported "
 "from DLLs by setting the :attr:`argtypes` attribute."
 msgstr ""
+"Можна вказати необхідні типи аргументів функцій, експортованих із DLL, "
+"установивши атрибут :attr:`argtypes`."
 
 #: ../../library/ctypes.rst:408
 msgid ""
@@ -591,6 +633,10 @@ msgid ""
 "different types of parameters depending on the format string, on the other "
 "hand this is quite handy to experiment with this feature)::"
 msgstr ""
+":attr:`argtypes` має бути послідовністю типів даних C (функція ``printf`` "
+"тут, ймовірно, не є хорошим прикладом, оскільки вона приймає змінне число та "
+"різні типи параметрів залежно від рядка формату, з іншого боку це дуже "
+"зручно, щоб експериментувати з цією функцією)::"
 
 #: ../../library/ctypes.rst:419
 msgid ""
@@ -598,6 +644,8 @@ msgid ""
 "prototype for a C function), and tries to convert the arguments to valid "
 "types::"
 msgstr ""
+"Зазначення формату захищає від несумісних типів аргументів (як прототип для "
+"функції C) і намагається перетворити аргументи на дійсні типи:"
 
 #: ../../library/ctypes.rst:431
 msgid ""
@@ -611,6 +659,15 @@ msgid ""
 "the result should be an integer, string, bytes, a :mod:`ctypes` instance, or "
 "an object with an :attr:`_as_parameter_` attribute."
 msgstr ""
+"Якщо ви визначили власні класи, які передаєте до викликів функцій, вам "
+"потрібно реалізувати метод класу :meth:`from_param`, щоб вони могли "
+"використовувати їх у послідовності :attr:`argtypes`. Метод класу :meth:"
+"`from_param` отримує об’єкт Python, переданий у виклик функції, він повинен "
+"виконати перевірку типу або щось інше, щоб переконатися, що цей об’єкт "
+"прийнятний, а потім повернути сам об’єкт, його :attr:`_as_parameter_` "
+"атрибут або те, що ви хочете передати як аргумент функції C у цьому випадку. "
+"Знову ж таки, результатом має бути ціле число, рядок, байти, екземпляр :mod:"
+"`ctypes` або об’єкт з атрибутом :attr:`_as_parameter_`."
 
 #: ../../library/ctypes.rst:445
 msgid "Return types"
@@ -628,6 +685,8 @@ msgid ""
 "Here is a more advanced example, it uses the ``strchr`` function, which "
 "expects a string pointer and a char, and returns a pointer to a string::"
 msgstr ""
+"Ось більш складний приклад, він використовує функцію ``strchr``, яка очікує "
+"вказівник на рядок і char і повертає вказівник на рядок::"
 
 #: ../../library/ctypes.rst:464
 msgid ""
@@ -635,6 +694,9 @@ msgid ""
 "`argtypes` attribute, and the second argument will be converted from a "
 "single character Python bytes object into a C char::"
 msgstr ""
+"Якщо ви хочете уникнути викликів ``ord(\"x\")`` вище, ви можете встановити "
+"атрибут :attr:`argtypes`, і другий аргумент буде перетворено з "
+"односимвольного об’єкта Python bytes у C char: :"
 
 #: ../../library/ctypes.rst:482
 msgid ""
@@ -645,6 +707,12 @@ msgid ""
 "function call. This is useful to check for error return values and "
 "automatically raise an exception::"
 msgstr ""
+"Ви також можете використовувати об’єкт Python, який можна викликати "
+"(наприклад, функцію або клас) як атрибут :attr:`restype`, якщо зовнішня "
+"функція повертає ціле число. Об’єкт, який викликається, буде викликано за "
+"допомогою *цілого*, яке повертає функція C, і результат цього виклику буде "
+"використано як результат виклику вашої функції. Це корисно для перевірки "
+"значень, які повертаються помилки, і автоматичного виклику винятку::"
 
 #: ../../library/ctypes.rst:505
 msgid ""
@@ -653,12 +721,18 @@ msgid ""
 "exception. ``WinError`` takes an optional error code parameter, if no one is "
 "used, it calls :func:`GetLastError` to retrieve it."
 msgstr ""
+"``WinError`` — це функція, яка викликає Windows ``FormatMessage()`` API, щоб "
+"отримати рядкове представлення коду помилки, і *повертає* виняткову "
+"ситуацію. ``WinError`` приймає додатковий параметр коду помилки, якщо ніхто "
+"не використовується, він викликає :func:`GetLastError`, щоб отримати його."
 
 #: ../../library/ctypes.rst:510
 msgid ""
 "Please note that a much more powerful error checking mechanism is available "
 "through the :attr:`errcheck` attribute; see the reference manual for details."
 msgstr ""
+"Зауважте, що набагато потужніший механізм перевірки помилок доступний через "
+"атрибут :attr:`errcheck`; подробиці див. у довідковому посібнику."
 
 #: ../../library/ctypes.rst:517
 msgid "Passing pointers (or: passing parameters by reference)"
@@ -671,6 +745,9 @@ msgid ""
 "large to be passed by value. This is also known as *passing parameters by "
 "reference*."
 msgstr ""
+"Іноді функція C API очікує *вказівника* на тип даних як параметр, ймовірно, "
+"для запису у відповідне розташування або якщо дані завеликі для передачі за "
+"значенням. Це також відомо як *передача параметрів за посиланням*."
 
 #: ../../library/ctypes.rst:523
 msgid ""
@@ -680,6 +757,12 @@ msgid ""
 "constructs a real pointer object, so it is faster to use :func:`byref` if "
 "you don't need the pointer object in Python itself::"
 msgstr ""
+":mod:`ctypes` експортує функцію :func:`byref`, яка використовується для "
+"передачі параметрів за посиланням. Такого ж ефекту можна досягти за "
+"допомогою функції :func:`pointer`, хоча :func:`pointer` виконує набагато "
+"більше роботи, оскільки створює справжній об’єкт-вказівник, тому "
+"використовувати :func:`byref` швидше не потрібен об’єкт покажчика в самому "
+"Python::"
 
 #: ../../library/ctypes.rst:545
 msgid "Structures and unions"
@@ -692,12 +775,19 @@ msgid ""
 "subclass must define a :attr:`_fields_` attribute.  :attr:`_fields_` must be "
 "a list of *2-tuples*, containing a *field name* and a *field type*."
 msgstr ""
+"Структури та об’єднання мають походити від базових класів :class:`Structure` "
+"і :class:`Union`, які визначені в модулі :mod:`ctypes`. Кожен підклас "
+"повинен визначати атрибут :attr:`_fields_`. :attr:`_fields_` має бути "
+"списком *2-кортежів*, що містить *ім’я поля* та *тип поля*."
 
 #: ../../library/ctypes.rst:552
 msgid ""
 "The field type must be a :mod:`ctypes` type like :class:`c_int`, or any "
 "other derived :mod:`ctypes` type: structure, union, array, pointer."
 msgstr ""
+"Тип поля має бути типу :mod:`ctypes`, наприклад :class:`c_int`, або будь-"
+"якого іншого похідного типу :mod:`ctypes`: структура, об’єднання, масив, "
+"покажчик."
 
 #: ../../library/ctypes.rst:555
 msgid ""
@@ -705,30 +795,40 @@ msgid ""
 "named *x* and *y*, and also shows how to initialize a structure in the "
 "constructor::"
 msgstr ""
+"Ось простий приклад структури POINT, яка містить два цілі числа з іменами "
+"*x* і *y*, а також показує, як ініціалізувати структуру в конструкторі::"
 
 #: ../../library/ctypes.rst:575
 msgid ""
 "You can, however, build much more complicated structures.  A structure can "
 "itself contain other structures by using a structure as a field type."
 msgstr ""
+"Однак можна будувати набагато складніші конструкції. Структура може сама "
+"містити інші структури, використовуючи структуру як тип поля."
 
 #: ../../library/ctypes.rst:578
 msgid ""
 "Here is a RECT structure which contains two POINTs named *upperleft* and "
 "*lowerright*::"
 msgstr ""
+"Ось структура RECT, яка містить дві ТОЧКИ з іменами *upperleft* і "
+"*lowerright*::"
 
 #: ../../library/ctypes.rst:592
 msgid ""
 "Nested structures can also be initialized in the constructor in several "
 "ways::"
 msgstr ""
+"Вкладені структури також можна ініціалізувати в конструкторі кількома "
+"способами:"
 
 #: ../../library/ctypes.rst:597
 msgid ""
 "Field :term:`descriptor`\\s can be retrieved from the *class*, they are "
 "useful for debugging because they can provide useful information::"
 msgstr ""
+"Поля :term:`descriptor`\\s можна отримати з *класу*, вони корисні для "
+"налагодження, оскільки можуть надати корисну інформацію::"
 
 #: ../../library/ctypes.rst:611
 msgid ""
@@ -737,10 +837,14 @@ msgid ""
 "guaranteed by the library to work in the general case.  Unions and "
 "structures with bit-fields should always be passed to functions by pointer."
 msgstr ""
+":mod:`ctypes` не підтримує передачу об’єднань або структур із бітовими "
+"полями функціям за значенням. Хоча це може працювати на 32-розрядних x86, "
+"бібліотека не гарантує роботу в загальному випадку. Об’єднання та структури "
+"з бітовими полями слід завжди передавати функціям за вказівником."
 
 #: ../../library/ctypes.rst:617
 msgid "Structure/union alignment and byte order"
-msgstr ""
+msgstr "Вирівнювання структури/об'єднання та порядок байтів"
 
 #: ../../library/ctypes.rst:619
 msgid ""
@@ -750,6 +854,11 @@ msgid ""
 "to a positive integer and specifies the maximum alignment for the fields. "
 "This is what ``#pragma pack(n)`` also does in MSVC."
 msgstr ""
+"За замовчуванням поля Structure і Union вирівнюються так само, як це робить "
+"компілятор C. Цю поведінку можна перевизначити, вказавши атрибут класу :attr:"
+"`_pack_` у визначенні підкласу. Для цього має бути встановлено додатне ціле "
+"число та вказано максимальне вирівнювання для полів. Це те, що ``#pragma "
+"pack(n)`` також робить у MSVC."
 
 #: ../../library/ctypes.rst:625
 msgid ""
@@ -759,10 +868,15 @@ msgid ""
 "`BigEndianUnion`, and :class:`LittleEndianUnion` base classes.  These "
 "classes cannot contain pointer fields."
 msgstr ""
+":mod:`ctypes` використовує власний порядок байтів для структур і об’єднань. "
+"Щоб створити структури з невласним порядком байтів, ви можете "
+"використовувати один із базових класів :class:`BigEndianStructure`, :class:"
+"`LittleEndianStructure`, :class:`BigEndianUnion` і :class:"
+"`LittleEndianUnion`. Ці класи не можуть містити поля вказівників."
 
 #: ../../library/ctypes.rst:635
 msgid "Bit fields in structures and unions"
-msgstr ""
+msgstr "Бітові поля в структурах і об'єднаннях"
 
 #: ../../library/ctypes.rst:637
 msgid ""
@@ -770,6 +884,9 @@ msgid ""
 "fields are only possible for integer fields, the bit width is specified as "
 "the third item in the :attr:`_fields_` tuples::"
 msgstr ""
+"Можна створювати структури та об'єднання, що містять бітові поля. Бітові "
+"поля можливі лише для цілочисельних полів, бітова ширина вказується як "
+"третій елемент у кортежах :attr:`_fields_`::"
 
 #: ../../library/ctypes.rst:655
 msgid "Arrays"
@@ -780,32 +897,40 @@ msgid ""
 "Arrays are sequences, containing a fixed number of instances of the same "
 "type."
 msgstr ""
+"Масиви - це послідовності, що містять фіксовану кількість екземплярів одного "
+"типу."
 
 #: ../../library/ctypes.rst:659
 msgid ""
 "The recommended way to create array types is by multiplying a data type with "
 "a positive integer::"
 msgstr ""
+"Рекомендований спосіб створення типів масивів – це множення типу даних на "
+"додатне ціле:"
 
 #: ../../library/ctypes.rst:664
 msgid ""
 "Here is an example of a somewhat artificial data type, a structure "
 "containing 4 POINTs among other stuff::"
 msgstr ""
+"Ось приклад дещо штучного типу даних, структура, яка містить 4 ТОЧКИ серед "
+"іншого:"
 
 #: ../../library/ctypes.rst:680
 msgid "Instances are created in the usual way, by calling the class::"
-msgstr ""
+msgstr "Екземпляри створюються звичайним способом за допомогою виклику класу::"
 
 #: ../../library/ctypes.rst:686
 msgid ""
 "The above code print a series of ``0 0`` lines, because the array contents "
 "is initialized to zeros."
 msgstr ""
+"Наведений вище код друкує серію рядків ``0 0``, оскільки вміст масиву "
+"ініціалізовано нулями."
 
 #: ../../library/ctypes.rst:689
 msgid "Initializers of the correct type can also be specified::"
-msgstr ""
+msgstr "Також можна вказати ініціалізатори правильного типу:"
 
 #: ../../library/ctypes.rst:705
 msgid "Pointers"
@@ -816,18 +941,24 @@ msgid ""
 "Pointer instances are created by calling the :func:`pointer` function on a :"
 "mod:`ctypes` type::"
 msgstr ""
+"Екземпляри вказівника створюються шляхом виклику функції :func:`pointer` для "
+"типу :mod:`ctypes`::"
 
 #: ../../library/ctypes.rst:715
 msgid ""
 "Pointer instances have a :attr:`~_Pointer.contents` attribute which returns "
 "the object to which the pointer points, the ``i`` object above::"
 msgstr ""
+"Екземпляри вказівника мають атрибут :attr:`~_Pointer.contents`, який "
+"повертає об’єкт, на який вказує вказівник, об’єкт ``i`` вище::"
 
 #: ../../library/ctypes.rst:722
 msgid ""
 "Note that :mod:`ctypes` does not have OOR (original object return), it "
 "constructs a new, equivalent object each time you retrieve an attribute::"
 msgstr ""
+"Зауважте, що :mod:`ctypes` не має OOR (повернення вихідного об’єкта), він "
+"створює новий, еквівалентний об’єкт кожного разу, коли ви отримуєте атрибут::"
 
 #: ../../library/ctypes.rst:731
 msgid ""
@@ -835,14 +966,17 @@ msgid ""
 "attribute would cause the pointer to point to the memory location where this "
 "is stored::"
 msgstr ""
+"Призначення іншого екземпляра :class:`c_int` атрибуту contents вказівника "
+"призведе до того, що вказівник вказуватиме на місце пам’яті, де це "
+"зберігається::"
 
 #: ../../library/ctypes.rst:743
 msgid "Pointer instances can also be indexed with integers::"
-msgstr ""
+msgstr "Екземпляри вказівників також можна індексувати цілими числами::"
 
 #: ../../library/ctypes.rst:749
 msgid "Assigning to an integer index changes the pointed to value::"
-msgstr ""
+msgstr "Присвоєння цілочисельному індексу змінює вказане значення::"
 
 #: ../../library/ctypes.rst:758
 msgid ""
@@ -852,6 +986,11 @@ msgid ""
 "a C function, and you *know* that the pointer actually points to an array "
 "instead of a single item."
 msgstr ""
+"Також можна використовувати індекси, відмінні від 0, але ви повинні знати, "
+"що ви робите, так само як у C: ви можете отримати доступ або змінити "
+"довільні місця пам'яті. Зазвичай ви використовуєте цю функцію, лише якщо "
+"отримуєте вказівник від функції C і *знаєте*, що вказівник насправді вказує "
+"на масив, а не на один елемент."
 
 #: ../../library/ctypes.rst:764
 msgid ""
@@ -860,18 +999,26 @@ msgid ""
 "the :func:`POINTER` function, which accepts any :mod:`ctypes` type, and "
 "returns a new type::"
 msgstr ""
+"За лаштунками функція :func:`pointer` робить більше, ніж просто створює "
+"екземпляри вказівників, вона повинна спочатку створити *типи* вказівників. "
+"Це робиться за допомогою функції :func:`POINTER`, яка приймає будь-який тип :"
+"mod:`ctypes` і повертає новий тип::"
 
 #: ../../library/ctypes.rst:780
 msgid ""
 "Calling the pointer type without an argument creates a ``NULL`` pointer. "
 "``NULL`` pointers have a ``False`` boolean value::"
 msgstr ""
+"Виклик типу покажчика без аргументу створює покажчик ``NULL``. Покажчики "
+"``NULL`` мають логічне значення ``False``::"
 
 #: ../../library/ctypes.rst:788
 msgid ""
 ":mod:`ctypes` checks for ``NULL`` when dereferencing pointers (but "
 "dereferencing invalid non-\\ ``NULL`` pointers would crash Python)::"
 msgstr ""
+":mod:`ctypes` перевіряє ``NULL`` під час розіменування вказівників (але "
+"розіменування недійсних не\\ ``NULL`` вказівників призведе до збою Python)::"
 
 #: ../../library/ctypes.rst:807
 msgid "Type conversions"
@@ -887,6 +1034,12 @@ msgid ""
 "instances instead of pointer types.  So, for ``POINTER(c_int)``, ctypes "
 "accepts an array of c_int::"
 msgstr ""
+"Зазвичай ctypes виконує сувору перевірку типів. Це означає, що якщо у вас є "
+"``POINTER(c_int)`` у списку :attr:`argtypes` функції або як тип поля-члена у "
+"визначенні структури, приймаються лише екземпляри точно такого ж типу. З "
+"цього правила є деякі винятки, коли ctypes приймає інші об’єкти. Наприклад, "
+"ви можете передати сумісні екземпляри масиву замість типів покажчиків. Отже, "
+"для ``POINTER(c_int)`` ctypes приймає масив c_int::"
 
 #: ../../library/ctypes.rst:830
 msgid ""
@@ -895,10 +1048,16 @@ msgid ""
 "pointed type (``c_int`` in this case) can be passed to the function.  ctypes "
 "will apply the required :func:`byref` conversion in this case automatically."
 msgstr ""
+"Крім того, якщо аргумент функції явно оголошено як тип вказівника "
+"(наприклад, ``POINTER(c_int)``) у :attr:`argtypes`, об’єкт вказівного типу "
+"(``c_int`` у цьому випадку ) можна передати у функцію. У цьому випадку "
+"ctypes автоматично застосує необхідне перетворення :func:`byref`."
 
 #: ../../library/ctypes.rst:835
 msgid "To set a POINTER type field to ``NULL``, you can assign ``None``::"
 msgstr ""
+"Щоб встановити для поля типу POINTER значення ``NULL``, ви можете призначити "
+"``None``::"
 
 #: ../../library/ctypes.rst:842
 msgid ""
@@ -908,10 +1067,15 @@ msgid ""
 "accepts ``POINTER(c_int)`` pointers or :class:`c_int` arrays for its "
 "``values`` field, but not instances of other types::"
 msgstr ""
+"Іноді у вас є екземпляри несумісних типів. У C ви можете привести один тип "
+"до іншого. :mod:`ctypes` надає функцію :func:`cast`, яку можна "
+"використовувати таким же чином. Структура ``Bar``, визначена вище, приймає "
+"покажчики ``POINTER(c_int)`` або :class:`c_int` масиви для свого поля "
+"``values``, але не примірники інших типів::"
 
 #: ../../library/ctypes.rst:854
 msgid "For these cases, the :func:`cast` function is handy."
-msgstr ""
+msgstr "Для цих випадків зручна функція :func:`cast`."
 
 #: ../../library/ctypes.rst:856
 msgid ""
@@ -921,12 +1085,19 @@ msgid ""
 "ctypes pointer type.  It returns an instance of the second argument, which "
 "references the same memory block as the first argument::"
 msgstr ""
+"Функцію :func:`cast` можна використати для приведення екземпляра ctypes до "
+"покажчика на інший тип даних ctypes. :func:`cast` приймає два параметри: "
+"об’єкт ctypes, який є чи може бути перетворений на певний вказівник, і тип "
+"вказівника ctypes. Він повертає екземпляр другого аргументу, який "
+"посилається на той самий блок пам’яті, що й перший аргумент::"
 
 #: ../../library/ctypes.rst:867
 msgid ""
 "So, :func:`cast` can be used to assign to the ``values`` field of ``Bar`` "
 "the structure::"
 msgstr ""
+"Отже, :func:`cast` можна використовувати для призначення полю ``values`` "
+"``Bar`` структури::"
 
 #: ../../library/ctypes.rst:880
 msgid "Incomplete Types"
@@ -938,12 +1109,14 @@ msgid ""
 "yet specified. In C, they are specified by forward declarations, which are "
 "defined later::"
 msgstr ""
+"*Неповні типи* — це структури, об’єднання або масиви, члени яких ще не "
+"визначено. У C вони визначені прямими оголошеннями, які визначені пізніше:"
 
 #: ../../library/ctypes.rst:893
 msgid ""
 "The straightforward translation into ctypes code would be this, but it does "
 "not work::"
-msgstr ""
+msgstr "Прямий переклад у код ctypes буде таким, але він не працює:"
 
 #: ../../library/ctypes.rst:906
 msgid ""
@@ -951,12 +1124,18 @@ msgid ""
 "itself. In :mod:`ctypes`, we can define the ``cell`` class and set the :attr:"
 "`_fields_` attribute later, after the class statement::"
 msgstr ""
+"оскільки нова ``комірка класу`` недоступна в самому операторі класу. У :mod:"
+"`ctypes` ми можемо визначити клас ``cell`` і встановити атрибут :attr:"
+"`_fields_` пізніше, після оператора class::"
 
 #: ../../library/ctypes.rst:918
 msgid ""
 "Let's try it. We create two instances of ``cell``, and let them point to "
 "each other, and finally follow the pointer chain a few times::"
 msgstr ""
+"Давайте спробуємо. Ми створюємо два екземпляри ``cell`` і дозволяємо їм "
+"вказувати один на одного, і, нарешті, слідуємо за ланцюжком вказівників "
+"кілька разів::"
 
 #: ../../library/ctypes.rst:939
 msgid "Callback functions"
@@ -967,6 +1146,8 @@ msgid ""
 ":mod:`ctypes` allows creating C callable function pointers from Python "
 "callables. These are sometimes called *callback functions*."
 msgstr ""
+":mod:`ctypes` дозволяє створювати вказівники на функції C із викликів "
+"Python. Іноді їх називають *функціями зворотного виклику*."
 
 #: ../../library/ctypes.rst:944
 msgid ""
@@ -974,6 +1155,9 @@ msgid ""
 "the calling convention, the return type, and the number and types of "
 "arguments this function will receive."
 msgstr ""
+"По-перше, ви повинні створити клас для функції зворотного виклику. Клас знає "
+"угоду про виклики, тип повернення, а також кількість і типи аргументів, які "
+"ця функція отримає."
 
 #: ../../library/ctypes.rst:948
 msgid ""
@@ -982,6 +1166,10 @@ msgid ""
 "factory function creates types for callback functions using the ``stdcall`` "
 "calling convention."
 msgstr ""
+"Фабрична функція :func:`CFUNCTYPE` створює типи для функцій зворотного "
+"виклику за допомогою угоди про виклики ``cdecl``. У Windows фабрична "
+"функція :func:`WINFUNCTYPE` створює типи для функцій зворотного виклику за "
+"допомогою угоди про виклики ``stdcall``."
 
 #: ../../library/ctypes.rst:953
 msgid ""
@@ -989,6 +1177,9 @@ msgid ""
 "argument, and the callback functions expected argument types as the "
 "remaining arguments."
 msgstr ""
+"Обидві ці фабричні функції викликаються з типом результату як першим "
+"аргументом, а функції зворотного виклику – очікуваними типами аргументів як "
+"рештою аргументів."
 
 #: ../../library/ctypes.rst:957
 msgid ""
@@ -996,6 +1187,10 @@ msgid ""
 "`qsort` function, that is used to sort items with the help of a callback "
 "function.  :c:func:`qsort` will be used to sort an array of integers::"
 msgstr ""
+"Я наведу тут приклад, який використовує функцію :c:func:`qsort` стандартної "
+"бібліотеки C, яка використовується для сортування елементів за допомогою "
+"функції зворотного виклику. :c:func:`qsort` використовуватиметься для "
+"сортування масиву цілих чисел::"
 
 #: ../../library/ctypes.rst:967
 msgid ""
@@ -1006,18 +1201,29 @@ msgid ""
 "is smaller than the second, a zero if they are equal, and a positive integer "
 "otherwise."
 msgstr ""
+":func:`qsort` потрібно викликати з вказівником на дані для сортування, "
+"кількістю елементів у масиві даних, розміром одного елемента та вказівником "
+"на функцію порівняння, зворотний виклик. Зворотний виклик буде викликано з "
+"двома покажчиками на елементи, і він повинен повернути від’ємне ціле число, "
+"якщо перший елемент менший за другий, нуль, якщо вони рівні, і додатне ціле "
+"число в іншому випадку."
 
 #: ../../library/ctypes.rst:973
 msgid ""
 "So our callback function receives pointers to integers, and must return an "
 "integer. First we create the ``type`` for the callback function::"
 msgstr ""
+"Таким чином, наша функція зворотного виклику отримує покажчики на цілі числа "
+"та повинна повертати ціле число. Спочатку ми створюємо ``type`` для функції "
+"зворотного виклику::"
 
 #: ../../library/ctypes.rst:979
 msgid ""
 "To get started, here is a simple callback that shows the values it gets "
 "passed::"
 msgstr ""
+"Щоб почати, ось простий зворотний виклик, який показує значення, які він "
+"отримує:"
 
 #: ../../library/ctypes.rst:989
 msgid "The result::"
@@ -1026,16 +1232,20 @@ msgstr "O resultado::"
 #: ../../library/ctypes.rst:999
 msgid "Now we can actually compare the two items and return a useful result::"
 msgstr ""
+"Тепер ми фактично можемо порівняти два елементи та повернути корисний "
+"результат:"
 
 #: ../../library/ctypes.rst:1014
 msgid "As we can easily check, our array is sorted now::"
-msgstr ""
+msgstr "Як ми можемо легко перевірити, наш масив зараз відсортовано::"
 
 #: ../../library/ctypes.rst:1021
 msgid ""
 "The function factories can be used as decorator factories, so we may as well "
 "write::"
 msgstr ""
+"Фабрики функцій можна використовувати як фабрики декораторів, тому ми також "
+"можемо написати::"
 
 #: ../../library/ctypes.rst:1039
 msgid ""
@@ -1043,6 +1253,10 @@ msgid ""
 "are used from C code. :mod:`ctypes` doesn't, and if you don't, they may be "
 "garbage collected, crashing your program when a callback is made."
 msgstr ""
+"Переконайтеся, що ви зберігаєте посилання на об’єкти :func:`CFUNCTYPE`, доки "
+"вони використовуються з коду C. :mod:`ctypes` не працює, і якщо ви цього не "
+"зробите, вони можуть збиратися як сміття, що призведе до збою вашої програми "
+"під час зворотного виклику."
 
 #: ../../library/ctypes.rst:1043
 msgid ""
@@ -1053,10 +1267,17 @@ msgid ""
 "with :class:`threading.local` will *not* survive across different callbacks, "
 "even when those calls are made from the same C thread."
 msgstr ""
+"Також зауважте, що якщо функція зворотнього виклику викликається в потоці, "
+"створеному поза контролем Python (наприклад, зовнішнім кодом, який викликає "
+"зворотній виклик), ctypes створює новий фіктивний потік Python під час "
+"кожного виклику. Така поведінка є правильною для більшості цілей, але це "
+"означає, що значення, збережені в :class:`threading.local` *не* збережуться "
+"в різних зворотних викликах, навіть якщо ці виклики здійснюються з того "
+"самого потоку C."
 
 #: ../../library/ctypes.rst:1053
 msgid "Accessing values exported from dlls"
-msgstr ""
+msgstr "Доступ до значень, експортованих із dll"
 
 #: ../../library/ctypes.rst:1055
 msgid ""
@@ -1065,6 +1286,10 @@ msgid ""
 "integer set to 0, 1, or 2, depending on the :option:`-O` or :option:`-OO` "
 "flag given on startup."
 msgstr ""
+"Деякі спільні бібліотеки експортують не лише функції, але й змінні. "
+"Прикладом у самій бібліотеці Python є :c:data:`Py_OptimizeFlag`, ціле число "
+"зі значенням 0, 1 або 2, залежно від прапора :option:`-O` або :option:`-OO`, "
+"заданого на стартап."
 
 #: ../../library/ctypes.rst:1060
 msgid ""
@@ -1072,6 +1297,9 @@ msgid ""
 "methods of the type.  *pythonapi* is a predefined symbol giving access to "
 "the Python C api::"
 msgstr ""
+":mod:`ctypes` може отримати доступ до таких значень за допомогою методів "
+"класу :meth:`in_dll` типу. *pythonapi* — це попередньо визначений символ, "
+"який надає доступ до Python C api::"
 
 #: ../../library/ctypes.rst:1069
 msgid ""
@@ -1079,16 +1307,21 @@ msgid ""
 "would have printed ``c_long(1)``, or ``c_long(2)`` if :option:`-OO` would "
 "have been specified."
 msgstr ""
+"Якби інтерпретатор був запущений з :option:`-O`, зразок надрукував би "
+"``c_long(1)`` або ``c_long(2)``, якщо :option:`-OO` було б зазначено."
 
 #: ../../library/ctypes.rst:1073
 msgid ""
 "An extended example which also demonstrates the use of pointers accesses "
 "the :c:data:`PyImport_FrozenModules` pointer exported by Python."
 msgstr ""
+"Розширений приклад, який також демонструє використання покажчиків, "
+"звертається до покажчика :c:data:`PyImport_FrozenModules`, експортованого "
+"Python."
 
 #: ../../library/ctypes.rst:1076
 msgid "Quoting the docs for that value:"
-msgstr ""
+msgstr "Цитування документів для цього значення:"
 
 #: ../../library/ctypes.rst:1078
 msgid ""
@@ -1109,6 +1342,9 @@ msgid ""
 "So manipulating this pointer could even prove useful. To restrict the "
 "example size, we show only how this table can be read with :mod:`ctypes`::"
 msgstr ""
+"Тож маніпулювання цим покажчиком може навіть виявитися корисним. Щоб "
+"обмежити розмір прикладу, ми показуємо лише те, як цю таблицю можна "
+"прочитати за допомогою :mod:`ctypes`::"
 
 #: ../../library/ctypes.rst:1095
 msgid ""
@@ -1124,6 +1360,11 @@ msgid ""
 "crash with an access violation or whatever, so it's better to break out of "
 "the loop when we hit the ``NULL`` entry::"
 msgstr ""
+"Оскільки ``table`` є ``покажчиком`` на масив ``struct_frozen`` записів, ми "
+"можемо перебирати його, але нам просто потрібно переконатися, що наш цикл "
+"завершується, оскільки покажчики не мають розміру. Рано чи пізно він, "
+"ймовірно, вийде з ладу через порушення прав доступу чи щось інше, тому краще "
+"вийти з циклу, коли ми натиснемо запис ``NULL``::"
 
 #: ../../library/ctypes.rst:1120
 msgid ""
@@ -1131,26 +1372,33 @@ msgid ""
 "(indicated by the negative ``size`` member) is not well known, it is only "
 "used for testing. Try it out with ``import __hello__`` for example."
 msgstr ""
+"Той факт, що стандартний Python має заморожений модуль і заморожений пакет "
+"(позначений від’ємним елементом ``size``), невідомий, він використовується "
+"лише для тестування. Спробуйте, наприклад, ``import __hello__``."
 
 #: ../../library/ctypes.rst:1128
 msgid "Surprises"
-msgstr ""
+msgstr "Сюрпризи"
 
 #: ../../library/ctypes.rst:1130
 msgid ""
 "There are some edges in :mod:`ctypes` where you might expect something other "
 "than what actually happens."
 msgstr ""
+"У :mod:`ctypes` є деякі переваги, де ви можете очікувати щось інше, ніж те, "
+"що відбувається насправді."
 
 #: ../../library/ctypes.rst:1133
 msgid "Consider the following example::"
-msgstr ""
+msgstr "Розглянемо такий приклад:"
 
 #: ../../library/ctypes.rst:1153
 msgid ""
 "Hm. We certainly expected the last statement to print ``3 4 1 2``. What "
 "happened? Here are the steps of the ``rc.a, rc.b = rc.b, rc.a`` line above::"
 msgstr ""
+"Хм Ми, безумовно, очікували, що останній оператор виведе ``3 4 1 2``. Що "
+"трапилось? Ось кроки рядка ``rc.a, rc.b = rc.b, rc.a``:"
 
 #: ../../library/ctypes.rst:1161
 msgid ""
@@ -1160,6 +1408,11 @@ msgid ""
 "the contents of ``temp1``. So, the last assignment ``rc.b = temp1``, doesn't "
 "have the expected effect."
 msgstr ""
+"Зауважте, що ``temp0`` і ``temp1`` є об’єктами, які все ще використовують "
+"внутрішній буфер об’єкта ``rc`` вище. Отже, виконання ``rc.a = temp0`` "
+"копіює вміст буфера ``temp0`` у буфер ``rc``. Це, у свою чергу, змінює вміст "
+"``temp1``. Отже, останнє призначення ``rc.b = temp1`` не має очікуваного "
+"ефекту."
 
 #: ../../library/ctypes.rst:1167
 msgid ""
@@ -1167,18 +1420,23 @@ msgid ""
 "doesn't *copy* the sub-object, instead it retrieves a wrapper object "
 "accessing the root-object's underlying buffer."
 msgstr ""
+"Майте на увазі, що отримання підоб’єктів зі структур, об’єднань і масивів не "
+"*копіює* підоб’єкт, натомість отримує обгортку об’єкта, який отримує доступ "
+"до основного буфера кореневого об’єкта."
 
 #: ../../library/ctypes.rst:1171
 msgid ""
 "Another example that may behave differently from what one would expect is "
 "this::"
-msgstr ""
+msgstr "Інший приклад, який може поводитися інакше, ніж очікувалося, це:"
 
 #: ../../library/ctypes.rst:1183
 msgid ""
 "Objects instantiated from :class:`c_char_p` can only have their value set to "
 "bytes or integers."
 msgstr ""
+"Об’єкти, створені з :class:`c_char_p`, можуть мати значення лише байтів або "
+"цілих чисел."
 
 #: ../../library/ctypes.rst:1186
 msgid ""
@@ -1188,15 +1446,22 @@ msgid ""
 "object itself, instead the ``contents`` of the object is stored.  Accessing "
 "the contents again constructs a new Python object each time!"
 msgstr ""
+"Чому він друкує ``False``? Екземпляри ctypes — це об’єкти, що містять блок "
+"пам’яті плюс деякі :term:`descriptor`\\, що мають доступ до вмісту пам’яті. "
+"Зберігання об’єкта Python у блоці пам’яті не зберігає сам об’єкт, натомість "
+"зберігається ``вміст`` об’єкта. Повторний доступ до вмісту щоразу створює "
+"новий об’єкт Python!"
 
 #: ../../library/ctypes.rst:1196
 msgid "Variable-sized data types"
-msgstr ""
+msgstr "Типи даних змінного розміру"
 
 #: ../../library/ctypes.rst:1198
 msgid ""
 ":mod:`ctypes` provides some support for variable-sized arrays and structures."
 msgstr ""
+":mod:`ctypes` забезпечує деяку підтримку для масивів і структур змінного "
+"розміру."
 
 #: ../../library/ctypes.rst:1200
 msgid ""
@@ -1206,6 +1471,11 @@ msgid ""
 "cannot be made smaller than the natural memory block specified by the "
 "objects type, a :exc:`ValueError` is raised if this is tried::"
 msgstr ""
+"Функцію :func:`resize` можна використовувати для зміни розміру буфера "
+"пам’яті існуючого об’єкта ctypes. Функція приймає об’єкт як перший аргумент, "
+"а запитуваний розмір у байтах як другий аргумент. Блок пам’яті не може бути "
+"меншим, ніж природний блок пам’яті, визначений типом об’єкта, :exc:"
+"`ValueError` виникає, якщо це спробувати::"
 
 #: ../../library/ctypes.rst:1220
 msgid ""
@@ -1213,6 +1483,9 @@ msgid ""
 "contained in this array?  Since the type still only knows about 4 elements, "
 "we get errors accessing other elements::"
 msgstr ""
+"Це гарно і добре, але як отримати доступ до додаткових елементів, що "
+"містяться в цьому масиві? Оскільки тип все ще знає лише про 4 елементи, ми "
+"отримуємо помилки під час доступу до інших елементів::"
 
 #: ../../library/ctypes.rst:1232
 msgid ""
@@ -1220,6 +1493,9 @@ msgid ""
 "the dynamic nature of Python, and (re-)define the data type after the "
 "required size is already known, on a case by case basis."
 msgstr ""
+"Інший спосіб використання типів даних змінного розміру з :mod:`ctypes` — це "
+"використання динамічної природи Python і (повторне) визначення типу даних "
+"після того, як потрібний розмір уже відомий, у кожному конкретному випадку."
 
 #: ../../library/ctypes.rst:1240
 msgid "ctypes reference"
@@ -1227,13 +1503,16 @@ msgstr "Referência ctypes"
 
 #: ../../library/ctypes.rst:1246
 msgid "Finding shared libraries"
-msgstr ""
+msgstr "Пошук спільних бібліотек"
 
 #: ../../library/ctypes.rst:1248
 msgid ""
 "When programming in a compiled language, shared libraries are accessed when "
 "compiling/linking a program, and when the program is run."
 msgstr ""
+"Під час програмування скомпільованою мовою доступ до спільних бібліотек "
+"здійснюється під час компіляції/зв’язування програми та під час виконання "
+"програми."
 
 #: ../../library/ctypes.rst:1251
 msgid ""
@@ -1243,12 +1522,19 @@ msgid ""
 "while the ctypes library loaders act like when a program is run, and call "
 "the runtime loader directly."
 msgstr ""
+"Метою функції :func:`find_library` є пошук бібліотеки у спосіб, подібний до "
+"того, що робить компілятор або завантажувач середовища виконання (на "
+"платформах із кількома версіями спільної бібліотеки має бути завантажена "
+"остання), тоді як бібліотека ctypes завантажувачі діють так само, як коли "
+"виконується програма, і безпосередньо викликають завантажувач часу виконання."
 
 #: ../../library/ctypes.rst:1257
 msgid ""
 "The :mod:`ctypes.util` module provides a function which can help to "
 "determine the library to load."
 msgstr ""
+"Модуль :mod:`ctypes.util` надає функцію, яка може допомогти визначити "
+"бібліотеку для завантаження."
 
 #: ../../library/ctypes.rst:1265
 msgid ""
@@ -1257,10 +1543,14 @@ msgid ""
 "number (this is the form used for the posix linker option :option:`!-l`).  "
 "If no library can be found, returns ``None``."
 msgstr ""
+"Спробуйте знайти бібліотеку та повернути шлях. *name* — це назва бібліотеки "
+"без будь-якого префікса, як-от *lib*, суфікса, як-от ``.so``, ``.dylib`` або "
+"номера версії (це форма, яка використовується для параметра компонування "
+"posix :option:`!- l`). Якщо бібліотеки не знайдено, повертає ``None``."
 
 #: ../../library/ctypes.rst:1270 ../../library/ctypes.rst:1913
 msgid "The exact functionality is system dependent."
-msgstr ""
+msgstr "Точна функція залежить від системи."
 
 #: ../../library/ctypes.rst:1272
 msgid ""
@@ -1268,6 +1558,9 @@ msgid ""
 "ldconfig``, ``gcc``, ``objdump`` and ``ld``) to find the library file. It "
 "returns the filename of the library file."
 msgstr ""
+"У Linux :func:`find_library` намагається запустити зовнішні програми (``/"
+"sbin/ldconfig``, ``gcc``, ``objdump`` і ``ld``), щоб знайти файл бібліотеки. "
+"Він повертає ім’я файлу бібліотеки."
 
 #: ../../library/ctypes.rst:1276
 msgid ""
@@ -1275,6 +1568,9 @@ msgid ""
 "when searching for libraries, if a library cannot be found by any other "
 "means."
 msgstr ""
+"У Linux значення змінної середовища ``LD_LIBRARY_PATH`` використовується під "
+"час пошуку бібліотек, якщо бібліотеку неможливо знайти будь-яким іншим "
+"способом."
 
 #: ../../library/ctypes.rst:1280
 msgid "Here are some examples::"
@@ -1285,6 +1581,9 @@ msgid ""
 "On macOS, :func:`find_library` tries several predefined naming schemes and "
 "paths to locate the library, and returns a full pathname if successful::"
 msgstr ""
+"У macOS :func:`find_library` намагається знайти бібліотеку за допомогою "
+"кількох попередньо визначених схем іменування та шляхів, і в разі успіху "
+"повертає повний шлях::"
 
 #: ../../library/ctypes.rst:1305
 msgid ""
@@ -1292,6 +1591,10 @@ msgid ""
 "returns the full pathname, but since there is no predefined naming scheme a "
 "call like ``find_library(\"c\")`` will fail and return ``None``."
 msgstr ""
+"У Windows :func:`find_library` шукає вздовж шляху системного пошуку та "
+"повертає повний шлях, але оскільки попередньо визначеної схеми іменування "
+"немає, виклик на кшталт ``find_library(\"c\")`` завершиться помилкою та "
+"поверне ``None``."
 
 #: ../../library/ctypes.rst:1309
 msgid ""
@@ -1300,16 +1603,22 @@ msgid ""
 "into the wrapper module instead of using :func:`find_library` to locate the "
 "library at runtime."
 msgstr ""
+"Якщо огортати спільну бібліотеку за допомогою :mod:`ctypes`, *може* краще "
+"визначити назву спільної бібліотеки під час розробки та жорстко закодувати "
+"її в модуль оболонки замість використання :func:`find_library` для пошуку "
+"бібліотеки за адресою час виконання."
 
 #: ../../library/ctypes.rst:1317
 msgid "Loading shared libraries"
-msgstr ""
+msgstr "Завантаження спільних бібліотек"
 
 #: ../../library/ctypes.rst:1319
 msgid ""
 "There are several ways to load shared libraries into the Python process.  "
 "One way is to instantiate one of the following classes:"
 msgstr ""
+"Є кілька способів завантажити спільні бібліотеки в процес Python. Одним із "
+"способів є створення екземпляра одного з наступних класів:"
 
 #: ../../library/ctypes.rst:1325
 msgid ""
@@ -1329,12 +1638,22 @@ msgid ""
 "which DLL is not found, you need to find the list of dependent DLLs and "
 "determine which one is not found using Windows debugging and tracing tools."
 msgstr ""
+"У Windows створення екземпляра :class:`CDLL` може завершитися помилкою, "
+"навіть якщо ім’я DLL існує. Якщо залежну DLL від завантаженої DLL не "
+"знайдено, виникає помилка :exc:`OSError` із повідомленням *\"[WinError 126] "
+"Не вдалося знайти вказаний модуль\".* Це повідомлення про помилку не містить "
+"назви відсутня DLL, оскільки Windows API не повертає цю інформацію, що "
+"ускладнює діагностику цієї помилки. Щоб усунути цю помилку та визначити, яку "
+"DLL не знайдено, потрібно знайти список залежних DLL і визначити, яка з них "
+"не знайдена, за допомогою засобів налагодження та трасування Windows."
 
 #: ../../library/ctypes.rst:1341
 msgid ""
 "`Microsoft DUMPBIN tool <https://docs.microsoft.com/cpp/build/reference/"
 "dependents>`_ -- A tool to find DLL dependents."
 msgstr ""
+"`Інструмент Microsoft DUMPBIN <https://docs.microsoft.com/cpp/build/"
+"reference/dependents>`_ -- Інструмент для пошуку залежних DLL."
 
 #: ../../library/ctypes.rst:1347
 msgid ""
@@ -1345,10 +1664,17 @@ msgid ""
 "failed or succeeded, together with additional error code.  If the return "
 "value signals a failure, an :class:`OSError` is automatically raised."
 msgstr ""
+"Лише для Windows: екземпляри цього класу представляють завантажені спільні "
+"бібліотеки, функції в цих бібліотеках використовують угоду про виклики "
+"``stdcall`` і припускається, що вони повертають специфічний для Windows код :"
+"class:`HRESULT`. Значення :class:`HRESULT` містять інформацію про те, чи "
+"виклик функції завершився невдало чи успішно, а також додатковий код "
+"помилки. Якщо повернуте значення сигналізує про помилку, автоматично "
+"виникає :class:`OSError`."
 
 #: ../../library/ctypes.rst:1354
 msgid ":exc:`WindowsError` used to be raised."
-msgstr ""
+msgstr ":exc:`WindowsError` раніше виникало."
 
 #: ../../library/ctypes.rst:1360
 msgid ""
@@ -1362,6 +1688,8 @@ msgid ""
 "The Python :term:`global interpreter lock` is released before calling any "
 "function exported by these libraries, and reacquired afterwards."
 msgstr ""
+":term:`global interpreter lock` Python знімається перед викликом будь-якої "
+"функції, експортованої цими бібліотеками, і знову отримується після цього."
 
 #: ../../library/ctypes.rst:1370
 msgid ""
@@ -1370,10 +1698,14 @@ msgid ""
 "function execution the Python error flag is checked. If the error flag is "
 "set, a Python exception is raised."
 msgstr ""
+"Екземпляри цього класу поводяться як екземпляри :class:`CDLL`, за винятком "
+"того, що GIL Python *не* звільняється під час виклику функції, а після "
+"виконання функції перевіряється позначка помилки Python. Якщо встановлено "
+"позначку помилки, виникає виняток Python."
 
 #: ../../library/ctypes.rst:1375
 msgid "Thus, this is only useful to call Python C api functions directly."
-msgstr ""
+msgstr "Таким чином, це корисно лише для прямого виклику API-функцій Python C."
 
 #: ../../library/ctypes.rst:1377
 msgid ""
@@ -1384,6 +1716,11 @@ msgid ""
 "``LoadLibrary`` function is used to load the library into the process, and "
 "to get a handle to it."
 msgstr ""
+"Усі ці класи можна створити, викликавши їх принаймні з одним аргументом, "
+"шляхом до спільної бібліотеки. Якщо у вас є існуючий дескриптор уже "
+"завантаженої спільної бібліотеки, його можна передати як іменований параметр "
+"``handle``, інакше для завантаження бібліотеки в використовується функція "
+"``dlopen`` або ``LoadLibrary`` базової платформи процес і впоратися з ним."
 
 #: ../../library/ctypes.rst:1384
 msgid ""
@@ -1392,6 +1729,10 @@ msgid ""
 "ignored.  On posix systems, RTLD_NOW is always added, and is not "
 "configurable."
 msgstr ""
+"Параметр *mode* можна використовувати для визначення способу завантаження "
+"бібліотеки. Додаткову інформацію див. на сторінці довідки :manpage:"
+"`dlopen(3)`. У Windows *режим* ігнорується. У системах posix RTLD_NOW завжди "
+"додається та не налаштовується."
 
 #: ../../library/ctypes.rst:1389
 msgid ""
@@ -1402,6 +1743,13 @@ msgid ""
 "the :data:`errno` value before the function call is swapped with the ctypes "
 "private copy, the same happens immediately after the function call."
 msgstr ""
+"Если для параметра *use_errno* установлено значение true, включается "
+"механизм ctypes, который позволяет безопасно получить доступ к номеру "
+"системной ошибки :data:`errno`. :mod:`ctypes` поддерживает локальную копию "
+"системной переменной :data:`errno`; если вы вызываете внешние функции, "
+"созданные с помощью ``use_errno=True``, то значение :data:`errno` перед "
+"вызовом функции заменяется частной копией ctypes, то же самое происходит "
+"сразу после вызова функции."
 
 #: ../../library/ctypes.rst:1396
 msgid ""
@@ -1409,6 +1757,9 @@ msgid ""
 "private copy, and the function :func:`ctypes.set_errno` changes the ctypes "
 "private copy to a new value and returns the former value."
 msgstr ""
+"Функція :func:`ctypes.get_errno` повертає значення приватної копії ctypes, а "
+"функція :func:`ctypes.set_errno` змінює приватну копію ctypes на нове "
+"значення та повертає попереднє значення."
 
 #: ../../library/ctypes.rst:1400
 msgid ""
@@ -1418,6 +1769,11 @@ msgid ""
 "and :func:`ctypes.set_last_error` are used to request and change the ctypes "
 "private copy of the windows error code."
 msgstr ""
+"Параметр *use_last_error*, якщо встановлено значення true, увімкне той самий "
+"механізм для коду помилки Windows, яким керують функції Windows API :func:"
+"`GetLastError` і :func:`SetLastError`; :func:`ctypes.get_last_error` і :func:"
+"`ctypes.set_last_error` використовуються для запиту та зміни приватної копії "
+"ctypes коду помилки Windows."
 
 #: ../../library/ctypes.rst:1406
 msgid ""
@@ -1428,28 +1784,41 @@ msgid ""
 "such as DLL hijacking. Passing the full path to the DLL is the safest way to "
 "ensure the correct library and dependencies are loaded."
 msgstr ""
+"Параметр *winmode* використовується в Windows, щоб указати спосіб "
+"завантаження бібліотеки (оскільки *mode* ігнорується). Він приймає будь-яке "
+"значення, дійсне для параметра прапорців API Win32 ``LoadLibraryEx``. Якщо "
+"опущено, за замовчуванням використовуються позначки, які забезпечують "
+"найбільш безпечне завантаження DLL, щоб уникнути таких проблем, як "
+"викрадення DLL. Передача повного шляху до DLL є найбезпечнішим способом "
+"переконатися, що завантажено правильну бібліотеку та залежності."
 
 #: ../../library/ctypes.rst:1413
 msgid "Added *winmode* parameter."
-msgstr ""
+msgstr "Додано параметр *winmode*."
 
 #: ../../library/ctypes.rst:1420
 msgid ""
 "Flag to use as *mode* parameter.  On platforms where this flag is not "
 "available, it is defined as the integer zero."
 msgstr ""
+"Прапор для використання як параметр *mode*. На платформах, де цей прапорець "
+"недоступний, він визначається як цілий нуль."
 
 #: ../../library/ctypes.rst:1427
 msgid ""
 "Flag to use as *mode* parameter.  On platforms where this is not available, "
 "it is the same as *RTLD_GLOBAL*."
 msgstr ""
+"Прапор для використання як параметр *mode*. На платформах, де це недоступно, "
+"це те саме, що *RTLD_GLOBAL*."
 
 #: ../../library/ctypes.rst:1434
 msgid ""
 "The default mode which is used to load shared libraries.  On OSX 10.3, this "
 "is *RTLD_GLOBAL*, otherwise it is the same as *RTLD_LOCAL*."
 msgstr ""
+"Типовий режим, який використовується для завантаження спільних бібліотек. В "
+"OSX 10.3 це *RTLD_GLOBAL*, інакше це те саме, що *RTLD_LOCAL*."
 
 #: ../../library/ctypes.rst:1437
 msgid ""
@@ -1459,20 +1828,28 @@ msgid ""
 "therefore accessing it repeatedly returns the same object each time.  On the "
 "other hand, accessing it through an index returns a new object each time::"
 msgstr ""
+"Екземпляри цих класів не мають відкритих методів. Доступ до функцій, "
+"експортованих спільною бібліотекою, можна отримати як за атрибутами або за "
+"індексом. Будь ласка, зверніть увагу, що доступ до функції через атрибут "
+"кешує результат, тому повторний доступ повертає той самий об’єкт щоразу. З "
+"іншого боку, доступ до нього через індекс кожного разу повертає новий "
+"об’єкт::"
 
 #: ../../library/ctypes.rst:1450
 msgid ""
 "The following public attributes are available, their name starts with an "
 "underscore to not clash with exported function names:"
 msgstr ""
+"Доступні такі загальнодоступні атрибути, їх імена починаються з "
+"підкреслення, щоб не суперечити ім’ям експортованих функцій:"
 
 #: ../../library/ctypes.rst:1456
 msgid "The system handle used to access the library."
-msgstr ""
+msgstr "Системний дескриптор, який використовується для доступу до бібліотеки."
 
 #: ../../library/ctypes.rst:1461
 msgid "The name of the library passed in the constructor."
-msgstr ""
+msgstr "Ім'я бібліотеки, передане в конструктор."
 
 #: ../../library/ctypes.rst:1463
 msgid ""
@@ -1481,12 +1858,18 @@ msgid ""
 "calling the :meth:`LoadLibrary` method, or by retrieving the library as "
 "attribute of the loader instance."
 msgstr ""
+"Спільні бібліотеки також можна завантажити за допомогою одного зі готових "
+"об’єктів, які є екземплярами класу :class:`LibraryLoader`, викликавши метод :"
+"meth:`LoadLibrary` або отримавши бібліотеку як атрибут екземпляра "
+"завантажувача ."
 
 #: ../../library/ctypes.rst:1471
 msgid ""
 "Class which loads shared libraries.  *dlltype* should be one of the :class:"
 "`CDLL`, :class:`PyDLL`, :class:`WinDLL`, or :class:`OleDLL` types."
 msgstr ""
+"Клас, який завантажує спільні бібліотеки. *dlltype* має бути одним із типів :"
+"class:`CDLL`, :class:`PyDLL`, :class:`WinDLL` або :class:`OleDLL`."
 
 #: ../../library/ctypes.rst:1474
 msgid ""
@@ -1494,38 +1877,46 @@ msgid ""
 "by accessing it as attribute of a library loader instance.  The result is "
 "cached, so repeated attribute accesses return the same library each time."
 msgstr ""
+":meth:`__getattr__` має особливу поведінку: він дозволяє завантажувати "
+"спільну бібліотеку, звертаючись до неї як до атрибута екземпляра "
+"завантажувача бібліотеки. Результат кешується, тому повторні звернення до "
+"атрибутів щоразу повертають ту саму бібліотеку."
 
 #: ../../library/ctypes.rst:1480
 msgid ""
 "Load a shared library into the process and return it.  This method always "
 "returns a new instance of the library."
 msgstr ""
+"Завантажте спільну бібліотеку в процес і поверніть її. Цей метод завжди "
+"повертає новий екземпляр бібліотеки."
 
 #: ../../library/ctypes.rst:1484
 msgid "These prefabricated library loaders are available:"
-msgstr ""
+msgstr "Ці збірні бібліотечні завантажувачі доступні:"
 
 #: ../../library/ctypes.rst:1489
 msgid "Creates :class:`CDLL` instances."
-msgstr ""
+msgstr "Створює екземпляри :class:`CDLL`."
 
 #: ../../library/ctypes.rst:1495
 msgid "Windows only: Creates :class:`WinDLL` instances."
-msgstr ""
+msgstr "Лише для Windows: створює екземпляри :class:`WinDLL`."
 
 #: ../../library/ctypes.rst:1501
 msgid "Windows only: Creates :class:`OleDLL` instances."
-msgstr ""
+msgstr "Лише для Windows: створює екземпляри :class:`OleDLL`."
 
 #: ../../library/ctypes.rst:1507
 msgid "Creates :class:`PyDLL` instances."
-msgstr ""
+msgstr "Створює екземпляри :class:`PyDLL`."
 
 #: ../../library/ctypes.rst:1510
 msgid ""
 "For accessing the C Python api directly, a ready-to-use Python shared "
 "library object is available:"
 msgstr ""
+"Для прямого доступу до API C Python доступний готовий до використання об’єкт "
+"спільної бібліотеки Python:"
 
 #: ../../library/ctypes.rst:1516
 msgid ""
@@ -1558,6 +1949,8 @@ msgid ""
 "Raises an :ref:`auditing event <auditing>` ``ctypes.dlsym`` with arguments "
 "``library``, ``name``."
 msgstr ""
+"Викликає :ref:`подію аудиту <auditing> ``ctypes.dlsym`` з аргументами "
+"``library``, ``name``."
 
 #: ../../library/ctypes.rst:1529
 msgid ""
@@ -1565,12 +1958,17 @@ msgid ""
 "dlsym`` with arguments ``library`` (the library object) and ``name`` (the "
 "symbol's name as a string or integer)."
 msgstr ""
+"Доступ до функції у завантаженій бібліотеці викликає подію аудиту ``ctypes."
+"dlsym`` з аргументами ``library`` (об’єкт бібліотеки) і ``name`` (ім’я "
+"символу у вигляді рядка або цілого числа)."
 
 #: ../../library/ctypes.rst:1533
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``ctypes.dlsym/handle`` with "
 "arguments ``handle``, ``name``."
 msgstr ""
+"Викликає :ref:`подію аудиту <auditing> `` ``ctypes.dlsym/handle`` з "
+"аргументами ``handle``, ``name``."
 
 #: ../../library/ctypes.rst:1535
 msgid ""
@@ -1578,10 +1976,13 @@ msgid ""
 "accessing a function raises an auditing event ``ctypes.dlsym/handle`` with "
 "arguments ``handle`` (the raw library handle) and ``name``."
 msgstr ""
+"У випадках, коли доступний лише дескриптор бібліотеки, а не об’єкт, доступ "
+"до функції викликає подію аудиту ``ctypes.dlsym/handle`` з аргументами "
+"``handle`` (необроблений дескриптор бібліотеки) і ``name``."
 
 #: ../../library/ctypes.rst:1542
 msgid "Foreign functions"
-msgstr ""
+msgstr "Іноземні функції"
 
 #: ../../library/ctypes.rst:1544
 msgid ""
@@ -1591,22 +1992,32 @@ msgid ""
 "instances as arguments, and return the default result type specified by the "
 "library loader. They are instances of a private class:"
 msgstr ""
+"Як пояснювалося в попередньому розділі, сторонні функції можна отримати як "
+"атрибути завантажених спільних бібліотек. Функціональні об’єкти, створені "
+"таким чином, за замовчуванням приймають будь-яку кількість аргументів, "
+"приймають будь-які екземпляри даних ctypes як аргументи та повертають тип "
+"результату за замовчуванням, указаний завантажувачем бібліотеки. Вони є "
+"екземплярами приватного класу:"
 
 #: ../../library/ctypes.rst:1553
 msgid "Base class for C callable foreign functions."
-msgstr ""
+msgstr "Базовий клас для зовнішніх функцій C, що викликаються."
 
 #: ../../library/ctypes.rst:1555
 msgid ""
 "Instances of foreign functions are also C compatible data types; they "
 "represent C function pointers."
 msgstr ""
+"Примірники сторонніх функцій також є C-сумісними типами даних; вони "
+"представляють покажчики функцій C."
 
 #: ../../library/ctypes.rst:1558
 msgid ""
 "This behavior can be customized by assigning to special attributes of the "
 "foreign function object."
 msgstr ""
+"Цю поведінку можна налаштувати шляхом призначення спеціальних атрибутів "
+"стороннього функціонального об’єкта."
 
 #: ../../library/ctypes.rst:1563
 msgid ""
@@ -1632,6 +2043,11 @@ msgid ""
 "tuple; functions using the C calling convention accept additional, "
 "unspecified arguments as well."
 msgstr ""
+"Призначте кортеж типів ctypes, щоб указати типи аргументів, які приймає "
+"функція. Функції, які використовують угоду про виклики ``stdcall``, можуть "
+"бути викликані лише з тією ж кількістю аргументів, що й довжина цього "
+"кортежу; функції, що використовують угоду про виклики C, також приймають "
+"додаткові, невизначені аргументи."
 
 #: ../../library/ctypes.rst:1581
 msgid ""
@@ -1642,6 +2058,12 @@ msgid ""
 "attr:`argtypes` tuple will convert a string passed as argument into a bytes "
 "object using ctypes conversion rules."
 msgstr ""
+"Коли викликається стороння функція, кожен фактичний аргумент передається в "
+"метод класу :meth:`from_param` елементів у кортежі :attr:`argtypes`, цей "
+"метод дозволяє адаптувати фактичний аргумент до об’єкта, який приймає "
+"зовнішня функція . Наприклад, елемент :class:`c_char_p` у кортежі :attr:"
+"`argtypes` перетворить рядок, переданий як аргумент, на об’єкт bytes за "
+"допомогою правил перетворення ctypes."
 
 #: ../../library/ctypes.rst:1588
 msgid ""
@@ -1650,30 +2072,44 @@ msgid ""
 "usable as argument (integer, string, ctypes instance).  This allows defining "
 "adapters that can adapt custom objects as function parameters."
 msgstr ""
+"Нове: тепер можна розміщувати елементи в argtypes, які не є типами ctypes, "
+"але кожен елемент повинен мати метод :meth:`from_param`, який повертає "
+"значення, яке можна використовувати як аргумент (ціле число, рядок, "
+"екземпляр ctypes). Це дозволяє визначати адаптери, які можуть адаптувати "
+"власні об’єкти як параметри функції."
 
 #: ../../library/ctypes.rst:1595
 msgid ""
 "Assign a Python function or another callable to this attribute. The callable "
 "will be called with three or more arguments:"
 msgstr ""
+"Призначте цьому атрибуту функцію Python або інший виклик. Викликається з "
+"трьома або більше аргументами:"
 
 #: ../../library/ctypes.rst:1602
 msgid ""
 "*result* is what the foreign function returns, as specified by the :attr:"
 "`restype` attribute."
 msgstr ""
+"*result* – це те, що повертає стороння функція, як зазначено в атрибуті :"
+"attr:`restype`."
 
 #: ../../library/ctypes.rst:1605
 msgid ""
 "*func* is the foreign function object itself, this allows reusing the same "
 "callable object to check or post process the results of several functions."
 msgstr ""
+"*func* — це сам зовнішній об’єкт функції, це дозволяє повторно "
+"використовувати той самий об’єкт, що викликається, для перевірки або "
+"постобробки результатів кількох функцій."
 
 #: ../../library/ctypes.rst:1609
 msgid ""
 "*arguments* is a tuple containing the parameters originally passed to the "
 "function call, this allows specializing the behavior on the arguments used."
 msgstr ""
+"*Аргументи* — це кортеж, що містить параметри, спочатку передані до виклику "
+"функції, що дозволяє спеціалізувати поведінку на використовуваних аргументах."
 
 #: ../../library/ctypes.rst:1613
 msgid ""
@@ -1681,18 +2117,25 @@ msgid ""
 "function call, but it can also check the result value and raise an exception "
 "if the foreign function call failed."
 msgstr ""
+"Об’єкт, який повертає ця функція, буде повернено з виклику зовнішньої "
+"функції, але він також може перевірити значення результату та викликати "
+"виняток, якщо виклик зовнішньої функції не вдався."
 
 #: ../../library/ctypes.rst:1620
 msgid ""
 "This exception is raised when a foreign function call cannot convert one of "
 "the passed arguments."
 msgstr ""
+"Цей виняток виникає, коли зовнішній виклик функції не може перетворити один "
+"із переданих аргументів."
 
 #: ../../library/ctypes.rst:1624
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``ctypes.seh_exception`` with "
 "argument ``code``."
 msgstr ""
+"引数 ``code`` を指定して :ref:`監査イベント <auditing>` ``ctypes."
+"seh_exception`` を送出します。 "
 
 #: ../../library/ctypes.rst:1626
 msgid ""
@@ -1702,12 +2145,19 @@ msgid ""
 "seh_exception`` with argument ``code`` will be raised, allowing an audit "
 "hook to replace the exception with its own."
 msgstr ""
+"У Windows, коли зовнішній виклик функції викликає системний виняток "
+"(наприклад, через порушення доступу), він буде перехоплений і замінений "
+"відповідним винятком Python. Крім того, буде викликана подія аудиту ``ctypes."
+"seh_exception`` з аргументом ``code``, що дозволить перевіряючому хуку "
+"замінити виняток власним."
 
 #: ../../library/ctypes.rst:1632
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``ctypes.call_function`` with "
 "arguments ``func_pointer``, ``arguments``."
 msgstr ""
+"Викликає :ref:`подію аудиту <auditing> `` ``ctypes.call_function`` з "
+"аргументами ``func_pointer``, ``arguments``."
 
 #: ../../library/ctypes.rst:1634
 msgid ""
@@ -1715,10 +2165,13 @@ msgid ""
 "``ctypes.call_function`` with arguments ``function pointer`` and "
 "``arguments``."
 msgstr ""
+"Деякі способи виклику зовнішніх викликів функцій можуть викликати подію "
+"аудиту ``ctypes.call_function`` з аргументами ``вказівник функції`` і "
+"``аргументи``."
 
 #: ../../library/ctypes.rst:1640
 msgid "Function prototypes"
-msgstr ""
+msgstr "Прототипи функцій"
 
 #: ../../library/ctypes.rst:1642
 msgid ""
@@ -1730,6 +2183,13 @@ msgid ""
 "decorator factories, and as such, be applied to functions through the "
 "``@wrapper`` syntax. See :ref:`ctypes-callback-functions` for examples."
 msgstr ""
+"Сторонні функції також можуть бути створені шляхом інстанціювання прототипів "
+"функцій. Прототипи функцій подібні до прототипів функцій у C; вони описують "
+"функцію (тип повернення, типи аргументів, угоду про виклики) без визначення "
+"реалізації. Фабричні функції мають викликатися з потрібним типом результату "
+"та типами аргументів функції, і їх можна використовувати як фабрики "
+"декораторів, і як такі застосовувати до функцій за допомогою синтаксису "
+"``@wrapper``. Перегляньте :ref:`ctypes-callback-functions` для прикладів."
 
 #: ../../library/ctypes.rst:1653
 msgid ""
@@ -1739,6 +2199,11 @@ msgid ""
 "`errno` variable is exchanged with the real :data:`errno` value before and "
 "after the call; *use_last_error* does the same for the Windows error code."
 msgstr ""
+"Повернений прототип функції створює функції, які використовують стандартну "
+"угоду про виклик C. Функція звільнить GIL під час виклику. Якщо *use_errno* "
+"має значення true, приватна копія ctypes системної змінної :data:`errno` "
+"обмінюється справжнім значенням :data:`errno` до і після виклику; "
+"*use_last_error* робить те саме для коду помилки Windows."
 
 #: ../../library/ctypes.rst:1663
 msgid ""
@@ -1746,12 +2211,17 @@ msgid ""
 "``stdcall`` calling convention.  The function will release the GIL during "
 "the call.  *use_errno* and *use_last_error* have the same meaning as above."
 msgstr ""
+"Лише для Windows: повернутий прототип функції створює функції, які "
+"використовують угоду про виклики ``stdcall``. Функція звільнить GIL під час "
+"виклику. *use_errno* і *use_last_error* мають те саме значення, що й вище."
 
 #: ../../library/ctypes.rst:1671
 msgid ""
 "The returned function prototype creates functions that use the Python "
 "calling convention.  The function will *not* release the GIL during the call."
 msgstr ""
+"Повернений прототип функції створює функції, які використовують угоду про "
+"виклики Python. Функція *не* звільняє GIL під час виклику."
 
 #: ../../library/ctypes.rst:1674
 msgid ""
@@ -1759,16 +2229,20 @@ msgid ""
 "in different ways, depending on the type and number of the parameters in the "
 "call:"
 msgstr ""
+"Прототипи функцій, створені цими фабричними функціями, можуть бути створені "
+"різними способами, залежно від типу та кількості параметрів у виклику:"
 
 #: ../../library/ctypes.rst:1682
 msgid ""
 "Returns a foreign function at the specified address which must be an integer."
 msgstr ""
+"Повертає зовнішню функцію за вказаною адресою, яка має бути цілим числом."
 
 #: ../../library/ctypes.rst:1689
 msgid ""
 "Create a C callable function (a callback function) from a Python *callable*."
 msgstr ""
+"Створіть функцію виклику C (функцію зворотного виклику) з Python *callable*."
 
 #: ../../library/ctypes.rst:1696
 msgid ""
@@ -1777,6 +2251,11 @@ msgid ""
 "exported function as string, or the ordinal of the exported function as "
 "small integer.  The second item is the shared library instance."
 msgstr ""
+"Повертає зовнішню функцію, експортовану спільною бібліотекою. *func_spec* "
+"має бути 2-кортежем ``(name_or_ordinal, library)``. Перший елемент — це ім’я "
+"експортованої функції у вигляді рядка або порядковий номер експортованої "
+"функції у вигляді малого цілого числа. Другий елемент — екземпляр спільної "
+"бібліотеки."
 
 #: ../../library/ctypes.rst:1706
 msgid ""
@@ -1785,6 +2264,10 @@ msgid ""
 "is name of the COM method. *iid* is an optional pointer to the interface "
 "identifier which is used in extended error reporting."
 msgstr ""
+"Повертає зовнішню функцію, яка викликає метод COM. *vtbl_index* — це індекс "
+"у таблиці віртуальних функцій, мале невід’ємне ціле число. *ім’я* — це ім’я "
+"методу COM. *iid* — це додатковий покажчик на ідентифікатор інтерфейсу, який "
+"використовується в розширеному звіті про помилки."
 
 #: ../../library/ctypes.rst:1711
 msgid ""
@@ -1792,28 +2275,37 @@ msgid ""
 "COM interface as first argument, in addition to those parameters that are "
 "specified in the :attr:`argtypes` tuple."
 msgstr ""
+"Методи COM використовують спеціальну угоду про виклики: їм потрібен покажчик "
+"на інтерфейс COM як перший аргумент, на додаток до тих параметрів, які "
+"вказані в кортежі :attr:`argtypes`."
 
 #: ../../library/ctypes.rst:1715
 msgid ""
 "The optional *paramflags* parameter creates foreign function wrappers with "
 "much more functionality than the features described above."
 msgstr ""
+"Необов’язковий параметр *paramflags* створює зовнішні обгортки функцій із "
+"набагато більшою функціональністю, ніж функції, описані вище."
 
 #: ../../library/ctypes.rst:1718
 msgid "*paramflags* must be a tuple of the same length as :attr:`argtypes`."
-msgstr ""
+msgstr "*paramflags* має бути кортежем такої ж довжини, що й :attr:`argtypes`."
 
 #: ../../library/ctypes.rst:1720
 msgid ""
 "Each item in this tuple contains further information about a parameter, it "
 "must be a tuple containing one, two, or three items."
 msgstr ""
+"Кожен елемент у цьому кортежі містить додаткову інформацію про параметр, це "
+"має бути кортеж, що містить один, два або три елементи."
 
 #: ../../library/ctypes.rst:1723
 msgid ""
 "The first item is an integer containing a combination of direction flags for "
 "the parameter:"
 msgstr ""
+"Перший елемент є цілим числом, що містить комбінацію прапорів напрямку для "
+"параметра:"
 
 #: ../../library/ctypes.rst:1727
 msgid "1"
@@ -1821,7 +2313,7 @@ msgstr "1"
 
 #: ../../library/ctypes.rst:1727
 msgid "Specifies an input parameter to the function."
-msgstr ""
+msgstr "Визначає вхідний параметр для функції."
 
 #: ../../library/ctypes.rst:1730
 msgid "2"
@@ -1829,7 +2321,7 @@ msgstr "2"
 
 #: ../../library/ctypes.rst:1730
 msgid "Output parameter.  The foreign function fills in a value."
-msgstr ""
+msgstr "Вихідний параметр. Стороння функція заповнює значення."
 
 #: ../../library/ctypes.rst:1733
 msgid "4"
@@ -1837,17 +2329,20 @@ msgstr "4"
 
 #: ../../library/ctypes.rst:1733
 msgid "Input parameter which defaults to the integer zero."
-msgstr ""
+msgstr "Вхідний параметр, який за умовчанням дорівнює нулю."
 
 #: ../../library/ctypes.rst:1735
 msgid ""
 "The optional second item is the parameter name as string.  If this is "
 "specified, the foreign function can be called with named parameters."
 msgstr ""
+"Другим необов’язковим елементом є назва параметра у вигляді рядка. Якщо це "
+"вказано, зовнішня функція може бути викликана з іменованими параметрами."
 
 #: ../../library/ctypes.rst:1738
 msgid "The optional third item is the default value for this parameter."
 msgstr ""
+"Додатковий третій елемент є значенням за замовчуванням для цього параметра."
 
 #: ../../library/ctypes.rst:1740
 msgid ""
@@ -1855,14 +2350,18 @@ msgid ""
 "so that it supports default parameters and named arguments. The C "
 "declaration from the windows header file is this::"
 msgstr ""
+"У цьому прикладі показано, як обернути функцію Windows ``MessageBoxW``, щоб "
+"вона підтримувала параметри за замовчуванням та іменовані аргументи. "
+"Оголошення C із файлу заголовка Windows таке::"
 
 #: ../../library/ctypes.rst:1751 ../../library/ctypes.rst:1774
 msgid "Here is the wrapping with :mod:`ctypes`::"
-msgstr ""
+msgstr "Ось обгортка за допомогою :mod:`ctypes`::"
 
 #: ../../library/ctypes.rst:1759
 msgid "The ``MessageBox`` foreign function can now be called in these ways::"
 msgstr ""
+"Сторонню функцію ``MessageBox`` тепер можна викликати такими способами:"
 
 #: ../../library/ctypes.rst:1765
 msgid ""
@@ -1871,6 +2370,9 @@ msgid ""
 "copying them into ``RECT`` structure that the caller has to supply.  Here is "
 "the C declaration::"
 msgstr ""
+"Другий приклад демонструє вихідні параметри. Функція ``GetWindowRect`` win32 "
+"отримує розміри вказаного вікна шляхом копіювання їх у структуру ``RECT``, "
+"яку має надати абонент. Ось оголошення C::"
 
 #: ../../library/ctypes.rst:1783
 msgid ""
@@ -1879,6 +2381,10 @@ msgid ""
 "parameter values when there are more than one, so the GetWindowRect function "
 "now returns a RECT instance, when called."
 msgstr ""
+"Функції з вихідними параметрами автоматично повертатимуть значення вихідного "
+"параметра, якщо є одне, або кортеж, що містить значення вихідних параметрів, "
+"якщо їх декілька, тому функція GetWindowRect тепер повертає екземпляр RECT "
+"під час виклику."
 
 #: ../../library/ctypes.rst:1788
 msgid ""
@@ -1888,6 +2394,11 @@ msgid ""
 "function could do the error checking, and raises an exception when the api "
 "call failed::"
 msgstr ""
+"Параметри виводу можна поєднати з протоколом :attr:`errcheck` для подальшої "
+"обробки виводу та перевірки помилок. API-функція ``GetWindowRect`` win32 "
+"повертає ``BOOL``, щоб сигналізувати про успіх або невдачу, тому ця функція "
+"може виконувати перевірку помилок і створює виняток, коли виклик API не "
+"вдається:"
 
 #: ../../library/ctypes.rst:1801
 msgid ""
@@ -1897,6 +2408,11 @@ msgid ""
 "instead of a ``RECT`` instance, you can retrieve the fields in the function "
 "and return them instead, the normal processing will no longer take place::"
 msgstr ""
+"Якщо функція :attr:`errcheck` повертає отриманий кортеж аргументів без "
+"змін, :mod:`ctypes` продовжує звичайну обробку вихідних параметрів. Якщо ви "
+"хочете повернути кортеж координат вікна замість екземпляра ``RECT``, ви "
+"можете отримати поля у функції та повернути їх натомість, звичайна обробка "
+"більше не відбуватиметься::"
 
 #: ../../library/ctypes.rst:1820
 msgid "Utility functions"
@@ -1907,6 +2423,8 @@ msgid ""
 "Returns the address of the memory buffer as integer.  *obj* must be an "
 "instance of a ctypes type."
 msgstr ""
+"Повертає адресу буфера пам'яті як ціле число. *obj* має бути екземпляром "
+"типу ctypes."
 
 #: ../../library/ctypes.rst:1827
 msgid ""
@@ -1921,6 +2439,8 @@ msgid ""
 "Returns the alignment requirements of a ctypes type. *obj_or_type* must be a "
 "ctypes type or instance."
 msgstr ""
+"Повертає вимоги до вирівнювання типу ctypes. *obj_or_type* має бути типом "
+"або екземпляром ctypes."
 
 #: ../../library/ctypes.rst:1838
 msgid ""
@@ -1928,16 +2448,22 @@ msgid ""
 "ctypes type.  *offset* defaults to zero, and must be an integer that will be "
 "added to the internal pointer value."
 msgstr ""
+"Повертає легкий вказівник на *obj*, який має бути екземпляром типу ctypes. "
+"*offset* за замовчуванням дорівнює нулю і має бути цілим числом, яке буде "
+"додано до значення внутрішнього покажчика."
 
 #: ../../library/ctypes.rst:1842
 msgid "``byref(obj, offset)`` corresponds to this C code::"
-msgstr ""
+msgstr "``byref(obj, offset)`` відповідає цьому коду C::"
 
 #: ../../library/ctypes.rst:1846
 msgid ""
 "The returned object can only be used as a foreign function call parameter. "
 "It behaves similar to ``pointer(obj)``, but the construction is a lot faster."
 msgstr ""
+"Повернений об’єкт можна використовувати лише як параметр виклику зовнішньої "
+"функції. Він поводиться подібно до ``pointer(obj)``, але будівництво "
+"відбувається набагато швидше."
 
 #: ../../library/ctypes.rst:1852
 msgid ""
@@ -1946,18 +2472,27 @@ msgid ""
 "must be a pointer type, and *obj* must be an object that can be interpreted "
 "as a pointer."
 msgstr ""
+"Ця функція схожа на оператор приведення в C. Вона повертає новий екземпляр "
+"*type*, який вказує на той самий блок пам’яті, що й *obj*. *type* має бути "
+"типом покажчика, а *obj* має бути об’єктом, який можна інтерпретувати як "
+"покажчик."
 
 #: ../../library/ctypes.rst:1860
 msgid ""
 "This function creates a mutable character buffer. The returned object is a "
 "ctypes array of :class:`c_char`."
 msgstr ""
+"Ця функція створює змінний символьний буфер. Повернений об’єкт є масивом "
+"ctypes :class:`c_char`."
 
 #: ../../library/ctypes.rst:1863
 msgid ""
 "*init_or_size* must be an integer which specifies the size of the array, or "
 "a bytes object which will be used to initialize the array items."
 msgstr ""
+"*init_or_size* має бути цілим числом, яке визначає розмір масиву, або "
+"об’єктом bytes, який використовуватиметься для ініціалізації елементів "
+"масиву."
 
 #: ../../library/ctypes.rst:1866
 msgid ""
@@ -1967,6 +2502,11 @@ msgid ""
 "allows specifying the size of the array if the length of the bytes should "
 "not be used."
 msgstr ""
+"Якщо в якості першого аргументу вказано об’єкт bytes, буфер стає на один "
+"елемент більшим, ніж його довжина, так що останній елемент у масиві є "
+"завершальним символом NUL. Ціле число може бути передане як другий аргумент, "
+"що дозволяє вказати розмір масиву, якщо довжина байтів не повинна "
+"використовуватися."
 
 #: ../../library/ctypes.rst:1871
 msgid ""
@@ -1981,12 +2521,16 @@ msgid ""
 "This function creates a mutable unicode character buffer. The returned "
 "object is a ctypes array of :class:`c_wchar`."
 msgstr ""
+"Ця функція створює змінний буфер символів Unicode. Повернений об’єкт є "
+"масивом ctypes :class:`c_wchar`."
 
 #: ../../library/ctypes.rst:1879
 msgid ""
 "*init_or_size* must be an integer which specifies the size of the array, or "
 "a string which will be used to initialize the array items."
 msgstr ""
+"*init_or_size* має бути цілим числом, що вказує розмір масиву, або рядком, "
+"який використовуватиметься для ініціалізації елементів масиву."
 
 #: ../../library/ctypes.rst:1882
 msgid ""
@@ -1996,6 +2540,10 @@ msgid ""
 "which allows specifying the size of the array if the length of the string "
 "should not be used."
 msgstr ""
+"Якщо рядок вказано як перший аргумент, буфер робиться на один елемент "
+"більшим, ніж довжина рядка, так що останній елемент у масиві є завершальним "
+"символом NUL. Ціле число може бути передане як другий аргумент, що дозволяє "
+"вказати розмір масиву, якщо довжина рядка не повинна використовуватися."
 
 #: ../../library/ctypes.rst:1888
 msgid ""
@@ -2011,6 +2559,9 @@ msgid ""
 "COM servers with ctypes.  It is called from the DllCanUnloadNow function "
 "that the _ctypes extension dll exports."
 msgstr ""
+"Лише для Windows: ця функція є хуком, який дозволяє реалізувати COM-сервери "
+"в процесі за допомогою ctypes. Він викликається з функції DllCanUnloadNow, "
+"яку експортує dll розширення _ctypes."
 
 #: ../../library/ctypes.rst:1900
 msgid ""
@@ -2018,6 +2569,9 @@ msgid ""
 "COM servers with ctypes.  It is called from the DllGetClassObject function "
 "that the ``_ctypes`` extension dll exports."
 msgstr ""
+"Лише для Windows: ця функція є хуком, який дозволяє реалізувати COM-сервери "
+"в процесі за допомогою ctypes. Він викликається з функції DllGetClassObject, "
+"яку експортує dll розширення ``_ctypes``."
 
 #: ../../library/ctypes.rst:1908
 msgid ""
@@ -2026,6 +2580,11 @@ msgid ""
 "number (this is the form used for the posix linker option :option:`!-l`).  "
 "If no library can be found, returns ``None``."
 msgstr ""
+"Спробуйте знайти бібліотеку та повернути шлях. *ім’я* — це ім’я бібліотеки "
+"без будь-яких префіксів, як-от ``lib``, суфіксів, як-от ``.so``, ``.dylib`` "
+"або номера версії (це форма, яка використовується для параметра "
+"компонувальника posix :option:`!-l`). Якщо бібліотеки не знайдено, повертає "
+"``None``."
 
 #: ../../library/ctypes.rst:1919
 msgid ""
@@ -2033,6 +2592,9 @@ msgid ""
 "and by the extension modules.  If the name of the library cannot be "
 "determined, ``None`` is returned."
 msgstr ""
+"Лише для Windows: повертає назву файлу бібліотеки середовища виконання VC, "
+"яка використовується Python, і модулями розширення. Якщо назва бібліотеки не "
+"може бути визначена, повертається ``None``."
 
 #: ../../library/ctypes.rst:1923
 msgid ""
@@ -2040,6 +2602,9 @@ msgid ""
 "with a call to the ``free(void *)``, it is important that you use the "
 "function in the same library that allocated the memory."
 msgstr ""
+"Якщо вам потрібно звільнити пам’ять, наприклад, виділену модулем розширення "
+"за допомогою виклику ``free(void *)``, важливо, щоб ви використовували "
+"функцію в тій самій бібліотеці, яка виділила пам’ять."
 
 #: ../../library/ctypes.rst:1930
 msgid ""
@@ -2047,6 +2612,9 @@ msgid ""
 "error code is specified, the last error code is used by calling the Windows "
 "api function GetLastError."
 msgstr ""
+"Лише для Windows: повертає текстовий опис коду помилки *code*. Якщо код "
+"помилки не вказано, останній код помилки використовується під час виклику "
+"функції Windows API GetLastError."
 
 #: ../../library/ctypes.rst:1937
 msgid ""
@@ -2060,6 +2628,8 @@ msgid ""
 "Returns the current value of the ctypes-private copy of the system :data:"
 "`errno` variable in the calling thread."
 msgstr ""
+"Повертає поточне значення ctypes-private копії системної змінної :data:"
+"`errno` у потоці виклику."
 
 #: ../../library/ctypes.rst:1946
 msgid ""
@@ -2074,6 +2644,8 @@ msgid ""
 "Windows only: returns the current value of the ctypes-private copy of the "
 "system :data:`LastError` variable in the calling thread."
 msgstr ""
+"Лише для Windows: повертає поточне значення ctypes-private копії системної "
+"змінної :data:`LastError` у потоці виклику."
 
 #: ../../library/ctypes.rst:1953
 msgid ""
@@ -2089,6 +2661,9 @@ msgid ""
 "*src* to *dst*. *dst* and *src* must be integers or ctypes instances that "
 "can be converted to pointers."
 msgstr ""
+"Те саме, що стандартна функція бібліотеки C memmove: копіює *count* байти з "
+"*src* до *dst*. *dst* і *src* мають бути цілими числами або екземплярами "
+"ctypes, які можна перетворити на покажчики."
 
 #: ../../library/ctypes.rst:1964
 msgid ""
@@ -2096,6 +2671,9 @@ msgid ""
 "address *dst* with *count* bytes of value *c*. *dst* must be an integer "
 "specifying an address, or a ctypes instance."
 msgstr ""
+"Те саме, що стандартна функція бібліотеки memset C: заповнює блок пам’яті за "
+"адресою *dst* *count* байтами зі значенням *c*. *dst* має бути цілим числом, "
+"що визначає адресу, або екземпляр ctypes."
 
 #: ../../library/ctypes.rst:1971
 msgid ""
@@ -2103,18 +2681,25 @@ msgid ""
 "types are cached and reused internally, so calling this function repeatedly "
 "is cheap. *type* must be a ctypes type."
 msgstr ""
+"Ця фабрична функція створює та повертає новий тип покажчика ctypes. Типи "
+"вказівників кешуються та повторно використовуються внутрішньо, тому "
+"повторний виклик цієї функції є дешевим. *type* має бути типом ctypes."
 
 #: ../../library/ctypes.rst:1978
 msgid ""
 "This function creates a new pointer instance, pointing to *obj*. The "
 "returned object is of the type ``POINTER(type(obj))``."
 msgstr ""
+"Ця функція створює новий екземпляр покажчика, що вказує на *obj*. Повернений "
+"об’єкт має тип ``POINTER(type(obj))``."
 
 #: ../../library/ctypes.rst:1981
 msgid ""
 "Note: If you just want to pass a pointer to an object to a foreign function "
 "call, you should use ``byref(obj)`` which is much faster."
 msgstr ""
+"Примітка. Якщо ви просто хочете передати вказівник на об’єкт у зовнішній "
+"виклик функції, вам слід використовувати ``byref(obj)``, що набагато швидше."
 
 #: ../../library/ctypes.rst:1987
 msgid ""
@@ -2123,12 +2708,17 @@ msgid ""
 "than the native size of the objects type, as given by ``sizeof(type(obj))``, "
 "but it is possible to enlarge the buffer."
 msgstr ""
+"Ця функція змінює розмір буфера внутрішньої пам’яті *obj*, який має бути "
+"екземпляром типу ctypes. Неможливо зробити буфер меншим, ніж власний розмір "
+"типу об’єктів, як задано ``sizeof(type(obj))``, але можна збільшити буфер."
 
 #: ../../library/ctypes.rst:1995
 msgid ""
 "Set the current value of the ctypes-private copy of the system :data:`errno` "
 "variable in the calling thread to *value* and return the previous value."
 msgstr ""
+"Установіть поточне значення ctypes-private копії системної змінної :data:"
+"`errno` у викликаючому потоці на *value* і поверніть попереднє значення."
 
 #: ../../library/ctypes.rst:1998
 msgid ""
@@ -2144,6 +2734,9 @@ msgid ""
 "system :data:`LastError` variable in the calling thread to *value* and "
 "return the previous value."
 msgstr ""
+"Лише для Windows: установіть поточне значення ctypes-private копії системної "
+"змінної :data:`LastError` у викликаючому потоці на *value* і поверніть "
+"попереднє значення."
 
 #: ../../library/ctypes.rst:2007
 msgid ""
@@ -2158,6 +2751,8 @@ msgid ""
 "Returns the size in bytes of a ctypes type or instance memory buffer. Does "
 "the same as the C ``sizeof`` operator."
 msgstr ""
+"Повертає розмір у байтах типу ctypes або буфера пам’яті примірника. Діє так "
+"само, як і оператор C ``sizeof``."
 
 #: ../../library/ctypes.rst:2018
 msgid ""
@@ -2165,12 +2760,17 @@ msgid ""
 "bytes object. If size is specified, it is used as size, otherwise the string "
 "is assumed to be zero-terminated."
 msgstr ""
+"Ця функція повертає рядок C, починаючи з адреси пам’яті *address*, як об’єкт "
+"bytes. Якщо вказано розмір, він використовується як розмір, інакше рядок "
+"вважається закінченим нулем."
 
 #: ../../library/ctypes.rst:2022
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``ctypes.string_at`` with "
 "arguments ``address``, ``size``."
 msgstr ""
+"Викликає :ref:`подію аудиту <auditing>` ``ctypes.string_at`` з аргументами "
+"``address``, ``size``."
 
 #: ../../library/ctypes.rst:2027
 msgid ""
@@ -2180,10 +2780,14 @@ msgid ""
 "specified, :func:`FormatError` is called to get a textual description of the "
 "error."
 msgstr ""
+"Лише для Windows: ця функція є, мабуть, найгіршою назвою в ctypes. Він "
+"створює екземпляр OSError. Якщо *код* не вказано, для визначення коду "
+"помилки викликається GetLastError. Якщо *descr* не вказано, :func:"
+"`FormatError` викликається для отримання текстового опису помилки."
 
 #: ../../library/ctypes.rst:2033
 msgid "An instance of :exc:`WindowsError` used to be created."
-msgstr ""
+msgstr "Раніше створювався екземпляр :exc:`WindowsError`."
 
 #: ../../library/ctypes.rst:2039
 msgid ""
@@ -2192,16 +2796,21 @@ msgid ""
 "characters of the string, otherwise the string is assumed to be zero-"
 "terminated."
 msgstr ""
+"Ця функція повертає широкий рядок символів, починаючи з адреси пам’яті "
+"*address*, як рядок. Якщо вказано *size*, він використовується як кількість "
+"символів у рядку, інакше рядок вважається закінченим нулем."
 
 #: ../../library/ctypes.rst:2044
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``ctypes.wstring_at`` with "
 "arguments ``address``, ``size``."
 msgstr ""
+"Викликає :ref:`подію аудиту <auditing>` ``ctypes.wstring_at`` з аргументами "
+"``адреса``, ``розмір``."
 
 #: ../../library/ctypes.rst:2050
 msgid "Data types"
-msgstr ""
+msgstr "Типи даних"
 
 #: ../../library/ctypes.rst:2055
 msgid ""
@@ -2212,12 +2821,20 @@ msgid ""
 "attr:`_objects`; this contains other Python objects that need to be kept "
 "alive in case the memory block contains pointers."
 msgstr ""
+"Цей непублічний клас є загальним базовим класом для всіх типів даних ctypes. "
+"Серед іншого, усі екземпляри типу ctypes містять блок пам’яті, який містить "
+"C-сумісні дані; адреса блоку пам'яті повертається допоміжною функцією :func:"
+"`addressof`. Інша змінна екземпляра представлена як :attr:`_objects`; це "
+"містить інші об’єкти Python, які потрібно підтримувати в активному стані, "
+"якщо блок пам’яті містить покажчики."
 
 #: ../../library/ctypes.rst:2062
 msgid ""
 "Common methods of ctypes data types, these are all class methods (to be "
 "exact, they are methods of the :term:`metaclass`):"
 msgstr ""
+"Загальні методи типів даних ctypes, це всі методи класу (точніше, це методи :"
+"term:`metaclass`):"
 
 #: ../../library/ctypes.rst:2067
 msgid ""
@@ -2227,6 +2844,11 @@ msgid ""
 "in bytes; the default is zero.  If the source buffer is not large enough a :"
 "exc:`ValueError` is raised."
 msgstr ""
+"Цей метод повертає екземпляр ctypes, який спільно використовує буфер об’єкта "
+"*source*. Об'єкт *джерело* має підтримувати інтерфейс буфера з можливістю "
+"запису. Необов'язковий параметр *offset* визначає зсув у вихідному буфері в "
+"байтах; за замовчуванням дорівнює нулю. Якщо вихідний буфер недостатньо "
+"великий, виникає :exc:`ValueError`."
 
 #: ../../library/ctypes.rst:2073 ../../library/ctypes.rst:2083
 msgid ""
@@ -2243,18 +2865,26 @@ msgid ""
 "specifies an offset into the source buffer in bytes; the default is zero.  "
 "If the source buffer is not large enough a :exc:`ValueError` is raised."
 msgstr ""
+"Цей метод створює екземпляр ctypes, копіюючи буфер із буфера *джерельного* "
+"об’єкта, який має бути читабельним. Необов'язковий параметр *offset* "
+"визначає зсув у вихідному буфері в байтах; за замовчуванням дорівнює нулю. "
+"Якщо вихідний буфер недостатньо великий, виникає :exc:`ValueError`."
 
 #: ../../library/ctypes.rst:2087
 msgid ""
 "This method returns a ctypes type instance using the memory specified by "
 "*address* which must be an integer."
 msgstr ""
+"Цей метод повертає екземпляр типу ctypes, використовуючи пам’ять, визначену "
+"*адресою*, яка має бути цілим числом."
 
 #: ../../library/ctypes.rst:2090
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``ctypes.cdata`` with argument "
 "``address``."
 msgstr ""
+"Викликає :ref:`подію аудиту <auditing>` ``ctypes.cdata`` з аргументом "
+"``адреса``."
 
 #: ../../library/ctypes.rst:2092
 msgid ""
@@ -2272,6 +2902,10 @@ msgid ""
 "foreign function's :attr:`argtypes` tuple; it must return an object that can "
 "be used as a function call parameter."
 msgstr ""
+"Цей метод адаптує *obj* до типу ctypes. Він викликається з фактичним "
+"об’єктом, який використовується у виклику зовнішньої функції, коли тип "
+"присутній у кортежі :attr:`argtypes` зовнішньої функції; він повинен "
+"повертати об'єкт, який можна використовувати як параметр виклику функції."
 
 #: ../../library/ctypes.rst:2103
 msgid ""
@@ -2279,6 +2913,9 @@ msgid ""
 "normally returns *obj* if that is an instance of the type.  Some types "
 "accept other objects as well."
 msgstr ""
+"Усі типи даних ctypes мають стандартну реалізацію цього методу класу, який "
+"зазвичай повертає *obj*, якщо це екземпляр типу. Деякі типи також приймають "
+"інші об’єкти."
 
 #: ../../library/ctypes.rst:2109
 msgid ""
@@ -2286,10 +2923,13 @@ msgid ""
 "*name* is the name of the symbol that exports the data, *library* is the "
 "loaded shared library."
 msgstr ""
+"Цей метод повертає екземпляр типу ctypes, експортований спільною "
+"бібліотекою. *name* — це ім’я символу, який експортує дані, *library* — це "
+"завантажена спільна бібліотека."
 
 #: ../../library/ctypes.rst:2113
 msgid "Common instance variables of ctypes data types:"
-msgstr ""
+msgstr "Загальні змінні екземплярів типів даних ctypes:"
 
 #: ../../library/ctypes.rst:2117
 msgid ""
@@ -2298,12 +2938,18 @@ msgid ""
 "`_b_base_` read-only member is the root ctypes object that owns the memory "
 "block."
 msgstr ""
+"Іноді екземпляри даних ctypes не володіють блоком пам’яті, який вони "
+"містять, натомість вони спільно використовують частину блоку пам’яті "
+"базового об’єкта. Член :attr:`_b_base_` лише для читання є кореневим "
+"об’єктом ctypes, якому належить блок пам’яті."
 
 #: ../../library/ctypes.rst:2124
 msgid ""
 "This read-only variable is true when the ctypes data instance has allocated "
 "the memory block itself, false otherwise."
 msgstr ""
+"Ця змінна лише для читання є істиною, коли екземпляр даних ctypes сам "
+"виділив блок пам’яті, інакше – false."
 
 #: ../../library/ctypes.rst:2129
 msgid ""
@@ -2312,6 +2958,10 @@ msgid ""
 "This object is only exposed for debugging; never modify the contents of this "
 "dictionary."
 msgstr ""
+"Цей член або ``None``, або словник, що містить об’єкти Python, які потрібно "
+"підтримувати в активному стані, щоб вміст блоку пам’яті залишався дійсним. "
+"Цей об’єкт доступний лише для налагодження; ніколи не змінюйте вміст цього "
+"словника."
 
 #: ../../library/ctypes.rst:2142
 msgid ""
@@ -2321,10 +2971,15 @@ msgid ""
 "class:`_CData`, so it inherits their methods and attributes. ctypes data "
 "types that are not and do not contain pointers can now be pickled."
 msgstr ""
+"Цей закритий клас є базовим класом усіх основних типів даних ctypes. Він "
+"згадується тут, оскільки він містить загальні атрибути основних типів даних "
+"ctypes. :class:`_SimpleCData` є підкласом :class:`_CData`, тому він "
+"успадковує їхні методи та атрибути. Типи даних ctypes, які не є та не "
+"містять покажчиків, тепер можна маринувати."
 
 #: ../../library/ctypes.rst:2148
 msgid "Instances have a single attribute:"
-msgstr ""
+msgstr "Екземпляри мають один атрибут:"
 
 #: ../../library/ctypes.rst:2152
 msgid ""
@@ -2333,6 +2988,10 @@ msgid ""
 "character bytes object or string, for character pointer types it is a Python "
 "bytes object or string."
 msgstr ""
+"Цей атрибут містить фактичне значення екземпляра. Для цілочисельних типів і "
+"типів покажчиків це ціле число, для типів символів – об’єкт або рядок із "
+"одним символом у байтах, для типів покажчиків на символи – це об’єкт або "
+"рядок Python bytes."
 
 #: ../../library/ctypes.rst:2157
 msgid ""
@@ -2341,6 +3000,10 @@ msgid ""
 "original object return, always a new object is constructed.  The same is "
 "true for all other ctypes object instances."
 msgstr ""
+"Коли атрибут ``value`` отримується з екземпляра ctypes, зазвичай щоразу "
+"повертається новий об’єкт. :mod:`ctypes` *не* реалізує повернення "
+"оригінального об’єкта, завжди створюється новий об’єкт. Те саме стосується "
+"всіх інших екземплярів об’єктів ctypes."
 
 #: ../../library/ctypes.rst:2163
 msgid ""
@@ -2350,6 +3013,12 @@ msgid ""
 "foreign function has a :attr:`restype` of :class:`c_char_p`, you will always "
 "receive a Python bytes object, *not* a :class:`c_char_p` instance."
 msgstr ""
+"Фундаментальні типи даних, коли повертаються як результати виклику "
+"зовнішньої функції або, наприклад, шляхом отримання членів полів структури "
+"чи елементів масиву, прозоро перетворюються на рідні типи Python. Іншими "
+"словами, якщо стороння функція має :attr:`restype` :class:`c_char_p`, ви "
+"завжди отримуватимете об’єкт Python bytes, *а не* екземпляр :class:"
+"`c_char_p`."
 
 #: ../../library/ctypes.rst:2171
 msgid ""
@@ -2358,10 +3027,14 @@ msgid ""
 "will receive an instance of this subclass from the function call. Of course, "
 "you can get the value of the pointer by accessing the ``value`` attribute."
 msgstr ""
+"Підкласи фундаментальних типів даних *не* успадковують цю поведінку. Отже, "
+"якщо зовнішня функція :attr:`restype` є підкласом :class:`c_void_p`, ви "
+"отримаєте екземпляр цього підкласу під час виклику функції. Звичайно, ви "
+"можете отримати значення вказівника, звернувшись до атрибута ``value``."
 
 #: ../../library/ctypes.rst:2176
 msgid "These are the fundamental ctypes data types:"
-msgstr ""
+msgstr "Ось основні типи даних ctypes:"
 
 #: ../../library/ctypes.rst:2180
 msgid ""
@@ -2455,11 +3128,11 @@ msgstr ""
 
 #: ../../library/ctypes.rst:2269
 msgid "Represents the C :c:type:`size_t` datatype."
-msgstr ""
+msgstr "Представляє тип даних C :c:type:`size_t`."
 
 #: ../../library/ctypes.rst:2274
 msgid "Represents the C :c:type:`ssize_t` datatype."
-msgstr ""
+msgstr "Представляє тип даних C :c:type:`ssize_t`."
 
 #: ../../library/ctypes.rst:2281
 msgid ""
@@ -2549,6 +3222,8 @@ msgid ""
 "Windows only: Represents a :c:type:`HRESULT` value, which contains success "
 "or error information for a function or method call."
 msgstr ""
+"Лише для Windows: представляє значення :c:type:`HRESULT`, яке містить "
+"інформацію про успіх або помилку для виклику функції чи методу."
 
 #: ../../library/ctypes.rst:2370
 msgid ""
@@ -2563,32 +3238,39 @@ msgid ""
 "`DWORD`.  Some useful structures like :c:type:`MSG` or :c:type:`RECT` are "
 "also defined."
 msgstr ""
+"Модуль :mod:`ctypes.wintypes` надає деякі інші специфічні типи даних "
+"Windows, наприклад :c:type:`HWND`, :c:type:`WPARAM` або :c:type:`DWORD`. "
+"Деякі корисні структури, такі як :c:type:`MSG` або :c:type:`RECT`, також "
+"визначені."
 
 #: ../../library/ctypes.rst:2381
 msgid "Structured data types"
-msgstr ""
+msgstr "Tipe data terstruktur"
 
 #: ../../library/ctypes.rst:2386
 msgid "Abstract base class for unions in native byte order."
-msgstr ""
+msgstr "Абстрактний базовий клас для об’єднань у рідному порядку байтів."
 
 #: ../../library/ctypes.rst:2391
 msgid "Abstract base class for structures in *big endian* byte order."
-msgstr ""
+msgstr "Абстрактний базовий клас для структур у *великому порядку байтів*."
 
 #: ../../library/ctypes.rst:2396
 msgid "Abstract base class for structures in *little endian* byte order."
 msgstr ""
+"Абстрактний базовий клас для структур у порядку байтів *little endian*."
 
 #: ../../library/ctypes.rst:2398
 msgid ""
 "Structures with non-native byte order cannot contain pointer type fields, or "
 "any other data types containing pointer type fields."
 msgstr ""
+"ネイティブではないバイトオーダーを持つ構造体にポインタ型フィールドあるいはポ"
+"インタ型フィールドを含む他のどんなデータ型をも入れることはできません。"
 
 #: ../../library/ctypes.rst:2404
 msgid "Abstract base class for structures in *native* byte order."
-msgstr ""
+msgstr "Абстрактний базовий клас для структур у *власному* порядку байтів."
 
 #: ../../library/ctypes.rst:2406
 msgid ""
@@ -2597,6 +3279,10 @@ msgid ""
 "`ctypes` will create :term:`descriptor`\\s which allow reading and writing "
 "the fields by direct attribute accesses.  These are the"
 msgstr ""
+"Конкретні типи структури та об’єднання мають бути створені шляхом створення "
+"підкласу одного з цих типів і принаймні визначення змінної класу :attr:"
+"`_fields_`. :mod:`ctypes` створить :term:`descriptor`\\s, які дозволяють "
+"читати та записувати поля за допомогою прямого доступу до атрибутів. Це"
 
 #: ../../library/ctypes.rst:2414
 msgid ""
@@ -2604,6 +3290,9 @@ msgid ""
 "tuples.  The first item is the name of the field, the second item specifies "
 "the type of the field; it can be any ctypes data type."
 msgstr ""
+"Послідовність, що визначає поля структури. Елементи мають бути 2-кортежними "
+"або 3-кортежними. Перший пункт – ім’я поля, другий – тип поля; це може бути "
+"будь-який тип даних ctypes."
 
 #: ../../library/ctypes.rst:2418
 msgid ""
@@ -2611,12 +3300,17 @@ msgid ""
 "given.  It must be a small positive integer defining the bit width of the "
 "field."
 msgstr ""
+"Для полів цілого типу, таких як :class:`c_int`, можна вказати третій "
+"необов’язковий елемент. Це має бути маленьке позитивне ціле число, що "
+"визначає розрядність поля."
 
 #: ../../library/ctypes.rst:2422
 msgid ""
 "Field names must be unique within one structure or union.  This is not "
 "checked, only one field can be accessed when names are repeated."
 msgstr ""
+"Імена полів мають бути унікальними в межах однієї структури чи об’єднання. "
+"Це не позначено, лише одне поле доступне, якщо імена повторюються."
 
 #: ../../library/ctypes.rst:2425
 msgid ""
@@ -2624,6 +3318,9 @@ msgid ""
 "class statement that defines the Structure subclass, this allows creating "
 "data types that directly or indirectly reference themselves::"
 msgstr ""
+"Можна визначити змінну класу :attr:`_fields_` *після* оператора класу, який "
+"визначає підклас Structure, це дозволяє створювати типи даних, які прямо чи "
+"опосередковано посилаються на себе::"
 
 #: ../../library/ctypes.rst:2435
 msgid ""
@@ -2632,6 +3329,10 @@ msgid ""
 "and so on).  Later assignments to the :attr:`_fields_` class variable will "
 "raise an AttributeError."
 msgstr ""
+"Однак змінну класу :attr:`_fields_` потрібно визначити перед першим "
+"використанням типу (створюється екземпляр, для нього викликається :func:"
+"`sizeof` і так далі). Пізніше призначення змінній класу :attr:`_fields_` "
+"призведе до помилки AttributeError."
 
 #: ../../library/ctypes.rst:2440
 msgid ""
@@ -2639,6 +3340,8 @@ msgid ""
 "fields of the base class plus the :attr:`_fields_` defined in the sub-"
 "subclass, if any."
 msgstr ""
+"Можна визначити під-підкласи структурних типів, вони успадковують поля "
+"базового класу плюс :attr:`_fields_`, визначені в під-підкласі, якщо такі є."
 
 #: ../../library/ctypes.rst:2447
 msgid ""
@@ -2646,6 +3349,9 @@ msgid ""
 "fields in the instance.  :attr:`_pack_` must already be defined when :attr:"
 "`_fields_` is assigned, otherwise it will have no effect."
 msgstr ""
+"Необов’язкове мале ціле число, яке дозволяє змінити вирівнювання полів "
+"структури в екземплярі. :attr:`_pack_` має бути вже визначено, коли :attr:"
+"`_fields_` призначено, інакше це не матиме ефекту."
 
 #: ../../library/ctypes.rst:2454
 msgid ""
@@ -2653,6 +3359,9 @@ msgid ""
 "attr:`_anonymous_` must be already defined when :attr:`_fields_` is "
 "assigned, otherwise it will have no effect."
 msgstr ""
+"Необов’язкова послідовність, яка містить імена безіменних (анонімних) "
+"полів. :attr:`_anonymous_` має бути вже визначено під час призначення :attr:"
+"`_fields_`, інакше це не матиме ефекту."
 
 #: ../../library/ctypes.rst:2458
 msgid ""
@@ -2661,10 +3370,14 @@ msgid ""
 "accessing the nested fields directly, without the need to create the "
 "structure or union field."
 msgstr ""
+"Поля, перелічені в цій змінній, мають бути структурними або об’єднаними. :"
+"mod:`ctypes` створить дескриптори у структурному типі, що дозволяє отримати "
+"доступ до вкладених полів безпосередньо, без необхідності створювати "
+"структуру чи поле об’єднання."
 
 #: ../../library/ctypes.rst:2463
 msgid "Here is an example type (Windows)::"
-msgstr ""
+msgstr "Ось приклад типу (Windows):"
 
 #: ../../library/ctypes.rst:2476
 msgid ""
@@ -2675,6 +3388,11 @@ msgid ""
 "equivalent, but the former is faster since it does not need to create a "
 "temporary union instance::"
 msgstr ""
+"Структура ``TYPEDESC`` описує тип даних COM, поле ``vt`` визначає, яке з "
+"полів об’єднання є дійсним. Оскільки поле ``u`` визначено як анонімне поле, "
+"тепер можна отримати доступ до членів безпосередньо з примірника TYPEDESC. "
+"``td.lptdesc`` і ``td.u.lptdesc`` еквівалентні, але перший швидший, оскільки "
+"йому не потрібно створювати тимчасовий екземпляр об’єднання::"
 
 #: ../../library/ctypes.rst:2488
 msgid ""
@@ -2683,6 +3401,9 @@ msgid ""
 "`_fields_` variable, the fields specified in this are appended to the fields "
 "of the base class."
 msgstr ""
+"Є можливість визначення суб-підкласів структур, вони успадковують поля "
+"базового класу. Якщо визначення підкласу має окрему змінну :attr:`_fields_`, "
+"поля, зазначені в ній, додаються до полів базового класу."
 
 #: ../../library/ctypes.rst:2493
 msgid ""
@@ -2693,14 +3414,20 @@ msgid ""
 "initialize :attr:`_fields_` with the same name, or create new attributes for "
 "names not present in :attr:`_fields_`."
 msgstr ""
+"Конструктори структури та об’єднання приймають як позиційні, так і ключові "
+"аргументи. Позиційні аргументи використовуються для ініціалізації полів-"
+"членів у такому самому порядку, як вони з’являються в :attr:`_fields_`. "
+"Аргументи ключових слів у конструкторі інтерпретуються як призначення "
+"атрибутів, тому вони ініціалізують :attr:`_fields_` з тим же іменем або "
+"створять нові атрибути для імен, яких немає в :attr:`_fields_`."
 
 #: ../../library/ctypes.rst:2504
 msgid "Arrays and pointers"
-msgstr ""
+msgstr "Масиви та покажчики"
 
 #: ../../library/ctypes.rst:2508
 msgid "Abstract base class for arrays."
-msgstr ""
+msgstr "Абстрактний базовий клас для масивів."
 
 #: ../../library/ctypes.rst:2510
 msgid ""
@@ -2711,6 +3438,12 @@ msgid ""
 "and slice accesses; for slice reads, the resulting object is *not* itself "
 "an :class:`Array`."
 msgstr ""
+"Рекомендований спосіб створення конкретних типів масивів — це множення будь-"
+"якого типу даних :mod:`ctypes` на невід’ємне ціле число. Крім того, ви "
+"можете створити підклас цього типу та визначити змінні класу :attr:"
+"`_length_` і :attr:`_type_`. Елементи масиву можна читати та записувати за "
+"допомогою стандартного підрядкового і зрізного доступу; для зчитування "
+"фрагментів результуючий об’єкт *не* сам є :class:`Array`."
 
 #: ../../library/ctypes.rst:2520
 msgid ""
@@ -2718,26 +3451,33 @@ msgid ""
 "range subscripts result in an :exc:`IndexError`. Will be returned by :func:"
 "`len`."
 msgstr ""
+"Додатне ціле число, що визначає кількість елементів у масиві. Індекси поза "
+"діапазоном призводять до :exc:`IndexError`. Буде повернено :func:`len`."
 
 #: ../../library/ctypes.rst:2527
 msgid "Specifies the type of each element in the array."
-msgstr ""
+msgstr "Визначає тип кожного елемента в масиві."
 
 #: ../../library/ctypes.rst:2530
 msgid ""
 "Array subclass constructors accept positional arguments, used to initialize "
 "the elements in order."
 msgstr ""
+"Конструктори підкласу масиву приймають позиційні аргументи, які "
+"використовуються для ініціалізації елементів у порядку."
 
 #: ../../library/ctypes.rst:2536
 msgid "Private, abstract base class for pointers."
-msgstr ""
+msgstr "Приватний, абстрактний базовий клас для вказівників."
 
 #: ../../library/ctypes.rst:2538
 msgid ""
 "Concrete pointer types are created by calling :func:`POINTER` with the type "
 "that will be pointed to; this is done automatically by :func:`pointer`."
 msgstr ""
+"Конкретні типи вказівників створюються шляхом виклику :func:`POINTER` із "
+"типом, на який буде вказувати; це робиться автоматично за допомогою :func:"
+"`pointer`."
 
 #: ../../library/ctypes.rst:2542
 msgid ""
@@ -2747,13 +3487,21 @@ msgid ""
 "the memory *before* the pointer (as in C), and out-of-range subscripts will "
 "probably crash with an access violation (if you're lucky)."
 msgstr ""
+"Якщо вказівник вказує на масив, його елементи можна читати та записувати за "
+"допомогою стандартного підрядкового і зрізного доступу. Об’єкти-вказівники "
+"не мають розміру, тому :func:`len` викличе :exc:`TypeError`. Негативні "
+"індекси читатимуться з пам’яті *перед* вказівником (як у C), а індекси поза "
+"межами діапазону, ймовірно, впадуть із порушенням доступу (якщо вам "
+"пощастить)."
 
 #: ../../library/ctypes.rst:2552
 msgid "Specifies the type pointed to."
-msgstr ""
+msgstr "Визначає тип, на який вказується."
 
 #: ../../library/ctypes.rst:2556
 msgid ""
 "Returns the object to which to pointer points.  Assigning to this attribute "
 "changes the pointer to point to the assigned object."
 msgstr ""
+"Повертає об’єкт, на який вказує вказівник. Призначення цьому атрибуту змінює "
+"вказівник на призначений об’єкт."

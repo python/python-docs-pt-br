@@ -4,20 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Italo Penaforte <italo.penaforte@gmail.com>, 2017
-# Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2017
-# i17obot <i17obot@rougeth.com>, 2020
-# Adorilson Bezerra <adorilson@gmail.com>, 2020
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2023
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-03 16:35+0000\n"
+"POT-Creation-Date: 2025-07-11 17:51+0000\n"
 "PO-Revision-Date: 2017-02-16 23:12+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2023\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "Language: pt_BR\n"
@@ -101,6 +97,9 @@ msgid ""
 "`property`.  A regular property blocks attribute writes unless a setter is "
 "defined. In contrast, a *cached_property* allows writes."
 msgstr ""
+"Механіка :func:`cached_property` дещо відрізняється від :func:`property`. "
+"Звичайна властивість блокує запис атрибута, якщо не визначено установщик. На "
+"відміну від цього, *cached_property* дозволяє запис."
 
 #: ../../library/functools.rst:77
 msgid ""
@@ -110,12 +109,19 @@ msgid ""
 "attribute reads and writes take precedence over the *cached_property* method "
 "and it works like a normal attribute."
 msgstr ""
+"Декоратор *cached_property* працює лише під час пошуку й лише тоді, коли "
+"атрибут із такою ж назвою не існує. Коли він виконується, *cached_property* "
+"записує в атрибут з таким же ім’ям. Наступні атрибути читання та запису "
+"мають пріоритет над методом *cached_property*, і він працює як звичайний "
+"атрибут."
 
 #: ../../library/functools.rst:83
 msgid ""
 "The cached value can be cleared by deleting the attribute.  This allows the "
 "*cached_property* method to run again."
 msgstr ""
+"Кешоване значення можна очистити, видаливши атрибут. Це дозволяє знову "
+"запустити метод *cached_property*."
 
 #: ../../library/functools.rst:86
 msgid ""
@@ -123,6 +129,9 @@ msgid ""
 "dictionaries.  This means that instance dictionaries can take more space "
 "than usual."
 msgstr ""
+"Зауважте, що цей декоратор заважає роботі словників спільного ключа :pep:"
+"`412`. Це означає, що словники примірників можуть займати більше місця, ніж "
+"зазвичай."
 
 #: ../../library/functools.rst:90
 msgid ""
@@ -133,6 +142,13 @@ msgid ""
 "``__slots__`` without including ``__dict__`` as one of the defined slots (as "
 "such classes don't provide a ``__dict__`` attribute at all)."
 msgstr ""
+"Крім того, цей декоратор вимагає, щоб атрибут ``__dict__`` для кожного "
+"екземпляра був змінним відображенням. Це означає, що він не працюватиме з "
+"деякими типами, такими як метакласи (оскільки атрибути ``__dict__`` в "
+"екземплярах типу є проксі-серверами лише для читання для простору імен "
+"класу), і ті, які вказують ``__slots__`` без включення ``__dict__`` як один "
+"із визначених слотів (оскільки такі класи взагалі не надають атрибут "
+"``__dict__``)."
 
 #: ../../library/functools.rst:97
 msgid ""
@@ -140,6 +156,10 @@ msgid ""
 "desired, an effect similar to :func:`cached_property` can be achieved by a "
 "stacking :func:`property` on top of :func:`cache`::"
 msgstr ""
+"Якщо змінне відображення недоступне або якщо потрібен спільний доступ до "
+"ключів з ефективним використанням простору, ефект, подібний до :func:"
+"`cached_property`, може бути досягнутий стекуванням :func:`property` поверх :"
+"func:`cache`::"
 
 #: ../../library/functools.rst:115
 msgid ""
@@ -343,6 +363,10 @@ msgid ""
 "class decorator supplies the rest.  This simplifies the effort involved in "
 "specifying all of the possible rich comparison operations:"
 msgstr ""
+"Враховуючи клас, що визначає один або більше методів розширеного "
+"впорядкування порівняння, цей декоратор класу забезпечує решту. Це спрощує "
+"завдання, пов’язані з визначенням усіх можливих операцій розширеного "
+"порівняння:"
 
 #: ../../library/functools.rst:251
 msgid ""
@@ -350,6 +374,8 @@ msgid ""
 "or :meth:`__ge__`. In addition, the class should supply an :meth:`__eq__` "
 "method."
 msgstr ""
+"Клас має визначати одне з :meth:`__lt__`, :meth:`__le__`, :meth:`__gt__` "
+"або :meth:`__ge__`. Крім того, клас повинен надати метод :meth:`__eq__`."
 
 #: ../../library/functools.rst:275
 msgid ""
@@ -359,12 +385,21 @@ msgid ""
 "indicates this is a bottleneck for a given application, implementing all six "
 "rich comparison methods instead is likely to provide an easy speed boost."
 msgstr ""
+"Незважаючи на те, що цей декоратор дозволяє легко створювати повністю "
+"впорядковані типи, що добре ведуть себе, це *ціна* відбувається за рахунок "
+"повільнішого виконання та більш складних трасувань стека для похідних "
+"методів порівняння. Якщо порівняльний аналіз продуктивності вказує на те, що "
+"це вузьке місце для даної програми, впровадження всіх шести розширених "
+"методів порівняння натомість, ймовірно, забезпечить легке підвищення "
+"швидкості."
 
 #: ../../library/functools.rst:284
 msgid ""
 "Returning NotImplemented from the underlying comparison function for "
 "unrecognised types is now supported."
 msgstr ""
+"Тепер підтримується повернення NotImplemented із основної функції порівняння "
+"для нерозпізнаних типів."
 
 #: ../../library/functools.rst:290
 msgid ""
@@ -374,6 +409,12 @@ msgid ""
 "appended to *args*. If additional keyword arguments are supplied, they "
 "extend and override *keywords*. Roughly equivalent to::"
 msgstr ""
+"Повертає новий :ref:`частковий об’єкт <partial-objects>`, який під час "
+"виклику поводитиметься як *func*, що викликається з позиційними аргументами "
+"*args* і ключовими аргументами *keywords*. Якщо до виклику надається більше "
+"аргументів, вони додаються до *args*. Якщо надаються додаткові ключові "
+"аргументи, вони розширюють і замінюють *ключові слова*. Приблизно "
+"еквівалентно::"
 
 #: ../../library/functools.rst:306
 msgid ""
@@ -383,6 +424,12 @@ msgid ""
 "can be used to create a callable that behaves like the :func:`int` function "
 "where the *base* argument defaults to two:"
 msgstr ""
+":func:`partial` використовується для застосування часткової функції, яка "
+"\"заморожує\" деяку частину аргументів функції та/або ключових слів, у "
+"результаті чого створюється новий об’єкт зі спрощеною сигнатурою. "
+"Наприклад, :func:`partial` можна використовувати для створення виклику, який "
+"поводиться як функція :func:`int`, де аргумент *base* за замовчуванням "
+"дорівнює двом:"
 
 #: ../../library/functools.rst:321
 msgid ""
@@ -390,12 +437,17 @@ msgid ""
 "`partial` except that it is designed to be used as a method definition "
 "rather than being directly callable."
 msgstr ""
+"Повертає новий дескриптор :class:`partialmethod`, який поводиться як :class:"
+"`partial`, за винятком того, що він призначений для використання як "
+"визначення методу, а не для безпосереднього виклику."
 
 #: ../../library/functools.rst:325
 msgid ""
 "*func* must be a :term:`descriptor` or a callable (objects which are both, "
 "like normal functions, are handled as descriptors)."
 msgstr ""
+"*func* має бути :term:`descriptor` або викликаним (об’єкти, які, як і "
+"звичайні функції, обробляються як дескриптори)."
 
 #: ../../library/functools.rst:328
 msgid ""
@@ -405,6 +457,11 @@ msgid ""
 "the underlying descriptor, and an appropriate :ref:`partial object<partial-"
 "objects>` returned as the result."
 msgstr ""
+"Коли *func* є дескриптором (наприклад, звичайною функцією Python, :func:"
+"`classmethod`, :func:`staticmethod`, :func:`abstractmethod` або іншим "
+"екземпляром :class:`partialmethod`), викликається ``__get__`` делегуються "
+"базовому дескриптору, а в результаті повертається відповідний :ref:"
+"`частковий об’єкт <partial-objects>`."
 
 #: ../../library/functools.rst:334
 msgid ""
@@ -414,6 +471,11 @@ msgid ""
 "argument, even before the *args* and *keywords* supplied to the :class:"
 "`partialmethod` constructor."
 msgstr ""
+"Коли *func* є недескрипторним викликом, відповідний пов’язаний метод "
+"створюється динамічно. Це поводиться як звичайна функція Python, коли "
+"використовується як метод: аргумент *self* буде вставлено як перший "
+"позиційний аргумент, навіть перед *args* і *keywords*, наданими "
+"конструктору :class:`partialmethod`."
 
 #: ../../library/functools.rst:365
 msgid ""
@@ -427,6 +489,15 @@ msgid ""
 "empty.  If *initializer* is not given and *iterable* contains only one item, "
 "the first item is returned."
 msgstr ""
+"Примените *функцию* двух аргументов кумулятивно к элементам *iterable* слева "
+"направо, чтобы свести итерируемый объект к одному значению. Например, "
+"``reduce(lambda x, y: x+y, [1, 2, 3, 4, 5])`` вычисляет ``((((1+2)+3)+4)+5) "
+"``. Левый аргумент *x* — это накопленное значение, а правый аргумент *y* — "
+"это значение обновления из *iterable*. Если присутствует необязательный "
+"*инициализатор*, он помещается перед элементами итерируемого объекта в "
+"вычислении и служит значением по умолчанию, когда итерируемый объект пуст. "
+"Если *initializer* не указан и *iterable* содержит только один элемент, "
+"возвращается первый элемент."
 
 #: ../../library/functools.rst:374
 msgid "Roughly equivalent to::"
@@ -437,12 +508,16 @@ msgid ""
 "See :func:`itertools.accumulate` for an iterator that yields all "
 "intermediate values."
 msgstr ""
+"Перегляньте :func:`itertools.accumulate` для ітератора, який видає всі "
+"проміжні значення."
 
 #: ../../library/functools.rst:391
 msgid ""
 "Transform a function into a :term:`single-dispatch <single dispatch>` :term:"
 "`generic function`."
 msgstr ""
+"Перетворення функції на :term:`single-dispatch <single dispatch>` :term:"
+"`generic function`."
 
 #: ../../library/functools.rst:394
 msgid ""
@@ -450,6 +525,9 @@ msgid ""
 "decorator. When defining a function using ``@singledispatch``, note that the "
 "dispatch happens on the type of the first argument::"
 msgstr ""
+"Щоб визначити загальну функцію, прикрасьте її за допомогою декоратора "
+"``@singledispatch``. Визначаючи функцію за допомогою ``@singledispatch``, "
+"зауважте, що відправлення відбувається за типом першого аргументу::"
 
 #: ../../library/functools.rst:405
 msgid ""
@@ -458,18 +536,26 @@ msgid ""
 "functions annotated with types, the decorator will infer the type of the "
 "first argument automatically::"
 msgstr ""
+"Щоб додати перевантажені реалізації до функції, використовуйте атрибут :func:"
+"`register` загальної функції, який можна використовувати як декоратор. Для "
+"функцій, анотованих типами, декоратор автоматично визначить тип першого "
+"аргументу:"
 
 #: ../../library/functools.rst:423
 msgid ""
 "For code which doesn't use type annotations, the appropriate type argument "
 "can be passed explicitly to the decorator itself::"
 msgstr ""
+"Для коду, який не використовує анотації типу, відповідний аргумент типу "
+"можна явно передати самому декоратору::"
 
 #: ../../library/functools.rst:434
 msgid ""
 "To enable registering :term:`lambdas<lambda>` and pre-existing functions, "
 "the :func:`register` attribute can also be used in a functional form::"
 msgstr ""
+"Щоб увімкнути реєстрацію :term:`lambdas <lambda>` і вже існуючих функцій, "
+"атрибут :func:`register` також можна використовувати у функціональній формі:"
 
 #: ../../library/functools.rst:442
 msgid ""
@@ -477,12 +563,15 @@ msgid ""
 "enables decorator stacking, :mod:`pickling<pickle>`, and the creation of "
 "unit tests for each variant independently::"
 msgstr ""
+"Атрибут :func:`register` повертає недекоровану функцію. Це дозволяє "
+"стекувати декоратор, :mod:`піклінг <pickle>` і створювати модульні тести для "
+"кожного варіанту незалежно:"
 
 #: ../../library/functools.rst:456
 msgid ""
 "When called, the generic function dispatches on the type of the first "
 "argument::"
-msgstr ""
+msgstr "Під час виклику загальна функція надсилає тип першого аргументу::"
 
 #: ../../library/functools.rst:476
 msgid ""
@@ -492,6 +581,11 @@ msgid ""
 "class:`object` type, which means it is used if no better implementation is "
 "found."
 msgstr ""
+"Якщо немає зареєстрованої реалізації для певного типу, його порядок "
+"вирішення методів використовується для пошуку більш загальної реалізації. "
+"Оригінальна функція, прикрашена ``@singledispatch``, зареєстрована для "
+"базового типу :class:`object`, що означає, що вона використовується, якщо не "
+"знайдено кращої реалізації."
 
 #: ../../library/functools.rst:482
 msgid ""
@@ -499,28 +593,36 @@ msgid ""
 "virtual subclasses of the base class will be dispatched to that "
 "implementation::"
 msgstr ""
+"Якщо реалізацію зареєстровано в :term:`abstract base class`, віртуальні "
+"підкласи базового класу будуть відправлені до цієї реалізації::"
 
 #: ../../library/functools.rst:497
 msgid ""
 "To check which implementation the generic function will choose for a given "
 "type, use the ``dispatch()`` attribute::"
 msgstr ""
+"Щоб перевірити, яку реалізацію вибере загальна функція для заданого типу, "
+"використовуйте атрибут ``dispatch()``::"
 
 #: ../../library/functools.rst:505
 msgid ""
 "To access all registered implementations, use the read-only ``registry`` "
 "attribute::"
 msgstr ""
+"Щоб отримати доступ до всіх зареєстрованих реалізацій, використовуйте "
+"атрибут ``registry`` лише для читання::"
 
 #: ../../library/functools.rst:519
 msgid "The :func:`register` attribute now supports using type annotations."
-msgstr ""
+msgstr "Атрибут :func:`register` тепер підтримує використання анотацій типу."
 
 #: ../../library/functools.rst:525
 msgid ""
 "Transform a method into a :term:`single-dispatch <single dispatch>` :term:"
 "`generic function`."
 msgstr ""
+"Перетворення методу на :term:`single-dispatch <single dispatch>` :term:"
+"`generic function`."
 
 #: ../../library/functools.rst:528
 msgid ""
@@ -529,6 +631,10 @@ msgid ""
 "that the dispatch happens on the type of the first non-*self* or non-*cls* "
 "argument::"
 msgstr ""
+"Щоб визначити загальний метод, прикрасьте його декоратором "
+"``@singledispatchmethod``. Визначаючи функцію за допомогою "
+"``@singledispatchmethod``, зауважте, що відправлення відбувається за типом "
+"першого не*self* або не*cls* аргументу::"
 
 #: ../../library/functools.rst:546
 msgid ""
@@ -538,6 +644,11 @@ msgid ""
 "Here is the ``Negator`` class with the ``neg`` methods bound to the class, "
 "rather than an instance of the class::"
 msgstr ""
+"``@singledispatchmethod`` підтримує вкладення з іншими декораторами, такими "
+"як :func:`@classmethod <classmethod>`. Зауважте, що для того, щоб дозволити "
+"``dispatcher.register``, ``singledispatchmethod`` має бути *зовнішнім* "
+"декоратором. Ось клас ``Negator`` з методами ``neg``, прив'язаними до класу, "
+"а не екземпляр класу::"
 
 #: ../../library/functools.rst:568
 msgid ""
@@ -545,6 +656,9 @@ msgid ""
 "`@staticmethod<staticmethod>`, :func:`@abstractmethod<abc.abstractmethod>`, "
 "and others."
 msgstr ""
+"Той самий шаблон можна використовувати для інших подібних декораторів: :func:"
+"`@staticmethod <staticmethod>`, :func:`@abstractmethod <abc.abstractmethod>` "
+"та інших."
 
 #: ../../library/functools.rst:577
 msgid ""
@@ -559,6 +673,15 @@ msgid ""
 "string) and ``WRAPPER_UPDATES`` (which updates the wrapper function's "
 "``__dict__``, i.e. the instance dictionary)."
 msgstr ""
+"Оновіть функцію *wrapper*, щоб виглядати як функція *wrapper*. Необов’язкові "
+"аргументи — це кортежі, які вказують, які атрибути вихідної функції "
+"призначаються безпосередньо відповідним атрибутам у функції-огортці та які "
+"атрибути функції-огортки оновлюються відповідними атрибутами з вихідної "
+"функції. Значеннями за замовчуванням для цих аргументів є константи рівня "
+"модуля ``WRAPPER_ASSIGNMENTS`` (які призначають функції-оболонки "
+"``__module__``, ``__name__``, ``__qualname__``, ``__annotations__`` і "
+"``__doc__``, рядок документації) і ``WRAPPER_UPDATES`` (який оновлює "
+"``__dict__`` функції-огортки, тобто словник екземпляра)."
 
 #: ../../library/functools.rst:587
 msgid ""
@@ -567,6 +690,10 @@ msgid ""
 "this function automatically adds a ``__wrapped__`` attribute to the wrapper "
 "that refers to the function being wrapped."
 msgstr ""
+"Щоб дозволити доступ до оригінальної функції для самоаналізу та інших цілей "
+"(наприклад, обхід декоратора кешування, такого як :func:`lru_cache`), ця "
+"функція автоматично додає атрибут ``__wrapped__`` до оболонки, яка "
+"посилається на функцію, яку обгортають."
 
 #: ../../library/functools.rst:592
 msgid ""
@@ -576,6 +703,10 @@ msgid ""
 "the wrapper definition rather than the original function definition, which "
 "is typically less than helpful."
 msgstr ""
+"Основним призначенням цієї функції є функції :term:`decorator`, які "
+"обертають декоровану функцію та повертають оболонку. Якщо функція-оболонка "
+"не оновлена, метадані повернутої функції відображатимуть визначення "
+"оболонки, а не початкове визначення функції, що зазвичай не дуже корисно."
 
 #: ../../library/functools.rst:598
 msgid ""
@@ -585,18 +716,24 @@ msgid ""
 "on the wrapper function). :exc:`AttributeError` is still raised if the "
 "wrapper function itself is missing any attributes named in *updated*."
 msgstr ""
+":func:`update_wrapper` можна використовувати з іншими викликами, ніж "
+"функції. Будь-які атрибути з іменами *assigned* або *updated*, яких немає в "
+"об’єкті, що обгортається, ігноруються (тобто ця функція не намагатиметься "
+"встановити їх у функції обгортки). :exc:`AttributeError` все ще виникає, "
+"якщо в самій функції-обгортки відсутні будь-які атрибути, названі в "
+"*updated*."
 
 #: ../../library/functools.rst:604
 msgid "Automatic addition of the ``__wrapped__`` attribute."
-msgstr ""
+msgstr "Автоматичне додавання атрибута ``__wrapped__``."
 
 #: ../../library/functools.rst:607
 msgid "Copying of the ``__annotations__`` attribute by default."
-msgstr ""
+msgstr "Копіювання атрибута ``__annotations__`` за замовчуванням."
 
 #: ../../library/functools.rst:610
 msgid "Missing attributes no longer trigger an :exc:`AttributeError`."
-msgstr ""
+msgstr "Відсутні атрибути більше не викликають :exc:`AttributeError`."
 
 #: ../../library/functools.rst:613
 msgid ""
@@ -604,6 +741,9 @@ msgid ""
 "even if that function defined a ``__wrapped__`` attribute. (see :issue:"
 "`17482`)"
 msgstr ""
+"Атрибут ``__wrapped__`` тепер завжди посилається на обгорнуту функцію, "
+"навіть якщо ця функція визначила атрибут ``__wrapped__``. (див. :issue:"
+"`17482`)"
 
 #: ../../library/functools.rst:621
 msgid ""
@@ -612,6 +752,10 @@ msgid ""
 "``partial(update_wrapper, wrapped=wrapped, assigned=assigned, "
 "updated=updated)``. For example::"
 msgstr ""
+"Це зручна функція для виклику :func:`update_wrapper` як декоратора функції "
+"під час визначення функції-огортки. Це еквівалентно "
+"``partial(update_wrapper, wrapped=wrapped, assigned=призначено, "
+"updated=updated)``. Наприклад::"
 
 #: ../../library/functools.rst:647
 msgid ""
@@ -619,6 +763,9 @@ msgid ""
 "would have been ``'wrapper'``, and the docstring of the original :func:"
 "`example` would have been lost."
 msgstr ""
+"Без використання цієї фабрики декораторів назва функції прикладу була б "
+"``'wrapper``, а рядок документації оригінального :func:`example` було б "
+"втрачено."
 
 #: ../../library/functools.rst:655
 msgid ":class:`partial` Objects"
@@ -629,24 +776,32 @@ msgid ""
 ":class:`partial` objects are callable objects created by :func:`partial`. "
 "They have three read-only attributes:"
 msgstr ""
+":class:`partial` об’єкти – це викликані об’єкти, створені :func:`partial`. "
+"Вони мають три атрибути лише для читання:"
 
 #: ../../library/functools.rst:663
 msgid ""
 "A callable object or function.  Calls to the :class:`partial` object will be "
 "forwarded to :attr:`func` with new arguments and keywords."
 msgstr ""
+"Викликаний об’єкт або функція. Виклики об’єкта :class:`partial` будуть "
+"перенаправлені до :attr:`func` з новими аргументами та ключовими словами."
 
 #: ../../library/functools.rst:669
 msgid ""
 "The leftmost positional arguments that will be prepended to the positional "
 "arguments provided to a :class:`partial` object call."
 msgstr ""
+"Крайні ліві позиційні аргументи, які будуть додані до позиційних аргументів, "
+"наданих до виклику об’єкта :class:`partial`."
 
 #: ../../library/functools.rst:675
 msgid ""
 "The keyword arguments that will be supplied when the :class:`partial` object "
 "is called."
 msgstr ""
+"Ключові аргументи, які будуть надані під час виклику об’єкта :class:"
+"`partial`."
 
 #: ../../library/functools.rst:678
 msgid ""
@@ -657,3 +812,9 @@ msgid ""
 "`partial` objects defined in classes behave like static methods and do not "
 "transform into bound methods during instance attribute look-up."
 msgstr ""
+"Об’єкти :class:`partial` схожі на об’єкти :class:`function` тим, що їх можна "
+"викликати, на них можна слабко посилатися та вони можуть мати атрибути. Є "
+"деякі важливі відмінності. Наприклад, атрибути :attr:`~definition.__name__` "
+"і :attr:`__doc__` не створюються автоматично. Крім того, об’єкти :class:"
+"`partial`, визначені в класах, поводяться як статичні методи і не "
+"перетворюються на зв’язані методи під час пошуку атрибутів екземпляра."

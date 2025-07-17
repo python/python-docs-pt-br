@@ -4,21 +4,18 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2018
 # Amanda Savluchinske <amandasavluchinske@gmail.com>, 2019
-# Aline Balogh <linecrist@hotmail.com>, 2020
-# Alexsandro Matias de Almeida <matiasalexsandro@gmail.com>, 2020
 # Vitor Buxbaum Orlandi, 2023
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-17 15:27+0000\n"
+"POT-Creation-Date: 2025-07-11 17:51+0000\n"
 "PO-Revision-Date: 2017-02-16 17:42+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "Language: pt_BR\n"
@@ -271,6 +268,14 @@ msgid ""
 "class method wants to extend the base class method of the same name and thus "
 "has to call the base class method somehow."
 msgstr ""
+"По-друге, це означає, що не потрібен спеціальний синтаксис, якщо ви хочете "
+"явно посилатися на метод або викликати його з певного класу. У C++, якщо ви "
+"хочете використовувати метод із базового класу, який перевизначено в "
+"похідному класі, вам потрібно використовувати оператор ``::`` -- у Python ви "
+"можете написати ``baseclass.methodname(self, <argument list>)``. Це особливо "
+"корисно для методів :meth:`__init__` і загалом у випадках, коли метод "
+"похідного класу хоче розширити однойменний метод базового класу і, отже, має "
+"якось викликати метод базового класу."
 
 #: ../../faq/design.rst:136
 msgid ""
@@ -657,6 +662,10 @@ msgid ""
 "those file objects will only get collected (and closed) at varying and "
 "possibly long intervals."
 msgstr ""
+"Дійсно, використовуючи схему підрахунку посилань і деструктора CPython, "
+"кожне нове призначення *f* закриває попередній файл. Однак за допомогою "
+"традиційного збирача сміття ці файлові об’єкти збиратимуться (і "
+"закриватимуться) лише через різні та, можливо, великі проміжки часу."
 
 #: ../../faq/design.rst:361
 msgid ""
@@ -698,6 +707,12 @@ msgid ""
 "malloc() and free(), and may not want Python's.  Right now, CPython works "
 "with anything that implements malloc() and free() properly."
 msgstr ""
+"Звичайний GC також стає проблемою, коли Python вбудовано в інші програми. "
+"Хоча в автономному Python можна замінити стандартні malloc() і free() "
+"версіями, наданими бібліотекою GC, програма, яка вбудовує Python, може "
+"захотіти мати свій *власний* замінник malloc() і free(), і може не хотіти "
+"використовувати те що є у Python. Наразі CPython працює з усім, що правильно "
+"реалізує malloc() і free()."
 
 #: ../../faq/design.rst:388
 msgid "Why isn't all memory freed when CPython exits?"
@@ -740,6 +755,12 @@ msgid ""
 "Cartesian coordinate is appropriately represented as a tuple of two or three "
 "numbers."
 msgstr ""
+"Списки та кортежі, хоч і схожі в багатьох відношеннях, зазвичай "
+"використовуються принципово різними способами. Кортежі можна розглядати як "
+"подібні до записів Pascal або структур C; це невеликі колекції пов’язаних "
+"даних, які можуть бути різних типів, які обробляються як група. Наприклад, "
+"декартова координата відповідним чином представлена у вигляді кортежу з двох "
+"або трьох чисел."
 
 #: ../../faq/design.rst:411
 msgid ""
@@ -750,6 +771,12 @@ msgid ""
 "Functions which operate on this output would generally not break if you "
 "added another file or two to the directory."
 msgstr ""
+"Списки, з іншого боку, більше схожі на масиви в інших мовах. Вони, як "
+"правило, містять різну кількість об’єктів, усі з яких мають однаковий тип і "
+"з якими працюють один за одним. Наприклад, ``os.listdir('.')`` повертає "
+"список рядків, що представляють файли в поточному каталозі. Функції, які "
+"працюють з цим виводом, як правило, не зламаються, якщо ви додасте ще один "
+"або два файли до каталогу."
 
 #: ../../faq/design.rst:418
 msgid ""
@@ -831,6 +858,15 @@ msgid ""
 "dictionaries take constant time -- O(1), in Big-O notation -- to retrieve a "
 "key."
 msgstr ""
+"Словники працюють шляхом обчислення хеш-коду для кожного ключа, що "
+"зберігається в словнику, за допомогою вбудованої функції :func:`hash`. Хеш-"
+"код значно змінюється залежно від ключа та початкового числа процесу; "
+"наприклад, рядок \"Python\" може отримати хеш -539294296, тоді як "
+"\"python\", рядок, який відрізняється одним бітом, може отримати хеш  "
+"1142331976. Хеш-код потім використовується для обчислення розташування у "
+"внутрішньому масиві, де буде зберігатися значення . Якщо припустити, що ви "
+"зберігаєте ключі, усі з яких мають різні хеш-значення, це означає, що "
+"словникам потрібен постійний час – O(1) у нотації Big-O – щоб отримати ключ."
 
 #: ../../faq/design.rst:458
 msgid "Why must dictionary keys be immutable?"
@@ -943,6 +979,12 @@ msgid ""
 "dictionary (or other hash based structure), remain fixed while the object is "
 "in the dictionary (or other structure). ::"
 msgstr ""
+"Існує трюк, щоб обійти це, якщо вам потрібно, але використовуйте його на "
+"свій страх і ризик: ви можете загорнути змінну структуру в екземпляр класу, "
+"який має методи як :meth:`__eq__`, так і :meth:`__hash__`. . Потім ви "
+"повинні переконатися, що хеш-значення для всіх таких об’єктів-огорток, які "
+"знаходяться в словнику (або іншій структурі на основі хешів), залишаються "
+"фіксованими, поки об’єкт знаходиться в словнику (або іншій структурі). ::"
 
 #: ../../faq/design.rst:524
 msgid ""
@@ -975,6 +1017,10 @@ msgid ""
 "you are prepared to think hard about the requirements and the consequences "
 "of not meeting them correctly.  Consider yourself warned."
 msgstr ""
+"У випадку ListWrapper, щоразу, коли об’єкт-огортка знаходиться в словнику, "
+"обгорнутий список не повинен змінюватися, щоб уникнути аномалій. Не робіть "
+"цього, якщо ви не готові добре подумати про вимоги та наслідки їх "
+"невиконання належним чином. Вважайте, що вас попередили."
 
 #: ../../faq/design.rst:540
 msgid "Why doesn't list.sort() return the sorted list?"
@@ -1079,6 +1125,13 @@ msgid ""
 "test that your :meth:`append` implementation will actually do this "
 "correctly, but it's trivial to check this property in a test suite."
 msgstr ""
+"Відповідний порядок тестування може допомогти створювати великі складні "
+"програми на Python так само, як і специфікації інтерфейсу. Насправді це може "
+"бути краще, оскільки специфікація інтерфейсу не може перевірити певні "
+"властивості програми. Наприклад, очікується, що метод :meth:`append` додасть "
+"нові елементи в кінець деякого внутрішнього списку; специфікація інтерфейсу "
+"не може перевірити, чи ваша реалізація :meth:`append` справді зробить це "
+"правильно, але перевірити цю властивість у наборі тестів досить просто."
 
 #: ../../faq/design.rst:591
 msgid ""
@@ -1107,6 +1160,12 @@ msgid ""
 "expressions) and loop (with ``while`` and ``for`` statements, possibly "
 "containing ``continue`` and ``break``)."
 msgstr ""
+"У 1970-х роках люди зрозуміли, що необмежений goto може призвести до "
+"безладного \"спагетті\" коду, який важко зрозуміти та переглянути. У мові "
+"високого рівня він також непотрібний, якщо є способи розгалуження (у Python "
+"з операторами ``if``, ``or``, ``and`` та ``if-else`` вирази) і цикл (з "
+"операторами ``while`` і ``for``, можливо, що містять ``continue`` і "
+"``break``)."
 
 #: ../../faq/design.rst:608
 msgid ""
@@ -1115,12 +1174,18 @@ msgid ""
 "all reasonable uses of the \"go\" or \"goto\" constructs of C, Fortran, and "
 "other languages.  For example::"
 msgstr ""
+"Можна також використовувати винятки, щоб забезпечити \"структурований "
+"переход\", який працює навіть при викликах функцій. Багато хто вважає, що "
+"винятки можуть зручно імітувати всі розумні використання конструкцій \"go\" "
+"або \"goto\" C, Fortran та інших мов. Наприклад::"
 
 #: ../../faq/design.rst:624
 msgid ""
 "This doesn't allow you to jump into the middle of a loop, but that's usually "
 "considered an abuse of goto anyway.  Use sparingly."
 msgstr ""
+"Це не дозволяє вам переходити в середину циклу, але зазвичай це вважається "
+"зловживанням goto. Використовуйте раціонально."
 
 #: ../../faq/design.rst:629
 msgid "Why can't raw strings (r-strings) end with a backslash?"
@@ -1181,6 +1246,8 @@ msgid ""
 "code on the entrance and exit from the block.  Some languages have a "
 "construct that looks like this::"
 msgstr ""
+"У Python є оператор with, який завершує виконання блоку, викликаючи код на "
+"вході та виході з блоку. У деяких мовах є конструкція, яка виглядає так:"
 
 #: ../../faq/design.rst:665
 msgid "In Python, such a construct would be ambiguous."
@@ -1224,6 +1291,11 @@ msgid ""
 "variable named \"x\", will it be used inside the with block?  As you see, "
 "the dynamic nature of Python makes such choices much harder."
 msgstr ""
+"Фрагмент припускає, що \"a\" повинен мати атрибут члена під назвою \"x\". "
+"Однак у Python немає нічого, що повідомляє про це інтерпретатору. Що має "
+"статися, якщо \"а\" є, скажімо, цілим числом? Якщо існує глобальна змінна з "
+"назвою \"x\", чи буде вона використана в блоці with? Як бачите, динамічна "
+"природа Python робить такий вибір набагато складнішим."
 
 #: ../../faq/design.rst:690
 msgid ""
@@ -1260,6 +1332,11 @@ msgid ""
 "iterator run to completion, no closing is needed.  When it is, wrap it as "
 "\"contextlib.closing(generator)\" in the 'with' statement."
 msgstr ""
+"З технічних причин генератор, який використовується безпосередньо як "
+"менеджер контексту, не працюватиме належним чином. Коли, як це найчастіше "
+"буває, генератор використовується як ітератор, що виконується до кінця, "
+"закриття не потрібне. Коли це так, оберніть його як \"contextlib."
+"closing(generator)\" у операторі \"with\"."
 
 #: ../../faq/design.rst:719
 msgid "Why are colons required for the if/while/def/class statements?"

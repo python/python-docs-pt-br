@@ -4,9 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Raphael Mendonça, 2017
 # Marcos Wenneton Araújo <mwvda.eng@uea.edu.br>, 2019
-# i17obot <i17obot@rougeth.com>, 2020
 # Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
@@ -406,6 +404,15 @@ msgid ""
 "the Transfer-Encoding header will automatically be set instead of Content-"
 "Length."
 msgstr ""
+"Якщо *headers* не містить ані Content-Length, ані Transfer-Encoding, але є "
+"тіло запиту, одне з цих полів заголовка буде додано автоматично. Якщо *body* "
+"має значення ``None``, заголовок Content-Length встановлюється на ``0`` для "
+"методів, які очікують тіла (``PUT``, ``POST`` і ``PATCH``). . Якщо *body* є "
+"рядком або байтоподібним об’єктом, який також не є :term:`файлом <file "
+"object>`, заголовок Content-Length встановлюється на його довжину. Будь-який "
+"інший тип *body* (файли та ітерації загалом) буде закодовано фрагментами, а "
+"заголовок Transfer-Encoding буде автоматично встановлено замість Content-"
+"Length."
 
 #: ../../library/http.client.rst:287
 msgid ""
@@ -414,6 +421,10 @@ msgid ""
 "HTTPConnection object assumes that all encoding is handled by the calling "
 "code.  If it is ``True``, the body will be chunk-encoded."
 msgstr ""
+"Аргумент *encode_chunked* доречний, лише якщо Transfer-Encoding указано в "
+"*headers*. Якщо *encode_chunked* має значення ``False``, об’єкт "
+"HTTPConnection припускає, що все кодування обробляється кодом виклику. Якщо "
+"значення ``True``, тіло буде закодовано фрагментами."
 
 #: ../../library/http.client.rst:293
 msgid ""
@@ -422,6 +433,10 @@ msgid ""
 "specify the Content-Length, or must pass a :class:`str` or bytes-like object "
 "that is not also a file as the body representation."
 msgstr ""
+"До протоколу HTTP версії 1.1 додано кодування передачі фрагментами. Якщо не "
+"відомо, що HTTP-сервер обробляє HTTP 1.1, абонент повинен або вказати "
+"Content-Length, або повинен передати :class:`str` або байт-подібний об’єкт, "
+"який також не є файлом, як представлення тіла."
 
 #: ../../library/http.client.rst:299
 msgid "*body* can now be an iterable."
@@ -434,18 +449,26 @@ msgid ""
 "argument was added. No attempt is made to determine the Content-Length for "
 "file objects."
 msgstr ""
+"Якщо ані Content-Length, ані Transfer-Encoding не встановлено в *headers*, "
+"файл і ітераційні *body* об’єкти тепер закодовані фрагментами. Додано "
+"аргумент *encode_chunked*. Не робиться жодних спроб визначити довжину вмісту "
+"для файлових об’єктів."
 
 #: ../../library/http.client.rst:311
 msgid ""
 "Should be called after a request is sent to get the response from the "
 "server. Returns an :class:`HTTPResponse` instance."
 msgstr ""
+"Має викликатися після надсилання запиту, щоб отримати відповідь від сервера. "
+"Повертає екземпляр :class:`HTTPResponse`."
 
 #: ../../library/http.client.rst:316
 msgid ""
 "Note that you must have read the whole response before you can send a new "
 "request to the server."
 msgstr ""
+"Зверніть увагу, що ви повинні прочитати всю відповідь, перш ніж ви зможете "
+"надіслати новий запит на сервер."
 
 #: ../../library/http.client.rst:319
 msgid ""
@@ -464,12 +487,19 @@ msgid ""
 "currently defined debug output to be printed to stdout.  The ``debuglevel`` "
 "is passed to any new :class:`HTTPResponse` objects that are created."
 msgstr ""
+"Встановіть рівень налагодження. Рівень налагодження за замовчуванням ``0``, "
+"тобто вихідні дані налагодження не друкуються. Будь-яке значення, яке "
+"перевищує ``0``, призведе до того, що весь поточний визначений вихід "
+"налагодження буде надруковано в stdout. ``debuglevel`` передається будь-яким "
+"новим об’єктам :class:`HTTPResponse`, які створюються."
 
 #: ../../library/http.client.rst:337
 msgid ""
 "Set the host and the port for HTTP Connect Tunnelling. This allows running "
 "the connection through a proxy server."
 msgstr ""
+"Встановіть хост і порт для тунелювання підключення HTTP. Це дозволяє "
+"запускати підключення через проксі-сервер."
 
 #: ../../library/http.client.rst:340
 msgid ""
@@ -477,12 +507,16 @@ msgid ""
 "(i.e. the address included in the CONNECT request, *not* the address of the "
 "proxy server)."
 msgstr ""
+"Аргументи host і port визначають кінцеву точку тунельованого з’єднання "
+"(тобто адресу, включену в запит CONNECT, *не* адресу проксі-сервера)."
 
 #: ../../library/http.client.rst:344
 msgid ""
 "The headers argument should be a mapping of extra HTTP headers to send with "
 "the CONNECT request."
 msgstr ""
+"Аргумент заголовків має бути відображенням додаткових заголовків HTTP для "
+"надсилання із запитом CONNECT."
 
 #: ../../library/http.client.rst:347
 msgid ""
@@ -491,6 +525,10 @@ msgid ""
 "constructor, and the address of the host that we eventually want to reach to "
 "the :meth:`~HTTPConnection.set_tunnel` method::"
 msgstr ""
+"Наприклад, щоб тунелювати через проксі-сервер HTTPS, який працює локально на "
+"порту 8080, ми повинні передати адресу проксі-сервера до конструктора :class:"
+"`HTTPSConnection`, а адресу хоста, до якого ми хочемо отримати доступ, до :"
+"meth:`~HTTPConnection.set_tunnel` метод::"
 
 #: ../../library/http.client.rst:362
 msgid ""
@@ -498,20 +536,27 @@ msgid ""
 "this is called automatically when making a request if the client does not "
 "already have a connection."
 msgstr ""
+"Підключіться до сервера, указаного під час створення об’єкта. За "
+"замовчуванням це викликається автоматично під час надсилання запиту, якщо "
+"клієнт ще не має підключення."
 
 #: ../../library/http.client.rst:369
 msgid "Close the connection to the server."
-msgstr ""
+msgstr "Закрийте підключення до сервера."
 
 #: ../../library/http.client.rst:374
 msgid "Buffer size in bytes for sending a file-like message body."
 msgstr ""
+"Розмір буфера в байтах для надсилання тіла повідомлення, схожого на файл."
 
 #: ../../library/http.client.rst:379
 msgid ""
 "As an alternative to using the :meth:`request` method described above, you "
 "can also send your request step by step, by using the four functions below."
 msgstr ""
+"Як альтернативу використанню методу :meth:`request`, описаного вище, ви "
+"також можете надіслати свій запит крок за кроком, використовуючи чотири "
+"функції нижче."
 
 #: ../../library/http.client.rst:386
 msgid ""
@@ -522,6 +567,12 @@ msgid ""
 "additional content encodings), specify *skip_host* or *skip_accept_encoding* "
 "with non-False values."
 msgstr ""
+"Це має бути перший виклик після підключення до сервера. Він надсилає на "
+"сервер рядок, що складається з рядка *method*, рядка *url* і версії HTTP "
+"(``HTTP/1.1``). Щоб вимкнути автоматичне надсилання заголовків ``Host:`` або "
+"``Accept-Encoding:`` (наприклад, щоб прийняти додаткове кодування вмісту), "
+"укажіть *skip_host* або *skip_accept_encoding* зі значеннями, відмінними від "
+"False."
 
 #: ../../library/http.client.rst:396
 msgid ""
@@ -530,6 +581,10 @@ msgid ""
 "argument.  If more arguments are given, continuation lines are sent, each "
 "consisting of a tab and an argument."
 msgstr ""
+"Надішліть на сервер заголовок у стилі :rfc:`822`\\. Він надсилає на сервер "
+"рядок, що складається із заголовка, двокрапки, пробілу та першого аргументу. "
+"Якщо задано більше аргументів, надсилаються рядки продовження, кожен з яких "
+"складається з табуляції та аргументу."
 
 #: ../../library/http.client.rst:404
 msgid ""
@@ -537,6 +592,9 @@ msgid ""
 "optional *message_body* argument can be used to pass a message body "
 "associated with the request."
 msgstr ""
+"Надішліть порожній рядок на сервер, сигналізуючи про кінець заголовків. "
+"Додатковий аргумент *message_body* можна використовувати для передачі тіла "
+"повідомлення, пов’язаного із запитом."
 
 #: ../../library/http.client.rst:408
 msgid ""
@@ -550,6 +608,15 @@ msgid ""
 "read()`` will result in a chunk. The method automatically signals the end of "
 "the chunk-encoded data immediately after *message_body*."
 msgstr ""
+"Якщо *encode_chunked* має значення ``True``, результат кожної ітерації "
+"*message_body* буде закодовано фрагментами, як зазначено в :rfc:`7230`, "
+"розділ 3.3.1. Спосіб кодування даних залежить від типу *message_body*. Якщо "
+"*message_body* реалізує :ref:`інтерфейс буфера <bufferobjects>`, кодування "
+"призведе до єдиного блоку. Якщо *message_body* є :class:`collections.abc."
+"Iterable`, кожна ітерація *message_body* призведе до блоку. Якщо "
+"*message_body* є об’єктом :term:`file object`, кожен виклик ``.read()`` "
+"призведе до блоку. Метод автоматично сигналізує про кінець даних, "
+"закодованих фрагментами, відразу після *message_body*."
 
 #: ../../library/http.client.rst:419
 msgid ""
@@ -558,16 +625,22 @@ msgid ""
 "premature termination of the read of the request by the target server due to "
 "malformed encoding."
 msgstr ""
+"Через специфікацію фрагментованого кодування порожні фрагменти, отримані "
+"тілом ітератора, ігноруватимуться кодувальником фрагментів. Це робиться для "
+"того, щоб уникнути передчасного припинення читання запиту цільовим сервером "
+"через неправильне кодування."
 
 #: ../../library/http.client.rst:424
 msgid "Chunked encoding support.  The *encode_chunked* parameter was added."
-msgstr ""
+msgstr "Підтримка фрагментованого кодування. Додано параметр *encode_chunked*."
 
 #: ../../library/http.client.rst:431
 msgid ""
 "Send data to the server.  This should be used directly only after the :meth:"
 "`endheaders` method has been called and before :meth:`getresponse` is called."
 msgstr ""
+"Надіслати дані на сервер. Це слід використовувати безпосередньо лише після "
+"виклику методу :meth:`endheaders` і до виклику :meth:`getresponse`."
 
 #: ../../library/http.client.rst:439
 msgid "HTTPResponse Objects"
@@ -579,22 +652,29 @@ msgid ""
 "It provides access to the request headers and the entity body.  The response "
 "is an iterable object and can be used in a with statement."
 msgstr ""
+"Екземпляр :class:`HTTPResponse` обгортає відповідь HTTP від сервера. Він "
+"забезпечує доступ до заголовків запиту та тіла сутності. Відповідь є "
+"повторюваним об’єктом і може використовуватися в операторі with."
 
 #: ../../library/http.client.rst:446
 msgid ""
 "The :class:`io.BufferedIOBase` interface is now implemented and all of its "
 "reader operations are supported."
 msgstr ""
+"Інтерфейс :class:`io.BufferedIOBase` тепер реалізовано, і всі його операції "
+"читання підтримуються."
 
 #: ../../library/http.client.rst:453
 msgid "Reads and returns the response body, or up to the next *amt* bytes."
-msgstr ""
+msgstr "Читає та повертає тіло відповіді або до наступних байтів *amt*."
 
 #: ../../library/http.client.rst:457
 msgid ""
 "Reads up to the next len(b) bytes of the response body into the buffer *b*. "
 "Returns the number of bytes read."
 msgstr ""
+"Зчитує до наступного len(b) байт тіла відповіді в буфер *b*. Повертає "
+"кількість прочитаних байтів."
 
 #: ../../library/http.client.rst:464
 msgid ""
@@ -606,11 +686,11 @@ msgstr ""
 
 #: ../../library/http.client.rst:471
 msgid "Return a list of (header, value) tuples."
-msgstr ""
+msgstr "Повертає список кортежів (заголовок, значення)."
 
 #: ../../library/http.client.rst:475
 msgid "Return the ``fileno`` of the underlying socket."
-msgstr ""
+msgstr "Повертає ``fileno`` основного сокета."
 
 #: ../../library/http.client.rst:479
 msgid ""
@@ -618,53 +698,63 @@ msgid ""
 "headers.  :class:`http.client.HTTPMessage` is a subclass of :class:`email."
 "message.Message`."
 msgstr ""
+"Екземпляр :class:`http.client.HTTPMessage`, що містить заголовки "
+"відповідей. :class:`http.client.HTTPMessage` є підкласом :class:`email."
+"message.Message`."
 
 #: ../../library/http.client.rst:485
 msgid ""
 "HTTP protocol version used by server.  10 for HTTP/1.0, 11 for HTTP/1.1."
 msgstr ""
+"Версія протоколу HTTP, яку використовує сервер. 10 для HTTP/1.0, 11 для "
+"HTTP/1.1."
 
 #: ../../library/http.client.rst:489
 msgid ""
 "URL of the resource retrieved, commonly used to determine if a redirect was "
 "followed."
 msgstr ""
+"URL-адреса отриманого ресурсу, яка зазвичай використовується для визначення "
+"того, чи було переспрямовано."
 
 #: ../../library/http.client.rst:493
 msgid ""
 "Headers of the response in the form of an :class:`email.message."
 "EmailMessage` instance."
 msgstr ""
+"Заголовки відповіді у формі екземпляра :class:`email.message.EmailMessage`."
 
 #: ../../library/http.client.rst:497
 msgid "Status code returned by server."
-msgstr ""
+msgstr "Код статусу, повернутий сервером."
 
 #: ../../library/http.client.rst:501
 msgid "Reason phrase returned by server."
-msgstr ""
+msgstr "Фраза причини, повернута сервером."
 
 #: ../../library/http.client.rst:505
 msgid ""
 "A debugging hook.  If :attr:`debuglevel` is greater than zero, messages will "
 "be printed to stdout as the response is read and parsed."
 msgstr ""
+"Гачок для налагодження. Якщо :attr:`debuglevel` більше нуля, повідомлення "
+"буде надруковано в стандартний вихід під час читання та аналізу відповіді."
 
 #: ../../library/http.client.rst:510
 msgid "Is ``True`` if the stream is closed."
-msgstr ""
+msgstr "Значить ``True``, якщо потік закрито."
 
 #: ../../library/http.client.rst:514
 msgid "Deprecated in favor of :attr:`~HTTPResponse.url`."
-msgstr ""
+msgstr "Застаріло на користь :attr:`~HTTPResponse.url`."
 
 #: ../../library/http.client.rst:519
 msgid "Deprecated in favor of :attr:`~HTTPResponse.headers`."
-msgstr ""
+msgstr "Застаріло на користь :attr:`~HTTPResponse.headers`."
 
 #: ../../library/http.client.rst:524
 msgid "Deprecated in favor of :attr:`~HTTPResponse.status`."
-msgstr ""
+msgstr "Застаріло на користь :attr:`~HTTPResponse.status`."
 
 #: ../../library/http.client.rst:528
 msgid "Examples"
@@ -672,13 +762,15 @@ msgstr "Exemplos"
 
 #: ../../library/http.client.rst:530
 msgid "Here is an example session that uses the ``GET`` method::"
-msgstr ""
+msgstr "Ось приклад сеансу, який використовує метод ``GET``::"
 
 #: ../../library/http.client.rst:555
 msgid ""
 "Here is an example session that uses the ``HEAD`` method.  Note that the "
 "``HEAD`` method never returns any data. ::"
 msgstr ""
+"Ось приклад сеансу, який використовує метод ``HEAD``. Зауважте, що метод "
+"``HEAD`` ніколи не повертає жодних даних. ::"
 
 #: ../../library/http.client.rst:570
 msgid "Here is an example session that shows how to ``POST`` requests::"
@@ -696,10 +788,12 @@ msgstr ""
 
 #: ../../library/http.client.rst:608
 msgid "HTTPMessage Objects"
-msgstr ""
+msgstr "Об’єкти HTTPMessage"
 
 #: ../../library/http.client.rst:610
 msgid ""
 "An :class:`http.client.HTTPMessage` instance holds the headers from an HTTP "
 "response.  It is implemented using the :class:`email.message.Message` class."
 msgstr ""
+"Екземпляр :class:`http.client.HTTPMessage` містить заголовки відповіді HTTP. "
+"Це реалізовано за допомогою класу :class:`email.message.Message`."

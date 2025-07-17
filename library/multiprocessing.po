@@ -4,12 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Raphael Mendonça, 2017
 # Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2017
-# Hugo Santos Piauilino <hugos94@gmail.com>, 2019
-# Vinicius Gubiani Ferreira <vini.g.fer@gmail.com>, 2020
-# i17obot <i17obot@rougeth.com>, 2021
-# Caio Fauza, 2021
 # Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
@@ -17,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-13 17:30+0000\n"
+"POT-Creation-Date: 2025-07-11 17:51+0000\n"
 "PO-Revision-Date: 2017-02-16 23:19+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -224,6 +219,17 @@ msgid ""
 "a limited number of named semaphores, and shared memory segments occupy some "
 "space in the main memory.)"
 msgstr ""
+"В Unix використання методів запуску *spawn* або *forkserver* також запускає "
+"процес *відстеження ресурсів*, який відстежує незв’язані іменовані системні "
+"ресурси (такі як іменовані семафори або об’єкти :class:`~multiprocessing."
+"shared_memory.SharedMemory`), створені процеси програми. Після завершення "
+"роботи всіх процесів засіб відстеження ресурсів від’єднує будь-який "
+"відстежуваний об’єкт, що залишився. Зазвичай їх не повинно бути, але якщо "
+"процес було вбито сигналом, можливо, є деякі \"витік\" ресурсів. (Ані витік "
+"семафорів, ані сегменти спільної пам’яті не будуть автоматично від’єднані до "
+"наступного перезавантаження. Це проблематично для обох об’єктів, оскільки "
+"система дозволяє лише обмежену кількість іменованих семафорів, а сегменти "
+"спільної пам’яті займають деякий простір в основній пам’яті.)"
 
 #: ../../library/multiprocessing.rst:153
 msgid ""
@@ -277,6 +283,10 @@ msgid ""
 "**PyInstaller** and **cx_Freeze**) on Unix. The ``'fork'`` start method does "
 "work."
 msgstr ""
+"Методи запуску ``'spawn'`` і ``'forkserver'`` наразі не можна "
+"використовувати із \"замороженими\" виконуваними файлами (тобто двійковими "
+"файлами, створеними такими пакетами, як **PyInstaller** і **cx_Freeze**) в "
+"Unix. Метод запуску ``'fork'`` працює."
 
 #: ../../library/multiprocessing.rst:209
 msgid "Exchanging objects between processes"
@@ -304,7 +314,7 @@ msgstr ""
 
 #: ../../library/multiprocessing.rst:231
 msgid "Queues are thread and process safe."
-msgstr ""
+msgstr "Черги є потоковими та безпечними."
 
 #: ../../library/multiprocessing.rst:233
 msgid "**Pipes**"
@@ -549,6 +559,16 @@ msgid ""
 "``False``.  If ``None`` (the default), this flag will be inherited from the "
 "creating process."
 msgstr ""
+"Конструктор завжди слід викликати з ключовими аргументами. *group* завжди "
+"має бути ``None``; він існує виключно для сумісності з :class:`threading."
+"Thread`. *target* — об’єкт, який викликається методом :meth:`run()`. За "
+"умовчанням встановлено ``None``, тобто нічого не викликається. *name* — це "
+"ім’я процесу (див. :attr:`name` для отримання додаткової інформації). *args* "
+"— це кортеж аргументів для цільового виклику. *kwargs* — це словник ключових "
+"аргументів для цільового виклику. Якщо надано, аргумент *daemon*, що містить "
+"лише ключове слово, встановлює для прапора процесу :attr:`daemon` значення "
+"``True`` або ``False``. Якщо ``None`` (за замовчуванням), цей прапор буде "
+"успадковано від процесу створення."
 
 #: ../../library/multiprocessing.rst:488
 msgid "By default, no arguments are passed to *target*."
@@ -775,6 +795,9 @@ msgid ""
 "func:`multiprocessing.connection.wait`.  Otherwise calling :meth:`join()` is "
 "simpler."
 msgstr ""
+"Ви можете використовувати це значення, якщо хочете очікувати на кілька подій "
+"одночасно за допомогою :func:`multiprocessing.connection.wait`. Інакше "
+"викликати :meth:`join()` простіше."
 
 #: ../../library/multiprocessing.rst:604
 msgid ""
@@ -782,6 +805,9 @@ msgid ""
 "``WaitForMultipleObjects`` family of API calls.  On Unix, this is a file "
 "descriptor usable with primitives from the :mod:`select` module."
 msgstr ""
+"У Windows це дескриптор ОС, який можна використовувати з сімейством викликів "
+"API ``WaitForSingleObject`` і ``WaitForMultipleObjects``. В Unix це файловий "
+"дескриптор, який можна використовувати з примітивами з модуля :mod:`select`."
 
 #: ../../library/multiprocessing.rst:612
 msgid ""
@@ -789,6 +815,9 @@ msgid ""
 "on Windows :c:func:`TerminateProcess` is used.  Note that exit handlers and "
 "finally clauses, etc., will not be executed."
 msgstr ""
+"Припиніть процес. В Unix це робиться за допомогою сигналу ``SIGTERM``; у "
+"Windows використовується :c:func:`TerminateProcess`. Зауважте, що обробники "
+"виходу, пропозиції finally тощо не виконуватимуться."
 
 #: ../../library/multiprocessing.rst:616
 msgid ""
@@ -815,6 +844,7 @@ msgstr ""
 #: ../../library/multiprocessing.rst:629
 msgid "Same as :meth:`terminate()` but using the ``SIGKILL`` signal on Unix."
 msgstr ""
+"Те саме, що :meth:`terminate()`, але використовує сигнал ``SIGKILL`` в Unix."
 
 #: ../../library/multiprocessing.rst:635
 msgid ""
@@ -852,6 +882,8 @@ msgid ""
 "Exception raised by :meth:`Connection.recv_bytes_into()` when the supplied "
 "buffer object is too small for the message read."
 msgstr ""
+"Виняток, викликаний :meth:`Connection.recv_bytes_into()`, коли наданий "
+"об’єкт буфера замалий для прочитання повідомлення."
 
 #: ../../library/multiprocessing.rst:675
 msgid ""
@@ -1093,6 +1125,8 @@ msgid ""
 "Note that this may raise :exc:`NotImplementedError` on Unix platforms like "
 "macOS where ``sem_getvalue()`` is not implemented."
 msgstr ""
+"Зауважте, що це може викликати :exc:`NotImplementedError` на платформах "
+"Unix, таких як macOS, де ``sem_getvalue()`` не реалізовано."
 
 #: ../../library/multiprocessing.rst:797
 msgid ""
@@ -1445,6 +1479,10 @@ msgid ""
 "``'fork'`` and ``'spawn'`` are always supported, with ``'fork'`` being the "
 "default."
 msgstr ""
+"Повертає список підтримуваних методів запуску, перший із яких є типовим. "
+"Можливі методи запуску: ``'fork'``, ``'spawn'`` і ``'forkserver'``. У "
+"Windows доступний лише ``'spawn''``. В Unix ``'fork'`` і ``'spawn'`` завжди "
+"підтримуються, при цьому ``'fork''`` є типовим."
 
 #: ../../library/multiprocessing.rst:1019
 msgid ""
@@ -1460,6 +1498,10 @@ msgid ""
 "*method* should be ``'fork'``, ``'spawn'``, ``'forkserver'``.  :exc:"
 "`ValueError` is raised if the specified start method is not available."
 msgstr ""
+"Якщо *method* має значення ``None``, тоді повертається контекст за "
+"замовчуванням. Інакше *method* має бути ``'fork'``, ``'spawn'``, "
+"``'forkserver'``. :exc:`ValueError` виникає, якщо вказаний метод запуску "
+"недоступний."
 
 #: ../../library/multiprocessing.rst:1031
 msgid "Return the name of start method used for starting processes."
@@ -1482,6 +1524,9 @@ msgid ""
 "``None``.  ``'fork'`` is the default on Unix, while ``'spawn'`` is the "
 "default on Windows and macOS."
 msgstr ""
+"Поверненим значенням може бути ``'fork'``, ``'spawn'``, ``'forkserver'`` або "
+"``None``. ``'fork'`` є типовим для Unix, тоді як ``'spawn''`` є типовим для "
+"Windows і macOS."
 
 #: ../../library/multiprocessing.rst:1052
 msgid ""
@@ -1500,12 +1545,15 @@ msgstr "antes que eles possam criar processos filho."
 #: ../../library/multiprocessing.rst:1060
 msgid "Now supported on Unix when the ``'spawn'`` start method is used."
 msgstr ""
+"Тепер підтримується в Unix, коли використовується метод запуску ``'spawn'``."
 
 #: ../../library/multiprocessing.rst:1065
 msgid ""
 "Set the method which should be used to start child processes. *method* can "
 "be ``'fork'``, ``'spawn'`` or ``'forkserver'``."
 msgstr ""
+"Встановіть метод, який слід використовувати для запуску дочірніх процесів. "
+"*метод* може бути ``'fork'``, ``'spawn'`` або ``'forkserver'``."
 
 #: ../../library/multiprocessing.rst:1068
 msgid ""
@@ -1704,6 +1752,9 @@ msgid ""
 "`typecontextmanager`.  :meth:`~contextmanager.__enter__` returns the "
 "connection object, and :meth:`~contextmanager.__exit__` calls :meth:`close`."
 msgstr ""
+"Об’єкти підключення тепер підтримують протокол керування контекстом – див. :"
+"ref:`typecontextmanager`. :meth:`~contextmanager.__enter__` повертає об’єкт "
+"підключення, а :meth:`~contextmanager.__exit__` викликає :meth:`close`."
 
 #: ../../library/multiprocessing.rst:1183
 msgid "For example:"
@@ -2058,12 +2109,19 @@ msgid ""
 "acquire` or :meth:`Condition.wait` then the call will be immediately "
 "interrupted and :exc:`KeyboardInterrupt` will be raised."
 msgstr ""
+"Якщо сигнал SIGINT, згенерований :kbd:`Ctrl-C`, надходить, коли основний "
+"потік заблоковано викликом :meth:`BoundedSemaphore.acquire`, :meth:`Lock."
+"acquire`, :meth:`RLock.acquire`, :meth:`Semaphore.acquire`, :meth:`Condition."
+"acquire` або :meth:`Condition.wait`, тоді виклик буде негайно перервано та :"
+"exc:`KeyboardInterrupt` буде викликано."
 
 #: ../../library/multiprocessing.rst:1401
 msgid ""
 "This differs from the behaviour of :mod:`threading` where SIGINT will be "
 "ignored while the equivalent blocking calls are in progress."
 msgstr ""
+"Це відрізняється від поведінки :mod:`threading`, де SIGINT ігноруватиметься, "
+"поки виконуються еквівалентні виклики блокування."
 
 #: ../../library/multiprocessing.rst:1406
 msgid ""
@@ -2348,16 +2406,22 @@ msgid ""
 "object it wraps: :meth:`get_obj` returns the wrapped object and :meth:"
 "`get_lock` returns the lock object used for synchronization."
 msgstr ""
+"Синхронізована оболонка матиме два методи на додаток до методів об’єкта, "
+"який вона обертає: :meth:`get_obj` повертає обгорнутий об’єкт, а :meth:"
+"`get_lock` повертає об’єкт блокування, який використовується для "
+"синхронізації."
 
 #: ../../library/multiprocessing.rst:1570
 msgid ""
 "Note that accessing the ctypes object through the wrapper can be a lot "
 "slower than accessing the raw ctypes object."
 msgstr ""
+"Зверніть увагу, що доступ до об’єкта ctypes через оболонку може бути "
+"набагато повільнішим, ніж доступ до необробленого об’єкта ctypes."
 
 #: ../../library/multiprocessing.rst:1573
 msgid "Synchronized objects support the :term:`context manager` protocol."
-msgstr ""
+msgstr "Синхронізовані об’єкти підтримують протокол :term:`context manager`."
 
 #: ../../library/multiprocessing.rst:1577
 msgid ""
@@ -2365,6 +2429,9 @@ msgid ""
 "shared memory with the normal ctypes syntax.  (In the table ``MyStruct`` is "
 "some subclass of :class:`ctypes.Structure`.)"
 msgstr ""
+"У наведеній нижче таблиці порівнюється синтаксис для створення спільних "
+"об’єктів ctypes зі спільної пам’яті зі звичайним синтаксисом ctypes. (У "
+"таблиці ``MyStruct`` є деякий підклас :class:`ctypes.Structure`.)"
 
 #: ../../library/multiprocessing.rst:1582
 msgid "ctypes"
@@ -2427,10 +2494,12 @@ msgid ""
 "Below is an example where a number of ctypes objects are modified by a child "
 "process::"
 msgstr ""
+"Нижче наведено приклад, коли кілька об’єктів ctypes змінено дочірнім "
+"процесом:"
 
 #: ../../library/multiprocessing.rst:1629
 msgid "The results printed are ::"
-msgstr ""
+msgstr "Надруковані результати:"
 
 #: ../../library/multiprocessing.rst:1642
 msgid "Managers"
@@ -2444,6 +2513,11 @@ msgid ""
 "*shared objects*.  Other processes can access the shared objects by using "
 "proxies."
 msgstr ""
+"Менеджери надають можливість створювати дані, якими можна ділитися між "
+"різними процесами, включно з загальним доступом через мережу між процесами, "
+"що виконуються на різних машинах. Об’єкт менеджера контролює серверний "
+"процес, який керує *спільними об’єктами*. Інші процеси можуть отримати "
+"доступ до спільних об’єктів за допомогою проксі-серверів."
 
 #: ../../library/multiprocessing.rst:1653
 msgid ""
@@ -2452,6 +2526,11 @@ msgid ""
 "manager object corresponds to a spawned child process and has methods which "
 "will create shared objects and return corresponding proxies."
 msgstr ""
+"Повертає запущений об’єкт :class:`~multiprocessing.managers.SyncManager`, "
+"який можна використовувати для спільного використання об’єктів між "
+"процесами. Повернений об’єкт менеджера відповідає породженому дочірньому "
+"процесу та має методи, які створюватимуть спільні об’єкти та повертатимуть "
+"відповідні проксі-сервери."
 
 #: ../../library/multiprocessing.rst:1661
 msgid ""
@@ -2459,6 +2538,9 @@ msgid ""
 "their parent process exits.  The manager classes are defined in the :mod:"
 "`multiprocessing.managers` module:"
 msgstr ""
+"Процеси менеджера буде закрито, щойно їх буде зібрано сміття або їхній "
+"батьківський процес завершиться. Класи менеджерів визначені в модулі :mod:"
+"`multiprocessing.managers`:"
 
 #: ../../library/multiprocessing.rst:1667
 msgid "Create a BaseManager object."
@@ -2470,12 +2552,17 @@ msgid ""
 "serve_forever()`` to ensure that the manager object refers to a started "
 "manager process."
 msgstr ""
+"Після створення потрібно викликати :meth:`start` або ``get_server()."
+"serve_forever()``, щоб переконатися, що об’єкт менеджера посилається на "
+"запущений процес менеджера."
 
 #: ../../library/multiprocessing.rst:1672
 msgid ""
 "*address* is the address on which the manager process listens for new "
 "connections.  If *address* is ``None`` then an arbitrary one is chosen."
 msgstr ""
+"*адреса* — це адреса, на якій процес менеджера прослуховує нові підключення. "
+"Якщо *адреса* має значення ``None``, тоді вибирається довільна адреса."
 
 #: ../../library/multiprocessing.rst:1675
 msgid ""
@@ -2484,12 +2571,18 @@ msgid ""
 "then ``current_process().authkey`` is used. Otherwise *authkey* is used and "
 "it must be a byte string."
 msgstr ""
+"*authkey* — це ключ автентифікації, який використовуватиметься для перевірки "
+"дійсності вхідних підключень до процесу сервера. Якщо *authkey* має значення "
+"``None``, тоді використовується ``current_process().authkey``. В іншому "
+"випадку використовується *authkey*, і це має бути рядок байтів."
 
 #: ../../library/multiprocessing.rst:1682
 msgid ""
 "Start a subprocess to start the manager.  If *initializer* is not ``None`` "
 "then the subprocess will call ``initializer(*initargs)`` when it starts."
 msgstr ""
+"Запустіть підпроцес, щоб запустити менеджер. Якщо *initializer* не ``None``, "
+"тоді підпроцес викличе ``initializer(*initargs)`` під час запуску."
 
 #: ../../library/multiprocessing.rst:1687
 msgid ""
@@ -2497,36 +2590,46 @@ msgid ""
 "the control of the Manager. The :class:`Server` object supports the :meth:"
 "`serve_forever` method::"
 msgstr ""
+"Повертає об’єкт :class:`Server`, який представляє фактичний сервер під "
+"керуванням менеджера. Об’єкт :class:`Server` підтримує метод :meth:"
+"`serve_forever`::"
 
 #: ../../library/multiprocessing.rst:1696
 msgid ":class:`Server` additionally has an :attr:`address` attribute."
-msgstr ""
+msgstr ":class:`Server` додатково має атрибут :attr:`address`."
 
 #: ../../library/multiprocessing.rst:1700
 msgid "Connect a local manager object to a remote manager process::"
 msgstr ""
+"Підключіть об’єкт локального менеджера до віддаленого процесу менеджера:"
 
 #: ../../library/multiprocessing.rst:1708
 msgid ""
 "Stop the process used by the manager.  This is only available if :meth:"
 "`start` has been used to start the server process."
 msgstr ""
+"Зупиніть процес, який використовує менеджер. Це доступно, лише якщо :meth:"
+"`start` було використано для запуску процесу сервера."
 
 #: ../../library/multiprocessing.rst:1711
 msgid "This can be called multiple times."
-msgstr ""
+msgstr "Це можна викликати кілька разів."
 
 #: ../../library/multiprocessing.rst:1715
 msgid ""
 "A classmethod which can be used for registering a type or callable with the "
 "manager class."
 msgstr ""
+"Метод класу, який можна використовувати для реєстрації типу або виклику в "
+"класі менеджера."
 
 #: ../../library/multiprocessing.rst:1718
 msgid ""
 "*typeid* is a \"type identifier\" which is used to identify a particular "
 "type of shared object.  This must be a string."
 msgstr ""
+"*typeid* — це \"ідентифікатор типу\", який використовується для "
+"ідентифікації певного типу спільного об’єкта. Це має бути рядок."
 
 #: ../../library/multiprocessing.rst:1721
 msgid ""
@@ -2535,6 +2638,10 @@ msgid ""
 "the :meth:`connect` method, or if the *create_method* argument is ``False`` "
 "then this can be left as ``None``."
 msgstr ""
+"*callable* — це виклик, який використовується для створення об’єктів для "
+"ідентифікатора цього типу. Якщо екземпляр менеджера буде підключено до "
+"сервера за допомогою методу :meth:`connect` або якщо аргумент "
+"*create_method* має значення ``False``, тоді це можна залишити як ``None``."
 
 #: ../../library/multiprocessing.rst:1727
 msgid ""
@@ -2542,6 +2649,9 @@ msgid ""
 "proxies for shared objects with this *typeid*.  If ``None`` then a proxy "
 "class is created automatically."
 msgstr ""
+"*proxytype* є підкласом :class:`BaseProxy`, який використовується для "
+"створення проксі для спільних об’єктів із цим *typeid*. Якщо ``None``, то "
+"проксі-клас створюється автоматично."
 
 #: ../../library/multiprocessing.rst:1731
 msgid ""
@@ -2553,6 +2663,14 @@ msgid ""
 "\"public method\" means any attribute which has a :meth:`~object.__call__` "
 "method and whose name does not begin with ``'_'``.)"
 msgstr ""
+"*exposed* використовується для визначення послідовності назв методів, до "
+"яких проксі-серверам для цього typeid має бути дозволено доступ за "
+"допомогою :meth:`BaseProxy._callmethod`. (Якщо *exposed* має значення "
+"``None``, тоді замість нього використовується :attr:`proxytype._exposed_`, "
+"якщо він існує.) У випадку, коли відкритий список не вказано, усі "
+"\"загальнодоступні методи\" спільного об’єкта будуть доступними. . (Тут "
+"\"публічний метод\" означає будь-який атрибут, який має метод :meth:`~object."
+"__call__` і ім’я якого не починається з ``'_'``.)"
 
 #: ../../library/multiprocessing.rst:1740
 msgid ""
@@ -2563,6 +2681,13 @@ msgid ""
 "not a key of this mapping or if the mapping is ``None`` then the object "
 "returned by the method will be copied by value."
 msgstr ""
+"*method_to_typeid* — це зіставлення, яке використовується для визначення "
+"типу повернення тих відкритих методів, які мають повертати проксі. Він "
+"відображає назви методів у рядках typeid. (Якщо *method_to_typeid* має "
+"значення ``None``, тоді замість нього використовується :attr:`proxytype."
+"_method_to_typeid_`, якщо він існує.) Якщо назва методу не є ключем цього "
+"відображення або якщо відображення має значення ``None``, тоді об'єкт, "
+"повернутий методом, буде скопійовано за значенням."
 
 #: ../../library/multiprocessing.rst:1747
 msgid ""
@@ -2570,14 +2695,19 @@ msgid ""
 "*typeid* which can be used to tell the server process to create a new shared "
 "object and return a proxy for it.  By default it is ``True``."
 msgstr ""
+"*create_method* визначає, чи слід створювати метод з іменем *typeid*, яке "
+"можна використовувати, щоб наказати серверному процесу створити новий "
+"спільний об’єкт і повернути для нього проксі. За замовчуванням це ``True``."
 
 #: ../../library/multiprocessing.rst:1751
 msgid ":class:`BaseManager` instances also have one read-only property:"
 msgstr ""
+"Екземпляри :class:`BaseManager` також мають одну властивість лише для "
+"читання:"
 
 #: ../../library/multiprocessing.rst:1755
 msgid "The address used by the manager."
-msgstr ""
+msgstr "Адреса, яку використовує менеджер."
 
 #: ../../library/multiprocessing.rst:1757
 msgid ""
@@ -2586,12 +2716,18 @@ msgid ""
 "process (if it has not already started) and then returns the manager "
 "object.  :meth:`~contextmanager.__exit__` calls :meth:`shutdown`."
 msgstr ""
+"Об’єкти менеджера підтримують протокол керування контекстом – див. :ref:"
+"`typecontextmanager`. :meth:`~contextmanager.__enter__` запускає серверний "
+"процес (якщо він ще не запущений), а потім повертає об’єкт менеджера. :meth:"
+"`~contextmanager.__exit__` викликає :meth:`shutdown`."
 
 #: ../../library/multiprocessing.rst:1763
 msgid ""
 "In previous versions :meth:`~contextmanager.__enter__` did not start the "
 "manager's server process if it was not already started."
 msgstr ""
+"У попередніх версіях :meth:`~contextmanager.__enter__` не запускав серверний "
+"процес менеджера, якщо він ще не був запущений."
 
 #: ../../library/multiprocessing.rst:1768
 msgid ""
@@ -2599,6 +2735,8 @@ msgid ""
 "of processes.  Objects of this type are returned by :func:`multiprocessing."
 "Manager`."
 msgstr ""
+"Підклас :class:`BaseManager`, який можна використовувати для синхронізації "
+"процесів. Об’єкти цього типу повертає :func:`multiprocessing.Manager`."
 
 #: ../../library/multiprocessing.rst:1772
 msgid ""
@@ -2606,76 +2744,99 @@ msgid ""
 "number of commonly used data types to be synchronized across processes. This "
 "notably includes shared lists and dictionaries."
 msgstr ""
+"Його методи створюють і повертають :ref:`multiprocessing-proxy_objects` для "
+"ряду типів даних, які зазвичай використовуються, щоб синхронізувати між "
+"процесами. Це, зокрема, включає спільні списки та словники."
 
 #: ../../library/multiprocessing.rst:1778
 msgid ""
 "Create a shared :class:`threading.Barrier` object and return a proxy for it."
 msgstr ""
+"Створіть спільний об’єкт :class:`threading.Barrier` і поверніть для нього "
+"проксі."
 
 #: ../../library/multiprocessing.rst:1785
 msgid ""
 "Create a shared :class:`threading.BoundedSemaphore` object and return a "
 "proxy for it."
 msgstr ""
+"Створіть спільний об’єкт :class:`threading.BoundedSemaphore` і поверніть для "
+"нього проксі."
 
 #: ../../library/multiprocessing.rst:1790
 msgid ""
 "Create a shared :class:`threading.Condition` object and return a proxy for "
 "it."
 msgstr ""
+"Створіть спільний об’єкт :class:`threading.Condition` і поверніть для нього "
+"проксі."
 
 #: ../../library/multiprocessing.rst:1793
 msgid ""
 "If *lock* is supplied then it should be a proxy for a :class:`threading."
 "Lock` or :class:`threading.RLock` object."
 msgstr ""
+"Якщо вказано *lock*, це має бути проксі для об’єкта :class:`threading.Lock` "
+"або :class:`threading.RLock`."
 
 #: ../../library/multiprocessing.rst:1801
 msgid ""
 "Create a shared :class:`threading.Event` object and return a proxy for it."
 msgstr ""
+"Створіть спільний об’єкт :class:`threading.Event` і поверніть для нього "
+"проксі."
 
 #: ../../library/multiprocessing.rst:1805
 msgid ""
 "Create a shared :class:`threading.Lock` object and return a proxy for it."
 msgstr ""
+"Створіть спільний об’єкт :class:`threading.Lock` і поверніть для нього "
+"проксі."
 
 #: ../../library/multiprocessing.rst:1809
 msgid "Create a shared :class:`Namespace` object and return a proxy for it."
 msgstr ""
+"Створіть спільний об’єкт :class:`Namespace` і поверніть для нього проксі."
 
 #: ../../library/multiprocessing.rst:1813
 msgid "Create a shared :class:`queue.Queue` object and return a proxy for it."
 msgstr ""
+"Створіть спільний об’єкт :class:`queue.Queue` і поверніть для нього проксі."
 
 #: ../../library/multiprocessing.rst:1817
 msgid ""
 "Create a shared :class:`threading.RLock` object and return a proxy for it."
 msgstr ""
+"Створіть спільний об’єкт :class:`threading.RLock` і поверніть для нього "
+"проксі."
 
 #: ../../library/multiprocessing.rst:1821
 msgid ""
 "Create a shared :class:`threading.Semaphore` object and return a proxy for "
 "it."
 msgstr ""
+"Створіть спільний об’єкт :class:`threading.Semaphore` і поверніть для нього "
+"проксі."
 
 #: ../../library/multiprocessing.rst:1826
 msgid "Create an array and return a proxy for it."
-msgstr ""
+msgstr "Створіть масив і поверніть для нього проксі."
 
 #: ../../library/multiprocessing.rst:1830
 msgid ""
 "Create an object with a writable ``value`` attribute and return a proxy for "
 "it."
 msgstr ""
+"Створіть об’єкт із доступним для запису атрибутом \"значення\" та поверніть "
+"для нього проксі-сервер."
 
 #: ../../library/multiprocessing.rst:1837
 msgid "Create a shared :class:`dict` object and return a proxy for it."
-msgstr ""
+msgstr "Створіть спільний об’єкт :class:`dict` і поверніть для нього проксі."
 
 #: ../../library/multiprocessing.rst:1842
 msgid "Create a shared :class:`list` object and return a proxy for it."
-msgstr ""
+msgstr "Створіть спільний об’єкт :class:`list` і поверніть для нього проксі."
 
 #: ../../library/multiprocessing.rst:1844
 msgid ""
@@ -2683,16 +2844,21 @@ msgid ""
 "object such as a shared list can contain other shared objects which will all "
 "be managed and synchronized by the :class:`SyncManager`."
 msgstr ""
+"Спільні об’єкти можуть бути вкладеними. Наприклад, спільний об’єкт-"
+"контейнер, такий як спільний список, може містити інші спільні об’єкти, "
+"якими керуватиме та синхронізуватиме :class:`SyncManager`."
 
 #: ../../library/multiprocessing.rst:1851
 msgid "A type that can register with :class:`SyncManager`."
-msgstr ""
+msgstr "Тип, який можна зареєструвати в :class:`SyncManager`."
 
 #: ../../library/multiprocessing.rst:1853
 msgid ""
 "A namespace object has no public methods, but does have writable attributes. "
 "Its representation shows the values of its attributes."
 msgstr ""
+"Об’єкт простору імен не має відкритих методів, але має атрибути, доступні "
+"для запису. Його подання показує значення його атрибутів."
 
 #: ../../library/multiprocessing.rst:1856
 msgid ""
@@ -2700,10 +2866,12 @@ msgid ""
 "with ``'_'`` will be an attribute of the proxy and not an attribute of the "
 "referent:"
 msgstr ""
+"Однак, коли використовується проксі для об’єкта простору імен, атрибут, що "
+"починається з ``'_''`` буде атрибутом проксі, а не атрибутом референта:"
 
 #: ../../library/multiprocessing.rst:1872
 msgid "Customized managers"
-msgstr ""
+msgstr "Індивідуальні менеджери"
 
 #: ../../library/multiprocessing.rst:1874
 msgid ""
@@ -2711,40 +2879,50 @@ msgid ""
 "and uses the :meth:`~BaseManager.register` classmethod to register new types "
 "or callables with the manager class.  For example::"
 msgstr ""
+"Щоб створити власний менеджер, потрібно створити підклас :class:"
+"`BaseManager` і використовувати метод класу :meth:`~BaseManager.register` "
+"для реєстрації нових типів або викликів у класі менеджера. Наприклад::"
 
 #: ../../library/multiprocessing.rst:1899
 msgid "Using a remote manager"
-msgstr ""
+msgstr "Використання віддаленого менеджера"
 
 #: ../../library/multiprocessing.rst:1901
 msgid ""
 "It is possible to run a manager server on one machine and have clients use "
 "it from other machines (assuming that the firewalls involved allow it)."
 msgstr ""
+"Можна запустити керуючий сервер на одній машині, а клієнти "
+"використовуватимуть його з інших машин (за умови, що задіяні брандмауери "
+"дозволяють це)."
 
 #: ../../library/multiprocessing.rst:1904
 msgid ""
 "Running the following commands creates a server for a single shared queue "
 "which remote clients can access::"
 msgstr ""
+"Виконання наступних команд створює сервер для однієї спільної черги, до якої "
+"мають доступ віддалені клієнти:"
 
 #: ../../library/multiprocessing.rst:1916
 msgid "One client can access the server as follows::"
-msgstr ""
+msgstr "Один клієнт може отримати доступ до сервера наступним чином:"
 
 #: ../../library/multiprocessing.rst:1926
 msgid "Another client can also use it::"
-msgstr ""
+msgstr "Інший клієнт також може використовувати його:"
 
 #: ../../library/multiprocessing.rst:1937
 msgid ""
 "Local processes can also access that queue, using the code from above on the "
 "client to access it remotely::"
 msgstr ""
+"Локальні процеси також можуть отримати доступ до цієї черги, використовуючи "
+"код вище на клієнті для доступу до неї віддалено:"
 
 #: ../../library/multiprocessing.rst:1962
 msgid "Proxy Objects"
-msgstr ""
+msgstr "Проксі об'єкти"
 
 #: ../../library/multiprocessing.rst:1964
 msgid ""
@@ -2752,6 +2930,9 @@ msgid ""
 "(presumably) in a different process.  The shared object is said to be the "
 "*referent* of the proxy.  Multiple proxy objects may have the same referent."
 msgstr ""
+"Проксі — це об’єкт, який *посилається* на спільний об’єкт, який живе "
+"(імовірно) в іншому процесі. Спільний об’єкт називається *референтом* "
+"проксі. Кілька проксі-об’єктів можуть мати один і той же референт."
 
 #: ../../library/multiprocessing.rst:1968
 msgid ""
@@ -2760,6 +2941,9 @@ msgid ""
 "available through the proxy).  In this way, a proxy can be used just like "
 "its referent can:"
 msgstr ""
+"Проксі-об’єкт має методи, які викликають відповідні методи його референта "
+"(хоча не кожен метод референта обов’язково буде доступним через проксі). "
+"Таким чином, проксі можна використовувати так само, як і його референт:"
 
 #: ../../library/multiprocessing.rst:1986
 msgid ""
@@ -2767,6 +2951,8 @@ msgid ""
 "of the referent, whereas applying :func:`repr` will return the "
 "representation of the proxy."
 msgstr ""
+"Зауважте, що застосування :func:`str` до проксі поверне подання референта, "
+"тоді як застосування :func:`repr` поверне подання проксі."
 
 #: ../../library/multiprocessing.rst:1990
 msgid ""
@@ -2775,10 +2961,15 @@ msgid ""
 "`multiprocessing-proxy_objects`.  This permits nesting of these managed "
 "lists, dicts, and other :ref:`multiprocessing-proxy_objects`:"
 msgstr ""
+"Важливою особливістю проксі-об’єктів є те, що їх можна вибирати, тому їх "
+"можна передавати між процесами. Таким чином, референт може містити :ref:"
+"`multiprocessing-proxy_objects`. Це дозволяє вкладати ці керовані списки, "
+"dicts та інші :ref:`multiprocessing-proxy_objects`:"
 
 #: ../../library/multiprocessing.rst:2006
 msgid "Similarly, dict and list proxies may be nested inside one another::"
 msgstr ""
+"Подібним чином, проксі dict і список можуть бути вкладені один в одного:"
 
 #: ../../library/multiprocessing.rst:2019
 msgid ""
@@ -2790,6 +2981,13 @@ msgid ""
 "through the manager and so to effectively modify such an item, one could re-"
 "assign the modified value to the container proxy::"
 msgstr ""
+"Якщо стандартні (не проксі) :class:`list` або :class:`dict` об’єкти "
+"містяться в референті, модифікації цих змінних значень не поширюватимуться "
+"через менеджер, оскільки проксі не може дізнатися, коли значення що "
+"містяться в них, змінено. Однак збереження значення в проксі-контейнері (що "
+"запускає ``__setitem__`` в проксі-об’єкті) поширюється через менеджер, тому "
+"для ефективної зміни такого елемента можна повторно призначити змінене "
+"значення проксі-серверу контейнера: :"
 
 #: ../../library/multiprocessing.rst:2038
 msgid ""
@@ -2797,38 +2995,43 @@ msgid ""
 "`multiprocessing-proxy_objects` for most use cases but also demonstrates a "
 "level of control over the synchronization."
 msgstr ""
+"Цей підхід, можливо, менш зручний, ніж використання вкладених :ref:"
+"`multiprocessing-proxy_objects` для більшості випадків використання, але "
+"також демонструє рівень контролю над синхронізацією."
 
 #: ../../library/multiprocessing.rst:2044
 msgid ""
 "The proxy types in :mod:`multiprocessing` do nothing to support comparisons "
 "by value.  So, for instance, we have:"
 msgstr ""
+"Проксі-типи в :mod:`multiprocessing` не підтримують порівняння за значенням. "
+"Так, наприклад, ми маємо:"
 
 #: ../../library/multiprocessing.rst:2052
 msgid ""
 "One should just use a copy of the referent instead when making comparisons."
-msgstr ""
+msgstr "Під час порівнянь слід просто використовувати копію референта."
 
 #: ../../library/multiprocessing.rst:2056
 msgid "Proxy objects are instances of subclasses of :class:`BaseProxy`."
-msgstr ""
+msgstr "Проксі-об’єкти є екземплярами підкласів :class:`BaseProxy`."
 
 #: ../../library/multiprocessing.rst:2060
 msgid "Call and return the result of a method of the proxy's referent."
-msgstr ""
+msgstr "Виклик і повернення результату методу референта проксі."
 
 #: ../../library/multiprocessing.rst:2062
 msgid ""
 "If ``proxy`` is a proxy whose referent is ``obj`` then the expression ::"
-msgstr ""
+msgstr "Якщо ``proxy`` є проксі, референтом якого є ``obj``, тоді вираз ::"
 
 #: ../../library/multiprocessing.rst:2066
 msgid "will evaluate the expression ::"
-msgstr ""
+msgstr "обчислить вираз ::"
 
 #: ../../library/multiprocessing.rst:2070
 msgid "in the manager's process."
-msgstr ""
+msgstr "в процесі менеджера."
 
 #: ../../library/multiprocessing.rst:2072
 msgid ""
@@ -2836,6 +3039,9 @@ msgid ""
 "new shared object -- see documentation for the *method_to_typeid* argument "
 "of :meth:`BaseManager.register`."
 msgstr ""
+"Поверненим значенням буде копія результату виклику або проксі для нового "
+"спільного об’єкта – див. документацію щодо аргументу *method_to_typeid* :"
+"meth:`BaseManager.register`."
 
 #: ../../library/multiprocessing.rst:2076
 msgid ""
@@ -2844,32 +3050,37 @@ msgid ""
 "then this is converted into a :exc:`RemoteError` exception and is raised by :"
 "meth:`_callmethod`."
 msgstr ""
+"Якщо виклик викликає виняток, він повторно викликається :meth:`_callmethod`. "
+"Якщо в процесі менеджера виникає інший виняток, він перетворюється на "
+"виняток :exc:`RemoteError` і викликається :meth:`_callmethod`."
 
 #: ../../library/multiprocessing.rst:2081
 msgid ""
 "Note in particular that an exception will be raised if *methodname* has not "
 "been *exposed*."
 msgstr ""
+"Зокрема, зауважте, що виняток буде створено, якщо *methodname* не було "
+"*виявлено*."
 
 #: ../../library/multiprocessing.rst:2084
 msgid "An example of the usage of :meth:`_callmethod`:"
-msgstr ""
+msgstr "Приклад використання :meth:`_callmethod`:"
 
 #: ../../library/multiprocessing.rst:2100
 msgid "Return a copy of the referent."
-msgstr ""
+msgstr "Повернути копію референту."
 
 #: ../../library/multiprocessing.rst:2102
 msgid "If the referent is unpicklable then this will raise an exception."
-msgstr ""
+msgstr "Якщо референт неможливо вибрати, це спричинить виняток."
 
 #: ../../library/multiprocessing.rst:2106
 msgid "Return a representation of the proxy object."
-msgstr ""
+msgstr "Повертає представлення проксі-об’єкта."
 
 #: ../../library/multiprocessing.rst:2110
 msgid "Return the representation of the referent."
-msgstr ""
+msgstr "Повернути представлення референта."
 
 #: ../../library/multiprocessing.rst:2114
 msgid "Cleanup"
@@ -2880,22 +3091,28 @@ msgid ""
 "A proxy object uses a weakref callback so that when it gets garbage "
 "collected it deregisters itself from the manager which owns its referent."
 msgstr ""
+"Проксі-об’єкт використовує зворотний виклик weakref, щоб, коли він збирає "
+"сміття, він скасовує реєстрацію в менеджері, якому належить його референт."
 
 #: ../../library/multiprocessing.rst:2119
 msgid ""
 "A shared object gets deleted from the manager process when there are no "
 "longer any proxies referring to it."
 msgstr ""
+"Спільний об’єкт видаляється з процесу менеджера, коли більше немає проксі-"
+"серверів, які посилаються на нього."
 
 #: ../../library/multiprocessing.rst:2124
 msgid "Process Pools"
-msgstr ""
+msgstr "Пули процесів"
 
 #: ../../library/multiprocessing.rst:2129
 msgid ""
 "One can create a pool of processes which will carry out tasks submitted to "
 "it with the :class:`Pool` class."
 msgstr ""
+"Можна створити пул процесів, які виконуватимуть передані йому завдання за "
+"допомогою класу :class:`Pool`."
 
 #: ../../library/multiprocessing.rst:2134
 msgid ""
@@ -2903,12 +3120,18 @@ msgid ""
 "jobs can be submitted.  It supports asynchronous results with timeouts and "
 "callbacks and has a parallel map implementation."
 msgstr ""
+"Об’єкт пулу процесів, який керує пулом робочих процесів, до яких можна "
+"надсилати завдання. Він підтримує асинхронні результати з тайм-аутами та "
+"зворотними викликами та має реалізацію паралельної карти."
 
 #: ../../library/multiprocessing.rst:2138
 msgid ""
 "*processes* is the number of worker processes to use.  If *processes* is "
 "``None`` then the number returned by :func:`os.cpu_count` is used."
 msgstr ""
+"*processes* — це кількість робочих процесів, які потрібно використовувати. "
+"Якщо *processes* має значення ``None``, тоді використовується число, яке "
+"повертає :func:`os.cpu_count`."
 
 #: ../../library/multiprocessing.rst:2141
 #: ../../library/multiprocessing.rst:2702
@@ -2916,6 +3139,8 @@ msgid ""
 "If *initializer* is not ``None`` then each worker process will call "
 "``initializer(*initargs)`` when it starts."
 msgstr ""
+"Якщо *initializer* не ``None``, тоді кожен робочий процес викличе "
+"``initializer(*initargs)`` під час свого запуску."
 
 #: ../../library/multiprocessing.rst:2144
 msgid ""
@@ -2924,6 +3149,10 @@ msgid ""
 "unused resources to be freed. The default *maxtasksperchild* is ``None``, "
 "which means worker processes will live as long as the pool."
 msgstr ""
+"*maxtasksperchild* — це кількість завдань, які робочий процес може виконати, "
+"перш ніж він вийде та буде замінений новим робочим процесом, щоб звільнити "
+"невикористані ресурси. Типовим значенням *maxtasksperchild* є ``None``, що "
+"означає, що робочі процеси живуть стільки ж, скільки пул."
 
 #: ../../library/multiprocessing.rst:2149
 msgid ""
@@ -2932,12 +3161,18 @@ msgid ""
 "`multiprocessing.Pool` or the :meth:`Pool` method of a context object.  In "
 "both cases *context* is set appropriately."
 msgstr ""
+"*context* можна використовувати для визначення контексту, який "
+"використовується для запуску робочих процесів. Зазвичай пул створюється за "
+"допомогою функції :func:`multiprocessing.Pool` або методу :meth:`Pool` "
+"контекстного об’єкта. В обох випадках *контекст* встановлено належним чином."
 
 #: ../../library/multiprocessing.rst:2155
 msgid ""
 "Note that the methods of the pool object should only be called by the "
 "process which created the pool."
 msgstr ""
+"Зауважте, що методи об’єкта пулу має викликати тільки процес, який створив "
+"пул."
 
 #: ../../library/multiprocessing.rst:2159
 msgid ""
@@ -2946,6 +3181,11 @@ msgid ""
 "manager or by calling :meth:`close` and :meth:`terminate` manually. Failure "
 "to do this can lead to the process hanging on finalization."
 msgstr ""
+"Об’єкти :class:`multiprocessing.pool` мають внутрішні ресурси, якими "
+"потрібно належним чином керувати (як і будь-яким іншим ресурсом), "
+"використовуючи пул як контекстний менеджер або викликаючи :meth:`close` і :"
+"meth:`terminate` вручну. Якщо цього не зробити, процес може призупинити "
+"завершення."
 
 #: ../../library/multiprocessing.rst:2164
 msgid ""
@@ -2972,6 +3212,13 @@ msgid ""
 "one. The *maxtasksperchild* argument to the :class:`Pool` exposes this "
 "ability to the end user."
 msgstr ""
+"Робочі процеси в межах :class:`Pool` зазвичай живі протягом повної "
+"тривалості робочої черги пулу. Частий шаблон, який зустрічається в інших "
+"системах (таких як Apache, mod_wsgi тощо) для звільнення ресурсів, які "
+"зберігаються робочими засобами, полягає в тому, щоб дозволити робочому в "
+"межах пулу завершити лише певний обсяг роботи перед виходом, очищенням і "
+"породженням нового процесу на заміну старого. Аргумент *maxtasksperchild* "
+"для :class:`Pool` надає цю можливість кінцевому користувачеві."
 
 #: ../../library/multiprocessing.rst:2186
 msgid ""
@@ -2980,12 +3227,18 @@ msgid ""
 "suited for performing work in parallel. Additionally, *func* is only "
 "executed in one of the workers of the pool."
 msgstr ""
+"Виклик *func* з аргументами *args* і ключовими аргументами *kwds*. "
+"Блокується, поки не буде готовий результат. Враховуючи ці блоки, :meth:"
+"`apply_async` краще підходить для виконання роботи паралельно. Крім того, "
+"*func* виконується лише в одному з воркерів пулу."
 
 #: ../../library/multiprocessing.rst:2193
 msgid ""
 "A variant of the :meth:`apply` method which returns a :class:"
 "`~multiprocessing.pool.AsyncResult` object."
 msgstr ""
+"Варіант методу :meth:`apply`, який повертає об’єкт :class:`~multiprocessing."
+"pool.AsyncResult`."
 
 #: ../../library/multiprocessing.rst:2196
 #: ../../library/multiprocessing.rst:2227
@@ -2995,6 +3248,10 @@ msgid ""
 "that is unless the call failed, in which case the *error_callback* is "
 "applied instead."
 msgstr ""
+"Якщо вказано *callback*, це має бути виклик, який приймає один аргумент. "
+"Коли результат стає готовим, до нього застосовується *callback*, якщо тільки "
+"виклик не вдався, у цьому випадку замість нього застосовується "
+"*error_callback*."
 
 #: ../../library/multiprocessing.rst:2201
 #: ../../library/multiprocessing.rst:2232
@@ -3003,6 +3260,9 @@ msgid ""
 "a single argument.  If the target function fails, then the *error_callback* "
 "is called with the exception instance."
 msgstr ""
+"Якщо вказано *error_callback*, це має бути виклик, який приймає один "
+"аргумент. Якщо цільова функція дає збій, то *error_callback* викликається з "
+"екземпляром винятку."
 
 #: ../../library/multiprocessing.rst:2205
 #: ../../library/multiprocessing.rst:2236
@@ -3010,6 +3270,8 @@ msgid ""
 "Callbacks should complete immediately since otherwise the thread which "
 "handles the results will get blocked."
 msgstr ""
+"Зворотні виклики мають завершитися негайно, інакше потік, який обробляє "
+"результати, буде заблоковано."
 
 #: ../../library/multiprocessing.rst:2210
 msgid ""
@@ -3017,6 +3279,9 @@ msgid ""
 "one *iterable* argument though, for multiple iterables see :meth:`starmap`). "
 "It blocks until the result is ready."
 msgstr ""
+"Паралельний еквівалент вбудованої функції :func:`map` (хоча вона підтримує "
+"лише один аргумент *iterable*, для кількох ітерацій див. :meth:`starmap`). "
+"Блокується, поки не буде готовий результат."
 
 #: ../../library/multiprocessing.rst:2214
 msgid ""
@@ -3024,6 +3289,9 @@ msgid ""
 "the process pool as separate tasks.  The (approximate) size of these chunks "
 "can be specified by setting *chunksize* to a positive integer."
 msgstr ""
+"Цей метод розбиває iterable на декілька фрагментів, які він надсилає до пулу "
+"процесів як окремі завдання. (Приблизний) розмір цих фрагментів можна "
+"вказати, встановивши для *chunksize* додатне ціле число."
 
 #: ../../library/multiprocessing.rst:2218
 msgid ""
@@ -3031,16 +3299,21 @@ msgid ""
 "using :meth:`imap` or :meth:`imap_unordered` with explicit *chunksize* "
 "option for better efficiency."
 msgstr ""
+"Зауважте, що це може спричинити велике використання пам’яті для дуже довгих "
+"ітерацій. Розгляньте можливість використання :meth:`imap` або :meth:"
+"`imap_unordered` з явним параметром *chunksize* для кращої ефективності."
 
 #: ../../library/multiprocessing.rst:2224
 msgid ""
 "A variant of the :meth:`.map` method which returns a :class:"
 "`~multiprocessing.pool.AsyncResult` object."
 msgstr ""
+"Варіант методу :meth:`.map`, який повертає об’єкт :class:`~multiprocessing."
+"pool.AsyncResult`."
 
 #: ../../library/multiprocessing.rst:2241
 msgid "A lazier version of :meth:`.map`."
-msgstr ""
+msgstr "Ленича версія :meth:`.map`."
 
 #: ../../library/multiprocessing.rst:2243
 msgid ""
@@ -3048,6 +3321,10 @@ msgid ""
 "method.  For very long iterables using a large value for *chunksize* can "
 "make the job complete **much** faster than using the default value of ``1``."
 msgstr ""
+"Аргумент *chunksize* такий самий, як той, який використовується методом :"
+"meth:`.map`. Для дуже довгих ітерацій використання великого значення для "
+"*chunksize* може зробити роботу завершеною **набагато** швидше, ніж "
+"використання значення за замовчуванням ``1``."
 
 #: ../../library/multiprocessing.rst:2248
 msgid ""
@@ -3056,6 +3333,10 @@ msgid ""
 "``next(timeout)`` will raise :exc:`multiprocessing.TimeoutError` if the "
 "result cannot be returned within *timeout* seconds."
 msgstr ""
+"Крім того, якщо *chunksize* дорівнює ``1``, тоді метод :meth:`!next` "
+"ітератора, який повертає метод :meth:`imap`, має додатковий параметр "
+"*timeout*: ``next(timeout)`` викличе :exc:`multiprocessing.TimeoutError`, "
+"якщо результат не може бути повернутий протягом *часу очікування* секунд."
 
 #: ../../library/multiprocessing.rst:2255
 msgid ""
@@ -3063,18 +3344,24 @@ msgid ""
 "returned iterator should be considered arbitrary.  (Only when there is only "
 "one worker process is the order guaranteed to be \"correct\".)"
 msgstr ""
+"Те саме, що :meth:`imap`, за винятком того, що порядок результатів від "
+"повернутого ітератора слід вважати довільним. (Тільки коли є лише один "
+"робочий процес, порядок гарантовано буде \"правильним\".)"
 
 #: ../../library/multiprocessing.rst:2261
 msgid ""
 "Like :meth:`~multiprocessing.pool.Pool.map` except that the elements of the "
 "*iterable* are expected to be iterables that are unpacked as arguments."
 msgstr ""
+"Подібно до :meth:`~multiprocessing.pool.Pool.map`, за винятком того, що "
+"елементи *iterable* мають бути ітерованими, які розпаковуються як аргументи."
 
 #: ../../library/multiprocessing.rst:2265
 msgid ""
 "Hence an *iterable* of ``[(1,2), (3, 4)]`` results in ``[func(1,2), "
 "func(3,4)]``."
 msgstr ""
+"Тому *ітерація* ``[(1,2), (3, 4)]`` призводить до ``[func(1,2), func(3,4)]``."
 
 #: ../../library/multiprocessing.rst:2272
 msgid ""
@@ -3082,12 +3369,17 @@ msgid ""
 "*iterable* of iterables and calls *func* with the iterables unpacked. "
 "Returns a result object."
 msgstr ""
+"Комбінація :meth:`starmap` і :meth:`map_async`, яка виконує ітерацію по "
+"*iterable* ітерацій і викликає *func* з розпакованими ітераціями. Повертає "
+"об’єкт результату."
 
 #: ../../library/multiprocessing.rst:2280
 msgid ""
 "Prevents any more tasks from being submitted to the pool.  Once all the "
 "tasks have been completed the worker processes will exit."
 msgstr ""
+"Запобігає надсиланню додаткових завдань до пулу. Після виконання всіх "
+"завдань робочі процеси завершаться."
 
 #: ../../library/multiprocessing.rst:2285
 msgid ""
@@ -3095,12 +3387,16 @@ msgid ""
 "When the pool object is garbage collected :meth:`terminate` will be called "
 "immediately."
 msgstr ""
+"Негайно зупиняє робочі процеси, не завершуючи незавершену роботу. Коли "
+"об’єкт пулу збирається як сміття, негайно буде викликано :meth:`terminate`."
 
 #: ../../library/multiprocessing.rst:2291
 msgid ""
 "Wait for the worker processes to exit.  One must call :meth:`close` or :meth:"
 "`terminate` before using :meth:`join`."
 msgstr ""
+"Зачекайте, поки робочі процеси завершаться. Потрібно викликати :meth:`close` "
+"або :meth:`terminate` перед використанням :meth:`join`."
 
 #: ../../library/multiprocessing.rst:2294
 msgid ""
@@ -3108,12 +3404,17 @@ msgid ""
 "`typecontextmanager`.  :meth:`~contextmanager.__enter__` returns the pool "
 "object, and :meth:`~contextmanager.__exit__` calls :meth:`terminate`."
 msgstr ""
+"Об’єкти пулу тепер підтримують протокол керування контекстом – див. :ref:"
+"`typecontextmanager`. :meth:`~contextmanager.__enter__` повертає об’єкт "
+"пулу, а :meth:`~contextmanager.__exit__` викликає :meth:`terminate`."
 
 #: ../../library/multiprocessing.rst:2302
 msgid ""
 "The class of the result returned by :meth:`Pool.apply_async` and :meth:`Pool."
 "map_async`."
 msgstr ""
+"Клас результату, який повертають :meth:`Pool.apply_async` і :meth:`Pool."
+"map_async`."
 
 #: ../../library/multiprocessing.rst:2307
 msgid ""
@@ -3122,40 +3423,52 @@ msgid ""
 "TimeoutError` is raised.  If the remote call raised an exception then that "
 "exception will be reraised by :meth:`get`."
 msgstr ""
+"Поверніть результат, коли він надійде. Якщо *timeout* не ``None`` і "
+"результат не надходить протягом *timeout* секунд, тоді виникає :exc:"
+"`multiprocessing.TimeoutError`. Якщо віддалений виклик викликав виняток, цей "
+"виняток буде повторно викликано :meth:`get`."
 
 #: ../../library/multiprocessing.rst:2314
 msgid "Wait until the result is available or until *timeout* seconds pass."
 msgstr ""
+"Зачекайте, поки буде доступний результат або поки не мине *тайм-аут* секунди."
 
 #: ../../library/multiprocessing.rst:2318
 msgid "Return whether the call has completed."
-msgstr ""
+msgstr "Повідомити, чи завершено виклик."
 
 #: ../../library/multiprocessing.rst:2322
 msgid ""
 "Return whether the call completed without raising an exception.  Will raise :"
 "exc:`ValueError` if the result is not ready."
 msgstr ""
+"Повертає, чи завершено виклик без виклику винятку. Викличе :exc:"
+"`ValueError`, якщо результат не готовий."
 
 #: ../../library/multiprocessing.rst:2325
 msgid ""
 "If the result is not ready, :exc:`ValueError` is raised instead of :exc:"
 "`AssertionError`."
 msgstr ""
+"Якщо результат не готовий, замість :exc:`AssertionError` виникає :exc:"
+"`ValueError`."
 
 #: ../../library/multiprocessing.rst:2329
 msgid "The following example demonstrates the use of a pool::"
-msgstr ""
+msgstr "Наступний приклад демонструє використання пулу:"
 
 #: ../../library/multiprocessing.rst:2356
 msgid "Listeners and Clients"
-msgstr ""
+msgstr "Слухачі та клієнти"
 
 #: ../../library/multiprocessing.rst:2361
 msgid ""
 "Usually message passing between processes is done using queues or by using :"
 "class:`~Connection` objects returned by :func:`~multiprocessing.Pipe`."
 msgstr ""
+"Зазвичай передача повідомлень між процесами здійснюється за допомогою черг "
+"або за допомогою об’єктів :class:`~Connection`, які повертає :func:"
+"`~multiprocessing.Pipe`."
 
 #: ../../library/multiprocessing.rst:2365
 msgid ""
@@ -3165,12 +3478,19 @@ msgid ""
 "*digest authentication* using the :mod:`hmac` module, and for polling "
 "multiple connections at the same time."
 msgstr ""
+"Однак модуль :mod:`multiprocessing.connection` забезпечує додаткову "
+"гнучкість. По суті, це надає API високого рівня, орієнтований на "
+"повідомлення, для роботи з сокетами або іменованими каналами Windows. Він "
+"також підтримує *дайджест-автентифікацію* за допомогою модуля :mod:`hmac` і "
+"для опитування кількох з’єднань одночасно."
 
 #: ../../library/multiprocessing.rst:2374
 msgid ""
 "Send a randomly generated message to the other end of the connection and "
 "wait for a reply."
 msgstr ""
+"Надішліть випадково згенероване повідомлення на інший кінець з’єднання та "
+"дочекайтеся відповіді."
 
 #: ../../library/multiprocessing.rst:2377
 msgid ""
@@ -3178,24 +3498,33 @@ msgid ""
 "then a welcome message is sent to the other end of the connection.  "
 "Otherwise :exc:`~multiprocessing.AuthenticationError` is raised."
 msgstr ""
+"Якщо відповідь відповідає дайджесту повідомлення з використанням *authkey* "
+"як ключа, тоді на інший кінець з’єднання надсилається вітальне повідомлення. "
+"Інакше виникає :exc:`~multiprocessing.AuthenticationError`."
 
 #: ../../library/multiprocessing.rst:2383
 msgid ""
 "Receive a message, calculate the digest of the message using *authkey* as "
 "the key, and then send the digest back."
 msgstr ""
+"Отримайте повідомлення, обчисліть дайджест повідомлення, використовуючи "
+"*authkey* як ключ, а потім надішліть дайджест назад."
 
 #: ../../library/multiprocessing.rst:2386
 msgid ""
 "If a welcome message is not received, then :exc:`~multiprocessing."
 "AuthenticationError` is raised."
 msgstr ""
+"Якщо вітальне повідомлення не отримано, виникає :exc:`~multiprocessing."
+"AuthenticationError`."
 
 #: ../../library/multiprocessing.rst:2391
 msgid ""
 "Attempt to set up a connection to the listener which is using address "
 "*address*, returning a :class:`~Connection`."
 msgstr ""
+"Спроба встановити з’єднання зі слухачем, який використовує адресу *address*, "
+"повертаючи :class:`~Connection`."
 
 #: ../../library/multiprocessing.rst:2394
 msgid ""
@@ -3203,6 +3532,9 @@ msgid ""
 "generally be omitted since it can usually be inferred from the format of "
 "*address*. (See :ref:`multiprocessing-address-formats`)"
 msgstr ""
+"Тип з’єднання визначається аргументом *family*, але зазвичай його можна "
+"опустити, оскільки його зазвичай можна визначити з формату *address*. (Див. :"
+"ref:`multiprocessing-address-formats`)"
 
 #: ../../library/multiprocessing.rst:2398
 #: ../../library/multiprocessing.rst:2433
@@ -3213,18 +3545,27 @@ msgid ""
 "AuthenticationError` is raised if authentication fails. See :ref:"
 "`multiprocessing-auth-keys`."
 msgstr ""
+"Якщо вказано *authkey*, а не None, це має бути рядок байтів і "
+"використовуватиметься як секретний ключ для виклику автентифікації на основі "
+"HMAC. Автентифікація не виконується, якщо *authkey* має значення None. :exc:"
+"`~multiprocessing.AuthenticationError` виникає, якщо автентифікація не "
+"вдається. Перегляньте :ref:`multiprocessing-auth-keys`."
 
 #: ../../library/multiprocessing.rst:2406
 msgid ""
 "A wrapper for a bound socket or Windows named pipe which is 'listening' for "
 "connections."
 msgstr ""
+"Обгортка для пов’язаного сокета або каналу з іменем Windows, який \"слухає\" "
+"з’єднання."
 
 #: ../../library/multiprocessing.rst:2409
 msgid ""
 "*address* is the address to be used by the bound socket or named pipe of the "
 "listener object."
 msgstr ""
+"*address* — це адреса, яка буде використовуватися зв’язаним сокетом або "
+"іменованим каналом об’єкта слухача."
 
 #: ../../library/multiprocessing.rst:2414
 msgid ""
@@ -3232,6 +3573,9 @@ msgid ""
 "end point on Windows. If you require a connectable end-point, you should use "
 "'127.0.0.1'."
 msgstr ""
+"Якщо використовується адреса \"0.0.0.0\", ця адреса не буде кінцевою точкою "
+"підключення в Windows. Якщо вам потрібна підключена кінцева точка, вам слід "
+"використовувати \"127.0.0.1\"."
 
 #: ../../library/multiprocessing.rst:2418
 msgid ""
@@ -3246,6 +3590,17 @@ msgid ""
 "then the socket will be created in a private temporary directory created "
 "using :func:`tempfile.mkstemp`."
 msgstr ""
+"*сімейство* — це тип розетки (або названої труби), яку слід використовувати. "
+"Це може бути один із рядків ``'AF_INET'`` (для сокета TCP), ``'AF_UNIX'`` "
+"(для сокета домену Unix) або ``'AF_PIPE''`` (для іменованого каналу "
+"Windows) . З них лише перший гарантовано доступний. Якщо *family* має "
+"значення ``None``, тоді сім'я виводиться з формату *address*. Якщо *адреса* "
+"також ``None``, тоді вибрано значення за замовчуванням. Це за замовчуванням "
+"сімейство, яке вважається найшвидшим із доступних. Дивіться :ref:"
+"`multiprocessing-address-formats`. Зауважте, що якщо *сімейство* має "
+"значення ``'AF_UNIX``, а адреса ``None``, то сокет буде створено в "
+"приватному тимчасовому каталозі, створеному за допомогою :func:`tempfile."
+"mkstemp`."
 
 #: ../../library/multiprocessing.rst:2429
 msgid ""
@@ -3253,6 +3608,9 @@ msgid ""
 "to the :meth:`~socket.socket.listen` method of the socket once it has been "
 "bound."
 msgstr ""
+"Якщо об’єкт слухача використовує сокет, тоді *backlog* (1 за замовчуванням) "
+"передається в метод :meth:`~socket.socket.listen` сокета після того, як його "
+"буде зв’язано."
 
 #: ../../library/multiprocessing.rst:2441
 msgid ""
@@ -3260,6 +3618,9 @@ msgid ""
 "and return a :class:`~Connection` object. If authentication is attempted and "
 "fails, then :exc:`~multiprocessing.AuthenticationError` is raised."
 msgstr ""
+"Прийняти підключення до зв’язаного сокета або іменованого каналу об’єкта "
+"слухача та повернути об’єкт :class:`~Connection`. Якщо спроба автентифікації "
+"не вдається, виникає :exc:`~multiprocessing.AuthenticationError`."
 
 #: ../../library/multiprocessing.rst:2448
 msgid ""
@@ -3267,20 +3628,25 @@ msgid ""
 "automatically when the listener is garbage collected.  However it is "
 "advisable to call it explicitly."
 msgstr ""
+"Закрийте прив’язаний сокет або іменований канал об’єкта слухача. Це "
+"викликається автоматично, коли слухач збирає сміття. Однак бажано називати "
+"це явно."
 
 #: ../../library/multiprocessing.rst:2452
 msgid "Listener objects have the following read-only properties:"
-msgstr ""
+msgstr "Об’єкти слухача мають такі властивості лише для читання:"
 
 #: ../../library/multiprocessing.rst:2456
 msgid "The address which is being used by the Listener object."
-msgstr ""
+msgstr "Адреса, яка використовується об’єктом Listener."
 
 #: ../../library/multiprocessing.rst:2460
 msgid ""
 "The address from which the last accepted connection came.  If this is "
 "unavailable then it is ``None``."
 msgstr ""
+"Адреса, з якої надійшло останнє прийняте підключення. Якщо це недоступно, це "
+"``None``."
 
 #: ../../library/multiprocessing.rst:2463
 msgid ""
@@ -3288,6 +3654,9 @@ msgid ""
 "`typecontextmanager`.  :meth:`~contextmanager.__enter__` returns the "
 "listener object, and :meth:`~contextmanager.__exit__` calls :meth:`close`."
 msgstr ""
+"Об’єкти слухача тепер підтримують протокол керування контекстом – див. :ref:"
+"`typecontextmanager`. :meth:`~contextmanager.__enter__` повертає об’єкт "
+"слухача, а :meth:`~contextmanager.__exit__` викликає :meth:`close`."
 
 #: ../../library/multiprocessing.rst:2470
 msgid ""
@@ -3297,31 +3666,42 @@ msgid ""
 "will block for an unlimited period. A negative timeout is equivalent to a "
 "zero timeout."
 msgstr ""
+"Зачекайте, поки об'єкт у *object_list* буде готовий. Повертає список тих "
+"об'єктів у *object_list*, які готові. Якщо *timeout* є числом з плаваючою "
+"точкою, виклик блокується щонайбільше на стільки секунд. Якщо *timeout* має "
+"значення ``None``, тоді він блокуватиметься на необмежений період. Від’ємний "
+"тайм-аут еквівалентний нульовому тайм-ауту."
 
 #: ../../library/multiprocessing.rst:2476
 msgid ""
 "For both Unix and Windows, an object can appear in *object_list* if it is"
 msgstr ""
+"Як для Unix, так і для Windows, об’єкт може з’явитися в *object_list*, якщо "
+"він є"
 
 #: ../../library/multiprocessing.rst:2479
 msgid "a readable :class:`~multiprocessing.connection.Connection` object;"
-msgstr ""
+msgstr "читабельний об’єкт :class:`~multiprocessing.connection.Connection`;"
 
 #: ../../library/multiprocessing.rst:2480
 msgid "a connected and readable :class:`socket.socket` object; or"
-msgstr ""
+msgstr "підключений і читабельний об’єкт :class:`socket.socket`; або"
 
 #: ../../library/multiprocessing.rst:2481
 msgid ""
 "the :attr:`~multiprocessing.Process.sentinel` attribute of a :class:"
 "`~multiprocessing.Process` object."
 msgstr ""
+"атрибут :attr:`~multiprocessing.Process.sentinel` об’єкта :class:"
+"`~multiprocessing.Process`."
 
 #: ../../library/multiprocessing.rst:2484
 msgid ""
 "A connection or socket object is ready when there is data available to be "
 "read from it, or the other end has been closed."
 msgstr ""
+"Об’єкт з’єднання або сокета готовий, коли є доступні дані для читання з "
+"нього, або інший кінець закрито."
 
 #: ../../library/multiprocessing.rst:2487
 msgid ""
@@ -3330,6 +3710,10 @@ msgid ""
 "`select.select` is interrupted by a signal, it can raise :exc:`OSError` with "
 "an error number of ``EINTR``, whereas :func:`wait` will not."
 msgstr ""
+"**Unix**: ``wait(object_list, timeout)`` майже еквівалент ``select."
+"select(object_list, [], [], timeout)``. Різниця полягає в тому, що якщо :"
+"func:`select.select` переривається сигналом, він може викликати :exc:"
+"`OSError` з номером помилки ``EINTR``, тоді як :func:`wait` не буде."
 
 #: ../../library/multiprocessing.rst:2493
 msgid ""
@@ -3339,10 +3723,15 @@ msgid ""
 "meth:`fileno` method which returns a socket handle or pipe handle.  (Note "
 "that pipe handles and socket handles are **not** waitable handles.)"
 msgstr ""
+"**Windows**: елемент у *object_list* має бути цілочисельним дескриптором, "
+"який можна очікувати (відповідно до визначення, що використовується в "
+"документації функції Win32 ``WaitForMultipleObjects()``), або це може бути "
+"об’єкт із :meth:`fileno` метод, який повертає дескриптор сокета або каналу. "
+"(Зауважте, що маркери труб і розеток **не** є маркерами очікування.)"
 
 #: ../../library/multiprocessing.rst:2503
 msgid "**Examples**"
-msgstr ""
+msgstr "**Examples**"
 
 #: ../../library/multiprocessing.rst:2505
 msgid ""
@@ -3350,18 +3739,24 @@ msgid ""
 "password'`` as an authentication key.  It then waits for a connection and "
 "sends some data to the client::"
 msgstr ""
+"Наступний код сервера створює прослуховувач, який використовує ``'секретний "
+"пароль`` як ключ автентифікації. Потім він очікує з’єднання та надсилає "
+"деякі дані клієнту::"
 
 #: ../../library/multiprocessing.rst:2524
 msgid ""
 "The following code connects to the server and receives some data from the "
 "server::"
 msgstr ""
+"Наступний код підключається до сервера та отримує деякі дані з сервера:"
 
 #: ../../library/multiprocessing.rst:2541
 msgid ""
 "The following code uses :func:`~multiprocessing.connection.wait` to wait for "
 "messages from multiple processes at once::"
 msgstr ""
+"Наступний код використовує :func:`~multiprocessing.connection.wait` для "
+"очікування повідомлень від кількох процесів одночасно::"
 
 #: ../../library/multiprocessing.rst:2580
 msgid "Address Formats"
@@ -3380,6 +3775,7 @@ msgid ""
 "An ``'AF_UNIX'`` address is a string representing a filename on the "
 "filesystem."
 msgstr ""
+"Адреса \"AF_UNIX\" — це рядок, що представляє назву файлу у файловій системі."
 
 #: ../../library/multiprocessing.rst:2588
 msgid ""
@@ -3394,10 +3790,13 @@ msgid ""
 "Note that any string beginning with two backslashes is assumed by default to "
 "be an ``'AF_PIPE'`` address rather than an ``'AF_UNIX'`` address."
 msgstr ""
+"Зауважте, що будь-який рядок, який починається двома зворотними похилими "
+"рисками, за замовчуванням вважається адресою ``'AF_PIPE'``, а не адресою "
+"``'AF_UNIX'``."
 
 #: ../../library/multiprocessing.rst:2600
 msgid "Authentication keys"
-msgstr ""
+msgstr "Ключі автентифікації"
 
 #: ../../library/multiprocessing.rst:2602
 msgid ""
@@ -3406,6 +3805,10 @@ msgid ""
 "source is a security risk. Therefore :class:`Listener` and :func:`Client` "
 "use the :mod:`hmac` module to provide digest authentication."
 msgstr ""
+"Коли використовується :meth:`Connection.recv <Connection.recv>`, отримані "
+"дані автоматично видаляються. На жаль, видалення даних із ненадійного "
+"джерела становить загрозу безпеці. Тому :class:`Listener` і :func:`Client` "
+"використовують модуль :mod:`hmac` для забезпечення автентифікації дайджесту."
 
 #: ../../library/multiprocessing.rst:2608
 msgid ""
@@ -3414,6 +3817,11 @@ msgid ""
 "the other knows the authentication key.  (Demonstrating that both ends are "
 "using the same key does **not** involve sending the key over the connection.)"
 msgstr ""
+"Ключ автентифікації — це рядок байтів, який можна розглядати як пароль: коли "
+"з’єднання встановлено, обидва кінці вимагатимуть підтвердження того, що "
+"інший знає ключ автентифікації. (Демонстрація того, що обидві сторони "
+"використовують той самий ключ, **не** передбачає надсилання ключа через "
+"з’єднання.)"
 
 #: ../../library/multiprocessing.rst:2614
 msgid ""
@@ -3425,12 +3833,22 @@ msgid ""
 "program will share a single authentication key which can be used when "
 "setting up connections between themselves."
 msgstr ""
+"Якщо автентифікація запитується, але ключ автентифікації не вказано, тоді "
+"використовується значення, що повертається ``current_process().authkey`` "
+"(див. :class:`~multiprocessing.Process`). Це значення буде автоматично "
+"успадковано будь-яким об’єктом :class:`~multiprocessing.Process`, який "
+"створює поточний процес. Це означає, що (за замовчуванням) усі процеси "
+"багатопроцесної програми спільно використовуватимуть один ключ "
+"автентифікації, який можна використовувати під час встановлення з’єднань між "
+"собою."
 
 #: ../../library/multiprocessing.rst:2622
 msgid ""
 "Suitable authentication keys can also be generated by using :func:`os."
 "urandom`."
 msgstr ""
+"Відповідні ключі автентифікації також можна згенерувати за допомогою :func:"
+"`os.urandom`."
 
 #: ../../library/multiprocessing.rst:2626
 msgid "Logging"
@@ -3443,12 +3861,17 @@ msgid ""
 "(depending on the handler type) for messages from different processes to get "
 "mixed up."
 msgstr ""
+"Доступна певна підтримка журналювання. Однак зауважте, що пакунок :mod:"
+"`logging` не використовує спільні блокування процесів, тому (залежно від "
+"типу обробника) повідомлення від різних процесів можуть переплутатися."
 
 #: ../../library/multiprocessing.rst:2635
 msgid ""
 "Returns the logger used by :mod:`multiprocessing`.  If necessary, a new one "
 "will be created."
 msgstr ""
+"Повертає реєстратор, який використовується :mod:`multiprocessing`. За "
+"потреби буде створено новий."
 
 #: ../../library/multiprocessing.rst:2638
 msgid ""
@@ -3456,6 +3879,9 @@ msgid ""
 "default handler. Messages sent to this logger will not by default propagate "
 "to the root logger."
 msgstr ""
+"Під час першого створення реєстратор має рівень :data:`logging.NOTSET` і не "
+"має обробника за замовчуванням. Повідомлення, надіслані до цього "
+"реєстратора, за умовчанням не поширюватимуться до кореневого реєстратора."
 
 #: ../../library/multiprocessing.rst:2642
 msgid ""
@@ -3463,6 +3889,9 @@ msgid ""
 "parent process's logger -- any other customization of the logger will not be "
 "inherited."
 msgstr ""
+"Зауважте, що у Windows дочірні процеси успадковуватимуть лише рівень "
+"реєстратора батьківського процесу – будь-які інші налаштування реєстратора "
+"не успадковуватимуться."
 
 #: ../../library/multiprocessing.rst:2649
 msgid ""
@@ -3472,24 +3901,33 @@ msgid ""
 "%(message)s'``. You can modify ``levelname`` of the logger by passing a "
 "``level`` argument."
 msgstr ""
+"Ця функція виконує виклик :func:`get_logger`, але окрім повернення "
+"реєстратора, створеного get_logger, вона додає обробник, який надсилає "
+"вихідні дані до :data:`sys.stderr` у форматі ``'[%(levelname)s/"
+"%(processName)s] %(message)s ''``. Ви можете змінити ``levelname`` "
+"реєстратора, передавши аргумент ``level``."
 
 #: ../../library/multiprocessing.rst:2655
 msgid "Below is an example session with logging turned on::"
-msgstr ""
+msgstr "Нижче наведено приклад сеансу з увімкненим журналюванням::"
 
 #: ../../library/multiprocessing.rst:2670
 msgid "For a full table of logging levels, see the :mod:`logging` module."
 msgstr ""
+"Щоб отримати повну таблицю рівнів журналювання, перегляньте модуль :mod:"
+"`logging`."
 
 #: ../../library/multiprocessing.rst:2674
 msgid "The :mod:`multiprocessing.dummy` module"
-msgstr ""
+msgstr "Модуль :mod:`multiprocessing.dummy`"
 
 #: ../../library/multiprocessing.rst:2679
 msgid ""
 ":mod:`multiprocessing.dummy` replicates the API of :mod:`multiprocessing` "
 "but is no more than a wrapper around the :mod:`threading` module."
 msgstr ""
+":mod:`multiprocessing.dummy` повторює API :mod:`multiprocessing`, але є не "
+"більше ніж обгорткою модуля :mod:`threading`."
 
 #: ../../library/multiprocessing.rst:2684
 msgid ""
@@ -3498,6 +3936,10 @@ msgid ""
 "class:`Pool` that supports all the same method calls but uses a pool of "
 "worker threads rather than worker processes."
 msgstr ""
+"Зокрема, функція ``Pool``, надана :mod:`multiprocessing.dummy`, повертає "
+"екземпляр :class:`ThreadPool`, який є підкласом :class:`Pool`, який "
+"підтримує всі виклики методів, але використовує пул робочих потоків, а не "
+"робочих процесів."
 
 #: ../../library/multiprocessing.rst:2692
 msgid ""
@@ -3508,17 +3950,27 @@ msgid ""
 "calling :meth:`~multiprocessing.pool.Pool.close` and :meth:`~multiprocessing."
 "pool.Pool.terminate` manually."
 msgstr ""
+"Об’єкт пулу потоків, який керує пулом робочих потоків, до яких можна "
+"надсилати завдання. Екземпляри :class:`ThreadPool` повністю сумісні з "
+"інтерфейсом екземплярів :class:`Pool`, і їхніми ресурсами також потрібно "
+"правильно керувати, використовуючи пул як контекстний менеджер або "
+"викликаючи :meth:`~multiprocessing.pool. Pool.close` і :meth:"
+"`~multiprocessing.pool.Pool.terminate` вручну."
 
 #: ../../library/multiprocessing.rst:2699
 msgid ""
 "*processes* is the number of worker threads to use.  If *processes* is "
 "``None`` then the number returned by :func:`os.cpu_count` is used."
 msgstr ""
+"*processes* — це кількість робочих потоків для використання. Якщо "
+"*processes* має значення ``None``, тоді використовується число, яке "
+"повертає :func:`os.cpu_count`."
 
 #: ../../library/multiprocessing.rst:2705
 msgid ""
 "Unlike :class:`Pool`, *maxtasksperchild* and *context* cannot be provided."
 msgstr ""
+"На відміну від :class:`Pool`, *maxtasksperchild* і *context* не можна надати."
 
 #: ../../library/multiprocessing.rst:2709
 msgid ""
@@ -3529,6 +3981,12 @@ msgid ""
 "for representing the status of asynchronous jobs, :class:`AsyncResult`, that "
 "is not understood by any other libraries."
 msgstr ""
+":class:`ThreadPool` має той самий інтерфейс, що й :class:`Pool`, який "
+"розроблено навколо пулу процесів і передує появі модуля :class:`concurrent."
+"futures`. Таким чином, він успадковує деякі операції, які не мають сенсу для "
+"пулу, що підтримується потоками, і має власний тип для представлення статусу "
+"асинхронних завдань, :class:`AsyncResult`, який не розуміється жодною іншою "
+"бібліотекою."
 
 #: ../../library/multiprocessing.rst:2716
 msgid ""
@@ -3538,34 +3996,43 @@ msgid ""
 "instances that are compatible with many other libraries, including :mod:"
 "`asyncio`."
 msgstr ""
+"Зазвичай користувачі мають віддавати перевагу використанню :class:"
+"`concurrent.futures.ThreadPoolExecutor`, який має простіший інтерфейс, "
+"розроблений навколо потоків із самого початку та повертає :class:`concurrent."
+"futures.Future` екземпляри, сумісні з багатьма інші бібліотеки, включаючи :"
+"mod:`asyncio`."
 
 #: ../../library/multiprocessing.rst:2726
 msgid "Programming guidelines"
-msgstr ""
+msgstr "Інструкції з програмування"
 
 #: ../../library/multiprocessing.rst:2728
 msgid ""
 "There are certain guidelines and idioms which should be adhered to when "
 "using :mod:`multiprocessing`."
 msgstr ""
+"Існують певні вказівки та ідіоми, яких слід дотримуватися під час "
+"використання :mod:`multiprocessing`."
 
 #: ../../library/multiprocessing.rst:2733
 msgid "All start methods"
-msgstr ""
+msgstr "Всі методи запуску"
 
 #: ../../library/multiprocessing.rst:2735
 msgid "The following applies to all start methods."
-msgstr ""
+msgstr "Наступне стосується всіх методів запуску."
 
 #: ../../library/multiprocessing.rst:2737
 msgid "Avoid shared state"
-msgstr ""
+msgstr "Уникайте спільного стану"
 
 #: ../../library/multiprocessing.rst:2739
 msgid ""
 "As far as possible one should try to avoid shifting large amounts of data "
 "between processes."
 msgstr ""
+"Наскільки це можливо, слід намагатися уникати переміщення великих обсягів "
+"даних між процесами."
 
 #: ../../library/multiprocessing.rst:2742
 msgid ""
@@ -3573,33 +4040,39 @@ msgid ""
 "between processes rather than using the lower level synchronization "
 "primitives."
 msgstr ""
+"Ймовірно, найкраще використовувати черги або канали для зв’язку між "
+"процесами, а не використовувати примітиви синхронізації нижчого рівня."
 
 #: ../../library/multiprocessing.rst:2746
 msgid "Picklability"
-msgstr ""
+msgstr "Пробірність"
 
 #: ../../library/multiprocessing.rst:2748
 msgid "Ensure that the arguments to the methods of proxies are picklable."
-msgstr ""
+msgstr "Переконайтеся, що аргументи методів проксі-серверів можна вибрати."
 
 #: ../../library/multiprocessing.rst:2750
 msgid "Thread safety of proxies"
-msgstr ""
+msgstr "Безпека потоків проксі"
 
 #: ../../library/multiprocessing.rst:2752
 msgid ""
 "Do not use a proxy object from more than one thread unless you protect it "
 "with a lock."
 msgstr ""
+"Не використовуйте проксі-об’єкт із кількох потоків, якщо ви не захистите "
+"його за допомогою блокування."
 
 #: ../../library/multiprocessing.rst:2755
 msgid ""
 "(There is never a problem with different processes using the *same* proxy.)"
 msgstr ""
+"(Ніколи не виникає проблем із різними процесами, які використовують *той "
+"самий* проксі.)"
 
 #: ../../library/multiprocessing.rst:2757
 msgid "Joining zombie processes"
-msgstr ""
+msgstr "Приєднання до зомбованих процесів"
 
 #: ../../library/multiprocessing.rst:2759
 msgid ""
@@ -3611,10 +4084,18 @@ msgid ""
 "join the process.  Even so it is probably good practice to explicitly join "
 "all the processes that you start."
 msgstr ""
+"В Unix, коли процес завершується, але до нього не приєднується, він стає "
+"зомбі. Їх ніколи не повинно бути дуже багато, оскільки кожного разу, коли "
+"запускається новий процес (або викликається :func:`~multiprocessing."
+"active_children`), усі завершені процеси, які ще не приєдналися, будуть "
+"об’єднані. Також виклик завершеного процесу :meth:`Process.is_alive "
+"<multiprocessing.Process.is_alive>` приєднається до процесу. Незважаючи на "
+"це, ймовірно, гарною практикою є явне приєднання до всіх процесів, які ви "
+"починаєте."
 
 #: ../../library/multiprocessing.rst:2767
 msgid "Better to inherit than pickle/unpickle"
-msgstr ""
+msgstr "Краще успадкувати, ніж маринувати/розмаринувати"
 
 #: ../../library/multiprocessing.rst:2769
 msgid ""
@@ -3625,10 +4106,17 @@ msgid ""
 "that a process which needs access to a shared resource created elsewhere can "
 "inherit it from an ancestor process."
 msgstr ""
+"Під час використання методів запуску *spawn* або *forkserver* багато типів "
+"із :mod:`multiprocessing` мають бути доступними для вибору, щоб дочірні "
+"процеси могли їх використовувати. Однак зазвичай слід уникати надсилання "
+"спільних об’єктів іншим процесам за допомогою каналів або черг. Натомість ви "
+"повинні організувати програму так, щоб процес, якому потрібен доступ до "
+"спільного ресурсу, створеного в іншому місці, міг успадкувати його від "
+"процесу-предка."
 
 #: ../../library/multiprocessing.rst:2777
 msgid "Avoid terminating processes"
-msgstr ""
+msgstr "Уникайте завершення процесів"
 
 #: ../../library/multiprocessing.rst:2779
 msgid ""
@@ -3637,6 +4125,11 @@ msgid ""
 "locks, semaphores, pipes and queues) currently being used by the process to "
 "become broken or unavailable to other processes."
 msgstr ""
+"Використання методу :meth:`Process.terminate <multiprocessing.Process."
+"terminate>` для зупинки процесу може призвести до того, що будь-які спільні "
+"ресурси (такі як блокування, семафори, канали та черги), які зараз "
+"використовуються цим процесом, стануть несправними або недоступними для "
+"інших процесів."
 
 #: ../../library/multiprocessing.rst:2785
 msgid ""
@@ -3644,10 +4137,13 @@ msgid ""
 "terminate <multiprocessing.Process.terminate>` on processes which never use "
 "any shared resources."
 msgstr ""
+"Тому, ймовірно, найкраще використовувати :meth:`Process.terminate "
+"<multiprocessing.Process.terminate>` лише для процесів, які ніколи не "
+"використовують спільні ресурси."
 
 #: ../../library/multiprocessing.rst:2789
 msgid "Joining processes that use queues"
-msgstr ""
+msgstr "Приєднання до процесів, які використовують черги"
 
 #: ../../library/multiprocessing.rst:2791
 msgid ""
@@ -3657,6 +4153,11 @@ msgid ""
 "cancel_join_thread <multiprocessing.Queue.cancel_join_thread>` method of the "
 "queue to avoid this behaviour.)"
 msgstr ""
+"Майте на увазі, що процес, який поставив елементи в чергу, чекатиме перед "
+"завершенням, доки всі буферизовані елементи не будуть передані потоком "
+"\"фідера\" до основного каналу. (Дочірній процес може викликати метод :meth:"
+"`Queue.cancel_join_thread <multiprocessing.Queue.cancel_join_thread>` черги, "
+"щоб уникнути такої поведінки.)"
 
 #: ../../library/multiprocessing.rst:2797
 msgid ""
@@ -3666,20 +4167,27 @@ msgid ""
 "put items on the queue will terminate.  Remember also that non-daemonic "
 "processes will be joined automatically."
 msgstr ""
+"Це означає, що щоразу, коли ви використовуєте чергу, вам потрібно "
+"переконатися, що всі елементи, які було поставлено в чергу, зрештою буде "
+"видалено перед приєднанням до процесу. Інакше ви не можете бути впевнені, що "
+"процеси, які поставили елементи в чергу, завершаться. Пам'ятайте також, що "
+"недемонічні процеси будуть приєднані автоматично."
 
 #: ../../library/multiprocessing.rst:2803
 msgid "An example which will deadlock is the following::"
-msgstr ""
+msgstr "Прикладом, який призведе до взаємоблокування, є наступний:"
 
 #: ../../library/multiprocessing.rst:2817
 msgid ""
 "A fix here would be to swap the last two lines (or simply remove the ``p."
 "join()`` line)."
 msgstr ""
+"Виправити тут можна було б поміняти місцями останні два рядки (або просто "
+"видалити рядок ``p.join()``)."
 
 #: ../../library/multiprocessing.rst:2820
 msgid "Explicitly pass resources to child processes"
-msgstr ""
+msgstr "Явно передати ресурси дочірнім процесам"
 
 #: ../../library/multiprocessing.rst:2822
 msgid ""
@@ -3688,6 +4196,10 @@ msgid ""
 "However, it is better to pass the object as an argument to the constructor "
 "for the child process."
 msgstr ""
+"В Unix за допомогою методу запуску *fork* дочірній процес може "
+"використовувати спільний ресурс, створений у батьківському процесі за "
+"допомогою глобального ресурсу. Однак краще передати об’єкт як аргумент "
+"конструктору дочірнього процесу."
 
 #: ../../library/multiprocessing.rst:2827
 msgid ""
@@ -3697,28 +4209,35 @@ msgid ""
 "This might be important if some resource is freed when the object is garbage "
 "collected in the parent process."
 msgstr ""
+"Окрім того, що код (потенційно) сумісний із Windows та іншими методами "
+"запуску, це також гарантує, що поки дочірній процес живий, об’єкт не "
+"збиратиме сміття в батьківському процесі. Це може бути важливо, якщо якийсь "
+"ресурс звільняється, коли об’єкт збирається як сміття в батьківському "
+"процесі."
 
 #: ../../library/multiprocessing.rst:2834
 msgid "So for instance ::"
-msgstr ""
+msgstr "Так наприклад ::"
 
 #: ../../library/multiprocessing.rst:2846
 msgid "should be rewritten as ::"
-msgstr ""
+msgstr "слід переписати як ::"
 
 #: ../../library/multiprocessing.rst:2858
 msgid "Beware of replacing :data:`sys.stdin` with a \"file like object\""
-msgstr ""
+msgstr "Остерігайтеся заміни :data:`sys.stdin` на \"файлоподібний об’єкт\""
 
 #: ../../library/multiprocessing.rst:2860
 msgid ":mod:`multiprocessing` originally unconditionally called::"
-msgstr ""
+msgstr ":mod:`multiprocessing` спочатку безумовно називався::"
 
 #: ../../library/multiprocessing.rst:2864
 msgid ""
 "in the :meth:`multiprocessing.Process._bootstrap` method --- this resulted "
 "in issues with processes-in-processes. This has been changed to::"
 msgstr ""
+"у методі :meth:`multiprocessing.Process._bootstrap` --- це призвело до "
+"проблем із процесами в процесах. Це було змінено на::"
 
 #: ../../library/multiprocessing.rst:2870
 msgid ""
@@ -3729,6 +4248,13 @@ msgid ""
 "`~io.IOBase.close()` on this file-like object, it could result in the same "
 "data being flushed to the object multiple times, resulting in corruption."
 msgstr ""
+"Це вирішує фундаментальну проблему зіткнення процесів один з одним, що "
+"призводить до помилки неправильного дескриптора файлу, але представляє "
+"потенційну небезпеку для програм, які замінюють :func:`sys.stdin` на "
+"\"файлоподібний об’єкт\" із буферизацією виводу. Ця небезпека полягає в "
+"тому, що якщо кілька процесів викликають :meth:`~io.IOBase.close()` для "
+"цього файлоподібного об’єкта, це може призвести до того, що ті самі дані "
+"будуть скидатися в об’єкт кілька разів, що призведе до пошкодження."
 
 #: ../../library/multiprocessing.rst:2877
 msgid ""
@@ -3736,25 +4262,32 @@ msgid ""
 "it fork-safe by storing the pid whenever you append to the cache, and "
 "discarding the cache when the pid changes. For example::"
 msgstr ""
+"Якщо ви пишете файлоподібний об’єкт і використовуєте власне кешування, ви "
+"можете зробити його безпечним для розгалуження, зберігаючи pid кожного разу, "
+"коли ви додаєте його до кешу, і відкидаючи кеш, коли pid змінюється. "
+"Наприклад::"
 
 #: ../../library/multiprocessing.rst:2889
 msgid ""
 "For more information, see :issue:`5155`, :issue:`5313` and :issue:`5331`"
 msgstr ""
+"Для отримання додаткової інформації перегляньте :issue:`5155`, :issue:`5313` "
+"та :issue:`5331`"
 
 #: ../../library/multiprocessing.rst:2892
 msgid "The *spawn* and *forkserver* start methods"
-msgstr ""
+msgstr "Методи запуску *spawn* і *forkserver*"
 
 #: ../../library/multiprocessing.rst:2894
 msgid ""
 "There are a few extra restriction which don't apply to the *fork* start "
 "method."
 msgstr ""
+"Є кілька додаткових обмежень, які не застосовуються до методу запуску *fork*."
 
 #: ../../library/multiprocessing.rst:2897
 msgid "More picklability"
-msgstr ""
+msgstr "Більше маринування"
 
 #: ../../library/multiprocessing.rst:2899
 msgid ""
@@ -3763,10 +4296,14 @@ msgid ""
 "instances will be picklable when the :meth:`Process.start <multiprocessing."
 "Process.start>` method is called."
 msgstr ""
+"Переконайтеся, що всі аргументи :meth:`Process.__init__` можна вибрати. Крім "
+"того, якщо ви створите підклас :class:`~multiprocessing.Process`, то "
+"переконайтеся, що екземпляри можна вибрати під час виклику методу :meth:"
+"`Process.start <multiprocessing.Process.start>`."
 
 #: ../../library/multiprocessing.rst:2904
 msgid "Global variables"
-msgstr ""
+msgstr "Глобальні змінні"
 
 #: ../../library/multiprocessing.rst:2906
 msgid ""
@@ -3775,16 +4312,22 @@ msgid ""
 "in the parent process at the time that :meth:`Process.start <multiprocessing."
 "Process.start>` was called."
 msgstr ""
+"Майте на увазі, що якщо код, запущений у дочірньому процесі, намагається "
+"отримати доступ до глобальної змінної, тоді значення, яке він бачить (якщо "
+"таке є), може не збігатися зі значенням у батьківському процесі під час :"
+"meth:`Process.start викликано <multiprocessing.Process.start>`."
 
 #: ../../library/multiprocessing.rst:2911
 msgid ""
 "However, global variables which are just module level constants cause no "
 "problems."
 msgstr ""
+"Однак глобальні змінні, які є лише константами рівня модуля, не викликають "
+"проблем."
 
 #: ../../library/multiprocessing.rst:2914
 msgid "Safe importing of main module"
-msgstr ""
+msgstr "Безпечне імпортування основного модуля"
 
 #: ../../library/multiprocessing.rst:2916
 msgid ""
@@ -3792,36 +4335,49 @@ msgid ""
 "interpreter without causing unintended side effects (such a starting a new "
 "process)."
 msgstr ""
+"Переконайтеся, що основний модуль можна безпечно імпортувати за допомогою "
+"нового інтерпретатора Python, не викликаючи небажаних побічних ефектів "
+"(наприклад, запуск нового процесу)."
 
 #: ../../library/multiprocessing.rst:2920
 msgid ""
 "For example, using the *spawn* or *forkserver* start method running the "
 "following module would fail with a :exc:`RuntimeError`::"
 msgstr ""
+"Наприклад, використання методу запуску *spawn* або *forkserver* під час "
+"запуску наступного модуля призведе до помилки з :exc:`RuntimeError`::"
 
 #: ../../library/multiprocessing.rst:2932
 msgid ""
 "Instead one should protect the \"entry point\" of the program by using ``if "
 "__name__ == '__main__':`` as follows::"
 msgstr ""
+"Натомість слід захистити \"точку входу\" програми за допомогою ``if __name__ "
+"== '__main__':`` наступним чином::"
 
 #: ../../library/multiprocessing.rst:2946
 msgid ""
 "(The ``freeze_support()`` line can be omitted if the program will be run "
 "normally instead of frozen.)"
 msgstr ""
+"(Рядок ``freeze_support()`` можна опустити, якщо програма буде працювати "
+"нормально, а не зависати.)"
 
 #: ../../library/multiprocessing.rst:2949
 msgid ""
 "This allows the newly spawned Python interpreter to safely import the module "
 "and then run the module's ``foo()`` function."
 msgstr ""
+"Це дозволяє щойно створеному інтерпретатору Python безпечно імпортувати "
+"модуль, а потім запускати функцію foo() модуля."
 
 #: ../../library/multiprocessing.rst:2952
 msgid ""
 "Similar restrictions apply if a pool or manager is created in the main "
 "module."
 msgstr ""
+"Подібні обмеження застосовуються, якщо пул або менеджер створено в основному "
+"модулі."
 
 #: ../../library/multiprocessing.rst:2959
 msgid "Examples"
@@ -3830,13 +4386,17 @@ msgstr "Exemplos"
 #: ../../library/multiprocessing.rst:2961
 msgid "Demonstration of how to create and use customized managers and proxies:"
 msgstr ""
+"Демонстрація створення та використання налаштованих менеджерів і проксі-"
+"серверів:"
 
 #: ../../library/multiprocessing.rst:2967
 msgid "Using :class:`~multiprocessing.pool.Pool`:"
-msgstr ""
+msgstr "Використання :class:`~multiprocessing.pool.Pool`:"
 
 #: ../../library/multiprocessing.rst:2973
 msgid ""
 "An example showing how to use queues to feed tasks to a collection of worker "
 "processes and collect the results:"
 msgstr ""
+"Приклад, який показує, як використовувати черги для передачі завдань у "
+"колекцію робочих процесів і збору результатів:"

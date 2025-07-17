@@ -5,16 +5,16 @@
 #
 # Translators:
 # Marco Rougeth <marco@rougeth.com>, 2020
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2022
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-03 16:35+0000\n"
+"POT-Creation-Date: 2025-07-11 17:51+0000\n"
 "PO-Revision-Date: 2017-02-16 17:39+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2022\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "Language: pt_BR\n"
@@ -162,6 +162,12 @@ msgid ""
 "in its flags then it **must** implement the GC protocol itself by at least "
 "implementing the :c:member:`~PyTypeObject.tp_traverse` handle."
 msgstr ""
+"Якщо деякі з базових класів реалізують протокол GC і наданий тип не містить :"
+"const:`Py_TPFLAGS_HAVE_GC` у своїх прапорцях, тоді протокол GC буде "
+"автоматично реалізовано зі своїх батьків. Навпаки, якщо тип, який "
+"створюється, містить :const:`Py_TPFLAGS_HAVE_GC` у своїх прапорцях, тоді він "
+"**має** реалізувати сам протокол GC, принаймні реалізувавши дескриптор :c:"
+"member:`~PyTypeObject.tp_traverse`."
 
 #: ../../c-api/type.rst:111
 msgid ""
@@ -210,6 +216,10 @@ msgid ""
 "module as their superclass. See :c:type:`PyCMethod` to get the class that "
 "defines the method."
 msgstr ""
+"此函数通常被用于获取方法定义所在的模块。 请注意在这样的方法中，"
+"``PyType_GetModule(Py_TYPE(self))`` 可能不会返回预期的结果。 "
+"``Py_TYPE(self)`` 可以是目标类的一个 *子类*，而子类并不一定是在与其上级类相同"
+"的模块中定义的。 请参阅 :c:type:`PyCMethod` 了解如何获取方法定义所在的类。"
 
 #: ../../c-api/type.rst:142
 msgid ""
@@ -217,22 +227,29 @@ msgid ""
 "is a shortcut for calling :c:func:`PyModule_GetState()` on the result of :c:"
 "func:`PyType_GetModule`."
 msgstr ""
+"Повертає стан об’єкта модуля, пов’язаного з заданим типом. Це ярлик для "
+"виклику :c:func:`PyModule_GetState()` за результатом :c:func:"
+"`PyType_GetModule`."
 
 #: ../../c-api/type.rst:149
 msgid ""
 "If the *type* has an associated module but its state is ``NULL``, returns "
 "``NULL`` without setting an exception."
 msgstr ""
+"Якщо *тип* має пов’язаний модуль, але його стан ``NULL``, повертає ``NULL`` "
+"без встановлення винятку."
 
 #: ../../c-api/type.rst:156
 msgid "Creating Heap-Allocated Types"
-msgstr ""
+msgstr "Створення типів, виділених у купі"
 
 #: ../../c-api/type.rst:158
 msgid ""
 "The following functions and structs are used to create :ref:`heap types "
 "<heap-types>`."
 msgstr ""
+"Наступні функції та структури використовуються для створення :ref:`типів "
+"купи <heap-types>`."
 
 #: ../../c-api/type.rst:163
 msgid ""
@@ -261,58 +278,75 @@ msgid ""
 "c:func:`PyType_GetModule`. The associated module is not inherited by "
 "subclasses; it must be specified for each class individually."
 msgstr ""
+"Аргумент *module* можна використовувати для запису модуля, в якому визначено "
+"новий клас. Це має бути об’єкт модуля або ``NULL``. Якщо не ``NULL``, модуль "
+"асоціюється з новим типом і може бути пізніше отриманий за допомогою :c:func:"
+"`PyType_GetModule`. Асоційований модуль не успадковується підкласами; її "
+"необхідно вказувати для кожного класу окремо."
 
 #: ../../c-api/type.rst:180
 msgid "This function calls :c:func:`PyType_Ready` on the new type."
-msgstr ""
+msgstr "Ця функція викликає :c:func:`PyType_Ready` для нового типу."
 
 #: ../../c-api/type.rst:186
 msgid "Equivalent to ``PyType_FromModuleAndSpec(NULL, spec, bases)``."
-msgstr ""
+msgstr "Еквівалент ``PyType_FromModuleAndSpec(NULL, spec, bases)``."
 
 #: ../../c-api/type.rst:192
 msgid "Equivalent to ``PyType_FromSpecWithBases(spec, NULL)``."
-msgstr ""
+msgstr "Еквівалент ``PyType_FromSpecWithBases(spec, NULL)``."
 
 #: ../../c-api/type.rst:196
 msgid "Structure defining a type's behavior."
-msgstr ""
+msgstr "Структура, що визначає поведінку типу."
 
 #: ../../c-api/type.rst:200
 msgid "Name of the type, used to set :c:member:`PyTypeObject.tp_name`."
 msgstr ""
+"Назва типу, що використовується для встановлення :c:member:`PyTypeObject."
+"tp_name`."
 
 #: ../../c-api/type.rst:205
 msgid ""
 "Size of the instance in bytes, used to set :c:member:`PyTypeObject."
 "tp_basicsize` and :c:member:`PyTypeObject.tp_itemsize`."
 msgstr ""
+"Розмір екземпляра в байтах, який використовується для встановлення :c:member:"
+"`PyTypeObject.tp_basicsize` і :c:member:`PyTypeObject.tp_itemsize`."
 
 #: ../../c-api/type.rst:211
 msgid "Type flags, used to set :c:member:`PyTypeObject.tp_flags`."
 msgstr ""
+"Прапорці типу, які використовуються для встановлення :c:member:`PyTypeObject."
+"tp_flags`."
 
 #: ../../c-api/type.rst:213
 msgid ""
 "If the ``Py_TPFLAGS_HEAPTYPE`` flag is not set, :c:func:"
 "`PyType_FromSpecWithBases` sets it automatically."
 msgstr ""
+"Якщо прапор ``Py_TPFLAGS_HEAPTYPE`` не встановлено, :c:func:"
+"`PyType_FromSpecWithBases` встановлює його автоматично."
 
 #: ../../c-api/type.rst:218
 msgid ""
 "Array of :c:type:`PyType_Slot` structures. Terminated by the special slot "
 "value ``{0, NULL}``."
 msgstr ""
+"Масив структур :c:type:`PyType_Slot`. Закінчується спеціальним значенням "
+"слота ``{0, NULL}``."
 
 #: ../../c-api/type.rst:223
 msgid ""
 "Structure defining optional functionality of a type, containing a slot ID "
 "and a value pointer."
 msgstr ""
+"Структура, що визначає необов’язкову функціональність типу, що містить "
+"ідентифікатор слота та покажчик значення."
 
 #: ../../c-api/type.rst:228
 msgid "A slot ID."
-msgstr ""
+msgstr "Ідентифікатор слота."
 
 #: ../../c-api/type.rst:230
 msgid ""
@@ -321,24 +355,31 @@ msgid ""
 "type:`PyMappingMethods` and :c:type:`PyAsyncMethods` with an added ``Py_`` "
 "prefix. For example, use:"
 msgstr ""
+"Ідентифікатори слотів називаються як імена полів структур :c:type:"
+"`PyTypeObject`, :c:type:`PyNumberMethods`, :c:type:`PySequenceMethods`, :c:"
+"type:`PyMappingMethods` і :c:type:`PyAsyncMethods` з доданим префіксом "
+"``Py_``. Наприклад, використовуйте:"
 
 #: ../../c-api/type.rst:236
 msgid "``Py_tp_dealloc`` to set :c:member:`PyTypeObject.tp_dealloc`"
-msgstr ""
+msgstr "``Py_tp_dealloc`` для встановлення :c:member:`PyTypeObject.tp_dealloc`"
 
 #: ../../c-api/type.rst:237
 msgid "``Py_nb_add`` to set :c:member:`PyNumberMethods.nb_add`"
-msgstr ""
+msgstr "``Py_nb_add`` для встановлення :c:member:`PyNumberMethods.nb_add`"
 
 #: ../../c-api/type.rst:238
 msgid "``Py_sq_length`` to set :c:member:`PySequenceMethods.sq_length`"
 msgstr ""
+"``Py_sq_length`` для встановлення :c:member:`PySequenceMethods.sq_length`"
 
 #: ../../c-api/type.rst:240
 msgid ""
 "The following fields cannot be set at all using :c:type:`PyType_Spec` and :c:"
 "type:`PyType_Slot`:"
 msgstr ""
+"Наступні поля взагалі не можна встановити за допомогою :c:type:`PyType_Spec` "
+"і :c:type:`PyType_Slot`:"
 
 #: ../../c-api/type.rst:243
 msgid ":c:member:`~PyTypeObject.tp_dict`"
@@ -369,24 +410,32 @@ msgid ""
 ":c:member:`~PyTypeObject.tp_weaklistoffset` (see :ref:`PyMemberDef "
 "<pymemberdef-offsets>`)"
 msgstr ""
+":c:member:`~PyTypeObject.tp_weaklistoffset` (див. :ref:`PyMemberDef "
+"<pymemberdef-offsets>`)"
 
 #: ../../c-api/type.rst:251
 msgid ""
 ":c:member:`~PyTypeObject.tp_dictoffset` (see :ref:`PyMemberDef <pymemberdef-"
 "offsets>`)"
 msgstr ""
+":c:member:`~PyTypeObject.tp_dictoffset` (див. :ref:`PyMemberDef <pymemberdef-"
+"offsets>`)"
 
 #: ../../c-api/type.rst:253
 msgid ""
 ":c:member:`~PyTypeObject.tp_vectorcall_offset` (see :ref:`PyMemberDef "
 "<pymemberdef-offsets>`)"
 msgstr ""
+":c:member:`~PyTypeObject.tp_vectorcall_offset` (див. :ref:`PyMemberDef "
+"<pymemberdef-offsets>`)"
 
 #: ../../c-api/type.rst:256
 msgid ""
 "The following fields cannot be set using :c:type:`PyType_Spec` and :c:type:"
 "`PyType_Slot` under the limited API:"
 msgstr ""
+"下列字段在受限 API 下无法使用 :c:type:`PyType_Spec` 和 :c:type:`PyType_Slot` "
+"来设置:"
 
 #: ../../c-api/type.rst:259
 msgid ":c:member:`~PyBufferProcs.bf_getbuffer`"
@@ -402,16 +451,19 @@ msgid ""
 "some platforms. To avoid issues, use the *bases* argument of :py:func:"
 "`PyType_FromSpecWithBases` instead."
 msgstr ""
+"Налаштування :c:data:`Py_tp_bases` або :c:data:`Py_tp_base` може бути "
+"проблематичним на деяких платформах. Щоб уникнути проблем, замість цього "
+"використовуйте аргумент *bases* :py:func:`PyType_FromSpecWithBases`."
 
 #: ../../c-api/type.rst:269
 msgid "Slots in :c:type:`PyBufferProcs` may be set in the unlimited API."
-msgstr ""
+msgstr "Слоти в :c:type:`PyBufferProcs` можна встановити в необмеженому API."
 
 #: ../../c-api/type.rst:273
 msgid ""
 "The desired value of the slot. In most cases, this is a pointer to a "
 "function."
-msgstr ""
+msgstr "Бажане значення слота. У більшості випадків це вказівник на функцію."
 
 #: ../../c-api/type.rst:276
 msgid "May not be ``NULL``."

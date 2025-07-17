@@ -4,19 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Raphael Mendonça, 2017
-# And Past <andrepgs@gmail.com>, 2017
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2019
-# i17obot <i17obot@rougeth.com>, 2021
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-03 16:35+0000\n"
+"POT-Creation-Date: 2025-07-11 17:51+0000\n"
 "PO-Revision-Date: 2017-02-16 23:25+0000\n"
-"Last-Translator: i17obot <i17obot@rougeth.com>, 2021\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "Language: pt_BR\n"
@@ -43,6 +40,11 @@ msgid ""
 "and objects containing lots of shared  sub-objects.  The keys are ordinary "
 "strings."
 msgstr ""
+"\"Полиця\" — це постійний об’єкт, схожий на словник. Різниця з базами даних "
+"\"dbm\" полягає в тому, що значення (не ключі!) на полиці можуть бути по "
+"суті довільними об’єктами Python --- будь-чим, що може обробити модуль :mod:"
+"`pickle`. Це включає більшість екземплярів класів, рекурсивних типів даних "
+"та об’єктів, що містять багато спільних підоб’єктів. Ключі - звичайні струни."
 
 #: ../../library/shelve.rst:22
 msgid ""
@@ -53,6 +55,12 @@ msgid ""
 "*flag* parameter has the same interpretation as the *flag* parameter of :"
 "func:`dbm.open`."
 msgstr ""
+"Відкрийте постійний словник. Вказана назва файлу є базовою назвою файлу "
+"базової бази даних. Як побічний ефект до назви файлу може бути додано "
+"розширення та може бути створено більше одного файлу. За замовчуванням "
+"базовий файл бази даних відкрито для читання та запису. Необов’язковий "
+"параметр *flag* має таку саму інтерпретацію, що й параметр *flag* :func:`dbm."
+"open`."
 
 #: ../../library/shelve.rst:28
 msgid ""
@@ -74,6 +82,17 @@ msgid ""
 "determine which accessed entries are mutable, nor which ones were actually "
 "mutated)."
 msgstr ""
+"Через семантику Python полиця не може знати, коли змінено запис постійного "
+"словника. За замовчуванням змінені об’єкти записуються *тільки*, коли вони "
+"призначені на полицю (див. :ref:`shelve-example`). Якщо необов’язковий "
+"параметр *writeback* має значення ``True``, усі записи, до яких здійснюється "
+"доступ, також кешуються в пам’яті та записуються назад у :meth:`~Shelf.sync` "
+"і :meth:`~Shelf.close`; це може зробити зручнішим мутацію змінних записів у "
+"постійному словнику, але, якщо здійснюється доступ до багатьох записів, це "
+"може споживати величезні обсяги пам’яті для кешу, і це може зробити операцію "
+"закриття дуже повільною, оскільки всі доступні записи записуються назад "
+"( немає способу визначити, які записи є змінними, а також які з них були "
+"змінені)."
 
 #: ../../library/shelve.rst:45
 msgid ""
@@ -81,6 +100,9 @@ msgid ""
 "`~Shelf.close` explicitly when you don't need it any more, or use :func:"
 "`shelve.open` as a context manager::"
 msgstr ""
+"Не покладайтеся на автоматичне закриття полиці; завжди викликайте :meth:"
+"`~Shelf.close` явно, коли він вам більше не потрібен, або використовуйте :"
+"func:`shelve.open` як контекстний менеджер::"
 
 #: ../../library/shelve.rst:56
 msgid ""
@@ -88,6 +110,9 @@ msgid ""
 "to load a shelf from an untrusted source.  Like with pickle, loading a shelf "
 "can execute arbitrary code."
 msgstr ""
+"Оскільки модуль :mod:`shelve` підтримується :mod:`pickle`, небезпечно "
+"завантажувати полицю з ненадійного джерела. Як і з pickle, завантаження "
+"полиці може виконувати довільний код."
 
 #: ../../library/shelve.rst:60
 msgid ""
@@ -96,10 +121,14 @@ msgid ""
 "This eases the transition from dictionary based scripts to those requiring "
 "persistent storage."
 msgstr ""
+"Об'єкти полиці підтримують більшість методів і операцій, які підтримуються "
+"словниками (крім копіювання, конструкторів і операторів ``|`` і ``|=``). Це "
+"спрощує перехід від сценаріїв на основі словників до сценаріїв, які "
+"потребують постійного зберігання."
 
 #: ../../library/shelve.rst:64
 msgid "Two additional methods are supported:"
-msgstr ""
+msgstr "Підтримуються два додаткові методи:"
 
 #: ../../library/shelve.rst:68
 msgid ""
@@ -108,12 +137,18 @@ msgid ""
 "dictionary on disk, if feasible.  This is called automatically when the "
 "shelf is closed with :meth:`close`."
 msgstr ""
+"Записати всі записи в кеші, якщо полицю було відкрито з *writeback*, "
+"встановленим на :const:`True`. Також очистіть кеш і синхронізуйте постійний "
+"словник на диску, якщо це можливо. Це викликається автоматично, коли полиця "
+"закривається за допомогою :meth:`close`."
 
 #: ../../library/shelve.rst:75
 msgid ""
 "Synchronize and close the persistent *dict* object.  Operations on a closed "
 "shelf will fail with a :exc:`ValueError`."
 msgstr ""
+"Синхронізуйте та закрийте постійний об’єкт *dict*. Операції на закритій "
+"полиці завершаться помилкою з :exc:`ValueError`."
 
 #: ../../library/shelve.rst:81
 msgid ""
@@ -121,6 +156,8 @@ msgid ""
 ">`_ with widely supported storage formats and having the speed of native "
 "dictionaries."
 msgstr ""
+"`Persistent dictionary recipe <https://code.activestate.com/recipes/576642/"
+">`_ із широкою підтримкою форматів зберігання та швидкістю власних словників."
 
 #: ../../library/shelve.rst:87
 msgid "Restrictions"
@@ -136,6 +173,13 @@ msgid ""
 "the database should be fairly small, and in rare cases key collisions may "
 "cause the database to refuse updates."
 msgstr ""
+"Вибір того, який пакет бази даних використовуватиметься (наприклад, :mod:"
+"`dbm.ndbm` або :mod:`dbm.gnu`) залежить від доступного інтерфейсу. Тому "
+"небезпечно відкривати базу даних безпосередньо за допомогою :mod:`dbm`. База "
+"даних також (на жаль) підлягає обмеженням :mod:`dbm`, якщо вона "
+"використовується --- це означає, що (вибране представлення) об’єктів, які "
+"зберігаються в базі даних, мають бути досить малими, і в окремих випадках "
+"колізії ключів можуть призвести до відмови бази даних в оновленнях."
 
 #: ../../library/shelve.rst:101
 msgid ""
@@ -146,12 +190,20 @@ msgid ""
 "this differs across Unix versions and requires knowledge about the database "
 "implementation used."
 msgstr ""
+"Модуль :mod:`shelve` не підтримує *одночасний* доступ для читання/запису до "
+"відкладених об’єктів. (Кілька одночасних доступів для читання є безпечними.) "
+"Якщо в програмі є полиця, відкрита для запису, жодна інша програма не "
+"повинна мати її відкритою для читання чи запису. Щоб вирішити цю проблему, "
+"можна використовувати блокування файлів Unix, але це відрізняється в різних "
+"версіях Unix і вимагає знання про використовувану реалізацію бази даних."
 
 #: ../../library/shelve.rst:111
 msgid ""
 "A subclass of :class:`collections.abc.MutableMapping` which stores pickled "
 "values in the *dict* object."
 msgstr ""
+"Підклас :class:`collections.abc.MutableMapping`, який зберігає обрані "
+"значення в об’єкті *dict*."
 
 #: ../../library/shelve.rst:114
 msgid ""
@@ -167,24 +219,34 @@ msgid ""
 "times. This allows natural operations on mutable entries, but can consume "
 "much more memory and make sync and close take a long time."
 msgstr ""
+"Якщо параметр *writeback* має значення ``True``, об’єкт зберігатиме кеш усіх "
+"записів, до яких отримав доступ, і записуватиме їх назад у *dict* під час "
+"синхронізації та закриття. Це дозволяє виконувати природні операції над "
+"змінними записами, але може споживати набагато більше пам’яті, а "
+"синхронізація та закриття триватимуть довго."
 
 #: ../../library/shelve.rst:123
 msgid ""
 "The *keyencoding* parameter is the encoding used to encode keys before they "
 "are used with the underlying dict."
 msgstr ""
+"Параметр *keyencoding* — це кодування, яке використовується для кодування "
+"ключів перед їх використанням із базовим dict."
 
 #: ../../library/shelve.rst:126
 msgid ""
 "A :class:`Shelf` object can also be used as a context manager, in which case "
 "it will be automatically closed when the :keyword:`with` block ends."
 msgstr ""
+"Об’єкт :class:`Shelf` також можна використовувати як менеджер контексту, і в "
+"цьому випадку він буде автоматично закритий, коли блок :keyword:`with` "
+"завершиться."
 
 #: ../../library/shelve.rst:129
 msgid ""
 "Added the *keyencoding* parameter; previously, keys were always encoded in "
 "UTF-8."
-msgstr ""
+msgstr "Додано параметр *keyencoding*; раніше ключі завжди кодувалися в UTF-8."
 
 #: ../../library/shelve.rst:133
 msgid "Added context manager support."
@@ -202,6 +264,14 @@ msgid ""
 "*writeback*, and *keyencoding* parameters have the same interpretation as "
 "for the :class:`Shelf` class."
 msgstr ""
+"Підклас :class:`Shelf`, який відкриває :meth:`first`, :meth:`!next`, :meth:"
+"`previous`, :meth:`last` і :meth:`set_location`, які доступні в сторонній "
+"модуль :mod:`bsddb` з `pybsddb <https://www.jcea.es/programacion/pybsddb."
+"htm>`_, але не в інших модулях бази даних. Об’єкт *dict*, переданий "
+"конструктору, повинен підтримувати ці методи. Зазвичай це досягається "
+"викликом одного з :func:`bsddb.hashopen`, :func:`bsddb.btopen` або :func:"
+"`bsddb.rnopen`. Додаткові параметри *protocol*, *writeback* і *keyencoding* "
+"мають таку саму інтерпретацію, що й для класу :class:`Shelf`."
 
 #: ../../library/shelve.rst:152
 msgid ""
@@ -212,6 +282,12 @@ msgid ""
 "open` function.  The optional *protocol* and *writeback* parameters have the "
 "same interpretation as for the :class:`Shelf` class."
 msgstr ""
+"Підклас :class:`Shelf`, який приймає *ім’я файлу* замість dict-подібного "
+"об’єкта. Основний файл буде відкрито за допомогою :func:`dbm.open`. За "
+"замовчуванням файл буде створено та відкрито для читання та запису. "
+"Необов’язковий параметр *flag* має таку саму інтерпретацію, що й функція :"
+"func:`.open`. Необов’язкові параметри *protocol* і *writeback* мають таку "
+"саму інтерпретацію, що й для класу :class:`Shelf`."
 
 #: ../../library/shelve.rst:163
 msgid "Example"
@@ -222,6 +298,7 @@ msgid ""
 "To summarize the interface (``key`` is a string, ``data`` is an arbitrary "
 "object)::"
 msgstr ""
+"Підсумовуючи інтерфейс (``key`` — це рядок, ``data`` — це довільний об’єкт):"
 
 #: ../../library/shelve.rst:202
 msgid "Module :mod:`dbm`"
@@ -229,7 +306,7 @@ msgstr "Módulo :mod:`dbm`"
 
 #: ../../library/shelve.rst:202
 msgid "Generic interface to ``dbm``-style databases."
-msgstr ""
+msgstr "Загальний інтерфейс до баз даних у стилі ``dbm``."
 
 #: ../../library/shelve.rst:204
 msgid "Module :mod:`pickle`"
@@ -237,4 +314,4 @@ msgstr "Módulo :mod:`pickle`"
 
 #: ../../library/shelve.rst:205
 msgid "Object serialization used by :mod:`shelve`."
-msgstr ""
+msgstr "Серіалізація об’єктів, яку використовує :mod:`shelve`."

@@ -4,25 +4,22 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Misael borges <misael@planosassessoria.com.br>, 2017
 # (Douglas da Silva) <dementikovalev@yandex.ru>, 2017
 # Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2017
-# Marciel Leal <marcielmanoel15@gmail.com>, 2018
 # Juliana Karoline <julianaklulo@gmail.com>, 2019
 # Hemílio Lauro <hemilioaraujo@gmail.com>, 2020
 # Marco Rougeth <marco@rougeth.com>, 2020
-# i17obot <i17obot@rougeth.com>, 2020
 # Flávio Neves, 2022
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-10 16:41+0000\n"
+"POT-Creation-Date: 2025-07-11 17:51+0000\n"
 "PO-Revision-Date: 2017-02-16 17:44+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "Language: pt_BR\n"
@@ -56,6 +53,11 @@ msgid ""
 "to work with Argument Clinic, and then introduces some advanced topics on "
 "Argument Clinic usage."
 msgstr ""
+"Argument Clinic є препроцесором для файлів CPython C. Його метою є "
+"автоматизація всього шаблонного коду, пов’язаного з написанням коду аналізу "
+"аргументів для \"builtins\". У цьому документі показано, як перетворити вашу "
+"першу функцію C для роботи з Argument Clinic, а потім представлені деякі "
+"додаткові теми щодо використання Argument Clinic."
 
 #: ../../howto/clinic.rst:19
 msgid ""
@@ -67,10 +69,17 @@ msgid ""
 "Argument Clinic that ships with the next version of CPython *could* be "
 "totally incompatible and break all your code."
 msgstr ""
+"Наразі Argument Clinic вважається лише внутрішнім для CPython. Його "
+"використання не підтримується для файлів за межами CPython, і не надається "
+"жодних гарантій щодо зворотної сумісності для майбутніх версій. Іншими "
+"словами: якщо ви підтримуєте зовнішнє розширення C для CPython, ви можете "
+"експериментувати з Argument Clinic у своєму власному коді. Але версія "
+"Argument Clinic, яка постачається з наступною версією CPython *може* бути "
+"абсолютно несумісною та порушити весь ваш код."
 
 #: ../../howto/clinic.rst:29
 msgid "The Goals Of Argument Clinic"
-msgstr ""
+msgstr "Цілі клініки аргументів"
 
 #: ../../howto/clinic.rst:31
 msgid ""
@@ -82,6 +91,13 @@ msgid ""
 "gets called at the bottom, with ``PyObject *args`` (and maybe ``PyObject "
 "*kwargs``) magically converted into the C variables and types you need."
 msgstr ""
+"Головна мета Argument Clinic — взяти на себе відповідальність за весь код "
+"аналізу аргументів у CPython. Це означає, що коли ви перетворюєте функцію "
+"для роботи з Argument Clinic, ця функція більше не повинна виконувати "
+"власний розбір аргументів — код, згенерований Argument Clinic, має бути для "
+"вас \"чорним ящиком\", куди CPython звертається до зверху, а ваш код "
+"викликається внизу, за допомогою ``PyObject *args`` (і, можливо, ``PyObject "
+"*kwargs``), чарівним чином перетворених у потрібні вам змінні C і типи."
 
 #: ../../howto/clinic.rst:41
 msgid ""
@@ -90,6 +106,11 @@ msgid ""
 "chore, requiring maintaining redundant information in a surprising number of "
 "places. When you use Argument Clinic, you don't have to repeat yourself."
 msgstr ""
+"Щоб Argument Clinic міг досягти своєї основної мети, він має бути простим у "
+"використанні. Наразі робота з бібліотекою аналізу аргументів CPython є "
+"клопіткою, що потребує збереження надлишкової інформації у неймовірній "
+"кількості місць. Коли ви використовуєте Argument Clinic, вам не потрібно "
+"повторюватися."
 
 #: ../../howto/clinic.rst:47
 msgid ""
@@ -102,6 +123,15 @@ msgid ""
 "parsing code, rather than calling the general-purpose CPython argument "
 "parsing library.  That would make for the fastest argument parsing possible!)"
 msgstr ""
+"Очевидно, що ніхто не захоче використовувати Argument Clinic, якщо вона не "
+"вирішить їхню проблему — і не створює нових власних проблем. Тому "
+"надзвичайно важливо, щоб Argument Clinic створила правильний код. Було б "
+"непогано, якби код також був швидшим, але принаймні це не повинно вводити "
+"значної регресії швидкості. (Врешті-решт Argument Clinic *має* зробити "
+"можливим значне прискорення — ми могли б переписати його генератор коду, щоб "
+"створювати індивідуальний код аналізу аргументів, а не викликати бібліотеку "
+"аналізу аргументів загального призначення CPython. Це забезпечить найшвидший "
+"із можливих аналіз аргументів! )"
 
 #: ../../howto/clinic.rst:59
 msgid ""
@@ -109,6 +139,9 @@ msgid ""
 "approach to argument parsing.  Python has some functions with some very "
 "strange parsing behaviors; Argument Clinic's goal is to support all of them."
 msgstr ""
+"Крім того, Argument Clinic має бути досить гнучким, щоб працювати з будь-"
+"яким підходом до аналізу аргументів. У Python є деякі функції з дуже дивною "
+"поведінкою аналізу; Мета клініки \"Аргумент\" — підтримати їх усіх."
 
 #: ../../howto/clinic.rst:64
 msgid ""
@@ -117,6 +150,10 @@ msgid ""
 "introspection query functions would throw an exception if you passed in a "
 "builtin.  With Argument Clinic, that's a thing of the past!"
 msgstr ""
+"Нарешті, початковою мотивацією для Argument Clinic було надання \"підписів\" "
+"самоаналізу для вбудованих модулів CPython. Раніше функції запиту "
+"самоаналізу видавали виняток, якщо ви передавали вбудований. З клінікою "
+"\"Аргумент\" це залишилося в минулому!"
 
 #: ../../howto/clinic.rst:70
 msgid ""
@@ -126,28 +163,36 @@ msgid ""
 "more sophisticated, and it should be able to do many interesting and smart "
 "things with all the information you give it."
 msgstr ""
+"Працюючи з Argument Clinic, вам слід пам’ятати одну ідею: чим більше "
+"інформації ви їй надасте, тим краще вона зможе виконувати роботу. Правда, "
+"клініка Аргумент зараз відносно проста. Але в міру розвитку він ставатиме "
+"складнішим і зможе робити багато цікавих і розумних речей з усією "
+"інформацією, яку ви йому надаєте."
 
 #: ../../howto/clinic.rst:80
 msgid "Basic Concepts And Usage"
-msgstr ""
+msgstr "Konsep Dasar dan Penggunaan"
 
 #: ../../howto/clinic.rst:82
 msgid ""
 "Argument Clinic ships with CPython; you'll find it in ``Tools/clinic/clinic."
 "py``. If you run that script, specifying a C file as an argument:"
 msgstr ""
+"Argument Clinic поставляється з CPython; ви знайдете його в ``Tools/clinic/"
+"clinic.py``. Якщо ви запустите цей сценарій, вказавши файл C як аргумент:"
 
 #: ../../howto/clinic.rst:89
 msgid ""
 "Argument Clinic will scan over the file looking for lines that look exactly "
 "like this:"
-msgstr ""
+msgstr "Argument Clinic сканує файл, шукаючи рядки, які виглядають саме так:"
 
 #: ../../howto/clinic.rst:96
 msgid ""
 "When it finds one, it reads everything up to a line that looks exactly like "
 "this:"
 msgstr ""
+"Коли він знаходить його, він читає все до рядка, який виглядає саме так:"
 
 #: ../../howto/clinic.rst:103
 msgid ""
@@ -155,6 +200,9 @@ msgid ""
 "these lines, including the beginning and ending comment lines, are "
 "collectively called an Argument Clinic \"block\"."
 msgstr ""
+"Все, що знаходиться між цими двома рядками, є вхідними для Argument Clinic. "
+"Усі ці рядки, включно з початковим і кінцевим рядками коментарів, разом "
+"називаються \"блоком аргументації\"."
 
 #: ../../howto/clinic.rst:107
 msgid ""
@@ -163,6 +211,10 @@ msgid ""
 "a comment containing a checksum. The Argument Clinic block now looks like "
 "this:"
 msgstr ""
+"Коли Argument Clinic аналізує один із цих блоків, він генерує вихідні дані. "
+"Цей вивід переписується у файл C відразу після блоку, після чого йде "
+"коментар, що містить контрольну суму. Блок \"Клініка аргументів\" тепер "
+"виглядає так:"
 
 #: ../../howto/clinic.rst:120
 msgid ""
@@ -171,6 +223,9 @@ msgid ""
 "checksum line.  However, if the input hasn't changed, the output won't "
 "change either."
 msgstr ""
+"Якщо ви запустите Argument Clinic для того самого файлу вдруге, Argument "
+"Clinic відхилить старий вихід і випише новий вихід із свіжим рядком "
+"контрольної суми. Однак, якщо вхід не змінився, вихід також не зміниться."
 
 #: ../../howto/clinic.rst:124
 msgid ""
@@ -180,37 +235,48 @@ msgid ""
 "these edits would be lost the next time Argument Clinic writes out fresh "
 "output.)"
 msgstr ""
+"Ви ніколи не повинні змінювати вихідну частину блоку Argument Clinic. "
+"Натомість змінюйте вхідні дані, доки вони не отримають бажаний результат. "
+"(Це мета контрольної суми — виявити, чи хтось змінив вихідні дані, оскільки "
+"ці редагування буде втрачено наступного разу, коли Argument Clinic виведе "
+"новий вихід.)"
 
 #: ../../howto/clinic.rst:129
 msgid ""
 "For the sake of clarity, here's the terminology we'll use with Argument "
 "Clinic:"
 msgstr ""
+"Для ясності ось термінологія, яку ми будемо використовувати з Argument "
+"Clinic:"
 
 #: ../../howto/clinic.rst:131
 msgid ""
 "The first line of the comment (``/*[clinic input]``) is the *start line*."
-msgstr ""
+msgstr "Перший рядок коментаря (``/*[clinic input]``) є *початковим рядком*."
 
 #: ../../howto/clinic.rst:132
 msgid ""
 "The last line of the initial comment (``[clinic start generated code]*/``) "
 "is the *end line*."
 msgstr ""
+"Останній рядок початкового коментаря (``[генерований код початку клініки]*/"
+"``) є *кінцевим рядком*."
 
 #: ../../howto/clinic.rst:133
 msgid ""
 "The last line (``/*[clinic end generated code: checksum=...]*/``) is the "
 "*checksum line*."
 msgstr ""
+"Останній рядок (``/*[код, згенерований клінікою: контрольна сума=...]*/``) — "
+"це *рядок контрольної суми*."
 
 #: ../../howto/clinic.rst:134
 msgid "In between the start line and the end line is the *input*."
-msgstr ""
+msgstr "Між початковим і кінцевим рядками знаходиться *вхід*."
 
 #: ../../howto/clinic.rst:135
 msgid "In between the end line and the checksum line is the *output*."
-msgstr ""
+msgstr "Між кінцевим рядком і рядком контрольної суми знаходиться *вихід*."
 
 #: ../../howto/clinic.rst:136
 msgid ""
@@ -219,10 +285,13 @@ msgid ""
 "processed by Argument Clinic yet doesn't have output or a checksum line, but "
 "it's still considered a block.)"
 msgstr ""
+"Увесь текст разом, від початкового рядка до рядка контрольної суми включно, "
+"є *блоком*. (Блок, який не було успішно оброблено Argument Clinic, ще не має "
+"виводу чи рядка контрольної суми, але все одно вважається блоком.)"
 
 #: ../../howto/clinic.rst:143
 msgid "Converting Your First Function"
-msgstr ""
+msgstr "Перетворення вашої першої функції"
 
 #: ../../howto/clinic.rst:145
 msgid ""
@@ -234,16 +303,26 @@ msgid ""
 "document (like \"return converters\" and \"self converters\"). But we'll "
 "keep it simple for this walkthrough so you can learn."
 msgstr ""
+"Найкращий спосіб зрозуміти, як працює Argument Clinic, — це перетворити "
+"функцію для роботи з нею. Отже, ось мінімальні кроки, які вам потрібно "
+"виконати, щоб перетворити функцію на роботу з Argument Clinic. Зауважте, що "
+"для коду, який ви плануєте зареєструвати в CPython, вам справді слід "
+"продовжити процес перетворення, використовуючи деякі розширені концепції, "
+"які ви побачите пізніше в цьому документі (наприклад, \"перетворювачі "
+"повернення\" та \"перетворювачі самостійно\"). Але ми зробимо його простим "
+"для цього покрокового керівництва, щоб ви могли навчитися."
 
 #: ../../howto/clinic.rst:154
 msgid "Let's dive in!"
-msgstr ""
+msgstr "Давайте зануримося!"
 
 #: ../../howto/clinic.rst:156
 msgid ""
 "Make sure you're working with a freshly updated checkout of the CPython "
 "trunk."
 msgstr ""
+"Переконайтеся, що ви працюєте зі щойно оновленою перевіркою магістралі "
+"CPython."
 
 #: ../../howto/clinic.rst:159
 msgid ""
@@ -251,12 +330,18 @@ msgid ""
 "func:`PyArg_ParseTupleAndKeywords`, and hasn't been converted to work with "
 "Argument Clinic yet. For my example I'm using ``_pickle.Pickler.dump()``."
 msgstr ""
+"Знайдіть вбудований Python, який викликає або :c:func:`PyArg_ParseTuple`, "
+"або :c:func:`PyArg_ParseTupleAndKeywords`, і ще не перетворений для роботи з "
+"Argument Clinic. Для свого прикладу я використовую ``_pickle.Pickler."
+"dump()``."
 
 #: ../../howto/clinic.rst:164
 msgid ""
 "If the call to the ``PyArg_Parse`` function uses any of the following format "
 "units:"
 msgstr ""
+"Якщо виклик функції ``PyArg_Parse`` використовує будь-яку з наступних "
+"одиниць формату:"
 
 #: ../../howto/clinic.rst:176
 msgid ""
@@ -265,6 +350,9 @@ msgid ""
 "scenarios.  But these are advanced topics—let's do something simpler for "
 "your first function."
 msgstr ""
+"або якщо він має декілька викликів :c:func:`PyArg_ParseTuple`, вам слід "
+"вибрати іншу функцію. Клініка Аргумент *підтримує* всі ці сценарії. Але це "
+"складні теми — давайте зробимо щось простіше для вашої першої функції."
 
 #: ../../howto/clinic.rst:181
 msgid ""
@@ -275,10 +363,16 @@ msgid ""
 "to Argument Clinic.  Argument Clinic doesn't support generic functions or "
 "polymorphic parameters."
 msgstr ""
+"Крім того, якщо функція має кілька викликів :c:func:`PyArg_ParseTuple` або :"
+"c:func:`PyArg_ParseTupleAndKeywords`, де вона підтримує різні типи для "
+"одного аргументу, або якщо функція використовує щось окрім функцій "
+"PyArg_Parse для аналізу своїх аргументів, він, ймовірно, не підходить для "
+"перетворення на Argument Clinic. Argument Clinic не підтримує загальні "
+"функції чи поліморфні параметри."
 
 #: ../../howto/clinic.rst:188
 msgid "Add the following boilerplate above the function, creating our block::"
-msgstr ""
+msgstr "Додайте наступний шаблон над функцією, створивши наш блок::"
 
 #: ../../howto/clinic.rst:193
 msgid ""
@@ -287,6 +381,11 @@ msgid ""
 "should have just the text, based at the left margin, with no line wider than "
 "80 characters. (Argument Clinic will preserve indents inside the docstring.)"
 msgstr ""
+"Виріжте рядок документації та вставте його між рядками ``[clinic]``, "
+"видаливши весь непотріб, який робить його правильним рядком C у лапках. Коли "
+"ви закінчите, у вас має бути лише текст, розташований на лівому полі, без "
+"рядка ширше 80 символів. (Argument Clinic збереже відступи всередині рядка "
+"документації.)"
 
 #: ../../howto/clinic.rst:199
 msgid ""
@@ -295,13 +394,17 @@ msgid ""
 "``help()`` on your builtin in the future, the first line will be built "
 "automatically based on the function's signature.)"
 msgstr ""
+"Якщо старий рядок документації мав перший рядок, який виглядав як підпис "
+"функції, викиньте цей рядок. (Документаційному рядку він більше не потрібен "
+"— коли ви в майбутньому використовуєте ``help()`` у своїй вбудованій "
+"системі, перший рядок буде створено автоматично на основі сигнатури функції.)"
 
 #: ../../howto/clinic.rst:205 ../../howto/clinic.rst:226
 #: ../../howto/clinic.rst:250 ../../howto/clinic.rst:308
 #: ../../howto/clinic.rst:348 ../../howto/clinic.rst:375
 #: ../../howto/clinic.rst:481 ../../howto/clinic.rst:533
 msgid "Sample::"
-msgstr ""
+msgstr "Contoh::"
 
 #: ../../howto/clinic.rst:211
 msgid ""
@@ -310,12 +413,18 @@ msgid ""
 "paragraph consisting of a single 80-column line at the beginning of the "
 "docstring."
 msgstr ""
+"Якщо у вашому рядку документів немає рядка \"резюме\", Argument Clinic "
+"поскаржиться. Тож давайте переконаємося, що він є. Рядок \"резюме\" має бути "
+"абзацом, що складається з одного рядка з 80 стовпців на початку рядка "
+"документа."
 
 #: ../../howto/clinic.rst:216
 msgid ""
 "(Our example docstring consists solely of a summary line, so the sample code "
 "doesn't have to change for this step.)"
 msgstr ""
+"(Наш приклад рядка документації складається лише з підсумкового рядка, тому "
+"зразок коду не потрібно змінювати для цього кроку.)"
 
 #: ../../howto/clinic.rst:219
 msgid ""
@@ -325,6 +434,10 @@ msgid ""
 "module, include any sub-modules, and if the function is a method on a class "
 "it should include the class name too."
 msgstr ""
+"Над рядком документації введіть назву функції та порожній рядок. Це має бути "
+"ім’я Python функції та має бути повний пунктирний шлях до функції — він має "
+"починатися з назви модуля, включати будь-які підмодулі, а якщо функція є "
+"методом у класі, вона має включати також ім'я класу."
 
 #: ../../howto/clinic.rst:234
 msgid ""
@@ -335,6 +448,12 @@ msgid ""
 "statics go at the top.  (In our sample code we'll just show the two blocks "
 "next to each other.)"
 msgstr ""
+"Якщо це перший раз, коли модуль або клас використовується з Argument Clinic "
+"у цьому файлі C, ви повинні оголосити модуль та/або клас. Правильний "
+"аргумент Клініка гігієни вважає за краще оголошувати їх в окремому блоці "
+"десь у верхній частині файлу C, так само, як файли включення та статика "
+"йдуть у верхній частині. (У нашому прикладі коду ми просто покажемо два "
+"блоки поруч один з одним.)"
 
 #: ../../howto/clinic.rst:242
 msgid ""
@@ -342,6 +461,9 @@ msgid ""
 "Python.  Check the name defined in the :c:type:`PyModuleDef` or :c:type:"
 "`PyTypeObject` as appropriate."
 msgstr ""
+"Ім’я класу та модуля має збігатися з тим, яке бачить Python. Перевірте "
+"назву, визначену в :c:type:`PyModuleDef` або :c:type:`PyTypeObject` "
+"відповідно."
 
 #: ../../howto/clinic.rst:246
 msgid ""
@@ -349,6 +471,9 @@ msgid ""
 "C: the type declaration you'd use for a pointer to an instance of this "
 "class, and a pointer to the :c:type:`PyTypeObject` for this class."
 msgstr ""
+"Коли ви оголошуєте клас, ви також повинні вказати два аспекти його типу в C: "
+"оголошення типу, яке ви б використовували для вказівника на екземпляр цього "
+"класу, і вказівник на :c:type:`PyTypeObject` для цього клас."
 
 #: ../../howto/clinic.rst:266
 msgid ""
@@ -356,14 +481,18 @@ msgid ""
 "its own line.  All the parameter lines should be indented from the function "
 "name and the docstring."
 msgstr ""
+"Оголошіть кожен із параметрів функції. Для кожного параметра має бути "
+"окремий рядок. Усі рядки параметрів повинні мати відступ від назви функції "
+"та рядка документації."
 
 #: ../../howto/clinic.rst:270
 msgid "The general form of these parameter lines is as follows:"
-msgstr ""
+msgstr "Bentuk umum baris parameter adalah sebagai berikut:"
 
 #: ../../howto/clinic.rst:276
 msgid "If the parameter has a default value, add that after the converter:"
 msgstr ""
+"Якщо параметр має значення за замовчуванням, додайте його після конвертера:"
 
 #: ../../howto/clinic.rst:283
 msgid ""
@@ -371,10 +500,13 @@ msgid ""
 "please see :ref:`the section below on default values <default_values>` for "
 "more information."
 msgstr ""
+"Підтримка \"значення за замовчуванням\" у Argument Clinic досить складна; "
+"див. :ref:`розділ нижче про значення за замовчуванням <default_values>` для "
+"отримання додаткової інформації."
 
 #: ../../howto/clinic.rst:287
 msgid "Add a blank line below the parameters."
-msgstr ""
+msgstr "Додайте порожній рядок під параметрами."
 
 #: ../../howto/clinic.rst:289
 msgid ""
@@ -384,6 +516,11 @@ msgid ""
 "convenience syntax intended to make porting old code into Argument Clinic "
 "easier."
 msgstr ""
+"Що таке \"конвертер\"? Він визначає як тип змінної, що використовується в C, "
+"так і метод перетворення значення Python у значення C під час виконання. "
+"Наразі ви використовуватимете так званий \"застарілий конвертер\" — зручний "
+"синтаксис, призначений для полегшення перенесення старого коду в Argument "
+"Clinic."
 
 #: ../../howto/clinic.rst:296
 msgid ""
@@ -394,12 +531,20 @@ msgid ""
 "parsing function what the type of the variable is and how to convert it.  "
 "For more on format units please see :ref:`arg-parsing`.)"
 msgstr ""
+"Для кожного параметра скопіюйте \"одиницю формату\" для цього параметра з "
+"аргументу формату ``PyArg_Parse()`` і вкажіть *that* як його конвертер, як "
+"рядок у лапках. (\"одиниця формату\" — це формальна назва підрядка від "
+"одного до трьох символів параметра ``format``, який повідомляє функції "
+"аналізу аргументу, який тип змінної та як її перетворити. Докладніше про "
+"одиниці формату див. :ref:`arg-parsing`.)"
 
 #: ../../howto/clinic.rst:305
 msgid ""
 "For multicharacter format units like ``z#``, use the entire two-or-three "
 "character string."
 msgstr ""
+"Для одиниць багатосимвольного формату, таких як ``z#``, використовуйте весь "
+"рядок із двох або трьох символів."
 
 #: ../../howto/clinic.rst:323
 msgid ""
@@ -407,6 +552,10 @@ msgid ""
 "have default values, you can ignore it.  Argument Clinic infers which "
 "parameters are optional based on whether or not they have default values."
 msgstr ""
+"Якщо ваша функція має ``|`` у рядку формату, тобто деякі параметри мають "
+"значення за замовчуванням, ви можете ігнорувати це. Argument Clinic "
+"визначає, які параметри є необов’язковими, залежно від того, чи мають вони "
+"значення за замовчуванням."
 
 #: ../../howto/clinic.rst:328
 msgid ""
@@ -414,10 +563,14 @@ msgid ""
 "only arguments, specify ``*`` on a line by itself before the first keyword-"
 "only argument, indented the same as the parameter lines."
 msgstr ""
+"Якщо у вашій функції є ``$`` у рядку формату, тобто вона приймає лише "
+"ключові аргументи, вкажіть ``*`` в окремому рядку перед першим ключовим "
+"аргументом із таким же відступом, як і рядки параметрів."
 
 #: ../../howto/clinic.rst:333
 msgid "(``_pickle.Pickler.dump`` has neither, so our sample is unchanged.)"
 msgstr ""
+"(``_pickle.Pickler.dump`` не має жодного, тому наш зразок не змінився.)"
 
 #: ../../howto/clinic.rst:336
 msgid ""
@@ -425,6 +578,9 @@ msgid ""
 "c:func:`PyArg_ParseTupleAndKeywords`), then all its arguments are positional-"
 "only."
 msgstr ""
+"Якщо наявна функція C викликає :c:func:`PyArg_ParseTuple` (на відміну від :c:"
+"func:`PyArg_ParseTupleAndKeywords`), тоді всі її аргументи є лише "
+"позиційними."
 
 #: ../../howto/clinic.rst:340
 msgid ""
@@ -432,6 +588,9 @@ msgid ""
 "a line by itself after the last parameter, indented the same as the "
 "parameter lines."
 msgstr ""
+"Щоб позначити всі параметри як позиційні лише в Argument Clinic, додайте ``/"
+"`` в окремому рядку після останнього параметра з таким же відступом, як і "
+"рядки параметрів."
 
 #: ../../howto/clinic.rst:344
 msgid ""
@@ -439,12 +598,17 @@ msgid ""
 "or none of them are.  (In the future Argument Clinic may relax this "
 "restriction.)"
 msgstr ""
+"Наразі це все або нічого; або всі параметри є лише позиційними, або жоден із "
+"них. (У майбутньому Argument Clinic може послабити це обмеження.)"
 
 #: ../../howto/clinic.rst:364
 msgid ""
 "It's helpful to write a per-parameter docstring for each parameter. But per-"
 "parameter docstrings are optional; you can skip this step if you prefer."
 msgstr ""
+"Корисно написати рядок документації для кожного параметра. Але рядки "
+"документації для кожного параметра необов’язкові; ви можете пропустити цей "
+"крок, якщо хочете."
 
 #: ../../howto/clinic.rst:368
 msgid ""
@@ -455,6 +619,12 @@ msgid ""
 "amount.  You can write as much text as you like, across multiple lines if "
 "you wish."
 msgstr ""
+"Ось як додати рядок документації для кожного параметра. Перший рядок рядка "
+"документації для кожного параметра повинен мати відступ далі, ніж визначення "
+"параметра. Ліве поле цього першого рядка встановлює ліве поле для всього "
+"рядка документації для кожного параметра; весь написаний вами текст буде "
+"зменшено на цю величину. Ви можете написати скільки завгодно тексту в кілька "
+"рядків, якщо хочете."
 
 #: ../../howto/clinic.rst:392
 msgid ""
@@ -462,6 +632,10 @@ msgid ""
 "luck everything worked---your block now has output, and a ``.c.h`` file has "
 "been generated! Reopen the file in your text editor to see::"
 msgstr ""
+"Збережіть і закрийте файл, а потім запустіть над ним ``Tools/clinic/clinic."
+"py``. Якщо пощастило, все спрацювало --- ваш блок тепер має вихід, і файл ``."
+"c.h`` було згенеровано! Знову відкрийте файл у текстовому редакторі, щоб "
+"побачити::"
 
 #: ../../howto/clinic.rst:411
 msgid ""
@@ -469,6 +643,9 @@ msgid ""
 "found an error in your input.  Keep fixing your errors and retrying until "
 "Argument Clinic processes your file without complaint."
 msgstr ""
+"Очевидно, якщо Argument Clinic не дає жодних результатів, це тому, що вона "
+"знайшла помилку у вашому введенні. Продовжуйте виправляти свої помилки та "
+"повторювати спроби, доки Argument Clinic не обробить ваш файл без скарг."
 
 #: ../../howto/clinic.rst:415
 msgid ""
@@ -476,12 +653,17 @@ msgid ""
 "file.  You'll need to include that in your original ``.c`` file, typically "
 "right after the clinic module block::"
 msgstr ""
+"Для зручності читання більшу частину з’єднувального коду було згенеровано у "
+"файлі ``.c.h``. Вам потрібно буде включити це у вихідний файл ``.c``, як "
+"правило, одразу після блоку модуля клініки::"
 
 #: ../../howto/clinic.rst:421
 msgid ""
 "Double-check that the argument-parsing code Argument Clinic generated looks "
 "basically the same as the existing code."
 msgstr ""
+"Двічі перевірте, чи згенерований Argument Clinic код розбору аргументів "
+"виглядає так само, як і існуючий код."
 
 #: ../../howto/clinic.rst:424
 msgid ""
@@ -490,6 +672,10 @@ msgid ""
 "`PyArg_ParseTupleAndKeywords`; ensure that the code generated by Argument "
 "Clinic calls the *exact* same function."
 msgstr ""
+"По-перше, переконайтеся, що обидва місця використовують ту саму функцію "
+"розбору аргументів. Існуючий код має викликати :c:func:`PyArg_ParseTuple` "
+"або :c:func:`PyArg_ParseTupleAndKeywords`; переконайтеся, що код, "
+"згенерований Argument Clinic, викликає *точно* ту саму функцію."
 
 #: ../../howto/clinic.rst:430
 msgid ""
@@ -497,6 +683,9 @@ msgid ""
 "`PyArg_ParseTupleAndKeywords` should be *exactly* the same as the hand-"
 "written one in the existing function, up to the colon or semi-colon."
 msgstr ""
+"По-друге, рядок формату, переданий у :c:func:`PyArg_ParseTuple` або :c:func:"
+"`PyArg_ParseTupleAndKeywords`, має бути *точно* таким самим, як написаний "
+"від руки в існуючій функції, до двокрапки або напів- товста кишка."
 
 #: ../../howto/clinic.rst:435
 msgid ""
@@ -504,6 +693,10 @@ msgid ""
 "by the name of the function.  If the existing code's format string ends with "
 "``;``, to provide usage help, this change is harmless—don't worry about it.)"
 msgstr ""
+"(Argument Clinic завжди генерує рядки формату з символом ``:``, за яким "
+"слідує назва функції. Якщо рядок формату існуючого коду закінчується на ``;"
+"``, щоб надати довідку щодо використання, ця зміна нешкідлива — не хвилюйся "
+"про це.)"
 
 #: ../../howto/clinic.rst:440
 msgid ""
@@ -512,6 +705,10 @@ msgid ""
 "function), ensure that the second argument is *exactly* the same between the "
 "two invocations."
 msgstr ""
+"По-третє, для параметрів, одиниці формату яких вимагають два аргументи "
+"(наприклад, змінна довжини, або рядок кодування, або покажчик на функцію "
+"перетворення), переконайтеся, що другий аргумент *точно* однаковий між двома "
+"викликами."
 
 #: ../../howto/clinic.rst:445
 msgid ""
@@ -519,12 +716,17 @@ msgid ""
 "macro defining the appropriate static :c:type:`PyMethodDef` structure for "
 "this builtin::"
 msgstr ""
+"По-четверте, у вихідній частині блоку ви знайдете макрос препроцесора, що "
+"визначає відповідну статичну структуру :c:type:`PyMethodDef` для цього "
+"вбудованого::"
 
 #: ../../howto/clinic.rst:452
 msgid ""
 "This static structure should be *exactly* the same as the existing static :c:"
 "type:`PyMethodDef` structure for this builtin."
 msgstr ""
+"Ця статична структура має бути *точно* такою ж, як існуюча статична "
+"структура :c:type:`PyMethodDef` для цієї вбудованої програми."
 
 #: ../../howto/clinic.rst:455
 msgid ""
@@ -532,6 +734,9 @@ msgid ""
 "function specification and rerun ``Tools/clinic/clinic.py`` until they *are* "
 "the same."
 msgstr ""
+"Якщо будь-який із цих елементів *будь-яким чином* відрізняється, налаштуйте "
+"специфікацію функції Argument Clinic і повторно запускайте ``Tools/clinic/"
+"clinic.py``, доки вони *не стануть* однаковими."
 
 #: ../../howto/clinic.rst:460
 msgid ""
@@ -543,12 +748,21 @@ msgid ""
 "arguments are now arguments to this impl function; if the implementation "
 "used different names for these variables, fix it."
 msgstr ""
+"Зверніть увагу, що останній рядок його виводу є оголошенням вашої функції "
+"\"impl\". Ось де реалізується вбудована програма. Видаліть наявний прототип "
+"функції, яку ви змінюєте, але залиште відкриваючу фігурну дужку. Тепер "
+"видаліть його код розбору аргументів і оголошення всіх змінних, у які він "
+"виводить аргументи. Зверніть увагу, що аргументи Python тепер є аргументами "
+"для цієї функції impl; якщо реалізація використовувала різні імена для цих "
+"змінних, виправте це."
 
 #: ../../howto/clinic.rst:468
 msgid ""
 "Let's reiterate, just because it's kind of weird.  Your code should now look "
 "like this::"
 msgstr ""
+"Давайте повторимо, просто тому, що це трохи дивно. Тепер ваш код має "
+"виглядати так:"
 
 #: ../../howto/clinic.rst:477
 msgid ""
@@ -556,6 +770,9 @@ msgid ""
 "above it.  You should write the opening (and closing) curly braces for the "
 "function, and the implementation inside."
 msgstr ""
+"Argument Clinic згенерувала рядок контрольної суми та прототип функції прямо "
+"над ним. Ви повинні записати відкриваючі (і закриваючі) фігурні дужки для "
+"функції та реалізацію всередині."
 
 #: ../../howto/clinic.rst:522
 msgid ""
@@ -566,6 +783,12 @@ msgid ""
 "builtin is a class method, this will probably be below but relatively near "
 "to the implementation.)"
 msgstr ""
+"Пам’ятаєте макрос зі структурою :c:type:`PyMethodDef` для цієї функції? "
+"Знайдіть наявну структуру :c:type:`PyMethodDef` для цієї функції та замініть "
+"її посиланням на макрос. (Якщо вбудований модуль знаходиться в області "
+"видимості модуля, це, ймовірно, буде дуже близько до кінця файлу; якщо "
+"вбудований модуль є методом класу, це, ймовірно, буде нижче, але відносно "
+"близько до реалізації.)"
 
 #: ../../howto/clinic.rst:529
 msgid ""
@@ -573,6 +796,9 @@ msgid ""
 "replace the existing static :c:type:`PyMethodDef` structure with the macro, "
 "*don't* add a comma to the end."
 msgstr ""
+"Зауважте, що тіло макросу містить кінцеву кому. Отже, коли ви замінюєте "
+"існуючу статичну структуру :c:type:`PyMethodDef` на макрос, *не* додавайте "
+"кому в кінці."
 
 #: ../../howto/clinic.rst:542
 msgid ""
@@ -586,12 +812,14 @@ msgid ""
 "Well, except for one difference: ``inspect.signature()`` run on your "
 "function should now provide a valid signature!"
 msgstr ""
+"Ну, за винятком однієї відмінності: ``inspect.signature()``, запущений у "
+"вашій функції, тепер має надати дійсний підпис!"
 
 #: ../../howto/clinic.rst:549
 msgid ""
 "Congratulations, you've ported your first function to work with Argument "
 "Clinic!"
-msgstr ""
+msgstr "Вітаємо, ви перенесли свою першу функцію для роботи з Argument Clinic!"
 
 #: ../../howto/clinic.rst:552
 msgid "Advanced Topics"
@@ -602,20 +830,24 @@ msgid ""
 "Now that you've had some experience working with Argument Clinic, it's time "
 "for some advanced topics."
 msgstr ""
+"Тепер, коли ви маєте певний досвід роботи з Argument Clinic, настав час для "
+"деяких складних тем."
 
 #: ../../howto/clinic.rst:559
 msgid "Symbolic default values"
-msgstr ""
+msgstr "Символічні значення за замовчуванням"
 
 #: ../../howto/clinic.rst:561
 msgid ""
 "The default value you provide for a parameter can't be any arbitrary "
 "expression.  Currently the following are explicitly supported:"
 msgstr ""
+"Значення за умовчанням, яке ви надаєте для параметра, не може бути довільним "
+"виразом. Наразі явно підтримуються:"
 
 #: ../../howto/clinic.rst:564
 msgid "Numeric constants (integer and float)"
-msgstr ""
+msgstr "Числові константи (цілі чи з плаваючою точкою)"
 
 #: ../../howto/clinic.rst:565
 msgid "String constants"
@@ -623,29 +855,35 @@ msgstr "Constantes de strings"
 
 #: ../../howto/clinic.rst:566
 msgid "``True``, ``False``, and ``None``"
-msgstr ""
+msgstr "``True``, ``False`` і ``None``"
 
 #: ../../howto/clinic.rst:567
 msgid ""
 "Simple symbolic constants like ``sys.maxsize``, which must start with the "
 "name of the module"
 msgstr ""
+"Прості символічні константи, такі як ``sys.maxsize``, які мають починатися з "
+"назви модуля"
 
 #: ../../howto/clinic.rst:570
 msgid ""
 "In case you're curious, this is implemented in  ``from_builtin()`` in ``Lib/"
 "inspect.py``."
 msgstr ""
+"Якщол вам цікаво, то це імплементовано у ``from_builtin()`` в ``Lib/inspect."
+"py``."
 
 #: ../../howto/clinic.rst:573
 msgid ""
 "(In the future, this may need to get even more elaborate, to allow full "
 "expressions like ``CONSTANT - 1``.)"
 msgstr ""
+"(У майбутньому це може бути ще більш детальним, щоб дозволити повні вирази, "
+"такі як ``CONSTANT - 1``.)"
 
 #: ../../howto/clinic.rst:578
 msgid "Renaming the C functions and variables generated by Argument Clinic"
-msgstr ""
+msgstr "Перейменування функцій і змінних C, згенерованих Argument Clinic"
 
 #: ../../howto/clinic.rst:580
 msgid ""
@@ -658,18 +896,30 @@ msgid ""
 "function, then add ``\"_impl\"`` to the end and use that for the name of the "
 "impl function."
 msgstr ""
+"Argument Clinic автоматично називає функції, які генерує для вас. Іноді це "
+"може спричинити проблему, якщо згенерована назва збігається з назвою "
+"існуючої функції C. Є просте рішення: замініть імена, які використовуються "
+"для функцій C. Просто додайте ключове слово ``\"as\"`` до рядка оголошення "
+"функції, а потім назву функції, яку ви бажаєте використовувати. Argument "
+"Clinic використовуватиме це ім’я функції для базової (згенерованої) функції, "
+"а потім додаватиме ``\"_impl\"`` у кінець і використовуватиме його як назву "
+"функції impl."
 
 #: ../../howto/clinic.rst:588
 msgid ""
 "For example, if we wanted to rename the C function names generated for "
 "``pickle.Pickler.dump``, it'd look like this::"
 msgstr ""
+"Наприклад, якби ми хотіли перейменувати назви функцій C, згенеровані для "
+"``pickle.Pickler.dump``, це виглядало б так:"
 
 #: ../../howto/clinic.rst:596
 msgid ""
 "The base function would now be named ``pickler_dumper()``, and the impl "
 "function would now be named ``pickler_dumper_impl()``."
 msgstr ""
+"Базова функція тепер матиме назву ``pickler_dumper()``, а функція impl — "
+"``pickler_dumper_impl()``."
 
 #: ../../howto/clinic.rst:600
 msgid ""
@@ -678,20 +928,27 @@ msgid ""
 "Clinic allows you to give a parameter different names in Python and in C, "
 "using the same ``\"as\"`` syntax::"
 msgstr ""
+"Подібним чином у вас може виникнути проблема, коли ви бажаєте дати параметру "
+"конкретне ім’я Python, але це ім’я може бути незручним у C. Argument Clinic "
+"дозволяє вам давати різні імена параметрам у Python і C, використовуючи той "
+"самий \"``\" як\"`` синтаксис::"
 
 #: ../../howto/clinic.rst:614
 msgid ""
 "Here, the name used in Python (in the signature and the ``keywords`` array) "
 "would be ``file``, but the C variable would be named ``file_obj``."
 msgstr ""
+"Тут ім’я, яке використовується в Python (у підписі та масиві ``keywords``), "
+"буде ``file``, але змінна C матиме назву ``file_obj``."
 
 #: ../../howto/clinic.rst:617
 msgid "You can use this to rename the ``self`` parameter too!"
 msgstr ""
+"Ви також можете використовувати це, щоб перейменувати параметр ``self``!"
 
 #: ../../howto/clinic.rst:621
 msgid "Converting functions using PyArg_UnpackTuple"
-msgstr ""
+msgstr "Перетворення функцій за допомогою PyArg_UnpackTuple"
 
 #: ../../howto/clinic.rst:623
 msgid ""
@@ -701,16 +958,23 @@ msgid ""
 "appropriate.  All arguments should be marked positional-only (add a ``/`` on "
 "a line by itself after the last argument)."
 msgstr ""
+"Щоб перетворити функцію, що аналізує свої аргументи за допомогою :c:func:"
+"`PyArg_UnpackTuple`, просто запишіть усі аргументи, вказавши кожен як "
+"``object``. Ви можете вказати аргумент ``type``, щоб привести тип до "
+"відповідності. Усі аргументи мають бути позначені лише позиційними (додайте "
+"``/`` в окремому рядку після останнього аргументу)."
 
 #: ../../howto/clinic.rst:629
 msgid ""
 "Currently the generated code will use :c:func:`PyArg_ParseTuple`, but this "
 "will change soon."
 msgstr ""
+"Наразі згенерований код використовуватиме :c:func:`PyArg_ParseTuple`, але "
+"незабаром це зміниться."
 
 #: ../../howto/clinic.rst:633
 msgid "Optional Groups"
-msgstr ""
+msgstr "Додаткові групи"
 
 #: ../../howto/clinic.rst:635
 msgid ""
@@ -722,6 +986,13 @@ msgid ""
 "optional arguments back before :c:func:`PyArg_ParseTupleAndKeywords` was "
 "created."
 msgstr ""
+"Деякі застарілі функції мають хитрий підхід до аналізу своїх аргументів: "
+"вони підраховують кількість позиційних аргументів, а потім використовують "
+"оператор ``switch`` для виклику одного з кількох різних викликів :c:func:"
+"`PyArg_ParseTuple` залежно від кількості позиційних аргументів там є. (Ці "
+"функції не можуть приймати лише ключові слова.) Цей підхід використовувався "
+"для симуляції необов’язкових аргументів ще до створення :c:func:"
+"`PyArg_ParseTupleAndKeywords`."
 
 #: ../../howto/clinic.rst:642
 msgid ""
@@ -736,6 +1007,17 @@ msgid ""
 "the function passing in ``x``, you must also pass in ``y``—and if you don't "
 "pass in ``x`` you may not pass in ``y`` either.)"
 msgstr ""
+"Хоча функції, які використовують цей підхід, часто можна перетворити на "
+"використання :c:func:`PyArg_ParseTupleAndKeywords`, необов’язкових "
+"аргументів і значень за замовчуванням, це не завжди можливо. Деякі з цих "
+"застарілих функцій мають поведінку, яку :c:func:"
+"`PyArg_ParseTupleAndKeywords` безпосередньо не підтримує. Найбільш очевидним "
+"прикладом є вбудована функція ``range()``, яка має необов’язковий аргумент у "
+"*лівій* частині обов’язкового аргументу! Іншим прикладом є ``curses.window."
+"addch()``, який має групу з двох аргументів, які завжди повинні вказуватися "
+"разом. (Аргументи називаються ``x`` і ``y``; якщо ви викликаєте функцію, "
+"передаючи ``x``, ви також повинні передати ``y``—а якщо ви не передаєте `` "
+"`x`` також не можна передавати в ``y``.)"
 
 #: ../../howto/clinic.rst:654
 msgid ""
@@ -746,6 +1028,13 @@ msgid ""
 "all be passed in together. They can be to the left or the right of the "
 "required arguments.  They can *only* be used with positional-only parameters."
 msgstr ""
+"У будь-якому випадку, метою Argument Clinic є підтримка аналізу аргументів "
+"для всіх існуючих вбудованих модулів CPython без зміни їх семантики. Тому "
+"Argument Clinic підтримує цей альтернативний підхід до аналізу, "
+"використовуючи так звані *додаткові групи*. Необов’язкові групи — це групи "
+"аргументів, які потрібно передати разом. Вони можуть бути ліворуч або "
+"праворуч від необхідних аргументів. Їх можна використовувати *лише* з "
+"позиційними параметрами."
 
 #: ../../howto/clinic.rst:662
 msgid ""
@@ -757,6 +1046,13 @@ msgid ""
 "doesn't understand the concept.  Please avoid using optional groups wherever "
 "possible."
 msgstr ""
+"Необов’язкові групи призначені *лише* для використання під час перетворення "
+"функцій, які здійснюють кілька викликів у :c:func:`PyArg_ParseTuple`! "
+"Функції, які використовують *будь-який* інший підхід для аналізу аргументів, "
+"*майже ніколи* не повинні перетворюватися на клініку аргументів за допомогою "
+"додаткових груп. Функції, які використовують додаткові групи, наразі не "
+"можуть мати точні підписи в Python, оскільки Python просто не розуміє "
+"концепції. Будь ласка, уникайте використання додаткових груп, де це можливо."
 
 #: ../../howto/clinic.rst:671
 msgid ""
@@ -766,6 +1062,11 @@ msgid ""
 "optional groups to make the first two parameters and the last parameter "
 "optional::"
 msgstr ""
+"Щоб указати необов’язкову групу, додайте ``[`` в окремому рядку перед "
+"параметрами, які ви хочете згрупувати разом, і ``]`` в окремому рядку після "
+"цих параметрів. Як приклад, ось як ``curses.window.addch`` використовує "
+"необов’язкові групи, щоб зробити перші два параметри та останній параметр "
+"необов’язковими::"
 
 #: ../../howto/clinic.rst:700
 msgid "Notes:"
@@ -783,32 +1084,50 @@ msgid ""
 "was unused, and set to non-zero if this group was used. (By used or unused, "
 "I mean whether or not the parameters received arguments in this invocation.)"
 msgstr ""
+"Для кожної необов’язкової групи один додатковий параметр буде передано у "
+"функцію impl, що представляє групу. Параметром буде int з іменем "
+"``group_{direction}_{number}``, де ``{direction}`` є або ``праворуч``, або "
+"``ліворуч`` залежно від того, яка група знаходиться до чи після необхідні "
+"параметри, а {number} — монотонно зростаюче число (починаючи з 1), яке "
+"вказує на те, наскільки далека група від необхідних параметрів. Під час "
+"виклику impl цей параметр буде встановлено на нуль, якщо ця група не "
+"використовувалася, і на відмінне від нуля, якщо ця група використовувалася. "
+"(Під \"використаним\" чи \"невикористаним\" я маю на увазі, чи отримали "
+"параметри аргументи під час цього виклику.)"
 
 #: ../../howto/clinic.rst:713
 msgid ""
 "If there are no required arguments, the optional groups will behave as if "
 "they're to the right of the required arguments."
 msgstr ""
+"Якщо обов’язкових аргументів немає, необов’язкові групи поводитимуться так, "
+"ніби вони розташовані праворуч від обов’язкових аргументів."
 
 #: ../../howto/clinic.rst:716
 msgid ""
 "In the case of ambiguity, the argument parsing code favors parameters on the "
 "left (before the required parameters)."
 msgstr ""
+"У разі неоднозначності код аналізу аргументу надає перевагу параметрам зліва "
+"(перед потрібними параметрами)."
 
 #: ../../howto/clinic.rst:719
 msgid "Optional groups can only contain positional-only parameters."
-msgstr ""
+msgstr "Додаткові групи можуть містити лише позиційні параметри."
 
 #: ../../howto/clinic.rst:721
 msgid ""
 "Optional groups are *only* intended for legacy code.  Please do not use "
 "optional groups for new code."
 msgstr ""
+"Додаткові групи призначені *тільки* для застарілого коду. Будь ласка, не "
+"використовуйте додаткові групи для нового коду."
 
 #: ../../howto/clinic.rst:726
 msgid "Using real Argument Clinic converters, instead of \"legacy converters\""
 msgstr ""
+"Використання реальних конвертерів Argument Clinic замість \"застарілих "
+"конвертерів\""
 
 #: ../../howto/clinic.rst:728
 msgid ""
@@ -818,17 +1137,26 @@ msgid ""
 "explicitly to make porting existing code to Argument Clinic easier.  And to "
 "be clear, their use is acceptable when porting code for Python 3.4."
 msgstr ""
+"Щоб заощадити час і звести до мінімуму те, що вам потрібно навчитися, щоб "
+"досягти першого перенесення на Argument Clinic, наведене вище керівництво "
+"рекомендує вам використовувати \"застарілі конвертери\". \"Застарілі "
+"конвертери\" — це зручність, розроблена спеціально для полегшення "
+"перенесення існуючого коду на Argument Clinic. Щоб було зрозуміло, їхнє "
+"використання прийнятне під час портування коду для Python 3.4."
 
 #: ../../howto/clinic.rst:735
 msgid ""
 "However, in the long term we probably want all our blocks to use Argument "
 "Clinic's real syntax for converters.  Why?  A couple reasons:"
 msgstr ""
+"Однак у довгостроковій перспективі ми, ймовірно, хочемо, щоб усі наші блоки "
+"використовували реальний синтаксис Argument Clinic для конвертерів. чому "
+"Пара причин:"
 
 #: ../../howto/clinic.rst:739
 msgid ""
 "The proper converters are far easier to read and clearer in their intent."
-msgstr ""
+msgstr "Належні конвертери набагато легше читати, і їхні наміри зрозуміліші."
 
 #: ../../howto/clinic.rst:740
 msgid ""
@@ -836,6 +1164,9 @@ msgid ""
 "because they require arguments, and the legacy converter syntax doesn't "
 "support specifying arguments."
 msgstr ""
+"Є деякі одиниці формату, які не підтримуються як \"застарілі конвертери\", "
+"оскільки вони потребують аргументів, а синтаксис застарілого конвертера не "
+"підтримує визначення аргументів."
 
 #: ../../howto/clinic.rst:743
 msgid ""
@@ -843,12 +1174,17 @@ msgid ""
 "restricted to what :c:func:`PyArg_ParseTuple` supports; this flexibility "
 "won't be available to parameters using legacy converters."
 msgstr ""
+"У майбутньому ми можемо мати нову бібліотеку аналізу аргументів, яка не "
+"обмежується тим, що підтримує :c:func:`PyArg_ParseTuple`; ця гнучкість не "
+"буде доступна для параметрів, які використовують застарілі конвертери."
 
 #: ../../howto/clinic.rst:747
 msgid ""
 "Therefore, if you don't mind a little extra effort, please use the normal "
 "converters instead of legacy converters."
 msgstr ""
+"Тому, якщо ви не проти трохи додаткових зусиль, використовуйте звичайні "
+"конвертери замість застарілих конвертерів."
 
 #: ../../howto/clinic.rst:750
 msgid ""
@@ -857,12 +1193,19 @@ msgid ""
 "the function (all functions take their default values), you may omit the "
 "parentheses.  Thus ``bool`` and ``bool()`` are exactly the same converters."
 msgstr ""
+"У двох словах, синтаксис для конвертерів Argument Clinic (не застарілих) "
+"виглядає як виклик функції Python. Однак, якщо для функції немає явних "
+"аргументів (усі функції приймають значення за замовчуванням), ви можете "
+"опустити дужки. Таким чином, ``bool`` і ``bool()`` є абсолютно однаковими "
+"перетворювачами."
 
 #: ../../howto/clinic.rst:756
 msgid ""
 "All arguments to Argument Clinic converters are keyword-only. All Argument "
 "Clinic converters accept the following arguments:"
 msgstr ""
+"Усі аргументи для конвертерів Argument Clinic є лише ключовими словами. Усі "
+"конвертери Argument Clinic приймають такі аргументи:"
 
 #: ../../howto/clinic.rst:764 ../../howto/clinic.rst:1252
 msgid "``c_default``"
@@ -875,6 +1218,10 @@ msgid ""
 "function\".  See :ref:`the section on default values <default_values>` for "
 "how to use this. Specified as a string."
 msgstr ""
+"Значення за замовчуванням для цього параметра, коли його визначено в C. "
+"Зокрема, це буде ініціалізатор для змінної, оголошеної у \"функції "
+"аналізу\". Перегляньте :ref:`розділ про значення за замовчуванням "
+"<default_values>`, щоб дізнатися, як це використовувати. Задається як рядок."
 
 #: ../../howto/clinic.rst:769
 msgid "``annotation``"
@@ -885,12 +1232,16 @@ msgid ""
 "The annotation value for this parameter.  Not currently supported, because :"
 "pep:`8` mandates that the Python library may not use annotations."
 msgstr ""
+"Значення анотації для цього параметра. Наразі не підтримується, оскільки :"
+"pep:`8` забороняє бібліотеці Python використовувати анотації."
 
 #: ../../howto/clinic.rst:771
 msgid ""
 "In addition, some converters accept additional arguments.  Here is a list of "
 "these arguments, along with their meanings:"
 msgstr ""
+"Крім того, деякі конвертери приймають додаткові аргументи. Ось список цих "
+"аргументів разом із їхнім значенням:"
 
 #: ../../howto/clinic.rst:780
 msgid "``accept``"
@@ -903,10 +1254,14 @@ msgid ""
 "purpose facility; as a rule it only supports specific lists of types as "
 "shown in the legacy converter table.)"
 msgstr ""
+"Набір типів Python (і, можливо, псевдотипів); це обмежує дозволений аргумент "
+"Python значеннями цих типів. (Це засіб не є універсальним; як правило, він "
+"підтримує лише певні списки типів, як показано в таблиці застарілого "
+"конвертера.)"
 
 #: ../../howto/clinic.rst:780
 msgid "To accept ``None``, add ``NoneType`` to this set."
-msgstr ""
+msgstr "Щоб прийняти ``None``, додайте ``NoneType`` до цього набору."
 
 #: ../../howto/clinic.rst:785
 msgid "``bitwise``"
@@ -918,6 +1273,9 @@ msgid ""
 "Python argument will be written to the parameter without any range checking, "
 "even for negative values."
 msgstr ""
+"Підтримується лише для цілих чисел без знаку. Власне ціле значення цього "
+"аргументу Python буде записано в параметр без будь-якої перевірки діапазону, "
+"навіть для від’ємних значень."
 
 #: ../../howto/clinic.rst:790 ../../howto/clinic.rst:1266
 msgid "``converter``"
@@ -929,6 +1287,8 @@ msgid ""
 "\"converter function\" <o_ampersand>` to use to convert this object to a "
 "native type."
 msgstr ""
+"Підтримується лише конвертером ``object``. Вказує ім’я :ref:`C \"функції "
+"конвертера\" <o_ampersand>` для перетворення цього об’єкта на рідний тип."
 
 #: ../../howto/clinic.rst:795
 msgid "``encoding``"
@@ -939,6 +1299,9 @@ msgid ""
 "Only supported for strings.  Specifies the encoding to use when converting "
 "this string from a Python str (Unicode) value into a C ``char *`` value."
 msgstr ""
+"Підтримується лише для рядків. Визначає кодування для використання під час "
+"перетворення цього рядка зі значення Python str (Unicode) у значення C "
+"``char *``."
 
 #: ../../howto/clinic.rst:799
 msgid "``subclass_of``"
@@ -949,6 +1312,8 @@ msgid ""
 "Only supported for the ``object`` converter.  Requires that the Python value "
 "be a subclass of a Python type, as expressed in C."
 msgstr ""
+"Підтримується лише для конвертера ``object``. Вимагає, щоб значення Python "
+"було підкласом типу Python, як виражено в C."
 
 #: ../../howto/clinic.rst:804 ../../howto/clinic.rst:1238
 msgid "``type``"
@@ -960,6 +1325,9 @@ msgid ""
 "type that will be used to declare the variable.  Default value is "
 "``\"PyObject *\"``."
 msgstr ""
+"Підтримується лише для конвертерів ``object`` і ``self``. Визначає тип C, "
+"який використовуватиметься для оголошення змінної. Значення за замовчуванням "
+"– ``\"PyObject *\"``."
 
 #: ../../howto/clinic.rst:810
 msgid "``zeroes``"
@@ -972,6 +1340,10 @@ msgid ""
 "the impl function, just after the string parameter, as a parameter named "
 "``<parameter_name>_length``."
 msgstr ""
+"Підтримується лише для рядків. Якщо встановлено значення true, вбудовані "
+"байти NUL (``'\\\\0'``) дозволені всередині значення. Довжину рядка буде "
+"передано у функцію impl одразу після параметра string як параметр із назвою "
+"``<parameter_name> _length``."
 
 #: ../../howto/clinic.rst:812
 msgid ""
@@ -983,6 +1355,13 @@ msgid ""
 "any existing format unit.  So Argument Clinic doesn't support it.  (Or, at "
 "least, not yet.)"
 msgstr ""
+"Зауважте, що не кожна можлива комбінація аргументів буде працювати. Зазвичай "
+"ці аргументи реалізуються спеціальними ``PyArg_ParseTuple`` *одиницями "
+"формату* з певною поведінкою. Наприклад, зараз ви не можете викликати "
+"``unsigned_short``, не вказавши також ``bitwise=True``. Хоча це цілком "
+"розумно вважати, що це спрацює, ця семантика не відображається на жодну "
+"існуючу одиницю формату. Тому клініка \"Аргумент\" не підтримує. (Або, "
+"принаймні, ще ні.)"
 
 #: ../../howto/clinic.rst:820
 msgid ""
@@ -990,6 +1369,9 @@ msgid ""
 "Clinic converters.  On the left is the legacy converter, on the right is the "
 "text you'd replace it with."
 msgstr ""
+"Нижче наведено таблицю, яка показує відображення застарілих конвертерів у "
+"справжні конвертери Argument Clinic. Ліворуч — застарілий конвертер, "
+"праворуч — текст, яким його потрібно замінити."
 
 #: ../../howto/clinic.rst:825
 msgid "``'B'``"
@@ -1053,7 +1435,7 @@ msgstr "``'es#'``"
 
 #: ../../howto/clinic.rst:832
 msgid "``str(encoding='name_of_encoding', zeroes=True)``"
-msgstr ""
+msgstr "``str(encoding='name_of_encoding', zeroes=True)``"
 
 #: ../../howto/clinic.rst:833
 msgid "``'et'``"
@@ -1061,7 +1443,7 @@ msgstr "``'et'``"
 
 #: ../../howto/clinic.rst:833
 msgid "``str(encoding='name_of_encoding', accept={bytes, bytearray, str})``"
-msgstr ""
+msgstr "``str(encoding='name_of_encoding', accept={bytes, bytearray, str})``"
 
 #: ../../howto/clinic.rst:834
 msgid "``'et#'``"
@@ -1072,6 +1454,8 @@ msgid ""
 "``str(encoding='name_of_encoding', accept={bytes, bytearray, str}, "
 "zeroes=True)``"
 msgstr ""
+"``str(encoding='name_of_encoding', accept={bytes, bytearray, str}, "
+"zeroes=True)``"
 
 #: ../../howto/clinic.rst:835
 msgid "``'f'``"
@@ -1143,7 +1527,7 @@ msgstr "``'L'``"
 
 #: ../../howto/clinic.rst:843
 msgid "``long long``"
-msgstr ""
+msgstr "``long long``"
 
 #: ../../howto/clinic.rst:844
 msgid "``'n'``"
@@ -1215,7 +1599,7 @@ msgstr "``'s*'``"
 
 #: ../../howto/clinic.rst:852
 msgid "``Py_buffer(accept={buffer, str})``"
-msgstr ""
+msgstr "``Py_buffer(accept={buffer, str})``"
 
 #: ../../howto/clinic.rst:853
 msgid "``'U'``"
@@ -1271,7 +1655,7 @@ msgstr "``'y#'``"
 
 #: ../../howto/clinic.rst:859
 msgid "``str(accept={robuffer}, zeroes=True)``"
-msgstr ""
+msgstr "``str(accept={robuffer}, zeroes=True)``"
 
 #: ../../howto/clinic.rst:860
 msgid "``'y*'``"
@@ -1287,7 +1671,7 @@ msgstr "``'Z'``"
 
 #: ../../howto/clinic.rst:861
 msgid "``Py_UNICODE(accept={str, NoneType})``"
-msgstr ""
+msgstr "``Py_UNICODE(accept={str, NoneType})``"
 
 #: ../../howto/clinic.rst:862
 msgid "``'Z#'``"
@@ -1295,7 +1679,7 @@ msgstr "``'Z#'``"
 
 #: ../../howto/clinic.rst:862
 msgid "``Py_UNICODE(accept={str, NoneType}, zeroes=True)``"
-msgstr ""
+msgstr "``Py_UNICODE(accept={str, NoneType}, zeroes=True)``"
 
 #: ../../howto/clinic.rst:863
 msgid "``'z'``"
@@ -1303,7 +1687,7 @@ msgstr "``'z'``"
 
 #: ../../howto/clinic.rst:863
 msgid "``str(accept={str, NoneType})``"
-msgstr ""
+msgstr "``str(accept={str, NoneType})``"
 
 #: ../../howto/clinic.rst:864
 msgid "``'z#'``"
@@ -1311,7 +1695,7 @@ msgstr "``'z#'``"
 
 #: ../../howto/clinic.rst:864
 msgid "``str(accept={str, NoneType}, zeroes=True)``"
-msgstr ""
+msgstr "``str(accept={str, NoneType}, zeroes=True)``"
 
 #: ../../howto/clinic.rst:865
 msgid "``'z*'``"
@@ -1319,13 +1703,15 @@ msgstr "``'z*'``"
 
 #: ../../howto/clinic.rst:865
 msgid "``Py_buffer(accept={buffer, str, NoneType})``"
-msgstr ""
+msgstr "``Py_buffer(accept={buffer, str, NoneType})``"
 
 #: ../../howto/clinic.rst:868
 msgid ""
 "As an example, here's our sample ``pickle.Pickler.dump`` using the proper "
 "converter::"
 msgstr ""
+"Як приклад, ось наш зразок ``pickle.Pickler.dump`` з використанням належного "
+"конвертера::"
 
 #: ../../howto/clinic.rst:881
 msgid ""
@@ -1335,6 +1721,12 @@ msgid ""
 "default behavior performs range checking on the value, and they won't accept "
 "negative numbers.  You just can't do that with a legacy converter!"
 msgstr ""
+"Однією з переваг справжніх конвертерів є те, що вони більш гнучкі, ніж "
+"застарілі конвертери. Наприклад, конвертер ``unsigned_int`` (і всі "
+"``unsigned_`` перетворювачі) можна вказати без ``bitwise=True``. Їх "
+"поведінка за умовчанням виконує перевірку діапазону значення, і вони не "
+"приймають від’ємні числа. Ви просто не можете зробити це за допомогою "
+"застарілого конвертера!"
 
 #: ../../howto/clinic.rst:887
 msgid ""
@@ -1343,10 +1735,14 @@ msgid ""
 "default value for each parameter. Just run ``Tools/clinic/clinic.py --"
 "converters`` to see the full list."
 msgstr ""
+"Argument Clinic покаже вам усі доступні конвертери. Для кожного конвертера "
+"буде показано всі параметри, які він приймає, а також значення за "
+"замовчуванням для кожного параметра. Просто запустіть ``Tools/clinic/clinic."
+"py --converters``, щоб переглянути повний список."
 
 #: ../../howto/clinic.rst:893
 msgid "Py_buffer"
-msgstr ""
+msgstr "Py_buffer"
 
 #: ../../howto/clinic.rst:895
 msgid ""
@@ -1355,16 +1751,22 @@ msgid ""
 "`PyBuffer_Release` on the provided buffer. Argument Clinic generates code "
 "that does it for you (in the parsing function)."
 msgstr ""
+"При використанні конвертера ``Py_buffer`` (або ``'s*'``, ``'w*'``, ``'*y'`` "
+"або ``'z*'`` застарілих конвертерів ), ви *не повинні* викликати :c:func:"
+"`PyBuffer_Release` у наданому буфері. Argument Clinic генерує код, який "
+"робить це за вас (у функції аналізу)."
 
 #: ../../howto/clinic.rst:903
 msgid "Advanced converters"
-msgstr ""
+msgstr "Розширені конвертери"
 
 #: ../../howto/clinic.rst:905
 msgid ""
 "Remember those format units you skipped for your first time because they "
 "were advanced?  Here's how to handle those too."
 msgstr ""
+"Пам’ятаєте ті форматні одиниці, які ви пропустили вперше, оскільки вони були "
+"просунутими? Ось як впоратися з ними."
 
 #: ../../howto/clinic.rst:908
 msgid ""
@@ -1376,6 +1778,13 @@ msgid ""
 "``O&``), ``subclass_of`` (for ``O!``), or ``encoding`` (for all the format "
 "units that start with ``e``)."
 msgstr ""
+"Хитрість полягає в тому, що всі ці одиниці формату приймають аргументи — або "
+"функції перетворення, або типи, або рядки, що визначають кодування. (Але "
+"\"застарілі конвертери\" не підтримують аргументи. Ось чому ми пропустили їх "
+"для вашої першої функції.) Аргумент, який ви вказали для одиниці формату, "
+"тепер є аргументом для конвертера; цей аргумент або ``конвертер`` (для "
+"``O&``), ``subclass_of`` (для ``O!``), або ``encoding`` (для всіх одиниць "
+"формату, які починаються з ``e``)."
 
 #: ../../howto/clinic.rst:916
 msgid ""
@@ -1385,6 +1794,12 @@ msgid ""
 "is a subclass of ``PyUnicode_Type``, you probably want to use the converter "
 "``object(type='PyUnicodeObject *', subclass_of='&PyUnicode_Type')``."
 msgstr ""
+"Використовуючи ``subclass_of``, ви також можете використати інший "
+"спеціальний аргумент для ``object()``: ``type``, який дозволяє встановити "
+"тип, який фактично використовується для параметра. Наприклад, якщо ви хочете "
+"переконатися, що об’єкт є підкласом ``PyUnicode_Type``, можливо, ви захочете "
+"використати конвертер ``object(type='PyUnicodeObject *', "
+"subclass_of='&PyUnicode_Type')``."
 
 #: ../../howto/clinic.rst:922
 msgid ""
@@ -1398,30 +1813,45 @@ msgid ""
 "unreasonable; CPython itself always passes in static hard-coded encoding "
 "strings for parameters whose format units start with ``e``."
 msgstr ""
+"Одна з можливих проблем із використанням Argument Clinic: це позбавляє "
+"можливої гнучкості одиниць формату, що починаються з ``e``. Під час "
+"написання виклику ``PyArg_Parse`` вручну, ви теоретично можете вирішити під "
+"час виконання, який рядок кодування передати в :c:func:`PyArg_ParseTuple`. "
+"Але тепер цей рядок має бути жорстко закодований під час попередньої обробки "
+"аргументів-клініки. Це обмеження є навмисним; це значно полегшило підтримку "
+"цього блоку формату та, можливо, дозволить оптимізувати його в майбутньому. "
+"Це обмеження не здається безпідставним; Сам CPython завжди передає статичні "
+"жорстко закодовані рядки для параметрів, одиниці формату яких починаються з "
+"``e``."
 
 #: ../../howto/clinic.rst:935
 msgid "Parameter default values"
-msgstr ""
+msgstr "Значення параметрів за замовчуванням"
 
 #: ../../howto/clinic.rst:937
 msgid ""
 "Default values for parameters can be any of a number of values. At their "
 "simplest, they can be string, int, or float literals:"
 msgstr ""
+"Значення за замовчуванням для параметрів можуть бути будь-якими з кількох "
+"значень. У найпростішому вигляді вони можуть бути рядковими, цілими або "
+"плаваючими літералами:"
 
 #: ../../howto/clinic.rst:946
 msgid "They can also use any of Python's built-in constants:"
-msgstr ""
+msgstr "Вони також можуть використовувати будь-які вбудовані константи Python:"
 
 #: ../../howto/clinic.rst:954
 msgid ""
 "There's also special support for a default value of ``NULL``, and for simple "
 "expressions, documented in the following sections."
 msgstr ""
+"Існує також спеціальна підтримка значення за замовчуванням ``NULL`` і "
+"простих виразів, задокументованих у наступних розділах."
 
 #: ../../howto/clinic.rst:959
 msgid "The ``NULL`` default value"
-msgstr ""
+msgstr "Значення за замовчуванням ``NULL``"
 
 #: ../../howto/clinic.rst:961
 msgid ""
@@ -1432,10 +1862,16 @@ msgid ""
 "behaves like a default value of ``None``, but the C variable is initialized "
 "with ``NULL``."
 msgstr ""
+"Для параметрів рядка та об’єкта ви можете встановити для них значення "
+"``None``, щоб вказати, що за замовчуванням немає. Однак це означає, що "
+"змінна C буде ініціалізована як ``Py_None``. Для зручності існує спеціальне "
+"значення під назвою ``NULL`` саме з цієї причини: з точки зору Python воно "
+"поводиться як значення за замовчуванням ``None``, але змінна C "
+"ініціалізується ``NULL``."
 
 #: ../../howto/clinic.rst:969
 msgid "Expressions specified as default values"
-msgstr ""
+msgstr "Вирази, указані як значення за замовчуванням"
 
 #: ../../howto/clinic.rst:971
 msgid ""
@@ -1444,10 +1880,14 @@ msgid ""
 "on objects.  However, this support isn't exactly simple, because of some non-"
 "obvious semantics."
 msgstr ""
+"Значення за замовчуванням для параметра може бути не просто літеральним "
+"значенням. Це може бути цілий вираз із використанням математичних операторів "
+"і пошуком атрибутів об’єктів. Однак ця підтримка не зовсім проста через "
+"деяку неочевидну семантику."
 
 #: ../../howto/clinic.rst:976
 msgid "Consider the following example:"
-msgstr ""
+msgstr "Розглянемо такий приклад:"
 
 #: ../../howto/clinic.rst:982
 msgid ""
@@ -1456,6 +1896,10 @@ msgid ""
 "it in C.  So it stores the default in such a way that it will get evaluated "
 "at runtime, when the user asks for the function's signature."
 msgstr ""
+"``sys.maxsize`` може мати різні значення на різних платформах. Тому Argument "
+"Clinic не може просто оцінити цей вираз локально та жорстко закодувати його "
+"в C. Тому він зберігає значення за замовчуванням таким чином, що воно буде "
+"оцінено під час виконання, коли користувач запитує підпис функції."
 
 #: ../../howto/clinic.rst:987
 msgid ""
@@ -1463,6 +1907,10 @@ msgid ""
 "evaluated in the context of the module the builtin came from.  So, if your "
 "module has an attribute called \"``max_widgets``\", you may simply use it:"
 msgstr ""
+"Який простір імен доступний під час обчислення виразу? Він оцінюється в "
+"контексті модуля, з якого походить вбудований модуль. Отже, якщо ваш модуль "
+"має атрибут під назвою \"``max_widgets``, ви можете просто використовувати "
+"його:"
 
 #: ../../howto/clinic.rst:995
 msgid ""
@@ -1472,6 +1920,11 @@ msgid ""
 "interpreter, it's best to restrict yourself to modules that are preloaded by "
 "Python itself.)"
 msgstr ""
+"Якщо символ не знайдено в поточному модулі, він переходить до пошуку в ``sys."
+"modules``. Ось як він може знайти, наприклад, ``sys.maxsize``. (Оскільки ви "
+"заздалегідь не знаєте, які модулі користувач завантажить у свій "
+"інтерпретатор, найкраще обмежитися модулями, попередньо завантаженими самим "
+"Python.)"
 
 #: ../../howto/clinic.rst:1000
 msgid ""
@@ -1480,6 +1933,11 @@ msgid ""
 "explicitly. When you use an expression, you must also specify the equivalent "
 "expression in C, using the ``c_default`` parameter to the converter:"
 msgstr ""
+"Оцінка значень за замовчуванням лише під час виконання означає, що Argument "
+"Clinic не може обчислити правильне еквівалентне значення за замовчуванням C. "
+"Тому вам потрібно сказати це прямо. Коли ви використовуєте вираз, ви також "
+"повинні вказати еквівалентний вираз у C, використовуючи параметр "
+"``c_default`` для конвертера:"
 
 #: ../../howto/clinic.rst:1009
 msgid ""
@@ -1488,6 +1946,11 @@ msgid ""
 "legal, but it can't *actually* know.  You must be very careful when using "
 "expressions to specify values that are guaranteed to be valid at runtime!"
 msgstr ""
+"Інша складність: Argument Clinic не може заздалегідь знати, чи дійсний "
+"вираз, який ви надаєте. Він аналізує його, щоб переконатися, що він виглядає "
+"законним, але він не може *насправді* знати. Ви повинні бути дуже "
+"обережними, використовуючи вирази для визначення значень, які гарантовано "
+"будуть дійсними під час виконання!"
 
 #: ../../howto/clinic.rst:1014
 msgid ""
@@ -1495,30 +1958,33 @@ msgid ""
 "are many restrictions on legal expressions.  Here's a list of Python "
 "features you're not permitted to use:"
 msgstr ""
+"Нарешті, оскільки вирази повинні бути представлені як статичні значення C, "
+"існує багато обмежень на юридичні вирази. Ось список функцій Python, які вам "
+"заборонено використовувати:"
 
 #: ../../howto/clinic.rst:1018
 msgid "Function calls."
-msgstr ""
+msgstr "Виклики функцій."
 
 #: ../../howto/clinic.rst:1019
 msgid "Inline if statements (``3 if foo else 5``)."
-msgstr ""
+msgstr "Вбудовані оператори if (``3 if foo else 5``)."
 
 #: ../../howto/clinic.rst:1020
 msgid "Automatic sequence unpacking (``*[1, 2, 3]``)."
-msgstr ""
+msgstr "Автоматичне розпакування послідовності (``*[1, 2, 3]``)."
 
 #: ../../howto/clinic.rst:1021
 msgid "List/set/dict comprehensions and generator expressions."
-msgstr ""
+msgstr "Розуміння списку/набору/диктів і вирази генератора."
 
 #: ../../howto/clinic.rst:1022
 msgid "Tuple/list/set/dict literals."
-msgstr ""
+msgstr "Літерали кортеж/список/набір/дикт."
 
 #: ../../howto/clinic.rst:1027
 msgid "Using a return converter"
-msgstr ""
+msgstr "Використання зворотного перетворювача"
 
 #: ../../howto/clinic.rst:1029
 msgid ""
@@ -1529,6 +1995,11 @@ msgid ""
 "have it convert your return value from a native C type into a Python type "
 "too?"
 msgstr ""
+"За замовчуванням функція impl Argument Clinic генерує для вас повернення "
+"``PyObject *``. Але ваша функція C часто обчислює певний тип C, а потім в "
+"останній момент перетворює його на ``PyObject *``. Argument Clinic "
+"перетворює ваші вхідні дані з типів Python у власні типи C — чому б їй не "
+"перетворити ваше повертане значення з рідного типу C у тип Python?"
 
 #: ../../howto/clinic.rst:1035
 msgid ""
@@ -1536,6 +2007,9 @@ msgid ""
 "return some C type, then adds code to the generated (non-impl) function to "
 "handle converting that value into the appropriate ``PyObject *``."
 msgstr ""
+"Ось що робить \"конвертер повернення\". Він змінює вашу функцію impl, щоб "
+"повернути деякий тип C, а потім додає код до згенерованої (не impl) функції "
+"для обробки перетворення цього значення у відповідний ``PyObject *``."
 
 #: ../../howto/clinic.rst:1039
 msgid ""
@@ -1546,12 +2020,20 @@ msgid ""
 "you're not changing any of the default arguments you can omit the "
 "parentheses."
 msgstr ""
+"Синтаксис конвертерів повернення подібний до синтаксису конвертерів "
+"параметрів. Ви вказуєте конвертер повернення так, ніби це анотація "
+"повернення до самої функції. Перетворювачі повернення поводяться майже так "
+"само, як перетворювачі параметрів; вони приймають аргументи, усі аргументи є "
+"лише ключовими словами, і якщо ви не змінюєте жоден із стандартних "
+"аргументів, ви можете опустити дужки."
 
 #: ../../howto/clinic.rst:1045
 msgid ""
 "(If you use both ``\"as\"`` *and* a return converter for your function, the "
 "``\"as\"`` should come before the return converter.)"
 msgstr ""
+"(Якщо ви використовуєте як ``\"as\"`` *, так і* перетворювач повернення для "
+"вашої функції, ``\"as\"`` має стояти перед перетворювачем повернення.)"
 
 #: ../../howto/clinic.rst:1048
 msgid ""
@@ -1565,10 +2047,19 @@ msgid ""
 "generated code will propagate the error.  Otherwise it will encode the value "
 "you return like normal."
 msgstr ""
+"Є одна додаткова складність під час використання конвертерів повернення: як "
+"вказати, що сталася помилка? Зазвичай функція повертає дійсний (не ``NULL``) "
+"вказівник для успіху та ``NULL`` для помилки. Але якщо ви використовуєте "
+"конвертер повернення цілих чисел, усі цілі числа є дійсними. Як Клініка "
+"Аргумент може виявити помилку? Його рішення: кожен конвертер повернення "
+"неявно шукає спеціальне значення, яке вказує на помилку. Якщо ви повертаєте "
+"це значення, і було встановлено помилку (``PyErr_Occurred()`` повертає "
+"справжнє значення), тоді згенерований код поширить помилку. В іншому випадку "
+"він кодуватиме значення, яке ви повертаєте, як зазвичай."
 
 #: ../../howto/clinic.rst:1057
 msgid "Currently Argument Clinic supports only a few return converters:"
-msgstr ""
+msgstr "Наразі Argument Clinic підтримує лише кілька конвертерів повернення:"
 
 #: ../../howto/clinic.rst:1072
 msgid ""
@@ -1576,6 +2067,9 @@ msgid ""
 "error.  For ``DecodeFSDefault``, the return type is ``const char *``; return "
 "a ``NULL`` pointer to indicate an error."
 msgstr ""
+"Жоден із них не приймає параметрів. Для перших трьох поверніть -1, щоб "
+"вказати помилку. Для ``DecodeFSDefault`` типом повернення є ``const char "
+"*``; повертає вказівник ``NULL`` для вказівки на помилку."
 
 #: ../../howto/clinic.rst:1076
 msgid ""
@@ -1584,6 +2078,10 @@ msgid ""
 "the reference count on ``Py_None``.  I'm not sure it adds enough clarity to "
 "be worth using.)"
 msgstr ""
+"(Існує також експериментальний конвертер ``NoneType``, який дозволяє "
+"повертати ``Py_None`` у разі успіху або ``NULL`` у разі невдачі, без "
+"необхідності збільшення кількості посилань на ``Py_None``. Я не впевнений, "
+"що це додає достатньо ясності, щоб його було варто використовувати.)"
 
 #: ../../howto/clinic.rst:1081
 msgid ""
@@ -1591,56 +2089,66 @@ msgid ""
 "parameters (if any), just run ``Tools/clinic/clinic.py --converters`` for "
 "the full list."
 msgstr ""
+"Щоб побачити всі конвертери повернення, які підтримує Argument Clinic, разом "
+"із їхніми параметрами (якщо такі є), просто запустіть ``Tools/clinic/clinic."
+"py --converters`` для повного списку."
 
 #: ../../howto/clinic.rst:1087
 msgid "Cloning existing functions"
-msgstr ""
+msgstr "Клонування існуючих функцій"
 
 #: ../../howto/clinic.rst:1089
 msgid ""
 "If you have a number of functions that look similar, you may be able to use "
 "Clinic's \"clone\" feature.  When you clone an existing function, you reuse:"
 msgstr ""
+"Якщо у вас є декілька функцій, які виглядають схожими, ви можете "
+"скористатися функцією \"клонування\" Clinic. Коли ви клонуєте наявну "
+"функцію, ви повторно використовуєте:"
 
 #: ../../howto/clinic.rst:1093
 msgid "its parameters, including"
-msgstr ""
+msgstr "його параметри, в т.ч"
 
 #: ../../howto/clinic.rst:1095
 msgid "their names,"
-msgstr ""
+msgstr "їхні імена,"
 
 #: ../../howto/clinic.rst:1097
 msgid "their converters, with all parameters,"
-msgstr ""
+msgstr "їхні конвертери з усіма параметрами,"
 
 #: ../../howto/clinic.rst:1099
 msgid "their default values,"
-msgstr ""
+msgstr "їхні значення за замовчуванням,"
 
 #: ../../howto/clinic.rst:1101
 msgid "their per-parameter docstrings,"
-msgstr ""
+msgstr "їхні рядки документації для кожного параметра,"
 
 #: ../../howto/clinic.rst:1103
 msgid ""
 "their *kind* (whether they're positional only, positional or keyword, or "
 "keyword only), and"
 msgstr ""
+"їх *вид* (незалежно від того, чи є вони лише позиційними, позиційними чи "
+"ключовими словами чи лише ключовими словами) та"
 
 #: ../../howto/clinic.rst:1106
 msgid "its return converter."
-msgstr ""
+msgstr "його зворотний перетворювач."
 
 #: ../../howto/clinic.rst:1108
 msgid ""
 "The only thing not copied from the original function is its docstring; the "
 "syntax allows you to specify a new docstring."
 msgstr ""
+"Єдине, що не скопійовано з оригінальної функції, це її рядок документації; "
+"синтаксис дозволяє вказати новий рядок документації."
 
 #: ../../howto/clinic.rst:1111
 msgid "Here's the syntax for cloning a function::"
-msgstr ""
+msgstr "Ось синтаксис для клонування функції::"
 
 #: ../../howto/clinic.rst:1119
 msgid ""
@@ -1648,6 +2156,9 @@ msgid ""
 "class`` in the sample just to illustrate that you must use the full path to "
 "*both* functions.)"
 msgstr ""
+"(Функції можуть бути в різних модулях або класах. Я написав ``module.class`` "
+"у прикладі, щоб проілюструвати, що ви повинні використовувати повний шлях до "
+"*обох* функцій.)"
 
 #: ../../howto/clinic.rst:1123
 msgid ""
@@ -1660,10 +2171,12 @@ msgid ""
 "Also, the function you are cloning from must have been previously defined in "
 "the current file."
 msgstr ""
+"Крім того, функція, з якої ви клонуєте, має бути попередньо визначена в "
+"поточному файлі."
 
 #: ../../howto/clinic.rst:1130
 msgid "Calling Python code"
-msgstr ""
+msgstr "Виклик коду Python"
 
 #: ../../howto/clinic.rst:1132
 msgid ""
@@ -1671,12 +2184,17 @@ msgid ""
 "inside your C file and modifies Argument Clinic's runtime state.  This is "
 "simple: you simply define a Python block."
 msgstr ""
+"Решта розширених тем вимагає від вас написання коду Python, який міститься у "
+"вашому файлі C і змінює стан виконання Argument Clinic. Це просто: ви просто "
+"визначаєте блок Python."
 
 #: ../../howto/clinic.rst:1136
 msgid ""
 "A Python block uses different delimiter lines than an Argument Clinic "
 "function block.  It looks like this::"
 msgstr ""
+"Блок Python використовує інші розділові лінії, ніж функціональний блок "
+"Argument Clinic. Це виглядає так::"
 
 #: ../../howto/clinic.rst:1143
 msgid ""
@@ -1684,12 +2202,17 @@ msgid ""
 "All text written to stdout inside the block is redirected into the "
 "\"output\" after the block."
 msgstr ""
+"Увесь код у блоці Python виконується під час його аналізу. Увесь текст, "
+"записаний у stdout всередині блоку, перенаправляється у \"вихід\" після "
+"блоку."
 
 #: ../../howto/clinic.rst:1147
 msgid ""
 "As an example, here's a Python block that adds a static integer variable to "
 "the C code::"
 msgstr ""
+"Як приклад, ось блок Python, який додає статичну цілочисельну змінну до коду "
+"C::"
 
 #: ../../howto/clinic.rst:1158
 msgid "Using a \"self converter\""
@@ -1705,12 +2228,21 @@ msgid ""
 "block, and ensure that its converter is an instance of ``self_converter`` or "
 "a subclass thereof."
 msgstr ""
+"Argument Clinic автоматично додає для вас параметр \"self\" за допомогою "
+"конвертера за замовчуванням. Він автоматично встановлює ``тип`` цього "
+"параметра на \"вказівник на екземпляр\", який ви вказали під час оголошення "
+"типу. Однак ви можете замінити конвертер Argument Clinic і вказати його "
+"самостійно. Просто додайте свій власний параметр ``self`` як перший параметр "
+"у блоці та переконайтеся, що його конвертер є екземпляром ``self_converter`` "
+"або його підкласом."
 
 #: ../../howto/clinic.rst:1169
 msgid ""
 "What's the point?  This lets you override the type of ``self``, or give it a "
 "different default name."
 msgstr ""
+"В чому справа? Це дає змогу змінити тип ``self`` або дати йому іншу назву за "
+"умовчанням."
 
 #: ../../howto/clinic.rst:1172
 msgid ""
@@ -1719,6 +2251,10 @@ msgid ""
 "use Argument Clinic's existing ``self`` converter, passing in the type you "
 "want to use as the ``type`` parameter::"
 msgstr ""
+"Як вказати настроюваний тип, до якого потрібно привести ``self``? Якщо у вас "
+"є лише одна чи дві функції з однаковим типом для ``self``, ви можете напряму "
+"використати наявний ``self`` конвертер Argument Clinic, передаючи тип, який "
+"ви хочете використовувати як параметр ``type``: :"
 
 #: ../../howto/clinic.rst:1188
 msgid ""
@@ -1726,10 +2262,13 @@ msgid ""
 "type for ``self``, it's best to create your own converter, subclassing "
 "``self_converter`` but overwriting the ``type`` member::"
 msgstr ""
+"З іншого боку, якщо у вас є багато функцій, які використовуватимуть той "
+"самий тип для ``self``, найкраще створити власний конвертер, створивши "
+"підклас ``self_converter``, але перезаписавши член ``type``::"
 
 #: ../../howto/clinic.rst:1211
 msgid "Writing a custom converter"
-msgstr ""
+msgstr "Написання спеціального конвертера"
 
 #: ../../howto/clinic.rst:1213
 msgid ""
@@ -1739,6 +2278,11 @@ msgid ""
 "parameter using the ``O&`` format unit—parsing this parameter means calling "
 "a :c:func:`PyArg_ParseTuple` \"converter function\"."
 msgstr ""
+"Як ми натякали в попередньому розділі... ви можете писати власні конвертери! "
+"Конвертер — це просто клас Python, який успадковує ``CConverter``. Основна "
+"мета спеціального конвертера полягає в тому, що якщо у вас є параметр, який "
+"використовує одиницю формату ``O&``, аналіз цього параметра означає виклик :"
+"c:func:`PyArg_ParseTuple` \"функції конвертера\"."
 
 #: ../../howto/clinic.rst:1219
 msgid ""
@@ -1748,6 +2292,10 @@ msgid ""
 "with the ``_converter`` suffix stripped off.  (This is accomplished with a "
 "metaclass.)"
 msgstr ""
+"Ваш клас конвертера повинен мати назву ``*something*_converter``. Якщо назва "
+"відповідає цій умові, ваш клас конвертера буде автоматично зареєстровано в "
+"Argument Clinic; його назва буде назвою вашого класу з видаленим суфіксом "
+"``_converter``. (Це досягається за допомогою метакласу.)"
 
 #: ../../howto/clinic.rst:1225
 msgid ""
@@ -1757,12 +2305,19 @@ msgid ""
 "only.  Any arguments passed in to the converter in Argument Clinic will be "
 "passed along to your ``converter_init()``."
 msgstr ""
+"Ви не повинні створювати підклас ``CConverter.__init__``. Натомість вам слід "
+"написати функцію ``converter_init()``. ``converter_init()`` завжди приймає "
+"параметр ``self``; після цього всі додаткові параметри *мають* бути лише "
+"ключовими словами. Будь-які аргументи, передані конвертеру в Argument "
+"Clinic, будуть передані вашому ``converter_init()``."
 
 #: ../../howto/clinic.rst:1232
 msgid ""
 "There are some additional members of ``CConverter`` you may wish to specify "
 "in your subclass.  Here's the current list:"
 msgstr ""
+"Є деякі додаткові члени ``CConverter``, які ви можете вказати у своєму "
+"підкласі. Ось поточний список:"
 
 #: ../../howto/clinic.rst:1236
 msgid ""
@@ -1770,6 +2325,9 @@ msgid ""
 "specifying the type, e.g. ``int``. If this is a pointer type, the type "
 "string should end with ``' *'``."
 msgstr ""
+"Тип C для цієї змінної. ``type`` має бути рядком Python із зазначенням типу, "
+"напр. ``int``. Якщо це тип вказівника, рядок типу має закінчуватися на ``' "
+"*'``."
 
 #: ../../howto/clinic.rst:1242
 msgid "``default``"
@@ -1780,6 +2338,8 @@ msgid ""
 "The Python default value for this parameter, as a Python value. Or the magic "
 "value ``unspecified`` if there is no default."
 msgstr ""
+"Стандартне значення Python для цього параметра як значення Python. Або "
+"магічне значення ``unspecified``, якщо немає значення за умовчанням."
 
 #: ../../howto/clinic.rst:1247
 msgid "``py_default``"
@@ -1790,12 +2350,16 @@ msgid ""
 "``default`` as it should appear in Python code, as a string. Or ``None`` if "
 "there is no default."
 msgstr ""
+"``default``, як воно має відображатися в коді Python, як рядок. Або "
+"``None``, якщо за замовчуванням немає."
 
 #: ../../howto/clinic.rst:1250
 msgid ""
 "``default`` as it should appear in C code, as a string. Or ``None`` if there "
 "is no default."
 msgstr ""
+"``default``, як воно має відображатися в коді C, як рядок. Або ``None``, "
+"якщо за замовчуванням немає."
 
 #: ../../howto/clinic.rst:1263
 msgid "``c_ignored_default``"
@@ -1814,7 +2378,7 @@ msgstr ""
 
 #: ../../howto/clinic.rst:1266
 msgid "The name of the C converter function, as a string."
-msgstr ""
+msgstr "Назва функції конвертера C у вигляді рядка."
 
 #: ../../howto/clinic.rst:1271
 msgid "``impl_by_reference``"
@@ -1825,6 +2389,8 @@ msgid ""
 "A boolean value.  If true, Argument Clinic will add a ``&`` in front of the "
 "name of the variable when passing it into the impl function."
 msgstr ""
+"Логічне значення. Якщо значення true, Argument Clinic додасть ``&`` перед "
+"іменем змінної під час передачі її у функцію impl."
 
 #: ../../howto/clinic.rst:1277
 msgid "``parse_by_reference``"
@@ -1835,12 +2401,15 @@ msgid ""
 "A boolean value.  If true, Argument Clinic will add a ``&`` in front of the "
 "name of the variable when passing it into :c:func:`PyArg_ParseTuple`."
 msgstr ""
+"Логічне значення. Якщо істина, Argument Clinic додасть ``&`` перед іменем "
+"змінної під час передачі її в :c:func:`PyArg_ParseTuple`."
 
 #: ../../howto/clinic.rst:1279
 msgid ""
 "Here's the simplest example of a custom converter, from ``Modules/zlibmodule."
 "c``::"
 msgstr ""
+"Ось найпростіший приклад спеціального конвертера з ``Modules/zlibmodule.c``::"
 
 #: ../../howto/clinic.rst:1290
 msgid ""
@@ -1850,6 +2419,11 @@ msgid ""
 "call the ``ssize_t_converter`` converter function.  ``ssize_t`` variables "
 "automatically support default values."
 msgstr ""
+"Цей блок додає конвертер до клініки аргументів під назвою ``ssize_t``. "
+"Параметри, оголошені як ``ssize_t``, будуть оголошені як тип :c:type:"
+"`Py_ssize_t` і аналізуватимуться блоком формату ``'O&''``, який викличе "
+"функцію конвертера ``ssize_t_converter``. Змінні ``ssize_t`` автоматично "
+"підтримують значення за замовчуванням."
 
 #: ../../howto/clinic.rst:1296
 msgid ""
@@ -1857,10 +2431,14 @@ msgid ""
 "initialization and cleanup. You can see more examples of custom converters "
 "in the CPython source tree; grep the C files for the string ``CConverter``."
 msgstr ""
+"Більш складні користувацькі конвертери можуть вставляти власний код C для "
+"обробки ініціалізації та очищення. Ви можете побачити більше прикладів "
+"користувацьких конвертерів у дереві вихідних кодів CPython; grep файли C для "
+"рядка ``CConverter``."
 
 #: ../../howto/clinic.rst:1302
 msgid "Writing a custom return converter"
-msgstr ""
+msgstr "Написання спеціального конвертера повернення"
 
 #: ../../howto/clinic.rst:1304
 msgid ""
@@ -1868,6 +2446,9 @@ msgid ""
 "Except it's somewhat simpler, because return converters are themselves much "
 "simpler."
 msgstr ""
+"Написання спеціального конвертера повернення схоже на написання спеціального "
+"конвертера. За винятком того, що це дещо простіше, тому що зворотні "
+"перетворювачі самі по собі набагато простіші."
 
 #: ../../howto/clinic.rst:1308
 msgid ""
@@ -1877,10 +2458,15 @@ msgid ""
 "clinic.py``, specifically the implementation of ``CReturnConverter`` and all "
 "its subclasses."
 msgstr ""
+"Перетворювачі повернення мають бути підкласом ``CReturnConverter``. Ще немає "
+"прикладів користувальницьких конвертерів повернення, оскільки вони ще не "
+"широко використовуються. Якщо ви бажаєте написати власний конвертер "
+"повернення, прочитайте ``Tools/clinic/clinic.py``, зокрема реалізацію "
+"``CReturnConverter`` та всі його підкласи."
 
 #: ../../howto/clinic.rst:1316
 msgid "METH_O and METH_NOARGS"
-msgstr ""
+msgstr "METH_O та METH_NOARGS"
 
 #: ../../howto/clinic.rst:1318
 msgid ""
@@ -1888,28 +2474,37 @@ msgid ""
 "argument is using the ``object`` converter, and mark the arguments as "
 "positional-only::"
 msgstr ""
+"Щоб перетворити функцію за допомогою ``METH_O``, переконайтеся, що єдиний "
+"аргумент функції використовує конвертер ``object``, і позначте аргументи як "
+"позиційні:"
 
 #: ../../howto/clinic.rst:1330
 msgid ""
 "To convert a function using ``METH_NOARGS``, just don't specify any "
 "arguments."
 msgstr ""
+"Щоб перетворити функцію за допомогою ``METH_NOARGS``, просто не вказуйте "
+"жодних аргументів."
 
 #: ../../howto/clinic.rst:1333
 msgid ""
 "You can still use a self converter, a return converter, and specify a "
 "``type`` argument to the object converter for ``METH_O``."
 msgstr ""
+"Ви все ще можете використовувати самоконвертер, конвертер повернення та "
+"вказати аргумент ``type`` для конвертера об’єктів для ``METH_O``."
 
 #: ../../howto/clinic.rst:1337
 msgid "tp_new and tp_init functions"
-msgstr ""
+msgstr "функції tp_new і tp_init"
 
 #: ../../howto/clinic.rst:1339
 msgid ""
 "You can convert ``tp_new`` and ``tp_init`` functions.  Just name them "
 "``__new__`` or ``__init__`` as appropriate.  Notes:"
 msgstr ""
+"Ви можете конвертувати функції ``tp_new`` і ``tp_init``. Просто назвіть їх "
+"``__new__`` або ``__init__`` відповідно. Примітки:"
 
 #: ../../howto/clinic.rst:1342
 msgid ""
@@ -1917,18 +2512,21 @@ msgid ""
 "it would by default.  It's just the name of the class, converted into a "
 "valid C identifier."
 msgstr ""
+"Назва функції, створена для ``__new__``, не закінчується на ``__new__``, як "
+"це було б за замовчуванням. Це просто назва класу, перетворена на дійсний "
+"ідентифікатор C."
 
 #: ../../howto/clinic.rst:1346
 msgid "No ``PyMethodDef`` ``#define`` is generated for these functions."
-msgstr ""
+msgstr "Для цих функцій не генерується ``PyMethodDef`` ``#define``."
 
 #: ../../howto/clinic.rst:1348
 msgid "``__init__`` functions return ``int``, not ``PyObject *``."
-msgstr ""
+msgstr "Функції ``__init__`` повертають ``int``, а не ``PyObject *``."
 
 #: ../../howto/clinic.rst:1350
 msgid "Use the docstring as the class docstring."
-msgstr ""
+msgstr "Використовуйте рядок документації як рядок документації класу."
 
 #: ../../howto/clinic.rst:1352
 msgid ""
@@ -1938,10 +2536,15 @@ msgid ""
 "support keywords, the parsing function generated will throw an exception if "
 "it receives any.)"
 msgstr ""
+"Хоча функції ``__new__`` і ``__init__`` завжди повинні приймати об’єкти "
+"``args`` і ``kwargs``, під час перетворення ви можете вказати будь-який "
+"підпис для цих функцій, який вам подобається. (Якщо ваша функція не "
+"підтримує ключові слова, згенерована функція синтаксичного аналізу викличе "
+"виняток, якщо вона отримає їх.)"
 
 #: ../../howto/clinic.rst:1359
 msgid "Changing and redirecting Clinic's output"
-msgstr ""
+msgstr "Зміна та перенаправлення виходу клініки"
 
 #: ../../howto/clinic.rst:1361
 msgid ""
@@ -1951,6 +2554,11 @@ msgid ""
 "to a separate file.  You can also add a prefix or suffix to every line of "
 "Clinic's generated output."
 msgstr ""
+"Це може бути незручно, щоб вихід Clinic перемежовувався з вашим звичайним "
+"редагованим вручну кодом C. На щастя, Clinic можна налаштувати: ви можете "
+"буферизувати його вихід для друку пізніше (чи раніше!) або записати його "
+"вихід в окремий файл. Ви також можете додати префікс або суфікс до кожного "
+"рядка результату, створеного Clinic."
 
 #: ../../howto/clinic.rst:1367
 msgid ""
@@ -1963,14 +2571,23 @@ msgid ""
 "many people consider this hampers readability, it will never require "
 "rearranging your code to fix definition-before-use problems.)"
 msgstr ""
+"Хоча зміна вихідних даних Clinic таким чином може сприяти читабельності, це "
+"може призвести до того, що код Clinic використовує типи до того, як вони "
+"будуть визначені, або ваш код намагатиметься використати згенерований Clinic "
+"код до того, як він буде визначений. Ці проблеми можна легко вирішити, "
+"переставивши декларації у вашому файлі або перемістивши код, згенерований "
+"клінікою. (Ось чому поведінка Clinic за замовчуванням полягає у виведенні "
+"всього в поточний блок; хоча багато людей вважають, що це заважає "
+"читабельності, це ніколи не вимагатиме перевпорядкування вашого коду, щоб "
+"виправити проблеми визначення перед використанням.)"
 
 #: ../../howto/clinic.rst:1376
 msgid "Let's start with defining some terminology:"
-msgstr ""
+msgstr "Почнемо з визначення термінології:"
 
 #: ../../howto/clinic.rst:1403
 msgid "*field*"
-msgstr ""
+msgstr "*поле*"
 
 #: ../../howto/clinic.rst:1379
 msgid ""
@@ -1979,6 +2596,10 @@ msgid ""
 "``methoddef_define``.  Clinic has seven different fields it can output per "
 "function definition:"
 msgstr ""
+"У цьому контексті поле є підрозділом результату клініки. Наприклад, "
+"``#define`` для структури ``PyMethodDef`` є полем під назвою "
+"``methoddef_define``. Клініка має сім різних полів, які вона може виводити "
+"за визначенням функції:"
 
 #: ../../howto/clinic.rst:1394
 msgid ""
@@ -1992,16 +2613,26 @@ msgid ""
 "(``\"methoddef\"`` is special, it's the only one that ends with "
 "``\"_define\"``, representing that it's a preprocessor #define.)"
 msgstr ""
+"Усі назви мають форму ``\"<a>_<b>\"``, де ``\"<a>\"`` є представленим "
+"семантичним об’єктом (функція аналізу, функція impl, рядок документа або "
+"структура methoddef) і ``\"<b>\"`` представляє тип оператора поля. Назви "
+"полів, які закінчуються на ``\"_prototype\"``, представляють прямі "
+"оголошення цієї речі без фактичного тіла/даних речі; назви полів, які "
+"закінчуються на ``\"_definition\"`` представляють фактичне визначення речі "
+"разом із тілом/даними речі. (``\"methoddef\"`` є особливим, він єдиний, який "
+"закінчується на ``\"_define\"``, вказуючи, що це препроцесор #define.)"
 
 #: ../../howto/clinic.rst:1437
 msgid "*destination*"
-msgstr ""
+msgstr "*пункт призначення*"
 
 #: ../../howto/clinic.rst:1406
 msgid ""
 "A destination is a place Clinic can write output to.  There are five built-"
 "in destinations:"
 msgstr ""
+"Пункт призначення – це місце, куди клініка може писати вихідні дані. Є п’ять "
+"вбудованих пунктів призначення:"
 
 #: ../../howto/clinic.rst:1411 ../../howto/clinic.rst:1486
 #: ../../howto/clinic.rst:1564
@@ -2013,6 +2644,8 @@ msgid ""
 "The default destination: printed in the output section of the current Clinic "
 "block."
 msgstr ""
+"Призначення за замовчуванням: друкується в розділі виводу поточного блоку "
+"Clinic."
 
 #: ../../howto/clinic.rst:1417 ../../howto/clinic.rst:1513
 #: ../../howto/clinic.rst:1567
@@ -2025,6 +2658,9 @@ msgid ""
 "to the end of any existing text.  It's an error to have any text left in the "
 "buffer when Clinic finishes processing a file."
 msgstr ""
+"Текстовий буфер, де ви можете зберегти текст на потім. Надісланий тут текст "
+"додається в кінці будь-якого наявного тексту. Це помилка, коли будь-який "
+"текст залишився в буфері, коли клініка завершує обробку файлу."
 
 #: ../../howto/clinic.rst:1428 ../../howto/clinic.rst:1499
 #: ../../howto/clinic.rst:1593
@@ -2039,12 +2675,19 @@ msgid ""
 "splitext()`` run on the current file.  (Example: the ``file`` destination "
 "for ``_pickle.c`` would be written to ``_pickle.clinic.c``.)"
 msgstr ""
+"Окремий \"файл клініки\", який буде створено Клінікою автоматично. Для файлу "
+"вибрано ім’я ``{basename}.clinic{extension}``, де ``basename`` і "
+"``extension`` було призначено результат ``os.path.splitext()``, що "
+"виконується на поточний файл. (Приклад: місце призначення ``file`` для "
+"``_pickle.c`` буде записано в ``_pickle.clinic.c``.)"
 
 #: ../../howto/clinic.rst:1427
 msgid ""
 "**Important: When using a** ``file`` **destination, you** *must check in* "
 "**the generated file!**"
 msgstr ""
+"**Важливо: використовуючи** ``файл`` **призначення, ви** *повинні "
+"перевірити* **згенерований файл!**"
 
 #: ../../howto/clinic.rst:1433 ../../howto/clinic.rst:1526
 #: ../../howto/clinic.rst:1597
@@ -2057,6 +2700,9 @@ msgid ""
 "once, and it prints out all text sent to it during all processing, even from "
 "Clinic blocks *after* the dumping point."
 msgstr ""
+"Буфер, як ``buffer``. Однак двопрохідний буфер можна скинути лише один раз, "
+"і він друкує весь текст, надісланий до нього під час усієї обробки, навіть "
+"із блоків Clinic *після* точки скидання."
 
 #: ../../howto/clinic.rst:1437 ../../howto/clinic.rst:1560
 msgid "``suppress``"
@@ -2064,15 +2710,17 @@ msgstr "``suppress``"
 
 #: ../../howto/clinic.rst:1436
 msgid "The text is suppressed—thrown away."
-msgstr ""
+msgstr "Текст приховується — викидається."
 
 #: ../../howto/clinic.rst:1439
 msgid "Clinic defines five new directives that let you reconfigure its output."
 msgstr ""
+"Клініка визначає п’ять нових директив, які дозволяють переналаштувати її "
+"вихід."
 
 #: ../../howto/clinic.rst:1441
 msgid "The first new directive is ``dump``:"
-msgstr ""
+msgstr "Першою новою директивою є ``dump``:"
 
 #: ../../howto/clinic.rst:1447
 msgid ""
@@ -2080,12 +2728,15 @@ msgid ""
 "the current block, and empties it.  This only works with ``buffer`` and "
 "``two-pass`` destinations."
 msgstr ""
+"Це скидає поточний вміст названого пункту призначення у вихід поточного "
+"блоку та очищає його. Це працює лише з призначеннями ``буфер`` і "
+"``двопрохідний``."
 
 #: ../../howto/clinic.rst:1451
 msgid ""
 "The second new directive is ``output``.  The most basic form of ``output`` "
 "is like this:"
-msgstr ""
+msgstr "Другою новою директивою є ``вихід``. Основна форма \"виводу\" така:"
 
 #: ../../howto/clinic.rst:1458
 msgid ""
@@ -2093,10 +2744,13 @@ msgid ""
 "supports a special meta-destination, called ``everything``, which tells "
 "Clinic to output *all* fields to that *destination*."
 msgstr ""
+"Це повідомляє Клініці виводити *поле* в *адресат*. ``вивід`` також підтримує "
+"спеціальний мета-адресат, який називається ``все``, який повідомляє Clinic "
+"виводити *всі* поля в цей *адресат*."
 
 #: ../../howto/clinic.rst:1462
 msgid "``output`` has a number of other functions:"
-msgstr ""
+msgstr "``вивід`` має ряд інших функцій:"
 
 #: ../../howto/clinic.rst:1471
 msgid ""
@@ -2106,24 +2760,35 @@ msgid ""
 "Simply push before your change to save the current configuration, then pop "
 "when you wish to restore the previous configuration."
 msgstr ""
+"``output push`` і ``output pop`` дозволяють вам надсилати та витягувати "
+"конфігурації у внутрішній стек конфігурації, щоб ви могли тимчасово змінити "
+"вихідну конфігурацію, а потім легко відновити попередню конфігурацію. Просто "
+"натисніть перед внесенням змін, щоб зберегти поточну конфігурацію, а потім "
+"натисніть, коли захочете відновити попередню конфігурацію."
 
 #: ../../howto/clinic.rst:1478
 msgid ""
 "``output preset`` sets Clinic's output to one of several built-in preset "
 "configurations, as follows:"
 msgstr ""
+"``output preset`` встановлює вихід клініки на одну з кількох вбудованих "
+"попередньо встановлених конфігурацій, як показано нижче:"
 
 #: ../../howto/clinic.rst:1482
 msgid ""
 "Clinic's original starting configuration.  Writes everything immediately "
 "after the input block."
 msgstr ""
+"Оригінальна стартова конфігурація клініки. Пише все відразу після блоку "
+"введення."
 
 #: ../../howto/clinic.rst:1485
 msgid ""
 "Suppress the ``parser_prototype`` and ``docstring_prototype``, write "
 "everything else to ``block``."
 msgstr ""
+"Приховати ``parser_prototype`` і ``docstring_prototype``, записати все інше "
+"в ``block``."
 
 #: ../../howto/clinic.rst:1489
 msgid ""
@@ -2132,16 +2797,23 @@ msgid ""
 "your file to make this work, though usually this just means creating forward "
 "declarations for various ``typedef`` and ``PyTypeObject`` definitions."
 msgstr ""
+"Призначений для запису в \"картотеку клініки\" всього, що може. Потім ви "
+"``#include`` цей файл у верхній частині вашого файлу. Можливо, вам "
+"знадобиться перевпорядкувати файл, щоб це запрацювало, хоча зазвичай це "
+"означає лише створення попередніх декларацій для різних визначень "
+"``typedef`` і ``PyTypeObject``."
 
 #: ../../howto/clinic.rst:1495
 msgid ""
 "Suppress the ``parser_prototype`` and ``docstring_prototype``, write the "
 "``impl_definition`` to ``block``, and write everything else to ``file``."
 msgstr ""
+"Приховати ``parser_prototype`` і ``docstring_prototype``, записати "
+"``impl_definition`` до ``block``, а все інше записати до ``file``."
 
 #: ../../howto/clinic.rst:1499
 msgid "The default filename is ``\"{dirname}/clinic/{basename}.h\"``."
-msgstr ""
+msgstr "Назва файлу за замовчуванням – ``\"{dirname}/clinic/{basename}.h\"``."
 
 #: ../../howto/clinic.rst:1502
 msgid ""
@@ -2152,6 +2824,13 @@ msgid ""
 "``buffer`` may require even more editing than ``file``, if your file has "
 "static ``PyMethodDef`` arrays defined in the middle of the file."
 msgstr ""
+"Збережіть більшу частину вихідних даних Clinic, щоб записати їх у ваш файл "
+"ближче до кінця. Для файлів Python, що реалізують модулі або вбудовані типи, "
+"рекомендується створювати дамп буфера безпосередньо над статичними "
+"структурами для вашого модуля або вбудованого типу; зазвичай вони дуже "
+"близькі до кінця. Використання ``buffer`` може вимагати навіть більше "
+"редагування, ніж ``file``, якщо ваш файл має статичні масиви "
+"``PyMethodDef``, визначені в середині файлу."
 
 #: ../../howto/clinic.rst:1511
 msgid ""
@@ -2159,6 +2838,9 @@ msgid ""
 "``docstring_prototype``, write the ``impl_definition`` to ``block``, and "
 "write everything else to ``file``."
 msgstr ""
+"Приховати ``parser_prototype``, ``impl_prototype`` і "
+"``docstring_prototype``, записати ``impl_definition`` до ``block``, а все "
+"інше записати до ``file``."
 
 #: ../../howto/clinic.rst:1516
 msgid ""
@@ -2168,6 +2850,12 @@ msgid ""
 "the ``two-pass`` buffer near the top of your file, and dump the ``buffer`` "
 "near the end just like you would when using the ``buffer`` preset."
 msgstr ""
+"Подібно до попереднього налаштування ``buffer``, але записує прямі "
+"оголошення в ``двопрохідний`` буфер, а визначення в ``buffer``. Це подібно "
+"до попереднього налаштування ``buffer``, але може потребувати менше "
+"редагування, ніж ``buffer``. Вивантажте буфер ``двох проходів`` у верхній "
+"частині вашого файлу, а ``буфер`` ближче до кінця так само, як при "
+"використанні попереднього налаштування ``буфер``."
 
 #: ../../howto/clinic.rst:1523
 msgid ""
@@ -2175,6 +2863,9 @@ msgid ""
 "``block``, write ``docstring_prototype``, ``methoddef_define``, and "
 "``parser_prototype`` to ``two-pass``, write everything else to ``buffer``."
 msgstr ""
+"Пригнічує ``impl_prototype``, записує ``impl_definition`` у ``block``, "
+"записує ``docstring_prototype``, ``methoddef_define`` і ``parser_prototype`` "
+"у ``two-pass``, записати все інше в ``buffer``."
 
 #: ../../howto/clinic.rst:1537
 msgid "``partial-buffer``"
@@ -2189,66 +2880,80 @@ msgid ""
 "``buffer`` near the end, just like you would when using the ``buffer`` "
 "preset."
 msgstr ""
+"Подібно до попереднього налаштування ``buffer``, але записує більше речей у "
+"``block``, записуючи лише дійсно великі фрагменти згенерованого коду до "
+"``buffer``. Це повністю уникає проблеми визначення перед використанням "
+"``буфера`` за невелику ціну наявності трохи більше речей у виводі блоку. "
+"Вивантажте ``buffer`` ближче до кінця, так само, як і при використанні "
+"попереднього налаштування ``buffer``."
 
 #: ../../howto/clinic.rst:1536
 msgid ""
 "Suppresses the ``impl_prototype``, write the ``docstring_definition`` and "
 "``parser_definition`` to ``buffer``, write everything else to ``block``."
 msgstr ""
+"Пригнічує ``impl_prototype``, записує ``docstring_definition`` і "
+"``parser_definition`` до ``buffer``, записує все інше до ``block``."
 
 #: ../../howto/clinic.rst:1539
 msgid "The third new directive is ``destination``:"
-msgstr ""
+msgstr "Третя нова директива – ``destination``:"
 
 #: ../../howto/clinic.rst:1545
 msgid "This performs an operation on the destination named ``name``."
-msgstr ""
+msgstr "Це виконує операцію над призначенням під назвою ``name``."
 
 #: ../../howto/clinic.rst:1547
 msgid "There are two defined subcommands: ``new`` and ``clear``."
-msgstr ""
+msgstr "Існує дві визначені підкоманди: ``new`` і ``clear``."
 
 #: ../../howto/clinic.rst:1549
 msgid "The ``new`` subcommand works like this:"
-msgstr ""
+msgstr "Підкоманда ``new`` працює так:"
 
 #: ../../howto/clinic.rst:1555
 msgid ""
 "This creates a new destination with name ``<name>`` and type ``<type>``."
 msgstr ""
+"Це створює новий пункт призначення з назвою ``<name>`` і типом ``<type>``."
 
 #: ../../howto/clinic.rst:1557
 msgid "There are five destination types:"
-msgstr ""
+msgstr "Є п'ять типів призначення:"
 
 #: ../../howto/clinic.rst:1560
 msgid "Throws the text away."
-msgstr ""
+msgstr "Викидає текст."
 
 #: ../../howto/clinic.rst:1563
 msgid ""
 "Writes the text to the current block.  This is what Clinic originally did."
-msgstr ""
+msgstr "Записує текст у поточний блок. Це те, що клініка спочатку робила."
 
 #: ../../howto/clinic.rst:1567
 msgid "A simple text buffer, like the \"buffer\" builtin destination above."
 msgstr ""
+"Простий текстовий буфер, подібний до вбудованого призначення \"buffer\" вище."
 
 #: ../../howto/clinic.rst:1570
 msgid ""
 "A text file.  The file destination takes an extra argument, a template to "
 "use for building the filename, like so:"
 msgstr ""
+"Текстовий файл. Місце призначення файлу приймає додатковий аргумент, шаблон "
+"для створення імені файлу, наприклад:"
 
 #: ../../howto/clinic.rst:1573
 msgid "destination <name> new <type> <file_template>"
-msgstr ""
+msgstr "призначення <name> новий <type> <file_template>"
 
 #: ../../howto/clinic.rst:1575
 msgid ""
 "The template can use three strings internally that will be replaced by bits "
 "of the filename:"
 msgstr ""
+"Шаблон може використовувати три внутрішні рядки, які будуть замінені бітами "
+"імені файлу:"
 
 #: ../../howto/clinic.rst:1578
 msgid "{path}"
@@ -2256,43 +2961,45 @@ msgstr "{path}"
 
 #: ../../howto/clinic.rst:1579
 msgid "The full path to the file, including directory and full filename."
-msgstr ""
+msgstr "Повний шлях до файлу, включаючи каталог і повну назву файлу."
 
 #: ../../howto/clinic.rst:1580
 msgid "{dirname}"
-msgstr ""
+msgstr "{dirname}"
 
 #: ../../howto/clinic.rst:1581
 msgid "The name of the directory the file is in."
-msgstr ""
+msgstr "Назва каталогу, у якому знаходиться файл."
 
 #: ../../howto/clinic.rst:1582
 msgid "{basename}"
-msgstr ""
+msgstr "{basename}"
 
 #: ../../howto/clinic.rst:1583
 msgid "Just the name of the file, not including the directory."
-msgstr ""
+msgstr "Просто ім’я файлу, не враховуючи каталог."
 
 #: ../../howto/clinic.rst:1585
 msgid "{basename_root}"
-msgstr ""
+msgstr "{basename_root}"
 
 #: ../../howto/clinic.rst:1585
 msgid ""
 "Basename with the extension clipped off (everything up to but not including "
 "the last '.')."
-msgstr ""
+msgstr "Базове ім’я з обрізаним розширенням (усе до останнього \".\")."
 
 #: ../../howto/clinic.rst:1589
 msgid "{basename_extension}"
-msgstr ""
+msgstr "{basename_extension}"
 
 #: ../../howto/clinic.rst:1588
 msgid ""
 "The last '.' and everything after it.  If the basename does not contain a "
 "period, this will be the empty string."
 msgstr ""
+"Останній '.' і все після нього. Якщо базове ім’я не містить крапки, це буде "
+"порожній рядок."
 
 #: ../../howto/clinic.rst:1591
 msgid ""
@@ -2300,14 +3007,18 @@ msgid ""
 "same, and {extension} is empty.  \"{basename}{extension}\" is always exactly "
 "the same as \"{filename}\".\""
 msgstr ""
+"Якщо в назві файлу немає крапок, {basename} і {filename} однакові, а "
+"{extension} порожній. \"{basename}{extension}\" завжди точно збігається з "
+"\"{filename}\".\""
 
 #: ../../howto/clinic.rst:1596
 msgid "A two-pass buffer, like the \"two-pass\" builtin destination above."
 msgstr ""
+"Двопрохідний буфер, як і \"двопрохідний\" вбудований пункт призначення вище."
 
 #: ../../howto/clinic.rst:1599
 msgid "The ``clear`` subcommand works like this:"
-msgstr ""
+msgstr "Підкоманда ``clear`` працює так:"
 
 #: ../../howto/clinic.rst:1605
 msgid ""
@@ -2315,10 +3026,13 @@ msgid ""
 "don't know what you'd need this for, but I thought maybe it'd be useful "
 "while someone's experimenting.)"
 msgstr ""
+"Він видаляє весь накопичений текст до цієї точки призначення. (Я не знаю, "
+"для чого вам це знадобиться, але я подумав, що, можливо, це буде корисно, "
+"коли хтось експериментуватиме.)"
 
 #: ../../howto/clinic.rst:1609
 msgid "The fourth new directive is ``set``:"
-msgstr ""
+msgstr "Четверта нова директива — ``set``:"
 
 #: ../../howto/clinic.rst:1616
 msgid ""
@@ -2327,34 +3041,43 @@ msgid ""
 "``line_suffix`` is a string that will be appended to every line of Clinic's "
 "output."
 msgstr ""
+"``set`` дозволяє встановити дві внутрішні змінні в Clinic. ``line_prefix`` - "
+"це рядок, який додаватиметься до кожного рядка виводу Clinic; "
+"``line_suffix`` – це рядок, який буде додано до кожного рядка виводу Clinic."
 
 #: ../../howto/clinic.rst:1620
 msgid "Both of these support two format strings:"
-msgstr ""
+msgstr "Обидва вони підтримують два рядки формату:"
 
 #: ../../howto/clinic.rst:1623
 msgid "``{block comment start}``"
-msgstr ""
+msgstr "``{заблокувати початок коментаря}``"
 
 #: ../../howto/clinic.rst:1623
 msgid ""
 "Turns into the string ``/*``, the start-comment text sequence for C files."
 msgstr ""
+"Перетворюється на рядок ``/*``, текстову послідовність початку коментаря для "
+"файлів C."
 
 #: ../../howto/clinic.rst:1626
 msgid "``{block comment end}``"
-msgstr ""
+msgstr "{block comment end}``"
 
 #: ../../howto/clinic.rst:1626
 msgid ""
 "Turns into the string ``*/``, the end-comment text sequence for C files."
 msgstr ""
+"Перетворюється на рядок ``*/``, послідовність тексту кінцевого коментаря для "
+"файлів C."
 
 #: ../../howto/clinic.rst:1628
 msgid ""
 "The final new directive is one you shouldn't need to use directly, called "
 "``preserve``:"
 msgstr ""
+"Остання нова директива, яку вам не потрібно використовувати безпосередньо, "
+"називається ``preserve``:"
 
 #: ../../howto/clinic.rst:1635
 msgid ""
@@ -2364,6 +3087,11 @@ msgid ""
 "checksum functionality to ensure the file was not modified by hand before it "
 "gets overwritten."
 msgstr ""
+"Це повідомляє Клініці, що поточний вміст вихідних даних слід зберегти без "
+"змін. Це використовується клінікою внутрішньо під час створення дампу "
+"виведених даних у файли ``file``; загортання його в блок Clinic дозволяє "
+"Clinic використовувати наявну функцію контрольної суми, щоб переконатися, що "
+"файл не було змінено вручну, перш ніж його буде перезаписано."
 
 #: ../../howto/clinic.rst:1642
 msgid "The #ifdef trick"
@@ -2375,24 +3103,31 @@ msgid ""
 "there's a trick you can use to make life a little easier.  The existing code "
 "probably looks like this::"
 msgstr ""
+"Якщо ви перетворюєте функцію, яка доступна не на всіх платформах, є "
+"хитрість, за допомогою якої ви можете трохи полегшити життя. Наявний код, "
+"ймовірно, виглядає так::"
 
 #: ../../howto/clinic.rst:1655
 msgid ""
 "And then in the ``PyMethodDef`` structure at the bottom the existing code "
 "will have:"
-msgstr ""
+msgstr "А потім у нижній структурі ``PyMethodDef`` наявний код матиме:"
 
 #: ../../howto/clinic.rst:1664
 msgid ""
 "In this scenario, you should enclose the body of your impl function inside "
 "the ``#ifdef``, like so::"
 msgstr ""
+"У цьому сценарії ви повинні вкласти тіло вашої функції impl у ``#ifdef``, "
+"ось так:"
 
 #: ../../howto/clinic.rst:1678
 msgid ""
 "Then, remove those three lines from the ``PyMethodDef`` structure, replacing "
 "them with the macro Argument Clinic generated:"
 msgstr ""
+"Потім видаліть ці три рядки зі структури ``PyMethodDef``, замінивши їх "
+"згенерованим макросом Argument Clinic:"
 
 #: ../../howto/clinic.rst:1685
 msgid ""
@@ -2401,12 +3136,18 @@ msgid ""
 "first line of your block, but with periods changed to underscores, "
 "uppercased, and ``\"_METHODDEF\"`` added to the end.)"
 msgstr ""
+"(Ви можете знайти справжню назву цього макросу в створеному коді. Або ви "
+"можете обчислити її самостійно: це назва вашої функції, як визначено в "
+"першому рядку вашого блоку, але з крапками, зміненими на підкреслення, "
+"верхній регістр і ``\"_METHODDEF\"`` додано в кінець.)"
 
 #: ../../howto/clinic.rst:1690
 msgid ""
 "Perhaps you're wondering: what if ``HAVE_FUNCTIONNAME`` isn't defined? The "
 "``MODULE_FUNCTIONNAME_METHODDEF`` macro won't be defined either!"
 msgstr ""
+"Можливо, вам цікаво: а що, якщо ``HAVE_FUNCTIONNAME`` не визначено? Макрос "
+"``MODULE_FUNCTIONNAME_METHODDEF`` також не буде визначено!"
 
 #: ../../howto/clinic.rst:1693
 msgid ""
@@ -2414,6 +3155,9 @@ msgid ""
 "Argument Clinic block might be deactivated by the ``#ifdef``.  When that "
 "happens, it generates a little extra code that looks like this::"
 msgstr ""
+"Ось де Argument Clinic стає дуже розумною. Він фактично виявляє, що блок "
+"аргументів може бути дезактивований ``#ifdef``. Коли це відбувається, "
+"створюється додатковий код, який виглядає так:"
 
 #: ../../howto/clinic.rst:1701
 msgid ""
@@ -2421,6 +3165,9 @@ msgid ""
 "into the correct structure, including the trailing comma.  If the function "
 "is undefined, this turns into nothing."
 msgstr ""
+"Це означає, що макрос працює завжди. Якщо функцію визначено, вона "
+"перетворюється на правильну структуру, включаючи кінцеву кому. Якщо функція "
+"не визначена, це перетворюється на ніщо."
 
 #: ../../howto/clinic.rst:1705
 msgid ""
@@ -2429,12 +3176,18 @@ msgid ""
 "output block, because that could be deactivated by the ``#ifdef``.  (That's "
 "the whole point!)"
 msgstr ""
+"Однак це спричиняє одну лоскотну проблему: куди Argument Clinic має "
+"розмістити цей додатковий код, коли використовується пресет виведення "
+"\"блок\"? Він не може перейти до блоку виведення, тому що це може бути "
+"дезактивовано ``#ifdef``. (У цьому вся суть!)"
 
 #: ../../howto/clinic.rst:1709
 msgid ""
 "In this situation, Argument Clinic writes the extra code to the \"buffer\" "
 "destination. This may mean that you get a complaint from Argument Clinic:"
 msgstr ""
+"У цій ситуації Argument Clinic записує додатковий код до місця призначення "
+"\"буфера\". Це може означати, що ви отримали скаргу від клініки Аргумент:"
 
 #: ../../howto/clinic.rst:1717
 msgid ""
@@ -2442,10 +3195,14 @@ msgid ""
 "Argument Clinic added to your file (it'll be at the very bottom), then move "
 "it above the ``PyMethodDef`` structure where that macro is used."
 msgstr ""
+"Коли це станеться, просто відкрийте файл, знайдіть блок ``буфера дампа``, "
+"який Argument Clinic додав до вашого файлу (він буде в самому низу), а потім "
+"перемістіть його над структурою ``PyMethodDef``, де цей макрос "
+"використовується."
 
 #: ../../howto/clinic.rst:1724
 msgid "Using Argument Clinic in Python files"
-msgstr ""
+msgstr "Використання клініки аргументів у файлах Python"
 
 #: ../../howto/clinic.rst:1726
 msgid ""
@@ -2454,9 +3211,17 @@ msgid ""
 "wouldn't make any sense to the Python interpreter.  But using Argument "
 "Clinic to run Python blocks lets you use Python as a Python preprocessor!"
 msgstr ""
+"Насправді можна використовувати Argument Clinic для попередньої обробки "
+"файлів Python. Звичайно, немає сенсу використовувати блоки Argument Clinic, "
+"оскільки вихідні дані не матимуть сенсу для інтерпретатора Python. Але "
+"використання Argument Clinic для запуску блоків Python дозволяє "
+"використовувати Python як препроцесор Python!"
 
 #: ../../howto/clinic.rst:1731
 msgid ""
 "Since Python comments are different from C comments, Argument Clinic blocks "
 "embedded in Python files look slightly different.  They look like this:"
 msgstr ""
+"Оскільки коментарі Python відрізняються від коментарів C, блоки Argument "
+"Clinic, вбудовані у файли Python, виглядають дещо інакше. Вони виглядають "
+"так:"

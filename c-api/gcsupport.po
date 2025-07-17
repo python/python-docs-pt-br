@@ -4,17 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Andressa Lima Ferreira, 2023
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2024
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-10 16:41+0000\n"
+"POT-Creation-Date: 2025-07-11 17:51+0000\n"
 "PO-Revision-Date: 2017-02-16 17:35+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2024\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "Language: pt_BR\n"
@@ -52,11 +51,11 @@ msgid ""
 "instances of the type are mutable, a :c:member:`~PyTypeObject.tp_clear` "
 "implementation must also be provided."
 msgstr ""
-"Para criar um tipo contêiner, o :c:member:`~PyTypeObject.tp_flags` campo do "
-"tipo do objeto deve incluir o :const:`Py_TPFLAGS_HAVE_GC` e fornecer uma "
-"implementação do :c:member:`~PyTypeObject.tp_traverse` manipulador. Se as "
-"instâncias do tipo forem mutáveis, uma :c:member:`~PyTypeObject.tp_clear` "
-"implementação também deverá ser fornecida."
+"Щоб створити тип контейнера, поле :c:member:`~PyTypeObject.tp_flags` об’єкта "
+"типу має містити :const:`Py_TPFLAGS_HAVE_GC` і забезпечувати реалізацію "
+"обробника :c:member:`~PyTypeObject.tp_traverse` . Якщо екземпляри типу є "
+"змінними, необхідно також надати реалізацію :c:member:`~PyTypeObject."
+"tp_clear`."
 
 #: ../../c-api/gcsupport.rst:24
 msgid ""
@@ -117,6 +116,9 @@ msgid ""
 "c:member:`~PyTypeObject.tp_traverse` handler or explicitly use one from its "
 "subclass or subclasses."
 msgstr ""
+"Якщо тип додає Py_TPFLAGS_HAVE_GC, тоді він *має* реалізувати принаймні "
+"обробник :c:member:`~PyTypeObject.tp_traverse` або явно використовувати один "
+"із свого підкласу або підкласів."
 
 #: ../../c-api/gcsupport.rst:49
 msgid ""
@@ -128,18 +130,29 @@ msgid ""
 "implements the garbage collector protocol and the child class does *not* "
 "include the :const:`Py_TPFLAGS_HAVE_GC` flag."
 msgstr ""
+"Під час виклику :c:func:`PyType_Ready` або деяких API, які непрямо "
+"викликають це як :c:func:`PyType_FromSpecWithBases` або :c:func:"
+"`PyType_FromSpec`, інтерпретатор автоматично заповнить Поля :c:member:"
+"`~PyTypeObject.tp_flags`, :c:member:`~PyTypeObject.tp_traverse` і :c:member:"
+"`~PyTypeObject.tp_clear`, якщо тип успадковується від класу, який реалізує "
+"протокол збирача сміття, а дочірній клас *не* включити прапорець :const:"
+"`Py_TPFLAGS_HAVE_GC`."
 
 #: ../../c-api/gcsupport.rst:59
 msgid ""
 "Analogous to :c:func:`PyObject_New` but for container objects with the :"
 "const:`Py_TPFLAGS_HAVE_GC` flag set."
 msgstr ""
+"Аналогічно :c:func:`PyObject_New`, але для об’єктів-контейнерів зі "
+"встановленим прапором :const:`Py_TPFLAGS_HAVE_GC`."
 
 #: ../../c-api/gcsupport.rst:65
 msgid ""
 "Analogous to :c:func:`PyObject_NewVar` but for container objects with the :"
 "const:`Py_TPFLAGS_HAVE_GC` flag set."
 msgstr ""
+"Аналогічно :c:func:`PyObject_NewVar`, але для об’єктів-контейнерів зі "
+"встановленим прапором :const:`Py_TPFLAGS_HAVE_GC`."
 
 #: ../../c-api/gcsupport.rst:71
 msgid ""
@@ -147,6 +160,9 @@ msgid ""
 "resized object or ``NULL`` on failure.  *op* must not be tracked by the "
 "collector yet."
 msgstr ""
+"Змінити розмір об’єкта, виділеного :c:func:`PyObject_NewVar`. Повертає "
+"змінений розмір об’єкта або ``NULL`` у разі помилки. *op* ще не повинен "
+"відстежуватися колекціонером."
 
 #: ../../c-api/gcsupport.rst:77
 msgid ""
@@ -156,44 +172,57 @@ msgid ""
 "followed by the :c:member:`~PyTypeObject.tp_traverse` handler become valid, "
 "usually near the end of the constructor."
 msgstr ""
+"Додає об’єкт *op* до набору об’єктів-контейнерів, які відстежує збирач. "
+"Збирач може запускатися в несподіваний час, тому об’єкти мають бути дійсними "
+"під час відстеження. Його слід викликати, коли всі поля, за якими йде "
+"обробник :c:member:`~PyTypeObject.tp_traverse`, стануть дійсними, як "
+"правило, ближче до кінця конструктора."
 
 #: ../../c-api/gcsupport.rst:86
 msgid ""
 "Returns non-zero if the object implements the garbage collector protocol, "
 "otherwise returns 0."
 msgstr ""
+"Повертає ненульове значення, якщо об’єкт реалізує протокол збирача сміття, "
+"інакше повертає 0."
 
 #: ../../c-api/gcsupport.rst:89
 msgid ""
 "The object cannot be tracked by the garbage collector if this function "
 "returns 0."
-msgstr ""
+msgstr "Збирач сміття не може відстежувати об’єкт, якщо ця функція повертає 0."
 
 #: ../../c-api/gcsupport.rst:94
 msgid ""
 "Returns 1 if the object type of *op* implements the GC protocol and *op* is "
 "being currently tracked by the garbage collector and 0 otherwise."
 msgstr ""
+"Повертає 1, якщо тип об’єкта *op* реалізує протокол GC і *op* зараз "
+"відстежується збирачем сміття, і 0 в іншому випадку."
 
 #: ../../c-api/gcsupport.rst:97
 msgid "This is analogous to the Python function :func:`gc.is_tracked`."
-msgstr ""
+msgstr "Це аналогічно функції Python :func:`gc.is_tracked`."
 
 #: ../../c-api/gcsupport.rst:104
 msgid ""
 "Returns 1 if the object type of *op* implements the GC protocol and *op* has "
 "been already finalized by the garbage collector and 0 otherwise."
 msgstr ""
+"Повертає 1, якщо тип об’єкта *op* реалізує протокол GC і *op* вже завершено "
+"збирачем сміття, і 0 в іншому випадку."
 
 #: ../../c-api/gcsupport.rst:107
 msgid "This is analogous to the Python function :func:`gc.is_finalized`."
-msgstr ""
+msgstr "Це аналогічно функції Python :func:`gc.is_finalized`."
 
 #: ../../c-api/gcsupport.rst:114
 msgid ""
 "Releases memory allocated to an object using :c:func:`PyObject_GC_New` or :c:"
 "func:`PyObject_GC_NewVar`."
 msgstr ""
+"Звільняє пам’ять, виділену об’єкту за допомогою :c:func:`PyObject_GC_New` "
+"або :c:func:`PyObject_GC_NewVar`."
 
 #: ../../c-api/gcsupport.rst:120
 msgid ""
@@ -204,18 +233,28 @@ msgid ""
 "before any of the fields used by the :c:member:`~PyTypeObject.tp_traverse` "
 "handler become invalid."
 msgstr ""
+"Видаліть об’єкт *op* із набору об’єктів-контейнерів, які відстежує збирач. "
+"Зауважте, що :c:func:`PyObject_GC_Track` можна знову викликати для цього "
+"об’єкта, щоб додати його назад до набору відстежуваних об’єктів. Deallocator "
+"(:c:member:`~PyTypeObject.tp_dealloc` обробник) має викликати це для об’єкта "
+"до того, як будь-яке з полів, що використовуються :c:member:`~PyTypeObject."
+"tp_traverse` обробником, стане недійсним."
 
 #: ../../c-api/gcsupport.rst:129
 msgid ""
 "The :c:func:`_PyObject_GC_TRACK` and :c:func:`_PyObject_GC_UNTRACK` macros "
 "have been removed from the public C API."
 msgstr ""
+"Макроси :c:func:`_PyObject_GC_TRACK` і :c:func:`_PyObject_GC_UNTRACK` "
+"видалено з публічного API C."
 
 #: ../../c-api/gcsupport.rst:132
 msgid ""
 "The :c:member:`~PyTypeObject.tp_traverse` handler accepts a function "
 "parameter of this type:"
 msgstr ""
+"Обробник :c:member:`~PyTypeObject.tp_traverse` приймає параметр функції "
+"такого типу:"
 
 #: ../../c-api/gcsupport.rst:137
 msgid ""
@@ -226,12 +265,18 @@ msgid ""
 "functions to implement cyclic garbage detection; it's not expected that "
 "users will need to write their own visitor functions."
 msgstr ""
+"Тип функції відвідувача, переданої обробнику :c:member:`~PyTypeObject."
+"tp_traverse`. Функція має бути викликана з об’єктом для проходження як "
+"*object* і третім параметром для обробника :c:member:`~PyTypeObject."
+"tp_traverse` як *arg*. Ядро Python використовує кілька функцій відвідувачів "
+"для реалізації циклічного виявлення сміття; не очікується, що користувачам "
+"доведеться писати власні функції відвідувачів."
 
 #: ../../c-api/gcsupport.rst:144
 msgid ""
 "The :c:member:`~PyTypeObject.tp_traverse` handler must have the following "
 "type:"
-msgstr ""
+msgstr "Обробник :c:member:`~PyTypeObject.tp_traverse` повинен мати такий тип:"
 
 #: ../../c-api/gcsupport.rst:149
 msgid ""
@@ -242,6 +287,12 @@ msgid ""
 "object argument.  If *visit* returns a non-zero value that value should be "
 "returned immediately."
 msgstr ""
+"Функція обходу для об’єкта-контейнера. Реалізації повинні викликати функцію "
+"*visit* для кожного об’єкта, який безпосередньо міститься в *self*, з "
+"параметрами *visit*, які містять об’єкт, а значення *arg* передається "
+"обробнику. Функцію *visit* не можна викликати з аргументом об’єкта ``NULL``. "
+"Якщо *visit* повертає ненульове значення, це значення має бути повернуто "
+"негайно."
 
 #: ../../c-api/gcsupport.rst:156
 msgid ""
@@ -250,6 +301,10 @@ msgid ""
 "member:`~PyTypeObject.tp_traverse` implementation must name its arguments "
 "exactly *visit* and *arg*:"
 msgstr ""
+"Для спрощення написання обробників :c:member:`~PyTypeObject.tp_traverse` "
+"передбачено макрос :c:func:`Py_VISIT`. Щоб використовувати цей макрос, "
+"реалізація :c:member:`~PyTypeObject.tp_traverse` має назвати свої аргументи "
+"точно *visit* і *arg*:"
 
 #: ../../c-api/gcsupport.rst:163
 msgid ""
@@ -257,12 +312,18 @@ msgid ""
 "*arg*.  If *visit* returns a non-zero value, then return it. Using this "
 "macro, :c:member:`~PyTypeObject.tp_traverse` handlers look like::"
 msgstr ""
+"Якщо *o* не є ``NULL``, викличте зворотній виклик *visit* з аргументами *o* "
+"і *arg*. Якщо *visit* повертає ненульове значення, поверніть його. За "
+"допомогою цього макросу обробники :c:member:`~PyTypeObject.tp_traverse` "
+"виглядають так:"
 
 #: ../../c-api/gcsupport.rst:176
 msgid ""
 "The :c:member:`~PyTypeObject.tp_clear` handler must be of the :c:type:"
 "`inquiry` type, or ``NULL`` if the object is immutable."
 msgstr ""
+"Обробник :c:member:`~PyTypeObject.tp_clear` має бути типу :c:type:`inquiry` "
+"або ``NULL``, якщо об’єкт є незмінним."
 
 #: ../../c-api/gcsupport.rst:182
 msgid ""
@@ -273,3 +334,9 @@ msgid ""
 "collector will call this method if it detects that this object is involved "
 "in a reference cycle."
 msgstr ""
+"Видалити посилання, які могли створити цикли посилань. Незмінні об’єкти не "
+"повинні визначати цей метод, оскільки вони ніколи не можуть безпосередньо "
+"створювати еталонні цикли. Зауважте, що об’єкт все ще має бути дійсним після "
+"виклику цього методу (не просто викликайте :c:func:`Py_DECREF` за "
+"посиланням). Збирач викличе цей метод, якщо виявить, що цей об’єкт бере "
+"участь у еталонному циклі."

@@ -5,7 +5,6 @@
 #
 # Translators:
 # Ruan Aragão <ruanaragao2@gmail.com>, 2017
-# Otávio Carneiro <otavio@carneiro.blog.br>, 2017
 # Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2017
 # i17obot <i17obot@rougeth.com>, 2021
 # Vitor Buxbaum Orlandi, 2023
@@ -16,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-04 17:30+0000\n"
+"POT-Creation-Date: 2025-07-11 17:51+0000\n"
 "PO-Revision-Date: 2017-02-16 17:46+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -325,12 +324,17 @@ msgid ""
 "usual with Python APIs, built-in exceptions such as :exc:`ValueError`, :exc:"
 "`TypeError` etc. may also be raised)."
 msgstr ""
+"*urlopen* викликає :exc:`URLError`, коли не може обробити відповідь (хоча, "
+"як зазвичай з Python API, також можуть виникати вбудовані винятки, такі як :"
+"exc:`ValueError`, :exc:`TypeError` тощо) ."
 
 #: ../../howto/urllib2.rst:208
 msgid ""
 ":exc:`HTTPError` is the subclass of :exc:`URLError` raised in the specific "
 "case of HTTP URLs."
 msgstr ""
+":exc:`HTTPError` є підкласом :exc:`URLError`, що виникає в конкретному "
+"випадку URL-адрес HTTP."
 
 #: ../../howto/urllib2.rst:211
 msgid "The exception classes are exported from the :mod:`urllib.error` module."
@@ -371,6 +375,14 @@ msgid ""
 "errors include '404' (page not found), '403' (request forbidden), and "
 "'401' (authentication required)."
 msgstr ""
+"Кожна відповідь HTTP від сервера містить числовий \"код стану\". Іноді код "
+"стану вказує на те, що сервер не може виконати запит. Обробники за "
+"замовчуванням оброблять деякі з цих відповідей за вас (наприклад, якщо "
+"відповідь є \"переспрямуванням\", яке вимагає від клієнта отримати документ "
+"з іншої URL-адреси, urllib обробить це за вас). Для тих, хто не може "
+"впоратися, urlopen викличе :exc:`HTTPError`. Типові помилки включають "
+"\"404\" (сторінку не знайдено), \"403\" (запит заборонено) і "
+"\"401\" (потрібна автентифікація)."
 
 #: ../../howto/urllib2.rst:242
 msgid ""
@@ -384,6 +396,8 @@ msgid ""
 "The :exc:`HTTPError` instance raised will have an integer 'code' attribute, "
 "which corresponds to the error sent by the server."
 msgstr ""
+"Викликаний екземпляр :exc:`HTTPError` матиме цілочисельний атрибут \"code\", "
+"який відповідає помилці, надісланій сервером."
 
 #: ../../howto/urllib2.rst:248
 msgid "Error Codes"
@@ -405,9 +419,9 @@ msgid ""
 "of response codes in that shows all the response codes used by :rfc:`2616`. "
 "The dictionary is reproduced here for convenience ::"
 msgstr ""
-":attr:`http.server.BaseHTTPRequestHandler.responses` é um dicionário útil de "
-"códigos de resposta que mostra todos os códigos de resposta usados por :rfc:"
-"`2616`. O dicionário é reproduzido aqui para facilitar ::"
+":attr:`http.server.BaseHTTPRequestHandler.responses` — це корисний словник "
+"кодів відповідей, який показує всі коди відповідей, які використовує :rfc:"
+"`2616`. Для зручності словник наведено тут ::"
 
 #: ../../howto/urllib2.rst:326
 msgid ""
@@ -417,6 +431,10 @@ msgid ""
 "has read, geturl, and info, methods as returned by the ``urllib.response`` "
 "module::"
 msgstr ""
+"Коли виникає помилка, сервер відповідає, повертаючи код помилки HTTP *і* "
+"сторінку помилки. Ви можете використовувати екземпляр :exc:`HTTPError` як "
+"відповідь на повернуту сторінку. Це означає, що окрім атрибута code, він "
+"також має методи read, geturl та info, які повертає модуль urllib.response::"
 
 #: ../../howto/urllib2.rst:346
 msgid "Wrapping it Up"
@@ -427,6 +445,8 @@ msgid ""
 "So if you want to be prepared for :exc:`HTTPError` *or* :exc:`URLError` "
 "there are two basic approaches. I prefer the second approach."
 msgstr ""
+"Отже, якщо ви хочете бути готовими до :exc:`HTTPError` *або* :exc:"
+"`URLError`, є два основні підходи. Я віддаю перевагу другому підходу."
 
 #: ../../howto/urllib2.rst:352
 msgid "Number 1"
@@ -437,6 +457,8 @@ msgid ""
 "The ``except HTTPError`` *must* come first, otherwise ``except URLError`` "
 "will *also* catch an :exc:`HTTPError`."
 msgstr ""
+"``except HTTPError`` *має* бути першим, інакше ``except URLError`` *також* "
+"перехопить :exc:`HTTPEror`."
 
 #: ../../howto/urllib2.rst:378
 msgid "Number 2"
@@ -452,6 +474,9 @@ msgid ""
 "useful methods :meth:`info` and :meth:`geturl` and is defined in the module :"
 "mod:`urllib.response`.."
 msgstr ""
+"Відповідь, яку повертає urlopen (або екземпляр :exc:`HTTPError`), має два "
+"корисні методи :meth:`info` та :meth:`geturl` і визначено в модулі :mod:"
+"`urllib.response`.."
 
 #: ../../howto/urllib2.rst:405
 msgid ""
@@ -568,6 +593,11 @@ msgid ""
 "Authentication Tutorial <http://www.voidspace.org.uk/python/articles/"
 "authentication.shtml>`_."
 msgstr ""
+"Щоб проілюструвати створення та встановлення обробника, ми використаємо "
+"``HTTPBasicAuthHandler``. Для більш детального обговорення цієї теми, "
+"включаючи пояснення того, як працює базова автентифікація, дивіться "
+"`Навчальний посібник з базової автентифікації <http://www.voidspace.org.uk/"
+"python/articles/authentication.shtml>`_."
 
 #: ../../howto/urllib2.rst:463
 msgid ""
@@ -638,6 +668,12 @@ msgid ""
 "``HTTPDefaultErrorHandler``, ``HTTPRedirectHandler``, ``FTPHandler``, "
 "``FileHandler``, ``DataHandler``, ``HTTPErrorProcessor``."
 msgstr ""
+"У наведеному вище прикладі ми лише надали наш ``HTTPBasicAuthHandler`` до "
+"``build_opener``. За замовчуванням відкривачі мають обробники для звичайних "
+"ситуацій -- ``ProxyHandler`` (якщо встановлено налаштування проксі, "
+"наприклад змінну середовища :envvar:`http_proxy`), ``UnknownHandler``, "
+"``HTTPHandler``, ``HTTPDefaultErrorHandler``, ``HTTPRedirectHandler``, "
+"``FTPHandler``, ``FileHandler``, ``DataHandler``, ``HTTPErrorProcessor``."
 
 #: ../../howto/urllib2.rst:522
 msgid ""
@@ -781,3 +817,5 @@ msgid ""
 "urllib opener for SSL proxy (CONNECT method): `ASPN Cookbook Recipe <https://"
 "code.activestate.com/recipes/456195/>`_."
 msgstr ""
+"urllib для відкриття SSL-проксі (метод CONNECT): `ASPN Cookbook Recipe "
+"<https://code.activestate.com/recipes/456195/>`_."
