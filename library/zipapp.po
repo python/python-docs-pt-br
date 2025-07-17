@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-21 16:10+0000\n"
+"POT-Creation-Date: 2025-07-11 17:17+0000\n"
 "PO-Revision-Date: 2022-11-05 17:23+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -25,7 +25,7 @@ msgstr ""
 
 #: ../../library/zipapp.rst:2
 msgid ":mod:`zipapp` --- Manage executable Python zip archives"
-msgstr ""
+msgstr ":mod:`zipapp` --- Керування виконуваними zip-архівами Python"
 
 #: ../../library/zipapp.rst:9
 msgid "**Source code:** :source:`Lib/zipapp.py`"
@@ -527,7 +527,7 @@ msgstr ""
 
 #: ../../library/zipapp.rst:307
 msgid "Making a Windows executable"
-msgstr ""
+msgstr "Створення виконуваного файлу Windows"
 
 #: ../../library/zipapp.rst:309
 msgid ""
@@ -537,6 +537,10 @@ msgid ""
 "run(['myapp'])`` won't find your application - you need to explicitly "
 "specify the extension)."
 msgstr ""
+"У Windows реєстрація розширення ``.pyz`` необов’язкова, і крім того, є певні "
+"місця, які не розпізнають зареєстровані розширення \"прозоро\" (найпростішим "
+"прикладом є ``subprocess.run(['myapp'] )`` не знайде вашу програму – вам "
+"потрібно явно вказати розширення)."
 
 #: ../../library/zipapp.rst:315
 msgid ""
@@ -548,16 +552,24 @@ msgid ""
 "onto the end of it, you end up with a single-file executable that runs your "
 "application."
 msgstr ""
+"Тому в Windows часто краще створювати виконуваний файл із zip-програми. Це "
+"відносно легко, хоча для цього потрібен компілятор C. Основний підхід "
+"ґрунтується на тому факті, що файли zip можуть мати довільні дані, а файли "
+"Windows exe можуть мати довільні дані. Отже, створивши відповідний засіб "
+"запуску та прикріпивши файл ``.pyz`` до його кінця, ви отримаєте "
+"однофайловий виконуваний файл, який запускає вашу програму."
 
 #: ../../library/zipapp.rst:322
 msgid "A suitable launcher can be as simple as the following::"
-msgstr ""
+msgstr "Відповідна програма запуску може бути такою простою:"
 
 #: ../../library/zipapp.rst:347
 msgid ""
 "If you define the ``WINDOWS`` preprocessor symbol, this will generate a GUI "
 "executable, and without it, a console executable."
 msgstr ""
+"Якщо ви визначите символ препроцесора ``WINDOWS``, це створить виконуваний "
+"файл GUI, а без нього — виконуваний файл консолі."
 
 #: ../../library/zipapp.rst:350
 msgid ""
@@ -565,6 +577,9 @@ msgid ""
 "line tools, or you can take advantage of the fact that distutils knows how "
 "to compile Python source::"
 msgstr ""
+"Щоб скомпілювати виконуваний файл, ви можете або просто скористатися "
+"стандартними інструментами командного рядка MSVC, або ви можете скористатися "
+"тим фактом, що distutils знає, як скомпілювати джерело Python::"
 
 #: ../../library/zipapp.rst:377
 msgid ""
@@ -572,6 +587,9 @@ msgid ""
 "with any version of Python 3.x.  All it needs is for Python (``python3."
 "dll``) to be on the user's ``PATH``."
 msgstr ""
+"Отриманий засіб запуску використовує \"Обмежений ABI\", тому він працюватиме "
+"без змін з будь-якою версією Python 3.x. Все, що йому потрібно, це щоб "
+"Python (``python3.dll``) знаходився на ``PATH`` користувача."
 
 #: ../../library/zipapp.rst:381
 msgid ""
@@ -580,6 +598,10 @@ msgid ""
 "distribution.  This will run on any PC with the appropriate architecture (32 "
 "bit or 64 bit)."
 msgstr ""
+"Для повністю автономного дистрибутива ви можете розповсюджувати програму "
+"запуску з доданою програмою разом із \"вбудованим\" дистрибутивом Python. "
+"Він працюватиме на будь-якому ПК з відповідною архітектурою (32- або 64-"
+"розрядною)."
 
 #: ../../library/zipapp.rst:387
 msgid "Caveats"
@@ -591,6 +613,9 @@ msgid ""
 "a single file.  In most, if not all, cases they can be addressed without "
 "needing major changes to your application."
 msgstr ""
+"Існують певні обмеження щодо процесу об’єднання програми в один файл. У "
+"більшості, якщо не у всіх, випадках їх можна вирішити без необхідності "
+"серйозних змін у вашій заявці."
 
 #: ../../library/zipapp.rst:393
 msgid ""
@@ -624,6 +649,10 @@ msgid ""
 "the default behaviour of the installer) or you should bundle your "
 "application with the embedded distribution."
 msgstr ""
+"Якщо ви надсилаєте виконуваний файл Windows, як описано вище, вам потрібно "
+"переконатися, що ваші користувачі мають ``python3.dll`` у своєму ШЛЯХУ (що "
+"не є поведінкою інсталятора за замовчуванням), або ви повинні об’єднати свою "
+"програму з вбудованим розподіл."
 
 #: ../../library/zipapp.rst:408
 msgid ""
@@ -635,6 +664,13 @@ msgid ""
 "`multiprocessing.set_executable` to let the module know where to find the "
 "standard Python interpreter."
 msgstr ""
+"Запропонований вище засіб запуску використовує API вбудовування Python. Це "
+"означає, що у вашій програмі ``sys.executable`` буде вашою програмою, а *не* "
+"звичайним інтерпретатором Python. Ваш код і його залежності мають бути "
+"готові до такої можливості. Наприклад, якщо ваша програма використовує "
+"модуль :mod:`multiprocessing`, їй потрібно буде викликати :func:"
+"`multiprocessing.set_executable`, щоб повідомити модулю, де знайти "
+"стандартний інтерпретатор Python."
 
 #: ../../library/zipapp.rst:418
 msgid "The Python Zip Application Archive Format"
@@ -682,6 +718,11 @@ msgid ""
 "encoded in UTF-8 on Windows, and in :func:`sys.getfilesystemencoding()` on "
 "POSIX."
 msgstr ""
+"Додатковий рядок shebang, що містить символи ``b'#!'``, за якими йде ім'я "
+"інтерпретатора, а потім символ нового рядка (``b'\\n'``). Ім’я "
+"інтерпретатора може бути будь-яким, прийнятним для обробки \"shebang\" ОС "
+"або засобу запуску Python у Windows. Інтерпретатор має бути закодований у "
+"UTF-8 у Windows та у :func:`sys.getfilesystemencoding()` у POSIX."
 
 #: ../../library/zipapp.rst:438
 msgid ""

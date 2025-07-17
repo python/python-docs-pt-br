@@ -39,6 +39,12 @@ msgid ""
 "if no system time zone data is available, the library will fall back to "
 "using the first-party `tzdata`_ package available on PyPI."
 msgstr ""
+"Модуль :mod:`zoneinfo` забезпечує конкретну реалізацію часового поясу для "
+"підтримки бази даних часових поясів IANA, як спочатку зазначено в :pep:"
+"`615`. За замовчуванням :mod:`zoneinfo` використовує дані часового поясу "
+"системи, якщо вони доступні; якщо дані системного часового поясу недоступні, "
+"бібліотека повернеться до використання основного пакету `tzdata`_, "
+"доступного на PyPI."
 
 #: ../../library/zoneinfo.rst:26
 msgid "Module: :mod:`datetime`"
@@ -54,7 +60,7 @@ msgstr ""
 
 #: ../../library/zoneinfo.rst:29
 msgid "Package `tzdata`_"
-msgstr ""
+msgstr "Пакет `tzdata`_"
 
 #: ../../library/zoneinfo.rst:29
 msgid ""
@@ -128,6 +134,14 @@ msgid ""
 "system data nor tzdata are available, all calls to :class:`ZoneInfo` will "
 "raise :exc:`ZoneInfoNotFoundError`."
 msgstr ""
+"Модуль ``zoneinfo`` безпосередньо не надає даних про часовий пояс, а "
+"натомість отримує інформацію про часовий пояс із системної бази даних "
+"часових поясів або основного пакету PyPI `tzdata`_, якщо доступний. Деякі "
+"системи, зокрема системи Windows, не мають доступної бази даних IANA, тому "
+"для проектів, націлених на кросплатформенну сумісність, які вимагають даних "
+"часового поясу, рекомендується оголосити залежність від tzdata. Якщо ані "
+"системні дані, ані tzdata недоступні, усі виклики :class:`ZoneInfo` "
+"викличуть :exc:`ZoneInfoNotFoundError`."
 
 #: ../../library/zoneinfo.rst:105
 msgid "Configuring the data sources"
@@ -310,17 +324,25 @@ msgid ""
 "g. a file opened in binary mode or an :class:`io.BytesIO` object). Unlike "
 "the primary constructor, this always constructs a new object."
 msgstr ""
+"Створює об’єкт ``ZoneInfo`` з файлоподібного об’єкта, який повертає байти "
+"(наприклад, файл, відкритий у двійковому режимі, або об’єкт :class:`io."
+"BytesIO`). На відміну від первинного конструктора, це завжди створює новий "
+"об’єкт."
 
 #: ../../library/zoneinfo.rst:203
 msgid ""
 "The ``key`` parameter sets the name of the zone for the purposes of :py:meth:"
 "`~object.__str__` and :py:meth:`~object.__repr__`."
 msgstr ""
+"Параметр ``key`` встановлює назву зони для цілей :py:meth:`~object.__str__` "
+"і :py:meth:`~object.__repr__`."
 
 #: ../../library/zoneinfo.rst:206
 msgid ""
 "Objects created via this constructor cannot be pickled (see `pickling`_)."
 msgstr ""
+"Об’єкти, створені за допомогою цього конструктора, не можуть бути "
+"протравлені (див. `pickling`_)."
 
 #: ../../library/zoneinfo.rst:210
 msgid ""
@@ -330,22 +352,32 @@ msgid ""
 "it can also be used to create a system with a different cache invalidation "
 "strategy."
 msgstr ""
+"Альтернативний конструктор, який обходить кеш конструктора. Він ідентичний "
+"основному конструктору, але повертає новий об’єкт під час кожного виклику. "
+"Це, швидше за все, буде корисним для тестування чи демонстрації, але його "
+"також можна використовувати для створення системи з іншою стратегією "
+"анулювання кешу."
 
 #: ../../library/zoneinfo.rst:216
 msgid ""
 "Objects created via this constructor will also bypass the cache of a "
 "deserializing process when unpickled."
 msgstr ""
+"Об’єкти, створені за допомогою цього конструктора, також обійдуть кеш "
+"процесу десеріалізації, коли їх не буде вибрано."
 
 #: ../../library/zoneinfo.rst:223
 msgid ""
 "Using this constructor may change the semantics of your datetimes in "
 "surprising ways, only use it if you know that you need to."
 msgstr ""
+"Використання цього конструктора може дивовижним чином змінити семантику "
+"ваших дат і часів, використовуйте його, лише якщо ви знаєте, що вам це "
+"потрібно."
 
 #: ../../library/zoneinfo.rst:226
 msgid "The following class methods are also available:"
-msgstr ""
+msgstr "Також доступні такі методи класу:"
 
 #: ../../library/zoneinfo.rst:230
 msgid ""
@@ -353,6 +385,9 @@ msgid ""
 "arguments are passed, all caches are invalidated and the next call to the "
 "primary constructor for each key will return a new instance."
 msgstr ""
+"Метод анулювання кешу в класі ``ZoneInfo``. Якщо аргументи не передано, усі "
+"кеші стають недійсними, а наступний виклик основного конструктора для "
+"кожного ключа поверне новий екземпляр."
 
 #: ../../library/zoneinfo.rst:234
 msgid ""
@@ -360,6 +395,9 @@ msgid ""
 "the specified keys will be removed from the cache. Keys passed to "
 "``only_keys`` but not found in the cache are ignored."
 msgstr ""
+"Якщо в параметр ``only_keys`` передається ітерація імен ключів, з кешу буде "
+"видалено лише вказані ключі. Ключі, передані в ``only_keys``, але не "
+"знайдені в кеші, ігноруються."
 
 #: ../../library/zoneinfo.rst:242
 msgid ""
@@ -379,12 +417,18 @@ msgid ""
 "zone database (e.g. ``America/New_York``, ``Europe/Paris`` or ``Asia/"
 "Tokyo``)."
 msgstr ""
+"Це лише для читання :term:`attribute`, який повертає значення ``key``, "
+"переданого конструктору, який має бути ключем пошуку в базі даних часового "
+"поясу IANA (наприклад, ``America/New_York``, ``Європа/Париж`` або ``Азія/"
+"Токіо``)."
 
 #: ../../library/zoneinfo.rst:256
 msgid ""
 "For zones constructed from file without specifying a ``key`` parameter, this "
 "will be set to ``None``."
 msgstr ""
+"Для зон, створених із файлу без зазначення параметра ``key``, буде "
+"встановлено ``None``."
 
 #: ../../library/zoneinfo.rst:261
 msgid ""
@@ -394,10 +438,15 @@ msgid ""
 "Unicode Common Locale Data Repository) can be used to get more user-friendly "
 "strings from these keys."
 msgstr ""
+"Хоча надавати їх кінцевим користувачам є досить поширеною практикою, ці "
+"значення призначені як первинні ключі для представлення відповідних зон, а "
+"не обов’язково для елементів, спрямованих на користувача. Такі проекти, як "
+"CLDR (загальне сховище даних Unicode Common Locale Data Repository), можна "
+"використовувати для отримання більш зручних рядків із цих ключів."
 
 #: ../../library/zoneinfo.rst:268
 msgid "String representations"
-msgstr ""
+msgstr "Рядкові представлення"
 
 #: ../../library/zoneinfo.rst:270
 msgid ""
@@ -405,6 +454,9 @@ msgid ""
 "`ZoneInfo` object defaults to using the :attr:`ZoneInfo.key` attribute (see "
 "the note on usage in the attribute documentation)::"
 msgstr ""
+"Рядкове представлення, що повертається під час виклику :py:class:`str` для "
+"об’єкта :class:`ZoneInfo`, за замовчуванням використовує атрибут :attr:"
+"`ZoneInfo.key` (див. примітку щодо використання в документації атрибута):"
 
 #: ../../library/zoneinfo.rst:282
 msgid ""
@@ -413,10 +465,14 @@ msgid ""
 "implementation-defined and not necessarily stable between versions, but it "
 "is guaranteed not to be a valid ``ZoneInfo`` key."
 msgstr ""
+"Для об’єктів, створених із файлу без вказівки параметра ``key``, ``str`` "
+"повертається до виклику :func:`repr`. ``Repr`` ``ZoneInfo`` визначається "
+"реалізацією і не обов’язково є стабільним між версіями, але гарантовано, що "
+"він не є дійсним ключем ``ZoneInfo``."
 
 #: ../../library/zoneinfo.rst:290
 msgid "Pickle serialization"
-msgstr ""
+msgstr "Серіалізація соління"
 
 #: ../../library/zoneinfo.rst:292
 msgid ""
@@ -424,10 +480,13 @@ msgid ""
 "serialized by key, and ``ZoneInfo`` objects constructed from files (even "
 "those with a value for ``key`` specified) cannot be pickled."
 msgstr ""
+"Замість того, щоб серіалізувати всі дані переходу, об’єкти ``ZoneInfo`` "
+"серіалізуються за ключем, а об’єкти ``ZoneInfo``, створені з файлів (навіть "
+"ті, у яких указано значення ``key``), не можуть бути мариновані."
 
 #: ../../library/zoneinfo.rst:296
 msgid "The behavior of a ``ZoneInfo`` file depends on how it was constructed:"
-msgstr ""
+msgstr "Поведінка файлу ``ZoneInfo`` залежить від того, як він був створений:"
 
 #: ../../library/zoneinfo.rst:298
 msgid ""
@@ -439,6 +498,13 @@ msgid ""
 "constructed from ``ZoneInfo(\"Europe/Berlin\")``, one would expect the "
 "following behavior:"
 msgstr ""
+"``ZoneInfo(key)``: коли створюється за допомогою первинного конструктора, "
+"об’єкт ``ZoneInfo`` серіалізується за ключем, а коли десеріалізується, "
+"процес десеріалізації використовує первинний, тому очікується, що вони "
+"будуть той самий об’єкт, що й інші посилання на той самий часовий пояс. "
+"Наприклад, якщо ``europe_berlin_pkl`` - це рядок, що містить маринований "
+"пікле, створений з ``ZoneInfo(\"Europe/Berlin\")``, можна очікувати такої "
+"поведінки:"
 
 #: ../../library/zoneinfo.rst:313
 msgid ""
@@ -449,6 +515,12 @@ msgid ""
 "constructed from ``ZoneInfo.no_cache(\"Europe/Berlin\")``, one would expect "
 "the following behavior:"
 msgstr ""
+"``ZoneInfo.no_cache(key)``: коли створено з конструктора обходу кешу, об’єкт "
+"``ZoneInfo`` також серіалізується за ключем, але при десеріалізації процес "
+"десеріалізації використовує конструктор обходу кешу. Якщо "
+"``europe_berlin_pkl_nc`` - це рядок, що містить маринований пікле, "
+"побудований з ``ZoneInfo.no_cache(\"Europe/Berlin\")``, можна очікувати "
+"такої поведінки:"
 
 #: ../../library/zoneinfo.rst:327
 msgid ""
@@ -458,6 +530,11 @@ msgid ""
 "use a wrapper type or a custom serialization function: either serializing by "
 "key or storing the contents of the file object and serializing that."
 msgstr ""
+"``ZoneInfo.from_file(fobj, /, key=None)``: коли створено з файлу, об’єкт "
+"``ZoneInfo`` викликає виключення під час травлення. Якщо кінцевий користувач "
+"хоче вибрати ``ZoneInfo``, створений з файлу, рекомендується використовувати "
+"тип оболонки або спеціальну функцію серіалізації: або серіалізація за "
+"ключем, або збереження вмісту об’єкта файлу та його серіалізація."
 
 #: ../../library/zoneinfo.rst:333
 msgid ""
@@ -469,6 +546,12 @@ msgid ""
 "a ``ZoneInfo`` pickled in an environment with a different version of the "
 "time zone data."
 msgstr ""
+"Цей метод серіалізації вимагає, щоб дані часового поясу для необхідного "
+"ключа були доступні як на стороні серіалізації, так і на стороні "
+"десеріалізації, подібно до того, як очікуються посилання на класи та функції "
+"в середовищах серіалізації та десеріалізації. Це також означає, що не "
+"надається жодних гарантій щодо узгодженості результатів під час видалення "
+"``ZoneInfo``, вибраного в середовищі з іншою версією даних часового поясу."
 
 #: ../../library/zoneinfo.rst:341
 msgid "Functions"
@@ -480,6 +563,9 @@ msgid ""
 "anywhere on the time zone path. This is recalculated on every call to the "
 "function."
 msgstr ""
+"Отримайте набір, що містить усі дійсні ключі для часових поясів IANA, "
+"доступних будь-де на шляху часового поясу. Це перераховується під час "
+"кожного виклику функції."
 
 #: ../../library/zoneinfo.rst:349
 msgid ""
@@ -487,6 +573,9 @@ msgid ""
 "\"special\" zones such as those under the ``posix/`` and ``right/`` "
 "directories, or the ``posixrules`` zone."
 msgstr ""
+"Ця функція включає лише канонічні назви зон і не включає \"спеціальні\" "
+"зони, такі як ті, що знаходяться в каталогах ``posix/`` і ``right/`` або "
+"зона ``posixrules``."
 
 #: ../../library/zoneinfo.rst:355
 msgid ""
@@ -494,6 +583,9 @@ msgid ""
 "if a file on the time zone path is a valid time zone is to read the \"magic "
 "string\" at the beginning."
 msgstr ""
+"Ця функція може відкрити велику кількість файлів, оскільки найкращий спосіб "
+"визначити, чи є файл на шляху до часового поясу дійсним часовим поясом, це "
+"прочитати \"магічний рядок\" на початку."
 
 #: ../../library/zoneinfo.rst:361
 msgid ""
@@ -502,12 +594,19 @@ msgid ""
 "Locale Data Repository) to get more user-friendly strings. See also the "
 "cautionary note on :attr:`ZoneInfo.key`."
 msgstr ""
+"Ці значення не призначені для надання кінцевим користувачам; для елементів, "
+"які відкриваються користувачам, програми повинні використовувати щось на "
+"зразок CLDR (сховище даних Unicode Common Locale), щоб отримати більш зручні "
+"рядки. Дивіться також застереження щодо :attr:`ZoneInfo.key`."
 
 #: ../../library/zoneinfo.rst:368
 msgid ""
 "Sets or resets the time zone search path (:data:`TZPATH`) for the module. "
 "When called with no arguments, :data:`TZPATH` is set to the default value."
 msgstr ""
+"Встановлює або скидає шлях пошуку часового поясу (:data:`TZPATH`) для "
+"модуля. При виклику без аргументів :data:`TZPATH` встановлюється на значення "
+"за замовчуванням."
 
 #: ../../library/zoneinfo.rst:371
 msgid ""
@@ -515,6 +614,9 @@ msgid ""
 "and so calls to the primary ``ZoneInfo`` constructor will only use the new "
 "``TZPATH`` in the case of a cache miss."
 msgstr ""
+"Виклик ``reset_tzpath`` не призведе до недійсності :class:`ZoneInfo` кешу, "
+"тому виклики основного ``ZoneInfo`` конструктора використовуватимуть новий "
+"``TZPATH`` лише у випадку промаху кешу."
 
 #: ../../library/zoneinfo.rst:375
 msgid ""
@@ -523,10 +625,13 @@ msgid ""
 "`ValueError` will be raised if something other than an absolute path is "
 "passed."
 msgstr ""
+"Параметр ``to`` має бути :term:`sequence` рядків або :class:`os.PathLike`, а "
+"не рядком, усі вони мають бути абсолютними шляхами. :exc:`ValueError` буде "
+"викликано, якщо передано щось інше, ніж абсолютний шлях."
 
 #: ../../library/zoneinfo.rst:381
 msgid "Globals"
-msgstr ""
+msgstr "Глобальні"
 
 #: ../../library/zoneinfo.rst:385
 msgid ""
@@ -534,12 +639,17 @@ msgid ""
 "constructing a ``ZoneInfo`` from a key, the key is joined to each entry in "
 "the ``TZPATH``, and the first file found is used."
 msgstr ""
+"Послідовність лише для читання, що представляє шлях пошуку часового поясу – "
+"під час створення ``ZoneInfo`` з ключа, ключ приєднується до кожного запису "
+"в ``TZPATH``, і використовується перший знайдений файл."
 
 #: ../../library/zoneinfo.rst:389
 msgid ""
 "``TZPATH`` may contain only absolute paths, never relative paths, regardless "
 "of how it is configured."
 msgstr ""
+"``TZPATH`` може містити лише абсолютні шляхи, а не відносні, незалежно від "
+"того, як його налаштовано."
 
 #: ../../library/zoneinfo.rst:392
 msgid ""
@@ -548,16 +658,22 @@ msgid ""
 "TZPATH`` rather than importing ``TZPATH`` from ``zoneinfo`` or assigning a "
 "long-lived variable to ``zoneinfo.TZPATH``."
 msgstr ""
+"Об’єкт, на який вказує ``zoneinfo.TZPATH``, може змінитися у відповідь на "
+"виклик :func:`reset_tzpath`, тому рекомендується використовувати ``zoneinfo."
+"TZPATH``, а не імпортувати ``TZPATH`` з ``zoneinfo`` або присвоєння тривалої "
+"змінної ``zoneinfo.TZPATH``."
 
 #: ../../library/zoneinfo.rst:397
 msgid ""
 "For more information on configuring the time zone search path, see :ref:"
 "`zoneinfo_data_configuration`."
 msgstr ""
+"Додаткову інформацію про налаштування шляху пошуку часового поясу див. у :"
+"ref:`zoneinfo_data_configuration`."
 
 #: ../../library/zoneinfo.rst:401
 msgid "Exceptions and warnings"
-msgstr ""
+msgstr "Винятки та попередження"
 
 #: ../../library/zoneinfo.rst:405
 msgid ""
@@ -565,9 +681,13 @@ msgid ""
 "specified key could not be found on the system. This is a subclass of :exc:"
 "`KeyError`."
 msgstr ""
+"Викликається, коли створення об’єкта :class:`ZoneInfo` не вдається, оскільки "
+"вказаний ключ не знайдено в системі. Це підклас :exc:`KeyError`."
 
 #: ../../library/zoneinfo.rst:411
 msgid ""
 "Raised when :envvar:`PYTHONTZPATH` contains an invalid component that will "
 "be filtered out, such as a relative path."
 msgstr ""
+"Викликається, коли :envvar:`PYTHONTZPATH` містить недійсний компонент, який "
+"буде відфільтровано, наприклад відносний шлях."

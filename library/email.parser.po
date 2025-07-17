@@ -25,7 +25,7 @@ msgstr ""
 
 #: ../../library/email.parser.rst:2
 msgid ":mod:`email.parser`: Parsing email messages"
-msgstr ""
+msgstr ":mod:`email.parser`: аналіз електронних повідомлень"
 
 #: ../../library/email.parser.rst:7
 msgid "**Source code:** :source:`Lib/email/parser.py`"
@@ -40,6 +40,12 @@ msgid ""
 "or they can be created by parsing a serialized representation of the email "
 "message."
 msgstr ""
+"Структури об’єктів повідомлень можна створити одним із двох способів: їх "
+"можна створити з цілої тканини, створивши об’єкт :class:`~email.message."
+"EmailMessage`, додавши заголовки за допомогою інтерфейсу словника та додавши "
+"корисне(і) навантаження за допомогою :meth:`~email.message.EmailMessage."
+"set_content` і пов’язані методи, або їх можна створити шляхом аналізу "
+"серіалізованого представлення повідомлення електронної пошти."
 
 #: ../../library/email.parser.rst:18
 msgid ""
@@ -55,6 +61,17 @@ msgid ""
 "meth:`~email.message.EmailMessage.iter_parts`, and :meth:`~email.message."
 "EmailMessage.walk`."
 msgstr ""
+"Пакет :mod:`email` надає стандартний аналізатор, який розуміє більшість "
+"структур документів електронної пошти, включаючи документи MIME. Ви можете "
+"передати аналізатору байти, рядок або файловий об’єкт, і аналізатор поверне "
+"вам кореневий екземпляр :class:`~email.message.EmailMessage` структури "
+"об’єкта. Для простих повідомлень без MIME корисним навантаженням цього "
+"кореневого об’єкта, ймовірно, буде рядок, що містить текст повідомлення. Для "
+"повідомлень MIME кореневий об’єкт поверне ``True`` зі свого методу :meth:"
+"`~email.message.EmailMessage.is_multipart`, а доступ до підчастин можна "
+"отримати за допомогою методів маніпулювання корисним навантаженням, таких "
+"як :meth:`~email.message.EmailMessage.get_body`, :meth:`~email.message."
+"EmailMessage.iter_parts` і :meth:`~email.message.EmailMessage.walk`."
 
 #: ../../library/email.parser.rst:30
 msgid ""
@@ -68,6 +85,15 @@ msgid ""
 "message incrementally, and only returns the root object when you close the "
 "parser."
 msgstr ""
+"Насправді існує два інтерфейси синтаксичного аналізатора, доступні для "
+"використання: :class:`Parser` API та інкрементальний :class:`FeedParser` "
+"API. API :class:`Parser` найбільш корисний, якщо у вас є весь текст "
+"повідомлення в пам’яті або якщо все повідомлення зберігається у файлі у "
+"файловій системі. :class:`FeedParser` більше підходить, коли ви читаєте "
+"повідомлення з потоку, який може блокувати очікування додаткового введення "
+"(наприклад, читання повідомлення електронної пошти з сокета). :class:"
+"`FeedParser` може споживати та аналізувати повідомлення поступово, і "
+"повертає кореневий об’єкт лише тоді, коли ви закриваєте аналізатор."
 
 #: ../../library/email.parser.rst:39
 msgid ""
@@ -94,6 +120,14 @@ msgid ""
 "`BytesParser` API may be more convenient for such use cases.  The semantics "
 "and results of the two parser APIs are identical."
 msgstr ""
+":class:`BytesFeedParser`, імпортований з модуля :mod:`email.feedparser`, "
+"надає API, який сприяє поступовому розбору повідомлень електронної пошти, як "
+"це було б необхідно під час читання тексту повідомлення електронної пошти з "
+"джерела які можуть блокувати (наприклад, сокет). Звичайно, :class:"
+"`BytesFeedParser` можна використовувати для аналізу повідомлення електронної "
+"пошти, яке повністю міститься в :term:`bytes-подібний об'єкт`, рядку або "
+"файлі, але API :class:`BytesParser` може бути зручнішим для такі випадки "
+"використання. Семантика та результати двох API парсера ідентичні."
 
 #: ../../library/email.parser.rst:60
 msgid ""
@@ -107,10 +141,19 @@ msgid ""
 "it found in a message.  See the :mod:`email.errors` module for the list of "
 "defects that it can find."
 msgstr ""
+"API :class:`BytesFeedParser` простий; ви створюєте екземпляр, передаєте йому "
+"купу байтів, доки більше не залишиться, а потім закриваєте аналізатор, щоб "
+"отримати кореневий об’єкт повідомлення. :class:`BytesFeedParser` є "
+"надзвичайно точним під час аналізу повідомлень, що відповідають стандартам, "
+"і він дуже добре справляється з аналізом невідповідних повідомлень, надаючи "
+"інформацію про те, як повідомлення було визнано зламаним. Він заповнить "
+"атрибут :attr:`~email.message.EmailMessage.defects` об’єкта повідомлення "
+"списком будь-яких проблем, знайдених у повідомленні. Дивіться модуль :mod:"
+"`email.errors`, щоб переглянути список дефектів, які він може знайти."
 
 #: ../../library/email.parser.rst:70
 msgid "Here is the API for the :class:`BytesFeedParser`:"
-msgstr ""
+msgstr "Ось API для :class:`BytesFeedParser`:"
 
 #: ../../library/email.parser.rst:75
 msgid ""
@@ -119,6 +162,10 @@ msgid ""
 "message_factory` from the *policy*.  Call *_factory* whenever a new message "
 "object is needed."
 msgstr ""
+"Створіть екземпляр :class:`BytesFeedParser`. Необов’язковий *_factory* — "
+"виклик без аргументів; якщо не вказано, використовуйте :attr:`~email.policy."
+"Policy.message_factory` з *політики*. Викликати *_factory* щоразу, коли "
+"потрібен новий об’єкт повідомлення."
 
 #: ../../library/email.parser.rst:80
 msgid ""
@@ -131,12 +178,23 @@ msgid ""
 "more information on what else *policy* controls, see the :mod:`~email."
 "policy` documentation."
 msgstr ""
+"Якщо вказано *policy*, використовуйте правила, які вона визначає, щоб "
+"оновити представлення повідомлення. Якщо *policy* не налаштовано, "
+"використовуйте політику :class:`compat32 <email.policy.Compat32>`, яка "
+"підтримує зворотну сумісність із версією пакета електронної пошти Python 3.2 "
+"і надає :class:`~email.message.Message` як фабрику за замовчуванням. Усі "
+"інші політики передбачають :class:`~email.message.EmailMessage` як "
+"*_factory* за умовчанням. Щоб дізнатися більше про те, що ще контролює "
+"*policy*, перегляньте документацію :mod:`~email.policy`."
 
 #: ../../library/email.parser.rst:89 ../../library/email.parser.rst:145
 msgid ""
 "Note: **The policy keyword should always be specified**; The default will "
 "change to :data:`email.policy.default` in a future version of Python."
 msgstr ""
+"Примітка: **Ключове слово політики слід завжди вказувати**; У наступній "
+"версії Python значення за умовчанням зміниться на :data:`email.policy."
+"default`."
 
 #: ../../library/email.parser.rst:94 ../../library/email.parser.rst:122
 msgid "Added the *policy* keyword."
@@ -144,7 +202,7 @@ msgstr "Adicionada o argumento nomeado *policy*."
 
 #: ../../library/email.parser.rst:95
 msgid "*_factory* defaults to the policy ``message_factory``."
-msgstr ""
+msgstr "*_factory* за умовчанням використовує політику ``message_factory``."
 
 #: ../../library/email.parser.rst:100
 msgid ""
@@ -154,6 +212,12 @@ msgid ""
 "any of the three common line endings: carriage return, newline, or carriage "
 "return and newline (they can even be mixed)."
 msgstr ""
+"Подайте аналізатору ще трохи даних. *data* має бути :term:`bytes-подібний "
+"об'єкт`, що містить один або більше рядків. Рядки можуть бути частковими, і "
+"синтаксичний аналізатор правильно з’єднає такі часткові рядки. Рядки можуть "
+"мати будь-яке з трьох загальних закінчень рядків: повернення каретки, новий "
+"рядок або повернення каретки та новий рядок (вони навіть можуть бути "
+"змішаними)."
 
 #: ../../library/email.parser.rst:109
 msgid ""
@@ -161,6 +225,9 @@ msgid ""
 "object.  It is undefined what happens if :meth:`~feed` is called after this "
 "method has been called."
 msgstr ""
+"Завершіть розбір усіх попередньо поданих даних і поверніть кореневий об’єкт "
+"повідомлення. Не визначено, що відбувається, якщо :meth:`~feed` викликається "
+"після виклику цього методу."
 
 #: ../../library/email.parser.rst:116
 msgid ""
@@ -170,10 +237,15 @@ msgid ""
 "contain only ASCII text or, if :attr:`~email.policy.Policy.utf8` is "
 "``True``, no binary attachments."
 msgstr ""
+"Працює як :class:`BytesFeedParser`, за винятком того, що вхід до методу :"
+"meth:`~BytesFeedParser.feed` має бути рядком. Це має обмежену корисність, "
+"оскільки єдиний спосіб зробити таке повідомлення дійсним — це містити лише "
+"текст ASCII або, якщо :attr:`~email.policy.Policy.utf8` має значення "
+"``True``, не мати двійкового коду вкладення."
 
 #: ../../library/email.parser.rst:126
 msgid "Parser API"
-msgstr ""
+msgstr "API парсера"
 
 #: ../../library/email.parser.rst:128
 msgid ""
@@ -188,6 +260,16 @@ msgid ""
 "do not attempt to parse the message body, instead setting the payload to the "
 "raw body."
 msgstr ""
+"Клас :class:`BytesParser`, імпортований з модуля :mod:`email.parser`, надає "
+"API, який можна використовувати для аналізу повідомлення, коли повний вміст "
+"повідомлення доступний у :term:`bytes-подібний об'єкт` або файл. Модуль :mod:"
+"`email.parser` також містить :class:`Parser` для аналізу рядків і "
+"аналізатори лише заголовків, :class:`BytesHeaderParser` і :class:"
+"`HeaderParser`, які можна використовувати, якщо ви цікавляться лише "
+"заголовками повідомлень. :class:`BytesHeaderParser` і :class:`HeaderParser` "
+"можуть бути набагато швидшими в цих ситуаціях, оскільки вони не намагаються "
+"проаналізувати тіло повідомлення, натомість встановлюючи корисне "
+"навантаження на необроблене тіло."
 
 #: ../../library/email.parser.rst:141
 msgid ""
@@ -195,17 +277,22 @@ msgid ""
 "have the same meaning and semantics as the *_factory* and *policy* arguments "
 "of :class:`BytesFeedParser`."
 msgstr ""
+"Створіть екземпляр :class:`BytesParser`. Аргументи *_class* і *policy* мають "
+"те саме значення й семантику, що й аргументи *_factory* і *policy* :class:"
+"`BytesFeedParser`."
 
 #: ../../library/email.parser.rst:148
 msgid ""
 "Removed the *strict* argument that was deprecated in 2.4.  Added the "
 "*policy* keyword."
 msgstr ""
+"Видалено аргумент *strict*, який був застарілим у версії 2.4. Додано ключове "
+"слово *політика*."
 
 #: ../../library/email.parser.rst:151 ../../library/email.parser.rst:200
 #: ../../library/email.parser.rst:280
 msgid "*_class* defaults to the policy ``message_factory``."
-msgstr ""
+msgstr "*_class* за умовчанням використовує політику ``message_factory``."
 
 #: ../../library/email.parser.rst:156
 msgid ""
@@ -213,6 +300,9 @@ msgid ""
 "bytes, and return the message object.  *fp* must support both the :meth:`~io."
 "IOBase.readline` and the :meth:`~io.IOBase.read` methods."
 msgstr ""
+"Прочитати всі дані з двійкового файлоподібного об’єкта *fp*, проаналізувати "
+"отримані байти та повернути об’єкт повідомлення. *fp* має підтримувати як "
+"методи :meth:`~io.IOBase.readline`, так і :meth:`~io.IOBase.read`."
 
 #: ../../library/email.parser.rst:161
 msgid ""
@@ -224,6 +314,13 @@ msgid ""
 "contain MIME-encoded subparts, including subparts with a :mailheader:"
 "`Content-Transfer-Encoding` of ``8bit``)."
 msgstr ""
+"Байти, що містяться у *fp*, мають бути відформатовані як блок :rfc:`5322` "
+"(або, якщо :attr:`~email.policy.Policy.utf8` має значення ``True``, :rfc:"
+"`6532` ) заголовки стилю та рядки продовження заголовка, необов’язково "
+"передуючими заголовком конверта. Блок заголовка завершується або кінцем "
+"даних, або порожнім рядком. Після блоку заголовка йде тіло повідомлення (яке "
+"може містити частини в кодуванні MIME, включаючи частини з :mailheader:"
+"`Content-Transfer-Encoding` ``8bit``)."
 
 #: ../../library/email.parser.rst:169
 msgid ""
@@ -231,6 +328,9 @@ msgid ""
 "reading the headers or not.  The default is ``False``, meaning it parses the "
 "entire contents of the file."
 msgstr ""
+"Необов’язковий параметр *headersonly* — це позначка, яка вказує, чи зупиняти "
+"аналіз після читання заголовків. Типовим значенням є ``False``, що означає, "
+"що аналізується весь вміст файлу."
 
 #: ../../library/email.parser.rst:176
 msgid ""
@@ -239,27 +339,35 @@ msgid ""
 "`bytes-like object` is equivalent to wrapping *bytes* in a :class:`~io."
 "BytesIO` instance first and calling :meth:`parse`."
 msgstr ""
+"Подібний до методу :meth:`parse`, за винятком того, що він приймає :term:"
+"`bytes-подібний об'єкт` замість файлоподібного об’єкта. Виклик цього методу "
+"для :term:`bytes-подібний об'єкт` еквівалентний обгортанню *bytes* в "
+"екземплярі :class:`~io.BytesIO` і виклику :meth:`parse`."
 
 #: ../../library/email.parser.rst:181 ../../library/email.parser.rst:221
 msgid "Optional *headersonly* is as with the :meth:`parse` method."
 msgstr ""
+"Необов’язковий *headersonly* такий же, як у випадку з методом :meth:`parse`."
 
 #: ../../library/email.parser.rst:188
 msgid ""
 "Exactly like :class:`BytesParser`, except that *headersonly* defaults to "
 "``True``."
 msgstr ""
+"Точно так само, як :class:`BytesParser`, за винятком того, що *headersonly* "
+"за умовчанням має значення ``True``."
 
 #: ../../library/email.parser.rst:196
 msgid ""
 "This class is parallel to :class:`BytesParser`, but handles string input."
 msgstr ""
+"Цей клас є паралельним до :class:`BytesParser`, але обробляє введення рядків."
 
 #: ../../library/email.parser.rst:198 ../../library/email.parser.rst:245
 #: ../../library/email.parser.rst:258 ../../library/email.parser.rst:268
 #: ../../library/email.parser.rst:278
 msgid "Removed the *strict* argument.  Added the *policy* keyword."
-msgstr ""
+msgstr "Видалено *суворий* аргумент. Додано ключове слово *політика*."
 
 #: ../../library/email.parser.rst:205
 msgid ""
@@ -268,12 +376,18 @@ msgid ""
 "the :meth:`~io.TextIOBase.readline` and the :meth:`~io.TextIOBase.read` "
 "methods on file-like objects."
 msgstr ""
+"Прочитати всі дані з файлоподібного об’єкта текстового режиму *fp*, "
+"проаналізувати отриманий текст і повернути кореневий об’єкт повідомлення. "
+"*fp* має підтримувати як методи :meth:`~io.TextIOBase.readline`, так і :meth:"
+"`~io.TextIOBase.read` для файлоподібних об’єктів."
 
 #: ../../library/email.parser.rst:210
 msgid ""
 "Other than the text mode requirement, this method operates like :meth:"
 "`BytesParser.parse`."
 msgstr ""
+"За винятком вимог текстового режиму, цей метод працює як :meth:`BytesParser."
+"parse`."
 
 #: ../../library/email.parser.rst:216
 msgid ""
@@ -282,11 +396,17 @@ msgid ""
 "wrapping *text* in a :class:`~io.StringIO` instance first and calling :meth:"
 "`parse`."
 msgstr ""
+"Подібний до методу :meth:`parse`, за винятком того, що він приймає рядковий "
+"об’єкт замість файлоподібного об’єкта. Виклик цього методу для рядка "
+"еквівалентний обгортанню *тексту* в екземплярі :class:`~io.StringIO` і "
+"виклику :meth:`parse`."
 
 #: ../../library/email.parser.rst:226
 msgid ""
 "Exactly like :class:`Parser`, except that *headersonly* defaults to ``True``."
 msgstr ""
+"Точно так само, як :class:`Parser`, за винятком того, що *headersonly* за "
+"замовчуванням має значення ``True``."
 
 #: ../../library/email.parser.rst:230
 msgid ""
@@ -294,6 +414,9 @@ msgid ""
 "such a common task, four functions are provided as a convenience.  They are "
 "available in the top-level :mod:`email` package namespace."
 msgstr ""
+"Оскільки створення структури об’єкта повідомлення з рядка або файлового "
+"об’єкта є таким поширеним завданням, для зручності передбачено чотири "
+"функції. Вони доступні в просторі імен пакета :mod:`email` верхнього рівня."
 
 #: ../../library/email.parser.rst:239
 msgid ""
@@ -302,6 +425,10 @@ msgid ""
 "*policy* are interpreted as with the :class:`~email.parser.BytesParser` "
 "class constructor."
 msgstr ""
+"Повертає структуру об’єкта повідомлення з :term:`bytes-подібний об'єкт`. Це "
+"еквівалентно ``BytesParser().parsebytes(s)``. Необов’язкові *_class* і "
+"*policy* інтерпретуються як конструктор класу :class:`~email.parser."
+"BytesParser`."
 
 #: ../../library/email.parser.rst:252
 msgid ""
@@ -310,6 +437,10 @@ msgid ""
 "*policy* are interpreted as with the :class:`~email.parser.BytesParser` "
 "class constructor."
 msgstr ""
+"Повертає дерево структури об’єкта повідомлення з відкритого двійкового "
+"файлу :term:`file object`. Це еквівалентно ``BytesParser().parse(fp)``. "
+"*_class* і *policy* інтерпретуються як конструктор класу :class:`~email."
+"parser.BytesParser`."
 
 #: ../../library/email.parser.rst:264
 msgid ""
@@ -317,6 +448,9 @@ msgid ""
 "``Parser().parsestr(s)``.  *_class* and *policy* are interpreted as with "
 "the :class:`~email.parser.Parser` class constructor."
 msgstr ""
+"Повертає структуру об’єкта повідомлення з рядка. Це еквівалентно ``Parser()."
+"parsestr(s)``. *_class* і *policy* інтерпретуються як конструктор класу :"
+"class:`~email.parser.Parser`."
 
 #: ../../library/email.parser.rst:274
 msgid ""
@@ -324,20 +458,25 @@ msgid ""
 "This is equivalent to ``Parser().parse(fp)``.  *_class* and *policy* are "
 "interpreted as with the :class:`~email.parser.Parser` class constructor."
 msgstr ""
+"Повертає дерево структури об’єкта повідомлення з відкритого :term:`file "
+"object`. Це еквівалентно ``Parser().parse(fp)``. *_class* і *policy* "
+"інтерпретуються як конструктор класу :class:`~email.parser.Parser`."
 
 #: ../../library/email.parser.rst:283
 msgid ""
 "Here's an example of how you might use :func:`message_from_bytes` at an "
 "interactive Python prompt::"
 msgstr ""
+"Ось приклад того, як можна використовувати :func:`message_from_bytes` в "
+"інтерактивному запиті Python::"
 
 #: ../../library/email.parser.rst:291
 msgid "Additional notes"
-msgstr ""
+msgstr "Додаткові нотатки"
 
 #: ../../library/email.parser.rst:293
 msgid "Here are some notes on the parsing semantics:"
-msgstr ""
+msgstr "Ось деякі зауваження щодо семантики аналізу:"
 
 #: ../../library/email.parser.rst:295
 msgid ""
@@ -346,6 +485,10 @@ msgid ""
 "for :meth:`~email.message.EmailMessage.is_multipart`, and :meth:`~email."
 "message.EmailMessage.iter_parts` will yield an empty list."
 msgstr ""
+"Більшість повідомлень не типу \\ :mimetype:`multipart` аналізуються як один "
+"об’єкт повідомлення з корисним навантаженням рядка. Ці об’єкти повернуть "
+"``False`` для :meth:`~email.message.EmailMessage.is_multipart`, а :meth:"
+"`~email.message.EmailMessage.iter_parts` дасть порожній список."
 
 #: ../../library/email.parser.rst:300
 msgid ""
@@ -355,6 +498,11 @@ msgid ""
 "EmailMessage.is_multipart`, and :meth:`~email.message.EmailMessage."
 "iter_parts` will yield a list of subparts."
 msgstr ""
+"Усі повідомлення типу :mimetype:`multipart` аналізуватимуться як "
+"контейнерний об’єкт повідомлення зі списком об’єктів підповідомлення для їх "
+"корисного навантаження. Повідомлення зовнішнього контейнера поверне ``True`` "
+"для :meth:`~email.message.EmailMessage.is_multipart`, а :meth:`~email."
+"message.EmailMessage.iter_parts` дасть список підчастин."
 
 #: ../../library/email.parser.rst:306
 msgid ""
@@ -365,6 +513,12 @@ msgid ""
 "The single element yielded by :meth:`~email.message.EmailMessage.iter_parts` "
 "will be a sub-message object."
 msgstr ""
+"Більшість повідомлень із типом вмісту :mimetype:`message/\\*` (наприклад, :"
+"mimetype:`message/delivery-status` і :mimetype:`message/rfc822`) також "
+"аналізуватимуться як об’єкт-контейнер, що містить корисне навантаження "
+"списку довжиною 1. Їхній метод :meth:`~email.message.EmailMessage."
+"is_multipart` поверне значення ``True``. Єдиний елемент, отриманий :meth:"
+"`~email.message.EmailMessage.iter_parts`, буде об’єктом підповідомлення."
 
 #: ../../library/email.parser.rst:313
 msgid ""
@@ -377,3 +531,11 @@ msgid ""
 "MultipartInvariantViolationDefect` class in their *defects* attribute list.  "
 "See :mod:`email.errors` for details."
 msgstr ""
+"Деякі повідомлення, що не відповідають стандартам, можуть бути внутрішньо "
+"неузгодженими щодо їх :mimetype:`multipart`\\ -edness. Такі повідомлення "
+"можуть мати заголовок :mailheader:`Content-Type` типу :mimetype:`multipart`, "
+"але їхній метод :meth:`~email.message.EmailMessage.is_multipart` може "
+"повертати значення ``False``. Якщо такі повідомлення були проаналізовані за "
+"допомогою :class:`~email.parser.FeedParser`, вони матимуть екземпляр класу :"
+"class:`~email.errors.MultipartInvariantViolationDefect` у своєму списку "
+"атрибутів *defects*. Перегляньте :mod:`email.errors` для деталей."

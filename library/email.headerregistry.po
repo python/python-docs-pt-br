@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-10 16:06+0000\n"
+"POT-Creation-Date: 2025-07-11 17:17+0000\n"
 "PO-Revision-Date: 2022-11-05 17:22+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -46,6 +46,15 @@ msgid ""
 "for various header types, but also provides an extension mechanism for "
 "applications to add their own custom header types."
 msgstr ""
+"Заголовки представлені налаштованими підкласами :class:`str`. Конкретний "
+"клас, який використовується для представлення даного заголовка, "
+"визначається :attr:`~email.policy.EmailPolicy.header_factory` :mod:`~email."
+"policy`, що діє під час створення заголовків. У цьому розділі описано "
+"конкретну ``header_factory``, реалізовану пакетом електронної пошти для "
+"обробки :RFC:`5322` сумісних повідомлень електронної пошти, яка не тільки "
+"надає налаштовані об’єкти заголовків для різних типів заголовків, але також "
+"забезпечує механізм розширення для додатків для додавання своїх власні типи "
+"заголовків."
 
 #: ../../library/email.headerregistry.rst:25
 msgid ""
@@ -60,6 +69,16 @@ msgid ""
 "application program, but interfaces are provided for modifying the default "
 "behavior for use by more complex applications."
 msgstr ""
+"При використанні будь-якого з об’єктів політики, отриманих від :data:`~email."
+"policy.EmailPolicy`, усі заголовки створюються :class:`.HeaderRegistry` і "
+"мають :class:`.BaseHeader` як останній базовий клас. Кожен клас заголовка "
+"має додатковий базовий клас, який визначається типом заголовка. Наприклад, "
+"багато заголовків мають клас :class:`.UnstructuredHeader` як інший базовий "
+"клас. Спеціалізований другий клас для заголовка визначається назвою "
+"заголовка за допомогою таблиці пошуку, що зберігається в :class:`."
+"HeaderRegistry`. Усім цим керується прозоро для типової прикладної програми, "
+"але надаються інтерфейси для зміни типової поведінки для використання більш "
+"складними програмами."
 
 #: ../../library/email.headerregistry.rst:36
 msgid ""
@@ -68,6 +87,10 @@ msgid ""
 "HeaderRegistry`, and finally the support classes used to represent the data "
 "parsed from structured headers."
 msgstr ""
+"У розділах нижче спочатку описані базові класи заголовків та їх атрибути, "
+"потім API для зміни поведінки :class:`.HeaderRegistry` і, нарешті, класи "
+"підтримки, які використовуються для представлення даних, проаналізованих із "
+"структурованих заголовків."
 
 #: ../../library/email.headerregistry.rst:44
 msgid ""
@@ -75,10 +98,13 @@ msgid ""
 "policy.EmailPolicy.header_factory` call.  The string value of any header "
 "object is the *value* fully decoded to unicode."
 msgstr ""
+"*name* і *value* передаються в ``BaseHeader`` з виклику :attr:`~email.policy."
+"EmailPolicy.header_factory`. Рядкове значення будь-якого об’єкта заголовка є "
+"*значенням*, повністю декодованим у Юнікод."
 
 #: ../../library/email.headerregistry.rst:48
 msgid "This base class defines the following read-only properties:"
-msgstr ""
+msgstr "Цей базовий клас визначає наступні властивості лише для читання:"
 
 #: ../../library/email.headerregistry.rst:53
 msgid ""
@@ -86,6 +112,9 @@ msgid ""
 "exactly the value passed in the :attr:`~email.policy.EmailPolicy."
 "header_factory` call for *name*; that is, case is preserved."
 msgstr ""
+"Назва заголовка (частина поля перед \":\"). Це саме значення, передане у "
+"виклику :attr:`~email.policy.EmailPolicy.header_factory` для *name*; тобто "
+"регістр зберігається."
 
 #: ../../library/email.headerregistry.rst:61
 msgid ""
@@ -94,6 +123,11 @@ msgid ""
 "complete about detecting compliance issues.  See the :mod:`~email.errors` "
 "module for a discussion of the types of defects that may be reported."
 msgstr ""
+"Кортеж екземплярів :exc:`~email.errors.HeaderDefect`, які повідомляють про "
+"будь-які проблеми відповідності RFC, виявлені під час аналізу. Пакет "
+"електронної пошти намагається бути повним щодо виявлення проблем "
+"відповідності. Перегляньте модуль :mod:`~email.errors` для обговорення типів "
+"дефектів, про які можна повідомити."
 
 #: ../../library/email.headerregistry.rst:69
 msgid ""
@@ -102,6 +136,10 @@ msgid ""
 "attribute is ``None``; it is expected that specialized header classes will "
 "override this value as needed."
 msgstr ""
+"Максимальна кількість заголовків цього типу, які можуть мати однакову назву. "
+"Значення ``None`` означає необмежений. Значення ``BaseHeader`` для цього "
+"атрибута є ``None``; очікується, що спеціалізовані класи заголовків замінять "
+"це значення за потреби."
 
 #: ../../library/email.headerregistry.rst:74
 msgid ""
@@ -109,6 +147,9 @@ msgid ""
 "email library code and should not in general be called by application "
 "programs:"
 msgstr ""
+"``BaseHeader`` також надає наступний метод, який викликається кодом "
+"бібліотеки електронної пошти і, як правило, не повинен викликатися "
+"прикладними програмами:"
 
 #: ../../library/email.headerregistry.rst:80
 msgid ""
@@ -119,6 +160,12 @@ msgid ""
 "`~email.policy.EmailPolicy.utf8` is ``False``, non-ASCII data will be :rfc:"
 "`2047` encoded."
 msgstr ""
+"Повертає рядок, що містить символи :attr:`~email.policy.Policy.linesep`, "
+"необхідні для правильного згортання заголовка відповідно до *policy*. :attr:"
+"`~email.policy.Policy.cte_type` ``8bit`` буде розглядатися як ``7bit``, "
+"оскільки заголовки не можуть містити довільних двійкових даних. Якщо :attr:"
+"`~email.policy.EmailPolicy.utf8` має значення ``False``, дані, відмінні від "
+"ASCII, будуть закодовані :rfc:`2047`."
 
 #: ../../library/email.headerregistry.rst:88
 msgid ""
@@ -128,6 +175,11 @@ msgid ""
 "specialized class provide a :func:`classmethod` named ``parse``.  This "
 "method is called as follows::"
 msgstr ""
+"``BaseHeader`` сам по собі не може використовуватися для створення об’єкта "
+"заголовка. Він визначає протокол, з яким співпрацює кожен спеціалізований "
+"заголовок, щоб створити об’єкт заголовка. Зокрема, ``BaseHeader`` вимагає, "
+"щоб спеціалізований клас надавав :func:`classmethod` під назвою ``parse``. "
+"Цей метод називається наступним чином:"
 
 #: ../../library/email.headerregistry.rst:96
 msgid ""
@@ -141,6 +193,15 @@ msgid ""
 "valid unicode characters as well so that it can parse un-encoded header "
 "values."
 msgstr ""
+"``kwds`` — це словник, що містить один попередньо ініціалізований ключ, "
+"``defects``. ``дефекти`` – порожній список. Метод аналізу має додати всі "
+"виявлені дефекти до цього списку. Після повернення словник ``kwds`` *має* "
+"містити значення принаймні для ключів ``decoded`` і ``defects``. ``decoded`` "
+"має бути значенням рядка для заголовка (тобто, значення заголовка, повністю "
+"декодоване в Юнікод). Метод синтаксичного аналізу має припускати, що *рядок* "
+"може містити частини, закодовані перенесенням вмісту, але також має "
+"правильно обробляти всі дійсні символи Unicode, щоб він міг аналізувати "
+"незакодовані значення заголовка."
 
 #: ../../library/email.headerregistry.rst:105
 msgid ""
@@ -149,6 +210,10 @@ msgid ""
 "method if it wishes to set additional attributes beyond those provided by "
 "``BaseHeader`` itself.  Such an ``init`` method should look like this::"
 msgstr ""
+"Потім ``__new__`` ``BaseHeader`` створює екземпляр заголовка та викликає "
+"його метод ``init``. Спеціалізованому класу потрібно лише надати метод "
+"``init``, якщо він бажає встановити додаткові атрибути крім тих, що "
+"надаються самим ``BaseHeader``. Такий метод ``init`` має виглядати так:"
 
 #: ../../library/email.headerregistry.rst:114
 msgid ""
@@ -156,6 +221,9 @@ msgid ""
 "dictionary should be removed and handled, and the remaining contents of "
 "``kw`` (and ``args``) passed to the ``BaseHeader`` ``init`` method."
 msgstr ""
+"Тобто все зайве, що спеціалізований клас поміщає до словника ``kwds``, має "
+"бути видалено та оброблено, а решта вмісту ``kw`` (та ``args``) передано до "
+"``BaseHeader`` Метод ``init``."
 
 #: ../../library/email.headerregistry.rst:121
 msgid ""
@@ -164,6 +232,10 @@ msgid ""
 "The classic example of an unstructured header is the :mailheader:`Subject` "
 "header."
 msgstr ""
+"\"Неструктурований\" заголовок є типовим типом заголовка в :rfc:`5322`. Будь-"
+"який заголовок, який не має визначеного синтаксису, вважається "
+"неструктурованим. Класичним прикладом неструктурованого заголовка є "
+"заголовок :mailheader:`Subject`."
 
 #: ../../library/email.headerregistry.rst:126
 msgid ""
@@ -177,10 +249,20 @@ msgid ""
 "words.  Defects are registered in such cases, as well as defects for issues "
 "such as invalid characters within the encoded words or the non-encoded text."
 msgstr ""
+"У :rfc:`5322` неструктурований заголовок — це довільний текст у наборі "
+"символів ASCII. :rfc:`2047`, однак, має :rfc:`5322` сумісний механізм для "
+"кодування не-ASCII тексту як символів ASCII у значенні заголовка. Коли "
+"*значення*, що містить закодовані слова, передається конструктору, "
+"аналізатор ``UnstructuredHeader`` перетворює такі закодовані слова в юнікод, "
+"дотримуючись правил :rfc:`2047` для неструктурованого тексту. Синтаксичний "
+"аналізатор використовує евристику, щоб спробувати декодувати певні "
+"невідповідні закодовані слова. У таких випадках реєструються дефекти, а "
+"також такі дефекти, як недійсні символи в закодованих словах або "
+"незакодований текст."
 
 #: ../../library/email.headerregistry.rst:136
 msgid "This header type provides no additional attributes."
-msgstr ""
+msgstr "Цей тип заголовка не містить додаткових атрибутів."
 
 #: ../../library/email.headerregistry.rst:141
 msgid ""
@@ -189,11 +271,15 @@ msgid ""
 "recognizing a number of variant forms that are sometimes found \"in the "
 "wild\"."
 msgstr ""
+":rfc:`5322` визначає дуже специфічний формат для дат у заголовках "
+"електронних листів. Синтаксичний аналізатор ``DateHeader`` розпізнає цей "
+"формат дати, а також розпізнає низку варіантних форм, які іноді "
+"зустрічаються \"в дикій природі\"."
 
 #: ../../library/email.headerregistry.rst:146
 #: ../../library/email.headerregistry.rst:188
 msgid "This header type provides the following additional attributes:"
-msgstr ""
+msgstr "Цей тип заголовка надає такі додаткові атрибути:"
 
 #: ../../library/email.headerregistry.rst:150
 msgid ""
@@ -206,12 +292,23 @@ msgid ""
 "then :attr:`.datetime` will contain an aware ``datetime`` that uses :class:"
 "`datetime.timezone` to record the timezone offset."
 msgstr ""
+"Если значение заголовка можно распознать как допустимую дату той или иной "
+"формы, этот атрибут будет содержать экземпляр :class:`~datetime.datetime`, "
+"представляющий эту дату. Если часовой пояс входной даты указан как ``-0000`` "
+"(указывает, что он находится в формате UTC, но не содержит информации об "
+"исходном часовом поясе), то :attr:`.datetime` будет наивным :class:"
+"`~datetime .датавремя`. Если обнаружено определенное смещение часового пояса "
+"(включая ``+0000``), то :attr:`.datetime` будет содержать известное "
+"``datetime``, которое использует :class:`datetime.timezone` для записи "
+"смещения часового пояса."
 
 #: ../../library/email.headerregistry.rst:160
 msgid ""
 "The ``decoded`` value of the header is determined by formatting the "
 "``datetime`` according to the :rfc:`5322` rules; that is, it is set to::"
 msgstr ""
+"Значення ``decoded`` заголовка визначається форматуванням ``datetime`` "
+"відповідно до правил :rfc:`5322`; тобто встановлено::"
 
 #: ../../library/email.headerregistry.rst:165
 msgid ""
@@ -219,6 +316,9 @@ msgid ""
 "instance.  This means, for example, that the following code is valid and "
 "does what one would expect::"
 msgstr ""
+"Під час створення ``DateHeader`` *значення* може бути екземпляром :class:"
+"`~datetime.datetime`. Це означає, наприклад, що наступний код дійсний і "
+"виконує те, що можна очікувати:"
 
 #: ../../library/email.headerregistry.rst:171
 msgid ""
@@ -227,18 +327,27 @@ msgid ""
 "more useful is to use the :func:`~email.utils.localtime` function from the :"
 "mod:`~email.utils` module::"
 msgstr ""
+"Оскільки це проста ``datetime``, вона буде інтерпретована як мітка часу UTC, "
+"а результуюче значення матиме часовий пояс ``-0000``. Набагато кориснішим є "
+"використання функції :func:`~email.utils.localtime` з модуля :mod:`~email."
+"utils`::"
 
 #: ../../library/email.headerregistry.rst:178
 msgid ""
 "This example sets the date header to the current time and date using the "
 "current timezone offset."
 msgstr ""
+"У цьому прикладі в заголовку дати встановлюється поточний час і дата з "
+"використанням поточного зміщення часового поясу."
 
 #: ../../library/email.headerregistry.rst:184
 msgid ""
 "Address headers are one of the most complex structured header types. The "
 "``AddressHeader`` class provides a generic interface to any address header."
 msgstr ""
+"Заголовки адрес є одним із найскладніших структурованих типів заголовків. "
+"Клас ``AddressHeader`` забезпечує загальний інтерфейс для будь-якого "
+"заголовка адреси."
 
 #: ../../library/email.headerregistry.rst:193
 msgid ""
@@ -247,6 +356,10 @@ msgid ""
 "in this list as single-address ``Groups`` whose :attr:`~.Group.display_name` "
 "is ``None``."
 msgstr ""
+"Кортеж об’єктів :class:`.Group`, що кодує адреси та групи, знайдені у "
+"значенні заголовка. Адреси, які не є частиною групи, представлені в цьому "
+"списку як одноадресні ``Групи``, у яких :attr:`~.Group.display_name` має "
+"значення ``None``."
 
 #: ../../library/email.headerregistry.rst:201
 msgid ""
@@ -256,6 +369,10 @@ msgid ""
 "point where the group occurs in the value (that is, the list of addresses is "
 "\"flattened\" into a one dimensional list)."
 msgstr ""
+"Кортеж об’єктів :class:`.Address`, що кодує всі окремі адреси зі значення "
+"заголовка. Якщо значення заголовка містить будь-які групи, окремі адреси з "
+"групи включаються до списку в тому місці, де група зустрічається у значенні "
+"(тобто список адрес \"зрівнюється\" в одновимірний список)."
 
 #: ../../library/email.headerregistry.rst:207
 msgid ""
@@ -273,6 +390,11 @@ msgid ""
 "allows an address list to be copied with groups intact by using the list "
 "obtained from the ``groups`` attribute of the source header."
 msgstr ""
+"Для встановлення значення заголовка адреси можна використовувати список "
+"об’єктів :class:`.Address` і :class:`.Group` у будь-якій комбінації. Об’єкти "
+"``Групи``, у яких ``display_name`` є ``None``, інтерпретуватимуться як "
+"окремі адреси, що дозволяє скопіювати список адрес із недоторканими групами "
+"за допомогою списку, отриманого з атрибута ``groups`` вихідний заголовок."
 
 #: ../../library/email.headerregistry.rst:222
 msgid ""
@@ -287,6 +409,10 @@ msgid ""
 "RFC under the default :mod:`~email.policy`), accessing this attribute will "
 "result in a :exc:`ValueError`."
 msgstr ""
+"Єдина адреса, закодована значенням заголовка. Якщо значення заголовка "
+"насправді містить більше однієї адреси (що було б порушенням RFC за "
+"умовчанням :mod:`~email.policy`), доступ до цього атрибута призведе до :exc:"
+"`ValueError`."
 
 #: ../../library/email.headerregistry.rst:234
 msgid ""
@@ -294,6 +420,9 @@ msgid ""
 "``UniqueUnstructuredHeader``).  The only difference is that in the "
 "``Unique`` variant, :attr:`~.BaseHeader.max_count` is set to 1."
 msgstr ""
+"Багато з наведених вище класів також мають варіант ``Unique`` (наприклад, "
+"``UniqueUnstructuredHeader``). Єдина відмінність полягає в тому, що у "
+"варіанті ``Unique`` :attr:`~.BaseHeader.max_count` має значення 1."
 
 #: ../../library/email.headerregistry.rst:241
 msgid ""
@@ -303,19 +432,25 @@ msgid ""
 "per :rfc:`2045`, then the header object will have non-``None`` values for "
 "the following attributes:"
 msgstr ""
+"Насправді існує лише одне дійсне значення для заголовка :mailheader:`MIME-"
+"Version`, і це ``1.0``. Для майбутньої перевірки цей клас заголовка "
+"підтримує інші дійсні номери версій. Якщо номер версії має дійсне значення "
+"для :rfc:`2045`, тоді об’єкт заголовка матиме значення, відмінні від "
+"``None`` для таких атрибутів:"
 
 #: ../../library/email.headerregistry.rst:249
 msgid ""
 "The version number as a string, with any whitespace and/or comments removed."
 msgstr ""
+"Номер версії у вигляді рядка з видаленими пробілами та/або коментарями."
 
 #: ../../library/email.headerregistry.rst:254
 msgid "The major version number as an integer"
-msgstr ""
+msgstr "Основний номер версії як ціле число"
 
 #: ../../library/email.headerregistry.rst:258
 msgid "The minor version number as an integer"
-msgstr ""
+msgstr "Номер другорядної версії як ціле число"
 
 #: ../../library/email.headerregistry.rst:263
 msgid ""
@@ -324,20 +459,27 @@ msgid ""
 "take a list of supplemental parameters, which have a common format. This "
 "class serves as a base for all the MIME headers that take parameters."
 msgstr ""
+"Усі заголовки MIME починаються з префікса \"Content-\". Кожен конкретний "
+"заголовок має певне значення, описане в класі для цього заголовка. Деякі "
+"також можуть приймати список додаткових параметрів, які мають загальний "
+"формат. Цей клас служить основою для всіх заголовків MIME, які приймають "
+"параметри."
 
 #: ../../library/email.headerregistry.rst:270
 msgid "A dictionary mapping parameter names to parameter values."
-msgstr ""
+msgstr "Словник, що зіставляє назви параметрів зі значеннями параметрів."
 
 #: ../../library/email.headerregistry.rst:275
 msgid ""
 "A :class:`ParameterizedMIMEHeader` class that handles the :mailheader:"
 "`Content-Type` header."
 msgstr ""
+"Клас :class:`ParameterizedMIMEHeader`, який обробляє заголовок :mailheader:"
+"`Content-Type`."
 
 #: ../../library/email.headerregistry.rst:280
 msgid "The content type string, in the form ``maintype/subtype``."
-msgstr ""
+msgstr "Рядок типу вмісту у формі ``maintype/subtype``."
 
 #: ../../library/email.headerregistry.rst:289
 msgid ""
@@ -350,16 +492,20 @@ msgstr ""
 #: ../../library/email.headerregistry.rst:294
 msgid "``inline`` and ``attachment`` are the only valid values in common use."
 msgstr ""
+"``inline`` і ``attachment`` є єдиними допустимими значеннями, які широко "
+"використовуються."
 
 #: ../../library/email.headerregistry.rst:299
 msgid "Handles the :mailheader:`Content-Transfer-Encoding` header."
-msgstr ""
+msgstr "Обробляє заголовок :mailheader:`Content-Transfer-Encoding`."
 
 #: ../../library/email.headerregistry.rst:303
 msgid ""
 "Valid values are ``7bit``, ``8bit``, ``base64``, and ``quoted-printable``.  "
 "See :rfc:`2045` for more information."
 msgstr ""
+"Дійсні значення: ``7bit``, ``8bit``, ``base64`` і ``quoted-printable``. "
+"Перегляньте :rfc:`2045` для отримання додаткової інформації."
 
 #: ../../library/email.headerregistry.rst:312
 msgid ""
@@ -373,55 +519,64 @@ msgid ""
 "initialization.  *base_class* is always the last class in the generated "
 "class's ``__bases__`` list."
 msgstr ""
+"Це фабрика, яку використовує :class:`~email.policy.EmailPolicy` за "
+"замовчуванням. ``HeaderRegistry`` створює клас, який використовується для "
+"динамічного створення екземпляра заголовка, використовуючи *base_class* і "
+"спеціалізований клас, отриманий із реєстру, який він містить. Якщо дане ім’я "
+"заголовка не відображається в реєстрі, клас, визначений *default_class*, "
+"використовується як спеціалізований клас. Якщо *use_default_map* має "
+"значення ``True`` (за замовчуванням), стандартне зіставлення імен заголовків "
+"із класами копіюється до реєстру під час ініціалізації. *base_class* завжди "
+"є останнім класом у списку ``__bases__`` згенерованого класу."
 
 #: ../../library/email.headerregistry.rst:322
 msgid "The default mappings are:"
-msgstr ""
+msgstr "Відображення за замовчуванням:"
 
 #: ../../library/email.headerregistry.rst:0
 msgid "subject"
-msgstr ""
+msgstr "тема"
 
 #: ../../library/email.headerregistry.rst:324
 msgid "UniqueUnstructuredHeader"
-msgstr ""
+msgstr "UniqueUnstructuredHeader"
 
 #: ../../library/email.headerregistry.rst:0
 msgid "date"
-msgstr ""
+msgstr "дата"
 
 #: ../../library/email.headerregistry.rst:325
 #: ../../library/email.headerregistry.rst:327
 msgid "UniqueDateHeader"
-msgstr ""
+msgstr "UniqueDateHeader"
 
 #: ../../library/email.headerregistry.rst:0
 msgid "resent-date"
-msgstr ""
+msgstr "дата повторного відправлення"
 
 #: ../../library/email.headerregistry.rst:326
 msgid "DateHeader"
-msgstr ""
+msgstr "DateHeader"
 
 #: ../../library/email.headerregistry.rst:0
 msgid "orig-date"
-msgstr ""
+msgstr "дата виходу"
 
 #: ../../library/email.headerregistry.rst:0
 msgid "sender"
-msgstr ""
+msgstr "відправник"
 
 #: ../../library/email.headerregistry.rst:328
 msgid "UniqueSingleAddressHeader"
-msgstr ""
+msgstr "UniqueSingleAddressHeader"
 
 #: ../../library/email.headerregistry.rst:0
 msgid "resent-sender"
-msgstr ""
+msgstr "resent-sender"
 
 #: ../../library/email.headerregistry.rst:329
 msgid "SingleAddressHeader"
-msgstr ""
+msgstr "SingleAddressHeader"
 
 #: ../../library/email.headerregistry.rst:0
 msgid "to"
@@ -433,34 +588,34 @@ msgstr "to"
 #: ../../library/email.headerregistry.rst:336
 #: ../../library/email.headerregistry.rst:338
 msgid "UniqueAddressHeader"
-msgstr ""
+msgstr "UniqueAddressHeader"
 
 #: ../../library/email.headerregistry.rst:0
 msgid "resent-to"
-msgstr ""
+msgstr "обурюватися"
 
 #: ../../library/email.headerregistry.rst:331
 #: ../../library/email.headerregistry.rst:333
 #: ../../library/email.headerregistry.rst:335
 #: ../../library/email.headerregistry.rst:337
 msgid "AddressHeader"
-msgstr ""
+msgstr "AddressHeader"
 
 #: ../../library/email.headerregistry.rst:0
 msgid "cc"
-msgstr ""
+msgstr "cc"
 
 #: ../../library/email.headerregistry.rst:0
 msgid "resent-cc"
-msgstr ""
+msgstr "resent-cc"
 
 #: ../../library/email.headerregistry.rst:0
 msgid "bcc"
-msgstr ""
+msgstr "bcc"
 
 #: ../../library/email.headerregistry.rst:0
 msgid "resent-bcc"
-msgstr ""
+msgstr "resent-bcc"
 
 #: ../../library/email.headerregistry.rst:0
 msgid "from"
@@ -468,23 +623,23 @@ msgstr "from"
 
 #: ../../library/email.headerregistry.rst:0
 msgid "resent-from"
-msgstr ""
+msgstr "обурюватися-від"
 
 #: ../../library/email.headerregistry.rst:0
 msgid "reply-to"
-msgstr ""
+msgstr "відповідати на"
 
 #: ../../library/email.headerregistry.rst:0
 msgid "mime-version"
-msgstr ""
+msgstr "мім-версія"
 
 #: ../../library/email.headerregistry.rst:339
 msgid "MIMEVersionHeader"
-msgstr ""
+msgstr "MIMEVersionHeader"
 
 #: ../../library/email.headerregistry.rst:0
 msgid "content-type"
-msgstr ""
+msgstr "тип вмісту"
 
 #: ../../library/email.headerregistry.rst:340
 msgid "ContentTypeHeader"
@@ -500,11 +655,11 @@ msgstr "ContentDispositionHeader"
 
 #: ../../library/email.headerregistry.rst:0
 msgid "content-transfer-encoding"
-msgstr ""
+msgstr "кодування передачі вмісту"
 
 #: ../../library/email.headerregistry.rst:342
 msgid "ContentTransferEncodingHeader"
-msgstr ""
+msgstr "ContentTransferEncodingHeader"
 
 #: ../../library/email.headerregistry.rst:0
 msgid "message-id"
@@ -512,11 +667,11 @@ msgstr "message-id"
 
 #: ../../library/email.headerregistry.rst:343
 msgid "MessageIDHeader"
-msgstr ""
+msgstr "MessageIDHeader"
 
 #: ../../library/email.headerregistry.rst:345
 msgid "``HeaderRegistry`` has the following methods:"
-msgstr ""
+msgstr "``HeaderRegistry`` має такі методи:"
 
 #: ../../library/email.headerregistry.rst:350
 msgid ""
@@ -525,10 +680,15 @@ msgid ""
 "along with *base_class*, to create the class used to instantiate headers "
 "that match *name*."
 msgstr ""
+"*ім’я* — це ім’я заголовка, який буде зіставлено. У реєстрі його буде "
+"перетворено на нижній регістр. *cls* — це спеціалізований клас, який "
+"використовується разом із *base_class* для створення класу, що "
+"використовується для створення екземплярів заголовків, які відповідають "
+"*name*."
 
 #: ../../library/email.headerregistry.rst:358
 msgid "Construct and return a class to handle creating a *name* header."
-msgstr ""
+msgstr "Створіть і поверніть клас для створення заголовка *name*."
 
 #: ../../library/email.headerregistry.rst:363
 msgid ""
@@ -538,6 +698,11 @@ msgid ""
 "class's constructor, passing it the same argument list, and finally returns "
 "the class instance created thereby."
 msgstr ""
+"Отримує спеціальний заголовок, пов’язаний з *name*, із реєстру "
+"(використовуючи *default_class*, якщо *name* не відображається в реєстрі) і "
+"створює його з *base_class* для створення класу, викликає конструктор "
+"створеного класу, передаючи йому те саме список аргументів і, нарешті, "
+"повертає екземпляр класу, створений таким чином."
 
 #: ../../library/email.headerregistry.rst:370
 msgid ""
@@ -545,12 +710,18 @@ msgid ""
 "structured headers and can, in general, be used by an application program to "
 "construct structured values to assign to specific headers."
 msgstr ""
+"Наступні класи є класами, які використовуються для представлення даних, "
+"розібраних із структурованих заголовків, і можуть, загалом, "
+"використовуватися прикладною програмою для створення структурованих значень "
+"для призначення певним заголовкам."
 
 #: ../../library/email.headerregistry.rst:377
 msgid ""
 "The class used to represent an email address.  The general form of an "
 "address is::"
 msgstr ""
+"Клас, який використовується для представлення електронної адреси. Загальна "
+"форма адреси:"
 
 #: ../../library/email.headerregistry.rst:382
 msgid "or::"
@@ -561,6 +732,8 @@ msgid ""
 "where each part must conform to specific syntax rules spelled out in :rfc:"
 "`5322`."
 msgstr ""
+"де кожна частина має відповідати певним правилам синтаксису, викладеним у :"
+"rfc:`5322`."
 
 #: ../../library/email.headerregistry.rst:389
 msgid ""
@@ -571,6 +744,12 @@ msgid ""
 "will be property encoded when serialized.  However, per the RFCs, unicode is "
 "*not* allowed in the username portion of the address."
 msgstr ""
+"Для зручності можна вказати *addr_spec* замість *username* і *domain*, у "
+"цьому випадку *username* і *domain* будуть аналізуватися з *addr_spec*. "
+"*addr_spec* має бути належним чином цитованим рядком RFC; якщо це не "
+"``Address``, викличе помилку. Дозволяються символи Юнікоду, які будуть "
+"закодовані властивостями під час серіалізації. Однак, згідно з RFC, Юнікод "
+"*не* дозволений у частині імені користувача адреси."
 
 #: ../../library/email.headerregistry.rst:398
 msgid ""
@@ -578,20 +757,24 @@ msgid ""
 "If the address does not have a display name, this attribute will be an empty "
 "string."
 msgstr ""
+"Частина відображуваної назви адреси, якщо така є, без лапок. Якщо адреса не "
+"має відображуваного імені, цей атрибут буде порожнім рядком."
 
 #: ../../library/email.headerregistry.rst:404
 msgid "The ``username`` portion of the address, with all quoting removed."
-msgstr ""
+msgstr "Частина ``ім’я користувача`` адреси з видаленням лапок."
 
 #: ../../library/email.headerregistry.rst:408
 msgid "The ``domain`` portion of the address."
-msgstr ""
+msgstr "Частина ``domain`` адреси."
 
 #: ../../library/email.headerregistry.rst:412
 msgid ""
 "The ``username@domain`` portion of the address, correctly quoted for use as "
 "a bare address (the second form shown above).  This attribute is not mutable."
 msgstr ""
+"Частина адреси ``username@domain``, правильно взята в лапки для використання "
+"як чистої адреси (друга форма, показана вище). Цей атрибут не змінний."
 
 #: ../../library/email.headerregistry.rst:418
 msgid ""
@@ -599,6 +782,9 @@ msgid ""
 "`5322` rules, but with no Content Transfer Encoding of any non-ASCII "
 "characters."
 msgstr ""
+"Значення ``str`` об'єкта є адресою в цитатах відповідно до правил :rfc:"
+"`5322`, але без кодування передачі вмісту будь-яких символів, відмінних від "
+"ASCII."
 
 #: ../../library/email.headerregistry.rst:422
 msgid ""
@@ -606,12 +792,17 @@ msgid ""
 "``username`` and ``domain`` are both the empty string (or ``None``), then "
 "the string value of the ``Address`` is ``<>``."
 msgstr ""
+"Щоб підтримувати SMTP (:rfc:`5321`), ``Address`` обробляє один особливий "
+"випадок: якщо ``username`` і ``domain`` є порожнім рядком (або ``None``), "
+"тоді рядкове значення ``Address`` - ``<>``."
 
 #: ../../library/email.headerregistry.rst:429
 msgid ""
 "The class used to represent an address group.  The general form of an "
 "address group is::"
 msgstr ""
+"Клас, який використовується для представлення групи адрес. Загальна форма "
+"групи адрес:"
 
 #: ../../library/email.headerregistry.rst:434
 msgid ""
@@ -620,6 +811,10 @@ msgid ""
 "single addresses that are not part of a group by setting *display_name* to "
 "``None`` and providing a list of the single address as *addresses*."
 msgstr ""
+"Для зручності обробки списків адрес, які складаються з суміші груп і окремих "
+"адрес, ``Група`` також може використовуватися для представлення окремих "
+"адрес, які не є частиною групи, встановивши *display_name* на ``None`` і "
+"надання списку однієї адреси як *адрес*."
 
 #: ../../library/email.headerregistry.rst:441
 msgid ""
@@ -627,12 +822,16 @@ msgid ""
 "one ``Address`` in ``addresses``, then the ``Group`` represents a single "
 "address that is not in a group."
 msgstr ""
+"``display_name`` групи. Якщо значення ``None`` і в ``адресах`` є точно одна "
+"``Адреса``, тоді ``Група`` представляє одну адресу, яка не входить до групи."
 
 #: ../../library/email.headerregistry.rst:447
 msgid ""
 "A possibly empty tuple of :class:`.Address` objects representing the "
 "addresses in the group."
 msgstr ""
+"Можливо, порожній кортеж об’єктів :class:`.Address`, що представляє адреси в "
+"групі."
 
 #: ../../library/email.headerregistry.rst:452
 msgid ""
@@ -642,6 +841,11 @@ msgid ""
 "``addresses`` list, the ``str`` value will be the same as the ``str`` of "
 "that single ``Address``."
 msgstr ""
+"Значення ``str`` ``Group`` відформатовано відповідно до :rfc:`5322`, але без "
+"кодування передачі вмісту будь-яких символів, відмінних від ASCII. Якщо "
+"``display_name`` не має значення, а в списку ``addresses`` є одна "
+"``Address``, значення ``str`` буде таким самим, як ``str`` цього одного "
+"``Address``."
 
 #: ../../library/email.headerregistry.rst:460
 msgid "Footnotes"
@@ -651,3 +855,4 @@ msgstr "Notas de rodapé"
 msgid ""
 "Originally added in 3.3 as a :term:`provisional module <provisional package>`"
 msgstr ""
+"Спочатку додано в 3.3 як :term:`проміжний модуль <provisional package>`"
