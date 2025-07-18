@@ -4,12 +4,8 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Tiago Henrique <tiagohrm@gmail.com>, 2017
-# Raphael Mendonça, 2017
 # Claudio Rogerio Carvalho Filho <excriptbrasil@gmail.com>, 2017
-# Welington Carlos <wcarlos3@gmail.com>, 2019
 # Marco Rougeth <marco@rougeth.com>, 2020
-# Adorilson Bezerra <adorilson@gmail.com>, 2023
 # Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
@@ -17,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-20 17:30+0000\n"
+"POT-Creation-Date: 2025-07-11 17:51+0000\n"
 "PO-Revision-Date: 2017-02-16 23:38+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -3047,6 +3043,9 @@ msgid ""
 "immediately following ``B`` and then invokes the descriptor with the call: "
 "``A.__dict__['m'].__get__(obj, obj.__class__)``."
 msgstr ""
+"如果 ``a`` 是 :class:`super` 的一个实例，则绑定 ``super(B, obj).m()`` 会在 "
+"``obj.__class__.__mro__`` 中搜索 ``B`` 的直接上级基类 ``A`` 然后通过以下调用"
+"来发起调用描述器: ``A.__dict__['m'].__get__(obj, obj.__class__)``。"
 
 #: ../../reference/datamodel.rst:1786
 msgid ""
@@ -3987,6 +3986,38 @@ msgid ""
 "iterate through the object's keys; for sequences, it should iterate through "
 "the values."
 msgstr ""
+"Наступні методи можуть бути визначені для реалізації контейнерних об’єктів. "
+"Зазвичай контейнерами є :term:`послідовності <sequence>` (такі як :class:"
+"`списки <list>` або :class:`кортежі <tuple>`) або :term:`відображення "
+"<mapping>` (наприклад, :class:`словник <dict>`), але його представляють "
+"також інші контейнери. Перший набір методів використовується або для "
+"емуляції послідовності, або для емуляції відображення; різниця полягає в "
+"тому, що для послідовності дозволеними ключами мають бути цілі числа *k*, "
+"для яких ``0 <= k < N``, де *N* — довжина послідовності, або об’єкти :class:"
+"`slice`, які визначають діапазон предметів. Також рекомендується, щоб "
+"зіставлення передбачало методи :meth:`keys`, :meth:`values`, :meth:`items`, :"
+"meth:`get`, :meth:`clear`, :meth:`setdefault` , :meth:`pop`, :meth:"
+"`popitem`, :meth:`!copy` і :meth:`update` поводяться подібно до об’єктів "
+"стандарту Python :class:`dictionary <dict>`. Модуль :mod:`collections.abc` "
+"надає :class:`~collections.abc.MutableMapping` :term:`abstract base class`, "
+"щоб допомогти створити ці методи з базового набору :meth:`~object."
+"__getitem__` , :meth:`~object.__setitem__`, :meth:`~object.__delitem__` і :"
+"meth:`keys`. Змінні послідовності повинні надавати методи: :meth:`append`, :"
+"meth:`count`, :meth:`index`, :meth:`extend`, :meth:`insert`, :meth:`pop`, :"
+"meth:`remove`, :meth:`reverse` і :meth:`sort`, як стандартні об’єкти Python :"
+"class:`list`. Нарешті, типи послідовностей повинні реалізовувати додавання "
+"(що означає конкатенацію) і множення (що означає повторення) шляхом "
+"визначення методів :meth:`~object.__add__`, :meth:`~object.__radd__`, :meth:"
+"`~object.__iadd__` , :meth:`~object.__mul__`, :meth:`~object.__rmul__` і :"
+"meth:`~object.__imul__`, описані нижче; вони не повинні визначати інші "
+"числові оператори. Рекомендується, щоб і відображення, і послідовності "
+"реалізовували метод :meth:`~object.__contains__`, щоб забезпечити ефективне "
+"використання оператора ``in``; для відображень ``in`` має шукати ключі "
+"відображення; для послідовностей слід шукати значення. Крім того, "
+"рекомендується, щоб і відображення, і послідовності реалізовували метод :"
+"meth:`~object.__iter__`, щоб забезпечити ефективну ітерацію через контейнер; "
+"для відображень :meth:`__iter__` має виконувати ітерацію по ключах об’єкта; "
+"для послідовностей він повинен перебирати значення."
 
 #: ../../reference/datamodel.rst:2361
 msgid ""
@@ -4059,6 +4090,15 @@ msgid ""
 "term:`mapping` types, if *key* is missing (not in the container), :exc:"
 "`KeyError` should be raised."
 msgstr ""
+"Викликається для реалізації оцінки ``self[key]``. Для типів :term:`sequence` "
+"прийнятними ключами мають бути цілі числа та об’єкти зрізу. Зверніть увагу, "
+"що спеціальна інтерпретація негативних індексів (якщо клас бажає емулювати "
+"тип :term:`sequence`) залежить від методу :meth:`__getitem__`. Якщо *key* "
+"має невідповідний тип, може виникнути :exc:`TypeError`; якщо значення "
+"знаходиться за межами набору індексів для послідовності (після будь-якої "
+"спеціальної інтерпретації від’ємних значень), має бути викликано :exc:"
+"`IndexError`. Для типів :term:`mapping`, якщо *key* відсутній (не в "
+"контейнері), слід викликати :exc:`KeyError`."
 
 #: ../../reference/datamodel.rst:2416
 msgid ""
@@ -4565,6 +4605,9 @@ msgid ""
 "with :func:`types.coroutine` or :func:`asyncio.coroutine` are also "
 "awaitable, but they do not implement :meth:`~object.__await__`."
 msgstr ""
+"从带有 :func:`types.coroutine` 或 :func:`asyncio.coroutine` 装饰器的生成器返"
+"回的 :term:`generator iterator` 对象也属于可等待对象，但它们并未实现 :meth:"
+"`~object.__await__`。"
 
 #: ../../reference/datamodel.rst:2817
 msgid ""
