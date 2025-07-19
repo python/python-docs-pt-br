@@ -25,7 +25,7 @@ msgstr ""
 
 #: ../../library/test.rst:2
 msgid ":mod:`!test` --- Regression tests package for Python"
-msgstr ""
+msgstr ":mod:`!test` --- Pacote de Testes de Regressão do Python"
 
 #: ../../library/test.rst:10
 msgid ""
@@ -35,6 +35,11 @@ msgid ""
 "mentioned here can change or be removed without notice between releases of "
 "Python."
 msgstr ""
+"O pacote :mod:`test` é apenas para uso interno do Python. O mesmo está sendo "
+"documentado para o benefício dos principais desenvolvedores do Python. "
+"Qualquer uso deste pacote fora da biblioteca padrão do Python é "
+"desencorajado, pois, o código mencionado aqui pode ser alterado ou removido "
+"sem aviso prévio entre as versões do Python."
 
 #: ../../library/test.rst:18
 msgid ""
@@ -43,6 +48,10 @@ msgid ""
 "support` is used to enhance your tests while :mod:`test.regrtest` drives the "
 "testing suite."
 msgstr ""
+"O pacote :mod:`test` contém todos os testes de regressão do Python, bem como "
+"os módulos :mod:`test.support` e :mod:`test.regrtest`. :mod:`test.support` é "
+"utilizado para aprimorar seus testes enquanto o :mod:`test.regrtest` "
+"direciona a suite de testes."
 
 #: ../../library/test.rst:23
 msgid ""
@@ -52,26 +61,32 @@ msgid ""
 "tests are written using a \"traditional\" testing style that compares output "
 "printed to ``sys.stdout``; this style of test is considered deprecated."
 msgstr ""
+"Cada módulo no pacote :mod:`test` cujo nome começa com ``test_`` é um "
+"conjunto de testes para um módulo ou recurso específico. Todos os novos "
+"testes devem ser escritos usando o módulo :mod:`unittest` ou :mod:`doctest`. "
+"Alguns testes mais antigos são escritos usando um estilo de teste "
+"\"tradicional\" que compara a saída impressa a ``sys.stdout``. Este estilo "
+"de teste foi considerado descontinuado."
 
 #: ../../library/test.rst:32
 msgid "Module :mod:`unittest`"
-msgstr ""
+msgstr "Módulo :mod:`unittest`"
 
 #: ../../library/test.rst:33
 msgid "Writing PyUnit regression tests."
-msgstr ""
+msgstr "Escrevendo testes de regressão PyUnit."
 
 #: ../../library/test.rst:35
 msgid "Module :mod:`doctest`"
-msgstr ""
+msgstr "Módulo :mod:`doctest`"
 
 #: ../../library/test.rst:36
 msgid "Tests embedded in documentation strings."
-msgstr ""
+msgstr "Testes embutidos em Strings da documentação."
 
 #: ../../library/test.rst:42
 msgid "Writing Unit Tests for the :mod:`test` package"
-msgstr ""
+msgstr "Escrever testes unitários para o pacote :mod:`test`"
 
 #: ../../library/test.rst:44
 msgid ""
@@ -86,10 +101,21 @@ msgid ""
 "methods. This is done because documentation strings get printed out if they "
 "exist and thus what test is being run is not stated."
 msgstr ""
+"É preferível que os testes que usam o módulo :mod:`unittest` sigam algumas "
+"diretrizes. Uma é nomear o módulo de teste iniciando-o com ``test_`` e "
+"termine com o nome do módulo que está sendo testado. Os métodos de teste no "
+"módulo de teste deve começar com ``test_`` e terminar com uma descrição do "
+"que o método está testando. Isso é necessário para que os métodos sejam "
+"reconhecidos pelo driver de teste como métodos de teste. Além disso, na "
+"string de documentação para o método deve ser incluído. Um comentário (como "
+"os ``# Tests function returns only True or False``) deve ser usado para "
+"fornecer documentação para testar métodos. Isso é feito porque as strings de "
+"documentação são impressas se existem e, portanto, qual teste está sendo "
+"executado não é indicado."
 
 #: ../../library/test.rst:55
 msgid "A basic boilerplate is often used::"
-msgstr ""
+msgstr "Um boilerplate básico é muitas vezes usado::"
 
 #: ../../library/test.rst:57
 msgid ""
@@ -124,6 +150,36 @@ msgid ""
 "if __name__ == '__main__':\n"
 "    unittest.main()"
 msgstr ""
+"import unittest\n"
+"from test import support\n"
+"\n"
+"class MyTestCase1(unittest.TestCase):\n"
+"\n"
+"    # Só use setUp() e tearDown() se necessário\n"
+"\n"
+"    def setUp(self):\n"
+"        ... código para executar na preparação de testes ...\n"
+"\n"
+"    def tearDown(self):\n"
+"        ... código para executar a limpeza após os testes ...\n"
+"\n"
+"    def test_feature_one(self):\n"
+"        # Testa o recurso um.\n"
+"        ... código de teste ...\n"
+"\n"
+"    def test_feature_two(self):\n"
+"        # Testa o recurso dois.\n"
+"        ... código de teste ...\n"
+"\n"
+"    ... mais métodos de teste ...\n"
+"\n"
+"class MyTestCase2(unittest.TestCase):\n"
+"    ... mesma estrutura que MyTestCase1 ...\n"
+"\n"
+"... mais classes de teste ...\n"
+"\n"
+"if __name__ == '__main__':\n"
+"    unittest.main()"
 
 #: ../../library/test.rst:88
 msgid ""
@@ -131,12 +187,17 @@ msgid ""
 "regrtest`, on its own as a script that supports the :mod:`unittest` CLI, or "
 "via the ``python -m unittest`` CLI."
 msgstr ""
+"Este padrão de código permite que o conjunto de testes seja executado pelo :"
+"mod:`test.regrtest`, por conta própria, como um script que suporte o :mod:"
+"`unittest` CLI, ou através do ``python -m unittest`` CLI."
 
 #: ../../library/test.rst:92
 msgid ""
 "The goal for regression testing is to try to break code. This leads to a few "
 "guidelines to be followed:"
 msgstr ""
+"O objetivo do teste de regressão é tentar quebrar o código. Isso leva a "
+"algumas diretrizes que devemos seguir:"
 
 #: ../../library/test.rst:95
 msgid ""
@@ -144,6 +205,9 @@ msgid ""
 "This includes not just the external API that is to be presented to the "
 "outside world but also \"private\" code."
 msgstr ""
+"O conjunto de testes deve exercitar todas as classes, funções e constantes. "
+"Isso inclui não apenas a API externa que deve ser apresentada ao mundo "
+"exterior, mas também o código \"privado\"."
 
 #: ../../library/test.rst:99
 msgid ""
@@ -152,6 +216,10 @@ msgid ""
 "interface) is not complete enough to make sure all boundary and edge cases "
 "are tested."
 msgstr ""
+"Os testes de Whitebox (que examinam o código que está sendo testado quando "
+"os testes estão sendo gravados) são preferidos. O teste Blackbox (que testa "
+"apenas a interface do público de usuário) não é completo o suficiente para "
+"garantir que todos os casos de limite e extremos sejam testados."
 
 #: ../../library/test.rst:104
 msgid ""
@@ -159,12 +227,18 @@ msgid ""
 "sure that not only all valid values are acceptable but also that improper "
 "values are handled correctly."
 msgstr ""
+"Certifique-se de que todos os valores possíveis sejam testados, incluindo os "
+"inválidos. Isso garante que não apenas todos os valores válidos são aceitos, "
+"mas também, que os valores impróprios são tratados corretamente."
 
 #: ../../library/test.rst:108
 msgid ""
 "Exhaust as many code paths as possible. Test where branching occurs and thus "
 "tailor input to make sure as many different paths through the code are taken."
 msgstr ""
+"Esgote o maior número possível de caminhos de código. Teste onde ocorre a "
+"ramificação e, assim, personalize a entrada para garantir que tantos "
+"caminhos diferentes pelo código sejam tomados."
 
 #: ../../library/test.rst:111
 msgid ""
@@ -172,18 +246,25 @@ msgid ""
 "make sure that the error does not crop up again if the code is changed in "
 "the future."
 msgstr ""
+"Adicione um teste explícito para quaisquer bugs descobertos ao código "
+"testado. Isso garantirá que o erro não apareça novamente se o código for "
+"alterado no futuro."
 
 #: ../../library/test.rst:115
 msgid ""
 "Make sure to clean up after your tests (such as close and remove all "
 "temporary files)."
 msgstr ""
+"Certifique-se de limpar após seus testes (como fechar e remover todos os "
+"arquivos temporários)."
 
 #: ../../library/test.rst:118
 msgid ""
 "If a test is dependent on a specific condition of the operating system then "
 "verify the condition already exists before attempting the test."
 msgstr ""
+"Se um teste depende de uma condição específica do sistema operacional, então "
+"verifica se a condição já existe antes de tentar o teste."
 
 #: ../../library/test.rst:121
 msgid ""
@@ -191,6 +272,10 @@ msgid ""
 "minimizes external dependencies of tests and also minimizes possible "
 "anomalous behavior from side-effects of importing a module."
 msgstr ""
+"Importa o menor número de módulos possível e faça isso o mais rápido "
+"possível. Isso minimiza dependências externas de testes, e também minimiza "
+"possíveis comportamento anômalo dos efeitos colaterais da importação de um "
+"módulo."
 
 #: ../../library/test.rst:125
 msgid ""
@@ -198,6 +283,10 @@ msgid ""
 "small as what type of input is used. Minimize code duplication by "
 "subclassing a basic test class with a class that specifies the input::"
 msgstr ""
+"Tente maximizar a reutilização de código. Ocasionalmente, os testes variam "
+"em algo tão pequeno quanto o tipo de entrada é usado. Minimize a duplicação "
+"de código criando uma subclasse básica de testes com uma classe que "
+"especifica o input::"
 
 #: ../../library/test.rst:129
 msgid ""
@@ -217,6 +306,21 @@ msgid ""
 "class AcceptTuples(TestFuncAcceptsSequencesMixin, unittest.TestCase):\n"
 "    arg = (1, 2, 3)"
 msgstr ""
+"class TestFuncAcceptsSequencesMixin:\n"
+"\n"
+"    func = mySuperWhammyFunction\n"
+"\n"
+"    def test_func(self):\n"
+"        self.func(self.arg)\n"
+"\n"
+"class AcceptLists(TestFuncAcceptsSequencesMixin, unittest.TestCase):\n"
+"    arg = [1, 2, 3]\n"
+"\n"
+"class AcceptStrings(TestFuncAcceptsSequencesMixin, unittest.TestCase):\n"
+"    arg = 'abc'\n"
+"\n"
+"class AcceptTuples(TestFuncAcceptsSequencesMixin, unittest.TestCase):\n"
+"    arg = (1, 2, 3)"
 
 #: ../../library/test.rst:145
 msgid ""
@@ -226,18 +330,23 @@ msgid ""
 "data and so can't be run by itself, thus it does not inherit from :class:"
 "`unittest.TestCase`."
 msgstr ""
+"Ao usar este padrão, lembre-se que todas as classes que herdam de :class:"
+"`unittest.TestCase` são executadas como testes. A classe :class:`!"
+"TestFuncAcceptsSequencesMixin` no exemplo acima não tem nenhum dado e, "
+"portanto, não pode ser executada sozinha, portanto, ela não herda de :class:"
+"`unittest.TestCase`."
 
 #: ../../library/test.rst:153
 msgid "Test Driven Development"
-msgstr ""
+msgstr "Test Driven Development"
 
 #: ../../library/test.rst:154
 msgid "A book by Kent Beck on writing tests before code."
-msgstr ""
+msgstr "Um livro de Kent Beck sobre escrita de testes antes do código."
 
 #: ../../library/test.rst:160
 msgid "Running tests using the command-line interface"
-msgstr ""
+msgstr "Executando testes usando a interface de linha de comando"
 
 #: ../../library/test.rst:165
 msgid ""
@@ -254,6 +363,18 @@ msgid ""
 "test (:program:`python -m test test_spam`) will minimize output and only "
 "print whether the test passed or failed."
 msgstr ""
+"O pacote :mod:`test` pode ser executado como um script para conduzir o "
+"conjunto de testes de regressão do Python, graças à opção :option:`-m`: :"
+"program:`python -m test`. Nos bastidores, ele usa :mod:`test.regrtest`; a "
+"chamada :program:`python -m test.regrtest` usado nas versões anteriores do "
+"Python ainda funciona. Executar o script por si só começa a executar todos "
+"os testes de regressão no pacote :mod:`test`. Ele faz isso encontrando todos "
+"os módulos no pacote cujo nome começa com ``test_``, importando-os e "
+"executando a função :func:`test_main` se presente ou carregando os testes "
+"via unittest.TestLoader.loadTestsFromModule se ``test_main`` não existir. Os "
+"nomes dos testes a serem executados também podem ser passados para o script. "
+"Especificando um teste de regressão simples (:program:`python -m test "
+"test_spam`) minimizará saiba e imprima apenas se o teste passou ou falhou."
 
 #: ../../library/test.rst:178
 msgid ""
@@ -267,6 +388,16 @@ msgid ""
 "the ``audio`` and ``largefile`` resources. For a list of all resources and "
 "more command-line options, run :program:`python -m test -h`."
 msgstr ""
+"A execução de :mod:`test` permite definir diretamente quais recursos estão "
+"disponíveis para os testes usarem. Você faz isso usando a opção de linha de "
+"comando ``-u``. Especificar ``all`` como o valor para a opção ``-u`` ativa "
+"todos os recursos possíveis: :program:`python -m test -uall`. Se todos menos "
+"um recurso for desejado (um caso mais comum), uma lista separada por "
+"vírgulas de recursos que não são desejados pode ser listada após ``all``. O "
+"comando :program:`python -m test -uall,-audio,-largefile` executará :mod:"
+"`test` com todos os recursos, exceto os recursos ``audio`` e ``largefile``. "
+"Para obter uma lista de todos os recursos e mais opções de linha de comando, "
+"execute :program:`python -m test -h`."
 
 #: ../../library/test.rst:189
 msgid ""
@@ -276,22 +407,31 @@ msgid ""
 "program:`rt.bat` from your :file:`PCbuild` directory will run all regression "
 "tests."
 msgstr ""
+"Alguns outros meios para executar os testes de regressão dependem em qual "
+"plataforma os testes estão sendo executados. No Unix, você pode executar: "
+"programa: ' make test' no diretório de mais alto nível onde o Python foi "
+"construído. No Windows, executar: programa 'rt.bat' do seu diretório: file: "
+"'PCbuild' executará todos os testes de regressão."
 
 #: ../../library/test.rst:195
 msgid ""
 "Output is colorized by default and can be :ref:`controlled using environment "
 "variables <using-on-controlling-color>`."
 msgstr ""
+"A saída é colorizada por padrão e ela pode ser :ref:`controlada usando "
+"variáveis de ambiente <using-on-controlling-color>`."
 
 #: ../../library/test.rst:201
 msgid ":mod:`test.support` --- Utilities for the Python test suite"
-msgstr ""
+msgstr ":mod:`test.support` --- Utilitários para o conjunto de teste do Python"
 
 #: ../../library/test.rst:207
 msgid ""
 "The :mod:`test.support` module provides support for Python's regression test "
 "suite."
 msgstr ""
+"O módulo :mod:`test.support` fornece suporte para a suíte de testes de "
+"regressão do Python."
 
 #: ../../library/test.rst:212
 msgid ""
@@ -299,10 +439,14 @@ msgid ""
 "Python developers write tests.  The API of this module is subject to change "
 "without backwards compatibility concerns between releases."
 msgstr ""
+":mod: 'test.support' não é um módulo público. Ele está documentado aqui para "
+"ajudar desenvolvedores de Python a escreverem testes. A API desse módulo "
+"está sujeito a mudar sem problemas de compatibilidade entre as versões "
+"anteriores."
 
 #: ../../library/test.rst:217
 msgid "This module defines the following exceptions:"
-msgstr ""
+msgstr "Esse módulo define as seguintes exceções:"
 
 #: ../../library/test.rst:221
 msgid ""
@@ -310,6 +454,9 @@ msgid ""
 "mod:`unittest`\\ -based tests and :class:`unittest.TestCase`'s assertion "
 "methods."
 msgstr ""
+"Exceção a ser levantada quando um teste falha. Isto foi descontinuado em "
+"favor dos testes baseados em :mod:`unittest` e métodos de asserção de :class:"
+"`unittest.TestCase`."
 
 #: ../../library/test.rst:228
 msgid ""
@@ -317,10 +464,12 @@ msgid ""
 "network connection) is not available. Raised by the :func:`requires` "
 "function."
 msgstr ""
+"Subclasse de :exc:`unittest.SkipTest`. Levantada quando um recurso (como uma "
+"conexão de rede) não está disponível. Levantada pela função :func:`requires`."
 
 #: ../../library/test.rst:233
 msgid "The :mod:`test.support` module defines the following constants:"
-msgstr ""
+msgstr "O módulo :mod:`test.support` define as seguintes constantes:"
 
 #: ../../library/test.rst:237
 msgid ""
@@ -328,10 +477,13 @@ msgid ""
 "detailed information is desired about a running test. *verbose* is set by :"
 "mod:`test.regrtest`."
 msgstr ""
+"``True`` quando a saída detalhada está habilitada. Deve ser verificado "
+"quando informações mais detalhadas são desejadas sobre um teste em execução. "
+"*verbose* é definido por :mod:`test.regrtest`."
 
 #: ../../library/test.rst:244
 msgid "``True`` if the running interpreter is Jython."
-msgstr ""
+msgstr "``True`` se o interpretador em execução for Jython."
 
 #: ../../library/test.rst:249
 msgid "``True`` if ``sys.platform`` is ``android``."
@@ -358,12 +510,15 @@ msgstr ""
 #: ../../library/test.rst:274
 msgid "Path for shell if not on Windows; otherwise ``None``."
 msgstr ""
+"Caminho para o console se não estiver no Windows; por outro lado ``None``"
 
 #: ../../library/test.rst:279
 msgid ""
 "Timeout in seconds for tests using a network server listening on the network "
 "local loopback interface like ``127.0.0.1``."
 msgstr ""
+"Tempo limite em segundos para testes usando um servidor de rede escutando na "
+"interface de loopback local da rede como ``127.0.0.1``."
 
 #: ../../library/test.rst:282
 msgid ""
@@ -371,6 +526,9 @@ msgid ""
 "that the client and the server can run in different threads or even "
 "different processes."
 msgstr ""
+"O tempo limite é longo o suficiente para evitar a falha do teste: leva em "
+"consideração que o cliente e o servidor podem ser executados em diferentes "
+"threads ou mesmo processos diferentes."
 
 #: ../../library/test.rst:286
 msgid ""
@@ -378,24 +536,30 @@ msgid ""
 "`~socket.socket.recv` and :meth:`~socket.socket.send` methods of :class:"
 "`socket.socket`."
 msgstr ""
+"O tempo limite deve ser longo o suficiente para os métodos :meth:`~socket."
+"socket.connect`, :meth:`~socket.socket.recv` e :meth:`~socket.socket.send` "
+"de :class:`socket.socket`."
 
 #: ../../library/test.rst:290
 msgid "Its default value is 5 seconds."
-msgstr ""
+msgstr "Seu valor padrão é 5 segundos."
 
 #: ../../library/test.rst:292
 msgid "See also :data:`INTERNET_TIMEOUT`."
-msgstr ""
+msgstr "Veja também :data:`INTERNET_TIMEOUT`."
 
 #: ../../library/test.rst:297
 msgid "Timeout in seconds for network requests going to the internet."
 msgstr ""
+"Tempo limite em segundos para solicitações de rede indo para a Internet."
 
 #: ../../library/test.rst:299
 msgid ""
 "The timeout is short enough to prevent a test to wait for too long if the "
 "internet request is blocked for whatever reason."
 msgstr ""
+"O tempo limite é curto o suficiente para evitar que um teste espere muito "
+"tempo se a requisição da Internet for bloqueada por qualquer motivo."
 
 #: ../../library/test.rst:302
 msgid ""
@@ -403,38 +567,47 @@ msgid ""
 "failed, but skip the test instead: see :func:`~test.support.socket_helper."
 "transient_internet`."
 msgstr ""
+"Normalmente, um tempo limite usando :data:`INTERNET_TIMEOUT` não deve marcar "
+"um teste como falhado, mas ignorá-lo: veja :func:`~test.support."
+"socket_helper.transient_internet`."
 
 #: ../../library/test.rst:306
 msgid "Its default value is 1 minute."
-msgstr ""
+msgstr "Seu valor padrão é 1 minuto."
 
 #: ../../library/test.rst:308
 msgid "See also :data:`LOOPBACK_TIMEOUT`."
-msgstr ""
+msgstr "Veja também :data:`LOOPBACK_TIMEOUT`."
 
 #: ../../library/test.rst:313
 msgid ""
 "Timeout in seconds to mark a test as failed if the test takes \"too long\"."
 msgstr ""
+"Tempo limite em segundos para marcar um teste como falho se o teste demorar "
+"\"muito tempo\"."
 
 #: ../../library/test.rst:315
 msgid ""
 "The timeout value depends on the regrtest ``--timeout`` command line option."
 msgstr ""
+"O valor do tempo limite depende da opção da linha de comando regrtest ``--"
+"timeout``."
 
 #: ../../library/test.rst:317
 msgid ""
 "If a test using :data:`SHORT_TIMEOUT` starts to fail randomly on slow "
 "buildbots, use :data:`LONG_TIMEOUT` instead."
 msgstr ""
+"Se um teste usando :data:`SHORT_TIMEOUT` começar a falhar aleatoriamente em "
+"buildbots lentos, use :data:`LONG_TIMEOUT`."
 
 #: ../../library/test.rst:320
 msgid "Its default value is 30 seconds."
-msgstr ""
+msgstr "Seu valor padrão é 30 segundos."
 
 #: ../../library/test.rst:325
 msgid "Timeout in seconds to detect when a test hangs."
-msgstr ""
+msgstr "Tempo limite em segundos para detectar quando um teste trava."
 
 #: ../../library/test.rst:327
 msgid ""
@@ -443,54 +616,67 @@ msgid ""
 "\"too long\".  The timeout value depends on the regrtest ``--timeout`` "
 "command line option."
 msgstr ""
+"É longo o suficiente para reduzir o risco de falha de teste nos buildbots "
+"Python mais lentos. Não deve ser usado para marcar um teste como reprovado "
+"se o teste demorar \"muito tempo\". O valor do tempo limite depende da opção "
+"de linha de comando regrtest ``--timeout``."
 
 #: ../../library/test.rst:332
 msgid "Its default value is 5 minutes."
-msgstr ""
+msgstr "Seu valor padrão é 5 minutos."
 
 #: ../../library/test.rst:334
 msgid ""
 "See also :data:`LOOPBACK_TIMEOUT`, :data:`INTERNET_TIMEOUT` and :data:"
 "`SHORT_TIMEOUT`."
 msgstr ""
+"Veja também :data:`LOOPBACK_TIMEOUT`, :data:`INTERNET_TIMEOUT` e :data:"
+"`SHORT_TIMEOUT`."
 
 #: ../../library/test.rst:340
 msgid "Set when tests can be skipped when they are not useful for PGO."
 msgstr ""
+"Definido quando os testes podem ser ignorados quando não são úteis para PGO."
 
 #: ../../library/test.rst:345
 msgid ""
 "A constant that is likely larger than the underlying OS pipe buffer size, to "
 "make writes blocking."
 msgstr ""
+"Uma constante que provavelmente é maior que o tamanho do buffer de canal do "
+"sistema operacional subjacente, para fazer o bloqueio de escritas."
 
 #: ../../library/test.rst:351
 msgid ""
 "``True`` if Python was built with the :c:macro:`Py_DEBUG` macro defined, "
 "that is, if Python was :ref:`built in debug mode <debug-build>`."
 msgstr ""
+"``True`` se o Python foi criado com a macro :c:macro:`Py_DEBUG` definida, ou "
+"seja, se o Python foi :ref:`criado no modo de depuração <debug-build>`."
 
 #: ../../library/test.rst:360
 msgid ""
 "A constant that is likely larger than the underlying OS socket buffer size, "
 "to make writes blocking."
 msgstr ""
+"Uma constante que provavelmente é maior que o tamanho do buffer de soquete "
+"do sistema operacional subjacente, para fazer o bloqueio de escritas."
 
 #: ../../library/test.rst:366
 msgid "Set to the top level directory that contains :mod:`test.support`."
-msgstr ""
+msgstr "Define o diretório de mais alto nível que contém :mod:`test.support`."
 
 #: ../../library/test.rst:371
 msgid "Set to the top level directory for the test package."
-msgstr ""
+msgstr "Define o diretório de mais alto nível para o pacote de teste."
 
 #: ../../library/test.rst:376
 msgid "Set to the ``data`` directory within the test package."
-msgstr ""
+msgstr "Define o diretório ``data`` de dentro do pacote de teste."
 
 #: ../../library/test.rst:381
 msgid "Set to :data:`sys.maxsize` for big memory tests."
-msgstr ""
+msgstr "Define :data:`sys.maxsize` para grandes testes de memória."
 
 #: ../../library/test.rst:386
 msgid ""
@@ -554,7 +740,7 @@ msgstr ""
 
 #: ../../library/test.rst:441
 msgid "The :mod:`test.support` module defines the following functions:"
-msgstr ""
+msgstr "O módulo :mod:`test.support` define as seguintes funções:"
 
 #: ../../library/test.rst:445
 msgid "Run the loop body until ``break`` stops the loop."
@@ -694,40 +880,52 @@ msgid ""
 "Set the values for :data:`max_memuse` and :data:`real_max_memuse` for big "
 "memory tests."
 msgstr ""
+"Define os valores para :data:`max_memuse` e :data:`real_max_memuse` para "
+"grandes testes de memória."
 
 #: ../../library/test.rst:561
 msgid ""
 "Store the value from *stdout*.  It is meant to hold the stdout at the time "
 "the regrtest began."
 msgstr ""
+"Armazena o valor de *stdout*. Destina-se a manter o stdout no momento em que "
+"o registro começou."
 
 #: ../../library/test.rst:567
 msgid ""
 "Return the original stdout set by :func:`record_original_stdout` or ``sys."
 "stdout`` if it's not set."
 msgstr ""
+"Retorna o stdout original definido por :func:`record_original_stdout` ou "
+"``sys.stdout`` se não estiver definido."
 
 #: ../../library/test.rst:573
 msgid ""
 "Return a list of command line arguments reproducing the current settings in "
 "``sys.flags`` and ``sys.warnoptions``."
 msgstr ""
+"Retorna uma lista de argumentos de linha de comando reproduzindo as "
+"configurações em ``sys.flags`` e ``sys.warnoptions``."
 
 #: ../../library/test.rst:579
 msgid ""
 "Return a list of command line arguments reproducing the current optimization "
 "settings in ``sys.flags``."
 msgstr ""
+"Retorna a lista de argumentos da linha de comando reproduzindo as "
+"configurações de otimização atuais em ``sys.flags``."
 
 #: ../../library/test.rst:587
 msgid ""
 "A context managers that temporarily replaces the named stream with :class:"
 "`io.StringIO` object."
 msgstr ""
+"Um gerenciador de contexto que substitui temporariamente o fluxo nomeado "
+"pelo objeto :class:`io.StringIO`."
 
 #: ../../library/test.rst:590
 msgid "Example use with output streams::"
-msgstr ""
+msgstr "Exemplo do uso com fluxos de saída::"
 
 #: ../../library/test.rst:592
 msgid ""
@@ -740,7 +938,7 @@ msgstr ""
 
 #: ../../library/test.rst:598
 msgid "Example use with input stream::"
-msgstr ""
+msgstr "Exemplo de uso com fluxo de entrada::"
 
 #: ../../library/test.rst:600
 msgid ""
@@ -755,6 +953,7 @@ msgstr ""
 #: ../../library/test.rst:610
 msgid "A context manager that temporary disables :mod:`faulthandler`."
 msgstr ""
+"Um gerenciador de contexto que desativa temporariamente :mod:`faulthandler`."
 
 #: ../../library/test.rst:615
 msgid ""
@@ -763,6 +962,10 @@ msgid ""
 "that ``__del__`` methods may be called later than expected and weakrefs may "
 "remain alive for longer than expected."
 msgstr ""
+"Força a coleta de tantos objetos quanto possível. Isso é necessário porque a "
+"desalocação oportuna não é garantida pelo coletor de lixo. Isso significa "
+"que os métodos ``__del__`` podem ser chamados mais tarde do que o esperado e "
+"as referência fraca podem permanecer ativas por mais tempo do que o esperado."
 
 #: ../../library/test.rst:623
 msgid ""
@@ -918,6 +1121,8 @@ msgid ""
 "Decorator for skipping tests on the free-threaded build.  If the :term:`GIL` "
 "is disabled, the test is skipped."
 msgstr ""
+"Decorador para pular testes na construção com threads livres. Se a :term:"
+"`GIL` estiver desabilitada, o teste será ignorado."
 
 #: ../../library/test.rst:766
 msgid "Decorator for skipping tests on non-IEEE 754 platforms."
@@ -1003,7 +1208,7 @@ msgstr ""
 
 #: ../../library/test.rst:851
 msgid "Decorator for tests that fill the address space."
-msgstr ""
+msgstr "Decorador para testes que preeenche o espaço do endereço."
 
 #: ../../library/test.rst:856
 msgid ""
@@ -1026,7 +1231,7 @@ msgstr ""
 
 #: ../../library/test.rst:875
 msgid "Open *url*.  If open fails, raises :exc:`TestFailed`."
-msgstr ""
+msgstr "Abre *url*. Se falhar em abrir, levanta :exc:`TestFailed`."
 
 #: ../../library/test.rst:880
 msgid ""
@@ -1164,7 +1369,7 @@ msgstr ""
 
 #: ../../library/test.rst:993 ../../library/test.rst:1623
 msgid "Example use::"
-msgstr ""
+msgstr "Exemplo de uso::"
 
 #: ../../library/test.rst:995
 msgid ""
@@ -1220,6 +1425,9 @@ msgid ""
 "On Windows, it disables Windows Error Reporting dialogs using `SetErrorMode "
 "<https://msdn.microsoft.com/en-us/library/windows/desktop/ms680621.aspx>`_."
 msgstr ""
+"No Windows, desativa as caixas de diálogo Relatório de Erros do Windows "
+"usando SetErrorMode <https://msdn.microsoft.com/en-us/library/windows/"
+"desktop/ms680621.aspx>_."
 
 #: ../../library/test.rst:1051
 msgid ""
@@ -1251,11 +1459,12 @@ msgstr ""
 
 #: ../../library/test.rst:1078
 msgid "Try to match a single dict with the supplied arguments."
-msgstr ""
+msgstr "Tenta corresponder um único dicionário com os argumentos fornecidos."
 
 #: ../../library/test.rst:1083
 msgid "Try to match a single stored value (*dv*) with a supplied value (*v*)."
 msgstr ""
+"Tente combinar um único valor armazenado (*dv*) com um valor fornecido (*v*)."
 
 #: ../../library/test.rst:1087
 msgid ":mod:`test.support.socket_helper` --- Utilities for socket tests"
@@ -1439,6 +1648,9 @@ msgid ""
 "*script_basename*. If *omit_suffix* is ``False``, append ``.py`` to the "
 "name.  Return the full script path."
 msgstr ""
+"Cria um script contendo *source* no caminho *script_dir* e "
+"*script_basename*. Se *omit_suffix* ``False``, acrescente ``.py`` ao nome. "
+"Retorna o caminho completo do script."
 
 #: ../../library/test.rst:1254
 msgid ""
@@ -1446,12 +1658,17 @@ msgid ""
 "contains the files in *script_name*. *name_in_zip* is the archive name. "
 "Return a tuple containing ``(full path, full path of archive name)``."
 msgstr ""
+"Cria um arquivo zip em *zip_dir* e *zip_basename* com a extensão ``zip`` que "
+"contém os arquivos em *script_name*. *name_in_zip* é o nome do arquivo. "
+"Retorna uma tupla contendo ``(full path, full path of archive name)``."
 
 #: ../../library/test.rst:1261
 msgid ""
 "Create a directory named *pkg_dir* containing an ``__init__`` file with "
 "*init_source* as its contents."
 msgstr ""
+"Cria um diretório nomeado *pkg_dir* contendo um arquivo ``__init__`` com "
+"*init_source* como seus conteúdos."
 
 #: ../../library/test.rst:1268
 msgid ""
@@ -1467,6 +1684,8 @@ msgid ""
 ":mod:`test.support.bytecode_helper` --- Support tools for testing correct "
 "bytecode generation"
 msgstr ""
+":mod:`test.support.bytecode_helper` --- Ferramentas de suporte para testar a "
+"geração correta de bytecode"
 
 #: ../../library/test.rst:1281
 msgid ""
@@ -1476,7 +1695,7 @@ msgstr ""
 
 #: ../../library/test.rst:1286
 msgid "The module defines the following class:"
-msgstr ""
+msgstr "O módulo define a seguinte classe:"
 
 #: ../../library/test.rst:1290
 msgid "This class has custom assertion methods for inspecting bytecode."
@@ -1551,19 +1770,19 @@ msgstr ""
 
 #: ../../library/test.rst:1361
 msgid "``exc_type``"
-msgstr ""
+msgstr "``exc_type``"
 
 #: ../../library/test.rst:1362
 msgid "``exc_value``"
-msgstr ""
+msgstr "``exc_value``"
 
 #: ../../library/test.rst:1363
 msgid "``exc_traceback``"
-msgstr ""
+msgstr "``exc_traceback``"
 
 #: ../../library/test.rst:1364
 msgid "``thread``"
-msgstr ""
+msgstr "``thread``"
 
 #: ../../library/test.rst:1366
 msgid "See :func:`threading.excepthook` documentation."
@@ -1624,6 +1843,9 @@ msgid ""
 "system encoding in strict mode.  It may be ``None`` if it's not possible to "
 "generate such a filename."
 msgstr ""
+"Define o nome de arquivo (tipo str) que não pode ser codificado pela "
+"codificação do sistema de arquivos no modo estrito. Ele pode ser ``None`` se "
+"não for possível gerar como um nome de arquivo."
 
 #: ../../library/test.rst:1431
 msgid ""
@@ -1631,10 +1853,13 @@ msgid ""
 "system encoding in strict mode.  It may be ``None`` if it's not possible to "
 "generate such a filename."
 msgstr ""
+"Define o nome de arquivo (tipo str) que não pode ser codificado pela "
+"codificação do sistema de arquivos no modo estrito. Ele pode ser ``None`` se "
+"não for possível ser gerado com um nome de arquivo."
 
 #: ../../library/test.rst:1438
 msgid "Set to a non-ASCII name for a temporary file."
-msgstr ""
+msgstr "Define um nome não-ASCII para o arquivo temporário."
 
 #: ../../library/test.rst:1443
 msgid ""
@@ -1647,7 +1872,7 @@ msgstr ""
 
 #: ../../library/test.rst:1449
 msgid "Added dictionary interface."
-msgstr ""
+msgstr "Adicionada uma interface para dicionário."
 
 #: ../../library/test.rst:1455
 msgid ""
@@ -1661,6 +1886,8 @@ msgid ""
 "Temporarily set the environment variable ``envvar`` to the value of "
 "``value``."
 msgstr ""
+"Temporariamente define a variável de ambiente ``envvar`` para o valor "
+"``value``."
 
 #: ../../library/test.rst:1469
 msgid "Temporarily unset one or more environment variables."
@@ -1698,7 +1925,7 @@ msgstr ""
 
 #: ../../library/test.rst:1504
 msgid "Count the number of open file descriptors."
-msgstr ""
+msgstr "Conta o número de descritores de arquivos abertos."
 
 #: ../../library/test.rst:1509
 msgid "Return ``True`` if the file system for *directory* is case-insensitive."
@@ -1709,6 +1936,8 @@ msgid ""
 "Create an invalid file descriptor by opening and closing a temporary file, "
 "and returning its descriptor."
 msgstr ""
+"Cria um descritor de arquivo inválido abrindo e fechando um arquivo "
+"temporário e retornando seu descritor."
 
 #: ../../library/test.rst:1520
 msgid ""
@@ -1728,16 +1957,19 @@ msgstr ""
 #: ../../library/test.rst:1536
 msgid "A decorator for running tests that require support for symbolic links."
 msgstr ""
+"Um decorador para executar testes que requerem suporte para links simbólicos."
 
 #: ../../library/test.rst:1541
 msgid "A decorator for running tests that require support for xattr."
-msgstr ""
+msgstr "Um decorador para execução de testes que requerem suporte para xattr."
 
 #: ../../library/test.rst:1546
 msgid ""
 "A context manager that temporarily creates a new directory and changes the "
 "current working directory (CWD)."
 msgstr ""
+"Um gerenciador de contexto que cria temporariamente um novo diretório e "
+"altera o diretório de trabalho atual (CWD)."
 
 #: ../../library/test.rst:1549
 msgid ""
@@ -1753,12 +1985,17 @@ msgid ""
 "an error is raised.  Otherwise, only a warning is raised and the original "
 "CWD is used."
 msgstr ""
+"Se *quiet* é ``False`` e ele não possibilita criar ou alterar o CWD, um erro "
+"é levantado. Por outro lado, somente um aviso surge e o CWD original é "
+"utilizado."
 
 #: ../../library/test.rst:1561
 msgid ""
 "A context manager that creates a temporary directory at *path* and yields "
 "the directory."
 msgstr ""
+"Um gerenciador de contexto que cria um diretório temporário no *path* e "
+"produz o diretório."
 
 #: ../../library/test.rst:1564
 msgid ""
@@ -1771,6 +2008,7 @@ msgstr ""
 #: ../../library/test.rst:1572
 msgid "A context manager that temporarily sets the process umask."
 msgstr ""
+"Um gerenciador de contexto que temporariamente define o umask do processo."
 
 #: ../../library/test.rst:1577
 msgid ""
@@ -1862,7 +2100,7 @@ msgstr ""
 
 #: ../../library/test.rst:1651
 msgid "Return a copy of :data:`sys.modules`."
-msgstr ""
+msgstr "Retorna a cópia de :data:`sys.modules`."
 
 #: ../../library/test.rst:1656
 msgid ""
@@ -1872,7 +2110,7 @@ msgstr ""
 
 #: ../../library/test.rst:1662
 msgid "Delete *name* from ``sys.modules``."
-msgstr ""
+msgstr "Exclui o *name* de ``sys.modules``."
 
 #: ../../library/test.rst:1667
 msgid ""
@@ -1980,7 +2218,7 @@ msgstr ""
 
 #: ../../library/test.rst:1760
 msgid "If no arguments are specified, it defaults to::"
-msgstr ""
+msgstr "Se nenhum argumento é especificado, o padrão é::"
 
 #: ../../library/test.rst:1762
 msgid "check_warnings((\"\", Warning), quiet=True)"
@@ -1988,7 +2226,7 @@ msgstr ""
 
 #: ../../library/test.rst:1764
 msgid "In this case all warnings are caught and no errors are raised."
-msgstr ""
+msgstr "Nesse caso, todos os avisos são capturados e nenhum erro é gerado."
 
 #: ../../library/test.rst:1766
 msgid ""
@@ -2010,7 +2248,7 @@ msgstr ""
 
 #: ../../library/test.rst:1778
 msgid "The context manager is designed to be used like this::"
-msgstr ""
+msgstr "O gerenciador de contexto é desenhado para ser utilizado dessa forma::"
 
 #: ../../library/test.rst:1780
 msgid ""
@@ -2025,6 +2263,8 @@ msgid ""
 "In this case if either warning was not raised, or some other warning was "
 "raised, :func:`check_warnings` would raise an error."
 msgstr ""
+"No caso, se um aviso não foi levantado, ou algum outro aviso não foi "
+"levantado, :func:`check_warnings` deveria aparecer como um erro."
 
 #: ../../library/test.rst:1788
 msgid ""
@@ -2050,10 +2290,12 @@ msgid ""
 "Here all warnings will be caught, and the test code tests the captured "
 "warnings directly."
 msgstr ""
+"Aqui todos os avisos serão capturados e o código de teste testa os avisos "
+"diretamente capturados."
 
 #: ../../library/test.rst:1805
 msgid "New optional arguments *filters* and *quiet*."
-msgstr ""
+msgstr "Novos argumentos opcionais *filters* e *quiet*."
 
 #: ../../library/test.rst:1811
 msgid ""

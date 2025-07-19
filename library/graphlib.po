@@ -27,16 +27,19 @@ msgstr ""
 msgid ""
 ":mod:`!graphlib` --- Functionality to operate with graph-like structures"
 msgstr ""
+":mod:`!graphlib` --- Funcionalidade para operar com estruturas do tipo grafo"
 
 #: ../../library/graphlib.rst:8
 msgid "**Source code:** :source:`Lib/graphlib.py`"
-msgstr ""
+msgstr "**Código-fonte:** :source:`Lib/graphlib.py`"
 
 #: ../../library/graphlib.rst:20
 msgid ""
 "Provides functionality to topologically sort a graph of :term:`hashable` "
 "nodes."
 msgstr ""
+"Fornece funcionalidade para classificar topologicamente um grafo de nós :"
+"term:`hasheáveis <hasheável>`."
 
 #: ../../library/graphlib.rst:22
 msgid ""
@@ -49,6 +52,15 @@ msgid ""
 "topological ordering is possible if and only if the graph has no directed "
 "cycles, that is, if it is a directed acyclic graph."
 msgstr ""
+"Uma ordem topológica é uma ordenação linear dos vértices em um grafo, de "
+"modo que para cada aresta direcionada u -> v do vértice u ao vértice v, o "
+"vértice u vem antes do vértice v na ordenação. Por exemplo, os vértices do "
+"grafo podem representar tarefas a serem executadas e as arestas podem "
+"representar restrições de que uma tarefa deve ser executada antes de outra; "
+"neste exemplo, uma ordem topológica é apenas uma sequência válida para as "
+"tarefas. Uma ordenação topológica completa é possível se e somente se o "
+"grafo não tiver ciclos direcionados, ou seja, se for um grafo acíclico "
+"direcionado."
 
 #: ../../library/graphlib.rst:31
 msgid ""
@@ -58,26 +70,36 @@ msgid ""
 "nodes that have edges that point to the value in the key). Additional nodes "
 "can be added to the graph using the :meth:`~TopologicalSorter.add` method."
 msgstr ""
+"Se o argumento opcional *graph* for fornecido, ele deverá ser um dicionário "
+"que represente um grafo acíclico direcionado no qual as chaves sejam nós e "
+"os valores sejam iteráveis de todos os predecessores desse nó no grafo (os "
+"nós que possuem bordas que apontam para o valor na chave). Nós adicionais "
+"podem ser adicionados ao grafo usando o método :meth:`~TopologicalSorter."
+"add`."
 
 #: ../../library/graphlib.rst:37
 msgid ""
 "In the general case, the steps required to perform the sorting of a given "
 "graph are as follows:"
 msgstr ""
+"No caso geral, as etapas necessárias para executar a classificação de um "
+"determinado grafo são as seguintes:"
 
 #: ../../library/graphlib.rst:40
 msgid ""
 "Create an instance of the :class:`TopologicalSorter` with an optional "
 "initial graph."
 msgstr ""
+"Cria uma instância da classe :class:`TopologicalSorter` com um grafo inicial "
+"opcional."
 
 #: ../../library/graphlib.rst:42
 msgid "Add additional nodes to the graph."
-msgstr ""
+msgstr "Adiciona nós adicionais ao grafo."
 
 #: ../../library/graphlib.rst:43
 msgid "Call :meth:`~TopologicalSorter.prepare` on the graph."
-msgstr ""
+msgstr "Chama o método :meth:`~TopologicalSorter.prepare` no grafo."
 
 #: ../../library/graphlib.rst:44
 msgid ""
@@ -85,6 +107,10 @@ msgid ""
 "nodes returned by :meth:`~TopologicalSorter.get_ready` and process them. "
 "Call :meth:`~TopologicalSorter.done` on each node as it finishes processing."
 msgstr ""
+"Enquanto :meth:`~TopologicalSorter.is_active` é ``True``, itera pelos nós "
+"retornados por :meth:`~TopologicalSorter.get_ready` e os processa. Chama :"
+"meth:`~TopologicalSorter.done` em cada nó na medida em que finaliza o "
+"processamento."
 
 #: ../../library/graphlib.rst:49
 msgid ""
@@ -92,6 +118,9 @@ msgid ""
 "no parallelism is involved, the convenience method :meth:`TopologicalSorter."
 "static_order` can be used directly:"
 msgstr ""
+"Caso apenas uma classificação imediata dos nós no grafo seja necessária e "
+"nenhum paralelismo esteja envolvido, o método de conveniência :meth:"
+"`TopologicalSorter.static_order` pode ser usado diretamente:"
 
 #: ../../library/graphlib.rst:53
 msgid ""
@@ -100,12 +129,18 @@ msgid ""
 ">>> tuple(ts.static_order())\n"
 "('A', 'C', 'B', 'D')"
 msgstr ""
+">>> graph = {\"D\": {\"B\", \"C\"}, \"C\": {\"A\"}, \"B\": {\"A\"}}\n"
+">>> ts = TopologicalSorter(graph)\n"
+">>> tuple(ts.static_order())\n"
+"('A', 'C', 'B', 'D')"
 
 #: ../../library/graphlib.rst:60
 msgid ""
 "The class is designed to easily support parallel processing of the nodes as "
 "they become ready. For instance::"
 msgstr ""
+"A classe foi projetada para suportar facilmente o processamento paralelo dos "
+"nós à medida que eles se tornam prontos. Por exemplo::"
 
 #: ../../library/graphlib.rst:63
 msgid ""
@@ -131,18 +166,44 @@ msgid ""
 "    node = finalized_tasks_queue.get()\n"
 "    topological_sorter.done(node)"
 msgstr ""
+"topological_sorter = TopologicalSorter()\n"
+"\n"
+"# Adiciona nodos para 'topological_sorter'...\n"
+"\n"
+"topological_sorter.prepare()\n"
+"while topological_sorter.is_active():\n"
+"    for node in topological_sorter.get_ready():\n"
+"        # Processos ou threads de workers obtém nós para\n"
+"        # trabalhar na fila 'task_queue'.\n"
+"        task_queue.put(node)\n"
+"\n"
+"    # Quando o trabalho para um nó é feito, os workers colocam o\n"
+"    # nó em 'finalized_tasks_queue' para que possamos obter mais\n"
+"    # nós para trabalhar. A definição de 'is_active()' garante que,\n"
+"    # neste ponto, pelo menos um nó foi colocado em 'task_queue'\n"
+"    # que ainda não foi passado para 'done()', então este 'get()' de\n"
+"    # bloqueio deve (eventualmente) ter sucesso. Depois de chamar\n"
+"    # 'done()', fazemos um laço de volta para chamar 'get_ready()'\n"
+"    # novamente, então colocamos nós recém-liberados em\n"
+"    # 'task_queue' o mais rápido possível.\n"
+"    node = finalized_tasks_queue.get()\n"
+"    topological_sorter.done(node)"
 
 #: ../../library/graphlib.rst:87
 msgid ""
 "Add a new node and its predecessors to the graph. Both the *node* and all "
 "elements in *predecessors* must be :term:`hashable`."
 msgstr ""
+"Adiciona um novo nó e seus predecessores ao grafo. O *node* e todos os "
+"elementos em *predecessors* devem ser :term:`hasheáveis <hasheável>`."
 
 #: ../../library/graphlib.rst:90
 msgid ""
 "If called multiple times with the same node argument, the set of "
 "dependencies will be the union of all dependencies passed in."
 msgstr ""
+"Se chamado várias vezes com o mesmo argumento do nó, o conjunto de "
+"dependências será a união de todas as dependências transmitidas."
 
 #: ../../library/graphlib.rst:93
 msgid ""
@@ -151,11 +212,16 @@ msgid ""
 "provided before is included among *predecessors* it will be automatically "
 "added to the graph with no predecessors of its own."
 msgstr ""
+"É possível adicionar um nó sem dependências (*predecessors* não são "
+"fornecidos) ou fornecer uma dependência duas vezes. Se um nó que não foi "
+"fornecido anteriormente for incluído entre os *predecessors*, ele será "
+"automaticamente adicionado ao grafo sem predecessores próprios."
 
 #: ../../library/graphlib.rst:98
 msgid ""
 "Raises :exc:`ValueError` if called after :meth:`~TopologicalSorter.prepare`."
 msgstr ""
+"Levanta :exc:`ValueError` se chamado após :meth:`~TopologicalSorter.prepare`."
 
 #: ../../library/graphlib.rst:102
 msgid ""
@@ -166,18 +232,29 @@ msgid ""
 "be modified, and therefore no more nodes can be added using :meth:"
 "`~TopologicalSorter.add`."
 msgstr ""
+"Marca o grafo como concluído e verifica os ciclos no grafo. Se qualquer "
+"ciclo for detectado, :exc:`CycleError` será gerado, mas :meth:"
+"`~TopologicalSorter.get_ready` ainda poderá ser usado para obter o maior "
+"número possível de nós até que os ciclos bloqueiem mais progressos. Após uma "
+"chamada para esta função, o grafo não pode ser modificado e, portanto, "
+"nenhum nó pode ser adicionado usando :meth:`~TopologicalSorter.add`."
 
 #: ../../library/graphlib.rst:109
 msgid ""
 "A :exc:`ValueError` will be raised if the sort has been started by :meth:`~."
 "static_order` or :meth:`~.get_ready`."
 msgstr ""
+"Uma :exc:`ValueError` será levantada se a classificação tiver sido iniciada "
+"por :meth:`~.static_order` ou :meth:`~.get_ready`."
 
 #: ../../library/graphlib.rst:114
 msgid ""
 "``prepare()`` can now be called more than once as long as the sort has not "
 "started. Previously this raised :exc:`ValueError`."
 msgstr ""
+"``prepare()`` agora pode ser chamado mais de uma vez, desde que a "
+"classificação não tenha sido iniciada. Anteriormente, isso levantava :exc:"
+"`ValueError`."
 
 #: ../../library/graphlib.rst:119
 msgid ""
@@ -188,34 +265,48 @@ msgid ""
 "`TopologicalSorter.done` is less than the number that have been returned by :"
 "meth:`TopologicalSorter.get_ready`."
 msgstr ""
+"Retorna ``True`` se mais progresso puder ser feito e ``False`` caso "
+"contrário. É possível progredir se os ciclos não bloquearem a resolução e "
+"ainda houver nós prontos que ainda não foram retornados por :meth:"
+"`TopologicalSorter.get_ready` ou o número de nós marcados :meth:"
+"`TopologicalSorter.done` é menor que o número retornado por :meth:"
+"`TopologicalSorter.get_ready`."
 
 #: ../../library/graphlib.rst:126
 msgid ""
 "The :meth:`~object.__bool__` method of this class defers to this function, "
 "so instead of::"
 msgstr ""
+"O método :meth:`~object.__bool__` desta classe adia para essa função, então, "
+"em vez de::"
 
 #: ../../library/graphlib.rst:129
 msgid ""
 "if ts.is_active():\n"
 "    ..."
 msgstr ""
+"if ts.is_active():\n"
+"    ..."
 
 #: ../../library/graphlib.rst:132
 msgid "it is possible to simply do::"
-msgstr ""
+msgstr "é possível simplesmente fazer::"
 
 #: ../../library/graphlib.rst:134
 msgid ""
 "if ts:\n"
 "    ..."
 msgstr ""
+"if ts:\n"
+"    ..."
 
 #: ../../library/graphlib.rst:137 ../../library/graphlib.rst:160
 msgid ""
 "Raises :exc:`ValueError` if called without calling :meth:`~TopologicalSorter."
 "prepare` previously."
 msgstr ""
+"Levanta :exc:`ValueError` se chamado sem chamar :meth:`~TopologicalSorter."
+"prepare` anteriormente."
 
 #: ../../library/graphlib.rst:142
 msgid ""
@@ -223,6 +314,10 @@ msgid ""
 "processed, unblocking any successor of each node in *nodes* for being "
 "returned in the future by a call to :meth:`TopologicalSorter.get_ready`."
 msgstr ""
+"Marca um conjunto de nós retornados por :meth:`TopologicalSorter.get_ready` "
+"como processado, desbloqueando qualquer sucessor de cada nó em *nodes* para "
+"ser retornado no futuro por uma chamada para :meth:`TopologicalSorter."
+"get_ready`."
 
 #: ../../library/graphlib.rst:146
 msgid ""
@@ -232,6 +327,11 @@ msgid ""
 "meth:`~TopologicalSorter.prepare` or if node has not yet been returned by :"
 "meth:`~TopologicalSorter.get_ready`."
 msgstr ""
+"Levanta :exc:`ValueError` se algum nó em *nodes* já foi marcado como "
+"processado por uma chamada anterior a este método ou se um nó não foi "
+"adicionado ao grafo usando :meth:`TopologicalSorter.add`, se chamado sem "
+"chamar :meth:`~ TopologicalSorter.prepare` ou se o nó ainda não foi "
+"retornado por :meth:`~TopologicalSorter.get_ready`."
 
 #: ../../library/graphlib.rst:154
 msgid ""
@@ -241,6 +341,11 @@ msgid ""
 "nodes that have all their predecessors already processed. Once no more "
 "progress can be made, empty tuples are returned."
 msgstr ""
+"Retorna uma ``tupla`` com todos os nós que estão prontos. Inicialmente, ele "
+"retorna todos os nós sem predecessores e, uma vez marcados como processados, "
+"chamando :meth:`TopologicalSorter.done`, novas chamadas retornarão todos os "
+"novos nós que já tenham seus antecessores já processados. Quando não for "
+"possível fazer mais progresso, as tuplas vazias serão retornadas."
 
 #: ../../library/graphlib.rst:165
 msgid ""
@@ -249,6 +354,10 @@ msgid ""
 "`~TopologicalSorter.done` should not be called. This method is equivalent "
 "to::"
 msgstr ""
+"Retorna um objeto iterador que irá iterar sobre os nós em uma ordem "
+"topológica. Ao usar este método, :meth:`~TopologicalSorter.prepare` e :meth:"
+"`~TopologicalSorter.done` não devem ser chamados. Este método é equivalente "
+"a::"
 
 #: ../../library/graphlib.rst:170
 msgid ""
@@ -259,12 +368,20 @@ msgid ""
 "        yield from node_group\n"
 "        self.done(*node_group)"
 msgstr ""
+"def static_order(self):\n"
+"    self.prepare()\n"
+"    while self.is_active():\n"
+"        node_group = self.get_ready()\n"
+"        yield from node_group\n"
+"        self.done(*node_group)"
 
 #: ../../library/graphlib.rst:177
 msgid ""
 "The particular order that is returned may depend on the specific order in "
 "which the items were inserted in the graph. For example:"
 msgstr ""
+"A ordem específica retornada pode depender da ordem específica em que os "
+"itens foram inseridos no grafo. Por exemplo:"
 
 #: ../../library/graphlib.rst:180
 msgid ""
@@ -280,6 +397,17 @@ msgid ""
 ">>> print([*ts2.static_order()])\n"
 "[0, 2, 1, 3]"
 msgstr ""
+">>> ts = TopologicalSorter()\n"
+">>> ts.add(3, 2, 1)\n"
+">>> ts.add(1, 0)\n"
+">>> print([*ts.static_order()])\n"
+"[2, 0, 1, 3]\n"
+"\n"
+">>> ts2 = TopologicalSorter()\n"
+">>> ts2.add(1, 0)\n"
+">>> ts2.add(3, 2, 1)\n"
+">>> print([*ts2.static_order()])\n"
+"[0, 2, 1, 3]"
 
 #: ../../library/graphlib.rst:194
 msgid ""
@@ -288,10 +416,13 @@ msgid ""
 "`~TopologicalSorter.get_ready`) and the order between them is determined by "
 "the order of insertion."
 msgstr ""
+"Isso se deve ao fato de que \"0\" e \"2\" estão no mesmo nível no grafo "
+"(eles teriam sido retornados na mesma chamada para :meth:`~TopologicalSorter."
+"get_ready`) e a ordem entre eles é determinada pela ordem de inserção."
 
 #: ../../library/graphlib.rst:200
 msgid "If any cycle is detected, :exc:`CycleError` will be raised."
-msgstr ""
+msgstr "Se qualquer ciclo for detectado, :exc:`CycleError` será levantada."
 
 #: ../../library/graphlib.rst:206
 msgid "Exceptions"
@@ -299,7 +430,7 @@ msgstr "Exceções"
 
 #: ../../library/graphlib.rst:207
 msgid "The :mod:`graphlib` module defines the following exception classes:"
-msgstr ""
+msgstr "O módulo :mod:`graphlib` define as seguintes classes de exceção:"
 
 #: ../../library/graphlib.rst:211
 msgid ""
@@ -307,6 +438,9 @@ msgid ""
 "cycles exist in the working graph. If multiple cycles exist, only one "
 "undefined choice among them will be reported and included in the exception."
 msgstr ""
+"Subclasse de :exc:`ValueError` levantada por :meth:`TopologicalSorter."
+"prepare` se houver ciclos no grafo de trabalho. Se existirem vários ciclos, "
+"apenas uma opção indefinida entre eles será relatada e incluída na exceção."
 
 #: ../../library/graphlib.rst:215
 msgid ""
@@ -316,3 +450,8 @@ msgid ""
 "predecessor of the next node in the list. In the reported list, the first "
 "and the last node will be the same, to make it clear that it is cyclic."
 msgstr ""
+"O ciclo detectado pode ser acessado através do segundo elemento no atributo :"
+"attr:`~BaseException.args` da instância de exceção e consiste em uma lista "
+"de nós, de modo que cada nó seja, no grafo, um predecessor imediato do "
+"próximo nó na lista. Na lista relatada, o primeiro e o último nó serão os "
+"mesmos, para deixar claro que é cíclico."

@@ -3,6 +3,9 @@
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# Translators:
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
+#
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-08 02:53-0300\n"
 "PO-Revision-Date: 2025-07-18 18:49+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -21,11 +25,11 @@ msgstr ""
 
 #: ../../library/modulefinder.rst:2
 msgid ":mod:`!modulefinder` --- Find modules used by a script"
-msgstr ""
+msgstr ":mod:`!modulefinder` --- Procura módulos usados por um script"
 
 #: ../../library/modulefinder.rst:9
 msgid "**Source code:** :source:`Lib/modulefinder.py`"
-msgstr ""
+msgstr "**Código-fonte:** :source:`Lib/modulefinder.py`"
 
 #: ../../library/modulefinder.rst:13
 msgid ""
@@ -34,18 +38,27 @@ msgid ""
 "also be run as a script, giving the filename of a Python script as its "
 "argument, after which a report of the imported modules will be printed."
 msgstr ""
+"Este módulo fornece uma classe :class:`ModuleFinder` que pode ser usada para "
+"determinar o conjunto de módulos importados por um script. O ``modulefinder."
+"py`` também pode ser executado como um script, fornecendo o nome do arquivo "
+"de um script Python como seu argumento, após o qual um relatório dos módulos "
+"importados será impresso."
 
 #: ../../library/modulefinder.rst:21
 msgid ""
 "Record that the package named *pkg_name* can be found in the specified "
 "*path*."
 msgstr ""
+"Registra que o pacote chamado *pkg_name* pode ser encontrado no caminho "
+"especificado em *path*"
 
 #: ../../library/modulefinder.rst:26
 msgid ""
 "Allows specifying that the module named *oldname* is in fact the package "
 "named *newname*."
 msgstr ""
+"Permite especificar que o módulo chamado *oldname* é de fato o pacote "
+"chamado *newname*."
 
 #: ../../library/modulefinder.rst:32
 msgid ""
@@ -57,6 +70,14 @@ msgid ""
 "names to exclude from the analysis. *replace_paths* is a list of ``(oldpath, "
 "newpath)`` tuples that will be replaced in module paths."
 msgstr ""
+"Esta classe fornece os métodos :meth:`run_script` e :meth:`report` para "
+"determinar o conjunto de módulos importados por um script. *path* pode ser "
+"uma lista de diretórios para procurar por módulos; se não especificado, "
+"``sys.path`` é usado. *debug* define o nível de depuração; valores mais "
+"altos fazem a classe imprimir mensagens de depuração sobre o que está "
+"fazendo. *excludes* é uma lista de nomes de módulos a serem excluídos da "
+"análise. *replace_paths* é uma lista de tuplas ``(oldpath, newpath)`` que "
+"serão substituídas nos caminhos dos módulos."
 
 #: ../../library/modulefinder.rst:43
 msgid ""
@@ -64,25 +85,31 @@ msgid ""
 "script and their paths, as well as modules that are missing or seem to be "
 "missing."
 msgstr ""
+"Imprime um relatório na saída padrão que lista os módulos importados pelo "
+"script e seus caminhos, bem como os módulos que estão faltando ou parecem "
+"estar ausentes."
 
 #: ../../library/modulefinder.rst:49
 msgid ""
 "Analyze the contents of the *pathname* file, which must contain Python code."
 msgstr ""
+"Analisa o conteúdo do arquivo *pathname*, que deve conter o código Python."
 
 #: ../../library/modulefinder.rst:54
 msgid ""
 "A dictionary mapping module names to modules. See :ref:`modulefinder-"
 "example`."
 msgstr ""
+"Um nome de módulo de mapeamento de dicionário para módulos. Veja :ref:"
+"`modulefinder-example`."
 
 #: ../../library/modulefinder.rst:61
 msgid "Example usage of :class:`ModuleFinder`"
-msgstr ""
+msgstr "Exemplo de uso de :class:`ModuleFinder`"
 
 #: ../../library/modulefinder.rst:63
 msgid "The script that is going to get analyzed later on (bacon.py)::"
-msgstr ""
+msgstr "O script que será analisado posteriormente (bacon.py)::"
 
 #: ../../library/modulefinder.rst:65
 msgid ""
@@ -98,10 +125,21 @@ msgid ""
 "except ImportError:\n"
 "    pass"
 msgstr ""
+"import re, itertools\n"
+"\n"
+"try:\n"
+"    import baconhameggs\n"
+"except ImportError:\n"
+"    pass\n"
+"\n"
+"try:\n"
+"    import guido.python.ham\n"
+"except ImportError:\n"
+"    pass"
 
 #: ../../library/modulefinder.rst:78
 msgid "The script that will output the report of bacon.py::"
-msgstr ""
+msgstr "O script que irá gerar o relatório de bacon.py::"
 
 #: ../../library/modulefinder.rst:80
 msgid ""
@@ -119,10 +157,23 @@ msgid ""
 "print('Modules not imported:')\n"
 "print('\\n'.join(finder.badmodules.keys()))"
 msgstr ""
+"from modulefinder import ModuleFinder\n"
+"\n"
+"finder = ModuleFinder()\n"
+"finder.run_script('bacon.py')\n"
+"\n"
+"print('Loaded modules:')\n"
+"for name, mod in finder.modules.items():\n"
+"    print('%s: ' % name, end='')\n"
+"    print(','.join(list(mod.globalnames.keys())[:3]))\n"
+"\n"
+"print('-'*50)\n"
+"print('Modules not imported:')\n"
+"print('\\n'.join(finder.badmodules.keys()))"
 
 #: ../../library/modulefinder.rst:94
 msgid "Sample output (may vary depending on the architecture)::"
-msgstr ""
+msgstr "Exemplo de saída (pode variar dependendo da arquitetura)::"
 
 #: ../../library/modulefinder.rst:96
 msgid ""
@@ -144,3 +195,20 @@ msgid ""
 "guido.python.ham\n"
 "baconhameggs"
 msgstr ""
+"Loaded modules:\n"
+"_types:\n"
+"copyreg:  _inverted_registry,_slotnames,__all__\n"
+"re._compiler:  isstring,_sre,_optimize_unicode\n"
+"_sre:\n"
+"re._constants:  REPEAT_ONE,makedict,AT_END_LINE\n"
+"sys:\n"
+"re:  __module__,finditer,_expand\n"
+"itertools:\n"
+"__main__:  re,itertools,baconhameggs\n"
+"re._parser:  _PATTERNENDERS,SRE_FLAG_UNICODE\n"
+"array:\n"
+"types:  __module__,IntType,TypeType\n"
+"---------------------------------------------------\n"
+"Modules not imported:\n"
+"guido.python.ham\n"
+"baconhameggs"

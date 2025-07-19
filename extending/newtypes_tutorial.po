@@ -3,6 +3,9 @@
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# Translators:
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
+#
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-27 14:20+0000\n"
 "PO-Revision-Date: 2025-07-18 18:48+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +25,7 @@ msgstr ""
 
 #: ../../extending/newtypes_tutorial.rst:7
 msgid "Defining Extension Types: Tutorial"
-msgstr ""
+msgstr "Definindo Tipos de Extensão: Tutorial"
 
 #: ../../extending/newtypes_tutorial.rst:14
 msgid ""
@@ -31,10 +35,15 @@ msgid ""
 "pattern, but there are some details that you need to understand before you "
 "can get started.  This document is a gentle introduction to the topic."
 msgstr ""
+"O Python permite que o gravador de um módulo de extensão C defina novos "
+"tipos que podem ser manipulados a partir do código Python, da mesma forma "
+"que os tipos embutidos :class:`str` e :class:`list`. O código para todos os "
+"tipos de extensão segue um padrão, mas há alguns detalhes que você precisa "
+"entender antes de começar. Este documento é uma introdução suave ao tópico."
 
 #: ../../extending/newtypes_tutorial.rst:24
 msgid "The Basics"
-msgstr ""
+msgstr "O básico"
 
 #: ../../extending/newtypes_tutorial.rst:26
 msgid ""
@@ -47,12 +56,23 @@ msgid ""
 "an object, a method called, or it is multiplied by another object.  These C "
 "functions are called \"type methods\"."
 msgstr ""
+"O tempo de execução do :term:`CPython` considera todos os objetos Python "
+"como variáveis do tipo :c:expr:`PyObject*`, que serve como um \"tipo base\" "
+"para todos os objetos Python. A própria estrutura :c:type:`PyObject` contém "
+"apenas a :term:`contagem de referências` do objeto e um ponteiro para o "
+"\"objeto de tipo\" do objeto. É aqui que ocorre a ação; o objeto de tipo "
+"determina quais funções (C) são chamadas pelo interpretador quando, por "
+"exemplo, um atributo é consultado em um objeto, um método é chamado ou é "
+"multiplicado por outro objeto. Essas funções C são chamadas de \"métodos de "
+"tipo\"."
 
 #: ../../extending/newtypes_tutorial.rst:35
 msgid ""
 "So, if you want to define a new extension type, you need to create a new "
 "type object."
 msgstr ""
+"Então, se você quiser definir um novo tipo de extensão, você precisa criar "
+"um novo objeto de tipo."
 
 #: ../../extending/newtypes_tutorial.rst:38
 msgid ""
@@ -60,6 +80,9 @@ msgid ""
 "but complete, module that defines a new type named :class:`!Custom` inside a "
 "C extension module :mod:`!custom`:"
 msgstr ""
+"Esse tipo de coisa só pode ser explicado por exemplo, então aqui está um "
+"módulo mínimo, mas completo, que define um novo tipo chamado :class:`!"
+"Custom` dentro de um módulo de extensão C :mod:`!custom`:"
 
 #: ../../extending/newtypes_tutorial.rst:43
 msgid ""
@@ -68,6 +91,10 @@ msgid ""
 "allows defining heap-allocated extension types using the :c:func:"
 "`PyType_FromSpec` function, which isn't covered in this tutorial."
 msgstr ""
+"O que estamos mostrando aqui é a maneira tradicional de definir tipos de "
+"extensão *estáticos*. Deve ser adequada para a maioria dos usos. A API C "
+"também permite definir tipos de extensão alocados em heap usando a função :c:"
+"func:`PyType_FromSpec`, que não é abordada neste tutorial."
 
 #: ../../extending/newtypes_tutorial.rst:48
 msgid ""
@@ -126,12 +153,69 @@ msgid ""
 "    return PyModuleDef_Init(&custom_module);\n"
 "}\n"
 msgstr ""
+"#define PY_SSIZE_T_CLEAN\n"
+"#include <Python.h>\n"
+"\n"
+"typedef struct {\n"
+"    PyObject_HEAD\n"
+"    /* Campos específico do tipo vão aqui. */\n"
+"} CustomObject;\n"
+"\n"
+"static PyTypeObject CustomType = {\n"
+"    .ob_base = PyVarObject_HEAD_INIT(NULL, 0)\n"
+"    .tp_name = \"custom.Custom\",\n"
+"    .tp_doc = PyDoc_STR(\"Custom objects\"),\n"
+"    .tp_basicsize = sizeof(CustomObject),\n"
+"    .tp_itemsize = 0,\n"
+"    .tp_flags = Py_TPFLAGS_DEFAULT,\n"
+"    .tp_new = PyType_GenericNew,\n"
+"};\n"
+"\n"
+"static int\n"
+"custom_module_exec(PyObject *m)\n"
+"{\n"
+"    if (PyType_Ready(&CustomType) < 0) {\n"
+"        return -1;\n"
+"    }\n"
+"\n"
+"    if (PyModule_AddObjectRef(m, \"Custom\", (PyObject *) &CustomType) < 0) "
+"{\n"
+"        return -1;\n"
+"    }\n"
+"\n"
+"    return 0;\n"
+"}\n"
+"\n"
+"static PyModuleDef_Slot custom_module_slots[] = {\n"
+"    {Py_mod_exec, custom_module_exec},\n"
+"    // Só use isso quando estiver usando tipos estáticos\n"
+"    {Py_mod_multiple_interpreters, "
+"Py_MOD_MULTIPLE_INTERPRETERS_NOT_SUPPORTED},\n"
+"    {0, NULL}\n"
+"};\n"
+"\n"
+"static PyModuleDef custom_module = {\n"
+"    .m_base = PyModuleDef_HEAD_INIT,\n"
+"    .m_name = \"custom\",\n"
+"    .m_doc = \"Example module that creates an extension type.\",\n"
+"    .m_size = 0,\n"
+"    .m_slots = custom_module_slots,\n"
+"};\n"
+"\n"
+"PyMODINIT_FUNC\n"
+"PyInit_custom(void)\n"
+"{\n"
+"    return PyModuleDef_Init(&custom_module);\n"
+"}\n"
 
 #: ../../extending/newtypes_tutorial.rst:50
 msgid ""
 "Now that's quite a bit to take in at once, but hopefully bits will seem "
 "familiar from the previous chapter.  This file defines three things:"
 msgstr ""
+"Agora isso é um pouco para ser absorvido de uma só vez, mas esperamos que os "
+"bits pareçam familiares no capítulo anterior. Este arquivo define três "
+"coisas:"
 
 #: ../../extending/newtypes_tutorial.rst:53
 msgid ""
@@ -156,7 +240,7 @@ msgstr ""
 
 #: ../../extending/newtypes_tutorial.rst:63
 msgid "The first bit is::"
-msgstr ""
+msgstr "O primeiro bit é ::"
 
 #: ../../extending/newtypes_tutorial.rst:65
 msgid ""
@@ -199,7 +283,7 @@ msgstr ""
 
 #: ../../extending/newtypes_tutorial.rst:90
 msgid "The second bit is the definition of the type object. ::"
-msgstr ""
+msgstr "O segundo bit é a definição do objeto de tipo. ::"
 
 #: ../../extending/newtypes_tutorial.rst:92
 msgid ""
@@ -231,7 +315,7 @@ msgstr ""
 
 #: ../../extending/newtypes_tutorial.rst:112
 msgid "We're going to pick it apart, one field at a time::"
-msgstr ""
+msgstr "Vamos separá-lo, um campo de cada vez ::"
 
 #: ../../extending/newtypes_tutorial.rst:114
 msgid ".ob_base = PyVarObject_HEAD_INIT(NULL, 0)"
@@ -418,17 +502,19 @@ msgstr ""
 
 #: ../../extending/newtypes_tutorial.rst:220
 msgid "That wasn't so hard, was it?"
-msgstr ""
+msgstr "Isso não foi tão difícil, foi?"
 
 #: ../../extending/newtypes_tutorial.rst:222
 msgid ""
 "Of course, the current Custom type is pretty uninteresting. It has no data "
 "and doesn't do anything. It can't even be subclassed."
 msgstr ""
+"Naturalmente, o tipo personalizado atual é bastante desinteressante. Não tem "
+"dados e não faz nada. Não pode nem ser subclassificado."
 
 #: ../../extending/newtypes_tutorial.rst:227
 msgid "Adding data and methods to the Basic example"
-msgstr ""
+msgstr "Adicionando dados e métodos ao exemplo básico"
 
 #: ../../extending/newtypes_tutorial.rst:229
 msgid ""
@@ -586,7 +672,7 @@ msgstr ""
 
 #: ../../extending/newtypes_tutorial.rst:236
 msgid "This version of the module has a number of changes."
-msgstr ""
+msgstr "Esta versão do módulo possui várias alterações."
 
 #: ../../extending/newtypes_tutorial.rst:238
 msgid ""
@@ -598,7 +684,7 @@ msgstr ""
 
 #: ../../extending/newtypes_tutorial.rst:242
 msgid "The object structure is updated accordingly::"
-msgstr ""
+msgstr "A estrutura do objeto é atualizada de acordo ::"
 
 #: ../../extending/newtypes_tutorial.rst:244
 msgid ""
@@ -872,10 +958,14 @@ msgid ""
 "always reassign members before decrementing their reference counts.  When "
 "don't we have to do this?"
 msgstr ""
+"Para sermos paranoicos e nos protegermos contra essa possibilidade, quase "
+"sempre realocamos os membros antes de decrementar suas contagens de "
+"referência. Quando não temos que fazer isso?"
 
 #: ../../extending/newtypes_tutorial.rst:438
 msgid "when we absolutely know that the reference count is greater than 1;"
 msgstr ""
+"quando sabemos absolutamente que a contagem de referência é maior que 1;"
 
 #: ../../extending/newtypes_tutorial.rst:440
 msgid ""
@@ -991,6 +1081,8 @@ msgid ""
 "Now that we've defined the method, we need to create an array of method "
 "definitions::"
 msgstr ""
+"Agora que definimos o método, precisamos criar uma array de definições de "
+"métodos::"
 
 #: ../../extending/newtypes_tutorial.rst:513
 msgid ""
@@ -1054,7 +1146,7 @@ msgstr ""
 
 #: ../../extending/newtypes_tutorial.rst:555
 msgid "Providing finer control over data attributes"
-msgstr ""
+msgstr "Fornecendo controle mais preciso sobre atributos de dados"
 
 #: ../../extending/newtypes_tutorial.rst:557
 msgid ""
@@ -1334,7 +1426,7 @@ msgstr ""
 
 #: ../../extending/newtypes_tutorial.rst:620
 msgid "and register it in the :c:member:`~PyTypeObject.tp_getset` slot::"
-msgstr ""
+msgstr "e registra isso num slot :c:member:`~PyTypeObject.tp_getset`::"
 
 #: ../../extending/newtypes_tutorial.rst:622
 msgid ".tp_getset = Custom_getsetters,"
@@ -1349,7 +1441,7 @@ msgstr ""
 
 #: ../../extending/newtypes_tutorial.rst:627
 msgid "We also remove the member definitions for these attributes::"
-msgstr ""
+msgstr "Também removemos as definições de membros para esses atributos::"
 
 #: ../../extending/newtypes_tutorial.rst:629
 msgid ""
@@ -1415,7 +1507,7 @@ msgstr ""
 
 #: ../../extending/newtypes_tutorial.rst:678
 msgid "Supporting cyclic garbage collection"
-msgstr ""
+msgstr "Apoiando a coleta de lixo cíclica"
 
 #: ../../extending/newtypes_tutorial.rst:680
 msgid ""
@@ -1828,7 +1920,7 @@ msgstr ""
 
 #: ../../extending/newtypes_tutorial.rst:816
 msgid "Subclassing other types"
-msgstr ""
+msgstr "Criando subclasses de outros tipos"
 
 #: ../../extending/newtypes_tutorial.rst:818
 msgid ""
@@ -2043,13 +2135,15 @@ msgstr ""
 
 #: ../../extending/newtypes_tutorial.rst:909
 msgid "Footnotes"
-msgstr ""
+msgstr "Notas de rodapé"
 
 #: ../../extending/newtypes_tutorial.rst:910
 msgid ""
 "This is true when we know that the object is a basic type, like a string or "
 "a float."
 msgstr ""
+"Isso é verdade quando sabemos que o objeto é um tipo básico, como uma string "
+"ou um float."
 
 #: ../../extending/newtypes_tutorial.rst:913
 msgid ""
@@ -2066,6 +2160,12 @@ msgid ""
 "deallocating an instance of a string subclass won't call back into our "
 "objects."
 msgstr ""
+"Agora sabemos que o primeiro e último membros são strings, então talvez "
+"pudéssemos ter menos cuidado com a diminuição de suas contagens de "
+"referência, no entanto, aceitamos instâncias de subclasses de string. Mesmo "
+"que a desalocação de cadeias normais não retorne aos nossos objetos, não "
+"podemos garantir que a desalocação de uma instância de uma subclasse de "
+"cadeias de caracteres não retornará aos nossos objetos."
 
 #: ../../extending/newtypes_tutorial.rst:922
 msgid ""
@@ -2073,3 +2173,6 @@ msgid ""
 "could pass arbitrary :class:`str` subclasses and therefore still create "
 "reference cycles."
 msgstr ""
+"Além disso, mesmo com nossos atributos restritos a instâncias de strings, o "
+"usuário poderia passar arbitrariamente subclasses :class:`str` e, portanto, "
+"ainda criar ciclos de referência."

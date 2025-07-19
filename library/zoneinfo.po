@@ -25,11 +25,11 @@ msgstr ""
 
 #: ../../library/zoneinfo.rst:2
 msgid ":mod:`!zoneinfo` --- IANA time zone support"
-msgstr ""
+msgstr ":mod:`!zoneinfo` --- Suporte a fuso horário da IANA"
 
 #: ../../library/zoneinfo.rst:12
 msgid "**Source code:** :source:`Lib/zoneinfo`"
-msgstr ""
+msgstr "**Código-fonte:** :source:`Lib/zoneinfo`"
 
 #: ../../library/zoneinfo.rst:16
 msgid ""
@@ -39,26 +39,36 @@ msgid ""
 "if no system time zone data is available, the library will fall back to "
 "using the first-party :pypi:`tzdata` package available on PyPI."
 msgstr ""
+"O módulo :mod:`zoneinfo` fornece uma implementação concreta de fuso horário "
+"para oferecer suporte ao banco de dados de fuso horário da IANA, conforme "
+"especificado originalmente na :pep:`615`. Por padrão, :mod:`zoneinfo` usa os "
+"dados de fuso horário do sistema, se disponíveis; se nenhum dado de fuso "
+"horário do sistema estiver disponível, a biblioteca voltará a usar o pacote "
+"original :pypi:`tzdata` disponível no PyPI."
 
 #: ../../library/zoneinfo.rst:24
 msgid "Module: :mod:`datetime`"
-msgstr ""
+msgstr "Módulo: :mod:`datetime`"
 
 #: ../../library/zoneinfo.rst:25
 msgid ""
 "Provides the :class:`~datetime.time` and :class:`~datetime.datetime` types "
 "with which the :class:`ZoneInfo` class is designed to be used."
 msgstr ""
+"Fornece os tipos :class:`~datetime.time` e :class:`~datetime.datetime` com "
+"os quais a classe :class:`ZoneInfo` foi projetada para ser usada."
 
 #: ../../library/zoneinfo.rst:28
 msgid "Package :pypi:`tzdata`"
-msgstr ""
+msgstr "Pacote :pypi:`tzdata`"
 
 #: ../../library/zoneinfo.rst:29
 msgid ""
 "First-party package maintained by the CPython core developers to supply time "
 "zone data via PyPI."
 msgstr ""
+"Pacote próprio mantido pelos desenvolvedores principais do CPython para "
+"fornecer dados de fuso horário via PyPI."
 
 #: ../../includes/wasm-notavail.rst:3
 msgid "Availability"
@@ -69,10 +79,12 @@ msgid ""
 "This module does not work or is not available on WebAssembly. See :ref:`wasm-"
 "availability` for more information."
 msgstr ""
+"Este módulo não funciona ou não está disponível em WebAssembly. Veja :ref:"
+"`wasm-availability` para mais informações."
 
 #: ../../library/zoneinfo.rst:35
 msgid "Using ``ZoneInfo``"
-msgstr ""
+msgstr "Usando ``ZoneInfo``"
 
 #: ../../library/zoneinfo.rst:37
 msgid ""
@@ -82,6 +94,10 @@ msgid ""
 "replace>` method or :meth:`datetime.astimezone <datetime.datetime."
 "astimezone>`::"
 msgstr ""
+":class:`ZoneInfo` é uma implementação concreta da classe base abstrata :"
+"class:`datetime.tzinfo` e deve ser anexada a ``tzinfo``, por meio do "
+"construtor, do método :meth:`datetime.replace <datetime.datetime.replace>` "
+"ou :meth:`datetime.astimezone <datetime.datetime.astimezone>`::"
 
 #: ../../library/zoneinfo.rst:42
 msgid ""
@@ -96,12 +112,25 @@ msgid ""
 ">>> dt.tzname()\n"
 "'PDT'"
 msgstr ""
+">>> from zoneinfo import ZoneInfo\n"
+">>> from datetime import datetime, timedelta\n"
+"\n"
+">>> dt = datetime(2020, 10, 31, 12, tzinfo=ZoneInfo(\"America/"
+"Los_Angeles\"))\n"
+">>> print(dt)\n"
+"2020-10-31 12:00:00-07:00\n"
+"\n"
+">>> dt.tzname()\n"
+"'PDT'"
 
 #: ../../library/zoneinfo.rst:52
 msgid ""
 "Datetimes constructed in this way are compatible with datetime arithmetic "
 "and handle daylight saving time transitions with no further intervention::"
 msgstr ""
+"Datas e horas construídas dessa maneira são compatíveis com a aritmética de "
+"data e hora e lidam com transições de horário de verão sem intervenção "
+"adicional::"
 
 #: ../../library/zoneinfo.rst:55
 msgid ""
@@ -113,6 +142,13 @@ msgid ""
 ">>> dt_add.tzname()\n"
 "'PST'"
 msgstr ""
+">>> dt_add = dt + timedelta(days=1)\n"
+"\n"
+">>> print(dt_add)\n"
+"2020-11-01 12:00:00-08:00\n"
+"\n"
+">>> dt_add.tzname()\n"
+"'PST'"
 
 #: ../../library/zoneinfo.rst:63
 msgid ""
@@ -122,6 +158,12 @@ msgid ""
 "offset from *before* the transition is used when ``fold=0``, and the offset "
 "*after* the transition is used when ``fold=1``, for example::"
 msgstr ""
+"Esses fusos horários também oferecem suporte ao atributo :attr:`~datetime."
+"datetime.fold` introduzido em :pep:`495`. Durante transições de deslocamento "
+"que induzem horários ambíguos (como uma transição do horário de verão para o "
+"horário padrão), o deslocamento *anterior* à transição é usado quando "
+"``fold=0``, e o deslocamento *posterior* à transição é usado quando "
+"``fold=1``, por exemplo:"
 
 #: ../../library/zoneinfo.rst:69
 msgid ""
@@ -132,12 +174,20 @@ msgid ""
 ">>> print(dt.replace(fold=1))\n"
 "2020-11-01 01:00:00-08:00"
 msgstr ""
+">>> dt = datetime(2020, 11, 1, 1, tzinfo=ZoneInfo(\"America/Los_Angeles\"))\n"
+">>> print(dt)\n"
+"2020-11-01 01:00:00-07:00\n"
+"\n"
+">>> print(dt.replace(fold=1))\n"
+"2020-11-01 01:00:00-08:00"
 
 #: ../../library/zoneinfo.rst:76
 msgid ""
 "When converting from another time zone, the fold will be set to the correct "
 "value::"
 msgstr ""
+"Ao converter de outro fuso horário, a dobra será definida para o valor "
+"correto::"
 
 #: ../../library/zoneinfo.rst:79
 msgid ""
@@ -153,10 +203,21 @@ msgid ""
 ">>> print((dt_utc + timedelta(hours=1)).astimezone(LOS_ANGELES))\n"
 "2020-11-01 01:00:00-08:00"
 msgstr ""
+">>> from datetime import timezone\n"
+">>> LOS_ANGELES = ZoneInfo(\"America/Los_Angeles\")\n"
+">>> dt_utc = datetime(2020, 11, 1, 8, tzinfo=timezone.utc)\n"
+"\n"
+">>> # Antes da transição PDT -> PST\n"
+">>> print(dt_utc.astimezone(LOS_ANGELES))\n"
+"2020-11-01 01:00:00-07:00\n"
+"\n"
+">>> # Após a transição PDT -> PST\n"
+">>> print((dt_utc + timedelta(hours=1)).astimezone(LOS_ANGELES))\n"
+"2020-11-01 01:00:00-08:00"
 
 #: ../../library/zoneinfo.rst:92
 msgid "Data sources"
-msgstr ""
+msgstr "Fontes de dados"
 
 #: ../../library/zoneinfo.rst:94
 msgid ""
@@ -169,10 +230,19 @@ msgid ""
 "system data nor tzdata are available, all calls to :class:`ZoneInfo` will "
 "raise :exc:`ZoneInfoNotFoundError`."
 msgstr ""
+"O módulo ``zoneinfo`` não fornece dados de fuso horário diretamente, mas, em "
+"vez disso, extrai informações de fuso horário do banco de dados de fuso "
+"horário do sistema ou do pacote PyPI original :pypi:`tzdata`, se disponível. "
+"Alguns sistemas, incluindo principalmente os Windows, não possuem um banco "
+"de dados IANA disponível e, portanto, para projetos que buscam "
+"compatibilidade multiplataforma e exigem dados de fuso horário, recomenda-se "
+"declarar uma dependência em tzdata. Se nem os dados do sistema nem o tzdata "
+"estiverem disponíveis, todas as chamadas para :class:`ZoneInfo` levantarão :"
+"exc:`ZoneInfoNotFoundError`."
 
 #: ../../library/zoneinfo.rst:106
 msgid "Configuring the data sources"
-msgstr ""
+msgstr "Configurando as fontes de dados"
 
 #: ../../library/zoneinfo.rst:108
 msgid ""
@@ -181,28 +251,39 @@ msgid ""
 "failure looks for a match in the tzdata package. This behavior can be "
 "configured in three ways:"
 msgstr ""
+"Quando ``ZoneInfo(key)`` é chamado, o construtor primeiro pesquisa nos "
+"diretórios especificados em :data:`TZPATH` por um arquivo que corresponda a "
+"``key`` e, em caso de falha, procura uma correspondência no pacote tzdata. "
+"Esse comportamento pode ser configurado de três maneiras:"
 
 #: ../../library/zoneinfo.rst:113
 msgid ""
 "The default :data:`TZPATH` when not otherwise specified can be configured "
 "at :ref:`compile time <zoneinfo_data_compile_time_config>`."
 msgstr ""
+"O padrão :data:`TZPATH`, quando não especificado de outra forma, pode ser "
+"configurado em :ref:`tempo de compilação "
+"<zoneinfo_data_compile_time_config>`."
 
 #: ../../library/zoneinfo.rst:115
 msgid ""
 ":data:`TZPATH` can be configured using :ref:`an environment variable "
 "<zoneinfo_data_environment_var>`."
 msgstr ""
+":data:`TZPATH` pode ser configurado usando :ref:`uma variável de ambiente "
+"<zoneinfo_data_environment_var>`."
 
 #: ../../library/zoneinfo.rst:117
 msgid ""
 "At :ref:`runtime <zoneinfo_data_runtime_config>`, the search path can be "
 "manipulated using the :func:`reset_tzpath` function."
 msgstr ""
+"Em :ref:`tempo de execução <zoneinfo_data_runtime_config>`, o caminho de "
+"pesquisa pode ser manipulado usando a função :func:`reset_tzpath`."
 
 #: ../../library/zoneinfo.rst:123
 msgid "Compile-time configuration"
-msgstr ""
+msgstr "Configuração em tempo de compilação"
 
 #: ../../library/zoneinfo.rst:125
 msgid ""
@@ -215,16 +296,27 @@ msgid ""
 "tzpath <--with-tzpath>`), which should be a string delimited by :data:`os."
 "pathsep`."
 msgstr ""
+"O :data:`TZPATH` padrão inclui vários locais de implantação comuns para o "
+"banco de dados de fuso horário (exceto no Windows, onde não há locais "
+"\"conhecidos\" para dados de fuso horário). Em sistemas POSIX, "
+"distribuidores downstream e aqueles que constroem o Python a partir do "
+"código-fonte e que sabem onde os dados de fuso horário do sistema estão "
+"implantados podem alterar o caminho do fuso horário padrão especificando a "
+"opção de tempo de compilação ``TZPATH`` (ou, mais provavelmente, o :option:"
+"`sinalizador de configuração --with-tzpath <--with-tzpath>`), que deve ser "
+"uma string delimitada por :data:`os.pathsep`."
 
 #: ../../library/zoneinfo.rst:134
 msgid ""
 "On all platforms, the configured value is available as the ``TZPATH`` key "
 "in :func:`sysconfig.get_config_var`."
 msgstr ""
+"Em todas as plataformas, o valor configurado está disponível como a chave "
+"``TZPATH`` em :func:`sysconfig.get_config_var`."
 
 #: ../../library/zoneinfo.rst:140
 msgid "Environment configuration"
-msgstr ""
+msgstr "Configuração do ambiente"
 
 #: ../../library/zoneinfo.rst:142
 msgid ""
@@ -233,6 +325,10 @@ msgid ""
 "use the environment variable ``PYTHONTZPATH``, if it exists, to set the "
 "search path."
 msgstr ""
+"Ao inicializar :data:`TZPATH` (no momento da importação ou sempre que :func:"
+"`reset_tzpath` for chamado sem argumentos), o módulo ``zoneinfo`` usará a "
+"variável de ambiente ``PYTHONTZPATH``, se existir, para definir o caminho de "
+"pesquisa."
 
 #: ../../library/zoneinfo.rst:149
 msgid ""
@@ -244,16 +340,25 @@ msgid ""
 "other implementations are free to silently ignore the erroneous component or "
 "raise an exception."
 msgstr ""
+"Esta é uma string separada por :data:`os.pathsep` contendo o caminho de "
+"pesquisa de fuso horário a ser usado. Ela deve consistir apenas em caminhos "
+"absolutos, e não relativos. Componentes relativos especificados em "
+"``PYTHONTZPATH`` não serão usados, mas, caso contrário, o comportamento "
+"quando um caminho relativo é especificado é definido pela implementação; o "
+"CPython levantará :exc:`InvalidTZPathWarning`, mas outras implementações "
+"podem ignorar silenciosamente o componente incorreto ou levantar uma exceção."
 
 #: ../../library/zoneinfo.rst:157
 msgid ""
 "To set the system to ignore the system data and use the tzdata package "
 "instead, set ``PYTHONTZPATH=\"\"``."
 msgstr ""
+"Para configurar o sistema para ignorar os dados do sistema e usar o pacote "
+"tzdata, defina ``PYTHONTZPATH=\"\"``."
 
 #: ../../library/zoneinfo.rst:163
 msgid "Runtime configuration"
-msgstr ""
+msgstr "Configuração em tempo de execução"
 
 #: ../../library/zoneinfo.rst:165
 msgid ""
@@ -263,10 +368,15 @@ msgid ""
 "a specific time zone path (or require disabling access to the system time "
 "zones)."
 msgstr ""
+"O caminho de busca TZ também pode ser configurado em tempo de execução "
+"usando a função :func:`reset_tzpath`. Geralmente, essa não é uma operação "
+"aconselhável, embora seja razoável usá-la em funções de teste que exigem o "
+"uso de um caminho de fuso horário específico (ou que exijam a desativação do "
+"acesso aos fusos horários do sistema)."
 
 #: ../../library/zoneinfo.rst:172
 msgid "The ``ZoneInfo`` class"
-msgstr ""
+msgstr "A classe ``ZoneInfo``"
 
 #: ../../library/zoneinfo.rst:176
 msgid ""
@@ -276,6 +386,12 @@ msgid ""
 "cache invalidation via :meth:`ZoneInfo.clear_cache`, for all values of "
 "``key``, the following assertion will always be true:"
 msgstr ""
+"Uma subclasse concreta de :class:`datetime.tzinfo` que representa um fuso "
+"horário IANA especificado pela string ``key``. Chamadas ao construtor "
+"primário sempre retornarão objetos que sejam idênticos em comparação; em "
+"outras palavras, exceto pela invalidação de cache via :meth:`ZoneInfo."
+"clear_cache`, para todos os valores de ``key``, a seguinte asserção será "
+"sempre verdadeira:"
 
 #: ../../library/zoneinfo.rst:182
 msgid ""
@@ -283,6 +399,9 @@ msgid ""
 "b = ZoneInfo(key)\n"
 "assert a is b"
 msgstr ""
+"a = ZoneInfo(key)\n"
+"b = ZoneInfo(key)\n"
+"assert a is b"
 
 #: ../../library/zoneinfo.rst:188
 msgid ""
@@ -290,16 +409,21 @@ msgid ""
 "level references. The constructor will raise :exc:`ValueError` if a non-"
 "conforming key is passed."
 msgstr ""
+"``key`` deve estar no formato de um caminho POSIX relativo e normalizado, "
+"sem referências de nível superior. O construtor levantará :exc:`ValueError` "
+"se uma chave não conforme for passada."
 
 #: ../../library/zoneinfo.rst:192
 msgid ""
 "If no file matching ``key`` is found, the constructor will raise :exc:"
 "`ZoneInfoNotFoundError`."
 msgstr ""
+"Se nenhum arquivo correspondente a ``key`` for encontrado, o construtor "
+"levantará :exc:`ZoneInfoNotFoundError`."
 
 #: ../../library/zoneinfo.rst:196
 msgid "The ``ZoneInfo`` class has two alternate constructors:"
-msgstr ""
+msgstr "A classe ``ZoneInfo`` tem dois construtores alternativos:"
 
 #: ../../library/zoneinfo.rst:200
 msgid ""
@@ -367,7 +491,7 @@ msgstr ""
 
 #: ../../library/zoneinfo.rst:248
 msgid "The class has one attribute:"
-msgstr ""
+msgstr "A classe possui um atributo:"
 
 #: ../../library/zoneinfo.rst:252
 msgid ""
