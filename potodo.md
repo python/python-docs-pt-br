@@ -4,9 +4,9 @@
 
 
 
-# c-api (56.47% done)
+# c-api (56.51% done)
 
-- exceptions.po                  119 / 238 ( 50.0% translated).
+- exceptions.po                  121 / 238 ( 50.0% translated).
 - float.po                        29 /  35 ( 82.0% translated).
 - frame.po                        20 /  42 ( 47.0% translated).
 - gcsupport.po                     9 /  52 ( 17.0% translated).
@@ -63,9 +63,8 @@
 
 
 
-# library (66.30% done)
+# library (66.40% done)
 
-- argparse.po                    375 / 377 ( 99.0% translated).
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 409 ( 75.0% translated).
 - asyncio-future.po                9 /  64 ( 14.0% translated).
@@ -98,7 +97,6 @@
 - email.policy.po                 11 / 107 ( 10.0% translated).
 - enum.po                         74 / 244 ( 30.0% translated).
 - errno.po                       115 / 160 ( 71.0% translated).
-- exceptions.po                  189 / 198 ( 95.0% translated).
 - faulthandler.po                  4 /  43 (  9.0% translated).
 - ftplib.po                       11 /  99 ( 11.0% translated).
 - functools.po                    20 / 115 ( 17.0% translated).
@@ -123,15 +121,12 @@
 - mmap.po                         23 /  65 ( 35.0% translated).
 - msvcrt.po                       22 /  46 ( 47.0% translated).
 - multiprocessing.po             324 / 596 ( 54.0% translated).
-- os.path.po                     103 / 104 ( 99.0% translated).
 - pathlib.po                     417 / 418 ( 99.0% translated).
 - pkgutil.po                      44 /  50 ( 88.0% translated).
 - poplib.po                       10 /  53 ( 18.0% translated).
 - profile.po                      34 / 181 ( 18.0% translated).
-- pyexpat.po                      20 / 144 ( 13.0% translated).
+- pyexpat.po                      21 / 144 ( 14.0% translated).
 - queue.po                         9 /  53 ( 16.0% translated).
-- random.po                      137 / 138 ( 99.0% translated).
-- security_warnings.po            16 /  17 ( 94.0% translated).
 - select.po                       78 / 206 ( 37.0% translated).
 - selectors.po                    13 /  58 ( 22.0% translated).
 - shelve.po                       11 /  40 ( 27.0% translated).
@@ -144,11 +139,10 @@
 - struct.po                       96 / 195 ( 49.0% translated).
 - subprocess.po                  150 / 327 ( 45.0% translated).
 - symtable.po                      6 /  65 (  9.0% translated).
-- tarfile.po                     147 / 341 ( 43.0% translated).
+- tarfile.po                     150 / 341 ( 43.0% translated).
 - tempfile.po                      8 /  87 (  9.0% translated).
 - test.po                        119 / 321 ( 37.0% translated).
 - threading.po                    38 / 274 ( 13.0% translated).
-- time.po                        275 / 280 ( 98.0% translated).
 - tkinter.ttk.po                 141 / 429 ( 32.0% translated).
 - traceback.po                     9 / 116 (  7.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
@@ -161,16 +155,13 @@
 - warnings.po                     72 / 138 ( 52.0% translated).
 - wave.po                         17 /  54 ( 31.0% translated).
 - wsgiref.po                      78 / 134 ( 58.0% translated).
-- xml.dom.minidom.po               7 /  56 ( 12.0% translated).
+- xml.dom.minidom.po               8 /  56 ( 14.0% translated).
 - xml.dom.po                      67 / 235 ( 28.0% translated).
-- xml.dom.pulldom.po              29 /  30 ( 96.0% translated).
-- xml.etree.elementtree.po        67 / 266 ( 25.0% translated).
-- xml.po                          20 /  25 ( 80.0% translated).
+- xml.etree.elementtree.po        68 / 266 ( 25.0% translated).
 - xml.sax.handler.po               4 / 103 (  3.0% translated).
-- xml.sax.po                       2 /  32 (  6.0% translated).
+- xml.sax.po                       3 /  32 (  9.0% translated).
 - xml.sax.reader.po                2 /  75 (  2.0% translated).
-- xmlrpc.client.po                53 / 113 ( 46.0% translated).
-- xmlrpc.server.po                56 /  57 ( 98.0% translated).
+- xmlrpc.client.po                55 / 113 ( 48.0% translated).
 - zoneinfo.po                     42 /  83 ( 50.0% translated).
 
 
@@ -187,7 +178,7 @@
 - mac.po                          92 /  96 ( 95.0% translated).
 
 
-# whatsnew (46.61% done)
+# whatsnew (46.64% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -195,16 +186,14 @@
 - 2.6.po                         542 / 626 ( 86.0% translated).
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
-- 3.11.po                        775 / 776 ( 99.0% translated).
 - 3.13.po                        880 / 889 ( 98.0% translated).
 - 3.2.po                          66 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
 - 3.5.po                         129 / 578 ( 22.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- 3.9.po                         377 / 380 ( 99.0% translated).
-- changelog.po                   2561 / 12430 ( 20.0% translated).
+- changelog.po                   2565 / 12430 ( 20.0% translated).
 
 
-# TOTAL (62.78% done)
+# TOTAL (62.84% done)
 
