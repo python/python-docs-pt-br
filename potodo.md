@@ -5,9 +5,9 @@
 - license.po                     116 / 125 ( 92.0% translated).
 
 
-# c-api (55.79% done)
+# c-api (55.83% done)
 
-- exceptions.po                  194 / 366 ( 53.0% translated).
+- exceptions.po                  196 / 366 ( 53.0% translated).
 - float.po                        29 /  35 ( 82.0% translated).
 - frame.po                        20 /  36 ( 55.0% translated).
 - gcsupport.po                     9 /  52 ( 17.0% translated).
@@ -209,7 +209,7 @@
 - xml.sax.handler.po               4 / 103 (  3.0% translated).
 - xml.sax.po                       2 /  32 (  6.0% translated).
 - xml.sax.reader.po                2 /  75 (  2.0% translated).
-- xmlrpc.client.po                54 / 113 ( 47.0% translated).
+- xmlrpc.client.po                55 / 113 ( 48.0% translated).
 - zoneinfo.po                     42 /  83 ( 50.0% translated).
 
 
@@ -248,5 +248,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (69.46% done)
+# TOTAL (69.47% done)
 
