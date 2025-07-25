@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-09 14:19+0000\n"
+"POT-Creation-Date: 2025-07-25 14:21+0000\n"
 "PO-Revision-Date: 2025-07-18 18:48+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -742,18 +742,20 @@ msgid ""
 "the :term:`free-threaded <free threading>` build, this allows the "
 "interpreter to avoid reference count adjustments to *obj*, which may improve "
 "multi-threaded performance.  The tradeoff is that *obj* will only be "
-"deallocated by the tracing garbage collector."
+"deallocated by the tracing garbage collector, and not when the interpreter "
+"no longer has any references to it."
 msgstr ""
 
-#: ../../c-api/object.rst:601
+#: ../../c-api/object.rst:602
 msgid ""
 "This function returns ``1`` if deferred reference counting is enabled on "
-"*obj* (including when it was enabled before the call), and ``0`` if deferred "
-"reference counting is not supported or if the hint was ignored by the "
-"runtime. This function is thread-safe, and cannot fail."
+"*obj*, and ``0`` if deferred reference counting is not supported or if the "
+"hint was ignored by the interpreter, such as when deferred reference "
+"counting is already enabled on *obj*. This function is thread-safe, and "
+"cannot fail."
 msgstr ""
 
-#: ../../c-api/object.rst:606
+#: ../../c-api/object.rst:607
 msgid ""
 "This function does nothing on builds with the :term:`GIL` enabled, which do "
 "not support deferred reference counting. This also does nothing if *obj* is "
@@ -761,13 +763,14 @@ msgid ""
 "and :c:func:`PyObject_GC_IsTracked`)."
 msgstr ""
 
-#: ../../c-api/object.rst:611
+#: ../../c-api/object.rst:612
 msgid ""
 "This function is intended to be used soon after *obj* is created, by the "
-"code that creates it."
+"code that creates it, such as in the object's :c:member:`~PyTypeObject."
+"tp_new` slot."
 msgstr ""
 
-#: ../../c-api/object.rst:618
+#: ../../c-api/object.rst:620
 msgid ""
 "Check if *obj* is a unique temporary object. Returns ``1`` if *obj* is known "
 "to be a unique temporary object, and ``0`` otherwise.  This function cannot "
@@ -775,7 +778,7 @@ msgid ""
 "if *obj* is a unique temporary object."
 msgstr ""
 
-#: ../../c-api/object.rst:624
+#: ../../c-api/object.rst:626
 msgid ""
 "If an object is a unique temporary, it is guaranteed that the current code "
 "has the only reference to the object. For arguments to C functions, this "
@@ -787,65 +790,65 @@ msgid ""
 "argument uniquely referenced."
 msgstr ""
 
-#: ../../c-api/object.rst:633
+#: ../../c-api/object.rst:635
 msgid ""
 "In the example below, ``my_func`` is called with a unique temporary object "
 "as its argument::"
 msgstr ""
 
-#: ../../c-api/object.rst:636
+#: ../../c-api/object.rst:638
 msgid "my_func([1, 2, 3])"
 msgstr ""
 
-#: ../../c-api/object.rst:638
+#: ../../c-api/object.rst:640
 msgid ""
 "In the example below, ``my_func`` is **not** called with a unique temporary "
 "object as its argument, even if its refcount is ``1``::"
 msgstr ""
 
-#: ../../c-api/object.rst:641
+#: ../../c-api/object.rst:643
 msgid ""
 "my_list = [1, 2, 3]\n"
 "my_func(my_list)"
 msgstr ""
 
-#: ../../c-api/object.rst:644
+#: ../../c-api/object.rst:646
 msgid "See also the function :c:func:`Py_REFCNT`."
 msgstr ""
 
-#: ../../c-api/object.rst:650
+#: ../../c-api/object.rst:652
 msgid ""
 "This function returns non-zero if *obj* is :term:`immortal`, and zero "
 "otherwise. This function cannot fail."
 msgstr ""
 
-#: ../../c-api/object.rst:655
+#: ../../c-api/object.rst:657
 msgid ""
 "Objects that are immortal in one CPython version are not guaranteed to be "
 "immortal in another."
 msgstr ""
 
-#: ../../c-api/object.rst:662
+#: ../../c-api/object.rst:664
 msgid ""
 "Increments the reference count of *obj* if it is not zero.  Returns ``1`` if "
 "the object's reference count was successfully incremented. Otherwise, this "
 "function returns ``0``."
 msgstr ""
 
-#: ../../c-api/object.rst:666
+#: ../../c-api/object.rst:668
 msgid ""
 ":c:func:`PyUnstable_EnableTryIncRef` must have been called earlier on *obj* "
 "or this function may spuriously return ``0`` in the :term:`free threading` "
 "build."
 msgstr ""
 
-#: ../../c-api/object.rst:670
+#: ../../c-api/object.rst:672
 msgid ""
 "This function is logically equivalent to the following C code, except that "
 "it behaves atomically in the :term:`free threading` build::"
 msgstr ""
 
-#: ../../c-api/object.rst:673
+#: ../../c-api/object.rst:675
 msgid ""
 "if (Py_REFCNT(op) > 0) {\n"
 "   Py_INCREF(op);\n"
@@ -854,13 +857,13 @@ msgid ""
 "return 0;"
 msgstr ""
 
-#: ../../c-api/object.rst:679
+#: ../../c-api/object.rst:681
 msgid ""
 "This is intended as a building block for managing weak references without "
 "the overhead of a Python :ref:`weak reference object <weakrefobjects>`."
 msgstr ""
 
-#: ../../c-api/object.rst:682
+#: ../../c-api/object.rst:684
 msgid ""
 "Typically, correct use of this function requires support from *obj*'s "
 "deallocator (:c:member:`~PyTypeObject.tp_dealloc`). For example, the "
@@ -868,7 +871,7 @@ msgid ""
 "a :py:class:`~weakref.WeakValueDictionary` for a specific type:"
 msgstr ""
 
-#: ../../c-api/object.rst:688
+#: ../../c-api/object.rst:690
 msgid ""
 "PyMutex mutex;\n"
 "\n"
@@ -913,23 +916,23 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../c-api/object.rst:736
+#: ../../c-api/object.rst:738
 msgid ""
 "Enables subsequent uses of :c:func:`PyUnstable_TryIncRef` on *obj*.  The "
 "caller must hold a :term:`strong reference` to *obj* when calling this."
 msgstr ""
 
-#: ../../c-api/object.rst:743
+#: ../../c-api/object.rst:745
 msgid "Determine if *op* only has one reference."
 msgstr ""
 
-#: ../../c-api/object.rst:745
+#: ../../c-api/object.rst:747
 msgid ""
 "On GIL-enabled builds, this function is equivalent to :c:expr:`Py_REFCNT(op) "
 "== 1`."
 msgstr ""
 
-#: ../../c-api/object.rst:748
+#: ../../c-api/object.rst:750
 msgid ""
 "On a :term:`free threaded <free threading>` build, this checks if *op*'s :"
 "term:`reference count` is equal to one and additionally checks if *op* is "
@@ -937,7 +940,7 @@ msgid ""
 "safe on free threaded builds; prefer this function."
 msgstr ""
 
-#: ../../c-api/object.rst:753
+#: ../../c-api/object.rst:755
 msgid ""
 "The caller must hold an :term:`attached thread state`, despite the fact that "
 "this function doesn't call into the Python interpreter. This function cannot "
