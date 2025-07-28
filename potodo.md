@@ -66,7 +66,7 @@
 
 
 
-# library (65.99% done)
+# library (66.06% done)
 
 - annotationlib.po               136 / 137 ( 99.0% translated).
 - argparse.po                    392 / 397 ( 98.0% translated).
@@ -150,7 +150,7 @@
 - sqlite3.po                     116 / 475 ( 24.0% translated).
 - ssl.po                          61 / 545 ( 11.0% translated).
 - string.po                      218 / 222 ( 98.0% translated).
-- string.templatelib.po            7 /  58 ( 12.0% translated).
+- string.templatelib.po           32 /  58 ( 55.0% translated).
 - struct.po                      102 / 204 ( 50.0% translated).
 - subprocess.po                  150 / 311 ( 48.0% translated).
 - symtable.po                      6 /  73 (  8.0% translated).
@@ -222,5 +222,5 @@
 - changelog.po                   3034 / 13437 ( 22.0% translated).
 
 
-# TOTAL (62.14% done)
+# TOTAL (62.17% done)
 
