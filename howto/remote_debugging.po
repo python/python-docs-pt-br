@@ -3,13 +3,17 @@
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# Translators:
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-09 14:19+0000\n"
+"POT-Creation-Date: 2025-07-25 14:21+0000\n"
 "PO-Revision-Date: 2025-07-18 18:48+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -21,13 +25,16 @@ msgstr ""
 
 #: ../../howto/remote_debugging.rst:4
 msgid "Remote debugging attachment protocol"
-msgstr ""
+msgstr "Protocolo de anexação de depuração remota"
 
 #: ../../howto/remote_debugging.rst:6
 msgid ""
 "This section describes the low-level protocol that enables external tools to "
 "inject and execute a Python script within a running CPython process."
 msgstr ""
+"Esta seção descreve o protocolo de baixo nível que permite que ferramentas "
+"externas injetem e executem um script Python dentro de um processo CPython "
+"em execução."
 
 #: ../../howto/remote_debugging.rst:9
 msgid ""
@@ -39,6 +46,13 @@ msgid ""
 "file to be executed. This information supports independent reimplementation "
 "of the protocol, regardless of programming language."
 msgstr ""
+"Este mecanismo forma a base da função :func:`sys.remote_exec`, que instrui "
+"um processo Python remoto a executar um arquivo ``.py``. No entanto, esta "
+"seção não documenta o uso dessa função. Em vez disso, fornece uma explicação "
+"detalhada do protocolo subjacente, que recebe como entrada o ``pid`` de um "
+"processo Python de destino e o caminho para um arquivo-fonte Python a ser "
+"executado. Essas informações permitem a reimplementação independente do "
+"protocolo, independentemente da linguagem de programação."
 
 #: ../../howto/remote_debugging.rst:19
 msgid ""
@@ -46,6 +60,9 @@ msgid ""
 "safe evaluation point. As a result, execution may be delayed depending on "
 "the runtime state of the target process."
 msgstr ""
+"A execução do script injetado depende de o interpretador atingir um ponto de "
+"avaliação seguro. Como resultado, a execução pode ser atrasada dependendo do "
+"estado de execução do processo de destino."
 
 #: ../../howto/remote_debugging.rst:23
 msgid ""
@@ -54,6 +71,10 @@ msgid ""
 "enables remote execution capabilities without modifying the behavior or "
 "structure of the running Python application."
 msgstr ""
+"Uma vez injetado, o script é executado pelo interpretador dentro do processo "
+"de destino na próxima vez que um ponto de avaliação seguro for atingido. "
+"Essa abordagem permite recursos de execução remota sem modificar o "
+"comportamento ou a estrutura da aplicação Python em execução."
 
 #: ../../howto/remote_debugging.rst:28
 msgid ""
@@ -63,10 +84,15 @@ msgid ""
 "variations are noted where applicable, and example implementations are "
 "included to clarify each operation."
 msgstr ""
+"As seções subsequentes fornecem uma descrição passo a passo do protocolo, "
+"incluindo técnicas para localizar estruturas do interpretador na memória, "
+"acessar campos internos com segurança e disparar a execução de código. "
+"Variações específicas da plataforma são indicadas quando aplicável, e "
+"exemplos de implementação são incluídos para esclarecer cada operação."
 
 #: ../../howto/remote_debugging.rst:35
 msgid "Locating the PyRuntime structure"
-msgstr ""
+msgstr "Localizando a estrutura de PyRuntime"
 
 #: ../../howto/remote_debugging.rst:37
 msgid ""
@@ -76,6 +102,12 @@ msgid ""
 "``__DATA,__PyRuntime`` is used on macOS. Tools can find the offset of this "
 "structure by examining the binary on disk."
 msgstr ""
+"O CPython coloca a estrutura ``PyRuntime`` em uma seção binária dedicada "
+"para ajudar ferramentas externas a encontrá-la em tempo de execução. O nome "
+"e o formato desta seção variam de acordo com a plataforma. Por exemplo, ``."
+"PyRuntime`` é usado em sistemas ELF, e ``__DATA,__PyRuntime`` é usado no "
+"macOS. As ferramentas podem encontrar o deslocamento desta estrutura "
+"examinando o binário no disco."
 
 #: ../../howto/remote_debugging.rst:43
 msgid ""
@@ -83,6 +115,9 @@ msgid ""
 "provides access to other internal data, including the list of interpreters, "
 "thread states, and debugger support fields."
 msgstr ""
+"A estrutura ``PyRuntime`` contém o estado global do interpretador do CPython "
+"e fornece acesso a outros dados internos, incluindo a lista de "
+"interpretadores, estados de thread e campos de suporte do depurador."
 
 #: ../../howto/remote_debugging.rst:47
 msgid ""
@@ -91,65 +126,86 @@ msgid ""
 "can’t be hardcoded or calculated from a symbol name, because it depends on "
 "where the operating system loaded the binary."
 msgstr ""
+"Para trabalhar com um processo Python remoto, um depurador precisa primeiro "
+"encontrar o endereço de memória da estrutura ``PyRuntime`` no processo de "
+"destino. Este endereço não pode ser codificado ou calculado a partir de um "
+"nome de símbolo, pois depende de onde o sistema operacional carregou o "
+"binário."
 
 #: ../../howto/remote_debugging.rst:52
 msgid ""
 "The method for finding ``PyRuntime`` depends on the platform, but the steps "
 "are the same in general:"
 msgstr ""
+"O método para encontrar ``PyRuntime`` depende da plataforma, mas os passos "
+"são os mesmos em geral:"
 
 #: ../../howto/remote_debugging.rst:55
 msgid ""
 "Find the base address where the Python binary or shared library was loaded "
 "in the target process."
 msgstr ""
+"Encontrar o endereço base onde o binário Python ou a biblioteca "
+"compartilhada foi carregada no processo de destino."
 
 #: ../../howto/remote_debugging.rst:57
 msgid ""
 "Use the on-disk binary to locate the offset of the ``.PyRuntime`` section."
 msgstr ""
+"Usar o binário no disco para localizar o deslocamento da seção ``."
+"PyRuntime``."
 
 #: ../../howto/remote_debugging.rst:58
 msgid ""
 "Add the section offset to the base address to compute the address in memory."
 msgstr ""
+"Adicionar o deslocamento da seção ao endereço base para calcular o endereço "
+"na memória."
 
 #: ../../howto/remote_debugging.rst:60
 msgid ""
 "The sections below explain how to do this on each supported platform and "
 "include example code."
 msgstr ""
+"As seções abaixo explicam como fazer isso em cada plataforma suportada e "
+"incluem código de exemplo."
 
 #: ../../howto/remote_debugging.rst:64
 msgid "Linux (ELF)"
-msgstr ""
+msgstr "Linux (ELF)"
 
 #: ../../howto/remote_debugging.rst:65
 msgid "To find the ``PyRuntime`` structure on Linux:"
-msgstr ""
+msgstr "Para encontrar a estrutura de ``PyRuntime`` no Linux:"
 
 #: ../../howto/remote_debugging.rst:67
 msgid ""
 "Read the process’s memory map (for example, ``/proc/<pid>/maps``) to find "
 "the address where the Python executable or ``libpython`` was loaded."
 msgstr ""
+"Lê o mapa de memória do processo (por exemplo, ``/proc/<pid>/maps``) para "
+"encontrar o endereço onde o executável Python ou ``libpython`` foi carregado."
 
 #: ../../howto/remote_debugging.rst:69
 msgid ""
 "Parse the ELF section headers in the binary to get the offset of the ``."
 "PyRuntime`` section."
 msgstr ""
+"Analise os cabeçalhos da seção ELF no binário para obter o deslocamento da "
+"seção ``.PyRuntime``."
 
 #: ../../howto/remote_debugging.rst:71
 msgid ""
 "Add that offset to the base address from step 1 to get the memory address of "
 "``PyRuntime``."
 msgstr ""
+"Adicione esse deslocamento ao endereço base da etapa 1 para obter o endereço "
+"de memória de ``PyRuntime``."
 
 #: ../../howto/remote_debugging.rst:74 ../../howto/remote_debugging.rst:136
 #: ../../howto/remote_debugging.rst:206 ../../howto/remote_debugging.rst:475
 msgid "The following is an example implementation::"
-msgstr ""
+msgstr "A seguir está um exemplo de implementação::"
 
 #: ../../howto/remote_debugging.rst:76
 msgid ""
@@ -173,6 +229,27 @@ msgid ""
 "    # Step 4: Compute PyRuntime address in memory\n"
 "    return base_address + section_offset"
 msgstr ""
+"def find_py_runtime_linux(pid: int) -> int:\n"
+"    # Etapa 1: tenta encontrar o executável Python na memória\n"
+"    binary_path, base_address = find_mapped_binary(\n"
+"        pid, name_contains=\"python\"\n"
+"    )\n"
+"\n"
+"    # Etapa 2: recorre à biblioteca compartilhada se não encontrar o "
+"executável\n"
+"    if binary_path is None:\n"
+"        binary_path, base_address = find_mapped_binary(\n"
+"            pid, name_contains=\"libpython\"\n"
+"        )\n"
+"\n"
+"    # Etapa 3: analisa os cabeçalhos ELF para obter o deslocamento da seção ."
+"PyRuntime\n"
+"    section_offset = parse_elf_section_offset(\n"
+"        binary_path, \".PyRuntime\"\n"
+"    )\n"
+"\n"
+"    # Etapa 4: calcula o endereço de PyRuntime na memória\n"
+"    return base_address + section_offset"
 
 #: ../../howto/remote_debugging.rst:97
 msgid ""
@@ -187,6 +264,16 @@ msgid ""
 "significantly slower as it only reads one word at a time and requires "
 "multiple context switches between the tracer and tracee processes."
 msgstr ""
+"Em sistemas Linux, existem duas abordagens principais para ler memória de "
+"outro processo. A primeira é através do sistema de arquivos ``/proc``, "
+"especificamente lendo de ``/proc/[pid]/mem``, que fornece acesso direto à "
+"memória do processo. Isso requer permissões apropriadas – seja o mesmo "
+"usuário do processo alvo ou ter acesso root. A segunda abordagem é usar a "
+"chamada de sistema ``process_vm_readv()``, que fornece uma maneira mais "
+"eficiente de copiar memória entre processos. Embora a operação "
+"``PTRACE_PEEKTEXT`` do ptrace também possa ser usada para ler memória, ela é "
+"significativamente mais lenta, pois lê apenas uma palavra por vez e requer "
+"múltiplas trocas de contexto entre os processos rastreador e rastreado."
 
 #: ../../howto/remote_debugging.rst:108
 msgid ""
@@ -200,20 +287,32 @@ msgid ""
 "can be used to calculate its runtime address when the binary is loaded into "
 "memory."
 msgstr ""
+"Para analisar seções ELF, o processo envolve a leitura e a interpretação das "
+"estruturas do formato de arquivo ELF do arquivo binário em disco. O "
+"cabeçalho ELF contém um ponteiro para a tabela de cabeçalhos de seção. Cada "
+"cabeçalho de seção contém metadados sobre uma seção, incluindo seu nome "
+"(armazenado em uma tabela de strings separada), deslocamento e tamanho. Para "
+"encontrar uma seção específica, como .PyRuntime, você precisa percorrer "
+"esses cabeçalhos e encontrar o nome da seção. O cabeçalho de seção então "
+"fornece o deslocamento onde essa seção existe no arquivo, que pode ser usado "
+"para calcular seu endereço de tempo de execução quando o binário é carregado "
+"na memória."
 
 #: ../../howto/remote_debugging.rst:117
 msgid ""
 "You can read more about the ELF file format in the `ELF specification "
 "<https://en.wikipedia.org/wiki/Executable_and_Linkable_Format>`_."
 msgstr ""
+"Você pode ler mais sobre o formato de arquivo ELF na `especificação do ELF "
+"<https://en.wikipedia.org/wiki/Executable_and_Linkable_Format>`_."
 
 #: ../../howto/remote_debugging.rst:122
 msgid "macOS (Mach-O)"
-msgstr ""
+msgstr "macOS (Mach-O)"
 
 #: ../../howto/remote_debugging.rst:123
 msgid "To find the ``PyRuntime`` structure on macOS:"
-msgstr ""
+msgstr "Para encontrar a estrutura de ``PyRuntime`` no macOS:"
 
 #: ../../howto/remote_debugging.rst:125
 msgid ""
@@ -221,12 +320,17 @@ msgid ""
 "process. This handle is needed to read memory using APIs like "
 "``mach_vm_read_overwrite`` and ``mach_vm_region``."
 msgstr ""
+"Chame ``task_for_pid()`` para obter a porta da tarefa ``mach_port_t`` para o "
+"processo de destino. Este identificador é necessário para ler memória usando "
+"APIs como ``mach_vm_read_overwrite`` e ``mach_vm_region``."
 
 #: ../../howto/remote_debugging.rst:128
 msgid ""
 "Scan the memory regions to find the one containing the Python executable or "
 "``libpython``."
 msgstr ""
+"Examine as regiões da memória para encontrar aquela que contém o executável "
+"Python ou ``libpython``."
 
 #: ../../howto/remote_debugging.rst:130
 msgid ""
@@ -236,6 +340,11 @@ msgid ""
 "symbol appears as ``_PyRuntime`` in the symbol table, but the section name "
 "is not affected."
 msgstr ""
+"Carregue o arquivo binário do disco e analise os cabeçalhos do Mach-O para "
+"encontrar a seção chamada ``PyRuntime`` no segmento ``__DATA``. No macOS, os "
+"nomes dos símbolos são prefixados automaticamente com um sublinhado, de modo "
+"que o símbolo ``PyRuntime`` aparece como ``_PyRuntime`` na tabela de "
+"símbolos, mas o nome da seção não é afetado."
 
 #: ../../howto/remote_debugging.rst:138
 msgid ""
@@ -262,6 +371,30 @@ msgid ""
 "    # Step 5: Compute the PyRuntime address in memory\n"
 "    return base_address + section_offset"
 msgstr ""
+"def find_py_runtime_macos(pid: int) -> int:\n"
+"    # Etapa 1: obtém acesso à memória do processo\n"
+"    handle = get_memory_access_handle(pid)\n"
+"\n"
+"    # Etapa 2: tenta encontrar o executável Python na memória\n"
+"    binary_path, base_address = find_mapped_binary(\n"
+"        handle, name_contains=\"python\"\n"
+"    )\n"
+"\n"
+"    # Etapa 2: recorre à biblioteca compartilhada se não encontrar o "
+"executável\n"
+"    if binary_path is None:\n"
+"        binary_path, base_address = find_mapped_binary(\n"
+"            handle, name_contains=\"libpython\"\n"
+"        )\n"
+"\n"
+"    # Etapa 4: analisa os cabeçalhos Mach-O para obter o deslocamento da "
+"seção __DATA,__PyRuntime\n"
+"    section_offset = parse_macho_section_offset(\n"
+"        binary_path, \"__DATA\", \"__PyRuntime\"\n"
+"    )\n"
+"\n"
+"    # Etapa 5: calcula o endereço de PyRuntime na memória\n"
+"    return base_address + section_offset"
 
 #: ../../howto/remote_debugging.rst:161
 msgid ""
@@ -271,6 +404,11 @@ msgid ""
 "space. This handle enables memory operations through APIs like "
 "``mach_vm_read_overwrite()``."
 msgstr ""
+"No macOS, acessar a memória de outro processo requer o uso de APIs e "
+"formatos de arquivo específicos do Mach-O. O primeiro passo é obter um "
+"identificador ``task_port`` via ``task_for_pid()``, que fornece acesso ao "
+"espaço de memória do processo de destino. Esse identificador permite "
+"operações de memória por meio de APIs como ``mach_vm_read_overwrite()``."
 
 #: ../../howto/remote_debugging.rst:167
 msgid ""
@@ -280,6 +418,11 @@ msgid ""
 "Python binary or library is found, its Mach-O headers need to be parsed to "
 "locate the ``PyRuntime`` structure."
 msgstr ""
+"A memória do processo pode ser examinada usando ``mach_vm_region()`` para "
+"varrer o espaço da memória virtual, enquanto ``proc_regionfilename()`` ajuda "
+"a identificar quais arquivos binários são carregados em cada região da "
+"memória. Quando o binário ou biblioteca Python é encontrado, seus cabeçalhos "
+"Mach-O precisam ser analisados para localizar a estrutura ``PyRuntime``."
 
 #: ../../howto/remote_debugging.rst:172
 msgid ""
@@ -291,6 +434,13 @@ msgid ""
 "address is computed by combining the base address with the appropriate "
 "section offsets from the Mach-O headers."
 msgstr ""
+"O formato Mach-O organiza código e dados em segmentos e seções. A estrutura "
+"``PyRuntime`` reside em uma seção chamada ``__PyRuntime`` dentro do segmento "
+"``__DATA``. O cálculo do endereço de tempo de execução envolve encontrar o "
+"segmento ``__TEXT``, que serve como endereço base do binário, e então "
+"localizar o segmento ``__DATA`` que contém nossa seção de destino. O "
+"endereço final é calculado combinando o endereço base com os deslocamentos "
+"de seção apropriados dos cabeçalhos do Mach-O."
 
 #: ../../howto/remote_debugging.rst:180
 msgid ""
@@ -298,14 +448,17 @@ msgid ""
 "elevated privileges - either root access or special security entitlements "
 "granted to the debugging process."
 msgstr ""
+"Observe que acessar a memória de outro processo no macOS normalmente requer "
+"privilégios elevados — acesso root ou direitos de segurança especiais "
+"concedidos ao processo de depuração."
 
 #: ../../howto/remote_debugging.rst:186
 msgid "Windows (PE)"
-msgstr ""
+msgstr "Windows (PE)"
 
 #: ../../howto/remote_debugging.rst:187
 msgid "To find the ``PyRuntime`` structure on Windows:"
-msgstr ""
+msgstr "Para encontrar a estrutura de ``PyRuntime`` no Windows:"
 
 #: ../../howto/remote_debugging.rst:189
 msgid ""
@@ -317,6 +470,13 @@ msgid ""
 "`Module32Next <https://learn.microsoft.com/en-us/windows/win32/api/tlhelp32/"
 "nf-tlhelp32-module32next>`_."
 msgstr ""
+"Use a API ToolHelp para enumerar todos os módulos carregados no processo de "
+"destino. Isso é feito usando funções como `CreateToolhelp32Snapshot <https://"
+"learn.microsoft.com/pt-br/windows/win32/api/tlhelp32/nf-tlhelp32-"
+"createtoolhelp32snapshot>`_, `Module32First <https://learn.microsoft.com/pt-"
+"br/windows/win32/api/tlhelp32/nf-tlhelp32-module32first>`_ e `Module32Next "
+"<https://learn.microsoft.com/pt-br/windows/win32/api/tlhelp32/nf-tlhelp32-"
+"module32next>`_."
 
 #: ../../howto/remote_debugging.rst:196
 msgid ""
@@ -324,6 +484,9 @@ msgid ""
 "dll`, where ``X`` and ``Y`` are the major and minor version numbers of the "
 "Python version, and record its base address."
 msgstr ""
+"Identifique o módulo correspondente a :file:`python.exe` ou :file:"
+"`python{XY}.dll`, onde ``X`` e ``Y`` são os números de versão principal e "
+"secundária do Python, e registre seu endereço base."
 
 #: ../../howto/remote_debugging.rst:199
 msgid ""
@@ -332,12 +495,18 @@ msgid ""
 "``PyRuntime`` is truncated. This section contains the ``PyRuntime`` "
 "structure."
 msgstr ""
+"Localize a seção ``PyRuntim``. Devido ao limite de 8 caracteres do formato "
+"PE para nomes de seção (definido como ``IMAGE_SIZEOF_SHORT_NAME``), o nome "
+"original ``PyRuntime`` está truncado. Esta seção contém a estrutura "
+"``PyRuntime``."
 
 #: ../../howto/remote_debugging.rst:203
 msgid ""
 "Retrieve the section’s relative virtual address (RVA) and add it to the base "
 "address of the module."
 msgstr ""
+"Recupere o endereço virtual relativo (RVA) da seção e adicione-o ao endereço "
+"base do módulo."
 
 #: ../../howto/remote_debugging.rst:208
 msgid ""
@@ -362,6 +531,27 @@ msgid ""
 "    # Step 4: Compute PyRuntime address in memory\n"
 "    return base_address + section_rva"
 msgstr ""
+"def find_py_runtime_windows(pid: int) -> int:\n"
+"    # Etapa 1: tenta encontrar o executável Python na memória\n"
+"    binary_path, base_address = find_loaded_module(\n"
+"        pid, name_contains=\"python\"\n"
+"    )\n"
+"\n"
+"    # Etapa 2: recorre à pythonXY.dll compartilhada se não encontrar\n"
+"    # o executável\n"
+"    if binary_path is None:\n"
+"        binary_path, base_address = find_loaded_module(\n"
+"            pid, name_contains=\"python3\"\n"
+"        )\n"
+"\n"
+"    # Etapa 3: analisa os cabeçalhos da seção PE para obter o RVA\n"
+"    # da seção .PyRuntime. O nome da seção aparece como \"PyRuntim\"\n"
+"    # devido ao limite de 8 caracteres definido pelo formato PE \n"
+"    # (IMAGE_SIZEOF_SHORT_NAME).\n"
+"    section_rva = parse_pe_section_offset(binary_path, \"PyRuntim\")\n"
+"\n"
+"    # Etapa 4: calcula o endereço de PyRuntime na memória\n"
+"    return base_address + section_rva"
 
 #: ../../howto/remote_debugging.rst:230
 msgid ""
@@ -371,6 +561,12 @@ msgid ""
 "provides a handle to access the target process's memory space, enabling "
 "memory operations through ``ReadProcessMemory()``."
 msgstr ""
+"No Windows, acessar a memória de outro processo requer o uso de funções da "
+"API do Windows, como ``CreateToolhelp32Snapshot()`` e ``Module32First()/"
+"Module32Next()``, para enumerar os módulos carregados. A função "
+"``OpenProcess()`` fornece um identificador para acessar o espaço de memória "
+"do processo de destino, permitindo operações de memória por meio de "
+"``ReadProcessMemory()``."
 
 #: ../../howto/remote_debugging.rst:236
 msgid ""
@@ -378,6 +574,9 @@ msgid ""
 "Python binary or DLL. When found, its PE headers need to be parsed to locate "
 "the ``PyRuntime`` structure."
 msgstr ""
+"A memória do processo pode ser examinada enumerando os módulos carregados "
+"para encontrar o binário ou DLL Python. Quando encontrados, seus cabeçalhos "
+"PE precisam ser analisados para localizar a estrutura ``PyRuntime``."
 
 #: ../../howto/remote_debugging.rst:240
 msgid ""
@@ -389,6 +588,13 @@ msgid ""
 "address is computed by combining the base address with the section's virtual "
 "address from the PE section headers."
 msgstr ""
+"O formato PE organiza código e dados em seções. A estrutura de ``PyRuntime`` "
+"reside em uma seção chamada \"PyRuntim\" (truncado de \"PyRuntime\" devido "
+"ao limite de 8 caracteres para nomes do PE). O cálculo do endereço de tempo "
+"de execução envolve encontrar o endereço base do módulo a partir da entrada "
+"do módulo e, em seguida, localizar nossa seção de destino nos cabeçalhos do "
+"PE. O endereço final é calculado combinando o endereço base com o endereço "
+"virtual da seção, a partir dos cabeçalhos da seção do PE."
 
 #: ../../howto/remote_debugging.rst:247
 msgid ""
@@ -396,10 +602,13 @@ msgid ""
 "appropriate privileges - either administrative access or the "
 "``SeDebugPrivilege`` privilege granted to the debugging process."
 msgstr ""
+"Observe que acessar a memória de outro processo no Windows normalmente "
+"requer privilégios apropriados — acesso administrativo ou o privilégio de "
+"``SeDebugPrivilege`` concedidos ao processo de depuração."
 
 #: ../../howto/remote_debugging.rst:253
 msgid "Reading _Py_DebugOffsets"
-msgstr ""
+msgstr "Lendo _Py_DebugOffsets"
 
 #: ../../howto/remote_debugging.rst:255
 msgid ""
@@ -407,6 +616,9 @@ msgid ""
 "next step is to read the ``_Py_DebugOffsets`` structure located at the "
 "beginning of the ``PyRuntime`` block."
 msgstr ""
+"Depois que o endereço da estrutura ``PyRuntime`` for determinado, o próximo "
+"passo é ler a estrutura ``_Py_DebugOffsets`` localizada no início do bloco "
+"``PyRuntime``."
 
 #: ../../howto/remote_debugging.rst:259
 msgid ""
@@ -415,10 +627,14 @@ msgid ""
 "CPython versions and must be checked before use to ensure they are "
 "compatible."
 msgstr ""
+"Esta estrutura fornece deslocamentos de campo específicos da versão, "
+"necessários para ler com segurança a memória de estado de thread e do "
+"interpretador. Esses deslocamentos variam entre as versões do CPython e "
+"devem ser verificados antes do uso para garantir sua compatibilidade."
 
 #: ../../howto/remote_debugging.rst:263
 msgid "To read and check the debug offsets, follow these steps:"
-msgstr ""
+msgstr "Para ler e verificar os deslocamentos de depuração, siga estas etapas:"
 
 #: ../../howto/remote_debugging.rst:265
 msgid ""
@@ -428,20 +644,28 @@ msgid ""
 "block. Its layout is defined in CPython’s internal headers and stays the "
 "same within a given minor version, but may change in major versions."
 msgstr ""
+"Lê a memória do processo de destino, começando no endereço ``PyRuntime``, "
+"cobrindo o mesmo número de bytes que a estrutura ``_Py_DebugOffsets``. Essa "
+"estrutura está localizada no início do bloco de memória ``PyRuntime``. Seu "
+"layout é definido nos cabeçalhos internos do CPython e permanece o mesmo em "
+"uma determinada versão secundária, mas pode mudar em versões principais."
 
 #: ../../howto/remote_debugging.rst:271
 msgid "Check that the structure contains valid data:"
-msgstr ""
+msgstr "Verifica se a estrutura contém dados válidos:"
 
 #: ../../howto/remote_debugging.rst:273
 msgid "The ``cookie`` field must match the expected debug marker."
 msgstr ""
+"O campo ``cookie`` deve corresponder ao marcador de depuração esperado."
 
 #: ../../howto/remote_debugging.rst:274
 msgid ""
 "The ``version`` field must match the version of the Python interpreter used "
 "by the debugger."
 msgstr ""
+"O campo ``version`` deve corresponder à versão do interpretador Python usado "
+"pelo depurador."
 
 #: ../../howto/remote_debugging.rst:276
 msgid ""
@@ -449,12 +673,17 @@ msgid ""
 "(for example, an alpha, beta, or release candidate), the versions must match "
 "exactly."
 msgstr ""
+"Se o depurador ou o processo de destino estiver usando uma versão de pré-"
+"lançamento (por exemplo, uma versão alfa, beta ou candidata a lançamento), "
+"as versões deverão corresponder exatamente."
 
 #: ../../howto/remote_debugging.rst:279
 msgid ""
 "The ``free_threaded`` field must have the same value in both the debugger "
 "and the target process."
 msgstr ""
+"O campo ``free_threaded`` deve ter o mesmo valor no depurador e no processo "
+"de destino."
 
 #: ../../howto/remote_debugging.rst:282
 msgid ""
@@ -462,12 +691,18 @@ msgid ""
 "fields in memory. If any check fails, the debugger should stop the operation "
 "to avoid reading memory in the wrong format."
 msgstr ""
+"Se a estrutura for válida, os deslocamentos que ela contém podem ser usados "
+"para localizar campos na memória. Se alguma verificação falhar, o depurador "
+"deve interromper a operação para evitar a leitura da memória no formato "
+"errado."
 
 #: ../../howto/remote_debugging.rst:286
 msgid ""
 "The following is an example implementation that reads and checks "
 "``_Py_DebugOffsets``::"
 msgstr ""
+"A seguir está um exemplo de implementação que lê e verifica "
+"``_Py_DebugOffsets``::"
 
 #: ../../howto/remote_debugging.rst:289
 msgid ""
@@ -492,10 +727,31 @@ msgid ""
 "\n"
 "    return debug_offsets"
 msgstr ""
+"def read_debug_offsets(pid: int, py_runtime_addr: int) -> DebugOffsets:\n"
+"    # Etapa 1: lê a memória do processo de destino no endereço PyRuntime\n"
+"    data = read_process_memory(\n"
+"        pid, address=py_runtime_addr, size=DEBUG_OFFSETS_SIZE\n"
+"    )\n"
+"\n"
+"    # Etapa 2: desserializa os bytes brutos em uma estrutura "
+"_Py_DebugOffsets\n"
+"    debug_offsets = parse_debug_offsets(data)\n"
+"\n"
+"    # Etapa 3: valida o conteúdo da estrutura\n"
+"    if debug_offsets.cookie != EXPECTED_COOKIE:\n"
+"        raise RuntimeError(\"Invalid or missing debug cookie\")\n"
+"    if debug_offsets.version != LOCAL_PYTHON_VERSION:\n"
+"        raise RuntimeError(\n"
+"            \"Mismatch between caller and target Python versions\"\n"
+"        )\n"
+"    if debug_offsets.free_threaded != LOCAL_FREE_THREADED:\n"
+"        raise RuntimeError(\"Mismatch in free-threaded configuration\")\n"
+"\n"
+"    return debug_offsets"
 
 #: ../../howto/remote_debugging.rst:314
 msgid "**Process suspension recommended**"
-msgstr ""
+msgstr "**Suspensão de processo recomendada**"
 
 #: ../../howto/remote_debugging.rst:316
 msgid ""
@@ -506,6 +762,12 @@ msgid ""
 "destroying threads—during normal execution. This can result in invalid "
 "memory reads or writes."
 msgstr ""
+"Para evitar condições de corrida e garantir a consistência da memória, é "
+"altamente recomendável suspender o processo de destino antes de executar "
+"qualquer operação que leia ou grave o estado interno do interpretador. O "
+"tempo de execução do Python pode, simultaneamente, alterar as estruturas de "
+"dados do interpretador — como criar ou destruir threads — durante a execução "
+"normal. Isso pode resultar em leituras ou gravações de memória inválidas."
 
 #: ../../howto/remote_debugging.rst:323
 msgid ""
@@ -513,6 +775,9 @@ msgid ""
 "or by sending a ``SIGSTOP`` signal. Execution should only be resumed after "
 "debugger-side memory operations are complete."
 msgstr ""
+"Um depurador pode suspender a execução anexando-se ao processo com "
+"``ptrace`` ou enviando um sinal ``SIGSTOP``. A execução só deve ser retomada "
+"após a conclusão das operações de memória do lado do depurador."
 
 #: ../../howto/remote_debugging.rst:329
 msgid ""
@@ -522,10 +787,16 @@ msgid ""
 "debugger implementations, suspending the process remains the safest and most "
 "robust approach."
 msgstr ""
+"Algumas ferramentas, como perfiladores ou depuradores baseados em "
+"amostragem, podem operar em um processo em execução sem suspensão. Nesses "
+"casos, as ferramentas devem ser explicitamente projetadas para lidar com "
+"memória parcialmente atualizada ou inconsistente. Para a maioria das "
+"implementações de depuradores, suspender o processo continua sendo a "
+"abordagem mais segura e robusta."
 
 #: ../../howto/remote_debugging.rst:337
 msgid "Locating the interpreter and thread state"
-msgstr ""
+msgstr "Localizando o estado de thread e do interpretador"
 
 #: ../../howto/remote_debugging.rst:339
 msgid ""
@@ -536,6 +807,13 @@ msgid ""
 "in a ``PyThreadState`` object. These fields are modified by the debugger to "
 "request execution of injected scripts."
 msgstr ""
+"Antes que o código possa ser injetado e executado em um processo Python "
+"remoto, o depurador deve escolher uma thread para agendar a execução. Isso é "
+"necessário porque os campos de controle usados para realizar a injeção "
+"remota de código estão localizados na estrutura "
+"``_PyRemoteDebuggerSupport``, que está incorporada em um objeto "
+"``PyThreadState``. Esses campos são modificados pelo depurador para "
+"solicitar a execução dos scripts injetados."
 
 #: ../../howto/remote_debugging.rst:346
 msgid ""
@@ -545,6 +823,11 @@ msgid ""
 "``PyThreadState`` is therefore a key prerequisite for triggering execution "
 "remotely."
 msgstr ""
+"A estrutura ``PyThreadState`` representa uma thread em execução dentro de um "
+"interpretador Python. Ela mantém o contexto de avaliação da thread e contém "
+"os campos necessários para a coordenação do depurador. Localizar um "
+"``PyThreadState`` válido é, portanto, um pré-requisito essencial para "
+"acionar a execução remotamente."
 
 #: ../../howto/remote_debugging.rst:351
 msgid ""
@@ -553,10 +836,15 @@ msgid ""
 "native thread ID. Once the target thread is chosen, the debugger must locate "
 "both the interpreter and the associated thread state structures in memory."
 msgstr ""
+"Uma thread é normalmente selecionada com base em sua função ou ID. Na "
+"maioria dos casos, a thread principal é usada, mas algumas ferramentas podem "
+"direcionar uma thread específica por seu ID nativo. Uma vez escolhida a "
+"thread de destino, o depurador deve localizar o interpretador e as "
+"estruturas de estado de thread associadas na memória."
 
 #: ../../howto/remote_debugging.rst:356
 msgid "The relevant internal structures are defined as follows:"
-msgstr ""
+msgstr "As estruturas internas relevantes são definidas da seguinte forma:"
 
 #: ../../howto/remote_debugging.rst:358
 msgid ""
@@ -565,16 +853,24 @@ msgid ""
 "and thread state list. Although most Python applications use a single "
 "interpreter, CPython supports multiple interpreters in the same process."
 msgstr ""
+"``PyInterpreterState`` representa uma instância isolada de um interpretador "
+"Python. Cada interpretador mantém seu próprio conjunto de módulos "
+"importados, estado embutido e lista de estados de thread. Embora a maioria "
+"das aplicações Python use um único interpretador, o CPython oferece suporte "
+"a múltiplos interpretadores no mesmo processo."
 
 #: ../../howto/remote_debugging.rst:363
 msgid ""
 "``PyThreadState`` represents a thread running within an interpreter. It "
 "contains execution state and the control fields used by the debugger."
 msgstr ""
+"``PyThreadState`` representa uma thread em execução dentro de um "
+"interpretador. Ele contém o estado de execução e os campos de controle "
+"usados pelo depurador."
 
 #: ../../howto/remote_debugging.rst:366
 msgid "To locate a thread:"
-msgstr ""
+msgstr "Para localizar uma thread:"
 
 #: ../../howto/remote_debugging.rst:368
 msgid ""
@@ -582,6 +878,9 @@ msgid ""
 "the first interpreter in the ``PyRuntime`` structure. This is the entry "
 "point to the linked list of active interpreters."
 msgstr ""
+"Use o offset ``runtime_state.interpreters_head`` para obter o endereço do "
+"primeiro interpretador na estrutura ``PyRuntime``. Este é o ponto de entrada "
+"para a lista vinculada de interpretadores ativos."
 
 #: ../../howto/remote_debugging.rst:372
 msgid ""
@@ -589,6 +888,9 @@ msgid ""
 "state associated with the selected interpreter. This is typically the most "
 "reliable thread to target."
 msgstr ""
+"Use o deslocamento ``interpreter_state.threads_main`` para acessar o estado "
+"da thread principal associada ao interpretador selecionado. Normalmente, "
+"esta é a thread mais confiável para ser alvo."
 
 #: ../../howto/remote_debugging.rst:376
 msgid ""
@@ -597,6 +899,10 @@ msgid ""
 "structure contains a ``native_thread_id`` field, which may be compared to a "
 "target thread ID to find a specific thread."
 msgstr ""
+"3. Opcionalmente, use o deslocamento ``interpreter_state.threads_head`` para "
+"iterar pela lista encadeada de todos os estados da thread. Cada estrutura "
+"``PyThreadState`` contém um campo ``native_thread_id``, que pode ser "
+"comparado a um ID da thread de destino para encontrar uma thread específica."
 
 #: ../../howto/remote_debugging.rst:381
 msgid ""
@@ -604,12 +910,17 @@ msgid ""
 "later steps of the protocol, such as writing debugger control fields and "
 "scheduling execution."
 msgstr ""
+"1. Depois que um ``PyThreadState`` válido for encontrado, seu endereço "
+"poderá ser usado em etapas posteriores do protocolo, como escrever campos de "
+"controle do depurador e agendar a execução."
 
 #: ../../howto/remote_debugging.rst:385
 msgid ""
 "The following is an example implementation that locates the main thread "
 "state::"
 msgstr ""
+"A seguir está um exemplo de implementação que localiza o estado da thread "
+"principal:"
 
 #: ../../howto/remote_debugging.rst:387
 msgid ""
@@ -634,12 +945,34 @@ msgid ""
 "\n"
 "    return thread_state_addr"
 msgstr ""
+"def find_main_thread_state(\n"
+"    pid: int, py_runtime_addr: int, debug_offsets: DebugOffsets,\n"
+") -> int:\n"
+"    # Etapa 1: lê interpreters_head do PyRuntime\n"
+"    interp_head_ptr = (\n"
+"        py_runtime_addr + debug_offsets.runtime_state.interpreters_head\n"
+"    )\n"
+"    interp_addr = read_pointer(pid, interp_head_ptr)\n"
+"    if interp_addr == 0:\n"
+"        raise RuntimeError(\"No interpreter found in the target process\")\n"
+"\n"
+"    # Etapa 2: lê o ponteiro threads_main do interpretador\n"
+"    threads_main_ptr = (\n"
+"        interp_addr + debug_offsets.interpreter_state.threads_main\n"
+"    )\n"
+"    thread_state_addr = read_pointer(pid, threads_main_ptr)\n"
+"    if thread_state_addr == 0:\n"
+"        raise RuntimeError(\"Main thread state is not available\")\n"
+"\n"
+"    return thread_state_addr"
 
 #: ../../howto/remote_debugging.rst:408
 msgid ""
 "The following example demonstrates how to locate a thread by its native "
 "thread ID::"
 msgstr ""
+"O exemplo a seguir demonstra como localizar uma thread pelo seu ID de thread "
+"nativo:"
 
 #: ../../howto/remote_debugging.rst:411
 msgid ""
@@ -669,6 +1002,31 @@ msgid ""
 "\n"
 "    raise RuntimeError(\"Thread with the given ID was not found\")"
 msgstr ""
+"def find_thread_by_id(\n"
+"    pid: int,\n"
+"    interp_addr: int,\n"
+"    debug_offsets: DebugOffsets,\n"
+"    target_tid: int,\n"
+") -> int:\n"
+"    # Começa em threads_head e percorre a lista vinculada\n"
+"    thread_ptr = read_pointer(\n"
+"        pid,\n"
+"        interp_addr + debug_offsets.interpreter_state.threads_head\n"
+"    )\n"
+"\n"
+"    while thread_ptr:\n"
+"        native_tid_ptr = (\n"
+"            thread_ptr + debug_offsets.thread_state.native_thread_id\n"
+"        )\n"
+"        native_tid = read_int(pid, native_tid_ptr)\n"
+"        if native_tid == target_tid:\n"
+"            return thread_ptr\n"
+"        thread_ptr = read_pointer(\n"
+"            pid,\n"
+"            thread_ptr + debug_offsets.thread_state.next\n"
+"        )\n"
+"\n"
+"    raise RuntimeError(\"Thread with the given ID was not found\")"
 
 #: ../../howto/remote_debugging.rst:438
 msgid ""
@@ -676,10 +1034,13 @@ msgid ""
 "modifying its control fields and scheduling execution, as described in the "
 "next section."
 msgstr ""
+"Depois que um estado de thread válido for localizado, o depurador pode "
+"prosseguir com a modificação de seus campos de controle e agendar a "
+"execução, conforme descrito na próxima seção."
 
 #: ../../howto/remote_debugging.rst:443
 msgid "Writing control information"
-msgstr ""
+msgstr "Escrevendo informações de controle"
 
 #: ../../howto/remote_debugging.rst:445
 msgid ""
@@ -689,6 +1050,11 @@ msgid ""
 "interpreter, and when set correctly, they trigger the execution of remote "
 "code at a safe point in the evaluation loop."
 msgstr ""
+"Uma vez identificada uma estrutura ``PyThreadState`` válida, o depurador "
+"pode modificar campos de controle dentro dela para agendar a execução de um "
+"script Python especificado. Esses campos de controle são verificados "
+"periodicamente pelo interpretador e, quando definidos corretamente, acionam "
+"a execução do código remoto em um ponto seguro no laço de avaliação."
 
 #: ../../howto/remote_debugging.rst:451
 msgid ""
@@ -697,49 +1063,64 @@ msgid ""
 "locations of its fields are defined by the ``_Py_DebugOffsets`` structure "
 "and include the following:"
 msgstr ""
+"Cada ``PyThreadState`` contém uma estrutura ``_PyRemoteDebuggerSupport`` "
+"usada para comunicação entre o depurador e o interpretador. As localizações "
+"de seus campos são definidas pela estrutura ``_Py_DebugOffsets`` e incluem o "
+"seguinte:"
 
 #: ../../howto/remote_debugging.rst:456
 msgid ""
 "``debugger_script_path``: A fixed-size buffer that holds the full path to a"
 msgstr ""
+"``debugger_script_path``: Um buffer de tamanho fixo que contém o caminho "
+"completo para um"
 
 #: ../../howto/remote_debugging.rst:457
 msgid ""
 "Python source file (``.py``).  This file must be accessible and readable by "
 "the target process when execution is triggered."
 msgstr ""
+"arquivo de origem Python (``.py``). Este arquivo deve estar acessível e "
+"legível pelo processo de destino quando a execução for acionada."
 
 #: ../../howto/remote_debugging.rst:460
 msgid ""
 "``debugger_pending_call``: An integer flag. Setting this to ``1`` tells the"
 msgstr ""
+"``debugger_pending_call``: Um sinalizador inteiro. Definir como ``1`` "
+"informa ao"
 
 #: ../../howto/remote_debugging.rst:461
 msgid "interpreter that a script is ready to be executed."
-msgstr ""
+msgstr "interpretador que um script está pronto para ser executado."
 
 #: ../../howto/remote_debugging.rst:463
 msgid "``eval_breaker``: A field checked by the interpreter during execution."
 msgstr ""
+"``eval_breaker``: Um campo verificado pelo interpretador durante a execução."
 
 #: ../../howto/remote_debugging.rst:464
 msgid ""
 "Setting bit 5 (``_PY_EVAL_PLEASE_STOP_BIT``, value ``1U << 5``) in this "
 "field causes the interpreter to pause and check for debugger activity."
 msgstr ""
+"Definir o bit 5 (``_PY_EVAL_PLEASE_STOP_BIT``, valor ``1U << 5``) neste "
+"campo faz com que o interpretador pause e verifique a atividade do depurador."
 
 #: ../../howto/remote_debugging.rst:467
 msgid ""
 "To complete the injection, the debugger must perform the following steps:"
 msgstr ""
+"Para concluir a injeção, o depurador deve executar as seguintes etapas:"
 
 #: ../../howto/remote_debugging.rst:469
 msgid "Write the full script path into the ``debugger_script_path`` buffer."
 msgstr ""
+"Escreve o caminho completo do script no buffer ``debugger_script_path``."
 
 #: ../../howto/remote_debugging.rst:470
 msgid "Set ``debugger_pending_call`` to ``1``."
-msgstr ""
+msgstr "Define ``debugger_pending_call`` com ``1``."
 
 #: ../../howto/remote_debugging.rst:471
 msgid ""
@@ -747,6 +1128,9 @@ msgid ""
 "(``_PY_EVAL_PLEASE_STOP_BIT``), and write the updated value back. This "
 "signals the interpreter to check for debugger activity."
 msgstr ""
+"Lê o valor atual de ``eval_breaker``, define o bit 5 "
+"(``_PY_EVAL_PLEASE_STOP_BIT``) e grava o valor atualizado de volta. Isso "
+"sinaliza ao interpretador para verificar a atividade do depurador."
 
 #: ../../howto/remote_debugging.rst:477
 msgid ""
@@ -786,6 +1170,41 @@ msgid ""
 "    breaker |= (1 << 5)\n"
 "    write_int(pid, eval_breaker_ptr, breaker)"
 msgstr ""
+"def inject_script(\n"
+"    pid: int,\n"
+"    thread_state_addr: int,\n"
+"    debug_offsets: DebugOffsets,\n"
+"    script_path: str\n"
+") -> None:\n"
+"    # Calcula o deslocamento base de _PyRemoteDebuggerSupport\n"
+"    support_base = (\n"
+"        thread_state_addr +\n"
+"        debug_offsets.debugger_support.remote_debugger_support\n"
+"    )\n"
+"\n"
+"    # Etapa 1: Escreve o caminho do script em debugger_script_path\n"
+"    script_path_ptr = (\n"
+"        support_base +\n"
+"        debug_offsets.debugger_support.debugger_script_path\n"
+"    )\n"
+"    write_string(pid, script_path_ptr, script_path)\n"
+"\n"
+"    # Etapa 2: Define debugger_pending_call com 1\n"
+"    pending_ptr = (\n"
+"        support_base +\n"
+"        debug_offsets.debugger_support.debugger_pending_call\n"
+"    )\n"
+"    write_int(pid, pending_ptr, 1)\n"
+"\n"
+"    # Etapa 3: Define _PY_EVAL_PLEASE_STOP_BIT (bit 5, valor 1 << 5)\n"
+"    # em eval_breaker\n"
+"    eval_breaker_ptr = (\n"
+"        thread_state_addr +\n"
+"        debug_offsets.debugger_support.eval_breaker\n"
+"    )\n"
+"    breaker = read_int(pid, eval_breaker_ptr)\n"
+"    breaker |= (1 << 5)\n"
+"    write_int(pid, eval_breaker_ptr, breaker)"
 
 #: ../../howto/remote_debugging.rst:514
 msgid ""
@@ -793,12 +1212,17 @@ msgid ""
 "suspended).  The interpreter will process the request at the next safe "
 "evaluation point, load the script from disk, and execute it."
 msgstr ""
+"Após a configuração desses campos, o depurador pode retomar o processo (caso "
+"tenha sido suspenso). O interpretador processará a solicitação no próximo "
+"ponto de avaliação seguro, carregará o script do disco e o executará."
 
 #: ../../howto/remote_debugging.rst:518
 msgid ""
 "It is the responsibility of the debugger to ensure that the script file "
 "remains present and accessible to the target process during execution."
 msgstr ""
+"É responsabilidade do depurador garantir que o arquivo de script permaneça "
+"presente e acessível ao processo de destino durante a execução."
 
 #: ../../howto/remote_debugging.rst:523
 msgid ""
@@ -810,43 +1234,53 @@ msgid ""
 "removing the script. Once such an effect is observed, it is safe to assume "
 "the file is no longer needed."
 msgstr ""
+"A execução do script é assíncrona. O arquivo de script não pode ser excluído "
+"imediatamente após a injeção. O depurador deve aguardar até que o script "
+"injetado produza um efeito observável antes de remover o arquivo. Esse "
+"efeito depende do objetivo do script. Por exemplo, um depurador pode "
+"aguardar até que o processo remoto se conecte novamente a um soquete antes "
+"de remover o script. Uma vez observado esse efeito, é seguro presumir que o "
+"arquivo não é mais necessário."
 
 #: ../../howto/remote_debugging.rst:532
 msgid "Summary"
-msgstr ""
+msgstr "Resumo"
 
 #: ../../howto/remote_debugging.rst:534
 msgid "To inject and execute a Python script in a remote process:"
-msgstr ""
+msgstr "Para injetar e executar um script Python em um processo remoto:"
 
 #: ../../howto/remote_debugging.rst:536
 msgid "Locate the ``PyRuntime`` structure in the target process’s memory."
-msgstr ""
+msgstr "Localize a estrutura ``PyRuntime`` na memória do processo de destino."
 
 #: ../../howto/remote_debugging.rst:537
 msgid ""
 "Read and validate the ``_Py_DebugOffsets`` structure at the beginning of "
 "``PyRuntime``."
 msgstr ""
+"Lê e valida a estrutura ``_Py_DebugOffsets`` no início de ``PyRuntime``."
 
 #: ../../howto/remote_debugging.rst:539
 msgid "Use the offsets to locate a valid ``PyThreadState``."
-msgstr ""
+msgstr "Usa os deslocamentos para localizar um ``PyThreadState`` válido."
 
 #: ../../howto/remote_debugging.rst:540
 msgid "Write the path to a Python script into ``debugger_script_path``."
-msgstr ""
+msgstr "Escreve o caminho para um script Python em ``debugger_script_path``."
 
 #: ../../howto/remote_debugging.rst:541
 msgid "Set the ``debugger_pending_call`` flag to ``1``."
-msgstr ""
+msgstr "Define o sinalizador ``debugger_pending_call`` com ``1``."
 
 #: ../../howto/remote_debugging.rst:542
 msgid "Set ``_PY_EVAL_PLEASE_STOP_BIT`` in the ``eval_breaker`` field."
-msgstr ""
+msgstr "Define ``_PY_EVAL_PLEASE_STOP_BIT`` no campo ``eval_breaker``."
 
 #: ../../howto/remote_debugging.rst:543
 msgid ""
 "Resume the process (if suspended). The script will execute at the next safe "
 "evaluation point."
 msgstr ""
+"Retoma o processo (se suspenso). O script será executado no próximo ponto de "
+"avaliação seguro."

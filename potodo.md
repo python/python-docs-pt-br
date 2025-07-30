@@ -48,7 +48,7 @@
 
 
 
-# howto (65.30% done)
+# howto (68.40% done)
 
 - descriptor.po                  187 / 230 ( 81.0% translated).
 - enum.po                        101 / 327 ( 30.0% translated).
@@ -56,7 +56,6 @@
 - functional.po                  158 / 252 ( 62.0% translated).
 - logging-cookbook.po             40 / 435 (  9.0% translated).
 - logging.po                     120 / 250 ( 48.0% translated).
-- remote_debugging.po              0 / 106 (  0.0% translated).
 - sockets.po                      35 /  63 ( 55.0% translated).
 - sorting.po                      44 /  92 ( 47.0% translated).
 - unicode.po                      30 / 145 ( 20.0% translated).
@@ -66,7 +65,7 @@
 
 
 
-# library (66.06% done)
+# library (66.13% done)
 
 - annotationlib.po               136 / 137 ( 99.0% translated).
 - argparse.po                    392 / 397 ( 98.0% translated).
@@ -150,7 +149,6 @@
 - sqlite3.po                     116 / 475 ( 24.0% translated).
 - ssl.po                          61 / 545 ( 11.0% translated).
 - string.po                      218 / 222 ( 98.0% translated).
-- string.templatelib.po           32 /  58 ( 55.0% translated).
 - struct.po                      102 / 204 ( 50.0% translated).
 - subprocess.po                  150 / 311 ( 48.0% translated).
 - symtable.po                      6 /  73 (  8.0% translated).
@@ -222,5 +220,5 @@
 - changelog.po                   3034 / 13437 ( 22.0% translated).
 
 
-# TOTAL (62.17% done)
+# TOTAL (62.34% done)
 
