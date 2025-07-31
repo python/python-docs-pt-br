@@ -65,7 +65,7 @@
 
 
 
-# library (66.13% done)
+# library (66.12% done)
 
 - annotationlib.po               136 / 137 ( 99.0% translated).
 - argparse.po                    392 / 397 ( 98.0% translated).
@@ -84,9 +84,10 @@
 - base64.po                       15 /  71 ( 21.0% translated).
 - bdb.po                           9 / 119 (  7.0% translated).
 - binascii.po                     23 /  38 ( 60.0% translated).
+- bisect.po                       35 /  36 ( 97.0% translated).
 - codecs.po                      250 / 554 ( 45.0% translated).
 - compression.zstd.po             85 / 173 ( 49.0% translated).
-- concurrent.futures.po           12 / 119 ( 10.0% translated).
+- concurrent.futures.po           12 / 120 ( 10.0% translated).
 - concurrent.interpreters.po      43 /  87 ( 49.0% translated).
 - contextlib.po                   55 / 172 ( 31.0% translated).
 - ctypes.po                      147 / 620 ( 23.0% translated).
@@ -134,7 +135,7 @@
 - mimetypes.po                    24 /  68 ( 35.0% translated).
 - mmap.po                         23 /  65 ( 35.0% translated).
 - msvcrt.po                       22 /  46 ( 47.0% translated).
-- multiprocessing.po             317 / 606 ( 52.0% translated).
+- multiprocessing.po             320 / 612 ( 52.0% translated).
 - platform.po                     88 /  89 ( 98.0% translated).
 - poplib.po                       10 /  53 ( 18.0% translated).
 - profile.po                      34 / 181 ( 18.0% translated).
@@ -161,6 +162,7 @@
 - tkinter.ttk.po                 141 / 429 ( 32.0% translated).
 - traceback.po                    10 / 118 (  8.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
+- typing.po                      814 / 815 ( 99.0% translated).
 - unicodedata.po                   5 /  32 ( 15.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               103 / 448 ( 22.0% translated).
@@ -211,14 +213,14 @@
 - 2.6.po                         541 / 626 ( 86.0% translated).
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
-- 3.14.po                        676 / 987 ( 68.0% translated).
+- 3.14.po                        677 / 990 ( 68.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         236 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   3034 / 13437 ( 22.0% translated).
+- changelog.po                   3036 / 13442 ( 22.0% translated).
 
 
-# TOTAL (62.34% done)
+# TOTAL (62.33% done)
 
