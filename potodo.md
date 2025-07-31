@@ -65,11 +65,11 @@
 
 
 
-# library (66.26% done)
+# library (66.23% done)
 
 - argparse.po                    376 / 378 ( 99.0% translated).
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
-- asyncio-eventloop.po           308 / 409 ( 75.0% translated).
+- asyncio-eventloop.po           308 / 410 ( 75.0% translated).
 - asyncio-future.po                9 /  64 ( 14.0% translated).
 - asyncio-platforms.po             6 /  26 ( 23.0% translated).
 - asyncio-policy.po               10 /  68 ( 14.0% translated).
@@ -82,8 +82,9 @@
 - base64.po                       15 /  71 ( 21.0% translated).
 - bdb.po                           9 / 112 (  8.0% translated).
 - binascii.po                     23 /  38 ( 60.0% translated).
-- codecs.po                      250 / 549 ( 45.0% translated).
-- concurrent.futures.po           14 / 100 ( 14.0% translated).
+- bisect.po                       35 /  36 ( 97.0% translated).
+- codecs.po                      250 / 556 ( 44.0% translated).
+- concurrent.futures.po           14 / 101 ( 13.0% translated).
 - contextlib.po                   55 / 172 ( 31.0% translated).
 - ctypes.po                      138 / 546 ( 25.0% translated).
 - curses.po                       66 / 486 ( 13.0% translated).
@@ -127,7 +128,7 @@
 - mimetypes.po                    21 /  54 ( 38.0% translated).
 - mmap.po                         23 /  65 ( 35.0% translated).
 - msvcrt.po                       22 /  46 ( 47.0% translated).
-- multiprocessing.po             323 / 597 ( 54.0% translated).
+- multiprocessing.po             321 / 603 ( 53.0% translated).
 - pathlib.po                     417 / 418 ( 99.0% translated).
 - pkgutil.po                      44 /  50 ( 88.0% translated).
 - platform.po                     86 /  87 ( 98.0% translated).
@@ -190,7 +191,7 @@
 - mac.po                          92 /  96 ( 95.0% translated).
 
 
-# whatsnew (46.63% done)
+# whatsnew (46.62% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -204,8 +205,8 @@
 - 3.5.po                         129 / 578 ( 22.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   2566 / 12439 ( 20.0% translated).
+- changelog.po                   2567 / 12442 ( 20.0% translated).
 
 
-# TOTAL (62.76% done)
+# TOTAL (62.75% done)
 
