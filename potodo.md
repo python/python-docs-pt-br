@@ -48,14 +48,14 @@
 
 
 
-# howto (68.43% done)
+# howto (68.46% done)
 
 - descriptor.po                  187 / 230 ( 81.0% translated).
 - enum.po                        101 / 327 ( 30.0% translated).
 - free-threading-extensions.po   105 / 106 ( 99.0% translated).
 - functional.po                  158 / 252 ( 62.0% translated).
 - logging-cookbook.po             40 / 435 (  9.0% translated).
-- logging.po                     121 / 250 ( 48.0% translated).
+- logging.po                     122 / 250 ( 48.0% translated).
 - sockets.po                      35 /  63 ( 55.0% translated).
 - sorting.po                      44 /  92 ( 47.0% translated).
 - unicode.po                      30 / 145 ( 20.0% translated).
