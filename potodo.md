@@ -65,7 +65,7 @@
 
 
 
-# library (66.12% done)
+# library (66.19% done)
 
 - annotationlib.po               136 / 137 ( 99.0% translated).
 - argparse.po                    392 / 397 ( 98.0% translated).
@@ -123,7 +123,7 @@
 - idle.po                         28 / 293 (  9.0% translated).
 - imaplib.po                      13 / 130 ( 10.0% translated).
 - importlib.po                   244 / 313 ( 77.0% translated).
-- inspect.po                      80 / 397 ( 20.0% translated).
+- inspect.po                     107 / 397 ( 26.0% translated).
 - io.po                           58 / 284 ( 20.0% translated).
 - ipaddress.po                   165 / 168 ( 98.0% translated).
 - itertools.po                   155 / 201 ( 77.0% translated).
@@ -222,5 +222,5 @@
 - changelog.po                   3036 / 13442 ( 22.0% translated).
 
 
-# TOTAL (62.33% done)
+# TOTAL (62.36% done)
 
