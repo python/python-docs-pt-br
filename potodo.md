@@ -69,7 +69,7 @@
 
 
 
-# library (64.82% done)
+# library (64.89% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        78 /  84 ( 92.0% translated).
@@ -136,7 +136,7 @@
 - imghdr.po                       20 /  42 ( 47.0% translated).
 - importlib.po                   240 / 304 ( 78.0% translated).
 - importlib.resources.po          38 /  47 ( 80.0% translated).
-- inspect.po                      82 / 383 ( 21.0% translated).
+- inspect.po                     107 / 383 ( 27.0% translated).
 - io.po                           56 / 271 ( 20.0% translated).
 - itertools.po                   149 / 193 ( 77.0% translated).
 - logging.config.po               18 / 171 ( 10.0% translated).
@@ -248,5 +248,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (69.47% done)
+# TOTAL (69.51% done)
 
