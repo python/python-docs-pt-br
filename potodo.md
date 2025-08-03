@@ -5,7 +5,7 @@
 - glossary.po                    413 / 414 ( 99.0% translated).
 
 
-# c-api (56.50% done)
+# c-api (56.69% done)
 
 - exceptions.po                  121 / 238 ( 50.0% translated).
 - float.po                        29 /  35 ( 82.0% translated).
@@ -65,7 +65,7 @@
 
 
 
-# library (66.23% done)
+# library (66.29% done)
 
 - argparse.po                    376 / 378 ( 99.0% translated).
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
@@ -117,7 +117,7 @@
 - imaplib.po                      13 / 117 ( 11.0% translated).
 - importlib.po                   245 / 313 ( 78.0% translated).
 - importlib.resources.po          52 /  53 ( 98.0% translated).
-- inspect.po                      82 / 390 ( 21.0% translated).
+- inspect.po                     109 / 390 ( 27.0% translated).
 - io.po                           56 / 272 ( 20.0% translated).
 - ipaddress.po                   164 / 167 ( 98.0% translated).
 - itertools.po                   154 / 200 ( 77.0% translated).
@@ -205,8 +205,8 @@
 - 3.5.po                         129 / 578 ( 22.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   2567 / 12442 ( 20.0% translated).
+- changelog.po                   2567 / 12444 ( 20.0% translated).
 
 
-# TOTAL (62.75% done)
+# TOTAL (62.79% done)
 
