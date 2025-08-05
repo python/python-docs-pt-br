@@ -65,7 +65,7 @@
 
 
 
-# library (66.29% done)
+# library (66.28% done)
 
 - argparse.po                    376 / 378 ( 99.0% translated).
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
@@ -103,6 +103,7 @@
 - enum.po                         74 / 244 ( 30.0% translated).
 - errno.po                       115 / 160 ( 71.0% translated).
 - faulthandler.po                  4 /  43 (  9.0% translated).
+- fractions.po                    33 /  36 ( 91.0% translated).
 - ftplib.po                       11 /  99 ( 11.0% translated).
 - functools.po                    19 / 115 ( 16.0% translated).
 - hashlib.po                      76 / 170 ( 44.0% translated).
@@ -128,7 +129,8 @@
 - mimetypes.po                    21 /  54 ( 38.0% translated).
 - mmap.po                         23 /  65 ( 35.0% translated).
 - msvcrt.po                       22 /  46 ( 47.0% translated).
-- multiprocessing.po             321 / 603 ( 53.0% translated).
+- multiprocessing.po             322 / 603 ( 53.0% translated).
+- numbers.po                      33 /  35 ( 94.0% translated).
 - pathlib.po                     417 / 418 ( 99.0% translated).
 - pkgutil.po                      44 /  50 ( 88.0% translated).
 - platform.po                     86 /  87 ( 98.0% translated).
@@ -205,8 +207,8 @@
 - 3.5.po                         129 / 578 ( 22.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   2567 / 12444 ( 20.0% translated).
+- changelog.po                   2569 / 12450 ( 20.0% translated).
 
 
-# TOTAL (62.79% done)
+# TOTAL (62.78% done)
 
