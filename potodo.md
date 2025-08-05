@@ -135,7 +135,7 @@
 - mimetypes.po                    24 /  68 ( 35.0% translated).
 - mmap.po                         23 /  65 ( 35.0% translated).
 - msvcrt.po                       22 /  46 ( 47.0% translated).
-- multiprocessing.po             320 / 612 ( 52.0% translated).
+- multiprocessing.po             321 / 612 ( 52.0% translated).
 - platform.po                     88 /  89 ( 98.0% translated).
 - poplib.po                       10 /  53 ( 18.0% translated).
 - profile.po                      34 / 181 ( 18.0% translated).
@@ -205,7 +205,7 @@
 - windows.po                     374 / 536 ( 69.0% translated).
 
 
-# whatsnew (47.66% done)
+# whatsnew (47.65% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -213,13 +213,13 @@
 - 2.6.po                         541 / 626 ( 86.0% translated).
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
-- 3.14.po                        677 / 990 ( 68.0% translated).
+- 3.14.po                        678 / 990 ( 68.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         236 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   3036 / 13442 ( 22.0% translated).
+- changelog.po                   3036 / 13445 ( 22.0% translated).
 
 
 # TOTAL (62.36% done)
