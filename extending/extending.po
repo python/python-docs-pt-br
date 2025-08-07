@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
+# python-doc bot, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-30 14:22+0000\n"
-"PO-Revision-Date: 2025-07-18 18:48+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
+"POT-Creation-Date: 2025-08-07 20:38+0000\n"
+"PO-Revision-Date: 2025-08-02 17:33+0000\n"
+"Last-Translator: python-doc bot, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -169,6 +169,13 @@ msgid ""
 "on your system, it declares the functions :c:func:`malloc`, :c:func:`free` "
 "and :c:func:`realloc` directly."
 msgstr ""
+"Усі видимі користувачем символи, визначені :file:`Python.h`, мають префікс "
+"``Py`` або ``PY``, за винятком тих, що визначені у стандартних файлах "
+"заголовків. Для зручності та оскільки вони широко використовуються "
+"інтерпретатором Python, ``\"Python.h\"`` містить кілька стандартних файлів "
+"заголовків: ``<stdio.h>``, ``<string.h>``, ``<errno.h>``, і ``<stdlib.h>``. "
+"Якщо останнього файлу заголовка не існує у вашій системі, він безпосередньо "
+"оголошує функції :c:func:`malloc`, :c:func:`free` і :c:func:`realloc`."
 
 #: ../../extending/extending.rst:85
 msgid ""
@@ -176,6 +183,9 @@ msgid ""
 "called when the Python expression ``spam.system(string)`` is evaluated "
 "(we'll see shortly how it ends up being called)::"
 msgstr ""
+"Następną rzeczą którą dodajemy do naszego pliku modułu jest zadanie C które "
+"będzie wzywane gdy wyrażenie języka pytonowskiego ``spam.system(string)`` "
+"zostanie obliczone (zobaczymy niedługo, jak to się kończy wywołaniem)::"
 
 #: ../../extending/extending.rst:89
 msgid ""
@@ -199,12 +209,18 @@ msgid ""
 "C function.  The C function always has two arguments, conventionally named "
 "*self* and *args*."
 msgstr ""
+"Istnieje prosta zamiana nazw z listy parametrów w języku pytonowskim (dla "
+"przykładu, pojedyncze wyrażenie ``\"ls -l\"``) do parametrów przekazanych do "
+"zadania C. Zadanie C zawsze ma dwa parametry, dla wygody nazywane *sam* - z "
+"ang. - *self* i *args*."
 
 #: ../../extending/extending.rst:106
 msgid ""
 "The *self* argument points to the module object for module-level functions; "
 "for a method it would point to the object instance."
 msgstr ""
+"Parametr *sam* - z ang. - *self* - wskazuje na przedmiot modułu dla zadań na "
+"poziomie-modułu; dla sposobu postępowania wskazywałby na przykład przedmiotu."
 
 #: ../../extending/extending.rst:109
 msgid ""
@@ -217,6 +233,14 @@ msgid ""
 "determine the required types of the arguments as well as the types of the C "
 "variables into which to store the converted values.  More about this later."
 msgstr ""
+"Аргумент *args* буде вказівником на об’єкт кортежу Python, що містить "
+"аргументи. Кожен елемент кортежу відповідає аргументу в списку аргументів "
+"виклику. Аргументи є об’єктами Python --- щоб щось робити з ними в нашій "
+"функції C, ми повинні перетворити їх на значення C. Функція :c:func:"
+"`PyArg_ParseTuple` в API Python перевіряє типи аргументів і перетворює їх на "
+"значення C. Він використовує рядок шаблону для визначення необхідних типів "
+"аргументів, а також типів змінних C, у яких зберігатимуться перетворені "
+"значення. Про це пізніше."
 
 #: ../../extending/extending.rst:118
 msgid ""
@@ -227,10 +251,16 @@ msgid ""
 "the calling function can return ``NULL`` immediately (as we saw in the "
 "example)."
 msgstr ""
+":c:func:`PyArg_ParseTuple` повертає істину (не нуль), якщо всі аргументи "
+"мають правильний тип і його компоненти зберігаються в змінних, адреси яких "
+"передано. Він повертає false (нуль), якщо було передано недійсний список "
+"аргументів. В останньому випадку він також викликає відповідний виняток, щоб "
+"функція, що викликає, могла негайно повернути ``NULL`` (як ми бачили в "
+"прикладі)."
 
 #: ../../extending/extending.rst:128
 msgid "Intermezzo: Errors and Exceptions"
-msgstr ""
+msgstr "Intermezzo: Błędy i Wyjątki"
 
 #: ../../extending/extending.rst:130
 msgid ""
@@ -243,12 +273,22 @@ msgid ""
 "the exception type, exception instance, and a traceback object.  It is "
 "important to know about them to understand how errors are passed around."
 msgstr ""
+"Важлива конвенція в інтерпретаторі Python полягає в наступному: коли функція "
+"виходить з ладу, вона повинна встановити умову винятку та повернути значення "
+"помилки (зазвичай ``-1`` або ``NULL`` покажчик). Інформація про винятки "
+"зберігається в трьох членах стану потоку інтерпретатора. Це ``NULL``, якщо "
+"немає винятку. В іншому випадку вони є еквівалентами C членів кортежу "
+"Python, які повертає :meth:`sys.exc_info`. Це тип винятку, екземпляр винятку "
+"та об’єкт трасування. Важливо знати про них, щоб зрозуміти, як передаються "
+"помилки."
 
 #: ../../extending/extending.rst:139
 msgid ""
 "The Python API defines a number of functions to set various types of "
 "exceptions."
 msgstr ""
+"Sprzęg języka pytonowskiego określa pewien zestaw zadań do ustawiania "
+"różnych rodzajów  wyjątków."
 
 #: ../../extending/extending.rst:141
 msgid ""
@@ -258,6 +298,11 @@ msgid ""
 "indicates the cause of the error and is converted to a Python string object "
 "and stored as the \"associated value\" of the exception."
 msgstr ""
+"Найпоширенішим є :c:func:`PyErr_SetString`. Його аргументами є об’єкт "
+"винятку та рядок C. Об’єкт винятку зазвичай є попередньо визначеним "
+"об’єктом, наприклад :c:data:`PyExc_ZeroDivisionError`. Рядок C вказує на "
+"причину помилки, перетворюється на об’єкт рядка Python і зберігається як "
+"\"пов’язане значення\" винятку."
 
 #: ../../extending/extending.rst:147
 msgid ""
@@ -268,6 +313,12 @@ msgid ""
 "associated value.  You don't need to :c:func:`Py_INCREF` the objects passed "
 "to any of these functions."
 msgstr ""
+"Іншою корисною функцією є :c:func:`PyErr_SetFromErrno`, яка приймає лише "
+"аргумент винятку та створює пов’язане значення шляхом перевірки глобальної "
+"змінної :c:data:`errno`. Найбільш загальною функцією є :c:func:"
+"`PyErr_SetObject`, яка приймає два аргументи об’єкта, виняток і пов’язане з "
+"ним значення. Вам не потрібно :c:func:`Py_INCREF` об’єкти, передані в будь-"
+"яку з цих функцій."
 
 #: ../../extending/extending.rst:154
 msgid ""
@@ -277,6 +328,11 @@ msgid ""
 "func:`PyErr_Occurred` to see whether an error occurred in a function call, "
 "since you should be able to tell from the return value."
 msgstr ""
+"За допомогою :c:func:`PyErr_Occurred` можна неруйнівним чином перевірити, чи "
+"встановлено виняток. Це повертає поточний об’єкт винятку або ``NULL``, якщо "
+"винятку не сталося. Зазвичай вам не потрібно викликати :c:func:"
+"`PyErr_Occurred`, щоб перевірити, чи сталася помилка під час виклику "
+"функції, оскільки ви зможете визначити це за значенням, що повертається."
 
 #: ../../extending/extending.rst:160
 msgid ""
@@ -308,6 +364,11 @@ msgid ""
 "pass the error on to the interpreter but wants to handle it completely by "
 "itself (possibly by trying something else, or pretending nothing went wrong)."
 msgstr ""
+"Щоб проігнорувати виняток, встановлений невдалим викликом функції, умову "
+"виключення потрібно явно очистити, викликавши :c:func:`PyErr_Clear`. Єдиний "
+"раз, коли C-код повинен викликати :c:func:`PyErr_Clear`, це якщо він не хоче "
+"передавати помилку інтерпретатору, а хоче обробити її повністю сам (можливо, "
+"спробувавши щось інше або вдаючи, що нічого не пішло не так). )."
 
 #: ../../extending/extending.rst:182
 msgid ""
@@ -317,6 +378,12 @@ msgid ""
 "creating functions (for example, :c:func:`PyLong_FromLong`) already do this, "
 "so this note is only relevant to those who call :c:func:`malloc` directly."
 msgstr ""
+"Кожен невдалий виклик :c:func:`malloc` має бути перетворений на виняток --- "
+"прямий виклик :c:func:`malloc` (або :c:func:`realloc`) повинен викликати :c:"
+"func:`PyErr_NoMemory` і повертає сам індикатор помилки. Усі функції "
+"створення об’єктів (наприклад, :c:func:`PyLong_FromLong`) уже це роблять, "
+"тому ця примітка актуальна лише для тих, хто викликає :c:func:`malloc` "
+"безпосередньо."
 
 #: ../../extending/extending.rst:188
 msgid ""
@@ -325,6 +392,10 @@ msgid ""
 "positive value or zero for success and ``-1`` for failure, like Unix system "
 "calls."
 msgstr ""
+"Також зауважте, що, за винятком :c:func:`PyArg_ParseTuple` та друзів, "
+"функції, які повертають цілочисельний статус, зазвичай повертають додатне "
+"значення або нуль у разі успіху та ``-1`` у разі невдачі, як системні "
+"виклики Unix."
 
 #: ../../extending/extending.rst:192
 msgid ""
@@ -332,6 +403,9 @@ msgid ""
 "c:func:`Py_DECREF` calls for objects you have already created) when you "
 "return an error indicator!"
 msgstr ""
+"Нарешті, будьте обережні, щоб очистити сміття (за допомогою викликів :c:func:"
+"`Py_XDECREF` або :c:func:`Py_DECREF` для об’єктів, які ви вже створили), "
+"коли ви повертаєте індикатор помилки!"
 
 #: ../../extending/extending.rst:196
 msgid ""
@@ -479,13 +553,15 @@ msgstr ""
 
 #: ../../extending/extending.rst:302
 msgid "Back to the Example"
-msgstr ""
+msgstr "Z powrotem do Przykładu"
 
 #: ../../extending/extending.rst:304
 msgid ""
 "Going back to our example function, you should now be able to understand "
 "this statement::"
 msgstr ""
+"Wracając do naszej przykładowego zadania, powinieneś już być w stanie "
+"zrozumieć to wyrażenie::"
 
 #: ../../extending/extending.rst:307
 msgid ""
@@ -509,6 +585,8 @@ msgid ""
 "The next statement is a call to the Unix function :c:func:`system`, passing "
 "it the string we just got from :c:func:`PyArg_ParseTuple`::"
 msgstr ""
+"Наступний оператор — це виклик функції Unix :c:func:`system`, передаючи їй "
+"рядок, який ми щойно отримали з :c:func:`PyArg_ParseTuple`::"
 
 #: ../../extending/extending.rst:321
 msgid "sts = system(command);"
@@ -530,6 +608,8 @@ msgid ""
 "In this case, it will return an integer object.  (Yes, even integers are "
 "objects on the heap in Python!)"
 msgstr ""
+"W tym przypadku, zwróci przedmiot liczby całkowitej (Tak, nawet liczby "
+"całkowite są przedmiotami na stercie w języku pytonowskim!)"
 
 #: ../../extending/extending.rst:331
 msgid ""
@@ -551,10 +631,13 @@ msgid ""
 "is a genuine Python object rather than a ``NULL`` pointer, which means "
 "\"error\" in most contexts, as we have seen."
 msgstr ""
+":c:data:`Py_None` — це ім’я C для спеціального об’єкта Python ``None``. Це "
+"справжній об’єкт Python, а не покажчик ``NULL``, що означає \"помилку\" в "
+"більшості контекстів, як ми бачили."
 
 #: ../../extending/extending.rst:347
 msgid "The Module's Method Table and Initialization Function"
-msgstr ""
+msgstr "Zadanie zainicjowania i tabela sposobów postępowania modułu."
 
 #: ../../extending/extending.rst:349
 msgid ""
@@ -581,6 +664,11 @@ msgid ""
 "value of ``0`` means that an obsolete variant of :c:func:`PyArg_ParseTuple` "
 "is used."
 msgstr ""
+"Зверніть увагу на третій запис (``METH_VARARGS``). Це прапорець, який "
+"повідомляє інтерпретатору умову виклику, яка буде використовуватися для "
+"функції C. Зазвичай це завжди має бути ``METH_VARARGS`` або ``METH_VARARGS | "
+"METH_KEYWORDS``; значення ``0`` означає, що використовується застарілий "
+"варіант :c:func:`PyArg_ParseTuple`."
 
 #: ../../extending/extending.rst:365
 msgid ""
@@ -588,6 +676,10 @@ msgid ""
 "level parameters to be passed in as a tuple acceptable for parsing via :c:"
 "func:`PyArg_ParseTuple`; more information on this function is provided below."
 msgstr ""
+"Якщо використовується лише ``METH_VARARGS``, функція повинна очікувати, що "
+"параметри рівня Python будуть передані як кортеж, прийнятний для аналізу "
+"через :c:func:`PyArg_ParseTuple`; більше інформації про цю функцію наведено "
+"нижче."
 
 #: ../../extending/extending.rst:369
 msgid ""
@@ -602,6 +694,8 @@ msgstr ""
 msgid ""
 "The method table must be referenced in the module definition structure::"
 msgstr ""
+"Tabela sposobów postępowania musi być określona w strukturze definicji "
+"modułu::"
 
 #: ../../extending/extending.rst:377
 msgid ""
@@ -727,7 +821,7 @@ msgstr ""
 
 #: ../../extending/extending.rst:475
 msgid "Compilation and Linkage"
-msgstr ""
+msgstr "Kompilacja i łączenie"
 
 #: ../../extending/extending.rst:477
 msgid ""
@@ -738,6 +832,13 @@ msgid ""
 "`building`) and additional information that pertains only to building on "
 "Windows (chapter :ref:`building-on-windows`) for more information about this."
 msgstr ""
+"Są jeszcze dwie rzeczy które trzeba zrobić zanim będzie można użyć nowego "
+"rozszerzenia: skompilowanie go i podłączenie z systemem Pythona. Jeśli "
+"używasz dynamicznego ładowania, szczegóły mogą zależeć od stylu dynamicznego "
+"ładowania którego twój system używa; zobacz rozdział o budowaniu "
+"rozszerzających modułów (rozdział :ref:`building`) i dodatkowe informacje "
+"które odnoszą się tylko do budowania w Windows (rozdział :ref:`building-on-"
+"windows`) po więcej informacji na ten temat."
 
 #: ../../extending/extending.rst:484
 msgid ""
@@ -748,6 +849,13 @@ msgid ""
 "the :file:`Modules/` directory of an unpacked source distribution, add a "
 "line to the file :file:`Modules/Setup.local` describing your file:"
 msgstr ""
+"Якщо ви не можете використовувати динамічне завантаження або якщо ви хочете "
+"зробити свій модуль постійною частиною інтерпретатора Python, вам доведеться "
+"змінити налаштування конфігурації та перебудувати інтерпретатор. На щастя, в "
+"Unix це дуже просто: просто розмістіть свій файл (наприклад, :file:"
+"`spammodule.c`) у каталозі :file:`Modules/` розпакованого вихідного "
+"дистрибутива, додайте рядок до файлу :file:`Modules/Setup.local`, що описує "
+"ваш файл:"
 
 #: ../../extending/extending.rst:491
 msgid "spam spammodule.o"
@@ -761,12 +869,20 @@ msgid ""
 "running ':program:`make` Makefile'.  (This is necessary each time you change "
 "the :file:`Setup` file.)"
 msgstr ""
+"i przebuduj program interpretujący przez uruchomienie programu :program:"
+"`make` w katalogu głównym instalacji. Możesz także uruchomić program :"
+"program:`make` w podkatalogu :file:`Modules/`, ale wtedy musisz najpierw "
+"przebudować plik :file:`Makefile` tam przez uruchomienie programu :program:"
+"`make` Makefile'. To jest konieczne za każdym razem gdy zmieniasz plik :file:"
+"`Setup`.)"
 
 #: ../../extending/extending.rst:501
 msgid ""
 "If your module requires additional libraries to link with, these can be "
 "listed on the line in the configuration file as well, for instance:"
 msgstr ""
+"Якщо вашому модулю потрібні додаткові бібліотеки для зв’язування, їх також "
+"можна вказати в рядку у файлі конфігурації, наприклад:"
 
 #: ../../extending/extending.rst:504
 msgid "spam spammodule.o -lX11"
@@ -774,7 +890,7 @@ msgstr ""
 
 #: ../../extending/extending.rst:512
 msgid "Calling Python Functions from C"
-msgstr ""
+msgstr "Wywoływanie zadań języka pytonowskiego z C"
 
 #: ../../extending/extending.rst:514
 msgid ""
@@ -786,6 +902,15 @@ msgid ""
 "will require calling the Python callback functions from a C callback.  Other "
 "uses are also imaginable."
 msgstr ""
+"Jak do tej pory koncentrowaliśmy się na uczynieniu zadań C możliwymi do "
+"wywołania z poziomu języka pytonowskiego. Odwrotna sytuacja jest także "
+"użyteczna: wywoływanie zadań języka pytonowskiego z poziomu języka C. To w "
+"szczególności odnosi się do bibliotek które wspierają tak zwane zadania "
+"\"callback\" wstecznie wywołujące. Jeśli sprzęg C używa zadań wstecznie "
+"wywołujących, odpowiednik języka pytonowskiego często potrzebuje dostarczyć "
+"mechanizm wstecznego wywołania dla programisty języka pytonowskiego; "
+"wypełnienie będzie potrzebowało wzywać zadania wywołania wstecznego z "
+"poziomu wstecznego C. Inne przypadki są także możliwe do wyobrażenia."
 
 #: ../../extending/extending.rst:522
 msgid ""
@@ -795,6 +920,13 @@ msgid ""
 "interested, have a look at the implementation of the :option:`-c` command "
 "line option in :file:`Modules/main.c` from the Python source code.)"
 msgstr ""
+"Szczęśliwie, program interpretujący polecenia języka pytonowskiego jest "
+"łatwo wywoływany rekursywnie i istnieje standardowy sprzęg aby wywołać "
+"zadanie języka pytonowskiego. (Nie będę rozpisywał się o tym jak wywołać "
+"czytnik języka pytonowskiego z konkretnym ciągiem znaków na wejściu --- "
+"jeśli jesteś zainteresowany, spójrz na wypełnienie opcji :option:`-c` "
+"wiersza polecenia w :file:`Modules/main.c` z kodu źródłowego języka "
+"pytonowskiego.)"
 
 #: ../../extending/extending.rst:528
 msgid ""
@@ -805,6 +937,12 @@ msgid ""
 "global variable --- or wherever you see fit. For example, the following "
 "function might be part of a module definition::"
 msgstr ""
+"Викликати функцію Python легко. По-перше, програма Python повинна якимось "
+"чином передати вам об’єкт функції Python. Ви повинні надати функцію (або "
+"інший інтерфейс), щоб це зробити. Під час виклику цієї функції збережіть "
+"вказівник на об’єкт функції Python (будьте обережні, щоб :c:func:`Py_INCREF` "
+"це!) у глобальній змінній --- або будь-де, де ви вважаєте за потрібне. "
+"Наприклад, наступна функція може бути частиною визначення модуля:"
 
 #: ../../extending/extending.rst:535
 msgid ""
@@ -848,6 +986,10 @@ msgid ""
 "pointers (but note that *temp* will not be  ``NULL`` in this context).  More "
 "info on them in section :ref:`refcounts`."
 msgstr ""
+"Макроси :c:func:`Py_XINCREF` і :c:func:`Py_XDECREF` збільшують/зменшують "
+"кількість посилань на об’єкт і безпечні за наявності покажчиків ``NULL`` "
+"(але зауважте, що *temp* не буде бути ``NULL`` у цьому контексті). "
+"Детальніше про них у розділі :ref:`refcounts`."
 
 #: ../../extending/extending.rst:570
 msgid ""
@@ -860,6 +1002,14 @@ msgid ""
 "func:`Py_BuildValue` returns a tuple when its format string consists of zero "
 "or more format codes between parentheses.  For example::"
 msgstr ""
+"Пізніше, коли прийде час викликати функцію, ви викликаєте функцію C :c:func:"
+"`PyObject_CallObject`. Ця функція має два аргументи, обидва вказують на "
+"довільні об’єкти Python: функція Python і список аргументів. Список "
+"аргументів завжди має бути об’єктом кортежу, довжина якого дорівнює "
+"кількості аргументів. Щоб викликати функцію Python без аргументів, передайте "
+"``NULL`` або пустий кортеж; щоб викликати його з одним аргументом, передайте "
+"одиночний кортеж. :c:func:`Py_BuildValue` повертає кортеж, якщо його рядок "
+"формату складається з нуля або більше кодів формату в дужках. Наприклад::"
 
 #: ../../extending/extending.rst:579
 msgid ""
@@ -883,6 +1033,12 @@ msgid ""
 "new tuple was created to serve as the argument list, which is :c:func:"
 "`Py_DECREF`\\ -ed immediately after the :c:func:`PyObject_CallObject` call."
 msgstr ""
+":c:func:`PyObject_CallObject` повертає покажчик на об’єкт Python: це "
+"значення, яке повертає функція Python. :c:func:`PyObject_CallObject` є "
+"\"нейтральним щодо кількості посилань\" щодо своїх аргументів. У прикладі "
+"було створено новий кортеж, який слугуватиме списком аргументів, який :c:"
+"func:`Py_DECREF`\\ -редагується відразу після виклику :c:func:"
+"`PyObject_CallObject`."
 
 #: ../../extending/extending.rst:597
 msgid ""
@@ -892,6 +1048,11 @@ msgid ""
 "should somehow :c:func:`Py_DECREF` the result, even (especially!) if you are "
 "not interested in its value."
 msgstr ""
+"Значення, що повертається :c:func:`PyObject_CallObject`, є \"новим\": або це "
+"абсолютно новий об’єкт, або це вже існуючий об’єкт, кількість посилань на "
+"який було збільшено. Отже, якщо ви не хочете зберегти його в глобальній "
+"змінній, ви повинні якимось чином :c:func:`Py_DECREF` результат, навіть "
+"(особливо!), якщо вас не цікавить його значення."
 
 #: ../../extending/extending.rst:603
 msgid ""
@@ -903,6 +1064,13 @@ msgid ""
 "handle the exception. If this is not possible or desirable, the exception "
 "should be cleared by calling :c:func:`PyErr_Clear`.  For example::"
 msgstr ""
+"Однак перед тим, як це зробити, важливо переконатися, що значення, що "
+"повертається, не ``NULL``. Якщо так, функція Python припиняється, викликаючи "
+"виняток. Якщо код C, який викликав :c:func:`PyObject_CallObject`, "
+"викликається з Python, тепер він має повернути вказівку про помилку своєму "
+"виклику Python, щоб інтерпретатор міг надрукувати трасування стека, або "
+"викликаючий код Python міг обробити виняткову ситуацію. Якщо це неможливо чи "
+"бажано, виняток слід очистити, викликавши :c:func:`PyErr_Clear`. Наприклад::"
 
 #: ../../extending/extending.rst:611
 msgid ""
@@ -923,6 +1091,15 @@ msgid ""
 "simplest way to do this is to call :c:func:`Py_BuildValue`.  For example, if "
 "you want to pass an integral event code, you might use the following code::"
 msgstr ""
+"Залежно від бажаного інтерфейсу для функції зворотного виклику Python, вам "
+"також може знадобитися надати список аргументів для :c:func:"
+"`PyObject_CallObject`. У деяких випадках список аргументів також надається "
+"програмою Python через той самий інтерфейс, який вказав функцію зворотного "
+"виклику. Потім його можна зберегти та використовувати так само, як і об’єкт "
+"функції. В інших випадках вам, можливо, доведеться створити новий кортеж для "
+"передачі як списку аргументів. Найпростіший спосіб зробити це — викликати :c:"
+"func:`Py_BuildValue`. Наприклад, якщо ви хочете передати інтегральний код "
+"події, ви можете використати такий код:"
 
 #: ../../extending/extending.rst:625
 msgid ""
@@ -944,6 +1121,10 @@ msgid ""
 "complete: :c:func:`Py_BuildValue` may run out of memory, and this should be "
 "checked."
 msgstr ""
+"Зверніть увагу на розміщення ``Py_DECREF(arglist)`` одразу після виклику, "
+"перед перевіркою помилок! Також зауважте, що строго кажучи, цей код "
+"неповний: :c:func:`Py_BuildValue` може не вистачати пам’яті, і це слід "
+"перевірити."
 
 #: ../../extending/extending.rst:639
 msgid ""
@@ -951,6 +1132,10 @@ msgid ""
 "`PyObject_Call`, which supports arguments and keyword arguments.  As in the "
 "above example, we use :c:func:`Py_BuildValue` to construct the dictionary. ::"
 msgstr ""
+"Ви також можете викликати функцію з ключовими аргументами за допомогою :c:"
+"func:`PyObject_Call`, який підтримує аргументи та ключові аргументи. Як і в "
+"наведеному вище прикладі, ми використовуємо :c:func:`Py_BuildValue` для "
+"створення словника. ::"
 
 #: ../../extending/extending.rst:643
 msgid ""
@@ -967,11 +1152,11 @@ msgstr ""
 
 #: ../../extending/extending.rst:657
 msgid "Extracting Parameters in Extension Functions"
-msgstr ""
+msgstr "Wydobywanie parametrów w zadaniach rozszerzających"
 
 #: ../../extending/extending.rst:661
 msgid "The :c:func:`PyArg_ParseTuple` function is declared as follows::"
-msgstr ""
+msgstr "Функція :c:func:`PyArg_ParseTuple` оголошується таким чином:"
 
 #: ../../extending/extending.rst:663
 msgid "int PyArg_ParseTuple(PyObject *arg, const char *format, ...);"
@@ -985,6 +1170,11 @@ msgid ""
 "Reference Manual.  The remaining arguments must be addresses of variables "
 "whose type is determined by the format string."
 msgstr ""
+"Parametr *arg* musi być przedmiotem - krotką zawierającym listę parametrów z "
+"języka pytonowskiego dla zadania C. Parametr *format* musi być ciągiem "
+"formatu, którego składnia jest wyjaśniona w :ref:`arg-parsing` w podręczniku "
+"użytkownika API Python/C. Pozostałe parametry muszą być adresami zmiennych "
+"których rodzaj jest określony przez ciąg formatujący."
 
 #: ../../extending/extending.rst:671
 msgid ""
@@ -993,6 +1183,11 @@ msgid ""
 "variables passed to the call: if you make mistakes there, your code will "
 "probably crash or at least overwrite random bits in memory.  So be careful!"
 msgstr ""
+"Зауважте, що хоча :c:func:`PyArg_ParseTuple` перевіряє, чи аргументи Python "
+"мають необхідні типи, він не може перевірити дійсність адрес змінних C, "
+"переданих до виклику: якщо ви припуститеся там помилки, ваш код, ймовірно, "
+"аварійно завершить роботу. найменше перезаписувати випадкові біти в пам'яті. "
+"Тому будьте обережні!"
 
 #: ../../extending/extending.rst:676
 msgid ""
@@ -1005,7 +1200,7 @@ msgstr ""
 
 #: ../../extending/extending.rst:679
 msgid "Some example calls::"
-msgstr ""
+msgstr "Pewne przykładowe wywołania::"
 
 #: ../../extending/extending.rst:686
 msgid ""
@@ -1078,12 +1273,13 @@ msgstr ""
 
 #: ../../extending/extending.rst:749
 msgid "Keyword Parameters for Extension Functions"
-msgstr ""
+msgstr "Parametry kluczowe dla zadań rozszerzających"
 
 #: ../../extending/extending.rst:753
 msgid ""
 "The :c:func:`PyArg_ParseTupleAndKeywords` function is declared as follows::"
 msgstr ""
+"Функція :c:func:`PyArg_ParseTupleAndKeywords` оголошується таким чином:"
 
 #: ../../extending/extending.rst:755
 msgid ""
@@ -1103,6 +1299,13 @@ msgid ""
 "`PyArg_ParseTupleAndKeywords` returns true, otherwise it returns false and "
 "raises an appropriate exception."
 msgstr ""
+"Параметри *arg* і *format* ідентичні параметрам функції :c:func:"
+"`PyArg_ParseTuple`. Параметр *kwdict* — це словник ключових слів, отриманий "
+"як третій параметр із середовища виконання Python. Параметр *kwlist* — це "
+"список рядків, що завершуються ``NULL`` і ідентифікують параметри; імена "
+"зіставляються з інформацією про тип із *format* зліва направо. У разі "
+"успіху :c:func:`PyArg_ParseTupleAndKeywords` повертає true, інакше повертає "
+"false і викликає відповідний виняток."
 
 #: ../../extending/extending.rst:768
 msgid ""
@@ -1110,12 +1313,18 @@ msgid ""
 "parameters passed in which are not present in the *kwlist* will cause :exc:"
 "`TypeError` to be raised."
 msgstr ""
+"Zagnieżdźone krotki nie mogą być wczytane gdy używane są parametry słów "
+"kluczowych! Parametry słów kluczowych przekazane do zadania które nie są "
+"obecne na liście *kwlist* spowodują że wyjątek :exc:`TypeError` zostanie "
+"zgłoszony."
 
 #: ../../extending/extending.rst:774
 msgid ""
 "Here is an example module which uses keywords, based on an example by Geoff "
 "Philbrick (philbrick@hks.com)::"
 msgstr ""
+"Tu jest przykładowy moduł który używa słów kluczowych, oparty na przykładzie "
+"Geoffa Philbricka (philbrick@hks.com)::"
 
 #: ../../extending/extending.rst:777
 msgid ""
@@ -1172,13 +1381,15 @@ msgstr ""
 
 #: ../../extending/extending.rst:828
 msgid "Building Arbitrary Values"
-msgstr ""
+msgstr "Budowanie dowolnych wartości"
 
 #: ../../extending/extending.rst:830
 msgid ""
 "This function is the counterpart to :c:func:`PyArg_ParseTuple`.  It is "
 "declared as follows::"
 msgstr ""
+"Ця функція є аналогом :c:func:`PyArg_ParseTuple`. Це оголошено наступним "
+"чином:"
 
 #: ../../extending/extending.rst:833
 msgid "PyObject *Py_BuildValue(const char *format, ...);"
@@ -1191,6 +1402,11 @@ msgid ""
 "not output) must not be pointers, just values.  It returns a new Python "
 "object, suitable for returning from a C function called from Python."
 msgstr ""
+"Він розпізнає набір одиниць формату, подібних до тих, які розпізнає :c:func:"
+"`PyArg_ParseTuple`, але аргументи (які є вхідними для функції, а не "
+"виведеними) не повинні бути вказівниками, а просто значеннями. Він повертає "
+"новий об’єкт Python, придатний для повернення з функції C, викликаної з "
+"Python."
 
 #: ../../extending/extending.rst:840
 msgid ""
@@ -1203,11 +1419,19 @@ msgid ""
 "that format unit.  To force it to return a tuple of size 0 or one, "
 "parenthesize the format string."
 msgstr ""
+"Одна відмінність із :c:func:`PyArg_ParseTuple`: у той час як останній "
+"вимагає, щоб його перший аргумент був кортежем (оскільки списки аргументів "
+"Python завжди представлені у вигляді кортежів), :c:func:`Py_BuildValue` не "
+"завжди створює кортеж . Він створює кортеж, лише якщо його рядок формату "
+"містить дві або більше одиниць формату. Якщо рядок формату порожній, "
+"повертається ``None``; якщо він містить рівно одну одиницю формату, він "
+"повертає будь-який об’єкт, описаний цією одиницею формату. Щоб змусити його "
+"повертати кортеж розміром 0 або одиницю, візьміть рядок формату в дужки."
 
 #: ../../extending/extending.rst:848
 msgid ""
 "Examples (to the left the call, to the right the resulting Python value):"
-msgstr ""
+msgstr "Приклади (ліворуч виклик, праворуч результуюче значення Python):"
 
 #: ../../extending/extending.rst:850
 msgid ""
@@ -1242,6 +1466,11 @@ msgid ""
 "``new`` and ``delete`` are used with essentially the same meaning and we'll "
 "restrict the following discussion to the C case."
 msgstr ""
+"У таких мовах, як C або C++, програміст відповідає за динамічний розподіл і "
+"звільнення пам’яті в купі. У C це робиться за допомогою функцій :c:func:"
+"`malloc` і :c:func:`free`. У C++ оператори ``new`` і ``delete`` "
+"використовуються, по суті, з однаковим значенням, і ми обмежимо наступне "
+"обговорення випадком C."
 
 #: ../../extending/extending.rst:882
 msgid ""
@@ -1274,6 +1503,20 @@ msgid ""
 "happening by having a coding convention or strategy that minimizes this kind "
 "of errors."
 msgstr ""
+"Typowymi przyczynami wycieków pamięci są nietypowe ścieżki przejścia przez "
+"kod. Dla przykładu, zadanie może zaalokować blok pamięci, wykonać pewne "
+"obliczenia, a potem uwolnić ten blok jeszcze raz. Teraz zmiana w wymaganiach "
+"dla zadania może dodać test do obliczenia który wykrywa warunek błędu i może "
+"wrócić wcześniej z zadania. Łatwo jest zapomnieć aby uwolnić zaalokowany "
+"blok pamięci podczas wybierania tej drogi wcześniejszego zakończenia, "
+"szczególnie gdy jest dodawane później do kodu. Takie przecieki, gdy raz "
+"wprowadzone, często uchodzą niewykryte przez długi czas: błędne wyjście jest "
+"wybierane tylko w małym wycinku wszystkich wywołań, i większość nowoczesnych "
+"maszyn ma mnóstwo wirtualnej pamięci, tak że wyciek staje się widoczny tylko "
+"w długo działającym procesie który używa cieknącego zadania często. Dlatego "
+"też, jest to ważne aby zapobiegać wyciekom przed ich nastąpieniem, przez "
+"powzięcie konwencji kodowania lub strategii która minimalizuje ten rodzaj "
+"błędu."
 
 #: ../../extending/extending.rst:906
 msgid ""
@@ -1285,6 +1528,13 @@ msgid ""
 "reference to it is deleted. When the counter reaches zero, the last "
 "reference to the object has been deleted and the object is freed."
 msgstr ""
+"Оскільки Python активно використовує :c:func:`malloc` і :c:func:`free`, йому "
+"потрібна стратегія, щоб уникнути витоку пам’яті, а також використання "
+"звільненої пам’яті. Обраний метод називається :dfn:`reference counting`. "
+"Принцип простий: кожен об’єкт містить лічильник, який збільшується, коли "
+"десь зберігається посилання на об’єкт, і зменшується, коли посилання на "
+"нього видаляється. Коли лічильник досягає нуля, останнє посилання на об’єкт "
+"було видалено, а об’єкт звільнено."
 
 #: ../../extending/extending.rst:914
 msgid ""
@@ -1301,6 +1551,18 @@ msgid ""
 "garbage collector will be available for C. Until then, we'll have to live "
 "with reference counts."
 msgstr ""
+"Альтернативна стратегія називається :dfn:`автоматична збірка сміття "
+"<automatic garbage collection>`. (Іноді підрахунок посилань також називають "
+"стратегією збирання сміття, тому я використовую \"автоматичний\", щоб "
+"відрізнити ці два.) Великою перевагою автоматичного збирання сміття є те, що "
+"користувачеві не потрібно викликати :c:func:`free` явно. (Іншою заявленою "
+"перевагою є покращення швидкості або використання пам’яті --- однак це "
+"непереконливий факт.) Недоліком є те, що для C немає справді портативного "
+"автоматичного збирача сміття, тоді як підрахунок посилань можна реалізувати "
+"портативно (за умови, що функції :c:func:`malloc` і :c:func:`free` доступні "
+"--- що гарантує стандарт C). Можливо, колись достатньо портативний "
+"автоматичний збирач сміття буде доступний для C. До того часу нам доведеться "
+"жити з кількістю посилань."
 
 #: ../../extending/extending.rst:926
 msgid ""
@@ -1315,6 +1577,17 @@ msgid ""
 "in a reference cycle, or referenced from the objects in the cycle, even "
 "though there are no further references to the cycle itself."
 msgstr ""
+"Podczas gdy język pytonowski używa tradycyjnego wypełnienia zliczania "
+"odniesień, on także oferuje wykrywanie cykli, które pracuje aby wykrywać "
+"cykliczne odniesienia. To pozwala aplikacjom nie martwić się o tworzenie "
+"bezpośrednich lub pośrednich cyklicznych odniesień; to są słabości "
+"wypełnienia zbiórki śmieci opartego jedynie na zliczaniu odniesień. Cykle "
+"odniesień składają się z przedmiotów które zawierają (możliwie pośrednio) "
+"odniesienia do samych siebie, tak że każdy przedmiot w cyklu ma liczbę "
+"odniesień która jest nie-zerowa. Typowe wypełnienia zliczające odniesienia "
+"nie są w stanie przejąć z powrotem pamięci należącej do któregokolwiek z "
+"przedmiotów w cyklu odniesień, ani do której odnosi się któryś z przedmiotów "
+"w cyklu, nawet jeśli nie ma więcej odniesień do cyklu samego w sobie."
 
 #: ../../extending/extending.rst:937
 msgid ""
@@ -1326,7 +1599,7 @@ msgstr ""
 
 #: ../../extending/extending.rst:946
 msgid "Reference Counting in Python"
-msgstr ""
+msgstr "Zliczanie odniesień w języku pytonowskim"
 
 #: ../../extending/extending.rst:948
 msgid ""
@@ -1338,6 +1611,12 @@ msgid ""
 "this purpose (and others), every object also contains a pointer to its type "
 "object."
 msgstr ""
+"Є два макроси, ``Py_INCREF(x)`` і ``Py_DECREF(x)``, які обробляють "
+"збільшення та зменшення лічильника посилань. :c:func:`Py_DECREF` також "
+"звільняє об’єкт, коли кількість досягає нуля. З міркувань гнучкості він не "
+"викликає :c:func:`free` напряму --- він робить виклик через вказівник на "
+"функцію в об’єкті :dfn:`type object`. Для цієї мети (та інших) кожен об’єкт "
+"також містить покажчик на об’єкт свого типу."
 
 #: ../../extending/extending.rst:955
 msgid ""
@@ -1351,6 +1630,15 @@ msgid ""
 "on, store it, or call :c:func:`Py_DECREF`. Forgetting to dispose of an owned "
 "reference creates a memory leak."
 msgstr ""
+"Тепер залишається велике питання: коли використовувати ``Py_INCREF(x)`` і "
+"``Py_DECREF(x)``? Давайте спочатку введемо деякі терміни. Ніхто не "
+"\"володіє\" об'єктом; проте ви можете :dfn:`володіти посиланням <own a "
+"reference>` на об'єкт. Кількість посилань на об’єкт тепер визначається як "
+"кількість належних посилань на нього. Власник посилання відповідає за "
+"виклик :c:func:`Py_DECREF`, коли посилання більше не потрібне. Право "
+"власності на посилання можна передати. Є три способи позбутися посилання, "
+"яке належить: передати, зберегти або викликати :c:func:`Py_DECREF`. Якщо "
+"забути позбутися посилання, що належить, це призводить до витоку пам’яті."
 
 #: ../../extending/extending.rst:964
 msgid ""
@@ -1360,6 +1648,11 @@ msgid ""
 "borrowed. Using a borrowed reference after the owner has disposed of it "
 "risks using freed memory and should be avoided completely [#]_."
 msgstr ""
+"Також можна :dfn:`borrow` [#]_ посилання на об’єкт. Позичальник посилання не "
+"повинен викликати :c:func:`Py_DECREF`. Позичальник не повинен утримувати річ "
+"довше, ніж власник, у якого вона була позичена. Використання запозиченого "
+"посилання після того, як власник позбувся його, ризикує використати "
+"звільнену пам’ять, і його слід повністю уникати [#]_."
 
 #: ../../extending/extending.rst:970
 msgid ""
@@ -1371,6 +1664,14 @@ msgid ""
 "code a borrowed reference can be used after the owner from which it was "
 "borrowed has in fact disposed of it."
 msgstr ""
+"Zaletą pożyczania ponad posiadaniem odniesienia jest to że nie potrzebujesz "
+"zaprzątać swojej uwagi pozbyciem się odniesienia na wszystkich możliwych "
+"ścieżkach przejścia przez kod --- innymi słowy, z pożyczonym odniesieniem "
+"nie musisz ryzykować wycieku gdy nastąpi przedwczesne wyjście z programu. "
+"Wadą pożyczania ponad posiadaniem jest to że istnieją pewne szczególne "
+"sytuacje gdzie w wydawałoby się poprawnym kodzie pożyczone odniesienie może "
+"być użyte po tym jak właściciel od którego zostało ono pożyczone faktycznie "
+"pozbył się go."
 
 #: ../../extending/extending.rst:978
 msgid ""
@@ -1380,10 +1681,15 @@ msgid ""
 "full owner responsibilities (the new owner must dispose of the reference "
 "properly, as well as the previous owner)."
 msgstr ""
+"Позичене посилання можна змінити на власне, викликавши :c:func:`Py_INCREF`. "
+"Це не впливає на статус власника, у якого було запозичено посилання --- "
+"створюється нове посилання, яке належить, і надається повна відповідальність "
+"власника (новий власник повинен правильно розпоряджатися посиланням, як і "
+"попередній власник)."
 
 #: ../../extending/extending.rst:988
 msgid "Ownership Rules"
-msgstr ""
+msgstr "Zasady właścicielskie"
 
 #: ../../extending/extending.rst:990
 msgid ""
@@ -1391,6 +1697,9 @@ msgid ""
 "of the function's interface specification whether ownership is transferred "
 "with the reference or not."
 msgstr ""
+"Zawsze gdy odniesienie do przedmiotu jest przekazywane do lub z zadania, "
+"jest częścią specyfiki sprzęgu zadania to czy własność jest przekazywana z "
+"odniesieniem czy też nie."
 
 #: ../../extending/extending.rst:994
 msgid ""
@@ -1402,6 +1711,13 @@ msgid ""
 "func:`PyLong_FromLong` maintains a cache of popular values and can return a "
 "reference to a cached item."
 msgstr ""
+"Більшість функцій, які повертають посилання на об’єкт, передають право "
+"власності разом із посиланням. Зокрема, усі функції, функцією яких є "
+"створення нового об’єкта, такі як :c:func:`PyLong_FromLong` і :c:func:"
+"`Py_BuildValue`, передають право власності одержувачу. Навіть якщо об’єкт "
+"насправді не новий, ви все одно отримуєте право власності на нове посилання "
+"на цей об’єкт. Наприклад, :c:func:`PyLong_FromLong` підтримує кеш популярних "
+"значень і може повертати посилання на кешований елемент."
 
 #: ../../extending/extending.rst:1002
 msgid ""
@@ -1413,6 +1729,12 @@ msgid ""
 "`PyDict_GetItemString` all return references that you borrow from the tuple, "
 "list or dictionary."
 msgstr ""
+"Багато функцій, які витягують об’єкти з інших об’єктів, також передають "
+"право власності разом із посиланням, наприклад :c:func:"
+"`PyObject_GetAttrString`. Однак тут картина менш зрозуміла, оскільки кілька "
+"типових процедур є винятками: :c:func:`PyTuple_GetItem`, :c:func:"
+"`PyList_GetItem`, :c:func:`PyDict_GetItem` і :c:func:`PyDict_GetItemString` "
+"повертає всі посилання, які ви запозичили з кортежу, списку або словника."
 
 #: ../../extending/extending.rst:1009
 msgid ""
@@ -1420,6 +1742,9 @@ msgid ""
 "even though it may actually create the object it returns: this is possible "
 "because an owned reference to the object is stored in ``sys.modules``."
 msgstr ""
+"Функція :c:func:`PyImport_AddModule` також повертає запозичене посилання, "
+"навіть якщо вона може фактично створити об’єкт, який повертає: це можливо, "
+"оскільки власне посилання на об’єкт зберігається в ``sys.modules``."
 
 #: ../../extending/extending.rst:1013
 msgid ""
@@ -1431,6 +1756,14 @@ msgid ""
 "them --- even if they fail!  (Note that :c:func:`PyDict_SetItem` and friends "
 "don't take over ownership --- they are \"normal.\")"
 msgstr ""
+"Коли ви передаєте посилання на об’єкт в іншу функцію, функція, як правило, "
+"запозичує посилання у вас --- якщо їй потрібно її зберегти, вона "
+"використовуватиме :c:func:`Py_INCREF`, щоб стати незалежним власником. З "
+"цього правила є два важливих винятки: :c:func:`PyTuple_SetItem` і :c:func:"
+"`PyList_SetItem`. Ці функції беруть на себе право власності на переданий їм "
+"елемент --- навіть якщо вони виходять з ладу! (Зауважте, що :c:func:"
+"`PyDict_SetItem` і друзі не беруть на себе право власності --- вони "
+"\"нормальні\".)"
 
 #: ../../extending/extending.rst:1021
 msgid ""
@@ -1440,6 +1773,11 @@ msgid ""
 "Only when such a borrowed reference must be stored or passed on, it must be "
 "turned into an owned reference by calling :c:func:`Py_INCREF`."
 msgstr ""
+"Коли функція C викликається з Python, вона запозичує посилання на свої "
+"аргументи від викликаючого. Виклик володіє посиланням на об’єкт, тому час "
+"життя позиченого посилання гарантується до повернення функції. Лише тоді, "
+"коли таке запозичене посилання потрібно зберегти або передати, його потрібно "
+"перетворити на власне посилання шляхом виклику :c:func:`Py_INCREF`."
 
 #: ../../extending/extending.rst:1027
 msgid ""
@@ -1447,10 +1785,13 @@ msgid ""
 "must be an owned reference --- ownership is transferred from the function to "
 "its caller."
 msgstr ""
+"Odniesienie do przedmiotu zwrócone z zadania C które jest wywołane z poziomu "
+"języka pytonowskiego musi być posiadanym odniesieniem --- prawo własności "
+"jest przekazywane z zadania do wywołującego to ostatnie."
 
 #: ../../extending/extending.rst:1035
 msgid "Thin Ice"
-msgstr ""
+msgstr "Cienki lód"
 
 #: ../../extending/extending.rst:1037
 msgid ""
@@ -1459,6 +1800,11 @@ msgid ""
 "invocations of the interpreter, which can cause the owner of a reference to "
 "dispose of it."
 msgstr ""
+"Istnieje kilka sytuacji gdzie wydawałoby się nieszkodliwe użycie pożyczonych "
+"odniesień może prowadzić do kłopotów. Wszystkie one mają do czynienia z "
+"niejawnymi wezwaniami programu interpretującego polecenia języka "
+"pytonowskiego, które mogą powodować że właściciel odniesienia pozbędzie się "
+"go."
 
 #: ../../extending/extending.rst:1041
 msgid ""
@@ -1466,6 +1812,9 @@ msgid ""
 "on an unrelated object while borrowing a reference to a list item.  For "
 "instance::"
 msgstr ""
+"Перший і найважливіший випадок, про який варто знати, це використання :c:"
+"func:`Py_DECREF` для непов’язаного об’єкта під час запозичення посилання на "
+"елемент списку. Наприклад::"
 
 #: ../../extending/extending.rst:1044
 msgid ""
@@ -1485,6 +1834,9 @@ msgid ""
 "``list[1]`` with the value ``0``, and finally prints the borrowed reference. "
 "Looks harmless, right?  But it's not!"
 msgstr ""
+"To zadanie najpierw pożycza odniesienie do ``list[0]``, potem zamienia "
+"``list[1]`` na wartość ``0``, i ostatecznie wypisuje pożyczone odniesienie. "
+"Wydaje się nieszkodliwe, czyż nie? A jednak jest!"
 
 #: ../../extending/extending.rst:1057
 msgid ""
@@ -1512,6 +1864,8 @@ msgid ""
 "The solution, once you know the source of the problem, is easy: temporarily "
 "increment the reference count.  The correct version of the function reads::"
 msgstr ""
+"Rozwiązanie, gdy znasz już źródło problemu, jest łatwe: tymczasowo zwiększyć "
+"ilość odniesień. Poprawna wersja zadania równa jest::"
 
 #: ../../extending/extending.rst:1075
 msgid ""
@@ -1562,7 +1916,7 @@ msgstr ""
 
 #: ../../extending/extending.rst:1114
 msgid "NULL Pointers"
-msgstr ""
+msgstr "Puste wskaźniki (NULL)"
 
 #: ../../extending/extending.rst:1116
 msgid ""
@@ -1575,6 +1929,14 @@ msgid ""
 "``NULL``, there would be a lot of redundant tests and the code would run "
 "more slowly."
 msgstr ""
+"Загалом, функції, які приймають посилання на об’єкти як аргументи, не "
+"очікують, що ви передасте їм покажчики ``NULL``, і, якщо ви це зробите, "
+"створять дамп ядра (або викликатимуть дамп ядра пізніше). Функції, які "
+"повертають посилання на об’єкт, зазвичай повертають ``NULL`` лише для того, "
+"щоб вказати, що стався виняток. Причина не перевіряти аргументи ``NULL`` "
+"полягає в тому, що функції часто передають отримані об’єкти іншій функції "
+"--- якби кожна функція перевіряла ``NULL``, було б багато зайвих перевірок і "
+"код працюватиме повільніше."
 
 #: ../../extending/extending.rst:1124
 msgid ""
@@ -1582,6 +1944,9 @@ msgid ""
 "that may be ``NULL`` is received, for example, from :c:func:`malloc` or from "
 "a function that may raise an exception."
 msgstr ""
+"Краще перевіряти ``NULL`` лише на \"джерело:\", коли вказівник, який може "
+"бути ``NULL`` отримано, наприклад, від :c:func:`malloc` або від функції, яка "
+"може створити виняток."
 
 #: ../../extending/extending.rst:1128
 msgid ""
@@ -1589,6 +1954,9 @@ msgid ""
 "``NULL`` pointers --- however, their variants :c:func:`Py_XINCREF` and :c:"
 "func:`Py_XDECREF` do."
 msgstr ""
+"Макроси :c:func:`Py_INCREF` і :c:func:`Py_DECREF` не перевіряють покажчики "
+"``NULL`` --- однак їх варіанти :c:func:`Py_XINCREF` і :c:func:`Py_XDECREF` "
+"робити."
 
 #: ../../extending/extending.rst:1132
 msgid ""
@@ -1598,6 +1966,11 @@ msgid ""
 "expected types, and this would generate redundant tests.  There are no "
 "variants with ``NULL`` checking."
 msgstr ""
+"Макроси для перевірки певного типу об’єкта (``Pytype_Check()``) не "
+"перевіряють покажчики ``NULL`` --- знову ж таки, є багато коду, який "
+"викликає кілька з них поспіль для перевірки об’єкта проти різних очікуваних "
+"типів, і це створить надлишкові тести. Варіантів із перевіркою ``NULL`` "
+"немає."
 
 #: ../../extending/extending.rst:1138
 msgid ""
@@ -1605,16 +1978,21 @@ msgid ""
 "C functions (``args`` in the examples) is never ``NULL`` --- in fact it "
 "guarantees that it is always a tuple [#]_."
 msgstr ""
+"Механізм виклику функції C гарантує, що список аргументів, переданий "
+"функціям C (``args`` у прикладах), ніколи не буде ``NULL`` --- фактично він "
+"гарантує, що це завжди кортеж [#]_."
 
 #: ../../extending/extending.rst:1142
 msgid ""
 "It is a severe error to ever let a ``NULL`` pointer \"escape\" to the Python "
 "user."
 msgstr ""
+"Дозволити вказівнику ``NULL`` \"вийти\" користувачеві Python є серйозною "
+"помилкою."
 
 #: ../../extending/extending.rst:1153
 msgid "Writing Extensions in C++"
-msgstr ""
+msgstr "Pisanie rozszerzeń w C++"
 
 #: ../../extending/extending.rst:1155
 msgid ""
@@ -1628,10 +2006,23 @@ msgid ""
 "`` --- they use this form already if the symbol ``__cplusplus`` is defined "
 "(all recent C++ compilers define this symbol)."
 msgstr ""
+"Jest możliwe pisanie modułów rozszerzających w C++. Niektóre ograniczenia "
+"obowiązują. Jeśli główny program (program interpretujący polecenia języka "
+"pytonowskiego) jest kompilowany i łączony przez kompilator języka C, "
+"nadrzędne lub statyczne przedmioty z konstruktorami nie mogą być używane. To "
+"nie jest problemem jeśli główny program jest łączony przez kompilator C++. "
+"Zadania które będą wezwane przez program interpretujący polecenia języka "
+"pytonowskiego (w szczególności, zadania inicjujące moduł) muszą być "
+"deklarowane używając ``extern \"C\"``. Nie jest to konieczne aby zawierać "
+"plik nagłówkowy języka pytonowskiego w ``extern \"C\" {...}`` --- one "
+"używają już tej formy jeśli symbol ``__cplusplus`` jest zdefiniowany "
+"(wszystkie niedawne kompilatory C++ definiują ten symbol)."
 
 #: ../../extending/extending.rst:1169
 msgid "Providing a C API for an Extension Module"
 msgstr ""
+"Dostarczanie sprzęgu programowania aplikacji (API) języka C dla modułu "
+"rozszerzającego"
 
 #: ../../extending/extending.rst:1174
 msgid ""
@@ -1643,6 +2034,15 @@ msgid ""
 "create and manipulate lists, this new collection type should have a set of C "
 "functions for direct manipulation from other extension modules."
 msgstr ""
+"Wiele modułów rozszerzających po prostu dostarcza nowych zadań i typów aby "
+"były używane z języka pytonowskiego, ale czasami kod w module rozszerzającym "
+"może być użyteczny dla innych rozszerzających modułów. Na przykład, moduł "
+"rozszerzający mógłby wypełniać typ \"kolekcji\" który działałby jak lista "
+"bez wprowadzonego porządku. Tak jak standardowy typ listy języka "
+"pytonowskiego posiada sprzęg programowania aplikacji języka C, który pozwala "
+"modułom rozszerzającym tworzenie i zmianę list, ten nowy typ kolekcji "
+"powinien mieć zbiór zadań C dla bezpośrednich zmian z innych modułów "
+"rozszerzających."
 
 #: ../../extending/extending.rst:1182
 msgid ""
@@ -1659,6 +2059,20 @@ msgid ""
 "if symbols are globally visible, the module whose functions one wishes to "
 "call might not have been loaded yet!"
 msgstr ""
+"Na pierwszy rzut oka to wydaje się proste: napisać zadania (bez deklarowania "
+"ich jako ``statycznych``, oczywiście), dostarczyć odpowiedni plik "
+"nagłówkowy, i udokumentować API języka C. I faktycznie to mogłoby zadziałać "
+"jeśli wszystkie rozszerzające moduły byłyby zawsze złączone statycznie z "
+"interpreterem Pythona. Gdy moduły są używane jako współdzielone biblioteki, "
+"jednakże, symbole zdefiniowane w jednym module mogą nie być widoczne dla "
+"innych modułów. Szczegóły widoczności zależą od systemu operacyjnego; "
+"niektóre systemy używają jednej nadrzędnej przestrzeni nazw dla interpretera "
+"Pythona i wszystkich modułów rozszerzających (dla Windows, na przykład), "
+"podczas gdy inne wymagają jawnej listy importowanych symboli w czasie "
+"łączenia modułów (AIX jest jednym z przykładów), lub oferują wybór różnych "
+"strategii (większość Unix-ów). I nawet jeśli symbole są widoczne nadrzędnie, "
+"moduł którego zadania ktoś chciałby uruchomić mogły nie zostać jeszcze "
+"załadowane!"
 
 #: ../../extending/extending.rst:1194
 msgid ""
@@ -1669,6 +2083,13 @@ msgid ""
 "section :ref:`methodtable`). And it means that symbols that *should* be "
 "accessible from other extension modules must be exported in a different way."
 msgstr ""
+"Przenośność zatem wymaga aby nie czynić żadnych założeń o widoczności "
+"symboli. To oznacza, że wszystkie symbole w rozszerzających modułach powinny "
+"być deklarowane jako ``statyczne``, z wyjątkiem zadania zainicjowania "
+"modułu, w celu ominięcia wojen nazw z innymi modułami rozszerzającymi (jak "
+"określono w rozdziale :ref:`methodtable`). I to oznacza, że symbole, które "
+"*powinny* być dostępne z innych rozszerzających modułów muszą być "
+"eksportowane w różny sposób."
 
 #: ../../extending/extending.rst:1201
 msgid ""
@@ -1691,6 +2112,13 @@ msgid ""
 "distributed in different ways between the module providing the code and the "
 "client modules."
 msgstr ""
+"Istnieje wiele sposobów w jakie kapsuły mogą być używane aby wystawiać na "
+"zewnątrz sprzęgi programowania aplikacji (API) języka C dla danego modułu "
+"rozszerzającego. Każde zadanie mogłoby dostać swoją własną kapsułę, lub "
+"wszystkie wskaźniki sprzęgu programowania aplikacji (API) języka C mogłyby "
+"być zachowane w tabeli której adres byłby opublikowany w kapsule. A różne "
+"zadania zachowania i odbioru wskaźników mogłyby być rozprowadzone na różne "
+"sposoby pomiędzy moduły dostarczające kod i moduły odbierające."
 
 #: ../../extending/extending.rst:1215
 msgid ""
@@ -1707,6 +2135,9 @@ msgid ""
 "In particular, Capsules used to expose C APIs should be given a name "
 "following this convention::"
 msgstr ""
+"W szczególności, kapsułom używanym do wystawiania sprzęgów programowania "
+"aplikacji języka C ( - z ang. - API) powinna być nadana nazwa stosująca się "
+"do następującej konwencji::"
 
 #: ../../extending/extending.rst:1225
 msgid "modulename.attributename"
@@ -1719,6 +2150,10 @@ msgid ""
 "convention.  This behavior gives C API users a high degree of certainty that "
 "the Capsule they load contains the correct C API."
 msgstr ""
+"Зручна функція :c:func:`PyCapsule_Import` спрощує завантаження C API, що "
+"надається через Capsule, але лише якщо назва Capsule відповідає цій умові. "
+"Така поведінка дає користувачам C API високий ступінь впевненості, що "
+"капсула, яку вони завантажують, містить правильний C API."
 
 #: ../../extending/extending.rst:1232
 msgid ""
@@ -1778,7 +2213,7 @@ msgstr ""
 
 #: ../../extending/extending.rst:1270
 msgid "In the beginning of the module, right after the line ::"
-msgstr ""
+msgstr "Na początku modułu, zaraz za linią ::"
 
 #: ../../extending/extending.rst:1272
 msgid "#include <Python.h>"
@@ -1786,7 +2221,7 @@ msgstr ""
 
 #: ../../extending/extending.rst:1274
 msgid "two more lines must be added::"
-msgstr ""
+msgstr "muszą być dodane dwie linie::"
 
 #: ../../extending/extending.rst:1276
 msgid ""
@@ -1836,6 +2271,8 @@ msgid ""
 "The bulk of the work is in the header file :file:`spammodule.h`, which looks "
 "like this::"
 msgstr ""
+"Większa część pracy jest wykonywana w pliku nagłówkowym :file:`spammodule."
+"h`, który wygląda następująco::"
 
 #: ../../extending/extending.rst:1308
 msgid ""
@@ -1915,6 +2352,10 @@ msgid ""
 "is rather complicated. However, the basic structure is the same for each "
 "function that is exported, so it has to be learned only once."
 msgstr ""
+"Główną wadą tego podejścia jest to, że plik :file:`spammodule.h` jest raczej "
+"skomplikowany. Jednakże podstawowa struktura jest taka sama dla każdego "
+"zadania które jest wystawiane na zewnątrz więc trzeba się tego uczyć tylko "
+"raz."
 
 #: ../../extending/extending.rst:1374
 msgid ""
@@ -1925,6 +2366,12 @@ msgid ""
 "Capsules (files :file:`Include/pycapsule.h` and :file:`Objects/pycapsule.c` "
 "in the Python source code distribution)."
 msgstr ""
+"Ostatecznie warto wspomnieć, że kapsuły dają dodatkowe możliwości działania, "
+"które są szczególnie użyteczne dla umieszczania i zabierania miejsca w "
+"pamięci wskaźników zachowywanych w kapsule. Szczegóły są opisane w "
+"podręczniku użytkownika API Python/C w rozdziale :ref:`capsules` i w "
+"wypełnieniu programowym kapsuł (plików :file:`Include/pycapsule.h` i :file:"
+"`Objects/pycapsule.c` w dystrybucji źródłowej kodu Pythona)."
 
 #: ../../extending/extending.rst:1382
 msgid "Footnotes"
@@ -1935,12 +2382,16 @@ msgid ""
 "An interface for this function already exists in the standard module :mod:"
 "`os` --- it was chosen as a simple and straightforward example."
 msgstr ""
+"sprzęg dla tego zadania już istnieje w standardowym module :mod:`os` --- "
+"został on wybrany jako prosty i przejrzysty przykład."
 
 #: ../../extending/extending.rst:1386
 msgid ""
 "The metaphor of \"borrowing\" a reference is not completely correct: the "
 "owner still has a copy of the reference."
 msgstr ""
+"Metafora \"pożyczania\" odniesienia nie jest do końca poprawna: właściciel "
+"wciąż ma kopię odniesienia."
 
 #: ../../extending/extending.rst:1389
 msgid ""
@@ -1948,12 +2399,17 @@ msgid ""
 "reference count itself could be in freed memory and may thus be reused for "
 "another object!"
 msgstr ""
+"Sprawdzanie że liczba odniesień jest przynajmniej 1 **nie działa** --- "
+"liczba odniesień sama w sobie może być w uwolnionej pamięci i dlatego może "
+"być ponownie użyta dla innego przedmiotu!"
 
 #: ../../extending/extending.rst:1393
 msgid ""
 "These guarantees don't hold when you use the \"old\" style calling "
 "convention --- this is still found in much existing code."
 msgstr ""
+"Te gwarancje nie są w mocy gdy używasz \"starego\" sposobu wywoływania --- "
+"to jest wciąż znajdowane w dużej części istniejącego kodu."
 
 #: ../../extending/extending.rst:568
 msgid "PyObject_CallObject (C function)"
