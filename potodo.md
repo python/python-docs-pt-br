@@ -1,11 +1,11 @@
 
 
-# 3.13 (99.86% done)
+# 3.13 (99.43% done)
 
-- glossary.po                    413 / 414 ( 99.0% translated).
+- glossary.po                    414 / 418 ( 99.0% translated).
 
 
-# c-api (56.69% done)
+# c-api (58.76% done)
 
 - exceptions.po                  121 / 238 ( 50.0% translated).
 - float.po                        29 /  35 ( 82.0% translated).
@@ -15,9 +15,9 @@
 - init.po                        166 / 480 ( 34.0% translated).
 - init_config.po                 135 / 417 ( 32.0% translated).
 - long.po                         44 / 104 ( 42.0% translated).
-- memory.po                       55 / 201 ( 27.0% translated).
+- memory.po                      128 / 201 ( 63.0% translated).
 - module.po                       64 / 135 ( 47.0% translated).
-- number.po                       14 /  48 ( 29.0% translated).
+- number.po                       46 /  48 ( 95.0% translated).
 - object.po                       43 / 119 ( 36.0% translated).
 - refcounting.po                   4 /  48 (  8.0% translated).
 - structures.po                   71 / 180 ( 39.0% translated).
@@ -35,11 +35,11 @@
 
 
 
-# extending (16.20% done)
+# extending (38.59% done)
 
 - building.po                      9 /  10 ( 90.0% translated).
-- embedding.po                     4 /  59 (  6.0% translated).
-- extending.po                    15 / 209 (  7.0% translated).
+- embedding.po                    41 /  59 ( 69.0% translated).
+- extending.po                   120 / 226 ( 53.0% translated).
 - newtypes.po                      8 / 117 (  6.0% translated).
 - newtypes_tutorial.po            29 / 177 ( 16.0% translated).
 
@@ -65,7 +65,7 @@
 
 
 
-# library (66.28% done)
+# library (68.62% done)
 
 - argparse.po                    376 / 378 ( 99.0% translated).
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
@@ -83,7 +83,7 @@
 - bdb.po                           9 / 112 (  8.0% translated).
 - binascii.po                     23 /  38 ( 60.0% translated).
 - bisect.po                       35 /  36 ( 97.0% translated).
-- codecs.po                      250 / 556 ( 44.0% translated).
+- codecs.po                      250 / 557 ( 44.0% translated).
 - concurrent.futures.po           14 / 101 ( 13.0% translated).
 - contextlib.po                   55 / 172 ( 31.0% translated).
 - ctypes.po                      138 / 546 ( 25.0% translated).
@@ -109,16 +109,16 @@
 - hashlib.po                      76 / 170 ( 44.0% translated).
 - hmac.po                         26 /  27 ( 96.0% translated).
 - html.parser.po                   3 /  60 (  5.0% translated).
-- http.client.po                  45 / 117 ( 38.0% translated).
+- http.client.po                  47 / 117 ( 40.0% translated).
 - http.cookiejar.po                9 / 159 (  5.0% translated).
 - http.cookies.po                  7 /  49 ( 14.0% translated).
 - http.po                        186 / 247 ( 75.0% translated).
 - http.server.po                  15 / 115 ( 13.0% translated).
 - idle.po                         28 / 293 (  9.0% translated).
-- imaplib.po                      13 / 117 ( 11.0% translated).
+- imaplib.po                      15 / 117 ( 12.0% translated).
 - importlib.po                   245 / 313 ( 78.0% translated).
 - importlib.resources.po          52 /  53 ( 98.0% translated).
-- inspect.po                     109 / 390 ( 27.0% translated).
+- inspect.po                      82 / 390 ( 21.0% translated).
 - io.po                           56 / 272 ( 20.0% translated).
 - ipaddress.po                   164 / 167 ( 98.0% translated).
 - itertools.po                   154 / 200 ( 77.0% translated).
@@ -134,52 +134,54 @@
 - pathlib.po                     417 / 418 ( 99.0% translated).
 - pkgutil.po                      44 /  50 ( 88.0% translated).
 - platform.po                     86 /  87 ( 98.0% translated).
-- poplib.po                       10 /  53 ( 18.0% translated).
+- poplib.po                       45 /  53 ( 84.0% translated).
 - profile.po                      34 / 181 ( 18.0% translated).
-- pyexpat.po                      21 / 144 ( 14.0% translated).
+- pyexpat.po                     129 / 144 ( 89.0% translated).
 - queue.po                         6 /  57 ( 10.0% translated).
 - select.po                       78 / 206 ( 37.0% translated).
 - selectors.po                    13 /  58 ( 22.0% translated).
 - shelve.po                       11 /  40 ( 27.0% translated).
 - shlex.po                         3 /  77 (  3.0% translated).
-- smtplib.po                      30 / 116 ( 25.0% translated).
+- smtplib.po                     101 / 116 ( 87.0% translated).
 - socket.po                       56 / 368 ( 15.0% translated).
 - sqlite3.po                     116 / 477 ( 24.0% translated).
 - ssl.po                          63 / 544 ( 11.0% translated).
+- stdtypes.po                    1389 / 1390 ( 99.0% translated).
 - string.po                      218 / 220 ( 99.0% translated).
 - struct.po                       96 / 195 ( 49.0% translated).
 - subprocess.po                  150 / 327 ( 45.0% translated).
-- symtable.po                      6 /  65 (  9.0% translated).
+- symtable.po                     38 /  65 ( 58.0% translated).
 - sys.monitoring.po              110 / 111 ( 99.0% translated).
-- tarfile.po                     150 / 345 ( 43.0% translated).
+- tarfile.po                     289 / 345 ( 83.0% translated).
 - tempfile.po                      8 /  87 (  9.0% translated).
 - test.po                        119 / 321 ( 37.0% translated).
 - threading.po                    38 / 274 ( 13.0% translated).
-- tkinter.ttk.po                 141 / 429 ( 32.0% translated).
+- tkinter.ttk.po                 142 / 429 ( 33.0% translated).
 - traceback.po                     9 / 116 (  7.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
 - unicodedata.po                   5 /  32 ( 15.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               103 / 448 ( 22.0% translated).
-- unittest.po                    281 / 537 ( 52.0% translated).
-- urllib.parse.po                110 / 168 ( 65.0% translated).
-- urllib.request.po               41 / 303 ( 13.0% translated).
+- unittest.po                    282 / 537 ( 52.0% translated).
+- urllib.parse.po                163 / 168 ( 97.0% translated).
+- urllib.request.po               43 / 303 ( 14.0% translated).
 - venv.po                        125 / 137 ( 91.0% translated).
-- warnings.po                     72 / 138 ( 52.0% translated).
-- wave.po                         17 /  54 ( 31.0% translated).
-- wsgiref.po                      78 / 134 ( 58.0% translated).
+- warnings.po                    111 / 138 ( 80.0% translated).
+- wave.po                         40 /  54 ( 74.0% translated).
+- wsgiref.po                     116 / 134 ( 86.0% translated).
 - xml.dom.minidom.po               8 /  56 ( 14.0% translated).
-- xml.dom.po                      67 / 235 ( 28.0% translated).
-- xml.etree.elementtree.po        68 / 266 ( 25.0% translated).
-- xml.sax.handler.po               4 / 103 (  3.0% translated).
-- xml.sax.po                       3 /  32 (  9.0% translated).
-- xml.sax.reader.po                2 /  75 (  2.0% translated).
+- xml.dom.po                      68 / 235 ( 28.0% translated).
+- xml.etree.elementtree.po       215 / 266 ( 80.0% translated).
+- xml.sax.handler.po              88 / 103 ( 85.0% translated).
+- xml.sax.po                      31 /  32 ( 96.0% translated).
+- xml.sax.reader.po               74 /  75 ( 98.0% translated).
 - xmlrpc.client.po                55 / 113 ( 48.0% translated).
 - zoneinfo.po                     42 /  83 ( 50.0% translated).
 
 
-# reference (100.00% done)
+# reference (99.97% done)
 
+- compound_stmts.po              466 / 467 ( 99.0% translated).
 
 
 # tutorial (99.92% done)
@@ -193,7 +195,7 @@
 - mac.po                          92 /  96 ( 95.0% translated).
 
 
-# whatsnew (46.62% done)
+# whatsnew (46.60% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -207,8 +209,8 @@
 - 3.5.po                         129 / 578 ( 22.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   2569 / 12450 ( 20.0% translated).
+- changelog.po                   2568 / 12457 ( 20.0% translated).
 
 
-# TOTAL (62.78% done)
+# TOTAL (64.20% done)
 
