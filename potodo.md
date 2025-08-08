@@ -1,8 +1,7 @@
 
 
-# 3.13 (99.43% done)
+# 3.13 (100.00% done)
 
-- glossary.po                    414 / 418 ( 99.0% translated).
 
 
 # c-api (58.76% done)
@@ -48,14 +47,14 @@
 
 
 
-# howto (67.45% done)
+# howto (67.97% done)
 
 - descriptor.po                  187 / 230 ( 81.0% translated).
 - enum.po                        101 / 327 ( 30.0% translated).
 - free-threading-extensions.po    72 /  73 ( 98.0% translated).
 - functional.po                  158 / 252 ( 62.0% translated).
 - logging-cookbook.po             40 / 433 (  9.0% translated).
-- logging.po                     122 / 250 ( 48.0% translated).
+- logging.po                     139 / 250 ( 55.0% translated).
 - sockets.po                      35 /  63 ( 55.0% translated).
 - sorting.po                      46 /  75 ( 61.0% translated).
 - unicode.po                      30 / 145 ( 20.0% translated).
@@ -184,14 +183,12 @@
 - compound_stmts.po              466 / 467 ( 99.0% translated).
 
 
-# tutorial (99.92% done)
-
-- modules.po                     116 / 117 ( 99.0% translated).
+# tutorial (100.00% done)
 
 
-# using (99.62% done)
 
-- configure.po                   406 / 407 ( 99.0% translated).
+# using (99.70% done)
+
 - mac.po                          92 /  96 ( 95.0% translated).
 
 
@@ -212,5 +209,5 @@
 - changelog.po                   2568 / 12457 ( 20.0% translated).
 
 
-# TOTAL (64.20% done)
+# TOTAL (64.23% done)
 
