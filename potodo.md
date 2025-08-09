@@ -64,7 +64,7 @@
 
 
 
-# library (68.45% done)
+# library (68.44% done)
 
 - annotationlib.po               136 / 137 ( 99.0% translated).
 - argparse.po                    392 / 397 ( 98.0% translated).
@@ -159,10 +159,11 @@
 - tempfile.po                      8 /  87 (  9.0% translated).
 - test.po                        118 / 330 ( 35.0% translated).
 - threading.po                    39 / 284 ( 13.0% translated).
+- time.po                        279 / 280 ( 99.0% translated).
 - tkinter.ttk.po                 142 / 429 ( 33.0% translated).
 - traceback.po                    10 / 118 (  8.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
-- typing.po                      814 / 815 ( 99.0% translated).
+- typing.po                      809 / 815 ( 99.0% translated).
 - unicodedata.po                   5 /  32 ( 15.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               103 / 448 ( 22.0% translated).
@@ -183,13 +184,13 @@
 - zoneinfo.po                     42 /  83 ( 50.0% translated).
 
 
-# reference (96.00% done)
+# reference (96.03% done)
 
 - compound_stmts.po              479 / 480 ( 99.0% translated).
 - expressions.po                 537 / 550 ( 97.0% translated).
 - grammar.po                       3 /   5 ( 60.0% translated).
 - introduction.po                 50 /  56 ( 89.0% translated).
-- lexical_analysis.po            313 / 412 ( 75.0% translated).
+- lexical_analysis.po            314 / 412 ( 76.0% translated).
 
 
 # tutorial (99.92% done)
@@ -203,7 +204,7 @@
 - windows.po                     406 / 536 ( 75.0% translated).
 
 
-# whatsnew (47.65% done)
+# whatsnew (47.64% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -217,8 +218,8 @@
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         236 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   3036 / 13447 ( 22.0% translated).
+- changelog.po                   3036 / 13450 ( 22.0% translated).
 
 
-# TOTAL (63.79% done)
+# TOTAL (63.78% done)
 
