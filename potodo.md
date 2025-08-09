@@ -47,12 +47,14 @@
 
 
 
-# howto (67.97% done)
+# howto (66.18% done)
 
+- a-conceptual-overview-of-asyncio.po   4 /  93 (  4.0% translated).
 - descriptor.po                  187 / 230 ( 81.0% translated).
 - enum.po                        101 / 327 ( 30.0% translated).
 - free-threading-extensions.po    72 /  73 ( 98.0% translated).
 - functional.po                  158 / 252 ( 62.0% translated).
+- index.po                        28 /  29 ( 96.0% translated).
 - logging-cookbook.po             40 / 433 (  9.0% translated).
 - logging.po                     139 / 250 ( 55.0% translated).
 - sockets.po                      35 /  63 ( 55.0% translated).
@@ -64,7 +66,7 @@
 
 
 
-# library (68.62% done)
+# library (68.60% done)
 
 - argparse.po                    376 / 378 ( 99.0% translated).
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
@@ -78,6 +80,7 @@
 - asyncio-stream.po               71 / 103 ( 68.0% translated).
 - asyncio-sync.po                 12 / 100 ( 12.0% translated).
 - asyncio-task.po                141 / 268 ( 52.0% translated).
+- asyncio.po                      29 /  31 ( 93.0% translated).
 - base64.po                       15 /  71 ( 21.0% translated).
 - bdb.po                           9 / 112 (  8.0% translated).
 - binascii.po                     23 /  38 ( 60.0% translated).
@@ -104,6 +107,7 @@
 - faulthandler.po                  4 /  43 (  9.0% translated).
 - fractions.po                    33 /  36 ( 91.0% translated).
 - ftplib.po                       11 /  99 ( 11.0% translated).
+- functions.po                   509 / 510 ( 99.0% translated).
 - functools.po                    19 / 115 ( 16.0% translated).
 - hashlib.po                      76 / 170 ( 44.0% translated).
 - hmac.po                         26 /  27 ( 96.0% translated).
@@ -155,9 +159,11 @@
 - tempfile.po                      8 /  87 (  9.0% translated).
 - test.po                        119 / 321 ( 37.0% translated).
 - threading.po                    38 / 274 ( 13.0% translated).
+- time.po                        279 / 280 ( 99.0% translated).
 - tkinter.ttk.po                 142 / 429 ( 33.0% translated).
 - traceback.po                     9 / 116 (  7.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
+- typing.po                      795 / 800 ( 99.0% translated).
 - unicodedata.po                   5 /  32 ( 15.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               103 / 448 ( 22.0% translated).
@@ -206,8 +212,8 @@
 - 3.5.po                         129 / 578 ( 22.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   2568 / 12457 ( 20.0% translated).
+- changelog.po                   2568 / 12458 ( 20.0% translated).
 
 
-# TOTAL (64.23% done)
+# TOTAL (64.14% done)
 
