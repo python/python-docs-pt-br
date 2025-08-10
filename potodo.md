@@ -4,7 +4,7 @@
 
 
 
-# c-api (55.87% done)
+# c-api (56.06% done)
 
 - arg.po                         202 / 205 ( 98.0% translated).
 - exceptions.po                  120 / 242 ( 49.0% translated).
@@ -19,7 +19,7 @@
 - module.po                       48 / 129 ( 37.0% translated).
 - number.po                       46 /  48 ( 95.0% translated).
 - object.po                       43 / 144 ( 29.0% translated).
-- refcounting.po                   4 /  50 (  8.0% translated).
+- refcounting.po                  15 /  50 ( 30.0% translated).
 - structures.po                   70 / 191 ( 36.0% translated).
 - sys.po                          28 /  83 ( 33.0% translated).
 - type.po                         18 / 129 ( 13.0% translated).
@@ -47,14 +47,14 @@
 
 
 
-# howto (68.96% done)
+# howto (70.22% done)
 
 - descriptor.po                  187 / 230 ( 81.0% translated).
 - enum.po                        101 / 327 ( 30.0% translated).
 - free-threading-extensions.po   105 / 106 ( 99.0% translated).
 - functional.po                  158 / 252 ( 62.0% translated).
 - logging-cookbook.po             40 / 435 (  9.0% translated).
-- logging.po                     139 / 250 ( 55.0% translated).
+- logging.po                     182 / 250 ( 72.0% translated).
 - sockets.po                      35 /  63 ( 55.0% translated).
 - sorting.po                      44 /  92 ( 47.0% translated).
 - unicode.po                      30 / 145 ( 20.0% translated).
@@ -221,5 +221,5 @@
 - changelog.po                   3036 / 13450 ( 22.0% translated).
 
 
-# TOTAL (63.78% done)
+# TOTAL (63.85% done)
 
