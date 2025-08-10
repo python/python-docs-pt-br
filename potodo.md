@@ -4,7 +4,7 @@
 
 
 
-# c-api (58.76% done)
+# c-api (58.96% done)
 
 - exceptions.po                  121 / 238 ( 50.0% translated).
 - float.po                        29 /  35 ( 82.0% translated).
@@ -18,7 +18,7 @@
 - module.po                       64 / 135 ( 47.0% translated).
 - number.po                       46 /  48 ( 95.0% translated).
 - object.po                       43 / 119 ( 36.0% translated).
-- refcounting.po                   4 /  48 (  8.0% translated).
+- refcounting.po                  14 /  48 ( 29.0% translated).
 - structures.po                   71 / 180 ( 39.0% translated).
 - sys.po                          28 /  75 ( 37.0% translated).
 - type.po                         19 / 103 ( 18.0% translated).
@@ -47,7 +47,7 @@
 
 
 
-# howto (66.18% done)
+# howto (67.49% done)
 
 - a-conceptual-overview-of-asyncio.po   4 /  93 (  4.0% translated).
 - descriptor.po                  187 / 230 ( 81.0% translated).
@@ -55,8 +55,8 @@
 - free-threading-extensions.po    72 /  73 ( 98.0% translated).
 - functional.po                  158 / 252 ( 62.0% translated).
 - index.po                        28 /  29 ( 96.0% translated).
-- logging-cookbook.po             40 / 433 (  9.0% translated).
-- logging.po                     139 / 250 ( 55.0% translated).
+- logging-cookbook.po             41 / 433 (  9.0% translated).
+- logging.po                     182 / 250 ( 72.0% translated).
 - sockets.po                      35 /  63 ( 55.0% translated).
 - sorting.po                      46 /  75 ( 61.0% translated).
 - unicode.po                      30 / 145 ( 20.0% translated).
@@ -215,5 +215,5 @@
 - changelog.po                   2568 / 12458 ( 20.0% translated).
 
 
-# TOTAL (64.14% done)
+# TOTAL (64.21% done)
 
