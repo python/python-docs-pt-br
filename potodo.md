@@ -70,7 +70,7 @@
 - argparse.po                    392 / 397 ( 98.0% translated).
 - ast.po                         321 / 332 ( 96.0% translated).
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
-- asyncio-eventloop.po           307 / 413 ( 74.0% translated).
+- asyncio-eventloop.po           307 / 414 ( 74.0% translated).
 - asyncio-future.po                9 /  64 ( 14.0% translated).
 - asyncio-graph.po                 3 /  30 ( 10.0% translated).
 - asyncio-platforms.po             6 /  25 ( 24.0% translated).
@@ -184,13 +184,13 @@
 - zoneinfo.po                     42 /  83 ( 50.0% translated).
 
 
-# reference (96.03% done)
+# reference (96.23% done)
 
 - compound_stmts.po              479 / 480 ( 99.0% translated).
 - expressions.po                 537 / 550 ( 97.0% translated).
 - grammar.po                       3 /   5 ( 60.0% translated).
 - introduction.po                 50 /  56 ( 89.0% translated).
-- lexical_analysis.po            314 / 412 ( 76.0% translated).
+- lexical_analysis.po            320 / 412 ( 77.0% translated).
 
 
 # tutorial (99.92% done)
@@ -218,7 +218,7 @@
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         236 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   3036 / 13450 ( 22.0% translated).
+- changelog.po                   3036 / 13451 ( 22.0% translated).
 
 
 # TOTAL (63.85% done)
