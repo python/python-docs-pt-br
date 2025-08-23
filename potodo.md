@@ -5,14 +5,14 @@
 - license.po                     116 / 125 ( 92.0% translated).
 
 
-# c-api (58.19% done)
+# c-api (58.27% done)
 
 - exceptions.po                  196 / 366 ( 53.0% translated).
 - float.po                        29 /  35 ( 82.0% translated).
 - frame.po                        20 /  36 ( 55.0% translated).
 - gcsupport.po                     9 /  52 ( 17.0% translated).
 - import.po                       36 /  57 ( 63.0% translated).
-- init.po                        146 / 434 ( 33.0% translated).
+- init.po                        150 / 434 ( 34.0% translated).
 - init_config.po                 133 / 410 ( 32.0% translated).
 - intro.po                       140 / 141 ( 99.0% translated).
 - long.po                         35 /  69 ( 50.0% translated).
@@ -50,14 +50,14 @@
 - library.po                     157 / 162 ( 96.0% translated).
 
 
-# howto (67.82% done)
+# howto (70.03% done)
 
 - curses.po                      120 / 121 ( 99.0% translated).
 - descriptor.po                  181 / 233 ( 77.0% translated).
 - enum.po                        102 / 319 ( 31.0% translated).
 - functional.po                  157 / 252 ( 62.0% translated).
 - logging-cookbook.po             41 / 421 (  9.0% translated).
-- logging.po                     181 / 250 ( 72.0% translated).
+- logging.po                     249 / 250 ( 99.0% translated).
 - perf_profiling.po               29 /  32 ( 90.0% translated).
 - sockets.po                      35 /  63 ( 55.0% translated).
 - sorting.po                      46 /  75 ( 61.0% translated).
@@ -69,7 +69,7 @@
 
 
 
-# library (67.25% done)
+# library (66.95% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        78 /  84 ( 92.0% translated).
@@ -148,7 +148,7 @@
 - mimetypes.po                    16 /  51 ( 31.0% translated).
 - mmap.po                         22 /  59 ( 37.0% translated).
 - msilib.po                        7 /  97 (  7.0% translated).
-- multiprocessing.po             327 / 594 ( 55.0% translated).
+- multiprocessing.po             344 / 594 ( 57.0% translated).
 - multiprocessing.shared_memory.po  51 /  53 ( 96.0% translated).
 - nntplib.po                      11 /  92 ( 11.0% translated).
 - os.path.po                      95 /  98 ( 96.0% translated).
@@ -180,7 +180,7 @@
 - symtable.po                     36 /  50 ( 72.0% translated).
 - sys.po                         419 / 431 ( 97.0% translated).
 - syslog.po                       26 /  33 ( 78.0% translated).
-- tarfile.po                     289 / 337 ( 85.0% translated).
+- tarfile.po                     165 / 337 ( 48.0% translated).
 - telnetlib.po                    10 /  53 ( 18.0% translated).
 - tempfile.po                      8 /  87 (  9.0% translated).
 - test.po                        118 / 320 ( 36.0% translated).
@@ -248,5 +248,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (71.39% done)
+# TOTAL (71.34% done)
 
