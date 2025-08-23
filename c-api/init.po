@@ -5,15 +5,17 @@
 #
 # Translators:
 # python-doc bot, 2025
+# Adorilson Bezerra <adorilson@gmail.com>, 2025
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-07 20:38+0000\n"
+"POT-Creation-Date: 2025-08-21 14:19+0000\n"
 "PO-Revision-Date: 2025-08-02 17:33+0000\n"
-"Last-Translator: python-doc bot, 2025\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -1442,7 +1444,7 @@ msgstr ""
 
 #: ../../c-api/init.rst:928
 msgid "Thread State and the Global Interpreter Lock"
-msgstr "Estado de thread e trava global do interpretador"
+msgstr "Estado de thread e a trava global do interpretador"
 
 #: ../../c-api/init.rst:935
 msgid ""
@@ -1464,8 +1466,8 @@ msgstr ""
 "segurança. Sem a trava, mesmo as operações mais simples podem causar "
 "problemas em um programa multithread: por exemplo, quando duas threads "
 "incrementam simultaneamente a contagem de referências do mesmo objeto, a "
-"contagem de referências pode acabar sendo incrementada apenas uma vez, em "
-"vez de duas."
+"contagem de referências pode acabar sendo incrementada apenas uma vez, no "
+"lugar de duas."
 
 #: ../../c-api/init.rst:946
 msgid ""
@@ -1512,8 +1514,8 @@ msgstr ""
 "Uma thread só pode ter um :term:`estado de thread anexado` por vez. Um "
 "estado de thread anexado é tipicamente análogo a manter a :term:`GIL`, "
 "exceto em construções com :term:`threads livres <free threading>`. Em "
-"construções com a :term:`GIL` habilitada, a :term:`anexagem <attached thread "
-"state>` de um estado de thread vai bloquear até que a :term:`GIL` possa ser "
+"construções com a :term:`GIL` habilitada, :term:`anexar <attached thread "
+"state>` um estado de thread vai bloquear até que a :term:`GIL` possa ser "
 "adquirida. No entanto, mesmo em construções com a :term:`GIL` desabilitada, "
 "ainda é necessário ter um estado de thread anexado para chamar a maior parte "
 "da API C."
@@ -1534,13 +1536,15 @@ msgstr ""
 
 #: ../../c-api/init.rst:974
 msgid "Detaching the thread state from extension code"
-msgstr ""
+msgstr "Desvinculação do estado de thread do código de extensão"
 
 #: ../../c-api/init.rst:976
 msgid ""
 "Most extension code manipulating the :term:`thread state` has the following "
 "simple structure::"
 msgstr ""
+"A maior parte do código de extensão que manipula o :term:`estado de thread` "
+"tem a seguinte estrutura simples::"
 
 #: ../../c-api/init.rst:979
 msgid ""
@@ -1548,10 +1552,13 @@ msgid ""
 "... Do some blocking I/O operation ...\n"
 "Restore the thread state from the local variable."
 msgstr ""
+"Salve o estado de thread em uma variável local.\n"
+"... Faça alguma operação de E/S com bloqueio...\n"
+"Restaure o estado de thread da variável local."
 
 #: ../../c-api/init.rst:983
 msgid "This is so common that a pair of macros exists to simplify it::"
-msgstr ""
+msgstr "Isso é tão comum que existe um par de macros para simplificá-lo::"
 
 #: ../../c-api/init.rst:985
 msgid ""
@@ -1559,6 +1566,9 @@ msgid ""
 "... Do some blocking I/O operation ...\n"
 "Py_END_ALLOW_THREADS"
 msgstr ""
+"Py_BEGIN_ALLOW_THREADS\n"
+"... Faça alguma operação de E/S com bloqueio...\n"
+"Py_END_ALLOW_THREADS"
 
 #: ../../c-api/init.rst:993
 msgid ""
@@ -1571,7 +1581,7 @@ msgstr ""
 
 #: ../../c-api/init.rst:997
 msgid "The block above expands to the following code::"
-msgstr ""
+msgstr "O bloco acima se expande para o seguinte código::"
 
 #: ../../c-api/init.rst:999
 msgid ""
@@ -1581,10 +1591,15 @@ msgid ""
 "... Do some blocking I/O operation ...\n"
 "PyEval_RestoreThread(_save);"
 msgstr ""
+"PyThreadState *_save;\n"
+"\n"
+"_save = PyEval_SaveThread();\n"
+"... Faça alguma operação de E/S com bloqueio...\n"
+"PyEval_RestoreThread(_save);"
 
 #: ../../c-api/init.rst:1009
 msgid "Here is how these functions work:"
-msgstr ""
+msgstr "Veja como essas funções atuam:"
 
 #: ../../c-api/init.rst:1011
 msgid ""
@@ -1600,6 +1615,18 @@ msgid ""
 "term:`thread state <attached thread state>` to get re-attached and the C API "
 "can be called again."
 msgstr ""
+"O :term:`estado de thread anexado` mantém a :term:`GIL` para todo o "
+"interpretador. Ao desanexar o :term:`estado de thread anexado`, a :term:"
+"`GIL` é liberada, permitindo que outras threads anexem um estado de thread a "
+"sua própria thread, assim obtendo a :term:`GIL` e podendo iniciar a "
+"execução. O ponteiro para o :term:`estado de thread anexado` anterior é "
+"armazenado como uma variável local. Ao chegar a :c:macro:"
+"`Py_END_ALLOW_THREADS`, o estado de thread que foi anteriormente :term:"
+"`anexado <estado de thread anexado>` é passado para :c:func:"
+"`PyEval_RestoreThread`. Esse função será bloqueada até que outro libere seu :"
+"term:`estado de thread <estado de thread anexado>`, permitindo assim que o "
+"antigo :term:`estado de thread <estado de thread anexado>` seja re-anexado e "
+"a API C possa ser novamente chamada."
 
 #: ../../c-api/init.rst:1021
 msgid ""
@@ -1610,6 +1637,12 @@ msgid ""
 "`GIL` to be released to attach their thread state, allowing true multi-core "
 "parallelism."
 msgstr ""
+"Para construções com :term:`threads livres <free threading>`, a :term:`GIL` "
+"normalmente está fora de questão, mas a separação do :term:`estado de thread "
+"<estado de thread anexado>` ainda é necessário para E/S com bloqueio e "
+"operações longas. A diferença é que threads não precisam esperar que a :term:"
+"`GIL` seja liberada para anexar seu estado de thread, permitindo verdadeiro "
+"paralelismo de vários núcleos."
 
 #: ../../c-api/init.rst:1027
 msgid ""
@@ -1621,6 +1654,13 @@ msgid ""
 "modules detach the :term:`thread state <attached thread state>` when "
 "compressing or hashing data."
 msgstr ""
+"Chamar funções de E/S do sistema é o caso de uso mais comum para desanexar "
+"o :term:`estado de thread <estado de thread anexado>`, mas também pode ser "
+"útil antes de chamar cálculos de longa duração que não precisam de acesso a "
+"Python objeto, como funções de compressão ou criptografia operando em "
+"buffers de memória. Por exemplo, os módulos dos padrões :mod:`zlib` e :mod:"
+"`hashlib` desanexam o :term:`estado de thread <estado de thread anexado>` ao "
+"compactar ou fazer hashing de dados."
 
 #: ../../c-api/init.rst:1038
 msgid "Non-Python created threads"
