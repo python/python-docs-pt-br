@@ -32,9 +32,6 @@ set +e
 sphinx-lint 2> $(realpath "$rootdir/logs/sphinxlint.txt")
 set -e
 
-# Undo changes to undo literal blocks disabling
-git checkout .
-
 cd "$rootdir"
 
 # Check of logfile is empty
