@@ -47,9 +47,9 @@
 
 
 
-# howto (70.27% done)
+# howto (70.79% done)
 
-- a-conceptual-overview-of-asyncio.po   0 /  93 (  0.0% translated).
+- a-conceptual-overview-of-asyncio.po  18 /  93 ( 19.0% translated).
 - descriptor.po                  187 / 230 ( 81.0% translated).
 - enum.po                        101 / 327 ( 30.0% translated).
 - free-threading-extensions.po   105 / 106 ( 99.0% translated).
@@ -65,7 +65,7 @@
 
 
 
-# library (68.03% done)
+# library (67.96% done)
 
 - annotationlib.po               136 / 137 ( 99.0% translated).
 - argparse.po                    392 / 397 ( 98.0% translated).
@@ -79,7 +79,7 @@
 - asyncio-policy.po                6 /  36 ( 16.0% translated).
 - asyncio-protocol.po             25 / 194 ( 12.0% translated).
 - asyncio-runner.po                4 /  41 (  9.0% translated).
-- asyncio-stream.po               71 / 103 ( 68.0% translated).
+- asyncio-stream.po               71 / 104 ( 68.0% translated).
 - asyncio-sync.po                 12 / 100 ( 12.0% translated).
 - asyncio-task.po                140 / 273 ( 51.0% translated).
 - asyncio.po                      29 /  31 ( 93.0% translated).
@@ -112,7 +112,6 @@
 - errno.po                       115 / 161 ( 71.0% translated).
 - faulthandler.po                  4 /  53 (  7.0% translated).
 - fnmatch.po                      37 /  38 ( 97.0% translated).
-- frameworks.po                    0 /   5 (  0.0% translated).
 - ftplib.po                       11 /  99 ( 11.0% translated).
 - functools.po                    19 / 126 ( 15.0% translated).
 - gc.po                           72 /  73 ( 98.0% translated).
@@ -142,7 +141,7 @@
 - msvcrt.po                       22 /  46 ( 47.0% translated).
 - multiprocessing.po             344 / 612 ( 56.0% translated).
 - platform.po                     88 /  89 ( 98.0% translated).
-- poplib.po                       45 /  53 ( 84.0% translated).
+- poplib.po                       22 /  53 ( 41.0% translated).
 - profile.po                      34 / 181 ( 18.0% translated).
 - pyexpat.po                     129 / 145 ( 88.0% translated).
 - queue.po                         9 /  53 ( 16.0% translated).
@@ -161,7 +160,7 @@
 - subprocess.po                  150 / 311 ( 48.0% translated).
 - symtable.po                     38 /  73 ( 52.0% translated).
 - sys.monitoring.po              117 / 118 ( 99.0% translated).
-- tarfile.po                     182 / 362 ( 50.0% translated).
+- tarfile.po                     174 / 362 ( 48.0% translated).
 - tempfile.po                      8 /  87 (  9.0% translated).
 - test.po                        118 / 330 ( 35.0% translated).
 - threading.po                    39 / 284 ( 13.0% translated).
@@ -208,13 +207,14 @@
 - inputoutput.po                 111 / 112 ( 99.0% translated).
 
 
-# using (91.10% done)
+# using (90.98% done)
 
+- ios.po                          87 /  89 ( 97.0% translated).
 - mac.po                          91 /  94 ( 96.0% translated).
 - windows.po                     406 / 536 ( 75.0% translated).
 
 
-# whatsnew (47.62% done)
+# whatsnew (48.36% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -222,14 +222,14 @@
 - 2.6.po                         541 / 626 ( 86.0% translated).
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
-- 3.14.po                        670 / 989 ( 67.0% translated).
+- 3.14.po                        857 / 989 ( 86.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         236 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   3044 / 13466 ( 22.0% translated).
+- changelog.po                   3044 / 13467 ( 22.0% translated).
 
 
-# TOTAL (63.67% done)
+# TOTAL (63.89% done)
 
