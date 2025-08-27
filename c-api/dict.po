@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-07 20:38+0000\n"
+"POT-Creation-Date: 2025-08-27 14:18+0000\n"
 "PO-Revision-Date: 2025-08-02 17:33+0000\n"
 "Last-Translator: python-doc bot, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -479,7 +479,18 @@ msgstr ""
 "}\n"
 "Py_END_CRITICAL_SECTION();"
 
-#: ../../c-api/dict.rst:307
+#: ../../c-api/dict.rst:306
+msgid ""
+"On the free-threaded build, this function can be used safely inside a "
+"critical section. However, the references returned for *pkey* and *pvalue* "
+"are :term:`borrowed <borrowed reference>` and are only valid while the "
+"critical section is held. If you need to use these objects outside the "
+"critical section or when the critical section can be suspended, create a :"
+"term:`strong reference <strong reference>` (for example, using :c:func:"
+"`Py_NewRef`)."
+msgstr ""
+
+#: ../../c-api/dict.rst:316
 msgid ""
 "Iterate over mapping object *b* adding key-value pairs to dictionary *a*. "
 "*b* may be a dictionary, or any object supporting :c:func:`PyMapping_Keys` "
@@ -496,7 +507,7 @@ msgstr ""
 "adicionados apenas se não houver uma chave correspondente em *a*. Retorna "
 "``0`` em caso de sucesso ou ``-1`` se uma exceção foi levantada."
 
-#: ../../c-api/dict.rst:317
+#: ../../c-api/dict.rst:326
 msgid ""
 "This is the same as ``PyDict_Merge(a, b, 1)`` in C, and is similar to ``a."
 "update(b)`` in Python except that :c:func:`PyDict_Update` doesn't fall back "
@@ -510,7 +521,7 @@ msgstr ""
 "argumento não tiver o atributo \"keys\". Retorna ``0`` em caso de sucesso ou "
 "``-1`` se uma exceção foi levantada."
 
-#: ../../c-api/dict.rst:326
+#: ../../c-api/dict.rst:335
 msgid ""
 "Update or merge into dictionary *a*, from the key-value pairs in *seq2*. "
 "*seq2* must be an iterable object producing iterable objects of length 2, "
@@ -525,7 +536,7 @@ msgstr ""
 "vence. Retorne ``0`` em caso de sucesso ou ``-1`` se uma exceção foi "
 "levantada. Python equivalente (exceto para o valor de retorno)::"
 
-#: ../../c-api/dict.rst:333
+#: ../../c-api/dict.rst:342
 msgid ""
 "def PyDict_MergeFromSeq2(a, seq2, override):\n"
 "    for key, value in seq2:\n"
@@ -537,7 +548,7 @@ msgstr ""
 "        if override or key not in a:\n"
 "            a[key] = value"
 
-#: ../../c-api/dict.rst:340
+#: ../../c-api/dict.rst:349
 msgid ""
 "Register *callback* as a dictionary watcher. Return a non-negative integer "
 "id which must be passed to future calls to :c:func:`PyDict_Watch`. In case "
@@ -549,7 +560,7 @@ msgstr ""
 "`PyDict_Watch`. Em caso de erro (por exemplo, não há mais IDs de observador "
 "disponíveis), retorna ``-1`` e define uma exceção."
 
-#: ../../c-api/dict.rst:349
+#: ../../c-api/dict.rst:358
 msgid ""
 "Clear watcher identified by *watcher_id* previously returned from :c:func:"
 "`PyDict_AddWatcher`. Return ``0`` on success, ``-1`` on error (e.g. if the "
@@ -559,7 +570,7 @@ msgstr ""
 "c:func:`PyDict_AddWatcher`. Retorna ``0`` em caso de sucesso, ``-1`` em caso "
 "de erro (por exemplo, se o *watcher_id* fornecido nunca foi registrado)."
 
-#: ../../c-api/dict.rst:357
+#: ../../c-api/dict.rst:366
 msgid ""
 "Mark dictionary *dict* as watched. The callback granted *watcher_id* by :c:"
 "func:`PyDict_AddWatcher` will be called when *dict* is modified or "
@@ -570,7 +581,7 @@ msgstr ""
 "modificado ou desalocado. Retorna ``0`` em caso de sucesso ou ``-1`` em caso "
 "de erro."
 
-#: ../../c-api/dict.rst:365
+#: ../../c-api/dict.rst:374
 msgid ""
 "Mark dictionary *dict* as no longer watched. The callback granted "
 "*watcher_id* by :c:func:`PyDict_AddWatcher` will no longer be called when "
@@ -583,7 +594,7 @@ msgstr ""
 "anteriormente por este observador. Retorna ``0`` em caso de sucesso ou "
 "``-1`` em caso de erro."
 
-#: ../../c-api/dict.rst:374
+#: ../../c-api/dict.rst:383
 msgid ""
 "Enumeration of possible dictionary watcher events: ``PyDict_EVENT_ADDED``, "
 "``PyDict_EVENT_MODIFIED``, ``PyDict_EVENT_DELETED``, "
@@ -595,11 +606,11 @@ msgstr ""
 "``PyDict_EVENT_CLONED``, ``PyDict_EVENT_CLEARED`` ou "
 "``PyDict_EVENT_DEALLOCATED``."
 
-#: ../../c-api/dict.rst:382
+#: ../../c-api/dict.rst:391
 msgid "Type of a dict watcher callback function."
 msgstr "Tipo de uma função de retorno de chamada de observador de dicionário."
 
-#: ../../c-api/dict.rst:384
+#: ../../c-api/dict.rst:393
 msgid ""
 "If *event* is ``PyDict_EVENT_CLEARED`` or ``PyDict_EVENT_DEALLOCATED``, both "
 "*key* and *new_value* will be ``NULL``. If *event* is ``PyDict_EVENT_ADDED`` "
@@ -613,7 +624,7 @@ msgstr ""
 "valor de *key*. Se *event* for ``PyDict_EVENT_DELETED``, *key* estará sendo "
 "excluída do dicionário e *new_value* será ``NULL``."
 
-#: ../../c-api/dict.rst:390
+#: ../../c-api/dict.rst:399
 msgid ""
 "``PyDict_EVENT_CLONED`` occurs when *dict* was previously empty and another "
 "dict is merged into it. To maintain efficiency of this operation, per-key "
@@ -626,7 +637,7 @@ msgstr ""
 "disso, um único ``PyDict_EVENT_CLONED`` é emitido e *key* será o dicionário "
 "de origem."
 
-#: ../../c-api/dict.rst:396
+#: ../../c-api/dict.rst:405
 msgid ""
 "The callback may inspect but must not modify *dict*; doing so could have "
 "unpredictable effects, including infinite recursion. Do not trigger Python "
@@ -637,7 +648,7 @@ msgstr ""
 "execução do código Python na função de retorno, pois isso poderia modificar "
 "o dict como um efeito colateral."
 
-#: ../../c-api/dict.rst:400
+#: ../../c-api/dict.rst:409
 msgid ""
 "If *event* is ``PyDict_EVENT_DEALLOCATED``, taking a new reference in the "
 "callback to the about-to-be-destroyed dictionary will resurrect it and "
@@ -651,7 +662,7 @@ msgstr ""
 "ressuscitado for destruído mais tarde, quaisquer funções de retorno do "
 "observador ativos naquele momento serão chamados novamente."
 
-#: ../../c-api/dict.rst:406
+#: ../../c-api/dict.rst:415
 msgid ""
 "Callbacks occur before the notified modification to *dict* takes place, so "
 "the prior state of *dict* can be inspected."
@@ -659,7 +670,7 @@ msgstr ""
 "As funções de retorno ocorrem antes que a modificação notificada no *dict* "
 "ocorra, de modo que o estado anterior do *dict* possa ser inspecionado."
 
-#: ../../c-api/dict.rst:409
+#: ../../c-api/dict.rst:418
 msgid ""
 "If the callback sets an exception, it must return ``-1``; this exception "
 "will be printed as an unraisable exception using :c:func:"
@@ -669,7 +680,7 @@ msgstr ""
 "exceção será impressa como uma exceção não reprovável usando :c:func:"
 "`PyErr_WriteUnraisable`. Caso contrário, deverá retornar ``0``."
 
-#: ../../c-api/dict.rst:413
+#: ../../c-api/dict.rst:422
 msgid ""
 "There may already be a pending exception set on entry to the callback. In "
 "this case, the callback should return ``0`` with the same exception still "

@@ -1,12 +1,14 @@
 
 
-# 3.14 (100.00% done)
+# 3.14 (99.86% done)
+
+- glossary.po                    440 / 441 ( 99.0% translated).
 
 
-
-# c-api (54.53% done)
+# c-api (54.52% done)
 
 - arg.po                         202 / 205 ( 98.0% translated).
+- dict.po                         67 /  68 ( 98.0% translated).
 - exceptions.po                  120 / 242 ( 49.0% translated).
 - float.po                        30 /  36 ( 83.0% translated).
 - frame.po                        20 /  42 ( 47.0% translated).
@@ -65,7 +67,7 @@
 
 
 
-# library (66.16% done)
+# library (66.18% done)
 
 - annotationlib.po               136 / 137 ( 99.0% translated).
 - argparse.po                    392 / 397 ( 98.0% translated).
@@ -99,7 +101,7 @@
 - dataclasses.po                  71 / 158 ( 44.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
 - dis.po                         200 / 410 ( 48.0% translated).
-- doctest.po                     100 / 377 ( 26.0% translated).
+- doctest.po                     100 / 379 ( 26.0% translated).
 - email.compat32-message.po        5 / 115 (  4.0% translated).
 - email.contentmanager.po          9 /  42 ( 21.0% translated).
 - email.errors.po                  6 /  26 ( 23.0% translated).
@@ -113,6 +115,7 @@
 - faulthandler.po                  4 /  53 (  7.0% translated).
 - fnmatch.po                      37 /  38 ( 97.0% translated).
 - ftplib.po                       11 /  99 ( 11.0% translated).
+- functions.po                   509 / 516 ( 98.0% translated).
 - functools.po                    19 / 126 ( 15.0% translated).
 - gc.po                           72 /  73 ( 98.0% translated).
 - hashlib.po                      76 / 170 ( 44.0% translated).
@@ -153,9 +156,9 @@
 - socket.po                       54 / 384 ( 14.0% translated).
 - sqlite3.po                     116 / 475 ( 24.0% translated).
 - ssl.po                          61 / 545 ( 11.0% translated).
-- stdtypes.po                    1502 / 1505 ( 99.0% translated).
+- stdtypes.po                    1499 / 1507 ( 99.0% translated).
 - string.po                      218 / 223 ( 97.0% translated).
-- string.templatelib.po           21 /  54 ( 38.0% translated).
+- string.templatelib.po           40 /  54 ( 74.0% translated).
 - struct.po                      102 / 204 ( 50.0% translated).
 - subprocess.po                  150 / 311 ( 48.0% translated).
 - symtable.po                      5 /  73 (  6.0% translated).
@@ -201,20 +204,20 @@
 - lexical_analysis.po            314 / 412 ( 76.0% translated).
 
 
-# tutorial (99.85% done)
+# tutorial (99.77% done)
 
 - appendix.po                     27 /  28 ( 96.0% translated).
+- classes.po                     148 / 149 ( 99.0% translated).
 - inputoutput.po                 111 / 112 ( 99.0% translated).
 
 
-# using (90.98% done)
+# using (91.11% done)
 
-- ios.po                          87 /  89 ( 97.0% translated).
 - mac.po                          91 /  94 ( 96.0% translated).
 - windows.po                     406 / 536 ( 75.0% translated).
 
 
-# whatsnew (48.36% done)
+# whatsnew (48.38% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -222,14 +225,14 @@
 - 2.6.po                         541 / 626 ( 86.0% translated).
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
-- 3.14.po                        857 / 989 ( 86.0% translated).
+- 3.14.po                        863 / 989 ( 87.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         236 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   3044 / 13467 ( 22.0% translated).
+- changelog.po                   3044 / 13468 ( 22.0% translated).
 
 
-# TOTAL (62.80% done)
+# TOTAL (62.82% done)
 
