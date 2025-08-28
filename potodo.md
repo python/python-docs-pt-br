@@ -1,8 +1,7 @@
 
 
-# 3.14 (99.86% done)
+# 3.14 (100.00% done)
 
-- glossary.po                    440 / 441 ( 99.0% translated).
 
 
 # c-api (54.52% done)
