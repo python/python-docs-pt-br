@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-25 14:20+0000\n"
+"POT-Creation-Date: 2025-08-29 14:17+0000\n"
 "PO-Revision-Date: 2025-08-02 17:33+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -1568,10 +1568,17 @@ msgid ""
 "of the original item 1.  Now let's suppose the original item 1 was an "
 "instance of a user-defined class, and let's further suppose that the class "
 "defined a :meth:`!__del__` method.  If this class instance has a reference "
-"count of 1, disposing of it will call its :meth:`!__del__` method."
+"count of 1, disposing of it will call its :meth:`!__del__` method. "
+"Internally, :c:func:`PyList_SetItem` calls :c:func:`Py_DECREF` on the "
+"replaced item, which invokes replaced item's corresponding :c:member:"
+"`~PyTypeObject.tp_dealloc` function. During deallocation, :c:member:"
+"`~PyTypeObject.tp_dealloc` calls :c:member:`~PyTypeObject.tp_finalize`, "
+"which is mapped to the :meth:`!__del__` method for class instances (see :pep:"
+"`442`). This entire sequence happens synchronously within the :c:func:"
+"`PyList_SetItem` call."
 msgstr ""
 
-#: ../../extending/extending.rst:1064
+#: ../../extending/extending.rst:1071
 msgid ""
 "Since it is written in Python, the :meth:`!__del__` method can execute "
 "arbitrary Python code.  Could it perhaps do something to invalidate the "
@@ -1582,7 +1589,7 @@ msgid ""
 "associated with it, thereby invalidating ``item``."
 msgstr ""
 
-#: ../../extending/extending.rst:1072
+#: ../../extending/extending.rst:1079
 msgid ""
 "The solution, once you know the source of the problem, is easy: temporarily "
 "increment the reference count.  The correct version of the function reads::"
@@ -1590,7 +1597,7 @@ msgstr ""
 "A solução, depois de descobrir a origem do problema, é fácil: incrementar "
 "temporariamente a contagem de referências. A versão correta da função é:"
 
-#: ../../extending/extending.rst:1075
+#: ../../extending/extending.rst:1082
 msgid ""
 "void\n"
 "no_bug(PyObject *list)\n"
@@ -1604,14 +1611,14 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../extending/extending.rst:1086
+#: ../../extending/extending.rst:1093
 msgid ""
 "This is a true story.  An older version of Python contained variants of this "
 "bug and someone spent a considerable amount of time in a C debugger to "
 "figure out why his :meth:`!__del__` methods would fail..."
 msgstr ""
 
-#: ../../extending/extending.rst:1090
+#: ../../extending/extending.rst:1097
 msgid ""
 "The second case of problems with a borrowed reference is a variant involving "
 "threads.  Normally, multiple threads in the Python interpreter can't get in "
@@ -1624,7 +1631,7 @@ msgid ""
 "Obviously, the following function has the same problem as the previous one::"
 msgstr ""
 
-#: ../../extending/extending.rst:1100
+#: ../../extending/extending.rst:1107
 msgid ""
 "void\n"
 "bug(PyObject *list)\n"
@@ -1637,11 +1644,11 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../extending/extending.rst:1114
+#: ../../extending/extending.rst:1121
 msgid "NULL Pointers"
 msgstr "Ponteiros NULL"
 
-#: ../../extending/extending.rst:1116
+#: ../../extending/extending.rst:1123
 msgid ""
 "In general, functions that take object references as arguments do not expect "
 "you to pass them ``NULL`` pointers, and will dump core (or cause later core "
@@ -1653,21 +1660,21 @@ msgid ""
 "more slowly."
 msgstr ""
 
-#: ../../extending/extending.rst:1124
+#: ../../extending/extending.rst:1131
 msgid ""
 "It is better to test for ``NULL`` only at the \"source:\" when a pointer "
 "that may be ``NULL`` is received, for example, from :c:func:`malloc` or from "
 "a function that may raise an exception."
 msgstr ""
 
-#: ../../extending/extending.rst:1128
+#: ../../extending/extending.rst:1135
 msgid ""
 "The macros :c:func:`Py_INCREF` and :c:func:`Py_DECREF` do not check for "
 "``NULL`` pointers --- however, their variants :c:func:`Py_XINCREF` and :c:"
 "func:`Py_XDECREF` do."
 msgstr ""
 
-#: ../../extending/extending.rst:1132
+#: ../../extending/extending.rst:1139
 msgid ""
 "The macros for checking for a particular object type (``Pytype_Check()``) "
 "don't check for ``NULL`` pointers --- again, there is much code that calls "
@@ -1676,24 +1683,24 @@ msgid ""
 "variants with ``NULL`` checking."
 msgstr ""
 
-#: ../../extending/extending.rst:1138
+#: ../../extending/extending.rst:1145
 msgid ""
 "The C function calling mechanism guarantees that the argument list passed to "
 "C functions (``args`` in the examples) is never ``NULL`` --- in fact it "
 "guarantees that it is always a tuple [#]_."
 msgstr ""
 
-#: ../../extending/extending.rst:1142
+#: ../../extending/extending.rst:1149
 msgid ""
 "It is a severe error to ever let a ``NULL`` pointer \"escape\" to the Python "
 "user."
 msgstr ""
 
-#: ../../extending/extending.rst:1153
+#: ../../extending/extending.rst:1160
 msgid "Writing Extensions in C++"
 msgstr "Escrevendo extensões em C++"
 
-#: ../../extending/extending.rst:1155
+#: ../../extending/extending.rst:1162
 msgid ""
 "It is possible to write extension modules in C++.  Some restrictions apply.  "
 "If the main program (the Python interpreter) is compiled and linked by the C "
@@ -1716,11 +1723,11 @@ msgstr ""
 "o símbolo ``__cplusplus`` estiver definido (todos os compiladores C++ "
 "recentes definem este símbolo)."
 
-#: ../../extending/extending.rst:1169
+#: ../../extending/extending.rst:1176
 msgid "Providing a C API for an Extension Module"
 msgstr "Fornecendo uma API C para um módulo de extensão"
 
-#: ../../extending/extending.rst:1174
+#: ../../extending/extending.rst:1181
 msgid ""
 "Many extension modules just provide new functions and types to be used from "
 "Python, but sometimes the code in an extension module can be useful for "
@@ -1739,7 +1746,7 @@ msgstr ""
 "de coleção deve ter um conjunto de funções em C para manipulação direta de "
 "outros módulos de extensão."
 
-#: ../../extending/extending.rst:1182
+#: ../../extending/extending.rst:1189
 msgid ""
 "At first sight this seems easy: just write the functions (without declaring "
 "them ``static``, of course), provide an appropriate header file, and "
@@ -1768,7 +1775,7 @@ msgstr ""
 "Unices). E mesmo que os símbolos sejam globalmente visíveis, o módulo cujas "
 "funções se deseja chamar pode não ter sido carregado ainda!"
 
-#: ../../extending/extending.rst:1194
+#: ../../extending/extending.rst:1201
 msgid ""
 "Portability therefore requires not to make any assumptions about symbol "
 "visibility. This means that all symbols in extension modules should be "
@@ -1785,7 +1792,7 @@ msgstr ""
 "significa que os símbolos que *deveriam* ser acessíveis a partir de outros "
 "módulos de extensão devem ser exportados de uma maneira diferente."
 
-#: ../../extending/extending.rst:1201
+#: ../../extending/extending.rst:1208
 msgid ""
 "Python provides a special mechanism to pass C-level information (pointers) "
 "from one extension module to another one: Capsules. A Capsule is a Python "
@@ -1797,7 +1804,7 @@ msgid ""
 "the Capsule."
 msgstr ""
 
-#: ../../extending/extending.rst:1209
+#: ../../extending/extending.rst:1216
 msgid ""
 "There are many ways in which Capsules can be used to export the C API of an "
 "extension module. Each function could get its own Capsule, or all C API "
@@ -1813,7 +1820,7 @@ msgstr ""
 "recuperação dos ponteiros podem ser distribuídas de diferentes maneiras "
 "entre o módulo que fornece o código e os módulos clientes."
 
-#: ../../extending/extending.rst:1215
+#: ../../extending/extending.rst:1222
 msgid ""
 "Whichever method you choose, it's important to name your Capsules properly. "
 "The function :c:func:`PyCapsule_New` takes a name parameter (:c:expr:`const "
@@ -1823,7 +1830,7 @@ msgid ""
 "from another."
 msgstr ""
 
-#: ../../extending/extending.rst:1222
+#: ../../extending/extending.rst:1229
 msgid ""
 "In particular, Capsules used to expose C APIs should be given a name "
 "following this convention::"
@@ -1831,11 +1838,11 @@ msgstr ""
 "Em particular, as Cápsulas usadas para expor APIs C devem receber um nome "
 "seguindo esta convenção:"
 
-#: ../../extending/extending.rst:1225
+#: ../../extending/extending.rst:1232
 msgid "modulename.attributename"
 msgstr ""
 
-#: ../../extending/extending.rst:1227
+#: ../../extending/extending.rst:1234
 msgid ""
 "The convenience function :c:func:`PyCapsule_Import` makes it easy to load a "
 "C API provided via a Capsule, but only if the Capsule's name matches this "
@@ -1843,7 +1850,7 @@ msgid ""
 "the Capsule they load contains the correct C API."
 msgstr ""
 
-#: ../../extending/extending.rst:1232
+#: ../../extending/extending.rst:1239
 msgid ""
 "The following example demonstrates an approach that puts most of the burden "
 "on the writer of the exporting module, which is appropriate for commonly "
@@ -1854,7 +1861,7 @@ msgid ""
 "modules only have to call this macro before accessing the C API."
 msgstr ""
 
-#: ../../extending/extending.rst:1240
+#: ../../extending/extending.rst:1247
 msgid ""
 "The exporting module is a modification of the :mod:`!spam` module from "
 "section :ref:`extending-simpleexample`. The function :func:`!spam.system` "
@@ -1865,13 +1872,13 @@ msgid ""
 "modules."
 msgstr ""
 
-#: ../../extending/extending.rst:1247
+#: ../../extending/extending.rst:1254
 msgid ""
 "The function :c:func:`!PySpam_System` is a plain C function, declared "
 "``static`` like everything else::"
 msgstr ""
 
-#: ../../extending/extending.rst:1250
+#: ../../extending/extending.rst:1257
 msgid ""
 "static int\n"
 "PySpam_System(const char *command)\n"
@@ -1880,11 +1887,11 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../extending/extending.rst:1256
+#: ../../extending/extending.rst:1263
 msgid "The function :c:func:`!spam_system` is modified in a trivial way::"
 msgstr ""
 
-#: ../../extending/extending.rst:1258
+#: ../../extending/extending.rst:1265
 msgid ""
 "static PyObject *\n"
 "spam_system(PyObject *self, PyObject *args)\n"
@@ -1899,25 +1906,25 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../extending/extending.rst:1270
+#: ../../extending/extending.rst:1277
 msgid "In the beginning of the module, right after the line ::"
 msgstr "No início do módulo, logo após a linha ::"
 
-#: ../../extending/extending.rst:1272
+#: ../../extending/extending.rst:1279
 msgid "#include <Python.h>"
 msgstr ""
 
-#: ../../extending/extending.rst:1274
+#: ../../extending/extending.rst:1281
 msgid "two more lines must be added::"
 msgstr "mais duas linhas devem ser adicionadas::"
 
-#: ../../extending/extending.rst:1276
+#: ../../extending/extending.rst:1283
 msgid ""
 "#define SPAM_MODULE\n"
 "#include \"spammodule.h\""
 msgstr ""
 
-#: ../../extending/extending.rst:1279
+#: ../../extending/extending.rst:1286
 msgid ""
 "The ``#define`` is used to tell the header file that it is being included in "
 "the exporting module, not a client module. Finally, the module's :c:data:"
@@ -1925,7 +1932,7 @@ msgid ""
 "pointer array::"
 msgstr ""
 
-#: ../../extending/extending.rst:1283
+#: ../../extending/extending.rst:1290
 msgid ""
 "static int\n"
 "spam_module_exec(PyObject *m)\n"
@@ -1948,13 +1955,13 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../extending/extending.rst:1302
+#: ../../extending/extending.rst:1309
 msgid ""
 "Note that ``PySpam_API`` is declared ``static``; otherwise the pointer array "
 "would disappear when :c:func:`!PyInit_spam` terminates!"
 msgstr ""
 
-#: ../../extending/extending.rst:1305
+#: ../../extending/extending.rst:1312
 msgid ""
 "The bulk of the work is in the header file :file:`spammodule.h`, which looks "
 "like this::"
@@ -1962,7 +1969,7 @@ msgstr ""
 "A maior parte do trabalho está no arquivo de cabeçalho :file:`spammodule.h`, "
 "que se parece com isso::"
 
-#: ../../extending/extending.rst:1308
+#: ../../extending/extending.rst:1315
 msgid ""
 "#ifndef Py_SPAMMODULE_H\n"
 "#define Py_SPAMMODULE_H\n"
@@ -2014,14 +2021,14 @@ msgid ""
 "#endif /* !defined(Py_SPAMMODULE_H) */"
 msgstr ""
 
-#: ../../extending/extending.rst:1356
+#: ../../extending/extending.rst:1363
 msgid ""
 "All that a client module must do in order to have access to the function :c:"
 "func:`!PySpam_System` is to call the function (or rather macro) :c:func:`!"
 "import_spam` in its :c:data:`mod_exec <Py_mod_exec>` function::"
 msgstr ""
 
-#: ../../extending/extending.rst:1360
+#: ../../extending/extending.rst:1367
 msgid ""
 "static int\n"
 "client_module_exec(PyObject *m)\n"
@@ -2034,14 +2041,14 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../extending/extending.rst:1370
+#: ../../extending/extending.rst:1377
 msgid ""
 "The main disadvantage of this approach is that the file :file:`spammodule.h` "
 "is rather complicated. However, the basic structure is the same for each "
 "function that is exported, so it has to be learned only once."
 msgstr ""
 
-#: ../../extending/extending.rst:1374
+#: ../../extending/extending.rst:1381
 msgid ""
 "Finally it should be mentioned that Capsules offer additional functionality, "
 "which is especially useful for memory allocation and deallocation of the "
@@ -2057,11 +2064,11 @@ msgstr ""
 "(arquivos :file:`Include/pycapsule.h` e :file:`Objects/pycapsule.c` na "
 "distribuição do código-fonte Python)."
 
-#: ../../extending/extending.rst:1382
+#: ../../extending/extending.rst:1389
 msgid "Footnotes"
 msgstr "Notas de rodapé"
 
-#: ../../extending/extending.rst:1383
+#: ../../extending/extending.rst:1390
 msgid ""
 "An interface for this function already exists in the standard module :mod:"
 "`os` --- it was chosen as a simple and straightforward example."
@@ -2069,7 +2076,7 @@ msgstr ""
 "Uma interface para esta função já existe no módulo padrão :mod:`os` --- ela "
 "foi escolhida como um exemplo simples e direto."
 
-#: ../../extending/extending.rst:1386
+#: ../../extending/extending.rst:1393
 msgid ""
 "The metaphor of \"borrowing\" a reference is not completely correct: the "
 "owner still has a copy of the reference."
@@ -2077,14 +2084,14 @@ msgstr ""
 "A metáfora de \"pegar emprestado\" uma referência não é completamente "
 "correta: o proprietário ainda tem uma cópia da referência."
 
-#: ../../extending/extending.rst:1389
+#: ../../extending/extending.rst:1396
 msgid ""
 "Checking that the reference count is at least 1 **does not work** --- the "
 "reference count itself could be in freed memory and may thus be reused for "
 "another object!"
 msgstr ""
 
-#: ../../extending/extending.rst:1393
+#: ../../extending/extending.rst:1400
 msgid ""
 "These guarantees don't hold when you use the \"old\" style calling "
 "convention --- this is still found in much existing code."

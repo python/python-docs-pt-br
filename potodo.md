@@ -4,7 +4,7 @@
 
 
 
-# c-api (54.52% done)
+# c-api (54.51% done)
 
 - arg.po                         202 / 205 ( 98.0% translated).
 - dict.po                         67 /  68 ( 98.0% translated).
@@ -13,7 +13,7 @@
 - frame.po                        20 /  42 ( 47.0% translated).
 - gcsupport.po                    15 /  67 ( 22.0% translated).
 - import.po                       33 /  66 ( 50.0% translated).
-- init.po                        182 / 507 ( 35.0% translated).
+- init.po                        182 / 508 ( 35.0% translated).
 - init_config.po                 213 / 638 ( 33.0% translated).
 - long.po                         47 / 170 ( 27.0% translated).
 - memory.po                       61 / 208 ( 29.0% translated).
@@ -138,7 +138,7 @@
 - logging.po                     100 / 369 ( 27.0% translated).
 - mailbox.po                      10 / 307 (  3.0% translated).
 - marshal.po                      36 /  56 ( 64.0% translated).
-- mimetypes.po                    24 /  68 ( 35.0% translated).
+- mimetypes.po                    25 /  68 ( 36.0% translated).
 - mmap.po                         23 /  65 ( 35.0% translated).
 - msvcrt.po                       22 /  46 ( 47.0% translated).
 - multiprocessing.po             344 / 612 ( 56.0% translated).
@@ -230,7 +230,7 @@
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         236 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
-- changelog.po                   3044 / 13468 ( 22.0% translated).
+- changelog.po                   3044 / 13469 ( 22.0% translated).
 
 
 # TOTAL (62.82% done)

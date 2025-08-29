@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-21 14:19+0000\n"
+"POT-Creation-Date: 2025-08-29 14:17+0000\n"
 "PO-Revision-Date: 2025-08-02 17:33+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -3364,15 +3364,25 @@ msgstr ""
 
 #: ../../c-api/init.rst:2466
 msgid ""
-"Critical sections avoid deadlocks by implicitly suspending active critical "
-"sections and releasing the locks during calls to :c:func:"
-"`PyEval_SaveThread`. When :c:func:`PyEval_RestoreThread` is called, the most "
-"recent critical section is resumed, and its locks reacquired.  This means "
-"the critical section API provides weaker guarantees than traditional locks "
-"-- they are useful because their behavior is similar to the :term:`GIL`."
+"Critical sections are intended to be used for custom types implemented in C-"
+"API extensions. They should generally not be used with built-in types like :"
+"class:`list` and :class:`dict` because their public C-APIs already use "
+"critical sections internally, with the notable exception of :c:func:"
+"`PyDict_Next`, which requires critical section to be acquired externally."
 msgstr ""
 
 #: ../../c-api/init.rst:2473
+msgid ""
+"Critical sections avoid deadlocks by implicitly suspending active critical "
+"sections, hence, they do not provide exclusive access such as provided by "
+"traditional locks like :c:type:`PyMutex`.  When a critical section is "
+"started, the per-object lock for the object is acquired. If the code "
+"executed inside the critical section calls C-API functions then it can "
+"suspend the critical section thereby releasing the per-object lock, so other "
+"threads can acquire the per-object lock for the same object."
+msgstr ""
+
+#: ../../c-api/init.rst:2481
 msgid ""
 "Variants that accept :c:type:`PyMutex` pointers rather than Python objects "
 "are also available. Use these variants to start a critical section in a "
@@ -3381,7 +3391,7 @@ msgid ""
 "needs to call into the C API in a manner that might lead to deadlocks."
 msgstr ""
 
-#: ../../c-api/init.rst:2479
+#: ../../c-api/init.rst:2487
 msgid ""
 "The functions and structs used by the macros are exposed for cases where C "
 "macros are not available. They should only be used as in the given macro "
@@ -3389,7 +3399,7 @@ msgid ""
 "future Python versions."
 msgstr ""
 
-#: ../../c-api/init.rst:2486
+#: ../../c-api/init.rst:2494
 msgid ""
 "Operations that need to lock two objects at once must use :c:macro:"
 "`Py_BEGIN_CRITICAL_SECTION2`.  You *cannot* use nested critical sections to "
@@ -3398,11 +3408,11 @@ msgid ""
 "lock more than two objects at once."
 msgstr ""
 
-#: ../../c-api/init.rst:2492
+#: ../../c-api/init.rst:2500
 msgid "Example usage::"
 msgstr "Exemplo de uso::"
 
-#: ../../c-api/init.rst:2494
+#: ../../c-api/init.rst:2502
 msgid ""
 "static PyObject *\n"
 "set_field(MyObject *self, PyObject *value)\n"
@@ -3414,7 +3424,7 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../../c-api/init.rst:2503
+#: ../../c-api/init.rst:2511
 msgid ""
 "In the above example, :c:macro:`Py_SETREF` calls :c:macro:`Py_DECREF`, which "
 "can call arbitrary code through an object's deallocation function.  The "
@@ -3424,100 +3434,100 @@ msgid ""
 "`PyEval_SaveThread`."
 msgstr ""
 
-#: ../../c-api/init.rst:2511
+#: ../../c-api/init.rst:2519
 msgid ""
 "Acquires the per-object lock for the object *op* and begins a critical "
 "section."
 msgstr ""
 
-#: ../../c-api/init.rst:2514 ../../c-api/init.rst:2528
-#: ../../c-api/init.rst:2545 ../../c-api/init.rst:2560
-#: ../../c-api/init.rst:2574 ../../c-api/init.rst:2591
+#: ../../c-api/init.rst:2522 ../../c-api/init.rst:2536
+#: ../../c-api/init.rst:2553 ../../c-api/init.rst:2568
+#: ../../c-api/init.rst:2582 ../../c-api/init.rst:2599
 msgid "In the free-threaded build, this macro expands to::"
 msgstr ""
 
-#: ../../c-api/init.rst:2516
+#: ../../c-api/init.rst:2524
 msgid ""
 "{\n"
 "    PyCriticalSection _py_cs;\n"
 "    PyCriticalSection_Begin(&_py_cs, (PyObject*)(op))"
 msgstr ""
 
-#: ../../c-api/init.rst:2520 ../../c-api/init.rst:2566
+#: ../../c-api/init.rst:2528 ../../c-api/init.rst:2574
 msgid "In the default build, this macro expands to ``{``."
 msgstr ""
 
-#: ../../c-api/init.rst:2526
+#: ../../c-api/init.rst:2534
 msgid "Locks the mutex *m* and begins a critical section."
 msgstr ""
 
-#: ../../c-api/init.rst:2530
+#: ../../c-api/init.rst:2538
 msgid ""
 "{\n"
 "     PyCriticalSection _py_cs;\n"
 "     PyCriticalSection_BeginMutex(&_py_cs, m)"
 msgstr ""
 
-#: ../../c-api/init.rst:2534
+#: ../../c-api/init.rst:2542
 msgid ""
 "Note that unlike :c:macro:`Py_BEGIN_CRITICAL_SECTION`, there is no cast for "
 "the argument of the macro - it must be a :c:type:`PyMutex` pointer."
 msgstr ""
 
-#: ../../c-api/init.rst:2537 ../../c-api/init.rst:2583
+#: ../../c-api/init.rst:2545 ../../c-api/init.rst:2591
 msgid "On the default build, this macro expands to ``{``."
 msgstr ""
 
-#: ../../c-api/init.rst:2543
+#: ../../c-api/init.rst:2551
 msgid "Ends the critical section and releases the per-object lock."
 msgstr ""
 
-#: ../../c-api/init.rst:2547
+#: ../../c-api/init.rst:2555
 msgid ""
 "    PyCriticalSection_End(&_py_cs);\n"
 "}"
 msgstr ""
 
-#: ../../c-api/init.rst:2550 ../../c-api/init.rst:2596
+#: ../../c-api/init.rst:2558 ../../c-api/init.rst:2604
 msgid "In the default build, this macro expands to ``}``."
 msgstr ""
 
-#: ../../c-api/init.rst:2556
+#: ../../c-api/init.rst:2564
 msgid ""
 "Acquires the per-objects locks for the objects *a* and *b* and begins a "
 "critical section.  The locks are acquired in a consistent order (lowest "
 "address first) to avoid lock ordering deadlocks."
 msgstr ""
 
-#: ../../c-api/init.rst:2562
+#: ../../c-api/init.rst:2570
 msgid ""
 "{\n"
 "    PyCriticalSection2 _py_cs2;\n"
 "    PyCriticalSection2_Begin(&_py_cs2, (PyObject*)(a), (PyObject*)(b))"
 msgstr ""
 
-#: ../../c-api/init.rst:2572
+#: ../../c-api/init.rst:2580
 msgid "Locks the mutexes *m1* and *m2* and begins a critical section."
 msgstr ""
 
-#: ../../c-api/init.rst:2576
+#: ../../c-api/init.rst:2584
 msgid ""
 "{\n"
 "     PyCriticalSection2 _py_cs2;\n"
 "     PyCriticalSection2_BeginMutex(&_py_cs2, m1, m2)"
 msgstr ""
 
-#: ../../c-api/init.rst:2580
+#: ../../c-api/init.rst:2588
 msgid ""
 "Note that unlike :c:macro:`Py_BEGIN_CRITICAL_SECTION2`, there is no cast for "
 "the arguments of the macro - they must be :c:type:`PyMutex` pointers."
 msgstr ""
 
-#: ../../c-api/init.rst:2589
+#: ../../c-api/init.rst:2597
 msgid "Ends the critical section and releases the per-object locks."
 msgstr ""
 
-#: ../../c-api/init.rst:2593
+#: ../../c-api/init.rst:2601
 msgid ""
 "    PyCriticalSection2_End(&_py_cs2);\n"
 "}"
