@@ -111,6 +111,7 @@
 - email.policy.po                 11 / 107 ( 10.0% translated).
 - enum.po                         74 / 245 ( 30.0% translated).
 - errno.po                       115 / 161 ( 71.0% translated).
+- exceptions.po                  201 / 202 ( 99.0% translated).
 - faulthandler.po                  4 /  53 (  7.0% translated).
 - fnmatch.po                      37 /  38 ( 97.0% translated).
 - ftplib.po                       11 /  99 ( 11.0% translated).
@@ -138,7 +139,7 @@
 - logging.po                     100 / 369 ( 27.0% translated).
 - mailbox.po                      10 / 307 (  3.0% translated).
 - marshal.po                      36 /  56 ( 64.0% translated).
-- mimetypes.po                    25 /  68 ( 36.0% translated).
+- mimetypes.po                    29 /  68 ( 42.0% translated).
 - mmap.po                         23 /  65 ( 35.0% translated).
 - msvcrt.po                       22 /  46 ( 47.0% translated).
 - multiprocessing.po             344 / 612 ( 56.0% translated).
@@ -181,7 +182,7 @@
 - urllib.request.po               40 / 295 ( 13.0% translated).
 - uuid.po                         78 /  79 ( 98.0% translated).
 - venv.po                        125 / 137 ( 91.0% translated).
-- warnings.po                     77 / 149 ( 51.0% translated).
+- warnings.po                     76 / 149 ( 51.0% translated).
 - wave.po                         17 /  54 ( 31.0% translated).
 - wsgiref.po                      79 / 134 ( 58.0% translated).
 - xml.dom.minidom.po               8 /  56 ( 14.0% translated).
@@ -191,6 +192,7 @@
 - xml.sax.po                       3 /  32 (  9.0% translated).
 - xml.sax.reader.po                1 /  75 (  1.0% translated).
 - xmlrpc.client.po                55 / 113 ( 48.0% translated).
+- zipimport.po                    37 /  39 ( 94.0% translated).
 - zoneinfo.po                     42 /  83 ( 50.0% translated).
 
 
