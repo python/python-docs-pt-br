@@ -48,11 +48,11 @@
 
 
 
-# howto (70.79% done)
+# howto (70.87% done)
 
 - a-conceptual-overview-of-asyncio.po  18 /  93 ( 19.0% translated).
 - descriptor.po                  187 / 230 ( 81.0% translated).
-- enum.po                        101 / 327 ( 30.0% translated).
+- enum.po                        104 / 327 ( 31.0% translated).
 - free-threading-extensions.po   105 / 106 ( 99.0% translated).
 - functional.po                  158 / 252 ( 62.0% translated).
 - index.po                        29 /  30 ( 96.0% translated).
