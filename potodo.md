@@ -85,11 +85,12 @@
 - asyncio-task.po                140 / 273 ( 51.0% translated).
 - asyncio.po                      29 /  31 ( 93.0% translated).
 - base64.po                       15 /  71 ( 21.0% translated).
-- bdb.po                           9 / 119 (  7.0% translated).
+- bdb.po                          13 / 119 ( 10.0% translated).
 - binascii.po                     23 /  38 ( 60.0% translated).
 - bisect.po                       35 /  36 ( 97.0% translated).
 - cmdlinelibs.po                   2 /   3 ( 66.0% translated).
 - codecs.po                      250 / 554 ( 45.0% translated).
+- collections.abc.po             132 / 136 ( 97.0% translated).
 - compression.zstd.po             85 / 173 ( 49.0% translated).
 - concurrent.futures.po           12 / 120 ( 10.0% translated).
 - concurrent.interpreters.po      43 /  87 ( 49.0% translated).
@@ -128,7 +129,7 @@
 - http.po                        186 / 247 ( 75.0% translated).
 - http.server.po                  15 / 129 ( 11.0% translated).
 - idle.po                         28 / 293 (  9.0% translated).
-- imaplib.po                      13 / 130 ( 10.0% translated).
+- imaplib.po                      13 / 131 (  9.0% translated).
 - importlib.po                   243 / 313 ( 77.0% translated).
 - inspect.po                      80 / 397 ( 20.0% translated).
 - io.po                           58 / 284 ( 20.0% translated).
@@ -206,20 +207,21 @@
 - lexical_analysis.po            314 / 412 ( 76.0% translated).
 
 
-# tutorial (99.77% done)
+# tutorial (99.69% done)
 
 - appendix.po                     27 /  28 ( 96.0% translated).
 - classes.po                     148 / 149 ( 99.0% translated).
+- datastructures.po              124 / 125 ( 99.0% translated).
 - inputoutput.po                 111 / 112 ( 99.0% translated).
 
 
-# using (91.11% done)
+# using (90.70% done)
 
 - mac.po                          91 /  94 ( 96.0% translated).
-- windows.po                     406 / 536 ( 75.0% translated).
+- windows.po                     399 / 535 ( 74.0% translated).
 
 
-# whatsnew (48.16% done)
+# whatsnew (48.12% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -228,16 +230,17 @@
 - 2.7.po                         491 / 498 ( 98.0% translated).
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
+- 3.10.po                        547 / 550 ( 99.0% translated).
 - 3.14.po                        864 / 990 ( 87.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         134 / 682 ( 19.0% translated).
 - 3.4.po                         498 / 517 ( 96.0% translated).
-- 3.5.po                         128 / 578 ( 22.0% translated).
-- 3.6.po                         236 / 544 ( 43.0% translated).
+- 3.5.po                         127 / 578 ( 21.0% translated).
+- 3.6.po                         232 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
 - 3.8.po                         488 / 513 ( 95.0% translated).
-- changelog.po                   3047 / 13470 ( 22.0% translated).
+- changelog.po                   3046 / 13474 ( 22.0% translated).
 
 
-# TOTAL (62.76% done)
+# TOTAL (62.73% done)
 
