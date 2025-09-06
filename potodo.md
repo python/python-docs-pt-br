@@ -140,7 +140,7 @@
 - logging.po                     100 / 369 ( 27.0% translated).
 - mailbox.po                      10 / 307 (  3.0% translated).
 - marshal.po                      36 /  56 ( 64.0% translated).
-- mimetypes.po                    29 /  68 ( 42.0% translated).
+- mimetypes.po                    30 /  68 ( 44.0% translated).
 - mmap.po                         23 /  65 ( 35.0% translated).
 - msvcrt.po                       22 /  46 ( 47.0% translated).
 - multiprocessing.po             344 / 612 ( 56.0% translated).
