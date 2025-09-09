@@ -69,9 +69,9 @@
 
 
 
-# library (66.17% done)
+# library (66.16% done)
 
-- annotationlib.po               136 / 137 ( 99.0% translated).
+- annotationlib.po               136 / 141 ( 96.0% translated).
 - argparse.po                    392 / 397 ( 98.0% translated).
 - array.po                        86 /  87 ( 98.0% translated).
 - ast.po                         321 / 335 ( 95.0% translated).
@@ -123,6 +123,7 @@
 - functions.po                   508 / 518 ( 98.0% translated).
 - functools.po                    19 / 126 ( 15.0% translated).
 - gc.po                           72 /  73 ( 98.0% translated).
+- getpass.po                      15 /  16 ( 93.0% translated).
 - hashlib.po                      76 / 170 ( 44.0% translated).
 - heapq.po                        48 /  67 ( 71.0% translated).
 - hmac.po                         26 /  27 ( 96.0% translated).
@@ -135,7 +136,7 @@
 - idle.po                         28 / 293 (  9.0% translated).
 - imaplib.po                      13 / 131 (  9.0% translated).
 - importlib.po                   243 / 313 ( 77.0% translated).
-- inspect.po                     107 / 397 ( 26.0% translated).
+- inspect.po                     107 / 398 ( 26.0% translated).
 - io.po                           58 / 284 ( 20.0% translated).
 - ipaddress.po                   165 / 168 ( 98.0% translated).
 - itertools.po                   155 / 201 ( 77.0% translated).
@@ -170,7 +171,6 @@
 - subprocess.po                  150 / 311 ( 48.0% translated).
 - symtable.po                      6 /  73 (  8.0% translated).
 - sys.monitoring.po              117 / 118 ( 99.0% translated).
-- sys.po                         474 / 475 ( 99.0% translated).
 - tarfile.po                     174 / 362 ( 48.0% translated).
 - tempfile.po                      8 /  87 (  9.0% translated).
 - test.po                        118 / 330 ( 35.0% translated).
@@ -180,7 +180,7 @@
 - tkinter.ttk.po                 142 / 429 ( 33.0% translated).
 - traceback.po                    10 / 118 (  8.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
-- typing.po                      809 / 815 ( 99.0% translated).
+- typing.po                      809 / 816 ( 99.0% translated).
 - unicodedata.po                   5 /  32 ( 15.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               103 / 448 ( 22.0% translated).
@@ -204,10 +204,9 @@
 - zoneinfo.po                     42 /  83 ( 50.0% translated).
 
 
-# reference (96.03% done)
+# reference (96.13% done)
 
 - compound_stmts.po              478 / 480 ( 99.0% translated).
-- datamodel.po                   887 / 890 ( 99.0% translated).
 - expressions.po                 539 / 550 ( 98.0% translated).
 - grammar.po                       3 /   5 ( 60.0% translated).
 - introduction.po                 51 /  56 ( 91.0% translated).
@@ -231,7 +230,7 @@
 - windows.po                     399 / 535 ( 74.0% translated).
 
 
-# whatsnew (48.23% done)
+# whatsnew (48.42% done)
 
 - 2.0.po                         206 / 207 ( 99.0% translated).
 - 2.3.po                         327 / 387 ( 84.0% translated).
@@ -242,9 +241,7 @@
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
 - 3.10.po                        547 / 550 ( 99.0% translated).
-- 3.11.po                        775 / 776 ( 99.0% translated).
-- 3.13.po                        930 / 931 ( 99.0% translated).
-- 3.14.po                        905 / 1000 ( 90.0% translated).
+- 3.14.po                        948 / 1000 ( 94.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         134 / 682 ( 19.0% translated).
 - 3.4.po                         498 / 517 ( 96.0% translated).
@@ -252,8 +249,8 @@
 - 3.6.po                         232 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
 - 3.8.po                         488 / 513 ( 95.0% translated).
-- changelog.po                   3044 / 13478 ( 22.0% translated).
+- changelog.po                   3048 / 13478 ( 22.0% translated).
 
 
-# TOTAL (62.75% done)
+# TOTAL (62.81% done)
 
