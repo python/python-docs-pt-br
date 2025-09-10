@@ -5,8 +5,8 @@
 #
 # Translators:
 # python-doc bot, 2025
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 # Adorilson Bezerra <adorilson@gmail.com>, 2025
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
@@ -15,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-09 14:15+0000\n"
 "PO-Revision-Date: 2025-08-15 19:01+0000\n"
-"Last-Translator: Adorilson Bezerra <adorilson@gmail.com>, 2025\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -5094,7 +5094,7 @@ msgstr ":attr:`!Constant.n`"
 
 #: ../../whatsnew/3.14.rst:2440
 msgid ":attr:`!Constant.s`"
-msgstr ""
+msgstr ":attr:`!Constant.s`"
 
 #: ../../whatsnew/3.14.rst:2442
 msgid ""
@@ -5161,25 +5161,32 @@ msgid ""
 ":func:`asyncio.get_event_loop` now raises a :exc:`RuntimeError` if there is "
 "no current event loop, and no longer implicitly creates an event loop."
 msgstr ""
+":func:`asyncio.get_event_loop` agora levanta uma :exc:`RuntimeError` se não "
+"houver um laço de eventos atual e não cria mais implicitamente um laço de "
+"eventos."
 
 #: ../../whatsnew/3.14.rst:2469
 msgid "(Contributed by Kumar Aditya in :gh:`126353`.)"
-msgstr ""
+msgstr "(Contribuição de Kumar Aditya em :gh:`126353`.)"
 
 #: ../../whatsnew/3.14.rst:2474
 msgid ""
 "There's a few patterns that use :func:`asyncio.get_event_loop`, most of them "
 "can be replaced with :func:`asyncio.run`."
 msgstr ""
+"Existem alguns padrões que usam :func:`asyncio.get_event_loop`, a maioria "
+"deles pode ser substituída por :func:`asyncio.run`."
 
 #: ../../whatsnew/3.14.rst:2477
 msgid "If you're running an async function, simply use :func:`asyncio.run`."
 msgstr ""
+"Se você estiver executando uma função assíncrona, basta usar :func:`asyncio."
+"run`."
 
 #: ../../whatsnew/3.14.rst:2479 ../../whatsnew/3.14.rst:2506
 #: ../../whatsnew/3.14.rst:2534
 msgid "Before:"
-msgstr ""
+msgstr "Antes:"
 
 #: ../../whatsnew/3.14.rst:2481
 msgid ""
@@ -5193,11 +5200,20 @@ msgid ""
 "finally:\n"
 "    loop.close()"
 msgstr ""
+"async def main():\n"
+"    ...\n"
+"\n"
+"\n"
+"loop = asyncio.get_event_loop()\n"
+"try:\n"
+"    loop.run_until_complete(main())\n"
+"finally:\n"
+"    loop.close()"
 
 #: ../../whatsnew/3.14.rst:2493 ../../whatsnew/3.14.rst:2519
 #: ../../whatsnew/3.14.rst:2550
 msgid "After:"
-msgstr ""
+msgstr "Depois:"
 
 #: ../../whatsnew/3.14.rst:2495
 msgid ""
@@ -5206,12 +5222,19 @@ msgid ""
 "\n"
 "asyncio.run(main())"
 msgstr ""
+"async def main():\n"
+"    ...\n"
+"\n"
+"asyncio.run(main())"
 
 #: ../../whatsnew/3.14.rst:2502
 msgid ""
 "If you need to start something, for example, a server listening on a socket "
 "and then run forever, use :func:`asyncio.run` and an :class:`asyncio.Event`."
 msgstr ""
+"Se você precisar iniciar algo, por exemplo, um servidor escutando em um "
+"soquete e depois rodar para sempre, use :func:`asyncio.run` e um :class:"
+"`asyncio.Event`."
 
 #: ../../whatsnew/3.14.rst:2508
 msgid ""
@@ -5224,6 +5247,14 @@ msgid ""
 "finally:\n"
 "    loop.close()"
 msgstr ""
+"def start_server(loop): ...\n"
+"\n"
+"loop = asyncio.get_event_loop()\n"
+"try:\n"
+"    start_server(loop)\n"
+"    loop.run_forever()\n"
+"finally:\n"
+"    loop.close()"
 
 #: ../../whatsnew/3.14.rst:2521
 msgid ""
@@ -5235,12 +5266,21 @@ msgid ""
 "\n"
 "asyncio.run(main())"
 msgstr ""
+"def start_server(loop): ...\n"
+"\n"
+"async def main():\n"
+"    start_server(asyncio.get_running_loop())\n"
+"    await asyncio.Event().wait()\n"
+"\n"
+"asyncio.run(main())"
 
 #: ../../whatsnew/3.14.rst:2531
 msgid ""
 "If you need to run something in an event loop, then run some blocking code "
 "around it, use :class:`asyncio.Runner`."
 msgstr ""
+"Se você precisar executar algo em um laço de eventos, execute algum código "
+"de bloqueio em torno dele, use :class:`asyncio.Runner`."
 
 #: ../../whatsnew/3.14.rst:2536
 msgid ""
@@ -5256,6 +5296,17 @@ msgid ""
 "finally:\n"
 "    loop.close()"
 msgstr ""
+"async def operation_one(): ...\n"
+"def blocking_code(): ...\n"
+"async def operation_two(): ...\n"
+"\n"
+"loop = asyncio.get_event_loop()\n"
+"try:\n"
+"    loop.run_until_complete(operation_one())\n"
+"    blocking_code()\n"
+"    loop.run_until_complete(operation_two())\n"
+"finally:\n"
+"    loop.close()"
 
 #: ../../whatsnew/3.14.rst:2552
 msgid ""
@@ -5268,6 +5319,14 @@ msgid ""
 "    blocking_code()\n"
 "    runner.run(operation_two())"
 msgstr ""
+"async def operation_one(): ...\n"
+"def blocking_code(): ...\n"
+"async def operation_two(): ...\n"
+"\n"
+"with asyncio.Runner() as runner:\n"
+"    runner.run(operation_one())\n"
+"    blocking_code()\n"
+"    runner.run(operation_two())"
 
 #: ../../whatsnew/3.14.rst:2565
 msgid "collections.abc"
@@ -5278,6 +5337,8 @@ msgid ""
 "Remove :class:`!ByteString`, which has been deprecated since Python 3.12. "
 "(Contributed by Nikita Sobolev in :gh:`118803`.)"
 msgstr ""
+"Remove :class:`!ByteString`, que está descontinuada desde o Python 3.12. "
+"(Contribuição de Nikita Sobolev em :gh:`118803`.)"
 
 #: ../../whatsnew/3.14.rst:2573
 msgid "email"
@@ -5289,31 +5350,39 @@ msgid ""
 "deprecated in and has been ignored since Python 3.12. (Contributed by Hugo "
 "van Kemenade in :gh:`118798`.)"
 msgstr ""
+"Remove o parâmetro *isdst* de :func:`email.utils.localtime`, que foi "
+"descontinuado e é ignorado desde o Python 3.12. (Contribuição de Hugo van "
+"Kemenade em :gh:`118798`.)"
 
 #: ../../whatsnew/3.14.rst:2581
 msgid "importlib.abc"
-msgstr ""
+msgstr "importlib.abc"
 
 #: ../../whatsnew/3.14.rst:2583
 msgid "Remove deprecated :mod:`importlib.abc` classes:"
-msgstr ""
+msgstr "Remove classes descontinuadas :mod:`importlib.abc`:"
 
 #: ../../whatsnew/3.14.rst:2585
 msgid ""
 ":class:`!ResourceReader` (use :class:`~importlib.resources.abc."
 "TraversableResources`)"
 msgstr ""
+":class:`!ResourceReader` (use :class:`~importlib.resources.abc."
+"TraversableResources`)"
 
 #: ../../whatsnew/3.14.rst:2587
 msgid ""
 ":class:`!Traversable` (use :class:`~importlib.resources.abc.Traversable`)"
 msgstr ""
+":class:`!Traversable` (use :class:`~importlib.resources.abc.Traversable`)"
 
 #: ../../whatsnew/3.14.rst:2589
 msgid ""
 ":class:`!TraversableResources` (use :class:`~importlib.resources.abc."
 "TraversableResources`)"
 msgstr ""
+":class:`!TraversableResources` (use :class:`~importlib.resources.abc."
+"TraversableResources`)"
 
 #: ../../whatsnew/3.14.rst:2592
 msgid "(Contributed by Jason R. Coombs and Hugo van Kemenade in :gh:`93963`.)"
@@ -5329,6 +5398,10 @@ msgid ""
 "`itertools` iterators. These have emitted a :exc:`DeprecationWarning` since "
 "Python 3.12. (Contributed by Raymond Hettinger in :gh:`101588`.)"
 msgstr ""
+"Remove o suporte para operações de cópia, cópia profunda e de serialização "
+"com pickle dos iteradores :mod:`itertools`. Eles emitem um :exc:"
+"`DeprecationWarning` desde o Python 3.12. (Contribuição de Raymond Hettinger "
+"em :gh:`101588`.)"
 
 #: ../../whatsnew/3.14.rst:2607
 msgid ""
@@ -5336,6 +5409,9 @@ msgid ""
 "Path`. In previous versions, any such arguments are ignored. (Contributed by "
 "Barney Gale in :gh:`74033`.)"
 msgstr ""
+"Remove o suporte para passagem de argumentos nomeados adicionais para :class:"
+"`~pathlib.Path`. Em versões anteriores, tais argumentos eram ignorados. "
+"(Contribuição de Barney Gale em :gh:`74033`.)"
 
 #: ../../whatsnew/3.14.rst:2612
 msgid ""
@@ -5344,10 +5420,14 @@ msgid ""
 "previous versions, any such arguments are joined onto *other*. (Contributed "
 "by Barney Gale in :gh:`78707`.)"
 msgstr ""
+"Remove o suporte para passagem de argumentos posicionais adicionais para :"
+"meth:`.PurePath.relative_to` e :meth:`~pathlib.PurePath.is_relative_to`. Em "
+"versões anteriores, tais argumentos eram unidos a *other*. (Contribuição de "
+"Barney Gale em :gh:`78707`.)"
 
 #: ../../whatsnew/3.14.rst:2619
 msgid "pkgutil"
-msgstr ""
+msgstr "pkgutil"
 
 #: ../../whatsnew/3.14.rst:2621
 msgid ""
@@ -5355,6 +5435,9 @@ msgid ""
 "have been deprecated since Python 3.12. (Contributed by Bénédikt Tran in :gh:"
 "`97850`.)"
 msgstr ""
+"Remove as funções :func:`!get_loader` e :func:`!find_loader`, que foram "
+"descontinuadas desde o Python 3.12. (Contribuição de Bénédikt Tran em :gh:"
+"`97850`.)"
 
 #: ../../whatsnew/3.14.rst:2627
 msgid "pty"
@@ -5366,6 +5449,9 @@ msgid ""
 "have been deprecated since Python 3.12. Use :func:`pty.openpty` instead. "
 "(Contributed by Nikita Sobolev in :gh:`118824`.)"
 msgstr ""
+"Remove as funções :func:`!master_open` e :func:`!slave_open`, que foram "
+"descontinuadas desde o Python 3.12. Em vez disso, use :func:`pty.openpty`. "
+"(Contribuição de Nikita Sobolev em :gh:`118824`.)"
 
 #: ../../whatsnew/3.14.rst:2636
 msgid "sqlite3"
@@ -5378,6 +5464,10 @@ msgid ""
 "sqlite_version_info` for the actual version number of the runtime SQLite "
 "library. (Contributed by Hugo van Kemenade in :gh:`118924`.)"
 msgstr ""
+"Remove :data:`!version` e :data:`!version_info` do módulo :mod:`sqlite3`; "
+"use :data:`~sqlite3.sqlite_version` e :data:`~sqlite3.sqlite_version_info` "
+"para o número da versão real da biblioteca SQLite em tempo de execução. "
+"(Contribuição de Hugo van Kemenade em :gh:`118924`.)"
 
 #: ../../whatsnew/3.14.rst:2644
 msgid ""
@@ -5385,6 +5475,10 @@ msgid ""
 "`~sqlite3.ProgrammingError`, having been deprecated since Python 3.12. "
 "(Contributed by Erlend E. Aasland in :gh:`118928` and :gh:`101693`.)"
 msgstr ""
+"Usar uma sequência de parâmetros com espaços reservados nomeados agora "
+"levanta uma :exc:`~sqlite3.ProgrammingError`, que estava descontinuado desde "
+"o Python 3.12. (Contribuição de Erlend E. Aasland em :gh:`118928` e :gh:"
+"`101693`.)"
 
 #: ../../whatsnew/3.14.rst:2660
 msgid ""
@@ -5392,12 +5486,17 @@ msgid ""
 "deprecated since Python 3.11. (Contributed by Nikita Sobolev in :gh:"
 "`118827`.)"
 msgstr ""
+"Remove a classe :class:`!Quoter` de :mod:`urllib.parse`, que está "
+"descontinuada desde o Python 3.11. (Contribuição de Nikita Sobolev em :gh:"
+"`118827`.)"
 
 #: ../../whatsnew/3.14.rst:2664
 msgid ""
 "Remove the :class:`!URLopener` and :class:`!FancyURLopener` classes from :"
 "mod:`urllib.request`, which have been deprecated since Python 3.3."
 msgstr ""
+"Remove as classes :class:`!URLopener` e :class:`!FancyURLopener` de :mod:"
+"`urllib.request`, que foram descontinuadas desde o Python 3.3."
 
 #: ../../whatsnew/3.14.rst:2668
 msgid ""
@@ -5407,6 +5506,11 @@ msgid ""
 "passing customized handlers to :func:`~urllib.request.build_opener`. "
 "(Contributed by Barney Gale in :gh:`84850`.)"
 msgstr ""
+"``myopener.open()`` pode ser substituído por :func:`~urllib.request."
+"urlopen`. ``myopener.retrieve()`` pode ser substituído por :func:`~urllib."
+"request.urlretrieve`. Personalizações nas classes de abertura podem ser "
+"feitas passando manipuladores personalizados para :func:`~urllib.request."
+"build_opener`. (Contribuição de Barney Gale em :gh:`84850`.)"
 
 #: ../../whatsnew/3.14.rst:2677 ../../whatsnew/3.14.rst:2996
 msgid "Deprecated"
@@ -5423,6 +5527,9 @@ msgid ""
 "ArgumentParser.add_argument_group` is now deprecated. (Contributed by "
 "Savannah Ostrowski in :gh:`125563`.)"
 msgstr ""
+"A passagem do argumento nomeado não documentado *prefix_chars* para :meth:"
+"`~argparse.ArgumentParser.add_argument_group` agora está descontinuado. "
+"(Contribuição de Savannah Ostrowski em :gh:`125563`.)"
 
 #: ../../whatsnew/3.14.rst:2685
 msgid ""
@@ -5430,6 +5537,9 @@ msgid ""
 "resource management should be done downstream after the arguments are "
 "parsed. (Contributed by Serhiy Storchaka in :gh:`58032`.)"
 msgstr ""
+"O conversor de tipo :class:`argparse.FileType` foi descontinuado. Qualquer "
+"coisa com gerenciamento de recursos deve ser feita posteriormente, após a "
+"análise dos argumentos. (Contribuição de Serhiy Storchaka em :gh:`58032`.)"
 
 #: ../../whatsnew/3.14.rst:2690
 #: ../../deprecations/pending-removal-in-3.16.rst:19
@@ -5530,12 +5640,18 @@ msgid ""
 "passed as a single positional argument. (Contributed by Serhiy Storchaka in :"
 "gh:`109218`.)"
 msgstr ""
+":mod:`builtins`: Passar um número complexo como argumento *real* ou *imag* "
+"no construtor :func:`complex` agora está descontinuado; deve ser passado "
+"apenas como um único argumento posicional. (Contribuição de Serhiy Storchaka "
+"em :gh:`109218`.)"
 
 #: ../../whatsnew/3.14.rst:2727
 msgid ""
 ":mod:`codecs`: :func:`codecs.open` is now deprecated. Use :func:`open` "
 "instead. (Contributed by Inada Naoki in :gh:`133036`.)"
 msgstr ""
+":mod:`codecs`: :func:`codecs.open` está descontinuada. Em vez disso, use :"
+"func:`open`. (Contribuição de Inada Naoki em :gh:`133036`.)"
 
 #: ../../whatsnew/3.14.rst:2731
 #: ../../deprecations/pending-removal-in-3.15.rst:16
@@ -5550,6 +5666,10 @@ msgid ""
 "Structure._layout_` to ``'ms'``. (Contributed by Petr Viktorin in :gh:"
 "`131747`.)"
 msgstr ""
+"Em plataformas não Windows, a configuração de :attr:`.Structure._pack_` para "
+"usar um layout de memória padrão compatível com MSVC foi descontinuada, em "
+"favor da configuração de :attr:`.Structure._layout_` para ``'ms'``. "
+"(Contribuição de Petr Viktorin em :gh:`131747`.)"
 
 #: ../../whatsnew/3.14.rst:2738
 msgid ""
@@ -5559,6 +5679,11 @@ msgid ""
 "updated implementation details. (Contributed by Sergey Myrianov in :gh:"
 "`100926`.)"
 msgstr ""
+"A chamada de :func:`ctypes.POINTER` em uma string está descontinuada. Use :"
+"ref:`ctypes-incomplete-types` para estruturas autorreferenciais. Além disso, "
+"o ``ctypes._pointer_type_cache`` interno está descontinuado. Consulte :func:"
+"`ctypes.POINTER` para obter detalhes de implementação atualizados. "
+"(Contribuição de Sergey Myrianov em :gh:`100926`.)"
 
 #: ../../whatsnew/3.14.rst:2744
 msgid ""
@@ -5566,6 +5691,9 @@ msgid ""
 "reduce` with *function* or *sequence* as keyword arguments is now "
 "deprecated. (Contributed by Kirill Podoprigora in :gh:`121676`.)"
 msgstr ""
+":mod:`functools`: Chamar a implementação Python de :func:`functools.reduce` "
+"com *function* ou *sequence* como argumentos nomeados agora está "
+"descontinuado. (Contribuição de Kirill Podoprigora em :gh:`121676`.)"
 
 #: ../../whatsnew/3.14.rst:2749
 msgid ""
@@ -5574,6 +5702,10 @@ msgid ""
 "the *stream* argument instead. (Contributed by Mariusz Felisiak in :gh:"
 "`115032`.)"
 msgstr ""
+":mod:`logging`: O suporte para manipuladores de registro personalizados com "
+"o argumento *strm* foi descontinuado e está programado para ser removido no "
+"Python 3.16. Em vez disso, defina manipuladores com o argumento *stream*. "
+"(Contribuição de Mariusz Felisiak em :gh:`115032`.)"
 
 #: ../../whatsnew/3.14.rst:2754
 msgid ""
@@ -5582,6 +5714,10 @@ msgid ""
 "raise a :exc:`ValueError` in Python 3.16. (Contributed by Hugo van Kemenade "
 "in :gh:`75223`.)"
 msgstr ""
+":mod:`mimetypes`:Extensões válidas começam com um '.' ou estão vazias para :"
+"meth:`mimetypes.MimeTypes.add_type`. Extensões sem ponto estão "
+"descontinuadas e levantarão uma exceção :exc:`ValueError` no Python 3.16. "
+"(Contribuição de Hugo van Kemenade em :gh:`75223`.)"
 
 #: ../../whatsnew/3.14.rst:2761
 msgid ""
@@ -5589,6 +5725,9 @@ msgid ""
 "request.url2pathname` and :func:`~urllib.request.pathname2url` instead. "
 "(Contributed by Barney Gale in :gh:`125866`.)"
 msgstr ""
+":mod:`!nturl2path`: Este módulo está descontinuado. Em vez disso, chame :"
+"func:`urllib.request.url2pathname` e :func:`~urllib.request.pathname2url`. "
+"(Contribuição de Barney Gale em :gh:`125866`.)"
 
 #: ../../whatsnew/3.14.rst:2766
 msgid ""
@@ -7771,6 +7910,9 @@ msgid ""
 "(Contributed by R. Hood Chatham in :gh:`127146`, :gh:`127683`, and :gh:"
 "`136931`.)"
 msgstr ""
+"``wasm32-unknown-emscripten`` agora é uma plataforma de nível 3 segundo a :"
+"pep:`11`. (Contribuição de R. Hood Chatham em :gh:`127146`, :gh:`127683` e :"
+"gh:`136931`.)"
 
 #: ../../whatsnew/3.14.rst:3109
 msgid ""
@@ -7789,12 +7931,19 @@ msgid ""
 "option to disable them, or the :option:`--enable-slower-safety` option for a "
 "larger set of compiler options, albeit with a performance cost."
 msgstr ""
+"O CPython agora habilita um conjunto de opções de compilador recomendadas "
+"por padrão para maior segurança. Use as opções :option:`--disable-safety` e :"
+"file:`configure` para desabilitá-las, ou a opção :option:`--enable-slower-"
+"safety` para um conjunto maior de opções de compilador, embora com um custo "
+"de desempenho."
 
 #: ../../whatsnew/3.14.rst:3119
 msgid ""
 "The ``WITH_FREELISTS`` macro and ``--without-freelists`` :file:`configure` "
 "option have been removed."
 msgstr ""
+"A macro ``WITH_FREELISTS`` e a opção ``--without-freelists`` :file:"
+"`configure` foram removidas."
 
 #: ../../whatsnew/3.14.rst:3122
 msgid ""
@@ -7802,6 +7951,9 @@ msgid ""
 "used to enable the experimental tail call interpreter. See :ref:`whatsnew314-"
 "tail-call` for further details."
 msgstr ""
+"A nova opção :file:`configure` :option:`--with-tail-call-interp` pode ser "
+"usada para habilitar o interpretador experimental de chamada de cauda. "
+"Consulte :ref:`whatsnew314-tail-call` para mais detalhes."
 
 #: ../../whatsnew/3.14.rst:3126
 msgid ""
@@ -7809,10 +7961,13 @@ msgid ""
 "remote-debug` :file:`configure` option. This may be useful for security "
 "reasons."
 msgstr ""
+"Para desabilitar o novo suporte à depuração remota, use as opções :option:`--"
+"without-remote-debug` e :file:`configure`. Isso pode ser útil por motivos de "
+"segurança."
 
 #: ../../whatsnew/3.14.rst:3133
 msgid ":file:`build-details.json`"
-msgstr ""
+msgstr ":file:`build-details.json`"
 
 #: ../../whatsnew/3.14.rst:3135
 msgid ""
@@ -7821,6 +7976,11 @@ msgid ""
 "allow for introspection without needing to run code. This is helpful for use-"
 "cases such as Python launchers, cross-compilation, and so on."
 msgstr ""
+"As instalações do Python agora contêm um novo arquivo, :file:`build-details."
+"json`. Este é um documento JSON estático contendo detalhes da construção do "
+"CPython, permitindo introspecção sem a necessidade de executar código. Isso "
+"é útil para casos de uso como inicializadores do Python, compilação cruzada "
+"e assim por diante."
 
 #: ../../whatsnew/3.14.rst:3141
 msgid ""
@@ -7829,12 +7989,18 @@ msgid ""
 "<installation_paths>` :mod:`sysconfig` installation path, which can be found "
 "by running ``sysconfig.get_path('stdlib')``."
 msgstr ""
+":file:`build-details.json` deve ser instalado no diretório da biblioteca "
+"padrão independente de plataforma. Isso corresponde ao caminho de "
+"instalação :ref:`'stdlib' <installation_paths>` :mod:`sysconfig`, que pode "
+"ser encontrado executando ``sysconfig.get_path('stdlib')``."
 
 #: ../../whatsnew/3.14.rst:3147
 msgid ""
 ":pep:`739` -- ``build-details.json`` 1.0 -- a static description file for "
 "Python build details"
 msgstr ""
+":pep:`739` -- ``build-details.json`` 1.0 -- um arquivo de descrição estática "
+"para detalhes de construção do Python"
 
 #: ../../whatsnew/3.14.rst:3153
 msgid "Discontinuation of PGP signatures"

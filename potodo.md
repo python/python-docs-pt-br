@@ -48,9 +48,9 @@
 - design.po                      171 / 172 ( 99.0% translated).
 
 
-# howto (70.84% done)
+# howto (71.04% done)
 
-- a-conceptual-overview-of-asyncio.po  18 /  93 ( 19.0% translated).
+- a-conceptual-overview-of-asyncio.po  25 /  93 ( 26.0% translated).
 - descriptor.po                  186 / 230 ( 80.0% translated).
 - enum.po                        104 / 327 ( 31.0% translated).
 - free-threading-extensions.po   105 / 106 ( 99.0% translated).
@@ -217,7 +217,7 @@
 - windows.po                     399 / 535 ( 74.0% translated).
 
 
-# whatsnew (48.59% done)
+# whatsnew (48.79% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -227,7 +227,6 @@
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
 - 3.10.po                        547 / 550 ( 99.0% translated).
-- 3.14.po                        948 / 1000 ( 94.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         134 / 682 ( 19.0% translated).
 - 3.4.po                         498 / 517 ( 96.0% translated).
@@ -238,5 +237,5 @@
 - changelog.po                   3088 / 13478 ( 22.0% translated).
 
 
-# TOTAL (62.95% done)
+# TOTAL (63.02% done)
 
