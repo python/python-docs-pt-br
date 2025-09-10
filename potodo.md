@@ -1,14 +1,12 @@
 
 
-# 3.14 (99.86% done)
-
-- glossary.po                    440 / 441 ( 99.0% translated).
+# 3.14 (100.00% done)
 
 
-# c-api (54.51% done)
+
+# c-api (54.53% done)
 
 - arg.po                         202 / 205 ( 98.0% translated).
-- dict.po                         67 /  68 ( 98.0% translated).
 - exceptions.po                  120 / 242 ( 49.0% translated).
 - float.po                        30 /  36 ( 83.0% translated).
 - frame.po                        20 /  42 ( 47.0% translated).
@@ -219,9 +217,8 @@
 - windows.po                     399 / 535 ( 74.0% translated).
 
 
-# whatsnew (48.42% done)
+# whatsnew (48.59% done)
 
-- 2.0.po                         206 / 207 ( 99.0% translated).
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
 - 2.5.po                         389 / 452 ( 86.0% translated).
@@ -238,8 +235,8 @@
 - 3.6.po                         232 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
 - 3.8.po                         488 / 513 ( 95.0% translated).
-- changelog.po                   3048 / 13478 ( 22.0% translated).
+- changelog.po                   3088 / 13478 ( 22.0% translated).
 
 
-# TOTAL (62.90% done)
+# TOTAL (62.95% done)
 
