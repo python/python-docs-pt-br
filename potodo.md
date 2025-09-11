@@ -120,7 +120,6 @@
 - faulthandler.po                  4 /  43 (  9.0% translated).
 - fcntl.po                        38 /  48 ( 79.0% translated).
 - filecmp.po                      40 /  41 ( 97.0% translated).
-- fractions.po                    32 /  33 ( 96.0% translated).
 - ftplib.po                       11 /  99 ( 11.0% translated).
 - functools.po                    20 / 115 ( 17.0% translated).
 - gzip.po                         60 /  65 ( 92.0% translated).
