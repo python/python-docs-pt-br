@@ -52,9 +52,14 @@ def generate_commit_msg():
                 or old_entries[entry.msgid] != entry.msgstr
             ):
                 translator = new_po.metadata.get("Last-Translator")
-                translator = translator.split(",")[0].strip()
+                # Prevent failure on missing Last-Translator field.
+                # Transifex only adds Last-Translator if someone from
+                # the team translated. If it was uploaded by an account
+                # that is not in the team, this field will be missing. 
                 if translator:
-                    translators.add(f"Co-Authored-By: {translator}")
+                    translator = translator.split(",")[0].strip()
+                    if translator:
+                        translators.add(f"Co-Authored-By: {translator}")
                 break
 
     print("Update translation\n\n" + "\n".join(translators))
