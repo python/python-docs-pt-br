@@ -51,8 +51,13 @@ def generate_commit_msg():
                 entry.msgid not in old_entries
                 or old_entries[entry.msgid] != entry.msgstr
             ):
-                translator = new_po.metadata.get("Last-Translator")
-                translator = translator.split(",")[0].strip()
+                # Prevent failure on missing Last-Translator field.
+                # Transifex only adds Last-Translator if someone from
+                # the team translated. If it was uploaded by an account
+                # that is not in the team, this field will be missing.
+                translator = (
+                    (new_po.metadata.get("Last-Translator") or "").split(",")[0].strip()
+                )
                 if translator:
                     translators.add(f"Co-Authored-By: {translator}")
                 break
@@ -79,7 +84,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "path",
         type=Path,
-        nargs='?',
+        nargs="?",
         default=".",
         help="Path to the Git repository (default: current directory)",
     )
