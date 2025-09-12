@@ -297,11 +297,10 @@
 - classes.po                     114 / 115 ( 99.0% translated).
 
 
-# using (95.12% done)
+# using (95.24% done)
 
 - cmdline.po                     195 / 197 ( 98.0% translated).
 - configure.po                   204 / 240 ( 85.0% translated).
-- mac.po                          43 /  44 ( 97.0% translated).
 - windows.po                     307 / 309 ( 99.0% translated).
 
 
