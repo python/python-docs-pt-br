@@ -69,7 +69,7 @@
 
 
 
-# library (65.12% done)
+# library (65.13% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        78 /  84 ( 92.0% translated).
@@ -144,7 +144,7 @@
 - mailbox.po                      10 / 290 (  3.0% translated).
 - mailcap.po                       2 /  16 ( 12.0% translated).
 - marshal.po                      24 /  30 ( 80.0% translated).
-- mimetypes.po                    22 /  51 ( 43.0% translated).
+- mimetypes.po                    24 /  51 ( 47.0% translated).
 - mmap.po                         22 /  59 ( 37.0% translated).
 - msilib.po                        7 /  97 (  7.0% translated).
 - multiprocessing.po             344 / 594 ( 57.0% translated).
