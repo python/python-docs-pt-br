@@ -63,7 +63,7 @@
 
 
 
-# library (66.33% done)
+# library (66.37% done)
 
 - annotationlib.po               136 / 141 ( 96.0% translated).
 - ast.po                         321 / 335 ( 95.0% translated).
@@ -124,7 +124,6 @@
 - io.po                           58 / 284 ( 20.0% translated).
 - ipaddress.po                   165 / 168 ( 98.0% translated).
 - itertools.po                   155 / 201 ( 77.0% translated).
-- locale.po                      147 / 163 ( 90.0% translated).
 - logging.config.po               18 / 171 ( 10.0% translated).
 - logging.handlers.po             52 / 276 ( 18.0% translated).
 - logging.po                     100 / 369 ( 27.0% translated).
@@ -215,5 +214,5 @@
 - changelog.po                   3085 / 13481 ( 22.0% translated).
 
 
-# TOTAL (63.07% done)
+# TOTAL (63.09% done)
 
