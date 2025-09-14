@@ -1,9 +1,19 @@
 #!/bin/sh
-# Build translated docs to pop up errors
+# Build translated docs
+# Expects input 'html' or 'latex', defaults to 'html'.
 #
 # SPDX-License-Identifier: CC0-1.0
 
 set -xeu
+
+format="$1"
+
+if [ -z "$format" ]; then
+  format=html
+elif [ ! "$format" = html ] && [ ! "$format" = latex ]; then
+  echo "Invalid format. Expected html or latex"
+  exit 1
+fi
 
 # Fail earlier if required variables are not set
 test -n ${PYDOC_LANGUAGE+x}
@@ -20,7 +30,7 @@ if [ $minor_version -lt 12 ]; then
   opts="$opts -D gettext_compact=False"
 fi
 
-make -C cpython/Doc html SPHINXOPTS="${opts}"
+make -C cpython/Doc "${format}" SPHINXOPTS="${opts}"
 
 # Remove empty file
 if [ ! -s logs/sphinxwarnings.txt ]; then
