@@ -63,7 +63,7 @@
 
 
 
-# library (66.40% done)
+# library (66.44% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 412 ( 74.0% translated).
@@ -124,7 +124,6 @@
 - io.po                           56 / 272 ( 20.0% translated).
 - ipaddress.po                   164 / 167 ( 98.0% translated).
 - itertools.po                   154 / 200 ( 77.0% translated).
-- locale.po                      145 / 161 ( 90.0% translated).
 - logging.config.po               18 / 171 ( 10.0% translated).
 - logging.handlers.po             51 / 274 ( 18.0% translated).
 - logging.po                     100 / 369 ( 27.0% translated).
@@ -217,5 +216,5 @@
 - changelog.po                   2589 / 12493 ( 20.0% translated).
 
 
-# TOTAL (63.00% done)
+# TOTAL (63.02% done)
 
