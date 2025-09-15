@@ -69,7 +69,7 @@
 
 
 
-# library (65.13% done)
+# library (65.12% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        78 /  84 ( 92.0% translated).
@@ -171,7 +171,7 @@
 - sndhdr.po                       12 /  38 ( 31.0% translated).
 - socket.po                       56 / 362 ( 15.0% translated).
 - sqlite3.po                     114 / 469 ( 24.0% translated).
-- ssl.po                          61 / 520 ( 11.0% translated).
+- ssl.po                          59 / 520 ( 11.0% translated).
 - statistics.po                  229 / 241 ( 95.0% translated).
 - string.po                      218 / 220 ( 99.0% translated).
 - struct.po                       96 / 194 ( 49.0% translated).
@@ -231,7 +231,7 @@
 - windows.po                     374 / 378 ( 98.0% translated).
 
 
-# whatsnew (74.97% done)
+# whatsnew (74.95% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -240,12 +240,12 @@
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
 - 3.12.po                        840 / 842 ( 99.0% translated).
-- 3.2.po                          66 / 576 ( 11.0% translated).
+- 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
-- 3.5.po                         129 / 578 ( 22.0% translated).
+- 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         237 / 544 ( 43.0% translated).
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (69.96% done)
+# TOTAL (69.95% done)
 
