@@ -37,7 +37,6 @@ permissions:
 env:
   PYDOC_LANGUAGE: pt_BR
   PYDOC_REPO: ${{ github.server_url }}/${{ github.repository }}
-  PYDOC_TX_PROJECT: ${{ inputs.tx_project }}
   PYDOC_VERSION: ${{ inputs.version }}
 
 jobs:
@@ -215,18 +214,19 @@ jobs:
         run: ./scripts/setup.sh
 
       - name: Generate template files without literal-block
+        working-directory: cpython/Doc
         run: |
-          sed -i '/^make/s/$opts/$opts -D gettext_additional_targets=["index"]/' scripts/generate_templates.sh
-          ./scripts/generate_templates.sh
+          make build ALLSPHINXOPTS='-E -b gettext -D gettext_compact=0 -D gettext_additional_targets=["index"] -d build/.doctrees . build/gettext'
 
       - name: Update translation files
         working-directory: cpython/Doc/locales/pt_BR/LC_MESSAGES
         run: |
           for po in $(git ls-files *.po); do
-              pot="cpython/Doc/build/gettext/${po}t"
+              pot="../../../build/gettext/${po}t"
               msgmerge --update --backup=off $po $pot
           done
 
+      # Run a per-directory, group-separated spellcheck
       - name: Check spelling
         working-directory: cpython/Doc/locales/pt_BR/LC_MESSAGES
         run: |
