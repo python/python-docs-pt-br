@@ -235,10 +235,10 @@ jobs:
         run: |
           dirs=$(find . -type d -not \( -path './.git*' -o -path './.tx*' \) | sort)
           for dir in $dirs; do
-            ::group::{$dir}
+            echo "::group::{$dir}"
             pushd $dir
             po_files=$(find -maxdepth 1 -name '*.po' | sort)
             python ../../../../../scripts/check_spell.py $po_files
-            ::endgroup::
             popd
+            echo "::endgroup::"
           done
