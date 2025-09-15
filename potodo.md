@@ -63,7 +63,7 @@
 
 
 
-# library (66.44% done)
+# library (66.43% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 412 ( 74.0% translated).
@@ -146,7 +146,7 @@
 - smtplib.po                      33 / 116 ( 28.0% translated).
 - socket.po                       56 / 368 ( 15.0% translated).
 - sqlite3.po                     116 / 477 ( 24.0% translated).
-- ssl.po                          63 / 544 ( 11.0% translated).
+- ssl.po                          61 / 544 ( 11.0% translated).
 - string.po                      218 / 220 ( 99.0% translated).
 - struct.po                       96 / 195 ( 49.0% translated).
 - subprocess.po                  150 / 327 ( 45.0% translated).
@@ -196,7 +196,7 @@
 - windows.po                     382 / 389 ( 98.0% translated).
 
 
-# whatsnew (46.35% done)
+# whatsnew (46.36% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -206,14 +206,14 @@
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
 - 3.13.po                        883 / 889 ( 99.0% translated).
-- 3.2.po                          66 / 576 ( 11.0% translated).
+- 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         134 / 682 ( 19.0% translated).
 - 3.4.po                         498 / 517 ( 96.0% translated).
-- 3.5.po                         128 / 578 ( 22.0% translated).
+- 3.5.po                         127 / 578 ( 21.0% translated).
 - 3.6.po                         233 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
 - 3.8.po                         488 / 513 ( 95.0% translated).
-- changelog.po                   2589 / 12493 ( 20.0% translated).
+- changelog.po                   2594 / 12495 ( 20.0% translated).
 
 
 # TOTAL (63.02% done)
