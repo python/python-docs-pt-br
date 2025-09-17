@@ -234,12 +234,12 @@ jobs:
         working-directory: cpython/Doc/locales/pt_BR/LC_MESSAGES
         continue-on-error: true
         run: |
+          wd=$PWD
           dirs=". $(find * -type d | sort)"
           for dir in $dirs; do
             echo "::group::{$dir}"
-            cd $dir
+            cd $wd/$dir
             po_files=$(find -maxdepth 1 -name '*.po' | sort)
             python ../../../../../scripts/check_spell.py $po_files || :
-            cd ..
             echo "::endgroup::"
           done
