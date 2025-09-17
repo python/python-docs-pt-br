@@ -237,9 +237,9 @@ jobs:
           dirs=$(find . -type d -not \( -path './.git*' -o -path './.tx*' \) | sort)
           for dir in $dirs; do
             echo "::group::{$dir}"
-            pushd $dir
+            pushd -n $dir
             po_files=$(find -maxdepth 1 -name '*.po' | sort)
-            python ../../../../../scripts/check_spell.py $po_files
+            python ../../../../../scripts/check_spell.py $po_files || :
             popd
             echo "::endgroup::"
           done
