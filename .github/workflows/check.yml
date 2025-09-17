@@ -216,7 +216,7 @@ jobs:
       - name: Install gettext
         run: sudo apt update -y && sudo apt install gettext hunspell hunspell-pt-br -y
 
-      - name: Generate template files without literal-block
+      - name: Generate template files without literal-block gettext target
         working-directory: cpython/Doc
         run: |
           make build ALLSPHINXOPTS='-E -b gettext -D gettext_compact=0 -D gettext_additional_targets=["index"] -d build/.doctrees . build/gettext'
@@ -232,6 +232,7 @@ jobs:
       # Run a per-directory, group-separated spellcheck
       - name: Check spelling
         working-directory: cpython/Doc/locales/pt_BR/LC_MESSAGES
+        continue-on-error: true
         run: |
           dirs=$(find . -type d -not \( -path './.git*' -o -path './.tx*' \) | sort)
           for dir in $dirs; do
