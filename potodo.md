@@ -63,7 +63,7 @@
 
 
 
-# library (66.38% done)
+# library (66.52% done)
 
 - annotationlib.po               136 / 141 ( 96.0% translated).
 - ast.po                         321 / 335 ( 95.0% translated).
@@ -83,7 +83,6 @@
 - binascii.po                     23 /  38 ( 60.0% translated).
 - bisect.po                       33 /  36 ( 91.0% translated).
 - codecs.po                      250 / 554 ( 45.0% translated).
-- collections.abc.po             131 / 136 ( 96.0% translated).
 - compression.zstd.po             85 / 173 ( 49.0% translated).
 - concurrent.futures.po           12 / 120 ( 10.0% translated).
 - concurrent.interpreters.po      43 /  87 ( 49.0% translated).
@@ -118,7 +117,7 @@
 - idle.po                         28 / 293 (  9.0% translated).
 - imaplib.po                      14 / 131 ( 10.0% translated).
 - importlib.po                   243 / 313 ( 77.0% translated).
-- inspect.po                     108 / 398 ( 27.0% translated).
+- inspect.po                     154 / 400 ( 38.0% translated).
 - io.po                           58 / 284 ( 20.0% translated).
 - itertools.po                   155 / 201 ( 77.0% translated).
 - locale.po                      147 / 163 ( 90.0% translated).
@@ -154,7 +153,6 @@
 - tkinter.ttk.po                 142 / 429 ( 33.0% translated).
 - traceback.po                    10 / 118 (  8.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
-- typing.po                      816 / 818 ( 99.0% translated).
 - unicodedata.po                   4 /  43 (  9.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               103 / 448 ( 22.0% translated).
@@ -175,11 +173,10 @@
 - zoneinfo.po                     42 /  83 ( 50.0% translated).
 
 
-# reference (96.56% done)
+# reference (96.59% done)
 
 - introduction.po                 51 /  56 ( 91.0% translated).
 - lexical_analysis.po            306 / 404 ( 75.0% translated).
-- simple_stmts.po                290 / 291 ( 99.0% translated).
 
 
 # tutorial (100.00% done)
@@ -192,7 +189,7 @@
 - windows.po                     399 / 535 ( 74.0% translated).
 
 
-# whatsnew (48.89% done)
+# whatsnew (48.91% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -208,8 +205,8 @@
 - 3.6.po                         232 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
 - 3.8.po                         488 / 513 ( 95.0% translated).
-- changelog.po                   3114 / 13485 ( 23.0% translated).
+- changelog.po                   3118 / 13488 ( 23.0% translated).
 
 
-# TOTAL (63.14% done)
+# TOTAL (63.22% done)
 
