@@ -5,7 +5,7 @@
 - license.po                      95 /  99 ( 95.0% translated).
 
 
-# c-api (58.44% done)
+# c-api (58.55% done)
 
 - exceptions.po                  194 / 347 ( 55.0% translated).
 - float.po                        28 /  35 ( 80.0% translated).
@@ -27,7 +27,7 @@
 - tuple.po                        39 /  40 ( 97.0% translated).
 - type.po                         26 /  68 ( 38.0% translated).
 - typeobj.po                     230 / 600 ( 38.0% translated).
-- unicode.po                      84 / 308 ( 27.0% translated).
+- unicode.po                      89 / 308 ( 28.0% translated).
 - veryhigh.po                     52 /  56 ( 92.0% translated).
 
 
@@ -85,7 +85,7 @@
 
 
 
-# library (64.16% done)
+# library (64.25% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          48 /  49 ( 97.0% translated).
@@ -175,7 +175,7 @@
 - importlib.metadata.po           59 /  62 ( 95.0% translated).
 - importlib.po                   212 / 301 ( 70.0% translated).
 - importlib.resources.po          29 /  35 ( 82.0% translated).
-- inspect.po                     104 / 349 ( 29.0% translated).
+- inspect.po                     129 / 349 ( 36.0% translated).
 - io.po                           49 / 262 ( 18.0% translated).
 - ipaddress.po                   155 / 156 ( 99.0% translated).
 - itertools.po                   131 / 157 ( 83.0% translated).
@@ -186,7 +186,7 @@
 - mailbox.po                      10 / 285 (  3.0% translated).
 - mailcap.po                       2 /  15 ( 13.0% translated).
 - math.po                        116 / 122 ( 95.0% translated).
-- mimetypes.po                    24 /  50 ( 48.0% translated).
+- mimetypes.po                    26 /  50 ( 52.0% translated).
 - mmap.po                         22 /  55 ( 40.0% translated).
 - msilib.po                        7 /  97 (  7.0% translated).
 - multiprocessing.po             288 / 529 ( 54.0% translated).
@@ -225,7 +225,7 @@
 - socket.po                       76 / 348 ( 21.0% translated).
 - socketserver.po                 82 /  86 ( 95.0% translated).
 - sqlite3.po                      89 / 371 ( 23.0% translated).
-- ssl.po                          67 / 503 ( 13.0% translated).
+- ssl.po                          69 / 503 ( 13.0% translated).
 - stat.po                         80 /  81 ( 98.0% translated).
 - statistics.po                  174 / 177 ( 98.0% translated).
 - stdtypes.po                    1196 / 1211 ( 98.0% translated).
@@ -302,7 +302,7 @@
 - windows.po                     342 / 343 ( 99.0% translated).
 
 
-# whatsnew (75.19% done)
+# whatsnew (75.22% done)
 
 - 2.0.po                         181 / 183 ( 98.0% translated).
 - 2.1.po                         138 / 139 ( 99.0% translated).
@@ -315,14 +315,14 @@
 - 3.0.po                         204 / 205 ( 99.0% translated).
 - 3.10.po                        498 / 506 ( 98.0% translated).
 - 3.11.po                        760 / 772 ( 98.0% translated).
-- 3.2.po                          64 / 518 ( 12.0% translated).
+- 3.2.po                          65 / 518 ( 12.0% translated).
 - 3.3.po                         135 / 662 ( 20.0% translated).
 - 3.4.po                         503 / 511 ( 98.0% translated).
-- 3.5.po                         127 / 541 ( 23.0% translated).
+- 3.5.po                         128 / 541 ( 23.0% translated).
 - 3.6.po                         238 / 524 ( 45.0% translated).
 - 3.7.po                         247 / 563 ( 43.0% translated).
 - 3.8.po                         468 / 469 ( 99.0% translated).
 
 
-# TOTAL (68.69% done)
+# TOTAL (68.75% done)
 
