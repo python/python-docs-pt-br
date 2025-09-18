@@ -4,7 +4,7 @@
 
 
 
-# c-api (58.34% done)
+# c-api (58.47% done)
 
 - allocation.po                    8 /   9 ( 88.0% translated).
 - arg.po                         193 / 195 ( 98.0% translated).
@@ -27,7 +27,7 @@
 - tuple.po                        47 /  48 ( 97.0% translated).
 - type.po                         27 /  63 ( 42.0% translated).
 - typeobj.po                     233 / 604 ( 38.0% translated).
-- unicode.po                      74 / 334 ( 22.0% translated).
+- unicode.po                      79 / 334 ( 23.0% translated).
 - veryhigh.po                     46 /  56 ( 82.0% translated).
 
 
@@ -59,7 +59,7 @@
 - programming.po                 383 / 388 ( 98.0% translated).
 
 
-# howto (60.75% done)
+# howto (61.30% done)
 
 - annotations.po                  44 /  45 ( 97.0% translated).
 - argparse.po                     81 /  84 ( 96.0% translated).
@@ -73,22 +73,20 @@
 - pyporting.po                    35 /  86 ( 40.0% translated).
 - regex.po                       283 / 286 ( 98.0% translated).
 - sockets.po                      35 /  58 ( 60.0% translated).
-- sorting.po                      42 /  55 ( 76.0% translated).
 - unicode.po                      30 / 121 ( 24.0% translated).
 - urllib2.po                      72 /  85 ( 84.0% translated).
 
 
-# install (73.01% done)
+# install (74.34% done)
 
-- index.po                       165 / 226 ( 73.0% translated).
-
-
-# installing (98.11% done)
-
-- index.po                        52 /  53 ( 98.0% translated).
+- index.po                       168 / 226 ( 74.0% translated).
 
 
-# library (62.47% done)
+# installing (100.00% done)
+
+
+
+# library (62.56% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    256 / 290 ( 88.0% translated).
@@ -177,7 +175,7 @@
 - imp.po                           8 /  68 ( 11.0% translated).
 - importlib.metadata.po           36 /  53 ( 67.0% translated).
 - importlib.po                   225 / 346 ( 65.0% translated).
-- inspect.po                     102 / 338 ( 30.0% translated).
+- inspect.po                     125 / 338 ( 36.0% translated).
 - io.po                           38 / 245 ( 15.0% translated).
 - ipaddress.po                   155 / 158 ( 98.0% translated).
 - itertools.po                   128 / 153 ( 83.0% translated).
@@ -187,7 +185,7 @@
 - mailbox.po                      20 / 282 (  7.0% translated).
 - mailcap.po                       2 /  15 ( 13.0% translated).
 - math.po                        117 / 118 ( 99.0% translated).
-- mimetypes.po                    22 /  45 ( 48.0% translated).
+- mimetypes.po                    24 /  45 ( 53.0% translated).
 - mmap.po                         20 /  50 ( 40.0% translated).
 - msilib.po                        7 /  96 (  7.0% translated).
 - multiprocessing.po             284 / 519 ( 54.0% translated).
@@ -223,7 +221,7 @@
 - socket.po                       60 / 324 ( 18.0% translated).
 - socketserver.po                 67 /  78 ( 85.0% translated).
 - sqlite3.po                      76 / 287 ( 26.0% translated).
-- ssl.po                          63 / 493 ( 12.0% translated).
+- ssl.po                          64 / 493 ( 12.0% translated).
 - stat.po                         78 /  81 ( 96.0% translated).
 - statistics.po                  169 / 172 ( 98.0% translated).
 - stdtypes.po                    1022 / 1026 ( 99.0% translated).
@@ -307,7 +305,7 @@
 - windows.po                     307 / 309 ( 99.0% translated).
 
 
-# whatsnew (70.22% done)
+# whatsnew (70.24% done)
 
 - 2.0.po                         137 / 182 ( 75.0% translated).
 - 2.2.po                         138 / 192 ( 71.0% translated).
@@ -317,13 +315,13 @@
 - 2.6.po                         535 / 539 ( 99.0% translated).
 - 2.7.po                         442 / 453 ( 97.0% translated).
 - 3.10.po                        513 / 523 ( 98.0% translated).
-- 3.2.po                          69 / 518 ( 13.0% translated).
+- 3.2.po                          70 / 518 ( 13.0% translated).
 - 3.3.po                         159 / 660 ( 24.0% translated).
 - 3.4.po                         510 / 511 ( 99.0% translated).
-- 3.5.po                         127 / 541 ( 23.0% translated).
+- 3.5.po                         128 / 541 ( 23.0% translated).
 - 3.6.po                         239 / 517 ( 46.0% translated).
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (65.91% done)
+# TOTAL (66.01% done)
 
