@@ -231,15 +231,16 @@ jobs:
 
       # Run a per-directory, group-separated spellcheck
       - name: Check spelling
-        working-directory: cpython/Doc/locales/pt_BR/LC_MESSAGES
         continue-on-error: true
         run: |
-          wd=$PWD
+          check_spell=$PWD/scripts/check_spell.py
+          langdir=$PWD/cpython/Doc/locales/pt_BR/LC_MESSAGES
+          cd $langdir
           dirs=". $(find * -type d | sort)"
           for dir in $dirs; do
             echo "::group::{$dir}"
-            cd $wd/$dir
+            cd $langdir/$dir
             po_files=$(find -maxdepth 1 -name '*.po' | sort)
-            python ../../../../../scripts/check_spell.py $po_files || :
+            python $check_spell $po_files || :
             echo "::endgroup::"
           done
