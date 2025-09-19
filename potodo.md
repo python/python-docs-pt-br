@@ -63,7 +63,7 @@
 
 
 
-# library (66.54% done)
+# library (66.56% done)
 
 - annotationlib.po               136 / 141 ( 96.0% translated).
 - ast.po                         321 / 335 ( 95.0% translated).
@@ -81,7 +81,6 @@
 - base64.po                       15 /  71 ( 21.0% translated).
 - bdb.po                          13 / 119 ( 10.0% translated).
 - binascii.po                     23 /  38 ( 60.0% translated).
-- bisect.po                       33 /  36 ( 91.0% translated).
 - codecs.po                      250 / 554 ( 45.0% translated).
 - compression.zstd.po             85 / 173 ( 49.0% translated).
 - concurrent.futures.po           12 / 120 ( 10.0% translated).
@@ -106,6 +105,7 @@
 - faulthandler.po                  4 /  53 (  7.0% translated).
 - ftplib.po                       12 /  99 ( 12.0% translated).
 - functools.po                    19 / 126 ( 15.0% translated).
+- getpass.po                      15 /  16 ( 93.0% translated).
 - hashlib.po                      76 / 170 ( 44.0% translated).
 - heapq.po                        48 /  67 ( 71.0% translated).
 - html.parser.po                   3 /  60 (  5.0% translated).
@@ -153,6 +153,7 @@
 - tkinter.ttk.po                 142 / 429 ( 33.0% translated).
 - traceback.po                    10 / 118 (  8.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
+- typing.po                      824 / 825 ( 99.0% translated).
 - unicodedata.po                   4 /  43 (  9.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               103 / 448 ( 22.0% translated).
@@ -169,7 +170,6 @@
 - xml.sax.po                       3 /  32 (  9.0% translated).
 - xml.sax.reader.po                2 /  75 (  2.0% translated).
 - xmlrpc.client.po                55 / 113 ( 48.0% translated).
-- zipfile.po                     210 / 214 ( 98.0% translated).
 - zoneinfo.po                     42 /  83 ( 50.0% translated).
 
 
@@ -182,13 +182,14 @@
 
 
 
-# using (90.77% done)
+# using (90.58% done)
 
+- android.po                      24 /  27 ( 88.0% translated).
 - mac.po                          92 /  94 ( 97.0% translated).
 - windows.po                     399 / 535 ( 74.0% translated).
 
 
-# whatsnew (49.16% done)
+# whatsnew (49.13% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -197,13 +198,14 @@
 - 2.7.po                         491 / 498 ( 98.0% translated).
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
+- 3.14.po                        985 / 1003 ( 98.0% translated).
 - 3.2.po                          65 / 576 ( 11.0% translated).
 - 3.3.po                         134 / 682 ( 19.0% translated).
 - 3.4.po                         497 / 517 ( 96.0% translated).
 - 3.5.po                         127 / 578 ( 21.0% translated).
 - 3.6.po                         232 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
-- changelog.po                   3158 / 13488 ( 23.0% translated).
+- changelog.po                   3164 / 13491 ( 23.0% translated).
 
 
 # TOTAL (63.31% done)

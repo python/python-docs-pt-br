@@ -5,15 +5,16 @@
 #
 # Translators:
 # python-doc bot, 2025
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-16 17:23+0000\n"
+"POT-Creation-Date: 2025-09-19 14:16+0000\n"
 "PO-Revision-Date: 2025-09-16 00:00+0000\n"
-"Last-Translator: python-doc bot, 2025\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -1642,29 +1643,29 @@ msgstr ""
 
 #: ../../library/argparse.rst:777
 msgid ""
-"``'append'`` - This stores a list, and appends each argument value to the "
-"list. It is useful to allow an option to be specified multiple times. If the "
-"default value is non-empty, the default elements will be present in the "
-"parsed value for the option, with any values from the command line appended "
-"after those default values. Example usage::"
+"``'append'`` - This appends each argument value to a list. It is useful for "
+"allowing an option to be specified multiple times. If the default value is a "
+"non-empty list, the parsed value will start with the default list's elements "
+"and any values from the command line will be appended after those default "
+"values. Example usage::"
 msgstr ""
-"``'append'`` - Isso armazena uma lista e anexa cada valor de argumento à "
-"lista.  É útil permitir que uma opção seja especificada várias vezes. Se o "
-"valor padrão não estiver vazio, os elementos padrão estarão presentes no "
-"valor analisado da opção, com quaisquer valores da linha de comando anexados "
-"após esses valores padrão. Exemplo de uso::"
+"``'append'`` - Isso anexa cada valor de argumento a uma lista. É útil "
+"permitir para permitir que uma opção seja especificada várias vezes. Se o "
+"valor padrão for uma lista não-vazia, o valor analisado vai iniciar com os "
+"elementos padrão da lista e quaisquer valores da linha de comando serão "
+"anexados após os valores padrão. Exemplo de uso::"
 
 #: ../../library/argparse.rst:783
 msgid ""
 ">>> parser = argparse.ArgumentParser()\n"
-">>> parser.add_argument('--foo', action='append')\n"
+">>> parser.add_argument('--foo', action='append', default=['0'])\n"
 ">>> parser.parse_args('--foo 1 --foo 2'.split())\n"
-"Namespace(foo=['1', '2'])"
+"Namespace(foo=['0', '1', '2'])"
 msgstr ""
 ">>> parser = argparse.ArgumentParser()\n"
-">>> parser.add_argument('--foo', action='append')\n"
+">>> parser.add_argument('--foo', action='append', default=['0'])\n"
 ">>> parser.parse_args('--foo 1 --foo 2'.split())\n"
-"Namespace(foo=['1', '2'])"
+"Namespace(foo=['0', '1', '2'])"
 
 #: ../../library/argparse.rst:788
 msgid ""
@@ -2092,15 +2093,15 @@ msgid ""
 "(like ``-f`` or ``--foo``) and ``nargs='?'``.  This creates an optional "
 "argument that can be followed by zero or one command-line arguments. When "
 "parsing the command line, if the option string is encountered with no "
-"command-line argument following it, the value of ``const`` will be assumed "
-"to be ``None`` instead.  See the nargs_ description for examples."
+"command-line argument following it, the value from ``const`` will be used. "
+"See the nargs_ description for examples."
 msgstr ""
 "Quando :meth:`~ArgumentParser.add_argument` é chamado com strings de opções "
 "(como ``-f`` ou ``--foo``) e ``nargs='?'``. Isso cria um argumento opcional "
 "que pode ser seguido por zero ou um argumento de linha de comando. Ao "
 "analisar a linha de comando, se a string de opções for encontrada sem nenhum "
-"argumento de linha de comando seguindo, o valor de ``const`` será presumido "
-"como sendo ``None``. Veja a descrição de nargs_ para exemplos."
+"argumento de linha de comando seguindo, o valor de ``const`` será usado. "
+"Veja a descrição de nargs_ para exemplos."
 
 #: ../../library/argparse.rst:987
 msgid ""
@@ -2443,16 +2444,6 @@ msgstr ""
 
 #: ../../library/argparse.rst:1145
 msgid ""
-"Note that inclusion in the *choices* sequence is checked after any type_ "
-"conversions have been performed, so the type of the objects in the *choices* "
-"sequence should match the type_ specified."
-msgstr ""
-"Observe que a inclusão na sequência *choices* é verificada após qualquer "
-"conversão de type_ ter sido realizada, portanto o tipo dos objetos na "
-"sequência *choices* deve corresponder ao type_ especificado."
-
-#: ../../library/argparse.rst:1149
-msgid ""
 "Any sequence can be passed as the *choices* value, so :class:`list` "
 "objects, :class:`tuple` objects, and custom sequences are all supported."
 msgstr ""
@@ -2460,7 +2451,7 @@ msgstr ""
 "objetos :class:`list`, objetos :class:`tuple` e sequências personalizadas "
 "são todos suportados."
 
-#: ../../library/argparse.rst:1152
+#: ../../library/argparse.rst:1148
 msgid ""
 "Use of :class:`enum.Enum` is not recommended because it is difficult to "
 "control its appearance in usage, help, and error messages."
@@ -2468,7 +2459,28 @@ msgstr ""
 "O uso de :class:`enum.Enum` não é recomendado porque é difícil controlar sua "
 "aparência no uso, na ajuda e nas mensagens de erro."
 
-#: ../../library/argparse.rst:1155
+#: ../../library/argparse.rst:1151
+msgid ""
+"Note that *choices* are checked after any type_ conversions have been "
+"performed, so objects in *choices* should match the type_ specified. This "
+"can make *choices* appear unfamiliar in usage, help, or error messages."
+msgstr ""
+"Observe que *choices* são verificadas após a realização de quaisquer "
+"conversões de tipo, portanto, os objetos em *choices* devem corresponder ao "
+"tipo especificado. Isso pode fazer com que *choices* pareçam estranhos no "
+"uso, na ajuda ou em mensagens de erro."
+
+#: ../../library/argparse.rst:1156
+msgid ""
+"To keep *choices* user-friendly, consider a custom type wrapper that "
+"converts and formats values, or omit type_ and handle conversion in your "
+"application code."
+msgstr ""
+"Para manter *choices* fácel de usar, considere um invólucro de tipo "
+"personalizado que converta e formate valores, ou omita type_ e lide com a "
+"conversão no código da sua aplicação."
+
+#: ../../library/argparse.rst:1160
 msgid ""
 "Formatted choices override the default *metavar* which is normally derived "
 "from *dest*.  This is usually what you want because the user never sees the "
@@ -2480,11 +2492,11 @@ msgstr ""
 "vê o parâmetro *dest*. Se esta exibição não for desejável (talvez porque "
 "haja muitas opções), basta especificar um metavar_ explícito."
 
-#: ../../library/argparse.rst:1164
+#: ../../library/argparse.rst:1169
 msgid "required"
 msgstr "required"
 
-#: ../../library/argparse.rst:1166
+#: ../../library/argparse.rst:1171
 msgid ""
 "In general, the :mod:`!argparse` module assumes that flags like ``-f`` and "
 "``--bar`` indicate *optional* arguments, which can always be omitted at the "
@@ -2497,7 +2509,7 @@ msgstr ""
 "especificado para o argumento nomeado ``required=`` para :meth:"
 "`~ArgumentParser.add_argument`::"
 
-#: ../../library/argparse.rst:1171
+#: ../../library/argparse.rst:1176
 msgid ""
 ">>> parser = argparse.ArgumentParser()\n"
 ">>> parser.add_argument('--foo', required=True)\n"
@@ -2515,7 +2527,7 @@ msgstr ""
 "usage: [-h] --foo FOO\n"
 ": error: the following arguments are required: --foo"
 
-#: ../../library/argparse.rst:1179
+#: ../../library/argparse.rst:1184
 msgid ""
 "As the example shows, if an option is marked as ``required``, :meth:"
 "`~ArgumentParser.parse_args` will report an error if that option is not "
@@ -2525,7 +2537,7 @@ msgstr ""
 "`~ArgumentParser.parse_args` reportará um erro se essa opção não estiver "
 "presente na linha de comando."
 
-#: ../../library/argparse.rst:1185
+#: ../../library/argparse.rst:1190
 msgid ""
 "Required options are generally considered bad form because users expect "
 "*options* to be *optional*, and thus they should be avoided when possible."
@@ -2534,11 +2546,11 @@ msgstr ""
 "usuários esperam que as *opções* sejam *opcionais* e, portanto, devem ser "
 "evitadas quando possível."
 
-#: ../../library/argparse.rst:1192
+#: ../../library/argparse.rst:1197
 msgid "help"
 msgstr "help"
 
-#: ../../library/argparse.rst:1194
+#: ../../library/argparse.rst:1199
 msgid ""
 "The ``help`` value is a string containing a brief description of the "
 "argument. When a user requests help (usually by using ``-h`` or ``--help`` "
@@ -2550,7 +2562,7 @@ msgstr ""
 "linha de comando), estas descrições de ``help`` serão exibidas com cada "
 "argumento."
 
-#: ../../library/argparse.rst:1199
+#: ../../library/argparse.rst:1204
 msgid ""
 "The ``help`` strings can include various format specifiers to avoid "
 "repetition of things like the program name or the argument default_.  The "
@@ -2564,7 +2576,7 @@ msgstr ""
 "``%(prog)s`` e a maioria dos argumentos nomeados para :meth:`~ArgumentParser."
 "add_argument`, por exemplo. ``%(default)s``, ``%(type)s``, etc.::"
 
-#: ../../library/argparse.rst:1204
+#: ../../library/argparse.rst:1209
 msgid ""
 ">>> parser = argparse.ArgumentParser(prog='frobble')\n"
 ">>> parser.add_argument('bar', nargs='?', type=int, default=42,\n"
@@ -2590,7 +2602,7 @@ msgstr ""
 "options:\n"
 " -h, --help  show this help message and exit"
 
-#: ../../library/argparse.rst:1216
+#: ../../library/argparse.rst:1221
 msgid ""
 "As the help string supports %-formatting, if you want a literal ``%`` to "
 "appear in the help string, you must escape it as ``%%``."
@@ -2599,7 +2611,7 @@ msgstr ""
 "que um literal ``%`` apareça na string de ajuda, você deve escapá-lo como ``%"
 "%``."
 
-#: ../../library/argparse.rst:1219
+#: ../../library/argparse.rst:1224
 msgid ""
 ":mod:`!argparse` supports silencing the help entry for certain options, by "
 "setting the ``help`` value to ``argparse.SUPPRESS``::"
@@ -2607,7 +2619,7 @@ msgstr ""
 ":mod:`!argparse` oferece suporte a silenciar a entrada de ajuda para certas "
 "opções, definindo o valor ``help`` como ``argparse.SUPPRESS``::"
 
-#: ../../library/argparse.rst:1222
+#: ../../library/argparse.rst:1227
 msgid ""
 ">>> parser = argparse.ArgumentParser(prog='frobble')\n"
 ">>> parser.add_argument('--foo', help=argparse.SUPPRESS)\n"
@@ -2625,11 +2637,11 @@ msgstr ""
 "options:\n"
 "  -h, --help  show this help message and exit"
 
-#: ../../library/argparse.rst:1234
+#: ../../library/argparse.rst:1239
 msgid "metavar"
 msgstr "metavar"
 
-#: ../../library/argparse.rst:1236
+#: ../../library/argparse.rst:1241
 msgid ""
 "When :class:`ArgumentParser` generates help messages, it needs some way to "
 "refer to each expected argument.  By default, :class:`!ArgumentParser` "
@@ -2650,7 +2662,7 @@ msgstr ""
 "seguido por um único argumento de linha de comando será referido como "
 "``FOO``. Um exemplo::"
 
-#: ../../library/argparse.rst:1245
+#: ../../library/argparse.rst:1250
 msgid ""
 ">>> parser = argparse.ArgumentParser()\n"
 ">>> parser.add_argument('--foo')\n"
@@ -2682,11 +2694,11 @@ msgstr ""
 " -h, --help  show this help message and exit\n"
 " --foo FOO"
 
-#: ../../library/argparse.rst:1260
+#: ../../library/argparse.rst:1265
 msgid "An alternative name can be specified with ``metavar``::"
 msgstr "Um nome alternativo pode ser especificado com ``metavar``::"
 
-#: ../../library/argparse.rst:1262
+#: ../../library/argparse.rst:1267
 msgid ""
 ">>> parser = argparse.ArgumentParser()\n"
 ">>> parser.add_argument('--foo', metavar='YYY')\n"
@@ -2718,7 +2730,7 @@ msgstr ""
 " -h, --help  show this help message and exit\n"
 " --foo YYY"
 
-#: ../../library/argparse.rst:1277
+#: ../../library/argparse.rst:1282
 msgid ""
 "Note that ``metavar`` only changes the *displayed* name - the name of the "
 "attribute on the :meth:`~ArgumentParser.parse_args` object is still "
@@ -2728,7 +2740,7 @@ msgstr ""
 "no objeto :meth:`~ArgumentParser.parse_args` ainda é determinado pelo valor "
 "dest_."
 
-#: ../../library/argparse.rst:1281
+#: ../../library/argparse.rst:1286
 msgid ""
 "Different values of ``nargs`` may cause the metavar to be used multiple "
 "times. Providing a tuple to ``metavar`` specifies a different display for "
@@ -2738,7 +2750,7 @@ msgstr ""
 "múltiplas vezes. Fornecer uma tupla para ``metavar`` especifica uma exibição "
 "diferente para cada um dos argumentos::"
 
-#: ../../library/argparse.rst:1285
+#: ../../library/argparse.rst:1290
 msgid ""
 ">>> parser = argparse.ArgumentParser(prog='PROG')\n"
 ">>> parser.add_argument('-x', nargs=2)\n"
@@ -2762,11 +2774,11 @@ msgstr ""
 " -x X X\n"
 " --foo bar baz"
 
-#: ../../library/argparse.rst:1300
+#: ../../library/argparse.rst:1305
 msgid "dest"
 msgstr "dest"
 
-#: ../../library/argparse.rst:1302
+#: ../../library/argparse.rst:1307
 msgid ""
 "Most :class:`ArgumentParser` actions add some value as an attribute of the "
 "object returned by :meth:`~ArgumentParser.parse_args`.  The name of this "
@@ -2782,7 +2794,7 @@ msgstr ""
 "é normalmente fornecido como o primeiro argumento para :meth:"
 "`~ArgumentParser.add_argument`::"
 
-#: ../../library/argparse.rst:1309
+#: ../../library/argparse.rst:1314
 msgid ""
 ">>> parser = argparse.ArgumentParser()\n"
 ">>> parser.add_argument('bar')\n"
@@ -2794,7 +2806,7 @@ msgstr ""
 ">>> parser.parse_args(['XXX'])\n"
 "Namespace(bar='XXX')"
 
-#: ../../library/argparse.rst:1314
+#: ../../library/argparse.rst:1319
 msgid ""
 "For optional argument actions, the value of ``dest`` is normally inferred "
 "from the option strings.  :class:`ArgumentParser` generates the value of "
@@ -2814,7 +2826,7 @@ msgstr ""
 "caracteres ``_`` para garantir que a string seja um nome de atributo válido. "
 "Os exemplos abaixo ilustram esse comportamento:"
 
-#: ../../library/argparse.rst:1323
+#: ../../library/argparse.rst:1328
 msgid ""
 ">>> parser = argparse.ArgumentParser()\n"
 ">>> parser.add_argument('-f', '--foo-bar', '--foo')\n"
@@ -2832,12 +2844,12 @@ msgstr ""
 ">>> parser.parse_args('--foo 1 -y 2'.split())\n"
 "Namespace(foo_bar='1', x='2')"
 
-#: ../../library/argparse.rst:1331
+#: ../../library/argparse.rst:1336
 msgid "``dest`` allows a custom attribute name to be provided::"
 msgstr ""
 "``dest`` permite que um nome de atributo personalizado seja fornecido::"
 
-#: ../../library/argparse.rst:1333
+#: ../../library/argparse.rst:1338
 msgid ""
 ">>> parser = argparse.ArgumentParser()\n"
 ">>> parser.add_argument('--foo', dest='bar')\n"
@@ -2849,11 +2861,11 @@ msgstr ""
 ">>> parser.parse_args('--foo XXX'.split())\n"
 "Namespace(bar='XXX')"
 
-#: ../../library/argparse.rst:1342
+#: ../../library/argparse.rst:1347
 msgid "deprecated"
 msgstr "deprecated"
 
-#: ../../library/argparse.rst:1344
+#: ../../library/argparse.rst:1349
 msgid ""
 "During a project's lifetime, some arguments may need to be removed from the "
 "command line. Before removing them, you should inform your users that the "
@@ -2872,7 +2884,7 @@ msgstr ""
 "um aviso será enviado para :data:`sys.stderr` (saída de erro) quando o "
 "argumento for usado::"
 
-#: ../../library/argparse.rst:1354
+#: ../../library/argparse.rst:1359
 msgid ""
 ">>> import argparse\n"
 ">>> parser = argparse.ArgumentParser(prog='snake.py')\n"
@@ -2892,11 +2904,11 @@ msgstr ""
 "snake.py: warning: option '--legs' is deprecated\n"
 "Namespace(legs=4)"
 
-#: ../../library/argparse.rst:1367
+#: ../../library/argparse.rst:1372
 msgid "Action classes"
 msgstr "Classes de ação"
 
-#: ../../library/argparse.rst:1369
+#: ../../library/argparse.rst:1374
 msgid ""
 ":class:`!Action` classes implement the Action API, a callable which returns "
 "a callable which processes arguments from the command-line. Any object which "
@@ -2908,7 +2920,7 @@ msgstr ""
 "objeto que siga esta API pode ser passado como parâmetro ``action`` para :"
 "meth:`~ArgumentParser.add_argument`."
 
-#: ../../library/argparse.rst:1378
+#: ../../library/argparse.rst:1383
 msgid ""
 ":class:`!Action` objects are used by an :class:`ArgumentParser` to represent "
 "the information needed to parse a single argument from one or more strings "
@@ -2923,7 +2935,7 @@ msgstr ""
 "passados para :meth:`ArgumentParser.add_argument`, exceto o próprio "
 "``action``."
 
-#: ../../library/argparse.rst:1384
+#: ../../library/argparse.rst:1389
 msgid ""
 "Instances of :class:`!Action` (or return value of any callable to the "
 "``action`` parameter) should have attributes :attr:`!dest`, :attr:`!"
@@ -2937,7 +2949,7 @@ msgstr ""
 "help`, etc. definidos. A maneira mais fácil de garantir que esses atributos "
 "sejam definidos é chamar :meth:`!Action.__init__`."
 
-#: ../../library/argparse.rst:1392
+#: ../../library/argparse.rst:1397
 msgid ""
 ":class:`!Action` instances should be callable, so subclasses must override "
 "the :meth:`!__call__` method, which should accept four parameters:"
@@ -2946,12 +2958,12 @@ msgstr ""
 "subclasses devem substituir o método :meth:`!__call__`, que deve aceitar "
 "quatro parâmetros:"
 
-#: ../../library/argparse.rst:1395
+#: ../../library/argparse.rst:1400
 msgid ""
 "*parser* - The :class:`ArgumentParser` object which contains this action."
 msgstr "*parser* - O objeto :class:`ArgumentParser` que contém esta ação."
 
-#: ../../library/argparse.rst:1397
+#: ../../library/argparse.rst:1402
 msgid ""
 "*namespace* - The :class:`Namespace` object that will be returned by :meth:"
 "`~ArgumentParser.parse_args`.  Most actions add an attribute to this object "
@@ -2961,7 +2973,7 @@ msgstr ""
 "`~ArgumentParser.parse_args`. A maioria das ações adicionam um atributo a "
 "este objeto usando :func:`setattr`."
 
-#: ../../library/argparse.rst:1401
+#: ../../library/argparse.rst:1406
 msgid ""
 "*values* - The associated command-line arguments, with any type conversions "
 "applied.  Type conversions are specified with the type_ keyword argument to :"
@@ -2971,7 +2983,7 @@ msgstr ""
 "conversões de tipo aplicadas. Conversões de tipo são especificadas com o "
 "argumento nomeado type_ para :meth:`~ArgumentParser.add_argument`."
 
-#: ../../library/argparse.rst:1405
+#: ../../library/argparse.rst:1410
 msgid ""
 "*option_string* - The option string that was used to invoke this action. The "
 "``option_string`` argument is optional, and will be absent if the action is "
@@ -2981,7 +2993,7 @@ msgstr ""
 "argumento ``option_string`` é opcional e estará ausente se a ação estiver "
 "associada a um argumento posicional."
 
-#: ../../library/argparse.rst:1409
+#: ../../library/argparse.rst:1414
 msgid ""
 "The :meth:`!__call__` method may perform arbitrary actions, but will "
 "typically set attributes on the ``namespace`` based on ``dest`` and "
@@ -2990,7 +3002,7 @@ msgstr ""
 "O método :meth:`!__call__` pode executar ações arbitrárias, mas normalmente "
 "definirá atributos em ``namespace`` com base em ``dest`` e ``values``."
 
-#: ../../library/argparse.rst:1414
+#: ../../library/argparse.rst:1419
 msgid ""
 ":class:`!Action` subclasses can define a :meth:`!format_usage` method that "
 "takes no argument and return a string which will be used when printing the "
@@ -3002,7 +3014,7 @@ msgstr ""
 "ao exibir a mensagem de uso do programa. Se tal método não for fornecido, um "
 "padrão sensato será usado."
 
-#: ../../library/argparse.rst:1420
+#: ../../library/argparse.rst:1425
 msgid ""
 "A subclass of :class:`Action` for handling boolean flags with positive and "
 "negative options. Adding a single argument such as ``--foo`` automatically "
@@ -3014,7 +3026,7 @@ msgstr ""
 "cria automaticamente as opções ``--foo`` e ``--no-foo``, armazenando "
 "``True`` e ``False`` respectivamente::"
 
-#: ../../library/argparse.rst:1425
+#: ../../library/argparse.rst:1430
 msgid ""
 ">>> import argparse\n"
 ">>> parser = argparse.ArgumentParser()\n"
@@ -3028,11 +3040,11 @@ msgstr ""
 ">>> parser.parse_args(['--no-foo'])\n"
 "Namespace(foo=False)"
 
-#: ../../library/argparse.rst:1435
+#: ../../library/argparse.rst:1440
 msgid "The parse_args() method"
 msgstr "O método parse_args()"
 
-#: ../../library/argparse.rst:1439
+#: ../../library/argparse.rst:1444
 msgid ""
 "Convert argument strings to objects and assign them as attributes of the "
 "namespace.  Return the populated namespace."
@@ -3040,7 +3052,7 @@ msgstr ""
 "Converte strings de argumento em objetos e os atribui como atributos do "
 "espaço de nomes. Retorna o espaço de nomes preenchido."
 
-#: ../../library/argparse.rst:1442
+#: ../../library/argparse.rst:1447
 msgid ""
 "Previous calls to :meth:`add_argument` determine exactly what objects are "
 "created and how they are assigned. See the documentation for :meth:`!"
@@ -3050,7 +3062,7 @@ msgstr ""
 "objetos são criados e como eles são atribuídos. Veja a documentação de :meth:"
 "`!add_argument` para detalhes."
 
-#: ../../library/argparse.rst:1446
+#: ../../library/argparse.rst:1451
 msgid ""
 "args_ - List of strings to parse.  The default is taken from :data:`sys."
 "argv`."
@@ -3058,7 +3070,7 @@ msgstr ""
 "args_ - Lista de strings para analisar. O padrão é obtido de :data:`sys."
 "argv`."
 
-#: ../../library/argparse.rst:1449
+#: ../../library/argparse.rst:1454
 msgid ""
 "namespace_ - An object to take the attributes.  The default is a new empty :"
 "class:`Namespace` object."
@@ -3066,11 +3078,11 @@ msgstr ""
 "namespace_ - Um objeto para receber os atributos. O padrão é um novo objeto :"
 "class:`Namespace` vazio."
 
-#: ../../library/argparse.rst:1454
+#: ../../library/argparse.rst:1459
 msgid "Option value syntax"
 msgstr "Sintaxe de valores da opção"
 
-#: ../../library/argparse.rst:1456
+#: ../../library/argparse.rst:1461
 msgid ""
 "The :meth:`~ArgumentParser.parse_args` method supports several ways of "
 "specifying the value of an option (if it takes one).  In the simplest case, "
@@ -3080,7 +3092,7 @@ msgstr ""
 "especificar o valor de uma opção (se ele pegar uma). No caso mais simples, a "
 "opção e seu valor são passados como dois argumentos separados::"
 
-#: ../../library/argparse.rst:1460
+#: ../../library/argparse.rst:1465
 msgid ""
 ">>> parser = argparse.ArgumentParser(prog='PROG')\n"
 ">>> parser.add_argument('-x')\n"
@@ -3098,7 +3110,7 @@ msgstr ""
 ">>> parser.parse_args(['--foo', 'FOO'])\n"
 "Namespace(foo='FOO', x=None)"
 
-#: ../../library/argparse.rst:1468
+#: ../../library/argparse.rst:1473
 msgid ""
 "For long options (options with names longer than a single character), the "
 "option and value can also be passed as a single command-line argument, using "
@@ -3108,7 +3120,7 @@ msgstr ""
 "opção e o valor também podem ser passados como um único argumento de linha "
 "de comando, usando ``=`` para separá-los::"
 
-#: ../../library/argparse.rst:1472
+#: ../../library/argparse.rst:1477
 msgid ""
 ">>> parser.parse_args(['--foo=FOO'])\n"
 "Namespace(foo='FOO', x=None)"
@@ -3116,7 +3128,7 @@ msgstr ""
 ">>> parser.parse_args(['--foo=FOO'])\n"
 "Namespace(foo='FOO', x=None)"
 
-#: ../../library/argparse.rst:1475
+#: ../../library/argparse.rst:1480
 msgid ""
 "For short options (options only one character long), the option and its "
 "value can be concatenated::"
@@ -3124,7 +3136,7 @@ msgstr ""
 "Para opções curtas (opções com apenas um caractere), a opção e seu valor "
 "podem ser concatenados:"
 
-#: ../../library/argparse.rst:1478
+#: ../../library/argparse.rst:1483
 msgid ""
 ">>> parser.parse_args(['-xX'])\n"
 "Namespace(foo=None, x='X')"
@@ -3132,7 +3144,7 @@ msgstr ""
 ">>> parser.parse_args(['-xX'])\n"
 "Namespace(foo=None, x='X')"
 
-#: ../../library/argparse.rst:1481
+#: ../../library/argparse.rst:1486
 msgid ""
 "Several short options can be joined together, using only a single ``-`` "
 "prefix, as long as only the last option (or none of them) requires a value::"
@@ -3140,7 +3152,7 @@ msgstr ""
 "Várias opções curtas podem ser unidas, usando apenas um único prefixo ``-``, "
 "desde que apenas a última opção (ou nenhuma delas) exija um valor::"
 
-#: ../../library/argparse.rst:1484
+#: ../../library/argparse.rst:1489
 msgid ""
 ">>> parser = argparse.ArgumentParser(prog='PROG')\n"
 ">>> parser.add_argument('-x', action='store_true')\n"
@@ -3156,11 +3168,11 @@ msgstr ""
 ">>> parser.parse_args(['-xyzZ'])\n"
 "Namespace(x=True, y=True, z='Z')"
 
-#: ../../library/argparse.rst:1493
+#: ../../library/argparse.rst:1498
 msgid "Invalid arguments"
 msgstr "Argumentos inválidos"
 
-#: ../../library/argparse.rst:1495
+#: ../../library/argparse.rst:1500
 msgid ""
 "While parsing the command line, :meth:`~ArgumentParser.parse_args` checks "
 "for a variety of errors, including ambiguous options, invalid types, invalid "
@@ -3172,7 +3184,7 @@ msgstr ""
 "inválidas, número incorreto de argumentos posicionais, etc. Quando encontra "
 "tal erro, ele sai e imprime o erro junto com uma mensagem de uso::"
 
-#: ../../library/argparse.rst:1500
+#: ../../library/argparse.rst:1505
 msgid ""
 ">>> parser = argparse.ArgumentParser(prog='PROG')\n"
 ">>> parser.add_argument('--foo', type=int)\n"
@@ -3212,11 +3224,11 @@ msgstr ""
 "usage: PROG [-h] [--foo FOO] [bar]\n"
 "PROG: error: extra arguments found: badger"
 
-#: ../../library/argparse.rst:1521
+#: ../../library/argparse.rst:1526
 msgid "Arguments containing ``-``"
 msgstr "Argumentos contendo ``-``"
 
-#: ../../library/argparse.rst:1523
+#: ../../library/argparse.rst:1528
 msgid ""
 "The :meth:`~ArgumentParser.parse_args` method attempts to give errors "
 "whenever the user has clearly made a mistake, but some situations are "
@@ -3236,7 +3248,7 @@ msgstr ""
 "números negativos e não houver opções no analisador sintático que se pareçam "
 "com números negativos::"
 
-#: ../../library/argparse.rst:1531
+#: ../../library/argparse.rst:1536
 msgid ""
 ">>> parser = argparse.ArgumentParser(prog='PROG')\n"
 ">>> parser.add_argument('-x')\n"
@@ -3299,7 +3311,7 @@ msgstr ""
 "usage: PROG [-h] [-1 ONE] [foo]\n"
 "PROG: error: argument -1: expected one argument"
 
-#: ../../library/argparse.rst:1561
+#: ../../library/argparse.rst:1566
 msgid ""
 "If you have positional arguments that must begin with ``-`` and don't look "
 "like negative numbers, you can insert the pseudo-argument ``'--'`` which "
@@ -3311,7 +3323,7 @@ msgstr ""
 "que informa :meth:`~ArgumentParser.parse_args` que tudo depois disso é um "
 "argumento posicional::"
 
-#: ../../library/argparse.rst:1566
+#: ../../library/argparse.rst:1571
 msgid ""
 ">>> parser.parse_args(['--', '-f'])\n"
 "Namespace(foo='-f', one=None)"
@@ -3319,7 +3331,7 @@ msgstr ""
 ">>> parser.parse_args(['--', '-f'])\n"
 "Namespace(foo='-f', one=None)"
 
-#: ../../library/argparse.rst:1569
+#: ../../library/argparse.rst:1574
 msgid ""
 "See also :ref:`the argparse howto on ambiguous arguments <specifying-"
 "ambiguous-arguments>` for more details."
@@ -3327,11 +3339,11 @@ msgstr ""
 "Veja também :ref:`o tutorial do argparse sobre argumentos ambíguos "
 "<specifying-ambiguous-arguments>` para mais detalhes."
 
-#: ../../library/argparse.rst:1575
+#: ../../library/argparse.rst:1580
 msgid "Argument abbreviations (prefix matching)"
 msgstr "Abreviações de argumento (correspondência de prefixo)"
 
-#: ../../library/argparse.rst:1577
+#: ../../library/argparse.rst:1582
 msgid ""
 "The :meth:`~ArgumentParser.parse_args` method :ref:`by default "
 "<allow_abbrev>` allows long options to be abbreviated to a prefix, if the "
@@ -3341,7 +3353,7 @@ msgstr ""
 "permite que opções longas sejam abreviadas para um prefixo, se a abreviação "
 "não for ambígua (o prefixo corresponde a uma opção única)::"
 
-#: ../../library/argparse.rst:1581
+#: ../../library/argparse.rst:1586
 msgid ""
 ">>> parser = argparse.ArgumentParser(prog='PROG')\n"
 ">>> parser.add_argument('-bacon')\n"
@@ -3365,7 +3377,7 @@ msgstr ""
 "usage: PROG [-h] [-bacon BACON] [-badger BADGER]\n"
 "PROG: error: ambiguous option: -ba could match -badger, -bacon"
 
-#: ../../library/argparse.rst:1592
+#: ../../library/argparse.rst:1597
 msgid ""
 "An error is produced for arguments that could produce more than one options. "
 "This feature can be disabled by setting :ref:`allow_abbrev` to ``False``."
@@ -3374,11 +3386,11 @@ msgstr ""
 "Este recurso pode ser desabilitado definindo :ref:`allow_abbrev` como "
 "``False``."
 
-#: ../../library/argparse.rst:1598
+#: ../../library/argparse.rst:1603
 msgid "Beyond ``sys.argv``"
 msgstr "Além do ``sys.argv``"
 
-#: ../../library/argparse.rst:1600
+#: ../../library/argparse.rst:1605
 msgid ""
 "Sometimes it may be useful to have an :class:`ArgumentParser` parse "
 "arguments other than those of :data:`sys.argv`.  This can be accomplished by "
@@ -3390,7 +3402,7 @@ msgstr ""
 "feito passando uma lista de strings para :meth:`~ArgumentParser.parse_args`. "
 "Isso é útil para testar no prompt interativo::"
 
-#: ../../library/argparse.rst:1605
+#: ../../library/argparse.rst:1610
 msgid ""
 ">>> parser = argparse.ArgumentParser()\n"
 ">>> parser.add_argument(\n"
@@ -3416,11 +3428,11 @@ msgstr ""
 ">>> parser.parse_args(['1', '2', '3', '4', '--sum'])\n"
 "Namespace(accumulate=<built-in function sum>, integers=[1, 2, 3, 4])"
 
-#: ../../library/argparse.rst:1620
+#: ../../library/argparse.rst:1625
 msgid "The Namespace object"
 msgstr "O objeto Namespace"
 
-#: ../../library/argparse.rst:1624
+#: ../../library/argparse.rst:1629
 msgid ""
 "Simple class used by default by :meth:`~ArgumentParser.parse_args` to create "
 "an object holding attributes and return it."
@@ -3428,7 +3440,7 @@ msgstr ""
 "Classe simples usada por padrão por :meth:`~ArgumentParser.parse_args` para "
 "criar um objeto contendo atributos e retorná-lo."
 
-#: ../../library/argparse.rst:1627
+#: ../../library/argparse.rst:1632
 msgid ""
 "This class is deliberately simple, just an :class:`object` subclass with a "
 "readable string representation. If you prefer to have dict-like view of the "
@@ -3439,7 +3451,7 @@ msgstr ""
 "atributos do tipo dict, você pode usar o idioma padrão do Python, :func:"
 "`vars`::"
 
-#: ../../library/argparse.rst:1631
+#: ../../library/argparse.rst:1636
 msgid ""
 ">>> parser = argparse.ArgumentParser()\n"
 ">>> parser.add_argument('--foo')\n"
@@ -3453,7 +3465,7 @@ msgstr ""
 ">>> vars(args)\n"
 "{'foo': 'BAR'}"
 
-#: ../../library/argparse.rst:1637
+#: ../../library/argparse.rst:1642
 msgid ""
 "It may also be useful to have an :class:`ArgumentParser` assign attributes "
 "to an already existing object, rather than a new :class:`Namespace` object.  "
@@ -3463,7 +3475,7 @@ msgstr ""
 "um objeto já existente, em vez de um novo objeto :class:`Namespace`. Isso "
 "pode ser obtido especificando o argumento nomeado ``namespace=``::"
 
-#: ../../library/argparse.rst:1641
+#: ../../library/argparse.rst:1646
 msgid ""
 ">>> class C:\n"
 "...     pass\n"
@@ -3485,15 +3497,15 @@ msgstr ""
 ">>> c.foo\n"
 "'BAR'"
 
-#: ../../library/argparse.rst:1653
+#: ../../library/argparse.rst:1658
 msgid "Other utilities"
 msgstr "Outros utilitários"
 
-#: ../../library/argparse.rst:1656
+#: ../../library/argparse.rst:1661
 msgid "Sub-commands"
 msgstr "Subcomandos"
 
-#: ../../library/argparse.rst:1663
+#: ../../library/argparse.rst:1668
 msgid ""
 "Many programs split up their functionality into a number of subcommands, for "
 "example, the ``svn`` program can invoke subcommands like ``svn checkout``, "
@@ -3520,11 +3532,11 @@ msgstr ""
 "ArgumentParser` e retorna um objeto :class:`!ArgumentParser` que pode ser "
 "modificado normalmente."
 
-#: ../../library/argparse.rst:1675
+#: ../../library/argparse.rst:1680
 msgid "Description of parameters:"
 msgstr "Descrição de parâmetros:"
 
-#: ../../library/argparse.rst:1677
+#: ../../library/argparse.rst:1682
 msgid ""
 "*title* - title for the sub-parser group in help output; by default "
 "\"subcommands\" if description is provided, otherwise uses title for "
@@ -3534,7 +3546,7 @@ msgstr ""
 "padrão \"subcomandos\" se a descrição for fornecida, caso contrário, usa o "
 "título para argumentos posicionais"
 
-#: ../../library/argparse.rst:1681
+#: ../../library/argparse.rst:1686
 msgid ""
 "*description* - description for the sub-parser group in help output, by "
 "default ``None``"
@@ -3542,7 +3554,7 @@ msgstr ""
 "*description* - descrição para o grupo de subanalisadores na saída de ajuda, "
 "por padrão ``None``"
 
-#: ../../library/argparse.rst:1684
+#: ../../library/argparse.rst:1689
 msgid ""
 "*prog* - usage information that will be displayed with sub-command help, by "
 "default the name of the program and any positional arguments before the "
@@ -3552,7 +3564,7 @@ msgstr ""
 "por padrão o nome do programa e quaisquer argumentos posicionais antes do "
 "argumento do subanalisador"
 
-#: ../../library/argparse.rst:1688
+#: ../../library/argparse.rst:1693
 msgid ""
 "*parser_class* - class which will be used to create sub-parser instances, by "
 "default the class of the current parser (e.g. :class:`ArgumentParser`)"
@@ -3561,7 +3573,7 @@ msgstr ""
 "subanalisadores, por padrão a classe do analisador atual (por exemplo, :"
 "class:`ArgumentParser`)"
 
-#: ../../library/argparse.rst:1691
+#: ../../library/argparse.rst:1696
 msgid ""
 "action_ - the basic type of action to be taken when this argument is "
 "encountered at the command line"
@@ -3569,7 +3581,7 @@ msgstr ""
 "action_ - o tipo básico de ação a ser executada quando esse argumento é "
 "encontrado na linha de comando"
 
-#: ../../library/argparse.rst:1694
+#: ../../library/argparse.rst:1699
 msgid ""
 "dest_ - name of the attribute under which sub-command name will be stored; "
 "by default ``None`` and no value is stored"
@@ -3577,7 +3589,7 @@ msgstr ""
 "dest_ - nome do atributo sob o qual o nome do subcomando será armazenado; "
 "por padrão ``None`` e nenhum valor é armazenado"
 
-#: ../../library/argparse.rst:1697
+#: ../../library/argparse.rst:1702
 msgid ""
 "required_ - Whether or not a subcommand must be provided, by default "
 "``False`` (added in 3.7)"
@@ -3585,13 +3597,13 @@ msgstr ""
 "required_ - Se um subcomando deve ou não ser fornecido, por padrão ``False`` "
 "(adicionado em 3.7)"
 
-#: ../../library/argparse.rst:1700
+#: ../../library/argparse.rst:1705
 msgid "help_ - help for sub-parser group in help output, by default ``None``"
 msgstr ""
 "help_ - ajuda para o grupo de subanalisadores na saída de ajuda, por padrão "
 "``None``"
 
-#: ../../library/argparse.rst:1702
+#: ../../library/argparse.rst:1707
 msgid ""
 "metavar_ - string presenting available subcommands in help; by default it is "
 "``None`` and presents subcommands in form {cmd1, cmd2, ..}"
@@ -3599,11 +3611,11 @@ msgstr ""
 "metavar_ - string que apresenta os subcomandos disponíveis na ajuda; por "
 "padrão é ``None`` e apresenta os subcomandos no formato {cmd1, cmd2, ..}"
 
-#: ../../library/argparse.rst:1705
+#: ../../library/argparse.rst:1710
 msgid "Some example usage::"
 msgstr "Alguns exemplos de uso::"
 
-#: ../../library/argparse.rst:1707
+#: ../../library/argparse.rst:1712
 msgid ""
 ">>> # create the top-level parser\n"
 ">>> parser = argparse.ArgumentParser(prog='PROG')\n"
@@ -3645,7 +3657,7 @@ msgstr ""
 ">>> parser.parse_args(['--foo', 'b', '--baz', 'Z'])\n"
 "Namespace(baz='Z', foo=True)"
 
-#: ../../library/argparse.rst:1726
+#: ../../library/argparse.rst:1731
 msgid ""
 "Note that the object returned by :meth:`parse_args` will only contain "
 "attributes for the main parser and the subparser that was selected by the "
@@ -3661,7 +3673,7 @@ msgstr ""
 "``bar`` estão presentes, e quando o comando ``b`` é especificado, apenas os "
 "atributos ``foo`` e ``baz`` estão presentes."
 
-#: ../../library/argparse.rst:1733
+#: ../../library/argparse.rst:1738
 msgid ""
 "Similarly, when a help message is requested from a subparser, only the help "
 "for that particular parser will be printed.  The help message will not "
@@ -3676,7 +3688,7 @@ msgstr ""
 "entretanto, pode ser dada fornecendo o argumento ``help=`` para :meth:"
 "`~_SubParsersAction.add_parser` como acima.)"
 
-#: ../../library/argparse.rst:1741
+#: ../../library/argparse.rst:1746
 msgid ""
 ">>> parser.parse_args(['--help'])\n"
 "usage: PROG [-h] [--foo] {a,b} ...\n"
@@ -3734,7 +3746,7 @@ msgstr ""
 "  -h, --help     show this help message and exit\n"
 "  --baz {X,Y,Z}  baz help"
 
-#: ../../library/argparse.rst:1769
+#: ../../library/argparse.rst:1774
 msgid ""
 "The :meth:`add_subparsers` method also supports ``title`` and "
 "``description`` keyword arguments.  When either is present, the subparser's "
@@ -3745,7 +3757,7 @@ msgstr ""
 "presente, os comandos do subanalisador aparecerão em seu próprio grupo na "
 "saída de ajuda. Por exemplo::"
 
-#: ../../library/argparse.rst:1773
+#: ../../library/argparse.rst:1778
 msgid ""
 ">>> parser = argparse.ArgumentParser()\n"
 ">>> subparsers = parser.add_subparsers(title='subcommands',\n"
@@ -3781,7 +3793,7 @@ msgstr ""
 "\n"
 "  {foo,bar}   additional help"
 
-#: ../../library/argparse.rst:1790
+#: ../../library/argparse.rst:1795
 msgid ""
 "Furthermore, :meth:`~_SubParsersAction.add_parser` supports an additional "
 "*aliases* argument, which allows multiple strings to refer to the same "
@@ -3793,7 +3805,7 @@ msgstr ""
 "ao mesmo subanalisador. Este exemplo, como ``svn``, alias ``co`` como uma "
 "abreviação para ``checkout``::"
 
-#: ../../library/argparse.rst:1795
+#: ../../library/argparse.rst:1800
 msgid ""
 ">>> parser = argparse.ArgumentParser()\n"
 ">>> subparsers = parser.add_subparsers()\n"
@@ -3809,7 +3821,7 @@ msgstr ""
 ">>> parser.parse_args(['co', 'bar'])\n"
 "Namespace(foo='bar')"
 
-#: ../../library/argparse.rst:1802
+#: ../../library/argparse.rst:1807
 msgid ""
 ":meth:`~_SubParsersAction.add_parser` supports also an additional "
 "*deprecated* argument, which allows to deprecate the subparser."
@@ -3817,7 +3829,7 @@ msgstr ""
 ":meth:`~_SubParsersAction.add_parser` oferece suporte também um argumento "
 "adicional *deprecated*, que permite descontinuar o subanalisador."
 
-#: ../../library/argparse.rst:1816
+#: ../../library/argparse.rst:1821
 msgid ""
 "One particularly effective way of handling subcommands is to combine the use "
 "of the :meth:`add_subparsers` method with calls to :meth:`set_defaults` so "
@@ -3829,7 +3841,7 @@ msgstr ""
 "que cada subanalisador saiba qual função Python ele deve executar. Por "
 "exemplo::"
 
-#: ../../library/argparse.rst:1821
+#: ../../library/argparse.rst:1826
 msgid ""
 ">>> # subcommand functions\n"
 ">>> def foo(args):\n"
@@ -3895,7 +3907,7 @@ msgstr ""
 ">>> args.func(args)\n"
 "((XYZYX))"
 
-#: ../../library/argparse.rst:1853
+#: ../../library/argparse.rst:1858
 msgid ""
 "This way, you can let :meth:`parse_args` do the job of calling the "
 "appropriate function after argument parsing is complete.  Associating "
@@ -3912,7 +3924,7 @@ msgstr ""
 "invocado, o argumento nomeado ``dest`` para a chamada :meth:`add_subparsers` "
 "funcionará::"
 
-#: ../../library/argparse.rst:1860
+#: ../../library/argparse.rst:1865
 msgid ""
 ">>> parser = argparse.ArgumentParser()\n"
 ">>> subparsers = parser.add_subparsers(dest='subparser_name')\n"
@@ -3932,11 +3944,11 @@ msgstr ""
 ">>> parser.parse_args(['2', 'frobble'])\n"
 "Namespace(subparser_name='2', y='frobble')"
 
-#: ../../library/argparse.rst:1869
+#: ../../library/argparse.rst:1874
 msgid "New *required* keyword-only parameter."
 msgstr "Novo parâmetro somente-nomeado *required*."
 
-#: ../../library/argparse.rst:1872
+#: ../../library/argparse.rst:1877
 msgid ""
 "Subparser's *prog* is no longer affected by a custom usage message in the "
 "main parser."
@@ -3944,11 +3956,11 @@ msgstr ""
 "O *prog* do subanalisador não é mais afetado por uma mensagem de uso "
 "personalizada no analisador principal."
 
-#: ../../library/argparse.rst:1878
+#: ../../library/argparse.rst:1883
 msgid "FileType objects"
 msgstr "Objetos FileType"
 
-#: ../../library/argparse.rst:1882
+#: ../../library/argparse.rst:1887
 msgid ""
 "The :class:`FileType` factory creates objects that can be passed to the type "
 "argument of :meth:`ArgumentParser.add_argument`.  Arguments that have :class:"
@@ -3963,7 +3975,7 @@ msgstr ""
 "codificações e tratamento de erros (veja a função :func:`open` para mais "
 "detalhes)::"
 
-#: ../../library/argparse.rst:1888
+#: ../../library/argparse.rst:1893
 msgid ""
 ">>> parser = argparse.ArgumentParser()\n"
 ">>> parser.add_argument('--raw', type=argparse.FileType('wb', 0))\n"
@@ -3981,7 +3993,7 @@ msgstr ""
 "Namespace(out=<_io.TextIOWrapper name='file.txt' mode='w' encoding='UTF-8'>, "
 "raw=<_io.FileIO name='raw.dat' mode='wb'>)"
 
-#: ../../library/argparse.rst:1894
+#: ../../library/argparse.rst:1899
 msgid ""
 "FileType objects understand the pseudo-argument ``'-'`` and automatically "
 "convert this into :data:`sys.stdin` for readable :class:`FileType` objects "
@@ -3991,7 +4003,7 @@ msgstr ""
 "automaticamente em :data:`sys.stdin` para objetos :class:`FileType` legíveis "
 "e :data:`sys.stdout` para objetos :class:`FileType` graváveis::"
 
-#: ../../library/argparse.rst:1898
+#: ../../library/argparse.rst:1903
 msgid ""
 ">>> parser = argparse.ArgumentParser()\n"
 ">>> parser.add_argument('infile', type=argparse.FileType('r'))\n"
@@ -4003,7 +4015,7 @@ msgstr ""
 ">>> parser.parse_args(['-'])\n"
 "Namespace(infile=<_io.TextIOWrapper name='<stdin>' encoding='UTF-8'>)"
 
-#: ../../library/argparse.rst:1905
+#: ../../library/argparse.rst:1910
 msgid ""
 "If one argument uses *FileType* and then a subsequent argument fails, an "
 "error is reported but the file is not automatically closed. This can also "
@@ -4017,15 +4029,15 @@ msgstr ""
 "que o analisador sintático tenha sido executado e então usar a instrução :"
 "keyword:`with` para gerenciar os arquivos."
 
-#: ../../library/argparse.rst:1911
+#: ../../library/argparse.rst:1916
 msgid "Added the *encodings* and *errors* parameters."
 msgstr "Adicionados os parâmetros *encodings* e *errors*."
 
-#: ../../library/argparse.rst:1918
+#: ../../library/argparse.rst:1923
 msgid "Argument groups"
 msgstr "Grupos de argumentos"
 
-#: ../../library/argparse.rst:1923
+#: ../../library/argparse.rst:1928
 msgid ""
 "By default, :class:`ArgumentParser` groups command-line arguments into "
 "\"positional arguments\" and \"options\" when displaying help messages. When "
@@ -4038,7 +4050,7 @@ msgstr ""
 "há um melhor agrupamento conceitual de argumentos do que este padrão, grupos "
 "apropriados podem ser criados usando o método :meth:`!add_argument_group`::"
 
-#: ../../library/argparse.rst:1929
+#: ../../library/argparse.rst:1934
 msgid ""
 ">>> parser = argparse.ArgumentParser(prog='PROG', add_help=False)\n"
 ">>> group = parser.add_argument_group('group')\n"
@@ -4062,7 +4074,7 @@ msgstr ""
 "  bar    ajuda de bar\n"
 "  --foo FOO  ajuda de foo"
 
-#: ../../library/argparse.rst:1940
+#: ../../library/argparse.rst:1945
 msgid ""
 "The :meth:`add_argument_group` method returns an argument group object which "
 "has an :meth:`~ArgumentParser.add_argument` method just like a regular :"
@@ -4080,7 +4092,7 @@ msgstr ""
 "aceita argumentos *title* e *description* que podem ser usados para "
 "personalizar esta exibição::"
 
-#: ../../library/argparse.rst:1948
+#: ../../library/argparse.rst:1953
 msgid ""
 ">>> parser = argparse.ArgumentParser(prog='PROG', add_help=False)\n"
 ">>> group1 = parser.add_argument_group('group1', 'group1 description')\n"
@@ -4118,7 +4130,7 @@ msgstr ""
 "\n"
 "  --bar BAR  ajuda de bar"
 
-#: ../../library/argparse.rst:1966
+#: ../../library/argparse.rst:1971
 msgid ""
 "The optional, keyword-only parameters argument_default_ and "
 "conflict_handler_ allow for finer-grained control of the behavior of the "
@@ -4132,7 +4144,7 @@ msgstr ""
 "construtor :class:`ArgumentParser`, mas se aplicam especificamente ao grupo "
 "de argumentos em vez de ao analisador sintático inteiro."
 
-#: ../../library/argparse.rst:1971
+#: ../../library/argparse.rst:1976
 msgid ""
 "Note that any arguments not in your user-defined groups will end up back in "
 "the usual \"positional arguments\" and \"optional arguments\" sections."
@@ -4141,7 +4153,7 @@ msgstr ""
 "usuário retornarão às seções usuais de \"argumentos posicionais\" e "
 "\"argumentos opcionais\"."
 
-#: ../../library/argparse.rst:1974
+#: ../../library/argparse.rst:1979
 msgid ""
 "Calling :meth:`add_argument_group` on an argument group now raises an "
 "exception. This nesting was never supported, often failed to work correctly, "
@@ -4151,17 +4163,17 @@ msgstr ""
 "uma exceção. Esse aninhamento nunca foi suportado, frequentemente não "
 "funcionava corretamente e era exposto involuntariamente por meio de herança."
 
-#: ../../library/argparse.rst:1979
+#: ../../library/argparse.rst:1984
 msgid "Passing prefix_chars_ to :meth:`add_argument_group` is now deprecated."
 msgstr ""
 "Passar prefix_chars_ para :meth:`add_argument_group` agora está "
 "descontinuado."
 
-#: ../../library/argparse.rst:1985
+#: ../../library/argparse.rst:1990
 msgid "Mutual exclusion"
 msgstr "Exclusão mútua"
 
-#: ../../library/argparse.rst:1989
+#: ../../library/argparse.rst:1994
 msgid ""
 "Create a mutually exclusive group. :mod:`!argparse` will make sure that only "
 "one of the arguments in the mutually exclusive group was present on the "
@@ -4171,7 +4183,7 @@ msgstr ""
 "dos argumentos no grupo mutuamente exclusivo esteja presente na linha de "
 "comando::"
 
-#: ../../library/argparse.rst:1993
+#: ../../library/argparse.rst:1998
 msgid ""
 ">>> parser = argparse.ArgumentParser(prog='PROG')\n"
 ">>> group = parser.add_mutually_exclusive_group()\n"
@@ -4197,7 +4209,7 @@ msgstr ""
 "usage: PROG [-h] [--foo | --bar]\n"
 "PROG: error: argument --bar: not allowed with argument --foo"
 
-#: ../../library/argparse.rst:2005
+#: ../../library/argparse.rst:2010
 msgid ""
 "The :meth:`add_mutually_exclusive_group` method also accepts a *required* "
 "argument, to indicate that at least one of the mutually exclusive arguments "
@@ -4207,7 +4219,7 @@ msgstr ""
 "*obrigatório*, para indicar que pelo menos um dos argumentos mutuamente "
 "exclusivos é necessário::"
 
-#: ../../library/argparse.rst:2009
+#: ../../library/argparse.rst:2014
 msgid ""
 ">>> parser = argparse.ArgumentParser(prog='PROG')\n"
 ">>> group = parser.add_mutually_exclusive_group(required=True)\n"
@@ -4225,7 +4237,7 @@ msgstr ""
 "usage: PROG [-h] (--foo | --bar)\n"
 "PROG: error: one of the arguments --foo --bar is required"
 
-#: ../../library/argparse.rst:2017
+#: ../../library/argparse.rst:2022
 msgid ""
 "Note that currently mutually exclusive argument groups do not support the "
 "*title* and *description* arguments of :meth:`~ArgumentParser."
@@ -4238,7 +4250,7 @@ msgstr ""
 "exclusivo pode ser adicionado a um grupo de argumentos que tenha um título e "
 "uma descrição. Por exemplo::"
 
-#: ../../library/argparse.rst:2023
+#: ../../library/argparse.rst:2028
 msgid ""
 ">>> parser = argparse.ArgumentParser(prog='PROG')\n"
 ">>> group = parser.add_argument_group('Group title', 'Group description')\n"
@@ -4275,7 +4287,7 @@ msgstr ""
 "  --foo FOO   foo help\n"
 "  --bar BAR   bar help"
 
-#: ../../library/argparse.rst:2040
+#: ../../library/argparse.rst:2045
 msgid ""
 "Calling :meth:`add_argument_group` or :meth:`add_mutually_exclusive_group` "
 "on a mutually exclusive group now raises an exception. This nesting was "
@@ -4287,11 +4299,11 @@ msgstr ""
 "nunca foi suportado, frequentemente não funcionava corretamente e era "
 "exposto involuntariamente por meio de herança."
 
-#: ../../library/argparse.rst:2048
+#: ../../library/argparse.rst:2053
 msgid "Parser defaults"
 msgstr "Padrões do analisador sintático"
 
-#: ../../library/argparse.rst:2052
+#: ../../library/argparse.rst:2057
 msgid ""
 "Most of the time, the attributes of the object returned by :meth:"
 "`parse_args` will be fully determined by inspecting the command-line "
@@ -4305,7 +4317,7 @@ msgstr ""
 "que alguns atributos adicionais que são determinados sem qualquer inspeção "
 "da linha de comando sejam adicionados::"
 
-#: ../../library/argparse.rst:2058
+#: ../../library/argparse.rst:2063
 msgid ""
 ">>> parser = argparse.ArgumentParser()\n"
 ">>> parser.add_argument('foo', type=int)\n"
@@ -4319,14 +4331,14 @@ msgstr ""
 ">>> parser.parse_args(['736'])\n"
 "Namespace(bar=42, baz='badger', foo=736)"
 
-#: ../../library/argparse.rst:2064
+#: ../../library/argparse.rst:2069
 msgid ""
 "Note that parser-level defaults always override argument-level defaults::"
 msgstr ""
 "Observe que os padrões no nível do analisador sempre substituem os padrões "
 "no nível do argumento:"
 
-#: ../../library/argparse.rst:2066
+#: ../../library/argparse.rst:2071
 msgid ""
 ">>> parser = argparse.ArgumentParser()\n"
 ">>> parser.add_argument('--foo', default='bar')\n"
@@ -4340,7 +4352,7 @@ msgstr ""
 ">>> parser.parse_args([])\n"
 "Namespace(foo='spam')"
 
-#: ../../library/argparse.rst:2072
+#: ../../library/argparse.rst:2077
 msgid ""
 "Parser-level defaults can be particularly useful when working with multiple "
 "parsers.  See the :meth:`~ArgumentParser.add_subparsers` method for an "
@@ -4350,7 +4362,7 @@ msgstr ""
 "com vários analisadores. Veja o método :meth:`~ArgumentParser."
 "add_subparsers` para um exemplo desse tipo."
 
-#: ../../library/argparse.rst:2078
+#: ../../library/argparse.rst:2083
 msgid ""
 "Get the default value for a namespace attribute, as set by either :meth:"
 "`~ArgumentParser.add_argument` or by :meth:`~ArgumentParser.set_defaults`::"
@@ -4359,7 +4371,7 @@ msgstr ""
 "por :meth:`~ArgumentParser.add_argument` ou por :meth:`~ArgumentParser."
 "set_defaults`::"
 
-#: ../../library/argparse.rst:2082
+#: ../../library/argparse.rst:2087
 msgid ""
 ">>> parser = argparse.ArgumentParser()\n"
 ">>> parser.add_argument('--foo', default='badger')\n"
@@ -4371,11 +4383,11 @@ msgstr ""
 ">>> parser.get_default('foo')\n"
 "'badger'"
 
-#: ../../library/argparse.rst:2089
+#: ../../library/argparse.rst:2094
 msgid "Printing help"
 msgstr "Imprimindo a ajuda"
 
-#: ../../library/argparse.rst:2091
+#: ../../library/argparse.rst:2096
 msgid ""
 "In most typical applications, :meth:`~ArgumentParser.parse_args` will take "
 "care of formatting and printing any usage or error messages.  However, "
@@ -4385,7 +4397,7 @@ msgstr ""
 "cuidará da formatação e da impressão de quaisquer mensagens de uso ou erro. "
 "No entanto, vários métodos de formatação estão disponíveis:"
 
-#: ../../library/argparse.rst:2097
+#: ../../library/argparse.rst:2102
 msgid ""
 "Print a brief description of how the :class:`ArgumentParser` should be "
 "invoked on the command line.  If *file* is ``None``, :data:`sys.stdout` is "
@@ -4395,7 +4407,7 @@ msgstr ""
 "invocado na linha de comando. Se *file* for ``None``, :data:`sys.stdout` "
 "será presumido."
 
-#: ../../library/argparse.rst:2103
+#: ../../library/argparse.rst:2108
 msgid ""
 "Print a help message, including the program usage and information about the "
 "arguments registered with the :class:`ArgumentParser`.  If *file* is "
@@ -4405,7 +4417,7 @@ msgstr ""
 "sobre os argumentos registrados com o :class:`ArgumentParser`. Se *file* for "
 "``None``, :data:`sys.stdout` será presumido."
 
-#: ../../library/argparse.rst:2107
+#: ../../library/argparse.rst:2112
 msgid ""
 "There are also variants of these methods that simply return a string instead "
 "of printing it:"
@@ -4413,7 +4425,7 @@ msgstr ""
 "Também há variantes desses métodos que simplesmente retornam uma string em "
 "vez de imprimi-la:"
 
-#: ../../library/argparse.rst:2112
+#: ../../library/argparse.rst:2117
 msgid ""
 "Return a string containing a brief description of how the :class:"
 "`ArgumentParser` should be invoked on the command line."
@@ -4421,7 +4433,7 @@ msgstr ""
 "Retorna uma string contendo uma breve descrição de como o :class:"
 "`ArgumentParser` deve ser invocado na linha de comando."
 
-#: ../../library/argparse.rst:2117
+#: ../../library/argparse.rst:2122
 msgid ""
 "Return a string containing a help message, including the program usage and "
 "information about the arguments registered with the :class:`ArgumentParser`."
@@ -4430,11 +4442,11 @@ msgstr ""
 "programa e informações sobre os argumentos registrados com o :class:"
 "`ArgumentParser`."
 
-#: ../../library/argparse.rst:2122
+#: ../../library/argparse.rst:2127
 msgid "Partial parsing"
 msgstr "Análise parcial"
 
-#: ../../library/argparse.rst:2126
+#: ../../library/argparse.rst:2131
 msgid ""
 "Sometimes a script only needs to handle a specific set of command-line "
 "arguments, leaving any unrecognized arguments for another script or program. "
@@ -4446,7 +4458,7 @@ msgstr ""
 "reconhecidos para outro script ou programa. Nesses casos, o método :meth:"
 "`~ArgumentParser.parse_known_args` pode ser útil."
 
-#: ../../library/argparse.rst:2131
+#: ../../library/argparse.rst:2136
 msgid ""
 "This method works similarly to :meth:`~ArgumentParser.parse_args`, but it "
 "does not raise an error for extra, unrecognized arguments. Instead, it "
@@ -4459,7 +4471,7 @@ msgstr ""
 "dois itens que contém o espaço de nomes preenchido e a lista de quaisquer "
 "argumentos não reconhecidos."
 
-#: ../../library/argparse.rst:2138
+#: ../../library/argparse.rst:2143
 msgid ""
 ">>> parser = argparse.ArgumentParser()\n"
 ">>> parser.add_argument('--foo', action='store_true')\n"
@@ -4473,7 +4485,7 @@ msgstr ""
 ">>> parser.parse_known_args(['--foo', '--badger', 'BAR', 'spam'])\n"
 "(Namespace(bar='BAR', foo=True), ['--badger', 'spam'])"
 
-#: ../../library/argparse.rst:2145
+#: ../../library/argparse.rst:2150
 msgid ""
 ":ref:`Prefix matching <prefix-matching>` rules apply to :meth:"
 "`~ArgumentParser.parse_known_args`. The parser may consume an option even if "
@@ -4485,11 +4497,11 @@ msgstr ""
 "mesmo que seja apenas um prefixo de uma de suas opções conhecidas, em vez de "
 "deixá-la na lista de argumentos restantes."
 
-#: ../../library/argparse.rst:2152
+#: ../../library/argparse.rst:2157
 msgid "Customizing file parsing"
 msgstr "Personalizando a análise de arquivos"
 
-#: ../../library/argparse.rst:2156
+#: ../../library/argparse.rst:2161
 msgid ""
 "Arguments that are read from a file (see the *fromfile_prefix_chars* keyword "
 "argument to the :class:`ArgumentParser` constructor) are read one argument "
@@ -4501,7 +4513,7 @@ msgstr ""
 "com um argumento por linha. :meth:`convert_arg_line_to_args` pode ser "
 "substituído para uma leitura mais sofisticada."
 
-#: ../../library/argparse.rst:2161
+#: ../../library/argparse.rst:2166
 msgid ""
 "This method takes a single argument *arg_line* which is a string read from "
 "the argument file.  It returns a list of arguments parsed from this string. "
@@ -4512,7 +4524,7 @@ msgstr ""
 "string. O método é chamado uma vez por linha lida do arquivo de argumentos, "
 "em ordem."
 
-#: ../../library/argparse.rst:2165
+#: ../../library/argparse.rst:2170
 msgid ""
 "A useful override of this method is one that treats each space-separated "
 "word as an argument.  The following example demonstrates how to do this::"
@@ -4520,7 +4532,7 @@ msgstr ""
 "Uma substituição útil desse método é aquela que trata cada palavra separada "
 "por espaços como um argumento. O exemplo a seguir demonstra como fazer isso::"
 
-#: ../../library/argparse.rst:2168
+#: ../../library/argparse.rst:2173
 msgid ""
 "class MyArgumentParser(argparse.ArgumentParser):\n"
 "    def convert_arg_line_to_args(self, arg_line):\n"
@@ -4530,11 +4542,11 @@ msgstr ""
 "    def convert_arg_line_to_args(self, arg_line):\n"
 "        return arg_line.split()"
 
-#: ../../library/argparse.rst:2174
+#: ../../library/argparse.rst:2179
 msgid "Exiting methods"
 msgstr "Métodos de saída"
 
-#: ../../library/argparse.rst:2178
+#: ../../library/argparse.rst:2183
 msgid ""
 "This method terminates the program, exiting with the specified *status* and, "
 "if given, it prints a *message* to :data:`sys.stderr` before that. The user "
@@ -4545,7 +4557,7 @@ msgstr ""
 "usuário pode sobrescrever este método para lidar com essas etapas de forma "
 "diferente::"
 
-#: ../../library/argparse.rst:2182
+#: ../../library/argparse.rst:2187
 msgid ""
 "class ErrorCatchingArgumentParser(argparse.ArgumentParser):\n"
 "    def exit(self, status=0, message=None):\n"
@@ -4559,7 +4571,7 @@ msgstr ""
 "            raise Exception(f'Exiting because of an error: {message}')\n"
 "        exit(status)"
 
-#: ../../library/argparse.rst:2190
+#: ../../library/argparse.rst:2195
 msgid ""
 "This method prints a usage message, including the *message*, to :data:`sys."
 "stderr` and terminates the program with a status code of 2."
@@ -4567,11 +4579,11 @@ msgstr ""
 "Este método imprime uma mensagem de uso, incluindo a *message*, em :data:"
 "`sys.stderr` e encerra o programa com um código de status 2."
 
-#: ../../library/argparse.rst:2195
+#: ../../library/argparse.rst:2200
 msgid "Intermixed parsing"
 msgstr "Análise misturada"
 
-#: ../../library/argparse.rst:2200
+#: ../../library/argparse.rst:2205
 msgid ""
 "A number of Unix commands allow the user to intermix optional arguments with "
 "positional arguments.  The :meth:`~ArgumentParser.parse_intermixed_args` "
@@ -4583,7 +4595,7 @@ msgstr ""
 "parse_intermixed_args` e :meth:`~ArgumentParser.parse_known_intermixed_args` "
 "oferecem suporte a esse estilo de análise."
 
-#: ../../library/argparse.rst:2205
+#: ../../library/argparse.rst:2210
 msgid ""
 "These parsers do not support all the :mod:`!argparse` features, and will "
 "raise exceptions if unsupported features are used.  In particular, "
@@ -4595,7 +4607,7 @@ msgstr ""
 "Em particular, subanalisadores e grupos mutuamente exclusivos que incluem "
 "tanto opcionais quanto posicionais não são suportados."
 
-#: ../../library/argparse.rst:2210
+#: ../../library/argparse.rst:2215
 msgid ""
 "The following example shows the difference between :meth:`~ArgumentParser."
 "parse_known_args` and :meth:`~ArgumentParser.parse_intermixed_args`: the "
@@ -4607,7 +4619,7 @@ msgstr ""
 "primeiro retorna ``['2', '3']`` como argumentos não analisados, enquanto o "
 "último coleta todos os posicionais em ``rest``. ::"
 
-#: ../../library/argparse.rst:2216
+#: ../../library/argparse.rst:2221
 msgid ""
 ">>> parser = argparse.ArgumentParser()\n"
 ">>> parser.add_argument('--foo')\n"
@@ -4627,7 +4639,7 @@ msgstr ""
 ">>> parser.parse_intermixed_args('doit 1 --foo bar 2 3'.split())\n"
 "Namespace(cmd='doit', foo='bar', rest=[1, 2, 3])"
 
-#: ../../library/argparse.rst:2225
+#: ../../library/argparse.rst:2230
 msgid ""
 ":meth:`~ArgumentParser.parse_known_intermixed_args` returns a two item tuple "
 "containing the populated namespace and the list of remaining argument "
@@ -4639,11 +4651,11 @@ msgstr ""
 "argumentos restantes. :meth:`~ArgumentParser.parse_intermixed_args` levanta "
 "um erro se houver strings de argumentos não analisadas restantes."
 
-#: ../../library/argparse.rst:2234
+#: ../../library/argparse.rst:2239
 msgid "Registering custom types or actions"
 msgstr "Registrando ações e tipos personalizados"
 
-#: ../../library/argparse.rst:2238
+#: ../../library/argparse.rst:2243
 msgid ""
 "Sometimes it's desirable to use a custom string in error messages to provide "
 "more user-friendly output. In these cases, :meth:`!register` can be used to "
@@ -4656,7 +4668,7 @@ msgstr ""
 "analisador sintático e permitir que você faça referência ao tipo pelo nome "
 "registrado em vez do nome do chamável."
 
-#: ../../library/argparse.rst:2243
+#: ../../library/argparse.rst:2248
 msgid ""
 "The :meth:`!register` method accepts three arguments - a *registry_name*, "
 "specifying the internal registry where the object will be stored (e.g., "
@@ -4668,14 +4680,14 @@ msgstr ""
 "``action``, ``type``), *value*, que é a chave sob a qual o objeto será "
 "registrado, e object, o chamável a ser registrado."
 
-#: ../../library/argparse.rst:2248
+#: ../../library/argparse.rst:2253
 msgid ""
 "The following example shows how to register a custom type with a parser::"
 msgstr ""
 "O exemplo a seguir mostra como registrar um tipo personalizado com um "
 "analisador:"
 
-#: ../../library/argparse.rst:2250
+#: ../../library/argparse.rst:2255
 msgid ""
 ">>> import argparse\n"
 ">>> parser = argparse.ArgumentParser()\n"
@@ -4703,15 +4715,15 @@ msgstr ""
 "usage: PROG [-h] [--foo FOO]\n"
 "PROG: error: argument --foo: invalid 'hexadecimal integer' value: '1.2'"
 
-#: ../../library/argparse.rst:2262
+#: ../../library/argparse.rst:2267
 msgid "Exceptions"
 msgstr "Exceções"
 
-#: ../../library/argparse.rst:2266
+#: ../../library/argparse.rst:2271
 msgid "An error from creating or using an argument (optional or positional)."
 msgstr "Um erro ao criar ou usar um argumento (opcional ou posicional)."
 
-#: ../../library/argparse.rst:2268
+#: ../../library/argparse.rst:2273
 msgid ""
 "The string value of this exception is the message, augmented with "
 "information about the argument that caused it."
@@ -4719,14 +4731,14 @@ msgstr ""
 "O valor da string dessa exceção é a mensagem, complementada com informações "
 "sobre o argumento que a causou."
 
-#: ../../library/argparse.rst:2273
+#: ../../library/argparse.rst:2278
 msgid ""
 "Raised when something goes wrong converting a command line string to a type."
 msgstr ""
 "Levantada quando algo dá errado ao converter uma string de linha de comando "
 "em um tipo."
 
-#: ../../library/argparse.rst:2277
+#: ../../library/argparse.rst:2282
 msgid "Guides and Tutorials"
 msgstr "Guias e tutoriais"
 
