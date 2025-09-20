@@ -64,7 +64,7 @@
 
 
 
-# library (66.59% done)
+# library (66.65% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 412 ( 74.0% translated).
@@ -124,7 +124,7 @@
 - logging.handlers.po             51 / 274 ( 18.0% translated).
 - logging.po                     100 / 369 ( 27.0% translated).
 - mailbox.po                      10 / 307 (  3.0% translated).
-- mimetypes.po                    29 /  54 ( 53.0% translated).
+- mimetypes.po                    36 /  54 ( 66.0% translated).
 - mmap.po                         23 /  65 ( 35.0% translated).
 - msvcrt.po                       29 /  46 ( 63.0% translated).
 - multiprocessing.po             339 / 603 ( 56.0% translated).
@@ -156,8 +156,7 @@
 - tkinter.ttk.po                 142 / 429 ( 33.0% translated).
 - traceback.po                     9 / 116 (  7.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
-- typing.po                      803 / 804 ( 99.0% translated).
-- unicodedata.po                   4 /  43 (  9.0% translated).
+- unicodedata.po                  16 /  43 ( 37.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               103 / 448 ( 22.0% translated).
 - unittest.po                    281 / 537 ( 52.0% translated).
@@ -194,13 +193,12 @@
 - windows.po                     382 / 389 ( 98.0% translated).
 
 
-# whatsnew (46.51% done)
+# whatsnew (46.54% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
 - 2.5.po                         389 / 452 ( 86.0% translated).
 - 2.6.po                         540 / 626 ( 86.0% translated).
-- 2.7.po                         491 / 498 ( 98.0% translated).
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
 - 3.13.po                        891 / 897 ( 99.0% translated).
@@ -213,5 +211,5 @@
 - changelog.po                   2598 / 12505 ( 20.0% translated).
 
 
-# TOTAL (63.13% done)
+# TOTAL (63.16% done)
 
