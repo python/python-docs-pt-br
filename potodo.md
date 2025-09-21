@@ -82,7 +82,7 @@
 - index.po                        52 /  53 ( 98.0% translated).
 
 
-# library (61.33% done)
+# library (61.36% done)
 
 - abc.po                          43 /  45 ( 95.0% translated).
 - argparse.po                    248 / 290 ( 85.0% translated).
@@ -189,7 +189,7 @@
 - lzma.po                        105 / 107 ( 98.0% translated).
 - mailbox.po                      20 / 282 (  7.0% translated).
 - mailcap.po                       2 /  15 ( 13.0% translated).
-- mimetypes.po                    24 /  45 ( 53.0% translated).
+- mimetypes.po                    31 /  45 ( 68.0% translated).
 - mmap.po                         17 /  47 ( 36.0% translated).
 - msilib.po                        7 /  96 (  7.0% translated).
 - multiprocessing.po             281 / 518 ( 54.0% translated).
@@ -256,7 +256,7 @@
 - tracemalloc.po                  21 / 144 ( 14.0% translated).
 - turtle.po                      494 / 514 ( 96.0% translated).
 - typing.po                      134 / 323 ( 41.0% translated).
-- unicodedata.po                   2 /  29 (  6.0% translated).
+- unicodedata.po                   4 /  29 ( 13.0% translated).
 - unittest.mock-examples.po       22 / 160 ( 13.0% translated).
 - unittest.mock.po               108 / 373 ( 28.0% translated).
 - unittest.po                    309 / 499 ( 61.0% translated).
@@ -342,5 +342,5 @@
 - 3.9.po                         383 / 393 ( 97.0% translated).
 
 
-# TOTAL (64.58% done)
+# TOTAL (64.59% done)
 
