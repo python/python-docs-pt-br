@@ -63,7 +63,7 @@
 
 
 
-# library (66.62% done)
+# library (66.65% done)
 
 - annotationlib.po               136 / 141 ( 96.0% translated).
 - ast.po                         321 / 335 ( 95.0% translated).
@@ -157,7 +157,7 @@
 - unittest.mock.po               103 / 448 ( 22.0% translated).
 - unittest.po                    291 / 560 ( 51.0% translated).
 - urllib.parse.po                111 / 169 ( 65.0% translated).
-- urllib.request.po               40 / 295 ( 13.0% translated).
+- urllib.request.po               49 / 295 ( 16.0% translated).
 - warnings.po                     76 / 149 ( 51.0% translated).
 - wave.po                         17 /  54 ( 31.0% translated).
 - wsgiref.po                      79 / 134 ( 58.0% translated).
@@ -204,5 +204,5 @@
 - changelog.po                   3164 / 13491 ( 23.0% translated).
 
 
-# TOTAL (63.35% done)
+# TOTAL (63.36% done)
 
