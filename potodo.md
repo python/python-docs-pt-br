@@ -69,7 +69,7 @@
 
 
 
-# library (65.25% done)
+# library (65.27% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        78 /  84 ( 92.0% translated).
@@ -195,7 +195,7 @@
 - unittest.mock.po               103 / 440 ( 23.0% translated).
 - unittest.po                    282 / 536 ( 52.0% translated).
 - urllib.parse.po                110 / 167 ( 65.0% translated).
-- urllib.request.po               44 / 300 ( 14.0% translated).
+- urllib.request.po               51 / 300 ( 17.0% translated).
 - warnings.po                     75 / 131 ( 57.0% translated).
 - wave.po                         17 /  53 ( 32.0% translated).
 - webbrowser.po                   65 /  83 ( 78.0% translated).
@@ -212,9 +212,8 @@
 - zoneinfo.po                     42 /  83 ( 50.0% translated).
 
 
-# reference (99.96% done)
+# reference (100.00% done)
 
-- grammar.po                       3 /   4 ( 75.0% translated).
 
 
 # tutorial (99.61% done)
@@ -247,5 +246,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (70.03% done)
+# TOTAL (70.05% done)
 
