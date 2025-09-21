@@ -64,7 +64,7 @@
 
 
 
-# library (66.65% done)
+# library (66.67% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 412 ( 74.0% translated).
@@ -161,7 +161,7 @@
 - unittest.mock.po               103 / 448 ( 22.0% translated).
 - unittest.po                    281 / 537 ( 52.0% translated).
 - urllib.parse.po                111 / 168 ( 66.0% translated).
-- urllib.request.po               41 / 303 ( 13.0% translated).
+- urllib.request.po               49 / 303 ( 16.0% translated).
 - venv.po                        136 / 137 ( 99.0% translated).
 - warnings.po                     75 / 138 ( 54.0% translated).
 - wave.po                         17 /  54 ( 31.0% translated).
@@ -193,7 +193,7 @@
 - windows.po                     382 / 389 ( 98.0% translated).
 
 
-# whatsnew (46.54% done)
+# whatsnew (46.53% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -201,15 +201,15 @@
 - 2.6.po                         540 / 626 ( 86.0% translated).
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
-- 3.13.po                        891 / 897 ( 99.0% translated).
+- 3.13.po                        889 / 895 ( 99.0% translated).
 - 3.2.po                          66 / 576 ( 11.0% translated).
 - 3.3.po                         134 / 682 ( 19.0% translated).
 - 3.4.po                         498 / 517 ( 96.0% translated).
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         233 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
-- changelog.po                   2598 / 12505 ( 20.0% translated).
+- changelog.po                   2598 / 12506 ( 20.0% translated).
 
 
-# TOTAL (63.16% done)
+# TOTAL (63.17% done)
 
