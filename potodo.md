@@ -261,7 +261,7 @@
 - unittest.mock.po               108 / 373 ( 28.0% translated).
 - unittest.po                    309 / 499 ( 61.0% translated).
 - urllib.parse.po                 95 / 154 ( 61.0% translated).
-- urllib.request.po               44 / 274 ( 16.0% translated).
+- urllib.request.po               45 / 274 ( 16.0% translated).
 - urllib.robotparser.po           12 /  14 ( 85.0% translated).
 - uuid.po                         51 /  59 ( 86.0% translated).
 - warnings.po                     67 / 109 ( 61.0% translated).
@@ -342,5 +342,5 @@
 - 3.9.po                         383 / 393 ( 97.0% translated).
 
 
-# TOTAL (64.59% done)
+# TOTAL (64.60% done)
 
