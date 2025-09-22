@@ -85,7 +85,7 @@
 
 
 
-# library (64.29% done)
+# library (64.35% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          48 /  49 ( 97.0% translated).
@@ -126,7 +126,7 @@
 - curses.panel.po                 22 /  23 ( 95.0% translated).
 - curses.po                       64 / 485 ( 13.0% translated).
 - dataclasses.po                  64 / 124 ( 51.0% translated).
-- datetime.po                    575 / 586 ( 98.0% translated).
+- datetime.po                    576 / 586 ( 98.0% translated).
 - dbm.po                          81 /  85 ( 95.0% translated).
 - difflib.po                      14 / 134 ( 10.0% translated).
 - dis.po                         109 / 265 ( 41.0% translated).
@@ -193,10 +193,9 @@
 - multiprocessing.shared_memory.po  46 /  48 ( 95.0% translated).
 - nntplib.po                      11 /  89 ( 12.0% translated).
 - optparse.po                    412 / 416 ( 99.0% translated).
-- os.path.po                      83 /  84 ( 98.0% translated).
-- os.po                          918 / 931 ( 98.0% translated).
+- os.po                          926 / 931 ( 99.0% translated).
 - ossaudiodev.po                  18 /  98 ( 18.0% translated).
-- pathlib.po                     218 / 230 ( 94.0% translated).
+- pathlib.po                     228 / 230 ( 99.0% translated).
 - pdb.po                         114 / 115 ( 99.0% translated).
 - pipes.po                         5 /  20 ( 25.0% translated).
 - pkgutil.po                      39 /  51 ( 76.0% translated).
@@ -302,17 +301,16 @@
 - windows.po                     342 / 343 ( 99.0% translated).
 
 
-# whatsnew (75.22% done)
+# whatsnew (75.24% done)
 
 - 2.0.po                         181 / 183 ( 98.0% translated).
 - 2.1.po                         138 / 139 ( 99.0% translated).
 - 2.2.po                         189 / 191 ( 98.0% translated).
-- 2.3.po                         322 / 326 ( 98.0% translated).
+- 2.3.po                         323 / 326 ( 99.0% translated).
 - 2.4.po                         267 / 268 ( 99.0% translated).
 - 2.5.po                         382 / 388 ( 98.0% translated).
 - 2.6.po                         544 / 547 ( 99.0% translated).
 - 2.7.po                         451 / 453 ( 99.0% translated).
-- 3.0.po                         204 / 205 ( 99.0% translated).
 - 3.10.po                        498 / 506 ( 98.0% translated).
 - 3.11.po                        760 / 772 ( 98.0% translated).
 - 3.2.po                          65 / 518 ( 12.0% translated).
@@ -324,5 +322,5 @@
 - 3.8.po                         468 / 469 ( 99.0% translated).
 
 
-# TOTAL (68.78% done)
+# TOTAL (68.82% done)
 
