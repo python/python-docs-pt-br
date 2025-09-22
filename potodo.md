@@ -64,7 +64,7 @@
 
 
 
-# library (66.67% done)
+# library (66.66% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 412 ( 74.0% translated).
@@ -124,11 +124,12 @@
 - logging.handlers.po             51 / 274 ( 18.0% translated).
 - logging.po                     100 / 369 ( 27.0% translated).
 - mailbox.po                      10 / 307 (  3.0% translated).
-- mimetypes.po                    36 /  54 ( 66.0% translated).
+- mimetypes.po                    37 /  54 ( 68.0% translated).
 - mmap.po                         23 /  65 ( 35.0% translated).
 - msvcrt.po                       29 /  46 ( 63.0% translated).
 - multiprocessing.po             339 / 603 ( 56.0% translated).
 - numbers.po                      33 /  35 ( 94.0% translated).
+- os.po                          1032 / 1035 ( 99.0% translated).
 - pathlib.po                     417 / 418 ( 99.0% translated).
 - pkgutil.po                      44 /  50 ( 88.0% translated).
 - platform.po                     87 /  88 ( 98.0% translated).
@@ -208,7 +209,7 @@
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         233 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
-- changelog.po                   2598 / 12506 ( 20.0% translated).
+- changelog.po                   2598 / 12505 ( 20.0% translated).
 
 
 # TOTAL (63.17% done)
