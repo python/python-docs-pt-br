@@ -63,7 +63,7 @@
 
 
 
-# library (66.65% done)
+# library (66.64% done)
 
 - annotationlib.po               136 / 141 ( 96.0% translated).
 - ast.po                         321 / 335 ( 95.0% translated).
@@ -125,10 +125,11 @@
 - logging.po                     100 / 369 ( 27.0% translated).
 - mailbox.po                      10 / 307 (  3.0% translated).
 - marshal.po                      36 /  56 ( 64.0% translated).
-- mimetypes.po                    39 /  68 ( 57.0% translated).
+- mimetypes.po                    40 /  68 ( 58.0% translated).
 - mmap.po                         23 /  65 ( 35.0% translated).
 - msvcrt.po                       29 /  46 ( 63.0% translated).
 - multiprocessing.po             344 / 612 ( 56.0% translated).
+- os.po                          1050 / 1053 ( 99.0% translated).
 - poplib.po                       22 /  53 ( 41.0% translated).
 - profile.po                      34 / 181 ( 18.0% translated).
 - pyexpat.po                      23 / 145 ( 15.0% translated).
@@ -186,7 +187,7 @@
 - windows.po                     399 / 535 ( 74.0% translated).
 
 
-# whatsnew (49.15% done)
+# whatsnew (49.31% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -201,8 +202,8 @@
 - 3.5.po                         127 / 578 ( 21.0% translated).
 - 3.6.po                         232 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
-- changelog.po                   3164 / 13491 ( 23.0% translated).
+- changelog.po                   3204 / 13491 ( 23.0% translated).
 
 
-# TOTAL (63.36% done)
+# TOTAL (63.41% done)
 
