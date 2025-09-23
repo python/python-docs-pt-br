@@ -64,7 +64,7 @@
 
 
 
-# library (66.66% done)
+# library (66.68% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 412 ( 74.0% translated).
@@ -86,7 +86,7 @@
 - ctypes.po                      138 / 546 ( 25.0% translated).
 - curses.po                       66 / 486 ( 13.0% translated).
 - dataclasses.po                  70 / 156 ( 44.0% translated).
-- dbm.po                          94 / 107 ( 87.0% translated).
+- dbm.po                          95 / 107 ( 88.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
 - dis.po                         208 / 396 ( 52.0% translated).
 - doctest.po                      99 / 378 ( 26.0% translated).
@@ -129,7 +129,6 @@
 - msvcrt.po                       29 /  46 ( 63.0% translated).
 - multiprocessing.po             339 / 603 ( 56.0% translated).
 - numbers.po                      33 /  35 ( 94.0% translated).
-- os.po                          1032 / 1035 ( 99.0% translated).
 - pathlib.po                     417 / 418 ( 99.0% translated).
 - pkgutil.po                      44 /  50 ( 88.0% translated).
 - platform.po                     87 /  88 ( 98.0% translated).
@@ -150,7 +149,7 @@
 - subprocess.po                  150 / 327 ( 45.0% translated).
 - symtable.po                      6 /  65 (  9.0% translated).
 - sysconfig.po                   130 / 136 ( 95.0% translated).
-- tarfile.po                     157 / 345 ( 45.0% translated).
+- tarfile.po                     158 / 345 ( 45.0% translated).
 - tempfile.po                      8 /  87 (  9.0% translated).
 - test.po                        119 / 321 ( 37.0% translated).
 - threading.po                    38 / 274 ( 13.0% translated).
@@ -209,7 +208,7 @@
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         233 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
-- changelog.po                   2598 / 12505 ( 20.0% translated).
+- changelog.po                   2598 / 12506 ( 20.0% translated).
 
 
 # TOTAL (63.17% done)
