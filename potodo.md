@@ -82,7 +82,7 @@
 - index.po                        52 /  53 ( 98.0% translated).
 
 
-# library (61.36% done)
+# library (61.37% done)
 
 - abc.po                          43 /  45 ( 95.0% translated).
 - argparse.po                    248 / 290 ( 85.0% translated).
@@ -161,7 +161,7 @@
 - gettext.po                     119 / 120 ( 99.0% translated).
 - graphlib.po                     30 /  32 ( 93.0% translated).
 - grp.po                          26 /  28 ( 92.0% translated).
-- gzip.po                         45 /  57 ( 78.0% translated).
+- gzip.po                         46 /  57 ( 80.0% translated).
 - hashlib.po                      38 / 139 ( 27.0% translated).
 - heapq.po                        49 /  51 ( 96.0% translated).
 - hmac.po                         22 /  27 ( 81.0% translated).
@@ -228,13 +228,13 @@
 - smtplib.po                      26 / 109 ( 23.0% translated).
 - socket.po                       59 / 320 ( 18.0% translated).
 - socketserver.po                 64 /  79 ( 81.0% translated).
-- sqlite3.po                      30 / 210 ( 14.0% translated).
+- sqlite3.po                      31 / 210 ( 14.0% translated).
 - ssl.po                          62 / 496 ( 12.0% translated).
 - stat.po                         78 /  81 ( 96.0% translated).
 - stdtypes.po                    977 / 1002 ( 97.0% translated).
 - string.po                      172 / 174 ( 98.0% translated).
 - stringprep.po                   23 /  25 ( 92.0% translated).
-- struct.po                       77 / 150 ( 51.0% translated).
+- struct.po                       78 / 150 ( 52.0% translated).
 - subprocess.po                  133 / 273 ( 48.0% translated).
 - symtable.po                      3 /  44 (  6.0% translated).
 - sys.po                         306 / 402 ( 76.0% translated).
