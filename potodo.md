@@ -4,7 +4,7 @@
 
 
 
-# c-api (58.47% done)
+# c-api (58.49% done)
 
 - allocation.po                    8 /   9 ( 88.0% translated).
 - arg.po                         193 / 195 ( 98.0% translated).
@@ -14,7 +14,7 @@
 - gcsupport.po                    10 /  40 ( 25.0% translated).
 - init.po                        122 / 310 ( 39.0% translated).
 - init_config.po                 129 / 375 ( 34.0% translated).
-- long.po                         33 /  51 ( 64.0% translated).
+- long.po                         34 /  51 ( 66.0% translated).
 - memory.po                       63 / 184 ( 34.0% translated).
 - module.po                       48 /  99 ( 48.0% translated).
 - number.po                        8 /  42 ( 19.0% translated).
@@ -86,7 +86,7 @@
 
 
 
-# library (62.61% done)
+# library (62.64% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    256 / 290 ( 88.0% translated).
@@ -160,7 +160,7 @@
 - gc.po                           53 /  55 ( 96.0% translated).
 - glob.po                         20 /  21 ( 95.0% translated).
 - grp.po                          27 /  28 ( 96.0% translated).
-- gzip.po                         46 /  58 ( 79.0% translated).
+- gzip.po                         47 /  58 ( 81.0% translated).
 - hashlib.po                      39 / 141 ( 27.0% translated).
 - heapq.po                        49 /  51 ( 96.0% translated).
 - hmac.po                         24 /  27 ( 88.0% translated).
@@ -195,7 +195,7 @@
 - pdb.po                          98 /  99 ( 98.0% translated).
 - pickle.po                      205 / 206 ( 99.0% translated).
 - pipes.po                         4 /  20 ( 20.0% translated).
-- pkgutil.po                      38 /  51 ( 74.0% translated).
+- pkgutil.po                      39 /  51 ( 76.0% translated).
 - platform.po                     53 /  57 ( 92.0% translated).
 - plistlib.po                     38 /  40 ( 95.0% translated).
 - poplib.po                       17 /  50 ( 34.0% translated).
@@ -230,10 +230,10 @@
 - symtable.po                      3 /  44 (  6.0% translated).
 - sys.po                         358 / 412 ( 86.0% translated).
 - sysconfig.po                    75 /  81 ( 92.0% translated).
-- tarfile.po                     136 / 301 ( 45.0% translated).
+- tarfile.po                     137 / 301 ( 45.0% translated).
 - telnetlib.po                     7 /  47 ( 14.0% translated).
 - tempfile.po                      8 /  64 ( 12.0% translated).
-- test.po                        115 / 295 ( 38.0% translated).
+- test.po                        117 / 295 ( 39.0% translated).
 - textwrap.po                     41 /  46 ( 89.0% translated).
 - threading.po                    32 / 210 ( 15.0% translated).
 - timeit.po                       49 /  53 ( 92.0% translated).
@@ -245,7 +245,7 @@
 - traceback.po                     7 /  78 (  8.0% translated).
 - tracemalloc.po                  21 / 144 ( 14.0% translated).
 - turtle.po                      508 / 514 ( 98.0% translated).
-- typing.po                      200 / 374 ( 53.0% translated).
+- typing.po                      205 / 374 ( 54.0% translated).
 - unicodedata.po                   4 /  29 ( 13.0% translated).
 - unittest.mock-examples.po       22 / 160 ( 13.0% translated).
 - unittest.mock.po               110 / 373 ( 29.0% translated).
@@ -279,16 +279,14 @@
 - zoneinfo.po                     32 /  73 ( 43.0% translated).
 
 
-# reference (94.37% done)
+# reference (94.49% done)
 
 - compound_stmts.po              264 / 294 ( 89.0% translated).
 - datamodel.po                   498 / 504 ( 98.0% translated).
 - executionmodel.po               45 /  48 ( 93.0% translated).
 - expressions.po                 303 / 332 ( 91.0% translated).
 - import.po                      165 / 184 ( 89.0% translated).
-- introduction.po                 24 /  25 ( 96.0% translated).
 - lexical_analysis.po            185 / 195 ( 94.0% translated).
-- simple_stmts.po                153 / 154 ( 99.0% translated).
 
 
 # tutorial (99.89% done)
@@ -296,18 +294,18 @@
 - classes.po                     114 / 115 ( 99.0% translated).
 
 
-# using (95.12% done)
+# using (95.24% done)
 
 - cmdline.po                     195 / 197 ( 98.0% translated).
-- configure.po                   204 / 240 ( 85.0% translated).
+- configure.po                   205 / 240 ( 85.0% translated).
 - mac.po                          43 /  44 ( 97.0% translated).
 - windows.po                     307 / 309 ( 99.0% translated).
 
 
-# whatsnew (70.26% done)
+# whatsnew (70.27% done)
 
 - 2.0.po                         137 / 182 ( 75.0% translated).
-- 2.2.po                         138 / 192 ( 71.0% translated).
+- 2.2.po                         139 / 192 ( 72.0% translated).
 - 2.3.po                         230 / 324 ( 70.0% translated).
 - 2.4.po                         250 / 266 ( 93.0% translated).
 - 2.5.po                         359 / 386 ( 93.0% translated).
@@ -322,5 +320,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (66.05% done)
+# TOTAL (66.07% done)
 
