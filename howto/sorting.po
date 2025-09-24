@@ -5,15 +5,16 @@
 #
 # Translators:
 # python-doc bot, 2025
+# Cezar Gabriel, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-16 17:23+0000\n"
+"POT-Creation-Date: 2025-09-23 14:15+0000\n"
 "PO-Revision-Date: 2025-09-16 00:00+0000\n"
-"Last-Translator: python-doc bot, 2025\n"
+"Last-Translator: Cezar Gabriel, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -55,7 +56,7 @@ msgstr ""
 
 #: ../../howto/sorting.rst:17
 msgid "Sorting Basics"
-msgstr "Básico de Ordenação"
+msgstr "Básico de ordenação"
 
 #: ../../howto/sorting.rst:19
 msgid ""
@@ -63,7 +64,7 @@ msgid ""
 "It returns a new sorted list:"
 msgstr ""
 "Uma ordenação ascendente simples é muito fácil: apenas chame a função :func:"
-"`sorted`. Retorna uma nova lista ordenada:"
+"`sorted`. Você terá como retorno uma nova lista ordenada:"
 
 #: ../../howto/sorting.rst:22
 msgid ""
@@ -80,10 +81,11 @@ msgid ""
 "than :func:`sorted` - but if you don't need the original list, it's slightly "
 "more efficient."
 msgstr ""
-"Você também pode utilizar o método :meth:`list.sort`. Isso modifica a lista "
-"em si (e retorna ``None`` para evitar confusão). Usualmente este método é "
-"menos conveniente que a função :func:`sorted` - mas se você não precisará da "
-"lista original, esta maneira é levemente mais eficiente."
+"Você também pode utilizar o método :meth:`list.sort`. Ele modificará a lista "
+"localmente (e retornará ``None`` para evitar confusão). Usualmente este "
+"método é menos conveniente que a função :func:`sorted` - mas, se a lista "
+"original não for posteriormente útil, esta maneira será levemente mais "
+"eficiente."
 
 #: ../../howto/sorting.rst:32
 msgid ""
@@ -115,7 +117,7 @@ msgstr ""
 
 #: ../../howto/sorting.rst:48
 msgid "Key Functions"
-msgstr "Funções Chave"
+msgstr "Funções chave"
 
 #: ../../howto/sorting.rst:50
 msgid ""
@@ -124,18 +126,27 @@ msgid ""
 "parameter to specify a function (or other callable) to be called on each "
 "list element prior to making comparisons."
 msgstr ""
+"Tanto o método :meth:`list.sort` quando as funções :func:`sorted`, :func:"
+"`min`, :func:`max`, :func:`heapq.nsmallest` e :func:`heapq.nlargest` possuem "
+"o parâmetro *key*, que especifica uma função (ou outro chamável) a ser "
+"invocado para cada elemento da lista antes de ser realizada a comparação."
 
 #: ../../howto/sorting.rst:56
 msgid ""
 "For example, here's a case-insensitive string comparison using :meth:`str."
 "casefold`:"
 msgstr ""
+"Por exemplo, temos abaixo uma comparação de strings, sem distinção entre "
+"caractéres maiúsculos e minúsculos, utilizando :meth:`str.casefold`:"
 
 #: ../../howto/sorting.rst:59
 msgid ""
 ">>> sorted(\"This is a test string from Andrew\".split(), key=str.casefold)\n"
 "['a', 'Andrew', 'from', 'is', 'string', 'test', 'This']"
 msgstr ""
+">>> sorted(\"Essa é uma string de teste do Andrew\".split(), key=str."
+"casefold)\n"
+"['Andrew', 'de', 'do', 'Essa', 'string', 'teste', 'uma', 'é']"
 
 #: ../../howto/sorting.rst:64
 msgid ""
@@ -145,16 +156,16 @@ msgid ""
 "each input record."
 msgstr ""
 "O valor do parâmetro *key* deve ser uma função (ou outro chamável) que "
-"recebe um único argumento e retorna uma chave à ser utilizada com o "
-"propósito de ordenação. Esta técnica é rápida porque a função chave é "
-"chamada exatamente uma vez para cada entrada de registro."
+"recebe um único argumento e retorna uma chave à ser utilizada na ordenação. "
+"Como a função chave é chamada exatamente uma vez para cada elemento, esta "
+"técnica é rápida."
 
 #: ../../howto/sorting.rst:69
 msgid ""
 "A common pattern is to sort complex objects using some of the object's "
 "indices as keys. For example:"
 msgstr ""
-"Uma padrão comum é ordenar objetos complexos utilizando algum índice do "
+"Um padrão comum é ordenar objetos complexos utilizando um dos índices do "
 "objeto como chave. Por exemplo:"
 
 #: ../../howto/sorting.rst:72
@@ -167,6 +178,13 @@ msgid ""
 ">>> sorted(student_tuples, key=lambda student: student[2])   # sort by age\n"
 "[('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]"
 msgstr ""
+">>> tuplas_alunos = [\n"
+"...     ('joão', 'A', 15),\n"
+"...     ('joana', 'B', 12),\n"
+"...     ('davi', 'B', 10),\n"
+"... ]\n"
+">>> sorted(tuplas_alunos, key=lambda aluno: aluno[2])   # ordena por idade\n"
+"[('davi', 'B', 10), ('joana', 'B', 12), ('joão', 'A', 15)]"
 
 #: ../../howto/sorting.rst:82
 msgid ""
@@ -194,6 +212,22 @@ msgid ""
 "age\n"
 "[('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]"
 msgstr ""
+">>> class Aluno:\n"
+"...     def __init__(self, nome, nota, idade):\n"
+"...         self.nome = nome\n"
+"...         self.nota = nota\n"
+"...         self.idade = idade\n"
+"...     def __repr__(self):\n"
+"...         return repr((self.nome, self.nota, self.idade))\n"
+"\n"
+">>> objetos_alunos = [\n"
+"...     Aluno('john', 'A', 15),\n"
+"...     Aluno('jane', 'B', 12),\n"
+"...     Aluno('dave', 'B', 10),\n"
+"... ]\n"
+">>> sorted(objetos_alunos, key=lambda aluno: aluno.idade)   # ordena por "
+"idade\n"
+"[('davi', 'B', 10), ('joana', 'B', 12), ('joão', 'A', 15)]"
 
 #: ../../howto/sorting.rst:102
 msgid ""
@@ -201,6 +235,9 @@ msgid ""
 "or they can be instances of :class:`~dataclasses.dataclass` or a :term:"
 "`named tuple`."
 msgstr ""
+"Objetos com atríbutos nomeados podem ser criados como uma classe padrão, "
+"igual ao exemplo acima, podem ser instâncias de :class:`~dataclasses."
+"dataclass` ou mesmo uma :term:`named tuple`."
 
 #: ../../howto/sorting.rst:107
 msgid "Operator Module Functions and Partial Function Evaluation"

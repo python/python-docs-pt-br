@@ -46,16 +46,16 @@
 
 
 
-# howto (71.94% done)
+# howto (72.16% done)
 
-- a-conceptual-overview-of-asyncio.po  70 /  93 ( 75.0% translated).
+- a-conceptual-overview-of-asyncio.po  72 /  93 ( 77.0% translated).
 - descriptor.po                  186 / 230 ( 80.0% translated).
 - enum.po                        104 / 327 ( 31.0% translated).
 - functional.po                  158 / 252 ( 62.0% translated).
 - logging-cookbook.po             41 / 435 (  9.0% translated).
 - remote_debugging.po            106 / 129 ( 82.0% translated).
 - sockets.po                      35 /  63 ( 55.0% translated).
-- sorting.po                      44 /  92 ( 47.0% translated).
+- sorting.po                      50 /  92 ( 54.0% translated).
 - unicode.po                      30 / 145 ( 20.0% translated).
 
 
@@ -63,7 +63,7 @@
 
 
 
-# library (66.66% done)
+# library (66.71% done)
 
 - annotationlib.po               136 / 141 ( 96.0% translated).
 - ast.po                         321 / 335 ( 95.0% translated).
@@ -119,10 +119,9 @@
 - inspect.po                     154 / 400 ( 38.0% translated).
 - io.po                           58 / 284 ( 20.0% translated).
 - itertools.po                   155 / 201 ( 77.0% translated).
-- locale.po                      147 / 163 ( 90.0% translated).
 - logging.config.po               18 / 171 ( 10.0% translated).
 - logging.handlers.po             52 / 276 ( 18.0% translated).
-- logging.po                     100 / 369 ( 27.0% translated).
+- logging.po                     106 / 369 ( 28.0% translated).
 - mailbox.po                      10 / 307 (  3.0% translated).
 - marshal.po                      36 /  56 ( 64.0% translated).
 - mimetypes.po                    40 /  68 ( 58.0% translated).
@@ -186,7 +185,7 @@
 - windows.po                     399 / 535 ( 74.0% translated).
 
 
-# whatsnew (49.32% done)
+# whatsnew (49.34% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -201,8 +200,8 @@
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         232 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
-- changelog.po                   3204 / 13491 ( 23.0% translated).
+- changelog.po                   3208 / 13491 ( 23.0% translated).
 
 
-# TOTAL (63.42% done)
+# TOTAL (63.46% done)
 
