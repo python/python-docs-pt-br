@@ -49,7 +49,7 @@
 - library.po                     157 / 162 ( 96.0% translated).
 
 
-# howto (70.13% done)
+# howto (70.26% done)
 
 - curses.po                      120 / 121 ( 99.0% translated).
 - descriptor.po                  181 / 233 ( 77.0% translated).
@@ -59,7 +59,7 @@
 - logging.po                     249 / 250 ( 99.0% translated).
 - perf_profiling.po               29 /  32 ( 90.0% translated).
 - sockets.po                      35 /  63 ( 55.0% translated).
-- sorting.po                      46 /  75 ( 61.0% translated).
+- sorting.po                      50 /  75 ( 66.0% translated).
 - unicode.po                      30 / 145 ( 20.0% translated).
 - urllib2.po                      98 / 100 ( 98.0% translated).
 
@@ -226,7 +226,7 @@
 - configure.po                   286 / 294 ( 97.0% translated).
 
 
-# whatsnew (75.01% done)
+# whatsnew (75.02% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -234,7 +234,7 @@
 - 2.6.po                         540 / 626 ( 86.0% translated).
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
-- 3.12.po                        840 / 842 ( 99.0% translated).
+- 3.12.po                        841 / 842 ( 99.0% translated).
 - 3.2.po                          66 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
 - 3.5.po                         129 / 578 ( 22.0% translated).
@@ -242,5 +242,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (70.18% done)
+# TOTAL (70.19% done)
 
