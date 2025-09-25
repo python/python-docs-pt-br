@@ -4,29 +4,28 @@
 
 
 
-# c-api (58.49% done)
+# c-api (58.74% done)
 
 - allocation.po                    8 /   9 ( 88.0% translated).
 - arg.po                         193 / 195 ( 98.0% translated).
-- call.po                         90 /  95 ( 94.0% translated).
 - exceptions.po                  198 / 275 ( 72.0% translated).
 - float.po                        12 /  13 ( 92.0% translated).
-- gcsupport.po                    10 /  40 ( 25.0% translated).
+- gcsupport.po                    11 /  40 ( 27.0% translated).
 - init.po                        122 / 310 ( 39.0% translated).
 - init_config.po                 129 / 375 ( 34.0% translated).
 - long.po                         34 /  51 ( 66.0% translated).
 - memory.po                       63 / 184 ( 34.0% translated).
-- module.po                       48 /  99 ( 48.0% translated).
+- module.po                       50 /  99 ( 50.0% translated).
 - number.po                        8 /  42 ( 19.0% translated).
 - object.po                        3 /  50 (  6.0% translated).
 - refcounting.po                  10 /  28 ( 35.0% translated).
 - sequence.po                     26 /  27 ( 96.0% translated).
 - stable.po                       23 /  32 ( 71.0% translated).
-- structures.po                   47 / 129 ( 36.0% translated).
+- structures.po                   48 / 129 ( 37.0% translated).
 - sys.po                          23 /  67 ( 34.0% translated).
 - tuple.po                        47 /  48 ( 97.0% translated).
 - type.po                         27 /  63 ( 42.0% translated).
-- typeobj.po                     233 / 604 ( 38.0% translated).
+- typeobj.po                     234 / 604 ( 38.0% translated).
 - unicode.po                      79 / 334 ( 23.0% translated).
 - veryhigh.po                     46 /  56 ( 82.0% translated).
 
@@ -43,12 +42,12 @@
 - sourcedist.po                   27 /  74 ( 36.0% translated).
 
 
-# extending (32.91% done)
+# extending (33.12% done)
 
 - embedding.po                     5 /  45 ( 11.0% translated).
 - extending.po                    58 / 158 ( 36.0% translated).
 - newtypes.po                      7 /  89 (  7.0% translated).
-- newtypes_tutorial.po            29 / 123 ( 23.0% translated).
+- newtypes_tutorial.po            30 / 123 ( 24.0% translated).
 
 
 # faq (96.03% done)
@@ -59,10 +58,9 @@
 - programming.po                 383 / 388 ( 98.0% translated).
 
 
-# howto (61.30% done)
+# howto (61.42% done)
 
 - annotations.po                  44 /  45 ( 97.0% translated).
-- argparse.po                     81 /  84 ( 96.0% translated).
 - clinic.po                      101 / 424 ( 23.0% translated).
 - curses.po                      100 / 105 ( 95.0% translated).
 - descriptor.po                  115 / 175 ( 65.0% translated).
@@ -86,14 +84,14 @@
 
 
 
-# library (62.64% done)
+# library (62.69% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    256 / 290 ( 88.0% translated).
 - array.po                        81 /  82 ( 98.0% translated).
 - ast.po                         200 / 212 ( 94.0% translated).
 - asynchat.po                      4 /  33 ( 12.0% translated).
-- asyncio-dev.po                  16 /  42 ( 38.0% translated).
+- asyncio-dev.po                  17 /  42 ( 40.0% translated).
 - asyncio-eventloop.po           343 / 360 ( 95.0% translated).
 - asyncio-future.po                9 /  61 ( 14.0% translated).
 - asyncio-platforms.po             6 /  25 ( 24.0% translated).
@@ -149,7 +147,7 @@
 - email.policy.po                 12 / 103 ( 11.0% translated).
 - enum.po                         63 / 188 ( 33.0% translated).
 - errno.po                       112 / 127 ( 88.0% translated).
-- exceptions.po                  136 / 149 ( 91.0% translated).
+- exceptions.po                  148 / 149 ( 99.0% translated).
 - faulthandler.po                  4 /  42 (  9.0% translated).
 - fcntl.po                        21 /  39 ( 53.0% translated).
 - filecmp.po                      37 /  40 ( 92.0% translated).
@@ -157,7 +155,7 @@
 - fractions.po                    18 /  23 ( 78.0% translated).
 - ftplib.po                        9 /  65 ( 13.0% translated).
 - functools.po                    27 /  83 ( 32.0% translated).
-- gc.po                           53 /  55 ( 96.0% translated).
+- gc.po                           54 /  55 ( 98.0% translated).
 - glob.po                         20 /  21 ( 95.0% translated).
 - grp.po                          27 /  28 ( 96.0% translated).
 - gzip.po                         47 /  58 ( 81.0% translated).
@@ -174,7 +172,7 @@
 - imghdr.po                       20 /  41 ( 48.0% translated).
 - imp.po                           8 /  68 ( 11.0% translated).
 - importlib.metadata.po           36 /  53 ( 67.0% translated).
-- importlib.po                   225 / 346 ( 65.0% translated).
+- importlib.po                   226 / 346 ( 65.0% translated).
 - inspect.po                     125 / 338 ( 36.0% translated).
 - io.po                           38 / 245 ( 15.0% translated).
 - ipaddress.po                   155 / 158 ( 98.0% translated).
@@ -320,5 +318,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (66.07% done)
+# TOTAL (66.13% done)
 
