@@ -63,7 +63,7 @@
 
 
 
-# library (66.70% done)
+# library (66.71% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 412 ( 74.0% translated).
@@ -154,7 +154,7 @@
 - tkinter.ttk.po                 142 / 429 ( 33.0% translated).
 - traceback.po                     9 / 116 (  7.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
-- unicodedata.po                  16 /  43 ( 37.0% translated).
+- unicodedata.po                  20 /  43 ( 46.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               103 / 448 ( 22.0% translated).
 - unittest.po                    281 / 537 ( 52.0% translated).
@@ -190,7 +190,7 @@
 - windows.po                     382 / 389 ( 98.0% translated).
 
 
-# whatsnew (46.62% done)
+# whatsnew (46.61% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -205,8 +205,8 @@
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         233 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
-- changelog.po                   2613 / 12506 ( 20.0% translated).
+- changelog.po                   2613 / 12508 ( 20.0% translated).
 
 
-# TOTAL (63.22% done)
+# TOTAL (63.23% done)
 
