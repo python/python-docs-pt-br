@@ -63,7 +63,7 @@
 
 
 
-# library (66.71% done)
+# library (66.72% done)
 
 - annotationlib.po               136 / 141 ( 96.0% translated).
 - ast.po                         321 / 335 ( 95.0% translated).
@@ -151,7 +151,7 @@
 - tkinter.ttk.po                 142 / 429 ( 33.0% translated).
 - traceback.po                    10 / 118 (  8.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
-- unicodedata.po                  17 /  43 ( 39.0% translated).
+- unicodedata.po                  21 /  43 ( 48.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               103 / 448 ( 22.0% translated).
 - unittest.po                    291 / 560 ( 51.0% translated).
@@ -203,5 +203,5 @@
 - changelog.po                   3208 / 13491 ( 23.0% translated).
 
 
-# TOTAL (63.46% done)
+# TOTAL (63.47% done)
 
