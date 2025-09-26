@@ -4,10 +4,9 @@
 
 
 
-# c-api (56.23% done)
+# c-api (56.35% done)
 
 - exceptions.po                  198 / 366 ( 54.0% translated).
-- float.po                        29 /  35 ( 82.0% translated).
 - frame.po                        20 /  36 ( 55.0% translated).
 - gcsupport.po                     9 /  52 ( 17.0% translated).
 - import.po                       36 /  57 ( 63.0% translated).
@@ -68,7 +67,7 @@
 
 
 
-# library (65.44% done)
+# library (65.47% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        80 /  84 ( 95.0% translated).
@@ -151,10 +150,9 @@
 - nntplib.po                      11 /  92 ( 11.0% translated).
 - os.path.po                      97 /  98 ( 98.0% translated).
 - ossaudiodev.po                  18 / 102 ( 17.0% translated).
-- pathlib.po                     331 / 346 ( 95.0% translated).
+- pathlib.po                     332 / 346 ( 95.0% translated).
 - pdb.po                         138 / 139 ( 99.0% translated).
 - pipes.po                         5 /  21 ( 23.0% translated).
-- pkgutil.po                      44 /  50 ( 88.0% translated).
 - poplib.po                       22 /  53 ( 41.0% translated).
 - profile.po                      34 / 179 ( 18.0% translated).
 - pyexpat.po                      23 / 144 ( 15.0% translated).
@@ -172,7 +170,6 @@
 - sqlite3.po                     115 / 469 ( 24.0% translated).
 - ssl.po                          61 / 520 ( 11.0% translated).
 - statistics.po                  229 / 241 ( 95.0% translated).
-- string.po                      218 / 220 ( 99.0% translated).
 - struct.po                       96 / 194 ( 49.0% translated).
 - subprocess.po                  150 / 321 ( 46.0% translated).
 - symtable.po                      4 /  50 (  8.0% translated).
@@ -242,5 +239,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (70.19% done)
+# TOTAL (70.21% done)
 
