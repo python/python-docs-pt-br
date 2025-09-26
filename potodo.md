@@ -4,10 +4,10 @@
 
 
 
-# c-api (58.60% done)
+# c-api (58.74% done)
 
 - exceptions.po                  195 / 347 ( 56.0% translated).
-- float.po                        28 /  35 ( 80.0% translated).
+- float.po                        34 /  35 ( 97.0% translated).
 - frame.po                        20 /  24 ( 83.0% translated).
 - gcsupport.po                     9 /  42 ( 21.0% translated).
 - import.po                       39 /  53 ( 73.0% translated).
@@ -84,7 +84,7 @@
 
 
 
-# library (64.72% done)
+# library (64.73% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          48 /  49 ( 97.0% translated).
@@ -167,7 +167,7 @@
 - imghdr.po                       20 /  41 ( 48.0% translated).
 - imp.po                          12 /  72 ( 16.0% translated).
 - importlib.metadata.po           59 /  62 ( 95.0% translated).
-- importlib.po                   212 / 301 ( 70.0% translated).
+- importlib.po                   213 / 301 ( 70.0% translated).
 - importlib.resources.po          29 /  35 ( 82.0% translated).
 - inspect.po                     129 / 349 ( 36.0% translated).
 - io.po                           49 / 262 ( 18.0% translated).
@@ -189,7 +189,7 @@
 - ossaudiodev.po                  18 /  98 ( 18.0% translated).
 - pathlib.po                     229 / 230 ( 99.0% translated).
 - pipes.po                         5 /  20 ( 25.0% translated).
-- pkgutil.po                      40 /  51 ( 78.0% translated).
+- pkgutil.po                      45 /  51 ( 88.0% translated).
 - platform.po                     54 /  57 ( 94.0% translated).
 - plistlib.po                     42 /  43 ( 97.0% translated).
 - poplib.po                       21 /  54 ( 38.0% translated).
@@ -305,5 +305,5 @@
 - 3.7.po                         247 / 563 ( 43.0% translated).
 
 
-# TOTAL (69.09% done)
+# TOTAL (69.12% done)
 
