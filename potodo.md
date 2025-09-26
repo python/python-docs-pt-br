@@ -4,10 +4,9 @@
 
 
 
-# c-api (54.63% done)
+# c-api (54.74% done)
 
 - exceptions.po                  122 / 242 ( 50.0% translated).
-- float.po                        30 /  36 ( 83.0% translated).
 - frame.po                        20 /  42 ( 47.0% translated).
 - gcsupport.po                    15 /  67 ( 22.0% translated).
 - import.po                       33 /  66 ( 50.0% translated).
@@ -179,10 +178,10 @@
 
 
 
-# using (90.78% done)
+# using (93.72% done)
 
 - mac.po                          92 /  94 ( 97.0% translated).
-- windows.po                     399 / 535 ( 74.0% translated).
+- windows.po                     443 / 535 ( 82.0% translated).
 
 
 # whatsnew (49.34% done)
@@ -203,5 +202,5 @@
 - changelog.po                   3208 / 13491 ( 23.0% translated).
 
 
-# TOTAL (63.47% done)
+# TOTAL (63.53% done)
 
