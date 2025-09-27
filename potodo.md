@@ -171,13 +171,14 @@
 
 
 
-# using (99.32% done)
+# using (99.24% done)
 
+- configure.po                   406 / 407 ( 99.0% translated).
 - mac.po                          94 /  96 ( 97.0% translated).
 - windows.po                     382 / 389 ( 98.0% translated).
 
 
-# whatsnew (46.65% done)
+# whatsnew (46.64% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -191,7 +192,7 @@
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         233 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
-- changelog.po                   2620 / 12508 ( 20.0% translated).
+- changelog.po                   2620 / 12511 ( 20.0% translated).
 
 
 # TOTAL (63.28% done)
