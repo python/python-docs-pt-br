@@ -138,7 +138,7 @@
 - smtplib.po                      33 / 116 ( 28.0% translated).
 - socket.po                       54 / 384 ( 14.0% translated).
 - sqlite3.po                     116 / 475 ( 24.0% translated).
-- ssl.po                          63 / 545 ( 11.0% translated).
+- ssl.po                          63 / 546 ( 11.0% translated).
 - string.po                      218 / 223 ( 97.0% translated).
 - struct.po                      102 / 204 ( 50.0% translated).
 - subprocess.po                  150 / 311 ( 48.0% translated).
@@ -199,7 +199,7 @@
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         232 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
-- changelog.po                   3208 / 13491 ( 23.0% translated).
+- changelog.po                   3210 / 13495 ( 23.0% translated).
 
 
 # TOTAL (63.53% done)
