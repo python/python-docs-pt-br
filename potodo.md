@@ -82,7 +82,7 @@
 - index.po                        52 /  53 ( 98.0% translated).
 
 
-# library (61.37% done)
+# library (61.39% done)
 
 - abc.po                          43 /  45 ( 95.0% translated).
 - argparse.po                    248 / 290 ( 85.0% translated).
@@ -176,7 +176,7 @@
 - imghdr.po                       20 /  41 ( 48.0% translated).
 - imp.po                           8 /  68 ( 11.0% translated).
 - importlib.metadata.po           22 /  41 ( 53.0% translated).
-- importlib.po                   220 / 339 ( 64.0% translated).
+- importlib.po                   221 / 339 ( 65.0% translated).
 - inspect.po                     119 / 315 ( 37.0% translated).
 - io.po                           32 / 229 ( 13.0% translated).
 - ipaddress.po                   155 / 158 ( 98.0% translated).
@@ -202,7 +202,7 @@
 - pdb.po                          78 /  95 ( 82.0% translated).
 - pickle.po                      202 / 206 ( 98.0% translated).
 - pipes.po                         4 /  19 ( 21.0% translated).
-- pkgutil.po                      39 /  51 ( 76.0% translated).
+- pkgutil.po                      43 /  51 ( 84.0% translated).
 - platform.po                     46 /  51 ( 90.0% translated).
 - plistlib.po                     38 /  40 ( 95.0% translated).
 - poplib.po                       17 /  50 ( 34.0% translated).
@@ -342,5 +342,5 @@
 - 3.9.po                         383 / 393 ( 97.0% translated).
 
 
-# TOTAL (64.60% done)
+# TOTAL (64.61% done)
 
