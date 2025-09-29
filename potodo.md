@@ -89,7 +89,7 @@
 - curses.po                       66 / 490 ( 13.0% translated).
 - dataclasses.po                  71 / 158 ( 44.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
-- dis.po                         200 / 411 ( 48.0% translated).
+- dis.po                         200 / 413 ( 48.0% translated).
 - doctest.po                     100 / 379 ( 26.0% translated).
 - email.compat32-message.po        5 / 115 (  4.0% translated).
 - email.contentmanager.po          9 /  42 ( 21.0% translated).
@@ -104,6 +104,7 @@
 - faulthandler.po                  4 /  53 (  7.0% translated).
 - ftplib.po                       12 /  99 ( 12.0% translated).
 - functools.po                    19 / 126 ( 15.0% translated).
+- gc.po                           72 /  73 ( 98.0% translated).
 - hashlib.po                      76 / 170 ( 44.0% translated).
 - heapq.po                        48 /  67 ( 71.0% translated).
 - html.parser.po                   3 /  60 (  5.0% translated).
@@ -178,8 +179,9 @@
 
 
 
-# using (93.72% done)
+# using (92.78% done)
 
+- ios.po                          73 /  87 ( 83.0% translated).
 - mac.po                          92 /  94 ( 97.0% translated).
 - windows.po                     443 / 535 ( 82.0% translated).
 
@@ -198,8 +200,8 @@
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         232 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
-- changelog.po                   3218 / 13495 ( 23.0% translated).
+- changelog.po                   3218 / 13496 ( 23.0% translated).
 
 
-# TOTAL (63.56% done)
+# TOTAL (63.54% done)
 
