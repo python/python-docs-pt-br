@@ -192,7 +192,7 @@
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         233 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
-- changelog.po                   2622 / 12511 ( 20.0% translated).
+- changelog.po                   2622 / 12512 ( 20.0% translated).
 
 
 # TOTAL (63.28% done)
