@@ -45,14 +45,13 @@
 
 
 
-# howto (72.16% done)
+# howto (72.81% done)
 
 - a-conceptual-overview-of-asyncio.po  72 /  93 ( 77.0% translated).
 - descriptor.po                  186 / 230 ( 80.0% translated).
 - enum.po                        104 / 327 ( 31.0% translated).
 - functional.po                  158 / 252 ( 62.0% translated).
 - logging-cookbook.po             41 / 435 (  9.0% translated).
-- remote_debugging.po            106 / 129 ( 82.0% translated).
 - sockets.po                      35 /  63 ( 55.0% translated).
 - sorting.po                      50 /  92 ( 54.0% translated).
 - unicode.po                      30 / 145 ( 20.0% translated).
@@ -62,7 +61,7 @@
 
 
 
-# library (66.72% done)
+# library (66.93% done)
 
 - annotationlib.po               136 / 141 ( 96.0% translated).
 - ast.po                         321 / 335 ( 95.0% translated).
@@ -81,7 +80,7 @@
 - bdb.po                          13 / 119 ( 10.0% translated).
 - binascii.po                     23 /  38 ( 60.0% translated).
 - codecs.po                      250 / 554 ( 45.0% translated).
-- compression.zstd.po             85 / 173 ( 49.0% translated).
+- compression.zstd.po            126 / 173 ( 72.0% translated).
 - concurrent.futures.po           12 / 120 ( 10.0% translated).
 - concurrent.interpreters.po      43 /  87 ( 49.0% translated).
 - contextlib.po                   55 / 172 ( 31.0% translated).
@@ -89,7 +88,7 @@
 - curses.po                       66 / 490 ( 13.0% translated).
 - dataclasses.po                  71 / 158 ( 44.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
-- dis.po                         200 / 413 ( 48.0% translated).
+- dis.po                         238 / 413 ( 57.0% translated).
 - doctest.po                     100 / 379 ( 26.0% translated).
 - email.compat32-message.po        5 / 115 (  4.0% translated).
 - email.contentmanager.po          9 /  42 ( 21.0% translated).
@@ -104,7 +103,6 @@
 - faulthandler.po                  4 /  53 (  7.0% translated).
 - ftplib.po                       12 /  99 ( 12.0% translated).
 - functools.po                    19 / 126 ( 15.0% translated).
-- gc.po                           72 /  73 ( 98.0% translated).
 - hashlib.po                      76 / 170 ( 44.0% translated).
 - heapq.po                        48 /  67 ( 71.0% translated).
 - html.parser.po                   3 /  60 (  5.0% translated).
@@ -179,14 +177,14 @@
 
 
 
-# using (92.78% done)
+# using (93.18% done)
 
-- ios.po                          73 /  87 ( 83.0% translated).
+- ios.po                          79 /  87 ( 90.0% translated).
 - mac.po                          92 /  94 ( 97.0% translated).
 - windows.po                     443 / 535 ( 82.0% translated).
 
 
-# whatsnew (49.44% done)
+# whatsnew (49.46% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -200,8 +198,8 @@
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         232 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
-- changelog.po                   3218 / 13496 ( 23.0% translated).
+- changelog.po                   3224 / 13496 ( 23.0% translated).
 
 
-# TOTAL (63.54% done)
+# TOTAL (63.68% done)
 
