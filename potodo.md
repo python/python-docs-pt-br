@@ -67,7 +67,7 @@
 
 
 
-# library (65.47% done)
+# library (65.51% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        80 /  84 ( 95.0% translated).
@@ -101,7 +101,7 @@
 - datetime.po                    633 / 637 ( 99.0% translated).
 - dbm.po                          85 /  87 ( 97.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
-- dis.po                         182 / 357 ( 50.0% translated).
+- dis.po                         198 / 357 ( 55.0% translated).
 - doctest.po                      98 / 367 ( 26.0% translated).
 - email.compat32-message.po        6 / 115 (  5.0% translated).
 - email.contentmanager.po          9 /  42 ( 21.0% translated).
@@ -239,5 +239,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (70.21% done)
+# TOTAL (70.24% done)
 
