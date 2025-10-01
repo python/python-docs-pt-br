@@ -1,16 +1,17 @@
 
 
-# 3.14 (100.00% done)
+# 3.14 (99.86% done)
+
+- sphinx.po                      108 / 109 ( 99.0% translated).
 
 
-
-# c-api (54.74% done)
+# c-api (54.73% done)
 
 - exceptions.po                  122 / 242 ( 50.0% translated).
 - frame.po                        20 /  42 ( 47.0% translated).
 - gcsupport.po                    15 /  67 ( 22.0% translated).
 - import.po                       33 /  66 ( 50.0% translated).
-- init.po                        182 / 509 ( 35.0% translated).
+- init.po                        182 / 510 ( 35.0% translated).
 - init_config.po                 213 / 638 ( 33.0% translated).
 - long.po                         46 / 170 ( 27.0% translated).
 - memory.po                       61 / 208 ( 29.0% translated).
@@ -61,7 +62,7 @@
 
 
 
-# library (66.93% done)
+# library (66.94% done)
 
 - annotationlib.po               136 / 141 ( 96.0% translated).
 - ast.po                         321 / 335 ( 95.0% translated).
@@ -88,7 +89,7 @@
 - curses.po                       66 / 490 ( 13.0% translated).
 - dataclasses.po                  71 / 158 ( 44.0% translated).
 - difflib.po                      14 / 140 ( 10.0% translated).
-- dis.po                         238 / 413 ( 57.0% translated).
+- dis.po                         238 / 412 ( 57.0% translated).
 - doctest.po                     100 / 379 ( 26.0% translated).
 - email.compat32-message.po        5 / 115 (  4.0% translated).
 - email.contentmanager.po          9 /  42 ( 21.0% translated).
@@ -149,7 +150,7 @@
 - tkinter.ttk.po                 142 / 429 ( 33.0% translated).
 - traceback.po                    10 / 118 (  8.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
-- unicodedata.po                  21 /  43 ( 48.0% translated).
+- unicodedata.po                  26 /  43 ( 60.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               103 / 448 ( 22.0% translated).
 - unittest.po                    291 / 560 ( 51.0% translated).
@@ -177,14 +178,14 @@
 
 
 
-# using (93.18% done)
+# using (92.86% done)
 
-- ios.po                          79 /  87 ( 90.0% translated).
+- ios.po                          78 /  91 ( 85.0% translated).
 - mac.po                          92 /  94 ( 97.0% translated).
 - windows.po                     443 / 535 ( 82.0% translated).
 
 
-# whatsnew (49.46% done)
+# whatsnew (49.36% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -192,14 +193,15 @@
 - 2.6.po                         539 / 626 ( 86.0% translated).
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
+- 3.14.po                        988 / 1023 ( 96.0% translated).
 - 3.2.po                          66 / 576 ( 11.0% translated).
 - 3.3.po                         134 / 682 ( 19.0% translated).
 - 3.4.po                         497 / 517 ( 96.0% translated).
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         232 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
-- changelog.po                   3224 / 13496 ( 23.0% translated).
+- changelog.po                   3224 / 13497 ( 23.0% translated).
 
 
-# TOTAL (63.68% done)
+# TOTAL (63.64% done)
 
