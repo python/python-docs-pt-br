@@ -67,7 +67,7 @@
 
 
 
-# library (65.51% done)
+# library (65.52% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        80 /  84 ( 95.0% translated).
@@ -185,7 +185,7 @@
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
 - types.po                        98 /  99 ( 98.0% translated).
 - typing.po                      718 / 738 ( 97.0% translated).
-- unicodedata.po                   8 /  32 ( 25.0% translated).
+- unicodedata.po                   9 /  32 ( 28.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               103 / 440 ( 23.0% translated).
 - unittest.po                    282 / 536 ( 52.0% translated).
