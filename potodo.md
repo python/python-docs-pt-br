@@ -4,13 +4,13 @@
 
 
 
-# c-api (57.10% done)
+# c-api (57.09% done)
 
 - exceptions.po                  123 / 238 ( 51.0% translated).
 - frame.po                        20 /  42 ( 47.0% translated).
 - gcsupport.po                     9 /  52 ( 17.0% translated).
 - import.po                       33 /  62 ( 53.0% translated).
-- init.po                        170 / 488 ( 34.0% translated).
+- init.po                        170 / 489 ( 34.0% translated).
 - init_config.po                 135 / 417 ( 32.0% translated).
 - long.po                         43 / 104 ( 41.0% translated).
 - memory.po                       59 / 201 ( 29.0% translated).
@@ -61,7 +61,7 @@
 
 
 
-# library (66.82% done)
+# library (66.83% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 412 ( 74.0% translated).
@@ -143,7 +143,7 @@
 - tkinter.ttk.po                 142 / 429 ( 33.0% translated).
 - traceback.po                     9 / 116 (  7.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
-- unicodedata.po                  20 /  43 ( 46.0% translated).
+- unicodedata.po                  24 /  43 ( 55.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               103 / 448 ( 22.0% translated).
 - unittest.po                    281 / 537 ( 52.0% translated).
@@ -192,7 +192,7 @@
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         233 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
-- changelog.po                   2622 / 12512 ( 20.0% translated).
+- changelog.po                   2622 / 12513 ( 20.0% translated).
 
 
 # TOTAL (63.30% done)
