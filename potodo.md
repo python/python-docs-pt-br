@@ -67,7 +67,7 @@
 
 
 
-# library (65.52% done)
+# library (65.55% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        80 /  84 ( 95.0% translated).
@@ -113,7 +113,7 @@
 - email.message.po                 7 / 110 (  6.0% translated).
 - email.parser.po                  3 /  48 (  6.0% translated).
 - email.policy.po                 11 / 107 ( 10.0% translated).
-- enum.po                         72 / 231 ( 31.0% translated).
+- enum.po                         84 / 231 ( 36.0% translated).
 - errno.po                       115 / 160 ( 71.0% translated).
 - faulthandler.po                  4 /  43 (  9.0% translated).
 - fcntl.po                        38 /  48 ( 79.0% translated).
@@ -239,5 +239,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (70.24% done)
+# TOTAL (70.26% done)
 
