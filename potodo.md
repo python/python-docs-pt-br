@@ -61,7 +61,7 @@
 
 
 
-# library (66.83% done)
+# library (66.86% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 412 ( 74.0% translated).
@@ -95,12 +95,12 @@
 - email.message.po                 7 / 110 (  6.0% translated).
 - email.parser.po                  3 /  48 (  6.0% translated).
 - email.policy.po                 11 / 107 ( 10.0% translated).
-- enum.po                         74 / 248 ( 29.0% translated).
+- enum.po                         87 / 248 ( 35.0% translated).
 - errno.po                       115 / 160 ( 71.0% translated).
 - faulthandler.po                  4 /  43 (  9.0% translated).
 - ftplib.po                       12 /  99 ( 12.0% translated).
 - functools.po                    19 / 115 ( 16.0% translated).
-- hashlib.po                      76 / 170 ( 44.0% translated).
+- hashlib.po                      75 / 170 ( 44.0% translated).
 - html.parser.po                   3 /  60 (  5.0% translated).
 - http.client.po                  45 / 117 ( 38.0% translated).
 - http.cookiejar.po                9 / 159 (  5.0% translated).
@@ -195,5 +195,5 @@
 - changelog.po                   2622 / 12513 ( 20.0% translated).
 
 
-# TOTAL (63.30% done)
+# TOTAL (63.32% done)
 
