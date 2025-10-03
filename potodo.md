@@ -103,7 +103,7 @@
 - faulthandler.po                  4 /  53 (  7.0% translated).
 - ftplib.po                       12 /  99 ( 12.0% translated).
 - functools.po                    19 / 126 ( 15.0% translated).
-- hashlib.po                      76 / 170 ( 44.0% translated).
+- hashlib.po                      75 / 170 ( 44.0% translated).
 - heapq.po                        48 /  67 ( 71.0% translated).
 - html.parser.po                   3 /  60 (  5.0% translated).
 - http.client.po                  45 / 117 ( 38.0% translated).
