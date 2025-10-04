@@ -77,18 +77,11 @@ jobs:
         id: build
         run: ./scripts/build.sh ${{ matrix.format }}
 
-      - name: Upload artifact - docs
-        if: steps.build.outcome == 'success'
-        uses: actions/upload-artifact@v4.3.5
-        with:
-          name: build-${{ inputs.version }}-${{ matrix.format }}
-          path: cpython/Doc/build/${{ matrix.format }}
-
       - name: Prepare notification (only on error)
         if: always() && steps.build.outcome == 'failure' && matrix.format == 'html'
         id: prepare
         run: |
-          scripts/prepmsg.sh logs/sphinxwarnings.txt logs/notify.txt
+          scripts/prepmsg.sh logs/sphinxwarnings-${format}.txt logs/notify.txt
           cat logs/notify.txt
         env:
           GITHUB_JOB: ${{ github.job }}
@@ -106,10 +99,17 @@ jobs:
 
       - name: Upload artifact - log files
         if: always() && steps.build.outcome == 'failure'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4.3.5
+        with:
+          name: logs-${{ inputs.version }}-${{ matrix.format }}
+          path: logs/*
+          
+      - name: Upload artifact - docs
+        if: always() && steps.build.outcome == 'success'
+        uses: actions/upload-artifact@v4.3.5
         with:
           name: build-${{ inputs.version }}-${{ matrix.format }}
-          path: logs/*
+          path: cpython/Doc/build/${{ matrix.format }}
 
   # Build Python docs in PDF format and make available for download.
   output-pdf:
