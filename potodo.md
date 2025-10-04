@@ -84,7 +84,7 @@
 
 
 
-# library (64.84% done)
+# library (64.90% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          48 /  49 ( 97.0% translated).
@@ -140,7 +140,7 @@
 - email.message.po                 6 / 103 (  5.0% translated).
 - email.parser.po                  3 /  47 (  6.0% translated).
 - email.policy.po                 11 / 102 ( 10.0% translated).
-- enum.po                        105 / 192 ( 54.0% translated).
+- enum.po                        107 / 192 ( 55.0% translated).
 - errno.po                       114 / 134 ( 85.0% translated).
 - faulthandler.po                  4 /  42 (  9.0% translated).
 - fcntl.po                        35 /  45 ( 77.0% translated).
@@ -153,7 +153,7 @@
 - glob.po                         32 /  33 ( 96.0% translated).
 - grp.po                          28 /  29 ( 96.0% translated).
 - gzip.po                         54 /  60 ( 90.0% translated).
-- hashlib.po                      65 / 161 ( 40.0% translated).
+- hashlib.po                      82 / 161 ( 50.0% translated).
 - heapq.po                        50 /  51 ( 98.0% translated).
 - hmac.po                         26 /  27 ( 96.0% translated).
 - html.parser.po                   3 /  50 (  6.0% translated).
@@ -305,5 +305,5 @@
 - 3.7.po                         247 / 563 ( 43.0% translated).
 
 
-# TOTAL (69.18% done)
+# TOTAL (69.22% done)
 
