@@ -61,7 +61,7 @@
 
 
 
-# library (66.94% done)
+# library (67.14% done)
 
 - annotationlib.po               136 / 141 ( 96.0% translated).
 - ast.po                         321 / 335 ( 95.0% translated).
@@ -98,12 +98,12 @@
 - email.message.po                 7 / 110 (  6.0% translated).
 - email.parser.po                  3 /  48 (  6.0% translated).
 - email.policy.po                 11 / 107 ( 10.0% translated).
-- enum.po                         74 / 249 ( 29.0% translated).
+- enum.po                        129 / 249 ( 51.0% translated).
 - errno.po                       115 / 161 ( 71.0% translated).
 - faulthandler.po                  4 /  53 (  7.0% translated).
 - ftplib.po                       12 /  99 ( 12.0% translated).
 - functools.po                    19 / 126 ( 15.0% translated).
-- hashlib.po                      75 / 170 ( 44.0% translated).
+- hashlib.po                      93 / 170 ( 54.0% translated).
 - heapq.po                        48 /  67 ( 71.0% translated).
 - html.parser.po                   3 /  60 (  5.0% translated).
 - http.client.po                  45 / 117 ( 38.0% translated).
@@ -200,5 +200,5 @@
 - changelog.po                   3224 / 13497 ( 23.0% translated).
 
 
-# TOTAL (63.70% done)
+# TOTAL (63.79% done)
 
