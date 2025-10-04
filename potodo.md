@@ -67,7 +67,7 @@
 
 
 
-# library (65.55% done)
+# library (65.70% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        80 /  84 ( 95.0% translated).
@@ -113,7 +113,7 @@
 - email.message.po                 7 / 110 (  6.0% translated).
 - email.parser.po                  3 /  48 (  6.0% translated).
 - email.policy.po                 11 / 107 ( 10.0% translated).
-- enum.po                         84 / 231 ( 36.0% translated).
+- enum.po                        123 / 231 ( 53.0% translated).
 - errno.po                       115 / 160 ( 71.0% translated).
 - faulthandler.po                  4 /  43 (  9.0% translated).
 - fcntl.po                        38 /  48 ( 79.0% translated).
@@ -121,7 +121,7 @@
 - ftplib.po                       12 /  99 ( 12.0% translated).
 - functools.po                    20 / 115 ( 17.0% translated).
 - gzip.po                         60 /  65 ( 92.0% translated).
-- hashlib.po                      72 / 168 ( 42.0% translated).
+- hashlib.po                      89 / 168 ( 52.0% translated).
 - html.parser.po                   3 /  60 (  5.0% translated).
 - http.client.po                  45 / 117 ( 38.0% translated).
 - http.cookiejar.po                9 / 159 (  5.0% translated).
@@ -239,5 +239,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (70.26% done)
+# TOTAL (70.35% done)
 
