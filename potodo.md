@@ -145,7 +145,7 @@
 - email.mime.po                   36 /  38 ( 94.0% translated).
 - email.parser.po                  3 /  47 (  6.0% translated).
 - email.policy.po                 12 / 103 ( 11.0% translated).
-- enum.po                         63 / 188 ( 33.0% translated).
+- enum.po                         64 / 188 ( 34.0% translated).
 - errno.po                       112 / 127 ( 88.0% translated).
 - exceptions.po                  148 / 149 ( 99.0% translated).
 - faulthandler.po                  4 /  42 (  9.0% translated).
