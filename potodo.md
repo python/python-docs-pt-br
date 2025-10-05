@@ -117,7 +117,7 @@
 - logging.handlers.po             51 / 274 ( 18.0% translated).
 - logging.po                     106 / 369 ( 28.0% translated).
 - mailbox.po                      10 / 307 (  3.0% translated).
-- mimetypes.po                    37 /  54 ( 68.0% translated).
+- mimetypes.po                    38 /  54 ( 70.0% translated).
 - mmap.po                         23 /  65 ( 35.0% translated).
 - msvcrt.po                       29 /  46 ( 63.0% translated).
 - multiprocessing.po             339 / 603 ( 56.0% translated).
@@ -171,9 +171,9 @@
 
 
 
-# using (99.24% done)
+# using (99.17% done)
 
-- configure.po                   406 / 407 ( 99.0% translated).
+- configure.po                   405 / 407 ( 99.0% translated).
 - mac.po                          94 /  96 ( 97.0% translated).
 - windows.po                     382 / 389 ( 98.0% translated).
 
@@ -192,7 +192,7 @@
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         233 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
-- changelog.po                   2622 / 12513 ( 20.0% translated).
+- changelog.po                   2623 / 12514 ( 20.0% translated).
 
 
 # TOTAL (63.40% done)
