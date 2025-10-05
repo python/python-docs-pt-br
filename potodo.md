@@ -178,7 +178,7 @@
 - logging.po                     100 / 351 ( 28.0% translated).
 - mailbox.po                      10 / 285 (  3.0% translated).
 - mailcap.po                       2 /  15 ( 13.0% translated).
-- mimetypes.po                    33 /  50 ( 66.0% translated).
+- mimetypes.po                    34 /  50 ( 68.0% translated).
 - mmap.po                         22 /  55 ( 40.0% translated).
 - msilib.po                        7 /  97 (  7.0% translated).
 - multiprocessing.po             293 / 529 ( 55.0% translated).
