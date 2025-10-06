@@ -189,7 +189,7 @@
 - lzma.po                        105 / 107 ( 98.0% translated).
 - mailbox.po                      20 / 282 (  7.0% translated).
 - mailcap.po                       2 /  15 ( 13.0% translated).
-- mimetypes.po                    31 /  45 ( 68.0% translated).
+- mimetypes.po                    32 /  45 ( 71.0% translated).
 - mmap.po                         17 /  47 ( 36.0% translated).
 - msilib.po                        7 /  96 (  7.0% translated).
 - multiprocessing.po             281 / 518 ( 54.0% translated).
