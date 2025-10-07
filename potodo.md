@@ -1,7 +1,8 @@
 
 
-# 3.12 (100.00% done)
+# 3.12 (99.85% done)
 
+- sphinx.po                      108 / 109 ( 99.0% translated).
 
 
 # c-api (56.35% done)
