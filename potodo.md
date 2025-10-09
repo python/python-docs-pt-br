@@ -1,8 +1,8 @@
 
 
-# 3.13 (99.86% done)
+# 3.13 (98.58% done)
 
-- sphinx.po                      108 / 109 ( 99.0% translated).
+- sphinx.po                      100 / 110 ( 90.0% translated).
 
 
 # c-api (57.09% done)
@@ -64,7 +64,7 @@
 
 
 
-# library (67.00% done)
+# library (66.99% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 412 ( 74.0% translated).
@@ -129,6 +129,7 @@
 - profile.po                      34 / 181 ( 18.0% translated).
 - pyexpat.po                      23 / 144 ( 15.0% translated).
 - queue.po                         6 /  57 ( 10.0% translated).
+- resource.po                    106 / 110 ( 96.0% translated).
 - select.po                       78 / 206 ( 37.0% translated).
 - selectors.po                    13 /  58 ( 22.0% translated).
 - shelve.po                       11 /  40 ( 27.0% translated).
@@ -184,12 +185,12 @@
 - windows.po                     382 / 389 ( 98.0% translated).
 
 
-# whatsnew (46.62% done)
+# whatsnew (46.49% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
 - 2.5.po                         389 / 452 ( 86.0% translated).
-- 2.6.po                         540 / 626 ( 86.0% translated).
+- 2.6.po                         511 / 626 ( 81.0% translated).
 - 2.7.po                         497 / 498 ( 99.0% translated).
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
@@ -202,8 +203,8 @@
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         233 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
-- changelog.po                   2622 / 12517 ( 20.0% translated).
+- changelog.po                   2624 / 12526 ( 20.0% translated).
 
 
-# TOTAL (63.37% done)
+# TOTAL (63.31% done)
 
