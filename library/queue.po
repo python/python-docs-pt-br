@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-16 17:23+0000\n"
+"POT-Creation-Date: 2025-10-09 14:15+0000\n"
 "PO-Revision-Date: 2025-09-16 00:01+0000\n"
 "Last-Translator: python-doc bot, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -202,7 +202,7 @@ msgstr ""
 msgid "Equivalent to ``put(item, block=False)``."
 msgstr ""
 
-#: ../../library/queue.rst:156 ../../library/queue.rst:297
+#: ../../library/queue.rst:156 ../../library/queue.rst:313
 msgid ""
 "Remove and return an item from the queue.  If optional args *block* is true "
 "and *timeout* is ``None`` (the default), block if necessary until an item is "
@@ -228,7 +228,7 @@ msgid ""
 "the queue has been shut down immediately."
 msgstr ""
 
-#: ../../library/queue.rst:174 ../../library/queue.rst:307
+#: ../../library/queue.rst:174 ../../library/queue.rst:323
 msgid "Equivalent to ``get(False)``."
 msgstr "Equivalente a ``get(False)``."
 
@@ -254,31 +254,27 @@ msgstr ""
 
 #: ../../library/queue.rst:190
 msgid ""
-"``shutdown(immediate=True)`` calls :meth:`task_done` for each remaining item "
-"in the queue."
-msgstr ""
-"``shutdown(immediate=True)`` chama :meth:`task_done` para cada item restante "
-"na fila."
-
-#: ../../library/queue.rst:193
-msgid ""
 "Raises a :exc:`ValueError` if called more times than there were items placed "
 "in the queue."
 msgstr ""
 "Levanta :exc:`ValueError` se for chamado mais vezes do que o número de itens "
 "colocados na fila."
 
-#: ../../library/queue.rst:199
+#: ../../library/queue.rst:196
 msgid "Blocks until all items in the queue have been gotten and processed."
 msgstr ""
 
-#: ../../library/queue.rst:201
+#: ../../library/queue.rst:198
 msgid ""
 "The count of unfinished tasks goes up whenever an item is added to the "
 "queue. The count goes down whenever a consumer thread calls :meth:"
 "`task_done` to indicate that the item was retrieved and all work on it is "
 "complete.  When the count of unfinished tasks drops to zero, :meth:`join` "
 "unblocks."
+msgstr ""
+
+#: ../../library/queue.rst:205
+msgid "Waiting for task completion"
 msgstr ""
 
 #: ../../library/queue.rst:207
@@ -317,61 +313,78 @@ msgstr ""
 
 #: ../../library/queue.rst:236
 msgid ""
-":class:`Queue` objects can be made to prevent further interaction by "
-"shutting them down."
+"When no longer needed, :class:`Queue` objects can be wound down until empty "
+"or terminated immediately with a hard shutdown."
 msgstr ""
 
 #: ../../library/queue.rst:241
-msgid ""
-"Shut down the queue, making :meth:`~Queue.get` and :meth:`~Queue.put` raise :"
-"exc:`ShutDown`."
+msgid "Put a :class:`Queue` instance into a shutdown mode."
 msgstr ""
 
-#: ../../library/queue.rst:244
+#: ../../library/queue.rst:243
 msgid ""
-"By default, :meth:`~Queue.get` on a shut down queue will only raise once the "
-"queue is empty. Set *immediate* to true to make :meth:`~Queue.get` raise "
-"immediately instead."
+"The queue can no longer grow. Future calls to :meth:`~Queue.put` raise :exc:"
+"`ShutDown`. Currently blocked callers of :meth:`~Queue.put` will be "
+"unblocked and will raise :exc:`ShutDown` in the formerly blocked thread."
 msgstr ""
-"Por padrão, :meth:`~Queue.get` em uma fila de desligamento vai levantar "
-"quando a fila estiver vazia. Defina *immediate* como verdadeiro para fazer :"
-"meth:`~Queue.get` levantar imediatamente."
 
 #: ../../library/queue.rst:248
 msgid ""
-"All blocked callers of :meth:`~Queue.put` and :meth:`~Queue.get` will be "
-"unblocked. If *immediate* is true, a task will be marked as done for each "
-"remaining item in the queue, which may unblock callers of :meth:`~Queue."
-"join`."
+"If *immediate* is false (the default), the queue can be wound down normally "
+"with :meth:`~Queue.get` calls to extract tasks that have already been loaded."
 msgstr ""
-"Todos os chamadores bloqueados de :meth:`~Queue.put` e :meth:`~Queue.get` "
-"serão desbloqueados. Se *immediate* for verdadeiro, uma tarefa será marcada "
-"como concluída para cada item restante na fila, o que pode desbloquear "
-"chamadores de :meth:`~Queue.join`."
 
-#: ../../library/queue.rst:257
+#: ../../library/queue.rst:252
+msgid ""
+"And if :meth:`~Queue.task_done` is called for each remaining task, a "
+"pending :meth:`~Queue.join` will be unblocked normally."
+msgstr ""
+
+#: ../../library/queue.rst:255
+msgid ""
+"Once the queue is empty, future calls to :meth:`~Queue.get` will raise :exc:"
+"`ShutDown`."
+msgstr ""
+
+#: ../../library/queue.rst:258
+msgid ""
+"If *immediate* is true, the queue is terminated immediately. The queue is "
+"drained to be completely empty.  All callers of :meth:`~Queue.join` are "
+"unblocked regardless of the number of unfinished tasks.  Blocked callers of :"
+"meth:`~Queue.get` are unblocked and will raise :exc:`ShutDown` because the "
+"queue is empty."
+msgstr ""
+
+#: ../../library/queue.rst:265
+msgid ""
+"Use caution when using :meth:`~Queue.join` with *immediate* set to true. "
+"This unblocks the join even when no work has been done on the tasks, "
+"violating the usual invariant for joining a queue."
+msgstr ""
+
+#: ../../library/queue.rst:273
 msgid "SimpleQueue Objects"
 msgstr "Objetos SimpleQueue"
 
-#: ../../library/queue.rst:259
+#: ../../library/queue.rst:275
 msgid ""
 ":class:`SimpleQueue` objects provide the public methods described below."
 msgstr ""
 
-#: ../../library/queue.rst:263
+#: ../../library/queue.rst:279
 msgid ""
 "Return the approximate size of the queue.  Note, qsize() > 0 doesn't "
 "guarantee that a subsequent get() will not block."
 msgstr ""
 
-#: ../../library/queue.rst:269
+#: ../../library/queue.rst:285
 msgid ""
 "Return ``True`` if the queue is empty, ``False`` otherwise.  If empty() "
 "returns ``False`` it doesn't guarantee that a subsequent call to get() will "
 "not block."
 msgstr ""
 
-#: ../../library/queue.rst:276
+#: ../../library/queue.rst:292
 msgid ""
 "Put *item* into the queue.  The method never blocks and always succeeds "
 "(except for potential low-level errors such as failure to allocate memory). "
@@ -379,7 +392,7 @@ msgid ""
 "compatibility with :meth:`Queue.put`."
 msgstr ""
 
-#: ../../library/queue.rst:282
+#: ../../library/queue.rst:298
 msgid ""
 "This method has a C implementation which is reentrant.  That is, a ``put()`` "
 "or ``get()`` call can be interrupted by another ``put()`` call in the same "
@@ -388,23 +401,23 @@ msgid ""
 "or :mod:`weakref` callbacks."
 msgstr ""
 
-#: ../../library/queue.rst:291
+#: ../../library/queue.rst:307
 msgid ""
 "Equivalent to ``put(item, block=False)``, provided for compatibility with :"
 "meth:`Queue.put_nowait`."
 msgstr ""
 
-#: ../../library/queue.rst:312
+#: ../../library/queue.rst:328
 msgid "Class :class:`multiprocessing.Queue`"
 msgstr ""
 
-#: ../../library/queue.rst:313
+#: ../../library/queue.rst:329
 msgid ""
 "A queue class for use in a multi-processing (rather than multi-threading) "
 "context."
 msgstr ""
 
-#: ../../library/queue.rst:316
+#: ../../library/queue.rst:332
 msgid ""
 ":class:`collections.deque` is an alternative implementation of unbounded "
 "queues with fast atomic :meth:`~collections.deque.append` and :meth:"
