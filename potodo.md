@@ -1,8 +1,7 @@
 
 
-# 3.14 (98.76% done)
+# 3.14 (100.00% done)
 
-- sphinx.po                      101 / 110 ( 91.0% translated).
 
 
 # c-api (54.65% done)
@@ -62,7 +61,7 @@
 
 
 
-# library (67.02% done)
+# library (66.95% done)
 
 - annotationlib.po               136 / 141 ( 96.0% translated).
 - ast.po                         321 / 335 ( 95.0% translated).
@@ -87,6 +86,7 @@
 - concurrent.futures.po           12 / 120 ( 10.0% translated).
 - concurrent.interpreters.po      43 /  87 ( 49.0% translated).
 - contextlib.po                   55 / 172 ( 31.0% translated).
+- crypt.po                         3 /   4 ( 75.0% translated).
 - ctypes.po                      147 / 625 ( 23.0% translated).
 - curses.po                       66 / 490 ( 13.0% translated).
 - dataclasses.po                  71 / 158 ( 44.0% translated).
@@ -140,6 +140,7 @@
 - selectors.po                    13 /  58 ( 22.0% translated).
 - shelve.po                       11 /  40 ( 27.0% translated).
 - shlex.po                         3 /  77 (  3.0% translated).
+- signal.po                      137 / 141 ( 97.0% translated).
 - smtplib.po                      33 / 116 ( 28.0% translated).
 - socket.po                       54 / 384 ( 14.0% translated).
 - sqlite3.po                     116 / 477 ( 24.0% translated).
@@ -155,7 +156,7 @@
 - tkinter.ttk.po                 142 / 429 ( 33.0% translated).
 - traceback.po                    10 / 118 (  8.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
-- typing.po                      817 / 825 ( 99.0% translated).
+- typing.po                      815 / 825 ( 98.0% translated).
 - unicodedata.po                  26 /  43 ( 60.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               103 / 448 ( 22.0% translated).
@@ -172,38 +173,36 @@
 - xml.sax.po                       3 /  32 (  9.0% translated).
 - xml.sax.reader.po                2 /  75 (  2.0% translated).
 - xmlrpc.client.po                55 / 113 ( 48.0% translated).
+- zlib.po                         68 /  95 ( 71.0% translated).
 - zoneinfo.po                     42 /  83 ( 50.0% translated).
 
 
-# reference (97.09% done)
+# reference (97.22% done)
 
 - compound_stmts.po              474 / 480 ( 98.0% translated).
-- datamodel.po                   890 / 892 ( 99.0% translated).
 - executionmodel.po              107 / 145 ( 73.0% translated).
-- lexical_analysis.po            394 / 438 ( 89.0% translated).
+- lexical_analysis.po            396 / 438 ( 90.0% translated).
 
 
 # tutorial (100.00% done)
 
 
 
-# using (93.66% done)
+# using (92.79% done)
 
-- configure.po                   417 / 418 ( 99.0% translated).
+- configure.po                   415 / 430 ( 96.0% translated).
 - mac.po                          92 /  94 ( 97.0% translated).
 - windows.po                     443 / 535 ( 82.0% translated).
 
 
-# whatsnew (48.86% done)
+# whatsnew (48.85% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
 - 2.5.po                         389 / 452 ( 86.0% translated).
 - 2.6.po                         510 / 626 ( 81.0% translated).
-- 2.7.po                         497 / 498 ( 99.0% translated).
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
-- 3.10.po                        549 / 550 ( 99.0% translated).
 - 3.14.po                        917 / 1043 ( 87.0% translated).
 - 3.2.po                          66 / 576 ( 11.0% translated).
 - 3.3.po                         134 / 682 ( 19.0% translated).
@@ -211,8 +210,8 @@
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         232 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
-- changelog.po                   3245 / 13566 ( 23.0% translated).
+- changelog.po                   3246 / 13578 ( 23.0% translated).
 
 
-# TOTAL (63.53% done)
+# TOTAL (63.50% done)
 
