@@ -209,3 +209,59 @@ jobs:
       - name: Show difference (error if there is any)
         run: |
           git diff --exit-code --color-words
+
+
+  # Check spelling of PO files
+  spellcheck:
+    name: Check spelling of translation files
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 5
+
+      - name: Set up Python 3
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ inputs.version }}
+          cache: pip
+          allow-prereleases: true
+
+      - name: Make sure the repository is up to date
+        if: github.event_name != 'pull_request'
+        run: git pull --rebase
+
+      - name: setup
+        run: ./scripts/setup.sh
+
+      - name: Install gettext
+        run: sudo apt update -y && sudo apt install gettext hunspell hunspell-pt-br -y
+
+      - name: Generate template files without literal-block gettext target
+        working-directory: cpython/Doc
+        run: |
+          make build ALLSPHINXOPTS='-E -b gettext -D gettext_compact=0 -D gettext_additional_targets=["index"] -d build/.doctrees . build/gettext'
+
+      - name: Update translation files
+        working-directory: cpython/Doc/locales/pt_BR/LC_MESSAGES
+        run: |
+          for po in $(git ls-files *.po); do
+              pot="../../../build/gettext/${po}t"
+              msgmerge --update --backup=off $po $pot
+          done
+
+      # Run a per-directory, group-separated spellcheck
+      - name: Check spelling
+        continue-on-error: true
+        run: |
+          check_spell=$PWD/scripts/check_spell.py
+          langdir=$PWD/cpython/Doc/locales/pt_BR/LC_MESSAGES
+          cd $langdir
+          dirs=". $(find * -type d | sort)"
+          for dir in $dirs; do
+            echo "::group::{$dir}"
+            cd $langdir/$dir
+            po_files=$(find -maxdepth 1 -name '*.po' | sort)
+            python $check_spell $po_files || :
+            echo "::endgroup::"
+          done
