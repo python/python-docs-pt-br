@@ -177,10 +177,10 @@
 - zoneinfo.po                     42 /  83 ( 50.0% translated).
 
 
-# reference (97.22% done)
+# reference (97.38% done)
 
 - compound_stmts.po              474 / 480 ( 98.0% translated).
-- executionmodel.po              107 / 145 ( 73.0% translated).
+- executionmodel.po              112 / 145 ( 77.0% translated).
 - lexical_analysis.po            396 / 438 ( 90.0% translated).
 
 
@@ -213,5 +213,5 @@
 - changelog.po                   3246 / 13578 ( 23.0% translated).
 
 
-# TOTAL (63.50% done)
+# TOTAL (63.51% done)
 
