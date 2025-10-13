@@ -4,7 +4,7 @@
 
 
 
-# c-api (54.65% done)
+# c-api (48.73% done)
 
 - exceptions.po                  122 / 242 ( 50.0% translated).
 - frame.po                        20 /  42 ( 47.0% translated).
@@ -16,7 +16,7 @@
 - memory.po                       61 / 208 ( 29.0% translated).
 - module.po                       49 / 129 ( 37.0% translated).
 - number.po                       14 /  48 ( 29.0% translated).
-- object.po                       45 / 144 ( 31.0% translated).
+- object.po                       45 / 145 ( 31.0% translated).
 - refcounting.po                  15 /  50 ( 30.0% translated).
 - structures.po                   70 / 191 ( 36.0% translated).
 - sys.po                          28 /  83 ( 33.0% translated).
@@ -33,7 +33,7 @@
 
 
 
-# extending (23.13% done)
+# extending (19.38% done)
 
 - embedding.po                     5 /  59 (  8.0% translated).
 - extending.po                    58 / 226 ( 25.0% translated).
@@ -45,7 +45,7 @@
 
 
 
-# howto (72.81% done)
+# howto (64.48% done)
 
 - a-conceptual-overview-of-asyncio.po  72 /  93 ( 77.0% translated).
 - descriptor.po                  186 / 230 ( 80.0% translated).
@@ -61,7 +61,7 @@
 
 
 
-# library (66.95% done)
+# library (60.16% done)
 
 - annotationlib.po               136 / 141 ( 96.0% translated).
 - ast.po                         321 / 335 ( 95.0% translated).
@@ -140,7 +140,7 @@
 - selectors.po                    13 /  58 ( 22.0% translated).
 - shelve.po                       11 /  40 ( 27.0% translated).
 - shlex.po                         3 /  77 (  3.0% translated).
-- signal.po                      137 / 141 ( 97.0% translated).
+- signal.po                      135 / 141 ( 95.0% translated).
 - smtplib.po                      33 / 116 ( 28.0% translated).
 - socket.po                       54 / 384 ( 14.0% translated).
 - sqlite3.po                     116 / 477 ( 24.0% translated).
@@ -177,7 +177,7 @@
 - zoneinfo.po                     42 /  83 ( 50.0% translated).
 
 
-# reference (97.38% done)
+# reference (96.60% done)
 
 - compound_stmts.po              474 / 480 ( 98.0% translated).
 - executionmodel.po              112 / 145 ( 77.0% translated).
@@ -188,14 +188,15 @@
 
 
 
-# using (92.79% done)
+# using (89.33% done)
 
+- cmdline.po                     263 / 264 ( 99.0% translated).
 - configure.po                   415 / 430 ( 96.0% translated).
 - mac.po                          92 /  94 ( 97.0% translated).
 - windows.po                     443 / 535 ( 82.0% translated).
 
 
-# whatsnew (48.85% done)
+# whatsnew (49.58% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -210,8 +211,8 @@
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         232 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
-- changelog.po                   3246 / 13578 ( 23.0% translated).
+- changelog.po                   3246 / 13581 ( 23.0% translated).
 
 
-# TOTAL (63.51% done)
+# TOTAL (59.89% done)
 
