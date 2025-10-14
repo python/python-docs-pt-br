@@ -5,7 +5,7 @@
 - sphinx.po                      106 / 107 ( 99.0% translated).
 
 
-# c-api (49.14% done)
+# c-api (49.24% done)
 
 - exceptions.po                  123 / 238 ( 51.0% translated).
 - frame.po                        20 /  42 ( 47.0% translated).
@@ -22,7 +22,7 @@
 - structures.po                   71 / 180 ( 39.0% translated).
 - sys.po                          28 /  75 ( 37.0% translated).
 - type.po                         19 / 103 ( 18.0% translated).
-- typeobj.po                     228 / 682 ( 33.0% translated).
+- typeobj.po                     236 / 682 ( 34.0% translated).
 - unicode.po                      85 / 340 ( 25.0% translated).
 
 
@@ -64,7 +64,7 @@
 
 
 
-# library (60.10% done)
+# library (60.17% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 412 ( 74.0% translated).
@@ -134,7 +134,6 @@
 - selectors.po                    13 /  58 ( 22.0% translated).
 - shelve.po                       11 /  40 ( 27.0% translated).
 - shlex.po                         3 /  77 (  3.0% translated).
-- signal.po                      135 / 141 ( 95.0% translated).
 - smtplib.po                      33 / 116 ( 28.0% translated).
 - socket.po                       56 / 368 ( 15.0% translated).
 - sqlite3.po                     116 / 479 ( 24.0% translated).
@@ -149,7 +148,6 @@
 - tkinter.ttk.po                 142 / 429 ( 33.0% translated).
 - traceback.po                     9 / 116 (  7.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
-- typing.po                      800 / 804 ( 99.0% translated).
 - unicodedata.po                  24 /  43 ( 55.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               103 / 448 ( 22.0% translated).
@@ -166,7 +164,6 @@
 - xml.sax.po                       3 /  32 (  9.0% translated).
 - xml.sax.reader.po                2 /  75 (  2.0% translated).
 - xmlrpc.client.po                55 / 113 ( 48.0% translated).
-- zlib.po                         66 /  93 ( 70.0% translated).
 - zoneinfo.po                     42 /  83 ( 50.0% translated).
 
 
@@ -185,7 +182,7 @@
 - windows.po                     382 / 389 ( 98.0% translated).
 
 
-# whatsnew (47.99% done)
+# whatsnew (48.04% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -201,8 +198,8 @@
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         233 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
-- changelog.po                   2624 / 12533 ( 20.0% translated).
+- changelog.po                   2634 / 12533 ( 21.0% translated).
 
 
-# TOTAL (59.64% done)
+# TOTAL (59.70% done)
 
