@@ -1,11 +1,11 @@
 
 
-# 3.12 (99.85% done)
+# 3.12 (99.64% done)
 
 - sphinx.po                      108 / 109 ( 99.0% translated).
 
 
-# c-api (56.35% done)
+# c-api (48.95% done)
 
 - exceptions.po                  198 / 366 ( 54.0% translated).
 - frame.po                        20 /  36 ( 55.0% translated).
@@ -23,7 +23,7 @@
 - structures.po                   71 / 180 ( 39.0% translated).
 - sys.po                          28 /  77 ( 36.0% translated).
 - type.po                         19 /  99 ( 19.0% translated).
-- typeobj.po                     228 / 674 ( 33.0% translated).
+- typeobj.po                     236 / 674 ( 35.0% translated).
 - unicode.po                      79 / 325 ( 24.0% translated).
 - veryhigh.po                     54 /  57 ( 94.0% translated).
 
@@ -36,7 +36,7 @@
 
 
 
-# extending (23.88% done)
+# extending (19.74% done)
 
 - embedding.po                     5 /  58 (  8.0% translated).
 - extending.po                    59 / 207 ( 28.0% translated).
@@ -44,12 +44,12 @@
 - newtypes_tutorial.po            28 / 177 ( 15.0% translated).
 
 
-# faq (99.54% done)
+# faq (99.68% done)
 
 - library.po                     157 / 162 ( 96.0% translated).
 
 
-# howto (70.26% done)
+# howto (60.50% done)
 
 - curses.po                      120 / 121 ( 99.0% translated).
 - descriptor.po                  181 / 233 ( 77.0% translated).
@@ -68,7 +68,7 @@
 
 
 
-# library (65.71% done)
+# library (58.05% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        80 /  84 ( 95.0% translated).
@@ -212,19 +212,19 @@
 
 
 
-# tutorial (99.61% done)
+# tutorial (99.44% done)
 
 - interpreter.po                  31 /  33 ( 93.0% translated).
 - stdlib.po                       65 /  67 ( 97.0% translated).
 - stdlib2.po                      64 /  65 ( 98.0% translated).
 
 
-# using (99.21% done)
+# using (99.20% done)
 
 - configure.po                   286 / 294 ( 97.0% translated).
 
 
-# whatsnew (75.02% done)
+# whatsnew (74.16% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -240,5 +240,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (70.35% done)
+# TOTAL (64.72% done)
 
