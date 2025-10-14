@@ -4,7 +4,7 @@
 
 
 
-# c-api (58.74% done)
+# c-api (49.90% done)
 
 - exceptions.po                  195 / 347 ( 56.0% translated).
 - float.po                        34 /  35 ( 97.0% translated).
@@ -25,7 +25,7 @@
 - sys.po                          25 /  76 ( 32.0% translated).
 - tuple.po                        39 /  40 ( 97.0% translated).
 - type.po                         26 /  68 ( 38.0% translated).
-- typeobj.po                     230 / 600 ( 38.0% translated).
+- typeobj.po                     234 / 600 ( 39.0% translated).
 - unicode.po                      89 / 308 ( 28.0% translated).
 - veryhigh.po                     52 /  56 ( 92.0% translated).
 
@@ -34,7 +34,7 @@
 
 
 
-# distutils (42.18% done)
+# distutils (25.81% done)
 
 - apiref.po                       88 / 414 ( 21.0% translated).
 - builtdist.po                    51 / 128 ( 39.0% translated).
@@ -42,7 +42,7 @@
 - sourcedist.po                   27 /  74 ( 36.0% translated).
 
 
-# extending (32.59% done)
+# extending (27.27% done)
 
 - embedding.po                     5 /  45 ( 11.0% translated).
 - extending.po                    58 / 162 ( 35.0% translated).
@@ -50,7 +50,7 @@
 - newtypes_tutorial.po            30 / 123 ( 24.0% translated).
 
 
-# faq (97.48% done)
+# faq (95.88% done)
 
 - design.po                      128 / 142 ( 90.0% translated).
 - extending.po                    55 /  58 ( 94.0% translated).
@@ -58,7 +58,7 @@
 - programming.po                 391 / 393 ( 99.0% translated).
 
 
-# howto (70.90% done)
+# howto (64.27% done)
 
 - curses.po                      103 / 105 ( 98.0% translated).
 - descriptor.po                  120 / 177 ( 67.0% translated).
@@ -75,7 +75,7 @@
 - urllib2.po                      82 /  84 ( 97.0% translated).
 
 
-# install (73.45% done)
+# install (71.32% done)
 
 - index.po                       166 / 226 ( 73.0% translated).
 
@@ -84,7 +84,7 @@
 
 
 
-# library (64.90% done)
+# library (56.13% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          48 /  49 ( 97.0% translated).
@@ -266,7 +266,7 @@
 - zoneinfo.po                     34 /  75 ( 45.0% translated).
 
 
-# reference (98.65% done)
+# reference (96.82% done)
 
 - compound_stmts.po              383 / 389 ( 98.0% translated).
 - datamodel.po                   785 / 786 ( 99.0% translated).
@@ -279,14 +279,14 @@
 
 
 
-# using (97.17% done)
+# using (97.30% done)
 
 - cmdline.po                     210 / 211 ( 99.0% translated).
 - configure.po                   241 / 265 ( 90.0% translated).
 - windows.po                     342 / 343 ( 99.0% translated).
 
 
-# whatsnew (75.46% done)
+# whatsnew (75.28% done)
 
 - 2.0.po                         181 / 183 ( 98.0% translated).
 - 2.1.po                         138 / 139 ( 99.0% translated).
@@ -305,5 +305,5 @@
 - 3.7.po                         247 / 563 ( 43.0% translated).
 
 
-# TOTAL (69.22% done)
+# TOTAL (63.10% done)
 
