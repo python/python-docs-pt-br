@@ -1,12 +1,12 @@
 
 
-# 3.9 (98.29% done)
+# 3.9 (97.57% done)
 
 - glossary.po                    316 / 323 ( 97.0% translated).
 - license.po                      87 /  89 ( 97.0% translated).
 
 
-# c-api (61.62% done)
+# c-api (50.94% done)
 
 - exceptions.po                  197 / 266 ( 74.0% translated).
 - gcsupport.po                    10 /  33 ( 30.0% translated).
@@ -20,7 +20,7 @@
 - structures.po                   50 / 126 ( 39.0% translated).
 - sys.po                          19 /  71 ( 26.0% translated).
 - type.po                         29 /  63 ( 46.0% translated).
-- typeobj.po                     232 / 578 ( 40.0% translated).
+- typeobj.po                     234 / 578 ( 40.0% translated).
 - unicode.po                      80 / 335 ( 23.0% translated).
 - veryhigh.po                     40 /  61 ( 65.0% translated).
 
@@ -29,7 +29,7 @@
 
 
 
-# distutils (41.62% done)
+# distutils (25.40% done)
 
 - apiref.po                       88 / 417 ( 21.0% translated).
 - builtdist.po                    55 / 149 ( 36.0% translated).
@@ -37,7 +37,7 @@
 - sourcedist.po                   27 /  74 ( 36.0% translated).
 
 
-# extending (33.33% done)
+# extending (26.67% done)
 
 - embedding.po                     5 /  45 ( 11.0% translated).
 - extending.po                    58 / 158 ( 36.0% translated).
@@ -45,7 +45,7 @@
 - newtypes_tutorial.po            29 / 123 ( 23.0% translated).
 
 
-# faq (93.30% done)
+# faq (89.53% done)
 
 - design.po                      123 / 141 ( 87.0% translated).
 - extending.po                    50 /  58 ( 86.0% translated).
@@ -53,7 +53,7 @@
 - programming.po                 349 / 372 ( 93.0% translated).
 
 
-# howto (61.51% done)
+# howto (52.27% done)
 
 - argparse.po                     83 /  84 ( 98.0% translated).
 - clinic.po                      101 / 415 ( 24.0% translated).
@@ -72,17 +72,17 @@
 - urllib2.po                      68 /  85 ( 80.0% translated).
 
 
-# install (73.78% done)
+# install (70.62% done)
 
 - index.po                       166 / 225 ( 73.0% translated).
 
 
-# installing (98.11% done)
+# installing (99.15% done)
 
 - index.po                        52 /  53 ( 98.0% translated).
 
 
-# library (61.45% done)
+# library (51.71% done)
 
 - abc.po                          43 /  45 ( 95.0% translated).
 - argparse.po                    248 / 290 ( 85.0% translated).
@@ -290,7 +290,7 @@
 - zoneinfo.po                     30 /  72 ( 41.0% translated).
 
 
-# reference (91.69% done)
+# reference (86.21% done)
 
 - compound_stmts.po               82 / 118 ( 69.0% translated).
 - datamodel.po                   478 / 484 ( 98.0% translated).
@@ -302,7 +302,7 @@
 - simple_stmts.po                150 / 154 ( 97.0% translated).
 
 
-# tutorial (96.22% done)
+# tutorial (94.91% done)
 
 - classes.po                     110 / 115 ( 95.0% translated).
 - datastructures.po               88 /  90 ( 97.0% translated).
@@ -314,7 +314,7 @@
 - whatnow.po                      16 /  18 ( 88.0% translated).
 
 
-# using (90.74% done)
+# using (89.78% done)
 
 - cmdline.po                     175 / 202 ( 86.0% translated).
 - mac.po                          41 /  44 ( 93.0% translated).
@@ -322,7 +322,7 @@
 - windows.po                     281 / 303 ( 92.0% translated).
 
 
-# whatsnew (67.59% done)
+# whatsnew (64.70% done)
 
 - 2.0.po                         135 / 182 ( 74.0% translated).
 - 2.1.po                         137 / 139 ( 98.0% translated).
@@ -342,5 +342,5 @@
 - 3.9.po                         383 / 393 ( 97.0% translated).
 
 
-# TOTAL (64.65% done)
+# TOTAL (57.19% done)
 
