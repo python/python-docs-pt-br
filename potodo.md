@@ -68,7 +68,7 @@
 
 
 
-# library (58.05% done)
+# library (58.07% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        80 /  84 ( 95.0% translated).
@@ -127,7 +127,7 @@
 - http.client.po                  45 / 117 ( 38.0% translated).
 - http.cookiejar.po                9 / 159 (  5.0% translated).
 - http.cookies.po                  7 /  49 ( 14.0% translated).
-- http.po                        229 / 246 ( 93.0% translated).
+- http.po                        237 / 246 ( 96.0% translated).
 - http.server.po                  15 / 113 ( 13.0% translated).
 - idle.po                         28 / 293 (  9.0% translated).
 - imaplib.po                      14 / 117 ( 11.0% translated).
@@ -165,7 +165,7 @@
 - shlex.po                         3 /  77 (  3.0% translated).
 - signal.po                      135 / 137 ( 98.0% translated).
 - site.po                         56 /  58 ( 96.0% translated).
-- smtplib.po                      33 / 116 ( 28.0% translated).
+- smtplib.po                      35 / 116 ( 30.0% translated).
 - sndhdr.po                       12 /  38 ( 31.0% translated).
 - socket.po                       56 / 362 ( 15.0% translated).
 - sqlite3.po                     115 / 469 ( 24.0% translated).
@@ -240,5 +240,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (64.72% done)
+# TOTAL (64.73% done)
 
