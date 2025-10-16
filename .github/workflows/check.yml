@@ -205,7 +205,9 @@ jobs:
       - name: Remove zero-width space characters
         run: |
           sed -i 's/\xe2\x80\x8b//g' *.po **/*.po
+          # Undo removal from where we should not
+          sed -i 's|`````|``​`​``|' reference/lexical_analysis.po
 
       - name: Show difference (error if there is any)
         run: |
-          git diff -I'^msgid ' --exit-code --color-words
+          git diff --exit-code --color-words
