@@ -171,11 +171,11 @@
 - zoneinfo.po                     42 /  83 ( 50.0% translated).
 
 
-# reference (96.60% done)
+# reference (96.57% done)
 
 - compound_stmts.po              474 / 480 ( 98.0% translated).
 - executionmodel.po              112 / 145 ( 77.0% translated).
-- lexical_analysis.po            396 / 438 ( 90.0% translated).
+- lexical_analysis.po            395 / 438 ( 90.0% translated).
 
 
 # tutorial (100.00% done)
@@ -188,7 +188,7 @@
 - windows.po                     428 / 532 ( 80.0% translated).
 
 
-# whatsnew (49.65% done)
+# whatsnew (49.64% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -196,15 +196,15 @@
 - 2.6.po                         510 / 626 ( 81.0% translated).
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
-- 3.14.po                        917 / 1043 ( 87.0% translated).
+- 3.14.po                        916 / 1043 ( 87.0% translated).
 - 3.2.po                          66 / 576 ( 11.0% translated).
 - 3.3.po                         134 / 682 ( 19.0% translated).
 - 3.4.po                         497 / 517 ( 96.0% translated).
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         232 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
-- changelog.po                   3270 / 13588 ( 24.0% translated).
+- changelog.po                   3270 / 13594 ( 24.0% translated).
 
 
-# TOTAL (60.04% done)
+# TOTAL (60.03% done)
 
