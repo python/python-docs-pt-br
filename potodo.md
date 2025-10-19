@@ -80,7 +80,7 @@
 - base64.po                       15 /  71 ( 21.0% translated).
 - bdb.po                          13 / 112 ( 11.0% translated).
 - binascii.po                     23 /  38 ( 60.0% translated).
-- codecs.po                      250 / 557 ( 44.0% translated).
+- codecs.po                      250 / 558 ( 44.0% translated).
 - collections.abc.po             140 / 142 ( 98.0% translated).
 - concurrent.futures.po           14 / 101 ( 13.0% translated).
 - contextlib.po                   55 / 172 ( 31.0% translated).
@@ -152,7 +152,7 @@
 - unittest.po                    281 / 537 ( 52.0% translated).
 - urllib.parse.po                111 / 168 ( 66.0% translated).
 - urllib.request.po               49 / 303 ( 16.0% translated).
-- warnings.po                     75 / 138 ( 54.0% translated).
+- warnings.po                     77 / 140 ( 55.0% translated).
 - wave.po                         17 /  54 ( 31.0% translated).
 - wsgiref.po                      79 / 134 ( 58.0% translated).
 - xml.dom.minidom.po               8 /  56 ( 14.0% translated).
@@ -196,7 +196,7 @@
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         233 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
-- changelog.po                   2636 / 12542 ( 21.0% translated).
+- changelog.po                   2636 / 12543 ( 21.0% translated).
 
 
 # TOTAL (59.76% done)
