@@ -61,7 +61,7 @@
 
 
 
-# library (60.34% done)
+# library (60.35% done)
 
 - annotationlib.po               136 / 141 ( 96.0% translated).
 - ast.po                         321 / 335 ( 95.0% translated).
@@ -80,7 +80,7 @@
 - base64.po                       15 /  71 ( 21.0% translated).
 - bdb.po                          13 / 119 ( 10.0% translated).
 - binascii.po                     23 /  38 ( 60.0% translated).
-- codecs.po                      250 / 562 ( 44.0% translated).
+- codecs.po                      250 / 563 ( 44.0% translated).
 - collections.abc.po             140 / 142 ( 98.0% translated).
 - compression.zstd.po            126 / 173 ( 72.0% translated).
 - concurrent.futures.po           12 / 120 ( 10.0% translated).
@@ -158,7 +158,7 @@
 - unittest.po                    291 / 560 ( 51.0% translated).
 - urllib.parse.po                111 / 169 ( 65.0% translated).
 - urllib.request.po               49 / 295 ( 16.0% translated).
-- warnings.po                     76 / 149 ( 51.0% translated).
+- warnings.po                     79 / 151 ( 52.0% translated).
 - wave.po                         17 /  54 ( 31.0% translated).
 - wsgiref.po                      79 / 134 ( 58.0% translated).
 - xml.dom.minidom.po               8 /  56 ( 14.0% translated).
@@ -188,7 +188,7 @@
 - windows.po                     428 / 532 ( 80.0% translated).
 
 
-# whatsnew (49.69% done)
+# whatsnew (49.68% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -203,7 +203,7 @@
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         232 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
-- changelog.po                   3270 / 13594 ( 24.0% translated).
+- changelog.po                   3270 / 13598 ( 24.0% translated).
 
 
 # TOTAL (60.05% done)
