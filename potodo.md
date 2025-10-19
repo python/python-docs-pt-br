@@ -68,7 +68,7 @@
 
 
 
-# library (58.07% done)
+# library (58.08% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        80 /  84 ( 95.0% translated).
@@ -192,7 +192,7 @@
 - unittest.po                    282 / 536 ( 52.0% translated).
 - urllib.parse.po                110 / 167 ( 65.0% translated).
 - urllib.request.po               51 / 300 ( 17.0% translated).
-- warnings.po                     75 / 131 ( 57.0% translated).
+- warnings.po                     76 / 131 ( 58.0% translated).
 - wave.po                         17 /  53 ( 32.0% translated).
 - webbrowser.po                   77 /  83 ( 92.0% translated).
 - wsgiref.po                      79 / 134 ( 58.0% translated).
