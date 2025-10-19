@@ -247,7 +247,7 @@
 - urllib.request.po               52 / 283 ( 18.0% translated).
 - urllib.robotparser.po           17 /  18 ( 94.0% translated).
 - uuid.po                         49 /  56 ( 87.0% translated).
-- warnings.po                     70 / 112 ( 62.0% translated).
+- warnings.po                     71 / 112 ( 63.0% translated).
 - wave.po                         17 /  52 ( 32.0% translated).
 - webbrowser.po                   79 /  86 ( 91.0% translated).
 - wsgiref.po                      71 / 124 ( 57.0% translated).
