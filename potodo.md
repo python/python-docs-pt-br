@@ -64,7 +64,7 @@
 
 
 
-# library (60.26% done)
+# library (60.22% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 412 ( 74.0% translated).
@@ -104,6 +104,7 @@
 - faulthandler.po                  4 /  43 (  9.0% translated).
 - ftplib.po                       12 /  99 ( 12.0% translated).
 - functools.po                    19 / 115 ( 16.0% translated).
+- glob.po                         40 /  45 ( 88.0% translated).
 - hashlib.po                      93 / 170 ( 54.0% translated).
 - html.parser.po                   3 /  60 (  5.0% translated).
 - http.client.po                  45 / 117 ( 38.0% translated).
@@ -128,6 +129,7 @@
 - profile.po                      34 / 181 ( 18.0% translated).
 - pyexpat.po                      23 / 144 ( 15.0% translated).
 - queue.po                         6 /  57 ( 10.0% translated).
+- resource.po                     92 / 110 ( 83.0% translated).
 - select.po                       78 / 206 ( 37.0% translated).
 - selectors.po                    13 /  58 ( 22.0% translated).
 - shelve.po                       11 /  40 ( 27.0% translated).
@@ -146,6 +148,7 @@
 - tkinter.ttk.po                 142 / 429 ( 33.0% translated).
 - traceback.po                     9 / 116 (  7.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
+- typing.po                      803 / 804 ( 99.0% translated).
 - unicodedata.po                  24 /  43 ( 55.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               103 / 448 ( 22.0% translated).
@@ -165,9 +168,10 @@
 - zoneinfo.po                     42 /  83 ( 50.0% translated).
 
 
-# reference (99.16% done)
+# reference (99.11% done)
 
 - compound_stmts.po              460 / 467 ( 98.0% translated).
+- datamodel.po                   866 / 868 ( 99.0% translated).
 
 
 # tutorial (100.00% done)
@@ -196,8 +200,8 @@
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         233 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
-- changelog.po                   2636 / 12543 ( 21.0% translated).
+- changelog.po                   2636 / 12544 ( 21.0% translated).
 
 
-# TOTAL (59.76% done)
+# TOTAL (59.74% done)
 
