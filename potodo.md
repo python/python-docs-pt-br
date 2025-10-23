@@ -61,9 +61,9 @@
 
 
 
-# library (60.31% done)
+# library (60.27% done)
 
-- annotationlib.po               136 / 141 ( 96.0% translated).
+- annotationlib.po               136 / 143 ( 95.0% translated).
 - ast.po                         321 / 335 ( 95.0% translated).
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           307 / 416 ( 73.0% translated).
@@ -126,7 +126,7 @@
 - logging.po                     106 / 369 ( 28.0% translated).
 - mailbox.po                      10 / 307 (  3.0% translated).
 - marshal.po                      36 /  56 ( 64.0% translated).
-- mimetypes.po                    42 /  68 ( 61.0% translated).
+- mimetypes.po                    44 /  68 ( 64.0% translated).
 - mmap.po                         23 /  65 ( 35.0% translated).
 - msvcrt.po                       29 /  46 ( 63.0% translated).
 - multiprocessing.po             344 / 612 ( 56.0% translated).
@@ -171,6 +171,7 @@
 - xml.sax.po                       3 /  32 (  9.0% translated).
 - xml.sax.reader.po                2 /  75 (  2.0% translated).
 - xmlrpc.client.po                55 / 113 ( 48.0% translated).
+- zlib.po                         86 /  95 ( 90.0% translated).
 - zoneinfo.po                     42 /  83 ( 50.0% translated).
 
 
@@ -207,8 +208,8 @@
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         232 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
-- changelog.po                   3270 / 13605 ( 24.0% translated).
+- changelog.po                   3270 / 13608 ( 24.0% translated).
 
 
-# TOTAL (60.07% done)
+# TOTAL (60.05% done)
 
