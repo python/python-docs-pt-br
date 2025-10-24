@@ -61,9 +61,8 @@
 
 
 
-# library (60.27% done)
+# library (60.39% done)
 
-- annotationlib.po               136 / 143 ( 95.0% translated).
 - ast.po                         321 / 335 ( 95.0% translated).
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           307 / 416 ( 73.0% translated).
@@ -107,7 +106,6 @@
 - fractions.po                    40 /  41 ( 97.0% translated).
 - ftplib.po                       12 /  99 ( 12.0% translated).
 - functools.po                    19 / 126 ( 15.0% translated).
-- glob.po                         40 /  45 ( 88.0% translated).
 - hashlib.po                      93 / 170 ( 54.0% translated).
 - heapq.po                        48 /  67 ( 71.0% translated).
 - html.parser.po                   3 /  60 (  5.0% translated).
@@ -134,7 +132,6 @@
 - profile.po                      34 / 181 ( 18.0% translated).
 - pyexpat.po                      23 / 145 ( 15.0% translated).
 - queue.po                         6 /  57 ( 10.0% translated).
-- resource.po                     92 / 110 ( 83.0% translated).
 - select.po                       78 / 209 ( 37.0% translated).
 - selectors.po                    13 /  58 ( 22.0% translated).
 - shelve.po                       11 /  40 ( 27.0% translated).
@@ -154,14 +151,13 @@
 - tkinter.ttk.po                 142 / 429 ( 33.0% translated).
 - traceback.po                    10 / 118 (  8.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
-- typing.po                      824 / 825 ( 99.0% translated).
 - unicodedata.po                  26 /  43 ( 60.0% translated).
 - unittest.mock-examples.po       22 / 182 ( 12.0% translated).
 - unittest.mock.po               103 / 448 ( 22.0% translated).
 - unittest.po                    291 / 560 ( 51.0% translated).
 - urllib.parse.po                111 / 169 ( 65.0% translated).
 - urllib.request.po               49 / 295 ( 16.0% translated).
-- warnings.po                     79 / 151 ( 52.0% translated).
+- warnings.po                     80 / 151 ( 52.0% translated).
 - wave.po                         17 /  54 ( 31.0% translated).
 - wsgiref.po                      79 / 134 ( 58.0% translated).
 - xml.dom.minidom.po               8 /  56 ( 14.0% translated).
@@ -171,14 +167,12 @@
 - xml.sax.po                       3 /  32 (  9.0% translated).
 - xml.sax.reader.po                2 /  75 (  2.0% translated).
 - xmlrpc.client.po                55 / 113 ( 48.0% translated).
-- zlib.po                         86 /  95 ( 90.0% translated).
 - zoneinfo.po                     42 /  83 ( 50.0% translated).
 
 
-# reference (96.52% done)
+# reference (96.57% done)
 
 - compound_stmts.po              474 / 480 ( 98.0% translated).
-- datamodel.po                   892 / 894 ( 99.0% translated).
 - executionmodel.po              112 / 145 ( 77.0% translated).
 - lexical_analysis.po            395 / 438 ( 90.0% translated).
 
@@ -193,7 +187,7 @@
 - windows.po                     428 / 532 ( 80.0% translated).
 
 
-# whatsnew (49.81% done)
+# whatsnew (49.93% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -208,8 +202,8 @@
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         232 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
-- changelog.po                   3270 / 13608 ( 24.0% translated).
+- changelog.po                   3308 / 13608 ( 24.0% translated).
 
 
-# TOTAL (60.05% done)
+# TOTAL (60.14% done)
 

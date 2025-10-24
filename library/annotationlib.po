@@ -5,6 +5,7 @@
 #
 # Translators:
 # python-doc bot, 2025
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
@@ -13,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-23 14:15+0000\n"
 "PO-Revision-Date: 2025-09-16 00:00+0000\n"
-"Last-Translator: python-doc bot, 2025\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -120,6 +121,9 @@ msgid ""
 "Most functionality in this module can execute arbitrary code; see :ref:`the "
 "security section <annotationlib-security>` for more information."
 msgstr ""
+"A maioria das funcionalidades deste módulo pode executar código arbitrário; "
+"veja :ref:`a seção de segurança <annotationlib-security>` para mais "
+"informações."
 
 #: ../../library/annotationlib.rst:56
 msgid ""
@@ -723,6 +727,12 @@ msgid ""
 "back to using :attr:`~Format.VALUE`. If :attr:`~Format.VALUE` fails, the "
 "error from this call will be raised."
 msgstr ""
+"Ao chamar :attr:`!object.__annotate__`, ele é chamado primeiro com :attr:"
+"`~Format.FORWARDREF`. Se isso não for implementado, ele verificará se :attr:"
+"`~Format.VALUE_WITH_FAKE_GLOBALS` é suportado e o utilizará no ambiente de "
+"globais falsos. Se nenhum desses formatos for suportado, ele retornará para :"
+"attr:`~Format.VALUE`. Se :attr:`~Format.VALUE` falhar, o erro desta chamada "
+"será gerado."
 
 #: ../../library/annotationlib.rst:355
 msgid ""
@@ -744,6 +754,12 @@ msgid ""
 "`annotations_to_string`. If :attr:`~Format.VALUE` fails, the error from this "
 "call will be raised."
 msgstr ""
+"Ao chamar :attr:`!object.__annotate__`, ele é chamado primeiro com :attr:"
+"`~Format.STRING`. Se isso não for implementado, ele verificará se :attr:"
+"`~Format.VALUE_WITH_FAKE_GLOBALS` é suportado e o utilizará no ambiente de "
+"globais falsos. Se nenhum desses formatos for suportado, ele retornará para :"
+"attr:`~Format.VALUE`. Se :attr:`~Format.VALUE` falhar, o erro desta chamada "
+"será gerado."
 
 #: ../../library/annotationlib.rst:366
 msgid ""
@@ -1112,6 +1128,12 @@ msgid ""
 "Hello world\n"
 "{'x': 'None'}"
 msgstr ""
+">>> def f(x: (1).__class__.__base__.__subclasses__()[-1].__init__."
+"__builtins__[\"print\"](\"Hello world\")): pass\n"
+"...\n"
+">>> annotationlib.get_annotations(f, format=annotationlib.Format.STRING)\n"
+"Hello world\n"
+"{'x': 'None'}"
 
 #: ../../library/annotationlib.rst:539
 msgid ""
@@ -1367,7 +1389,7 @@ msgstr ""
 
 #: ../../library/annotationlib.rst:630
 msgid "Security implications of introspecting annotations"
-msgstr ""
+msgstr "Implicações de segurança de anotações de introspecção"
 
 #: ../../library/annotationlib.rst:632
 msgid ""
@@ -1381,6 +1403,15 @@ msgid ""
 "functions in the :mod:`typing` module that work with annotations, such as :"
 "func:`typing.get_type_hints`."
 msgstr ""
+"Grande parte da funcionalidade deste módulo envolve a execução de código "
+"relacionado a anotações, que podem então realizar ações arbitrárias. Por "
+"exemplo, :func:`get_annotations` pode chamar uma :term:`função de anotação` "
+"arbitrária, e :meth:`ForwardRef.evaluate` pode chamar :func:`eval` em uma "
+"string arbitrária. O código contido em uma anotação pode realizar chamadas "
+"de sistema arbitrárias, entrar em um laço infinito ou executar qualquer "
+"outra operação. Isso também se aplica a qualquer acesso ao atributo :attr:"
+"`~object.__annotations__` e a várias funções no módulo :mod:`typing` que "
+"trabalham com anotações, como :func:`typing.get_type_hints`."
 
 #: ../../library/annotationlib.rst:641
 msgid ""
@@ -1392,3 +1423,10 @@ msgid ""
 "``__annotations__`` dictionary or directly creating a :class:`ForwardRef` "
 "object."
 msgstr ""
+"Qualquer problema de segurança decorrente disso também se aplica "
+"imediatamente após a importação de código que possa conter anotações não "
+"confiáveis: a importação de código sempre pode causar a execução de "
+"operações arbitrárias. No entanto, não é seguro aceitar strings ou outras "
+"entradas de uma fonte não confiável e passá-las para qualquer uma das APIs "
+"para introspecção de anotações, por exemplo, editando um dicionário "
+"``__annotations__`` ou criando diretamente um objeto :class:`ForwardRef`."
