@@ -84,7 +84,7 @@
 
 
 
-# library (56.17% done)
+# library (56.19% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          48 /  49 ( 97.0% translated).
@@ -134,7 +134,7 @@
 - email.contentmanager.po          8 /  41 ( 19.0% translated).
 - email.encoders.po               14 /  15 ( 93.0% translated).
 - email.errors.po                  6 /  27 ( 22.0% translated).
-- email.generator.po              39 /  41 ( 95.0% translated).
+- email.generator.po              40 /  41 ( 97.0% translated).
 - email.header.po                  4 /  38 ( 10.0% translated).
 - email.headerregistry.po         13 / 103 ( 12.0% translated).
 - email.message.po                 6 / 103 (  5.0% translated).
@@ -144,7 +144,6 @@
 - errno.po                       114 / 134 ( 85.0% translated).
 - faulthandler.po                  4 /  42 (  9.0% translated).
 - fcntl.po                        35 /  45 ( 77.0% translated).
-- filecmp.po                      39 /  40 ( 97.0% translated).
 - fileinput.po                    41 /  43 ( 95.0% translated).
 - fractions.po                    21 /  25 ( 84.0% translated).
 - ftplib.po                       11 /  97 ( 11.0% translated).
@@ -247,14 +246,14 @@
 - urllib.request.po               52 / 283 ( 18.0% translated).
 - urllib.robotparser.po           17 /  18 ( 94.0% translated).
 - uuid.po                         49 /  56 ( 87.0% translated).
-- warnings.po                     71 / 112 ( 63.0% translated).
+- warnings.po                     72 / 112 ( 64.0% translated).
 - wave.po                         17 /  52 ( 32.0% translated).
 - webbrowser.po                   79 /  86 ( 91.0% translated).
 - wsgiref.po                      71 / 124 ( 57.0% translated).
 - xdrlib.po                        5 /  56 (  8.0% translated).
 - xml.dom.minidom.po               7 /  51 ( 13.0% translated).
 - xml.dom.po                      67 / 234 ( 28.0% translated).
-- xml.dom.pulldom.po              25 /  27 ( 92.0% translated).
+- xml.dom.pulldom.po              26 /  27 ( 96.0% translated).
 - xml.etree.elementtree.po        74 / 233 ( 31.0% translated).
 - xml.sax.handler.po              20 / 103 ( 19.0% translated).
 - xml.sax.po                       2 /  32 (  6.0% translated).
@@ -279,10 +278,10 @@
 
 
 
-# using (97.30% done)
+# using (98.15% done)
 
 - cmdline.po                     210 / 211 ( 99.0% translated).
-- configure.po                   241 / 265 ( 90.0% translated).
+- configure.po                   249 / 265 ( 93.0% translated).
 - windows.po                     342 / 343 ( 99.0% translated).
 
 
@@ -305,5 +304,5 @@
 - 3.7.po                         247 / 563 ( 43.0% translated).
 
 
-# TOTAL (63.12% done)
+# TOTAL (63.14% done)
 
