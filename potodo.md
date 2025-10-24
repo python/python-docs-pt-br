@@ -1,8 +1,7 @@
 
 
-# 3.12 (99.64% done)
+# 3.12 (100.00% done)
 
-- sphinx.po                      108 / 109 ( 99.0% translated).
 
 
 # c-api (48.95% done)
@@ -68,7 +67,7 @@
 
 
 
-# library (58.09% done)
+# library (58.10% done)
 
 - 2to3.po                        121 / 132 ( 91.0% translated).
 - array.po                        80 /  84 ( 95.0% translated).
@@ -192,7 +191,7 @@
 - unittest.po                    282 / 536 ( 52.0% translated).
 - urllib.parse.po                110 / 167 ( 65.0% translated).
 - urllib.request.po               51 / 300 ( 17.0% translated).
-- warnings.po                     76 / 131 ( 58.0% translated).
+- warnings.po                     77 / 131 ( 58.0% translated).
 - wave.po                         17 /  53 ( 32.0% translated).
 - webbrowser.po                   77 /  83 ( 92.0% translated).
 - wsgiref.po                      79 / 134 ( 58.0% translated).
@@ -219,12 +218,11 @@
 - stdlib2.po                      64 /  65 ( 98.0% translated).
 
 
-# using (99.20% done)
-
-- configure.po                   286 / 294 ( 97.0% translated).
+# using (100.00% done)
 
 
-# whatsnew (74.16% done)
+
+# whatsnew (74.17% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -232,7 +230,6 @@
 - 2.6.po                         540 / 626 ( 86.0% translated).
 - 3.0.po                         192 / 212 ( 90.0% translated).
 - 3.1.po                         114 / 132 ( 86.0% translated).
-- 3.12.po                        841 / 842 ( 99.0% translated).
 - 3.2.po                          66 / 576 ( 11.0% translated).
 - 3.3.po                         137 / 682 ( 20.0% translated).
 - 3.5.po                         129 / 578 ( 22.0% translated).
@@ -240,5 +237,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (64.74% done)
+# TOTAL (64.76% done)
 
