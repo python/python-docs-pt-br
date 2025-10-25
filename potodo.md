@@ -84,7 +84,7 @@
 
 
 
-# library (53.75% done)
+# library (53.81% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    256 / 290 ( 88.0% translated).
@@ -128,7 +128,7 @@
 - curses.panel.po                 22 /  23 ( 95.0% translated).
 - curses.po                      231 / 639 ( 36.0% translated).
 - dataclasses.po                  65 / 117 ( 55.0% translated).
-- dbm.po                          30 /  74 ( 40.0% translated).
+- dbm.po                          32 /  74 ( 43.0% translated).
 - decimal.po                     328 / 329 ( 99.0% translated).
 - difflib.po                      14 / 133 ( 10.0% translated).
 - dis.po                          78 / 239 ( 32.0% translated).
@@ -138,7 +138,7 @@
 - email.contentmanager.po          8 /  41 ( 19.0% translated).
 - email.encoders.po               13 /  15 ( 86.0% translated).
 - email.errors.po                  6 /  25 ( 24.0% translated).
-- email.generator.po              38 /  41 ( 92.0% translated).
+- email.generator.po              39 /  41 ( 95.0% translated).
 - email.header.po                  4 /  38 ( 10.0% translated).
 - email.headerregistry.po         13 / 103 ( 12.0% translated).
 - email.message.po                 6 / 103 (  5.0% translated).
@@ -150,7 +150,7 @@
 - exceptions.po                  148 / 149 ( 99.0% translated).
 - faulthandler.po                  4 /  42 (  9.0% translated).
 - fcntl.po                        21 /  39 ( 53.0% translated).
-- filecmp.po                      37 /  40 ( 92.0% translated).
+- filecmp.po                      38 /  40 ( 95.0% translated).
 - fileinput.po                    38 /  44 ( 86.0% translated).
 - fractions.po                    18 /  23 ( 78.0% translated).
 - ftplib.po                        9 /  65 ( 13.0% translated).
@@ -211,8 +211,8 @@
 - shelve.po                        7 /  32 ( 21.0% translated).
 - shlex.po                         4 /  75 (  5.0% translated).
 - shutil.po                      153 / 155 ( 98.0% translated).
-- signal.po                      110 / 128 ( 85.0% translated).
-- site.po                         34 /  39 ( 87.0% translated).
+- signal.po                      111 / 128 ( 86.0% translated).
+- site.po                         36 /  39 ( 92.0% translated).
 - smtpd.po                        10 /  79 ( 12.0% translated).
 - smtplib.po                      27 / 109 ( 24.0% translated).
 - socket.po                       60 / 324 ( 18.0% translated).
@@ -253,7 +253,7 @@
 - urllib.robotparser.po           13 /  14 ( 92.0% translated).
 - uuid.po                         52 /  59 ( 88.0% translated).
 - venv.po                         99 / 102 ( 97.0% translated).
-- warnings.po                     70 / 109 ( 64.0% translated).
+- warnings.po                     71 / 109 ( 65.0% translated).
 - wave.po                         18 /  49 ( 36.0% translated).
 - weakref.po                      74 /  84 ( 88.0% translated).
 - webbrowser.po                   76 /  82 ( 92.0% translated).
@@ -263,7 +263,7 @@
 - xdrlib.po                        4 /  54 (  7.0% translated).
 - xml.dom.minidom.po               7 /  51 ( 13.0% translated).
 - xml.dom.po                      67 / 234 ( 28.0% translated).
-- xml.dom.pulldom.po              24 /  27 ( 88.0% translated).
+- xml.dom.pulldom.po              25 /  27 ( 92.0% translated).
 - xml.etree.elementtree.po        72 / 233 ( 30.0% translated).
 - xml.po                          49 /  53 ( 92.0% translated).
 - xml.sax.handler.po              20 / 103 ( 19.0% translated).
@@ -292,10 +292,10 @@
 - classes.po                     114 / 115 ( 99.0% translated).
 
 
-# using (95.04% done)
+# using (95.96% done)
 
 - cmdline.po                     195 / 197 ( 98.0% translated).
-- configure.po                   205 / 240 ( 85.0% translated).
+- configure.po                   213 / 240 ( 88.0% translated).
 - mac.po                          43 /  44 ( 97.0% translated).
 - windows.po                     307 / 309 ( 99.0% translated).
 
@@ -318,5 +318,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (59.33% done)
+# TOTAL (59.37% done)
 
