@@ -4,7 +4,7 @@
 
 
 
-# c-api (49.90% done)
+# c-api (49.91% done)
 
 - exceptions.po                  195 / 347 ( 56.0% translated).
 - float.po                        34 /  35 ( 97.0% translated).
@@ -13,7 +13,6 @@
 - import.po                       39 /  53 ( 73.0% translated).
 - init.po                        127 / 372 ( 34.0% translated).
 - init_config.po                 135 / 396 ( 34.0% translated).
-- intro.po                       126 / 127 ( 99.0% translated).
 - long.po                         34 /  59 ( 57.0% translated).
 - memory.po                       59 / 189 ( 31.0% translated).
 - module.po                       61 / 109 ( 55.0% translated).
@@ -58,7 +57,7 @@
 - programming.po                 391 / 393 ( 99.0% translated).
 
 
-# howto (64.27% done)
+# howto (64.36% done)
 
 - curses.po                      103 / 105 ( 98.0% translated).
 - descriptor.po                  120 / 177 ( 67.0% translated).
@@ -67,7 +66,6 @@
 - instrumentation.po              58 /  59 ( 98.0% translated).
 - isolating-extensions.po        117 / 118 ( 99.0% translated).
 - logging-cookbook.po             34 / 308 ( 11.0% translated).
-- logging.po                     217 / 218 ( 99.0% translated).
 - regex.po                       286 / 287 ( 99.0% translated).
 - sockets.po                      35 /  58 ( 60.0% translated).
 - sorting.po                      45 /  52 ( 86.0% translated).
@@ -84,7 +82,7 @@
 
 
 
-# library (56.19% done)
+# library (56.25% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          48 /  49 ( 97.0% translated).
@@ -125,7 +123,7 @@
 - curses.po                       64 / 485 ( 13.0% translated).
 - dataclasses.po                  64 / 124 ( 51.0% translated).
 - datetime.po                    579 / 586 ( 98.0% translated).
-- dbm.po                          81 /  85 ( 95.0% translated).
+- dbm.po                          83 /  85 ( 97.0% translated).
 - difflib.po                      14 / 134 ( 10.0% translated).
 - dis.po                         112 / 265 ( 42.0% translated).
 - doctest.po                      75 / 318 ( 23.0% translated).
@@ -181,7 +179,6 @@
 - mmap.po                         22 /  55 ( 40.0% translated).
 - msilib.po                        7 /  97 (  7.0% translated).
 - multiprocessing.po             293 / 529 ( 55.0% translated).
-- multiprocessing.shared_memory.po  46 /  48 ( 95.0% translated).
 - nntplib.po                      11 /  89 ( 12.0% translated).
 - optparse.po                    412 / 416 ( 99.0% translated).
 - os.po                          930 / 931 ( 99.0% translated).
@@ -206,8 +203,8 @@
 - shelve.po                       12 /  38 ( 31.0% translated).
 - shlex.po                         4 /  75 (  5.0% translated).
 - shutil.po                      163 / 166 ( 98.0% translated).
-- signal.po                      132 / 137 ( 96.0% translated).
-- site.po                         50 /  54 ( 92.0% translated).
+- signal.po                      134 / 137 ( 97.0% translated).
+- site.po                         52 /  54 ( 96.0% translated).
 - smtpd.po                        12 /  78 ( 15.0% translated).
 - smtplib.po                      31 / 114 ( 27.0% translated).
 - sndhdr.po                       12 /  37 ( 32.0% translated).
@@ -304,5 +301,5 @@
 - 3.7.po                         247 / 563 ( 43.0% translated).
 
 
-# TOTAL (63.14% done)
+# TOTAL (63.18% done)
 
