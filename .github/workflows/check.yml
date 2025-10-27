@@ -99,14 +99,14 @@ jobs:
 
       - name: Upload artifact - log files
         if: always() && steps.build.outcome == 'failure'
-        uses: actions/upload-artifact@v4.3.5
+        uses: actions/upload-artifact@v5
         with:
           name: logs-${{ inputs.version }}-${{ matrix.format }}
           path: logs/*
           
       - name: Upload artifact - docs
         if: always() && steps.build.outcome == 'success'
-        uses: actions/upload-artifact@v4.3.5
+        uses: actions/upload-artifact@v5
         with:
           name: python-docs-pt-br-${{ inputs.version }}-${{ matrix.format }}
           path: cpython/Doc/build/${{ matrix.format }}
@@ -117,13 +117,13 @@ jobs:
     runs-on: ubuntu-latest
     needs: [ 'build' ]
     steps:
-      - uses: actions/download-artifact@v5
+      - uses: actions/download-artifact@v6
         with:
           name: python-docs-pt-br-${{ inputs.version }}-latex
       - run: sudo apt-get update
       - run: sudo apt-get install -y latexmk texlive-xetex fonts-freefont-otf xindy texlive-lang-portuguese
       - run: make
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         if: always()
         with:
           name: python-docs-pt-br-${{ inputs.version }}-pdf
@@ -182,7 +182,7 @@ jobs:
 
       - name: Upload artifact - log files
         if: always() && steps.lint.outcome == 'failure'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ${{ inputs.version }}-lint-logs
           path: logs/*
