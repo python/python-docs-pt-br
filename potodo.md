@@ -82,7 +82,7 @@
 
 
 
-# library (56.25% done)
+# library (56.26% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          48 /  49 ( 97.0% translated).
@@ -175,7 +175,7 @@
 - logging.po                     100 / 351 ( 28.0% translated).
 - mailbox.po                      10 / 285 (  3.0% translated).
 - mailcap.po                       2 /  15 ( 13.0% translated).
-- mimetypes.po                    36 /  50 ( 72.0% translated).
+- mimetypes.po                    39 /  50 ( 78.0% translated).
 - mmap.po                         22 /  55 ( 40.0% translated).
 - msilib.po                        7 /  97 (  7.0% translated).
 - multiprocessing.po             293 / 529 ( 55.0% translated).
@@ -301,5 +301,5 @@
 - 3.7.po                         247 / 563 ( 43.0% translated).
 
 
-# TOTAL (63.18% done)
+# TOTAL (63.19% done)
 
