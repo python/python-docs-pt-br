@@ -82,7 +82,7 @@
 - index.po                        52 /  53 ( 98.0% translated).
 
 
-# library (51.79% done)
+# library (51.80% done)
 
 - abc.po                          43 /  45 ( 95.0% translated).
 - argparse.po                    248 / 290 ( 85.0% translated).
@@ -189,7 +189,7 @@
 - lzma.po                        105 / 107 ( 98.0% translated).
 - mailbox.po                      20 / 282 (  7.0% translated).
 - mailcap.po                       2 /  15 ( 13.0% translated).
-- mimetypes.po                    34 /  45 ( 75.0% translated).
+- mimetypes.po                    37 /  45 ( 82.0% translated).
 - mmap.po                         17 /  47 ( 36.0% translated).
 - msilib.po                        7 /  96 (  7.0% translated).
 - multiprocessing.po             281 / 518 ( 54.0% translated).
@@ -342,5 +342,5 @@
 - 3.9.po                         383 / 393 ( 97.0% translated).
 
 
-# TOTAL (57.24% done)
+# TOTAL (57.25% done)
 
