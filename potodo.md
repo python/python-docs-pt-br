@@ -172,7 +172,7 @@
 # reference (96.57% done)
 
 - compound_stmts.po              474 / 480 ( 98.0% translated).
-- executionmodel.po              112 / 145 ( 77.0% translated).
+- executionmodel.po              113 / 145 ( 77.0% translated).
 - lexical_analysis.po            395 / 438 ( 90.0% translated).
 
 
