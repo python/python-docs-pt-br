@@ -7,15 +7,16 @@
 # python-doc bot, 2025
 # Vinicius Candeia, 2025
 # Rafael Fontenelle <rffontenelle@gmail.com>, 2025
+# Pedro Fonini <fonini@protonmail.ch>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-27 14:15+0000\n"
+"POT-Creation-Date: 2025-10-29 14:15+0000\n"
 "PO-Revision-Date: 2025-09-16 00:02+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
+"Last-Translator: Pedro Fonini <fonini@protonmail.ch>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -791,7 +792,7 @@ msgstr ""
 
 #: ../../reference/executionmodel.rst:404
 msgid "Runtime Components"
-msgstr "Componentes de Tempo de Execução"
+msgstr "Componentes do Ambiente de Execução"
 
 #: ../../reference/executionmodel.rst:407
 msgid "General Computing Model"
@@ -805,10 +806,10 @@ msgid ""
 "how it runs on the host look something like this:"
 msgstr ""
 "O modelo de execução do Python não opera no vácuo. Ele é executado em uma "
-"máquina hospedeira e através do ambiente de tempo de execução desse "
-"hospedeiro, incluindo seu sistema operacional (SO), se houver um. Quando um "
-"programa é executado, as camadas conceituais de como ele é executado no "
-"hospedeiro têm esta forma:"
+"máquina hospedeira e através do ambiente de execução desse hospedeiro, "
+"incluindo seu sistema operacional (SO), se houver um. Quando um programa é "
+"executado, as camadas conceituais de como ele é executado no hospedeiro têm "
+"esta forma:"
 
 #: ../../reference/executionmodel.rst:0
 msgid "**host machine**"
@@ -829,6 +830,10 @@ msgid ""
 "threads as the execution part of the program.  This distinction will be "
 "important to understand the conceptual Python runtime."
 msgstr ""
+"Cada processo representa um programa rodando no hospdeiro. Pense em cada "
+"processo em si como a parte do programa referente aos dados. Pense nas "
+"threads do processo como a parte referente à execução. Essa distinção será "
+"importante para entender o ambiente de execução do Python."
 
 #: ../../reference/executionmodel.rst:424
 msgid ""
@@ -837,6 +842,10 @@ msgid ""
 "the host, including memory, signals, file handles, sockets, and environment "
 "variables."
 msgstr ""
+"O processo, enquanto parte referente a dados, é o contexto de execução sobre "
+"o qual o programa roda. Ele consiste majoritariamente no conjunto de "
+"recursos alocados paro programa pelo hospedeiro, incluindo memória, sinais, "
+"identificadores de arquivos, soquetes, e variáveis de ambiente."
 
 #: ../../reference/executionmodel.rst:429
 msgid ""
@@ -844,6 +853,9 @@ msgid ""
 "for hosts.)  The host manages the process' access to its assigned resources, "
 "in addition to coordinating between processes."
 msgstr ""
+"Processos são isolados, e independentes uns dos outros. (O mesmo vale para "
+"hospedeiros.) O hospedeiro gerencia o acesso do processo aos recursos a ele "
+"alocados, além de orquestrar os vários processos."
 
 #: ../../reference/executionmodel.rst:433
 msgid ""
@@ -851,6 +863,9 @@ msgid ""
 "running relative to the resources assigned to the program's process.  It's "
 "strictly up to the host how and when that execution takes place."
 msgstr ""
+"Cada thread representa a execução em si do código de máquina do programa, "
+"rodando relativamente aos recursos alocados ao processo. Decidir como e "
+"quando essa execução acontecerá é prerrogativa exclusiva do hospedeiro."
 
 #: ../../reference/executionmodel.rst:438
 msgid ""
@@ -861,6 +876,13 @@ msgid ""
 "one another.  Specifically, all threads in a process share all of the "
 "process' resources."
 msgstr ""
+"Do ponto de vista do Python, um programa sempre começa com exatamente uma "
+"thread. Entretanto, o programa pode evoluir para rodar em múltiplas threads "
+"simultâneas. Nem todo hospedeiro oferece suporte para múltiplas threads por "
+"processo, mas a maioria oferece. Diferentemente de processos, threads em um "
+"processo não são isoladas nem independentes umas das outras. "
+"Especificamente, cada recurso de um processo é compartilhado por todas as "
+"suas threads."
 
 #: ../../reference/executionmodel.rst:445
 msgid ""
@@ -869,6 +891,10 @@ msgid ""
 "time (\"concurrently\") or physically (\"in parallel\").  Either way, the "
 "threads effectively run at a non-synchronized rate."
 msgstr ""
+"O princípio fundamental das threads é que cada uma delas *roda* "
+"independentemente, ao mesmo tempo que as outras. Isso pode significar uma "
+"simultaneidade conceitual (\"concorrência\") ou física (\"paralelismo\"). De "
+"qualquer modo, as threads rodam efetivamente em passos não sincronizados."
 
 #: ../../reference/executionmodel.rst:453
 msgid ""
@@ -881,6 +907,16 @@ msgid ""
 "other's use of some shared data.  All this is true for both Python programs "
 "and the Python runtime."
 msgstr ""
+"Essa falta de sincronismo significa que não existe nenhuma garantia de "
+"consistência em qualquer parte da memória do processo, do ponto de vista do "
+"código rodando em qualquer thread. Portanto, programas multi-thread precisam "
+"tomar o cuidado de coordenar o acesso a recursos intencionalmente "
+"compartilhados. Da mesma forma, eles precisam ter o máximo cuidado para não "
+"acessar nenhum *outro* recurso a partir de múltiplas threads; caso "
+"contrário, duas threads rodando ao mesmo tempo podem acidentalmente "
+"interferir no uso umas das outras desses recursos compartilhados. Tudo isso "
+"vale tanto para programas Python quanto para o ambiente de execução do "
+"Python."
 
 #: ../../reference/executionmodel.rst:463
 msgid ""
@@ -889,32 +925,38 @@ msgid ""
 "required discipline generally means dealing with non-deterministic bugs and "
 "data corruption."
 msgstr ""
+"Essa exigência ampla e não estruturada é o custo que precisamos pagar em "
+"contrapartida pela concorrência bruta que as threads proporcionam. A "
+"alternativa à disciplina necessária geralmente envolve lidar com bugs não-"
+"determinísticos e corupção de dados."
 
 #: ../../reference/executionmodel.rst:469
 msgid "Python Runtime Model"
-msgstr ""
+msgstr "Modelo do Ambiente de Execução Python"
 
 #: ../../reference/executionmodel.rst:471
 msgid ""
 "The same conceptual layers apply to each Python program, with some extra "
 "data layers specific to Python:"
 msgstr ""
+"As mesmas camadas conceituais se aplicam a cada programa Python, com algumas "
+"camadas de dados específicas para o Python:"
 
 #: ../../reference/executionmodel.rst:0
 msgid "Python global runtime (*state*)"
-msgstr ""
+msgstr "Ambiente de execução global do Python (*estado*)"
 
 #: ../../reference/executionmodel.rst:0
 msgid "Python interpreter (*state*)"
-msgstr ""
+msgstr "Interpretador Python (*estado*)"
 
 #: ../../reference/executionmodel.rst:0
 msgid "**thread** (runs Python bytecode and \"C-API\")"
-msgstr ""
+msgstr "**thread** (roda bytecode Python e a \"API C\")"
 
 #: ../../reference/executionmodel.rst:0
 msgid "Python thread *state*"
-msgstr ""
+msgstr "*Estado* da thread Python"
 
 #: ../../reference/executionmodel.rst:481
 msgid ""
@@ -923,6 +965,10 @@ msgid ""
 "interpreters, and each interpreter may grow to include multiple thread "
 "states."
 msgstr ""
+"No nível conceitual: quando um programa Python começa, ele tem o aspecto "
+"exato desse diagrama, com uma instância de cada linha. O ambiente de "
+"execução pode evoluir para incluir múltiplos interpretadores, e cada "
+"interpretador pode evoluir para incluir múltiplos estados de thread."
 
 #: ../../reference/executionmodel.rst:488
 msgid ""
@@ -931,6 +977,11 @@ msgid ""
 "layers are directly specified or exposed to users, like through the :mod:"
 "`threading` module."
 msgstr ""
+"Uma implementação do Python não necessariamente vai implementar essas "
+"camadas do ambiente de execução de forma distinta, ou mesmo concreta. A "
+"única exceção são os casos em que camadas distintas são diretamente "
+"especificadas ou expostas aos usuários, como através do módulo :mod:"
+"`threading`."
 
 #: ../../reference/executionmodel.rst:495
 msgid ""
@@ -938,6 +989,9 @@ msgid ""
 "Python implementations, like CPython, assign special roles to the main "
 "interpreter."
 msgstr ""
+"O interpretador inicial é geralmente chamado de interpretador \"principal\". "
+"Algumas implementações do Python, como o CPython, dão papéis especiais ao "
+"interpretador principal."
 
 #: ../../reference/executionmodel.rst:499
 msgid ""
@@ -948,6 +1002,13 @@ msgid ""
 "assign specific responsibilities to the main thread, such as handling "
 "signals."
 msgstr ""
+"Da mesma forma, a thread do hospedeiro na qual o ambiente de execução foi "
+"inicializado é chamada de thread \"principal\". Ela pode ser diferente da "
+"thread inicial do processo, embora geralmente sejam a mesma. Em alguns "
+"casos, o termo \"thread principal\" pode ser ainda mais específico, e se "
+"referir ao estado de thread inicial. Um ambiente de execução Python pode "
+"atribuir responsabilidades especiais à thread principal, como por exemplo "
+"lidar com sinais."
 
 #: ../../reference/executionmodel.rst:506
 msgid ""
@@ -956,6 +1017,11 @@ msgid ""
 "consistent over its lifetime, particularly when used with multiple host "
 "threads."
 msgstr ""
+"Em sua totalidade, o ambiente de execução Python consiste no seu estado "
+"global, seus interpretadores, e seus estados de thread. O ambiente de "
+"execução garante que todo esse estado permaneça consistente ao longo do seu "
+"tempo de vida, em particular quando usado a partir de múltiplas threads do "
+"hospedeiro."
 
 #: ../../reference/executionmodel.rst:511
 msgid ""
@@ -967,6 +1033,14 @@ msgid ""
 "the external utility of the global runtime is limited to managing "
 "interpreters."
 msgstr ""
+"O ambiente de execução global, conceitualmente, é simplesmente um conjunto "
+"de interpretadores. Esses interpretadores podem compartilhar alguns dados e "
+"outros recursos, mas fora isso são isolados e independentes uns dos outros. "
+"O ambiente de execução é responsável por gerenciar esses recursos globais de "
+"forma segura. A natureza física desses recursos, bem como o seu "
+"gerenciamento, é específica de cada implementação. No fim das contas, a "
+"utilidade externa do ambiente de execução global é limitada ao gerenciamento "
+"de interpretadores."
 
 #: ../../reference/executionmodel.rst:519
 msgid ""
@@ -975,6 +1049,11 @@ msgid ""
 "in a host thread interacts with the Python runtime, it calls into Python in "
 "the context of a specific interpreter."
 msgstr ""
+"Em contraste, conceitualmente um \"interpretador\" é o que normalmente "
+"consideraríamos como sendo o \"ambiente de execução Python\" (com todas as "
+"suas funcionalidades). Quando código de máquina, sendo executado em uma "
+"thread do hospedeiro, interage com o ambiente de execução Python, ele chama "
+"o Python no contexto de um interpretador específico."
 
 #: ../../reference/executionmodel.rst:526
 msgid ""
@@ -982,6 +1061,9 @@ msgid ""
 "interpreter\", which is what regularly runs in threads, executing compiled "
 "Python code."
 msgstr ""
+"O termo interpretador aqui não é a mesma coisa que o \"interpretador de "
+"bytecode\", que é o que normalmente roda nas threads, executando código "
+"Python compilado."
 
 #: ../../reference/executionmodel.rst:530
 msgid ""
