@@ -4,9 +4,9 @@
 
 
 
-# c-api (48.95% done)
+# c-api (48.99% done)
 
-- exceptions.po                  198 / 366 ( 54.0% translated).
+- exceptions.po                  199 / 366 ( 54.0% translated).
 - frame.po                        20 /  36 ( 55.0% translated).
 - gcsupport.po                     9 /  52 ( 17.0% translated).
 - import.po                       36 /  57 ( 63.0% translated).
