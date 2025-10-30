@@ -4,9 +4,9 @@
 
 
 
-# c-api (48.99% done)
+# c-api (49.54% done)
 
-- exceptions.po                  199 / 366 ( 54.0% translated).
+- exceptions.po                  217 / 366 ( 59.0% translated).
 - frame.po                        20 /  36 ( 55.0% translated).
 - gcsupport.po                     9 /  52 ( 17.0% translated).
 - import.po                       36 /  57 ( 63.0% translated).
@@ -164,7 +164,7 @@
 - telnetlib.po                    10 /  53 ( 18.0% translated).
 - tempfile.po                      8 /  87 (  9.0% translated).
 - test.po                        118 / 320 ( 36.0% translated).
-- threading.po                    37 / 239 ( 15.0% translated).
+- threading.po                    38 / 239 ( 15.0% translated).
 - tkinter.tix.po                   5 /  75 (  6.0% translated).
 - tkinter.ttk.po                 142 / 421 ( 33.0% translated).
 - traceback.po                     9 / 111 (  8.0% translated).
@@ -218,5 +218,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (64.85% done)
+# TOTAL (64.89% done)
 
