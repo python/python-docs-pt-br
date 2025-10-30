@@ -6,15 +6,16 @@
 # Translators:
 # python-doc bot, 2025
 # Joao Roccella <joao.a@docente.senai.br>, 2025
+# Gustavo Reis, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.11\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-23 16:19+0000\n"
+"POT-Creation-Date: 2025-10-29 16:48+0000\n"
 "PO-Revision-Date: 2025-09-22 16:49+0000\n"
-"Last-Translator: Joao Roccella <joao.a@docente.senai.br>, 2025\n"
+"Last-Translator: Gustavo Reis, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "Language: pt_BR\n"
@@ -194,6 +195,11 @@ msgid ""
 "reference` to it (e.g. with :c:func:`Py_INCREF`). The second argument is an "
 "error message; it is decoded from ``'utf-8'``."
 msgstr ""
+"Esse é o modo mais comum de definir o indicador de erro. O primeiro "
+"argumento especifica o tipo da exceção; é normalmente uma das exceções "
+"padrão, como :c:data:`PyExc_RuntimeError`.  Você não precisa criar um novo :"
+"term:`strong reference` para ela (como em :c:func:`Py_INCREF`). O segundo "
+"argumento é uma mensagem de erro; ela é codificada com ``'utf-8'``."
 
 #: ../../c-api/exceptions.rst:109
 msgid ""
@@ -210,6 +216,11 @@ msgid ""
 "help format the error message; they have the same meaning and values as in :"
 "c:func:`PyUnicode_FromFormat`. *format* is an ASCII-encoded string."
 msgstr ""
+"Essa função define o indicador de erro e retorna ``NULL``. *exception* deve "
+"ser uma classe Python de exceção. O *format* e parâmetros subsequentes "
+"ajudam a formatar a mensagem de erro; eles têm o mesmo significado e valores "
+"que em :c:func:`PyUnicode_FromFormat`. *format* é uma string codificada em "
+"ASCII."
 
 #: ../../c-api/exceptions.rst:124
 msgid ""
@@ -229,6 +240,9 @@ msgid ""
 "*message* indicates that a built-in operation was invoked with an illegal "
 "argument.  It is mostly for internal use."
 msgstr ""
+"Essa é uma abreviação de ``PyErr_SetString(PyExc_TypeError, message)``, na "
+"qual *message* indica que uma operação embutida foi invocada com um "
+"argumento ilegal. Ela é principalmente para uso interno."
 
 #: ../../c-api/exceptions.rst:144
 msgid ""
@@ -253,6 +267,17 @@ msgid ""
 "returns ``NULL``, so a wrapper function around a system call can write "
 "``return PyErr_SetFromErrno(type);`` when the system call returns an error."
 msgstr ""
+"Esta é uma função conveniente para levantar uma exceção quando uma função da "
+"biblioteca C retornou um erro e definir a variável C :c:data:`errno`. Ela "
+"constrói um objeto tupla cujo primeiro item é o valor inteiro :c:data:"
+"`errno` e cujo segundo item é a mensagem de erro correspondente (obtida de :"
+"c:func:`!strerror`), e então chama ``PyErr_SetObject(type, object)``. No "
+"Unix, quando o valor :c:data:`errno` é :c:macro:`!EINTR`, indicando uma "
+"chamada de sistema interrompida, isso chama :c:func:`PyErr_CheckSignals`, e "
+"se isso definir o indicador de erro, deixa-o definido como tal. A função "
+"retorna sempre ``NULL``, de forma que uma função que envolve uma chamada de "
+"sistema pode retornar ``return PyErr_SetFromErrno(type);`` quando a chamada "
+"de sistema retornar um erro."
 
 #: ../../c-api/exceptions.rst:167
 msgid ""
@@ -261,6 +286,10 @@ msgid ""
 "*type* as a third parameter.  In the case of :exc:`OSError` exception, this "
 "is used to define the :attr:`!filename` attribute of the exception instance."
 msgstr ""
+"Similar à :c:func:`PyErr_SetFromErrno`, com o comportamento adicional de "
+"que, se *filenameObject* não é ``NULL``, ele é passado para o construtor de "
+"*type* como um terceiro parâmetro. No caso da exceção :exc:`OSError`, isso é "
+"usado para definir o atributo :attr:`!filename` da instância da exceção."
 
 #: ../../c-api/exceptions.rst:176
 msgid ""
@@ -268,6 +297,9 @@ msgid ""
 "second filename object, for raising errors when a function that takes two "
 "filenames fails."
 msgstr ""
+"Similar à :c:func:`PyErr_SetFromErrnoWithFilenameObject`, mas recebe um "
+"segundo objeto filename, para levantar erros quando uma função que recebe "
+"dois nomes de arquivos falha."
 
 #: ../../c-api/exceptions.rst:185
 msgid ""
@@ -275,6 +307,9 @@ msgid ""
 "is given as a C string.  *filename* is decoded from the :term:`filesystem "
 "encoding and error handler`."
 msgstr ""
+"Similar à :c:func:`PyErr_SetFromErrnoWithFilenameObject`, mas o nome do "
+"arquivo é fornecido como uma string C. *filename* é decodificado do :term:"
+"`filesystem encoding and error handler`."
 
 #: ../../c-api/exceptions.rst:192
 msgid ""
@@ -300,6 +335,8 @@ msgid ""
 "Similar to :c:func:`PyErr_SetFromWindowsErr`, with an additional parameter "
 "specifying the exception type to be raised."
 msgstr ""
+"Semelhante a :c:func:`PyErr_SetFromWindowsErr`, com um parâmetro adicional "
+"que especifica o tipo de exceção a ser levantada."
 
 #: ../../c-api/exceptions.rst:214
 msgid ""
@@ -671,6 +708,8 @@ msgid ""
 "Simulate the effect of a :c:macro:`!SIGINT` signal arriving. This is "
 "equivalent to ``PyErr_SetInterruptEx(SIGINT)``."
 msgstr ""
+"Simula o efeito de um sinal :c:macro:`!SIGINT` chegando. Isto é equivalente "
+"a ``PyErr_SetInterruptEx(SIGINT)``."
 
 #: ../../c-api/exceptions.rst:591 ../../c-api/exceptions.rst:618
 msgid ""
@@ -929,7 +968,7 @@ msgstr ""
 msgid ""
 "This function is now also available in the :ref:`limited API <limited-c-"
 "api>`."
-msgstr ""
+msgstr "Esta função agora também está disponível na :ref:`limited API `."
 
 #: ../../c-api/exceptions.rst:817
 msgid ""
