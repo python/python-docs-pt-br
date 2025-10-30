@@ -4,9 +4,9 @@
 
 
 
-# c-api (49.29% done)
+# c-api (49.87% done)
 
-- exceptions.po                  124 / 238 ( 52.0% translated).
+- exceptions.po                  153 / 238 ( 64.0% translated).
 - frame.po                        20 /  42 ( 47.0% translated).
 - gcsupport.po                     9 /  52 ( 17.0% translated).
 - import.po                       33 /  62 ( 53.0% translated).
@@ -63,7 +63,7 @@
 
 
 
-# library (60.28% done)
+# library (60.29% done)
 
 - asyncio-dev.po                  16 /  54 ( 29.0% translated).
 - asyncio-eventloop.po           308 / 412 ( 74.0% translated).
@@ -141,7 +141,7 @@
 - tarfile.po                     158 / 345 ( 45.0% translated).
 - tempfile.po                      8 /  87 (  9.0% translated).
 - test.po                        119 / 321 ( 37.0% translated).
-- threading.po                    38 / 274 ( 13.0% translated).
+- threading.po                    39 / 274 ( 14.0% translated).
 - tkinter.ttk.po                 142 / 429 ( 33.0% translated).
 - traceback.po                     9 / 116 (  7.0% translated).
 - tracemalloc.po                  21 / 156 ( 13.0% translated).
@@ -179,7 +179,7 @@
 - windows.po                     382 / 389 ( 98.0% translated).
 
 
-# whatsnew (48.15% done)
+# whatsnew (48.17% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -195,8 +195,8 @@
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         233 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
-- changelog.po                   2676 / 12557 ( 21.0% translated).
+- changelog.po                   2680 / 12557 ( 21.0% translated).
 
 
-# TOTAL (59.81% done)
+# TOTAL (59.85% done)
 
