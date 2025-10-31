@@ -6,9 +6,9 @@
 - license.po                      87 /  89 ( 97.0% translated).
 
 
-# c-api (50.94% done)
+# c-api (51.08% done)
 
-- exceptions.po                  197 / 266 ( 74.0% translated).
+- exceptions.po                  201 / 266 ( 75.0% translated).
 - gcsupport.po                    10 /  33 ( 30.0% translated).
 - init.po                        123 / 308 ( 39.0% translated).
 - init_config.po                 127 / 281 ( 45.0% translated).
@@ -245,7 +245,7 @@
 - tempfile.po                      8 /  61 ( 13.0% translated).
 - test.po                        113 / 282 ( 40.0% translated).
 - textwrap.po                     41 /  46 ( 89.0% translated).
-- threading.po                    31 / 199 ( 15.0% translated).
+- threading.po                    32 / 199 ( 16.0% translated).
 - timeit.po                       49 /  53 ( 92.0% translated).
 - tkinter.font.po                 33 /  34 ( 97.0% translated).
 - tkinter.po                     232 / 289 ( 80.0% translated).
@@ -342,5 +342,5 @@
 - 3.9.po                         383 / 393 ( 97.0% translated).
 
 
-# TOTAL (57.25% done)
+# TOTAL (57.26% done)
 
