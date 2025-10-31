@@ -4,9 +4,9 @@
 
 
 
-# c-api (49.87% done)
+# c-api (50.12% done)
 
-- exceptions.po                  153 / 238 ( 64.0% translated).
+- exceptions.po                  158 / 238 ( 66.0% translated).
 - frame.po                        20 /  42 ( 47.0% translated).
 - gcsupport.po                     9 /  52 ( 17.0% translated).
 - import.po                       33 /  62 ( 53.0% translated).
@@ -20,7 +20,7 @@
 - refcounting.po                  14 /  48 ( 29.0% translated).
 - structures.po                   71 / 180 ( 39.0% translated).
 - sys.po                          28 /  75 ( 37.0% translated).
-- type.po                         19 / 103 ( 18.0% translated).
+- type.po                         27 / 103 ( 26.0% translated).
 - typeobj.po                     236 / 682 ( 34.0% translated).
 - unicode.po                      85 / 340 ( 25.0% translated).
 
@@ -47,11 +47,11 @@
 
 
 
-# howto (63.39% done)
+# howto (63.82% done)
 
 - a-conceptual-overview-of-asyncio.po  82 /  93 ( 88.0% translated).
 - descriptor.po                  186 / 230 ( 80.0% translated).
-- enum.po                        104 / 327 ( 31.0% translated).
+- enum.po                        122 / 327 ( 37.0% translated).
 - functional.po                  158 / 252 ( 62.0% translated).
 - logging-cookbook.po             41 / 433 (  9.0% translated).
 - sockets.po                      35 /  63 ( 55.0% translated).
@@ -117,7 +117,7 @@
 - itertools.po                   154 / 200 ( 77.0% translated).
 - logging.config.po               18 / 171 ( 10.0% translated).
 - logging.handlers.po             51 / 274 ( 18.0% translated).
-- logging.po                     106 / 369 ( 28.0% translated).
+- logging.po                     106 / 370 ( 28.0% translated).
 - mailbox.po                      10 / 307 (  3.0% translated).
 - mimetypes.po                    43 /  54 ( 79.0% translated).
 - mmap.po                         23 /  65 ( 35.0% translated).
@@ -152,7 +152,7 @@
 - urllib.parse.po                111 / 168 ( 66.0% translated).
 - urllib.request.po               49 / 303 ( 16.0% translated).
 - warnings.po                     78 / 140 ( 55.0% translated).
-- wave.po                         17 /  54 ( 31.0% translated).
+- wave.po                         21 /  54 ( 38.0% translated).
 - wsgiref.po                      79 / 134 ( 58.0% translated).
 - xml.dom.minidom.po               8 /  56 ( 14.0% translated).
 - xml.dom.po                      67 / 235 ( 28.0% translated).
@@ -179,7 +179,7 @@
 - windows.po                     382 / 389 ( 98.0% translated).
 
 
-# whatsnew (48.17% done)
+# whatsnew (48.18% done)
 
 - 2.3.po                         327 / 387 ( 84.0% translated).
 - 2.4.po                         266 / 319 ( 83.0% translated).
@@ -195,8 +195,8 @@
 - 3.5.po                         128 / 578 ( 22.0% translated).
 - 3.6.po                         233 / 544 ( 42.0% translated).
 - 3.7.po                         249 / 568 ( 43.0% translated).
-- changelog.po                   2680 / 12557 ( 21.0% translated).
+- changelog.po                   2684 / 12559 ( 21.0% translated).
 
 
-# TOTAL (59.85% done)
+# TOTAL (59.90% done)
 
