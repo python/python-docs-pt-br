@@ -4,11 +4,11 @@
 
 
 
-# c-api (48.64% done)
+# c-api (48.87% done)
 
 - allocation.po                    8 /   9 ( 88.0% translated).
 - arg.po                         193 / 195 ( 98.0% translated).
-- exceptions.po                  198 / 275 ( 72.0% translated).
+- exceptions.po                  204 / 275 ( 74.0% translated).
 - float.po                        12 /  13 ( 92.0% translated).
 - gcsupport.po                    11 /  40 ( 27.0% translated).
 - init.po                        122 / 310 ( 39.0% translated).
@@ -233,7 +233,7 @@
 - tempfile.po                      8 /  64 ( 12.0% translated).
 - test.po                        117 / 295 ( 39.0% translated).
 - textwrap.po                     41 /  46 ( 89.0% translated).
-- threading.po                    32 / 210 ( 15.0% translated).
+- threading.po                    33 / 210 ( 15.0% translated).
 - timeit.po                       49 /  53 ( 92.0% translated).
 - tkinter.font.po                 34 /  35 ( 97.0% translated).
 - tkinter.po                     303 / 304 ( 99.0% translated).
@@ -318,5 +318,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (59.38% done)
+# TOTAL (59.40% done)
 
