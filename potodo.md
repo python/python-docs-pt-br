@@ -4,9 +4,9 @@
 
 
 
-# c-api (50.35% done)
+# c-api (50.55% done)
 
-- exceptions.po                  205 / 347 ( 59.0% translated).
+- exceptions.po                  209 / 347 ( 60.0% translated).
 - float.po                        34 /  35 ( 97.0% translated).
 - frame.po                        20 /  24 ( 83.0% translated).
 - gcsupport.po                     9 /  42 ( 21.0% translated).
@@ -23,7 +23,7 @@
 - structures.po                   59 / 150 ( 39.0% translated).
 - sys.po                          25 /  76 ( 32.0% translated).
 - tuple.po                        39 /  40 ( 97.0% translated).
-- type.po                         26 /  68 ( 38.0% translated).
+- type.po                         30 /  68 ( 44.0% translated).
 - typeobj.po                     234 / 600 ( 39.0% translated).
 - unicode.po                      89 / 308 ( 28.0% translated).
 - veryhigh.po                     52 /  56 ( 92.0% translated).
@@ -57,11 +57,11 @@
 - programming.po                 391 / 393 ( 99.0% translated).
 
 
-# howto (64.36% done)
+# howto (64.62% done)
 
 - curses.po                      103 / 105 ( 98.0% translated).
 - descriptor.po                  120 / 177 ( 67.0% translated).
-- enum.po                         80 / 224 ( 35.0% translated).
+- enum.po                         88 / 224 ( 39.0% translated).
 - functional.po                  144 / 206 ( 69.0% translated).
 - instrumentation.po              58 /  59 ( 98.0% translated).
 - isolating-extensions.po        117 / 118 ( 99.0% translated).
@@ -82,7 +82,7 @@
 
 
 
-# library (56.26% done)
+# library (56.27% done)
 
 - _thread.po                      49 /  51 ( 96.0% translated).
 - abc.po                          48 /  49 ( 97.0% translated).
@@ -244,7 +244,7 @@
 - urllib.robotparser.po           17 /  18 ( 94.0% translated).
 - uuid.po                         49 /  56 ( 87.0% translated).
 - warnings.po                     72 / 112 ( 64.0% translated).
-- wave.po                         17 /  52 ( 32.0% translated).
+- wave.po                         21 /  52 ( 40.0% translated).
 - webbrowser.po                   79 /  86 ( 91.0% translated).
 - wsgiref.po                      71 / 124 ( 57.0% translated).
 - xdrlib.po                        5 /  56 (  8.0% translated).
@@ -301,5 +301,5 @@
 - 3.7.po                         247 / 563 ( 43.0% translated).
 
 
-# TOTAL (63.22% done)
+# TOTAL (63.25% done)
 
