@@ -4,9 +4,9 @@
 
 
 
-# c-api (49.54% done)
+# c-api (49.77% done)
 
-- exceptions.po                  217 / 366 ( 59.0% translated).
+- exceptions.po                  222 / 366 ( 60.0% translated).
 - frame.po                        20 /  36 ( 55.0% translated).
 - gcsupport.po                     9 /  52 ( 17.0% translated).
 - import.po                       36 /  57 ( 63.0% translated).
@@ -20,7 +20,7 @@
 - refcounting.po                  11 /  47 ( 23.0% translated).
 - structures.po                   71 / 180 ( 39.0% translated).
 - sys.po                          28 /  77 ( 36.0% translated).
-- type.po                         19 /  99 ( 19.0% translated).
+- type.po                         25 /  99 ( 25.0% translated).
 - typeobj.po                     236 / 674 ( 35.0% translated).
 - unicode.po                      79 / 325 ( 24.0% translated).
 - veryhigh.po                     54 /  57 ( 94.0% translated).
@@ -47,10 +47,10 @@
 - library.po                     157 / 162 ( 96.0% translated).
 
 
-# howto (60.60% done)
+# howto (61.01% done)
 
 - descriptor.po                  181 / 233 ( 77.0% translated).
-- enum.po                        105 / 319 ( 32.0% translated).
+- enum.po                        121 / 319 ( 37.0% translated).
 - functional.po                  157 / 252 ( 62.0% translated).
 - logging-cookbook.po             41 / 421 (  9.0% translated).
 - perf_profiling.po               29 /  32 ( 90.0% translated).
@@ -177,7 +177,7 @@
 - urllib.parse.po                110 / 167 ( 65.0% translated).
 - urllib.request.po               51 / 300 ( 17.0% translated).
 - warnings.po                     77 / 131 ( 58.0% translated).
-- wave.po                         17 /  53 ( 32.0% translated).
+- wave.po                         21 /  53 ( 39.0% translated).
 - webbrowser.po                   77 /  83 ( 92.0% translated).
 - wsgiref.po                      79 / 134 ( 58.0% translated).
 - xdrlib.po                        5 /  58 (  8.0% translated).
@@ -218,5 +218,5 @@
 - 3.7.po                         252 / 568 ( 44.0% translated).
 
 
-# TOTAL (64.89% done)
+# TOTAL (64.93% done)
 
