@@ -10,7 +10,7 @@ import logging
 from datetime import datetime, timezone
 from pathlib import Path
 
-from potodo.potodo import scan_path
+from potodo.po_file import PoDirectory
 
 logging.basicConfig(level=logging.INFO)
 
@@ -29,7 +29,8 @@ def main() -> None:
     if not list(pofiles_path.rglob("*.po")):
         raise FileNotFoundError(f"No PO files found in {pofiles_path}")
 
-    stats = scan_path(pofiles_path, no_cache=True, hide_reserved=False, api_url="")
+    stats = PoDirectory(pofiles_path, use_cache=False)
+    stats.scan()
 
     stats_data = {
         "completion": str(round(stats.completion, 2)) + "%",
