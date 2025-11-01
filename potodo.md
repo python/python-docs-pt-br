@@ -4,11 +4,11 @@
 
 
 
-# c-api (48.87% done)
+# c-api (49.04% done)
 
 - allocation.po                    8 /   9 ( 88.0% translated).
 - arg.po                         193 / 195 ( 98.0% translated).
-- exceptions.po                  204 / 275 ( 74.0% translated).
+- exceptions.po                  208 / 275 ( 75.0% translated).
 - float.po                        12 /  13 ( 92.0% translated).
 - gcsupport.po                    11 /  40 ( 27.0% translated).
 - init.po                        122 / 310 ( 39.0% translated).
@@ -24,7 +24,7 @@
 - structures.po                   48 / 129 ( 37.0% translated).
 - sys.po                          23 /  67 ( 34.0% translated).
 - tuple.po                        47 /  48 ( 97.0% translated).
-- type.po                         27 /  63 ( 42.0% translated).
+- type.po                         29 /  63 ( 46.0% translated).
 - typeobj.po                     238 / 604 ( 39.0% translated).
 - unicode.po                      79 / 334 ( 23.0% translated).
 - veryhigh.po                     46 /  56 ( 82.0% translated).
@@ -84,7 +84,7 @@
 
 
 
-# library (53.82% done)
+# library (53.84% done)
 
 - _thread.po                      39 /  41 ( 95.0% translated).
 - argparse.po                    256 / 290 ( 88.0% translated).
@@ -145,7 +145,7 @@
 - email.mime.po                   36 /  38 ( 94.0% translated).
 - email.parser.po                  3 /  47 (  6.0% translated).
 - email.policy.po                 12 / 103 ( 11.0% translated).
-- enum.po                         64 / 188 ( 34.0% translated).
+- enum.po                         71 / 188 ( 37.0% translated).
 - errno.po                       112 / 127 ( 88.0% translated).
 - exceptions.po                  148 / 149 ( 99.0% translated).
 - faulthandler.po                  4 /  42 (  9.0% translated).
@@ -162,7 +162,7 @@
 - hashlib.po                      56 / 141 ( 39.0% translated).
 - heapq.po                        49 /  51 ( 96.0% translated).
 - hmac.po                         24 /  27 ( 88.0% translated).
-- html.parser.po                   2 /  48 (  4.0% translated).
+- html.parser.po                   2 /  50 (  4.0% translated).
 - http.client.po                  49 /  99 ( 49.0% translated).
 - http.cookiejar.po                9 / 154 (  5.0% translated).
 - http.cookies.po                 17 /  56 ( 30.0% translated).
@@ -254,7 +254,7 @@
 - uuid.po                         52 /  59 ( 88.0% translated).
 - venv.po                         99 / 102 ( 97.0% translated).
 - warnings.po                     71 / 109 ( 65.0% translated).
-- wave.po                         18 /  49 ( 36.0% translated).
+- wave.po                         20 /  49 ( 40.0% translated).
 - weakref.po                      74 /  84 ( 88.0% translated).
 - webbrowser.po                   76 /  82 ( 92.0% translated).
 - winreg.po                      167 / 171 ( 97.0% translated).
@@ -318,5 +318,5 @@
 - 3.7.po                         243 / 555 ( 43.0% translated).
 
 
-# TOTAL (59.40% done)
+# TOTAL (59.42% done)
 
