@@ -53,7 +53,7 @@
     │   ├── functools.po                  19 / 126 ( 15.0% translated)
     │   ├── hashlib.po                    93 / 170 ( 54.0% translated)
     │   ├── heapq.po                      48 /  67 ( 71.0% translated)
-    │   ├── html.parser.po                 3 /  60 (  5.0% translated)
+    │   ├── html.parser.po                 3 /  62 (  4.0% translated)
     │   ├── http.client.po                45 / 117 ( 38.0% translated)
     │   ├── http.cookiejar.po              9 / 159 (  5.0% translated)
     │   ├── http.cookies.po                7 /  52 ( 13.0% translated)
@@ -128,7 +128,7 @@
     │   ├── extending.po                  58 / 226 ( 25.0% translated)
     │   ├── newtypes.po                    8 / 117 (  6.0% translated)
     │   └── newtypes_tutorial.po          29 / 180 ( 16.0% translated)
-    ├── whatsnew/  50.30% done
+    ├── whatsnew/  50.29% done
     │   ├── 2.3.po                       327 / 387 ( 84.0% translated)
     │   ├── 2.4.po                       266 / 319 ( 83.0% translated)
     │   ├── 2.5.po                       389 / 452 ( 86.0% translated)
@@ -142,7 +142,7 @@
     │   ├── 3.5.po                       128 / 578 ( 22.0% translated)
     │   ├── 3.6.po                       232 / 544 ( 42.0% translated)
     │   ├── 3.7.po                       249 / 568 ( 43.0% translated)
-    │   └── changelog.po                 3389 / 13635 ( 24.0% translated)
+    │   └── changelog.po                 3389 / 13638 ( 24.0% translated)
     ├── deprecations/  100.00% done
     └── c-api/  49.63% done
         ├── exceptions.po                159 / 242 ( 65.0% translated)
