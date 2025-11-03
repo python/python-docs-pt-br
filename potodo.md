@@ -1,5 +1,5 @@
-1 directory  63.26% done
-└── 3.11/  63.26% done
+1 directory  63.29% done
+└── 3.11/  63.29% done
     ├── distutils/  25.81% done
     │   ├── apiref.po                     88 / 414 ( 21.0% translated)
     │   ├── builtdist.po                  51 / 128 ( 39.0% translated)
@@ -22,7 +22,7 @@
     │   ├── executionmodel.po             73 /  75 ( 97.0% translated)
     │   ├── import.po                    192 / 207 ( 92.0% translated)
     │   └── lexical_analysis.po          288 / 299 ( 96.0% translated)
-    ├── library/  56.29% done
+    ├── library/  56.34% done
     │   ├── _thread.po                    49 /  51 ( 96.0% translated)
     │   ├── abc.po                        48 /  49 ( 97.0% translated)
     │   ├── argparse.po                  305 / 335 ( 91.0% translated)
@@ -56,7 +56,7 @@
     │   ├── configparser.po              178 / 186 ( 95.0% translated)
     │   ├── contextlib.po                 42 / 130 ( 32.0% translated)
     │   ├── crypt.po                       7 /  35 ( 20.0% translated)
-    │   ├── ctypes.po                    110 / 436 ( 25.0% translated)
+    │   ├── ctypes.po                    116 / 436 ( 26.0% translated)
     │   ├── curses.ascii.po               68 /  69 ( 98.0% translated)
     │   ├── curses.panel.po               22 /  23 ( 95.0% translated)
     │   ├── curses.po                     64 / 485 ( 13.0% translated)
@@ -181,7 +181,7 @@
     │   ├── urllib.request.po             52 / 283 ( 18.0% translated)
     │   ├── urllib.robotparser.po         17 /  18 ( 94.0% translated)
     │   ├── uuid.po                       49 /  56 ( 87.0% translated)
-    │   ├── warnings.po                   72 / 112 ( 64.0% translated)
+    │   ├── warnings.po                   76 / 112 ( 67.0% translated)
     │   ├── wave.po                       21 /  52 ( 40.0% translated)
     │   ├── webbrowser.po                 79 /  86 ( 91.0% translated)
     │   ├── wsgiref.po                    71 / 124 ( 57.0% translated)
@@ -235,14 +235,14 @@
     │   ├── 3.5.po                       128 / 541 ( 23.0% translated)
     │   ├── 3.6.po                       238 / 524 ( 45.0% translated)
     │   └── 3.7.po                       247 / 563 ( 43.0% translated)
-    └── c-api/  50.55% done
+    └── c-api/  50.57% done
         ├── exceptions.po                209 / 347 ( 60.0% translated)
         ├── float.po                      34 /  35 ( 97.0% translated)
         ├── frame.po                      20 /  24 ( 83.0% translated)
         ├── gcsupport.po                   9 /  42 ( 21.0% translated)
         ├── import.po                     39 /  53 ( 73.0% translated)
         ├── init.po                      127 / 372 ( 34.0% translated)
-        ├── init_config.po               135 / 396 ( 34.0% translated)
+        ├── init_config.po               138 / 396 ( 34.0% translated)
         ├── long.po                       34 /  59 ( 57.0% translated)
         ├── memory.po                     59 / 189 ( 31.0% translated)
         ├── module.po                     61 / 109 ( 55.0% translated)
