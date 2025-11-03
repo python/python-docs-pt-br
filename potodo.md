@@ -1,12 +1,12 @@
-1 directory  64.94% done
-└── 3.12/  64.94% done
+1 directory  65.00% done
+└── 3.12/  65.00% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  99.68% done
     │   └── library.po                   157 / 162 ( 96.0% translated)
     ├── using/  100.00% done
     ├── reference/  100.00% done
-    ├── library/  58.24% done
+    ├── library/  58.33% done
     │   ├── 2to3.po                      121 / 132 ( 91.0% translated)
     │   ├── array.po                      80 /  84 ( 95.0% translated)
     │   ├── ast.po                       255 / 306 ( 83.0% translated)
@@ -31,7 +31,7 @@
     │   ├── contextlib.po                 56 / 172 ( 32.0% translated)
     │   ├── contextvars.po                50 /  51 ( 98.0% translated)
     │   ├── crypt.po                       6 /  36 ( 16.0% translated)
-    │   ├── ctypes.po                    135 / 523 ( 25.0% translated)
+    │   ├── ctypes.po                    153 / 523 ( 29.0% translated)
     │   ├── curses.po                     64 / 484 ( 13.0% translated)
     │   ├── dataclasses.po                71 / 153 ( 46.0% translated)
     │   ├── datetime.po                  633 / 637 ( 99.0% translated)
@@ -116,7 +116,7 @@
     │   ├── unittest.po                  282 / 536 ( 52.0% translated)
     │   ├── urllib.parse.po              110 / 167 ( 65.0% translated)
     │   ├── urllib.request.po             51 / 300 ( 17.0% translated)
-    │   ├── warnings.po                   77 / 131 ( 58.0% translated)
+    │   ├── warnings.po                   82 / 131 ( 62.0% translated)
     │   ├── wave.po                       21 /  53 ( 39.0% translated)
     │   ├── webbrowser.po                 77 /  83 ( 92.0% translated)
     │   ├── wsgiref.po                    79 / 134 ( 58.0% translated)
@@ -158,13 +158,13 @@
     │   ├── 3.6.po                       237 / 544 ( 43.0% translated)
     │   └── 3.7.po                       252 / 568 ( 44.0% translated)
     ├── deprecations/  100.00% done
-    └── c-api/  49.77% done
+    └── c-api/  49.79% done
         ├── exceptions.po                222 / 366 ( 60.0% translated)
         ├── frame.po                      20 /  36 ( 55.0% translated)
         ├── gcsupport.po                   9 /  52 ( 17.0% translated)
         ├── import.po                     36 /  57 ( 63.0% translated)
         ├── init.po                      150 / 434 ( 34.0% translated)
-        ├── init_config.po               133 / 410 ( 32.0% translated)
+        ├── init_config.po               136 / 410 ( 33.0% translated)
         ├── long.po                       35 /  69 ( 50.0% translated)
         ├── memory.po                     59 / 195 ( 30.0% translated)
         ├── module.po                     63 / 124 ( 50.0% translated)
