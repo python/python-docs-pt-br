@@ -48,5 +48,5 @@ set -u
 # Commit only if there is any cached file
 if ! git diff-index --cached --quiet HEAD; then
   git add -v $extra_files
-  git commit -vm "$($rootdir/generate_commit_msg.py)"
+  git commit -vm "$($rootdir/scripts/generate_commit_msg.py)"
 fi
