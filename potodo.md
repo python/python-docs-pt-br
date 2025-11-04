@@ -1,5 +1,5 @@
-1 directory  60.61% done
-└── 3.14/  60.61% done
+1 directory  60.65% done
+└── 3.14/  60.65% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  100.00% done
@@ -8,7 +8,7 @@
     │   └── windows.po                   508 / 532 ( 95.0% translated)
     ├── reference/  99.38% done
     │   └── compound_stmts.po            474 / 480 ( 98.0% translated)
-    ├── library/  60.53% done
+    ├── library/  60.63% done
     │   ├── asyncio-dev.po                16 /  54 ( 29.0% translated)
     │   ├── asyncio-eventloop.po         307 / 416 ( 73.0% translated)
     │   ├── asyncio-future.po              9 /  64 ( 14.0% translated)
@@ -53,7 +53,7 @@
     │   ├── functools.po                  19 / 126 ( 15.0% translated)
     │   ├── hashlib.po                    93 / 170 ( 54.0% translated)
     │   ├── heapq.po                      48 /  67 ( 71.0% translated)
-    │   ├── html.parser.po                17 /  62 ( 27.0% translated)
+    │   ├── html.parser.po                46 /  62 ( 74.0% translated)
     │   ├── http.client.po                45 / 117 ( 38.0% translated)
     │   ├── http.cookiejar.po              9 / 159 (  5.0% translated)
     │   ├── http.cookies.po                7 /  52 ( 13.0% translated)
