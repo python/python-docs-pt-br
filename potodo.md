@@ -1,5 +1,5 @@
-1 directory  59.93% done
-└── 3.13/  59.93% done
+1 directory  60.00% done
+└── 3.13/  60.00% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  100.00% done
@@ -8,7 +8,7 @@
     │   └── windows.po                   382 / 389 ( 98.0% translated)
     ├── reference/  99.16% done
     │   └── compound_stmts.po            460 / 467 ( 98.0% translated)
-    ├── library/  60.36% done
+    ├── library/  60.50% done
     │   ├── asyncio-dev.po                16 /  54 ( 29.0% translated)
     │   ├── asyncio-eventloop.po         308 / 412 ( 74.0% translated)
     │   ├── asyncio-future.po              9 /  64 ( 14.0% translated)
@@ -48,7 +48,7 @@
     │   ├── ftplib.po                     12 /  99 ( 12.0% translated)
     │   ├── functools.po                  19 / 115 ( 16.0% translated)
     │   ├── hashlib.po                    93 / 170 ( 54.0% translated)
-    │   ├── html.parser.po                 3 /  62 (  4.0% translated)
+    │   ├── html.parser.po                46 /  62 ( 74.0% translated)
     │   ├── http.client.po                45 / 117 ( 38.0% translated)
     │   ├── http.cookiejar.po              9 / 159 (  5.0% translated)
     │   ├── http.cookies.po                7 /  49 ( 14.0% translated)
@@ -140,9 +140,7 @@
     ├── deprecations/  99.08% done
     │   ├── index.po                     217 / 218 ( 99.0% translated)
     │   └── pending-removal-in-3.14.po    33 /  34 ( 97.0% translated)
-    └── c-api/  50.03% done
-        ├── conversion.po                 32 /  33 ( 96.0% translated)
-        ├── dict.po                       64 /  67 ( 95.0% translated)
+    └── c-api/  50.15% done
         ├── exceptions.po                158 / 238 ( 66.0% translated)
         ├── frame.po                      20 /  42 ( 47.0% translated)
         ├── gcsupport.po                   9 /  52 ( 17.0% translated)
