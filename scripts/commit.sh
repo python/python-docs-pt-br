@@ -7,8 +7,8 @@ set -eu
 
 test -n ${PYDOC_LANGUAGE+x}
 
-rootdir=$(realpath $(dirname $0))
-language_dir="${PYDOC_LANG_DIR:-$rootdir/../cpython/Doc/locales/${PYDOC_LANGUAGE}/LC_MESSAGES}"
+rootdir=$(realpath $(dirname $0)/..)
+language_dir="${PYDOC_LANG_DIR:-$rootdir/cpython/Doc/locales/${PYDOC_LANGUAGE}/LC_MESSAGES}"
 
 cd "$language_dir"
 
