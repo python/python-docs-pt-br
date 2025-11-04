@@ -1,12 +1,12 @@
-1 directory  65.00% done
-└── 3.12/  65.00% done
+1 directory  65.07% done
+└── 3.12/  65.07% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  99.68% done
     │   └── library.po                   157 / 162 ( 96.0% translated)
     ├── using/  100.00% done
     ├── reference/  100.00% done
-    ├── library/  58.33% done
+    ├── library/  58.47% done
     │   ├── 2to3.po                      121 / 132 ( 91.0% translated)
     │   ├── array.po                      80 /  84 ( 95.0% translated)
     │   ├── ast.po                       255 / 306 ( 83.0% translated)
@@ -55,7 +55,7 @@
     │   ├── functools.po                  20 / 115 ( 17.0% translated)
     │   ├── gzip.po                       60 /  65 ( 92.0% translated)
     │   ├── hashlib.po                    89 / 168 ( 52.0% translated)
-    │   ├── html.parser.po                 3 /  62 (  4.0% translated)
+    │   ├── html.parser.po                44 /  62 ( 70.0% translated)
     │   ├── http.client.po                45 / 117 ( 38.0% translated)
     │   ├── http.cookiejar.po              9 / 159 (  5.0% translated)
     │   ├── http.cookies.po                7 /  49 ( 14.0% translated)
