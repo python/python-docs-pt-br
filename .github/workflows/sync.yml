@@ -32,41 +32,22 @@ jobs:
       - name: Check out this repository
         uses: actions/checkout@v5
 
-      - name: Checkout CPython ${{ env.PYDOC_VERSION }}
-        uses: actions/checkout@v5
-        with:
-          repository: 'python/cpython'
-          ref: ${{ env.PYDOC_VERSION }}
-          path: cpython
-
       - name: Set language dir variable
         run:
-          echo "LANGUAGE_DIR=cpython/Doc/locales/${{ env.PYDOC_LANGUAGE }}/LC_MESSAGES" >> $GITHUB_ENV
+          echo "PYDOC_LANG_DIR=${{ env.PYDOC_VERSION }}" >> $GITHUB_ENV
 
       - name: Checkout this repository ${{ env.PYDOC_VERSION }}
         uses: actions/checkout@v5
         with:
           ref: ${{ env.PYDOC_VERSION }}
-          path: ${{ env.LANGUAGE_DIR }}
+          path: ${{ env.PYDOC_LANG_DIR }}
 
       - uses: actions/setup-python@v6
         with:
           python-version: ${{ inputs.version }}
           allow-prereleases: true
           cache: 'pip'
-          cache-dependency-path: |
-            requirements.txt
-            cpython/Doc/requirements.txt
-
-      - name: Check for Transifex API Token availability
-        id: secret-check
-        # perform secret check & put boolean result as an output
-        shell: bash
-        run: |
-          available=false
-          [[ "${{ secrets.TX_TOKEN }}" != '' ]] && available=true
-          echo "available=$available" >> $GITHUB_OUTPUT
-          echo "available=$available"
+          cache-dependency-path: requirements.txt
 
       # 2- Install dependencies
 
@@ -81,19 +62,19 @@ jobs:
       - name: Install Python dependencies
         run: |
           pip install -r requirements.txt
-          make -C cpython/Doc venv
 
       # 3- Pull translations
 
-      - name: Generate template files and Transifex config file
-        run: ./scripts/generate_templates.sh
+      - name: Generate updated .tx/config
+        if: ${{ contains(fromJSON('["schedule", "workflow_dispatch"]'), github.event_name) }}
+        run: python scripts/generate_txconfig.py -p ./${{ env.PYDOC_LANG_DIR }} ${{ env.PYDOC_TX_PROJECT }}
 
       - name: Pull translations from Transifex
         id: pull
         if: ${{ contains(fromJSON('["schedule", "workflow_dispatch"]'), github.event_name) }}
         run: |
           # Clean up obsolete files
-          find ./${{ env.LANGUAGE_DIR }} -name '*.po' -exec rm {} \;
+          find ./${{ env.PYDOC_LANG_DIR }} -name '*.po' -exec rm {} \;
           ./scripts/pull_translations.sh
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
@@ -103,26 +84,26 @@ jobs:
         run: |
           newer_branch=${PYDOC_VERSION%%.*}.$((${PYDOC_VERSION##*.}+1))
           git clone --depth 1 --single-branch --branch $newer_branch https://github.com/python/python-docs-pt-br ${newer_branch}-dir
-          pomerge --from ./${newer_branch}-dir/{**/,}*.po --to ./${{ env.LANGUAGE_DIR }}/{**/,}*.po
+          pomerge --from ./${newer_branch}-dir/{**/,}*.po --to ./${{ env.PYDOC_LANG_DIR }}/{**/,}*.po
           rm -rf ./${newer_branch}-dir
 
       - name: powrap
         if: steps.pull.outcome == 'success'
         run: |
-          cd ./${{ env.LANGUAGE_DIR }}
+          cd ./${{ env.PYDOC_LANG_DIR }}
           powrap *.po **/*.po
 
       - name: Update statistics
         if: always()
         run: |
           ./scripts/stats.py
-          git -C ./${{ env.LANGUAGE_DIR }} diff stats.json
+          git -C ./${{ env.PYDOC_LANG_DIR }} diff stats.json
 
       - name: Update potodo.md
         if: always()
         run: |
           ./scripts/potodo.sh
-          git diff ./${{ env.LANGUAGE_DIR }}/potodo.md
+          git -C ./${{ env.PYDOC_LANG_DIR }} diff potodo.md
 
       # 4- Commit and push translations
 
@@ -132,7 +113,7 @@ jobs:
       - name: Push
         if: ${{ contains(fromJSON('["schedule", "workflow_dispatch"]'), github.event_name) }}
         run: |
-          cd ./${{ env.LANGUAGE_DIR }}
+          cd ./${{ env.PYDOC_LANG_DIR }}
           git push
 
 

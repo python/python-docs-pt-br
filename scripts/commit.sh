@@ -5,8 +5,12 @@
 
 set -eu
 
+test -n ${PYDOC_LANGUAGE+x}
+
 rootdir=$(realpath $(dirname $0))
-cd $rootdir/../cpython/Doc/locales/${PYDOC_LANGUAGE}/LC_MESSAGES
+language_dir="${PYDOC_LANG_DIR:-$rootdir/../cpython/Doc/locales/${PYDOC_LANGUAGE}/LC_MESSAGES}"
+
+cd "$language_dir"
 
 extra_files=".tx/config stats.json potodo.md"
 
