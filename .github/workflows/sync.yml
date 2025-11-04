@@ -98,17 +98,23 @@ jobs:
         run: |
           ./scripts/stats.py
           git -C ./${{ env.PYDOC_LANG_DIR }} diff stats.json
+        env:
+          PYDOC_LANG_DIR: ${{ env.PYDOC_LANG_DIR }}
 
       - name: Update potodo.md
         if: always()
         run: |
           ./scripts/potodo.sh
           git -C ./${{ env.PYDOC_LANG_DIR }} diff potodo.md
+        env:
+          PYDOC_LANG_DIR: ${{ env.PYDOC_LANG_DIR }}
 
       # 4- Commit and push translations
 
       - name: Commit
         run: ./scripts/commit.sh
+        env:
+          PYDOC_LANG_DIR: ${{ env.PYDOC_LANG_DIR }}
 
       - name: Push
         if: ${{ contains(fromJSON('["schedule", "workflow_dispatch"]'), github.event_name) }}
