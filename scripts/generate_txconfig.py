@@ -12,7 +12,7 @@ import sys
 from pathlib import Path
 
 # Replaces required to fix the default values set by 'tx add remote' command.
-# Add or remove 
+# Add or remove
 TEXT_TO_REPLACE = {
     "2_": "2.",
     "3_": "3.",
@@ -38,8 +38,9 @@ TEXT_TO_REPLACE = {
     "xml_etree_": "xml.etree.",
     "xmlrpc_": "xmlrpc.",
     "xml_sax_": "xml.sax.",
-    "xml_": "xml."
+    "xml_": "xml.",
 }
+
 
 def parse_args():
     parser = argparse.ArgumentParser(description=__doc__)
@@ -47,11 +48,10 @@ def parse_args():
         "--root-path",
         "-p",
         default=Path("."),
-        help="Path to the translation files, and also the .tx/config (defaults to current directory)"
+        help="Path to the translation files, and also the .tx/config (defaults to current directory)",
     )
     parser.add_argument(
-        "tx_project",
-        help="Slug of the Transifex project to query resources from"
+        "tx_project", help="Slug of the Transifex project to query resources from"
     )
     return parser.parse_args()
 
@@ -65,11 +65,19 @@ def reset_tx_config(txconfig: Path):
 
 def populate_resources_from_remote(config_file: Path, tx_project: str):
     """Add the remote resources from the Transifex project to .tx/config."""
-    result = subprocess.run([
-        "tx", "--config", str(config_file), "add", "remote",
-        "--file-filter", "<lang>/<resource_slug>.<ext>",
-        f"https://app.transifex.com/python-doc/{tx_project}/"
-    ], check=True)
+    result = subprocess.run(
+        [
+            "tx",
+            "--config",
+            str(config_file),
+            "add",
+            "remote",
+            "--file-filter",
+            "<lang>/<resource_slug>.<ext>",
+            f"https://app.transifex.com/python-doc/{tx_project}/",
+        ],
+        check=True,
+    )
     if result.returncode != 0:
         print("Failed to add the resources from remote:")
         print(result.stderr.strip())
@@ -91,9 +99,9 @@ def patch_config(txconfig: Path):
             line = line.replace("--", "/")
 
             for pattern, replacement in TEXT_TO_REPLACE.items():
-               if pattern in line:
-                  line = line.replace(pattern, replacement)
-                  break
+                if pattern in line:
+                    line = line.replace(pattern, replacement)
+                    break
 
         new_lines.append(line)
 
@@ -101,6 +109,7 @@ def patch_config(txconfig: Path):
 
     txconfig.write_text(text + "\n", encoding="utf-8")
     print("Updated .tx/config with character substitutions")
+
 
 def main():
     args = parse_args()

@@ -22,10 +22,10 @@ def main() -> None:
     if lang_dir:
         pofiles_path = Path(lang_dir)
     else:
-         language = os.environ.get("PYDOC_LANGUAGE")
-         if not language:
-             raise ValueError("Environment variable PYDOC_LANGUAGE is not set.")
-         pofiles_path = Path(f"cpython/Doc/locales/{language}/LC_MESSAGES")
+        language = os.environ.get("PYDOC_LANGUAGE")
+        if not language:
+            raise ValueError("Environment variable PYDOC_LANGUAGE is not set.")
+        pofiles_path = Path(f"cpython/Doc/locales/{language}/LC_MESSAGES")
 
     if not pofiles_path.exists():
         raise FileNotFoundError(f"Path does not exist: {pofiles_path}")
