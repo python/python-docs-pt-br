@@ -1,5 +1,5 @@
-1 directory  60.00% done
-└── 3.13/  60.00% done
+1 directory  60.03% done
+└── 3.13/  60.03% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  100.00% done
@@ -8,7 +8,7 @@
     │   └── windows.po                   382 / 389 ( 98.0% translated)
     ├── reference/  99.16% done
     │   └── compound_stmts.po            460 / 467 ( 98.0% translated)
-    ├── library/  60.50% done
+    ├── library/  60.58% done
     │   ├── asyncio-dev.po                16 /  54 ( 29.0% translated)
     │   ├── asyncio-eventloop.po         308 / 412 ( 74.0% translated)
     │   ├── asyncio-future.po              9 /  64 ( 14.0% translated)
@@ -27,7 +27,7 @@
     │   ├── collections.abc.po           140 / 142 ( 98.0% translated)
     │   ├── concurrent.futures.po         14 / 101 ( 13.0% translated)
     │   ├── contextlib.po                 55 / 172 ( 31.0% translated)
-    │   ├── ctypes.po                    156 / 546 ( 28.0% translated)
+    │   ├── ctypes.po                    163 / 546 ( 29.0% translated)
     │   ├── curses.po                     66 / 486 ( 13.0% translated)
     │   ├── dataclasses.po                70 / 156 ( 44.0% translated)
     │   ├── dbm.po                        95 / 107 ( 88.0% translated)
@@ -62,7 +62,7 @@
     │   ├── logging.config.po             18 / 171 ( 10.0% translated)
     │   ├── logging.handlers.po           51 / 274 ( 18.0% translated)
     │   ├── logging.po                   106 / 370 ( 28.0% translated)
-    │   ├── mailbox.po                    10 / 307 (  3.0% translated)
+    │   ├── mailbox.po                    21 / 307 (  6.0% translated)
     │   ├── mimetypes.po                  43 /  54 ( 79.0% translated)
     │   ├── mmap.po                       23 /  65 ( 35.0% translated)
     │   ├── msvcrt.po                     29 /  46 ( 63.0% translated)
@@ -121,7 +121,7 @@
     │   ├── extending.po                  58 / 226 ( 25.0% translated)
     │   ├── newtypes.po                    8 / 117 (  6.0% translated)
     │   └── newtypes_tutorial.po          29 / 177 ( 16.0% translated)
-    ├── whatsnew/  48.19% done
+    ├── whatsnew/  48.20% done
     │   ├── 2.3.po                       327 / 387 ( 84.0% translated)
     │   ├── 2.4.po                       266 / 319 ( 83.0% translated)
     │   ├── 2.5.po                       389 / 452 ( 86.0% translated)
@@ -136,25 +136,27 @@
     │   ├── 3.5.po                       128 / 578 ( 22.0% translated)
     │   ├── 3.6.po                       233 / 544 ( 42.0% translated)
     │   ├── 3.7.po                       249 / 568 ( 43.0% translated)
-    │   └── changelog.po                 2691 / 12564 ( 21.0% translated)
+    │   └── changelog.po                 2694 / 12565 ( 21.0% translated)
     ├── deprecations/  99.08% done
     │   ├── index.po                     217 / 218 ( 99.0% translated)
     │   └── pending-removal-in-3.14.po    33 /  34 ( 97.0% translated)
-    └── c-api/  50.15% done
+    └── c-api/  49.98% done
         ├── exceptions.po                158 / 238 ( 66.0% translated)
         ├── frame.po                      20 /  42 ( 47.0% translated)
         ├── gcsupport.po                   9 /  52 ( 17.0% translated)
         ├── import.po                     33 /  62 ( 53.0% translated)
         ├── init.po                      170 / 492 ( 34.0% translated)
         ├── init_config.po               139 / 417 ( 33.0% translated)
+        ├── iterator.po                    8 /  12 ( 66.0% translated)
         ├── long.po                       43 / 104 ( 41.0% translated)
+        ├── mapping.po                    21 /  23 ( 91.0% translated)
         ├── memory.po                     59 / 201 ( 29.0% translated)
-        ├── module.po                     65 / 136 ( 47.0% translated)
+        ├── module.po                     64 / 136 ( 47.0% translated)
         ├── number.po                     14 /  48 ( 29.0% translated)
-        ├── object.po                     43 / 120 ( 35.0% translated)
+        ├── object.po                     42 / 120 ( 35.0% translated)
         ├── refcounting.po                14 /  48 ( 29.0% translated)
         ├── structures.po                 71 / 180 ( 39.0% translated)
         ├── sys.po                        28 /  75 ( 37.0% translated)
         ├── type.po                       27 / 103 ( 26.0% translated)
         ├── typeobj.po                   236 / 682 ( 34.0% translated)
-        └── unicode.po                    85 / 340 ( 25.0% translated)
+        └── unicode.po                    85 / 342 ( 24.0% translated)

@@ -5,15 +5,16 @@
 #
 # Translators:
 # python-doc bot, 2025
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-15 15:19+0000\n"
+"POT-Creation-Date: 2025-11-05 15:17+0000\n"
 "PO-Revision-Date: 2025-09-15 01:04+0000\n"
-"Last-Translator: python-doc bot, 2025\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "Language: pt_BR\n"
@@ -25,7 +26,7 @@ msgstr ""
 
 #: ../../library/mailbox.rst:2
 msgid ":mod:`!mailbox` --- Manipulate mailboxes in various formats"
-msgstr ""
+msgstr ":mod:`!mailbox` --- Manipule caixas de entradas em vários formatos"
 
 #: ../../library/mailbox.rst:10
 msgid "**Source code:** :source:`Lib/mailbox.py`"
@@ -40,22 +41,29 @@ msgid ""
 "message.Message` class with format-specific state and behavior. Supported "
 "mailbox formats are Maildir, mbox, MH, Babyl, and MMDF."
 msgstr ""
+"Este módulo define duas classes, :class:`Mailbox` e :class:`Message`, para "
+"acessar e manipular caixas de correio em disco e as mensagens que elas "
+"contêm. :class:`!Mailbox` oferece um mapeamento semelhante a um dicionário "
+"de chaves para mensagens. :class:`!Message` estende a classe :class:`~email."
+"message.Message` do módulo :mod:`email.message` com estado e comportamento "
+"específicos para cada formato. Os formatos de caixa de correio suportados "
+"são Maildir, mbox, MH, Babyl e MMDF."
 
 #: ../../library/mailbox.rst:24
 msgid "Module :mod:`email`"
-msgstr ""
+msgstr "Módulo :mod:`email`"
 
 #: ../../library/mailbox.rst:25
 msgid "Represent and manipulate messages."
-msgstr ""
+msgstr "Representa e manipula mensagens."
 
 #: ../../library/mailbox.rst:31
 msgid ":class:`!Mailbox` objects"
-msgstr ""
+msgstr "Objetos :class:`!Mailbox`"
 
 #: ../../library/mailbox.rst:35
 msgid "A mailbox, which may be inspected and modified."
-msgstr ""
+msgstr "Uma caixa de correio, que pode ser inspecionada e modificada."
 
 #: ../../library/mailbox.rst:37
 msgid ""
@@ -63,6 +71,9 @@ msgid ""
 "instantiated.  Instead, format-specific subclasses should inherit from :"
 "class:`!Mailbox` and your code should instantiate a particular subclass."
 msgstr ""
+"A classe :class:`!Mailbox` define uma interface e não deve ser instanciada. "
+"Em vez disso, subclasses específicas de cada formato devem herdar de :class:"
+"`!Mailbox` e seu código deve instanciar uma subclasse específica."
 
 #: ../../library/mailbox.rst:41
 msgid ""
@@ -73,6 +84,12 @@ msgid ""
 "corresponding message is modified, such as by replacing it with another "
 "message."
 msgstr ""
+"A interface :class:`!Mailbox` é semelhante a um dicionário, com pequenas "
+"chaves correspondentes às mensagens. As chaves são emitidas pela instância "
+"de :class:`!Mailbox` com a qual serão usadas e só têm significado para essa "
+"instância de :class:`!Mailbox`. Uma chave continua a identificar uma "
+"mensagem mesmo que a mensagem correspondente seja modificada, por exemplo, "
+"ao ser substituída por outra mensagem."
 
 #: ../../library/mailbox.rst:47
 msgid ""
@@ -80,6 +97,10 @@ msgid ""
 "method :meth:`add` and removed using a ``del`` statement or the set-like "
 "methods :meth:`remove` and :meth:`discard`."
 msgstr ""
+"As mensagens podem ser adicionadas a uma instância de :class:`!Mailbox` "
+"usando o método semelhante a um conjunto :meth:`add` e removidas usando uma "
+"instrução ``del`` ou os métodos semelhantes a conjuntos :meth:`remove` e :"
+"meth:`discard`."
 
 #: ../../library/mailbox.rst:51
 msgid ""
@@ -91,6 +112,14 @@ msgid ""
 "copied. In neither case is a reference to the message representation kept by "
 "the :class:`!Mailbox` instance."
 msgstr ""
+"A semântica da interface :class:`!Mailbox` difere da semântica de dicionário "
+"em alguns aspectos importantes. Cada vez que uma mensagem é solicitada, uma "
+"nova representação (normalmente uma instância de :class:`Message`) é gerada "
+"com base no estado atual da caixa de correio. Da mesma forma, quando uma "
+"mensagem é adicionada a uma instância de :class:`!Mailbox`, o conteúdo da "
+"representação da mensagem fornecida é copiado. Em nenhum dos casos a "
+"instância de :class:`!Mailbox` mantém uma referência à representação da "
+"mensagem."
 
 #: ../../library/mailbox.rst:59
 msgid ""
@@ -103,6 +132,15 @@ msgid ""
 "iterator may result in a :exc:`KeyError` exception if the corresponding "
 "message is subsequently removed."
 msgstr ""
+"O :term:`iterador` padrão de :class:`!Mailbox` itera sobre representações de "
+"mensagens, e não sobre chaves como o iterador padrão de :class:`dicionário "
+"<dict>`. Além disso, a modificação de uma caixa de correio durante a "
+"iteração é segura e bem definida. Mensagens adicionadas à caixa de correio "
+"após a criação de um iterador não serão vistas pelo iterador. Mensagens "
+"removidas da caixa de correio antes que o iterador as produza serão "
+"ignoradas silenciosamente, embora o uso de uma chave de um iterador possa "
+"resultar em uma exceção :exc:`KeyError` se a mensagem correspondente for "
+"posteriormente removida."
 
 #: ../../library/mailbox.rst:71
 msgid ""
@@ -1030,7 +1068,7 @@ msgid ""
 "contents are copied; furthermore, any format-specific information is "
 "converted insofar as possible if *message* is a :class:`!Message` instance. "
 "If *message* is a string, a byte string, or a file, it should contain an :"
-"rfc:`2822`\\ -compliant message, which is read and parsed.  Files should be "
+"rfc:`5322`\\ -compliant message, which is read and parsed.  Files should be "
 "open in binary mode, but text mode files are accepted for backward "
 "compatibility."
 msgstr ""
