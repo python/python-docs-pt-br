@@ -20,7 +20,7 @@ def main() -> None:
 
     lang_dir = os.environ.get("PYDOC_LANG_DIR")
     if lang_dir:
-        pofiles_path = lang_dir
+        pofiles_path = Path(lang_dir)
     else:
          language = os.environ.get("PYDOC_LANGUAGE")
          if not language:
