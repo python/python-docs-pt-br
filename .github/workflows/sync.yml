@@ -68,6 +68,8 @@ jobs:
       - name: Generate updated .tx/config
         if: ${{ contains(fromJSON('["schedule", "workflow_dispatch"]'), github.event_name) }}
         run: python scripts/generate_txconfig.py -p ./${{ env.PYDOC_LANG_DIR }} ${{ env.PYDOC_TX_PROJECT }}
+        env:
+          TX_TOKEN: ${{ secrets.TX_TOKEN }}
 
       - name: Pull translations from Transifex
         id: pull
