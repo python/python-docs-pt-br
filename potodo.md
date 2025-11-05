@@ -1,5 +1,5 @@
-1 directory  59.44% done
-└── 3.10/  59.44% done
+1 directory  59.51% done
+└── 3.10/  59.51% done
     ├── distutils/  25.78% done
     │   ├── apiref.po                     88 / 417 ( 21.0% translated)
     │   ├── builtdist.po                  52 / 131 ( 39.0% translated)
@@ -24,7 +24,7 @@
     │   ├── expressions.po               303 / 332 ( 91.0% translated)
     │   ├── import.po                    165 / 184 ( 89.0% translated)
     │   └── lexical_analysis.po          185 / 195 ( 94.0% translated)
-    ├── library/  53.88% done
+    ├── library/  54.01% done
     │   ├── _thread.po                    39 /  41 ( 95.0% translated)
     │   ├── argparse.po                  256 / 290 ( 88.0% translated)
     │   ├── array.po                      81 /  82 ( 98.0% translated)
@@ -101,7 +101,7 @@
     │   ├── hashlib.po                    56 / 141 ( 39.0% translated)
     │   ├── heapq.po                      49 /  51 ( 96.0% translated)
     │   ├── hmac.po                       24 /  27 ( 88.0% translated)
-    │   ├── html.parser.po                 2 /  50 (  4.0% translated)
+    │   ├── html.parser.po                39 /  50 ( 78.0% translated)
     │   ├── http.client.po                49 /  99 ( 49.0% translated)
     │   ├── http.cookiejar.po              9 / 154 (  5.0% translated)
     │   ├── http.cookies.po               17 /  56 ( 30.0% translated)
