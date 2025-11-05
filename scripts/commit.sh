@@ -5,8 +5,12 @@
 
 set -eu
 
-rootdir=$(realpath $(dirname $0))
-cd $rootdir/../cpython/Doc/locales/${PYDOC_LANGUAGE}/LC_MESSAGES
+test -n ${PYDOC_LANGUAGE+x}
+
+rootdir=$(realpath $(dirname $0)/..)
+language_dir="${PYDOC_LANG_DIR:-$rootdir/cpython/Doc/locales/${PYDOC_LANGUAGE}/LC_MESSAGES}"
+
+cd "$language_dir"
 
 extra_files=".tx/config stats.json potodo.md"
 
@@ -44,5 +48,5 @@ set -u
 # Commit only if there is any cached file
 if ! git diff-index --cached --quiet HEAD; then
   git add -v $extra_files
-  git commit -vm "$($rootdir/generate_commit_msg.py)"
+  git commit -vm "$($rootdir/scripts/generate_commit_msg.py)"
 fi

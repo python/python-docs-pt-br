@@ -10,8 +10,9 @@ test -n ${PYDOC_VERSION+x}
 test -n ${PYDOC_LANGUAGE+x}
 
 rootdir=$(realpath $(dirname $0)/..)
+language_dir="${PYDOC_LANG_DIR:-$rootdir/cpython/Doc/locales/${PYDOC_LANGUAGE}/LC_MESSAGES}"
 
-cd "$rootdir"/cpython/Doc/locales/${PYDOC_LANGUAGE}/LC_MESSAGES
+cd "$language_dir"
 
 potodo --no-cache > potodo.md
 
