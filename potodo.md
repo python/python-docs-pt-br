@@ -1,12 +1,12 @@
-1 directory  65.11% done
-└── 3.12/  65.11% done
+1 directory  65.14% done
+└── 3.12/  65.14% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  99.68% done
     │   └── library.po                   157 / 162 ( 96.0% translated)
     ├── using/  100.00% done
     ├── reference/  100.00% done
-    ├── library/  58.54% done
+    ├── library/  58.58% done
     │   ├── 2to3.po                      121 / 132 ( 91.0% translated)
     │   ├── array.po                      80 /  84 ( 95.0% translated)
     │   ├── ast.po                       255 / 306 ( 83.0% translated)
@@ -31,7 +31,7 @@
     │   ├── contextlib.po                 56 / 172 ( 32.0% translated)
     │   ├── contextvars.po                50 /  51 ( 98.0% translated)
     │   ├── crypt.po                       6 /  36 ( 16.0% translated)
-    │   ├── ctypes.po                    159 / 523 ( 30.0% translated)
+    │   ├── ctypes.po                    168 / 523 ( 32.0% translated)
     │   ├── curses.po                     64 / 484 ( 13.0% translated)
     │   ├── dataclasses.po                71 / 153 ( 46.0% translated)
     │   ├── datetime.po                  633 / 637 ( 99.0% translated)
