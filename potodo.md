@@ -1,5 +1,5 @@
-1 directory  63.40% done
-└── 3.11/  63.40% done
+1 directory  63.42% done
+└── 3.11/  63.42% done
     ├── distutils/  25.81% done
     │   ├── apiref.po                     88 / 414 ( 21.0% translated)
     │   ├── builtdist.po                  51 / 128 ( 39.0% translated)
@@ -22,7 +22,7 @@
     │   ├── executionmodel.po             73 /  75 ( 97.0% translated)
     │   ├── import.po                    192 / 207 ( 92.0% translated)
     │   └── lexical_analysis.po          288 / 299 ( 96.0% translated)
-    ├── library/  56.54% done
+    ├── library/  56.57% done
     │   ├── _thread.po                    49 /  51 ( 96.0% translated)
     │   ├── abc.po                        48 /  49 ( 97.0% translated)
     │   ├── argparse.po                  305 / 335 ( 91.0% translated)
@@ -56,7 +56,7 @@
     │   ├── configparser.po              178 / 186 ( 95.0% translated)
     │   ├── contextlib.po                 42 / 130 ( 32.0% translated)
     │   ├── crypt.po                       7 /  35 ( 20.0% translated)
-    │   ├── ctypes.po                    120 / 436 ( 27.0% translated)
+    │   ├── ctypes.po                    127 / 436 ( 29.0% translated)
     │   ├── curses.ascii.po               68 /  69 ( 98.0% translated)
     │   ├── curses.panel.po               22 /  23 ( 95.0% translated)
     │   ├── curses.po                     64 / 485 ( 13.0% translated)
