@@ -1,5 +1,5 @@
-1 directory  63.42% done
-└── 3.11/  63.42% done
+1 directory  63.47% done
+└── 3.11/  63.47% done
     ├── distutils/  25.81% done
     │   ├── apiref.po                     88 / 414 ( 21.0% translated)
     │   ├── builtdist.po                  51 / 128 ( 39.0% translated)
@@ -22,7 +22,7 @@
     │   ├── executionmodel.po             73 /  75 ( 97.0% translated)
     │   ├── import.po                    192 / 207 ( 92.0% translated)
     │   └── lexical_analysis.po          288 / 299 ( 96.0% translated)
-    ├── library/  56.57% done
+    ├── library/  56.65% done
     │   ├── _thread.po                    49 /  51 ( 96.0% translated)
     │   ├── abc.po                        48 /  49 ( 97.0% translated)
     │   ├── argparse.po                  305 / 335 ( 91.0% translated)
@@ -30,7 +30,7 @@
     │   ├── ast.po                       224 / 228 ( 98.0% translated)
     │   ├── asynchat.po                    6 /  35 ( 17.0% translated)
     │   ├── asyncio-dev.po                16 /  42 ( 38.0% translated)
-    │   ├── asyncio-eventloop.po         319 / 371 ( 85.0% translated)
+    │   ├── asyncio-eventloop.po         320 / 371 ( 86.0% translated)
     │   ├── asyncio-future.po              9 /  61 ( 14.0% translated)
     │   ├── asyncio-platforms.po           6 /  25 ( 24.0% translated)
     │   ├── asyncio-policy.po             10 /  67 ( 14.0% translated)
@@ -56,7 +56,7 @@
     │   ├── configparser.po              178 / 186 ( 95.0% translated)
     │   ├── contextlib.po                 42 / 130 ( 32.0% translated)
     │   ├── crypt.po                       7 /  35 ( 20.0% translated)
-    │   ├── ctypes.po                    127 / 436 ( 29.0% translated)
+    │   ├── ctypes.po                    148 / 436 ( 33.0% translated)
     │   ├── curses.ascii.po               68 /  69 ( 98.0% translated)
     │   ├── curses.panel.po               22 /  23 ( 95.0% translated)
     │   ├── curses.po                     64 / 485 ( 13.0% translated)
@@ -114,7 +114,7 @@
     │   ├── logging.po                   100 / 351 ( 28.0% translated)
     │   ├── mailbox.po                    20 / 285 (  7.0% translated)
     │   ├── mailcap.po                     2 /  15 ( 13.0% translated)
-    │   ├── mimetypes.po                  39 /  50 ( 78.0% translated)
+    │   ├── mimetypes.po                  40 /  50 ( 80.0% translated)
     │   ├── mmap.po                       22 /  55 ( 40.0% translated)
     │   ├── msilib.po                      7 /  97 (  7.0% translated)
     │   ├── multiprocessing.po           293 / 529 ( 55.0% translated)
@@ -235,8 +235,8 @@
     │   ├── 3.5.po                       128 / 541 ( 23.0% translated)
     │   ├── 3.6.po                       238 / 524 ( 45.0% translated)
     │   └── 3.7.po                       247 / 563 ( 43.0% translated)
-    └── c-api/  50.57% done
-        ├── exceptions.po                209 / 347 ( 60.0% translated)
+    └── c-api/  50.60% done
+        ├── exceptions.po                210 / 347 ( 60.0% translated)
         ├── float.po                      34 /  35 ( 97.0% translated)
         ├── frame.po                      20 /  24 ( 83.0% translated)
         ├── gcsupport.po                   9 /  42 ( 21.0% translated)
