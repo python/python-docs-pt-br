@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-16 17:23+0000\n"
+"POT-Creation-Date: 2025-11-07 14:15+0000\n"
 "PO-Revision-Date: 2025-09-16 00:00+0000\n"
 "Last-Translator: python-doc bot, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -283,28 +283,24 @@ msgstr ":ref:`classes <classes>` (objetos de tipo)"
 #: ../../howto/free-threading-python.rst:118
 msgid ""
 "Because immortal objects are never deallocated, applications that create "
-"many objects of these types may see increased memory usage.  This is "
-"expected to be addressed in the 3.14 release."
+"many objects of these types may see increased memory usage under Python "
+"3.13.  This has been addressed in the 3.14 release, where the aforementioned "
+"objects use deferred reference counting to avoid reference count contention."
 msgstr ""
-"Como objetos imortais nunca são desalocados, aplicações que criam muitos "
-"objetos desses tipos podem ver aumento no uso de memória. Espera-se que isso "
-"seja resolvido na versão 3.14."
 
-#: ../../howto/free-threading-python.rst:122
+#: ../../howto/free-threading-python.rst:123
 msgid ""
 "Additionally, numeric and string literals in the code as well as strings "
-"returned by :func:`sys.intern` are also immortalized.  This behavior is "
-"expected to remain in the 3.14 free-threaded build."
+"returned by :func:`sys.intern` are also immortalized in the 3.13 release.  "
+"This behavior is part of the 3.14 release as well and it is expected to "
+"remain in future free-threaded builds."
 msgstr ""
-"Além disso, literais numéricos e de string no código, bem como strings "
-"retornadas por :func:`sys.intern` também são imortalizados. Espera-se que "
-"esse comportamento permaneça na construção com threads livres do 3.14."
 
-#: ../../howto/free-threading-python.rst:128
+#: ../../howto/free-threading-python.rst:130
 msgid "Frame objects"
 msgstr "Objetos quadro"
 
-#: ../../howto/free-threading-python.rst:130
+#: ../../howto/free-threading-python.rst:132
 msgid ""
 "It is not safe to access :ref:`frame <frame-objects>` objects from other "
 "threads and doing so may cause your program to crash .  This means that :"
@@ -320,11 +316,11 @@ msgstr ""
 "_getframe` são geralmente seguras, desde que o objeto quadro resultante não "
 "seja passado para outro thread."
 
-#: ../../howto/free-threading-python.rst:138
+#: ../../howto/free-threading-python.rst:140
 msgid "Iterators"
 msgstr "Iteradores"
 
-#: ../../howto/free-threading-python.rst:140
+#: ../../howto/free-threading-python.rst:142
 msgid ""
 "Sharing the same iterator object between multiple threads is generally not "
 "safe and threads may see duplicate or missing elements when iterating or "
@@ -334,40 +330,33 @@ msgstr ""
 "seguro e os threads podem ver elementos duplicados ou ausentes ao iterar ou "
 "travar o interpretador."
 
-#: ../../howto/free-threading-python.rst:146
+#: ../../howto/free-threading-python.rst:148
 msgid "Single-threaded performance"
 msgstr "Desempenho com thread única"
 
-#: ../../howto/free-threading-python.rst:148
+#: ../../howto/free-threading-python.rst:150
 msgid ""
 "The free-threaded build has additional overhead when executing Python code "
 "compared to the default GIL-enabled build.  In 3.13, this overhead is about "
 "40% on the `pyperformance <https://pyperformance.readthedocs.io/>`_ suite. "
 "Programs that spend most of their time in C extensions or I/O will see less "
 "of an impact.  The largest impact is because the specializing adaptive "
-"interpreter (:pep:`659`) is disabled in the free-threaded build.  We expect "
-"to re-enable it in a thread-safe way in the 3.14 release.  This overhead is "
-"expected to be reduced in upcoming Python release.   We are aiming for an "
-"overhead of 10% or less on the pyperformance suite compared to the default "
-"GIL-enabled build."
+"interpreter (:pep:`659`) is disabled in the free-threaded build."
 msgstr ""
-"A construção com threads livres tem sobrecarga adicional ao executar código "
-"Python em comparação com a construção padrão com GIL habilitada. Na versão "
-"3.13, essa sobrecarga é de cerca de 40% no conjunto de ferramentas "
-"`pyperformance <https://pyperformance.readthedocs.io/>`_. Programas que "
-"passam a maior parte do tempo em extensões C ou E/S verão menos impacto. O "
-"maior impacto é porque o interpretador adaptativo especializado (:pep:`659`) "
-"está desabilitado na construção com threads livres. Esperamos reabilitá-lo "
-"de forma segura para threads na versão 3.14. Espera-se que essa sobrecarga "
-"seja reduzida na próxima versão do Python. Estamos buscando uma sobrecarga "
-"de 10% ou menos no conjunto de ferramentas pyperformance em comparação com a "
-"construção padrão com GIL habilitada."
 
-#: ../../howto/free-threading-python.rst:161
+#: ../../howto/free-threading-python.rst:157
+msgid ""
+"The specializing adaptive interpreter has been re-enabled in a thread-safe "
+"way in the 3.14 release.  The performance penalty on single-threaded code in "
+"free-threaded mode is now roughly 5-10%, depending on the platform and C "
+"compiler used."
+msgstr ""
+
+#: ../../howto/free-threading-python.rst:164
 msgid "Behavioral changes"
 msgstr "Mudanças comportamentais"
 
-#: ../../howto/free-threading-python.rst:163
+#: ../../howto/free-threading-python.rst:166
 msgid ""
 "This section describes CPython behavioural changes with the free-threaded "
 "build."
@@ -375,11 +364,11 @@ msgstr ""
 "Esta seção descreve as mudanças comportamentais do CPython com a construção "
 "com threads livres."
 
-#: ../../howto/free-threading-python.rst:168
+#: ../../howto/free-threading-python.rst:171
 msgid "Context variables"
 msgstr "Variáveis de contexto"
 
-#: ../../howto/free-threading-python.rst:170
+#: ../../howto/free-threading-python.rst:173
 msgid ""
 "In the free-threaded build, the flag :data:`~sys.flags."
 "thread_inherit_context` is set to true by default which causes threads "
@@ -396,11 +385,11 @@ msgstr ""
 "como false por padrão, então as threads iniciam com um :class:`~contextvars."
 "Context()` vazio."
 
-#: ../../howto/free-threading-python.rst:180
+#: ../../howto/free-threading-python.rst:183
 msgid "Warning filters"
 msgstr "Filtros de aviso"
 
-#: ../../howto/free-threading-python.rst:182
+#: ../../howto/free-threading-python.rst:185
 msgid ""
 "In the free-threaded build, the flag :data:`~sys.flags."
 "context_aware_warnings` is set to true by default.  In the default GIL-"
