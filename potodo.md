@@ -1,16 +1,18 @@
-1 directory  60.09% done
-└── 3.13/  60.09% done
+1 directory  60.10% done
+└── 3.13/  60.10% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  100.00% done
     ├── using/  97.36% done
     │   ├── mac.po                        94 /  96 ( 97.0% translated)
     │   └── windows.po                   382 / 389 ( 98.0% translated)
-    ├── reference/  99.82% done
-    │   └── compound_stmts.po            466 / 467 ( 99.0% translated)
-    ├── library/  60.64% done
+    ├── reference/  99.77% done
+    │   ├── compound_stmts.po            466 / 467 ( 99.0% translated)
+    │   └── datamodel.po                 867 / 868 ( 99.0% translated)
+    ├── library/  60.70% done
+    │   ├── argparse.po                  378 / 379 ( 99.0% translated)
     │   ├── asyncio-dev.po                16 /  54 ( 29.0% translated)
-    │   ├── asyncio-eventloop.po         308 / 412 ( 74.0% translated)
+    │   ├── asyncio-eventloop.po         309 / 413 ( 74.0% translated)
     │   ├── asyncio-future.po              9 /  64 ( 14.0% translated)
     │   ├── asyncio-platforms.po           6 /  26 ( 23.0% translated)
     │   ├── asyncio-policy.po             10 /  68 ( 14.0% translated)
@@ -18,15 +20,17 @@
     │   ├── asyncio-queue.po              43 /  48 ( 89.0% translated)
     │   ├── asyncio-runner.po              5 /  37 ( 13.0% translated)
     │   ├── asyncio-stream.po             71 / 104 ( 68.0% translated)
+    │   ├── asyncio-subprocess.po         81 /  82 ( 98.0% translated)
     │   ├── asyncio-sync.po               12 / 100 ( 12.0% translated)
     │   ├── asyncio-task.po              141 / 268 ( 52.0% translated)
+    │   ├── asyncio.po                    31 /  32 ( 96.0% translated)
     │   ├── base64.po                     15 /  71 ( 21.0% translated)
     │   ├── bdb.po                        13 / 112 ( 11.0% translated)
     │   ├── binascii.po                   23 /  38 ( 60.0% translated)
     │   ├── codecs.po                    250 / 558 ( 44.0% translated)
     │   ├── concurrent.futures.po         14 / 101 ( 13.0% translated)
     │   ├── contextlib.po                 55 / 172 ( 31.0% translated)
-    │   ├── ctypes.po                    172 / 546 ( 31.0% translated)
+    │   ├── ctypes.po                    211 / 546 ( 38.0% translated)
     │   ├── curses.po                     66 / 486 ( 13.0% translated)
     │   ├── dataclasses.po                70 / 156 ( 44.0% translated)
     │   ├── dbm.po                        95 / 107 ( 88.0% translated)
@@ -62,13 +66,13 @@
     │   ├── logging.handlers.po           51 / 274 ( 18.0% translated)
     │   ├── logging.po                   106 / 370 ( 28.0% translated)
     │   ├── mailbox.po                    21 / 307 (  6.0% translated)
-    │   ├── mimetypes.po                  43 /  54 ( 79.0% translated)
+    │   ├── mimetypes.po                  44 /  54 ( 81.0% translated)
     │   ├── mmap.po                       23 /  65 ( 35.0% translated)
     │   ├── msvcrt.po                     29 /  46 ( 63.0% translated)
     │   ├── multiprocessing.po           339 / 603 ( 56.0% translated)
     │   ├── poplib.po                     22 /  53 ( 41.0% translated)
     │   ├── profile.po                    34 / 181 ( 18.0% translated)
-    │   ├── pyexpat.po                    23 / 155 ( 14.0% translated)
+    │   ├── pyexpat.po                    23 / 156 ( 14.0% translated)
     │   ├── queue.po                       7 /  57 ( 12.0% translated)
     │   ├── select.po                     78 / 206 ( 37.0% translated)
     │   ├── selectors.po                  13 /  58 ( 22.0% translated)
@@ -100,6 +104,7 @@
     │   ├── xml.dom.minidom.po             8 /  56 ( 14.0% translated)
     │   ├── xml.dom.po                    67 / 235 ( 28.0% translated)
     │   ├── xml.etree.elementtree.po      74 / 266 ( 27.0% translated)
+    │   ├── xml.po                        23 /  27 ( 85.0% translated)
     │   ├── xml.sax.handler.po            19 / 103 ( 18.0% translated)
     │   ├── xml.sax.po                     3 /  32 (  9.0% translated)
     │   ├── xml.sax.reader.po              2 /  75 (  2.0% translated)
@@ -135,20 +140,25 @@
     │   ├── 3.5.po                       128 / 578 ( 22.0% translated)
     │   ├── 3.6.po                       233 / 544 ( 42.0% translated)
     │   ├── 3.7.po                       249 / 568 ( 43.0% translated)
-    │   └── changelog.po                 2694 / 12565 ( 21.0% translated)
+    │   └── changelog.po                 2695 / 12570 ( 21.0% translated)
     ├── deprecations/  99.08% done
     │   ├── index.po                     217 / 218 ( 99.0% translated)
     │   └── pending-removal-in-3.14.po    33 /  34 ( 97.0% translated)
-    └── c-api/  50.04% done
-        ├── exceptions.po                158 / 238 ( 66.0% translated)
+    └── c-api/  49.92% done
+        ├── capsule.po                    35 /  36 ( 97.0% translated)
+        ├── codec.po                      28 /  30 ( 93.0% translated)
+        ├── dict.po                       67 /  68 ( 98.0% translated)
+        ├── exceptions.po                159 / 243 ( 65.0% translated)
+        ├── float.po                      35 /  40 ( 87.0% translated)
         ├── frame.po                      20 /  42 ( 47.0% translated)
         ├── gcsupport.po                   9 /  52 ( 17.0% translated)
         ├── import.po                     33 /  62 ( 53.0% translated)
         ├── init.po                      170 / 492 ( 34.0% translated)
         ├── init_config.po               139 / 417 ( 33.0% translated)
-        ├── iterator.po                    8 /  12 ( 66.0% translated)
-        ├── long.po                       43 / 104 ( 41.0% translated)
+        ├── iterator.po                   10 /  24 ( 41.0% translated)
+        ├── long.po                       43 / 108 ( 39.0% translated)
         ├── memory.po                     59 / 201 ( 29.0% translated)
+        ├── memoryview.po                 14 /  15 ( 93.0% translated)
         ├── module.po                     64 / 136 ( 47.0% translated)
         ├── number.po                     14 /  48 ( 29.0% translated)
         ├── object.po                     42 / 120 ( 35.0% translated)
