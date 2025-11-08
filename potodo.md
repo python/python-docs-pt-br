@@ -1,12 +1,12 @@
-1 directory  65.19% done
-└── 3.12/  65.19% done
+1 directory  65.21% done
+└── 3.12/  65.21% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  99.68% done
     │   └── library.po                   157 / 162 ( 96.0% translated)
     ├── using/  100.00% done
     ├── reference/  100.00% done
-    ├── library/  58.67% done
+    ├── library/  58.68% done
     │   ├── 2to3.po                      121 / 132 ( 91.0% translated)
     │   ├── array.po                      80 /  84 ( 95.0% translated)
     │   ├── ast.po                       255 / 306 ( 83.0% translated)
@@ -74,7 +74,7 @@
     │   ├── logging.po                   106 / 368 ( 28.0% translated)
     │   ├── mailbox.po                    21 / 290 (  7.0% translated)
     │   ├── mailcap.po                     2 /  16 ( 12.0% translated)
-    │   ├── mimetypes.po                  41 /  51 ( 80.0% translated)
+    │   ├── mimetypes.po                  42 /  51 ( 82.0% translated)
     │   ├── mmap.po                       22 /  59 ( 37.0% translated)
     │   ├── msilib.po                      7 /  97 (  7.0% translated)
     │   ├── multiprocessing.po           344 / 594 ( 57.0% translated)
@@ -158,8 +158,8 @@
     │   ├── 3.6.po                       237 / 544 ( 43.0% translated)
     │   └── 3.7.po                       252 / 568 ( 44.0% translated)
     ├── deprecations/  100.00% done
-    └── c-api/  49.81% done
-        ├── exceptions.po                223 / 366 ( 60.0% translated)
+    └── c-api/  50.09% done
+        ├── exceptions.po                227 / 366 ( 62.0% translated)
         ├── frame.po                      20 /  36 ( 55.0% translated)
         ├── gcsupport.po                   9 /  52 ( 17.0% translated)
         ├── import.po                     36 /  57 ( 63.0% translated)
