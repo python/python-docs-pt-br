@@ -1,14 +1,13 @@
-1 directory  60.10% done
-└── 3.13/  60.10% done
+1 directory  60.12% done
+└── 3.13/  60.12% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  100.00% done
     ├── using/  97.36% done
     │   ├── mac.po                        94 /  96 ( 97.0% translated)
     │   └── windows.po                   382 / 389 ( 98.0% translated)
-    ├── reference/  99.77% done
-    │   ├── compound_stmts.po            466 / 467 ( 99.0% translated)
-    │   └── datamodel.po                 867 / 868 ( 99.0% translated)
+    ├── reference/  99.82% done
+    │   └── compound_stmts.po            466 / 467 ( 99.0% translated)
     ├── library/  60.70% done
     │   ├── argparse.po                  378 / 379 ( 99.0% translated)
     │   ├── asyncio-dev.po                16 /  54 ( 29.0% translated)
@@ -66,7 +65,7 @@
     │   ├── logging.handlers.po           51 / 274 ( 18.0% translated)
     │   ├── logging.po                   106 / 370 ( 28.0% translated)
     │   ├── mailbox.po                    21 / 307 (  6.0% translated)
-    │   ├── mimetypes.po                  44 /  54 ( 81.0% translated)
+    │   ├── mimetypes.po                  45 /  54 ( 83.0% translated)
     │   ├── mmap.po                       23 /  65 ( 35.0% translated)
     │   ├── msvcrt.po                     29 /  46 ( 63.0% translated)
     │   ├── multiprocessing.po           339 / 603 ( 56.0% translated)
@@ -144,11 +143,10 @@
     ├── deprecations/  99.08% done
     │   ├── index.po                     217 / 218 ( 99.0% translated)
     │   └── pending-removal-in-3.14.po    33 /  34 ( 97.0% translated)
-    └── c-api/  49.92% done
+    └── c-api/  50.20% done
         ├── capsule.po                    35 /  36 ( 97.0% translated)
-        ├── codec.po                      28 /  30 ( 93.0% translated)
         ├── dict.po                       67 /  68 ( 98.0% translated)
-        ├── exceptions.po                159 / 243 ( 65.0% translated)
+        ├── exceptions.po                163 / 243 ( 67.0% translated)
         ├── float.po                      35 /  40 ( 87.0% translated)
         ├── frame.po                      20 /  42 ( 47.0% translated)
         ├── gcsupport.po                   9 /  52 ( 17.0% translated)
