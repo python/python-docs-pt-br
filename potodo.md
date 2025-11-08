@@ -1,5 +1,5 @@
-1 directory  59.54% done
-└── 3.10/  59.54% done
+1 directory  59.59% done
+└── 3.10/  59.59% done
     ├── distutils/  25.78% done
     │   ├── apiref.po                     88 / 417 ( 21.0% translated)
     │   ├── builtdist.po                  52 / 131 ( 39.0% translated)
@@ -24,7 +24,7 @@
     │   ├── expressions.po               303 / 332 ( 91.0% translated)
     │   ├── import.po                    165 / 184 ( 89.0% translated)
     │   └── lexical_analysis.po          185 / 195 ( 94.0% translated)
-    ├── library/  54.06% done
+    ├── library/  54.14% done
     │   ├── _thread.po                    39 /  41 ( 95.0% translated)
     │   ├── argparse.po                  256 / 290 ( 88.0% translated)
     │   ├── array.po                      81 /  82 ( 98.0% translated)
@@ -62,7 +62,7 @@
     │   ├── contextlib.po                 39 / 125 ( 31.0% translated)
     │   ├── copyreg.po                     8 /   9 ( 88.0% translated)
     │   ├── crypt.po                       3 /  30 ( 10.0% translated)
-    │   ├── ctypes.po                    122 / 434 ( 28.0% translated)
+    │   ├── ctypes.po                    143 / 434 ( 32.0% translated)
     │   ├── curses.ascii.po              101 / 102 ( 99.0% translated)
     │   ├── curses.panel.po               22 /  23 ( 95.0% translated)
     │   ├── curses.po                    231 / 639 ( 36.0% translated)
@@ -121,7 +121,7 @@
     │   ├── logging.po                    96 / 334 ( 28.0% translated)
     │   ├── mailbox.po                    23 / 282 (  8.0% translated)
     │   ├── mailcap.po                     2 /  15 ( 13.0% translated)
-    │   ├── mimetypes.po                  37 /  45 ( 82.0% translated)
+    │   ├── mimetypes.po                  38 /  45 ( 84.0% translated)
     │   ├── mmap.po                       20 /  50 ( 40.0% translated)
     │   ├── msilib.po                      7 /  96 (  7.0% translated)
     │   ├── multiprocessing.po           284 / 519 ( 54.0% translated)
