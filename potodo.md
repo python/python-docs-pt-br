@@ -1,13 +1,12 @@
-1 directory  60.80% done
-└── 3.14/  60.80% done
+1 directory  60.82% done
+└── 3.14/  60.82% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  100.00% done
     ├── using/  96.77% done
     │   ├── mac.po                        92 /  94 ( 97.0% translated)
     │   └── windows.po                   508 / 532 ( 95.0% translated)
-    ├── reference/  99.95% done
-    │   └── datamodel.po                 893 / 894 ( 99.0% translated)
+    ├── reference/  100.00% done
     ├── library/  60.89% done
     │   ├── argparse.po                  398 / 399 ( 99.0% translated)
     │   ├── asyncio-dev.po                16 /  54 ( 29.0% translated)
@@ -70,7 +69,7 @@
     │   ├── logging.po                   106 / 370 ( 28.0% translated)
     │   ├── mailbox.po                    21 / 307 (  6.0% translated)
     │   ├── marshal.po                    36 /  56 ( 64.0% translated)
-    │   ├── mimetypes.po                  48 /  68 ( 70.0% translated)
+    │   ├── mimetypes.po                  49 /  68 ( 72.0% translated)
     │   ├── mmap.po                       23 /  65 ( 35.0% translated)
     │   ├── msvcrt.po                     29 /  46 ( 63.0% translated)
     │   ├── multiprocessing.po           344 / 612 ( 56.0% translated)
@@ -147,10 +146,9 @@
     │   ├── 3.7.po                       249 / 568 ( 43.0% translated)
     │   └── changelog.po                 3405 / 13649 ( 24.0% translated)
     ├── deprecations/  100.00% done
-    └── c-api/  49.38% done
-        ├── codec.po                      28 /  30 ( 93.0% translated)
+    └── c-api/  49.63% done
         ├── dict.po                       68 /  69 ( 98.0% translated)
-        ├── exceptions.po                160 / 247 ( 64.0% translated)
+        ├── exceptions.po                164 / 247 ( 66.0% translated)
         ├── float.po                      35 /  41 ( 85.0% translated)
         ├── frame.po                      20 /  42 ( 47.0% translated)
         ├── gcsupport.po                  18 /  67 ( 26.0% translated)
