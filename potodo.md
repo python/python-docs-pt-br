@@ -1,5 +1,5 @@
-1 directory  63.47% done
-└── 3.11/  63.47% done
+1 directory  63.49% done
+└── 3.11/  63.49% done
     ├── distutils/  25.81% done
     │   ├── apiref.po                     88 / 414 ( 21.0% translated)
     │   ├── builtdist.po                  51 / 128 ( 39.0% translated)
@@ -114,7 +114,7 @@
     │   ├── logging.po                   100 / 351 ( 28.0% translated)
     │   ├── mailbox.po                    20 / 285 (  7.0% translated)
     │   ├── mailcap.po                     2 /  15 ( 13.0% translated)
-    │   ├── mimetypes.po                  40 /  50 ( 80.0% translated)
+    │   ├── mimetypes.po                  41 /  50 ( 82.0% translated)
     │   ├── mmap.po                       22 /  55 ( 40.0% translated)
     │   ├── msilib.po                      7 /  97 (  7.0% translated)
     │   ├── multiprocessing.po           293 / 529 ( 55.0% translated)
@@ -235,8 +235,8 @@
     │   ├── 3.5.po                       128 / 541 ( 23.0% translated)
     │   ├── 3.6.po                       238 / 524 ( 45.0% translated)
     │   └── 3.7.po                       247 / 563 ( 43.0% translated)
-    └── c-api/  50.60% done
-        ├── exceptions.po                210 / 347 ( 60.0% translated)
+    └── c-api/  50.92% done
+        ├── exceptions.po                214 / 347 ( 61.0% translated)
         ├── float.po                      34 /  35 ( 97.0% translated)
         ├── frame.po                      20 /  24 ( 83.0% translated)
         ├── gcsupport.po                   9 /  42 ( 21.0% translated)
