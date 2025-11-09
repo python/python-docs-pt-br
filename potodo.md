@@ -1,5 +1,5 @@
-1 directory  60.82% done
-└── 3.14/  60.82% done
+1 directory  60.81% done
+└── 3.14/  60.81% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  100.00% done
@@ -7,7 +7,7 @@
     │   ├── mac.po                        92 /  94 ( 97.0% translated)
     │   └── windows.po                   508 / 532 ( 95.0% translated)
     ├── reference/  100.00% done
-    ├── library/  60.89% done
+    ├── library/  60.87% done
     │   ├── argparse.po                  398 / 399 ( 99.0% translated)
     │   ├── asyncio-dev.po                16 /  54 ( 29.0% translated)
     │   ├── asyncio-eventloop.po         308 / 417 ( 73.0% translated)
@@ -64,15 +64,17 @@
     │   ├── inspect.po                   154 / 400 ( 38.0% translated)
     │   ├── io.po                         58 / 284 ( 20.0% translated)
     │   ├── itertools.po                 155 / 201 ( 77.0% translated)
+    │   ├── json.po                      174 / 177 ( 98.0% translated)
     │   ├── logging.config.po             18 / 171 ( 10.0% translated)
     │   ├── logging.handlers.po           52 / 276 ( 18.0% translated)
     │   ├── logging.po                   106 / 370 ( 28.0% translated)
     │   ├── mailbox.po                    21 / 307 (  6.0% translated)
     │   ├── marshal.po                    36 /  56 ( 64.0% translated)
-    │   ├── mimetypes.po                  49 /  68 ( 72.0% translated)
+    │   ├── mimetypes.po                  51 /  68 ( 75.0% translated)
     │   ├── mmap.po                       23 /  65 ( 35.0% translated)
     │   ├── msvcrt.po                     29 /  46 ( 63.0% translated)
     │   ├── multiprocessing.po           344 / 612 ( 56.0% translated)
+    │   ├── os.po                        1053 / 1054 ( 99.0% translated)
     │   ├── poplib.po                     22 /  53 ( 41.0% translated)
     │   ├── profile.po                    34 / 181 ( 18.0% translated)
     │   ├── pyexpat.po                    23 / 157 ( 14.0% translated)
@@ -88,10 +90,12 @@
     │   ├── struct.po                    102 / 204 ( 50.0% translated)
     │   ├── subprocess.po                150 / 311 ( 48.0% translated)
     │   ├── symtable.po                    6 /  73 (  8.0% translated)
+    │   ├── sys.po                       474 / 476 ( 99.0% translated)
     │   ├── tarfile.po                   174 / 362 ( 48.0% translated)
     │   ├── tempfile.po                    8 /  87 (  9.0% translated)
     │   ├── test.po                      118 / 330 ( 35.0% translated)
     │   ├── threading.po                  40 / 284 ( 14.0% translated)
+    │   ├── time.po                      279 / 280 ( 99.0% translated)
     │   ├── tkinter.ttk.po               142 / 429 ( 33.0% translated)
     │   ├── traceback.po                  10 / 118 (  8.0% translated)
     │   ├── tracemalloc.po                21 / 156 ( 13.0% translated)
@@ -125,11 +129,11 @@
     │   ├── sorting.po                    50 /  92 ( 54.0% translated)
     │   └── unicode.po                    30 / 145 ( 20.0% translated)
     ├── tutorial/  100.00% done
-    ├── extending/  19.38% done
+    ├── extending/  20.27% done
     │   ├── embedding.po                   5 /  59 (  8.0% translated)
     │   ├── extending.po                  58 / 226 ( 25.0% translated)
     │   ├── newtypes.po                    8 / 117 (  6.0% translated)
-    │   └── newtypes_tutorial.po          29 / 180 ( 16.0% translated)
+    │   └── newtypes_tutorial.po          35 / 180 ( 19.0% translated)
     ├── whatsnew/  50.49% done
     │   ├── 2.3.po                       327 / 387 ( 84.0% translated)
     │   ├── 2.4.po                       266 / 319 ( 83.0% translated)
@@ -144,17 +148,21 @@
     │   ├── 3.5.po                       128 / 578 ( 22.0% translated)
     │   ├── 3.6.po                       232 / 544 ( 42.0% translated)
     │   ├── 3.7.po                       249 / 568 ( 43.0% translated)
-    │   └── changelog.po                 3405 / 13649 ( 24.0% translated)
+    │   └── changelog.po                 3405 / 13650 ( 24.0% translated)
     ├── deprecations/  100.00% done
-    └── c-api/  49.63% done
+    └── c-api/  49.39% done
+        ├── buffer.po                    118 / 119 ( 99.0% translated)
+        ├── capsule.po                    35 /  36 ( 97.0% translated)
         ├── dict.po                       68 /  69 ( 98.0% translated)
-        ├── exceptions.po                164 / 247 ( 66.0% translated)
+        ├── exceptions.po                164 / 258 ( 63.0% translated)
         ├── float.po                      35 /  41 ( 85.0% translated)
         ├── frame.po                      20 /  42 ( 47.0% translated)
         ├── gcsupport.po                  18 /  67 ( 26.0% translated)
+        ├── hash.po                       24 /  40 ( 60.0% translated)
         ├── import.po                     33 /  66 ( 50.0% translated)
         ├── init.po                      182 / 516 ( 35.0% translated)
         ├── init_config.po               217 / 638 ( 34.0% translated)
+        ├── intro.po                     154 / 161 ( 95.0% translated)
         ├── iterator.po                   10 /  24 ( 41.0% translated)
         ├── long.po                       46 / 174 ( 26.0% translated)
         ├── memory.po                     63 / 208 ( 30.0% translated)
