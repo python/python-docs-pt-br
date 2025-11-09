@@ -1,5 +1,5 @@
-1 directory  63.49% done
-└── 3.11/  63.49% done
+1 directory  63.51% done
+└── 3.11/  63.51% done
     ├── distutils/  25.81% done
     │   ├── apiref.po                     88 / 414 ( 21.0% translated)
     │   ├── builtdist.po                  51 / 128 ( 39.0% translated)
@@ -22,7 +22,7 @@
     │   ├── executionmodel.po             73 /  75 ( 97.0% translated)
     │   ├── import.po                    192 / 207 ( 92.0% translated)
     │   └── lexical_analysis.po          288 / 299 ( 96.0% translated)
-    ├── library/  56.65% done
+    ├── library/  56.67% done
     │   ├── _thread.po                    49 /  51 ( 96.0% translated)
     │   ├── abc.po                        48 /  49 ( 97.0% translated)
     │   ├── argparse.po                  305 / 335 ( 91.0% translated)
@@ -114,7 +114,7 @@
     │   ├── logging.po                   100 / 351 ( 28.0% translated)
     │   ├── mailbox.po                    20 / 285 (  7.0% translated)
     │   ├── mailcap.po                     2 /  15 ( 13.0% translated)
-    │   ├── mimetypes.po                  41 /  50 ( 82.0% translated)
+    │   ├── mimetypes.po                  43 /  50 ( 86.0% translated)
     │   ├── mmap.po                       22 /  55 ( 40.0% translated)
     │   ├── msilib.po                      7 /  97 (  7.0% translated)
     │   ├── multiprocessing.po           293 / 529 ( 55.0% translated)
@@ -214,11 +214,11 @@
     ├── install/  71.32% done
     │   └── index.po                     166 / 226 ( 73.0% translated)
     ├── tutorial/  100.00% done
-    ├── extending/  27.27% done
+    ├── extending/  28.23% done
     │   ├── embedding.po                   5 /  45 ( 11.0% translated)
     │   ├── extending.po                  58 / 162 ( 35.0% translated)
     │   ├── newtypes.po                   11 / 105 ( 10.0% translated)
-    │   └── newtypes_tutorial.po          30 / 123 ( 24.0% translated)
+    │   └── newtypes_tutorial.po          35 / 123 ( 28.0% translated)
     ├── whatsnew/  75.28% done
     │   ├── 2.0.po                       181 / 183 ( 98.0% translated)
     │   ├── 2.1.po                       138 / 139 ( 99.0% translated)
