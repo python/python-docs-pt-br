@@ -1,12 +1,12 @@
-1 directory  65.21% done
-└── 3.12/  65.21% done
+1 directory  65.23% done
+└── 3.12/  65.23% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  99.68% done
     │   └── library.po                   157 / 162 ( 96.0% translated)
     ├── using/  100.00% done
     ├── reference/  100.00% done
-    ├── library/  58.68% done
+    ├── library/  58.69% done
     │   ├── 2to3.po                      121 / 132 ( 91.0% translated)
     │   ├── array.po                      80 /  84 ( 95.0% translated)
     │   ├── ast.po                       255 / 306 ( 83.0% translated)
@@ -74,7 +74,7 @@
     │   ├── logging.po                   106 / 368 ( 28.0% translated)
     │   ├── mailbox.po                    21 / 290 (  7.0% translated)
     │   ├── mailcap.po                     2 /  16 ( 12.0% translated)
-    │   ├── mimetypes.po                  42 /  51 ( 82.0% translated)
+    │   ├── mimetypes.po                  44 /  51 ( 86.0% translated)
     │   ├── mmap.po                       22 /  59 ( 37.0% translated)
     │   ├── msilib.po                      7 /  97 (  7.0% translated)
     │   ├── multiprocessing.po           344 / 594 ( 57.0% translated)
@@ -140,11 +140,11 @@
     │   ├── unicode.po                    30 / 145 ( 20.0% translated)
     │   └── urllib2.po                    98 / 100 ( 98.0% translated)
     ├── tutorial/  100.00% done
-    ├── extending/  19.74% done
+    ├── extending/  20.52% done
     │   ├── embedding.po                   5 /  58 (  8.0% translated)
     │   ├── extending.po                  59 / 207 ( 28.0% translated)
     │   ├── newtypes.po                    8 / 117 (  6.0% translated)
-    │   └── newtypes_tutorial.po          28 / 177 ( 15.0% translated)
+    │   └── newtypes_tutorial.po          34 / 177 ( 19.0% translated)
     ├── whatsnew/  74.17% done
     │   ├── 2.3.po                       327 / 387 ( 84.0% translated)
     │   ├── 2.4.po                       266 / 319 ( 83.0% translated)
