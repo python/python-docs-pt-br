@@ -1,5 +1,5 @@
-1 directory  60.11% done
-└── 3.13/  60.11% done
+1 directory  60.17% done
+└── 3.13/  60.17% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  100.00% done
@@ -8,7 +8,7 @@
     │   └── windows.po                   382 / 389 ( 98.0% translated)
     ├── reference/  99.82% done
     │   └── compound_stmts.po            466 / 467 ( 99.0% translated)
-    ├── library/  60.69% done
+    ├── library/  60.81% done
     │   ├── argparse.po                  378 / 379 ( 99.0% translated)
     │   ├── asyncio-dev.po                16 /  54 ( 29.0% translated)
     │   ├── asyncio-eventloop.po         309 / 413 ( 74.0% translated)
@@ -29,7 +29,7 @@
     │   ├── codecs.po                    250 / 558 ( 44.0% translated)
     │   ├── concurrent.futures.po         14 / 101 ( 13.0% translated)
     │   ├── contextlib.po                 55 / 172 ( 31.0% translated)
-    │   ├── ctypes.po                    211 / 546 ( 38.0% translated)
+    │   ├── ctypes.po                    246 / 546 ( 45.0% translated)
     │   ├── curses.po                     66 / 486 ( 13.0% translated)
     │   ├── dataclasses.po                70 / 156 ( 44.0% translated)
     │   ├── dbm.po                        95 / 107 ( 88.0% translated)
