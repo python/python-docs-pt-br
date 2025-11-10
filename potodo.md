@@ -1,5 +1,5 @@
-1 directory  60.81% done
-└── 3.14/  60.81% done
+1 directory  60.86% done
+└── 3.14/  60.86% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  100.00% done
@@ -7,7 +7,7 @@
     │   ├── mac.po                        92 /  94 ( 97.0% translated)
     │   └── windows.po                   508 / 532 ( 95.0% translated)
     ├── reference/  100.00% done
-    ├── library/  60.87% done
+    ├── library/  60.99% done
     │   ├── argparse.po                  398 / 399 ( 99.0% translated)
     │   ├── asyncio-dev.po                16 /  54 ( 29.0% translated)
     │   ├── asyncio-eventloop.po         308 / 417 ( 73.0% translated)
@@ -31,7 +31,7 @@
     │   ├── concurrent.futures.po         12 / 120 ( 10.0% translated)
     │   ├── concurrent.interpreters.po    42 /  87 ( 48.0% translated)
     │   ├── contextlib.po                 55 / 172 ( 31.0% translated)
-    │   ├── ctypes.po                    226 / 625 ( 36.0% translated)
+    │   ├── ctypes.po                    261 / 625 ( 41.0% translated)
     │   ├── curses.po                     66 / 490 ( 13.0% translated)
     │   ├── dataclasses.po                71 / 158 ( 44.0% translated)
     │   ├── dbm.po                        95 / 107 ( 88.0% translated)
@@ -89,7 +89,7 @@
     │   ├── ssl.po                        63 / 546 ( 11.0% translated)
     │   ├── struct.po                    102 / 204 ( 50.0% translated)
     │   ├── subprocess.po                150 / 311 ( 48.0% translated)
-    │   ├── symtable.po                    6 /  73 (  8.0% translated)
+    │   ├── symtable.po                    7 /  73 (  9.0% translated)
     │   ├── sys.po                       474 / 476 ( 99.0% translated)
     │   ├── tarfile.po                   174 / 362 ( 48.0% translated)
     │   ├── tempfile.po                    8 /  87 (  9.0% translated)
