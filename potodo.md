@@ -1,9 +1,9 @@
-1 directory  60.86% done
-└── 3.14/  60.86% done
+1 directory  60.83% done
+└── 3.14/  60.83% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  100.00% done
-    ├── using/  96.77% done
+    ├── using/  96.80% done
     │   ├── mac.po                        92 /  94 ( 97.0% translated)
     │   └── windows.po                   508 / 532 ( 95.0% translated)
     ├── reference/  100.00% done
@@ -27,16 +27,16 @@
     │   ├── bdb.po                        13 / 119 ( 10.0% translated)
     │   ├── binascii.po                   23 /  38 ( 60.0% translated)
     │   ├── codecs.po                    250 / 563 ( 44.0% translated)
-    │   ├── compression.zstd.po          126 / 173 ( 72.0% translated)
+    │   ├── compression.zstd.po          127 / 174 ( 72.0% translated)
     │   ├── concurrent.futures.po         12 / 120 ( 10.0% translated)
     │   ├── concurrent.interpreters.po    42 /  87 ( 48.0% translated)
     │   ├── contextlib.po                 55 / 172 ( 31.0% translated)
-    │   ├── ctypes.po                    261 / 625 ( 41.0% translated)
-    │   ├── curses.po                     66 / 490 ( 13.0% translated)
+    │   ├── ctypes.po                    262 / 626 ( 41.0% translated)
+    │   ├── curses.po                     67 / 491 ( 13.0% translated)
     │   ├── dataclasses.po                71 / 158 ( 44.0% translated)
     │   ├── dbm.po                        95 / 107 ( 88.0% translated)
     │   ├── difflib.po                    14 / 140 ( 10.0% translated)
-    │   ├── dis.po                       238 / 412 ( 57.0% translated)
+    │   ├── dis.po                       238 / 414 ( 57.0% translated)
     │   ├── doctest.po                   100 / 379 ( 26.0% translated)
     │   ├── email.compat32-message.po      5 / 115 (  4.0% translated)
     │   ├── email.contentmanager.po        9 /  42 ( 21.0% translated)
@@ -58,7 +58,7 @@
     │   ├── http.cookiejar.po              9 / 159 (  5.0% translated)
     │   ├── http.cookies.po                7 /  52 ( 13.0% translated)
     │   ├── http.server.po                15 / 129 ( 11.0% translated)
-    │   ├── idle.po                       28 / 293 (  9.0% translated)
+    │   ├── idle.po                       29 / 295 (  9.0% translated)
     │   ├── imaplib.po                    14 / 131 ( 10.0% translated)
     │   ├── importlib.po                 243 / 313 ( 77.0% translated)
     │   ├── inspect.po                   154 / 400 ( 38.0% translated)
@@ -72,8 +72,8 @@
     │   ├── marshal.po                    36 /  56 ( 64.0% translated)
     │   ├── mimetypes.po                  51 /  68 ( 75.0% translated)
     │   ├── mmap.po                       23 /  65 ( 35.0% translated)
-    │   ├── msvcrt.po                     29 /  46 ( 63.0% translated)
-    │   ├── multiprocessing.po           344 / 612 ( 56.0% translated)
+    │   ├── msvcrt.po                     30 /  47 ( 63.0% translated)
+    │   ├── multiprocessing.po           343 / 613 ( 55.0% translated)
     │   ├── os.po                        1053 / 1054 ( 99.0% translated)
     │   ├── poplib.po                     22 /  53 ( 41.0% translated)
     │   ├── profile.po                    34 / 181 ( 18.0% translated)
@@ -85,13 +85,13 @@
     │   ├── shlex.po                       3 /  77 (  3.0% translated)
     │   ├── smtplib.po                    36 / 124 ( 29.0% translated)
     │   ├── socket.po                     54 / 384 ( 14.0% translated)
-    │   ├── sqlite3.po                   116 / 477 ( 24.0% translated)
-    │   ├── ssl.po                        63 / 546 ( 11.0% translated)
+    │   ├── sqlite3.po                   116 / 478 ( 24.0% translated)
+    │   ├── ssl.po                        63 / 547 ( 11.0% translated)
     │   ├── struct.po                    102 / 204 ( 50.0% translated)
     │   ├── subprocess.po                150 / 311 ( 48.0% translated)
     │   ├── symtable.po                    7 /  73 (  9.0% translated)
     │   ├── sys.po                       474 / 476 ( 99.0% translated)
-    │   ├── tarfile.po                   174 / 362 ( 48.0% translated)
+    │   ├── tarfile.po                   174 / 363 ( 47.0% translated)
     │   ├── tempfile.po                    8 /  87 (  9.0% translated)
     │   ├── test.po                      118 / 330 ( 35.0% translated)
     │   ├── threading.po                  40 / 284 ( 14.0% translated)
@@ -134,7 +134,7 @@
     │   ├── extending.po                  58 / 226 ( 25.0% translated)
     │   ├── newtypes.po                    8 / 117 (  6.0% translated)
     │   └── newtypes_tutorial.po          35 / 180 ( 19.0% translated)
-    ├── whatsnew/  50.49% done
+    ├── whatsnew/  50.48% done
     │   ├── 2.3.po                       327 / 387 ( 84.0% translated)
     │   ├── 2.4.po                       266 / 319 ( 83.0% translated)
     │   ├── 2.5.po                       389 / 452 ( 86.0% translated)
@@ -148,15 +148,19 @@
     │   ├── 3.5.po                       128 / 578 ( 22.0% translated)
     │   ├── 3.6.po                       232 / 544 ( 42.0% translated)
     │   ├── 3.7.po                       249 / 568 ( 43.0% translated)
-    │   └── changelog.po                 3405 / 13650 ( 24.0% translated)
+    │   └── changelog.po                 3405 / 13653 ( 24.0% translated)
     ├── deprecations/  100.00% done
-    └── c-api/  49.39% done
+    └── c-api/  49.02% done
         ├── buffer.po                    118 / 119 ( 99.0% translated)
         ├── capsule.po                    35 /  36 ( 97.0% translated)
+        ├── concrete.po                   15 /  16 ( 93.0% translated)
+        ├── conversion.po                 29 /  45 ( 64.0% translated)
+        ├── descriptor.po                  4 /  12 ( 33.0% translated)
         ├── dict.po                       68 /  69 ( 98.0% translated)
-        ├── exceptions.po                164 / 258 ( 63.0% translated)
-        ├── float.po                      35 /  41 ( 85.0% translated)
-        ├── frame.po                      20 /  42 ( 47.0% translated)
+        ├── exceptions.po                164 / 260 ( 63.0% translated)
+        ├── float.po                      35 /  47 ( 74.0% translated)
+        ├── frame.po                      20 /  51 ( 39.0% translated)
+        ├── function.po                   41 /  43 ( 95.0% translated)
         ├── gcsupport.po                  18 /  67 ( 26.0% translated)
         ├── hash.po                       24 /  40 ( 60.0% translated)
         ├── import.po                     33 /  66 ( 50.0% translated)
@@ -173,6 +177,8 @@
         ├── refcounting.po                15 /  50 ( 30.0% translated)
         ├── structures.po                 70 / 191 ( 36.0% translated)
         ├── sys.po                        28 /  83 ( 33.0% translated)
-        ├── type.po                       26 / 129 ( 20.0% translated)
+        ├── type.po                       26 / 131 ( 19.0% translated)
         ├── typeobj.po                   248 / 744 ( 33.0% translated)
-        └── unicode.po                    80 / 408 ( 19.0% translated)
+        ├── unicode.po                    80 / 408 ( 19.0% translated)
+        ├── veryhigh.po                   53 /  61 ( 86.0% translated)
+        └── weakref.po                    20 /  22 ( 90.0% translated)
