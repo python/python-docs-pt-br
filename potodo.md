@@ -1,10 +1,9 @@
-1 directory  60.94% done
-└── 3.14/  60.94% done
+1 directory  61.04% done
+└── 3.14/  61.04% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  100.00% done
-    ├── using/  97.50% done
-    │   └── windows.po                   508 / 532 ( 95.0% translated)
+    ├── using/  100.00% done
     ├── reference/  100.00% done
     ├── library/  61.05% done
     │   ├── asyncio-dev.po                16 /  54 ( 29.0% translated)
@@ -108,12 +107,10 @@
     │   ├── xml.sax.reader.po              2 /  75 (  2.0% translated)
     │   ├── xmlrpc.client.po              55 / 113 ( 48.0% translated)
     │   └── zoneinfo.po                   42 /  83 ( 50.0% translated)
-    ├── howto/  65.15% done
-    │   ├── a-conceptual-overview-of-asyncio.po  82 /  93 ( 88.0% translated)
+    ├── howto/  65.94% done
     │   ├── descriptor.po                186 / 230 ( 80.0% translated)
     │   ├── enum.po                      122 / 327 ( 37.0% translated)
-    │   ├── free-threading-python.po      42 /  46 ( 91.0% translated)
-    │   ├── functional.po                158 / 252 ( 62.0% translated)
+    │   ├── functional.po                159 / 252 ( 63.0% translated)
     │   ├── logging-cookbook.po           41 / 435 (  9.0% translated)
     │   ├── sockets.po                    35 /  63 ( 55.0% translated)
     │   ├── sorting.po                    50 /  92 ( 54.0% translated)
@@ -139,7 +136,7 @@
     │   ├── 3.7.po                       249 / 568 ( 43.0% translated)
     │   └── changelog.po                 3408 / 13653 ( 24.0% translated)
     ├── deprecations/  100.00% done
-    └── c-api/  49.16% done
+    └── c-api/  49.35% done
         ├── conversion.po                 29 /  45 ( 64.0% translated)
         ├── descriptor.po                  4 /  12 ( 33.0% translated)
         ├── exceptions.po                165 / 260 ( 63.0% translated)
@@ -162,5 +159,4 @@
         ├── sys.po                        28 /  83 ( 33.0% translated)
         ├── type.po                       26 / 131 ( 19.0% translated)
         ├── typeobj.po                   248 / 744 ( 33.0% translated)
-        ├── unicode.po                    80 / 408 ( 19.0% translated)
-        └── veryhigh.po                   53 /  61 ( 86.0% translated)
+        └── unicode.po                    80 / 408 ( 19.0% translated)
