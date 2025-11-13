@@ -1,12 +1,12 @@
-1 directory  65.30% done
-└── 3.12/  65.30% done
+1 directory  65.35% done
+└── 3.12/  65.35% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  99.68% done
     │   └── library.po                   157 / 162 ( 96.0% translated)
     ├── using/  100.00% done
     ├── reference/  100.00% done
-    ├── library/  58.81% done
+    ├── library/  58.86% done
     │   ├── 2to3.po                      121 / 132 ( 91.0% translated)
     │   ├── array.po                      80 /  84 ( 95.0% translated)
     │   ├── ast.po                       255 / 306 ( 83.0% translated)
@@ -31,7 +31,7 @@
     │   ├── contextlib.po                 56 / 172 ( 32.0% translated)
     │   ├── contextvars.po                50 /  51 ( 98.0% translated)
     │   ├── crypt.po                       6 /  36 ( 16.0% translated)
-    │   ├── ctypes.po                    226 / 523 ( 43.0% translated)
+    │   ├── ctypes.po                    239 / 523 ( 45.0% translated)
     │   ├── curses.po                     64 / 484 ( 13.0% translated)
     │   ├── dataclasses.po                71 / 153 ( 46.0% translated)
     │   ├── datetime.po                  633 / 637 ( 99.0% translated)
@@ -129,10 +129,10 @@
     │   ├── xml.sax.reader.po              2 /  75 (  2.0% translated)
     │   ├── xmlrpc.client.po              55 / 113 ( 48.0% translated)
     │   └── zoneinfo.po                   42 /  83 ( 50.0% translated)
-    ├── howto/  61.01% done
+    ├── howto/  61.07% done
     │   ├── descriptor.po                181 / 233 ( 77.0% translated)
     │   ├── enum.po                      121 / 319 ( 37.0% translated)
-    │   ├── functional.po                157 / 252 ( 62.0% translated)
+    │   ├── functional.po                158 / 252 ( 62.0% translated)
     │   ├── logging-cookbook.po           41 / 421 (  9.0% translated)
     │   ├── perf_profiling.po             29 /  32 ( 90.0% translated)
     │   ├── sockets.po                    35 /  63 ( 55.0% translated)
@@ -140,11 +140,11 @@
     │   ├── unicode.po                    30 / 145 ( 20.0% translated)
     │   └── urllib2.po                    98 / 100 ( 98.0% translated)
     ├── tutorial/  100.00% done
-    ├── extending/  20.52% done
+    ├── extending/  21.83% done
     │   ├── embedding.po                   5 /  58 (  8.0% translated)
     │   ├── extending.po                  59 / 207 ( 28.0% translated)
     │   ├── newtypes.po                    8 / 117 (  6.0% translated)
-    │   └── newtypes_tutorial.po          34 / 177 ( 19.0% translated)
+    │   └── newtypes_tutorial.po          46 / 177 ( 25.0% translated)
     ├── whatsnew/  74.17% done
     │   ├── 2.3.po                       327 / 387 ( 84.0% translated)
     │   ├── 2.4.po                       266 / 319 ( 83.0% translated)
