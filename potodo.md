@@ -1,5 +1,5 @@
-1 directory  63.58% done
-└── 3.11/  63.58% done
+1 directory  63.62% done
+└── 3.11/  63.62% done
     ├── distutils/  25.81% done
     │   ├── apiref.po                     88 / 414 ( 21.0% translated)
     │   ├── builtdist.po                  51 / 128 ( 39.0% translated)
@@ -22,7 +22,7 @@
     │   ├── executionmodel.po             73 /  75 ( 97.0% translated)
     │   ├── import.po                    192 / 207 ( 92.0% translated)
     │   └── lexical_analysis.po          288 / 299 ( 96.0% translated)
-    ├── library/  56.79% done
+    ├── library/  56.82% done
     │   ├── _thread.po                    49 /  51 ( 96.0% translated)
     │   ├── abc.po                        48 /  49 ( 97.0% translated)
     │   ├── argparse.po                  305 / 335 ( 91.0% translated)
@@ -56,7 +56,7 @@
     │   ├── configparser.po              178 / 186 ( 95.0% translated)
     │   ├── contextlib.po                 42 / 130 ( 32.0% translated)
     │   ├── crypt.po                       7 /  35 ( 20.0% translated)
-    │   ├── ctypes.po                    179 / 436 ( 41.0% translated)
+    │   ├── ctypes.po                    189 / 436 ( 43.0% translated)
     │   ├── curses.ascii.po               68 /  69 ( 98.0% translated)
     │   ├── curses.panel.po               22 /  23 ( 95.0% translated)
     │   ├── curses.po                     64 / 485 ( 13.0% translated)
@@ -198,11 +198,11 @@
     │   ├── zipapp.po                     66 /  79 ( 83.0% translated)
     │   ├── zipimport.po                  34 /  38 ( 89.0% translated)
     │   └── zoneinfo.po                   34 /  75 ( 45.0% translated)
-    ├── howto/  64.62% done
+    ├── howto/  64.70% done
     │   ├── curses.po                    103 / 105 ( 98.0% translated)
     │   ├── descriptor.po                120 / 177 ( 67.0% translated)
     │   ├── enum.po                       88 / 224 ( 39.0% translated)
-    │   ├── functional.po                144 / 206 ( 69.0% translated)
+    │   ├── functional.po                145 / 206 ( 70.0% translated)
     │   ├── instrumentation.po            58 /  59 ( 98.0% translated)
     │   ├── isolating-extensions.po      117 / 118 ( 99.0% translated)
     │   ├── logging-cookbook.po           34 / 308 ( 11.0% translated)
@@ -214,11 +214,11 @@
     ├── install/  71.32% done
     │   └── index.po                     166 / 226 ( 73.0% translated)
     ├── tutorial/  100.00% done
-    ├── extending/  28.23% done
+    ├── extending/  29.43% done
     │   ├── embedding.po                   5 /  45 ( 11.0% translated)
     │   ├── extending.po                  58 / 162 ( 35.0% translated)
     │   ├── newtypes.po                   11 / 105 ( 10.0% translated)
-    │   └── newtypes_tutorial.po          35 / 123 ( 28.0% translated)
+    │   └── newtypes_tutorial.po          41 / 123 ( 33.0% translated)
     ├── whatsnew/  75.28% done
     │   ├── 2.0.po                       181 / 183 ( 98.0% translated)
     │   ├── 2.1.po                       138 / 139 ( 99.0% translated)
