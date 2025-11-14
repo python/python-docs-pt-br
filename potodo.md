@@ -1,5 +1,5 @@
-1 directory  61.14% done
-└── 3.14/  61.14% done
+1 directory  61.15% done
+└── 3.14/  61.15% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  100.00% done
@@ -138,11 +138,11 @@
     │   ├── 3.7.po                       249 / 568 ( 43.0% translated)
     │   └── changelog.po                 3422 / 13662 ( 25.0% translated)
     ├── deprecations/  100.00% done
-    └── c-api/  50.13% done
+    └── c-api/  50.40% done
         ├── bytes.po                      66 /  74 ( 89.0% translated)
         ├── conversion.po                 29 /  45 ( 64.0% translated)
         ├── descriptor.po                  4 /  12 ( 33.0% translated)
-        ├── exceptions.po                165 / 261 ( 63.0% translated)
+        ├── exceptions.po                174 / 261 ( 66.0% translated)
         ├── file.po                       21 /  25 ( 84.0% translated)
         ├── float.po                      35 /  50 ( 70.0% translated)
         ├── frame.po                      21 /  51 ( 41.0% translated)
