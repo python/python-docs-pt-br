@@ -1,8 +1,8 @@
-1 directory  63.62% done
-└── 3.11/  63.62% done
-    ├── distutils/  25.81% done
+1 directory  63.64% done
+└── 3.11/  63.64% done
+    ├── distutils/  25.82% done
     │   ├── apiref.po                     88 / 414 ( 21.0% translated)
-    │   ├── builtdist.po                  51 / 128 ( 39.0% translated)
+    │   ├── builtdist.po                  52 / 128 ( 40.0% translated)
     │   ├── setupscript.po                66 / 174 ( 37.0% translated)
     │   └── sourcedist.po                 27 /  74 ( 36.0% translated)
     ├── installing/  100.00% done
@@ -235,8 +235,8 @@
     │   ├── 3.5.po                       128 / 541 ( 23.0% translated)
     │   ├── 3.6.po                       238 / 524 ( 45.0% translated)
     │   └── 3.7.po                       247 / 563 ( 43.0% translated)
-    └── c-api/  50.92% done
-        ├── exceptions.po                214 / 347 ( 61.0% translated)
+    └── c-api/  51.17% done
+        ├── exceptions.po                219 / 347 ( 63.0% translated)
         ├── float.po                      34 /  35 ( 97.0% translated)
         ├── frame.po                      20 /  24 ( 83.0% translated)
         ├── gcsupport.po                   9 /  42 ( 21.0% translated)
