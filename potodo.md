@@ -1,8 +1,8 @@
-1 directory  59.70% done
-└── 3.10/  59.70% done
-    ├── distutils/  25.78% done
+1 directory  59.73% done
+└── 3.10/  59.73% done
+    ├── distutils/  25.79% done
     │   ├── apiref.po                     88 / 417 ( 21.0% translated)
-    │   ├── builtdist.po                  52 / 131 ( 39.0% translated)
+    │   ├── builtdist.po                  53 / 131 ( 40.0% translated)
     │   ├── setupscript.po                66 / 174 ( 37.0% translated)
     │   └── sourcedist.po                 27 /  74 ( 36.0% translated)
     ├── installing/  100.00% done
@@ -24,7 +24,7 @@
     │   ├── expressions.po               303 / 332 ( 91.0% translated)
     │   ├── import.po                    165 / 184 ( 89.0% translated)
     │   └── lexical_analysis.po          185 / 195 ( 94.0% translated)
-    ├── library/  54.28% done
+    ├── library/  54.32% done
     │   ├── _thread.po                    39 /  41 ( 95.0% translated)
     │   ├── argparse.po                  256 / 290 ( 88.0% translated)
     │   ├── array.po                      81 /  82 ( 98.0% translated)
@@ -62,7 +62,7 @@
     │   ├── contextlib.po                 39 / 125 ( 31.0% translated)
     │   ├── copyreg.po                     8 /   9 ( 88.0% translated)
     │   ├── crypt.po                       3 /  30 ( 10.0% translated)
-    │   ├── ctypes.po                    174 / 434 ( 40.0% translated)
+    │   ├── ctypes.po                    184 / 434 ( 42.0% translated)
     │   ├── curses.ascii.po              101 / 102 ( 99.0% translated)
     │   ├── curses.panel.po               22 /  23 ( 95.0% translated)
     │   ├── curses.po                    231 / 639 ( 36.0% translated)
@@ -214,12 +214,12 @@
     │   ├── zipimport.po                  34 /  38 ( 89.0% translated)
     │   ├── zlib.po                       62 /  64 ( 96.0% translated)
     │   └── zoneinfo.po                   32 /  73 ( 43.0% translated)
-    ├── howto/  52.29% done
+    ├── howto/  52.37% done
     │   ├── annotations.po                44 /  45 ( 97.0% translated)
     │   ├── clinic.po                    101 / 424 ( 23.0% translated)
     │   ├── curses.po                    100 / 105 ( 95.0% translated)
     │   ├── descriptor.po                115 / 175 ( 65.0% translated)
-    │   ├── functional.po                145 / 206 ( 70.0% translated)
+    │   ├── functional.po                146 / 206 ( 70.0% translated)
     │   ├── instrumentation.po            55 /  59 ( 93.0% translated)
     │   ├── logging-cookbook.po           36 / 306 ( 11.0% translated)
     │   ├── logging.po                   211 / 221 ( 95.0% translated)
@@ -232,11 +232,11 @@
     │   └── index.po                     168 / 226 ( 74.0% translated)
     ├── tutorial/  99.78% done
     │   └── classes.po                   114 / 115 ( 99.0% translated)
-    ├── extending/  27.91% done
+    ├── extending/  28.55% done
     │   ├── embedding.po                   5 /  45 ( 11.0% translated)
     │   ├── extending.po                  58 / 158 ( 36.0% translated)
     │   ├── newtypes.po                    7 /  89 (  7.0% translated)
-    │   └── newtypes_tutorial.po          33 / 123 ( 26.0% translated)
+    │   └── newtypes_tutorial.po          37 / 123 ( 30.0% translated)
     ├── whatsnew/  67.49% done
     │   ├── 2.0.po                       137 / 182 ( 75.0% translated)
     │   ├── 2.2.po                       139 / 192 ( 72.0% translated)
