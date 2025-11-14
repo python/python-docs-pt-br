@@ -1,5 +1,5 @@
-1 directory  65.35% done
-└── 3.12/  65.35% done
+1 directory  65.37% done
+└── 3.12/  65.37% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  99.68% done
@@ -158,8 +158,8 @@
     │   ├── 3.6.po                       237 / 544 ( 43.0% translated)
     │   └── 3.7.po                       252 / 568 ( 44.0% translated)
     ├── deprecations/  100.00% done
-    └── c-api/  50.09% done
-        ├── exceptions.po                227 / 366 ( 62.0% translated)
+    └── c-api/  50.32% done
+        ├── exceptions.po                232 / 366 ( 63.0% translated)
         ├── frame.po                      20 /  36 ( 55.0% translated)
         ├── gcsupport.po                   9 /  52 ( 17.0% translated)
         ├── import.po                     36 /  57 ( 63.0% translated)
