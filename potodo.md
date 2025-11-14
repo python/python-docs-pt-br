@@ -1,10 +1,9 @@
-1 directory  61.10% done
-└── 3.14/  61.10% done
+1 directory  61.14% done
+└── 3.14/  61.14% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  100.00% done
-    ├── using/  99.69% done
-    │   └── windows.po                   532 / 539 ( 98.0% translated)
+    ├── using/  100.00% done
     ├── reference/  100.00% done
     ├── library/  61.09% done
     │   ├── asyncio-dev.po                16 /  54 ( 29.0% translated)
@@ -118,14 +117,13 @@
     │   ├── sockets.po                    35 /  63 ( 55.0% translated)
     │   ├── sorting.po                    50 /  92 ( 54.0% translated)
     │   └── unicode.po                    30 / 145 ( 20.0% translated)
-    ├── tutorial/  99.81% done
-    │   └── stdlib.po                     66 /  67 ( 98.0% translated)
+    ├── tutorial/  100.00% done
     ├── extending/  21.38% done
     │   ├── embedding.po                   5 /  59 (  8.0% translated)
     │   ├── extending.po                  58 / 226 ( 25.0% translated)
     │   ├── newtypes.po                    8 / 117 (  6.0% translated)
     │   └── newtypes_tutorial.po          47 / 180 ( 26.0% translated)
-    ├── whatsnew/  50.62% done
+    ├── whatsnew/  50.68% done
     │   ├── 2.3.po                       327 / 387 ( 84.0% translated)
     │   ├── 2.4.po                       266 / 319 ( 83.0% translated)
     │   ├── 2.5.po                       389 / 452 ( 86.0% translated)
@@ -138,18 +136,16 @@
     │   ├── 3.5.po                       128 / 578 ( 22.0% translated)
     │   ├── 3.6.po                       232 / 544 ( 42.0% translated)
     │   ├── 3.7.po                       249 / 568 ( 43.0% translated)
-    │   └── changelog.po                 3408 / 13662 ( 24.0% translated)
+    │   └── changelog.po                 3422 / 13662 ( 25.0% translated)
     ├── deprecations/  100.00% done
-    └── c-api/  49.97% done
+    └── c-api/  50.13% done
         ├── bytes.po                      66 /  74 ( 89.0% translated)
-        ├── code.po                       83 /  86 ( 96.0% translated)
         ├── conversion.po                 29 /  45 ( 64.0% translated)
         ├── descriptor.po                  4 /  12 ( 33.0% translated)
-        ├── dict.po                       69 /  77 ( 89.0% translated)
         ├── exceptions.po                165 / 261 ( 63.0% translated)
         ├── file.po                       21 /  25 ( 84.0% translated)
         ├── float.po                      35 /  50 ( 70.0% translated)
-        ├── frame.po                      20 /  51 ( 39.0% translated)
+        ├── frame.po                      21 /  51 ( 41.0% translated)
         ├── gcsupport.po                  18 /  67 ( 26.0% translated)
         ├── hash.po                       24 /  40 ( 60.0% translated)
         ├── import.po                     33 /  66 ( 50.0% translated)
