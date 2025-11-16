@@ -1,12 +1,12 @@
-1 directory  65.37% done
-└── 3.12/  65.37% done
+1 directory  65.40% done
+└── 3.12/  65.40% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  99.68% done
     │   └── library.po                   157 / 162 ( 96.0% translated)
     ├── using/  100.00% done
     ├── reference/  100.00% done
-    ├── library/  58.86% done
+    ├── library/  58.87% done
     │   ├── 2to3.po                      121 / 132 ( 91.0% translated)
     │   ├── array.po                      80 /  84 ( 95.0% translated)
     │   ├── ast.po                       255 / 306 ( 83.0% translated)
@@ -67,7 +67,7 @@
     │   ├── importlib.po                 240 / 304 ( 78.0% translated)
     │   ├── importlib.resources.po        38 /  47 ( 80.0% translated)
     │   ├── inspect.po                   141 / 383 ( 36.0% translated)
-    │   ├── io.po                         56 / 271 ( 20.0% translated)
+    │   ├── io.po                         59 / 271 ( 21.0% translated)
     │   ├── itertools.po                 149 / 193 ( 77.0% translated)
     │   ├── logging.config.po             18 / 171 ( 10.0% translated)
     │   ├── logging.handlers.po           51 / 270 ( 18.0% translated)
@@ -158,7 +158,7 @@
     │   ├── 3.6.po                       237 / 544 ( 43.0% translated)
     │   └── 3.7.po                       252 / 568 ( 44.0% translated)
     ├── deprecations/  100.00% done
-    └── c-api/  50.32% done
+    └── c-api/  50.74% done
         ├── exceptions.po                232 / 366 ( 63.0% translated)
         ├── frame.po                      20 /  36 ( 55.0% translated)
         ├── gcsupport.po                   9 /  52 ( 17.0% translated)
@@ -172,7 +172,7 @@
         ├── object.po                     14 /  80 ( 17.0% translated)
         ├── refcounting.po                11 /  47 ( 23.0% translated)
         ├── structures.po                 71 / 180 ( 39.0% translated)
-        ├── sys.po                        28 /  77 ( 36.0% translated)
+        ├── sys.po                        45 /  77 ( 58.0% translated)
         ├── type.po                       25 /  99 ( 25.0% translated)
         ├── typeobj.po                   236 / 674 ( 35.0% translated)
         ├── unicode.po                    79 / 325 ( 24.0% translated)
