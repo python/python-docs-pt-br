@@ -1,5 +1,5 @@
-1 directory  59.78% done
-└── 3.10/  59.78% done
+1 directory  59.81% done
+└── 3.10/  59.81% done
     ├── distutils/  25.79% done
     │   ├── apiref.po                     88 / 417 ( 21.0% translated)
     │   ├── builtdist.po                  53 / 131 ( 40.0% translated)
@@ -24,7 +24,7 @@
     │   ├── expressions.po               303 / 332 ( 91.0% translated)
     │   ├── import.po                    165 / 184 ( 89.0% translated)
     │   └── lexical_analysis.po          185 / 195 ( 94.0% translated)
-    ├── library/  54.32% done
+    ├── library/  54.37% done
     │   ├── _thread.po                    39 /  41 ( 95.0% translated)
     │   ├── argparse.po                  256 / 290 ( 88.0% translated)
     │   ├── array.po                      81 /  82 ( 98.0% translated)
@@ -113,7 +113,7 @@
     │   ├── importlib.metadata.po         36 /  53 ( 67.0% translated)
     │   ├── importlib.po                 227 / 346 ( 65.0% translated)
     │   ├── inspect.po                   125 / 338 ( 36.0% translated)
-    │   ├── io.po                         38 / 245 ( 15.0% translated)
+    │   ├── io.po                         41 / 245 ( 16.0% translated)
     │   ├── ipaddress.po                 155 / 158 ( 98.0% translated)
     │   ├── itertools.po                 128 / 153 ( 83.0% translated)
     │   ├── logging.config.po             17 / 133 ( 12.0% translated)
@@ -167,7 +167,7 @@
     │   ├── symtable.po                    3 /  44 (  6.0% translated)
     │   ├── sys.po                       358 / 412 ( 86.0% translated)
     │   ├── sysconfig.po                  75 /  81 ( 92.0% translated)
-    │   ├── tarfile.po                   137 / 301 ( 45.0% translated)
+    │   ├── tarfile.po                   149 / 301 ( 49.0% translated)
     │   ├── telnetlib.po                   7 /  47 ( 14.0% translated)
     │   ├── tempfile.po                    8 /  64 ( 12.0% translated)
     │   ├── test.po                      117 / 295 ( 39.0% translated)
