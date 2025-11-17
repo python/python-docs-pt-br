@@ -1,5 +1,5 @@
-1 directory  60.39% done
-└── 3.13/  60.39% done
+1 directory  60.42% done
+└── 3.13/  60.42% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  100.00% done
@@ -8,7 +8,7 @@
     │   └── windows.po                   388 / 389 ( 99.0% translated)
     ├── reference/  99.82% done
     │   └── compound_stmts.po            466 / 467 ( 99.0% translated)
-    ├── library/  60.97% done
+    ├── library/  61.03% done
     │   ├── asyncio-dev.po                16 /  54 ( 29.0% translated)
     │   ├── asyncio-eventloop.po         309 / 413 ( 74.0% translated)
     │   ├── asyncio-future.po              9 /  64 ( 14.0% translated)
@@ -80,7 +80,7 @@
     │   ├── struct.po                     96 / 195 ( 49.0% translated)
     │   ├── subprocess.po                150 / 327 ( 45.0% translated)
     │   ├── symtable.po                    6 /  65 (  9.0% translated)
-    │   ├── tarfile.po                   158 / 345 ( 45.0% translated)
+    │   ├── tarfile.po                   175 / 345 ( 50.0% translated)
     │   ├── tempfile.po                    8 /  87 (  9.0% translated)
     │   ├── test.po                      119 / 321 ( 37.0% translated)
     │   ├── threading.po                  39 / 274 ( 14.0% translated)
@@ -104,8 +104,8 @@
     │   ├── xml.sax.reader.po              2 /  75 (  2.0% translated)
     │   ├── xmlrpc.client.po              55 / 113 ( 48.0% translated)
     │   └── zoneinfo.po                   42 /  83 ( 50.0% translated)
-    ├── howto/  64.45% done
-    │   ├── descriptor.po                186 / 230 ( 80.0% translated)
+    ├── howto/  64.65% done
+    │   ├── descriptor.po                187 / 230 ( 81.0% translated)
     │   ├── enum.po                      122 / 327 ( 37.0% translated)
     │   ├── functional.po                159 / 252 ( 63.0% translated)
     │   ├── logging-cookbook.po           41 / 433 (  9.0% translated)
@@ -133,11 +133,11 @@
     │   ├── 3.5.po                       128 / 578 ( 22.0% translated)
     │   ├── 3.6.po                       233 / 544 ( 42.0% translated)
     │   ├── 3.7.po                       249 / 568 ( 43.0% translated)
-    │   └── changelog.po                 2711 / 12582 ( 21.0% translated)
+    │   └── changelog.po                 2712 / 12585 ( 21.0% translated)
     ├── deprecations/  99.08% done
     │   ├── index.po                     217 / 218 ( 99.0% translated)
     │   └── pending-removal-in-3.14.po    33 /  34 ( 97.0% translated)
-    └── c-api/  50.98% done
+    └── c-api/  50.93% done
         ├── conversion.po                 29 /  45 ( 64.0% translated)
         ├── descriptor.po                  4 /  12 ( 33.0% translated)
         ├── exceptions.po                173 / 257 ( 67.0% translated)
@@ -154,7 +154,7 @@
         ├── number.po                     14 /  48 ( 29.0% translated)
         ├── object.po                     42 / 120 ( 35.0% translated)
         ├── refcounting.po                14 /  48 ( 29.0% translated)
-        ├── structures.po                 71 / 180 ( 39.0% translated)
+        ├── structures.po                 71 / 196 ( 36.0% translated)
         ├── sys.po                        49 /  79 ( 62.0% translated)
         ├── type.po                       27 / 111 ( 24.0% translated)
         ├── typeobj.po                   236 / 682 ( 34.0% translated)
