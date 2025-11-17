@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-13 15:53+0000\n"
+"POT-Creation-Date: 2025-11-17 15:56+0000\n"
 "PO-Revision-Date: 2025-07-18 19:57+0000\n"
 "Last-Translator: Rainer Terroso, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -378,14 +378,27 @@ msgid ""
 "type will be :class:`object`, or else you will be adding data members to "
 "your base type, and therefore increasing its size."
 msgstr ""
+"Se você quiser que seu tipo possa ser subclassificado a partir do Python, e "
+"seu tipo tiver o mesmo :c:member:`~PyTypeObject.tp_basicsize` que seu tipo "
+"base, você poderá ter problemas com herança múltipla. Uma subclasse Python "
+"do seu tipo terá de listar o seu tipo primeiro em :attr:`~type.__bases__`, "
+"caso contrário ela não conseguirá chamar o método :meth:`~object.__new__` do "
+"seu tipo sem gerar um erro.\n"
+"\n"
+"Você pode evitar esse problema garantindo que seu tipo tenha um valor de :c:"
+"member:`~PyTypeObject.tp_basicsize` maior que o do tipo base. Na maior parte "
+"do tempo, isso já será verdade, pois ou o tipo base será :class:`object`, ou "
+"você estará adicionando membros de dados ao seu tipo base e, portanto, "
+"aumentando seu tamanho."
 
 #: ../../extending/newtypes_tutorial.rst:154
 msgid "We set the class flags to :c:macro:`Py_TPFLAGS_DEFAULT`. ::"
 msgstr ""
+"Definimos os sinalizadores da classe como :c:macro:`Py_TPFLAGS_DEFAULT`. ::"
 
 #: ../../extending/newtypes_tutorial.rst:156
 msgid ".tp_flags = Py_TPFLAGS_DEFAULT,"
-msgstr ""
+msgstr ".tp_flags = Py_TPFLAGS_DEFAULT,"
 
 #: ../../extending/newtypes_tutorial.rst:158
 msgid ""
@@ -393,15 +406,21 @@ msgid ""
 "the members defined until at least Python 3.3.  If you need further members, "
 "you will need to OR the corresponding flags."
 msgstr ""
+"Todos os tipos devem incluir essa constante em seus sinalizadores. Ela "
+"habilita todos os membros definidos até pelo menos o Python 3.3. Se você "
+"precisar de membros adicionais, será necessário fazer um OR com os "
+"sinalizadores correspondentes."
 
 #: ../../extending/newtypes_tutorial.rst:162
 msgid ""
 "We provide a doc string for the type in :c:member:`~PyTypeObject.tp_doc`. ::"
 msgstr ""
+"Fornecemos uma docstring para o tipo em tp_doc :c:member:`~PyTypeObject."
+"tp_doc`. ::"
 
 #: ../../extending/newtypes_tutorial.rst:164
 msgid ".tp_doc = PyDoc_STR(\"Custom objects\"),"
-msgstr ""
+msgstr ".tp_doc = PyDoc_STR(\"Custom objects\"),"
 
 #: ../../extending/newtypes_tutorial.rst:166
 msgid ""
@@ -411,10 +430,15 @@ msgid ""
 "the default implementation provided by the API function :c:func:"
 "`PyType_GenericNew`. ::"
 msgstr ""
+"Para habilitar a criação de objetos, precisamos fornecer um manipulador "
+"para :c:member:`~PyTypeObject.tp_new`. Esse é o equivalente ao método "
+"Python :meth:`~object.__new__`, mas precisa ser especificado explicitamente. "
+"Neste caso, podemos simplesmente usar a implementação padrão fornecida pela "
+"função da :c:func:`PyType_GenericNew`. ::"
 
 #: ../../extending/newtypes_tutorial.rst:171
 msgid ".tp_new = PyType_GenericNew,"
-msgstr ""
+msgstr ".tp_new = PyType_GenericNew,"
 
 #: ../../extending/newtypes_tutorial.rst:173
 msgid ""
@@ -434,6 +458,9 @@ msgid ""
 "to the appropriate default values, including :c:member:`~PyObject.ob_type` "
 "that we initially set to ``NULL``. ::"
 msgstr ""
+"Isso inicializa o tipo :class:`!Custom`, preenchendo um número de membros "
+"para o valor padrão apropriado, incluindo :c:member:`~PyObject.ob_type` que "
+"definimos inicialmente como ``NULL``. ::"
 
 #: ../../extending/newtypes_tutorial.rst:183
 msgid ""

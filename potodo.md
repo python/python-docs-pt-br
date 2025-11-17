@@ -1,12 +1,12 @@
-1 directory  65.40% done
-└── 3.12/  65.40% done
+1 directory  65.45% done
+└── 3.12/  65.45% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  99.68% done
     │   └── library.po                   157 / 162 ( 96.0% translated)
     ├── using/  100.00% done
     ├── reference/  100.00% done
-    ├── library/  58.87% done
+    ├── library/  58.92% done
     │   ├── 2to3.po                      121 / 132 ( 91.0% translated)
     │   ├── array.po                      80 /  84 ( 95.0% translated)
     │   ├── ast.po                       255 / 306 ( 83.0% translated)
@@ -100,7 +100,7 @@
     │   ├── subprocess.po                150 / 321 ( 46.0% translated)
     │   ├── symtable.po                    4 /  50 (  8.0% translated)
     │   ├── sys.po                       420 / 431 ( 97.0% translated)
-    │   ├── tarfile.po                   158 / 337 ( 46.0% translated)
+    │   ├── tarfile.po                   175 / 337 ( 51.0% translated)
     │   ├── telnetlib.po                  10 /  53 ( 18.0% translated)
     │   ├── tempfile.po                    8 /  87 (  9.0% translated)
     │   ├── test.po                      118 / 320 ( 36.0% translated)
@@ -140,11 +140,11 @@
     │   ├── unicode.po                    30 / 145 ( 20.0% translated)
     │   └── urllib2.po                    98 / 100 ( 98.0% translated)
     ├── tutorial/  100.00% done
-    ├── extending/  21.83% done
+    ├── extending/  23.02% done
     │   ├── embedding.po                   5 /  58 (  8.0% translated)
     │   ├── extending.po                  59 / 207 ( 28.0% translated)
     │   ├── newtypes.po                    8 / 117 (  6.0% translated)
-    │   └── newtypes_tutorial.po          46 / 177 ( 25.0% translated)
+    │   └── newtypes_tutorial.po          55 / 177 ( 31.0% translated)
     ├── whatsnew/  74.17% done
     │   ├── 2.3.po                       327 / 387 ( 84.0% translated)
     │   ├── 2.4.po                       266 / 319 ( 83.0% translated)
