@@ -383,13 +383,11 @@ msgstr ""
 "base, você poderá ter problemas com herança múltipla. Uma subclasse Python "
 "do seu tipo terá de listar o seu tipo primeiro em :attr:`~type.__bases__`, "
 "caso contrário ela não conseguirá chamar o método :meth:`~object.__new__` do "
-"seu tipo sem gerar um erro.\n"
-"\n"
-"Você pode evitar esse problema garantindo que seu tipo tenha um valor de :c:"
-"member:`~PyTypeObject.tp_basicsize` maior que o do tipo base. Na maior parte "
-"do tempo, isso já será verdade, pois ou o tipo base será :class:`object`, ou "
-"você estará adicionando membros de dados ao seu tipo base e, portanto, "
-"aumentando seu tamanho."
+"seu tipo sem gerar um erro. Você pode evitar esse problema garantindo que "
+"seu tipo tenha um valor de :c:member:`~PyTypeObject.tp_basicsize` maior que "
+"o do tipo base. Na maior parte do tempo, isso já será verdadeiro, pois ou o "
+"tipo base será :class:`object`, ou você estará adicionando membros de dados "
+"ao seu tipo base e, portanto, aumentando seu tamanho."
 
 #: ../../extending/newtypes_tutorial.rst:154
 msgid "We set the class flags to :c:macro:`Py_TPFLAGS_DEFAULT`. ::"
@@ -434,7 +432,7 @@ msgstr ""
 "para :c:member:`~PyTypeObject.tp_new`. Esse é o equivalente ao método "
 "Python :meth:`~object.__new__`, mas precisa ser especificado explicitamente. "
 "Neste caso, podemos simplesmente usar a implementação padrão fornecida pela "
-"função da :c:func:`PyType_GenericNew`. ::"
+"função da API :c:func:`PyType_GenericNew`. ::"
 
 #: ../../extending/newtypes_tutorial.rst:171
 msgid ".tp_new = PyType_GenericNew,"
@@ -458,8 +456,8 @@ msgid ""
 "to the appropriate default values, including :c:member:`~PyObject.ob_type` "
 "that we initially set to ``NULL``. ::"
 msgstr ""
-"Isso inicializa o tipo :class:`!Custom`, preenchendo um número de membros "
-"para o valor padrão apropriado, incluindo :c:member:`~PyObject.ob_type` que "
+"Isso inicializa o tipo :class:`!Custom`, preenchendo vários membros com os "
+"valores padrão apropriados, incluindo :c:member:`~PyObject.ob_type`, que "
 "definimos inicialmente como ``NULL``. ::"
 
 #: ../../extending/newtypes_tutorial.rst:183
@@ -477,18 +475,25 @@ msgid ""
 "This adds the type to the module dictionary.  This allows us to create :"
 "class:`!Custom` instances by calling the :class:`!Custom` class:"
 msgstr ""
+"Isso adiciona o tipo ao dicionário do módulo.\n"
+"Isso nos permite criar instâncias de :class:`!Custom` chamando a classe :"
+"class:`!Custom`:"
 
 #: ../../extending/newtypes_tutorial.rst:193
 msgid ""
 ">>> import custom\n"
 ">>> mycustom = custom.Custom()"
 msgstr ""
+">>> import custom\n"
+">>> mycustom = custom.Custom()"
 
 #: ../../extending/newtypes_tutorial.rst:198
 msgid ""
 "That's it!  All that remains is to build it; put the above code in a file "
 "called :file:`custom.c`,"
 msgstr ""
+"É isso! Só resta compilá-lo; coloque o código acima em um arquivo chamado :"
+"file:`custom.c`,"
 
 #: ../../extending/newtypes_tutorial.rst:201
 msgid ""
@@ -500,25 +505,34 @@ msgid ""
 "name = \"custom\"\n"
 "version = \"1\"\n"
 msgstr ""
+"[build-system]\n"
+"requires = [\"setuptools\"]\n"
+"build-backend = \"setuptools.build_meta\"\n"
+"\n"
+"[project]\n"
+"name = \"custom\"\n"
+"version = \"1\"\n"
 
 #: ../../extending/newtypes_tutorial.rst:203
 msgid "in a file called :file:`pyproject.toml`, and"
-msgstr ""
+msgstr "Em um arquivo chamado :file:`pyproject.toml`, e"
 
 #: ../../extending/newtypes_tutorial.rst:205
 msgid ""
 "from setuptools import Extension, setup\n"
 "setup(ext_modules=[Extension(\"custom\", [\"custom.c\"])])"
 msgstr ""
+"from setuptools import Extension, setup\n"
+"setup(ext_modules=[Extension(\"custom\", [\"custom.c\"])])"
 
 #: ../../extending/newtypes_tutorial.rst:210
 msgid "in a file called :file:`setup.py`; then typing"
-msgstr ""
+msgstr "Em um arquivo chamado :file:`setup.py`; e então digitando"
 
 #: ../../extending/newtypes_tutorial.rst:212
 #: ../../extending/newtypes_tutorial.rst:527
 msgid "$ python -m pip install ."
-msgstr ""
+msgstr "$ python -m pip install ."
 
 #: ../../extending/newtypes_tutorial.rst:216
 msgid ""
@@ -526,6 +540,9 @@ msgid ""
 "install it; now fire up Python --- you should be able to ``import custom`` "
 "and play around with ``Custom`` objects."
 msgstr ""
+"no console deverá gerar um arquivo :file:`custom.so` em um subdiretório e "
+"instalá-lo; agora abra o Python — você já deve conseguir ``import custom`` e "
+"experimentar objetos ``Custom``."
 
 #: ../../extending/newtypes_tutorial.rst:220
 msgid "That wasn't so hard, was it?"
@@ -549,6 +566,9 @@ msgid ""
 "make the type usable as a base class. We'll create a new module, :mod:`!"
 "custom2` that adds these capabilities:"
 msgstr ""
+"Vamos estender o exemplo básico para adicionar alguns dados e métodos. "
+"Também vamos tornar o tipo utilizável como uma classe base. Iremos criar um "
+"novo módulo, :mod:`!custom2`, que adiciona esses recursos:"
 
 #: ../../extending/newtypes_tutorial.rst:233
 msgid ""
@@ -696,6 +716,10 @@ msgid ""
 "strings containing first and last names.  The *number* attribute is a C "
 "integer."
 msgstr ""
+"O tipo :class:`!Custom` agora possui três atributos de dados em sua "
+"estrutura C: first, last e number. As variáveis first e last são strings "
+"Python contendo o primeiro e o último nome. O atributo number é um inteiro "
+"em C."
 
 #: ../../extending/newtypes_tutorial.rst:242
 msgid "The object structure is updated accordingly::"
@@ -710,12 +734,21 @@ msgid ""
 "    int number;\n"
 "} CustomObject;"
 msgstr ""
+"typedef struct {\n"
+"PyObject_HEAD\n"
+"PyObject *first; /* first name */\n"
+"PyObject *last; /* last name */\n"
+"int number;\n"
+"} CustomObject;"
 
 #: ../../extending/newtypes_tutorial.rst:251
 msgid ""
 "Because we now have data to manage, we have to be more careful about object "
 "allocation and deallocation.  At a minimum, we need a deallocation method::"
 msgstr ""
+"Como agora temos dados para gerenciar, precisamos ter mais cuidado com a "
+"alocação e a desalocação do objeto.  No mínimo, precisamos de método de "
+"desalocação::"
 
 #: ../../extending/newtypes_tutorial.rst:254
 msgid ""
@@ -730,7 +763,7 @@ msgstr ""
 
 #: ../../extending/newtypes_tutorial.rst:262
 msgid "which is assigned to the :c:member:`~PyTypeObject.tp_dealloc` member::"
-msgstr ""
+msgstr "que é atribuído ao membro :c:member:`~PyTypeObject.tp_dealloc`::"
 
 #: ../../extending/newtypes_tutorial.rst:264
 msgid ".tp_dealloc = (destructor) Custom_dealloc,"
