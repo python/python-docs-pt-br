@@ -1,11 +1,11 @@
-1 directory  61.44% done
-└── 3.14/  61.44% done
+1 directory  61.50% done
+└── 3.14/  61.50% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  100.00% done
     ├── using/  100.00% done
     ├── reference/  100.00% done
-    ├── library/  61.33% done
+    ├── library/  61.37% done
     │   ├── asyncio-dev.po                16 /  54 ( 29.0% translated)
     │   ├── asyncio-eventloop.po         308 / 417 ( 73.0% translated)
     │   ├── asyncio-future.po              9 /  64 ( 14.0% translated)
@@ -27,7 +27,6 @@
     │   ├── ctypes.po                    275 / 626 ( 43.0% translated)
     │   ├── curses.po                     67 / 491 ( 13.0% translated)
     │   ├── dataclasses.po                71 / 158 ( 44.0% translated)
-    │   ├── dbm.po                        95 / 107 ( 88.0% translated)
     │   ├── difflib.po                    14 / 140 ( 10.0% translated)
     │   ├── dis.po                       238 / 414 ( 57.0% translated)
     │   ├── doctest.po                   100 / 379 ( 26.0% translated)
@@ -118,7 +117,7 @@
     │   ├── extending.po                  58 / 226 ( 25.0% translated)
     │   ├── newtypes.po                    8 / 117 (  6.0% translated)
     │   └── newtypes_tutorial.po          76 / 180 ( 42.0% translated)
-    ├── whatsnew/  50.68% done
+    ├── whatsnew/  50.78% done
     │   ├── 2.3.po                       327 / 387 ( 84.0% translated)
     │   ├── 2.4.po                       266 / 319 ( 83.0% translated)
     │   ├── 2.5.po                       389 / 452 ( 86.0% translated)
@@ -131,24 +130,23 @@
     │   ├── 3.5.po                       128 / 578 ( 22.0% translated)
     │   ├── 3.6.po                       232 / 544 ( 42.0% translated)
     │   ├── 3.7.po                       249 / 568 ( 43.0% translated)
-    │   └── changelog.po                 3430 / 13674 ( 25.0% translated)
+    │   └── changelog.po                 3454 / 13674 ( 25.0% translated)
     ├── deprecations/  100.00% done
-    └── c-api/  52.14% done
-        ├── conversion.po                 38 /  45 ( 84.0% translated)
+    └── c-api/  52.40% done
         ├── exceptions.po                175 / 261 ( 67.0% translated)
         ├── frame.po                      34 /  51 ( 66.0% translated)
         ├── gcsupport.po                  18 /  67 ( 26.0% translated)
         ├── import.po                     33 /  66 ( 50.0% translated)
         ├── init.po                      183 / 516 ( 35.0% translated)
         ├── init_config.po               362 / 638 ( 56.0% translated)
-        ├── iterator.po                   10 /  24 ( 41.0% translated)
+        ├── iterator.po                   15 /  24 ( 62.0% translated)
         ├── long.po                       46 / 174 ( 26.0% translated)
         ├── memory.po                     63 / 208 ( 30.0% translated)
         ├── module.po                     49 / 134 ( 36.0% translated)
         ├── number.po                     14 /  48 ( 29.0% translated)
         ├── object.po                     44 / 145 ( 30.0% translated)
         ├── refcounting.po                15 /  50 ( 30.0% translated)
-        ├── structures.po                 76 / 207 ( 36.0% translated)
+        ├── structures.po                 86 / 207 ( 41.0% translated)
         ├── sys.po                        58 /  87 ( 66.0% translated)
         ├── type.po                       26 / 137 ( 18.0% translated)
         ├── typeobj.po                   248 / 744 ( 33.0% translated)
