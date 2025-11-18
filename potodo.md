@@ -1,11 +1,11 @@
-1 directory  61.29% done
-└── 3.14/  61.29% done
+1 directory  61.43% done
+└── 3.14/  61.43% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  100.00% done
     ├── using/  100.00% done
     ├── reference/  100.00% done
-    ├── library/  61.22% done
+    ├── library/  61.33% done
     │   ├── asyncio-dev.po                16 /  54 ( 29.0% translated)
     │   ├── asyncio-eventloop.po         308 / 417 ( 73.0% translated)
     │   ├── asyncio-future.po              9 /  64 ( 14.0% translated)
@@ -13,7 +13,6 @@
     │   ├── asyncio-platforms.po           6 /  25 ( 24.0% translated)
     │   ├── asyncio-policy.po              6 /  36 ( 16.0% translated)
     │   ├── asyncio-protocol.po           25 / 194 ( 12.0% translated)
-    │   ├── asyncio-queue.po              43 /  48 ( 89.0% translated)
     │   ├── asyncio-runner.po              4 /  41 (  9.0% translated)
     │   ├── asyncio-stream.po             71 / 104 ( 68.0% translated)
     │   ├── asyncio-sync.po               12 / 100 ( 12.0% translated)
@@ -22,7 +21,6 @@
     │   ├── bdb.po                        13 / 119 ( 10.0% translated)
     │   ├── binascii.po                   23 /  38 ( 60.0% translated)
     │   ├── codecs.po                    250 / 563 ( 44.0% translated)
-    │   ├── compression.zstd.po          127 / 174 ( 72.0% translated)
     │   ├── concurrent.futures.po         12 / 120 ( 10.0% translated)
     │   ├── concurrent.interpreters.po    42 /  87 ( 48.0% translated)
     │   ├── contextlib.po                 55 / 172 ( 31.0% translated)
@@ -70,7 +68,7 @@
     │   ├── poplib.po                     22 /  53 ( 41.0% translated)
     │   ├── profile.po                    34 / 181 ( 18.0% translated)
     │   ├── pyexpat.po                    23 / 157 ( 14.0% translated)
-    │   ├── queue.po                       7 /  57 ( 12.0% translated)
+    │   ├── queue.po                      10 /  57 ( 17.0% translated)
     │   ├── select.po                     78 / 209 ( 37.0% translated)
     │   ├── selectors.po                  13 /  58 ( 22.0% translated)
     │   ├── shelve.po                     11 /  40 ( 27.0% translated)
@@ -115,11 +113,11 @@
     │   ├── sorting.po                    50 /  92 ( 54.0% translated)
     │   └── unicode.po                    30 / 145 ( 20.0% translated)
     ├── tutorial/  100.00% done
-    ├── extending/  21.38% done
+    ├── extending/  25.61% done
     │   ├── embedding.po                   5 /  59 (  8.0% translated)
     │   ├── extending.po                  58 / 226 ( 25.0% translated)
     │   ├── newtypes.po                    8 / 117 (  6.0% translated)
-    │   └── newtypes_tutorial.po          47 / 180 ( 26.0% translated)
+    │   └── newtypes_tutorial.po          76 / 180 ( 42.0% translated)
     ├── whatsnew/  50.68% done
     │   ├── 2.3.po                       327 / 387 ( 84.0% translated)
     │   ├── 2.4.po                       266 / 319 ( 83.0% translated)
@@ -135,13 +133,11 @@
     │   ├── 3.7.po                       249 / 568 ( 43.0% translated)
     │   └── changelog.po                 3430 / 13674 ( 25.0% translated)
     ├── deprecations/  100.00% done
-    └── c-api/  51.47% done
-        ├── conversion.po                 29 /  45 ( 64.0% translated)
-        ├── descriptor.po                  4 /  12 ( 33.0% translated)
+    └── c-api/  51.93% done
+        ├── conversion.po                 32 /  45 ( 71.0% translated)
         ├── exceptions.po                175 / 261 ( 67.0% translated)
-        ├── frame.po                      21 /  51 ( 41.0% translated)
+        ├── frame.po                      34 /  51 ( 66.0% translated)
         ├── gcsupport.po                  18 /  67 ( 26.0% translated)
-        ├── hash.po                       24 /  40 ( 60.0% translated)
         ├── import.po                     33 /  66 ( 50.0% translated)
         ├── init.po                      183 / 516 ( 35.0% translated)
         ├── init_config.po               362 / 638 ( 56.0% translated)
