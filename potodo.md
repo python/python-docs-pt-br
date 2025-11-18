@@ -1,5 +1,5 @@
-1 directory  59.81% done
-└── 3.10/  59.81% done
+1 directory  59.82% done
+└── 3.10/  59.82% done
     ├── distutils/  25.79% done
     │   ├── apiref.po                     88 / 417 ( 21.0% translated)
     │   ├── builtdist.po                  53 / 131 ( 40.0% translated)
@@ -24,7 +24,7 @@
     │   ├── expressions.po               303 / 332 ( 91.0% translated)
     │   ├── import.po                    165 / 184 ( 89.0% translated)
     │   └── lexical_analysis.po          185 / 195 ( 94.0% translated)
-    ├── library/  54.37% done
+    ├── library/  54.38% done
     │   ├── _thread.po                    39 /  41 ( 95.0% translated)
     │   ├── argparse.po                  256 / 290 ( 88.0% translated)
     │   ├── array.po                      81 /  82 ( 98.0% translated)
@@ -167,7 +167,7 @@
     │   ├── symtable.po                    3 /  44 (  6.0% translated)
     │   ├── sys.po                       358 / 412 ( 86.0% translated)
     │   ├── sysconfig.po                  75 /  81 ( 92.0% translated)
-    │   ├── tarfile.po                   149 / 301 ( 49.0% translated)
+    │   ├── tarfile.po                   150 / 301 ( 49.0% translated)
     │   ├── telnetlib.po                   7 /  47 ( 14.0% translated)
     │   ├── tempfile.po                    8 /  64 ( 12.0% translated)
     │   ├── test.po                      117 / 295 ( 39.0% translated)
@@ -232,11 +232,11 @@
     │   └── index.po                     168 / 226 ( 74.0% translated)
     ├── tutorial/  99.78% done
     │   └── classes.po                   114 / 115 ( 99.0% translated)
-    ├── extending/  28.55% done
+    ├── extending/  29.07% done
     │   ├── embedding.po                   5 /  45 ( 11.0% translated)
     │   ├── extending.po                  58 / 158 ( 36.0% translated)
     │   ├── newtypes.po                    7 /  89 (  7.0% translated)
-    │   └── newtypes_tutorial.po          37 / 123 ( 30.0% translated)
+    │   └── newtypes_tutorial.po          42 / 123 ( 34.0% translated)
     ├── whatsnew/  67.49% done
     │   ├── 2.0.po                       137 / 182 ( 75.0% translated)
     │   ├── 2.2.po                       139 / 192 ( 72.0% translated)
