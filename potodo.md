@@ -1,5 +1,5 @@
-1 directory  59.82% done
-└── 3.10/  59.82% done
+1 directory  59.83% done
+└── 3.10/  59.83% done
     ├── distutils/  25.79% done
     │   ├── apiref.po                     88 / 417 ( 21.0% translated)
     │   ├── builtdist.po                  53 / 131 ( 40.0% translated)
@@ -252,7 +252,7 @@
     │   ├── 3.5.po                       128 / 541 ( 23.0% translated)
     │   ├── 3.6.po                       239 / 517 ( 46.0% translated)
     │   └── 3.7.po                       243 / 555 ( 43.0% translated)
-    └── c-api/  50.01% done
+    └── c-api/  50.05% done
         ├── allocation.po                  8 /   9 ( 88.0% translated)
         ├── arg.po                       193 / 195 ( 98.0% translated)
         ├── exceptions.po                215 / 275 ( 78.0% translated)
@@ -268,7 +268,7 @@
         ├── refcounting.po                10 /  28 ( 35.0% translated)
         ├── sequence.po                   26 /  27 ( 96.0% translated)
         ├── stable.po                     23 /  32 ( 71.0% translated)
-        ├── structures.po                 48 / 129 ( 37.0% translated)
+        ├── structures.po                 50 / 129 ( 38.0% translated)
         ├── sys.po                        39 /  67 ( 58.0% translated)
         ├── tuple.po                      47 /  48 ( 97.0% translated)
         ├── type.po                       29 /  63 ( 46.0% translated)
