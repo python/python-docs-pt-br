@@ -1,12 +1,12 @@
-1 directory  65.47% done
-└── 3.12/  65.47% done
+1 directory  65.59% done
+└── 3.12/  65.59% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  99.68% done
     │   └── library.po                   157 / 162 ( 96.0% translated)
     ├── using/  100.00% done
     ├── reference/  100.00% done
-    ├── library/  58.92% done
+    ├── library/  59.03% done
     │   ├── 2to3.po                      121 / 132 ( 91.0% translated)
     │   ├── array.po                      80 /  84 ( 95.0% translated)
     │   ├── ast.po                       255 / 306 ( 83.0% translated)
@@ -29,7 +29,6 @@
     │   ├── codecs.po                    250 / 533 ( 46.0% translated)
     │   ├── concurrent.futures.po         14 /  98 ( 14.0% translated)
     │   ├── contextlib.po                 56 / 172 ( 32.0% translated)
-    │   ├── contextvars.po                50 /  51 ( 98.0% translated)
     │   ├── crypt.po                       6 /  36 ( 16.0% translated)
     │   ├── ctypes.po                    239 / 523 ( 45.0% translated)
     │   ├── curses.po                     64 / 484 ( 13.0% translated)
@@ -41,7 +40,7 @@
     │   ├── email.compat32-message.po      6 / 115 (  5.0% translated)
     │   ├── email.contentmanager.po        9 /  42 ( 21.0% translated)
     │   ├── email.errors.po                6 /  26 ( 23.0% translated)
-    │   ├── email.examples.po             17 /  20 ( 85.0% translated)
+    │   ├── email.examples.po             18 /  20 ( 90.0% translated)
     │   ├── email.header.po                4 /  40 ( 10.0% translated)
     │   ├── email.headerregistry.po       12 / 111 ( 10.0% translated)
     │   ├── email.message.po               7 / 110 (  6.0% translated)
@@ -55,7 +54,6 @@
     │   ├── functools.po                  20 / 115 ( 17.0% translated)
     │   ├── gzip.po                       60 /  65 ( 92.0% translated)
     │   ├── hashlib.po                    89 / 168 ( 52.0% translated)
-    │   ├── html.parser.po                44 /  62 ( 70.0% translated)
     │   ├── http.client.po                45 / 117 ( 38.0% translated)
     │   ├── http.cookiejar.po              9 / 159 (  5.0% translated)
     │   ├── http.cookies.po                7 /  49 ( 14.0% translated)
@@ -129,7 +127,7 @@
     │   ├── xml.sax.reader.po              2 /  75 (  2.0% translated)
     │   ├── xmlrpc.client.po              55 / 113 ( 48.0% translated)
     │   └── zoneinfo.po                   42 /  83 ( 50.0% translated)
-    ├── howto/  61.07% done
+    ├── howto/  61.54% done
     │   ├── descriptor.po                181 / 233 ( 77.0% translated)
     │   ├── enum.po                      121 / 319 ( 37.0% translated)
     │   ├── functional.po                158 / 252 ( 62.0% translated)
@@ -137,14 +135,13 @@
     │   ├── perf_profiling.po             29 /  32 ( 90.0% translated)
     │   ├── sockets.po                    35 /  63 ( 55.0% translated)
     │   ├── sorting.po                    50 /  75 ( 66.0% translated)
-    │   ├── unicode.po                    30 / 145 ( 20.0% translated)
-    │   └── urllib2.po                    98 / 100 ( 98.0% translated)
+    │   └── unicode.po                    30 / 145 ( 20.0% translated)
     ├── tutorial/  100.00% done
-    ├── extending/  24.16% done
+    ├── extending/  25.68% done
     │   ├── embedding.po                   5 /  58 (  8.0% translated)
     │   ├── extending.po                  59 / 207 ( 28.0% translated)
     │   ├── newtypes.po                    8 / 117 (  6.0% translated)
-    │   └── newtypes_tutorial.po          69 / 177 ( 38.0% translated)
+    │   └── newtypes_tutorial.po          79 / 177 ( 44.0% translated)
     ├── whatsnew/  74.17% done
     │   ├── 2.3.po                       327 / 387 ( 84.0% translated)
     │   ├── 2.4.po                       266 / 319 ( 83.0% translated)
