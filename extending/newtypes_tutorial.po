@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-17 17:31+0000\n"
+"POT-Creation-Date: 2025-11-19 18:20+0000\n"
 "PO-Revision-Date: 2025-09-22 15:57+0000\n"
 "Last-Translator: Rainer Terroso, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -408,10 +408,13 @@ msgid ""
 "We want to make sure that the first and last names are initialized to empty "
 "strings, so we provide a ``tp_new`` implementation::"
 msgstr ""
+"Queremos nos certificar de que o primeiro e o último nome sejam "
+"inicializados como strings vazias, portanto, fornecemos uma implementação:: "
+"``tp_new``  "
 
 #: ../../extending/newtypes_tutorial.rst:316
 msgid "and install it in the :c:member:`~PyTypeObject.tp_new` member::"
-msgstr ""
+msgstr "e instale-o no membro:: :c:member:`~PyTypeObject.tp_new`"
 
 #: ../../extending/newtypes_tutorial.rst:320
 msgid ""
@@ -433,24 +436,37 @@ msgid ""
 "often ignore the arguments, leaving the argument handling to initializer (a."
 "k.a. ``tp_init`` in C or ``__init__`` in Python) methods."
 msgstr ""
+"O ``tp_new`` recebe o tipo que está sendo instanciado (não necessariamente "
+"``CustomType``, caso uma subclasse esteja sendo instanciada) e quaisquer "
+"argumentos passados quando o tipo foi chamado, e deve devolver a instância "
+"criada. Manipuladores ``tp_new`` sempre aceitam argumentos posicionais e "
+"argumentos nomeados, mas frequentemente os ignoram, deixando o tratamento "
+"dos argumentos para os métodos inicializadores (ou seja, ``tp_init`` em C ou "
+"``__init__`` em Python)."
 
 #: ../../extending/newtypes_tutorial.rst:336
 msgid ""
 "``tp_new`` shouldn't call ``tp_init`` explicitly, as the interpreter will do "
 "it itself."
 msgstr ""
+"``tp_new`` não deve chamar ``tp_init`` explicitamente, pois o interpretador "
+"fará isso por conta própria."
 
 #: ../../extending/newtypes_tutorial.rst:339
 msgid ""
 "The ``tp_new`` implementation calls the :c:member:`~PyTypeObject.tp_alloc` "
 "slot to allocate memory::"
 msgstr ""
+"A implementação de ``tp_new`` chama o slot :c:member:`~PyTypeObject."
+"tp_alloc` para alocar memória::"
 
 #: ../../extending/newtypes_tutorial.rst:344
 msgid ""
 "Since memory allocation may fail, we must check the :c:member:`~PyTypeObject."
 "tp_alloc` result against ``NULL`` before proceeding."
 msgstr ""
+"Como a alocação de memória pode falhar, precisamos verificar se o resultado "
+"de :c:member:`~PyTypeObject.tp_alloc` é ``NULL`` antes de prosseguir."
 
 #: ../../extending/newtypes_tutorial.rst:348
 msgid ""
@@ -459,6 +475,10 @@ msgid ""
 "class, which is :class:`object` by default.  Most types use the default "
 "allocation strategy."
 msgstr ""
+"Nós não preenchemos o campo :c:member:`~PyTypeObject.tp_alloc` por conta "
+"própria. Em vez disso, :c:func:`PyType_Ready` o preenche herdando-o da nossa "
+"classe base, que por padrão é :class:`object`. A maioria dos tipos usa a "
+"estratégia de alocação padrão."
 
 #: ../../extending/newtypes_tutorial.rst:354
 msgid ""
@@ -478,10 +498,12 @@ msgid ""
 "We also define an initialization function which accepts arguments to provide "
 "initial values for our instance::"
 msgstr ""
+"Também definimos uma função de inicialização que aceita argumentos para "
+"fornecer valores iniciais para nosso instância::"
 
 #: ../../extending/newtypes_tutorial.rst:393
 msgid "by filling the :c:member:`~PyTypeObject.tp_init` slot. ::"
-msgstr ""
+msgstr "preenchendo o campo :c:member:`~PyTypeObject.tp_init`::"
 
 #: ../../extending/newtypes_tutorial.rst:397
 msgid ""
@@ -539,17 +561,23 @@ msgid ""
 "tp_dealloc` handler on a type which doesn't support cyclic garbage "
 "collection [#]_."
 msgstr ""
+"quando estamos decrementando uma contagem de referências em um manipulador :"
+"c:member:`~PyTypeObject.tp_dealloc` de um tipo que não oferece suporte à "
+"coleta de lixo cíclica [#]_."
 
 #: ../../extending/newtypes_tutorial.rst:435
 msgid ""
 "We want to expose our instance variables as attributes. There are a number "
 "of ways to do that. The simplest way is to define member definitions::"
 msgstr ""
+"Queremos expor nossas variáveis de instância como atributos. Há várias "
+"maneiras de fazer isso. A forma mais simples é declarar definições de "
+"membros::"
 
 #: ../../extending/newtypes_tutorial.rst:448
 msgid ""
 "and put the definitions in the :c:member:`~PyTypeObject.tp_members` slot::"
-msgstr ""
+msgstr "e colocar as definições no slot :c:member:`~PyTypeObject.tp_members`::"
 
 #: ../../extending/newtypes_tutorial.rst:452
 msgid ""
@@ -557,6 +585,9 @@ msgid ""
 "documentation string.  See the :ref:`Generic-Attribute-Management` section "
 "below for details."
 msgstr ""
+"Cada definição de membro possui um nome, um tipo, um deslocamento, "
+"sinalizadores de acesso e uma string de documentação. Consulte a seção :ref:"
+"`Generic-Attribute-Management` abaixo para mais detalhes."
 
 #: ../../extending/newtypes_tutorial.rst:456
 msgid ""
@@ -568,6 +599,14 @@ msgid ""
 "``NULL`` values, the members can be set to ``NULL`` if the attributes are "
 "deleted."
 msgstr ""
+"Uma desvantagem dessa abordagem é que ela não fornece uma forma de "
+"restringir os tipos de objetos que podem ser atribuídos aos atributos em "
+"Python. Esperamos que os nomes first e last sejam strings, mas qualquer "
+"objeto Python pode ser atribuído. Além disso, os atributos podem ser "
+"excluídos, fazendo com que os ponteiros em C sejam definidos como ``NULL``. "
+"Mesmo que possamos garantir que os membros sejam inicializados com valores "
+"não ``NULL``, eles ainda podem acabar sendo definidos como ``NULL`` caso os "
+"atributos sejam apagados."
 
 #: ../../extending/newtypes_tutorial.rst:463
 msgid ""
@@ -610,7 +649,7 @@ msgstr ""
 
 #: ../../extending/newtypes_tutorial.rst:511
 msgid "and assign it to the :c:member:`~PyTypeObject.tp_methods` slot::"
-msgstr ""
+msgstr "e atribuí-lo para o slot:: :c:member:`~PyTypeObject.tp_methods`"
 
 #: ../../extending/newtypes_tutorial.rst:515
 msgid ""

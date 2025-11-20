@@ -1,5 +1,5 @@
-1 directory  59.83% done
-└── 3.10/  59.83% done
+1 directory  59.87% done
+└── 3.10/  59.87% done
     ├── distutils/  25.79% done
     │   ├── apiref.po                     88 / 417 ( 21.0% translated)
     │   ├── builtdist.po                  53 / 131 ( 40.0% translated)
@@ -24,7 +24,7 @@
     │   ├── expressions.po               303 / 332 ( 91.0% translated)
     │   ├── import.po                    165 / 184 ( 89.0% translated)
     │   └── lexical_analysis.po          185 / 195 ( 94.0% translated)
-    ├── library/  54.38% done
+    ├── library/  54.40% done
     │   ├── _thread.po                    39 /  41 ( 95.0% translated)
     │   ├── argparse.po                  256 / 290 ( 88.0% translated)
     │   ├── array.po                      81 /  82 ( 98.0% translated)
@@ -101,7 +101,7 @@
     │   ├── hashlib.po                    56 / 141 ( 39.0% translated)
     │   ├── heapq.po                      49 /  51 ( 96.0% translated)
     │   ├── hmac.po                       24 /  27 ( 88.0% translated)
-    │   ├── html.parser.po                39 /  50 ( 78.0% translated)
+    │   ├── html.parser.po                48 /  50 ( 96.0% translated)
     │   ├── http.client.po                49 /  99 ( 49.0% translated)
     │   ├── http.cookiejar.po              9 / 154 (  5.0% translated)
     │   ├── http.cookies.po               17 /  56 ( 30.0% translated)
@@ -214,7 +214,7 @@
     │   ├── zipimport.po                  34 /  38 ( 89.0% translated)
     │   ├── zlib.po                       62 /  64 ( 96.0% translated)
     │   └── zoneinfo.po                   32 /  73 ( 43.0% translated)
-    ├── howto/  52.37% done
+    ├── howto/  52.41% done
     │   ├── annotations.po                44 /  45 ( 97.0% translated)
     │   ├── clinic.po                    101 / 424 ( 23.0% translated)
     │   ├── curses.po                    100 / 105 ( 95.0% translated)
@@ -227,16 +227,16 @@
     │   ├── regex.po                     283 / 286 ( 98.0% translated)
     │   ├── sockets.po                    35 /  58 ( 60.0% translated)
     │   ├── unicode.po                    30 / 121 ( 24.0% translated)
-    │   └── urllib2.po                    72 /  85 ( 84.0% translated)
+    │   └── urllib2.po                    73 /  85 ( 85.0% translated)
     ├── install/  72.62% done
     │   └── index.po                     168 / 226 ( 74.0% translated)
     ├── tutorial/  99.78% done
     │   └── classes.po                   114 / 115 ( 99.0% translated)
-    ├── extending/  29.07% done
+    ├── extending/  31.15% done
     │   ├── embedding.po                   5 /  45 ( 11.0% translated)
     │   ├── extending.po                  58 / 158 ( 36.0% translated)
     │   ├── newtypes.po                    7 /  89 (  7.0% translated)
-    │   └── newtypes_tutorial.po          42 / 123 ( 34.0% translated)
+    │   └── newtypes_tutorial.po          57 / 123 ( 46.0% translated)
     ├── whatsnew/  67.49% done
     │   ├── 2.0.po                       137 / 182 ( 75.0% translated)
     │   ├── 2.2.po                       139 / 192 ( 72.0% translated)
