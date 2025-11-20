@@ -1,5 +1,5 @@
-1 directory  65.59% done
-└── 3.12/  65.59% done
+1 directory  65.74% done
+└── 3.12/  65.74% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  99.68% done
@@ -137,11 +137,11 @@
     │   ├── sorting.po                    50 /  75 ( 66.0% translated)
     │   └── unicode.po                    30 / 145 ( 20.0% translated)
     ├── tutorial/  100.00% done
-    ├── extending/  25.68% done
+    ├── extending/  34.79% done
     │   ├── embedding.po                   5 /  58 (  8.0% translated)
     │   ├── extending.po                  59 / 207 ( 28.0% translated)
     │   ├── newtypes.po                    8 / 117 (  6.0% translated)
-    │   └── newtypes_tutorial.po          79 / 177 ( 44.0% translated)
+    │   └── newtypes_tutorial.po         148 / 177 ( 83.0% translated)
     ├── whatsnew/  74.17% done
     │   ├── 2.3.po                       327 / 387 ( 84.0% translated)
     │   ├── 2.4.po                       266 / 319 ( 83.0% translated)
