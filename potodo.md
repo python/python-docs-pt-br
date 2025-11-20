@@ -1,5 +1,5 @@
-1 directory  61.51% done
-└── 3.14/  61.51% done
+1 directory  61.74% done
+└── 3.14/  61.74% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  100.00% done
@@ -118,11 +118,11 @@
     │   ├── sorting.po                    50 /  92 ( 54.0% translated)
     │   └── unicode.po                    30 / 145 ( 20.0% translated)
     ├── tutorial/  100.00% done
-    ├── extending/  26.94% done
+    ├── extending/  43.94% done
     │   ├── embedding.po                   5 /  59 (  8.0% translated)
     │   ├── extending.po                  58 / 226 ( 25.0% translated)
     │   ├── newtypes.po                    8 / 117 (  6.0% translated)
-    │   └── newtypes_tutorial.po          85 / 180 ( 47.0% translated)
+    │   └── newtypes_tutorial.po         172 / 180 ( 95.0% translated)
     ├── whatsnew/  50.75% done
     │   ├── 2.3.po                       327 / 387 ( 84.0% translated)
     │   ├── 2.4.po                       266 / 319 ( 83.0% translated)
@@ -138,8 +138,7 @@
     │   ├── 3.7.po                       249 / 568 ( 43.0% translated)
     │   └── changelog.po                 3454 / 13680 ( 25.0% translated)
     ├── deprecations/  100.00% done
-    └── c-api/  52.31% done
-        ├── dict.po                       80 / 100 ( 80.0% translated)
+    └── c-api/  52.50% done
         ├── exceptions.po                175 / 261 ( 67.0% translated)
         ├── float.po                      50 /  58 ( 86.0% translated)
         ├── frame.po                      34 /  51 ( 66.0% translated)
