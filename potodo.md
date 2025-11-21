@@ -1,5 +1,5 @@
-1 directory  60.69% done
-└── 3.13/  60.69% done
+1 directory  60.73% done
+└── 3.13/  60.73% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  100.00% done
@@ -8,7 +8,7 @@
     │   └── windows.po                   388 / 389 ( 99.0% translated)
     ├── reference/  99.82% done
     │   └── compound_stmts.po            466 / 467 ( 99.0% translated)
-    ├── library/  61.11% done
+    ├── library/  61.17% done
     │   ├── asyncio-dev.po                16 /  54 ( 29.0% translated)
     │   ├── asyncio-eventloop.po         309 / 413 ( 74.0% translated)
     │   ├── asyncio-future.po              9 /  64 ( 14.0% translated)
@@ -22,14 +22,12 @@
     │   ├── base64.po                     15 /  71 ( 21.0% translated)
     │   ├── bdb.po                        13 / 112 ( 11.0% translated)
     │   ├── binascii.po                   23 /  38 ( 60.0% translated)
-    │   ├── cmdline.po                    49 /  54 ( 90.0% translated)
     │   ├── codecs.po                    250 / 558 ( 44.0% translated)
     │   ├── concurrent.futures.po         14 / 101 ( 13.0% translated)
     │   ├── contextlib.po                 55 / 172 ( 31.0% translated)
     │   ├── ctypes.po                    259 / 546 ( 47.0% translated)
     │   ├── curses.po                     66 / 486 ( 13.0% translated)
     │   ├── dataclasses.po                70 / 156 ( 44.0% translated)
-    │   ├── decimal.po                   377 / 378 ( 99.0% translated)
     │   ├── difflib.po                    14 / 140 ( 10.0% translated)
     │   ├── dis.po                       225 / 396 ( 56.0% translated)
     │   ├── doctest.po                    99 / 378 ( 26.0% translated)
@@ -45,7 +43,7 @@
     │   ├── errno.po                     115 / 160 ( 71.0% translated)
     │   ├── faulthandler.po                4 /  43 (  9.0% translated)
     │   ├── ftplib.po                     12 /  99 ( 12.0% translated)
-    │   ├── functools.po                  19 / 115 ( 16.0% translated)
+    │   ├── functools.po                  30 / 115 ( 26.0% translated)
     │   ├── hashlib.po                    93 / 170 ( 54.0% translated)
     │   ├── html.parser.po                52 /  62 ( 83.0% translated)
     │   ├── http.client.po                45 / 117 ( 38.0% translated)
@@ -65,8 +63,6 @@
     │   ├── mimetypes.po                  47 /  54 ( 87.0% translated)
     │   ├── mmap.po                       23 /  65 ( 35.0% translated)
     │   ├── multiprocessing.po           338 / 604 ( 55.0% translated)
-    │   ├── os.po                        1035 / 1036 ( 99.0% translated)
-    │   ├── pdb.po                       153 / 154 ( 99.0% translated)
     │   ├── poplib.po                     22 /  53 ( 41.0% translated)
     │   ├── profile.po                    34 / 181 ( 18.0% translated)
     │   ├── pyexpat.po                    23 / 156 ( 14.0% translated)
@@ -97,7 +93,6 @@
     │   ├── urllib.request.po             49 / 303 ( 16.0% translated)
     │   ├── warnings.po                   83 / 140 ( 59.0% translated)
     │   ├── wave.po                       21 /  54 ( 38.0% translated)
-    │   ├── webbrowser.po                 88 /  89 ( 98.0% translated)
     │   ├── wsgiref.po                    79 / 134 ( 58.0% translated)
     │   ├── xml.dom.minidom.po             8 /  56 ( 14.0% translated)
     │   ├── xml.dom.po                    67 / 235 ( 28.0% translated)
@@ -121,7 +116,7 @@
     │   ├── extending.po                  58 / 226 ( 25.0% translated)
     │   ├── newtypes.po                    8 / 117 (  6.0% translated)
     │   └── newtypes_tutorial.po         155 / 177 ( 87.0% translated)
-    ├── whatsnew/  48.22% done
+    ├── whatsnew/  48.23% done
     │   ├── 2.3.po                       327 / 387 ( 84.0% translated)
     │   ├── 2.4.po                       266 / 319 ( 83.0% translated)
     │   ├── 2.5.po                       388 / 452 ( 85.0% translated)
@@ -136,19 +131,17 @@
     │   ├── 3.5.po                       128 / 578 ( 22.0% translated)
     │   ├── 3.6.po                       233 / 544 ( 42.0% translated)
     │   ├── 3.7.po                       249 / 568 ( 43.0% translated)
-    │   └── changelog.po                 2715 / 12589 ( 21.0% translated)
+    │   └── changelog.po                 2718 / 12589 ( 21.0% translated)
     ├── deprecations/  99.08% done
     │   ├── index.po                     217 / 218 ( 99.0% translated)
     │   └── pending-removal-in-3.14.po    33 /  34 ( 97.0% translated)
-    └── c-api/  51.82% done
+    └── c-api/  52.05% done
         ├── exceptions.po                173 / 257 ( 67.0% translated)
-        ├── float.po                      49 /  57 ( 85.0% translated)
         ├── frame.po                      35 /  51 ( 68.0% translated)
         ├── gcsupport.po                   9 /  52 ( 17.0% translated)
         ├── import.po                     33 /  62 ( 53.0% translated)
-        ├── init.po                      170 / 492 ( 34.0% translated)
+        ├── init.po                      171 / 496 ( 34.0% translated)
         ├── init_config.po               139 / 417 ( 33.0% translated)
-        ├── intro.po                     162 / 164 ( 98.0% translated)
         ├── long.po                       43 / 108 ( 39.0% translated)
         ├── memory.po                     59 / 201 ( 29.0% translated)
         ├── module.po                     63 / 140 ( 45.0% translated)
