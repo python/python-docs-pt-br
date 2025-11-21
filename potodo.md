@@ -1,5 +1,5 @@
-1 directory  59.87% done
-└── 3.10/  59.87% done
+1 directory  59.93% done
+└── 3.10/  59.93% done
     ├── distutils/  25.79% done
     │   ├── apiref.po                     88 / 417 ( 21.0% translated)
     │   ├── builtdist.po                  53 / 131 ( 40.0% translated)
@@ -232,11 +232,11 @@
     │   └── index.po                     168 / 226 ( 74.0% translated)
     ├── tutorial/  99.78% done
     │   └── classes.po                   114 / 115 ( 99.0% translated)
-    ├── extending/  31.15% done
+    ├── extending/  35.12% done
     │   ├── embedding.po                   5 /  45 ( 11.0% translated)
     │   ├── extending.po                  58 / 158 ( 36.0% translated)
     │   ├── newtypes.po                    7 /  89 (  7.0% translated)
-    │   └── newtypes_tutorial.po          57 / 123 ( 46.0% translated)
+    │   └── newtypes_tutorial.po          78 / 123 ( 63.0% translated)
     ├── whatsnew/  67.49% done
     │   ├── 2.0.po                       137 / 182 ( 75.0% translated)
     │   ├── 2.2.po                       139 / 192 ( 72.0% translated)
