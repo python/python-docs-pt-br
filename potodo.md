@@ -1,12 +1,12 @@
-1 directory  65.74% done
-└── 3.12/  65.74% done
+1 directory  65.76% done
+└── 3.12/  65.76% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  99.68% done
     │   └── library.po                   157 / 162 ( 96.0% translated)
     ├── using/  100.00% done
     ├── reference/  100.00% done
-    ├── library/  59.03% done
+    ├── library/  59.08% done
     │   ├── 2to3.po                      121 / 132 ( 91.0% translated)
     │   ├── array.po                      80 /  84 ( 95.0% translated)
     │   ├── ast.po                       255 / 306 ( 83.0% translated)
@@ -51,7 +51,7 @@
     │   ├── faulthandler.po                4 /  43 (  9.0% translated)
     │   ├── fcntl.po                      38 /  48 ( 79.0% translated)
     │   ├── ftplib.po                     12 /  99 ( 12.0% translated)
-    │   ├── functools.po                  20 / 115 ( 17.0% translated)
+    │   ├── functools.po                  30 / 115 ( 26.0% translated)
     │   ├── gzip.po                       60 /  65 ( 92.0% translated)
     │   ├── hashlib.po                    89 / 168 ( 52.0% translated)
     │   ├── http.client.po                45 / 117 ( 38.0% translated)
