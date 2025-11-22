@@ -1,5 +1,5 @@
-1 directory  59.93% done
-└── 3.10/  59.93% done
+1 directory  59.94% done
+└── 3.10/  59.94% done
     ├── distutils/  25.79% done
     │   ├── apiref.po                     88 / 417 ( 21.0% translated)
     │   ├── builtdist.po                  53 / 131 ( 40.0% translated)
@@ -24,7 +24,7 @@
     │   ├── expressions.po               303 / 332 ( 91.0% translated)
     │   ├── import.po                    165 / 184 ( 89.0% translated)
     │   └── lexical_analysis.po          185 / 195 ( 94.0% translated)
-    ├── library/  54.40% done
+    ├── library/  54.42% done
     │   ├── _thread.po                    39 /  41 ( 95.0% translated)
     │   ├── argparse.po                  256 / 290 ( 88.0% translated)
     │   ├── array.po                      81 /  82 ( 98.0% translated)
@@ -93,7 +93,7 @@
     │   ├── fileinput.po                  38 /  44 ( 86.0% translated)
     │   ├── fractions.po                  18 /  23 ( 78.0% translated)
     │   ├── ftplib.po                      9 /  65 ( 13.0% translated)
-    │   ├── functools.po                  27 /  83 ( 32.0% translated)
+    │   ├── functools.po                  31 /  83 ( 37.0% translated)
     │   ├── gc.po                         54 /  55 ( 98.0% translated)
     │   ├── glob.po                       20 /  21 ( 95.0% translated)
     │   ├── grp.po                        27 /  28 ( 96.0% translated)
