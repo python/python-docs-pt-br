@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-15 15:00+0000\n"
+"POT-Creation-Date: 2025-11-21 15:16+0000\n"
 "PO-Revision-Date: 2025-09-15 01:03+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -501,16 +501,22 @@ msgid ""
 "Return the current dictionary of :option:`-X` options, similarly to :data:"
 "`sys._xoptions`.  On error, ``NULL`` is returned and an exception is set."
 msgstr ""
+"Retorna o dicionário atual de opções :option:`-X`, de forma semelhante a :"
+"data:`sys._xoptions`. Em caso de erro, retorna ``NULL`` e uma exceção é "
+"definida."
 
 #: ../../c-api/sys.rst:313
 msgid ""
 "Raise an auditing event with any active hooks. Return zero for success and "
 "non-zero with an exception set on failure."
 msgstr ""
+"Levanta um evento de auditoria com todos os ganchos ativos. Retorna zero em "
+"caso de sucesso e um valor diferente de zero com uma exceção definida em "
+"caso de falha."
 
 #: ../../c-api/sys.rst:316
 msgid "The *event* string argument must not be *NULL*."
-msgstr ""
+msgstr "O argumento de string *event* não pode ser *NULL*."
 
 #: ../../c-api/sys.rst:318
 msgid ""
@@ -519,6 +525,11 @@ msgid ""
 "used in :c:func:`Py_BuildValue` are available. If the built value is not a "
 "tuple, it will be added into a single-element tuple."
 msgstr ""
+"Se algum gancho tiver sido adicionado, o argumento *format* e outros serão "
+"usados ​​para construir uma tupla a ser passada. Além de ``N``, os mesmos "
+"caracteres de formatação usados ​​em :c:func:`Py_BuildValue` estão "
+"disponíveis. Se o valor construído não for uma tupla, ele será adicionado a "
+"uma tupla de um único elemento."
 
 #: ../../c-api/sys.rst:323
 msgid ""
@@ -526,32 +537,43 @@ msgid ""
 "there is no way to know whether arguments to this function will be consumed, "
 "using it may cause reference leaks."
 msgstr ""
+"A opção de formato ``N`` não deve ser usada. Ela consome uma referência, mas "
+"como não há como saber se os argumentos dessa função serão consumidos, usá-"
+"la pode causar vazamentos de referência."
 
 #: ../../c-api/sys.rst:327
 msgid ""
 "Note that ``#`` format characters should always be treated as :c:type:"
 "`Py_ssize_t`, regardless of whether ``PY_SSIZE_T_CLEAN`` was defined."
 msgstr ""
+"Observe que os caracteres de formato ``#`` devem sempre ser tratados como :c:"
+"type:`Py_ssize_t`, independentemente de ``PY_SSIZE_T_CLEAN`` ter sido "
+"definido."
 
 #: ../../c-api/sys.rst:330
 msgid ":func:`sys.audit` performs the same function from Python code."
-msgstr ""
+msgstr ":func:`sys.audit` executa a mesma função a partir do código Python."
 
 #: ../../c-api/sys.rst:332
 msgid "See also :c:func:`PySys_AuditTuple`."
-msgstr ""
+msgstr "Veja também :c:func:`PySys_AuditTuple`."
 
 #: ../../c-api/sys.rst:338
 msgid ""
 "Require :c:type:`Py_ssize_t` for ``#`` format characters. Previously, an "
 "unavoidable deprecation warning was raised."
 msgstr ""
+"É necessário o tipo :c:type:`Py_ssize_t` para caracteres de formato ``#``. "
+"Anteriormente, um aviso de descontinuação era levantado."
 
 #: ../../c-api/sys.rst:344
 msgid ""
 "Similar to :c:func:`PySys_Audit`, but pass arguments as a Python object. "
 "*args* must be a :class:`tuple`. To pass no arguments, *args* can be *NULL*."
 msgstr ""
+"Semelhante a :c:func:`PySys_Audit`, mas passa argumentos como um objeto "
+"Python. *args* deve ser uma :class:`tuple`. Para não passar argumentos, "
+"*args* pode ser *NULL*."
 
 #: ../../c-api/sys.rst:352
 msgid ""
@@ -560,6 +582,11 @@ msgid ""
 "also set an error on failure. Hooks added through this API are called for "
 "all interpreters created by the runtime."
 msgstr ""
+"Adiciona o *gancho* chamável à lista de ganchos de auditoria ativos. Retorna "
+"zero em caso de sucesso e um valor diferente de zero em caso de falha. Se o "
+"ambiente de execução já tiver sido inicializado, também define um erro em "
+"caso de falha. Os ganchos adicionados por meio desta API são chamados para "
+"todos os interpretadores criados pelo ambiente de execução."
 
 #: ../../c-api/sys.rst:358
 msgid ""
@@ -578,6 +605,11 @@ msgid ""
 "silently abort the operation by raising an error subclassed from :class:"
 "`Exception` (other errors will not be silenced)."
 msgstr ""
+"Esta função pode ser chamada com segurança antes de :c:func:`Py_Initialize`. "
+"Quando chamada após a inicialização em tempo de execução, os ganchos de "
+"auditoria existentes são notificados e podem abortar silenciosamente a "
+"operação, levantando um erro da classe :class:`Exception` (outros erros não "
+"serão silenciados)."
 
 #: ../../c-api/sys.rst:367
 msgid ""
@@ -591,6 +623,10 @@ msgid ""
 "runtime and standard library that raise events are listed in the :ref:`audit "
 "events table <audit-events>`. Details are in each function's documentation."
 msgstr ""
+"Consulte a :pep:`578` para uma descrição detalhada da auditoria. As funções "
+"no ambiente de execução e na biblioteca padrão que levantam eventos estão "
+"listadas na :ref:`tabela de eventos de auditoria <audit-events>`. Os "
+"detalhes estão na documentação de cada função."
 
 #: ../../c-api/sys.rst:375 ../../c-api/sys.rst:377
 msgid ""
@@ -600,6 +636,12 @@ msgid ""
 "and the exception is cleared. As a result, callers cannot assume that their "
 "hook has been added unless they control all existing hooks."
 msgstr ""
+"Se o interpretador estiver inicializado, esta função levanta um evento de "
+"auditoria ``sys.addaudithook`` sem argumentos. Se algum gancho existente "
+"levantar uma exceção derivada de :class:`Exception`, o novo gancho não será "
+"adicionado e a exceção será tratada. Consequentemente, os chamadores não "
+"podem presumir que seu gancho foi adicionado, a menos que controlem todos os "
+"ganchos existentes."
 
 #: ../../c-api/sys.rst:386
 msgid ""
@@ -608,10 +650,14 @@ msgid ""
 "to be a :c:type:`PyTupleObject`. *userData* is the argument passed to "
 "PySys_AddAuditHook()."
 msgstr ""
+"O tipo da função de gancho. *event* é o argumento de evento em string C "
+"passado para :c:func:`PySys_Audit` ou :c:func:`PySys_AuditTuple`. *args* tem "
+"a garantia de ser um :c:type:`PyTupleObject`. *userData* é o argumento "
+"passado para PySys_AddAuditHook()."
 
 #: ../../c-api/sys.rst:398
 msgid "Process Control"
-msgstr ""
+msgstr "Controle de processos"
 
 #: ../../c-api/sys.rst:405
 msgid ""
@@ -622,6 +668,12 @@ msgid ""
 "library function :c:func:`!abort` is called which will attempt to produce a :"
 "file:`core` file."
 msgstr ""
+"Exibe uma mensagem de erro fatal e encerra forçadamente o processo. Nenhuma "
+"limpeza é realizada. Esta função só deve ser invocada quando uma condição "
+"for detectada que torne perigoso continuar usando o interpretador Python; "
+"por exemplo, quando a administração de objetos parecer estar corrompida. No "
+"Unix, a função da biblioteca padrão C :c:func:`!abort` é chamada, que "
+"tentará produzir um arquivo :file:`core`."
 
 #: ../../c-api/sys.rst:412
 msgid ""
@@ -629,10 +681,13 @@ msgid ""
 "automatically the name of the current function, unless the "
 "``Py_LIMITED_API`` macro is defined."
 msgstr ""
+"A função ``Py_FatalError()`` é substituída por uma macro que registra "
+"automaticamente o nome da função atual, a menos que a macro "
+"``Py_LIMITED_API`` esteja definida."
 
 #: ../../c-api/sys.rst:416
 msgid "Log the function name automatically."
-msgstr ""
+msgstr "Registra o nome da função automaticamente."
 
 #: ../../c-api/sys.rst:426
 msgid ""
@@ -640,10 +695,14 @@ msgid ""
 "the standard C library function ``exit(status)``.  If :c:func:"
 "`Py_FinalizeEx` indicates an error, the exit status is set to 120."
 msgstr ""
+"Encerra o processo atual. Isso chama :c:func:`Py_FinalizeEx` e, em seguida, "
+"chama a função da biblioteca padrão C ``exit(status)``. Se :c:func:"
+"`Py_FinalizeEx` indicar um erro, o código de status de saída será definido "
+"como 120."
 
 #: ../../c-api/sys.rst:430
 msgid "Errors from finalization no longer ignored."
-msgstr ""
+msgstr "Erros da finalização não são mais ignorados."
 
 #: ../../c-api/sys.rst:440
 msgid ""
@@ -656,27 +715,35 @@ msgid ""
 "finalization will have completed before the cleanup function, no Python APIs "
 "should be called by *func*."
 msgstr ""
+"Registra uma função de limpeza para ser chamada por :c:func:`Py_FinalizeEx`. "
+"A função de limpeza será chamada sem argumentos e não deve retornar nenhum "
+"valor. No máximo 32 funções de limpeza podem ser registradas. Quando o "
+"registro for bem-sucedido, :c:func:`Py_AtExit` retorna ``0``; em caso de "
+"falha, retorna ``-1``. A última função de limpeza registrada é chamada "
+"primeiro. Cada função de limpeza será chamada no máximo uma vez. Como a "
+"finalização interna do Python terá sido concluída antes da função de "
+"limpeza, nenhuma API do Python deve ser chamada por *func*."
 
 #: ../../c-api/sys.rst:450
 msgid ":c:func:`PyUnstable_AtExit` for passing a ``void *data`` argument."
-msgstr ""
+msgstr ":c:func:`PyUnstable_AtExit` para passar um argumento ``void *data``."
 
 #: ../../c-api/sys.rst:101
 msgid "USE_STACKCHECK (C macro)"
-msgstr ""
+msgstr "USE_STACKCHECK (macro C)"
 
 #: ../../c-api/sys.rst:403
 msgid "abort (C function)"
-msgstr ""
+msgstr "abort (função C)"
 
 #: ../../c-api/sys.rst:422 ../../c-api/sys.rst:436
 msgid "Py_FinalizeEx (C function)"
-msgstr ""
+msgstr "Py_FinalizeEx (função C)"
 
 #: ../../c-api/sys.rst:422
 msgid "exit (C function)"
-msgstr ""
+msgstr "exit (função C)"
 
 #: ../../c-api/sys.rst:436
 msgid "cleanup functions"
-msgstr ""
+msgstr "funções de limpeza"
