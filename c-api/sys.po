@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-15 15:44+0000\n"
+"POT-Creation-Date: 2025-11-21 16:21+0000\n"
 "PO-Revision-Date: 2025-07-18 19:57+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -518,12 +518,18 @@ msgid ""
 "Return the current dictionary of :option:`-X` options, similarly to :data:"
 "`sys._xoptions`.  On error, ``NULL`` is returned and an exception is set."
 msgstr ""
+"Retorna o dicionário atual de opções :option:`-X`, de forma semelhante a :"
+"data:`sys._xoptions`. Em caso de erro, retorna ``NULL`` e uma exceção é "
+"definida."
 
 #: ../../c-api/sys.rst:346
 msgid ""
 "Raise an auditing event with any active hooks. Return zero for success and "
 "non-zero with an exception set on failure."
 msgstr ""
+"Levanta um evento de auditoria com todos os ganchos ativos. Retorna zero em "
+"caso de sucesso e um valor diferente de zero com uma exceção definida em "
+"caso de falha."
 
 #: ../../c-api/sys.rst:349
 msgid ""
@@ -541,16 +547,21 @@ msgid ""
 "Note that ``#`` format characters should always be treated as :c:type:"
 "`Py_ssize_t`, regardless of whether ``PY_SSIZE_T_CLEAN`` was defined."
 msgstr ""
+"Observe que os caracteres de formato ``#`` devem sempre ser tratados como :c:"
+"type:`Py_ssize_t`, independentemente de ``PY_SSIZE_T_CLEAN`` ter sido "
+"definido."
 
 #: ../../c-api/sys.rst:360
 msgid ":func:`sys.audit` performs the same function from Python code."
-msgstr ""
+msgstr ":func:`sys.audit` executa a mesma função a partir do código Python."
 
 #: ../../c-api/sys.rst:366
 msgid ""
 "Require :c:type:`Py_ssize_t` for ``#`` format characters. Previously, an "
 "unavoidable deprecation warning was raised."
 msgstr ""
+"É necessário o tipo :c:type:`Py_ssize_t` para caracteres de formato ``#``. "
+"Anteriormente, um aviso de descontinuação era levantado."
 
 #: ../../c-api/sys.rst:372
 msgid ""
@@ -559,6 +570,11 @@ msgid ""
 "also set an error on failure. Hooks added through this API are called for "
 "all interpreters created by the runtime."
 msgstr ""
+"Adiciona o *gancho* chamável à lista de ganchos de auditoria ativos. Retorna "
+"zero em caso de sucesso e um valor diferente de zero em caso de falha. Se o "
+"ambiente de execução já tiver sido inicializado, também define um erro em "
+"caso de falha. Os ganchos adicionados por meio desta API são chamados para "
+"todos os interpretadores criados pelo ambiente de execução."
 
 #: ../../c-api/sys.rst:378
 msgid ""
@@ -577,6 +593,11 @@ msgid ""
 "silently abort the operation by raising an error subclassed from :class:"
 "`Exception` (other errors will not be silenced)."
 msgstr ""
+"Esta função pode ser chamada com segurança antes de :c:func:`Py_Initialize`. "
+"Quando chamada após a inicialização em tempo de execução, os ganchos de "
+"auditoria existentes são notificados e podem abortar silenciosamente a "
+"operação, levantando um erro da classe :class:`Exception` (outros erros não "
+"serão silenciados)."
 
 #: ../../c-api/sys.rst:387
 msgid ""
@@ -590,6 +611,10 @@ msgid ""
 "runtime and standard library that raise events are listed in the :ref:`audit "
 "events table <audit-events>`. Details are in each function's documentation."
 msgstr ""
+"Consulte a :pep:`578` para uma descrição detalhada da auditoria. As funções "
+"no ambiente de execução e na biblioteca padrão que levantam eventos estão "
+"listadas na :ref:`tabela de eventos de auditoria <audit-events>`. Os "
+"detalhes estão na documentação de cada função."
 
 #: ../../c-api/sys.rst:395 ../../c-api/sys.rst:397
 msgid ""
@@ -599,6 +624,12 @@ msgid ""
 "and the exception is cleared. As a result, callers cannot assume that their "
 "hook has been added unless they control all existing hooks."
 msgstr ""
+"Se o interpretador estiver inicializado, esta função levanta um evento de "
+"auditoria ``sys.addaudithook`` sem argumentos. Se algum gancho existente "
+"levantar uma exceção derivada de :class:`Exception`, o novo gancho não será "
+"adicionado e a exceção será tratada. Consequentemente, os chamadores não "
+"podem presumir que seu gancho foi adicionado, a menos que controlem todos os "
+"ganchos existentes."
 
 #: ../../c-api/sys.rst:406
 msgid ""
@@ -609,7 +640,7 @@ msgstr ""
 
 #: ../../c-api/sys.rst:417
 msgid "Process Control"
-msgstr ""
+msgstr "Controle de processos"
 
 #: ../../c-api/sys.rst:424
 msgid ""
@@ -620,6 +651,12 @@ msgid ""
 "library function :c:func:`!abort` is called which will attempt to produce a :"
 "file:`core` file."
 msgstr ""
+"Exibe uma mensagem de erro fatal e encerra forçadamente o processo. Nenhuma "
+"limpeza é realizada. Esta função só deve ser invocada quando uma condição "
+"for detectada que torne perigoso continuar usando o interpretador Python; "
+"por exemplo, quando a administração de objetos parecer estar corrompida. No "
+"Unix, a função da biblioteca padrão C :c:func:`!abort` é chamada, que "
+"tentará produzir um arquivo :file:`core`."
 
 #: ../../c-api/sys.rst:431
 msgid ""
@@ -627,10 +664,13 @@ msgid ""
 "automatically the name of the current function, unless the "
 "``Py_LIMITED_API`` macro is defined."
 msgstr ""
+"A função ``Py_FatalError()`` é substituída por uma macro que registra "
+"automaticamente o nome da função atual, a menos que a macro "
+"``Py_LIMITED_API`` esteja definida."
 
 #: ../../c-api/sys.rst:435
 msgid "Log the function name automatically."
-msgstr ""
+msgstr "Registra o nome da função automaticamente."
 
 #: ../../c-api/sys.rst:445
 msgid ""
@@ -638,10 +678,14 @@ msgid ""
 "the standard C library function ``exit(status)``.  If :c:func:"
 "`Py_FinalizeEx` indicates an error, the exit status is set to 120."
 msgstr ""
+"Encerra o processo atual. Isso chama :c:func:`Py_FinalizeEx` e, em seguida, "
+"chama a função da biblioteca padrão C ``exit(status)``. Se :c:func:"
+"`Py_FinalizeEx` indicar um erro, o código de status de saída será definido "
+"como 120."
 
 #: ../../c-api/sys.rst:449
 msgid "Errors from finalization no longer ignored."
-msgstr ""
+msgstr "Erros da finalização não são mais ignorados."
 
 #: ../../c-api/sys.rst:459
 msgid ""
@@ -654,23 +698,31 @@ msgid ""
 "finalization will have completed before the cleanup function, no Python APIs "
 "should be called by *func*."
 msgstr ""
+"Registra uma função de limpeza para ser chamada por :c:func:`Py_FinalizeEx`. "
+"A função de limpeza será chamada sem argumentos e não deve retornar nenhum "
+"valor. No máximo 32 funções de limpeza podem ser registradas. Quando o "
+"registro for bem-sucedido, :c:func:`Py_AtExit` retorna ``0``; em caso de "
+"falha, retorna ``-1``. A última função de limpeza registrada é chamada "
+"primeiro. Cada função de limpeza será chamada no máximo uma vez. Como a "
+"finalização interna do Python terá sido concluída antes da função de "
+"limpeza, nenhuma API do Python deve ser chamada por *func*."
 
 #: ../../c-api/sys.rst:101
 msgid "USE_STACKCHECK (C macro)"
-msgstr ""
+msgstr "USE_STACKCHECK (macro C)"
 
 #: ../../c-api/sys.rst:422
 msgid "abort (C function)"
-msgstr ""
+msgstr "abort (função C)"
 
 #: ../../c-api/sys.rst:441 ../../c-api/sys.rst:455
 msgid "Py_FinalizeEx (C function)"
-msgstr ""
+msgstr "Py_FinalizeEx (função C)"
 
 #: ../../c-api/sys.rst:441
 msgid "exit (C function)"
-msgstr ""
+msgstr "exit (função C)"
 
 #: ../../c-api/sys.rst:455
 msgid "cleanup functions"
-msgstr ""
+msgstr "funções de limpeza"
