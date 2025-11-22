@@ -1,5 +1,5 @@
-1 directory  61.80% done
-└── 3.14/  61.80% done
+1 directory  61.84% done
+└── 3.14/  61.84% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  100.00% done
@@ -132,12 +132,12 @@
     │   ├── 3.7.po                       249 / 568 ( 43.0% translated)
     │   └── changelog.po                 3462 / 13682 ( 25.0% translated)
     ├── deprecations/  100.00% done
-    └── c-api/  52.71% done
+    └── c-api/  53.32% done
         ├── exceptions.po                175 / 261 ( 67.0% translated)
         ├── frame.po                      34 /  51 ( 66.0% translated)
         ├── gcsupport.po                  18 /  67 ( 26.0% translated)
         ├── import.po                     33 /  66 ( 50.0% translated)
-        ├── init.po                      184 / 520 ( 35.0% translated)
+        ├── init.po                      185 / 520 ( 35.0% translated)
         ├── init_config.po               362 / 638 ( 56.0% translated)
         ├── long.po                       46 / 174 ( 26.0% translated)
         ├── memory.po                     63 / 208 ( 30.0% translated)
@@ -146,7 +146,6 @@
         ├── object.po                     44 / 145 ( 30.0% translated)
         ├── refcounting.po                15 /  50 ( 30.0% translated)
         ├── structures.po                 86 / 206 ( 41.0% translated)
-        ├── sys.po                        58 /  87 ( 66.0% translated)
         ├── type.po                       25 / 137 ( 18.0% translated)
         ├── typeobj.po                   248 / 744 ( 33.0% translated)
         └── unicode.po                    81 / 408 ( 19.0% translated)
