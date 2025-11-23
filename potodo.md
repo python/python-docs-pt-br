@@ -1,5 +1,5 @@
-1 directory  60.77% done
-└── 3.13/  60.77% done
+1 directory  60.76% done
+└── 3.13/  60.76% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  100.00% done
@@ -8,7 +8,7 @@
     │   └── windows.po                   388 / 389 ( 99.0% translated)
     ├── reference/  99.82% done
     │   └── compound_stmts.po            466 / 467 ( 99.0% translated)
-    ├── library/  61.17% done
+    ├── library/  61.14% done
     │   ├── asyncio-dev.po                16 /  54 ( 29.0% translated)
     │   ├── asyncio-eventloop.po         309 / 413 ( 74.0% translated)
     │   ├── asyncio-future.po              9 /  64 ( 14.0% translated)
@@ -88,7 +88,7 @@
     │   ├── unicodedata.po                24 /  43 ( 55.0% translated)
     │   ├── unittest.mock-examples.po     22 / 182 ( 12.0% translated)
     │   ├── unittest.mock.po             103 / 448 ( 22.0% translated)
-    │   ├── unittest.po                  281 / 537 ( 52.0% translated)
+    │   ├── unittest.po                  275 / 537 ( 51.0% translated)
     │   ├── urllib.parse.po              111 / 168 ( 66.0% translated)
     │   ├── urllib.request.po             49 / 303 ( 16.0% translated)
     │   ├── warnings.po                   83 / 140 ( 59.0% translated)
@@ -131,16 +131,16 @@
     │   ├── 3.5.po                       128 / 578 ( 22.0% translated)
     │   ├── 3.6.po                       233 / 544 ( 42.0% translated)
     │   ├── 3.7.po                       249 / 568 ( 43.0% translated)
-    │   └── changelog.po                 2718 / 12589 ( 21.0% translated)
+    │   └── changelog.po                 2719 / 12590 ( 21.0% translated)
     ├── deprecations/  99.08% done
     │   ├── index.po                     217 / 218 ( 99.0% translated)
     │   └── pending-removal-in-3.14.po    33 /  34 ( 97.0% translated)
-    └── c-api/  52.69% done
+    └── c-api/  52.72% done
         ├── exceptions.po                173 / 257 ( 67.0% translated)
         ├── frame.po                      35 /  51 ( 68.0% translated)
         ├── gcsupport.po                   9 /  52 ( 17.0% translated)
         ├── import.po                     33 /  62 ( 53.0% translated)
-        ├── init.po                      172 / 496 ( 34.0% translated)
+        ├── init.po                      173 / 496 ( 34.0% translated)
         ├── init_config.po               139 / 417 ( 33.0% translated)
         ├── long.po                       43 / 108 ( 39.0% translated)
         ├── memory.po                     59 / 201 ( 29.0% translated)
