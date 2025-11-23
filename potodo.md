@@ -1,11 +1,11 @@
-1 directory  61.84% done
-└── 3.14/  61.84% done
+1 directory  61.82% done
+└── 3.14/  61.82% done
     ├── installing/  100.00% done
     ├── distributing/  100.00% done
     ├── faq/  100.00% done
     ├── using/  100.00% done
     ├── reference/  100.00% done
-    ├── library/  61.44% done
+    ├── library/  61.40% done
     │   ├── asyncio-dev.po                16 /  54 ( 29.0% translated)
     │   ├── asyncio-eventloop.po         308 / 417 ( 73.0% translated)
     │   ├── asyncio-future.po              9 /  64 ( 14.0% translated)
@@ -76,6 +76,7 @@
     │   ├── socket.po                     54 / 384 ( 14.0% translated)
     │   ├── sqlite3.po                   116 / 478 ( 24.0% translated)
     │   ├── ssl.po                        63 / 547 ( 11.0% translated)
+    │   ├── stdtypes.po                  1502 / 1503 ( 99.0% translated)
     │   ├── struct.po                    102 / 204 ( 50.0% translated)
     │   ├── subprocess.po                150 / 311 ( 48.0% translated)
     │   ├── symtable.po                    7 /  73 (  9.0% translated)
@@ -89,7 +90,7 @@
     │   ├── unicodedata.po                26 /  43 ( 60.0% translated)
     │   ├── unittest.mock-examples.po     22 / 182 ( 12.0% translated)
     │   ├── unittest.mock.po             103 / 448 ( 22.0% translated)
-    │   ├── unittest.po                  291 / 560 ( 51.0% translated)
+    │   ├── unittest.po                  285 / 560 ( 50.0% translated)
     │   ├── urllib.parse.po              111 / 169 ( 65.0% translated)
     │   ├── urllib.request.po             49 / 295 ( 16.0% translated)
     │   ├── warnings.po                   85 / 151 ( 56.0% translated)
@@ -117,7 +118,7 @@
     │   ├── extending.po                  58 / 226 ( 25.0% translated)
     │   ├── newtypes.po                    8 / 117 (  6.0% translated)
     │   └── newtypes_tutorial.po         176 / 180 ( 97.0% translated)
-    ├── whatsnew/  50.78% done
+    ├── whatsnew/  50.77% done
     │   ├── 2.3.po                       327 / 387 ( 84.0% translated)
     │   ├── 2.4.po                       266 / 319 ( 83.0% translated)
     │   ├── 2.5.po                       388 / 452 ( 85.0% translated)
@@ -130,14 +131,14 @@
     │   ├── 3.5.po                       128 / 578 ( 22.0% translated)
     │   ├── 3.6.po                       232 / 544 ( 42.0% translated)
     │   ├── 3.7.po                       249 / 568 ( 43.0% translated)
-    │   └── changelog.po                 3462 / 13682 ( 25.0% translated)
+    │   └── changelog.po                 3462 / 13685 ( 25.0% translated)
     ├── deprecations/  100.00% done
-    └── c-api/  53.32% done
+    └── c-api/  53.34% done
         ├── exceptions.po                175 / 261 ( 67.0% translated)
         ├── frame.po                      34 /  51 ( 66.0% translated)
         ├── gcsupport.po                  18 /  67 ( 26.0% translated)
         ├── import.po                     33 /  66 ( 50.0% translated)
-        ├── init.po                      185 / 520 ( 35.0% translated)
+        ├── init.po                      186 / 520 ( 35.0% translated)
         ├── init_config.po               362 / 638 ( 56.0% translated)
         ├── long.po                       46 / 174 ( 26.0% translated)
         ├── memory.po                     63 / 208 ( 30.0% translated)
