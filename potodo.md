@@ -143,7 +143,7 @@
     │   ├── unicodedata.po                28.0% translated    9/32
     │   ├── unittest.mock-examples.po     12.0% translated  22/182
     │   ├── unittest.mock.po              23.0% translated 103/440
-    │   ├── unittest.po                   52.0% translated 282/536
+    │   ├── unittest.po                   52.0% translated 283/536
     │   ├── urllib.parse.po               65.0% translated 110/167
     │   ├── urllib.request.po             17.0% translated  51/300
     │   ├── warnings.po                   62.0% translated  82/131
