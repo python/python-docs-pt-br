@@ -1,5 +1,5 @@
-1 directory  60.76% done
-└── 3.13/  60.76% done
+1 directory  60.81% done
+└── 3.13/  60.81% done
     ├── c-api/  52.57% done
     │   ├── conversion.po                 86.0% translated   43/50
     │   ├── exceptions.po                 67.0% translated 173/257
@@ -41,7 +41,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  61.15% done
+    ├── library/  61.27% done
     │   ├── asyncio-dev.po                29.0% translated   16/54
     │   ├── asyncio-eventloop.po          74.0% translated 309/413
     │   ├── asyncio-future.po             14.0% translated    9/64
@@ -53,7 +53,7 @@
     │   ├── asyncio-sync.po               12.0% translated  12/100
     │   ├── asyncio-task.po               52.0% translated 141/268
     │   ├── base64.po                     21.0% translated   15/71
-    │   ├── bdb.po                        11.0% translated  13/112
+    │   ├── bdb.po                        59.0% translated  67/112
     │   ├── binascii.po                   60.0% translated   23/38
     │   ├── codecs.po                     44.0% translated 250/558
     │   ├── concurrent.futures.po         13.0% translated  14/101
