@@ -1,12 +1,12 @@
-1 directory  64.09% done
-└── 3.11/  64.09% done
-    ├── c-api/  52.28% done
+1 directory  64.17% done
+└── 3.11/  64.17% done
+    ├── c-api/  52.72% done
     │   ├── exceptions.po                 63.0% translated 219/347
     │   ├── float.po                      97.0% translated   34/35
     │   ├── frame.po                      95.0% translated   23/24
     │   ├── gcsupport.po                  21.0% translated    9/42
-    │   ├── import.po                     73.0% translated   39/53
-    │   ├── init.po                       34.0% translated 128/372
+    │   ├── import.po                     77.0% translated   41/53
+    │   ├── init.po                       36.0% translated 135/372
     │   ├── init_config.po                34.0% translated 138/396
     │   ├── long.po                       57.0% translated   34/59
     │   ├── memory.po                     31.0% translated  59/189
@@ -54,14 +54,14 @@
     ├── install/  71.32% done
     │   └── index.po                      73.0% translated 166/226
     ├── installing/  100.00% done
-    ├── library/  57.12% done
+    ├── library/  57.21% done
     │   ├── _thread.po                    96.0% translated   49/51
     │   ├── abc.po                        97.0% translated   48/49
     │   ├── argparse.po                   91.0% translated 305/335
     │   ├── array.po                      96.0% translated   80/83
     │   ├── ast.po                        98.0% translated 224/228
     │   ├── asynchat.po                   17.0% translated    6/35
-    │   ├── asyncio-dev.po                38.0% translated   16/42
+    │   ├── asyncio-dev.po                59.0% translated   25/42
     │   ├── asyncio-eventloop.po          86.0% translated 320/371
     │   ├── asyncio-future.po             14.0% translated    9/61
     │   ├── asyncio-platforms.po          24.0% translated    6/25
@@ -75,7 +75,7 @@
     │   ├── asyncore.po                   18.0% translated   10/54
     │   ├── audioop.po                    10.0% translated    5/50
     │   ├── base64.po                     35.0% translated   21/60
-    │   ├── bdb.po                        67.0% translated  74/110
+    │   ├── bdb.po                        90.0% translated  99/110
     │   ├── binascii.po                   57.0% translated   23/40
     │   ├── bisect.po                     90.0% translated   27/30
     │   ├── calendar.po                   93.0% translated   87/93
