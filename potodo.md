@@ -34,7 +34,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  61.65% done
+    ├── library/  61.66% done
     │   ├── asyncio-dev.po                29.0% translated   16/54
     │   ├── asyncio-eventloop.po          73.0% translated 308/417
     │   ├── asyncio-future.po             14.0% translated    9/64
@@ -47,7 +47,7 @@
     │   ├── asyncio-sync.po               12.0% translated  12/100
     │   ├── asyncio-task.po               51.0% translated 140/273
     │   ├── base64.po                     21.0% translated   15/71
-    │   ├── bdb.po                        77.0% translated  92/119
+    │   ├── bdb.po                        78.0% translated  93/119
     │   ├── binascii.po                   60.0% translated   23/38
     │   ├── codecs.po                     44.0% translated 250/563
     │   ├── concurrent.futures.po         10.0% translated  12/120
