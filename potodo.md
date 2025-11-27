@@ -1,14 +1,12 @@
-1 directory  60.81% done
-└── 3.13/  60.81% done
-    ├── c-api/  52.57% done
-    │   ├── conversion.po                 86.0% translated   43/50
+1 directory  60.95% done
+└── 3.13/  60.95% done
+    ├── c-api/  53.63% done
     │   ├── exceptions.po                 67.0% translated 173/257
     │   ├── frame.po                      68.0% translated   35/51
     │   ├── gcsupport.po                  17.0% translated    9/52
-    │   ├── import.po                     53.0% translated   33/62
-    │   ├── init.po                       34.0% translated 173/496
+    │   ├── import.po                     82.0% translated   51/62
+    │   ├── init.po                       35.0% translated 194/542
     │   ├── init_config.po                33.0% translated 139/417
-    │   ├── intro.po                      97.0% translated 164/168
     │   ├── long.po                       39.0% translated  43/108
     │   ├── memory.po                     29.0% translated  59/201
     │   ├── module.po                     45.0% translated  63/140
@@ -31,8 +29,7 @@
     │   ├── newtypes.po                    6.0% translated   8/117
     │   └── newtypes_tutorial.po          88.0% translated 156/177
     ├── faq/  100.00% done
-    ├── howto/  64.60% done
-    │   ├── a-conceptual-overview-of-asyncio.po  98.0% translated   92/93
+    ├── howto/  64.66% done
     │   ├── descriptor.po                 81.0% translated 187/230
     │   ├── enum.po                       37.0% translated 122/327
     │   ├── functional.po                 63.0% translated 159/252
@@ -41,8 +38,8 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  61.27% done
-    │   ├── asyncio-dev.po                29.0% translated   16/54
+    ├── library/  61.43% done
+    │   ├── asyncio-dev.po                50.0% translated   27/54
     │   ├── asyncio-eventloop.po          74.0% translated 309/413
     │   ├── asyncio-future.po             14.0% translated    9/64
     │   ├── asyncio-platforms.po          23.0% translated    6/26
@@ -53,7 +50,7 @@
     │   ├── asyncio-sync.po               12.0% translated  12/100
     │   ├── asyncio-task.po               52.0% translated 141/268
     │   ├── base64.po                     21.0% translated   15/71
-    │   ├── bdb.po                        59.0% translated  67/112
+    │   ├── bdb.po                        98.0% translated 110/112
     │   ├── binascii.po                   60.0% translated   23/38
     │   ├── codecs.po                     44.0% translated 250/558
     │   ├── concurrent.futures.po         13.0% translated  14/101
@@ -108,7 +105,7 @@
     │   ├── socket.po                     15.0% translated  56/368
     │   ├── sqlite3.po                    24.0% translated 116/479
     │   ├── ssl.po                        11.0% translated  63/545
-    │   ├── stdtypes.po                   99.0% translated 1382/1395
+    │   ├── stdtypes.po                   99.0% translated 1394/1395
     │   ├── struct.po                     49.0% translated  96/195
     │   ├── subprocess.po                 45.0% translated 150/327
     │   ├── symtable.po                    9.0% translated    6/65
@@ -157,4 +154,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  21.0% translated 2719/12592
+        └── changelog.po                  21.0% translated 2721/12592
