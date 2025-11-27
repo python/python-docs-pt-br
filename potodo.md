@@ -1,15 +1,12 @@
-1 directory  61.86% done
-└── 3.14/  61.86% done
-    ├── sphinx.po                         98.0% translated 104/106
-    ├── c-api/  53.09% done
-    │   ├── conversion.po                 86.0% translated   43/50
+1 directory  61.97% done
+└── 3.14/  61.97% done
+    ├── c-api/  53.63% done
     │   ├── exceptions.po                 66.0% translated 175/262
     │   ├── frame.po                      66.0% translated   34/51
     │   ├── gcsupport.po                  26.0% translated   18/67
-    │   ├── import.po                     49.0% translated   33/67
+    │   ├── import.po                     76.0% translated   51/67
     │   ├── init.po                       35.0% translated 186/528
     │   ├── init_config.po                56.0% translated 362/638
-    │   ├── intro.po                      97.0% translated 166/170
     │   ├── long.po                       26.0% translated  46/174
     │   ├── memory.po                     30.0% translated  63/208
     │   ├── module.po                     36.0% translated  49/134
@@ -28,8 +25,7 @@
     │   ├── extending.po                  25.0% translated  58/226
     │   └── newtypes.po                    6.0% translated   8/117
     ├── faq/  100.00% done
-    ├── howto/  66.08% done
-    │   ├── a-conceptual-overview-of-asyncio.po  98.0% translated   92/93
+    ├── howto/  66.14% done
     │   ├── descriptor.po                 81.0% translated 187/230
     │   ├── enum.po                       37.0% translated 122/327
     │   ├── functional.po                 63.0% translated 159/252
@@ -38,7 +34,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  61.53% done
+    ├── library/  61.65% done
     │   ├── asyncio-dev.po                29.0% translated   16/54
     │   ├── asyncio-eventloop.po          73.0% translated 308/417
     │   ├── asyncio-future.po             14.0% translated    9/64
@@ -51,7 +47,7 @@
     │   ├── asyncio-sync.po               12.0% translated  12/100
     │   ├── asyncio-task.po               51.0% translated 140/273
     │   ├── base64.po                     21.0% translated   15/71
-    │   ├── bdb.po                        50.0% translated  60/119
+    │   ├── bdb.po                        77.0% translated  92/119
     │   ├── binascii.po                   60.0% translated   23/38
     │   ├── codecs.po                     44.0% translated 250/563
     │   ├── concurrent.futures.po         10.0% translated  12/120
@@ -109,7 +105,6 @@
     │   ├── socket.po                     14.0% translated  54/384
     │   ├── sqlite3.po                    24.0% translated 116/478
     │   ├── ssl.po                        11.0% translated  63/547
-    │   ├── stdtypes.po                   99.0% translated 1498/1511
     │   ├── struct.po                     50.0% translated 102/204
     │   ├── subprocess.po                 48.0% translated 150/311
     │   ├── symtable.po                    9.0% translated    7/73
@@ -140,18 +135,17 @@
     ├── reference/  100.00% done
     ├── tutorial/  100.00% done
     ├── using/  100.00% done
-    └── whatsnew/  50.76% done
+    └── whatsnew/  50.79% done
         ├── 2.3.po                        84.0% translated 327/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
         ├── 2.6.po                        81.0% translated 510/626
         ├── 3.0.po                        90.0% translated 192/212
         ├── 3.1.po                        86.0% translated 114/132
-        ├── 3.14.po                       99.0% translated 1043/1045
         ├── 3.2.po                        11.0% translated  66/576
         ├── 3.3.po                        19.0% translated 134/682
         ├── 3.4.po                        96.0% translated 497/517
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  25.0% translated 3463/13689
+        └── changelog.po                  25.0% translated 3469/13689

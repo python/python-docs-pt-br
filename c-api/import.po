@@ -5,6 +5,7 @@
 #
 # Translators:
 # python-doc bot, 2025
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
 #
 #, fuzzy
 msgid ""
@@ -13,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-25 14:15+0000\n"
 "PO-Revision-Date: 2025-09-16 00:00+0000\n"
-"Last-Translator: python-doc bot, 2025\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -32,6 +33,9 @@ msgid ""
 "This is a wrapper around :c:func:`PyImport_Import()` which takes a :c:expr:"
 "`const char *` as an argument instead of a :c:expr:`PyObject *`."
 msgstr ""
+"Esta é uma função auxiliar em torno de :c:func:`PyImport_Import()`, que "
+"recebe um :c:expr:`const char *` como argumento em vez de um :c:expr:"
+"`PyObject *`."
 
 #: ../../c-api/import.rst:21
 msgid "This function is a deprecated alias of :c:func:`PyImport_ImportModule`."
@@ -52,7 +56,7 @@ msgstr ""
 
 #: ../../c-api/import.rst:29
 msgid "Use :c:func:`PyImport_ImportModule` instead."
-msgstr ""
+msgstr "Use :c:func:`PyImport_ImportModule`."
 
 #: ../../c-api/import.rst:37
 msgid ""
@@ -134,7 +138,7 @@ msgstr ""
 
 #: ../../c-api/import.rst:91
 msgid "Return the module object corresponding to a module name."
-msgstr ""
+msgstr "Retorna o objeto do módulo correspondente ao nome do módulo."
 
 #: ../../c-api/import.rst:93
 msgid ""
@@ -142,16 +146,21 @@ msgid ""
 "modules dictionary if there's one there, and if not, create a new one and "
 "insert it in the modules dictionary."
 msgstr ""
+"O argumento *name* pode ter o formato ``pacote.módulo``. Primeiro, verifica "
+"se existe um módulo no dicionário de módulos e, caso contrário, cria um novo "
+"e insere-o no dicionário de módulos."
 
 #: ../../c-api/import.rst:97
 msgid ""
 "Return a :term:`strong reference` to the module on success. Return ``NULL`` "
 "with an exception set on failure."
 msgstr ""
+"Retorna uma :term:`referência forte` ao módulo em caso de sucesso. Retorna "
+"``NULL`` com uma exceção definida em caso de falha."
 
 #: ../../c-api/import.rst:100
 msgid "The module name *name* is decoded from UTF-8."
-msgstr ""
+msgstr "O nome do módulo *name* é decodificado de UTF-8."
 
 #: ../../c-api/import.rst:102
 msgid ""
@@ -161,18 +170,27 @@ msgid ""
 "structures implied by a dotted name for *name* are not created if not "
 "already present."
 msgstr ""
+"Esta função não carrega nem importa o módulo; se o módulo ainda não estiver "
+"carregado, você receberá um objeto de módulo vazio. Use :c:func:"
+"`PyImport_ImportModule` ou uma de suas variantes para importar um módulo. "
+"Estruturas de pacotes implícitas por um nome com pontos para *name* não são "
+"criadas se ainda não existirem."
 
 #: ../../c-api/import.rst:113
 msgid ""
 "Similar to :c:func:`PyImport_AddModuleRef`, but return a :term:`borrowed "
 "reference` and *name* is a Python :class:`str` object."
 msgstr ""
+"Semelhante a :c:func:`PyImport_AddModuleRef`, mas retorna uma :term:"
+"`referência emprestada` e *name* é um objeto Python :class:`str`."
 
 #: ../../c-api/import.rst:121
 msgid ""
 "Similar to :c:func:`PyImport_AddModuleRef`, but return a :term:`borrowed "
 "reference`."
 msgstr ""
+"Semelhante a :c:func:`PyImport_AddModuleRef`, mas retorna uma :term:"
+"`referência emprestada`."
 
 #: ../../c-api/import.rst:129
 msgid ""
@@ -187,6 +205,16 @@ msgid ""
 "know that the module object is an unknown (and probably damaged with respect "
 "to the module author's intents) state."
 msgstr ""
+"Dado um nome de módulo (possivelmente no formato ``pacote.módulo``) e um "
+"objeto código lido de um arquivo bytecode Python ou obtido da função "
+"embutida :func:`compile`, carrea o módulo. Retorna uma nova referência ao "
+"objeto do módulo ou ``NULL`` com uma exceção definida se ocorrer um erro. "
+"*name* é removido de :data:`sys.modules` em casos de erro, mesmo que *name* "
+"já estivesse em :data:`sys.modules` na entrada de :c:func:"
+"`PyImport_ExecCodeModule`. Deixar módulos incompletamente inicializados em :"
+"data:`sys.modules` é perigoso, pois as importações desses módulos não têm "
+"como saber que o objeto do módulo está em um estado desconhecido (e "
+"provavelmente corrompido em relação às intenções do autor do módulo)."
 
 #: ../../c-api/import.rst:139
 msgid ""
@@ -195,6 +223,11 @@ msgid ""
 "will be set to the module's :attr:`!__loader__` (if set) and to an instance "
 "of :class:`~importlib.machinery.SourceFileLoader` otherwise."
 msgstr ""
+"Os atributos :attr:`~module.__spec__` e :attr:`~module.__loader__` do módulo "
+"serão definidos, caso ainda não estejam, com os valores apropriados. O "
+"carregador do spec será definido como o atributo :attr:`!__loader__` do "
+"módulo (se definido) e, caso contrário, como uma instância de :class:"
+"`~importlib.machinery.SourceFileLoader`."
 
 #: ../../c-api/import.rst:144
 msgid ""
@@ -202,6 +235,9 @@ msgid ""
 "object's :attr:`~codeobject.co_filename`.  If applicable, :attr:`~module."
 "__cached__` will also be set."
 msgstr ""
+"O atributo :attr:`~module.__file__` do módulo será definido para o :attr:"
+"`~codeobject.co_filename` do objeto código. Se aplicável, :attr:`~module."
+"__cached__` também será definido."
 
 #: ../../c-api/import.rst:148
 msgid ""
@@ -232,12 +268,17 @@ msgid ""
 "The setting of :attr:`~module.__cached__` and :attr:`~module.__loader__` is "
 "deprecated. See :class:`~importlib.machinery.ModuleSpec` for alternatives."
 msgstr ""
+"A configuração de :attr:`~module.__cached__` e :attr:`~module.__loader__` "
+"está descontinuada. Consulte :class:`~importlib.machinery.ModuleSpec` para "
+"alternativas."
 
 #: ../../c-api/import.rst:165
 msgid ""
 "Like :c:func:`PyImport_ExecCodeModule`, but the :attr:`~module.__file__` "
 "attribute of the module object is set to *pathname* if it is non-``NULL``."
 msgstr ""
+"Como :c:func:`PyImport_ExecCodeModule`, mas o atributo :attr:`~module."
+"__file__` do objeto módulo é definido como *pathname*  se não for ``NULL``."
 
 #: ../../c-api/import.rst:168
 msgid "See also :c:func:`PyImport_ExecCodeModuleWithPathnames`."
@@ -249,12 +290,17 @@ msgid ""
 "attribute of the module object is set to *cpathname* if it is non-``NULL``.  "
 "Of the three functions, this is the preferred one to use."
 msgstr ""
+"Como :c:func:`PyImport_ExecCodeModuleEx`, mas o atributo :attr:`~module."
+"__cached__` do objeto módulo é definido como *cpathname*  se não for "
+"``NULL``. Das três funções, esta é a preferida para usar."
 
 #: ../../c-api/import.rst:179
 msgid ""
 "Setting :attr:`~module.__cached__` is deprecated. See :class:`~importlib."
 "machinery.ModuleSpec` for alternatives."
 msgstr ""
+"A configuração de :attr:`~module.__cached__` está descontinuada. Consulte :"
+"class:`~importlib.machinery.ModuleSpec` para alternativas."
 
 #: ../../c-api/import.rst:186
 msgid ""
@@ -273,10 +319,12 @@ msgid ""
 "Uses :func:`!imp.source_from_cache` in calculating the source path if only "
 "the bytecode path is provided."
 msgstr ""
+"Usa :func:`!imp.source_from_cache` no cálculo do caminho de origem se apenas "
+"o caminho do bytecode for fornecido."
 
 #: ../../c-api/import.rst:195
 msgid "No longer uses the removed :mod:`!imp` module."
-msgstr ""
+msgstr "Não usa mais o módulo :mod:`!imp` removido."
 
 #: ../../c-api/import.rst:201
 msgid ""
