@@ -1,11 +1,11 @@
-1 directory  65.91% done
-└── 3.12/  65.91% done
-    ├── c-api/  51.41% done
+1 directory  66.00% done
+└── 3.12/  66.00% done
+    ├── c-api/  51.99% done
     │   ├── exceptions.po                 63.0% translated 232/366
     │   ├── frame.po                      80.0% translated   29/36
     │   ├── gcsupport.po                  17.0% translated    9/52
-    │   ├── import.po                     63.0% translated   36/57
-    │   ├── init.po                       34.0% translated 151/434
+    │   ├── import.po                     80.0% translated   46/57
+    │   ├── init.po                       36.0% translated 160/434
     │   ├── init_config.po                33.0% translated 136/410
     │   ├── long.po                       50.0% translated   35/69
     │   ├── memory.po                     30.0% translated  59/195
@@ -38,11 +38,11 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  59.25% done
+    ├── library/  59.35% done
     │   ├── 2to3.po                       91.0% translated 121/132
     │   ├── array.po                      95.0% translated   80/84
     │   ├── ast.po                        83.0% translated 255/306
-    │   ├── asyncio-dev.po                29.0% translated   16/55
+    │   ├── asyncio-dev.po                49.0% translated   27/55
     │   ├── asyncio-eventloop.po          80.0% translated 312/390
     │   ├── asyncio-future.po             14.0% translated    9/64
     │   ├── asyncio-platforms.po          23.0% translated    6/26
@@ -54,7 +54,7 @@
     │   ├── asyncio-task.po               56.0% translated 143/254
     │   ├── audioop.po                     9.0% translated    5/53
     │   ├── base64.po                     33.0% translated   20/60
-    │   ├── bdb.po                        70.0% translated  78/111
+    │   ├── bdb.po                        98.0% translated 109/111
     │   ├── binascii.po                   56.0% translated   23/41
     │   ├── cgi.po                        23.0% translated  29/126
     │   ├── chunk.po                      35.0% translated   14/39
