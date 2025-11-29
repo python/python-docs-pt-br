@@ -1,11 +1,11 @@
-1 directory  62.04% done
-└── 3.14/  62.04% done
-    ├── c-api/  54.09% done
+1 directory  62.11% done
+└── 3.14/  62.11% done
+    ├── c-api/  55.02% done
     │   ├── exceptions.po                 66.0% translated 175/262
     │   ├── frame.po                      66.0% translated   34/51
     │   ├── gcsupport.po                  26.0% translated   18/67
     │   ├── import.po                     76.0% translated   51/67
-    │   ├── init.po                       36.0% translated 212/575
+    │   ├── init.po                       42.0% translated 246/575
     │   ├── init_config.po                56.0% translated 362/638
     │   ├── long.po                       26.0% translated  46/174
     │   ├── memory.po                     30.0% translated  63/208
@@ -127,7 +127,7 @@
     │   ├── xml.dom.minidom.po            14.0% translated    8/56
     │   ├── xml.dom.po                    28.0% translated  67/235
     │   ├── xml.etree.elementtree.po      27.0% translated  74/266
-    │   ├── xml.sax.handler.po            18.0% translated  19/103
+    │   ├── xml.sax.handler.po            19.0% translated  20/104
     │   ├── xml.sax.po                     9.0% translated    3/32
     │   ├── xml.sax.reader.po              2.0% translated    2/75
     │   ├── xmlrpc.client.po              48.0% translated  55/113
@@ -135,7 +135,7 @@
     ├── reference/  100.00% done
     ├── tutorial/  100.00% done
     ├── using/  100.00% done
-    └── whatsnew/  50.80% done
+    └── whatsnew/  50.82% done
         ├── 2.3.po                        84.0% translated 327/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -148,4 +148,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  25.0% translated 3473/13693
+        └── changelog.po                  25.0% translated 3479/13699
