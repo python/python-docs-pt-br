@@ -1,12 +1,12 @@
-1 directory  64.17% done
-└── 3.11/  64.17% done
-    ├── c-api/  52.72% done
+1 directory  64.22% done
+└── 3.11/  64.22% done
+    ├── c-api/  53.46% done
     │   ├── exceptions.po                 63.0% translated 219/347
     │   ├── float.po                      97.0% translated   34/35
     │   ├── frame.po                      95.0% translated   23/24
     │   ├── gcsupport.po                  21.0% translated    9/42
     │   ├── import.po                     77.0% translated   41/53
-    │   ├── init.po                       36.0% translated 135/372
+    │   ├── init.po                       41.0% translated 155/372
     │   ├── init_config.po                34.0% translated 138/396
     │   ├── long.po                       57.0% translated   34/59
     │   ├── memory.po                     31.0% translated  59/189
