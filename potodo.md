@@ -1,11 +1,11 @@
-1 directory  66.02% done
-└── 3.12/  66.02% done
-    ├── c-api/  51.99% done
+1 directory  66.07% done
+└── 3.12/  66.07% done
+    ├── c-api/  52.74% done
     │   ├── exceptions.po                 63.0% translated 232/366
     │   ├── frame.po                      80.0% translated   29/36
     │   ├── gcsupport.po                  17.0% translated    9/52
     │   ├── import.po                     80.0% translated   46/57
-    │   ├── init.po                       36.0% translated 160/434
+    │   ├── init.po                       42.0% translated 185/434
     │   ├── init_config.po                33.0% translated 136/410
     │   ├── long.po                       50.0% translated   35/69
     │   ├── memory.po                     30.0% translated  59/195
@@ -154,7 +154,7 @@
     │   ├── xml.dom.minidom.po            12.0% translated    7/56
     │   ├── xml.dom.po                    28.0% translated  67/235
     │   ├── xml.etree.elementtree.po      27.0% translated  74/265
-    │   ├── xml.sax.handler.po            18.0% translated  19/103
+    │   ├── xml.sax.handler.po            19.0% translated  20/103
     │   ├── xml.sax.po                     6.0% translated    2/32
     │   ├── xml.sax.reader.po              2.0% translated    2/75
     │   ├── xmlrpc.client.po              48.0% translated  55/113
