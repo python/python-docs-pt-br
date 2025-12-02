@@ -1,5 +1,5 @@
-1 directory  64.22% done
-└── 3.11/  64.22% done
+1 directory  64.29% done
+└── 3.11/  64.29% done
     ├── c-api/  53.46% done
     │   ├── exceptions.po                 63.0% translated 219/347
     │   ├── float.po                      97.0% translated   34/35
@@ -54,7 +54,7 @@
     ├── install/  71.32% done
     │   └── index.po                      73.0% translated 166/226
     ├── installing/  100.00% done
-    ├── library/  57.21% done
+    ├── library/  57.33% done
     │   ├── _thread.po                    96.0% translated   49/51
     │   ├── abc.po                        97.0% translated   48/49
     │   ├── argparse.po                   91.0% translated 305/335
@@ -66,7 +66,7 @@
     │   ├── asyncio-future.po             14.0% translated    9/61
     │   ├── asyncio-platforms.po          24.0% translated    6/25
     │   ├── asyncio-policy.po             14.0% translated   10/67
-    │   ├── asyncio-protocol.po           13.0% translated  25/184
+    │   ├── asyncio-protocol.po           14.0% translated  26/184
     │   ├── asyncio-runner.po             21.0% translated    7/33
     │   ├── asyncio-stream.po             81.0% translated   71/87
     │   ├── asyncio-sync.po               13.0% translated   12/89
@@ -141,7 +141,7 @@
     │   ├── io.po                         19.0% translated  52/262
     │   ├── ipaddress.po                  99.0% translated 155/156
     │   ├── itertools.po                  83.0% translated 131/157
-    │   ├── logging.config.po             12.0% translated  17/134
+    │   ├── logging.config.po             31.0% translated  42/134
     │   ├── logging.handlers.po           19.0% translated  51/268
     │   ├── logging.po                    28.0% translated 100/351
     │   ├── mailbox.po                     7.0% translated  20/285
