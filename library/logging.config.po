@@ -5,6 +5,7 @@
 #
 # Translators:
 # python-doc bot, 2025
+# Rainer Terroso, 2025
 #
 #, fuzzy
 msgid ""
@@ -13,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-01 14:16+0000\n"
 "PO-Revision-Date: 2025-09-16 00:01+0000\n"
-"Last-Translator: python-doc bot, 2025\n"
+"Last-Translator: Rainer Terroso, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -33,7 +34,7 @@ msgstr "**Código-fonte:** :source:`Lib/logging/config.py`"
 
 #: ../../library/logging.config.rst:12
 msgid "Important"
-msgstr ""
+msgstr "Importante"
 
 #: ../../library/logging.config.rst:14
 msgid ""
@@ -70,19 +71,19 @@ msgid ""
 "main API (defined in :mod:`logging` itself) and defining handlers which are "
 "declared either in :mod:`logging` or :mod:`logging.handlers`."
 msgstr ""
-"Os seguintes função configuram o módulo  logging. Elas estão localizadas no "
+"As funções a seguir configuram o módulo logging. Elas estão localizadas no "
 "módulo :mod:`logging.config`. Seu uso é opcional --- você pode configurar o "
-"módulo logging usando essas funções ou fazendo chamadas para o API principal "
+"módulo logging usando essas funções ou fazendo chamadas para a API principal "
 "(definido no próprio :mod:`logging`) e definindo manipuladores que são "
-"declarados em :mod:`logging` ou :mod:`logging.handlers`."
+"declarados em :mod:`logging` ou em :mod:`logging.handlers`."
 
 #: ../../library/logging.config.rst:38
 msgid ""
 "Takes the logging configuration from a dictionary.  The contents of this "
 "dictionary are described in :ref:`logging-config-dictschema` below."
 msgstr ""
-"Obtém a configuração de logging de um dicionário. O conteúdo desse "
-"dicionário está descrito em :ref:`logging-config-dictschema` abaixo."
+"Obtém a configuração de logging de um dicionário. Os conteúdos desse "
+"dicionário estão descritos abaixo em :ref:`logging-config-dictschema`."
 
 #: ../../library/logging.config.rst:42
 msgid ""
@@ -91,32 +92,39 @@ msgid ""
 "`ImportError` with a suitably descriptive message.  The following is a "
 "(possibly incomplete) list of conditions which will raise an error:"
 msgstr ""
+"Se um erro for encontrado durante a configuração, esta função levantará uma "
+"exceção :exc:`ValueError`, :exc:`TypeError`, :exc:`AttributeError` ou :exc:"
+"`ImportError` com uma mensagem adequadamente descritiva.  A seguir está uma "
+"lista (possivelmente incompleta) de condições que levantarão um erro:"
 
 #: ../../library/logging.config.rst:48
 msgid ""
 "A ``level`` which is not a string or which is a string not corresponding to "
 "an actual logging level."
 msgstr ""
+"Um ``level`` que não seja uma string ou que seja uma string que não "
+"corresponda a um nível de logging atual"
 
 #: ../../library/logging.config.rst:50
 msgid "A ``propagate`` value which is not a boolean."
-msgstr ""
+msgstr "Um valor ``propagate`` que não seja um booleano."
 
 #: ../../library/logging.config.rst:51
 msgid "An id which does not have a corresponding destination."
-msgstr ""
+msgstr "Um id que não tenha um destino correspondente."
 
 #: ../../library/logging.config.rst:52
 msgid "A non-existent handler id found during an incremental call."
 msgstr ""
+"Um id de manipulador inexistente encontrado durante uma chamada incremental."
 
 #: ../../library/logging.config.rst:53
 msgid "An invalid logger name."
-msgstr ""
+msgstr "Um nome de logger inválido."
 
 #: ../../library/logging.config.rst:54
 msgid "Inability to resolve to an internal or external object."
-msgstr ""
+msgstr "Incapacidade de resolver para um objeto interno ou externo."
 
 #: ../../library/logging.config.rst:56
 msgid ""
@@ -127,6 +135,12 @@ msgid ""
 "`DictConfigurator`. You can replace the value of :attr:`dictConfigClass` "
 "with a suitable implementation of your own."
 msgstr ""
+"A análise é realizada pela classe :class:`DictConfigurator`, cujo construtor "
+"recebe o dicionário usado para a configuração e possui um método :meth:"
+"`configure`. O módulo :mod:`logging.config` tem um atributo chamável :attr:"
+"`dictConfigClass` que é inicialmente definido como :class:"
+"`DictConfigurator`. Você pode substituir o valor de :attr:`dictConfigClass` "
+"por uma implementação adequada de sua autoria."
 
 #: ../../library/logging.config.rst:64
 msgid ""
@@ -134,12 +148,17 @@ msgid ""
 "dictionary, and then calls the :meth:`configure` method on the returned "
 "object to put the configuration into effect::"
 msgstr ""
+"A função :func:`dictConfig` chama :attr:`dictConfigClass` passando o "
+"dicionário especificado e, em seguida, chama o método :meth:`configure` no "
+"objeto devolvido para colocar a configuração em efeito::"
 
 #: ../../library/logging.config.rst:68
 msgid ""
 "def dictConfig(config):\n"
 "    dictConfigClass(config).configure()"
 msgstr ""
+"def dictConfig(config):\n"
+"    dictConfigClass(config).configure()"
 
 #: ../../library/logging.config.rst:71
 msgid ""
@@ -150,6 +169,12 @@ msgid ""
 "func:`dictConfig` could be called exactly as in the default, uncustomized "
 "state."
 msgstr ""
+"Por exemplo, uma subclasse de :class:`DictConfigurator` poderia chamar "
+"``DictConfigurator.__init__()`` no seu próprio :meth:`__init__`, em seguida, "
+"configurar prefixos personalizados que seriam utilizáveis na chamada :meth:"
+"`configure` subsequente.  :attr:`dictConfigClass` seria ligado a esta nova "
+"subclasse, e então :func:`dictConfig` poderia ser chamado exatamente como no "
+"estado padrão, sem personalização."
 
 #: ../../library/logging.config.rst:82
 msgid ""
@@ -160,12 +185,20 @@ msgid ""
 "the developer provides a mechanism to present the choices and load the "
 "chosen configuration)."
 msgstr ""
+"Lê a configuração de logging de um arquivo no formato :mod:`configparser`. O "
+"formato do arquivo deve ser como descrito em :ref:`logging-config-"
+"fileformat`. Esta função pode ser chamada várias vezes a partir de uma "
+"aplicação, permitindo que um usuário final selecione entre várias "
+"configurações pré-prontas (se o desenvolvedor fornecer um mecanismo para "
+"apresentar as escolhas e carregar a configuração escolhida)."
 
 #: ../../library/logging.config.rst:90
 msgid ""
 "It will raise :exc:`FileNotFoundError` if the file doesn't exist and :exc:"
 "`RuntimeError` if the file is invalid or empty."
 msgstr ""
+"A função levantará uma exceção :exc:`FileNotFoundError` se o arquivo não "
+"existir e :exc:`RuntimeError` se o arquivo for inválido ou vazio."
 
 #: ../../library/logging.config.rst:0
 msgid "Parameters"
@@ -182,12 +215,23 @@ msgid ""
 "ConfigParser.read_file`; otherwise, it is assumed to be a filename and "
 "passed to :meth:`~configparser.ConfigParser.read`."
 msgstr ""
+"Um nome de arquivo, ou um objeto arquivo, ou uma instância derivada de :"
+"class:`~configparser.RawConfigParser`. Se uma instância derivada de :class:`!"
+"RawConfigParser` for passada, ela é usada como está. Caso contrário, uma "
+"instância de :class:`~configparser.ConfigParser` é criada, e a configuração "
+"é lida por ela a partir do objeto passado em ``fname``. Se esse objeto tiver "
+"um método :meth:`readline`, ele é presumido como um objeto arquivo ou "
+"similar e lido usando :meth:`~configparser.ConfigParser.read_file`; caso "
+"contrário, é presumido como um nome de arquivo e passado para :meth:"
+"`~configparser.ConfigParser.read`."
 
 #: ../../library/logging.config.rst:106
 msgid ""
 "Defaults to be passed to the :class:`!ConfigParser` can be specified in this "
 "argument."
 msgstr ""
+"Os defaults a serem passados para o :class:`!ConfigParser` podem ser "
+"especificados nesse argumento."
 
 #: ../../library/logging.config.rst:109
 msgid ""
@@ -197,22 +241,32 @@ msgid ""
 "root loggers unless they or their ancestors are explicitly named in the "
 "logging configuration."
 msgstr ""
+"Se especificado como ``False``, os loggers que existem quando esta chamada é "
+"feita são deixados habilitados. O padrão é ``True`` porque isso habilita o "
+"comportamento antigo de forma retrocompatível. Este comportamento é para "
+"desabilitar quaisquer loggers não-raiz existentes, a menos que eles ou seus "
+"ancestrais sejam explicitamente nomeados na configuração de logging."
 
 #: ../../library/logging.config.rst:118
 msgid "The encoding used to open file when *fname* is filename."
 msgstr ""
+"A codificação usada para abrir o arquivo quando fname é um nome de arquivo."
 
 #: ../../library/logging.config.rst:120
 msgid ""
 "An instance of a subclass of :class:`~configparser.RawConfigParser` is   now "
 "accepted as a value for ``fname``. This facilitates:"
 msgstr ""
+"Uma instância de uma subclasse de :class:`~configparser.RawConfigParser` "
+"agora é aceita como um valor para ``fname``. Isso facilita:"
 
 #: ../../library/logging.config.rst:124
 msgid ""
 "Use of a configuration file where logging configuration is just part of the "
 "overall application configuration."
 msgstr ""
+"Uso de um arquivo de configuração onde a configuração de logging é apenas "
+"parte da configuração geral da aplicação."
 
 #: ../../library/logging.config.rst:126
 msgid ""
@@ -220,16 +274,22 @@ msgid ""
 "application (e.g. based on command-line parameters or other aspects of the "
 "runtime environment) before being passed to ``fileConfig``."
 msgstr ""
+"Uso de uma configuração lida de um arquivo, e então modificada pela "
+"aplicação que a usa (por exemplo, baseada em parâmetros de linha de comando "
+"ou outros aspectos do ambiente de tempo de execução) antes de ser passada "
+"para ``fileConfig``."
 
 #: ../../library/logging.config.rst:130
 msgid "Added the *encoding* parameter."
-msgstr ""
+msgstr "Adicionado o parâmetro encoding."
 
 #: ../../library/logging.config.rst:133
 msgid ""
 "An exception will be thrown if the provided file doesn't exist or is invalid "
 "or empty."
 msgstr ""
+"Uma exceção será levantada se o arquivo fornecido não existir ou for "
+"inválido ou for vazio."
 
 #: ../../library/logging.config.rst:139
 msgid ""
@@ -242,6 +302,14 @@ msgid ""
 "meth:`~threading.Thread.join` when appropriate. To stop the server, call :"
 "func:`stopListening`."
 msgstr ""
+"Inicia um servidor soquete na porta especificada e escuta por novas "
+"configurações. Se nenhuma porta for especificada, o padrão do módulo :const:"
+"`DEFAULT_LOGGING_CONFIG_PORT` é usado. As configurações de logging serão "
+"enviadas como um arquivo adequado para processamento por :func:`dictConfig` "
+"ou:func:`fileConfig`. Retorna uma instância de :class:`~threading.Thread` na "
+"qual você pode chamar :meth:`~threading.Thread.start` para iniciar o "
+"servidor, e à qual você pode :meth:`~threading.Thread.join` quando "
+"apropriado. Para parar o servidor, chame :func:`stopListening`."
 
 #: ../../library/logging.config.rst:148
 msgid ""
@@ -256,6 +324,16 @@ msgid ""
 "when only verification is done), or they could be completely different "
 "(perhaps if decryption were performed)."
 msgstr ""
+"O argumento ``verify``, se especificado, deve ser um chamável que verifique "
+"se os bytes recebidos através do soquete são válidos e devem ser "
+"processados. Isso pode ser feito criptografando e/ou assinando o que é "
+"enviado através do soquete, de modo que o chamável ``verify`` possa realizar "
+"a verificação de assinatura e/ou a descriptografia. O chamável ``verify`` é "
+"chamado com um único argumento – os bytes recebidos através do soquete – e "
+"deve retornar os bytes a serem processados, ou ``None`` para indicar que os "
+"bytes devem ser descartados. Os bytes devolvidos podem ser os mesmos que os "
+"bytes passados (por exemplo, quando apenas a verificação é feita), ou podem "
+"ser completamente diferentes (talvez se a descriptografia for realizada)."
 
 #: ../../library/logging.config.rst:159
 msgid ""
@@ -263,6 +341,10 @@ msgid ""
 "send it to the socket as a sequence of bytes preceded by a four-byte length "
 "string packed in binary using ``struct.pack('>L', n)``."
 msgstr ""
+"Para enviar uma configuração para o soquete, leia o arquivo de configuração "
+"e o envie para o soquete como uma sequência de bytes precedida por uma "
+"string de comprimento de quatro bytes empacotada em binário usando ``struct."
+"pack('>L', n)``."
 
 #: ../../library/logging.config.rst:167
 msgid ""
@@ -284,7 +366,7 @@ msgstr ""
 
 #: ../../library/logging.config.rst:183
 msgid "The ``verify`` argument was added."
-msgstr ""
+msgstr "O argumento ``verify`` foi adicionado."
 
 #: ../../library/logging.config.rst:188
 msgid ""
@@ -294,6 +376,11 @@ msgid ""
 "to specify ``disable_existing_loggers`` as ``False`` in the configuration "
 "you send."
 msgstr ""
+"Se você deseja enviar configurações para o listener que não desabilitem os "
+"loggers existentes, você precisará usar um formato JSON para a configuração, "
+"que usará :func:`dictConfig` para configuração. Este método permite que você "
+"especifique ``disable_existing_loggers`` como ``False`` na configuração que "
+"você envia."
 
 #: ../../library/logging.config.rst:197
 msgid ""
