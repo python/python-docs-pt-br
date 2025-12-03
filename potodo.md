@@ -1,6 +1,6 @@
 1 directory  62.14% done
 └── 3.14/  62.14% done
-    ├── c-api/  55.02% done
+    ├── c-api/  55.11% done
     │   ├── exceptions.po                 66.0% translated 175/262
     │   ├── frame.po                      66.0% translated   34/51
     │   ├── gcsupport.po                  26.0% translated   18/67
@@ -25,16 +25,17 @@
     │   ├── extending.po                  25.0% translated  58/226
     │   └── newtypes.po                    6.0% translated   8/117
     ├── faq/  100.00% done
-    ├── howto/  66.14% done
+    ├── howto/  65.87% done
     │   ├── descriptor.po                 81.0% translated 187/230
     │   ├── enum.po                       37.0% translated 122/327
+    │   ├── free-threading-python.po      80.0% translated   32/40
     │   ├── functional.po                 62.0% translated 158/252
     │   ├── logging-cookbook.po            9.0% translated  41/435
     │   ├── sockets.po                    55.0% translated   35/63
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  61.84% done
+    ├── library/  61.92% done
     │   ├── asyncio-dev.po                66.0% translated   36/54
     │   ├── asyncio-eventloop.po          73.0% translated 308/417
     │   ├── asyncio-future.po             14.0% translated    9/64
@@ -85,7 +86,7 @@
     │   ├── inspect.po                    38.0% translated 154/400
     │   ├── io.po                         21.0% translated  61/284
     │   ├── itertools.po                  77.0% translated 155/201
-    │   ├── logging.config.po             26.0% translated  46/172
+    │   ├── logging.config.po             38.0% translated  67/172
     │   ├── logging.handlers.po           19.0% translated  53/277
     │   ├── logging.po                    28.0% translated 107/371
     │   ├── mailbox.po                     6.0% translated  21/307
@@ -133,10 +134,11 @@
     │   ├── xml.sax.reader.po              2.0% translated    2/75
     │   ├── xmlrpc.client.po              48.0% translated  55/113
     │   └── zoneinfo.po                   50.0% translated   42/83
-    ├── reference/  100.00% done
+    ├── reference/  99.34% done
+    │   └── lexical_analysis.po           94.0% translated 429/452
     ├── tutorial/  100.00% done
     ├── using/  100.00% done
-    └── whatsnew/  50.80% done
+    └── whatsnew/  50.78% done
         ├── 2.3.po                        84.0% translated 327/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -149,4 +151,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 248/568
-        └── changelog.po                  25.0% translated 3478/13704
+        └── changelog.po                  25.0% translated 3475/13707
