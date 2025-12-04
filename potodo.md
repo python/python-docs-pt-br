@@ -1,5 +1,5 @@
-1 directory  64.34% done
-└── 3.11/  64.34% done
+1 directory  64.48% done
+└── 3.11/  64.48% done
     ├── c-api/  53.46% done
     │   ├── exceptions.po                 63.0% translated 219/347
     │   ├── float.po                      97.0% translated   34/35
@@ -54,7 +54,7 @@
     ├── install/  71.32% done
     │   └── index.po                      73.0% translated 166/226
     ├── installing/  100.00% done
-    ├── library/  57.41% done
+    ├── library/  57.67% done
     │   ├── _thread.po                    96.0% translated   49/51
     │   ├── abc.po                        97.0% translated   48/49
     │   ├── argparse.po                   91.0% translated 305/335
@@ -141,7 +141,7 @@
     │   ├── io.po                         19.0% translated  52/262
     │   ├── ipaddress.po                  99.0% translated 155/156
     │   ├── itertools.po                  83.0% translated 131/157
-    │   ├── logging.config.po             46.0% translated  62/134
+    │   ├── logging.config.po             86.0% translated 116/134
     │   ├── logging.handlers.po           19.0% translated  51/268
     │   ├── logging.po                    28.0% translated 100/351
     │   ├── mailbox.po                     7.0% translated  20/285
