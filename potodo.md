@@ -38,7 +38,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  59.88% done
+    ├── library/  59.89% done
     │   ├── 2to3.po                       91.0% translated 121/132
     │   ├── array.po                      95.0% translated   80/84
     │   ├── ast.po                        83.0% translated 255/306
@@ -91,7 +91,7 @@
     │   ├── http.cookies.po               14.0% translated    7/49
     │   ├── http.po                       96.0% translated 237/246
     │   ├── http.server.po                13.0% translated  15/113
-    │   ├── idle.po                        9.0% translated  28/293
+    │   ├── idle.po                       10.0% translated  32/293
     │   ├── imaplib.po                    11.0% translated  14/117
     │   ├── imghdr.po                     47.0% translated   20/42
     │   ├── importlib.po                  78.0% translated 240/304
