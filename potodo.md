@@ -1,5 +1,5 @@
-1 directory  66.35% done
-└── 3.12/  66.35% done
+1 directory  66.36% done
+└── 3.12/  66.36% done
     ├── c-api/  52.74% done
     │   ├── exceptions.po                 63.0% translated 232/366
     │   ├── frame.po                      80.0% translated   29/36
@@ -104,7 +104,7 @@
     │   ├── logging.po                    28.0% translated 106/368
     │   ├── mailbox.po                     7.0% translated  21/290
     │   ├── mailcap.po                    12.0% translated    2/16
-    │   ├── mimetypes.po                  86.0% translated   44/51
+    │   ├── mimetypes.po                  92.0% translated   47/51
     │   ├── mmap.po                       37.0% translated   22/59
     │   ├── msilib.po                      7.0% translated    7/97
     │   ├── multiprocessing.po            57.0% translated 344/594
