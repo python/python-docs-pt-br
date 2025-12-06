@@ -1,5 +1,5 @@
-1 directory  62.21% done
-└── 3.14/  62.21% done
+1 directory  62.25% done
+└── 3.14/  62.25% done
     ├── c-api/  55.11% done
     │   ├── exceptions.po                 66.0% translated 175/262
     │   ├── frame.po                      66.0% translated   34/51
@@ -25,17 +25,16 @@
     │   ├── extending.po                  25.0% translated  58/226
     │   └── newtypes.po                    6.0% translated   8/117
     ├── faq/  100.00% done
-    ├── howto/  65.87% done
+    ├── howto/  66.06% done
     │   ├── descriptor.po                 81.0% translated 187/230
     │   ├── enum.po                       37.0% translated 122/327
-    │   ├── free-threading-python.po      80.0% translated   32/40
     │   ├── functional.po                 62.0% translated 158/252
     │   ├── logging-cookbook.po            9.0% translated  41/435
     │   ├── sockets.po                    55.0% translated   35/63
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  62.19% done
+    ├── library/  62.27% done
     │   ├── asyncio-dev.po                66.0% translated   36/54
     │   ├── asyncio-eventloop.po          73.0% translated 308/417
     │   ├── asyncio-future.po             14.0% translated    9/64
@@ -91,7 +90,7 @@
     │   ├── logging.po                    28.0% translated 107/371
     │   ├── mailbox.po                     6.0% translated  21/307
     │   ├── marshal.po                    64.0% translated   36/56
-    │   ├── mimetypes.po                  75.0% translated   51/68
+    │   ├── mimetypes.po                  83.0% translated   57/68
     │   ├── mmap.po                       35.0% translated   23/65
     │   ├── multiprocessing.po            55.0% translated 342/614
     │   ├── poplib.po                     41.0% translated   22/53
@@ -106,7 +105,6 @@
     │   ├── socket.po                     14.0% translated  54/384
     │   ├── sqlite3.po                    24.0% translated 116/478
     │   ├── ssl.po                        11.0% translated  62/547
-    │   ├── stdtypes.po                   98.0% translated 1490/1517
     │   ├── struct.po                     50.0% translated 102/204
     │   ├── subprocess.po                 48.0% translated 150/312
     │   ├── symtable.po                    9.0% translated    7/73
@@ -117,7 +115,6 @@
     │   ├── tkinter.ttk.po                33.0% translated 142/429
     │   ├── traceback.po                   8.0% translated  10/118
     │   ├── tracemalloc.po                13.0% translated  21/156
-    │   ├── turtle.po                     99.0% translated 691/692
     │   ├── unicodedata.po                60.0% translated   26/43
     │   ├── unittest.mock-examples.po     12.0% translated  22/182
     │   ├── unittest.mock.po              22.0% translated 103/448
@@ -135,8 +132,8 @@
     │   ├── xml.sax.reader.po              2.0% translated    2/75
     │   ├── xmlrpc.client.po              48.0% translated  55/113
     │   └── zoneinfo.po                   50.0% translated   42/83
-    ├── reference/  97.80% done
-    │   └── lexical_analysis.po           85.0% translated 406/475
+    ├── reference/  97.88% done
+    │   └── lexical_analysis.po           86.0% translated 410/475
     ├── tutorial/  100.00% done
     ├── using/  100.00% done
     └── whatsnew/  50.77% done
