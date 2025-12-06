@@ -38,7 +38,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  61.96% done
+    ├── library/  61.97% done
     │   ├── asyncio-dev.po                68.0% translated   37/54
     │   ├── asyncio-eventloop.po          74.0% translated 309/413
     │   ├── asyncio-future.po             14.0% translated    9/64
@@ -90,7 +90,7 @@
     │   ├── logging.handlers.po           18.0% translated  52/275
     │   ├── logging.po                    28.0% translated 107/371
     │   ├── mailbox.po                     6.0% translated  21/307
-    │   ├── mimetypes.po                  87.0% translated   47/54
+    │   ├── mimetypes.po                  94.0% translated   51/54
     │   ├── mmap.po                       35.0% translated   23/65
     │   ├── multiprocessing.po            55.0% translated 338/604
     │   ├── poplib.po                     41.0% translated   22/53
@@ -116,7 +116,6 @@
     │   ├── tkinter.ttk.po                33.0% translated 142/429
     │   ├── traceback.po                   7.0% translated   9/116
     │   ├── tracemalloc.po                13.0% translated  21/156
-    │   ├── turtle.po                     99.0% translated 668/669
     │   ├── unicodedata.po                55.0% translated   24/43
     │   ├── unittest.mock-examples.po     12.0% translated  22/182
     │   ├── unittest.mock.po              22.0% translated 103/448
