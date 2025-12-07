@@ -153,7 +153,7 @@
     │   ├── logging.po                    28.0% translated  96/334
     │   ├── mailbox.po                     8.0% translated  23/282
     │   ├── mailcap.po                    13.0% translated    2/15
-    │   ├── mimetypes.po                  91.0% translated   41/45
+    │   ├── mimetypes.po                  97.0% translated   44/45
     │   ├── mmap.po                       40.0% translated   20/50
     │   ├── msilib.po                      7.0% translated    7/96
     │   ├── multiprocessing.po            54.0% translated 284/519
