@@ -1,6 +1,6 @@
-1 directory  62.25% done
-└── 3.14/  62.25% done
-    ├── c-api/  55.11% done
+1 directory  62.26% done
+└── 3.14/  62.26% done
+    ├── c-api/  55.05% done
     │   ├── exceptions.po                 66.0% translated 175/262
     │   ├── frame.po                      66.0% translated   34/51
     │   ├── gcsupport.po                  26.0% translated   18/67
@@ -13,6 +13,7 @@
     │   ├── number.po                     29.0% translated   14/48
     │   ├── object.po                     30.0% translated  44/145
     │   ├── refcounting.po                30.0% translated   15/50
+    │   ├── set.po                        96.0% translated   27/28
     │   ├── structures.po                 41.0% translated  86/206
     │   ├── type.po                       18.0% translated  25/137
     │   ├── typeobj.po                    33.0% translated 248/744
@@ -34,7 +35,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  62.27% done
+    ├── library/  62.24% done
     │   ├── asyncio-dev.po                66.0% translated   36/54
     │   ├── asyncio-eventloop.po          73.0% translated 308/417
     │   ├── asyncio-future.po             14.0% translated    9/64
@@ -105,6 +106,7 @@
     │   ├── socket.po                     14.0% translated  54/384
     │   ├── sqlite3.po                    24.0% translated 116/478
     │   ├── ssl.po                        11.0% translated  62/547
+    │   ├── stdtypes.po                   99.0% translated 1513/1517
     │   ├── struct.po                     50.0% translated 102/204
     │   ├── subprocess.po                 48.0% translated 150/312
     │   ├── symtable.po                    9.0% translated    7/73
@@ -132,12 +134,12 @@
     │   ├── xml.sax.reader.po              2.0% translated    2/75
     │   ├── xmlrpc.client.po              48.0% translated  55/113
     │   └── zoneinfo.po                   50.0% translated   42/83
-    ├── reference/  97.88% done
-    │   └── lexical_analysis.po           86.0% translated 410/475
+    ├── reference/  98.81% done
+    │   └── lexical_analysis.po           92.0% translated 438/475
     ├── tutorial/  100.00% done
     ├── using/  100.00% done
-    └── whatsnew/  50.77% done
-        ├── 2.3.po                        84.0% translated 327/387
+    └── whatsnew/  50.73% done
+        ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
         ├── 2.6.po                        81.0% translated 510/626
@@ -149,4 +151,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 248/568
-        └── changelog.po                  25.0% translated 3478/13716
+        └── changelog.po                  25.0% translated 3478/13724
