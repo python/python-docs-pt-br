@@ -1,5 +1,5 @@
-1 directory  64.49% done
-└── 3.11/  64.49% done
+1 directory  64.50% done
+└── 3.11/  64.50% done
     ├── c-api/  53.46% done
     │   ├── exceptions.po                 63.0% translated 219/347
     │   ├── float.po                      97.0% translated   34/35
@@ -54,7 +54,7 @@
     ├── install/  71.32% done
     │   └── index.po                      73.0% translated 166/226
     ├── installing/  100.00% done
-    ├── library/  57.69% done
+    ├── library/  57.71% done
     │   ├── _thread.po                    96.0% translated   49/51
     │   ├── abc.po                        97.0% translated   48/49
     │   ├── argparse.po                   91.0% translated 305/335
@@ -79,7 +79,7 @@
     │   ├── binascii.po                   57.0% translated   23/40
     │   ├── bisect.po                     90.0% translated   27/30
     │   ├── calendar.po                   93.0% translated   87/93
-    │   ├── cgi.po                        24.0% translated  27/109
+    │   ├── cgi.po                        25.0% translated  28/109
     │   ├── chunk.po                      35.0% translated   14/39
     │   ├── cmath.po                      96.0% translated   54/56
     │   ├── code.po                       96.0% translated   30/31
@@ -141,12 +141,12 @@
     │   ├── io.po                         19.0% translated  52/262
     │   ├── ipaddress.po                  99.0% translated 155/156
     │   ├── itertools.po                  83.0% translated 131/157
-    │   ├── logging.config.po             86.0% translated 116/134
-    │   ├── logging.handlers.po           19.0% translated  51/268
+    │   ├── logging.config.po             87.0% translated 117/134
+    │   ├── logging.handlers.po           19.0% translated  52/268
     │   ├── logging.po                    28.0% translated 100/351
     │   ├── mailbox.po                     7.0% translated  20/285
     │   ├── mailcap.po                    13.0% translated    2/15
-    │   ├── mimetypes.po                  92.0% translated   46/50
+    │   ├── mimetypes.po                  98.0% translated   49/50
     │   ├── mmap.po                       40.0% translated   22/55
     │   ├── msilib.po                      7.0% translated    7/97
     │   ├── multiprocessing.po            55.0% translated 293/529
