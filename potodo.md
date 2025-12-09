@@ -1,9 +1,9 @@
-1 directory  62.27% done
-└── 3.14/  62.27% done
-    ├── c-api/  55.11% done
+1 directory  62.29% done
+└── 3.14/  62.29% done
+    ├── c-api/  55.08% done
     │   ├── exceptions.po                 66.0% translated 175/262
     │   ├── frame.po                      66.0% translated   34/51
-    │   ├── gcsupport.po                  26.0% translated   18/67
+    │   ├── gcsupport.po                  26.0% translated   18/68
     │   ├── import.po                     76.0% translated   51/67
     │   ├── init.po                       42.0% translated 246/575
     │   ├── init_config.po                56.0% translated 362/638
@@ -15,7 +15,7 @@
     │   ├── refcounting.po                30.0% translated   15/50
     │   ├── structures.po                 41.0% translated  86/206
     │   ├── type.po                       18.0% translated  25/137
-    │   ├── typeobj.po                    33.0% translated 248/744
+    │   ├── typeobj.po                    33.0% translated 248/745
     │   ├── unicode.po                    19.0% translated  81/408
     │   └── veryhigh.po                   90.0% translated   63/70
     ├── deprecations/  100.00% done
@@ -34,7 +34,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  62.27% done
+    ├── library/  62.32% done
     │   ├── asyncio-dev.po                66.0% translated   36/54
     │   ├── asyncio-eventloop.po          73.0% translated 308/417
     │   ├── asyncio-future.po             14.0% translated    9/64
@@ -85,12 +85,11 @@
     │   ├── inspect.po                    38.0% translated 154/400
     │   ├── io.po                         21.0% translated  61/284
     │   ├── itertools.po                  77.0% translated 155/201
-    │   ├── logging.config.po             89.0% translated 154/172
+    │   ├── logging.config.po             90.0% translated 155/172
     │   ├── logging.handlers.po           19.0% translated  53/277
     │   ├── logging.po                    28.0% translated 107/371
     │   ├── mailbox.po                     6.0% translated  21/307
     │   ├── marshal.po                    64.0% translated   36/56
-    │   ├── mimetypes.po                  83.0% translated   57/68
     │   ├── mmap.po                       35.0% translated   23/65
     │   ├── multiprocessing.po            55.0% translated 342/614
     │   ├── poplib.po                     41.0% translated   22/53
@@ -149,4 +148,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 248/568
-        └── changelog.po                  25.0% translated 3478/13724
+        └── changelog.po                  25.0% translated 3478/13729
