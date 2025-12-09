@@ -38,7 +38,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  59.89% done
+    ├── library/  59.91% done
     │   ├── 2to3.po                       91.0% translated 121/132
     │   ├── array.po                      95.0% translated   80/84
     │   ├── ast.po                        83.0% translated 255/306
@@ -56,7 +56,7 @@
     │   ├── base64.po                     33.0% translated   20/60
     │   ├── bdb.po                        98.0% translated 109/111
     │   ├── binascii.po                   56.0% translated   23/41
-    │   ├── cgi.po                        23.0% translated  29/126
+    │   ├── cgi.po                        23.0% translated  30/126
     │   ├── chunk.po                      35.0% translated   14/39
     │   ├── codecs.po                     46.0% translated 250/533
     │   ├── concurrent.futures.po         14.0% translated   14/98
@@ -99,12 +99,12 @@
     │   ├── inspect.po                    36.0% translated 141/383
     │   ├── io.po                         21.0% translated  59/271
     │   ├── itertools.po                  77.0% translated 149/193
-    │   ├── logging.config.po             88.0% translated 152/171
+    │   ├── logging.config.po             89.0% translated 153/171
     │   ├── logging.handlers.po           18.0% translated  51/270
     │   ├── logging.po                    28.0% translated 106/368
     │   ├── mailbox.po                     7.0% translated  21/290
     │   ├── mailcap.po                    12.0% translated    2/16
-    │   ├── mimetypes.po                  92.0% translated   47/51
+    │   ├── mimetypes.po                  98.0% translated   50/51
     │   ├── mmap.po                       37.0% translated   22/59
     │   ├── msilib.po                      7.0% translated    7/97
     │   ├── multiprocessing.po            57.0% translated 344/594
