@@ -1,9 +1,9 @@
 1 directory  61.23% done
 └── 3.13/  61.23% done
-    ├── c-api/  54.42% done
+    ├── c-api/  54.39% done
     │   ├── exceptions.po                 67.0% translated 173/257
     │   ├── frame.po                      68.0% translated   35/51
-    │   ├── gcsupport.po                  17.0% translated    9/52
+    │   ├── gcsupport.po                  16.0% translated    9/53
     │   ├── import.po                     80.0% translated   51/63
     │   ├── init.po                       40.0% translated 220/542
     │   ├── init_config.po                33.0% translated 139/417
@@ -16,7 +16,7 @@
     │   ├── structures.po                 38.0% translated  76/196
     │   ├── sys.po                        97.0% translated   77/79
     │   ├── type.po                       24.0% translated  27/111
-    │   ├── typeobj.po                    34.0% translated 236/682
+    │   ├── typeobj.po                    34.0% translated 236/683
     │   ├── unicode.po                    24.0% translated  85/342
     │   └── veryhigh.po                   90.0% translated   63/70
     ├── deprecations/  99.08% done
@@ -38,7 +38,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  61.97% done
+    ├── library/  61.98% done
     │   ├── asyncio-dev.po                68.0% translated   37/54
     │   ├── asyncio-eventloop.po          74.0% translated 309/413
     │   ├── asyncio-future.po             14.0% translated    9/64
@@ -71,6 +71,7 @@
     │   ├── email.policy.po               10.0% translated  11/107
     │   ├── enum.po                       52.0% translated 130/249
     │   ├── errno.po                      71.0% translated 115/160
+    │   ├── exceptions.po                 99.0% translated 199/200
     │   ├── faulthandler.po                9.0% translated    4/43
     │   ├── ftplib.po                     12.0% translated   12/99
     │   ├── functools.po                  26.0% translated  30/115
@@ -86,11 +87,10 @@
     │   ├── inspect.po                    36.0% translated 144/392
     │   ├── io.po                         21.0% translated  59/272
     │   ├── itertools.po                  77.0% translated 154/200
-    │   ├── logging.config.po             89.0% translated 154/172
+    │   ├── logging.config.po             90.0% translated 155/172
     │   ├── logging.handlers.po           18.0% translated  52/275
     │   ├── logging.po                    28.0% translated 107/371
     │   ├── mailbox.po                     6.0% translated  21/307
-    │   ├── mimetypes.po                  94.0% translated   51/54
     │   ├── mmap.po                       35.0% translated   23/65
     │   ├── multiprocessing.po            55.0% translated 338/604
     │   ├── poplib.po                     41.0% translated   22/53
@@ -139,8 +139,8 @@
     ├── using/  99.34% done
     │   ├── mac.po                        98.0% translated   95/96
     │   └── windows.po                    99.0% translated 388/389
-    └── whatsnew/  48.18% done
-        ├── 2.3.po                        84.0% translated 327/387
+    └── whatsnew/  48.15% done
+        ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
         ├── 2.6.po                        81.0% translated 511/626
@@ -154,4 +154,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 248/568
-        └── changelog.po                  21.0% translated 2725/12616
+        └── changelog.po                  21.0% translated 2725/12621
