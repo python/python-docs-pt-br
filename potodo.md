@@ -1,5 +1,5 @@
-1 directory  62.32% done
-└── 3.14/  62.32% done
+1 directory  62.30% done
+└── 3.14/  62.30% done
     ├── c-api/  55.08% done
     │   ├── exceptions.po                 66.0% translated 175/262
     │   ├── frame.po                      66.0% translated   34/51
@@ -35,6 +35,7 @@
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
     ├── library/  62.37% done
+    │   ├── argparse.po                   99.0% translated 399/400
     │   ├── asyncio-dev.po                66.0% translated   36/54
     │   ├── asyncio-eventloop.po          73.0% translated 308/417
     │   ├── asyncio-future.po             14.0% translated    9/64
@@ -134,8 +135,9 @@
     ├── reference/  98.81% done
     │   └── lexical_analysis.po           92.0% translated 438/475
     ├── tutorial/  100.00% done
-    ├── using/  100.00% done
-    └── whatsnew/  50.73% done
+    ├── using/  98.79% done
+    │   └── windows.po                    97.0% translated 538/549
+    └── whatsnew/  50.74% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -148,4 +150,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 248/568
-        └── changelog.po                  25.0% translated 3478/13729
+        └── changelog.po                  25.0% translated 3485/13736
