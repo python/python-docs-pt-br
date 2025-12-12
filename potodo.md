@@ -1,5 +1,5 @@
-1 directory  62.30% done
-└── 3.14/  62.30% done
+1 directory  62.37% done
+└── 3.14/  62.37% done
     ├── c-api/  55.08% done
     │   ├── exceptions.po                 66.0% translated 175/262
     │   ├── frame.po                      66.0% translated   34/51
@@ -34,7 +34,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  62.37% done
+    ├── library/  62.52% done
     │   ├── argparse.po                   99.0% translated 399/400
     │   ├── asyncio-dev.po                66.0% translated   36/54
     │   ├── asyncio-eventloop.po          73.0% translated 308/417
@@ -87,7 +87,7 @@
     │   ├── io.po                         21.0% translated  61/284
     │   ├── itertools.po                  77.0% translated 155/201
     │   ├── logging.config.po             90.0% translated 155/172
-    │   ├── logging.handlers.po           25.0% translated  72/277
+    │   ├── logging.handlers.po           39.0% translated 110/277
     │   ├── logging.po                    28.0% translated 107/371
     │   ├── mailbox.po                     6.0% translated  21/307
     │   ├── marshal.po                    64.0% translated   36/56
