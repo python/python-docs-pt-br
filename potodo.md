@@ -1,5 +1,5 @@
-1 directory  61.33% done
-└── 3.13/  61.33% done
+1 directory  61.32% done
+└── 3.13/  61.32% done
     ├── c-api/  54.39% done
     │   ├── exceptions.po                 67.0% translated 173/257
     │   ├── frame.po                      68.0% translated   35/51
@@ -39,6 +39,7 @@
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
     ├── library/  62.19% done
+    │   ├── argparse.po                   99.0% translated 376/379
     │   ├── asyncio-dev.po                68.0% translated   37/54
     │   ├── asyncio-eventloop.po          74.0% translated 309/413
     │   ├── asyncio-future.po             14.0% translated    9/64
@@ -81,7 +82,7 @@
     │   ├── http.cookiejar.po              5.0% translated   9/159
     │   ├── http.cookies.po               14.0% translated    7/49
     │   ├── http.server.po                13.0% translated  15/115
-    │   ├── idle.po                       10.0% translated  32/293
+    │   ├── idle.po                       11.0% translated  33/293
     │   ├── imaplib.po                    11.0% translated  14/118
     │   ├── importlib.po                  78.0% translated 245/313
     │   ├── inspect.po                    36.0% translated 144/392
@@ -154,4 +155,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 248/568
-        └── changelog.po                  21.0% translated 2728/12624
+        └── changelog.po                  21.0% translated 2728/12625
