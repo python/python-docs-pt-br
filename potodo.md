@@ -35,7 +35,7 @@
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
     ├── library/  62.52% done
-    │   ├── argparse.po                   99.0% translated 399/400
+    │   ├── argparse.po                   99.0% translated 396/400
     │   ├── asyncio-dev.po                66.0% translated   36/54
     │   ├── asyncio-eventloop.po          73.0% translated 308/417
     │   ├── asyncio-future.po             14.0% translated    9/64
@@ -80,7 +80,7 @@
     │   ├── http.cookiejar.po              5.0% translated   9/159
     │   ├── http.cookies.po               13.0% translated    7/52
     │   ├── http.server.po                11.0% translated  15/129
-    │   ├── idle.po                       11.0% translated  34/295
+    │   ├── idle.po                       11.0% translated  35/295
     │   ├── imaplib.po                    10.0% translated  14/131
     │   ├── importlib.po                  77.0% translated 243/313
     │   ├── inspect.po                    38.0% translated 154/400
@@ -137,7 +137,7 @@
     ├── tutorial/  100.00% done
     ├── using/  98.79% done
     │   └── windows.po                    97.0% translated 538/549
-    └── whatsnew/  50.74% done
+    └── whatsnew/  50.73% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -150,4 +150,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 248/568
-        └── changelog.po                  25.0% translated 3485/13736
+        └── changelog.po                  25.0% translated 3485/13740
