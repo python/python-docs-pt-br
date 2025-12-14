@@ -1,5 +1,5 @@
-1 directory  64.63% done
-└── 3.11/  64.63% done
+1 directory  64.81% done
+└── 3.11/  64.81% done
     ├── c-api/  53.46% done
     │   ├── exceptions.po                 63.0% translated 219/347
     │   ├── float.po                      97.0% translated   34/35
@@ -54,7 +54,7 @@
     ├── install/  71.32% done
     │   └── index.po                      73.0% translated 166/226
     ├── installing/  100.00% done
-    ├── library/  57.94% done
+    ├── library/  58.25% done
     │   ├── _thread.po                    96.0% translated   49/51
     │   ├── abc.po                        97.0% translated   48/49
     │   ├── argparse.po                   91.0% translated 305/335
@@ -91,7 +91,7 @@
     │   ├── ctypes.po                     43.0% translated 189/436
     │   ├── curses.ascii.po               98.0% translated   68/69
     │   ├── curses.panel.po               95.0% translated   22/23
-    │   ├── curses.po                     13.0% translated  64/485
+    │   ├── curses.po                     13.0% translated  66/485
     │   ├── dataclasses.po                51.0% translated  64/124
     │   ├── datetime.po                   98.0% translated 579/586
     │   ├── dbm.po                        97.0% translated   83/85
@@ -130,7 +130,7 @@
     │   ├── http.cookies.po               17.0% translated    8/47
     │   ├── http.po                       96.0% translated 220/228
     │   ├── http.server.po                13.0% translated  14/105
-    │   ├── idle.po                       11.0% translated  32/279
+    │   ├── idle.po                       33.0% translated  93/279
     │   ├── imaplib.po                    11.0% translated  13/113
     │   ├── imghdr.po                     48.0% translated   20/41
     │   ├── imp.po                        16.0% translated   12/72
@@ -142,7 +142,7 @@
     │   ├── ipaddress.po                  99.0% translated 155/156
     │   ├── itertools.po                  83.0% translated 131/157
     │   ├── logging.config.po             87.0% translated 117/134
-    │   ├── logging.handlers.po           39.0% translated 106/268
+    │   ├── logging.handlers.po           65.0% translated 176/268
     │   ├── logging.po                    28.0% translated 100/351
     │   ├── mailbox.po                     7.0% translated  20/285
     │   ├── mailcap.po                    13.0% translated    2/15
