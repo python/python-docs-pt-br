@@ -1,5 +1,6 @@
-1 directory  62.54% done
-└── 3.14/  62.54% done
+1 directory  62.51% done
+└── 3.14/  62.51% done
+    ├── sphinx.po                         99.0% translated 106/107
     ├── c-api/  55.08% done
     │   ├── exceptions.po                 66.0% translated 175/262
     │   ├── frame.po                      66.0% translated   34/51
@@ -34,7 +35,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  62.80% done
+    ├── library/  62.78% done
     │   ├── argparse.po                   99.0% translated 396/400
     │   ├── asyncio-dev.po                66.0% translated   36/54
     │   ├── asyncio-eventloop.po          73.0% translated 308/417
@@ -52,7 +53,7 @@
     │   ├── binascii.po                   60.0% translated   23/38
     │   ├── codecs.po                     44.0% translated 250/563
     │   ├── concurrent.futures.po         10.0% translated  12/120
-    │   ├── concurrent.interpreters.po    49.0% translated   43/87
+    │   ├── concurrent.interpreters.po    56.0% translated   49/87
     │   ├── contextlib.po                 31.0% translated  55/172
     │   ├── ctypes.po                     43.0% translated 275/626
     │   ├── curses.po                     14.0% translated  69/491
@@ -72,11 +73,12 @@
     │   ├── errno.po                      71.0% translated 115/161
     │   ├── faulthandler.po                7.0% translated    4/53
     │   ├── ftplib.po                     12.0% translated   12/99
+    │   ├── functions.po                  99.0% translated 516/518
     │   ├── functools.po                  23.0% translated  30/126
     │   ├── hashlib.po                    54.0% translated  93/170
     │   ├── heapq.po                      71.0% translated   48/67
     │   ├── html.parser.po                96.0% translated   60/62
-    │   ├── http.client.po                38.0% translated  45/117
+    │   ├── http.client.po                38.0% translated  45/118
     │   ├── http.cookiejar.po              5.0% translated   9/159
     │   ├── http.cookies.po               13.0% translated    7/52
     │   ├── http.server.po                11.0% translated  15/129
@@ -105,6 +107,7 @@
     │   ├── socket.po                     14.0% translated  54/384
     │   ├── sqlite3.po                    24.0% translated 116/478
     │   ├── ssl.po                        11.0% translated  62/547
+    │   ├── stdtypes.po                   99.0% translated 1516/1519
     │   ├── struct.po                     50.0% translated 102/204
     │   ├── subprocess.po                 48.0% translated 150/312
     │   ├── symtable.po                    9.0% translated    7/73
@@ -132,11 +135,13 @@
     │   ├── xml.sax.reader.po              2.0% translated    2/75
     │   ├── xmlrpc.client.po              48.0% translated  55/113
     │   └── zoneinfo.po                   50.0% translated   42/83
-    ├── reference/  100.00% done
-    ├── tutorial/  100.00% done
+    ├── reference/  99.97% done
+    │   └── compound_stmts.po             99.0% translated 478/479
+    ├── tutorial/  99.83% done
+    │   └── controlflow.po                99.0% translated 224/226
     ├── using/  98.79% done
     │   └── windows.po                    97.0% translated 538/549
-    └── whatsnew/  50.73% done
+    └── whatsnew/  50.72% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -149,4 +154,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 248/568
-        └── changelog.po                  25.0% translated 3485/13740
+        └── changelog.po                  25.0% translated 3485/13745
