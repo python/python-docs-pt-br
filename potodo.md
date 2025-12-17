@@ -1,5 +1,5 @@
-1 directory  66.64% done
-└── 3.12/  66.64% done
+1 directory  66.62% done
+└── 3.12/  66.62% done
     ├── c-api/  52.74% done
     │   ├── exceptions.po                 63.0% translated 232/366
     │   ├── frame.po                      80.0% translated   29/36
@@ -38,7 +38,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  60.40% done
+    ├── library/  60.37% done
     │   ├── 2to3.po                       91.0% translated 121/132
     │   ├── array.po                      95.0% translated   80/84
     │   ├── ast.po                        83.0% translated 255/306
@@ -114,7 +114,7 @@
     │   ├── pipes.po                      23.0% translated    5/21
     │   ├── poplib.po                     41.0% translated   22/53
     │   ├── profile.po                    18.0% translated  34/179
-    │   ├── pyexpat.po                    15.0% translated  23/144
+    │   ├── pyexpat.po                    14.0% translated  23/155
     │   ├── queue.po                      13.0% translated    6/44
     │   ├── select.po                     37.0% translated  78/206
     │   ├── selectors.po                  22.0% translated   13/58
