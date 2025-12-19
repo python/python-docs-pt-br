@@ -47,6 +47,7 @@
     │   ├── asyncio-platforms.po          23.0% translated    6/26
     │   ├── asyncio-policy.po             14.0% translated   10/68
     │   ├── asyncio-protocol.po           13.0% translated  26/194
+    │   ├── asyncio-queue.po              97.0% translated   47/48
     │   ├── asyncio-runner.po             13.0% translated    5/37
     │   ├── asyncio-stream.po             68.0% translated  71/104
     │   ├── asyncio-sync.po               12.0% translated  12/100
@@ -60,6 +61,7 @@
     │   ├── ctypes.po                     47.0% translated 259/548
     │   ├── curses.po                     13.0% translated  68/486
     │   ├── dataclasses.po                44.0% translated  70/156
+    │   ├── decimal.po                    99.0% translated 377/380
     │   ├── difflib.po                    10.0% translated  14/140
     │   ├── dis.po                        56.0% translated 225/396
     │   ├── doctest.po                    26.0% translated  99/378
@@ -76,7 +78,6 @@
     │   ├── exceptions.po                 99.0% translated 198/200
     │   ├── faulthandler.po                9.0% translated    4/43
     │   ├── ftplib.po                     12.0% translated   12/99
-    │   ├── functions.po                  99.0% translated 510/512
     │   ├── functools.po                  26.0% translated  30/115
     │   ├── hashlib.po                    54.0% translated  93/170
     │   ├── html.parser.po                96.0% translated   60/62
@@ -102,6 +103,7 @@
     │   ├── profile.po                    18.0% translated  34/181
     │   ├── pyexpat.po                    14.0% translated  23/156
     │   ├── queue.po                      17.0% translated   10/57
+    │   ├── random.po                     99.0% translated 137/138
     │   ├── select.po                     37.0% translated  78/206
     │   ├── selectors.po                  22.0% translated   13/58
     │   ├── shelve.po                     27.0% translated   11/40
@@ -161,4 +163,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 248/568
-        └── changelog.po                  21.0% translated 2730/12637
+        └── changelog.po                  21.0% translated 2730/12641
