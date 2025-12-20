@@ -1,5 +1,5 @@
-1 directory  61.33% done
-└── 3.13/  61.33% done
+1 directory  61.39% done
+└── 3.13/  61.39% done
     ├── glossary.po                       92.0% translated 415/451
     ├── sphinx.po                         99.0% translated 106/107
     ├── c-api/  54.39% done
@@ -40,10 +40,10 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  62.35% done
+    ├── library/  62.50% done
     │   ├── asyncio-dev.po                68.0% translated   37/54
-    │   ├── asyncio-eventloop.po          74.0% translated 309/413
-    │   ├── asyncio-future.po             14.0% translated    9/64
+    │   ├── asyncio-eventloop.po          76.0% translated 316/413
+    │   ├── asyncio-future.po             26.0% translated   17/64
     │   ├── asyncio-platforms.po          23.0% translated    6/26
     │   ├── asyncio-policy.po             14.0% translated   10/68
     │   ├── asyncio-protocol.po           13.0% translated  26/194
@@ -51,7 +51,7 @@
     │   ├── asyncio-runner.po             13.0% translated    5/37
     │   ├── asyncio-stream.po             68.0% translated  71/104
     │   ├── asyncio-sync.po               12.0% translated  12/100
-    │   ├── asyncio-task.po               52.0% translated 141/268
+    │   ├── asyncio-task.po               61.0% translated 166/268
     │   ├── base64.po                     21.0% translated   15/71
     │   ├── bdb.po                        98.0% translated 110/112
     │   ├── binascii.po                   60.0% translated   23/38
