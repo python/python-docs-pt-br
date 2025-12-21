@@ -1,5 +1,5 @@
-1 directory  61.39% done
-└── 3.13/  61.39% done
+1 directory  61.38% done
+└── 3.13/  61.38% done
     ├── glossary.po                       92.0% translated 415/451
     ├── sphinx.po                         99.0% translated 106/107
     ├── c-api/  54.39% done
@@ -40,7 +40,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  62.50% done
+    ├── library/  62.48% done
     │   ├── asyncio-dev.po                68.0% translated   37/54
     │   ├── asyncio-eventloop.po          76.0% translated 316/413
     │   ├── asyncio-future.po             26.0% translated   17/64
@@ -61,6 +61,7 @@
     │   ├── ctypes.po                     47.0% translated 259/548
     │   ├── curses.po                     13.0% translated  68/486
     │   ├── dataclasses.po                44.0% translated  70/156
+    │   ├── datetime.po                   99.0% translated 645/649
     │   ├── decimal.po                    99.0% translated 377/380
     │   ├── difflib.po                    10.0% translated  14/140
     │   ├── dis.po                        56.0% translated 225/396
@@ -148,7 +149,7 @@
     ├── using/  99.34% done
     │   ├── mac.po                        98.0% translated   95/96
     │   └── windows.po                    99.0% translated 388/389
-    └── whatsnew/  48.14% done
+    └── whatsnew/  48.13% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -163,4 +164,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 248/568
-        └── changelog.po                  21.0% translated 2730/12641
+        └── changelog.po                  21.0% translated 2730/12645
