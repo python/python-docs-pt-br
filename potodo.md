@@ -1,5 +1,5 @@
-1 directory  60.74% done
-└── 3.10/  60.74% done
+1 directory  60.75% done
+└── 3.10/  60.75% done
     ├── c-api/  51.44% done
     │   ├── allocation.po                 88.0% translated     8/9
     │   ├── arg.po                        98.0% translated 193/195
@@ -56,21 +56,21 @@
     ├── install/  72.62% done
     │   └── index.po                      74.0% translated 168/226
     ├── installing/  100.00% done
-    ├── library/  55.67% done
+    ├── library/  55.69% done
     │   ├── _thread.po                    95.0% translated   39/41
     │   ├── argparse.po                   88.0% translated 256/290
     │   ├── array.po                      98.0% translated   81/82
     │   ├── ast.po                        94.0% translated 200/212
     │   ├── asynchat.po                   12.0% translated    4/33
     │   ├── asyncio-dev.po                61.0% translated   26/42
-    │   ├── asyncio-eventloop.po          95.0% translated 343/360
-    │   ├── asyncio-future.po             14.0% translated    9/61
+    │   ├── asyncio-eventloop.po          95.0% translated 344/360
+    │   ├── asyncio-future.po             27.0% translated   17/61
     │   ├── asyncio-platforms.po          24.0% translated    6/25
     │   ├── asyncio-policy.po             14.0% translated   10/67
     │   ├── asyncio-protocol.po           14.0% translated  26/183
     │   ├── asyncio-stream.po             83.0% translated   67/80
     │   ├── asyncio-sync.po               15.0% translated   11/71
-    │   ├── asyncio-task.po               98.0% translated 183/186
+    │   ├── asyncio-task.po               99.0% translated 185/186
     │   ├── asyncio.po                    95.0% translated   23/24
     │   ├── asyncore.po                   15.0% translated    8/52
     │   ├── audioop.po                     2.0% translated    1/46
