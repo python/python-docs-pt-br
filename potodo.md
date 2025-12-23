@@ -51,7 +51,7 @@
     │   ├── asyncio-runner.po             13.0% translated    5/37
     │   ├── asyncio-stream.po             72.0% translated   71/98
     │   ├── asyncio-sync.po               12.0% translated   12/99
-    │   ├── asyncio-task.po               63.0% translated 162/254
+    │   ├── asyncio-task.po               65.0% translated 166/254
     │   ├── audioop.po                     9.0% translated    5/53
     │   ├── base64.po                     33.0% translated   20/60
     │   ├── bdb.po                        98.0% translated 109/111
