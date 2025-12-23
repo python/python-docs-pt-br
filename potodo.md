@@ -40,7 +40,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  62.48% done
+    ├── library/  62.49% done
     │   ├── asyncio-dev.po                68.0% translated   37/54
     │   ├── asyncio-eventloop.po          76.0% translated 316/413
     │   ├── asyncio-future.po             26.0% translated   17/64
@@ -51,7 +51,7 @@
     │   ├── asyncio-runner.po             13.0% translated    5/37
     │   ├── asyncio-stream.po             68.0% translated  71/104
     │   ├── asyncio-sync.po               12.0% translated  12/100
-    │   ├── asyncio-task.po               61.0% translated 166/268
+    │   ├── asyncio-task.po               63.0% translated 170/268
     │   ├── base64.po                     21.0% translated   15/71
     │   ├── bdb.po                        98.0% translated 110/112
     │   ├── binascii.po                   60.0% translated   23/38
@@ -149,7 +149,7 @@
     ├── using/  99.34% done
     │   ├── mac.po                        98.0% translated   95/96
     │   └── windows.po                    99.0% translated 388/389
-    └── whatsnew/  48.13% done
+    └── whatsnew/  48.12% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -164,4 +164,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 248/568
-        └── changelog.po                  21.0% translated 2730/12645
+        └── changelog.po                  21.0% translated 2730/12649
