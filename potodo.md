@@ -48,7 +48,7 @@
     │   ├── asyncio-runner.po              9.0% translated    4/41
     │   ├── asyncio-stream.po             68.0% translated  71/104
     │   ├── asyncio-sync.po               12.0% translated  12/100
-    │   ├── asyncio-task.po               61.0% translated 169/273
+    │   ├── asyncio-task.po               63.0% translated 173/273
     │   ├── base64.po                     21.0% translated   15/71
     │   ├── bdb.po                        98.0% translated 117/119
     │   ├── binascii.po                   60.0% translated   23/38
@@ -113,7 +113,7 @@
     │   ├── socket.po                     14.0% translated  54/384
     │   ├── sqlite3.po                    24.0% translated 116/478
     │   ├── ssl.po                        11.0% translated  62/547
-    │   ├── stdtypes.po                   99.0% translated 1514/1522
+    │   ├── stdtypes.po                   99.0% translated 1513/1522
     │   ├── string.po                     99.0% translated 223/224
     │   ├── struct.po                     50.0% translated 102/204
     │   ├── subprocess.po                 48.0% translated 150/312
@@ -149,7 +149,7 @@
     │   └── controlflow.po                99.0% translated 224/226
     ├── using/  98.79% done
     │   └── windows.po                    97.0% translated 538/549
-    └── whatsnew/  50.69% done
+    └── whatsnew/  50.68% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -162,4 +162,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 248/568
-        └── changelog.po                  25.0% translated 3485/13758
+        └── changelog.po                  25.0% translated 3485/13763
