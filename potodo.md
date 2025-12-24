@@ -1,5 +1,5 @@
-1 directory  66.68% done
-└── 3.12/  66.68% done
+1 directory  66.69% done
+└── 3.12/  66.69% done
     ├── c-api/  52.74% done
     │   ├── exceptions.po                 63.0% translated 232/366
     │   ├── frame.po                      80.0% translated   29/36
@@ -38,7 +38,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  60.48% done
+    ├── library/  60.50% done
     │   ├── 2to3.po                       91.0% translated 121/132
     │   ├── array.po                      95.0% translated   80/84
     │   ├── ast.po                        83.0% translated 255/306
@@ -51,7 +51,7 @@
     │   ├── asyncio-runner.po             13.0% translated    5/37
     │   ├── asyncio-stream.po             72.0% translated   71/98
     │   ├── asyncio-sync.po               12.0% translated   12/99
-    │   ├── asyncio-task.po               65.0% translated 166/254
+    │   ├── asyncio-task.po               66.0% translated 168/254
     │   ├── audioop.po                     9.0% translated    5/53
     │   ├── base64.po                     33.0% translated   20/60
     │   ├── bdb.po                        98.0% translated 109/111
