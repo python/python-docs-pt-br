@@ -56,7 +56,7 @@
     ├── install/  72.62% done
     │   └── index.po                      74.0% translated 168/226
     ├── installing/  100.00% done
-    ├── library/  55.69% done
+    ├── library/  55.70% done
     │   ├── _thread.po                    95.0% translated   39/41
     │   ├── argparse.po                   88.0% translated 256/290
     │   ├── array.po                      98.0% translated   81/82
@@ -70,7 +70,6 @@
     │   ├── asyncio-protocol.po           14.0% translated  26/183
     │   ├── asyncio-stream.po             83.0% translated   67/80
     │   ├── asyncio-sync.po               15.0% translated   11/71
-    │   ├── asyncio-task.po               99.0% translated 185/186
     │   ├── asyncio.po                    95.0% translated   23/24
     │   ├── asyncore.po                   15.0% translated    8/52
     │   ├── audioop.po                     2.0% translated    1/46
