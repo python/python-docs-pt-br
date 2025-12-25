@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-23 14:16+0000\n"
+"POT-Creation-Date: 2025-12-25 14:14+0000\n"
 "PO-Revision-Date: 2025-09-16 00:00+0000\n"
 "Last-Translator: Adorilson Bezerra <adorilson@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -2129,6 +2129,8 @@ msgid ""
 "The method arranges for a :exc:`CancelledError` exception to be thrown into "
 "the wrapped coroutine on the next cycle of the event loop."
 msgstr ""
+"O método prepara para que uma exceção :exc:`CancelledError` seja lançada na "
+"corrotina contida no próximo ciclo do laço de eventos."
 
 #: ../../library/asyncio-task.rst:1404
 msgid ""
@@ -2149,6 +2151,7 @@ msgstr "Adicionado o  parâmetro *msg*."
 #: ../../library/asyncio-task.rst:1417
 msgid "The ``msg`` parameter is propagated from cancelled task to its awaiter."
 msgstr ""
+"O parâmetro ``msg`` é propagado da tarefa cancelada para o seu aguardador."
 
 #: ../../library/asyncio-task.rst:1422
 msgid ""
@@ -2194,6 +2197,17 @@ msgid ""
 "#     cancel_me(): after sleep\n"
 "#     main(): cancel_me is cancelled now"
 msgstr ""
+"async def cancel_me():    print('cancel_me(): antes de dormir')    "
+"try:        # Aguardar 1 hora        await asyncio.sleep(3600)    except "
+"asyncio.CancelledError:        print('cancel_me(): cancelar sono')        "
+"raise    finally:        print('cancel_me(): depois de dormir')async def "
+"main():    # Criar uma Tarefa \"cancel_me\"    task = asyncio."
+"create_task(cancel_me())    # Aguardar 1 segundo    await asyncio."
+"sleep(1)    task.cancel()    try:        await task    except asyncio."
+"CancelledError:        print(\"main(): cancel_me foi cancelado "
+"agora\")asyncio.run(main())# Saída esperada:##     cancel_me(): antes de "
+"dormir#     cancel_me(): cancelar sono#     cancel_me(): depois de "
+"dormir#     main(): cancel_me foi cancelado agora"
 
 #: ../../library/asyncio-task.rst:1461
 msgid "Return ``True`` if the Task is *cancelled*."
@@ -2215,13 +2229,15 @@ msgstr ""
 
 #: ../../library/asyncio-task.rst:1471
 msgid "Returns the remaining number of cancellation requests."
-msgstr ""
+msgstr "Retorna o número restante de pedidos de cancelamento."
 
 #: ../../library/asyncio-task.rst:1473
 msgid ""
 "Note that once execution of a cancelled task completed, further calls to :"
 "meth:`uncancel` are ineffective."
 msgstr ""
+"Note que, uma vez concluída a execução de uma tarefa cancelada, chamadas "
+"adicionais para :meth:`uncancel` são ineficazes."
 
 #: ../../library/asyncio-task.rst:1478
 msgid ""
@@ -2245,6 +2261,11 @@ msgid ""
 "    # Outer code not affected by the timeout:\n"
 "    await unrelated_code()"
 msgstr ""
+"async def make_request_with_timeout():    try:        async with asyncio."
+"timeout(1):            # Bloco estruturado afetado pelo timeout:            "
+"await make_request()            await make_another_request()    except "
+"TimeoutError:        log(\"Ocorreu um timeout\")    # Código externo não "
+"afetado pelo timeout:    await unrelated_code()"
 
 #: ../../library/asyncio-task.rst:1496
 msgid ""
@@ -2254,6 +2275,11 @@ msgid ""
 "`uncancel`.  :class:`TaskGroup` context managers use :func:`uncancel` in a "
 "similar fashion."
 msgstr ""
+"Enquanto o bloco com ``make_request()`` e ``make_another_request()`` possa "
+"ser cancelado devido ao timeout, ``unrelated_code()`` deve continuar a "
+"executar mesmo em caso de timeout. Isto é implementado com :meth:`uncancel`. "
+"Os gerenciadores de contexto :class:`TaskGroup` usam :func:`uncancel` de "
+"forma semelhante."
 
 #: ../../library/asyncio-task.rst:1502
 msgid ""
@@ -2261,6 +2287,9 @@ msgid ""
 "exc:`CancelledError`, it needs to call this method to remove the "
 "cancellation state."
 msgstr ""
+"Se o código do usuário final, por alguma razão, estiver suprimindo o "
+"cancelamento ao capturar :exc:`CancelledError`, precisa chamar este método "
+"para remover o estado de cancelamento."
 
 #: ../../library/asyncio-task.rst:1506
 msgid ""
@@ -2270,10 +2299,16 @@ msgid ""
 "that arrangement will be rescinded (by resetting the internal "
 "``_must_cancel`` flag)."
 msgstr ""
+"Quando este método decrementa a contagem de cancelamentos para zero, "
+"verifica se uma chamada anterior a :meth:`cancel` tinha preparado para que :"
+"exc:`CancelledError` fosse lançado na tarefa. Se ainda não tiver sido "
+"lançado, esse preparo será revogado (redefinindo o sinalizador interna "
+"``_must_cancel``)."
 
 #: ../../library/asyncio-task.rst:1512
 msgid "Changed to rescind pending cancellation requests upon reaching zero."
 msgstr ""
+"Alterado para revogar os pedidos de cancelamento pendentes ao atingir zero."
 
 #: ../../library/asyncio-task.rst:1517
 msgid ""
