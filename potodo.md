@@ -36,7 +36,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  62.94% done
+    ├── library/  62.93% done
     │   ├── ast.po                        99.0% translated 334/336
     │   ├── asyncio-dev.po                66.0% translated   36/54
     │   ├── asyncio-eventloop.po          76.0% translated 319/417
@@ -48,7 +48,7 @@
     │   ├── asyncio-runner.po              9.0% translated    4/41
     │   ├── asyncio-stream.po             68.0% translated  71/104
     │   ├── asyncio-sync.po               12.0% translated  12/100
-    │   ├── asyncio-task.po               67.0% translated 183/273
+    │   ├── asyncio-task.po               67.0% translated 184/273
     │   ├── base64.po                     21.0% translated   15/71
     │   ├── bdb.po                        98.0% translated 117/119
     │   ├── binascii.po                   60.0% translated   23/38
@@ -91,6 +91,7 @@
     │   ├── inspect.po                    38.0% translated 154/400
     │   ├── io.po                         21.0% translated  61/284
     │   ├── itertools.po                  77.0% translated 155/201
+    │   ├── linecache.po                  94.0% translated   16/17
     │   ├── locale.po                     98.0% translated 161/163
     │   ├── logging.config.po             90.0% translated 155/172
     │   ├── logging.handlers.po           65.0% translated 182/277
@@ -100,6 +101,7 @@
     │   ├── mmap.po                       35.0% translated   23/65
     │   ├── multiprocessing.po            55.0% translated 341/619
     │   ├── os.path.po                    90.0% translated 100/110
+    │   ├── os.po                         99.0% translated 1052/1054
     │   ├── poplib.po                     41.0% translated   22/53
     │   ├── profile.po                    18.0% translated  34/181
     │   ├── pyexpat.po                    14.0% translated  23/157
@@ -149,7 +151,7 @@
     │   └── controlflow.po                99.0% translated 224/226
     ├── using/  98.79% done
     │   └── windows.po                    97.0% translated 538/549
-    └── whatsnew/  50.67% done
+    └── whatsnew/  50.66% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -162,4 +164,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 248/568
-        └── changelog.po                  25.0% translated 3485/13768
+        └── changelog.po                  25.0% translated 3485/13773
