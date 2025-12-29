@@ -142,7 +142,7 @@
     │   ├── xml.sax.po                     9.0% translated    3/32
     │   ├── xml.sax.reader.po              2.0% translated    2/75
     │   ├── xmlrpc.client.po              48.0% translated  55/113
-    │   └── zoneinfo.po                   50.0% translated   42/83
+    │   └── zoneinfo.po                   50.0% translated   42/84
     ├── reference/  99.80% done
     │   └── compound_stmts.po             99.0% translated 464/466
     ├── tutorial/  99.83% done
@@ -150,7 +150,7 @@
     ├── using/  99.34% done
     │   ├── mac.po                        98.0% translated   95/96
     │   └── windows.po                    99.0% translated 388/389
-    └── whatsnew/  48.09% done
+    └── whatsnew/  48.08% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -165,4 +165,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 248/568
-        └── changelog.po                  21.0% translated 2730/12658
+        └── changelog.po                  21.0% translated 2730/12662
