@@ -1,5 +1,5 @@
-1 directory  62.51% done
-└── 3.14/  62.51% done
+1 directory  62.46% done
+└── 3.14/  62.46% done
     ├── glossary.po                       92.0% translated 441/477
     ├── sphinx.po                         99.0% translated 106/107
     ├── c-api/  55.08% done
@@ -36,8 +36,8 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  62.94% done
-    │   ├── ast.po                        99.0% translated 334/336
+    ├── library/  62.83% done
+    │   ├── ast.po                        99.0% translated 333/336
     │   ├── asyncio-dev.po                66.0% translated   36/54
     │   ├── asyncio-eventloop.po          76.0% translated 319/417
     │   ├── asyncio-future.po             26.0% translated   17/64
@@ -88,7 +88,7 @@
     │   ├── idle.po                       34.0% translated 102/295
     │   ├── imaplib.po                    10.0% translated  14/131
     │   ├── importlib.po                  77.0% translated 243/313
-    │   ├── inspect.po                    38.0% translated 154/400
+    │   ├── inspect.po                    37.0% translated 154/406
     │   ├── io.po                         21.0% translated  61/284
     │   ├── itertools.po                  77.0% translated 155/201
     │   ├── linecache.po                  94.0% translated   16/17
@@ -143,7 +143,7 @@
     │   ├── xml.sax.po                     9.0% translated    3/32
     │   ├── xml.sax.reader.po              2.0% translated    2/75
     │   ├── xmlrpc.client.po              48.0% translated  55/113
-    │   └── zoneinfo.po                   50.0% translated   42/83
+    │   └── zoneinfo.po                   50.0% translated   42/84
     ├── reference/  99.92% done
     │   ├── compound_stmts.po             99.0% translated 478/479
     │   └── lexical_analysis.po           99.0% translated 474/475
@@ -151,7 +151,7 @@
     │   └── controlflow.po                99.0% translated 224/226
     ├── using/  98.79% done
     │   └── windows.po                    97.0% translated 538/549
-    └── whatsnew/  50.66% done
+    └── whatsnew/  50.65% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -164,4 +164,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 248/568
-        └── changelog.po                  25.0% translated 3485/13773
+        └── changelog.po                  25.0% translated 3485/13777
