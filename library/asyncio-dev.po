@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-27 14:15+0000\n"
+"POT-Creation-Date: 2025-12-31 14:15+0000\n"
 "PO-Revision-Date: 2025-09-16 00:00+0000\n"
 "Last-Translator: Rainer Terroso, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -168,6 +168,11 @@ msgid ""
 "a callback.  If there's a need for such code to call a low-level asyncio "
 "API, the :meth:`loop.call_soon_threadsafe` method should be used, e.g.::"
 msgstr ""
+"Quase todos os objetos do asyncio não são seguros para threads, o que "
+"normalmente não é um problema, a menos que exista código que funcione com "
+"eles fora de uma Task ou de um callback. Se houver a necessidade de esse "
+"tipo de código chamar uma API de baixo nível do asyncio, o método :meth:"
+"`loop.call_soon_threadsafe` deve ser usado, por exemplo::"
 
 #: ../../library/asyncio-dev.rst:83
 msgid "loop.call_soon_threadsafe(fut.cancel)"
@@ -179,6 +184,9 @@ msgid ""
 "`run_coroutine_threadsafe` function should be used. It returns a :class:"
 "`concurrent.futures.Future` to access the result::"
 msgstr ""
+"Para agendar um objeto corrotina a partir de uma thread diferente do sistema "
+"operacional, a função :func:`run_coroutine_threadsafe` deve ser usada. Ela "
+"retorna um :class:`concurrent.futures.Future`. para acessar o resultado::"
 
 #: ../../library/asyncio-dev.rst:89
 msgid ""
@@ -203,6 +211,8 @@ msgstr ""
 #: ../../library/asyncio-dev.rst:98
 msgid "To handle signals the event loop must be run in the main thread."
 msgstr ""
+"Para manipular sinais, o laço de eventos deve ser executado na thread "
+"principal."
 
 #: ../../library/asyncio-dev.rst:101
 msgid ""
@@ -211,6 +221,11 @@ msgid ""
 "InterpreterPoolExecutor` to execute blocking code in a different OS thread "
 "without blocking the OS thread that the event loop runs in."
 msgstr ""
+"O método :meth:`loop.run_in_executor` pode ser usado com um :class:"
+"`concurrent.futures.ThreadPoolExecutor` ou :class:`~concurrent.futures."
+"InterpreterPoolExecutor` para executar o código de bloqueio em uma thread de "
+"sistema operacional diferente, sem bloquear a thread de sistema operacional "
+"na qual o laço de eventos é executado."
 
 #: ../../library/asyncio-dev.rst:107
 msgid ""
@@ -235,6 +250,10 @@ msgid ""
 "function performs a CPU-intensive calculation for 1 second, all concurrent "
 "asyncio Tasks and IO operations would be delayed by 1 second."
 msgstr ""
+"O código bloqueante (vinculada à CPU) não deve ser chamado diretamente. Por "
+"exemplo, se uma função executa um cálculo pesado de CPU durante 1 segundo, "
+"todas as Tasks concorrentes do asyncio e as operações de E/S serão atrasadas "
+"por 1 segundo."
 
 #: ../../library/asyncio-dev.rst:128
 msgid ""
@@ -243,6 +262,11 @@ msgid ""
 "OS thread with the event loop.  See the :meth:`loop.run_in_executor` method "
 "for more details."
 msgstr ""
+"Um executor pode ser usado para executar uma tarefa em uma thread diferente, "
+"incluindo em um interpretador diferente, ou até mesmo em um processo "
+"diferente, para evitar bloquear a thread do sistema operacional onde o laço "
+"de eventos está sendo executado. Consulte o método :meth:`loop."
+"run_in_executor` para mais detalhes."
 
 #: ../../library/asyncio-dev.rst:138
 msgid "Logging"
@@ -261,6 +285,8 @@ msgid ""
 "The default log level is :py:const:`logging.INFO`, which can be easily "
 "adjusted::"
 msgstr ""
+"O nível padrão de log é :py:const:`logging.INFO`, que pode ser facilmente "
+"ajustado::"
 
 #: ../../library/asyncio-dev.rst:146
 msgid "logging.getLogger(\"asyncio\").setLevel(logging.WARNING)"
@@ -272,10 +298,13 @@ msgid ""
 "separate thread for handling logs or use non-blocking IO. For example, see :"
 "ref:`blocking-handlers`."
 msgstr ""
+"Logging de rede pode bloquear o laço de eventos. Recomenda-se usar uma "
+"thread separada para lidar com os logs ou usar E/S não bloqueante. Por "
+"exemplo, veja :ref:`blocking-handlers`."
 
 #: ../../library/asyncio-dev.rst:157
 msgid "Detect never-awaited coroutines"
-msgstr ""
+msgstr "Detectar corrotinas nunca aguardadas"
 
 #: ../../library/asyncio-dev.rst:159
 msgid ""
@@ -283,6 +312,9 @@ msgid ""
 "instead of ``await coro()``) or the coroutine is not scheduled with :meth:"
 "`asyncio.create_task`, asyncio will emit a :exc:`RuntimeWarning`::"
 msgstr ""
+"Quando uma função de corrotina é chamada, mas não é aguardada (por exemplo, "
+"``coro()`` em vez de ``await coro()``) ou a corrotina não é agendada com :"
+"meth:`asyncio.create_task`, o asyncio emitirá um :exc:`RuntimeWarning`::"
 
 #: ../../library/asyncio-dev.rst:164
 msgid ""
@@ -296,6 +328,15 @@ msgid ""
 "\n"
 "asyncio.run(main())"
 msgstr ""
+"import asyncio\n"
+"\n"
+"async def test():\n"
+"    print(\"never scheduled\")\n"
+"\n"
+"async def main():\n"
+"    test()\n"
+"\n"
+"asyncio.run(main())"
 
 #: ../../library/asyncio-dev.rst:174 ../../library/asyncio-dev.rst:219
 msgid "Output::"
@@ -311,7 +352,7 @@ msgstr ""
 
 #: ../../library/asyncio-dev.rst:179 ../../library/asyncio-dev.rst:235
 msgid "Output in debug mode::"
-msgstr ""
+msgstr "Saída no modo de depuração::"
 
 #: ../../library/asyncio-dev.rst:181
 msgid ""
@@ -342,6 +383,8 @@ msgid ""
 "The usual fix is to either await the coroutine or call the :meth:`asyncio."
 "create_task` function::"
 msgstr ""
+"A correção usual é aguardar a corrotina ou chamar a função :meth:`asyncio."
+"create_task`::"
 
 #: ../../library/asyncio-dev.rst:195
 msgid ""
@@ -353,7 +396,7 @@ msgstr ""
 
 #: ../../library/asyncio-dev.rst:200
 msgid "Detect never-retrieved exceptions"
-msgstr ""
+msgstr "Detectar exceções nunca recuperadas"
 
 #: ../../library/asyncio-dev.rst:202
 msgid ""
@@ -362,6 +405,10 @@ msgid ""
 "this case, asyncio would emit a log message when the Future object is "
 "garbage collected."
 msgstr ""
+"Se um :meth:`Future.set_exception` é chamado, mas o objeto Future nunca é "
+"aguardado, a exceção nunca será propagada para o código do usuário. Nesse "
+"caso, o asyncio emitirá uma mensagem de log quando o objeto Future for "
+"coletado pela coleta de lixo."
 
 #: ../../library/asyncio-dev.rst:207
 msgid "Example of an unhandled exception::"
