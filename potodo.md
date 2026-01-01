@@ -1,5 +1,5 @@
-1 directory  62.48% done
-└── 3.14/  62.48% done
+1 directory  62.47% done
+└── 3.14/  62.47% done
     ├── glossary.po                       92.0% translated 441/477
     ├── sphinx.po                         99.0% translated 106/107
     ├── c-api/  55.08% done
@@ -53,7 +53,7 @@
     │   ├── bdb.po                        98.0% translated 117/119
     │   ├── binascii.po                   60.0% translated   23/38
     │   ├── codecs.po                     44.0% translated 250/563
-    │   ├── concurrent.futures.po          9.0% translated  12/121
+    │   ├── concurrent.futures.po         10.0% translated  12/120
     │   ├── concurrent.interpreters.po    56.0% translated   49/87
     │   ├── contextlib.po                 31.0% translated  55/172
     │   ├── ctypes.po                     43.0% translated 275/628
@@ -149,7 +149,8 @@
     │   ├── compound_stmts.po             99.0% translated 478/479
     │   ├── import.po                     99.0% translated 199/200
     │   └── lexical_analysis.po           99.0% translated 474/475
-    ├── tutorial/  99.83% done
+    ├── tutorial/  99.62% done
+    │   ├── appendix.po                   96.0% translated   27/28
     │   └── controlflow.po                99.0% translated 224/226
     ├── using/  98.79% done
     │   └── windows.po                    97.0% translated 538/549
@@ -167,4 +168,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  25.0% translated 3486/13778
+        └── changelog.po                  25.0% translated 3486/13779
