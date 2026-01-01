@@ -1,5 +1,5 @@
-1 directory  61.41% done
-└── 3.13/  61.41% done
+1 directory  61.40% done
+└── 3.13/  61.40% done
     ├── glossary.po                       92.0% translated 415/451
     ├── sphinx.po                         99.0% translated 106/107
     ├── c-api/  54.39% done
@@ -166,4 +166,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  21.0% translated 2731/12663
+        └── changelog.po                  21.0% translated 2731/12664
