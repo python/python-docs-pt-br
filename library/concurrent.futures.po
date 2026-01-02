@@ -5,6 +5,7 @@
 #
 # Translators:
 # python-doc bot, 2025
+# Adorilson Bezerra <adorilson@gmail.com>, 2026
 #
 #, fuzzy
 msgid ""
@@ -13,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-01 14:14+0000\n"
 "PO-Revision-Date: 2025-09-16 00:01+0000\n"
-"Last-Translator: python-doc bot, 2025\n"
+"Last-Translator: Adorilson Bezerra <adorilson@gmail.com>, 2026\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -420,6 +421,14 @@ msgid ""
 "Interpreter Lock <global interpreter lock>`, which means code run with this "
 "executor has true multi-core parallelism."
 msgstr ""
+"Uma subclasse de :class:`ThreadPoolExecutor` que executa chamadas de forma "
+"assíncrona usando um pool de no máximo *max_workers* threads. Cada thread "
+"executa tarefas em seu próprio interpretador. Os interpretadores dos "
+"trabalhadores estão isolados uns dos outros, o que significa que cada um tem "
+"o seu próprio estado de execução e não pode partilhar quaisquer objetos "
+"mutáveis nem outros dados. Cada interpretador tem a sua própria :term:`trava "
+"global <global interpreter lock>`, o que significa que o código executado "
+"por este executor tem paralelismo multinúcleo verdadeiro."
 
 #: ../../library/concurrent.futures.rst:302
 msgid ""
@@ -429,16 +438,25 @@ msgid ""
 "executor serializes the *initializer* and *initargs* using :mod:`pickle` "
 "when sending them to the worker's interpreter."
 msgstr ""
+"Os argumentos opcionais *initializer* e *initargs* têm o mesmo significado "
+"que para :class:`!ThreadPoolExecutor`: o inicializador é executado quando "
+"cada trabalhador é criado, embora neste caso seja executado no interpretador "
+"do próprio trabalhador. O executor serializa *initializer* e *initargs* com :"
+"mod:`pickle` ao enviá-los ao interpretador do trabalhador."
 
 #: ../../library/concurrent.futures.rst:310
 msgid ""
 "The executor may replace uncaught exceptions from *initializer* with :class:"
 "`~concurrent.interpreters.ExecutionFailed`."
 msgstr ""
+"O executor pode substituir exceções não capturadas de *initializer* por :"
+"class:`~concurrent.futures.interpreter.ExecutionFailed`."
 
 #: ../../library/concurrent.futures.rst:313
 msgid "Other caveats from parent :class:`ThreadPoolExecutor` apply here."
 msgstr ""
+"Outras advertências da classe pai :class:`ThreadPoolExecutor` aplicam-se "
+"aqui."
 
 #: ../../library/concurrent.futures.rst:315
 msgid ""
@@ -447,6 +465,10 @@ msgid ""
 "sending them to its interpreter.  The worker likewise serializes the return "
 "value when sending it back."
 msgstr ""
+":meth:`~Executor.submit` e :meth:`~Executor.map` funcionam normalmente, "
+"exceto que o trabalhador serializa o objeto chamável e os argumentos usando :"
+"mod:`pickle` ao enviá-los para o seu interpretador. O trabalhador também "
+"serializa o valor de retorno ao enviá-lo de volta."
 
 #: ../../library/concurrent.futures.rst:320
 msgid ""
@@ -458,10 +480,17 @@ msgid ""
 "original as-is then it directly preserves the corresponding :class:"
 "`~concurrent.interpreters.ExecutionFailed` instance instead."
 msgstr ""
+"Quando a tarefa atual de um trabalhador levanta uma exceção não capturada, "
+"ele tenta sempre preservar a exceção como está. Se isso for bem-sucedido, "
+"também define o ``__cause__`` para uma instância correspondente de :class:"
+"`~concurrent.futures.interpreter.ExecutionFailed`, que contém um resumo da "
+"exceção original. No caso incomum em que o trabalhador não consegue "
+"preservar a instância original, preserva diretamente a instância "
+"correspondente de :class:`~concurrent.futures.interpreter.ExecutionFailed`."
 
 #: ../../library/concurrent.futures.rst:332
 msgid "ProcessPoolExecutor"
-msgstr "```ProcessPoolExecutor```"
+msgstr "ProcessPoolExecutor"
 
 #: ../../library/concurrent.futures.rst:334
 msgid ""

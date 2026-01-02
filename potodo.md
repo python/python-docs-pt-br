@@ -1,6 +1,6 @@
-1 directory  62.47% done
-└── 3.14/  62.47% done
-    ├── glossary.po                       92.0% translated 441/477
+1 directory  62.50% done
+└── 3.14/  62.50% done
+    ├── glossary.po                       92.0% translated 442/477
     ├── sphinx.po                         99.0% translated 106/107
     ├── c-api/  55.08% done
     │   ├── exceptions.po                 66.0% translated 175/262
@@ -36,7 +36,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  62.89% done
+    ├── library/  62.92% done
     │   ├── ast.po                        99.0% translated 333/336
     │   ├── asyncio-dev.po                94.0% translated   51/54
     │   ├── asyncio-eventloop.po          76.0% translated 319/417
@@ -53,8 +53,8 @@
     │   ├── bdb.po                        98.0% translated 117/119
     │   ├── binascii.po                   60.0% translated   23/38
     │   ├── codecs.po                     44.0% translated 250/563
-    │   ├── concurrent.futures.po         10.0% translated  12/120
-    │   ├── concurrent.interpreters.po    56.0% translated   49/87
+    │   ├── concurrent.futures.po         15.0% translated  18/120
+    │   ├── concurrent.interpreters.po    58.0% translated   51/87
     │   ├── contextlib.po                 31.0% translated  55/172
     │   ├── ctypes.po                     43.0% translated 275/628
     │   ├── curses.po                     14.0% translated  69/491
@@ -149,8 +149,7 @@
     │   ├── compound_stmts.po             99.0% translated 478/479
     │   ├── import.po                     99.0% translated 199/200
     │   └── lexical_analysis.po           99.0% translated 474/475
-    ├── tutorial/  99.62% done
-    │   ├── appendix.po                   96.0% translated   27/28
+    ├── tutorial/  99.83% done
     │   └── controlflow.po                99.0% translated 224/226
     ├── using/  98.79% done
     │   └── windows.po                    97.0% translated 538/549
