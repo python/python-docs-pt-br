@@ -1,5 +1,5 @@
-1 directory  62.53% done
-└── 3.14/  62.53% done
+1 directory  62.55% done
+└── 3.14/  62.55% done
     ├── glossary.po                       95.0% translated 456/477
     ├── sphinx.po                         99.0% translated 106/107
     ├── c-api/  55.08% done
@@ -36,7 +36,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  62.99% done
+    ├── library/  63.02% done
     │   ├── ast.po                        99.0% translated 333/336
     │   ├── asyncio-dev.po                94.0% translated   51/54
     │   ├── asyncio-eventloop.po          76.0% translated 319/417
@@ -85,7 +85,7 @@
     │   ├── http.cookiejar.po              5.0% translated   9/159
     │   ├── http.cookies.po               13.0% translated    7/52
     │   ├── http.server.po                11.0% translated  15/129
-    │   ├── idle.po                       34.0% translated 102/295
+    │   ├── idle.po                       40.0% translated 119/295
     │   ├── imaplib.po                    10.0% translated  14/131
     │   ├── importlib.po                  77.0% translated 243/313
     │   ├── inspect.po                    37.0% translated 154/406
