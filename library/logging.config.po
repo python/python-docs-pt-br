@@ -1,20 +1,20 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2001-2025, Python Software Foundation
+# Copyright (C) 2001-2026, Python Software Foundation
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
 # python-doc bot, 2025
-# Rainer Terroso, 2025
+# Rainer Terroso, 2026
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-31 17:26+0000\n"
+"POT-Creation-Date: 2026-01-03 17:03+0000\n"
 "PO-Revision-Date: 2025-09-22 15:58+0000\n"
-"Last-Translator: Rainer Terroso, 2025\n"
+"Last-Translator: Rainer Terroso, 2026\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "Language: pt_BR\n"
@@ -333,6 +333,21 @@ msgid ""
 "``verify`` argument to :func:`listen` to prevent unrecognised configurations "
 "from being applied."
 msgstr ""
+"Como partes da configuração são passadas por :func:`eval`, o uso dessa "
+"função pode expor seus usuários a um risco de segurança. Embora a função "
+"apenas se vincule a um soquete em ``localhost`` e, portanto, não aceite "
+"conexões de máquinas remotas, existem cenários em que código não confiável "
+"pode ser executado sob a conta do processo que chama :func:`listen`. "
+"Especificamente, se o processo que chama :func:`listen` estiver sendo "
+"executado em uma máquina multiusuário onde os usuários não confiam uns nos "
+"outros, um usuário malicioso pode conseguir executar essencialmente código "
+"arbitrário no processo de um usuário vítima, simplesmente conectando-se ao "
+"soquete :func:`listen` da vítima e enviando uma configuração que execute "
+"qualquer código que o atacante queira que seja executado no processo da "
+"vítima. Isso é especialmente fácil de fazer se a porta padrão for usada, mas "
+"não é difícil mesmo se uma porta diferente for utilizada. Para evitar o "
+"risco de isso acontecer, use o argumento ``verify`` de :func:`listen` para "
+"prevenir que configurações não reconhecidas sejam aplicadas."
 
 #: ../../library/logging.config.rst:175
 msgid "The ``verify`` argument was added."
@@ -990,6 +1005,17 @@ msgid ""
 "will be stripped off and the remainder of the value processed using normal "
 "import mechanisms."
 msgstr ""
+"Há momentos em que uma configuração precisa se referir a objetos externos à "
+"configuração, por exemplo ``sys.stderr``. Se o dicionário de configuração "
+"for construído usando código Python, isso é simples, mas surge um problema "
+"quando a configuração é fornecida por meio de um arquivo texto (por exemplo, "
+"JSON, YAML). Em um arquivo texto, não há uma forma padrão de distinguir "
+"``sys.stderr`` da string literal ``'sys.stderr'``.  Para facilitar essa "
+"distinção, o sistema de configuração procura por determinados prefixos "
+"especiais em valores de string e os trata de forma especial. Por exemplo, se "
+"a string literal ``'ext://sys.stderr'`` for fornecida como um valor na "
+"configuração, então o prefixo ``ext://`` será removido e o restante do valor "
+"será processado usando os mecanismos normais de importação."
 
 #: ../../library/logging.config.rst:598
 msgid ""
@@ -1000,6 +1026,13 @@ msgid ""
 "manner and the result of the processing replaces the string value.  If the "
 "prefix is not recognised, then the string value will be left as-is."
 msgstr ""
+"O tratamento desses prefixos é feito de forma análoga ao tratamento de "
+"protocolos: existe um mecanismo genérico para procurar prefixos que "
+"correspondam à expressão regular ^(?P<prefix>[a-z]+)://(?P<suffix>.*), de "
+"modo que, se o ``prefix`` for reconhecido, o ``suffix`` é processado de uma "
+"forma dependente do prefixo e o resultado desse processamento substitui o "
+"valor da string. Se o prefixo não for reconhecido, então o valor da string é "
+"mantido como está."
 
 #: ../../library/logging.config.rst:610
 msgid "Access to internal objects"
@@ -1036,6 +1069,17 @@ msgid ""
 "that the ``alternate`` referred to a handler.  To cater for this, a generic "
 "resolution system allows the user to specify:"
 msgstr ""
+"No entanto, é necessário um mecanismo mais genérico para objetos definidos "
+"pelo usuário que não são conhecidos pelo módulo :mod:`logging`. Por exemplo, "
+"considere :class:`logging.handlers.MemoryHandler`, que recebe um argumento "
+"``target`` que é outro manipulador para o qual delegar. Como o sistema já "
+"conhece essa classe, então, na configuração, o ``target`` fornecido só "
+"precisa ser o id do objeto do manipulador de destino relevante, e o sistema "
+"resolverá esse id para o manipulador correspondente. Se, porém, um usuário "
+"definir um ``my.package.MyHandler`` que tenha um manipulador ``alternate``, "
+"o sistema de configuração não saberia que ``alternate`` se refere a um "
+"manipulador. Para atender a esse caso, um sistema genérico de resolução "
+"permite que o usuário especifique:"
 
 #: ../../library/logging.config.rst:642
 msgid ""
