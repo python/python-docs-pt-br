@@ -21,10 +21,9 @@
     │   ├── typeobj.po                    34.0% translated 236/683
     │   ├── unicode.po                    24.0% translated  85/342
     │   └── veryhigh.po                   90.0% translated   63/70
-    ├── deprecations/  97.74% done
-    │   ├── index.po                      99.0% translated 219/221
-    │   ├── pending-removal-in-3.14.po    97.0% translated   33/34
-    │   └── pending-removal-in-3.18.po    66.0% translated     2/3
+    ├── deprecations/  99.10% done
+    │   ├── index.po                      99.0% translated 220/221
+    │   └── pending-removal-in-3.14.po    97.0% translated   33/34
     ├── distributing/  100.00% done
     ├── extending/  35.76% done
     │   ├── embedding.po                   8.0% translated    5/59
@@ -160,7 +159,7 @@
         ├── 3.0.po                        90.0% translated 192/212
         ├── 3.1.po                        86.0% translated 114/132
         ├── 3.12.po                       99.0% translated 836/837
-        ├── 3.13.po                       99.0% translated 893/896
+        ├── 3.13.po                       99.0% translated 894/896
         ├── 3.2.po                        11.0% translated  66/576
         ├── 3.3.po                        19.0% translated 134/682
         ├── 3.4.po                        95.0% translated 496/517
