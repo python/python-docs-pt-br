@@ -1,5 +1,5 @@
-1 directory  62.52% done
-└── 3.14/  62.52% done
+1 directory  62.53% done
+└── 3.14/  62.53% done
     ├── glossary.po                       95.0% translated 456/477
     ├── sphinx.po                         99.0% translated 106/107
     ├── c-api/  55.08% done
@@ -20,9 +20,7 @@
     │   ├── typeobj.po                    33.0% translated 248/745
     │   ├── unicode.po                    19.0% translated  81/408
     │   └── veryhigh.po                   90.0% translated   63/70
-    ├── deprecations/  98.83% done
-    │   ├── index.po                      99.0% translated 232/233
-    │   └── pending-removal-in-3.18.po    66.0% translated     2/3
+    ├── deprecations/  100.00% done
     ├── distributing/  100.00% done
     ├── extending/  45.52% done
     │   ├── embedding.po                   8.0% translated    5/59
@@ -156,15 +154,15 @@
     │   └── controlflow.po                99.0% translated 224/226
     ├── using/  98.79% done
     │   └── windows.po                    97.0% translated 538/549
-    └── whatsnew/  50.62% done
+    └── whatsnew/  50.63% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
         ├── 2.6.po                        81.0% translated 510/626
         ├── 3.0.po                        90.0% translated 192/212
         ├── 3.1.po                        86.0% translated 114/132
-        ├── 3.13.po                       99.0% translated 934/936
-        ├── 3.14.po                       99.0% translated 1047/1049
+        ├── 3.13.po                       99.0% translated 935/936
+        ├── 3.14.po                       99.0% translated 1048/1049
         ├── 3.2.po                        11.0% translated  66/576
         ├── 3.3.po                        19.0% translated 134/682
         ├── 3.4.po                        95.0% translated 496/517
