@@ -1,25 +1,30 @@
-1 directory  62.44% done
-└── 3.14/  62.44% done
+1 directory  62.41% done
+└── 3.14/  62.41% done
     ├── glossary.po                       95.0% translated 456/477
     ├── sphinx.po                         99.0% translated 106/107
-    ├── c-api/  55.08% done
+    ├── c-api/  54.81% done
     │   ├── apiabiversion.po              98.0% translated   59/60
+    │   ├── call.po                       97.0% translated   97/99
     │   ├── exceptions.po                 66.0% translated 175/262
+    │   ├── file.po                       86.0% translated   25/29
     │   ├── frame.po                      66.0% translated   34/51
     │   ├── gcsupport.po                  26.0% translated   18/68
+    │   ├── gen.po                        83.0% translated   15/18
     │   ├── import.po                     76.0% translated   51/67
     │   ├── init.po                       42.0% translated 246/575
     │   ├── init_config.po                56.0% translated 362/638
-    │   ├── long.po                       26.0% translated  46/174
+    │   ├── intro.po                      96.0% translated 170/176
+    │   ├── long.po                       25.0% translated  46/180
     │   ├── memory.po                     30.0% translated  63/208
     │   ├── module.po                     36.0% translated  49/134
     │   ├── number.po                     29.0% translated   14/48
     │   ├── object.po                     30.0% translated  44/145
     │   ├── refcounting.po                30.0% translated   15/50
+    │   ├── set.po                        87.0% translated   28/32
     │   ├── structures.po                 41.0% translated  86/206
     │   ├── type.po                       18.0% translated  25/137
-    │   ├── typeobj.po                    33.0% translated 248/745
-    │   ├── unicode.po                    19.0% translated  81/408
+    │   ├── typeobj.po                    33.0% translated 248/747
+    │   ├── unicode.po                    19.0% translated  81/411
     │   └── veryhigh.po                   90.0% translated   63/70
     ├── deprecations/  100.00% done
     ├── distributing/  100.00% done
@@ -114,6 +119,7 @@
     │   ├── pyexpat.po                    14.0% translated  23/157
     │   ├── queue.po                      17.0% translated   10/57
     │   ├── random.po                     98.0% translated 136/138
+    │   ├── readline.po                   98.0% translated   58/59
     │   ├── select.po                     37.0% translated  78/209
     │   ├── selectors.po                  22.0% translated   13/58
     │   ├── shelve.po                     27.0% translated   11/40
@@ -153,11 +159,13 @@
     │   ├── xml.sax.reader.po              2.0% translated    2/75
     │   ├── xmlrpc.client.po              48.0% translated  55/113
     │   └── zoneinfo.po                   50.0% translated   42/84
-    ├── reference/  99.92% done
+    ├── reference/  99.83% done
     │   ├── compound_stmts.po             99.0% translated 478/479
+    │   ├── grammar.po                    50.0% translated     3/6
     │   └── import.po                     99.0% translated 199/200
-    ├── tutorial/  99.83% done
-    │   └── controlflow.po                99.0% translated 224/226
+    ├── tutorial/  99.58% done
+    │   ├── controlflow.po                99.0% translated 224/226
+    │   └── interpreter.po                96.0% translated   32/33
     ├── using/  98.79% done
     │   └── windows.po                    97.0% translated 538/549
     └── whatsnew/  50.58% done
@@ -175,4 +183,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  25.0% translated 3487/13812
+        └── changelog.po                  25.0% translated 3487/13815
