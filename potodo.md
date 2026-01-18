@@ -42,7 +42,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  62.57% done
+    ├── library/  62.58% done
     │   ├── array.po                      97.0% translated   85/87
     │   ├── asyncio-dev.po                90.0% translated   49/54
     │   ├── asyncio-eventloop.po          76.0% translated 316/413
@@ -89,7 +89,7 @@
     │   ├── http.cookiejar.po              5.0% translated   9/159
     │   ├── http.cookies.po               14.0% translated    7/49
     │   ├── http.server.po                13.0% translated  15/115
-    │   ├── idle.po                       40.0% translated 120/295
+    │   ├── idle.po                       43.0% translated 129/295
     │   ├── imaplib.po                    11.0% translated  14/118
     │   ├── importlib.po                  78.0% translated 245/313
     │   ├── importlib.resources.abc.po    94.0% translated   35/37
