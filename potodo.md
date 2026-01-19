@@ -1,5 +1,5 @@
-1 directory  61.38% done
-└── 3.13/  61.38% done
+1 directory  61.36% done
+└── 3.13/  61.36% done
     ├── glossary.po                       95.0% translated 430/451
     ├── sphinx.po                         99.0% translated 106/107
     ├── c-api/  54.25% done
@@ -42,7 +42,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  62.58% done
+    ├── library/  62.54% done
     │   ├── array.po                      97.0% translated   85/87
     │   ├── asyncio-dev.po                90.0% translated   49/54
     │   ├── asyncio-eventloop.po          76.0% translated 316/413
@@ -120,7 +120,7 @@
     │   ├── socket.po                     15.0% translated  56/368
     │   ├── sqlite3.po                    24.0% translated 116/479
     │   ├── ssl.po                        11.0% translated  62/545
-    │   ├── stdtypes.po                   97.0% translated 1383/1415
+    │   ├── stdtypes.po                   97.0% translated 1383/1417
     │   ├── string.po                     99.0% translated 220/221
     │   ├── struct.po                     49.0% translated  96/195
     │   ├── subprocess.po                 45.0% translated 150/328
@@ -129,6 +129,7 @@
     │   ├── tempfile.po                    9.0% translated    8/88
     │   ├── test.po                       36.0% translated 119/322
     │   ├── threading.po                  14.0% translated  39/274
+    │   ├── tkinter.po                    97.0% translated 320/327
     │   ├── tkinter.ttk.po                33.0% translated 142/429
     │   ├── traceback.po                   7.0% translated   9/116
     │   ├── tracemalloc.po                13.0% translated  21/156
@@ -174,4 +175,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  21.0% translated 2732/12695
+        └── changelog.po                  21.0% translated 2732/12696
