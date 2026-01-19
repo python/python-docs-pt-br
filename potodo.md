@@ -1,5 +1,5 @@
-1 directory  62.42% done
-└── 3.14/  62.42% done
+1 directory  62.40% done
+└── 3.14/  62.40% done
     ├── glossary.po                       95.0% translated 456/477
     ├── sphinx.po                         99.0% translated 106/107
     ├── c-api/  54.81% done
@@ -42,7 +42,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  62.85% done
+    ├── library/  62.80% done
     │   ├── argparse.po                   99.0% translated 399/400
     │   ├── array.po                      97.0% translated   85/87
     │   ├── ast.po                        99.0% translated 333/336
@@ -138,6 +138,7 @@
     │   ├── test.po                       35.0% translated 118/331
     │   ├── textwrap.po                   98.0% translated   57/58
     │   ├── threading.po                  14.0% translated  40/284
+    │   ├── tkinter.po                    97.0% translated 321/328
     │   ├── tkinter.ttk.po                33.0% translated 142/429
     │   ├── traceback.po                   8.0% translated  10/118
     │   ├── tracemalloc.po                13.0% translated  21/156
@@ -183,4 +184,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  25.0% translated 3487/13819
+        └── changelog.po                  25.0% translated 3487/13821
