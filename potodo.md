@@ -1,5 +1,5 @@
-1 directory  62.40% done
-└── 3.14/  62.40% done
+1 directory  62.39% done
+└── 3.14/  62.39% done
     ├── glossary.po                       95.0% translated 456/477
     ├── sphinx.po                         99.0% translated 106/107
     ├── c-api/  54.81% done
@@ -42,7 +42,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  62.80% done
+    ├── library/  62.79% done
     │   ├── argparse.po                   99.0% translated 399/400
     │   ├── array.po                      97.0% translated   85/87
     │   ├── ast.po                        99.0% translated 333/336
@@ -95,7 +95,7 @@
     │   ├── http.cookiejar.po              5.0% translated   9/159
     │   ├── http.cookies.po               13.0% translated    7/52
     │   ├── http.server.po                11.0% translated  15/129
-    │   ├── idle.po                       44.0% translated 130/295
+    │   ├── idle.po                       42.0% translated 127/297
     │   ├── imaplib.po                    10.0% translated  14/131
     │   ├── importlib.po                  77.0% translated 243/313
     │   ├── importlib.resources.abc.po    94.0% translated   35/37
@@ -119,7 +119,6 @@
     │   ├── pyexpat.po                    14.0% translated  23/157
     │   ├── queue.po                      17.0% translated   10/57
     │   ├── random.po                     98.0% translated 136/138
-    │   ├── readline.po                   98.0% translated   58/59
     │   ├── select.po                     37.0% translated  78/209
     │   ├── selectors.po                  22.0% translated   13/58
     │   ├── shelve.po                     27.0% translated   11/40
@@ -128,7 +127,7 @@
     │   ├── socket.po                     14.0% translated  54/384
     │   ├── sqlite3.po                    24.0% translated 116/478
     │   ├── ssl.po                        11.0% translated  62/547
-    │   ├── stdtypes.po                   96.0% translated 1506/1559
+    │   ├── stdtypes.po                   96.0% translated 1506/1561
     │   ├── string.po                     99.0% translated 223/224
     │   ├── struct.po                     50.0% translated 102/204
     │   ├── subprocess.po                 48.0% translated 150/312
@@ -164,12 +163,11 @@
     │   ├── compound_stmts.po             99.0% translated 478/479
     │   ├── grammar.po                    50.0% translated     3/6
     │   └── import.po                     99.0% translated 199/200
-    ├── tutorial/  99.58% done
-    │   ├── controlflow.po                99.0% translated 224/226
-    │   └── interpreter.po                96.0% translated   32/33
+    ├── tutorial/  99.83% done
+    │   └── controlflow.po                99.0% translated 224/226
     ├── using/  98.79% done
     │   └── windows.po                    97.0% translated 538/549
-    └── whatsnew/  50.57% done
+    └── whatsnew/  50.56% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -184,4 +182,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  25.0% translated 3487/13821
+        └── changelog.po                  25.0% translated 3487/13826
