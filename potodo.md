@@ -1,5 +1,5 @@
-1 directory  61.35% done
-└── 3.13/  61.35% done
+1 directory  61.34% done
+└── 3.13/  61.34% done
     ├── glossary.po                       95.0% translated 430/451
     ├── sphinx.po                         99.0% translated 106/107
     ├── c-api/  54.18% done
@@ -33,7 +33,8 @@
     │   ├── extending.po                  25.0% translated  58/226
     │   ├── newtypes.po                    6.0% translated   8/117
     │   └── newtypes_tutorial.po          88.0% translated 156/177
-    ├── faq/  100.00% done
+    ├── faq/  99.83% done
+    │   └── programming.po                99.0% translated 506/508
     ├── howto/  64.66% done
     │   ├── descriptor.po                 81.0% translated 187/230
     │   ├── enum.po                       37.0% translated 122/327
@@ -62,7 +63,8 @@
     │   ├── codecs.po                     44.0% translated 250/558
     │   ├── concurrent.futures.po         13.0% translated  14/103
     │   ├── contextlib.po                 31.0% translated  55/172
-    │   ├── ctypes.po                     47.0% translated 259/548
+    │   ├── contextvars.po                96.0% translated   55/57
+    │   ├── ctypes.po                     48.0% translated 264/548
     │   ├── curses.po                     13.0% translated  68/486
     │   ├── dataclasses.po                44.0% translated  70/156
     │   ├── datetime.po                   99.0% translated 645/649
@@ -105,7 +107,7 @@
     │   ├── mmap.po                       35.0% translated   23/65
     │   ├── multiprocessing.po            55.0% translated 336/609
     │   ├── os.path.po                    90.0% translated 100/110
-    │   ├── os.po                         99.0% translated 1033/1036
+    │   ├── os.po                         99.0% translated 1032/1036
     │   ├── pathlib.po                    99.0% translated 418/419
     │   ├── poplib.po                     41.0% translated   22/53
     │   ├── profile.po                    18.0% translated  34/181
@@ -151,15 +153,16 @@
     │   ├── xml.sax.reader.po              2.0% translated    2/75
     │   ├── xmlrpc.client.po              48.0% translated  55/113
     │   └── zoneinfo.po                   50.0% translated   42/84
-    ├── reference/  99.74% done
+    ├── reference/  99.71% done
     │   ├── compound_stmts.po             99.0% translated 464/466
+    │   ├── datamodel.po                  99.0% translated 870/872
     │   └── import.po                     99.0% translated 199/200
     ├── tutorial/  99.83% done
     │   └── controlflow.po                99.0% translated 224/226
     ├── using/  99.34% done
     │   ├── mac.po                        98.0% translated   95/96
     │   └── windows.po                    99.0% translated 388/389
-    └── whatsnew/  48.01% done
+    └── whatsnew/  48.00% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -174,4 +177,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  21.0% translated 2732/12700
+        └── changelog.po                  21.0% translated 2733/12707
