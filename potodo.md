@@ -88,7 +88,7 @@
     │   ├── configparser.po               95.0% translated 178/186
     │   ├── contextlib.po                 32.0% translated  42/130
     │   ├── crypt.po                      20.0% translated    7/35
-    │   ├── ctypes.po                     43.0% translated 189/436
+    │   ├── ctypes.po                     43.0% translated 191/436
     │   ├── curses.ascii.po               98.0% translated   68/69
     │   ├── curses.panel.po               95.0% translated   22/23
     │   ├── curses.po                     13.0% translated  66/485
