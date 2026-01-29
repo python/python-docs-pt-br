@@ -1,8 +1,8 @@
-1 directory  61.34% done
-└── 3.13/  61.34% done
+1 directory  61.35% done
+└── 3.13/  61.35% done
     ├── glossary.po                       95.0% translated 430/451
     ├── sphinx.po                         99.0% translated 106/107
-    ├── c-api/  54.18% done
+    ├── c-api/  54.17% done
     │   ├── call.po                       97.0% translated   97/99
     │   ├── conversion.po                 89.0% translated   49/55
     │   ├── exceptions.po                 67.0% translated 173/257
@@ -14,7 +14,7 @@
     │   ├── intro.po                      96.0% translated 168/174
     │   ├── long.po                       39.0% translated  43/108
     │   ├── memory.po                     27.0% translated  55/202
-    │   ├── module.po                     45.0% translated  63/140
+    │   ├── module.po                     44.0% translated  63/141
     │   ├── number.po                     29.0% translated   14/48
     │   ├── object.po                     35.0% translated  42/120
     │   ├── refcounting.po                29.0% translated   14/48
@@ -44,7 +44,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  62.52% done
+    ├── library/  62.53% done
     │   ├── array.po                      97.0% translated   85/87
     │   ├── asyncio-dev.po                90.0% translated   49/54
     │   ├── asyncio-eventloop.po          76.0% translated 316/413
@@ -64,7 +64,7 @@
     │   ├── concurrent.futures.po         13.0% translated  14/103
     │   ├── contextlib.po                 31.0% translated  55/172
     │   ├── contextvars.po                96.0% translated   55/57
-    │   ├── ctypes.po                     48.0% translated 264/548
+    │   ├── ctypes.po                     48.0% translated 268/548
     │   ├── curses.po                     13.0% translated  68/486
     │   ├── dataclasses.po                44.0% translated  70/156
     │   ├── datetime.po                   99.0% translated 645/649
@@ -162,7 +162,7 @@
     ├── using/  99.34% done
     │   ├── mac.po                        98.0% translated   95/96
     │   └── windows.po                    99.0% translated 388/389
-    └── whatsnew/  48.00% done
+    └── whatsnew/  47.99% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -177,4 +177,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  21.0% translated 2733/12707
+        └── changelog.po                  21.0% translated 2733/12709
