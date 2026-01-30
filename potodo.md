@@ -1,5 +1,5 @@
-1 directory  62.35% done
-└── 3.14/  62.35% done
+1 directory  62.36% done
+└── 3.14/  62.36% done
     ├── glossary.po                       95.0% translated 456/477
     ├── sphinx.po                         99.0% translated 106/107
     ├── c-api/  54.74% done
@@ -45,7 +45,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  62.78% done
+    ├── library/  62.79% done
     │   ├── argparse.po                   99.0% translated 399/400
     │   ├── array.po                      97.0% translated   85/87
     │   ├── ast.po                        99.0% translated 333/336
@@ -69,7 +69,7 @@
     │   ├── concurrent.interpreters.po    58.0% translated   51/87
     │   ├── contextlib.po                 31.0% translated  55/172
     │   ├── contextvars.po                89.0% translated   57/64
-    │   ├── ctypes.po                     46.0% translated 289/628
+    │   ├── ctypes.po                     47.0% translated 297/628
     │   ├── curses.po                     14.0% translated  69/491
     │   ├── dataclasses.po                44.0% translated  71/158
     │   ├── datetime.po                   99.0% translated 651/655
