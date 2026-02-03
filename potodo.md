@@ -1,5 +1,5 @@
-1 directory  66.81% done
-└── 3.12/  66.81% done
+1 directory  66.82% done
+└── 3.12/  66.82% done
     ├── c-api/  52.74% done
     │   ├── exceptions.po                 63.0% translated 232/366
     │   ├── frame.po                      80.0% translated   29/36
@@ -38,7 +38,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  60.71% done
+    ├── library/  60.73% done
     │   ├── 2to3.po                       91.0% translated 121/132
     │   ├── array.po                      95.0% translated   80/84
     │   ├── ast.po                        83.0% translated 255/306
@@ -62,7 +62,7 @@
     │   ├── concurrent.futures.po         14.0% translated   14/98
     │   ├── contextlib.po                 32.0% translated  56/172
     │   ├── crypt.po                      16.0% translated    6/36
-    │   ├── ctypes.po                     47.0% translated 248/523
+    │   ├── ctypes.po                     49.0% translated 260/523
     │   ├── curses.po                     13.0% translated  66/484
     │   ├── dataclasses.po                46.0% translated  71/153
     │   ├── datetime.po                   99.0% translated 633/637
@@ -109,6 +109,7 @@
     │   ├── msilib.po                      7.0% translated    7/97
     │   ├── multiprocessing.po            57.0% translated 344/594
     │   ├── nntplib.po                    11.0% translated   11/92
+    │   ├── os.path.po                    97.0% translated   96/98
     │   ├── ossaudiodev.po                17.0% translated  18/102
     │   ├── pathlib.po                    95.0% translated 332/346
     │   ├── pipes.po                      23.0% translated    5/21
