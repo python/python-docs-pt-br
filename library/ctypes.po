@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-29 14:35+0000\n"
+"POT-Creation-Date: 2026-02-03 14:40+0000\n"
 "PO-Revision-Date: 2025-09-16 00:01+0000\n"
 "Last-Translator: Adorilson Bezerra <adorilson@gmail.com>, 2026\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -1950,13 +1950,10 @@ msgstr "Segurança de thread (Thread safety) sem o GIL"
 
 #: ../../library/ctypes.rst:899
 msgid ""
-"From Python 3.13 onward, the :term:`GIL` can be disabled on :term:`free "
-"threaded <free threading>` builds. In ctypes, reads and writes to a single "
-"object concurrently is safe, but not across multiple objects:"
+"From Python 3.13 onward, the :term:`GIL` can be disabled on the :term:`free-"
+"threaded build`. In ctypes, reads and writes to a single object concurrently "
+"is safe, but not across multiple objects:"
 msgstr ""
-"A partir do Python 3.13, o :term:`GIL` pode ser desabilitado em compilações "
-"(builds) :term:`threads livres`. No ctypes, leituras e escritas concorrentes "
-"em um único objeto são seguras, mas não entre múltiplos objetos:"
 
 #: ../../library/ctypes.rst:902
 msgid ""
@@ -4448,29 +4445,33 @@ msgstr ""
 
 #: ../../library/ctypes.rst:2724
 msgid "Abstract base class for unions in *big endian* byte order."
-msgstr ""
+msgstr "Classe base abstrata para uniões em ordem de bytes *big endian*."
 
 #: ../../library/ctypes.rst:2730
 msgid "Abstract base class for unions in *little endian* byte order."
-msgstr ""
+msgstr "Classe base abstrata para uniões em ordem de bytes *little endian*."
 
 #: ../../library/ctypes.rst:2736
 msgid "Abstract base class for structures in *big endian* byte order."
-msgstr ""
+msgstr "Classe base abstrata para estruturas em ordem de bytes *big endian*."
 
 #: ../../library/ctypes.rst:2741
 msgid "Abstract base class for structures in *little endian* byte order."
 msgstr ""
+"Classe base abstrata para estruturas em ordem de bytes *little endian*."
 
 #: ../../library/ctypes.rst:2743
 msgid ""
 "Structures and unions with non-native byte order cannot contain pointer type "
 "fields, or any other data types containing pointer type fields."
 msgstr ""
+"Estruturas e uniões com ordem de bytes não nativa não podem conter campos de "
+"tipo ponteiro ou quaisquer outros tipos de dados que contenham campos de "
+"tipo ponteiro."
 
 #: ../../library/ctypes.rst:2749
 msgid "Abstract base class for structures in *native* byte order."
-msgstr ""
+msgstr "Classe base abstrata para estruturas em ordem de bytes *nativa*."
 
 #: ../../library/ctypes.rst:2751
 msgid ""
@@ -4479,6 +4480,11 @@ msgid ""
 "`ctypes` will create :term:`descriptor`\\s which allow reading and writing "
 "the fields by direct attribute accesses.  These are the"
 msgstr ""
+"Os tipos concretos de estruturas e uniões devem ser criados por subclasse de "
+"um destes tipos e, pelo menos, definir uma variável de classe :attr:"
+"`_fields_`. O :mod:`ctypes` criará :term:`descritores <descritor>` que "
+"permitem ler e escrever os campos por meio de acessos diretos aos "
+"respectivos atributos. Estes são eles"
 
 #: ../../library/ctypes.rst:2759
 msgid ""
@@ -4486,6 +4492,9 @@ msgid ""
 "tuples.  The first item is the name of the field, the second item specifies "
 "the type of the field; it can be any ctypes data type."
 msgstr ""
+"Uma sequência que define os campos da estrutura. Os itens devem ser tuplas "
+"com 2 ou 3 elementos. O primeiro item é o nome do campo; o segundo item "
+"especifica o tipo do campo, que pode ser qualquer tipo de dados ctypes."
 
 #: ../../library/ctypes.rst:2763
 msgid ""
@@ -4493,12 +4502,17 @@ msgid ""
 "given.  It must be a small positive integer defining the bit width of the "
 "field."
 msgstr ""
+"Para campos de tipo inteiro como :class:`c_int`, pode ser fornecido um "
+"terceiro item opcional. Deve ser um inteiro positivo pequeno que define a "
+"largura em bits do campo."
 
 #: ../../library/ctypes.rst:2767
 msgid ""
 "Field names must be unique within one structure or union.  This is not "
 "checked, only one field can be accessed when names are repeated."
 msgstr ""
+"Os nomes dos campos devem ser únicos em uma estrutura ou união. Isto não é "
+"verificado, apenas um campo pode ser acessado quando os nomes são repetidos."
 
 #: ../../library/ctypes.rst:2770
 msgid ""
@@ -4506,6 +4520,9 @@ msgid ""
 "class statement that defines the Structure subclass, this allows creating "
 "data types that directly or indirectly reference themselves::"
 msgstr ""
+"É possível definir a variável de classe :attr:`_fields_` *depois* da "
+"instrução de classe que define a subclasse de Structure, o que permite criar "
+"tipos de dados que referenciam diretamente ou indiretamente a si mesmos::"
 
 #: ../../library/ctypes.rst:2774
 msgid ""
@@ -4515,12 +4532,19 @@ msgid ""
 "                 ...\n"
 "                ]"
 msgstr ""
+"class List(Structure):\n"
+"    pass\n"
+"List._fields_ = [(\"pnext\", POINTER(List)),\n"
+"                 ...\n"
+"                ]"
 
 #: ../../library/ctypes.rst:2780
 msgid ""
 "The :attr:`!_fields_` class variable can only be set once. Later assignments "
 "will raise an :exc:`AttributeError`."
 msgstr ""
+"A variável de classe :attr:`!_fields_` só pode ser definida uma vez. "
+"Atribuições posteriores levantarão um :exc:`AttributeError`."
 
 #: ../../library/ctypes.rst:2783
 msgid ""
@@ -4531,12 +4555,20 @@ msgid ""
 "has not been set before such use, the structure or union will have no own "
 "fields, as if :attr:`!_fields_` was empty."
 msgstr ""
+"Além disso, a variável de classe :attr:`!_fields_` deve ser definida antes "
+"que o tipo de estrutura ou união seja usado pela primeira vez: uma instância "
+"ou subclasse é criada, :func:`sizeof` é chamada sobre ela, etc. Atribuições "
+"posteriores a :attr:`!_fields_` levantarão um :exc:`AttributeError`. Se :"
+"attr:`!_fields_` não tiver sido definida antes de tal uso, a estrutura ou "
+"união não terá campos próprios, como se :attr:`!_fields_` estivesse vazia."
 
 #: ../../library/ctypes.rst:2791
 msgid ""
 "Sub-subclasses of structure types inherit the fields of the base class plus "
 "the :attr:`_fields_` defined in the sub-subclass, if any."
 msgstr ""
+"As sub-subclasses de tipos de estrutura herdam os campos da classe base, bem "
+"como os :attr:`_fields_` definidos na sub-subclasse, se existirem."
 
 #: ../../library/ctypes.rst:2797
 msgid ""
@@ -4739,6 +4771,8 @@ msgid ""
 "Descriptor for fields of a :class:`Structure` and :class:`Union`. For "
 "example::"
 msgstr ""
+"Descritor para campos de uma :class:`Structure` ou :class:`Union`. Por "
+"exemplo::"
 
 #: ../../library/ctypes.rst:2923
 msgid ""
@@ -4762,16 +4796,37 @@ msgid ""
 ">>> Color.blinking.bit_offset\n"
 "1"
 msgstr ""
+">>> class Color(Structure):\n"
+"...     _fields_ = (\n"
+"...         ('red', c_uint8),\n"
+"...         ('green', c_uint8),\n"
+"...         ('blue', c_uint8),\n"
+"...         ('intense', c_bool, 1),\n"
+"...         ('blinking', c_bool, 1),\n"
+"...    )\n"
+"...\n"
+">>> Color.red\n"
+"<ctypes.CField 'red' type=c_ubyte, ofs=0, size=1>\n"
+">>> Color.green.type\n"
+"<class 'ctypes.c_ubyte'>\n"
+">>> Color.blue.byte_offset\n"
+"2\n"
+">>> Color.intense\n"
+"<ctypes.CField 'intense' type=c_bool, ofs=3, bit_size=1, bit_offset=0>\n"
+">>> Color.blinking.bit_offset\n"
+"1"
 
 #: ../../library/ctypes.rst:2943
 msgid "All attributes are read-only."
-msgstr ""
+msgstr "Todos os atributos são somente leitura."
 
 #: ../../library/ctypes.rst:2945
 msgid ""
 ":class:`!CField` objects are created via :attr:`~Structure._fields_`; do not "
 "instantiate the class directly."
 msgstr ""
+"Os objetos :class:`!CField` são criados por meio de :attr:`~Structure."
+"_fields_`; não instancie a classe diretamente."
 
 #: ../../library/ctypes.rst:2950
 msgid ""
@@ -4779,38 +4834,45 @@ msgid ""
 "readable string representation; the :class:`!CField` class was not available "
 "directly."
 msgstr ""
+"Anteriormente, os descritores tinham apenas os atributos ``offset`` e "
+"``size`` e uma representação de string legível; a classe :class:`!CField` "
+"não estava disponível diretamente."
 
 #: ../../library/ctypes.rst:2956
 msgid "Name of the field, as a string."
-msgstr ""
+msgstr "Nome do campo, como string."
 
 #: ../../library/ctypes.rst:2960
 msgid "Type of the field, as a :ref:`ctypes class <ctypes-data-types>`."
-msgstr ""
+msgstr "Tipo do campo, como uma :ref:`classe ctypes <ctypes-data-types>`."
 
 #: ../../library/ctypes.rst:2965
 msgid "Offset of the field, in bytes."
-msgstr ""
+msgstr "Deslocamento do campo, em bytes."
 
 #: ../../library/ctypes.rst:2967
 msgid ""
 "For bitfields, this is the offset of the underlying byte-aligned *storage "
 "unit*; see :attr:`~CField.bit_offset`."
 msgstr ""
+"Para campos de bits, este é o deslocamento da unidade de armazenamento "
+"alinhada por byte subjacente; veja :attr:`~CField.bit_offset`."
 
 #: ../../library/ctypes.rst:2972
 msgid "Size of the field, in bytes."
-msgstr ""
+msgstr "Tamanho do campo, em bytes."
 
 #: ../../library/ctypes.rst:2974
 msgid ""
 "For bitfields, this is the size of the underlying *storage unit*. Typically, "
 "it has the same size as the bitfield's type."
 msgstr ""
+"Para campos de bits, este é o tamanho da unidade de armazenamento "
+"subjacente. Normalmente, tem o mesmo tamanho que o tipo do campo de bits."
 
 #: ../../library/ctypes.rst:2979
 msgid "For non-bitfields, equivalent to :attr:`~CField.byte_size`."
-msgstr ""
+msgstr "Para campos não-bit, equivalente a :attr:`~CField.byte_size`."
 
 #: ../../library/ctypes.rst:2981
 msgid ""
@@ -4818,16 +4880,22 @@ msgid ""
 "combines :attr:`~CField.bit_size` and :attr:`~CField.bit_offset`. Prefer "
 "using the explicit attributes instead."
 msgstr ""
+"Para campos de bits, isto contém um valor compactado de bits compatível com "
+"versões anteriores que combina :attr:`~CField.bit_size` e :attr:`~CField."
+"bit_offset`. Prefira usar os atributos explícitos em vez disso."
 
 #: ../../library/ctypes.rst:2988
 msgid "True if this is a bitfield."
-msgstr ""
+msgstr "Verdadeiro se este for um campo de bits."
 
 #: ../../library/ctypes.rst:2993
 msgid ""
 "The location of a bitfield within its *storage unit*, that is, within :attr:"
 "`~CField.byte_size` bytes of memory starting at :attr:`~CField.byte_offset`."
 msgstr ""
+"A localização de um campo de bits dentro da sua unidade de armazenamento, ou "
+"seja, dentro dos :attr:`~CField.byte_size` bytes de memória a partir de :"
+"attr:`~CField.byte_offset`."
 
 #: ../../library/ctypes.rst:2997
 msgid ""
@@ -4835,18 +4903,25 @@ msgid ""
 "left <shifting>` by :attr:`!bit_offset` and take the :attr:`!bit_size` least "
 "significant bits."
 msgstr ""
+"Para obter o valor do campo, leia a unidade de armazenamento como um "
+"inteiro, :ref:`desloque para a esquerda <shifting>` por :attr:`!bit_offset` "
+"e acesse os :attr:`!bit_size` bits menos significativos."
 
 #: ../../library/ctypes.rst:3001
 msgid ""
 "For non-bitfields, :attr:`!bit_offset` is zero and :attr:`!bit_size` is "
 "equal to ``byte_size * 8``."
 msgstr ""
+"Para campos não-bit, :attr:`!bit_offset` é zero e :attr:`!bit_size` é igual "
+"a ``byte_size * 8``."
 
 #: ../../library/ctypes.rst:3006
 msgid ""
 "True if this field is anonymous, that is, it contains nested sub-fields that "
 "should be merged into a containing structure or union."
 msgstr ""
+"Verdadeiro se este campo for anônimo, ou seja, contém subcampos aninhados "
+"que devem ser fundidos em uma estrutura ou união contêiner."
 
 #: ../../library/ctypes.rst:3013
 msgid "Arrays and pointers"
