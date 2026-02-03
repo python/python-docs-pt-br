@@ -44,7 +44,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  62.53% done
+    ├── library/  62.55% done
     │   ├── array.po                      97.0% translated   85/87
     │   ├── asyncio-dev.po                90.0% translated   49/54
     │   ├── asyncio-eventloop.po          76.0% translated 316/413
@@ -64,7 +64,7 @@
     │   ├── concurrent.futures.po         13.0% translated  14/103
     │   ├── contextlib.po                 31.0% translated  55/172
     │   ├── contextvars.po                96.0% translated   55/57
-    │   ├── ctypes.po                     48.0% translated 268/548
+    │   ├── ctypes.po                     51.0% translated 280/548
     │   ├── curses.po                     13.0% translated  68/486
     │   ├── dataclasses.po                44.0% translated  70/156
     │   ├── datetime.po                   99.0% translated 645/649
@@ -80,11 +80,12 @@
     │   ├── email.message.po               6.0% translated   7/111
     │   ├── email.parser.po                6.0% translated    3/48
     │   ├── email.policy.po               10.0% translated  11/108
-    │   ├── enum.po                       52.0% translated 129/248
+    │   ├── enum.po                       51.0% translated 129/250
     │   ├── errno.po                      71.0% translated 115/160
     │   ├── exceptions.po                 99.0% translated 198/200
     │   ├── faulthandler.po                9.0% translated    4/43
     │   ├── ftplib.po                     12.0% translated   12/99
+    │   ├── functions.po                  99.0% translated 512/513
     │   ├── functools.po                  26.0% translated  30/115
     │   ├── hashlib.po                    54.0% translated  93/170
     │   ├── html.parser.po                96.0% translated   60/62
@@ -106,7 +107,7 @@
     │   ├── mailbox.po                     6.0% translated  21/307
     │   ├── mmap.po                       35.0% translated   23/65
     │   ├── multiprocessing.po            55.0% translated 336/609
-    │   ├── os.path.po                    90.0% translated 100/110
+    │   ├── os.path.po                    89.0% translated  98/110
     │   ├── os.po                         99.0% translated 1032/1036
     │   ├── pathlib.po                    99.0% translated 418/419
     │   ├── poplib.po                     41.0% translated   22/53
@@ -122,7 +123,7 @@
     │   ├── socket.po                     15.0% translated  56/368
     │   ├── sqlite3.po                    24.0% translated 116/479
     │   ├── ssl.po                        11.0% translated  62/545
-    │   ├── stdtypes.po                   97.0% translated 1383/1417
+    │   ├── stdtypes.po                   97.0% translated 1382/1419
     │   ├── string.po                     99.0% translated 220/221
     │   ├── struct.po                     49.0% translated  96/195
     │   ├── subprocess.po                 45.0% translated 150/328
@@ -177,4 +178,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  21.0% translated 2733/12710
+        └── changelog.po                  21.0% translated 2734/12715
