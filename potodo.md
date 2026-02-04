@@ -1,5 +1,5 @@
-1 directory  60.86% done
-└── 3.10/  60.86% done
+1 directory  60.87% done
+└── 3.10/  60.87% done
     ├── c-api/  51.44% done
     │   ├── allocation.po                 88.0% translated     8/9
     │   ├── arg.po                        98.0% translated 193/195
@@ -56,7 +56,7 @@
     ├── install/  72.62% done
     │   └── index.po                      74.0% translated 168/226
     ├── installing/  100.00% done
-    ├── library/  55.88% done
+    ├── library/  55.90% done
     │   ├── _thread.po                    95.0% translated   39/41
     │   ├── argparse.po                   88.0% translated 256/290
     │   ├── array.po                      98.0% translated   81/82
@@ -93,7 +93,7 @@
     │   ├── contextlib.po                 31.0% translated  39/125
     │   ├── copyreg.po                    88.0% translated     8/9
     │   ├── crypt.po                      10.0% translated    3/30
-    │   ├── ctypes.po                     42.0% translated 186/434
+    │   ├── ctypes.po                     44.0% translated 194/434
     │   ├── curses.ascii.po               99.0% translated 101/102
     │   ├── curses.panel.po               95.0% translated   22/23
     │   ├── curses.po                     36.0% translated 233/639
@@ -158,6 +158,7 @@
     │   ├── multiprocessing.po            54.0% translated 284/519
     │   ├── nntplib.po                     9.0% translated    8/84
     │   ├── optparse.po                   94.0% translated 385/406
+    │   ├── os.path.po                    97.0% translated   72/74
     │   ├── os.po                         99.0% translated 841/843
     │   ├── ossaudiodev.po                18.0% translated   18/98
     │   ├── pdb.po                        98.0% translated   98/99
