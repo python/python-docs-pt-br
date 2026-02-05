@@ -1,8 +1,8 @@
-1 directory  61.35% done
-└── 3.13/  61.35% done
+1 directory  61.33% done
+└── 3.13/  61.33% done
     ├── glossary.po                       95.0% translated 430/451
     ├── sphinx.po                         99.0% translated 106/107
-    ├── c-api/  54.17% done
+    ├── c-api/  53.93% done
     │   ├── call.po                       97.0% translated   97/99
     │   ├── conversion.po                 89.0% translated   49/55
     │   ├── exceptions.po                 67.0% translated 173/257
@@ -11,7 +11,7 @@
     │   ├── import.po                     80.0% translated   51/63
     │   ├── init.po                       40.0% translated 220/542
     │   ├── init_config.po                33.0% translated 139/417
-    │   ├── intro.po                      96.0% translated 168/174
+    │   ├── intro.po                      84.0% translated 168/198
     │   ├── long.po                       39.0% translated  43/108
     │   ├── memory.po                     27.0% translated  55/202
     │   ├── module.po                     44.0% translated  63/141
@@ -123,7 +123,7 @@
     │   ├── socket.po                     15.0% translated  56/368
     │   ├── sqlite3.po                    24.0% translated 116/479
     │   ├── ssl.po                        11.0% translated  62/545
-    │   ├── stdtypes.po                   97.0% translated 1382/1419
+    │   ├── stdtypes.po                   97.0% translated 1382/1421
     │   ├── string.po                     99.0% translated 220/221
     │   ├── struct.po                     49.0% translated  96/195
     │   ├── subprocess.po                 45.0% translated 150/328
@@ -143,6 +143,7 @@
     │   ├── unittest.po                   51.0% translated 276/537
     │   ├── urllib.parse.po               66.0% translated 111/168
     │   ├── urllib.request.po             16.0% translated  49/303
+    │   ├── urllib.robotparser.po         94.0% translated   18/19
     │   ├── warnings.po                   59.0% translated  83/140
     │   ├── wave.po                       38.0% translated   21/54
     │   ├── wsgiref.po                    58.0% translated  79/134
@@ -163,7 +164,7 @@
     ├── using/  99.34% done
     │   ├── mac.po                        98.0% translated   95/96
     │   └── windows.po                    99.0% translated 388/389
-    └── whatsnew/  47.99% done
+    └── whatsnew/  47.98% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -178,4 +179,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  21.0% translated 2734/12715
+        └── changelog.po                  21.0% translated 2732/12715
