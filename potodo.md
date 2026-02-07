@@ -62,7 +62,7 @@
     │   ├── concurrent.futures.po         14.0% translated   14/98
     │   ├── contextlib.po                 32.0% translated  56/172
     │   ├── crypt.po                      16.0% translated    6/36
-    │   ├── ctypes.po                     49.0% translated 260/523
+    │   ├── ctypes.po                     49.0% translated 261/523
     │   ├── curses.po                     13.0% translated  66/484
     │   ├── dataclasses.po                46.0% translated  71/153
     │   ├── datetime.po                   99.0% translated 633/637
@@ -150,7 +150,7 @@
     │   ├── warnings.po                   62.0% translated  82/131
     │   ├── wave.po                       39.0% translated   21/53
     │   ├── webbrowser.po                 92.0% translated   77/83
-    │   ├── wsgiref.po                    58.0% translated  79/134
+    │   ├── wsgiref.po                    58.0% translated  79/135
     │   ├── xdrlib.po                      8.0% translated    5/58
     │   ├── xml.dom.minidom.po            12.0% translated    7/56
     │   ├── xml.dom.po                    28.0% translated  67/235
