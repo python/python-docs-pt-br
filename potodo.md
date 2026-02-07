@@ -88,7 +88,7 @@
     │   ├── configparser.po               95.0% translated 178/186
     │   ├── contextlib.po                 32.0% translated  42/130
     │   ├── crypt.po                      20.0% translated    7/35
-    │   ├── ctypes.po                     46.0% translated 202/436
+    │   ├── ctypes.po                     46.0% translated 203/436
     │   ├── curses.ascii.po               98.0% translated   68/69
     │   ├── curses.panel.po               95.0% translated   22/23
     │   ├── curses.po                     13.0% translated  66/485
@@ -217,7 +217,7 @@
     │   ├── warnings.po                   67.0% translated  76/112
     │   ├── wave.po                       40.0% translated   21/52
     │   ├── webbrowser.po                 91.0% translated   79/86
-    │   ├── wsgiref.po                    57.0% translated  71/124
+    │   ├── wsgiref.po                    56.0% translated  71/125
     │   ├── xdrlib.po                      8.0% translated    5/56
     │   ├── xml.dom.minidom.po            13.0% translated    7/51
     │   ├── xml.dom.po                    28.0% translated  67/234
