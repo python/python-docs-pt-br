@@ -1,5 +1,5 @@
-1 directory  61.33% done
-└── 3.13/  61.33% done
+1 directory  61.25% done
+└── 3.13/  61.25% done
     ├── glossary.po                       95.0% translated 430/451
     ├── sphinx.po                         99.0% translated 106/107
     ├── c-api/  53.93% done
@@ -44,7 +44,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  62.55% done
+    ├── library/  62.37% done
     │   ├── array.po                      97.0% translated   85/87
     │   ├── asyncio-dev.po                90.0% translated   49/54
     │   ├── asyncio-eventloop.po          76.0% translated 316/413
@@ -56,7 +56,7 @@
     │   ├── asyncio-runner.po             13.0% translated    5/37
     │   ├── asyncio-stream.po             68.0% translated  71/104
     │   ├── asyncio-sync.po               12.0% translated  12/100
-    │   ├── asyncio-task.po               67.0% translated 181/268
+    │   ├── asyncio-task.po               67.0% translated 181/269
     │   ├── base64.po                     21.0% translated   15/71
     │   ├── bdb.po                        98.0% translated 110/112
     │   ├── binascii.po                   60.0% translated   23/38
@@ -64,7 +64,7 @@
     │   ├── concurrent.futures.po         13.0% translated  14/103
     │   ├── contextlib.po                 31.0% translated  55/172
     │   ├── contextvars.po                96.0% translated   55/57
-    │   ├── ctypes.po                     51.0% translated 280/548
+    │   ├── ctypes.po                     51.0% translated 281/548
     │   ├── curses.po                     13.0% translated  68/486
     │   ├── dataclasses.po                44.0% translated  70/156
     │   ├── datetime.po                   99.0% translated 645/649
@@ -119,7 +119,7 @@
     │   ├── selectors.po                  22.0% translated   13/58
     │   ├── shelve.po                     27.0% translated   11/40
     │   ├── shlex.po                       3.0% translated    3/77
-    │   ├── smtplib.po                    29.0% translated  36/124
+    │   ├── smtplib.po                    29.0% translated  37/124
     │   ├── socket.po                     15.0% translated  56/368
     │   ├── sqlite3.po                    24.0% translated 116/479
     │   ├── ssl.po                        11.0% translated  62/545
@@ -141,12 +141,13 @@
     │   ├── unittest.mock-examples.po     12.0% translated  22/182
     │   ├── unittest.mock.po              22.0% translated 103/448
     │   ├── unittest.po                   51.0% translated 276/537
-    │   ├── urllib.parse.po               66.0% translated 111/168
+    │   ├── urllib.parse.po               57.0% translated  95/164
     │   ├── urllib.request.po             16.0% translated  49/303
     │   ├── urllib.robotparser.po         94.0% translated   18/19
+    │   ├── venv.po                       99.0% translated 136/137
     │   ├── warnings.po                   59.0% translated  83/140
     │   ├── wave.po                       38.0% translated   21/54
-    │   ├── wsgiref.po                    58.0% translated  79/134
+    │   ├── wsgiref.po                    58.0% translated  79/135
     │   ├── xml.dom.minidom.po            14.0% translated    8/56
     │   ├── xml.dom.po                    28.0% translated  67/235
     │   ├── xml.etree.elementtree.po      27.0% translated  74/266
@@ -179,4 +180,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  21.0% translated 2732/12715
+        └── changelog.po                  21.0% translated 2734/12718
