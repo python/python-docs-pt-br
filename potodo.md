@@ -56,7 +56,7 @@
     ├── install/  72.62% done
     │   └── index.po                      74.0% translated 168/226
     ├── installing/  100.00% done
-    ├── library/  55.90% done
+    ├── library/  55.91% done
     │   ├── _thread.po                    95.0% translated   39/41
     │   ├── argparse.po                   88.0% translated 256/290
     │   ├── array.po                      98.0% translated   81/82
@@ -93,7 +93,7 @@
     │   ├── contextlib.po                 31.0% translated  39/125
     │   ├── copyreg.po                    88.0% translated     8/9
     │   ├── crypt.po                      10.0% translated    3/30
-    │   ├── ctypes.po                     44.0% translated 194/434
+    │   ├── ctypes.po                     44.0% translated 195/434
     │   ├── curses.ascii.po               99.0% translated 101/102
     │   ├── curses.panel.po               95.0% translated   22/23
     │   ├── curses.po                     36.0% translated 233/639
@@ -230,7 +230,7 @@
     │   ├── webbrowser.po                 92.0% translated   76/82
     │   ├── winreg.po                     97.0% translated 167/171
     │   ├── winsound.po                   94.0% translated   32/34
-    │   ├── wsgiref.po                    56.0% translated  66/116
+    │   ├── wsgiref.po                    56.0% translated  66/117
     │   ├── xdrlib.po                      7.0% translated    4/54
     │   ├── xml.dom.minidom.po            13.0% translated    7/51
     │   ├── xml.dom.po                    28.0% translated  67/234
