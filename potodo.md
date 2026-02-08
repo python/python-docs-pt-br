@@ -1,7 +1,6 @@
-1 directory  61.25% done
-└── 3.13/  61.25% done
+1 directory  61.26% done
+└── 3.13/  61.26% done
     ├── glossary.po                       95.0% translated 430/451
-    ├── sphinx.po                         99.0% translated 106/107
     ├── c-api/  53.93% done
     │   ├── call.po                       97.0% translated   97/99
     │   ├── conversion.po                 89.0% translated   49/55
@@ -85,7 +84,6 @@
     │   ├── exceptions.po                 99.0% translated 198/200
     │   ├── faulthandler.po                9.0% translated    4/43
     │   ├── ftplib.po                     12.0% translated   12/99
-    │   ├── functions.po                  99.0% translated 512/513
     │   ├── functools.po                  26.0% translated  30/115
     │   ├── hashlib.po                    54.0% translated  93/170
     │   ├── html.parser.po                96.0% translated   60/62
@@ -160,8 +158,7 @@
     │   ├── compound_stmts.po             99.0% translated 464/466
     │   ├── datamodel.po                  99.0% translated 870/872
     │   └── import.po                     99.0% translated 199/200
-    ├── tutorial/  99.83% done
-    │   └── controlflow.po                99.0% translated 224/226
+    ├── tutorial/  100.00% done
     ├── using/  99.34% done
     │   ├── mac.po                        98.0% translated   95/96
     │   └── windows.po                    99.0% translated 388/389
