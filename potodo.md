@@ -1,9 +1,7 @@
-1 directory  61.19% done
-└── 3.14/  61.19% done
-    ├── glossary.po                       93.0% translated 456/489
-    ├── sphinx.po                         99.0% translated 106/107
-    ├── c-api/  54.26% done
-    │   ├── apiabiversion.po              98.0% translated   59/60
+1 directory  61.20% done
+└── 3.14/  61.20% done
+    ├── glossary.po                       93.0% translated 457/489
+    ├── c-api/  54.27% done
     │   ├── call.po                       97.0% translated   97/99
     │   ├── conversion.po                 89.0% translated   49/55
     │   ├── exceptions.po                 66.0% translated 175/262
@@ -45,7 +43,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  60.54% done
+    ├── library/  60.55% done
     │   ├── __future__.po                 91.0% translated   45/49
     │   ├── argparse.po                   99.0% translated 398/400
     │   ├── array.po                      97.0% translated   85/87
@@ -115,7 +113,6 @@
     │   ├── filecmp.po                    95.0% translated   40/42
     │   ├── fractions.po                  97.0% translated   40/41
     │   ├── ftplib.po                     12.0% translated   12/99
-    │   ├── functions.po                  99.0% translated 516/520
     │   ├── functools.po                  22.0% translated  28/126
     │   ├── gc.po                         98.0% translated   72/73
     │   ├── getpass.po                    93.0% translated   15/16
@@ -252,8 +249,7 @@
     │   ├── grammar.po                    50.0% translated     3/6
     │   ├── import.po                     99.0% translated 199/200
     │   └── simple_stmts.po               97.0% translated 284/291
-    ├── tutorial/  99.83% done
-    │   └── controlflow.po                99.0% translated 224/226
+    ├── tutorial/  100.00% done
     ├── using/  97.77% done
     │   ├── configure.po                  99.0% translated 465/466
     │   └── windows.po                    97.0% translated 534/549
