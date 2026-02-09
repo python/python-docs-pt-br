@@ -1,5 +1,5 @@
-1 directory  61.20% done
-└── 3.14/  61.20% done
+1 directory  61.19% done
+└── 3.14/  61.19% done
     ├── glossary.po                       93.0% translated 457/489
     ├── c-api/  54.27% done
     │   ├── call.po                       97.0% translated   97/99
@@ -43,7 +43,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  60.55% done
+    ├── library/  60.53% done
     │   ├── __future__.po                 91.0% translated   45/49
     │   ├── argparse.po                   99.0% translated 398/400
     │   ├── array.po                      97.0% translated   85/87
@@ -169,7 +169,7 @@
     │   ├── readline.po                   93.0% translated   55/59
     │   ├── runpy.po                      92.0% translated   37/40
     │   ├── sched.po                      96.0% translated   24/25
-    │   ├── secrets.po                    83.0% translated   31/37
+    │   ├── secrets.po                    66.0% translated   26/39
     │   ├── select.po                     36.0% translated  77/209
     │   ├── selectors.po                  22.0% translated   13/58
     │   ├── shelve.po                     27.0% translated   11/40
@@ -183,7 +183,7 @@
     │   ├── sqlite3.po                    24.0% translated 116/478
     │   ├── ssl.po                        11.0% translated  62/547
     │   ├── stat.po                       97.0% translated   90/92
-    │   ├── stdtypes.po                   96.0% translated 1505/1565
+    │   ├── stdtypes.po                   95.0% translated 1504/1568
     │   ├── string.po                     98.0% translated 221/224
     │   ├── stringprep.po                 92.0% translated   23/25
     │   ├── struct.po                     49.0% translated 101/204
@@ -260,12 +260,12 @@
         ├── 2.6.po                        81.0% translated 510/626
         ├── 3.0.po                        90.0% translated 192/212
         ├── 3.1.po                        86.0% translated 114/132
-        ├── 3.13.po                       99.0% translated 934/936
-        ├── 3.14.po                       99.0% translated 1048/1049
+        ├── 3.13.po                       99.0% translated 933/935
+        ├── 3.14.po                       99.0% translated 1047/1048
         ├── 3.2.po                        11.0% translated  66/576
         ├── 3.3.po                        19.0% translated 134/682
         ├── 3.4.po                        95.0% translated 496/517
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  25.0% translated 3487/13844
+        └── changelog.po                  25.0% translated 3487/13845
