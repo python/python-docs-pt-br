@@ -1,5 +1,5 @@
-1 directory  61.26% done
-└── 3.13/  61.26% done
+1 directory  61.25% done
+└── 3.13/  61.25% done
     ├── glossary.po                       95.0% translated 430/451
     ├── c-api/  53.93% done
     │   ├── call.po                       97.0% translated   97/99
@@ -43,7 +43,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  62.37% done
+    ├── library/  62.35% done
     │   ├── array.po                      97.0% translated   85/87
     │   ├── asyncio-dev.po                90.0% translated   49/54
     │   ├── asyncio-eventloop.po          76.0% translated 316/413
@@ -113,6 +113,7 @@
     │   ├── pyexpat.po                    14.0% translated  23/156
     │   ├── queue.po                      17.0% translated   10/57
     │   ├── random.po                     98.0% translated 136/138
+    │   ├── secrets.po                    82.0% translated   32/39
     │   ├── select.po                     37.0% translated  78/206
     │   ├── selectors.po                  22.0% translated   13/58
     │   ├── shelve.po                     27.0% translated   11/40
@@ -121,7 +122,7 @@
     │   ├── socket.po                     15.0% translated  56/368
     │   ├── sqlite3.po                    24.0% translated 116/479
     │   ├── ssl.po                        11.0% translated  62/545
-    │   ├── stdtypes.po                   97.0% translated 1382/1421
+    │   ├── stdtypes.po                   96.0% translated 1381/1424
     │   ├── string.po                     99.0% translated 220/221
     │   ├── struct.po                     49.0% translated  96/195
     │   ├── subprocess.po                 45.0% translated 150/328
