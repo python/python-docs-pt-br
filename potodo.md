@@ -93,7 +93,7 @@
     │   ├── contextlib.po                 31.0% translated  39/125
     │   ├── copyreg.po                    88.0% translated     8/9
     │   ├── crypt.po                      10.0% translated    3/30
-    │   ├── ctypes.po                     44.0% translated 195/434
+    │   ├── ctypes.po                     45.0% translated 196/434
     │   ├── curses.ascii.po               99.0% translated 101/102
     │   ├── curses.panel.po               95.0% translated   22/23
     │   ├── curses.po                     36.0% translated 233/639
