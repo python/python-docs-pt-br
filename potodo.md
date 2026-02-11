@@ -1,5 +1,5 @@
-1 directory  61.25% done
-└── 3.13/  61.25% done
+1 directory  61.23% done
+└── 3.13/  61.23% done
     ├── glossary.po                       95.0% translated 430/451
     ├── c-api/  53.93% done
     │   ├── call.po                       97.0% translated   97/99
@@ -43,10 +43,10 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  62.36% done
+    ├── library/  62.32% done
     │   ├── array.po                      97.0% translated   85/87
     │   ├── asyncio-dev.po                90.0% translated   49/54
-    │   ├── asyncio-eventloop.po          76.0% translated 316/413
+    │   ├── asyncio-eventloop.po          75.0% translated 312/413
     │   ├── asyncio-future.po             26.0% translated   17/64
     │   ├── asyncio-platforms.po          23.0% translated    6/26
     │   ├── asyncio-policy.po             14.0% translated   10/68
@@ -122,7 +122,7 @@
     │   ├── socket.po                     15.0% translated  56/368
     │   ├── sqlite3.po                    24.0% translated 116/479
     │   ├── ssl.po                        11.0% translated  62/545
-    │   ├── stdtypes.po                   96.0% translated 1381/1424
+    │   ├── stdtypes.po                   96.0% translated 1377/1426
     │   ├── string.po                     99.0% translated 220/221
     │   ├── struct.po                     49.0% translated  96/195
     │   ├── subprocess.po                 45.0% translated 150/328
@@ -178,4 +178,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  21.0% translated 2734/12718
+        └── changelog.po                  21.0% translated 2734/12721
