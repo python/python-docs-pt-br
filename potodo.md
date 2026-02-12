@@ -1,6 +1,6 @@
 1 directory  61.08% done
 └── 3.14/  61.08% done
-    ├── glossary.po                       92.0% translated 457/493
+    ├── glossary.po                       93.0% translated 460/493
     ├── c-api/  54.27% done
     │   ├── call.po                       97.0% translated   97/99
     │   ├── conversion.po                 89.0% translated   49/55
