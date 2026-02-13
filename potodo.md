@@ -1,6 +1,6 @@
-1 directory  61.23% done
-└── 3.13/  61.23% done
-    ├── glossary.po                       95.0% translated 430/451
+1 directory  61.22% done
+└── 3.13/  61.22% done
+    ├── glossary.po                       94.0% translated 430/455
     ├── c-api/  53.93% done
     │   ├── call.po                       97.0% translated   97/99
     │   ├── conversion.po                 89.0% translated   49/55
@@ -63,10 +63,10 @@
     │   ├── concurrent.futures.po         13.0% translated  14/103
     │   ├── contextlib.po                 31.0% translated  55/172
     │   ├── contextvars.po                96.0% translated   55/57
-    │   ├── ctypes.po                     51.0% translated 282/548
+    │   ├── ctypes.po                     51.0% translated 283/548
     │   ├── curses.po                     13.0% translated  68/486
     │   ├── dataclasses.po                44.0% translated  70/156
-    │   ├── datetime.po                   99.0% translated 645/649
+    │   ├── datetime.po                   99.0% translated 645/650
     │   ├── decimal.po                    99.0% translated 377/380
     │   ├── difflib.po                    10.0% translated  14/140
     │   ├── dis.po                        56.0% translated 224/396
@@ -118,6 +118,7 @@
     │   ├── selectors.po                  22.0% translated   13/58
     │   ├── shelve.po                     27.0% translated   11/40
     │   ├── shlex.po                       3.0% translated    3/77
+    │   ├── signal.po                     99.0% translated 142/143
     │   ├── smtplib.po                    29.0% translated  37/124
     │   ├── socket.po                     15.0% translated  56/368
     │   ├── sqlite3.po                    24.0% translated 116/479
@@ -178,4 +179,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  21.0% translated 2734/12721
+        └── changelog.po                  21.0% translated 2734/12723
