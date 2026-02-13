@@ -62,7 +62,7 @@
     │   ├── concurrent.futures.po         14.0% translated   14/98
     │   ├── contextlib.po                 32.0% translated  56/172
     │   ├── crypt.po                      16.0% translated    6/36
-    │   ├── ctypes.po                     50.0% translated 262/523
+    │   ├── ctypes.po                     50.0% translated 263/523
     │   ├── curses.po                     13.0% translated  66/484
     │   ├── dataclasses.po                46.0% translated  71/153
     │   ├── datetime.po                   99.0% translated 633/637
