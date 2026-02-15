@@ -1,5 +1,5 @@
-1 directory  64.99% done
-└── 3.11/  64.99% done
+1 directory  65.01% done
+└── 3.11/  65.01% done
     ├── c-api/  53.46% done
     │   ├── exceptions.po                 63.0% translated 219/347
     │   ├── float.po                      97.0% translated   34/35
@@ -54,7 +54,7 @@
     ├── install/  71.32% done
     │   └── index.po                      73.0% translated 166/226
     ├── installing/  100.00% done
-    ├── library/  58.58% done
+    ├── library/  58.60% done
     │   ├── _thread.po                    96.0% translated   49/51
     │   ├── abc.po                        97.0% translated   48/49
     │   ├── argparse.po                   91.0% translated 305/335
@@ -88,7 +88,7 @@
     │   ├── configparser.po               95.0% translated 178/186
     │   ├── contextlib.po                 32.0% translated  42/130
     │   ├── crypt.po                      20.0% translated    7/35
-    │   ├── ctypes.po                     46.0% translated 204/436
+    │   ├── ctypes.po                     48.0% translated 210/436
     │   ├── curses.ascii.po               98.0% translated   68/69
     │   ├── curses.panel.po               95.0% translated   22/23
     │   ├── curses.po                     13.0% translated  66/485
