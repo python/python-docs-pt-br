@@ -1,5 +1,5 @@
-1 directory  61.09% done
-└── 3.14/  61.09% done
+1 directory  61.10% done
+└── 3.14/  61.10% done
     ├── glossary.po                       93.0% translated 460/493
     ├── c-api/  54.27% done
     │   ├── call.po                       97.0% translated   97/99
@@ -80,7 +80,7 @@
     │   ├── copy.po                       96.0% translated   31/32
     │   ├── copyreg.po                    91.0% translated   11/12
     │   ├── csv.po                        95.0% translated 116/122
-    │   ├── ctypes.po                     51.0% translated 326/628
+    │   ├── ctypes.po                     52.0% translated 328/628
     │   ├── curses.ascii.po               98.0% translated   68/69
     │   ├── curses.panel.po               95.0% translated   22/23
     │   ├── curses.po                     13.0% translated  68/491
