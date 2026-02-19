@@ -1,5 +1,5 @@
-1 directory  61.16% done
-└── 3.13/  61.16% done
+1 directory  61.15% done
+└── 3.13/  61.15% done
     ├── bugs.po                           96.0% translated   30/31
     ├── glossary.po                       94.0% translated 430/455
     ├── c-api/  53.82% done
@@ -166,8 +166,8 @@
     │   ├── xmlrpc.client.po              48.0% translated  55/113
     │   ├── xmlrpc.server.po              98.0% translated   56/57
     │   └── zoneinfo.po                   50.0% translated   42/84
-    ├── reference/  99.71% done
-    │   ├── compound_stmts.po             99.0% translated 464/466
+    ├── reference/  99.47% done
+    │   ├── compound_stmts.po             98.0% translated 459/467
     │   ├── datamodel.po                  99.0% translated 870/872
     │   └── import.po                     99.0% translated 199/200
     ├── tutorial/  99.51% done
@@ -192,4 +192,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  21.0% translated 2734/12730
+        └── changelog.po                  21.0% translated 2734/12731
