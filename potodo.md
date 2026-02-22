@@ -1,7 +1,7 @@
-1 directory  61.14% done
-└── 3.13/  61.14% done
+1 directory  61.16% done
+└── 3.13/  61.16% done
     ├── bugs.po                           96.0% translated   30/31
-    ├── glossary.po                       94.0% translated 430/455
+    ├── glossary.po                       94.0% translated 432/455
     ├── c-api/  53.80% done
     │   ├── call.po                       97.0% translated   97/99
     │   ├── conversion.po                 89.0% translated   49/55
@@ -46,7 +46,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  62.23% done
+    ├── library/  62.25% done
     │   ├── array.po                      97.0% translated   85/87
     │   ├── asyncio-dev.po                90.0% translated   49/54
     │   ├── asyncio-eventloop.po          75.0% translated 312/413
@@ -66,7 +66,7 @@
     │   ├── concurrent.futures.po         13.0% translated  14/103
     │   ├── contextlib.po                 31.0% translated  55/172
     │   ├── contextvars.po                96.0% translated   55/57
-    │   ├── ctypes.po                     54.0% translated 296/548
+    │   ├── ctypes.po                     55.0% translated 302/548
     │   ├── curses.po                     13.0% translated  68/486
     │   ├── dataclasses.po                44.0% translated  70/156
     │   ├── datetime.po                   99.0% translated 645/650
