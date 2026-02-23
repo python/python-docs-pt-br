@@ -1,7 +1,7 @@
-1 directory  61.16% done
-└── 3.13/  61.16% done
+1 directory  61.21% done
+└── 3.13/  61.21% done
     ├── bugs.po                           96.0% translated   30/31
-    ├── glossary.po                       94.0% translated 432/455
+    ├── glossary.po                       98.0% translated 447/455
     ├── c-api/  53.80% done
     │   ├── call.po                       97.0% translated   97/99
     │   ├── conversion.po                 89.0% translated   49/55
@@ -15,7 +15,7 @@
     │   ├── intro.po                      84.0% translated 167/198
     │   ├── long.po                       39.0% translated  43/108
     │   ├── memory.po                     27.0% translated  55/202
-    │   ├── module.po                     44.0% translated  63/141
+    │   ├── module.po                     44.0% translated  63/142
     │   ├── number.po                     29.0% translated   14/48
     │   ├── object.po                     35.0% translated  42/120
     │   ├── refcounting.po                29.0% translated   14/48
