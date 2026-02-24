@@ -1,7 +1,7 @@
 1 directory  61.21% done
 └── 3.13/  61.21% done
     ├── bugs.po                           96.0% translated   30/31
-    ├── glossary.po                       98.0% translated 447/455
+    ├── glossary.po                       98.0% translated 448/455
     ├── c-api/  53.80% done
     │   ├── call.po                       97.0% translated   97/99
     │   ├── conversion.po                 89.0% translated   49/55
