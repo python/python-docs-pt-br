@@ -1,8 +1,8 @@
-1 directory  61.02% done
-└── 3.14/  61.02% done
+1 directory  60.98% done
+└── 3.14/  60.98% done
     ├── bugs.po                           96.0% translated   30/31
-    ├── glossary.po                       97.0% translated 483/493
-    ├── c-api/  54.10% done
+    ├── glossary.po                       98.0% translated 486/493
+    ├── c-api/  53.81% done
     │   ├── call.po                       97.0% translated   97/99
     │   ├── conversion.po                 89.0% translated   49/55
     │   ├── exceptions.po                 64.0% translated 174/269
@@ -12,17 +12,24 @@
     │   ├── gcsupport.po                  26.0% translated   18/68
     │   ├── gen.po                        83.0% translated   15/18
     │   ├── import.po                     76.0% translated   51/67
-    │   ├── init.po                       42.0% translated 245/575
+    │   ├── index.po                      50.0% translated     1/2
+    │   ├── init.po                        0.0% translated     0/8
     │   ├── init_config.po                56.0% translated 360/638
+    │   ├── interp-lifecycle.po           89.0% translated 180/202
     │   ├── intro.po                      72.0% translated 156/216
     │   ├── long.po                       25.0% translated  46/180
     │   ├── memory.po                     28.0% translated  59/209
-    │   ├── module.po                     36.0% translated  49/135
+    │   ├── module.po                     36.0% translated  49/136
     │   ├── number.po                     29.0% translated   14/48
     │   ├── object.po                     30.0% translated  44/145
+    │   ├── profiling.po                   2.0% translated    1/46
     │   ├── refcounting.po                30.0% translated   15/50
     │   ├── set.po                        87.0% translated   28/32
     │   ├── structures.po                 41.0% translated  86/206
+    │   ├── subinterpreters.po            18.0% translated   16/87
+    │   ├── synchronization.po             3.0% translated    2/58
+    │   ├── threads.po                    24.0% translated  40/166
+    │   ├── tls.po                        14.0% translated    4/27
     │   ├── type.po                       18.0% translated  25/137
     │   ├── typeobj.po                    33.0% translated 248/747
     │   ├── unicode.po                    19.0% translated  81/411
@@ -49,7 +56,7 @@
     ├── installing/  100.00% done
     ├── library/  60.23% done
     │   ├── __future__.po                 91.0% translated   45/49
-    │   ├── argparse.po                   99.0% translated 398/400
+    │   ├── argparse.po                   99.0% translated 397/400
     │   ├── array.po                      97.0% translated   85/87
     │   ├── ast.po                        97.0% translated 328/336
     │   ├── asyncio-dev.po                94.0% translated   51/54
@@ -265,10 +272,10 @@
     │   ├── classes.po                    99.0% translated 148/149
     │   ├── controlflow.po                98.0% translated 223/226
     │   └── whatnow.po                    94.0% translated   17/18
-    ├── using/  97.77% done
+    ├── using/  96.78% done
     │   ├── configure.po                  99.0% translated 465/466
-    │   └── windows.po                    97.0% translated 534/549
-    └── whatsnew/  50.46% done
+    │   └── windows.po                    95.0% translated 532/556
+    └── whatsnew/  50.45% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -284,4 +291,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  25.0% translated 3487/13866
+        └── changelog.po                  25.0% translated 3487/13872
