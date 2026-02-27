@@ -1,7 +1,7 @@
-1 directory  61.00% done
-└── 3.14/  61.00% done
+1 directory  60.99% done
+└── 3.14/  60.99% done
     ├── bugs.po                           96.0% translated   30/31
-    ├── glossary.po                       99.0% translated 491/493
+    ├── glossary.po                       99.0% translated 492/493
     ├── c-api/  53.81% done
     │   ├── call.po                       97.0% translated   97/99
     │   ├── conversion.po                 89.0% translated   49/55
@@ -54,7 +54,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  60.23% done
+    ├── library/  60.21% done
     │   ├── __future__.po                 91.0% translated   45/49
     │   ├── argparse.po                   99.0% translated 397/400
     │   ├── array.po                      97.0% translated   85/87
@@ -198,7 +198,7 @@
     │   ├── sqlite3.po                    24.0% translated 116/478
     │   ├── ssl.po                        11.0% translated  62/547
     │   ├── stat.po                       97.0% translated   90/92
-    │   ├── stdtypes.po                   93.0% translated 1501/1599
+    │   ├── stdtypes.po                   96.0% translated 1501/1556
     │   ├── string.po                     98.0% translated 221/224
     │   ├── stringprep.po                 92.0% translated   23/25
     │   ├── struct.po                     49.0% translated 101/204
@@ -213,6 +213,7 @@
     │   ├── test.po                       31.0% translated 105/331
     │   ├── textwrap.po                   96.0% translated   56/58
     │   ├── threading.po                  14.0% translated  40/284
+    │   ├── threadsafety.po                0.0% translated    0/50
     │   ├── timeit.po                     98.0% translated   67/68
     │   ├── tkinter.colorchooser.po       83.0% translated     5/6
     │   ├── tkinter.dnd.po                95.0% translated   19/20
@@ -228,7 +229,7 @@
     │   ├── tracemalloc.po                13.0% translated  21/156
     │   ├── tty.po                        88.0% translated   15/17
     │   ├── turtle.po                     98.0% translated 683/691
-    │   ├── typing.po                     99.0% translated 823/827
+    │   ├── typing.po                     99.0% translated 822/829
     │   ├── unicodedata.po                60.0% translated   26/43
     │   ├── unittest.mock-examples.po     12.0% translated  22/182
     │   ├── unittest.mock.po              22.0% translated 101/448
@@ -275,7 +276,7 @@
     ├── using/  96.78% done
     │   ├── configure.po                  99.0% translated 465/466
     │   └── windows.po                    95.0% translated 532/556
-    └── whatsnew/  50.45% done
+    └── whatsnew/  50.44% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -291,4 +292,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  25.0% translated 3487/13872
+        └── changelog.po                  25.0% translated 3487/13877
