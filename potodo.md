@@ -1,8 +1,8 @@
 1 directory  61.22% done
 └── 3.13/  61.22% done
     ├── bugs.po                           96.0% translated   30/31
-    ├── glossary.po                       99.0% translated 453/455
-    ├── c-api/  53.80% done
+    ├── glossary.po                       99.0% translated 454/455
+    ├── c-api/  53.74% done
     │   ├── call.po                       97.0% translated   97/99
     │   ├── conversion.po                 89.0% translated   49/55
     │   ├── exceptions.po                 65.0% translated 172/262
@@ -22,7 +22,7 @@
     │   ├── structures.po                 38.0% translated  76/196
     │   ├── sys.po                        97.0% translated   77/79
     │   ├── type.po                       24.0% translated  27/111
-    │   ├── typeobj.po                    34.0% translated 236/685
+    │   ├── typeobj.po                    34.0% translated 236/692
     │   ├── unicode.po                    24.0% translated  85/342
     │   └── veryhigh.po                   88.0% translated   62/70
     ├── deprecations/  97.24% done
@@ -131,7 +131,7 @@
     │   ├── socket.po                     15.0% translated  56/368
     │   ├── sqlite3.po                    24.0% translated 116/479
     │   ├── ssl.po                        11.0% translated  62/545
-    │   ├── stdtypes.po                   96.0% translated 1377/1426
+    │   ├── stdtypes.po                   96.0% translated 1377/1428
     │   ├── string.po                     99.0% translated 220/221
     │   ├── struct.po                     49.0% translated  96/195
     │   ├── subprocess.po                 45.0% translated 150/328
@@ -193,4 +193,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  21.0% translated 2734/12738
+        └── changelog.po                  21.0% translated 2734/12739
