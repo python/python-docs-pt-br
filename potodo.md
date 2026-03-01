@@ -1,14 +1,13 @@
 1 directory  60.99% done
 └── 3.14/  60.99% done
     ├── bugs.po                           96.0% translated   30/31
-    ├── glossary.po                       99.0% translated 492/493
-    ├── c-api/  53.81% done
+    ├── c-api/  53.75% done
     │   ├── call.po                       97.0% translated   97/99
     │   ├── conversion.po                 89.0% translated   49/55
     │   ├── exceptions.po                 64.0% translated 174/269
     │   ├── file.po                       86.0% translated   25/29
     │   ├── float.po                      96.0% translated   56/58
-    │   ├── frame.po                      66.0% translated   34/51
+    │   ├── frame.po                      64.0% translated   33/51
     │   ├── gcsupport.po                  26.0% translated   18/68
     │   ├── gen.po                        83.0% translated   15/18
     │   ├── import.po                     76.0% translated   51/67
@@ -31,7 +30,7 @@
     │   ├── threads.po                    24.0% translated  40/166
     │   ├── tls.po                        14.0% translated    4/27
     │   ├── type.po                       18.0% translated  25/137
-    │   ├── typeobj.po                    33.0% translated 248/747
+    │   ├── typeobj.po                    32.0% translated 248/754
     │   ├── unicode.po                    19.0% translated  81/411
     │   └── veryhigh.po                   88.0% translated   62/70
     ├── deprecations/  98.40% done
@@ -74,7 +73,7 @@
     │   ├── base64.po                     21.0% translated   15/71
     │   ├── bdb.po                        96.0% translated 115/119
     │   ├── binascii.po                   55.0% translated   21/38
-    │   ├── bisect.po                     94.0% translated   34/36
+    │   ├── bisect.po                     91.0% translated   33/36
     │   ├── bz2.po                        97.0% translated   73/75
     │   ├── calendar.po                   97.0% translated 113/116
     │   ├── cmath.po                      98.0% translated 122/124
@@ -292,4 +291,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  25.0% translated 3487/13877
+        └── changelog.po                  25.0% translated 3487/13879
