@@ -1,5 +1,5 @@
-1 directory  60.99% done
-└── 3.14/  60.99% done
+1 directory  61.00% done
+└── 3.14/  61.00% done
     ├── bugs.po                           96.0% translated   30/31
     ├── c-api/  53.75% done
     │   ├── call.po                       97.0% translated   97/99
@@ -53,7 +53,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  60.21% done
+    ├── library/  60.24% done
     │   ├── __future__.po                 91.0% translated   45/49
     │   ├── argparse.po                   99.0% translated 397/400
     │   ├── array.po                      97.0% translated   85/87
@@ -93,7 +93,7 @@
     │   ├── ctypes.po                     55.0% translated 348/628
     │   ├── curses.ascii.po               98.0% translated   68/69
     │   ├── curses.panel.po               95.0% translated   22/23
-    │   ├── curses.po                     13.0% translated  68/491
+    │   ├── curses.po                     15.0% translated  77/491
     │   ├── dataclasses.po                44.0% translated  71/158
     │   ├── datetime.po                   94.0% translated 623/657
     │   ├── dbm.po                        84.0% translated  91/108
