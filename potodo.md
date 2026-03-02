@@ -1,5 +1,5 @@
-1 directory  61.21% done
-└── 3.13/  61.21% done
+1 directory  61.22% done
+└── 3.13/  61.22% done
     ├── bugs.po                           96.0% translated   30/31
     ├── c-api/  53.73% done
     │   ├── call.po                       97.0% translated   97/99
@@ -45,7 +45,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  62.25% done
+    ├── library/  62.27% done
     │   ├── array.po                      97.0% translated   85/87
     │   ├── asyncio-dev.po                90.0% translated   49/54
     │   ├── asyncio-eventloop.po          75.0% translated 312/413
@@ -67,7 +67,7 @@
     │   ├── contextlib.po                 31.0% translated  55/172
     │   ├── contextvars.po                96.0% translated   55/57
     │   ├── ctypes.po                     55.0% translated 302/548
-    │   ├── curses.po                     13.0% translated  68/486
+    │   ├── curses.po                     14.0% translated  71/486
     │   ├── dataclasses.po                44.0% translated  70/156
     │   ├── datetime.po                   99.0% translated 645/650
     │   ├── decimal.po                    99.0% translated 377/380
