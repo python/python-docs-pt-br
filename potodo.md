@@ -1,5 +1,5 @@
-1 directory  61.00% done
-└── 3.14/  61.00% done
+1 directory  60.99% done
+└── 3.14/  60.99% done
     ├── bugs.po                           96.0% translated   30/31
     ├── c-api/  53.75% done
     │   ├── call.po                       97.0% translated   97/99
@@ -53,7 +53,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  60.24% done
+    ├── library/  60.22% done
     │   ├── __future__.po                 91.0% translated   45/49
     │   ├── argparse.po                   99.0% translated 397/400
     │   ├── array.po                      97.0% translated   85/87
@@ -85,7 +85,7 @@
     │   ├── concurrent.futures.po         14.0% translated  18/121
     │   ├── concurrent.interpreters.po    58.0% translated   51/87
     │   ├── configparser.po               96.0% translated 217/226
-    │   ├── contextlib.po                 31.0% translated  55/172
+    │   ├── contextlib.po                 30.0% translated  52/172
     │   ├── contextvars.po                89.0% translated   57/64
     │   ├── copy.po                       96.0% translated   31/32
     │   ├── copyreg.po                    91.0% translated   11/12
@@ -95,7 +95,7 @@
     │   ├── curses.panel.po               95.0% translated   22/23
     │   ├── curses.po                     15.0% translated  77/491
     │   ├── dataclasses.po                44.0% translated  71/158
-    │   ├── datetime.po                   94.0% translated 623/657
+    │   ├── datetime.po                   95.0% translated 626/657
     │   ├── dbm.po                        84.0% translated  91/108
     │   ├── decimal.po                    98.0% translated 379/386
     │   ├── dialog.po                     89.0% translated   51/57
@@ -240,7 +240,7 @@
     │   ├── uuid.po                       91.0% translated   72/79
     │   ├── venv.po                       99.0% translated 136/137
     │   ├── warnings.po                   54.0% translated  83/151
-    │   ├── wave.po                       38.0% translated   21/54
+    │   ├── wave.po                       34.0% translated   21/61
     │   ├── weakref.po                    95.0% translated   91/95
     │   ├── webbrowser.po                 97.0% translated   88/90
     │   ├── winreg.po                     99.0% translated 175/176
@@ -275,7 +275,7 @@
     ├── using/  96.78% done
     │   ├── configure.po                  99.0% translated 465/466
     │   └── windows.po                    95.0% translated 532/556
-    └── whatsnew/  50.44% done
+    └── whatsnew/  50.43% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -291,4 +291,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  25.0% translated 3487/13879
+        └── changelog.po                  25.0% translated 3487/13886
