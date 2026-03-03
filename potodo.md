@@ -1,5 +1,5 @@
-1 directory  60.90% done
-└── 3.10/  60.90% done
+1 directory  60.91% done
+└── 3.10/  60.91% done
     ├── c-api/  51.44% done
     │   ├── allocation.po                 88.0% translated     8/9
     │   ├── arg.po                        98.0% translated 193/195
@@ -56,7 +56,7 @@
     ├── install/  72.62% done
     │   └── index.po                      74.0% translated 168/226
     ├── installing/  100.00% done
-    ├── library/  55.96% done
+    ├── library/  55.98% done
     │   ├── _thread.po                    95.0% translated   39/41
     │   ├── argparse.po                   88.0% translated 256/290
     │   ├── array.po                      98.0% translated   81/82
@@ -96,7 +96,7 @@
     │   ├── ctypes.po                     47.0% translated 208/434
     │   ├── curses.ascii.po               99.0% translated 101/102
     │   ├── curses.panel.po               95.0% translated   22/23
-    │   ├── curses.po                     36.0% translated 233/639
+    │   ├── curses.po                     36.0% translated 236/639
     │   ├── dataclasses.po                55.0% translated  65/117
     │   ├── dbm.po                        43.0% translated   32/74
     │   ├── decimal.po                    99.0% translated 328/329
