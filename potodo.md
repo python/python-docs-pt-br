@@ -1,5 +1,5 @@
-1 directory  60.99% done
-└── 3.14/  60.99% done
+1 directory  60.84% done
+└── 3.14/  60.84% done
     ├── bugs.po                           96.0% translated   30/31
     ├── c-api/  53.75% done
     │   ├── call.po                       97.0% translated   97/99
@@ -43,17 +43,18 @@
     │   └── newtypes.po                    6.0% translated   8/117
     ├── faq/  99.83% done
     │   └── programming.po                99.0% translated 506/508
-    ├── howto/  66.03% done
+    ├── howto/  65.97% done
     │   ├── descriptor.po                 81.0% translated 187/230
     │   ├── enum.po                       37.0% translated 122/327
     │   ├── functional.po                 62.0% translated 158/252
     │   ├── logging-cookbook.po            9.0% translated  41/435
+    │   ├── logging.po                    99.0% translated 249/250
     │   ├── remote_debugging.po           96.0% translated 129/134
     │   ├── sockets.po                    55.0% translated   35/63
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  60.23% done
+    ├── library/  59.92% done
     │   ├── __future__.po                 91.0% translated   45/49
     │   ├── argparse.po                   99.0% translated 396/400
     │   ├── array.po                      97.0% translated   85/87
@@ -95,7 +96,7 @@
     │   ├── curses.panel.po               95.0% translated   22/23
     │   ├── curses.po                     15.0% translated  77/491
     │   ├── dataclasses.po                44.0% translated  71/158
-    │   ├── datetime.po                   95.0% translated 626/657
+    │   ├── datetime.po                   90.0% translated 593/658
     │   ├── dbm.po                        84.0% translated  91/108
     │   ├── decimal.po                    98.0% translated 381/386
     │   ├── dialog.po                     89.0% translated   51/57
@@ -275,7 +276,7 @@
     ├── using/  96.78% done
     │   ├── configure.po                  99.0% translated 465/466
     │   └── windows.po                    95.0% translated 532/556
-    └── whatsnew/  50.42% done
+    └── whatsnew/  50.41% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -291,4 +292,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  25.0% translated 3487/13893
+        └── changelog.po                  25.0% translated 3487/13898
