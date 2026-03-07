@@ -1,5 +1,5 @@
-1 directory  61.21% done
-└── 3.13/  61.21% done
+1 directory  61.05% done
+└── 3.13/  61.05% done
     ├── bugs.po                           96.0% translated   30/31
     ├── c-api/  53.73% done
     │   ├── call.po                       97.0% translated   97/99
@@ -36,16 +36,17 @@
     │   └── newtypes_tutorial.po          88.0% translated 156/177
     ├── faq/  99.83% done
     │   └── programming.po                99.0% translated 506/508
-    ├── howto/  64.66% done
+    ├── howto/  64.59% done
     │   ├── descriptor.po                 81.0% translated 187/230
     │   ├── enum.po                       37.0% translated 122/327
     │   ├── functional.po                 62.0% translated 158/252
     │   ├── logging-cookbook.po            9.0% translated  41/433
+    │   ├── logging.po                    99.0% translated 249/250
     │   ├── sockets.po                    55.0% translated   35/63
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  62.26% done
+    ├── library/  61.92% done
     │   ├── array.po                      97.0% translated   85/87
     │   ├── asyncio-dev.po                90.0% translated   49/54
     │   ├── asyncio-eventloop.po          75.0% translated 312/413
@@ -69,7 +70,7 @@
     │   ├── ctypes.po                     55.0% translated 302/548
     │   ├── curses.po                     14.0% translated  71/486
     │   ├── dataclasses.po                44.0% translated  70/156
-    │   ├── datetime.po                   99.0% translated 645/650
+    │   ├── datetime.po                   94.0% translated 612/651
     │   ├── decimal.po                    99.0% translated 378/380
     │   ├── difflib.po                    10.0% translated  14/140
     │   ├── dis.po                        56.0% translated 224/396
@@ -178,7 +179,7 @@
     ├── using/  99.34% done
     │   ├── mac.po                        98.0% translated   95/96
     │   └── windows.po                    99.0% translated 388/389
-    └── whatsnew/  47.90% done
+    └── whatsnew/  47.89% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -193,4 +194,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  21.0% translated 2734/12755
+        └── changelog.po                  21.0% translated 2734/12758
