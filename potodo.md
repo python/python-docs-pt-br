@@ -54,7 +54,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  59.92% done
+    ├── library/  59.93% done
     │   ├── __future__.po                 91.0% translated   45/49
     │   ├── argparse.po                   99.0% translated 396/400
     │   ├── array.po                      97.0% translated   85/87
@@ -91,7 +91,7 @@
     │   ├── copy.po                       96.0% translated   31/32
     │   ├── copyreg.po                    91.0% translated   11/12
     │   ├── csv.po                        95.0% translated 116/122
-    │   ├── ctypes.po                     55.0% translated 348/628
+    │   ├── ctypes.po                     55.0% translated 349/628
     │   ├── curses.ascii.po               98.0% translated   68/69
     │   ├── curses.panel.po               95.0% translated   22/23
     │   ├── curses.po                     15.0% translated  77/491
