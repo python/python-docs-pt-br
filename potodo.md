@@ -1,5 +1,5 @@
-1 directory  60.59% done
-└── 3.14/  60.59% done
+1 directory  60.60% done
+└── 3.14/  60.60% done
     ├── bugs.po                           96.0% translated   30/31
     ├── c-api/  52.96% done
     │   ├── call.po                       97.0% translated   97/99
@@ -54,7 +54,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  59.71% done
+    ├── library/  59.74% done
     │   ├── __future__.po                 91.0% translated   45/49
     │   ├── argparse.po                   99.0% translated 396/400
     │   ├── array.po                      97.0% translated   85/87
@@ -126,7 +126,6 @@
     │   ├── filecmp.po                    95.0% translated   40/42
     │   ├── fractions.po                  97.0% translated   40/41
     │   ├── ftplib.po                     12.0% translated   12/99
-    │   ├── functions.po                  99.0% translated 517/520
     │   ├── functools.po                  22.0% translated  28/126
     │   ├── gc.po                         98.0% translated   72/73
     │   ├── getpass.po                    93.0% translated   15/16
