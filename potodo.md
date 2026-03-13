@@ -1,5 +1,5 @@
-1 directory  60.60% done
-└── 3.14/  60.60% done
+1 directory  60.58% done
+└── 3.14/  60.58% done
     ├── bugs.po                           96.0% translated   30/31
     ├── c-api/  52.96% done
     │   ├── call.po                       97.0% translated   97/99
@@ -33,9 +33,7 @@
     │   ├── typeobj.po                    32.0% translated 248/754
     │   ├── unicode.po                    19.0% translated  81/411
     │   └── veryhigh.po                   88.0% translated   62/70
-    ├── deprecations/  98.40% done
-    │   ├── index.po                      99.0% translated 231/232
-    │   └── pending-removal-in-3.15.po    96.0% translated   30/31
+    ├── deprecations/  100.00% done
     ├── distributing/  100.00% done
     ├── extending/  45.52% done
     │   ├── embedding.po                   8.0% translated    5/59
@@ -54,7 +52,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  59.74% done
+    ├── library/  59.68% done
     │   ├── __future__.po                 91.0% translated   45/49
     │   ├── argparse.po                   99.0% translated 396/400
     │   ├── array.po                      97.0% translated   85/87
@@ -198,7 +196,7 @@
     │   ├── sqlite3.po                    24.0% translated 116/478
     │   ├── ssl.po                        11.0% translated  62/547
     │   ├── stat.po                       97.0% translated   90/92
-    │   ├── stdtypes.po                   96.0% translated 1501/1560
+    │   ├── stdtypes.po                   96.0% translated 1501/1561
     │   ├── string.po                     98.0% translated 221/224
     │   ├── stringprep.po                 92.0% translated   23/25
     │   ├── struct.po                     49.0% translated 101/204
@@ -211,9 +209,8 @@
     │   ├── tempfile.po                    9.0% translated    8/88
     │   ├── termios.po                    96.0% translated   24/25
     │   ├── test.po                       31.0% translated 105/331
-    │   ├── textwrap.po                   96.0% translated   56/58
     │   ├── threading.po                  14.0% translated  40/284
-    │   ├── threadsafety.po                0.0% translated    0/50
+    │   ├── threadsafety.po                0.0% translated    0/95
     │   ├── timeit.po                     98.0% translated   67/68
     │   ├── tkinter.colorchooser.po       83.0% translated     5/6
     │   ├── tkinter.dnd.po                95.0% translated   19/20
@@ -269,28 +266,27 @@
     │   ├── grammar.po                    50.0% translated     3/6
     │   ├── import.po                     99.0% translated 199/200
     │   └── simple_stmts.po               97.0% translated 284/291
-    ├── tutorial/  99.51% done
+    ├── tutorial/  99.35% done
     │   ├── classes.po                    99.0% translated 148/149
     │   ├── controlflow.po                98.0% translated 223/226
+    │   ├── errors.po                     97.0% translated   94/96
     │   └── whatnow.po                    94.0% translated   17/18
     ├── using/  96.40% done
     │   ├── cmdline.po                    98.0% translated 262/265
     │   ├── configure.po                  99.0% translated 465/467
     │   └── windows.po                    95.0% translated 532/556
-    └── whatsnew/  50.39% done
+    └── whatsnew/  50.41% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
         ├── 2.6.po                        81.0% translated 510/626
         ├── 3.0.po                        90.0% translated 192/212
         ├── 3.1.po                        86.0% translated 114/132
-        ├── 3.12.po                       99.0% translated 857/858
-        ├── 3.13.po                       99.0% translated 932/935
-        ├── 3.14.po                       99.0% translated 1046/1048
+        ├── 3.13.po                       99.0% translated 933/935
         ├── 3.2.po                        11.0% translated  66/576
         ├── 3.3.po                        19.0% translated 134/682
         ├── 3.4.po                        95.0% translated 496/517
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  25.0% translated 3487/13906
+        └── changelog.po                  25.0% translated 3488/13917
