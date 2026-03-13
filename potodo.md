@@ -1,5 +1,5 @@
-1 directory  60.89% done
-└── 3.13/  60.89% done
+1 directory  60.90% done
+└── 3.13/  60.90% done
     ├── bugs.po                           96.0% translated   30/31
     ├── c-api/  53.73% done
     │   ├── call.po                       97.0% translated   97/99
@@ -24,10 +24,9 @@
     │   ├── typeobj.po                    34.0% translated 236/692
     │   ├── unicode.po                    24.0% translated  85/342
     │   └── veryhigh.po                   88.0% translated   62/70
-    ├── deprecations/  97.24% done
-    │   ├── index.po                      99.0% translated 219/221
-    │   ├── pending-removal-in-3.14.po    97.0% translated   33/34
-    │   └── pending-removal-in-3.15.po    96.0% translated   28/29
+    ├── deprecations/  99.10% done
+    │   ├── index.po                      99.0% translated 220/221
+    │   └── pending-removal-in-3.14.po    97.0% translated   33/34
     ├── distributing/  100.00% done
     ├── extending/  35.76% done
     │   ├── embedding.po                   8.0% translated    5/59
@@ -179,19 +178,19 @@
     ├── using/  99.34% done
     │   ├── mac.po                        98.0% translated   95/96
     │   └── windows.po                    99.0% translated 388/389
-    └── whatsnew/  47.88% done
+    └── whatsnew/  47.89% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
         ├── 2.6.po                        81.0% translated 511/626
         ├── 3.0.po                        90.0% translated 192/212
         ├── 3.1.po                        86.0% translated 114/132
-        ├── 3.12.po                       99.0% translated 835/837
-        ├── 3.13.po                       99.0% translated 892/896
+        ├── 3.12.po                       99.0% translated 836/837
+        ├── 3.13.po                       99.0% translated 893/896
         ├── 3.2.po                        11.0% translated  66/576
         ├── 3.3.po                        19.0% translated 134/682
         ├── 3.4.po                        95.0% translated 496/517
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  21.0% translated 2734/12764
+        └── changelog.po                  21.0% translated 2734/12770
