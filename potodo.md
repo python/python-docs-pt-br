@@ -45,7 +45,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  61.79% done
+    ├── library/  61.80% done
     │   ├── array.po                      97.0% translated   85/87
     │   ├── asyncio-dev.po                90.0% translated   49/54
     │   ├── asyncio-eventloop.po          75.0% translated 312/413
@@ -70,7 +70,6 @@
     │   ├── curses.po                     14.0% translated  71/486
     │   ├── dataclasses.po                44.0% translated  70/156
     │   ├── datetime.po                   91.0% translated 595/651
-    │   ├── decimal.po                    99.0% translated 378/380
     │   ├── difflib.po                    10.0% translated  14/140
     │   ├── dis.po                        56.0% translated 224/396
     │   ├── doctest.po                    26.0% translated  99/378
@@ -178,7 +177,7 @@
     ├── using/  99.34% done
     │   ├── mac.po                        98.0% translated   95/96
     │   └── windows.po                    99.0% translated 388/389
-    └── whatsnew/  47.89% done
+    └── whatsnew/  47.90% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -186,7 +185,7 @@
         ├── 3.0.po                        90.0% translated 192/212
         ├── 3.1.po                        86.0% translated 114/132
         ├── 3.12.po                       99.0% translated 836/837
-        ├── 3.13.po                       99.0% translated 893/896
+        ├── 3.13.po                       99.0% translated 895/896
         ├── 3.2.po                        11.0% translated  66/576
         ├── 3.3.po                        19.0% translated 134/682
         ├── 3.4.po                        95.0% translated 496/517
