@@ -1,5 +1,5 @@
-1 directory  60.58% done
-└── 3.14/  60.58% done
+1 directory  60.59% done
+└── 3.14/  60.59% done
     ├── bugs.po                           96.0% translated   30/31
     ├── c-api/  52.96% done
     │   ├── call.po                       97.0% translated   97/99
@@ -52,7 +52,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  59.68% done
+    ├── library/  59.70% done
     │   ├── __future__.po                 91.0% translated   45/49
     │   ├── argparse.po                   99.0% translated 396/400
     │   ├── array.po                      97.0% translated   85/87
@@ -96,7 +96,7 @@
     │   ├── dataclasses.po                44.0% translated  71/158
     │   ├── datetime.po                   87.0% translated 576/658
     │   ├── dbm.po                        84.0% translated  91/108
-    │   ├── decimal.po                    98.0% translated 381/386
+    │   ├── decimal.po                    99.0% translated 384/386
     │   ├── dialog.po                     89.0% translated   51/57
     │   ├── difflib.po                    10.0% translated  14/140
     │   ├── dis.po                        56.0% translated 233/414
@@ -275,14 +275,13 @@
     │   ├── cmdline.po                    98.0% translated 262/265
     │   ├── configure.po                  99.0% translated 465/467
     │   └── windows.po                    95.0% translated 532/556
-    └── whatsnew/  50.41% done
+    └── whatsnew/  50.42% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
         ├── 2.6.po                        81.0% translated 510/626
         ├── 3.0.po                        90.0% translated 192/212
         ├── 3.1.po                        86.0% translated 114/132
-        ├── 3.13.po                       99.0% translated 933/935
         ├── 3.2.po                        11.0% translated  66/576
         ├── 3.3.po                        19.0% translated 134/682
         ├── 3.4.po                        95.0% translated 496/517
