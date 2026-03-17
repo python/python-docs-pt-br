@@ -1,12 +1,12 @@
-1 directory  60.58% done
-└── 3.14/  60.58% done
+1 directory  60.56% done
+└── 3.14/  60.56% done
     ├── bugs.po                           96.0% translated   30/31
-    ├── c-api/  52.96% done
+    ├── c-api/  52.87% done
     │   ├── call.po                       97.0% translated   97/99
     │   ├── conversion.po                 89.0% translated   49/55
     │   ├── exceptions.po                 64.0% translated 174/269
     │   ├── file.po                       86.0% translated   25/29
-    │   ├── float.po                      96.0% translated   56/58
+    │   ├── float.po                      93.0% translated   54/58
     │   ├── frame.po                      64.0% translated   33/51
     │   ├── gcsupport.po                  26.0% translated   18/68
     │   ├── gen.po                        83.0% translated   15/18
@@ -41,19 +41,18 @@
     │   └── newtypes.po                    6.0% translated   8/117
     ├── faq/  94.39% done
     │   └── programming.po                91.0% translated 461/506
-    ├── howto/  65.89% done
+    ├── howto/  65.96% done
     │   ├── descriptor.po                 81.0% translated 187/230
     │   ├── enum.po                       37.0% translated 122/327
     │   ├── functional.po                 62.0% translated 158/252
     │   ├── instrumentation.po            78.0% translated   78/99
     │   ├── logging-cookbook.po            9.0% translated  41/435
-    │   ├── logging.po                    99.0% translated 249/250
     │   ├── remote_debugging.po           96.0% translated 129/134
     │   ├── sockets.po                    55.0% translated   35/63
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  59.69% done
+    ├── library/  59.67% done
     │   ├── __future__.po                 91.0% translated   45/49
     │   ├── argparse.po                   98.0% translated 396/401
     │   ├── array.po                      97.0% translated   85/87
@@ -197,7 +196,7 @@
     │   ├── sqlite3.po                    24.0% translated 116/478
     │   ├── ssl.po                        11.0% translated  62/547
     │   ├── stat.po                       97.0% translated   90/92
-    │   ├── stdtypes.po                   96.0% translated 1500/1561
+    │   ├── stdtypes.po                   96.0% translated 1500/1562
     │   ├── string.po                     98.0% translated 221/224
     │   ├── stringprep.po                 92.0% translated   23/25
     │   ├── struct.po                     49.0% translated 101/204
@@ -211,7 +210,7 @@
     │   ├── termios.po                    96.0% translated   24/25
     │   ├── test.po                       31.0% translated 105/331
     │   ├── threading.po                  14.0% translated  40/284
-    │   ├── threadsafety.po                0.0% translated    0/95
+    │   ├── threadsafety.po                0.0% translated   0/113
     │   ├── timeit.po                     98.0% translated   67/68
     │   ├── tkinter.colorchooser.po       83.0% translated     5/6
     │   ├── tkinter.dnd.po                95.0% translated   19/20
@@ -267,16 +266,17 @@
     │   ├── grammar.po                    50.0% translated     3/6
     │   ├── import.po                     99.0% translated 199/200
     │   └── simple_stmts.po               97.0% translated 284/291
-    ├── tutorial/  99.35% done
+    ├── tutorial/  99.30% done
     │   ├── classes.po                    99.0% translated 148/149
     │   ├── controlflow.po                98.0% translated 223/226
+    │   ├── datastructures.po             99.0% translated 126/127
     │   ├── errors.po                     97.0% translated   94/96
     │   └── whatnow.po                    94.0% translated   17/18
     ├── using/  96.40% done
     │   ├── cmdline.po                    98.0% translated 262/265
     │   ├── configure.po                  99.0% translated 465/467
     │   └── windows.po                    95.0% translated 532/556
-    └── whatsnew/  50.41% done
+    └── whatsnew/  50.39% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -289,4 +289,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  25.0% translated 3488/13920
+        └── changelog.po                  25.0% translated 3488/13930
