@@ -35,13 +35,12 @@
     │   └── newtypes_tutorial.po          88.0% translated 156/177
     ├── faq/  94.39% done
     │   └── programming.po                91.0% translated 461/506
-    ├── howto/  64.51% done
+    ├── howto/  64.58% done
     │   ├── descriptor.po                 81.0% translated 187/230
     │   ├── enum.po                       37.0% translated 122/327
     │   ├── functional.po                 62.0% translated 158/252
     │   ├── instrumentation.po            78.0% translated   78/99
     │   ├── logging-cookbook.po            9.0% translated  41/433
-    │   ├── logging.po                    99.0% translated 249/250
     │   ├── sockets.po                    55.0% translated   35/63
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
@@ -172,14 +171,15 @@
     │   ├── compound_stmts.po             98.0% translated 459/467
     │   ├── datamodel.po                  99.0% translated 870/876
     │   └── import.po                     99.0% translated 199/200
-    ├── tutorial/  99.51% done
+    ├── tutorial/  99.45% done
     │   ├── classes.po                    99.0% translated 148/149
     │   ├── controlflow.po                98.0% translated 223/226
+    │   ├── datastructures.po             99.0% translated 126/127
     │   └── whatnow.po                    94.0% translated   17/18
     ├── using/  99.34% done
     │   ├── mac.po                        98.0% translated   95/96
     │   └── windows.po                    99.0% translated 388/389
-    └── whatsnew/  47.89% done
+    └── whatsnew/  47.88% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -194,4 +194,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  21.0% translated 2734/12772
+        └── changelog.po                  21.0% translated 2734/12778
