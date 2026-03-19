@@ -1,5 +1,5 @@
-1 directory  60.89% done
-└── 3.13/  60.89% done
+1 directory  60.90% done
+└── 3.13/  60.90% done
     ├── bugs.po                           96.0% translated   30/31
     ├── c-api/  53.73% done
     │   ├── call.po                       97.0% translated   97/99
@@ -45,7 +45,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  61.80% done
+    ├── library/  61.81% done
     │   ├── argparse.po                   99.0% translated 379/380
     │   ├── array.po                      97.0% translated   85/87
     │   ├── asyncio-dev.po                90.0% translated   49/54
@@ -84,7 +84,7 @@
     │   ├── email.policy.po               10.0% translated  11/108
     │   ├── enum.po                       51.0% translated 129/250
     │   ├── errno.po                      71.0% translated 115/160
-    │   ├── exceptions.po                 98.0% translated 197/200
+    │   ├── exceptions.po                 99.0% translated 199/200
     │   ├── faulthandler.po                9.0% translated    4/43
     │   ├── ftplib.po                     12.0% translated   12/99
     │   ├── functools.po                  26.0% translated  30/115
@@ -194,4 +194,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  21.0% translated 2734/12778
+        └── changelog.po                  21.0% translated 2734/12780
