@@ -97,7 +97,6 @@
     │   ├── dataclasses.po                44.0% translated  71/158
     │   ├── datetime.po                   87.0% translated 576/658
     │   ├── dbm.po                        84.0% translated  91/108
-    │   ├── decimal.po                    99.0% translated 384/386
     │   ├── dialog.po                     89.0% translated   51/57
     │   ├── difflib.po                    10.0% translated  14/140
     │   ├── dis.po                        56.0% translated 233/414
