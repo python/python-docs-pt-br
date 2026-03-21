@@ -1,5 +1,5 @@
-1 directory  60.54% done
-└── 3.14/  60.54% done
+1 directory  60.51% done
+└── 3.14/  60.51% done
     ├── bugs.po                           96.0% translated   30/31
     ├── c-api/  52.72% done
     │   ├── call.po                       97.0% translated   97/99
@@ -53,12 +53,12 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  59.66% done
+    ├── library/  59.59% done
     │   ├── __future__.po                 91.0% translated   45/49
     │   ├── argparse.po                   98.0% translated 396/401
     │   ├── array.po                      97.0% translated   85/87
     │   ├── ast.po                        97.0% translated 328/336
-    │   ├── asyncio-dev.po                94.0% translated   51/54
+    │   ├── asyncio-dev.po                61.0% translated   52/84
     │   ├── asyncio-eventloop.po          75.0% translated 315/417
     │   ├── asyncio-future.po             26.0% translated   17/64
     │   ├── asyncio-platforms.po          24.0% translated    6/25
@@ -67,6 +67,7 @@
     │   ├── asyncio-queue.po              97.0% translated   47/48
     │   ├── asyncio-runner.po              9.0% translated    4/41
     │   ├── asyncio-stream.po             68.0% translated  71/104
+    │   ├── asyncio-subprocess.po         97.0% translated   78/80
     │   ├── asyncio-sync.po               12.0% translated  12/100
     │   ├── asyncio-task.po               67.0% translated 184/274
     │   ├── atexit.po                     81.0% translated   18/22
@@ -199,7 +200,7 @@
     │   ├── string.po                     98.0% translated 221/224
     │   ├── stringprep.po                 92.0% translated   23/25
     │   ├── struct.po                     49.0% translated 101/204
-    │   ├── subprocess.po                 47.0% translated 147/312
+    │   ├── subprocess.po                 46.0% translated 147/313
     │   ├── symtable.po                    8.0% translated    6/73
     │   ├── sys.monitoring.po             98.0% translated 117/119
     │   ├── sys.po                        99.0% translated 474/478
@@ -255,7 +256,7 @@
     │   ├── xmlrpc.client.po              46.0% translated  53/113
     │   ├── xmlrpc.server.po              94.0% translated   54/57
     │   ├── zipapp.po                     98.0% translated   76/77
-    │   ├── zipfile.po                    98.0% translated 212/215
+    │   ├── zipfile.po                    98.0% translated 212/216
     │   ├── zipimport.po                  94.0% translated   37/39
     │   └── zoneinfo.po                   48.0% translated   41/84
     ├── reference/  94.87% done
@@ -271,11 +272,10 @@
     │   ├── datastructures.po             99.0% translated 126/127
     │   ├── errors.po                     97.0% translated   94/96
     │   └── whatnow.po                    94.0% translated   17/18
-    ├── using/  96.40% done
-    │   ├── cmdline.po                    98.0% translated 262/265
+    ├── using/  96.73% done
     │   ├── configure.po                  99.0% translated 465/467
     │   └── windows.po                    95.0% translated 532/556
-    └── whatsnew/  50.39% done
+    └── whatsnew/  50.38% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -288,4 +288,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  25.0% translated 3488/13934
+        └── changelog.po                  25.0% translated 3488/13938
