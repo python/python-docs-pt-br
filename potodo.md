@@ -1,5 +1,5 @@
-1 directory  60.90% done
-└── 3.13/  60.90% done
+1 directory  60.86% done
+└── 3.13/  60.86% done
     ├── bugs.po                           96.0% translated   30/31
     ├── c-api/  53.73% done
     │   ├── call.po                       97.0% translated   97/99
@@ -45,10 +45,10 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  61.81% done
+    ├── library/  61.73% done
     │   ├── argparse.po                   99.0% translated 379/380
     │   ├── array.po                      97.0% translated   85/87
-    │   ├── asyncio-dev.po                90.0% translated   49/54
+    │   ├── asyncio-dev.po                59.0% translated   50/84
     │   ├── asyncio-eventloop.po          75.0% translated 312/413
     │   ├── asyncio-future.po             26.0% translated   17/64
     │   ├── asyncio-platforms.po          23.0% translated    6/26
@@ -57,6 +57,7 @@
     │   ├── asyncio-queue.po              97.0% translated   47/48
     │   ├── asyncio-runner.po             13.0% translated    5/37
     │   ├── asyncio-stream.po             68.0% translated  71/104
+    │   ├── asyncio-subprocess.po         97.0% translated   81/83
     │   ├── asyncio-sync.po               12.0% translated  12/100
     │   ├── asyncio-task.po               67.0% translated 181/269
     │   ├── base64.po                     21.0% translated   15/71
@@ -134,7 +135,7 @@
     │   ├── stdtypes.po                   96.0% translated 1376/1432
     │   ├── string.po                     99.0% translated 220/221
     │   ├── struct.po                     49.0% translated  96/195
-    │   ├── subprocess.po                 45.0% translated 150/328
+    │   ├── subprocess.po                 45.0% translated 150/329
     │   ├── symtable.po                    9.0% translated    6/65
     │   ├── sys.po                        99.0% translated 442/443
     │   ├── tarfile.po                    55.0% translated 190/345
@@ -194,4 +195,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  21.0% translated 2734/12780
+        └── changelog.po                  21.0% translated 2734/12781
