@@ -46,7 +46,6 @@
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
     ├── library/  61.73% done
-    │   ├── argparse.po                   99.0% translated 379/380
     │   ├── array.po                      97.0% translated   85/87
     │   ├── asyncio-dev.po                59.0% translated   50/84
     │   ├── asyncio-eventloop.po          75.0% translated 312/413
