@@ -1,5 +1,5 @@
-1 directory  60.51% done
-└── 3.14/  60.51% done
+1 directory  60.52% done
+└── 3.14/  60.52% done
     ├── bugs.po                           96.0% translated   30/31
     ├── c-api/  52.72% done
     │   ├── call.po                       97.0% translated   97/99
@@ -53,9 +53,8 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  59.59% done
+    ├── library/  59.62% done
     │   ├── __future__.po                 91.0% translated   45/49
-    │   ├── argparse.po                   98.0% translated 396/401
     │   ├── array.po                      97.0% translated   85/87
     │   ├── ast.po                        97.0% translated 328/336
     │   ├── asyncio-dev.po                61.0% translated   52/84
