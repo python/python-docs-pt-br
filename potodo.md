@@ -1,13 +1,13 @@
-1 directory  60.45% done
-└── 3.14/  60.45% done
+1 directory  60.46% done
+└── 3.14/  60.46% done
     ├── bugs.po                           96.0% translated   30/31
-    ├── c-api/  52.66% done
+    ├── c-api/  52.67% done
     │   ├── call.po                       97.0% translated   97/99
     │   ├── conversion.po                 89.0% translated   49/55
     │   ├── exceptions.po                 64.0% translated 174/269
     │   ├── file.po                       77.0% translated   24/31
     │   ├── float.po                      93.0% translated   54/58
-    │   ├── frame.po                      64.0% translated   33/51
+    │   ├── frame.po                      66.0% translated   34/51
     │   ├── gcsupport.po                  26.0% translated   18/68
     │   ├── gen.po                        83.0% translated   15/18
     │   ├── import.po                     76.0% translated   51/67
@@ -53,7 +53,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  59.52% done
+    ├── library/  59.53% done
     │   ├── __future__.po                 91.0% translated   45/49
     │   ├── array.po                      96.0% translated   85/88
     │   ├── ast.po                        97.0% translated 328/337
@@ -149,7 +149,7 @@
     │   ├── json.po                       98.0% translated 174/177
     │   ├── linecache.po                  82.0% translated   14/17
     │   ├── locale.po                     95.0% translated 155/163
-    │   ├── logging.config.po             91.0% translated 157/171
+    │   ├── logging.config.po             92.0% translated 158/171
     │   ├── logging.handlers.po           63.0% translated 174/276
     │   ├── logging.po                    28.0% translated 106/372
     │   ├── mailbox.po                     6.0% translated  21/307
@@ -278,7 +278,7 @@
     │   ├── cmdline.po                    99.0% translated 264/265
     │   ├── configure.po                  99.0% translated 465/467
     │   └── windows.po                    95.0% translated 532/556
-    └── whatsnew/  50.35% done
+    └── whatsnew/  50.36% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -291,5 +291,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 249/568
-        ├── 3.9.po                        99.0% translated 379/380
         └── changelog.po                  25.0% translated 3488/13947
