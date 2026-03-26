@@ -186,7 +186,7 @@
     │   ├── cmdline.po                    99.0% translated 248/249
     │   ├── mac.po                        98.0% translated   95/96
     │   └── windows.po                    99.0% translated 388/389
-    └── whatsnew/  47.85% done
+    └── whatsnew/  47.86% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -201,5 +201,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        ├── 3.9.po                        99.0% translated 379/380
         └── changelog.po                  21.0% translated 2735/12790
