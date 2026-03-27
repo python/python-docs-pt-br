@@ -1,5 +1,5 @@
-1 directory  60.80% done
-└── 3.13/  60.80% done
+1 directory  60.78% done
+└── 3.13/  60.78% done
     ├── bugs.po                           96.0% translated   30/31
     ├── c-api/  53.67% done
     │   ├── call.po                       97.0% translated   97/99
@@ -46,8 +46,8 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  61.66% done
-    │   ├── array.po                      97.0% translated   85/87
+    ├── library/  61.63% done
+    │   ├── array.po                      91.0% translated   80/87
     │   ├── ast.po                        99.0% translated 318/319
     │   ├── asyncio-dev.po                59.0% translated   50/84
     │   ├── asyncio-eventloop.po          73.0% translated 303/413
@@ -66,6 +66,7 @@
     │   ├── binascii.po                   60.0% translated   23/38
     │   ├── bisect.po                     97.0% translated   35/36
     │   ├── codecs.po                     44.0% translated 250/558
+    │   ├── collections.po                97.0% translated 235/242
     │   ├── concurrent.futures.po         13.0% translated  14/103
     │   ├── contextlib.po                 30.0% translated  52/172
     │   ├── contextvars.po                96.0% translated   55/57
@@ -175,10 +176,10 @@
     │   ├── datamodel.po                  99.0% translated 869/876
     │   ├── import.po                     99.0% translated 199/200
     │   └── simple_stmts.po               99.0% translated 290/291
-    ├── tutorial/  98.91% done
+    ├── tutorial/  98.76% done
     │   ├── classes.po                    99.0% translated 148/149
     │   ├── controlflow.po                98.0% translated 223/226
-    │   ├── datastructures.po             99.0% translated 126/127
+    │   ├── datastructures.po             96.0% translated 123/127
     │   ├── errors.po                     98.0% translated   95/96
     │   ├── stdlib.po                     80.0% translated   54/67
     │   └── whatnow.po                    94.0% translated   17/18
@@ -201,4 +202,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  21.0% translated 2735/12790
+        └── changelog.po                  21.0% translated 2736/12792
