@@ -87,7 +87,6 @@
     │   ├── email.policy.po               10.0% translated  11/108
     │   ├── enum.po                       49.0% translated 127/256
     │   ├── errno.po                      71.0% translated 115/160
-    │   ├── exceptions.po                 99.0% translated 199/200
     │   ├── faulthandler.po                9.0% translated    4/43
     │   ├── ftplib.po                     12.0% translated   12/99
     │   ├── functools.po                  26.0% translated  30/115
@@ -137,7 +136,7 @@
     │   ├── ssl.po                        11.0% translated  60/545
     │   ├── stdtypes.po                   96.0% translated 1376/1432
     │   ├── string.po                     97.0% translated 216/221
-    │   ├── struct.po                     49.0% translated  96/195
+    │   ├── struct.po                     48.0% translated  95/196
     │   ├── subprocess.po                 45.0% translated 150/329
     │   ├── symtable.po                    9.0% translated    6/65
     │   ├── sys.po                        99.0% translated 442/443
@@ -187,7 +186,7 @@
     │   ├── cmdline.po                    99.0% translated 248/249
     │   ├── mac.po                        98.0% translated   95/96
     │   └── windows.po                    99.0% translated 388/389
-    └── whatsnew/  47.86% done
+    └── whatsnew/  47.85% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -202,4 +201,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  21.0% translated 2736/12792
+        └── changelog.po                  21.0% translated 2736/12797
