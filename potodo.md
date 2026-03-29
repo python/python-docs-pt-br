@@ -1,5 +1,5 @@
-1 directory  60.44% done
-└── 3.14/  60.44% done
+1 directory  60.43% done
+└── 3.14/  60.43% done
     ├── bugs.po                           96.0% translated   30/31
     ├── c-api/  52.62% done
     │   ├── bytearray.po                  91.0% translated   21/23
@@ -121,7 +121,6 @@
     │   ├── ensurepip.po                  95.0% translated   38/40
     │   ├── enum.po                       49.0% translated 127/257
     │   ├── errno.po                      71.0% translated 115/161
-    │   ├── exceptions.po                 99.0% translated 202/203
     │   ├── faulthandler.po                7.0% translated    4/53
     │   ├── fcntl.po                      96.0% translated   52/54
     │   ├── filecmp.po                    95.0% translated   40/42
@@ -203,7 +202,7 @@
     │   ├── stdtypes.po                   95.0% translated 1500/1563
     │   ├── string.po                     96.0% translated 217/224
     │   ├── stringprep.po                 92.0% translated   23/25
-    │   ├── struct.po                     49.0% translated 101/205
+    │   ├── struct.po                     48.0% translated 100/206
     │   ├── subprocess.po                 46.0% translated 147/313
     │   ├── symtable.po                    8.0% translated    6/73
     │   ├── sys.monitoring.po             98.0% translated 117/119
@@ -281,7 +280,7 @@
     │   ├── cmdline.po                    99.0% translated 264/265
     │   ├── configure.po                  99.0% translated 465/467
     │   └── windows.po                    95.0% translated 532/556
-    └── whatsnew/  50.35% done
+    └── whatsnew/  50.34% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -294,4 +293,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  25.0% translated 3488/13950
+        └── changelog.po                  24.0% translated 3488/13956
