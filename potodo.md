@@ -1,10 +1,9 @@
-1 directory  60.43% done
-└── 3.14/  60.43% done
-    ├── bugs.po                           96.0% translated   30/31
+1 directory  60.44% done
+└── 3.14/  60.44% done
     ├── c-api/  52.62% done
     │   ├── bytearray.po                  91.0% translated   21/23
     │   ├── bytes.po                      96.0% translated   74/77
-    │   ├── call.po                       97.0% translated   97/99
+    │   ├── call.po                       98.0% translated   98/99
     │   ├── conversion.po                 89.0% translated   49/55
     │   ├── exceptions.po                 64.0% translated 174/269
     │   ├── file.po                       77.0% translated   24/31
@@ -55,7 +54,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  59.50% done
+    ├── library/  59.51% done
     │   ├── __future__.po                 91.0% translated   45/49
     │   ├── array.po                      90.0% translated   80/88
     │   ├── ast.po                        97.0% translated 328/337
@@ -169,7 +168,6 @@
     │   ├── pickle.po                     91.0% translated 229/251
     │   ├── pickletools.po                94.0% translated   18/19
     │   ├── platform.po                   98.0% translated   88/89
-    │   ├── plistlib.po                   98.0% translated   50/51
     │   ├── poplib.po                     37.0% translated   20/53
     │   ├── posix.po                      85.0% translated   18/21
     │   ├── pprint.po                     98.0% translated   49/50
@@ -280,7 +278,7 @@
     │   ├── cmdline.po                    99.0% translated 264/265
     │   ├── configure.po                  99.0% translated 465/467
     │   └── windows.po                    95.0% translated 532/556
-    └── whatsnew/  50.34% done
+    └── whatsnew/  50.33% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -293,4 +291,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  24.0% translated 3488/13956
+        └── changelog.po                  24.0% translated 3488/13960
