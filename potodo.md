@@ -54,7 +54,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  59.51% done
+    ├── library/  59.52% done
     │   ├── __future__.po                 91.0% translated   45/49
     │   ├── array.po                      90.0% translated   80/88
     │   ├── ast.po                        97.0% translated 328/337
@@ -198,7 +198,7 @@
     │   ├── ssl.po                        10.0% translated  60/547
     │   ├── stat.po                       97.0% translated   90/92
     │   ├── stdtypes.po                   95.0% translated 1500/1563
-    │   ├── string.po                     96.0% translated 217/224
+    │   ├── string.po                     99.0% translated 222/224
     │   ├── stringprep.po                 92.0% translated   23/25
     │   ├── struct.po                     48.0% translated 100/206
     │   ├── subprocess.po                 46.0% translated 147/313
@@ -291,4 +291,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  24.0% translated 3488/13960
+        └── changelog.po                  24.0% translated 3488/13961
