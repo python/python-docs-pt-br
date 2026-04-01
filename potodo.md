@@ -1,5 +1,5 @@
-1 directory  60.78% done
-└── 3.13/  60.78% done
+1 directory  60.79% done
+└── 3.13/  60.79% done
     ├── c-api/  53.67% done
     │   ├── call.po                       98.0% translated   98/99
     │   ├── conversion.po                 89.0% translated   49/55
@@ -133,7 +133,7 @@
     │   ├── sqlite3.po                    24.0% translated 116/479
     │   ├── ssl.po                        11.0% translated  60/545
     │   ├── stdtypes.po                   96.0% translated 1376/1432
-    │   ├── string.po                     97.0% translated 216/221
+    │   ├── string.po                     99.0% translated 220/221
     │   ├── struct.po                     48.0% translated  95/196
     │   ├── subprocess.po                 45.0% translated 150/329
     │   ├── symtable.po                    9.0% translated    6/65
