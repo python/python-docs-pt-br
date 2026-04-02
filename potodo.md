@@ -133,7 +133,6 @@
     │   ├── sqlite3.po                    24.0% translated 116/479
     │   ├── ssl.po                        11.0% translated  60/545
     │   ├── stdtypes.po                   96.0% translated 1376/1432
-    │   ├── string.po                     99.0% translated 220/221
     │   ├── struct.po                     48.0% translated  95/196
     │   ├── subprocess.po                 45.0% translated 150/329
     │   ├── symtable.po                    9.0% translated    6/65
