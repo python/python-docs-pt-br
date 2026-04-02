@@ -198,7 +198,6 @@
     │   ├── ssl.po                        10.0% translated  60/547
     │   ├── stat.po                       97.0% translated   90/92
     │   ├── stdtypes.po                   95.0% translated 1500/1563
-    │   ├── string.po                     99.0% translated 222/224
     │   ├── stringprep.po                 92.0% translated   23/25
     │   ├── struct.po                     48.0% translated 100/206
     │   ├── subprocess.po                 46.0% translated 147/313
