@@ -1,5 +1,5 @@
-1 directory  60.44% done
-└── 3.14/  60.44% done
+1 directory  60.42% done
+└── 3.14/  60.42% done
     ├── c-api/  52.62% done
     │   ├── bytearray.po                  91.0% translated   21/23
     │   ├── bytes.po                      96.0% translated   74/77
@@ -43,13 +43,13 @@
     │   └── newtypes.po                    6.0% translated   8/117
     ├── faq/  94.39% done
     │   └── programming.po                91.0% translated 461/506
-    ├── howto/  66.08% done
+    ├── howto/  65.82% done
     │   ├── descriptor.po                 81.0% translated 187/230
     │   ├── enum.po                       37.0% translated 115/309
     │   ├── functional.po                 62.0% translated 158/252
     │   ├── instrumentation.po            78.0% translated   78/99
     │   ├── logging-cookbook.po            9.0% translated  41/435
-    │   ├── remote_debugging.po           96.0% translated 129/134
+    │   ├── remote_debugging.po           88.0% translated 129/146
     │   ├── sockets.po                    55.0% translated   35/63
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
@@ -138,7 +138,7 @@
     │   ├── http.cookiejar.po              5.0% translated   9/159
     │   ├── http.cookies.po               13.0% translated    7/52
     │   ├── http.po                       99.0% translated 245/247
-    │   ├── http.server.po                11.0% translated  15/129
+    │   ├── http.server.po                11.0% translated  15/132
     │   ├── idle.po                       44.0% translated 132/297
     │   ├── imaplib.po                    10.0% translated  14/131
     │   ├── importlib.po                  73.0% translated 210/284
@@ -273,11 +273,11 @@
     │   ├── errors.po                     98.0% translated   95/96
     │   ├── stdlib.po                     80.0% translated   54/67
     │   └── whatnow.po                    94.0% translated   17/18
-    ├── using/  96.61% done
+    ├── using/  96.44% done
     │   ├── cmdline.po                    99.0% translated 264/265
-    │   ├── configure.po                  99.0% translated 465/467
+    │   ├── configure.po                  99.0% translated 464/467
     │   └── windows.po                    95.0% translated 532/556
-    └── whatsnew/  50.33% done
+    └── whatsnew/  50.30% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -290,4 +290,5 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 249/568
+        ├── 3.8.po                        99.0% translated 511/513
         └── changelog.po                  24.0% translated 3488/13961
