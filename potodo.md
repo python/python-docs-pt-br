@@ -1,5 +1,5 @@
-1 directory  60.79% done
-└── 3.13/  60.79% done
+1 directory  60.78% done
+└── 3.13/  60.78% done
     ├── c-api/  53.67% done
     │   ├── call.po                       98.0% translated   98/99
     │   ├── conversion.po                 89.0% translated   49/55
@@ -94,7 +94,7 @@
     │   ├── http.client.po                38.0% translated  45/118
     │   ├── http.cookiejar.po              5.0% translated   9/159
     │   ├── http.cookies.po               14.0% translated    7/49
-    │   ├── http.server.po                13.0% translated  15/115
+    │   ├── http.server.po                12.0% translated  15/118
     │   ├── idle.po                       44.0% translated 131/297
     │   ├── imaplib.po                    11.0% translated  14/118
     │   ├── importlib.po                  78.0% translated 245/313
@@ -179,11 +179,12 @@
     │   ├── errors.po                     98.0% translated   95/96
     │   ├── stdlib.po                     80.0% translated   54/67
     │   └── whatnow.po                    94.0% translated   17/18
-    ├── using/  99.19% done
+    ├── using/  98.98% done
     │   ├── cmdline.po                    99.0% translated 248/249
+    │   ├── configure.po                  99.0% translated 406/407
     │   ├── mac.po                        98.0% translated   95/96
     │   └── windows.po                    99.0% translated 388/389
-    └── whatsnew/  47.85% done
+    └── whatsnew/  47.83% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -198,4 +199,5 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
+        ├── 3.8.po                        99.0% translated 511/513
         └── changelog.po                  21.0% translated 2736/12800
