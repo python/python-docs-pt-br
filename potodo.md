@@ -273,8 +273,7 @@
     │   ├── errors.po                     98.0% translated   95/96
     │   ├── stdlib.po                     80.0% translated   54/67
     │   └── whatnow.po                    94.0% translated   17/18
-    ├── using/  96.44% done
-    │   ├── cmdline.po                    99.0% translated 264/265
+    ├── using/  96.56% done
     │   ├── configure.po                  99.0% translated 464/467
     │   └── windows.po                    95.0% translated 532/556
     └── whatsnew/  50.30% done
