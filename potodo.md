@@ -1,5 +1,5 @@
-1 directory  60.77% done
-└── 3.13/  60.77% done
+1 directory  60.72% done
+└── 3.13/  60.72% done
     ├── c-api/  53.67% done
     │   ├── call.po                       98.0% translated   98/99
     │   ├── conversion.po                 89.0% translated   49/55
@@ -45,8 +45,9 @@
     │   ├── sockets.po                    55.0% translated   35/63
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
-    ├── installing/  100.00% done
-    ├── library/  61.65% done
+    ├── installing/  47.12% done
+    │   └── index.po                      60.0% translated   32/53
+    ├── library/  61.63% done
     │   ├── argparse.po                   99.0% translated 379/382
     │   ├── array.po                      91.0% translated   80/87
     │   ├── ast.po                        99.0% translated 318/319
@@ -114,6 +115,7 @@
     │   ├── os.po                         98.0% translated 1025/1036
     │   ├── pathlib.po                    99.0% translated 418/419
     │   ├── pickle.po                     99.0% translated 241/243
+    │   ├── pkgutil.po                    89.0% translated   49/55
     │   ├── poplib.po                     41.0% translated   22/53
     │   ├── profile.po                    18.0% translated  34/181
     │   ├── pyexpat.po                    14.0% translated  23/156
@@ -135,7 +137,7 @@
     │   ├── ssl.po                        11.0% translated  60/545
     │   ├── stdtypes.po                   96.0% translated 1376/1432
     │   ├── struct.po                     48.0% translated  95/196
-    │   ├── subprocess.po                 45.0% translated 150/329
+    │   ├── subprocess.po                 45.0% translated 150/330
     │   ├── symtable.po                    9.0% translated    6/65
     │   ├── sys.po                        99.0% translated 442/443
     │   ├── tarfile.po                    55.0% translated 190/345
@@ -184,7 +186,7 @@
     │   ├── configure.po                  99.0% translated 406/407
     │   ├── mac.po                        98.0% translated   95/96
     │   └── windows.po                    99.0% translated 388/389
-    └── whatsnew/  47.84% done
+    └── whatsnew/  47.83% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -199,4 +201,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  21.0% translated 2736/12803
+        └── changelog.po                  21.0% translated 2736/12810
