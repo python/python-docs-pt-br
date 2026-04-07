@@ -54,7 +54,7 @@
     ├── install/  71.32% done
     │   └── index.po                      73.0% translated 166/226
     ├── installing/  100.00% done
-    ├── library/  58.68% done
+    ├── library/  58.67% done
     │   ├── _thread.po                    96.0% translated   49/51
     │   ├── abc.po                        97.0% translated   48/49
     │   ├── argparse.po                   91.0% translated 305/335
@@ -188,7 +188,7 @@
     │   ├── stdtypes.po                   99.0% translated 1207/1211
     │   ├── stringprep.po                 96.0% translated   24/25
     │   ├── struct.po                     51.0% translated  95/184
-    │   ├── subprocess.po                 49.0% translated 145/291
+    │   ├── subprocess.po                 49.0% translated 145/292
     │   ├── symtable.po                    6.0% translated    3/44
     │   ├── sys.po                        96.0% translated 397/413
     │   ├── sysconfig.po                  99.0% translated 135/136
