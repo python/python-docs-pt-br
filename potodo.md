@@ -1,5 +1,5 @@
-1 directory  60.41% done
-└── 3.14/  60.41% done
+1 directory  60.36% done
+└── 3.14/  60.36% done
     ├── c-api/  52.62% done
     │   ├── bytearray.po                  91.0% translated   21/23
     │   ├── bytes.po                      96.0% translated   74/77
@@ -54,8 +54,9 @@
     │   ├── sockets.po                    55.0% translated   35/63
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
-    ├── installing/  100.00% done
-    ├── library/  59.53% done
+    ├── installing/  47.12% done
+    │   └── index.po                      60.0% translated   32/53
+    ├── library/  59.51% done
     │   ├── __future__.po                 91.0% translated   45/49
     │   ├── argparse.po                   99.0% translated 400/403
     │   ├── array.po                      90.0% translated   80/88
@@ -168,6 +169,7 @@
     │   ├── pdb.po                        98.0% translated 176/179
     │   ├── pickle.po                     91.0% translated 229/251
     │   ├── pickletools.po                94.0% translated   18/19
+    │   ├── pkgutil.po                    87.0% translated   43/49
     │   ├── platform.po                   98.0% translated   88/89
     │   ├── poplib.po                     37.0% translated   20/53
     │   ├── posix.po                      85.0% translated   18/21
@@ -201,7 +203,7 @@
     │   ├── stdtypes.po                   95.0% translated 1500/1563
     │   ├── stringprep.po                 92.0% translated   23/25
     │   ├── struct.po                     48.0% translated 100/206
-    │   ├── subprocess.po                 46.0% translated 147/313
+    │   ├── subprocess.po                 46.0% translated 147/314
     │   ├── symtable.po                    8.0% translated    6/73
     │   ├── sys.monitoring.po             98.0% translated 117/119
     │   ├── sys.po                        99.0% translated 474/478
@@ -242,7 +244,6 @@
     │   ├── wave.po                       34.0% translated   21/61
     │   ├── weakref.po                    95.0% translated   91/95
     │   ├── webbrowser.po                 97.0% translated   88/90
-    │   ├── winreg.po                     99.0% translated 175/176
     │   ├── winsound.po                   97.0% translated   39/40
     │   ├── wsgiref.po                    51.0% translated  70/135
     │   ├── xml.dom.minidom.po            14.0% translated    8/56
@@ -278,7 +279,7 @@
     ├── using/  96.56% done
     │   ├── configure.po                  99.0% translated 464/467
     │   └── windows.po                    95.0% translated 532/556
-    └── whatsnew/  50.32% done
+    └── whatsnew/  50.30% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -291,4 +292,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  24.0% translated 3488/13965
+        └── changelog.po                  24.0% translated 3488/13972
