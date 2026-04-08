@@ -195,7 +195,7 @@
     │   ├── stdtypes.po                   99.0% translated 1022/1026
     │   ├── stringprep.po                 92.0% translated   23/25
     │   ├── struct.po                     50.0% translated  84/168
-    │   ├── subprocess.po                 49.0% translated 137/275
+    │   ├── subprocess.po                 49.0% translated 137/276
     │   ├── symtable.po                    6.0% translated    3/44
     │   ├── sys.po                        86.0% translated 358/412
     │   ├── sysconfig.po                  92.0% translated   75/81
