@@ -165,7 +165,6 @@
     │   ├── optparse.po                   79.0% translated 425/532
     │   ├── os.path.po                    88.0% translated  97/110
     │   ├── os.po                         98.0% translated 1034/1054
-    │   ├── pathlib.po                    99.0% translated 441/444
     │   ├── pdb.po                        98.0% translated 176/179
     │   ├── pickle.po                     91.0% translated 229/251
     │   ├── pickletools.po                94.0% translated   18/19
