@@ -113,7 +113,6 @@
     │   ├── multiprocessing.po            55.0% translated 335/609
     │   ├── os.path.po                    89.0% translated  98/110
     │   ├── os.po                         98.0% translated 1025/1036
-    │   ├── pathlib.po                    99.0% translated 418/419
     │   ├── pickle.po                     99.0% translated 241/243
     │   ├── pkgutil.po                    89.0% translated   49/55
     │   ├── poplib.po                     41.0% translated   22/53
