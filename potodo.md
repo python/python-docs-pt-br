@@ -1,5 +1,5 @@
-1 directory  60.72% done
-└── 3.13/  60.72% done
+1 directory  60.71% done
+└── 3.13/  60.71% done
     ├── c-api/  53.67% done
     │   ├── call.po                       98.0% translated   98/99
     │   ├── conversion.po                 89.0% translated   49/55
@@ -48,12 +48,11 @@
     ├── installing/  47.12% done
     │   └── index.po                      60.0% translated   32/53
     ├── library/  61.63% done
-    │   ├── argparse.po                   99.0% translated 379/382
     │   ├── array.po                      91.0% translated   80/87
     │   ├── ast.po                        99.0% translated 318/319
     │   ├── asyncio-dev.po                59.0% translated   50/84
-    │   ├── asyncio-eventloop.po          73.0% translated 303/413
-    │   ├── asyncio-future.po             26.0% translated   17/64
+    │   ├── asyncio-eventloop.po          73.0% translated 302/413
+    │   ├── asyncio-future.po             26.0% translated   17/65
     │   ├── asyncio-platforms.po          23.0% translated    6/26
     │   ├── asyncio-policy.po             14.0% translated   10/68
     │   ├── asyncio-protocol.po           13.0% translated  26/194
@@ -91,6 +90,7 @@
     │   ├── faulthandler.po                9.0% translated    4/43
     │   ├── ftplib.po                     12.0% translated   12/99
     │   ├── functools.po                  26.0% translated  30/115
+    │   ├── glob.po                       97.0% translated   45/46
     │   ├── hashlib.po                    54.0% translated  93/170
     │   ├── html.parser.po                96.0% translated   60/62
     │   ├── http.client.po                38.0% translated  45/118
@@ -113,6 +113,7 @@
     │   ├── multiprocessing.po            55.0% translated 335/609
     │   ├── os.path.po                    89.0% translated  98/110
     │   ├── os.po                         98.0% translated 1025/1036
+    │   ├── pathlib.po                    99.0% translated 419/420
     │   ├── pickle.po                     99.0% translated 241/243
     │   ├── pkgutil.po                    89.0% translated   49/55
     │   ├── poplib.po                     41.0% translated   22/53
@@ -134,7 +135,7 @@
     │   ├── socket.po                     15.0% translated  56/368
     │   ├── sqlite3.po                    24.0% translated 116/479
     │   ├── ssl.po                        11.0% translated  60/545
-    │   ├── stdtypes.po                   96.0% translated 1376/1432
+    │   ├── stdtypes.po                   95.0% translated 1375/1436
     │   ├── struct.po                     48.0% translated  95/196
     │   ├── subprocess.po                 45.0% translated 150/330
     │   ├── symtable.po                    9.0% translated    6/65
@@ -185,7 +186,7 @@
     │   ├── configure.po                  99.0% translated 406/407
     │   ├── mac.po                        98.0% translated   95/96
     │   └── windows.po                    99.0% translated 388/389
-    └── whatsnew/  47.83% done
+    └── whatsnew/  47.82% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -200,4 +201,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  21.0% translated 2736/12810
+        └── changelog.po                  21.0% translated 2736/12816
