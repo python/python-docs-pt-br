@@ -56,7 +56,7 @@
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  47.12% done
     │   └── index.po                      60.0% translated   32/53
-    ├── library/  59.51% done
+    ├── library/  59.52% done
     │   ├── __future__.po                 91.0% translated   45/49
     │   ├── array.po                      90.0% translated   80/88
     │   ├── ast.po                        97.0% translated 328/337
@@ -130,7 +130,6 @@
     │   ├── gc.po                         98.0% translated   72/73
     │   ├── getpass.po                    93.0% translated   15/16
     │   ├── gettext.po                    93.0% translated 121/129
-    │   ├── glob.po                       97.0% translated   45/46
     │   ├── graphlib.po                   97.0% translated   39/40
     │   ├── gzip.po                       95.0% translated   68/71
     │   ├── hashlib.po                    53.0% translated  91/170
@@ -165,7 +164,6 @@
     │   ├── optparse.po                   79.0% translated 425/532
     │   ├── os.path.po                    88.0% translated  97/110
     │   ├── os.po                         98.0% translated 1034/1054
-    │   ├── pathlib.po                    99.0% translated 444/445
     │   ├── pdb.po                        98.0% translated 176/179
     │   ├── pickle.po                     91.0% translated 229/251
     │   ├── pickletools.po                94.0% translated   18/19
