@@ -90,7 +90,6 @@
     │   ├── faulthandler.po                9.0% translated    4/43
     │   ├── ftplib.po                     12.0% translated   12/99
     │   ├── functools.po                  26.0% translated  30/115
-    │   ├── glob.po                       97.0% translated   45/46
     │   ├── hashlib.po                    54.0% translated  93/170
     │   ├── html.parser.po                96.0% translated   60/62
     │   ├── http.client.po                38.0% translated  45/118
@@ -113,7 +112,6 @@
     │   ├── multiprocessing.po            55.0% translated 335/609
     │   ├── os.path.po                    89.0% translated  98/110
     │   ├── os.po                         98.0% translated 1025/1036
-    │   ├── pathlib.po                    99.0% translated 419/420
     │   ├── pickle.po                     99.0% translated 241/243
     │   ├── pkgutil.po                    89.0% translated   49/55
     │   ├── poplib.po                     41.0% translated   22/53
