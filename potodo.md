@@ -62,7 +62,7 @@
     │   ├── ast.po                        97.0% translated 328/337
     │   ├── asyncio-dev.po                61.0% translated   52/84
     │   ├── asyncio-eventloop.po          73.0% translated 305/417
-    │   ├── asyncio-future.po             26.0% translated   17/64
+    │   ├── asyncio-future.po             26.0% translated   17/65
     │   ├── asyncio-platforms.po          24.0% translated    6/25
     │   ├── asyncio-policy.po             16.0% translated    6/36
     │   ├── asyncio-protocol.po           13.0% translated  26/194
@@ -138,7 +138,6 @@
     │   ├── http.client.po                38.0% translated  45/118
     │   ├── http.cookiejar.po              5.0% translated   9/159
     │   ├── http.cookies.po               13.0% translated    7/52
-    │   ├── http.po                       99.0% translated 245/247
     │   ├── http.server.po                11.0% translated  15/132
     │   ├── idle.po                       44.0% translated 132/297
     │   ├── imaplib.po                    10.0% translated  14/131
@@ -274,10 +273,10 @@
     │   ├── errors.po                     98.0% translated   95/96
     │   ├── stdlib.po                     80.0% translated   54/67
     │   └── whatnow.po                    94.0% translated   17/18
-    ├── using/  96.56% done
-    │   ├── configure.po                  99.0% translated 464/467
+    ├── using/  96.54% done
+    │   ├── configure.po                  99.0% translated 464/468
     │   └── windows.po                    95.0% translated 532/556
-    └── whatsnew/  50.30% done
+    └── whatsnew/  50.29% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -290,4 +289,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  24.0% translated 3488/13977
+        └── changelog.po                  24.0% translated 3488/13981
