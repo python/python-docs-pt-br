@@ -100,6 +100,7 @@
     │   ├── imaplib.po                    11.0% translated  14/118
     │   ├── importlib.po                  78.0% translated 245/313
     │   ├── importlib.resources.abc.po    94.0% translated   35/37
+    │   ├── importlib.resources.po        98.0% translated   53/54
     │   ├── inspect.po                    36.0% translated 144/399
     │   ├── io.po                         21.0% translated  59/272
     │   ├── itertools.po                  77.0% translated 155/200
@@ -109,7 +110,7 @@
     │   ├── logging.po                    28.0% translated 106/372
     │   ├── mailbox.po                     6.0% translated  21/307
     │   ├── mmap.po                       35.0% translated   23/65
-    │   ├── multiprocessing.po            55.0% translated 335/609
+    │   ├── multiprocessing.po            54.0% translated 334/609
     │   ├── os.path.po                    89.0% translated  98/110
     │   ├── os.po                         98.0% translated 1025/1036
     │   ├── pickle.po                     99.0% translated 241/243
@@ -184,7 +185,7 @@
     │   ├── configure.po                  99.0% translated 406/407
     │   ├── mac.po                        98.0% translated   95/96
     │   └── windows.po                    99.0% translated 388/389
-    └── whatsnew/  47.82% done
+    └── whatsnew/  47.81% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -199,4 +200,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  21.0% translated 2736/12817
+        └── changelog.po                  21.0% translated 2736/12820
