@@ -1,10 +1,11 @@
-1 directory  60.36% done
-└── 3.14/  60.36% done
-    ├── c-api/  52.61% done
+1 directory  60.34% done
+└── 3.14/  60.34% done
+    ├── c-api/  52.49% done
     │   ├── bytearray.po                  91.0% translated   21/23
     │   ├── bytes.po                      96.0% translated   74/77
     │   ├── call.po                       98.0% translated   98/99
     │   ├── conversion.po                 89.0% translated   49/55
+    │   ├── dict.po                       93.0% translated 101/108
     │   ├── exceptions.po                 64.0% translated 174/269
     │   ├── file.po                       77.0% translated   24/31
     │   ├── float.po                      93.0% translated   54/58
@@ -25,7 +26,7 @@
     │   ├── object.po                     29.0% translated  44/147
     │   ├── profiling.po                   2.0% translated    1/46
     │   ├── refcounting.po                30.0% translated   15/50
-    │   ├── set.po                        87.0% translated   28/32
+    │   ├── set.po                        80.0% translated   28/35
     │   ├── structures.po                 41.0% translated  86/206
     │   ├── subinterpreters.po            18.0% translated   16/87
     │   ├── synchronization.po             3.0% translated    2/58
@@ -143,6 +144,7 @@
     │   ├── imaplib.po                    10.0% translated  14/131
     │   ├── importlib.po                  73.0% translated 210/284
     │   ├── importlib.resources.abc.po    94.0% translated   35/37
+    │   ├── importlib.resources.po        98.0% translated   53/54
     │   ├── inspect.po                    37.0% translated 153/407
     │   ├── io.po                         21.0% translated  60/284
     │   ├── ipaddress.po                  98.0% translated 165/168
@@ -158,7 +160,7 @@
     │   ├── math.po                       99.0% translated 267/268
     │   ├── mimetypes.po                  97.0% translated   66/68
     │   ├── mmap.po                       35.0% translated   23/65
-    │   ├── multiprocessing.po            52.0% translated 322/619
+    │   ├── multiprocessing.po            51.0% translated 321/619
     │   ├── operator.po                   98.0% translated 186/189
     │   ├── optparse.po                   79.0% translated 425/532
     │   ├── os.path.po                    88.0% translated  97/110
@@ -276,7 +278,7 @@
     ├── using/  96.54% done
     │   ├── configure.po                  99.0% translated 464/468
     │   └── windows.po                    95.0% translated 532/556
-    └── whatsnew/  50.29% done
+    └── whatsnew/  50.27% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -289,4 +291,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  24.0% translated 3488/13981
+        └── changelog.po                  24.0% translated 3488/13989
