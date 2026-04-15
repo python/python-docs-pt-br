@@ -57,8 +57,9 @@
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  47.12% done
     │   └── index.po                      60.0% translated   32/53
-    ├── library/  59.52% done
+    ├── library/  59.51% done
     │   ├── __future__.po                 91.0% translated   45/49
+    │   ├── argparse.po                   99.0% translated 403/404
     │   ├── array.po                      90.0% translated   80/88
     │   ├── ast.po                        97.0% translated 328/337
     │   ├── asyncio-dev.po                61.0% translated   52/84
@@ -120,7 +121,7 @@
     │   ├── email.policy.po               10.0% translated  11/108
     │   ├── email.utils.po                97.0% translated   35/36
     │   ├── ensurepip.po                  95.0% translated   38/40
-    │   ├── enum.po                       49.0% translated 127/257
+    │   ├── enum.po                       49.0% translated 126/257
     │   ├── errno.po                      71.0% translated 115/161
     │   ├── faulthandler.po                7.0% translated    4/53
     │   ├── fcntl.po                      96.0% translated   52/54
@@ -232,7 +233,7 @@
     │   ├── unicodedata.po                60.0% translated   26/43
     │   ├── unittest.mock-examples.po     10.0% translated  19/182
     │   ├── unittest.mock.po              22.0% translated 101/448
-    │   ├── unittest.po                   48.0% translated 273/560
+    │   ├── unittest.po                   48.0% translated 272/560
     │   ├── urllib.error.po               86.0% translated   13/15
     │   ├── urllib.parse.po               56.0% translated  94/165
     │   ├── urllib.request.po             15.0% translated  47/295
@@ -278,7 +279,7 @@
     ├── using/  96.54% done
     │   ├── configure.po                  99.0% translated 464/468
     │   └── windows.po                    95.0% translated 532/556
-    └── whatsnew/  50.27% done
+    └── whatsnew/  50.26% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -291,4 +292,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  24.0% translated 3488/13989
+        └── changelog.po                  24.0% translated 3488/13992
