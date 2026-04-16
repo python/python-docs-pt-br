@@ -1,5 +1,5 @@
-1 directory  60.70% done
-└── 3.13/  60.70% done
+1 directory  60.72% done
+└── 3.13/  60.72% done
     ├── c-api/  53.67% done
     │   ├── call.po                       98.0% translated   98/99
     │   ├── conversion.po                 89.0% translated   49/55
@@ -175,13 +175,8 @@
     │   ├── datamodel.po                  99.0% translated 869/876
     │   ├── import.po                     99.0% translated 199/200
     │   └── simple_stmts.po               99.0% translated 290/291
-    ├── tutorial/  98.76% done
-    │   ├── classes.po                    99.0% translated 148/149
-    │   ├── controlflow.po                98.0% translated 223/226
-    │   ├── datastructures.po             96.0% translated 123/127
-    │   ├── errors.po                     98.0% translated   95/96
-    │   ├── stdlib.po                     80.0% translated   54/67
-    │   └── whatnow.po                    94.0% translated   17/18
+    ├── tutorial/  99.72% done
+    │   └── stdlib.po                     80.0% translated   54/67
     ├── using/  99.13% done
     │   ├── configure.po                  99.0% translated 406/407
     │   ├── mac.po                        98.0% translated   95/96
