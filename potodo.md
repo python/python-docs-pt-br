@@ -1,5 +1,5 @@
-1 directory  60.34% done
-└── 3.14/  60.34% done
+1 directory  60.36% done
+└── 3.14/  60.36% done
     ├── c-api/  52.49% done
     │   ├── bytearray.po                  91.0% translated   21/23
     │   ├── bytes.po                      96.0% translated   74/77
@@ -269,13 +269,8 @@
     │   ├── import.po                     99.0% translated 199/200
     │   ├── lexical_analysis.po           99.0% translated 474/475
     │   └── simple_stmts.po               97.0% translated 284/291
-    ├── tutorial/  98.76% done
-    │   ├── classes.po                    99.0% translated 148/149
-    │   ├── controlflow.po                98.0% translated 223/226
-    │   ├── datastructures.po             96.0% translated 123/127
-    │   ├── errors.po                     98.0% translated   95/96
-    │   ├── stdlib.po                     80.0% translated   54/67
-    │   └── whatnow.po                    94.0% translated   17/18
+    ├── tutorial/  99.72% done
+    │   └── stdlib.po                     80.0% translated   54/67
     ├── using/  96.54% done
     │   ├── configure.po                  99.0% translated 464/468
     │   └── windows.po                    95.0% translated 532/556
