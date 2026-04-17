@@ -47,7 +47,7 @@
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  47.12% done
     │   └── index.po                      60.0% translated   32/53
-    ├── library/  61.63% done
+    ├── library/  61.62% done
     │   ├── argparse.po                   99.0% translated 382/383
     │   ├── array.po                      91.0% translated   80/87
     │   ├── ast.po                        99.0% translated 318/319
@@ -90,6 +90,7 @@
     │   ├── errno.po                      71.0% translated 115/160
     │   ├── faulthandler.po                9.0% translated    4/43
     │   ├── ftplib.po                     12.0% translated   12/99
+    │   ├── functions.po                  99.0% translated 512/513
     │   ├── functools.po                  26.0% translated  30/115
     │   ├── hashlib.po                    54.0% translated  93/170
     │   ├── html.parser.po                96.0% translated   60/62
@@ -181,7 +182,7 @@
     │   ├── configure.po                  99.0% translated 406/407
     │   ├── mac.po                        98.0% translated   95/96
     │   └── windows.po                    99.0% translated 388/389
-    └── whatsnew/  47.80% done
+    └── whatsnew/  47.79% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -196,4 +197,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  21.0% translated 2736/12824
+        └── changelog.po                  21.0% translated 2736/12825
