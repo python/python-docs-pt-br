@@ -128,7 +128,6 @@
     │   ├── filecmp.po                    95.0% translated   40/42
     │   ├── fractions.po                  97.0% translated   40/41
     │   ├── ftplib.po                     12.0% translated   12/99
-    │   ├── functions.po                  99.0% translated 519/520
     │   ├── functools.po                  22.0% translated  28/126
     │   ├── gc.po                         98.0% translated   72/73
     │   ├── getpass.po                    93.0% translated   15/16
