@@ -1,5 +1,5 @@
-1 directory  60.33% done
-└── 3.14/  60.33% done
+1 directory  60.31% done
+└── 3.14/  60.31% done
     ├── c-api/  52.49% done
     │   ├── bytearray.po                  91.0% translated   21/23
     │   ├── bytes.po                      96.0% translated   74/77
@@ -57,9 +57,8 @@
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  47.12% done
     │   └── index.po                      60.0% translated   32/53
-    ├── library/  59.51% done
+    ├── library/  59.48% done
     │   ├── __future__.po                 91.0% translated   45/49
-    │   ├── argparse.po                   99.0% translated 403/404
     │   ├── array.po                      90.0% translated   80/88
     │   ├── ast.po                        97.0% translated 328/337
     │   ├── asyncio-dev.po                61.0% translated   52/84
@@ -80,7 +79,7 @@
     │   ├── binascii.po                   55.0% translated   21/38
     │   ├── bisect.po                     91.0% translated   33/36
     │   ├── bz2.po                        97.0% translated   73/75
-    │   ├── calendar.po                   97.0% translated 113/116
+    │   ├── calendar.po                   93.0% translated 108/116
     │   ├── cmath.po                      98.0% translated 122/124
     │   ├── cmd.po                        98.0% translated   49/50
     │   ├── codecs.po                     44.0% translated 250/563
@@ -161,7 +160,7 @@
     │   ├── math.po                       99.0% translated 267/268
     │   ├── mimetypes.po                  97.0% translated   66/68
     │   ├── mmap.po                       35.0% translated   23/65
-    │   ├── multiprocessing.po            51.0% translated 321/619
+    │   ├── multiprocessing.po            51.0% translated 318/619
     │   ├── operator.po                   98.0% translated 186/189
     │   ├── optparse.po                   79.0% translated 425/532
     │   ├── os.path.po                    88.0% translated  97/110
@@ -271,7 +270,8 @@
     │   └── simple_stmts.po               97.0% translated 284/291
     ├── tutorial/  99.72% done
     │   └── stdlib.po                     80.0% translated   54/67
-    ├── using/  94.66% done
+    ├── using/  94.64% done
+    │   ├── android.po                    96.0% translated   26/27
     │   ├── configure.po                  99.0% translated 464/468
     │   └── windows.po                    93.0% translated 532/571
     └── whatsnew/  50.25% done
@@ -287,4 +287,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  24.0% translated 3488/13997
+        └── changelog.po                  24.0% translated 3488/13998
