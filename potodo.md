@@ -1,5 +1,5 @@
-1 directory  60.70% done
-└── 3.13/  60.70% done
+1 directory  60.68% done
+└── 3.13/  60.68% done
     ├── c-api/  53.67% done
     │   ├── call.po                       98.0% translated   98/99
     │   ├── conversion.po                 89.0% translated   49/55
@@ -47,7 +47,7 @@
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  47.12% done
     │   └── index.po                      60.0% translated   32/53
-    ├── library/  61.59% done
+    ├── library/  61.55% done
     │   ├── array.po                      91.0% translated   80/87
     │   ├── ast.po                        99.0% translated 318/319
     │   ├── asyncio-dev.po                59.0% translated   50/84
@@ -121,7 +121,7 @@
     │   ├── pyexpat.po                    14.0% translated  23/156
     │   ├── queue.po                      17.0% translated   10/57
     │   ├── random.po                     98.0% translated 136/138
-    │   ├── re.po                         99.0% translated 438/439
+    │   ├── re.po                         99.0% translated 437/439
     │   ├── resource.po                   99.0% translated 109/110
     │   ├── secrets.po                    82.0% translated   32/39
     │   ├── select.po                     37.0% translated  78/206
@@ -149,7 +149,7 @@
     │   ├── trace.po                      97.0% translated   42/43
     │   ├── traceback.po                   7.0% translated   9/116
     │   ├── tracemalloc.po                13.0% translated  21/156
-    │   ├── typing.po                     99.0% translated 802/806
+    │   ├── typing.po                     99.0% translated 801/806
     │   ├── unicodedata.po                55.0% translated   24/43
     │   ├── unittest.mock-examples.po     10.0% translated  19/182
     │   ├── unittest.mock.po              22.0% translated 103/448
@@ -182,7 +182,7 @@
     │   ├── configure.po                  99.0% translated 406/407
     │   ├── mac.po                        98.0% translated   95/96
     │   └── windows.po                    99.0% translated 388/389
-    └── whatsnew/  47.79% done
+    └── whatsnew/  47.78% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -197,4 +197,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  21.0% translated 2736/12827
+        └── changelog.po                  21.0% translated 2736/12831
