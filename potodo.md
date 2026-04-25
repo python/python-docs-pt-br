@@ -1,5 +1,5 @@
-1 directory  60.28% done
-└── 3.14/  60.28% done
+1 directory  60.27% done
+└── 3.14/  60.27% done
     ├── sphinx.po                         99.0% translated 108/109
     ├── c-api/  52.47% done
     │   ├── allocation.po                 90.0% translated   36/40
@@ -61,7 +61,7 @@
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  47.12% done
     │   └── index.po                      60.0% translated   32/53
-    ├── library/  59.42% done
+    ├── library/  59.41% done
     │   ├── __future__.po                 91.0% translated   45/49
     │   ├── array.po                      90.0% translated   80/88
     │   ├── ast.po                        97.0% translated 328/337
@@ -291,4 +291,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  24.0% translated 3488/14005
+        └── changelog.po                  24.0% translated 3488/14008
