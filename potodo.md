@@ -1,5 +1,5 @@
-1 directory  60.25% done
-└── 3.14/  60.25% done
+1 directory  60.24% done
+└── 3.14/  60.24% done
     ├── sphinx.po                         99.0% translated 108/109
     ├── c-api/  52.47% done
     │   ├── allocation.po                 90.0% translated   36/40
@@ -61,7 +61,7 @@
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  47.12% done
     │   └── index.po                      60.0% translated   32/53
-    ├── library/  59.38% done
+    ├── library/  59.37% done
     │   ├── __future__.po                 91.0% translated   45/49
     │   ├── array.po                      90.0% translated   80/88
     │   ├── ast.po                        97.0% translated 328/337
@@ -146,9 +146,10 @@
     │   ├── http.server.po                11.0% translated  15/131
     │   ├── idle.po                       44.0% translated 132/297
     │   ├── imaplib.po                    10.0% translated  14/131
+    │   ├── importlib.metadata.po         99.0% translated 119/120
     │   ├── importlib.po                  73.0% translated 210/284
     │   ├── importlib.resources.abc.po    94.0% translated   35/37
-    │   ├── importlib.resources.po        98.0% translated   53/54
+    │   ├── importlib.resources.po        98.0% translated   52/53
     │   ├── inspect.po                    37.0% translated 153/407
     │   ├── io.po                         21.0% translated  60/284
     │   ├── ipaddress.po                  98.0% translated 165/168
@@ -227,6 +228,7 @@
     │   ├── tkinter.ttk.po                32.0% translated 139/429
     │   ├── token.po                      99.0% translated  99/100
     │   ├── tokenize.po                   94.0% translated   49/52
+    │   ├── tomllib.po                    98.0% translated   51/52
     │   ├── trace.po                      90.0% translated   39/43
     │   ├── traceback.po                   8.0% translated  10/118
     │   ├── tracemalloc.po                13.0% translated  21/156
@@ -292,4 +294,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  24.0% translated 3488/14019
+        └── changelog.po                  24.0% translated 3488/14021
