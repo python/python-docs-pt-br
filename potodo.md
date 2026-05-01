@@ -1,5 +1,5 @@
-1 directory  60.66% done
-└── 3.13/  60.66% done
+1 directory  60.68% done
+└── 3.13/  60.68% done
     ├── c-api/  53.67% done
     │   ├── call.po                       98.0% translated   98/99
     │   ├── conversion.po                 89.0% translated   49/55
@@ -170,9 +170,10 @@
     │   ├── xmlrpc.client.po              48.0% translated  55/113
     │   ├── xmlrpc.server.po              91.0% translated   52/57
     │   └── zoneinfo.po                   45.0% translated   38/84
-    ├── reference/  99.08% done
+    ├── reference/  99.00% done
     │   ├── compound_stmts.po             98.0% translated 459/467
     │   ├── datamodel.po                  99.0% translated 869/876
+    │   ├── executionmodel.po             99.0% translated 141/142
     │   ├── import.po                     99.0% translated 199/200
     │   └── simple_stmts.po               99.0% translated 290/291
     ├── tutorial/  99.48% done
@@ -183,7 +184,7 @@
     │   ├── configure.po                  99.0% translated 406/407
     │   ├── mac.po                        98.0% translated   95/96
     │   └── windows.po                    99.0% translated 388/389
-    └── whatsnew/  47.76% done
+    └── whatsnew/  47.75% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -198,4 +199,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  21.0% translated 2736/12838
+        └── changelog.po                  21.0% translated 2736/12840
