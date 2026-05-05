@@ -1,5 +1,5 @@
-1 directory  60.68% done
-└── 3.13/  60.68% done
+1 directory  60.66% done
+└── 3.13/  60.66% done
     ├── c-api/  53.67% done
     │   ├── call.po                       98.0% translated   98/99
     │   ├── conversion.po                 89.0% translated   49/55
@@ -47,7 +47,7 @@
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  47.12% done
     │   └── index.po                      60.0% translated   32/53
-    ├── library/  61.53% done
+    ├── library/  61.51% done
     │   ├── array.po                      91.0% translated   80/87
     │   ├── ast.po                        99.0% translated 318/321
     │   ├── asyncio-dev.po                59.0% translated   50/84
@@ -66,7 +66,7 @@
     │   ├── bdb.po                        98.0% translated 110/112
     │   ├── binascii.po                   60.0% translated   23/38
     │   ├── bisect.po                     97.0% translated   35/36
-    │   ├── calendar.po                   95.0% translated 110/115
+    │   ├── calendar.po                   93.0% translated 109/116
     │   ├── codecs.po                     44.0% translated 250/558
     │   ├── concurrent.futures.po         13.0% translated  14/103
     │   ├── contextlib.po                 30.0% translated  52/172
@@ -104,6 +104,7 @@
     │   ├── importlib.resources.po        98.0% translated   53/54
     │   ├── inspect.po                    36.0% translated 144/399
     │   ├── io.po                         21.0% translated  59/272
+    │   ├── ipaddress.po                  99.0% translated 166/167
     │   ├── itertools.po                  77.0% translated 155/200
     │   ├── locale.po                     98.0% translated 159/161
     │   ├── logging.config.po             93.0% translated 160/171
@@ -157,7 +158,7 @@
     │   ├── unittest.po                   51.0% translated 275/537
     │   ├── urllib.parse.po               57.0% translated  95/164
     │   ├── urllib.request.po             16.0% translated  49/303
-    │   ├── urllib.robotparser.po         94.0% translated   18/19
+    │   ├── urllib.robotparser.po         89.0% translated   17/19
     │   ├── venv.po                       99.0% translated 136/137
     │   ├── warnings.po                   59.0% translated  83/140
     │   ├── wave.po                       34.0% translated   21/61
@@ -171,12 +172,12 @@
     │   ├── xmlrpc.client.po              48.0% translated  55/113
     │   ├── xmlrpc.server.po              91.0% translated   52/57
     │   └── zoneinfo.po                   45.0% translated   38/84
-    ├── reference/  99.00% done
+    ├── reference/  98.90% done
     │   ├── compound_stmts.po             98.0% translated 459/467
     │   ├── datamodel.po                  99.0% translated 869/876
     │   ├── executionmodel.po             99.0% translated 141/142
     │   ├── import.po                     99.0% translated 199/200
-    │   └── simple_stmts.po               99.0% translated 290/291
+    │   └── simple_stmts.po               98.0% translated 288/291
     ├── tutorial/  99.48% done
     │   ├── stdlib.po                     80.0% translated   54/67
     │   └── stdlib2.po                    89.0% translated   58/65
@@ -185,7 +186,7 @@
     │   ├── configure.po                  99.0% translated 406/407
     │   ├── mac.po                        98.0% translated   95/96
     │   └── windows.po                    99.0% translated 388/389
-    └── whatsnew/  47.74% done
+    └── whatsnew/  47.73% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -200,4 +201,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  21.0% translated 2736/12844
+        └── changelog.po                  21.0% translated 2736/12853
