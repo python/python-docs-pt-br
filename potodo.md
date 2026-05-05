@@ -1,5 +1,5 @@
-1 directory  60.23% done
-└── 3.14/  60.23% done
+1 directory  60.21% done
+└── 3.14/  60.21% done
     ├── sphinx.po                         99.0% translated 108/109
     ├── c-api/  52.47% done
     │   ├── allocation.po                 90.0% translated   36/40
@@ -61,10 +61,10 @@
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  47.12% done
     │   └── index.po                      60.0% translated   32/53
-    ├── library/  59.37% done
+    ├── library/  59.35% done
     │   ├── __future__.po                 91.0% translated   45/49
     │   ├── array.po                      90.0% translated   80/88
-    │   ├── ast.po                        97.0% translated 328/337
+    │   ├── ast.po                        96.0% translated 328/339
     │   ├── asyncio-dev.po                61.0% translated   52/84
     │   ├── asyncio-eventloop.po          73.0% translated 305/417
     │   ├── asyncio-future.po             26.0% translated   17/65
@@ -152,7 +152,7 @@
     │   ├── importlib.resources.po        98.0% translated   52/53
     │   ├── inspect.po                    37.0% translated 153/407
     │   ├── io.po                         21.0% translated  60/284
-    │   ├── ipaddress.po                  98.0% translated 165/168
+    │   ├── ipaddress.po                  97.0% translated 164/168
     │   ├── itertools.po                  77.0% translated 154/198
     │   ├── json.po                       98.0% translated 174/177
     │   ├── linecache.po                  82.0% translated   14/17
@@ -242,7 +242,7 @@
     │   ├── urllib.error.po               86.0% translated   13/15
     │   ├── urllib.parse.po               56.0% translated  94/165
     │   ├── urllib.request.po             15.0% translated  47/295
-    │   ├── urllib.robotparser.po         94.0% translated   18/19
+    │   ├── urllib.robotparser.po         89.0% translated   17/19
     │   ├── uuid.po                       91.0% translated   72/79
     │   ├── venv.po                       99.0% translated 136/137
     │   ├── warnings.po                   54.0% translated  83/151
@@ -266,14 +266,14 @@
     │   ├── zipfile.po                    98.0% translated 212/216
     │   ├── zipimport.po                  94.0% translated   37/39
     │   └── zoneinfo.po                   44.0% translated   37/84
-    ├── reference/  94.75% done
+    ├── reference/  94.66% done
     │   ├── compound_stmts.po             98.0% translated 473/480
     │   ├── datamodel.po                  96.0% translated 884/912
     │   ├── expressions.po                88.0% translated 514/583
     │   ├── grammar.po                    50.0% translated     3/6
     │   ├── import.po                     99.0% translated 199/200
     │   ├── lexical_analysis.po           99.0% translated 474/475
-    │   └── simple_stmts.po               97.0% translated 284/291
+    │   └── simple_stmts.po               96.0% translated 282/291
     ├── tutorial/  99.48% done
     │   ├── stdlib.po                     80.0% translated   54/67
     │   └── stdlib2.po                    89.0% translated   58/65
@@ -281,7 +281,7 @@
     │   ├── android.po                    96.0% translated   26/27
     │   ├── configure.po                  99.0% translated 464/468
     │   └── windows.po                    93.0% translated 532/571
-    └── whatsnew/  50.17% done
+    └── whatsnew/  50.15% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -295,4 +295,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  24.0% translated 3488/14027
+        └── changelog.po                  24.0% translated 3488/14040
