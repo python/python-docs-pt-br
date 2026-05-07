@@ -1,8 +1,6 @@
-1 directory  60.21% done
-└── 3.14/  60.21% done
-    ├── sphinx.po                         99.0% translated 108/109
-    ├── c-api/  52.47% done
-    │   ├── allocation.po                 90.0% translated   36/40
+1 directory  60.24% done
+└── 3.14/  60.24% done
+    ├── c-api/  52.49% done
     │   ├── bytearray.po                  91.0% translated   21/23
     │   ├── bytes.po                      96.0% translated   74/77
     │   ├── call.po                       98.0% translated   98/99
@@ -61,7 +59,7 @@
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  47.12% done
     │   └── index.po                      60.0% translated   32/53
-    ├── library/  59.35% done
+    ├── library/  59.36% done
     │   ├── __future__.po                 91.0% translated   45/49
     │   ├── array.po                      90.0% translated   80/88
     │   ├── ast.po                        96.0% translated 328/339
@@ -262,26 +260,19 @@
     │   ├── xml.sax.utils.po              93.0% translated   14/15
     │   ├── xmlrpc.client.po              46.0% translated  53/113
     │   ├── xmlrpc.server.po              87.0% translated   50/57
-    │   ├── zipapp.po                     98.0% translated   76/77
     │   ├── zipfile.po                    98.0% translated 212/216
     │   ├── zipimport.po                  94.0% translated   37/39
     │   └── zoneinfo.po                   44.0% translated   37/84
-    ├── reference/  94.66% done
+    ├── reference/  94.77% done
     │   ├── compound_stmts.po             98.0% translated 473/480
     │   ├── datamodel.po                  96.0% translated 884/912
     │   ├── expressions.po                88.0% translated 514/583
     │   ├── grammar.po                    50.0% translated     3/6
-    │   ├── import.po                     99.0% translated 199/200
-    │   ├── lexical_analysis.po           99.0% translated 474/475
     │   └── simple_stmts.po               96.0% translated 282/291
-    ├── tutorial/  99.48% done
-    │   ├── stdlib.po                     80.0% translated   54/67
-    │   └── stdlib2.po                    89.0% translated   58/65
-    ├── using/  94.64% done
-    │   ├── android.po                    96.0% translated   26/27
-    │   ├── configure.po                  99.0% translated 464/468
-    │   └── windows.po                    93.0% translated 532/571
-    └── whatsnew/  50.15% done
+    ├── tutorial/  100.00% done
+    ├── using/  95.22% done
+    │   └── windows.po                    93.0% translated 533/571
+    └── whatsnew/  50.14% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -295,4 +286,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  24.0% translated 3488/14040
+        └── changelog.po                  24.0% translated 3488/14045
