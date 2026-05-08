@@ -1,8 +1,8 @@
-1 directory  60.68% done
-└── 3.13/  60.68% done
-    ├── c-api/  53.67% done
-    │   ├── call.po                       98.0% translated   98/99
+1 directory  60.75% done
+└── 3.13/  60.75% done
+    ├── c-api/  53.70% done
     │   ├── conversion.po                 89.0% translated   49/55
+    │   ├── dict.po                       99.0% translated 100/101
     │   ├── exceptions.po                 65.0% translated 172/262
     │   ├── file.po                       88.0% translated   24/27
     │   ├── float.po                      96.0% translated   55/57
@@ -21,7 +21,7 @@
     │   ├── structures.po                 38.0% translated  76/196
     │   ├── sys.po                        97.0% translated   77/79
     │   ├── type.po                       24.0% translated  27/111
-    │   ├── typeobj.po                    34.0% translated 236/692
+    │   ├── typeobj.po                    34.0% translated 237/692
     │   ├── unicode.po                    24.0% translated  85/342
     │   └── veryhigh.po                   88.0% translated   62/70
     ├── deprecations/  99.10% done
@@ -47,7 +47,7 @@
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  47.12% done
     │   └── index.po                      60.0% translated   32/53
-    ├── library/  61.51% done
+    ├── library/  61.65% done
     │   ├── array.po                      91.0% translated   80/87
     │   ├── ast.po                        99.0% translated 318/321
     │   ├── asyncio-dev.po                59.0% translated   50/84
@@ -116,14 +116,12 @@
     │   ├── os.path.po                    89.0% translated  98/110
     │   ├── os.po                         98.0% translated 1025/1036
     │   ├── pickle.po                     99.0% translated 241/243
-    │   ├── pkgutil.po                    89.0% translated   49/55
     │   ├── poplib.po                     41.0% translated   22/53
     │   ├── profile.po                    18.0% translated  34/181
     │   ├── pyexpat.po                    14.0% translated  23/156
     │   ├── queue.po                      17.0% translated   10/57
     │   ├── random.po                     98.0% translated 136/138
     │   ├── re.po                         99.0% translated 437/439
-    │   ├── resource.po                   99.0% translated 109/110
     │   ├── secrets.po                    82.0% translated   32/39
     │   ├── select.po                     37.0% translated  78/206
     │   ├── selectors.po                  22.0% translated   13/58
@@ -147,7 +145,6 @@
     │   ├── threading.po                  14.0% translated  39/274
     │   ├── tkinter.po                    97.0% translated 320/327
     │   ├── tkinter.ttk.po                33.0% translated 142/429
-    │   ├── tomllib.po                    97.0% translated   44/45
     │   ├── trace.po                      97.0% translated   42/43
     │   ├── traceback.po                   7.0% translated   9/116
     │   ├── tracemalloc.po                13.0% translated  21/156
@@ -159,7 +156,6 @@
     │   ├── urllib.parse.po               57.0% translated  95/164
     │   ├── urllib.request.po             16.0% translated  49/303
     │   ├── urllib.robotparser.po         89.0% translated   17/19
-    │   ├── venv.po                       99.0% translated 136/137
     │   ├── warnings.po                   59.0% translated  83/140
     │   ├── wave.po                       34.0% translated   21/61
     │   ├── wsgiref.po                    58.0% translated  79/135
@@ -196,4 +192,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  21.0% translated 2736/12853
+        └── changelog.po                  21.0% translated 2736/12854
