@@ -1,5 +1,5 @@
-1 directory  60.75% done
-└── 3.13/  60.75% done
+1 directory  60.74% done
+└── 3.13/  60.74% done
     ├── c-api/  53.70% done
     │   ├── conversion.po                 89.0% translated   49/55
     │   ├── dict.po                       99.0% translated 100/101
@@ -192,4 +192,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  21.0% translated 2736/12854
+        └── changelog.po                  21.0% translated 2736/12855
