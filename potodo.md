@@ -1,10 +1,9 @@
 1 directory  56.88% done
 └── 3.14/  56.88% done
-    ├── about.po                          90.0% translated    9/10
     ├── bugs.po                           93.0% translated   29/31
     ├── glossary.po                       99.0% translated 492/493
     ├── license.po                        91.0% translated 124/136
-    ├── c-api/  45.50% done
+    ├── c-api/  45.52% done
     │   ├── apiabiversion.po              96.0% translated   60/62
     │   ├── arg.po                        95.0% translated 199/208
     │   ├── buffer.po                     98.0% translated 117/119
@@ -39,7 +38,7 @@
     │   ├── perfmaps.po                   90.0% translated    9/10
     │   ├── profiling.po                   2.0% translated    1/46
     │   ├── refcounting.po                30.0% translated   15/50
-    │   ├── sentinel.po                    0.0% translated     0/5
+    │   ├── sentinel.po                   40.0% translated     2/5
     │   ├── sequence.po                   96.0% translated   31/32
     │   ├── set.po                        80.0% translated   28/35
     │   ├── slots.po                       0.0% translated    0/45
@@ -346,4 +345,4 @@
         ├── 3.6.po                        42.0% translated 232/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 512/513
-        └── changelog.po                  23.0% translated 3443/14923
+        └── changelog.po                  23.0% translated 3443/14924
