@@ -443,7 +443,7 @@ msgstr ""
 
 #: ../../whatsnew/3.15.rst:217
 msgid ":pep:`814`: Add frozendict built-in type"
-msgstr ""
+msgstr ":pep:`814`: Adiciona o tipo embutido frozendict"
 
 #: ../../whatsnew/3.15.rst:219
 msgid ""
@@ -454,6 +454,12 @@ msgid ""
 "keys and values are hashable. A :class:`!frozendict` preserves insertion "
 "order, but comparison does not take order into account."
 msgstr ""
+"Um novo tipo :term:`imutável`, :class:`frozendict`, foi adicionado ao "
+"módulo :mod:`builtins`. Ele não permite modificações após a criação. Um :"
+"class:`!frozendict` não é uma subclasse de ``dict``; ele herda diretamente "
+"de ``object``. Um :class:`!frozendict` é :term:`hasheável` desde que todas "
+"as suas chaves e valores sejam hasheáveis. Um :class:`!frozendict` preserva "
+"a ordem de inserção, mas a comparação não leva a ordem em consideração."
 
 #: ../../whatsnew/3.15.rst:225
 msgid "For example::"
@@ -476,6 +482,20 @@ msgid ""
 ">>> a == b\n"
 "True"
 msgstr ""
+">>> a = frozendict(x=1, y=2)\n"
+">>> a\n"
+"frozendict({'x': 1, 'y': 2})\n"
+">>> a['z'] = 3\n"
+"Traceback (most recent call last):\n"
+"  File \"<python-input-2>\", line 1, in <module>\n"
+"    a['z'] = 3\n"
+"    ~^^^^^\n"
+"TypeError: 'frozendict' object does not support item assignment\n"
+">>> b = frozendict(y=2, x=1)\n"
+">>> hash(a) == hash(b)\n"
+"True\n"
+">>> a == b\n"
+"True"
 
 #: ../../whatsnew/3.15.rst:242
 msgid ""
@@ -484,6 +504,10 @@ msgid ""
 "`plistlib` (only for serialization), :mod:`pickle`, :mod:`pprint` and :mod:"
 "`xml.etree.ElementTree`."
 msgstr ""
+"Os seguintes módulos da biblioteca padrão foram atualizados para aceitar :"
+"class:`!frozendict`: :mod:`copy`, :mod:`decimal`, :mod:`json`, :mod:"
+"`marshal`, :mod:`plistlib` (somente para serialização), :mod:`pickle`, :mod:"
+"`pprint` e :mod:`xml.etree.ElementTree`."
 
 #: ../../whatsnew/3.15.rst:247
 msgid ""
@@ -491,6 +515,8 @@ msgid ""
 "and :func:`type` and :meth:`str.maketrans` accept :class:`!frozendict` for "
 "*dict*."
 msgstr ""
+":func:`eval` e :func:`exec` aceitam :class:`!frozendict` para *globals*, e :"
+"func:`type` e :meth:`str.maketrans` aceitam :class:`!frozendict` para *dict*."
 
 #: ../../whatsnew/3.15.rst:250
 msgid ""
@@ -499,14 +525,19 @@ msgid ""
 "`!frozendict` type, or to ``isinstance(arg, collections.abc.Mapping)`` to "
 "accept also other mapping types such as :class:`~types.MappingProxyType`."
 msgstr ""
+"Verificação de código para o tipo :class:`dict` usando``isinstance(arg, "
+"dict)`` pode ser atualizado para ``isinstance(arg, (dict, frozendict))`` "
+"para aceitar também o tipo :class:`!frozendict`, ou para ``isinstance(arg, "
+"collections.abc.Mapping)`` aceitar também outros tipos de mapeamentos como :"
+"class:`~types.MappingProxyType`."
 
 #: ../../whatsnew/3.15.rst:255
 msgid ":pep:`814` for the full specification and rationale."
-msgstr ""
+msgstr ":pep:`814` para a especificação completa e justificativa."
 
 #: ../../whatsnew/3.15.rst:257
 msgid "(Contributed by Victor Stinner and Donghee Na in :gh:`141510`.)"
-msgstr ""
+msgstr "(Contribuição de Victor Stinner e Donghee Na em :gh:`141510`.)"
 
 #: ../../whatsnew/3.15.rst:263
 msgid ":pep:`661`: Add sentinel built-in type"
@@ -550,28 +581,33 @@ msgid ""
 ":mod:`profiling.sampling`: a new statistical sampling profiler (named "
 "Tachyon)."
 msgstr ""
+":mod:`profiling.sampling`: um novo perfilador de amostragem estatística "
+"(chamado Tachyon)."
 
 #: ../../whatsnew/3.15.rst:288
 msgid ""
 "The ``cProfile`` module remains as an alias for backwards compatibility. "
 "The :mod:`profile` module is deprecated and will be removed in Python 3.17."
 msgstr ""
+"O módulo ``cProfile`` permanece como um alias para fins de compatibilidade "
+"com versões anteriores. O módulo :mod:`profile`` está descontinuado e será "
+"removido no Python 3.17."
 
 #: ../../whatsnew/3.15.rst:291
 msgid ":pep:`799` for further details."
-msgstr ""
+msgstr ":pep:`799` para mais detalhes."
 
 #: ../../whatsnew/3.15.rst:293
 msgid "(Contributed by Pablo Galindo and László Kiss Kollár in :gh:`138122`.)"
-msgstr ""
+msgstr "(Contribuição de Pablo Galindo e László Kiss Kollár em :gh:`138122`.)"
 
 #: ../../whatsnew/3.15.rst:299
 msgid "Tachyon: High frequency statistical sampling profiler"
-msgstr ""
+msgstr "Tachyon: Perfilador de amostragem estatística de alta frequência"
 
 #: ../../whatsnew/3.15.rst:301
 msgid "Tachyon profiler logo"
-msgstr ""
+msgstr "Logo do perfilador Tachyon"
 
 #: ../../whatsnew/3.15.rst:306
 msgid ""
@@ -580,6 +616,10 @@ msgid ""
 "analysis of running Python processes without requiring code modification or "
 "process restart."
 msgstr ""
+"Um novo perfilador de amostragem estatística (Tachyon) foi adicionado como :"
+"mod:`profiling.sampling`. Este perfilador permite a análise de desempenho "
+"com baixa sobrecarga de processos Python em execução, sem exigir modificação "
+"de código ou reinicialização do processo."
 
 #: ../../whatsnew/3.15.rst:310
 msgid ""
@@ -593,10 +633,20 @@ msgid ""
 "performance issues in production systems where traditional profiling "
 "approaches would be too intrusive."
 msgstr ""
+"Ao contrário dos perfiladores determinísticos (como o :mod:`profiling."
+"tracing`) que instrumentam cada chamada de função, o perfilador de "
+"amostragem captura periodicamente os rastreamentos de pilha dos processos em "
+"execução. Essa abordagem oferece sobrecarga praticamente zero, ao mesmo "
+"tempo que atinge taxas de amostragem de **até 1.000.000 Hz**, tornando-o o "
+"perfilador de amostragem mais rápido disponível para Python (na época de sua "
+"contribuição) e ideal para depurar problemas de desempenho em ambientes de "
+"produção. Essa capacidade é particularmente valiosa para depurar problemas "
+"de desempenho em sistemas de produção, onde as abordagens de perfilamento "
+"tradicionais seriam muito intrusivas."
 
 #: ../../whatsnew/3.15.rst:319
 msgid "Key features include:"
-msgstr ""
+msgstr "Recursos chave incluem:"
 
 #: ../../whatsnew/3.15.rst:321
 msgid ""
@@ -604,6 +654,10 @@ msgid ""
 "affecting its performance. Ideal for production debugging where you can't "
 "afford to restart or slow down your application."
 msgstr ""
+"**Perfilamento de sobrecarga zero**: Conecte-se a qualquer processo Python "
+"em execução sem afetar seu desempenho. Ideal para depuração em produção, "
+"onde você não pode se dar ao luxo de reiniciar ou tornar sua aplicação mais "
+"lenta."
 
 #: ../../whatsnew/3.15.rst:325
 msgid ""
@@ -611,28 +665,37 @@ msgid ""
 "restart. Simply point the profiler at a running process by PID and start "
 "collecting data."
 msgstr ""
+"**Nenhuma modificação de código necessária**: Crie perfis de aplicações "
+"existentes sem reiniciá-las. Basta apontar o perfilador para um processo em "
+"execução pelo PID e começar a coletar dados."
 
 #: ../../whatsnew/3.15.rst:328
 msgid "**Flexible target modes**:"
-msgstr ""
+msgstr "**Modos de alvos flexíveis**:"
 
 #: ../../whatsnew/3.15.rst:330
 msgid ""
 "Profile running processes by PID (``attach``) - attach to already-running "
 "applications"
 msgstr ""
+"Perfile processos em execução por PID (``attach``) - anexar a aplicações já "
+"em execução"
 
 #: ../../whatsnew/3.15.rst:331
 msgid ""
 "Run and profile scripts directly (``run``) - profile from the very start of "
 "execution"
 msgstr ""
+"Execute e analise scripts diretamente (``run``) - analise desde o início da "
+"execução."
 
 #: ../../whatsnew/3.15.rst:332
 msgid ""
 "Execute and profile modules (``run -m``) - profile packages run as ``python -"
 "m module``"
 msgstr ""
+"Execute e perfile módulos (``run -m``) - perfile pacotes executados como "
+"``python -m module``"
 
 #: ../../whatsnew/3.15.rst:333
 msgid ""
