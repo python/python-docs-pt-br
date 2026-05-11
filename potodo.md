@@ -47,7 +47,7 @@
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  47.12% done
     │   └── index.po                      60.0% translated   32/53
-    ├── library/  61.65% done
+    ├── library/  61.64% done
     │   ├── array.po                      91.0% translated   80/87
     │   ├── ast.po                        99.0% translated 318/321
     │   ├── asyncio-dev.po                59.0% translated   50/84
@@ -106,6 +106,7 @@
     │   ├── io.po                         21.0% translated  59/272
     │   ├── ipaddress.po                  99.0% translated 166/167
     │   ├── itertools.po                  77.0% translated 155/200
+    │   ├── json.po                       99.0% translated 175/176
     │   ├── locale.po                     98.0% translated 159/161
     │   ├── logging.config.po             93.0% translated 160/171
     │   ├── logging.handlers.po           65.0% translated 180/274
@@ -177,7 +178,7 @@
     ├── using/  99.34% done
     │   ├── mac.po                        98.0% translated   95/96
     │   └── windows.po                    99.0% translated 388/389
-    └── whatsnew/  47.73% done
+    └── whatsnew/  47.72% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 388/452
@@ -192,4 +193,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  21.0% translated 2736/12855
+        └── changelog.po                  21.0% translated 2736/12857
