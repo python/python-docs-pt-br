@@ -26,24 +26,33 @@ Maintained versions:
      - Sync status
      - Translation progress
      - Total strings
+   * - `3.15 <https://github.com/python/python-docs-pt-br/tree/3.15>`_
+     - .. image:: https://github.com/python/python-docs-pt-br/workflows/python-315/badge.svg
+          :target: https://github.com/python/python-docs-pt-br/actions?workflow=python-315
+     - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fpython%2Fpython-docs-pt-br%2Fraw%2F3.15%2Fstats.json&query=completion&label=pt_BR
+          :alt: Brazilian Portuguese translation status for Python 3.15
+          :target: https://app.transifex.com/python-doc/python-newest/
+     - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fpython%2Fpython-docs-pt-br%2Fraw%2F3.15%2Fstats.json&query=entries&label=3.15
+          :alt: Total strings for Python 3.15
+          :target: https://app.transifex.com/python-doc/python-newest/
    * - `3.14 <https://github.com/python/python-docs-pt-br/tree/3.14>`_
      - .. image:: https://github.com/python/python-docs-pt-br/workflows/python-314/badge.svg
           :target: https://github.com/python/python-docs-pt-br/actions?workflow=python-314
      - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fpython%2Fpython-docs-pt-br%2Fraw%2F3.14%2Fstats.json&query=completion&label=pt_BR
           :alt: Brazilian Portuguese translation status for Python 3.14
-          :target: https://app.transifex.com/python-doc/python-newest/
+          :target: https://app.transifex.com/python-doc/python-314/
      - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fpython%2Fpython-docs-pt-br%2Fraw%2F3.14%2Fstats.json&query=entries&label=3.14
           :alt: Total strings for Python 3.14
-          :target: https://app.transifex.com/python-doc/python-newest/
+          :target: https://app.transifex.com/python-doc/python-314/
    * - `3.13 <https://github.com/python/python-docs-pt-br/tree/3.13>`_
      - .. image:: https://github.com/python/python-docs-pt-br/workflows/python-313/badge.svg
           :target: https://github.com/python/python-docs-pt-br/actions?workflow=python-313
      - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fpython%2Fpython-docs-pt-br%2Fraw%2F3.13%2Fstats.json&query=completion&label=pt_BR
           :alt: Brazilian Portuguese translation status for Python 3.13
-          :target: https://app.transifex.com/python-doc/python-newest/
+          :target: https://app.transifex.com/python-doc/python-313/
      - .. image:: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fpython%2Fpython-docs-pt-br%2Fraw%2F3.13%2Fstats.json&query=entries&label=3.13
           :alt: Total strings for Python 3.13
-          :target: https://app.transifex.com/python-doc/python-newest/
+          :target: https://app.transifex.com/python-doc/python-313/
    * - `3.12 <https://github.com/python/python-docs-pt-br/tree/3.12>`_
      - .. image:: https://github.com/python/python-docs-pt-br/workflows/python-312/badge.svg
           :target: https://github.com/python/python-docs-pt-br/actions?workflow=python-312
