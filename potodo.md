@@ -1,5 +1,5 @@
-1 directory  56.98% done
-└── 3.15/  56.98% done
+1 directory  56.99% done
+└── 3.15/  56.99% done
     ├── glossary.po                       99.0% translated 492/493
     ├── license.po                        91.0% translated 124/136
     ├── c-api/  45.52% done
@@ -324,7 +324,7 @@
     │   ├── cmdline.po                    93.0% translated 261/279
     │   ├── configure.po                  94.0% translated 468/495
     │   └── windows.po                    92.0% translated 530/572
-    └── whatsnew/  47.30% done
+    └── whatsnew/  47.34% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 387/452
@@ -335,7 +335,7 @@
         ├── 3.12.po                       92.0% translated 843/908
         ├── 3.13.po                       91.0% translated 906/985
         ├── 3.14.po                       93.0% translated 1027/1103
-        ├── 3.15.po                       36.0% translated 288/791
+        ├── 3.15.po                       37.0% translated 298/791
         ├── 3.2.po                        11.0% translated  66/576
         ├── 3.3.po                        19.0% translated 134/682
         ├── 3.4.po                        95.0% translated 495/517
