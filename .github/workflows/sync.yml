@@ -128,7 +128,6 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Checkout this repository ${{ env.PYDOC_VERSION }}
-        #if: ${{ contains(fromJSON('["schedule", "workflow_dispatch"]'), github.event_name) }}
         uses: actions/checkout@v6
         with:
           ref: ${{ env.PYDOC_VERSION }}
@@ -141,11 +140,13 @@ jobs:
           cache: 'pip'
           pip-install: -r requirements.txt
 
+      - name: Clean PO files
+        run: find ${{ env.PYDOC_LANG_DIR }} -name '*.po' | xargs -r rm
+
       - name: Download translation artifacts
         uses: actions/download-artifact@v8
         with:
           name: python-${{ env.PYDOC_VERSION }}
-          path: ${{ env.PYDOC_LANG_DIR }}
 
       - name: Commit
         run: ./scripts/commit.sh
