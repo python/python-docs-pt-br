@@ -16,8 +16,8 @@ extra_files=".tx/config stats.json potodo.md"
 
 set +u
 if [ -n "${CI+x}" ]; then
-  git config user.email "github-actions[bot]@users.noreply.github.com"
-  git config user.name "github-actions[bot]"
+  git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+  git config user.name "github-actions"
 fi
 set -u
 
