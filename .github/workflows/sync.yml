@@ -20,21 +20,20 @@ env:
   PYDOC_LANGUAGE: pt_BR
   PYDOC_TX_PROJECT: ${{ inputs.tx_project }}
   PYDOC_VERSION: ${{ inputs.version }}
+  PYDOC_LANG_DIR: ${{ inputs.version }}
   TX_CLI_VERSION: '1.6.17'
 
 jobs:
   sync:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
 
       # 1- Set up environment
 
       - name: Check out this repository
         uses: actions/checkout@v6
-
-      - name: Set language dir variable
-        run:
-          echo "PYDOC_LANG_DIR=${{ env.PYDOC_VERSION }}" >> $GITHUB_ENV
 
       - name: Checkout this repository ${{ env.PYDOC_VERSION }}
         uses: actions/checkout@v6
@@ -107,7 +106,37 @@ jobs:
         env:
           PYDOC_LANG_DIR: ${{ env.PYDOC_LANG_DIR }}
 
-      # 4- Commit and push translations
+      - name: Upload translation artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: python-${{ env.PYDOC_VERSION }}
+          path: |
+            .tx/config
+            potodo.md
+            stats.json
+            *.po
+            **/*.po
+
+  commit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+
+      - name: Check out this repository
+        uses: actions/checkout@v6
+
+      - name: Checkout this repository ${{ env.PYDOC_VERSION }}
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ env.PYDOC_VERSION }}
+          path: ${{ env.PYDOC_LANG_DIR }}
+
+      - name: Download translation artifacts
+        uses: actions/download-artifact@v8
+        with:
+          name: python-${{ env.PYDOC_VERSION }}
+          path: ${{ env.PYDOC_LANG_DIR }}
 
       - name: Commit
         run: ./scripts/commit.sh
@@ -119,5 +148,3 @@ jobs:
         run: |
           cd ./${{ env.PYDOC_LANG_DIR }}
           git push
-
-
