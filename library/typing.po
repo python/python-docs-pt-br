@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-13 17:14+0000\n"
+"POT-Creation-Date: 2026-05-23 15:46+0000\n"
 "PO-Revision-Date: 2026-05-08 17:18+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2026\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -1554,12 +1554,9 @@ msgstr "O tipo :data:`Any`"
 #: ../../library/typing.rst:721
 msgid ""
 "A special kind of type is :data:`Any`. A static type checker will treat "
-"every type as being compatible with :data:`Any` and :data:`Any` as being "
-"compatible with every type."
+"every type as assignable to :data:`Any` and :data:`Any` as assignable to "
+"every type."
 msgstr ""
-"Um tipo especial de tipo é :data:`Any`. Um verificador de tipo estático "
-"tratará cada tipo como sendo compatível com :data:`Any` e :data:`Any` como "
-"sendo compatível com todos os tipos."
 
 #: ../../library/typing.rst:725
 msgid ""
@@ -1694,28 +1691,10 @@ msgid ""
 "hash_a(42)\n"
 "hash_a(\"foo\")\n"
 "\n"
-"# Passes type checking, since Any is compatible with all types\n"
+"# Passes type checking, since Any is assignable to all types\n"
 "hash_b(42)\n"
 "hash_b(\"foo\")"
 msgstr ""
-"def hash_a(item: object) -> int:\n"
-"    # Falha na verificação de tipo; um 'object' não tem um método 'magic'.\n"
-"    item.magic()\n"
-"    ...\n"
-"\n"
-"def hash_b(item: Any) -> int:\n"
-"    # Passa na verificação de tipo\n"
-"    item.magic()\n"
-"    ...\n"
-"\n"
-"# Passa na verificação de tipo, já que ints e strs são subclasses de "
-"'object'\n"
-"hash_a(42)\n"
-"hash_a(\"foo\")\n"
-"\n"
-"# Passa na verificação de tipo, já que Any é compatível com todos os tipos\n"
-"hash_b(42)\n"
-"hash_b(\"foo\")"
 
 #: ../../library/typing.rst:792
 msgid ""
@@ -1845,12 +1824,12 @@ msgid "Special type indicating an unconstrained type."
 msgstr "Tipo especial que indica um tipo irrestrito."
 
 #: ../../library/typing.rst:854
-msgid "Every type is compatible with :data:`Any`."
-msgstr "Todos os tipos são compatíveis com :data:`Any`."
+msgid "Every type is assignable to :data:`Any`."
+msgstr ""
 
 #: ../../library/typing.rst:855
-msgid ":data:`Any` is compatible with every type."
-msgstr ":data:`Any` é compatível com todos os tipos."
+msgid ":data:`Any` is assignable to every type."
+msgstr ""
 
 #: ../../library/typing.rst:857
 msgid ""
@@ -2715,16 +2694,11 @@ msgstr ""
 
 #: ../../library/typing.rst:1295
 msgid ""
-":data:`ClassVar` is not a class itself, and should not be used with :func:"
+":data:`ClassVar` is not a class itself, and cannot be used with :func:"
 "`isinstance` or :func:`issubclass`. :data:`ClassVar` does not change Python "
-"runtime behavior, but it can be used by third-party type checkers. For "
-"example, a type checker might flag the following code as an error::"
+"runtime behavior, but it can be used by static type checkers. For example, a "
+"type checker might flag the following code as an error::"
 msgstr ""
-":data:`ClassVar` não é uma classe, e não deve ser usada com :func:"
-"`isinstance` ou :func:`issubclass`. :data:`ClassVar` não muda com o "
-"comportamento do Python em tempo de execução, mas pode ser usada por "
-"verificadores de tipos de terceiros. Por exemplo, um verificador de tipos "
-"pode sinalizar que o seguinte código é errado::"
 
 #: ../../library/typing.rst:1301
 msgid ""
@@ -2831,15 +2805,8 @@ msgid ""
 "\n"
 "def mutate_movie(m: Movie) -> None:\n"
 "   m[\"year\"] = 1999  # allowed\n"
-"   m[\"title\"] = \"The Matrix\"  # typechecker error"
+"   m[\"title\"] = \"The Matrix\"  # type checker error"
 msgstr ""
-"class Movie(TypedDict):\n"
-"   title: ReadOnly[str]\n"
-"   year: int\n"
-"\n"
-"def mutate_movie(m: Movie) -> None:\n"
-"   m[\"year\"] = 1999  # permitido\n"
-"   m[\"title\"] = \"The Matrix\"  # erro no verificador de tipos"
 
 #: ../../library/typing.rst:1370
 msgid "There is no runtime checking for this property."
@@ -4830,17 +4797,12 @@ msgstr ""
 
 #: ../../library/typing.rst:2384
 msgid ""
-"The resulting class has an extra attribute ``__annotations__`` giving a dict "
-"that maps the field names to the field types.  (The field names are in the "
-"``_fields`` attribute and the default values are in the ``_field_defaults`` "
-"attribute, both of which are part of the :func:`~collections.namedtuple` "
-"API.)"
+"The types for each field name can be retrieved by calling :func:"
+"`annotationlib.get_annotations` on the resulting class. (The field names are "
+"in the ``_fields`` attribute and the default values are in the "
+"``_field_defaults`` attribute, both of which are part of the :func:"
+"`~collections.namedtuple` API.)"
 msgstr ""
-"A classe resultante tem um atributo extra ``__annotations__`` que fornece um "
-"dicionário que mapeia os nomes de campos para os tipos de campos. (Os nomes "
-"de campos estão no atributo ``_fields`` e os valores padrões estão no "
-"atributo ``_field_defaults``, e ambos fazem parte da API de :func:"
-"`~collections.namedtuple`.)"
 
 #: ../../library/typing.rst:2390
 msgid "``NamedTuple`` subclasses can also have docstrings and methods::"
@@ -4984,12 +4946,9 @@ msgstr ""
 
 #: ../../library/typing.rst:2460
 msgid ""
-"A ``NewType`` is considered a distinct type by a typechecker. At runtime, "
+"A ``NewType`` is considered a distinct type by a type checker. At runtime, "
 "however, calling a ``NewType`` returns its argument unchanged."
 msgstr ""
-"Um tipo ``NewType`` é considerado um tipo distinto por um verificador de "
-"tipos. Porém, em tempo de execução, chamar ``NewType`` retorna seu argumento "
-"inalterado."
 
 #: ../../library/typing.rst:2465
 msgid ""
@@ -5121,14 +5080,10 @@ msgstr "Marca uma classe de protocolo como um protocolo de tempo de execução."
 #: ../../library/typing.rst:2534
 msgid ""
 "Such a protocol can be used with :func:`isinstance` and :func:`issubclass`. "
-"This allows a simple-minded structural check, very similar to \"one trick "
+"This allows a simple-minded structural check, very similar to \"one-trick "
 "ponies\" in :mod:`collections.abc` such as :class:`~collections.abc."
 "Iterable`.  For example::"
 msgstr ""
-"Esse protocolo pode ser usado com :func:`isinstance` e :func:`issubclass`. "
-"Isso permite uma verificação estrutural simples, muito semelhante a \"pôneis "
-"de um truque só\" em :mod:`collections.abc`, como :class:`~collections.abc."
-"Iterable`. Por exemplo::"
 
 #: ../../library/typing.rst:2538
 msgid ""
@@ -5535,14 +5490,10 @@ msgstr ""
 
 #: ../../library/typing.rst:2726
 msgid ""
-"A ``TypedDict`` can be introspected via annotations dicts (see :ref:"
-"`annotations-howto` for more information on annotations best practices), :"
-"attr:`__total__`, :attr:`__required_keys__`, and :attr:`__optional_keys__`."
+"A ``TypedDict`` can be introspected via :func:`annotationlib."
+"get_annotations` (see :ref:`annotations-howto` for more information on "
+"annotations best practices) and the following attributes:"
 msgstr ""
-"Um ``TypedDict`` pode ser inspecionado por meio de dicionários de anotações "
-"(consulte :ref:`annotations-howto` para obter mais informações sobre as "
-"melhores práticas de anotações), :attr:`__total__`, :attr:"
-"`__required_keys__` e :attr:`__optional_keys__`."
 
 #: ../../library/typing.rst:2732
 msgid ""
@@ -5614,15 +5565,10 @@ msgstr ""
 msgid ""
 "For backwards compatibility with Python 3.10 and below, it is also possible "
 "to use inheritance to declare both required and non-required keys in the "
-"same ``TypedDict`` . This is done by declaring a ``TypedDict`` with one "
-"value for the ``total`` argument and then inheriting from it in another "
+"same ``TypedDict``. This is done by declaring a ``TypedDict`` with one value "
+"for the ``total`` argument and then inheriting from it in another "
 "``TypedDict`` with a different value for ``total``:"
 msgstr ""
-"Para manter a retrocompatibilidade com Python 3.10 e versões anteriores, "
-"também é possível usar herança para declarar chaves obrigatórias e opcionais "
-"no mesmo ``TypedDict``. Isso é feito declarando um ``TypedDict`` com um "
-"valor para o argumento ``total`` e então herdando-a em outro ``TypedDict`` "
-"usando um valor ``total`` diferente:"
 
 #: ../../library/typing.rst:2774
 msgid ""
@@ -5756,39 +5702,35 @@ msgstr ""
 
 #: ../../library/typing.rst:2851
 msgid ""
-"An ABC with one abstract method ``__abs__`` that is covariant in its return "
-"type."
+"A protocol with one abstract method ``__abs__`` that is covariant in its "
+"return type."
 msgstr ""
-"Um ABC com um método abstrato ``__abs__`` que é covariante em seu tipo de "
-"retorno."
 
 #: ../../library/typing.rst:2856
-msgid "An ABC with one abstract method ``__bytes__``."
-msgstr "Um ABC com um método abstrato ``__bytes__``."
+msgid "A protocol with one abstract method ``__bytes__``."
+msgstr ""
 
 #: ../../library/typing.rst:2860
-msgid "An ABC with one abstract method ``__complex__``."
-msgstr "Um ABC com um método abstrato ``__complex__``."
+msgid "A protocol with one abstract method ``__complex__``."
+msgstr ""
 
 #: ../../library/typing.rst:2864
-msgid "An ABC with one abstract method ``__float__``."
-msgstr "Um ABC com um método abstrato ``__float__``."
+msgid "A protocol with one abstract method ``__float__``."
+msgstr ""
 
 #: ../../library/typing.rst:2868
-msgid "An ABC with one abstract method ``__index__``."
-msgstr "Um ABC com um método abstrato ``__index__``."
+msgid "A protocol with one abstract method ``__index__``."
+msgstr ""
 
 #: ../../library/typing.rst:2874
-msgid "An ABC with one abstract method ``__int__``."
-msgstr "Um ABC com um método abstrato ``__int__``."
+msgid "A protocol with one abstract method ``__int__``."
+msgstr ""
 
 #: ../../library/typing.rst:2878
 msgid ""
-"An ABC with one abstract method ``__round__`` that is covariant in its "
+"A protocol with one abstract method ``__round__`` that is covariant in its "
 "return type."
 msgstr ""
-"Uma ABC com um método abstrato ``__round__`` que é covariante em seu tipo de "
-"retorno."
 
 #: ../../library/typing.rst:2884
 msgid "ABCs and Protocols for working with I/O"
@@ -7078,11 +7020,9 @@ msgstr "Constante"
 
 #: ../../library/typing.rst:3598
 msgid ""
-"A special constant that is assumed to be ``True`` by 3rd party static type "
-"checkers. It's ``False`` at runtime."
+"A special constant that is assumed to be ``True`` by static type checkers. "
+"It's ``False`` at runtime."
 msgstr ""
-"Uma constante especial presumida ser ``True`` por verificadores de tipo "
-"estático de terceiros. É ``False`` em tempo de execução."
 
 #: ../../library/typing.rst:3601
 msgid ""
