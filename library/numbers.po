@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-08 19:31+0000\n"
+"POT-Creation-Date: 2026-06-29 17:42+0000\n"
 "PO-Revision-Date: 2026-05-08 17:18+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2026\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -160,45 +160,14 @@ msgstr "Notas para implementadores de tipos"
 msgid ""
 "Implementers should be careful to make equal numbers equal and hash them to "
 "the same values. This may be subtle if there are two different extensions of "
-"the real numbers. For example, :class:`fractions.Fraction` implements :func:"
-"`hash` as follows::"
+"the real numbers. See also :ref:`numeric-hash`."
 msgstr ""
-"Os implementadores devem ter o cuidado de tornar iguais números iguais e "
-"fazer hash deles com os mesmos valores. Isso pode ser sutil se houver duas "
-"extensões diferentes dos números reais. Por exemplo, :class:`fractions."
-"Fraction` implementa :func:`hash` desta forma::"
 
-#: ../../library/numbers.rst:96
-msgid ""
-"def __hash__(self):\n"
-"    if self.denominator == 1:\n"
-"        # Get integers right.\n"
-"        return hash(self.numerator)\n"
-"    # Expensive check, but definitely correct.\n"
-"    if self == float(self):\n"
-"        return hash(float(self))\n"
-"    else:\n"
-"        # Use tuple's hash to avoid a high collision rate on\n"
-"        # simple fractions.\n"
-"        return hash((self.numerator, self.denominator))"
-msgstr ""
-"def __hash__(self):\n"
-"    if self.denominator == 1:\n"
-"        # Obtém inteiros corretamente.\n"
-"        return hash(self.numerator)\n"
-"    # Verificação custosa, mas certamente correta.\n"
-"    if self == float(self):\n"
-"        return hash(float(self))\n"
-"    else:\n"
-"        # Use o hash da tupla para evitar uma alta taxa de colisão\n"
-"        # em frações simples.\n"
-"        return hash((self.numerator, self.denominator))"
-
-#: ../../library/numbers.rst:110
+#: ../../library/numbers.rst:97
 msgid "Adding More Numeric ABCs"
 msgstr "Adicionando mais ABCs numéricas"
 
-#: ../../library/numbers.rst:112
+#: ../../library/numbers.rst:99
 msgid ""
 "There are, of course, more possible ABCs for numbers, and this would be a "
 "poor hierarchy if it precluded the possibility of adding those. You can add "
@@ -208,7 +177,7 @@ msgstr ""
 "hierarquia pobre se excluísse a possibilidade de adicioná-los. Você pode "
 "adicionar ``MyFoo`` entre :class:`Complex` e :class:`Real` com::"
 
-#: ../../library/numbers.rst:117
+#: ../../library/numbers.rst:104
 msgid ""
 "class MyFoo(Complex): ...\n"
 "MyFoo.register(Real)"
@@ -216,11 +185,11 @@ msgstr ""
 "class MyFoo(Complex): ...\n"
 "MyFoo.register(Real)"
 
-#: ../../library/numbers.rst:124
+#: ../../library/numbers.rst:111
 msgid "Implementing the arithmetic operations"
 msgstr "Implementando as operações aritméticas"
 
-#: ../../library/numbers.rst:126
+#: ../../library/numbers.rst:113
 msgid ""
 "We want to implement the arithmetic operations so that mixed-mode operations "
 "either call an implementation whose author knew about the types of both "
@@ -234,7 +203,7 @@ msgstr ""
 "operação lá. Para subtipos de :class:`Integral`, isso significa que :meth:"
 "`~object.__add__` e :meth:`~object.__radd__` devem ser definidos com::"
 
-#: ../../library/numbers.rst:133
+#: ../../library/numbers.rst:120
 msgid ""
 "class MyIntegral(Integral):\n"
 "\n"
@@ -284,7 +253,7 @@ msgstr ""
 "        else:\n"
 "            return NotImplemented"
 
-#: ../../library/numbers.rst:158
+#: ../../library/numbers.rst:145
 msgid ""
 "There are 5 different cases for a mixed-type operation on subclasses of :"
 "class:`Complex`. I'll refer to all of the above code that doesn't refer to "
@@ -298,13 +267,13 @@ msgstr ""
 "instância de ``A``, que é um subtipo de :class:`Complex` (``a : A <: "
 "Complex``) e ``b : B <: Complex``. Vou considerar ``a + b``:"
 
-#: ../../library/numbers.rst:165
+#: ../../library/numbers.rst:152
 msgid ""
 "If ``A`` defines an :meth:`~object.__add__` which accepts ``b``, all is well."
 msgstr ""
 "Se ``A`` define um :meth:`~object.__add__`, que aceita ``b``, está tudo bem."
 
-#: ../../library/numbers.rst:167
+#: ../../library/numbers.rst:154
 msgid ""
 "If ``A`` falls back to the boilerplate code, and it were to return a value "
 "from :meth:`~object.__add__`, we'd miss the possibility that ``B`` defines a "
@@ -318,7 +287,7 @@ msgstr ""
 "retornar :data:`NotImplemented` de :meth:`!__add__`. (Ou ``A`` pode não "
 "implementar :meth:`!__add__`.)"
 
-#: ../../library/numbers.rst:173
+#: ../../library/numbers.rst:160
 msgid ""
 "Then ``B``'s :meth:`~object.__radd__` gets a chance. If it accepts ``a``, "
 "all is well."
@@ -326,7 +295,7 @@ msgstr ""
 "Então, :meth:`~object.__radd__` do ``B`` consegue uma chance. Se ele aceitar "
 "``a``, está tudo bem."
 
-#: ../../library/numbers.rst:175
+#: ../../library/numbers.rst:162
 msgid ""
 "If it falls back to the boilerplate, there are no more possible methods to "
 "try, so this is where the default implementation should live."
@@ -334,7 +303,7 @@ msgstr ""
 "Se ele recorrer ao padrão, não há mais métodos possíveis para tentar, então "
 "é aqui que a implementação padrão deve residir."
 
-#: ../../library/numbers.rst:178
+#: ../../library/numbers.rst:165
 msgid ""
 "If ``B <: A``, Python tries ``B.__radd__`` before ``A.__add__``. This is ok, "
 "because it was implemented with knowledge of ``A``, so it can handle those "
@@ -344,7 +313,7 @@ msgstr ""
 "ok, porque foi implementado com conhecimento de ``A``, então ele pode lidar "
 "com essas instâncias antes de delegar para :class:`Complex`."
 
-#: ../../library/numbers.rst:183
+#: ../../library/numbers.rst:170
 msgid ""
 "If ``A <: Complex`` and ``B <: Real`` without sharing any other knowledge, "
 "then the appropriate shared operation is the one involving the built in :"
@@ -356,7 +325,7 @@ msgstr ""
 "a :class:`complex` embutida, e :meth:`~object.__radd__` de ambos chegam lá, "
 "de forma que ``a+b == b+a``."
 
-#: ../../library/numbers.rst:188
+#: ../../library/numbers.rst:175
 msgid ""
 "Because most of the operations on any given type will be very similar, it "
 "can be useful to define a helper function which generates the forward and "
@@ -367,7 +336,7 @@ msgstr ""
 "ser útil definir uma função auxiliar que gera as instâncias de avanço e "
 "reversão de qualquer operador. Por exemplo, :class:`fractions.Fraction` usa::"
 
-#: ../../library/numbers.rst:193
+#: ../../library/numbers.rst:180
 msgid ""
 "def _operator_fallbacks(monomorphic_operator, fallback_operator):\n"
 "    def forward(a, b):\n"
