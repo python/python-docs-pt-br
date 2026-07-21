@@ -12,7 +12,7 @@ on:
         required: true
         type: string
     secrets:
-      TX_TOKEN:
+      tx_token:
         description: "Token required for interacting with Transifex API"
         required: false
 
@@ -33,15 +33,18 @@ jobs:
       # 1- Set up environment
 
       - name: Check out this repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Checkout this repository ${{ env.PYDOC_VERSION }}
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ env.PYDOC_VERSION }}
           path: ${{ env.PYDOC_LANG_DIR }}
+          persist-credentials: false
 
-      - uses: actions/setup-python@v7
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: ${{ inputs.version }}
           allow-prereleases: true
@@ -52,7 +55,7 @@ jobs:
       - name: Install Transifex CLI tool
         run: |
           cd /usr/local/bin
-          curl -o- https://raw.githubusercontent.com/transifex/cli/master/install.sh | bash -s -- v$TX_CLI_VERSION
+          curl -o- https://raw.githubusercontent.com/transifex/cli/master/install.sh | bash -s -- v${TX_CLI_VERSION}
 
       - name: Install Python packages
         run: |
@@ -66,39 +69,39 @@ jobs:
 
       - name: Generate updated .tx/config
         if: ${{ contains(fromJSON('["schedule", "workflow_dispatch"]'), github.event_name) }}
-        run: python scripts/generate_txconfig.py -p ./${{ env.PYDOC_LANG_DIR }} ${{ env.PYDOC_TX_PROJECT }}
+        run: python scripts/generate_txconfig.py -p ./${PYDOC_LANG_DIR} ${PYDOC_TX_PROJECT}
         env:
-          TX_TOKEN: ${{ secrets.TX_TOKEN }}
+          TX_TOKEN: ${{ secrets.tx_token }}
 
       - name: Pull translations from Transifex
         id: pull
         if: ${{ contains(fromJSON('["schedule", "workflow_dispatch"]'), github.event_name) }}
         run: |
           # Clean up obsolete files
-          find ./${{ env.PYDOC_LANG_DIR }} -name '*.po' -exec rm {} \;
+          find ./${PYDOC_LANG_DIR} -name '*.po' -exec rm {} \;
           ./scripts/pull_translations.sh
         env:
-          TX_TOKEN: ${{ secrets.TX_TOKEN }}
+          TX_TOKEN: ${{ secrets.tx_token }}
 
       - name: Merge translations from newer branch
         if: inputs.tx_project != 'python-newest' # python-newest doesn't have a newer branch
         run: |
           newer_branch=${PYDOC_VERSION%%.*}.$((${PYDOC_VERSION##*.}+1))
           git clone --depth 1 --single-branch --branch $newer_branch https://github.com/python/python-docs-pt-br ${newer_branch}-dir
-          pomerge --from ./${newer_branch}-dir/{**/,}*.po --to ./${{ env.PYDOC_LANG_DIR }}/{**/,}*.po
+          pomerge --from ./${newer_branch}-dir/{**/,}*.po --to ./${PYDOC_LANG_DIR}/{**/,}*.po
           rm -rf ./${newer_branch}-dir
 
       - name: powrap
         if: steps.pull.outcome == 'success'
         run: |
-          cd ./${{ env.PYDOC_LANG_DIR }}
+          cd ./${PYDOC_LANG_DIR}
           powrap *.po **/*.po
 
       - name: Update statistics
         if: always()
         run: |
           ./scripts/stats.py
-          git -C ./${{ env.PYDOC_LANG_DIR }} diff stats.json
+          git -C ./${PYDOC_LANG_DIR} diff stats.json
         env:
           PYDOC_LANG_DIR: ${{ env.PYDOC_LANG_DIR }}
 
@@ -106,12 +109,12 @@ jobs:
         if: always()
         run: |
           ./scripts/potodo.sh
-          git -C ./${{ env.PYDOC_LANG_DIR }} diff potodo.md
+          git -C ./${PYDOC_LANG_DIR} diff potodo.md
         env:
           PYDOC_LANG_DIR: ${{ env.PYDOC_LANG_DIR }}
 
       - name: Upload translation artifacts
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
         with:
           name: python-${{ env.PYDOC_VERSION }}
           path: |
@@ -131,15 +134,18 @@ jobs:
       # 1- Set up environment
 
       - name: Check out this repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Checkout this repository ${{ env.PYDOC_VERSION }}
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ env.PYDOC_VERSION }}
           path: ${{ env.PYDOC_LANG_DIR }}
+          persist-credentials: false
 
-      - uses: actions/setup-python@v7
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: ${{ inputs.version }}
           allow-prereleases: true
@@ -153,10 +159,10 @@ jobs:
       # 2- Remove PO files and the download files (excluding obsolete)
 
       - name: Clean PO files
-        run: find ${{ env.PYDOC_LANG_DIR }} -name '*.po' | xargs -r rm
+        run: find ${PYDOC_LANG_DIR} -name '*.po' | xargs -r rm
 
       - name: Download translation artifacts
-        uses: actions/download-artifact@v8
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           name: python-${{ env.PYDOC_VERSION }}
 
@@ -169,6 +175,10 @@ jobs:
 
       - name: Push
         if: ${{ contains(fromJSON('["schedule", "workflow_dispatch"]'), github.event_name) }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cd ./${{ env.PYDOC_LANG_DIR }}
+          cd ./${PYDOC_LANG_DIR}
+          git remote set-url origin \
+            "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           git push
