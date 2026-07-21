@@ -6,14 +6,21 @@ on:
 jobs:
   sync:
     uses: ./.github/workflows/sync.yml
+    permissions:
+      contents: write
     with:
       tx_project: ${{ github.workflow }}
       version: 3.8
-    secrets: inherit
+    secrets:
+      tx_token: ${{ secrets.TX_TOKEN }}
   check:
     uses: ./.github/workflows/check.yml
+    permissions:
+      contents: read
     needs: sync
     with:
       tx_project: ${{ github.workflow }}
       version: 3.8
-    secrets: inherit
+    secrets:
+      telegram_token: ${{ secrets.TELEGRAM_TOKEN }}
+      telegram_to: ${{ secrets.TELEGRAM_TO }}
