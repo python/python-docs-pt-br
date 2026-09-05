@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-15 14:15+0000\n"
+"POT-Creation-Date: 2026-09-05 16:26+0000\n"
 "PO-Revision-Date: 2025-09-16 00:02+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2026\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -691,6 +691,9 @@ msgid ""
 "containing custom error messages for missing :term:`standard library` "
 "modules."
 msgstr ""
+"Caminho para um arquivo de configuração `JSON <https://www.json.org/json-pt."
+"html>`_ contendo mensagens de erro personalizadas para módulos da :term:"
+"`biblioteca padrão` ausentes."
 
 #: ../../using/configure.rst:330
 msgid ""
@@ -698,6 +701,10 @@ msgid ""
 "distribution-specific guidance when users encounter standard library modules "
 "that are missing or packaged separately."
 msgstr ""
+"Esta opção destina-se a distribuidores de Python que desejam fornecer "
+"orientações específicas da distribuição quando os usuários encontrarem "
+"módulos da biblioteca padrão que estejam ausentes ou empacotados "
+"separadamente."
 
 #: ../../using/configure.rst:334
 msgid ""
@@ -706,6 +713,10 @@ msgid ""
 "`_tkinter` separately and excludes :mod:`!_gdbm` for legal reasons, the "
 "configuration could contain:"
 msgstr ""
+"O arquivo JSON deve mapear nomes de módulos ausentes para strings de "
+"mensagens de erro personalizadas. Por exemplo, se a sua distribuição "
+"empacota :mod:`tkinter` e :mod:`_tkinter` separadamente e exclui :mod:`!"
+"_gdbm` por motivos legais, a configuração poderia conter:"
 
 #: ../../using/configure.rst:339
 msgid ""
@@ -716,6 +727,12 @@ msgid ""
 "    \"_tkinter\": \"Install the python-tk package to use tkinter\",\n"
 "}"
 msgstr ""
+"{\n"
+"    \"_gdbm\": \"The '_gdbm' module is not available in this "
+"distribution\",\n"
+"    \"tkinter\": \"Install the python-tk package to use tkinter\",\n"
+"    \"_tkinter\": \"Install the python-tk package to use tkinter\",\n"
+"}"
 
 #: ../../using/configure.rst:351
 msgid "Turn on internal Python performance statistics gathering."
@@ -997,6 +1014,11 @@ msgid ""
 "epoll_create` or :manpage:`epoll_create1 <epoll_create1(2)>` is available "
 "but incompatible with Linux semantics."
 msgstr ""
+"Construir sem ``epoll``, o que significa que :py:func:`select.epoll` não "
+"estará presente, mesmo que o sistema forneça uma função :manpage:"
+"`epoll_create <epoll_create(2)>`. Isso pode ser utilizado em sistemas onde :"
+"manpage:`!epoll_create` ou :manpage:`epoll_create1 <epoll_create1(2)>` estão "
+"disponíveis, mas são incompatíveis com a semântica do Linux."
 
 #: ../../using/configure.rst:479
 msgid "C compiler options"
@@ -1437,34 +1459,48 @@ msgstr ""
 #: ../../using/configure.rst:785
 msgid "Disable frame pointers, which are enabled by default (see :pep:`831`)."
 msgstr ""
+"Desabilita os ponteiros de quadro, que estão habilitados por padrão (veja :"
+"pep:`831`)."
 
 #: ../../using/configure.rst:787
 msgid ""
 "By default, the build appends flags to generate frame or backchain pointers "
 "to ``BASECFLAGS``:"
 msgstr ""
+"Por padrão, o processo de construção acrescenta sinalizadores a "
+"``BASECFLAGS`` para gerar ponteiros de quadro (*frame pointers*) ou de "
+"encadeamento (*backchain pointers*):"
 
 #: ../../using/configure.rst:790
 msgid ""
 "``-fno-omit-frame-pointer`` and/or ``-mno-omit-leaf-frame-pointer`` are "
 "added when the compiler supports them."
 msgstr ""
+"``-fno-omit-frame-pointer`` e/ou ``-mno-omit-leaf-frame-pointer`` são "
+"adicionados quando o compilador oferece suporte a eles."
 
 #: ../../using/configure.rst:792
 msgid "``-marm`` and/or ``-mno-thumb`` is added on 32-bit ARM when supported,"
 msgstr ""
+"``-marm`` e/ou ``-mno-thumb`` são adicionados em sistemas ARM de 32 bits "
+"quando suportados."
 
 #: ../../using/configure.rst:793
 msgid ""
 "on s390x platforms, when supported, ``-mbackchain`` is added *instead*. of "
 "the above frame pointer flags."
 msgstr ""
+"em plataformas s390x, quando suportado, ``-mbackchain`` é adicionado *em "
+"vez* das flags de ponteiro de quadro mencionadas acima."
 
 #: ../../using/configure.rst:795
 msgid ""
 "on ppc64le platforms, no compiler flags is needed since the power ABI "
 "requires that compilers maintain a back chain by default."
 msgstr ""
+"em plataformas ppc64le, não são necessárias sinalizadores de compilador, uma "
+"vez que a ABI Power exige que os compiladores mantenham um encadeamento "
+"(*back chain*) por padrão."
 
 #: ../../using/configure.rst:798
 msgid ""
@@ -1474,6 +1510,12 @@ msgid ""
 "`sysconfig`. On compilers that do not understand them, the build silently "
 "skips them."
 msgstr ""
+"Ponteiros de quadro (*frame pointers*) permitem que ferramentas de "
+"perfilamento, depuração e rastreamento do sistema (como ``perf``, ``eBPF``, "
+"``dtrace`` e ``gdb``) percorram a pilha de chamadas em C sem a necessidade "
+"de metadados DWARF. Os sinalizadores são propagadas para extensões C de "
+"terceiros por meio do módulo :mod:`sysconfig`. Em compiladores que não as "
+"reconhecem, o processo de construção as ignora silenciosamente."
 
 #: ../../using/configure.rst:804
 msgid ""
@@ -1481,6 +1523,10 @@ msgid ""
 "systems should set the same flags so the unwind chain stays unbroken across "
 "all native frames."
 msgstr ""
+"Empacotadores downstream e autores de bibliotecas nativas criadas com "
+"sistemas de construção personalizados devem definir as mesmas flags para que "
+"a cadeia de desenrolamento (unwind chain) permaneça ininterrupta em todos os "
+"frames nativos."
 
 #: ../../using/configure.rst:812
 msgid ""
@@ -1516,6 +1562,11 @@ msgid ""
 "MiB and arena allocation uses ``MAP_HUGETLB`` (Linux) or ``MEM_LARGE_PAGES`` "
 "(Windows) with automatic fallback to regular pages."
 msgstr ""
+"Habilita o suporte a *huge pages* para arenas do :ref:`pymalloc <pymalloc>` "
+"(desabilitado por padrão). Quando habilitado, o tamanho da arena em "
+"plataformas de 64 bits é aumentado para 2 MiB e a alocação da arena utiliza "
+"``MAP_HUGETLB`` (Linux) ou ``MEM_LARGE_PAGES`` (Windows), com *fallback* "
+"automático para páginas comuns."
 
 #: ../../using/configure.rst:834
 msgid ""
@@ -1523,6 +1574,10 @@ msgid ""
 "unless the :envvar:`PYTHON_PYMALLOC_HUGEPAGES` environment variable is set "
 "to ``1``. This opt-in is required because huge pages"
 msgstr ""
+"Mesmo quando compilado com essa opção, *huge pages* **não** são utilizadas "
+"em tempo de execução, a menos que a variável de ambiente :envvar:"
+"`PYTHON_PYMALLOC_HUGEPAGES` esteja definida como ``1``. Essa ativação "
+"explícita é necessária porque *huge pages*"
 
 #: ../../using/configure.rst:838
 msgid ""
@@ -1530,6 +1585,9 @@ msgid ""
 "(including copy-on-write faults after :func:`os.fork`) deliver ``SIGBUS`` "
 "and kill the process."
 msgstr ""
+"envolve riscos no Linux: se o pool de *huge pages* se esgotar, falhas de "
+"página (incluindo falhas de *copy-on-write* após :func:`os.fork`) geram um "
+"sinal ``SIGBUS`` e encerram forçadamente o processo."
 
 #: ../../using/configure.rst:842
 msgid ""
@@ -1540,18 +1598,29 @@ msgid ""
 "versions/windows/it-pro/windows-10/security/threat-protection/security-"
 "policy-settings/lock-pages-in-memory>`_ is not held by the user."
 msgstr ""
+"precisa de um privilégio especial no Windows. Consulte a `documentação do "
+"Windows para páginas grandes <https://learn.microsoft.com/pt-br/windows/"
+"win32/memory/large-page-support>`_ para obter detalhes. Python falhará na "
+"inicialização se o privilégio necessário `SeLockMemoryPrivilege <https://"
+"learn.microsoft.com/pt-br/previous-versions/windows/it-pro/windows-10/"
+"security/threat-protection/security-policy-settings/lock-pages-in-memory>`_ "
+"não for concedido ao usuário."
 
 #: ../../using/configure.rst:849
 msgid ""
 "The configure script checks that the platform supports ``MAP_HUGETLB`` and "
 "emits a warning if it is not available."
 msgstr ""
+"O script de configuração verifica se a plataforma oferece suporte a "
+"``MAP_HUGETLB`` e emite um aviso caso não esteja disponível."
 
 #: ../../using/configure.rst:852
 msgid ""
 "On Windows, use the ``--pymalloc-hugepages`` flag with ``build.bat`` or set "
 "the ``UsePymallocHugepages`` MSBuild property."
 msgstr ""
+"No Windows, use o sinalizador ``--pymalloc-hugepages`` com o ``build.bat`` "
+"ou defina a propriedade MSBuild ``UsePymallocHugepages``."
 
 #: ../../using/configure.rst:859
 msgid ""
@@ -1901,16 +1970,23 @@ msgid ""
 "``libpython`` as if ``--enable-shared`` had not been used, but continue to "
 "build the shared ``libpython`` (for use by other programs)."
 msgstr ""
+"Não vincula o binário do interpretador Python (``python3``) à biblioteca "
+"compartilhada do Python; em vez disso, vincula o interpretador estaticamente "
+"à ``libpython`` como se a opção ``--enable-shared`` não tivesse sido "
+"utilizada, mas continua a construir a ``libpython`` compartilhada (para uso "
+"por outros programas)."
 
 #: ../../using/configure.rst:1050
 msgid "This option does nothing if ``--enable-shared`` is not used."
-msgstr ""
+msgstr "Esta opção faz nada se ``--enable-shared`` não for usada."
 
 #: ../../using/configure.rst:1052
 msgid ""
 "The default (when ``-enable-shared`` is used) is to link the Python "
 "interpreter against the built shared library."
 msgstr ""
+"O comportamento padrão (quando ``-enable-shared`` é utilizado) é vincular o "
+"interpretador Python à biblioteca compartilhada compilada."
 
 #: ../../using/configure.rst:1059
 msgid "Libraries options"
@@ -2280,7 +2356,7 @@ msgstr "Opções do iOS"
 
 #: ../../using/configure.rst:1272
 msgid "See :source:`Platforms/Apple/iOS/README.md`."
-msgstr ""
+msgstr "Veja :source:`Platforms/Apple/iOS/README.md`."
 
 #: ../../using/configure.rst:1276
 msgid ""
@@ -3025,6 +3101,9 @@ msgid ""
 "Please consider using ``EXE_LDFLAGS`` if the supplied linker flags are "
 "executable specific, e.g. GCC's ``-pie`` flag."
 msgstr ""
+"Considere utilizar ``EXE_LDFLAGS`` se os sinalizadores do ligador fornecidas "
+"forem específicas para executáveis, como, por exemplo, o sinalizador ``-"
+"pie`` do GCC."
 
 #: ../../using/configure.rst:1731
 msgid ""
@@ -3074,19 +3153,25 @@ msgid ""
 "If supplied, :envvar:`PY_CORE_EXE_LDFLAGS` will be used in replacement of :"
 "envvar:`PY_CORE_LDFLAGS`."
 msgstr ""
+"Sinalizadores do ligador (linker) usadas para construir alvos executáveis, "
+"como o interpretador. Se fornecida, a variável :envvar:`PY_CORE_EXE_LDFLAGS` "
+"será usada em substituição a :envvar:`PY_CORE_LDFLAGS`."
 
 #: ../../using/configure.rst:1774
 msgid ""
 "Value of :envvar:`EXE_LDFLAGS` variable passed to the ``./configure`` script."
 msgstr ""
+"Valor da variável :envvar:`EXE_LDFLAGS` passado ao script ``./configure``."
 
 #: ../../using/configure.rst:1781
 msgid "Linker flags used for building the interpreter and executable targets."
 msgstr ""
+"Sinalizadores do ligador (linker) para construir os alvos do interpretador e "
+"do executável"
 
 #: ../../using/configure.rst:1784
 msgid "Default: ``$(PY_CORE_LDFLAGS)``"
-msgstr ""
+msgstr "Padrão: ``$(PY_CORE_LDFLAGS)``"
 
 #: ../../using/configure.rst:1790
 msgid "Footnotes"
