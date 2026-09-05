@@ -1,16 +1,15 @@
-1 directory  66.88% done
-└── 3.12/  66.88% done
-    ├── c-api/  52.74% done
-    │   ├── exceptions.po                 63.0% translated 232/366
+1 directory  67.10% done
+└── 3.12/  67.10% done
+    ├── c-api/  54.24% done
+    │   ├── exceptions.po                 68.0% translated 251/366
     │   ├── frame.po                      80.0% translated   29/36
     │   ├── gcsupport.po                  17.0% translated    9/52
     │   ├── import.po                     80.0% translated   46/57
-    │   ├── init.po                       42.0% translated 185/434
+    │   ├── init.po                       42.0% translated 186/434
     │   ├── init_config.po                33.0% translated 136/410
     │   ├── long.po                       50.0% translated   35/69
     │   ├── memory.po                     30.0% translated  59/195
-    │   ├── module.po                     50.0% translated  63/124
-    │   ├── number.po                     29.0% translated   14/48
+    │   ├── module.po                     51.0% translated  64/124
     │   ├── object.po                     17.0% translated   14/80
     │   ├── refcounting.po                23.0% translated   11/47
     │   ├── structures.po                 42.0% translated  76/180
@@ -38,7 +37,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  60.84% done
+    ├── library/  61.05% done
     │   ├── 2to3.po                       91.0% translated 121/132
     │   ├── array.po                      95.0% translated   80/84
     │   ├── ast.po                        83.0% translated 255/306
@@ -90,8 +89,8 @@
     │   ├── http.cookiejar.po              5.0% translated   9/159
     │   ├── http.cookies.po               14.0% translated    7/49
     │   ├── http.po                       96.0% translated 237/246
-    │   ├── http.server.po                13.0% translated  15/113
-    │   ├── idle.po                       44.0% translated 130/293
+    │   ├── http.server.po                14.0% translated  16/113
+    │   ├── idle.po                       67.0% translated 197/293
     │   ├── imaplib.po                    11.0% translated  14/117
     │   ├── imghdr.po                     47.0% translated   20/42
     │   ├── importlib.po                  78.0% translated 240/304
@@ -102,7 +101,7 @@
     │   ├── logging.config.po             92.0% translated 158/171
     │   ├── logging.handlers.po           65.0% translated 178/270
     │   ├── logging.po                    28.0% translated 106/368
-    │   ├── mailbox.po                     7.0% translated  21/290
+    │   ├── mailbox.po                     7.0% translated  22/290
     │   ├── mailcap.po                    12.0% translated    2/16
     │   ├── mimetypes.po                  98.0% translated   50/51
     │   ├── mmap.po                       37.0% translated   22/59
@@ -115,7 +114,7 @@
     │   ├── pipes.po                      23.0% translated    5/21
     │   ├── poplib.po                     41.0% translated   22/53
     │   ├── profile.po                    18.0% translated  34/179
-    │   ├── pyexpat.po                    14.0% translated  23/155
+    │   ├── pyexpat.po                    14.0% translated  23/163
     │   ├── queue.po                      13.0% translated    6/44
     │   ├── select.po                     37.0% translated  78/206
     │   ├── selectors.po                  22.0% translated   13/58
@@ -128,10 +127,10 @@
     │   ├── ssl.po                        11.0% translated  61/520
     │   ├── statistics.po                 95.0% translated 229/241
     │   ├── struct.po                     49.0% translated  96/194
-    │   ├── subprocess.po                 46.0% translated 150/321
+    │   ├── subprocess.po                 46.0% translated 150/322
     │   ├── symtable.po                    8.0% translated    4/50
     │   ├── sys.po                        97.0% translated 420/431
-    │   ├── tarfile.po                    55.0% translated 188/337
+    │   ├── tarfile.po                    55.0% translated 188/339
     │   ├── telnetlib.po                  18.0% translated   10/53
     │   ├── tempfile.po                    9.0% translated    8/87
     │   ├── test.po                       36.0% translated 118/320
@@ -146,7 +145,7 @@
     │   ├── unittest.mock.po              23.0% translated 103/440
     │   ├── unittest.po                   52.0% translated 283/536
     │   ├── urllib.parse.po               65.0% translated 110/167
-    │   ├── urllib.request.po             17.0% translated  51/300
+    │   ├── urllib.request.po             16.0% translated  51/301
     │   ├── warnings.po                   62.0% translated  82/131
     │   ├── wave.po                       39.0% translated   21/53
     │   ├── webbrowser.po                 92.0% translated   77/83
@@ -162,7 +161,8 @@
     │   └── zoneinfo.po                   50.0% translated   42/83
     ├── reference/  100.00% done
     ├── tutorial/  100.00% done
-    ├── using/  100.00% done
+    ├── using/  99.80% done
+    │   └── windows.po                    99.0% translated 377/378
     └── whatsnew/  74.17% done
         ├── 2.3.po                        84.0% translated 327/387
         ├── 2.4.po                        83.0% translated 266/319
@@ -173,5 +173,5 @@
         ├── 3.2.po                        11.0% translated  66/576
         ├── 3.3.po                        20.0% translated 137/682
         ├── 3.5.po                        22.0% translated 129/578
-        ├── 3.6.po                        43.0% translated 237/544
-        └── 3.7.po                        44.0% translated 252/568
+        ├── 3.6.po                        43.0% translated 238/544
+        └── 3.7.po                        44.0% translated 253/568
