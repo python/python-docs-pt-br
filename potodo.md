@@ -1,5 +1,5 @@
-1 directory  57.80% done
-└── 3.14/  57.80% done
+1 directory  57.94% done
+└── 3.14/  57.94% done
     ├── c-api/  52.60% done
     │   ├── bytes.po                      94.0% translated   73/77
     │   ├── conversion.po                 89.0% translated   49/55
@@ -62,7 +62,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  56.32% done
+    ├── library/  56.46% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              89.0% translated 142/158
     │   ├── argparse.po                   97.0% translated 400/409
@@ -154,7 +154,6 @@
     │   ├── lzma.po                       77.0% translated  99/128
     │   ├── mailbox.po                     7.0% translated  22/307
     │   ├── marshal.po                    60.0% translated   34/56
-    │   ├── mimetypes.po                  83.0% translated   57/68
     │   ├── mmap.po                       35.0% translated   23/65
     │   ├── multiprocessing.po            51.0% translated 317/620
     │   ├── operator.po                   91.0% translated 173/189
@@ -215,7 +214,6 @@
     │   ├── traceback.po                   8.0% translated  10/118
     │   ├── tracemalloc.po                13.0% translated  21/156
     │   ├── tty.po                        88.0% translated   15/17
-    │   ├── turtle.po                     98.0% translated 681/694
     │   ├── types.po                      99.0% translated 104/105
     │   ├── typing.po                     95.0% translated 792/833
     │   ├── unicodedata.po                60.0% translated   26/43
@@ -229,7 +227,6 @@
     │   ├── uuid.po                       91.0% translated   72/79
     │   ├── warnings.po                   51.0% translated  82/160
     │   ├── wave.po                       34.0% translated   21/61
-    │   ├── weakref.po                    92.0% translated   89/96
     │   ├── webbrowser.po                 97.0% translated   88/90
     │   ├── winsound.po                   97.0% translated   39/40
     │   ├── wsgiref.po                    51.0% translated  70/135
@@ -256,7 +253,7 @@
     ├── tutorial/  100.00% done
     ├── using/  94.74% done
     │   └── windows.po                    92.0% translated 533/576
-    └── whatsnew/  47.24% done
+    └── whatsnew/  47.50% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 301/452
@@ -275,4 +272,4 @@
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  24.0% translated 3525/14430
+        └── changelog.po                  24.0% translated 3584/14430
