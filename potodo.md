@@ -1,5 +1,5 @@
-1 directory  55.56% done
-└── 3.15/  55.56% done
+1 directory  55.74% done
+└── 3.15/  55.74% done
     ├── c-api/  46.00% done
     │   ├── bytes.po                      60.0% translated  73/120
     │   ├── complex.po                    83.0% translated   31/37
@@ -69,7 +69,7 @@
     │   ├── sorting.po                    53.0% translated   48/90
     │   └── unicode.po                    19.0% translated  28/143
     ├── installing/  100.00% done
-    ├── library/  53.85% done
+    ├── library/  54.03% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              89.0% translated 142/158
     │   ├── argparse.po                   91.0% translated 387/421
@@ -165,7 +165,6 @@
     │   ├── marshal.po                    58.0% translated   35/60
     │   ├── math.po                       87.0% translated 246/280
     │   ├── math_integer.po               73.0% translated   11/15
-    │   ├── mimetypes.po                  83.0% translated   57/68
     │   ├── mmap.po                       28.0% translated   22/78
     │   ├── multiprocessing.po            50.0% translated 316/622
     │   ├── operator.po                   91.0% translated 173/189
@@ -232,12 +231,10 @@
     │   ├── tkinter.scrolledtext.po       71.0% translated     5/7
     │   ├── tkinter.ttk.po                24.0% translated 118/476
     │   ├── tokenize.po                   88.0% translated   47/53
-    │   ├── tomllib.po                    75.0% translated   52/69
     │   ├── trace.po                      90.0% translated   39/43
     │   ├── traceback.po                   8.0% translated  10/118
     │   ├── tracemalloc.po                13.0% translated  21/156
     │   ├── tty.po                        88.0% translated   15/17
-    │   ├── turtle.po                     97.0% translated 680/694
     │   ├── types.po                      96.0% translated 105/109
     │   ├── typing.po                     90.0% translated 780/861
     │   ├── unicodedata.po                22.0% translated  22/100
@@ -251,7 +248,6 @@
     │   ├── uuid.po                       91.0% translated   72/79
     │   ├── warnings.po                   49.0% translated  80/163
     │   ├── wave.po                       26.0% translated   19/73
-    │   ├── weakref.po                    92.0% translated   89/96
     │   ├── webbrowser.po                 90.0% translated   84/93
     │   ├── winreg.po                     96.0% translated 176/183
     │   ├── winsound.po                   95.0% translated   41/43
@@ -280,7 +276,7 @@
     ├── tutorial/  100.00% done
     ├── using/  94.48% done
     │   └── windows.po                    91.0% translated 530/577
-    └── whatsnew/  47.10% done
+    └── whatsnew/  47.45% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 300/452
@@ -290,7 +286,6 @@
         ├── 3.10.po                       98.0% translated 542/550
         ├── 3.11.po                       99.0% translated 771/776
         ├── 3.13.po                       98.0% translated 977/991
-        ├── 3.15.po                       99.0% translated 811/813
         ├── 3.2.po                        11.0% translated  66/576
         ├── 3.3.po                        19.0% translated 134/682
         ├── 3.4.po                        94.0% translated 491/517
@@ -298,4 +293,4 @@
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  22.0% translated 3529/15361
+        └── changelog.po                  23.0% translated 3613/15361
