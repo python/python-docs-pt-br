@@ -1,17 +1,17 @@
-1 directory  60.93% done
-└── 3.10/  60.93% done
-    ├── c-api/  51.44% done
+1 directory  61.15% done
+└── 3.10/  61.15% done
+    ├── c-api/  53.01% done
     │   ├── allocation.po                 88.0% translated     8/9
     │   ├── arg.po                        98.0% translated 193/195
-    │   ├── exceptions.po                 78.0% translated 215/275
+    │   ├── exceptions.po                 81.0% translated 225/275
     │   ├── float.po                      92.0% translated   12/13
     │   ├── gcsupport.po                  27.0% translated   11/40
-    │   ├── init.po                       46.0% translated 143/310
+    │   ├── init.po                       46.0% translated 144/310
     │   ├── init_config.po                35.0% translated 132/375
     │   ├── long.po                       66.0% translated   34/51
     │   ├── memory.po                     34.0% translated  63/184
-    │   ├── module.po                     50.0% translated   50/99
-    │   ├── number.po                     19.0% translated    8/42
+    │   ├── module.po                     51.0% translated   51/99
+    │   ├── number.po                     95.0% translated   40/42
     │   ├── object.po                      6.0% translated    3/50
     │   ├── refcounting.po                35.0% translated   10/28
     │   ├── sequence.po                   96.0% translated   26/27
@@ -56,7 +56,7 @@
     ├── install/  72.62% done
     │   └── index.po                      74.0% translated 168/226
     ├── installing/  100.00% done
-    ├── library/  56.01% done
+    ├── library/  56.22% done
     │   ├── _thread.po                    95.0% translated   39/41
     │   ├── argparse.po                   88.0% translated 256/290
     │   ├── array.po                      98.0% translated   81/82
@@ -137,7 +137,7 @@
     │   ├── http.cookiejar.po              5.0% translated   9/154
     │   ├── http.cookies.po               30.0% translated   17/56
     │   ├── http.server.po                 8.0% translated    8/92
-    │   ├── idle.po                       45.0% translated 128/281
+    │   ├── idle.po                       65.0% translated 184/281
     │   ├── imaplib.po                     8.0% translated   9/107
     │   ├── imghdr.po                     48.0% translated   20/41
     │   ├── imp.po                        11.0% translated    8/68
@@ -150,7 +150,7 @@
     │   ├── logging.config.po             85.0% translated 114/133
     │   ├── logging.handlers.po           64.0% translated 173/268
     │   ├── logging.po                    28.0% translated  96/334
-    │   ├── mailbox.po                     8.0% translated  23/282
+    │   ├── mailbox.po                     8.0% translated  24/282
     │   ├── mailcap.po                    13.0% translated    2/15
     │   ├── mimetypes.po                  97.0% translated   44/45
     │   ├── mmap.po                       40.0% translated   20/50
@@ -170,7 +170,7 @@
     │   ├── poplib.po                     34.0% translated   17/50
     │   ├── pprint.po                     73.0% translated   31/42
     │   ├── profile.po                    21.0% translated  34/155
-    │   ├── pyexpat.po                    16.0% translated  23/143
+    │   ├── pyexpat.po                    15.0% translated  23/151
     │   ├── queue.po                      11.0% translated    5/42
     │   ├── random.po                     97.0% translated   94/96
     │   ├── readline.po                   97.0% translated   47/48
@@ -255,11 +255,11 @@
     │   └── lexical_analysis.po           94.0% translated 185/195
     ├── tutorial/  99.78% done
     │   └── classes.po                    99.0% translated 114/115
-    ├── using/  95.96% done
+    ├── using/  95.73% done
     │   ├── cmdline.po                    98.0% translated 195/197
     │   ├── configure.po                  88.0% translated 213/240
     │   ├── mac.po                        97.0% translated   43/44
-    │   └── windows.po                    99.0% translated 307/309
+    │   └── windows.po                    99.0% translated 306/309
     └── whatsnew/  67.49% done
         ├── 2.0.po                        75.0% translated 137/182
         ├── 2.2.po                        72.0% translated 139/192
@@ -273,5 +273,5 @@
         ├── 3.3.po                        24.0% translated 159/660
         ├── 3.4.po                        99.0% translated 510/511
         ├── 3.5.po                        23.0% translated 128/541
-        ├── 3.6.po                        46.0% translated 239/517
-        └── 3.7.po                        43.0% translated 243/555
+        ├── 3.6.po                        46.0% translated 240/517
+        └── 3.7.po                        43.0% translated 244/555
