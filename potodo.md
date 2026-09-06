@@ -1,5 +1,5 @@
-1 directory  58.07% done
-└── 3.13/  58.07% done
+1 directory  58.16% done
+└── 3.13/  58.16% done
     ├── c-api/  53.80% done
     │   ├── bytes.po                      98.0% translated   69/70
     │   ├── conversion.po                 89.0% translated   49/55
@@ -53,7 +53,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  58.01% done
+    ├── library/  58.07% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── argparse.po                   97.0% translated 379/387
     │   ├── array.po                      90.0% translated   80/88
@@ -127,7 +127,6 @@
     │   ├── logging.po                    28.0% translated 106/372
     │   ├── lzma.po                       77.0% translated  98/127
     │   ├── mailbox.po                     7.0% translated  22/307
-    │   ├── mimetypes.po                  88.0% translated   48/54
     │   ├── mmap.po                       35.0% translated   23/65
     │   ├── multiprocessing.po            54.0% translated 330/610
     │   ├── operator.po                   92.0% translated 170/183
@@ -174,7 +173,6 @@
     │   ├── trace.po                      97.0% translated   42/43
     │   ├── traceback.po                   7.0% translated   9/116
     │   ├── tracemalloc.po                13.0% translated  21/156
-    │   ├── turtle.po                     99.0% translated 666/671
     │   ├── types.po                      99.0% translated 103/104
     │   ├── typing.po                     95.0% translated 776/810
     │   ├── unicodedata.po                55.0% translated   24/43
@@ -186,7 +184,6 @@
     │   ├── urllib.robotparser.po         89.0% translated   17/19
     │   ├── warnings.po                   55.0% translated  82/149
     │   ├── wave.po                       34.0% translated   21/61
-    │   ├── weakref.po                    96.0% translated   93/96
     │   ├── wsgiref.po                    58.0% translated  79/135
     │   ├── xml.dom.minidom.po            13.0% translated    8/60
     │   ├── xml.dom.po                    17.0% translated  52/302
@@ -210,7 +207,7 @@
     ├── using/  99.20% done
     │   ├── mac.po                        98.0% translated   95/96
     │   └── windows.po                    99.0% translated 387/389
-    └── whatsnew/  44.70% done
+    └── whatsnew/  44.92% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 301/452
@@ -228,4 +225,4 @@
         ├── 3.6.po                        43.0% translated 234/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  20.0% translated 2760/13155
+        └── changelog.po                  21.0% translated 2806/13155
