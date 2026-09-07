@@ -225,4 +225,4 @@
         ├── 3.6.po                        43.0% translated 234/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  21.0% translated 2806/13155
+        └── changelog.po                  21.0% translated 2806/13157
