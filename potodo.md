@@ -1,5 +1,5 @@
-1 directory  55.74% done
-└── 3.15/  55.74% done
+1 directory  55.78% done
+└── 3.15/  55.78% done
     ├── c-api/  46.00% done
     │   ├── bytes.po                      60.0% translated  73/120
     │   ├── complex.po                    83.0% translated   31/37
@@ -69,10 +69,10 @@
     │   ├── sorting.po                    53.0% translated   48/90
     │   └── unicode.po                    19.0% translated  28/143
     ├── installing/  100.00% done
-    ├── library/  54.03% done
+    ├── library/  54.11% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              89.0% translated 142/158
-    │   ├── argparse.po                   91.0% translated 387/421
+    │   ├── argparse.po                   91.0% translated 386/421
     │   ├── array.po                      81.0% translated  83/102
     │   ├── ast.po                        78.0% translated 271/346
     │   ├── asyncio-dev.po                61.0% translated   52/84
@@ -186,7 +186,6 @@
     │   ├── pstats.po                     14.0% translated  19/129
     │   ├── pty.po                        82.0% translated   19/23
     │   ├── pyexpat.po                    12.0% translated  21/169
-    │   ├── queue.po                      17.0% translated   10/58
     │   ├── random.po                     96.0% translated 133/138
     │   ├── re.po                         86.0% translated 396/456
     │   ├── readline.po                   91.0% translated   55/60
@@ -293,4 +292,4 @@
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  23.0% translated 3613/15361
+        └── changelog.po                  23.0% translated 3613/15363
