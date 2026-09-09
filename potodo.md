@@ -1,5 +1,5 @@
-1 directory  58.16% done
-└── 3.14/  58.16% done
+1 directory  58.18% done
+└── 3.14/  58.18% done
     ├── c-api/  52.60% done
     │   ├── bytes.po                      94.0% translated   73/77
     │   ├── conversion.po                 89.0% translated   49/55
@@ -62,10 +62,10 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  56.75% done
+    ├── library/  56.79% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              89.0% translated 142/158
-    │   ├── argparse.po                   97.0% translated 400/409
+    │   ├── argparse.po                   98.0% translated 403/409
     │   ├── array.po                      89.0% translated   80/89
     │   ├── ast.po                        96.0% translated 326/339
     │   ├── asyncio-dev.po                61.0% translated   52/84
@@ -160,7 +160,6 @@
     │   ├── optparse.po                   79.0% translated 425/532
     │   ├── os.path.po                    85.0% translated  96/112
     │   ├── os.po                         93.0% translated 1007/1075
-    │   ├── pdb.po                        98.0% translated 176/179
     │   ├── pickle.po                     97.0% translated 244/251
     │   ├── pickletools.po                94.0% translated   18/19
     │   ├── poplib.po                     37.0% translated   20/53
@@ -168,7 +167,7 @@
     │   ├── profile.po                    17.0% translated  32/181
     │   ├── pty.po                        90.0% translated   19/21
     │   ├── pyexpat.po                    11.0% translated  20/174
-    │   ├── queue.po                      17.0% translated   10/58
+    │   ├── queue.po                      25.0% translated   15/58
     │   ├── random.po                     97.0% translated 134/138
     │   ├── re.po                         98.0% translated 438/444
     │   ├── readline.po                   93.0% translated   55/59
