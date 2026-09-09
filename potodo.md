@@ -1,5 +1,5 @@
-1 directory  55.86% done
-└── 3.15/  55.86% done
+1 directory  55.88% done
+└── 3.15/  55.88% done
     ├── c-api/  46.00% done
     │   ├── bytes.po                      60.0% translated  73/120
     │   ├── complex.po                    83.0% translated   31/37
@@ -69,10 +69,10 @@
     │   ├── sorting.po                    53.0% translated   48/90
     │   └── unicode.po                    19.0% translated  28/143
     ├── installing/  100.00% done
-    ├── library/  54.03% done
+    ├── library/  54.09% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              89.0% translated 142/158
-    │   ├── argparse.po                   91.0% translated 386/421
+    │   ├── argparse.po                   94.0% translated 397/421
     │   ├── array.po                      81.0% translated  83/102
     │   ├── ast.po                        78.0% translated 271/346
     │   ├── asyncio-dev.po                61.0% translated   52/84
@@ -157,7 +157,7 @@
     │   ├── itertools.po                  77.0% translated 154/200
     │   ├── json.po                       95.0% translated 174/183
     │   ├── linecache.po                  82.0% translated   14/17
-    │   ├── logging.config.po             92.0% translated 158/171
+    │   ├── logging.config.po             91.0% translated 157/171
     │   ├── logging.handlers.po           63.0% translated 174/276
     │   ├── logging.po                    28.0% translated 106/375
     │   ├── lzma.po                       77.0% translated  99/128
@@ -172,7 +172,6 @@
     │   ├── os.path.po                    83.0% translated  94/113
     │   ├── os.po                         88.0% translated 1000/1135
     │   ├── pathlib.po                    99.0% translated 442/444
-    │   ├── pdb.po                        97.0% translated 175/179
     │   ├── pickle.po                     97.0% translated 244/251
     │   ├── pickletools.po                90.0% translated   18/20
     │   ├── pkgutil.po                    92.0% translated   49/53
@@ -186,7 +185,7 @@
     │   ├── pstats.po                     14.0% translated  19/129
     │   ├── pty.po                        82.0% translated   19/23
     │   ├── pyexpat.po                    12.0% translated  21/169
-    │   ├── queue.po                      17.0% translated   10/58
+    │   ├── queue.po                      25.0% translated   15/58
     │   ├── random.po                     96.0% translated 133/138
     │   ├── re.po                         86.0% translated 396/456
     │   ├── readline.po                   91.0% translated   55/60
@@ -293,4 +292,4 @@
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  24.0% translated 3696/15363
+        └── changelog.po                  24.0% translated 3696/15364
