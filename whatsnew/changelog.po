@@ -802,6 +802,10 @@ msgid ""
 "interactive usage of tkinter from a script, for example as part of the "
 "cpython test suite."
 msgstr ""
+":gh:`140146`: Impede que o :mod:`tkinter` trave no Windows se o stdin for "
+"redirecionado para um encadeamento (pipe) em uma sessão interativa. Isso é "
+"útil para testar o uso interativo do tkinter a partir de um script, por "
+"exemplo como parte da suíte de testes do cpython."
 
 #: ../NEWS:354
 msgid ""
@@ -873,12 +877,21 @@ msgid ""
 "`PYTHONPYCACHEPREFIX` set.  These tests now neutralize the pycache prefix "
 "where they assume the default ``__pycache__`` bytecode layout."
 msgstr ""
+":gh:`151626`: Corrige vários testes em ``test.test_inspect``, ``test."
+"test_import``, ``test.test_importlib``, ``test.test_py_compile`` e ``test."
+"test_compileall`` que falhavam quando a suíte de testes era executada com :"
+"envvar:`PYTHONPYCACHEPREFIX` definido. Esses testes agora neutralizam o "
+"prefixo pycache onde eles assumem o layout de bytecode padrão de "
+"``__pycache__``."
 
 #: ../NEWS:390
 msgid ""
 ":gh:`151096`: Fix ``test_embed`` failing when CPython is configured with a "
 "split exec prefix (``--exec-prefix`` differing from ``--prefix``)."
 msgstr ""
+":gh:`151096`: Corrige falha no ``test_embed`` quando o CPython é configurado "
+"com um prefixo de execução dividido (``--exec-prefix`` diferente de ``--"
+"prefix``)."
 
 #: ../NEWS:396
 msgid ""
@@ -936,6 +949,11 @@ msgid ""
 "affect actual installs. The :file:`pybuilddir.txt` file is now the sole "
 "indicator of running in a source tree."
 msgstr ""
+":gh:`151544`: :file:`Modules/Setup.local` não é mais usado como um ponto de "
+"referência para descobrir se o Python está rodando em uma árvore de código-"
+"fonte, pois poderia afetar potencialmente instalações reais. O arquivo :file:"
+"`pybuilddir.txt` é agora o único indicador de execução em uma árvore de "
+"código-fonte."
 
 #: ../NEWS:423
 msgid ""
@@ -1588,6 +1606,12 @@ msgid ""
 "scrollable window, so it is now written with :meth:`~curses.window.insch`, "
 "which keeps the cursor in place."
 msgstr ""
+":gh:`71880`: A classe :class:`curses.textpad.Textbox` agora permite editar a "
+"célula do canto inferior direito da janela. Escrever nela usando :meth:"
+"`~curses.window.addch` fazia o cursor ultrapassar o final da janela, gerando "
+"um erro e provocando a rolagem de uma janela rolável; por isso, a operação "
+"agora é realizada com :meth:`~curses.window.insch`, que mantém o cursor na "
+"mesma posição."
 
 #: ../NEWS:693
 msgid ""
@@ -1596,6 +1620,9 @@ msgid ""
 "underlying Tcl interpreter is leaked instead, and a :exc:`RuntimeWarning` is "
 "reported."
 msgstr ""
+":gh:`83274`: Desalocar uma aplicação :mod:`tkinter` de uma thread diferente "
+"daquela em que foi criada não faz mais o interpretador falhar. Em vez disso, "
+"o interpretador Tcl subjacente vaza e um :exc:`RuntimeWarning` é relatado."
 
 #: ../NEWS:698
 msgid ""
@@ -1604,6 +1631,10 @@ msgid ""
 "instead of raising :exc:`KeyError` when the widget was not created by :mod:"
 "`tkinter` (for example a torn-off menu)."
 msgstr ""
+":gh:`88758`: :meth:`!tkinter.Misc.focus_get`, :meth:`!focus_displayof`, :"
+"meth:`!focus_lastfor` e :meth:`!winfo_containing` agora retornam ``None`` em "
+"vez de levantar :exc:`KeyError` quando o widget não foi criado pelo :mod:"
+"`tkinter` (por exemplo, um menu destacado)."
 
 #: ../NEWS:703
 msgid ""
@@ -1611,6 +1642,9 @@ msgid ""
 "generated names of cloned menus (a menu used as a menubar or a cascade) back "
 "to the original widget."
 msgstr ""
+":gh:`38464`: :meth:`!tkinter.Misc.nametowidget` agora resolve os nomes "
+"gerados automaticamente de menus clonados (um menu usado como barra de menu "
+"ou cascata) de volta ao widget original."
 
 #: ../NEWS:707
 msgid ""
@@ -1618,6 +1652,10 @@ msgid ""
 "POSIX TZ abbreviations consistently, rejecting unquoted abbreviations with "
 "non-letter characters and empty quoted abbreviations. Patch by tonghuaroot."
 msgstr ""
+":gh:`152248`: Faz com que os analisadores C e em Python puro do :mod:"
+"`zoneinfo` validem abreviações POSIX TZ de forma consistente, rejeitando "
+"abreviações sem aspas com caracteres não alfabéticos e abreviações entre "
+"aspas vazias. Patch por tonghuaroot."
 
 #: ../NEWS:712
 msgid ""
@@ -1626,6 +1664,10 @@ msgid ""
 "deleted.  The command no longer keeps the interpreter alive through a "
 "reference cycle."
 msgstr ""
+":gh:`80937`: Corrige um vazamento de memória no :mod:`tkinter` quando um "
+"comando Tcl criado com ``createcommand`` não era explicitamente removido "
+"antes que o interpretador fosse excluído. O comando não mantém mais o "
+"interpretador vivo através de um ciclo de referência."
 
 #: ../NEWS:717
 msgid ""
@@ -1633,6 +1675,9 @@ msgid ""
 "invalid POSIX TZ transition rule with a non-period separator. Patch by "
 "tonghuaroot."
 msgstr ""
+":gh:`152246`: Corrige o analisador do :mod:`zoneinfo` em Python puro "
+"aceitando uma regra de transição POSIX TZ inválida com um separador que não "
+"é ponto. Patch por tonghuaroot."
 
 #: ../NEWS:721
 msgid ""
@@ -1641,6 +1686,11 @@ msgid ""
 "the event loop to stop and wait for the user to press Enter; pending "
 "callbacks now keep running until input is actually available on stdin."
 msgstr ""
+":gh:`139816`: Corrige um travamento no :mod:`tkinter` no Python interativo "
+"compilado sem :mod:`readline`. Uma exceção levantada em um callback não faz "
+"mais o laço de eventos parar e esperar que o usuário pressione Enter; "
+"funções de retorno pendentes agora continuam rodando até que a entrada "
+"esteja realmente disponível no stdin."
 
 #: ../NEWS:727
 msgid ""
@@ -1650,6 +1700,12 @@ msgid ""
 "spinning at 100% CPU. The stdin file handler is now removed as soon as input "
 "is available.  Based on a patch by Michiel de Hoon."
 msgstr ""
+":gh:`139145`: Corrige um laço ocupado no :mod:`tkinter` no Python "
+"interativo. Quando um comando Tcl executando seu próprio laço de eventos "
+"(como ``vwait`` ou :meth:`!wait_variable`) estava ativo e a entrada chegava "
+"no stdin, o laço de eventos continuava girando a 100% de CPU. O manipulador "
+"de arquivo stdin é agora removido assim que a entrada está disponível. "
+"Baseado em um patch por Michiel de Hoon."
 
 #: ../NEWS:733
 msgid ""
@@ -1658,6 +1714,10 @@ msgid ""
 "POSIX and now raises :exc:`ValueError`, matching the C accelerator. Patch by "
 "tonghuaroot."
 msgstr ""
+":gh:`152212`: Corrige o analisador em Python puro do :mod:`zoneinfo` "
+"aceitando uma string POSIX TZ com uma abreviação ``std``, mas sem "
+"deslocamento. Isso é inválido de acordo com o POSIX e agora levanta :exc:"
+"`ValueError`, correspondendo ao acelerador C. Patch por tonghuaroot."
 
 #: ../NEWS:738
 msgid ""
@@ -1672,18 +1732,26 @@ msgid ""
 "separator that is not followed by any fractional digit before a timezone "
 "designator."
 msgstr ""
+":gh:`152157`: As implementações C de :meth:`~datetime.datetime."
+"fromisoformat` e :meth:`~datetime.time.fromisoformat` agora rejeitam um "
+"separador decimal que não seja seguido por nenhum dígito fracionário antes "
+"de um designador de fuso horário."
 
 #: ../NEWS:746
 msgid ""
 ":gh:`151763`: Fix crash in :func:`!_interpqueues.create` whe :exc:"
 "`MemoryError` happens on queue creation."
 msgstr ""
+":gh:`151763`: Corrige falha em :func:`!_interpqueues.create` quando :exc:"
+"`MemoryError` acontece na criação da fila."
 
 #: ../NEWS:749
 msgid ""
 ":gh:`105895`: Add :keyword:`match` and :keyword:`case` to the list of "
 "supported topics by :func:`help`."
 msgstr ""
+":gh:`105895`: Adiciona :keyword:`match` e :keyword:`case` à lista de tópicos "
+"suportados por :func:`help`."
 
 #: ../NEWS:752
 msgid ""
@@ -1691,12 +1759,18 @@ msgid ""
 "implementation dropping the sub-second part of a UTC offset whose whole-"
 "second part is zero, matching the pure-Python implementation."
 msgstr ""
+":gh:`152079`: Corrige :meth:`datetime.datetime.fromisoformat` na "
+"implementação C descartando a parte de sub-segundos de um deslocamento UTC "
+"cuja parte inteira de segundos é zero, correspondendo à implementação em "
+"Python puro."
 
 #: ../NEWS:756
 msgid ""
 ":gh:`152052`: The :mod:`json` C accelerator now correctly reports an "
 "unterminated string for a ``\\uXXXX`` escape at the end of the input."
 msgstr ""
+":gh:`152052`: O acelerador C do :mod:`json` agora relata corretamente uma "
+"string não terminada para um escape ``\\uXXXX`` no final da entrada."
 
 #: ../NEWS:759
 msgid ""
@@ -1704,6 +1778,10 @@ msgid ""
 "`AssertionError` instead of :exc:`ValueError` for some malformed strings in "
 "the pure-Python implementation, matching the C implementation."
 msgstr ""
+":gh:`152060`: Corrige :meth:`datetime.datetime.fromisoformat` levantando :"
+"exc:`AssertionError` em vez de :exc:`ValueError` para algumas strings "
+"malformadas na implementação em Python puro, correspondendo à implementação "
+"C."
 
 #: ../NEWS:763
 msgid ""
@@ -1711,6 +1789,9 @@ msgid ""
 "a non-BMP character and tkinter is built against Tcl/Tk 8.x.  Such a name is "
 "now rejected with a :exc:`ValueError`."
 msgstr ""
+":gh:`126219`: Corrigida uma falha em :class:`tkinter.Tk` quando *className* "
+"contém um caractere não-BMP e o tkinter é construído com Tcl/Tk 8.x. Tal "
+"nome é agora rejeitado com um :exc:`ValueError`."
 
 #: ../NEWS:767
 msgid ""
@@ -1724,12 +1805,18 @@ msgid ""
 "offset for ``time.struct_time`` values with ``tm_gmtoff`` set to ``None``, "
 "as returned by ``datetime.datetime.timetuple()``. Contributed by Xiao Yuan."
 msgstr ""
+":gh:`86165`: Corrige :func:`imaplib.Time2Internaldate` para usar o "
+"deslocamento do fuso horário local para valores de ``time.struct_time`` com "
+"``tm_gmtoff`` definido como ``None``, conforme retornado por ``datetime."
+"datetime.timetuple()``. Contribuição de Xiao Yuan."
 
 #: ../NEWS:775
 msgid ""
 ":gh:`151814`: Fix unbounded memory growth in :class:`io.TextIOWrapper` when "
 "repeatedly writing an empty string."
 msgstr ""
+":gh:`151814`: Corrige crescimento ilimitado de memória em :class:`io."
+"TextIOWrapper` ao escrever repetidamente uma string vazia."
 
 #: ../NEWS:778
 msgid ""
@@ -1739,12 +1826,19 @@ msgid ""
 "copy instead of a borrowed pointer to a window object that may be "
 "deallocated."
 msgstr ""
+":gh:`151695`: Corrige um uso-após-liberação no módulo :mod:`curses`. A "
+"codificação da tela inicial, usada por :func:`curses.unctrl` e :func:`curses."
+"ungetch` para codificar caracteres não-ASCII, é agora mantida como uma cópia "
+"privada em vez de um ponteiro emprestado para um objeto de janela que pode "
+"ser desalocado."
 
 #: ../NEWS:784
 msgid ""
 ":gh:`151596`: Add missing ``size`` positional argument to the pure-Python "
 "implementation of :meth:`io.TextIOBase.readline`."
 msgstr ""
+":gh:`151596`: Adiciona o argumento posicional ``size`` ausente à "
+"implementação em Python puro de :meth:`io.TextIOBase.readline`."
 
 #: ../NEWS:787
 msgid ""
@@ -1752,6 +1846,10 @@ msgid ""
 "key's ``__eq__`` or a subclass method mutates the dict during the copy. Now "
 "raises :exc:`RuntimeError` instead, as iteration does."
 msgstr ""
+":gh:`148660`: Corrige uma falha em :meth:`!collections.OrderedDict.copy` "
+"quando o ``__eq__`` de uma chave ou o método de uma subclasse altera o dict "
+"durante a cópia. Agora levanta :exc:`RuntimeError` em seu lugar, como faz a "
+"iteração."
 
 #: ../NEWS:791
 msgid ""
@@ -1761,6 +1859,11 @@ msgid ""
 "extended header is now read in bounded chunks, so its size field can no "
 "longer trigger memory exhaustion."
 msgstr ""
+":gh:`151497`: Abrir um arquivo :mod:`tarfile` não tenta mais pré-alocar um "
+"buffer enorme quando um membro manipulado ou truncado reinivindica um "
+"cabeçalho estendido sobredimensionado (um nome longo/link GNU ou um "
+"cabeçalho pax). O cabeçalho estendido é agora lido em blocos delimitados, de "
+"modo que seu campo de tamanho não pode mais disparar exaustão de memória."
 
 #: ../NEWS:797
 msgid ""
@@ -1768,12 +1871,18 @@ msgid ""
 "``_posixsubprocess.fork_exec``) when an ``argv`` item's :meth:`~os.PathLike."
 "__fspath__` concurrently mutates the ``args`` sequence being converted."
 msgstr ""
+":gh:`151403`: Corrigida uma falha em :class:`subprocess.Popen` (e "
+"``_posixsubprocess.fork_exec``) quando o :meth:`~os.PathLike.__fspath__` de "
+"um item de ``argv`` altera concorrentemente a sequência ``args`` sendo "
+"convertida."
 
 #: ../NEWS:802
 msgid ""
 ":gh:`151126`: Fix crash on unset :exc:`MemoryError` on allocation failure "
 "in :func:`ctypes.get_errno`."
 msgstr ""
+":gh:`151126`: Evita falha por :exc:`MemoryError` não definido na falha de "
+"alocação em :func:`ctypes.get_errno`."
 
 #: ../NEWS:805
 msgid ""
@@ -1783,16 +1892,26 @@ msgid ""
 "errors other than :exc:`TypeError`, such as the :exc:`ValueError` for an "
 "embedded null, are no longer replaced with a generic :exc:`TypeError`."
 msgstr ""
+":gh:`151416`: Corrige uma falha em :func:`os.spawnv` e :func:`os.spawnve` "
+"quando o método :meth:`~os.PathLike.__fspath__` de um item de *argv* altera "
+"a lista *argv* durante a conversão de argumentos. Erros de conversão de "
+"argumento de :func:`!os.spawnv` diferentes de :exc:`TypeError`, como o :exc:"
+"`ValueError` para um nulo embutido, não são mais substituídos por um :exc:"
+"`TypeError` genérico."
 
 #: ../NEWS:811
 msgid ":gh:`151337`: Avoid possible memory leak in ``tkinter.c`` on Windows."
 msgstr ""
+":gh:`151337`: Evita possível vazamento de memória em ``tkinter.c`` no "
+"Windows."
 
 #: ../NEWS:813
 msgid ""
 ":gh:`151126`: Fix a crash when :exc:`MemoryError` in :func:`!os."
 "_path_splitroot` was not set properly."
 msgstr ""
+":gh:`151126`: Corrige uma falha quando o :exc:`MemoryError` em :func:`!os."
+"_path_splitroot` não foi definido adequadamente."
 
 #: ../NEWS:816
 msgid ""
@@ -1815,12 +1934,18 @@ msgid ""
 "concurrently mutates the sequence being joined. The mutation is now reported "
 "as a :exc:`RuntimeError` instead."
 msgstr ""
+":gh:`151295`: Corrigida uma falha (uso-após-liberação) em :meth:`bytes.join` "
+"e :meth:`bytearray.join` que podia ocorrer se o :meth:`~object.__buffer__` "
+"de um item alterasse concorrentemente a sequência sendo unida. A alteração é "
+"agora relatada como um :exc:`RuntimeError`."
 
 #: ../NEWS:827
 msgid ""
 ":gh:`109940`: Fix Windows :mod:`venv` activation in ``cmd.exe`` to respect "
 "``VIRTUAL_ENV_DISABLE_PROMPT``."
 msgstr ""
+":gh:`109940`: Corrige a ativação do :mod:`venv` no Windows no ``cmd.exe`` "
+"para respeitar ``VIRTUAL_ENV_DISABLE_PROMPT``."
 
 #: ../NEWS:830
 msgid ""
@@ -1873,6 +1998,11 @@ msgid ""
 "over unredirected headers, consistent with :meth:`~urllib.request.Request."
 "get_header` and :meth:`~urllib.request.Request.header_items`."
 msgstr ""
+":gh:`47005`: Corrige :meth:`!urllib.request.AbstractHTTPHandler.do_open` "
+"para dar prioridade aos cabeçalhos regulares definidos via :meth:`~urllib."
+"request.Request.add_header` sobre cabeçalhos não redirecionados, consistente "
+"com :meth:`~urllib.request.Request.get_header` e :meth:`~urllib.request."
+"Request.header_items`."
 
 #: ../NEWS:859
 msgid ""
@@ -1890,6 +2020,9 @@ msgid ""
 "`socket.socket.recvmsg_into` that could occur if buffer sequences are "
 "concurrently mutated."
 msgstr ""
+":gh:`143988`: Corrigidas falhas em :meth:`socket.socket.sendmsg` e :meth:"
+"`socket.socket.recvmsg_into` que podiam ocorrer se sequências de buffer "
+"fossem alteradas concorrentemente."
 
 #: ../NEWS:870
 msgid ""
@@ -1905,12 +2038,19 @@ msgid ""
 "queued tasks after a worker process exited upon reaching its task limit. "
 "Based on a fix proposed by Tabrez Mohammed."
 msgstr ""
+":gh:`115634`: Corrige um impasse (deadlock) em :class:`concurrent.futures."
+"ProcessPoolExecutor` ao usar ``max_tasks_per_child``, presente desde que o "
+"recurso foi introduzido no Python 3.11. O executor parava de agendar tarefas "
+"na fila depois que um processo trabalhador saía ao atingir seu limite de "
+"tarefas. Baseado em uma correção proposta por Tabrez Mohammed."
 
 #: ../NEWS:880
 msgid ""
 ":gh:`79638`: Disallow all access in :mod:`urllib.robotparser` if the "
 "``robots.txt`` file is unreachable due to server or network errors."
 msgstr ""
+":gh:`79638`: Proíbe todo o acesso em :mod:`urllib.robotparser` se o arquivo "
+"``robots.txt`` for inalcançável devido a erros de servidor ou rede."
 
 #: ../NEWS:883
 msgid ""
@@ -1918,12 +2058,17 @@ msgid ""
 "instantiate :class:`unittest.TestCase`-derived subclasses that are also "
 "abstract base classes, which can't be instantiated."
 msgstr ""
+":gh:`120665`: Corrigido um problema onde os carregadores do ``unittest`` "
+"carregavam e instanciavam subclasses derivadas de :class:`unittest.TestCase` "
+"que também são classes base abstratas, as quais não podem ser instanciadas."
 
 #: ../NEWS:887
 msgid ""
 ":gh:`105708`: Accept an uppercase V prefix in IPvFuture addresses in :func:"
 "`urllib.parse.urlsplit`."
 msgstr ""
+":gh:`105708`: Aceita um prefixo V maiúsculo em endereços IPvFuture em :func:"
+"`urllib.parse.urlsplit`."
 
 #: ../NEWS:890
 msgid ""
@@ -1945,6 +2090,13 @@ msgid ""
 "<concurrent.futures.Future.result>` call re-raised the same object, "
 "appending another copy of the traceback to it."
 msgstr ""
+":gh:`101267`: Quando um processo trabalhador termina inesperadamente, :class:"
+"`concurrent.futures.ProcessPoolExecutor` agora define uma exceção :exc:"
+"`~concurrent.futures.process.BrokenProcessPool` separada em cada future "
+"pendente em vez de compartilhar uma única instância entre todos eles. "
+"Compartilhar uma exceção produzia rastreamentos de pilha malformados: cada "
+"chamada :meth:`Future.result() <concurrent.futures.Future.result>` re-"
+"levantava o mesmo objeto, anexando outra cópia do rastreamento a ele."
 
 #: ../NEWS:905
 msgid ""
@@ -1952,6 +2104,9 @@ msgid ""
 "Customized\" with \"Restart shell\" unchecked now reports that the shell is "
 "executing instead of restarting it anyway."
 msgstr ""
+":gh:`82183`: Quando o shell está ocupado executando código, usar \"Run... "
+"Customized\" com \"Restart shell\" desmarcado agora relata que o shell está "
+"executando em vez de reiniciá-lo de qualquer maneira."
 
 #: ../NEWS:909
 msgid ""
@@ -1959,6 +2114,9 @@ msgid ""
 "\"Auto squeeze min lines\", no longer saves an empty string as an invalid "
 "configuration value."
 msgstr ""
+":gh:`83653`: Deixar em branco uma entrada inteira na caixa de diálogo "
+"Configurações do IDLE, como \"Auto squeeze min lines\", não salva mais uma "
+"string vazia como um valor de configuração inválido."
 
 #: ../NEWS:913
 msgid ""
@@ -1966,6 +2124,9 @@ msgid ""
 "txt`` extension and lists text files before Python files, since their "
 "content is not Python source."
 msgstr ""
+":gh:`65339`: Salvar o Shell do IDLE ou uma janela de saída agora usa como "
+"padrão a extensão ``.txt`` e lista arquivos de texto antes de arquivos "
+"Python, já que seu conteúdo não é código-fonte Python."
 
 #: ../NEWS:917
 msgid ""
@@ -1973,6 +2134,10 @@ msgid ""
 "always contains a full directory path, even for an unsaved editor or the "
 "Shell. This shows in the grep output which directory was searched."
 msgstr ""
+":gh:`80504`: O campo \"In files:\" da caixa de diálogo Find in Files do IDLE "
+"agora sempre contém um caminho de diretório completo, mesmo para um editor "
+"não salvo ou para o Shell. Isso mostra na saída do grep qual diretório foi "
+"pesquisado."
 
 #: ../NEWS:921
 msgid ""
@@ -1980,6 +2145,10 @@ msgid ""
 "user process. User code run in IDLE can no longer import ``idlelib`` "
 "submodules as top-level modules, such as ``import help``."
 msgstr ""
+":gh:`134300`: Não adiciona o diretório ``idlelib`` ao caminho do processo de "
+"usuário do IDLE. O código do usuário executado no IDLE não pode mais "
+"importar submódulos do ``idlelib`` como módulos de nível superior, como "
+"``import help``."
 
 #: ../NEWS:925
 msgid ""
@@ -1987,6 +2156,10 @@ msgid ""
 "is closed: deleting a key binding for a sequence that is not bound to the "
 "virtual event is now ignored instead of raising a ``ValueError``."
 msgstr ""
+":gh:`89360`: Corrige uma falha rara no editor IDLE quando a janela de "
+"autocompletar é fechada: excluir uma vinculação de chave para uma sequência "
+"que não está vinculada ao evento virtual é agora ignorado em vez de levantar "
+"um ``ValueError``."
 
 #: ../NEWS:929
 msgid ""
@@ -1994,12 +2167,18 @@ msgid ""
 "search direction is \"Up\" and \"Wrap around\" is off: it now replaces all "
 "matches above the current position instead of only the first one."
 msgstr ""
+":gh:`71956`: Corrige o Replace All na caixa de diálogo Substituir do editor "
+"IDLE quando a direção de pesquisa é \"Up\" e \"Wrap around\" está desligado: "
+"agora substitui todas as correspondências acima da posição atual em vez de "
+"apenas a primeira."
 
 #: ../NEWS:933
 msgid ""
 ":gh:`152728`: Move functions run.fix_scaling, editor.fixwordbreaks (as "
 "fix_word_breaks) and pyshell.fix_x11_paste to idlelib.util."
 msgstr ""
+":gh:`152728`: Move as funções run.fix_scaling, editor.fixwordbreaks (como "
+"fix_word_breaks) e pyshell.fix_x11_paste para idlelib.util."
 
 #: ../NEWS:936
 msgid ""
@@ -2007,6 +2186,9 @@ msgid ""
 "``Idle`` on X11, so that window managers group and label them correctly "
 "instead of using the default ``Toplevel``."
 msgstr ""
+":gh:`66331`: Define a propriedade de janela ``WM_CLASS`` das janelas do IDLE "
+"como ``Idle`` no X11, para que os gerenciadores de janelas as agrupem e e "
+"listem corretamente em vez de usar o ``Toplevel`` padrão."
 
 #: ../NEWS:940
 msgid ""
@@ -2015,6 +2197,10 @@ msgid ""
 "ASCII data (such as non-ASCII paths) from being corrupted and makes the "
 "files portable between environments."
 msgstr ""
+":gh:`85320`: O IDLE agora lê e escreve seus arquivos de configuração e o "
+"arquivo de pontos de interrupção (breakpoints) usando UTF-8 em vez da "
+"codificação da localidade. Isso evita que dados não-ASCII (como caminhos não-"
+"ASCII) sejam corrompidos e torna os arquivos portáveis entre ambientes."
 
 #: ../NEWS:945
 msgid ""
@@ -2068,6 +2254,10 @@ msgid ""
 "oriented towards Python rather than Tcl/Tk, with corrected return types and "
 "``versionadded``/``versionchanged`` information."
 msgstr ""
+":gh:`86726`: Expande grandemente a documentação do :mod:`tkinter` para "
+"cobrir toda a API pública do pacote e seus submódulos. As descrições são "
+"orientadas ao Python em vez do Tcl/Tk, com tipos de retorno corrigidos e "
+"informações de ``versionadded``/``versionchanged``."
 
 #: ../NEWS:968
 msgid ""
@@ -2147,6 +2337,9 @@ msgid ""
 ":gh:`151905`: Fix OOM error handling in :c:func:`PyFrame_GetBack` to "
 "propagate exceptions instead of masking them as None."
 msgstr ""
+":gh:`151905`: Corrige o tratamento de erro de falta de memória (OOM) em :c:"
+"func:`PyFrame_GetBack` para propagar exceções em vez de mascará-las como "
+"None."
 
 #: ../NEWS:1000
 msgid ""
@@ -2201,6 +2394,9 @@ msgid ""
 "startup, dump the Python path configuration to help users debugging their "
 "configuration. Patch by Victor Stinner."
 msgstr ""
+":gh:`151253`: Se ``import encodings`` (primeira importação) falhar na "
+"inicialização do Python, descarrega a configuração do caminho do Python para "
+"ajudar os usuários a depurarem sua configuração. Patch por Victor Stinner."
 
 #: ../NEWS:1022
 msgid ""
@@ -2217,12 +2413,16 @@ msgid ""
 ":gh:`151065`: Fix memory leak when using the :ref:`mimalloc memory allocator "
 "<mimalloc>`."
 msgstr ""
+":gh:`151065`: Corrige vazamento de memória ao usar o :ref:`alocador de "
+"memória mimalloc <mimalloc>`."
 
 #: ../NEWS:1030
 msgid ""
 ":gh:`150988`: Fix a reference leak in :exc:`OSError` when attributes are set "
 "before ``super().__init__()``."
 msgstr ""
+":gh:`150988`: Corrige um vazamento de referência em :exc:`OSError` quando "
+"atributos são definidos antes de ``super().__init__()``."
 
 #: ../NEWS:1033
 msgid ""
@@ -2257,6 +2457,9 @@ msgid ""
 "calling :c:func:`Py_Exit`, when running a script, a command, or the REPL. "
 "Patch by Victor Stinner."
 msgstr ""
+":gh:`152132`: Corrige :c:func:`Py_RunMain` para retornar um código de saída, "
+"em vez de chamar :c:func:`Py_Exit`, ao executar um script, um comando ou o "
+"REPL. Patch por Victor Stinner."
 
 #: ../NEWS:1046
 msgid ""
@@ -2275,12 +2478,17 @@ msgid ""
 ":gh:`126877`: Fix the :program:`configure` check for Tcl/Tk which could "
 "wrongly succeed with optimizing compilers when the libraries are missing."
 msgstr ""
+":gh:`126877`: Corrige a verificação do :program:`configure` para Tcl/Tk, que "
+"podia ser bem-sucedida incorretamente com compiladores otimizadores quando "
+"as bibliotecas estavam ausentes."
 
 #: ../NEWS:1054
 msgid ""
 ":gh:`153438`: Update Windows build and installer tooling and documentation "
 "to use the current download URL for ``nuget.exe``."
 msgstr ""
+":gh:`153438`: Atualiza ferramentas e documentação de construção e instalador "
+"do Windows para usar a URL de download atual do ``nuget.exe``."
 
 #: ../NEWS:1057
 msgid ""
@@ -2290,6 +2498,11 @@ msgid ""
 "``NCURSES_EXT_FUNCS`` macro, so they are exposed when building against other "
 "curses implementations such as NetBSD curses that provide them."
 msgstr ""
+":gh:`152502`: O módulo :mod:`curses` agora detecta ``set_escdelay()``, "
+"``set_tabsize()`` e as variáveis ``ESCDELAY`` e ``TABSIZE`` com sondagens de "
+"capacidade do :program:`configure` em vez da macro ``NCURSES_EXT_FUNCS`` "
+"específica do ncurses, portanto elas são expostas ao compilar contra outras "
+"implementações de curses que as fornecem, como o curses do NetBSD."
 
 #: ../NEWS:1063
 msgid ":gh:`138800`: Fix library name in python3.pc on Android."
@@ -2334,7 +2547,7 @@ msgstr ""
 
 #: ../NEWS:1096
 msgid ":gh:`151130`: Add more tests for ``PyWeakref_*`` C API."
-msgstr ""
+msgstr ":gh:`151130`: Adiciona mais testes para a API C ``PyWeakref_*``."
 
 #: ../NEWS:1098
 msgid ""
@@ -2352,6 +2565,10 @@ msgid ""
 "class:`bz2.BZ2Decompressor` is reused after a decompression error. The "
 "decompressor now becomes unusable after libbz2 reports an error."
 msgstr ""
+":gh:`150599`: Corrige um possível estouro de buffer de pilha (stack buffer "
+"overflow) no :mod:`bz2` quando um :class:`bz2.BZ2Decompressor` é reutilizado "
+"após um erro de descompressão. O descompressor agora se torna inutilizável "
+"depois que a libbz2 relata um erro."
 
 #: ../NEWS:1110
 msgid ""
@@ -2359,6 +2576,9 @@ msgid ""
 "realpath` when checking whether the destination is inside the source "
 "directory, preventing a symlink-based bypass of that guard."
 msgstr ""
+":gh:`149835`: :func:`shutil.move` agora resolve links simbólicos via :func:"
+"`os.path.realpath` ao verificar se o destino está dentro do diretório de "
+"origem, impedindo um desvio dessa proteção baseado em link simbólico."
 
 #: ../NEWS:1114
 msgid ""
@@ -2468,12 +2688,17 @@ msgid ""
 "`TypeError` and :exc:`IndexError` for type and size mismatches respectively, "
 "even when the target slice is empty."
 msgstr ""
+":gh:`150913`: Corrige a atribuição de fatia em :class:`sqlite3.Blob` para "
+"levantar :exc:`TypeError` e :exc:`IndexError` para inconsistências de tipo e "
+"tamanho, respectivamente, mesmo quando a fatia de destino está vazia."
 
 #: ../NEWS:1185
 msgid ""
 ":gh:`143008`: Fix race conditions when re-initializing a :class:`io."
 "TextIOWrapper` object."
 msgstr ""
+":gh:`143008`: Corrige condições de corrida ao re-inicializar um objeto :"
+"class:`io.TextIOWrapper`."
 
 #: ../NEWS:1188
 msgid ":gh:`150685`: Update bundled pip to 26.1.2"
@@ -2614,6 +2839,9 @@ msgid ""
 "where the ``methodname`` was not being escaped before interpolation into the "
 "XML body."
 msgstr ""
+":gh:`148954`: Corrige vulnerabilidade de injeção XML em :func:`xmlrpc.client."
+"dumps` onde o ``methodname`` não estava sendo escapado antes da interpolação "
+"no corpo do XML."
 
 #: ../NEWS:1269
 msgid ""
@@ -2781,16 +3009,21 @@ msgid ""
 ":gh:`91099`: :meth:`imaplib.IMAP4.login` now raises exceptions with :class:"
 "`str` instead of :class:`bytes`. Patch by Florian Best."
 msgstr ""
+":gh:`91099`: :meth:`imaplib.IMAP4.login` agora levanta exceções com :class:"
+"`str` em vez de :class:`bytes`. Patch por Florian Best."
 
 #: ../NEWS:1369
 msgid ":issue:`6699`: Warn the user if a file will be overwritten when saving."
 msgstr ""
+":issue:`6699`: Avisa o usuário se um arquivo for sobrescrito ao salvar."
 
 #: ../NEWS:1374
 msgid ""
 ":gh:`150319`: Generic builtin and standard library types now document the "
 "meaning of their type parameters."
 msgstr ""
+":gh:`150319`: Tipos genéricos embutidos e da biblioteca padrão agora "
+"documentam o significado de seus parâmetros de tipo."
 
 #: ../NEWS:1377
 msgid ""
@@ -2811,12 +3044,17 @@ msgid ""
 "`os.rename` since nonatomic move might be used even if the files are on the "
 "same filesystem. Patch by Fang Li"
 msgstr ""
+":gh:`109503`: Corrige a documentação para :func:`shutil.move` no uso do :"
+"func:`os.rename`, já que a movimentação não-atômica pode ser usada mesmo se "
+"os arquivos estiverem no mesmo sistema de arquivos. Patch por Fang Li"
 
 #: ../NEWS:1391
 msgid ""
 ":gh:`151112`: Fix a crash in the compiler that could occur when running out "
 "of memory."
 msgstr ""
+":gh:`151112`: Corrige uma falha no compilador que podia ocorrer ao ficar sem "
+"memória."
 
 #: ../NEWS:1394
 msgid ""
@@ -2830,7 +3068,7 @@ msgstr ""
 
 #: ../NEWS:1399
 msgid "Now these places raise proper :exc:`MemoryError` errors."
-msgstr ""
+msgstr "Agora esses locais levantam erros :exc:`MemoryError` adequados."
 
 #: ../NEWS:1401
 msgid ""
@@ -2838,6 +3076,9 @@ msgid ""
 "null bytes, which caused it to bypass the :data:`sys.modules` cache and "
 "create duplicate module objects."
 msgstr ""
+":gh:`150633`: Corrige o importador congelado aceitando nomes de módulos com "
+"bytes nulos embutidos, o que fazia com que ele ignorasse o cache do :data:"
+"`sys.modules` e criasse objetos de módulo duplicados."
 
 #: ../NEWS:1405
 msgid ""
@@ -2865,6 +3106,9 @@ msgid ""
 ":gh:`150207`: Fix a crash when a memory allocation fails during tokenizer "
 "initialization. A proper :exc:`MemoryError` is now raised instead."
 msgstr ""
+":gh:`150207`: Corrige uma falha quando a alocação de memória falha durante a "
+"inicialização do tokenizador. Uma exceção :exc:`MemoryError` adequado é "
+"agora levantada em seu lugar."
 
 #: ../NEWS:1420
 msgid ""
@@ -2948,6 +3192,9 @@ msgid ""
 "and Valgrind: add ``extern \"C++\" scope`` for the C++ template. Patch by "
 "Victor Stinner."
 msgstr ""
+":gh:`150907`: Corrige o arquivo de cabeçalho ``dynamic_annotations.h`` "
+"quando construído com C++ e Valgrind: adiciona ``extern \"C++\" scope`` para "
+"o template C++. Patch por Victor Stinner."
 
 #: ../NEWS:1473
 msgid ""
