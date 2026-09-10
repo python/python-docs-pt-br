@@ -1,5 +1,5 @@
-1 directory  61.15% done
-└── 3.10/  61.15% done
+1 directory  61.19% done
+└── 3.10/  61.19% done
     ├── c-api/  53.01% done
     │   ├── allocation.po                 88.0% translated     8/9
     │   ├── arg.po                        98.0% translated 193/195
@@ -56,7 +56,7 @@
     ├── install/  72.62% done
     │   └── index.po                      74.0% translated 168/226
     ├── installing/  100.00% done
-    ├── library/  56.22% done
+    ├── library/  56.30% done
     │   ├── _thread.po                    95.0% translated   39/41
     │   ├── argparse.po                   88.0% translated 256/290
     │   ├── array.po                      98.0% translated   81/82
@@ -147,7 +147,7 @@
     │   ├── io.po                         16.0% translated  41/245
     │   ├── ipaddress.po                  98.0% translated 155/158
     │   ├── itertools.po                  83.0% translated 128/153
-    │   ├── logging.config.po             85.0% translated 114/133
+    │   ├── logging.config.po             88.0% translated 118/133
     │   ├── logging.handlers.po           64.0% translated 173/268
     │   ├── logging.po                    28.0% translated  96/334
     │   ├── mailbox.po                     8.0% translated  24/282
@@ -171,7 +171,7 @@
     │   ├── pprint.po                     73.0% translated   31/42
     │   ├── profile.po                    21.0% translated  34/155
     │   ├── pyexpat.po                    15.0% translated  23/151
-    │   ├── queue.po                      11.0% translated    5/42
+    │   ├── queue.po                      19.0% translated    8/42
     │   ├── random.po                     97.0% translated   94/96
     │   ├── readline.po                   97.0% translated   47/48
     │   ├── reprlib.po                    80.0% translated   17/21
