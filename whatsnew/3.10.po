@@ -5,16 +5,16 @@
 #
 # Translators:
 # python-doc bot, 2025
-# Rafael Fontenelle <rffontenelle@gmail.com>, 2025
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2026
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-31 15:58+0000\n"
+"POT-Creation-Date: 2026-09-09 17:24+0000\n"
 "PO-Revision-Date: 2025-09-16 00:02+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2026\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -755,6 +755,10 @@ msgid ""
 "convert from offset to line number should use the new :meth:`~codeobject."
 "co_lines` method instead."
 msgstr ""
+"O atributo :attr:`!codeobject.co_lnotab` de :ref:`objetos código <code-"
+"objects>` foi descontinuado e será removido no 3.12. O código que precisa "
+"ser convertido do deslocamento para o número da linha deve usar o novo "
+"método :meth:`~codeobject.co_lines`."
 
 #: ../../whatsnew/3.10.rst:412
 msgid "PEP 634: Structural Pattern Matching"
@@ -2064,6 +2068,8 @@ msgid ""
 "Added ``slots`` parameter in :deco:`dataclasses.dataclass` decorator. "
 "(Contributed by Yurii Karabas in :issue:`42269`)"
 msgstr ""
+"Adicionado o parâmetro ``slots`` no decorador :deco:`dataclasses.dataclass`. "
+"(Contribuição de Yurii Karabas em :issue:`42269`)"
 
 #: ../../whatsnew/3.10.rst:1003
 msgid "Keyword-only fields"
@@ -2983,6 +2989,10 @@ msgid ""
 "readily interpretable by type checkers. (Contributed by Bas van Beek in :"
 "issue:`41810`.)"
 msgstr ""
+"Reintroduz as classes :class:`types.EllipsisType`, :class:`types.NoneType` "
+"e :class:`types.NotImplementedType`, fornecendo um novo conjunto de tipos "
+"prontamente interpretáveis pelos verificadores de tipo. (Contribuição de Bas "
+"van Beek em :issue:`41810`.)"
 
 #: ../../whatsnew/3.10.rst:1455
 msgid "typing"
@@ -3075,6 +3085,13 @@ msgid ""
 "deco:`!runtime_checkable` decorator if they want runtime protocols. "
 "(Contributed by Yurii Karabas in :issue:`38908`.)"
 msgstr ""
+"Subclasses de ``typing.Protocol`` que apenas têm variáveis de dados "
+"declaradas agora irão levantar um ``TypeError`` quando verificadas com "
+"``isinstance`` a menos que sejam decoradas com :deco:`~typing."
+"runtime_checkable`. Anteriormente, essas verificações eram aprovadas "
+"silenciosamente. Os usuários devem decorar suas subclasses com o decorador :"
+"deco:`!runtime_checkable` se quiserem protocolos de tempo de execução. "
+"(Contribuição de Yurii Karabas em :issue:`38908`.)"
 
 #: ../../whatsnew/3.10.rst:1494
 msgid ""
@@ -3371,6 +3388,19 @@ msgid ""
 "appropriate to help identify code which needs updating during this "
 "transition."
 msgstr ""
+"A partir desta versão, haverá um esforço concentrado para começar a limpar a "
+"semântica de importação antiga que foi mantida para compatibilidade com "
+"Python 2.7. Especificamente, :meth:`!find_loader`/:meth:`!find_module` "
+"(substituídos por :meth:`~importlib.abc.MetaPathFinder.find_spec`), "
+"``importlib.abc.Loader.load_module`` (substituído por :meth:`~importlib.abc."
+"Loader.exec_module`), :meth:`!module_repr` (que o sistema de importação "
+"cuida para você), o atributo ``__package__`` (substituído por ``__spec__."
+"parent``), o atributo ``__loader__`` (substituído por ``__spec__.loader``), "
+"e o atributo ``__cached__`` ( substituído por ``__spec__.cached``) será "
+"removido lentamente (assim como outras classes e métodos em :mod:"
+"`importlib`). :exc:`ImportWarning` e/ou :exc:`DeprecationWarning` será "
+"levantada conforme apropriado para ajudar a identificar o código que precisa "
+"ser atualizado durante esta transição."
 
 #: ../../whatsnew/3.10.rst:1637
 msgid ""
@@ -3421,6 +3451,10 @@ msgid ""
 "triggers an :exc:`ImportWarning` as :meth:`~importlib.abc.Loader."
 "exec_module` is preferred. (Contributed by Brett Cannon in :issue:`26131`.)"
 msgstr ""
+"O uso de ``importlib.abc.Loader.load_module`` pelo sistema de importação "
+"agora dispara uma exceção :exc:`ImportWarning`, pois :meth:`~importlib.abc."
+"Loader.exec_module` é preferível. (Contribuição de Brett Cannon em :issue:"
+"`26131`.)"
 
 #: ../../whatsnew/3.10.rst:1660
 msgid ""
@@ -4006,6 +4040,13 @@ msgid ""
 "with this syntax: it also inherits the current builtins. (Contributed by "
 "Victor Stinner in :issue:`42990`.)"
 msgstr ""
+"O construtor :class:`types.FunctionType` agora herda os embutidos atuais se "
+"o dicionário *globals* tiver nenhuma chave ``\"__builtins__\"``, em vez de "
+"usar ``{\"None\": None}`` como embutidos: o mesmo comportamento que as "
+"funções :func:`eval` e :func:`exec`. Definir uma função com ``def "
+"function(...): ...`` no Python não é afetado, globais não podem ser "
+"substituídos com esta sintaxe: também herda os embutidos atuais. "
+"(Contribuição de Victor Stinner em :issue:`42990`.)"
 
 #: ../../whatsnew/3.10.rst:1940
 msgid "Changes in the C API"
@@ -4547,6 +4588,12 @@ msgid ""
 "initialized). Use the new :ref:`init-config` API to get the :ref:`init-path-"
 "config`. (Contributed by Victor Stinner in :issue:`42260`.)"
 msgstr ""
+"As funções :c:func:`!Py_GetPath`, :c:func:`!Py_GetPrefix`, :c:func:`!"
+"Py_GetExecPrefix`, :c:func:`!Py_GetProgramFullPath` , :c:func:`!"
+"Py_GetPythonHome` e :c:func:`!Py_GetProgramName` agora retornam ``NULL`` se "
+"chamadas antes de :c:func:`Py_Initialize` (antes do Python ser "
+"inicializado). Use a nova API de :ref:`init-config` para obter a :ref:`init-"
+"path-config`. (Contribuição de Victor Stinner em :issue:`42260`.)"
 
 #: ../../whatsnew/3.10.rst:2187
 msgid ""
