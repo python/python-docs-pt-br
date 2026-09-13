@@ -1,5 +1,5 @@
-1 directory  67.15% done
-└── 3.12/  67.15% done
+1 directory  67.14% done
+└── 3.12/  67.14% done
     ├── c-api/  54.24% done
     │   ├── exceptions.po                 68.0% translated 251/366
     │   ├── frame.po                      80.0% translated   29/36
@@ -25,7 +25,7 @@
     │   ├── extending.po                  28.0% translated  59/207
     │   ├── newtypes.po                    6.0% translated   8/117
     │   └── newtypes_tutorial.po          84.0% translated 149/177
-    ├── faq/  99.68% done
+    ├── faq/  99.67% done
     │   └── library.po                    96.0% translated 157/162
     ├── howto/  61.54% done
     │   ├── descriptor.po                 77.0% translated 181/233
