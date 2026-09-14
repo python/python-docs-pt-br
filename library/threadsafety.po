@@ -3,13 +3,17 @@
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# Translators:
+# Transifex Bot <>, 2026
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-11 17:18+0000\n"
+"POT-Creation-Date: 2026-09-11 18:24+0000\n"
 "PO-Revision-Date: 2026-05-08 17:18+0000\n"
+"Last-Translator: Transifex Bot <>, 2026\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "Language: pt_BR\n"
@@ -21,7 +25,7 @@ msgstr ""
 
 #: ../../library/threadsafety.rst:5
 msgid "Thread Safety Guarantees"
-msgstr ""
+msgstr "Garantias de segurança de thread"
 
 #: ../../library/threadsafety.rst:7
 msgid ""
@@ -30,16 +34,23 @@ msgid ""
 "with the :term:`GIL` disabled (free-threaded mode). When the GIL is enabled, "
 "most operations are implicitly serialized."
 msgstr ""
+"Esta página documenta as garantias de segurança de thread para tipos "
+"embutido na construção com threads livres do Python. As garantias aqui "
+"descritas aplicam-se ao utilizar o Python com a :term:`GIL` desativada (modo "
+"threads livres). Quando a GIL está ativada, a maioria das operações é "
+"serializada implicitamente."
 
 #: ../../library/threadsafety.rst:12
 msgid ""
 "For general guidance on writing thread-safe code in free-threaded Python, "
 "see :ref:`freethreading-python-howto`."
 msgstr ""
+"Para orientações gerais sobre como escrever código seguro para thread no "
+"Python com threads livres, consulte :ref:`freethreading-python-howto`."
 
 #: ../../library/threadsafety.rst:19
 msgid "Thread safety levels"
-msgstr ""
+msgstr "Níveis de segurança de threads"
 
 #: ../../library/threadsafety.rst:21
 msgid ""
@@ -47,10 +58,13 @@ msgid ""
 "safety guarantees of each function. The levels are listed from least to most "
 "safe."
 msgstr ""
+"A documentação da API C usa os seguintes níveis para descrever as garantias "
+"de segurança de threads de cada função. Os níveis estão listados do menos "
+"para o mais seguro."
 
 #: ../../library/threadsafety.rst:28
 msgid "Incompatible"
-msgstr ""
+msgstr "Incompatível"
 
 #: ../../library/threadsafety.rst:30
 msgid ""
@@ -59,6 +73,10 @@ msgid ""
 "state in an unsynchronized way and must only be called from a single thread "
 "throughout the program's lifetime."
 msgstr ""
+"Uma função ou operação que não pode se tornar segura para uso concorrente "
+"mesmo com sincronização externa. Código incompatível normalmente acessa o "
+"estado global de maneira não sincronizada e deve ser chamado apenas a partir "
+"de uma única thread durante todo o tempo de vida do programa."
 
 #: ../../library/threadsafety.rst:35
 msgid ""
@@ -66,10 +84,14 @@ msgid ""
 "or environment variables, where concurrent calls from any threads, even with "
 "external locking, can conflict with the runtime or other libraries."
 msgstr ""
+"Exemplo: uma função que modifica o estado em todo o processo, como "
+"manipuladores de sinais ou variáveis de ambiente, onde chamadas concorrentes "
+"de quaisquer threads, mesmo com trava externo, podem conflitar com o "
+"ambiente de execução (*runtime*) ou com outras bibliotecas."
 
 #: ../../library/threadsafety.rst:42
 msgid "Compatible"
-msgstr ""
+msgstr "Compatível"
 
 #: ../../library/threadsafety.rst:44
 msgid ""
@@ -79,6 +101,11 @@ msgid ""
 "such synchronization, concurrent calls may produce :term:`race conditions "
 "<race condition>` or :term:`data races <data race>`."
 msgstr ""
+"Uma função ou operação que é segura para ser chamada a partir de múltiplas "
+"threads *desde que* o chamador forneça a sincronização externa apropriada, "
+"por exemplo mantendo uma :term:`trava` durante a duração de cada chamada. "
+"Sem tal sincronização, chamadas concorrentes podem produzir :term:`condições "
+"de corrida <race condition>` ou :term:`corridas de dados <data race>`."
 
 #: ../../library/threadsafety.rst:50
 msgid ""
@@ -86,10 +113,13 @@ msgid ""
 "state is not protected by a lock. Callers must ensure that no two threads "
 "access the same object at the same time."
 msgstr ""
+"Exemplo: uma função que lê ou escreve em um objeto cujo estado interno não é "
+"protegido por uma trava. Os chamadores devem garantir que duas threads não "
+"acessem o mesmo objeto ao mesmo tempo."
 
 #: ../../library/threadsafety.rst:57
 msgid "Safe on distinct objects"
-msgstr ""
+msgstr "Seguro em objetos distintos"
 
 #: ../../library/threadsafety.rst:59
 msgid ""
@@ -99,6 +129,11 @@ msgid ""
 "not pass the same object (or objects that share underlying state) as "
 "arguments."
 msgstr ""
+"Uma função ou operação que é segura para ser chamada a partir de múltiplas "
+"threads sem sincronização externa, desde que cada thread opere em um objeto "
+"**diferente**. Duas threads podem chamar a função ao mesmo tempo, mas não "
+"devem passar o mesmo objeto (ou objetos que compartilham estado subjacente) "
+"como argumentos."
 
 #: ../../library/threadsafety.rst:65
 msgid ""
@@ -107,10 +142,14 @@ msgid ""
 "safely, but concurrent calls on the *same* instance require external "
 "synchronization."
 msgstr ""
+"Exemplo: uma função que modifica campos de uma struct usando escritas não "
+"atômicas. Duas threads podem chamar a função cada uma em sua própria "
+"instância de struct com segurança, mas chamadas concorrentes na *mesma* "
+"instância exigem sincronização externa."
 
 #: ../../library/threadsafety.rst:73
 msgid "Safe on shared objects"
-msgstr ""
+msgstr "Seguro em objetos compartilhados"
 
 #: ../../library/threadsafety.rst:75
 msgid ""
@@ -120,6 +159,11 @@ msgid ""
 "section-api>`) to protect shared mutable state, so callers do not need to "
 "supply their own locking."
 msgstr ""
+"Uma função ou operação que é segura para uso concorrente no **mesmo** "
+"objeto. A implementação usa sincronização interna (como :term:`travas por "
+"objeto <per-object lock>` ou :ref:`seções críticas <python-critical-section-"
+"api>`) para proteger o estado mutável compartilhado, de modo que os "
+"chamadores não precisam fornecer sua própria trava."
 
 #: ../../library/threadsafety.rst:81
 msgid ""
@@ -127,10 +171,13 @@ msgid ""
 "the same :c:type:`PyListObject` - it uses internal synchronization to "
 "serialize access."
 msgstr ""
+"Exemplo: :c:func:`PyList_GetItemRef` pode ser chamada a partir de múltiplas "
+"threads no mesmo :c:type:`PyListObject` - ela usa sincronização interna para "
+"serializar o acesso."
 
 #: ../../library/threadsafety.rst:88
 msgid "Atomic"
-msgstr ""
+msgstr "Atômica"
 
 #: ../../library/threadsafety.rst:90
 msgid ""
@@ -138,26 +185,33 @@ msgid ""
 "respect to other threads - it executes instantaneously from the perspective "
 "of other threads. This is the strongest form of thread safety."
 msgstr ""
+"Uma função ou operação que parece :term:`atômica <atomic operation>` em "
+"relação a outras threads - ela executa instantaneamente da perspectiva de "
+"outras threads. Esta é a forma mais forte de segurança de threads."
 
 #: ../../library/threadsafety.rst:94
 msgid ""
 "Example: :c:func:`PyMutex_IsLocked` performs an atomic read of the mutex "
 "state and can be called from any thread at any time."
 msgstr ""
+"Exemplo: :c:func:`PyMutex_IsLocked` realiza uma leitura atômica do estado do "
+"mutex e pode ser chamada a partir de qualquer thread a qualquer momento."
 
 #: ../../library/threadsafety.rst:101
 msgid "Thread safety for list objects"
-msgstr ""
+msgstr "Segurança de threads para objetos lista"
 
 #: ../../library/threadsafety.rst:103
 msgid ""
 "Reading a single element from a :class:`list` is :term:`atomic <atomic "
 "operation>`:"
 msgstr ""
+"Ler um único elemento de uma :class:`list` é :term:`atômico <atomic "
+"operation>`:"
 
 #: ../../library/threadsafety.rst:106
 msgid "lst[i]   # list.__getitem__"
-msgstr ""
+msgstr "lst[i]   # list.__getitem__"
 
 #: ../../library/threadsafety.rst:111
 msgid ""
@@ -165,6 +219,9 @@ msgid ""
 "operation>` reads of each item to perform their function. That means that "
 "they may return results affected by concurrent modifications:"
 msgstr ""
+"Os seguintes métodos percorrem a lista e usam leituras :term:`atômicas "
+"<atomic operation>` de cada item para realizar sua função. Isso significa "
+"que eles podem retornar resultados afetados por modificações concorrentes:"
 
 #: ../../library/threadsafety.rst:115
 msgid ""
@@ -172,6 +229,9 @@ msgid ""
 "lst.index(item)\n"
 "lst.count(item)"
 msgstr ""
+"item in lst\n"
+"lst.index(item)\n"
+"lst.count(item)"
 
 #: ../../library/threadsafety.rst:122
 msgid ""
@@ -179,23 +239,32 @@ msgid ""
 "object lock>`. They do not block concurrent modifications. Other operations "
 "that hold a lock will not block these from observing intermediate states."
 msgstr ""
+"Todas as operações acima evitam adquirir :term:`travas por objeto <per-"
+"object lock>`. Elas não travam modificações concorrentes. Outras operações "
+"que mantêm uma trava não impedirão que estas observem estados intermediários."
 
 #: ../../library/threadsafety.rst:127
 msgid ""
 "All other operations from here on block using the :term:`per-object lock`."
 msgstr ""
+"Todas as outras operações a partir daqui bloqueiam usando o :term:`trava por "
+"objeto <per-object lock>`."
 
 #: ../../library/threadsafety.rst:129
 msgid ""
 "Writing a single item via ``lst[i] = x`` is safe to call from multiple "
 "threads and will not corrupt the list."
 msgstr ""
+"Escrever um único item via ``lst[i] = x`` é seguro para chamar a partir de "
+"múltiplas threads e não corromperá a lista."
 
 #: ../../library/threadsafety.rst:132
 msgid ""
 "The following operations return new objects and appear :term:`atomic <atomic "
 "operation>` to other threads:"
 msgstr ""
+"As seguintes operações retornam novos objetos e parecem :term:`atômicas "
+"<atomic operation>` para outras threads:"
 
 #: ../../library/threadsafety.rst:135
 msgid ""
@@ -203,24 +272,35 @@ msgid ""
 "x * lst        # repeats lst x times into a new list\n"
 "lst.copy()     # returns a shallow copy of the list"
 msgstr ""
+"lst1 + lst2    # concatena duas listas em uma nova lista\n"
+"x * lst        # repete lst x vezes em uma nova lista\n"
+"lst.copy()     # retorna uma cópia rasa da lista"
 
 #: ../../library/threadsafety.rst:142
 msgid ""
 "The following methods that only operate on a single element with no shifting "
 "required are :term:`atomic <atomic operation>`:"
 msgstr ""
+"Os seguintes métodos que operam apenas em um único elemento sem necessidade "
+"de deslocamento são :term:`atômicos <atomic operation>`:"
 
 #: ../../library/threadsafety.rst:145
 msgid ""
 "lst.append(x)  # append to the end of the list, no shifting required\n"
 "lst.pop()      # pop element from the end of the list, no shifting required"
 msgstr ""
+"lst.append(x)  # acrescenta ao final da lista; não é necessário deslocar "
+"elementos\n"
+"lst.pop()      # remove o elemento do final da lista; não é necessário "
+"deslocar os demais elementos"
 
 #: ../../library/threadsafety.rst:151
 msgid ""
 "The :meth:`~list.clear` method is also :term:`atomic <atomic operation>`. "
 "Other threads cannot observe elements being removed."
 msgstr ""
+"O método :meth:`~list.clear` também é :term:`atômico <atomic operation>`. "
+"Outras threads não podem observar elementos sendo removidos."
 
 #: ../../library/threadsafety.rst:154
 msgid ""
@@ -228,12 +308,18 @@ msgid ""
 "Other threads cannot observe intermediate states during sorting, but the "
 "list appears empty for the duration of the sort."
 msgstr ""
+"O método :meth:`~list.sort` não é :term:`atômico <atomic operation>`. Outras "
+"threads não podem observar estados intermediários durante a ordenação, mas a "
+"lista parece vazia durante a execução da ordenação."
 
 #: ../../library/threadsafety.rst:158
 msgid ""
 "The following operations may allow :term:`lock-free` operations to observe "
 "intermediate states since they modify multiple elements in place:"
 msgstr ""
+"As seguintes operações podem permitir que operações :term:`livres de travas "
+"<lock-free>` observem estados intermediários, pois modificam múltiplos "
+"elementos no local (in-place):"
 
 #: ../../library/threadsafety.rst:161
 msgid ""
@@ -241,6 +327,9 @@ msgid ""
 "lst.pop(idx)           # idx not at the end of the list, shifts elements\n"
 "lst *= x               # copies elements in place"
 msgstr ""
+"lst.insert(idx, item)  # desloca elementos\n"
+"lst.pop(idx)           # idx não no fim da lista, desloca elementos\n"
+"lst *= x               # cópia elementos no local"
 
 #: ../../library/threadsafety.rst:168
 msgid ""
@@ -248,6 +337,9 @@ msgid ""
 "element comparison may execute arbitrary Python code (via :meth:`~object."
 "__eq__`)."
 msgstr ""
+"O método :meth:`~list.remove` pode permitir modificações concorrentes, pois "
+"a comparação de elementos pode executar código Python arbitrário (via :meth:"
+"`~object.__eq__`)."
 
 #: ../../library/threadsafety.rst:172
 msgid ""
@@ -260,6 +352,15 @@ msgid ""
 "another thread.  The same applies to inplace concatenation of a list with "
 "other iterables when using ``lst += iterable``."
 msgstr ""
+":meth:`~list.extend` é seguro para chamar a partir de múltiplas threads. No "
+"entanto, suas garantias dependem do iterável passado para ele. Se for uma :"
+"class:`list`, uma :class:`tuple`, um :class:`set`, um :class:`frozenset`, "
+"um :class:`dict` ou um :ref:`objeto de visão de dicionário <dict-views>` "
+"(mas não suas subclasses), a operação ``extend`` estará segura de "
+"modificações concorrentes no iterável. Caso contrário, um iterador é criado, "
+"o qual pode ser modificado concorrentemente por outra thread. O mesmo se "
+"aplica à concatenação no local de uma lista com outros iteráveis ao usar "
+"``lst += iterable``."
 
 #: ../../library/threadsafety.rst:181
 msgid ""
@@ -267,12 +368,18 @@ msgid ""
 "call from multiple threads, but ``iterable`` is only locked when it is also "
 "a :class:`list` (but not its subclasses)."
 msgstr ""
+"De forma semelhante, a atribuição a uma fatia de lista com ``lst[i:j] = "
+"iterable`` é segura para ser chamada a partir de múltiplas threads, mas "
+"``iterable`` só é travado quando também for uma :class:`list` (mas não suas "
+"subclasses)."
 
 #: ../../library/threadsafety.rst:185
 msgid ""
 "Operations that involve multiple accesses, as well as iteration, are never "
 "atomic. For example:"
 msgstr ""
+"Operações que envolvem múltiplos acessos, assim como iteração, nunca são "
+"atômicas. Por exemplo:"
 
 #: ../../library/threadsafety.rst:188
 msgid ""
@@ -287,16 +394,28 @@ msgid ""
 "for item in lst:\n"
 "    process(item)  # another thread may modify lst"
 msgstr ""
+"# NÃO é atômico: lê-modifica-escreve\n"
+"lst[i] = lst[i] + 1\n"
+"\n"
+"# NÃO é atômico: verifica-e-então-age\n"
+"if lst:\n"
+"    item = lst.pop()\n"
+"\n"
+"# NÃO é seguro para thread: iteração enquanto modifica\n"
+"for item in lst:\n"
+"    process(item)  # outra thread pode modificar lst"
 
 #: ../../library/threadsafety.rst:202
 msgid ""
 "Consider external synchronization when sharing :class:`list` instances "
 "across threads."
 msgstr ""
+"Considere a sincronização externa ao compartilhar instâncias de :class:"
+"`list` entre threads."
 
 #: ../../library/threadsafety.rst:209
 msgid "Thread safety for dict objects"
-msgstr ""
+msgstr "Segurança de threads para objetos dict"
 
 #: ../../library/threadsafety.rst:211
 msgid ""
@@ -305,12 +424,19 @@ msgid ""
 "`dict.fromkeys` method, dictionary creation is atomic when the argument is "
 "a :class:`dict`, :class:`tuple`, :class:`set` or :class:`frozenset`."
 msgstr ""
+"Criar um dicionário com o construtor :class:`dict` é atômico quando o "
+"argumento passado for um :class:`dict` ou uma :class:`tuple`. Ao usar o "
+"método :meth:`dict.fromkeys`, a criação do dicionário é atômica quando o "
+"argumento for um :class:`dict`, :class:`tuple`, :class:`set` ou :class:"
+"`frozenset`."
 
 #: ../../library/threadsafety.rst:217
 msgid ""
 "The following operations and functions are :term:`lock-free` and :term:"
 "`atomic <atomic operation>`."
 msgstr ""
+"As seguintes operações e funções são :term:`livres de travas <lock-free>` e :"
+"term:`atômicas <atomic operation>`."
 
 #: ../../library/threadsafety.rst:220
 msgid ""
@@ -319,16 +445,24 @@ msgid ""
 "key in d     # dict.__contains__\n"
 "len(d)       # dict.__len__"
 msgstr ""
+"d[key]       # dict.__getitem__\n"
+"d.get(key)   # dict.get\n"
+"key in d     # dict.__contains__\n"
+"len(d)       # dict.__len__"
 
 #: ../../library/threadsafety.rst:228
 msgid "All other operations from here on hold the :term:`per-object lock`."
 msgstr ""
+"Todas as outras operações a partir daqui mantêm a :term:`trava por objeto "
+"<per-object lock>`."
 
 #: ../../library/threadsafety.rst:230
 msgid ""
 "Writing or removing a single item is safe to call from multiple threads and "
 "will not corrupt the dictionary:"
 msgstr ""
+"Escrever ou remover um único item é seguro para chamar a partir de múltiplas "
+"threads e não corromperá o dicionário:"
 
 #: ../../library/threadsafety.rst:233
 msgid ""
@@ -338,6 +472,11 @@ msgid ""
 "d.popitem()           # remove and return last item\n"
 "d.setdefault(key, v)  # insert if missing"
 msgstr ""
+"d[key] = value        # escreve\n"
+"del d[key]            # exclui\n"
+"d.pop(key)            # remove e retorna\n"
+"d.popitem()           # remove e retorna último item\n"
+"d.setdefault(key, v)  # insere se não existir"
 
 #: ../../library/threadsafety.rst:242
 msgid ""
@@ -347,12 +486,20 @@ msgid ""
 "`int`, and :class:`float`, that implement :meth:`~object.__eq__` in C, the "
 "underlying lock is not released during comparisons and this is not a concern."
 msgstr ""
+"Essas operações podem comparar chaves usando :meth:`~object.__eq__`, o que "
+"pode executar código Python arbitrário. Durante tais comparações, o "
+"dicionário pode ser modificado por outra thread. Para tipos embutidos como :"
+"class:`str`, :class:`int` e :class:`float`, que implementam :meth:`~object."
+"__eq__` em C, o trava subjacente não é liberado durante as comparações e "
+"isso não é uma preocupação."
 
 #: ../../library/threadsafety.rst:249
 msgid ""
 "The following operations return new objects and hold the :term:`per-object "
 "lock` for the duration of the operation:"
 msgstr ""
+"As seguintes operações retornam novos objetos e mantêm a :term:`trava por "
+"objeto <per-object lock>` durante a duração da operação:"
 
 #: ../../library/threadsafety.rst:252
 msgid ""
@@ -362,12 +509,19 @@ msgid ""
 "d.values()    # returns a new dict_values view object\n"
 "d.items()     # returns a new dict_items view object"
 msgstr ""
+"d.copy()      # retorna uma cópia rasa do dicionário\n"
+"d | other     # combina dois dicionários em um novo dicionário\n"
+"d.keys()      # retorna um novo objeto de visão dict_keys\n"
+"d.values()    # retorna um novo objeto de visão dict_values\n"
+"d.items()     # retorna um novo objeto de visão dict_items"
 
 #: ../../library/threadsafety.rst:261
 msgid ""
 "The :meth:`~dict.clear` method holds the lock for its duration. Other "
 "threads cannot observe elements being removed."
 msgstr ""
+"O método :meth:`~dict.clear` mantém a trava durante sua execução. Outras "
+"threads não podem observar elementos sendo removidos."
 
 #: ../../library/threadsafety.rst:264
 msgid ""
@@ -377,6 +531,11 @@ msgid ""
 "iteration). For equality comparison, this applies to :class:`dict` and its "
 "subclasses:"
 msgstr ""
+"As seguintes operações travariam ambos os dicionários. Para :meth:`~dict."
+"update` e ``|=``, isso se aplica apenas quando o outro operando for um :"
+"class:`dict` que usa o iterador de dicionário padrão (mas não subclasses que "
+"substituem a iteração). Para comparação de igualdade, isso se aplica a :"
+"class:`dict` e suas subclasses:"
 
 #: ../../library/threadsafety.rst:270
 msgid ""
@@ -384,12 +543,18 @@ msgid ""
 "d |= other_dict       # both locked when other_dict is a dict\n"
 "d == other_dict       # both locked for dict and subclasses"
 msgstr ""
+"d.update(outro_dict)  # ambos travados quando outro_dict é um dict\n"
+"d |= outro_dict       # ambos travados quando outro_dict é um dict\n"
+"d == outro_dict       # ambos travados para dict e subclasses"
 
 #: ../../library/threadsafety.rst:277
 msgid ""
 "All comparison operations also compare values using :meth:`~object.__eq__`, "
 "so for non-built-in types the lock may be released during comparison."
 msgstr ""
+"Todas as operações de comparação também comparam valores usando :meth:"
+"`~object.__eq__`, portanto, para tipos não embutidos, a trava pode ser "
+"liberada durante a comparação."
 
 #: ../../library/threadsafety.rst:280
 msgid ""
@@ -397,6 +562,9 @@ msgid ""
 "the iterable is exactly a :class:`dict`, :class:`set`, or :class:`frozenset` "
 "(not subclasses):"
 msgstr ""
+":meth:`~dict.fromkeys` trava tanto o novo dicionário quanto o iterável "
+"quando o iterável for exatamente um :class:`dict`, :class:`set` ou :class:"
+"`frozenset` (não subclasses):"
 
 #: ../../library/threadsafety.rst:284
 msgid ""
@@ -404,12 +572,18 @@ msgid ""
 "dict.fromkeys(a_set)       # locks both\n"
 "dict.fromkeys(a_frozenset) # locks both"
 msgstr ""
+"dict.fromkeys(a_dict)      # trava ambas\n"
+"dict.fromkeys(a_set)       # trava ambas\n"
+"dict.fromkeys(a_frozenset) # trava ambas"
 
 #: ../../library/threadsafety.rst:291
 msgid ""
 "When updating from a non-dict iterable, only the target dictionary is "
 "locked. The iterable may be concurrently modified by another thread:"
 msgstr ""
+"Ao atualizar a partir de um iterável que não é dicionário, apenas o "
+"dicionário de destino é travada. O iterável pode ser modificado "
+"concorrentemente por outra thread:"
 
 #: ../../library/threadsafety.rst:294
 msgid ""
@@ -418,6 +592,10 @@ msgid ""
 "dict.fromkeys(iterable)   # iterable is not a dict/set/frozenset: only "
 "result locked"
 msgstr ""
+"d.update(iterável)        # iterável não é um dict: somente d travado\n"
+"d |= iterável             # iterável não é um dict: somente d travado\n"
+"dict.fromkeys(iterável)   # iterável não é um dict/conjunto/frozenset: "
+"somente o resultado travado"
 
 #: ../../library/threadsafety.rst:301 ../../library/threadsafety.rst:434
 #: ../../library/threadsafety.rst:525
@@ -425,6 +603,8 @@ msgid ""
 "Operations that involve multiple accesses, as well as iteration, are never "
 "atomic:"
 msgstr ""
+"Operações que envolvem múltiplos acessos, assim como iteração, nunca são "
+"atômicas:"
 
 #: ../../library/threadsafety.rst:304
 msgid ""
@@ -439,12 +619,25 @@ msgid ""
 "for key, value in d.items():\n"
 "    process(key)  # another thread may modify d"
 msgstr ""
+"# NÃO é atômico: lê-modifica-escreve\n"
+"d[key] = d[key] + 1\n"
+"\n"
+"# NÃO é atômico: verifica-e-então-age (TOCTOU)\n"
+"if key in d:\n"
+"    del d[key]\n"
+"\n"
+"# NÃO é seguro para thread: iteração enquanto modifica\n"
+"for key, value in d.items():\n"
+"    process(key)  # outa thread pode modificar d"
 
 #: ../../library/threadsafety.rst:318
 msgid ""
 "To avoid time-of-check to time-of-use (TOCTOU) issues, use atomic operations "
 "or handle exceptions:"
 msgstr ""
+"Para evitar problemas de tempo de verificação para tempo de uso (TOCTOU, do "
+"inglês *time-of-check to time-of-us*), use operações atômicas ou trata "
+"exceções:"
 
 #: ../../library/threadsafety.rst:321
 msgid ""
@@ -457,12 +650,22 @@ msgid ""
 "except KeyError:\n"
 "    pass"
 msgstr ""
+"# Usa pop() com um valor padrão em vez de verificar-e-então-excluir\n"
+"d.pop(key, None)\n"
+"\n"
+"# ou trata a exceção\n"
+"try:\n"
+"    del d[key]\n"
+"except KeyError:\n"
+"    pass"
 
 #: ../../library/threadsafety.rst:333
 msgid ""
 "To safely iterate over a dictionary that may be modified by another thread, "
 "iterate over a copy:"
 msgstr ""
+"Para iterar com segurança sobre um dicionário que pode ser modificado por "
+"outra thread, itere sobre uma cópia:"
 
 #: ../../library/threadsafety.rst:336
 msgid ""
@@ -470,21 +673,27 @@ msgid ""
 "for key, value in d.copy().items():\n"
 "    process(key)"
 msgstr ""
+"# Faz uma cópia para iterar com segurança\n"
+"for key, value in d.copy().items():\n"
+"    process(key)"
 
 #: ../../library/threadsafety.rst:343
 msgid ""
 "Consider external synchronization when sharing :class:`dict` instances "
 "across threads."
 msgstr ""
+"Considere a sincronização externa ao compartilhar instâncias de :class:"
+"`dict` entre threads."
 
 #: ../../library/threadsafety.rst:350
 msgid "Thread safety for set objects"
-msgstr ""
+msgstr "Segurança de thread para objetos conjunto"
 
 #: ../../library/threadsafety.rst:352 ../../library/threadsafety.rst:457
 msgid ""
 "The :func:`len` function is lock-free and :term:`atomic <atomic operation>`."
 msgstr ""
+"A função :func:`len` é livre de trava e :term:`atômica <atomic operation>`."
 
 #: ../../library/threadsafety.rst:354
 msgid ""
@@ -492,10 +701,13 @@ msgid ""
 "modifications and may observe intermediate states from operations that hold "
 "the per-object lock:"
 msgstr ""
+"A seguinte operação de leitura é livre de trava. Ela não bloqueia "
+"modificações concorrentes e pode observar estados intermediários de "
+"operações que mantêm a trava por objeto:"
 
 #: ../../library/threadsafety.rst:358
 msgid "elem in s    # set.__contains__"
-msgstr ""
+msgstr "elem in s    # set.__contains__"
 
 #: ../../library/threadsafety.rst:363
 msgid ""
@@ -505,16 +717,23 @@ msgid ""
 "`int`, and :class:`float`, :meth:`!__eq__` does not release the underlying "
 "lock during comparisons and this is not a concern."
 msgstr ""
+"Esta operação pode comparar elementos usando :meth:`~object.__eq__`, o que "
+"pode executar código Python arbitrário. Durante tais comparações, o conjunto "
+"pode ser modificado por outra thread. Para tipos embutidos como :class:"
+"`str`, :class:`int` e :class:`float`, :meth:`!__eq__` não libera a trava "
+"subjacente durante as comparações e isso não é uma preocupação."
 
 #: ../../library/threadsafety.rst:369 ../../library/threadsafety.rst:470
 msgid "All other operations from here on hold the per-object lock."
-msgstr ""
+msgstr "Todas as outras operações a partir daqui mantêm a trava por objeto."
 
 #: ../../library/threadsafety.rst:371
 msgid ""
 "Adding or removing a single element is safe to call from multiple threads "
 "and will not corrupt the set:"
 msgstr ""
+"Adicionar ou remover um único elemento é seguro para chamar a partir de "
+"múltiplas threads e não corromperá o conjunto:"
 
 #: ../../library/threadsafety.rst:374
 msgid ""
@@ -523,30 +742,42 @@ msgid ""
 "s.discard(elem)  # remove element if present\n"
 "s.pop()          # remove and return arbitrary element"
 msgstr ""
+"s.add(elem)      # adiciona elemento\n"
+"s.remove(elem)   # remove elemento, levanta se estiver faltando\n"
+"s.discard(elem)  # remove elemento se estiver presente\n"
+"s.pop()          # remove e retorna elemento arbitrário"
 
 #: ../../library/threadsafety.rst:382
 msgid ""
 "These operations also compare elements, so the same :meth:`~object.__eq__` "
 "considerations as above apply."
 msgstr ""
+"Essas operações também comparam elementos; portanto, aplicam-se as mesmas "
+"considerações sobre :meth:`~object.__eq__` mencionadas acima."
 
 #: ../../library/threadsafety.rst:385
 msgid ""
 "The :meth:`~set.copy` method returns a new object and holds the per-object "
 "lock for the duration so that it is always atomic."
 msgstr ""
+"O método :meth:`~set.copy` retorna um novo objeto e mantém a trava por "
+"objeto durante toda a execução para que seja sempre atômico."
 
 #: ../../library/threadsafety.rst:388
 msgid ""
 "The :meth:`~set.clear` method holds the lock for its duration. Other threads "
 "cannot observe elements being removed."
 msgstr ""
+"O método :meth:`~set.clear` mantém a trava durante sua execução. Outras "
+"threads não podem observar elementos sendo removidos."
 
 #: ../../library/threadsafety.rst:391
 msgid ""
 "The following operations only accept :class:`set` or :class:`frozenset` as "
 "operands and always lock both objects:"
 msgstr ""
+"As seguintes operações aceitam apenas :class:`set` ou :class:`frozenset` "
+"como operandos e sempre travam ambos os objetos:"
 
 #: ../../library/threadsafety.rst:394
 msgid ""
@@ -559,6 +790,14 @@ msgid ""
 "s - other                    # other must be set/frozenset\n"
 "s ^ other                    # other must be set/frozenset"
 msgstr ""
+"s |= outro                   # outro deve ser conjunto/frozenset\n"
+"s &= outro                   # outro deve ser conjunto/frozenset\n"
+"s -= outro                   # outro deve ser conjunto/frozenset\n"
+"s ^= outro                   # outro deve ser conjunto/frozenset\n"
+"s & outro                    # outro deve ser conjunto/frozenset\n"
+"s | outro                    # outro deve ser conjunto/frozenset\n"
+"s - outro                    # outro deve ser conjunto/frozenset\n"
+"s ^ outro                    # outro deve ser conjunto/frozenset"
 
 #: ../../library/threadsafety.rst:406
 msgid ""
