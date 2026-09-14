@@ -1,9 +1,9 @@
-1 directory  59.22% done
-└── 3.13/  59.22% done
+1 directory  59.50% done
+└── 3.13/  59.50% done
     ├── sphinx.po                         97.0% translated 109/112
-    ├── builtins/  94.76% done
-    │   └── stdtypes.po                   93.0% translated 1358/1446
-    ├── c-api/  53.26% done
+    ├── builtins/  99.75% done
+    │   └── stdtypes.po                   99.0% translated 1444/1446
+    ├── c-api/  53.80% done
     │   ├── bytes.po                      98.0% translated   69/70
     │   ├── conversion.po                 89.0% translated   49/55
     │   ├── descriptor.po                 42.0% translated   14/33
@@ -56,7 +56,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  58.11% done
+    ├── library/  58.38% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── argparse.po                   98.0% translated 382/387
     │   ├── array.po                      90.0% translated   80/88
@@ -156,7 +156,7 @@
     │   ├── socket.po                     14.0% translated  54/367
     │   ├── sqlite3.po                    24.0% translated 116/481
     │   ├── ssl.po                        11.0% translated  61/545
-    │   ├── stdtypes.po                   93.0% translated 1358/1446
+    │   ├── stdtypes.po                   99.0% translated 1444/1446
     │   ├── string.po                     98.0% translated 217/221
     │   ├── struct.po                     47.0% translated  93/195
     │   ├── subprocess.po                 45.0% translated 150/330
