@@ -1,11 +1,8 @@
-1 directory  56.97% done
-└── 3.15/  56.97% done
-    ├── glossary.po                       99.0% translated 498/501
+1 directory  57.26% done
+└── 3.15/  57.26% done
     ├── sphinx.po                         97.0% translated 110/113
-    ├── builtins/  87.94% done
-    │   ├── functions.po                  99.0% translated 532/537
-    │   ├── stdtypes.po                   91.0% translated 1471/1608
-    │   └── threadsafety.po                0.0% translated   0/122
+    ├── builtins/  98.46% done
+    │   └── threadsafety.po               65.0% translated  80/122
     ├── c-api/  46.12% done
     │   ├── bytes.po                      60.0% translated  73/120
     │   ├── complex.po                    83.0% translated   31/37
@@ -248,9 +245,9 @@
     │   ├── zipimport.po                  92.0% translated   35/38
     │   ├── zlib.po                       92.0% translated  95/103
     │   └── zoneinfo.po                   44.0% translated   37/84
-    ├── reference/  86.60% done
-    │   ├── compound_stmts.po             93.0% translated 467/499
-    │   ├── datamodel.po                  94.0% translated 866/914
+    ├── reference/  86.61% done
+    │   ├── compound_stmts.po             93.0% translated 468/499
+    │   ├── datamodel.po                  94.0% translated 867/914
     │   ├── expressions.po                71.0% translated 480/674
     │   ├── import.po                     97.0% translated 197/203
     │   ├── index.po                      25.0% translated     1/4
@@ -262,7 +259,7 @@
     │   └── whatnow.po                    88.0% translated   16/18
     ├── using/  93.82% done
     │   └── windows.po                    90.0% translated 530/584
-    └── whatsnew/  48.48% done
+    └── whatsnew/  48.53% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 300/452
@@ -277,4 +274,4 @@
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  24.0% translated 3837/15372
+        └── changelog.po                  25.0% translated 3846/15372
