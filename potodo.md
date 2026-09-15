@@ -1,10 +1,11 @@
-1 directory  59.50% done
-└── 3.13/  59.50% done
+1 directory  59.49% done
+└── 3.13/  59.49% done
     ├── sphinx.po                         97.0% translated 109/112
     ├── builtins/  99.75% done
     │   └── stdtypes.po                   99.0% translated 1444/1446
-    ├── c-api/  53.80% done
-    │   ├── bytes.po                      98.0% translated   69/70
+    ├── c-api/  53.76% done
+    │   ├── bytearray.po                  95.0% translated   20/21
+    │   ├── bytes.po                      97.0% translated   69/71
     │   ├── conversion.po                 89.0% translated   49/55
     │   ├── descriptor.po                 42.0% translated   14/33
     │   ├── exceptions.po                 68.0% translated 183/267
@@ -78,7 +79,7 @@
     │   ├── binascii.po                   60.0% translated   23/38
     │   ├── bisect.po                     94.0% translated   34/36
     │   ├── calendar.po                   93.0% translated 108/116
-    │   ├── codecs.po                     44.0% translated 248/559
+    │   ├── codecs.po                     44.0% translated 248/561
     │   ├── collections.po                98.0% translated 240/244
     │   ├── colorsys.po                   92.0% translated   12/13
     │   ├── concurrent.futures.po         13.0% translated  14/103
@@ -212,7 +213,7 @@
     ├── using/  99.20% done
     │   ├── mac.po                        98.0% translated   95/96
     │   └── windows.po                    99.0% translated 387/389
-    └── whatsnew/  45.59% done
+    └── whatsnew/  45.58% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 301/452
@@ -229,4 +230,4 @@
         ├── 3.6.po                        43.0% translated 234/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  22.0% translated 2926/13168
+        └── changelog.po                  22.0% translated 2926/13170
