@@ -1,5 +1,5 @@
-1 directory  59.49% done
-└── 3.13/  59.49% done
+1 directory  59.50% done
+└── 3.13/  59.50% done
     ├── sphinx.po                         97.0% translated 109/112
     ├── builtins/  99.75% done
     │   └── stdtypes.po                   99.0% translated 1444/1446
@@ -57,7 +57,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  58.38% done
+    ├── library/  58.40% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── argparse.po                   98.0% translated 382/387
     │   ├── array.po                      90.0% translated   80/88
@@ -85,7 +85,7 @@
     │   ├── concurrent.futures.po         13.0% translated  14/103
     │   ├── contextlib.po                 27.0% translated  47/172
     │   ├── contextvars.po                93.0% translated   55/59
-    │   ├── csv.po                        90.0% translated 121/133
+    │   ├── csv.po                        96.0% translated 128/133
     │   ├── ctypes.po                     54.0% translated 300/550
     │   ├── curses.ascii.po               94.0% translated   65/69
     │   ├── curses.panel.po               76.0% translated   19/25
@@ -128,7 +128,6 @@
     │   ├── intro.po                      89.0% translated   25/28
     │   ├── io.po                         21.0% translated  59/277
     │   ├── itertools.po                  77.0% translated 155/200
-    │   ├── json.po                       99.0% translated 175/176
     │   ├── logging.handlers.po           65.0% translated 180/274
     │   ├── logging.po                    28.0% translated 106/372
     │   ├── lzma.po                       77.0% translated  98/127
@@ -162,7 +161,6 @@
     │   ├── struct.po                     47.0% translated  93/195
     │   ├── subprocess.po                 45.0% translated 150/330
     │   ├── symtable.po                    9.0% translated    6/65
-    │   ├── sys.monitoring.po             99.0% translated 111/112
     │   ├── sys.po                        99.0% translated 441/443
     │   ├── tarfile.po                    54.0% translated 190/347
     │   ├── tempfile.po                    9.0% translated    8/88
