@@ -1,5 +1,5 @@
-1 directory  59.49% done
-└── 3.14/  59.49% done
+1 directory  59.51% done
+└── 3.14/  59.51% done
     ├── sphinx.po                         97.0% translated 110/113
     ├── builtins/  98.18% done
     │   ├── stdtypes.po                   99.0% translated 1581/1583
@@ -66,7 +66,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  57.18% done
+    ├── library/  57.23% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              89.0% translated 142/158
     │   ├── argparse.po                   98.0% translated 403/409
@@ -101,7 +101,7 @@
     │   ├── concurrent.interpreters.po    56.0% translated   49/87
     │   ├── contextlib.po                 27.0% translated  47/172
     │   ├── contextvars.po                86.0% translated   57/66
-    │   ├── csv.po                        86.0% translated 115/133
+    │   ├── csv.po                        94.0% translated 126/133
     │   ├── ctypes.po                     51.0% translated 348/676
     │   ├── curses.ascii.po               92.0% translated   64/69
     │   ├── curses.panel.po               76.0% translated   19/25
@@ -148,7 +148,6 @@
     │   ├── intro.po                      89.0% translated   25/28
     │   ├── io.po                         20.0% translated  60/289
     │   ├── itertools.po                  75.0% translated 149/198
-    │   ├── json.po                       97.0% translated 173/177
     │   ├── logging.handlers.po           63.0% translated 174/276
     │   ├── logging.po                    28.0% translated 106/372
     │   ├── lzma.po                       77.0% translated  99/128
@@ -185,7 +184,6 @@
     │   ├── struct.po                     47.0% translated  98/205
     │   ├── subprocess.po                 46.0% translated 146/314
     │   ├── symtable.po                    8.0% translated    6/73
-    │   ├── sys.monitoring.po             97.0% translated 117/120
     │   ├── sys.po                        98.0% translated 472/478
     │   ├── tarfile.po                    55.0% translated 201/365
     │   ├── tempfile.po                    9.0% translated    8/88
@@ -243,7 +241,7 @@
     │   └── whatnow.po                    88.0% translated   16/18
     ├── using/  94.05% done
     │   └── windows.po                    91.0% translated 533/583
-    └── whatsnew/  48.26% done
+    └── whatsnew/  48.27% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 301/452
@@ -252,7 +250,7 @@
         ├── 3.1.po                        86.0% translated 114/132
         ├── 3.12.po                       99.0% translated 855/856
         ├── 3.13.po                       99.0% translated 931/933
-        ├── 3.14.po                       99.0% translated 1053/1055
+        ├── 3.14.po                       99.0% translated 1054/1055
         ├── 3.2.po                        11.0% translated  66/576
         ├── 3.3.po                        19.0% translated 134/682
         ├── 3.4.po                        95.0% translated 492/517
