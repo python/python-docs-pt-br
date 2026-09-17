@@ -1,5 +1,5 @@
-1 directory  67.15% done
-└── 3.12/  67.15% done
+1 directory  67.12% done
+└── 3.12/  67.12% done
     ├── c-api/  54.24% done
     │   ├── exceptions.po                 68.0% translated 251/366
     │   ├── frame.po                      80.0% translated   29/36
@@ -37,7 +37,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  61.15% done
+    ├── library/  61.09% done
     │   ├── 2to3.po                       91.0% translated 121/132
     │   ├── array.po                      95.0% translated   80/84
     │   ├── ast.po                        83.0% translated 255/306
