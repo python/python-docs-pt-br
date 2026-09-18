@@ -1,5 +1,5 @@
-1 directory  56.52% done
-└── 3.15/  56.52% done
+1 directory  56.54% done
+└── 3.15/  56.54% done
     ├── builtins/  98.47% done
     │   └── threadsafety.po               65.0% translated  80/122
     ├── c-api/  46.12% done
@@ -44,11 +44,10 @@
     │   └── veryhigh.po                   72.0% translated   62/86
     ├── deprecations/  100.00% done
     ├── distributing/  100.00% done
-    ├── extending/  39.39% done
+    ├── extending/  39.62% done
     │   ├── embedding.po                   8.0% translated    5/59
     │   ├── extending.po                  19.0% translated  33/166
     │   ├── first-extension-module.po      1.0% translated   2/146
-    │   ├── index.po                      95.0% translated   21/22
     │   └── newtypes.po                    6.0% translated   8/118
     ├── faq/  94.05% done
     │   └── programming.po                90.0% translated 458/506
@@ -69,7 +68,7 @@
     │   ├── sorting.po                    53.0% translated   48/90
     │   └── unicode.po                    19.0% translated  28/143
     ├── installing/  100.00% done
-    ├── library/  52.35% done
+    ├── library/  52.38% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              89.0% translated 142/158
     │   ├── argparse.po                   94.0% translated 397/421
@@ -147,7 +146,6 @@
     │   ├── importlib.metadata.po         70.0% translated 105/149
     │   ├── importlib.po                  67.0% translated 190/283
     │   ├── importlib.resources.po        94.0% translated   51/54
-    │   ├── index.po                      33.0% translated     2/6
     │   ├── inspect.po                    34.0% translated 151/433
     │   ├── io.po                         17.0% translated  51/287
     │   ├── itertools.po                  74.0% translated 149/200
@@ -210,7 +208,6 @@
     │   ├── trace.po                      90.0% translated   39/43
     │   ├── traceback.po                   8.0% translated  10/118
     │   ├── tracemalloc.po                13.0% translated  21/156
-    │   ├── types.po                      95.0% translated 105/110
     │   ├── typing.po                     90.0% translated 780/861
     │   ├── unicodedata.po                22.0% translated  22/100
     │   ├── unittest.mock-examples.po     10.0% translated  19/182
@@ -246,9 +243,9 @@
     │   ├── lexical_analysis.po           99.0% translated 474/477
     │   └── simple_stmts.po               90.0% translated 282/310
     ├── tutorial/  100.00% done
-    ├── using/  93.69% done
-    │   └── windows.po                    90.0% translated 529/584
-    └── whatsnew/  48.54% done
+    ├── using/  93.84% done
+    │   └── windows.po                    90.0% translated 530/584
+    └── whatsnew/  48.56% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 300/452
@@ -263,4 +260,4 @@
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  25.0% translated 3853/15382
+        └── changelog.po                  25.0% translated 3856/15382
