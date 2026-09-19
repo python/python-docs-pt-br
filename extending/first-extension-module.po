@@ -5,15 +5,16 @@
 #
 # Translators:
 # python-doc bot, 2026
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2026
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-05 16:27+0000\n"
+"POT-Creation-Date: 2026-09-19 16:52+0000\n"
 "PO-Revision-Date: 2026-05-08 18:36+0000\n"
-"Last-Translator: python-doc bot, 2026\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2026\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -25,13 +26,15 @@ msgstr ""
 
 #: ../../extending/first-extension-module.rst:9
 msgid "Your first C API extension module"
-msgstr ""
+msgstr "Seu primeiro módulo de extensão da API C"
 
 #: ../../extending/first-extension-module.rst:11
 msgid ""
 "This tutorial will take you through creating a simple Python extension "
 "module written in C or C++."
 msgstr ""
+"Este tutorial guiará você pela criação de um módulo de extensão simples para "
+"Python, escrito em C ou C++."
 
 #: ../../extending/first-extension-module.rst:14
 msgid ""
@@ -39,6 +42,9 @@ msgid ""
 "extension modules, see the :ref:`recommended third party tools <c-api-"
 "tools>`."
 msgstr ""
+"Utilizaremos diretamente a API C do Python de baixo nível. Para formas mais "
+"simples de criar módulos de extensão, consulte as :ref:`ferramentas de "
+"terceiros recomendadas <c-api-tools>`."
 
 #: ../../extending/first-extension-module.rst:18
 msgid ""
@@ -46,6 +52,9 @@ msgid ""
 "define functions in Python code before starting to write them in C. See :ref:"
 "`tutorial-index` for an introduction to Python itself."
 msgstr ""
+"O tutorial pressupõe conhecimentos básicos de Python: você deve ser capaz de "
+"definir funções em código Python antes de começar a escrevê-las em C. "
+"Consulte :ref:`tutorial-index` para uma introdução ao próprio Python."
 
 #: ../../extending/first-extension-module.rst:22
 msgid ""
@@ -54,6 +63,11 @@ msgid ""
 "be expected to know, like ``static`` functions or linkage declarations, "
 "understanding these is not necessary for success."
 msgstr ""
+"O tutorial deve ser acessível a qualquer pessoa capaz de escrever uma "
+"biblioteca básica em C. Embora mencionemos vários conceitos que não se "
+"espera que um iniciante em C conheça — como funções `static` ou declarações "
+"de vinculação (*linkage*) —, compreendê-los não é necessário para obter "
+"êxito."
 
 #: ../../extending/first-extension-module.rst:27
 msgid ""
@@ -61,6 +75,9 @@ msgid ""
 "will not teach you important concepts, like error handling and reference "
 "counting, which are covered in later chapters."
 msgstr ""
+"Nosso foco será proporcionar a você uma noção de como é a API C do Python. "
+"Isso não ensinará conceitos importantes, como tratamento de erros e contagem "
+"de referências, que são abordados em capítulos posteriores."
 
 #: ../../extending/first-extension-module.rst:31
 msgid ""
@@ -68,6 +85,9 @@ msgid ""
 "or Windows. On other systems, you might need to adjust some details -- for "
 "example, a system command name."
 msgstr ""
+"Vamos supor que você utilize um sistema do tipo Unix (incluindo macOS e "
+"Linux) ou Windows. Em outros sistemas, talvez seja necessário ajustar alguns "
+"detalhes — por exemplo, o nome de um comando do sistema."
 
 #: ../../extending/first-extension-module.rst:36
 msgid ""
@@ -75,6 +95,9 @@ msgid ""
 "installed. On Linux, headers are often in a package like ``python3-dev`` or "
 "``python3-devel``."
 msgstr ""
+"Você precisa ter um compilador C adequado e os cabeçalhos de desenvolvimento "
+"do Python instalados. No Linux, esses cabeçalhos geralmente estão em um "
+"pacote como ``python3-dev`` ou ``python3-devel``."
 
 #: ../../extending/first-extension-module.rst:40
 msgid ""
@@ -84,6 +107,12 @@ msgid ""
 "<https://docs.astral.sh/uv/>`_ (``uv pip install``). Preferably, have a :ref:"
 "`virtual environment <venv-def>` activated."
 msgstr ""
+"Você precisa ser capaz de instalar pacotes Python. Este tutorial utiliza o "
+"`pip <https://pip.pypa.io/>`__` (``pip install``), mas você pode substituí-"
+"lo por qualquer ferramenta capaz de realizar a construção e a instalação de "
+"projetos baseados em ``pyproject.toml``, como `uv <https://docs.astral.sh/uv/"
+">`_ (``uv setup.py install``). De preferência, mantenha um :ref:`ambiente "
+"virtual <venv-def>` ativado."
 
 #: ../../extending/first-extension-module.rst:49
 msgid ""
@@ -91,6 +120,9 @@ msgid ""
 "extension that's compatible with earlier versions of CPython, please follow "
 "an earlier version of this documentation."
 msgstr ""
+"Este tutorial utiliza APIs que foram adicionadas no CPython 3.15. Para criar "
+"uma extensão compatível com versões anteriores do CPython, consulte uma "
+"versão anterior desta documentação."
 
 #: ../../extending/first-extension-module.rst:53
 msgid ""
@@ -98,10 +130,13 @@ msgid ""
 "to be compatible with earlier standards, please follow tutorials in "
 "documentation for Python 3.14 or below."
 msgstr ""
+"Este tutorial utiliza sintaxe de C introduzida no C11 e no C++20. Se a sua "
+"extensão precisar ser compatível com padrões anteriores, consulte os "
+"tutoriais na documentação para o Python 3.14 ou versões anteriores."
 
 #: ../../extending/first-extension-module.rst:59
 msgid "What we'll do"
-msgstr ""
+msgstr "O que faremos"
 
 #: ../../extending/first-extension-module.rst:61
 msgid ""
@@ -112,12 +147,20 @@ msgid ""
 "as an integer. A manual page for :c:func:`system` might summarize it this "
 "way::"
 msgstr ""
+"Vamos criar um módulo de extensão chamado ``spam`` [#why-spam]_, que "
+"incluirá uma interface Python para a função :c:func:`system` da biblioteca "
+"padrão C. Essa função é definida em ``stdlib.h``. Ela recebe uma string C "
+"como argumento, executa o argumento como um comando do sistema e retorna um "
+"valor de resultado como um inteiro. Uma página de manual para :c:func:"
+"`system` poderia resumi-la da seguinte forma::"
 
 #: ../../extending/first-extension-module.rst:69
 msgid ""
 "#include <stdlib.h>\n"
 "int system(const char *command);"
 msgstr ""
+"#include <stdlib.h>\n"
+"int system(const char *command);"
 
 #: ../../extending/first-extension-module.rst:72
 msgid ""
@@ -125,10 +168,15 @@ msgid ""
 "already exposed in Python. In production, use :py:func:`os.system` or :py:"
 "func:`subprocess.run` rather than the module you'll write here."
 msgstr ""
+"Observe que, assim como muitas funções da biblioteca padrão da linguagem C, "
+"esta função já está disponível no Python. Em ambientes de produção, utilize :"
+"py:func:`os.system` ou :py:func:`subprocess.run` em vez do módulo que você "
+"escreverá aqui."
 
 #: ../../extending/first-extension-module.rst:77
 msgid "We want this function to be callable from Python as follows:"
 msgstr ""
+"Queremos que esta função seja chamável a partir do Python da seguinte forma:"
 
 #: ../../extending/first-extension-module.rst:79
 msgid ""
@@ -138,6 +186,11 @@ msgid ""
 ">>> status\n"
 "0"
 msgstr ""
+">>> import spam\n"
+">>> status = spam.system(\"whoami\")\n"
+"Nome do usuário\n"
+">>> status\n"
+"0"
 
 #: ../../extending/first-extension-module.rst:89
 msgid ""
@@ -145,10 +198,13 @@ msgid ""
 "tutorials like this one because it has the same name on both Unix and "
 "Windows."
 msgstr ""
+"O comando de sistema `whoami` exibe o seu nome de usuário. Ele é útil em "
+"tutoriais como este porque possui o mesmo nome tanto no Unix quanto no "
+"Windows."
 
 #: ../../extending/first-extension-module.rst:95
 msgid "Start with the headers"
-msgstr ""
+msgstr "Comece com os cabeçalhos"
 
 #: ../../extending/first-extension-module.rst:97
 msgid ""
@@ -156,6 +212,9 @@ msgid ""
 "command line. Then, create a file named :file:`spammodule.c` in your "
 "directory. [#why-spammodule]_"
 msgstr ""
+"Comece criando um diretório para este tutorial e acessando-o na linha de "
+"comando. Em seguida, crie um arquivo chamado :file:`spammodule.c` no seu "
+"diretório. [#why-spammodule]_"
 
 #: ../../extending/first-extension-module.rst:102
 msgid ""
@@ -163,16 +222,21 @@ msgid ""
 "declarations of the Python C API, and :file:`stdlib.h` for the :c:func:"
 "`system` function. [#stdlib-h]_"
 msgstr ""
+"Neste arquivo, incluiremos dois cabeçalhos: :file:`Python.h`, para importar "
+"todas as declarações da API C do Python, e :file:`stdlib.h`, para a função :"
+"c:func:`system`. [#stdlib-h]_"
 
 #: ../../extending/first-extension-module.rst:106
 msgid "Add the following lines to :file:`spammodule.c`:"
-msgstr ""
+msgstr "Adicione as seguintes linhas a :file:`spammodule.c`:"
 
 #: ../../extending/first-extension-module.rst:108
 msgid ""
 "#include <Python.h>\n"
 "#include <stdlib.h>     // for system()\n"
 msgstr ""
+"#include <Python.h>\n"
+"#include <stdlib.h>     // para system()\n"
 
 #: ../../extending/first-extension-module.rst:112
 msgid ""
@@ -180,6 +244,9 @@ msgid ""
 "*after* :file:`Python.h`. On some systems, Python may define some pre-"
 "processor definitions that affect the standard headers."
 msgstr ""
+"Certifique-se de colocar :file:`stdlib.h` — e quaisquer outras inclusões à "
+"biblioteca padrão — *após* :file:`Python.h`. Em alguns sistemas, o Python "
+"pode definir diretivas de pré-processador que afetam os cabeçalhos padrão."
 
 #: ../../extending/first-extension-module.rst:119
 msgid "Running your build tool"
