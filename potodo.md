@@ -62,7 +62,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  54.83% done
+    ├── library/  54.84% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              89.0% translated 142/158
     │   ├── argparse.po                   98.0% translated 403/409
@@ -89,7 +89,7 @@
     │   ├── binascii.po                   55.0% translated   21/38
     │   ├── bisect.po                     88.0% translated   32/36
     │   ├── calendar.po                   90.0% translated 106/117
-    │   ├── codecs.po                     43.0% translated 248/566
+    │   ├── codecs.po                     44.0% translated 250/566
     │   ├── collections.po                97.0% translated 239/244
     │   ├── compression.zstd.po           97.0% translated 169/174
     │   ├── concurrent.futures.po         14.0% translated  18/121
