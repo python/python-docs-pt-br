@@ -1,5 +1,5 @@
-1 directory  56.64% done
-└── 3.15/  56.64% done
+1 directory  56.68% done
+└── 3.15/  56.68% done
     ├── builtins/  98.47% done
     │   └── threadsafety.po               65.0% translated  80/122
     ├── c-api/  46.30% done
@@ -42,15 +42,15 @@
     │   └── veryhigh.po                   72.0% translated   62/86
     ├── deprecations/  100.00% done
     ├── distributing/  100.00% done
-    ├── extending/  42.03% done
+    ├── extending/  44.85% done
     │   ├── embedding.po                   8.0% translated    5/59
     │   ├── extending.po                  19.0% translated  33/166
-    │   ├── first-extension-module.po     17.0% translated  26/146
+    │   ├── first-extension-module.po     41.0% translated  61/146
     │   └── newtypes.po                    6.0% translated   8/118
     ├── faq/  94.05% done
     │   └── programming.po                90.0% translated 458/506
-    ├── howto/  60.79% done
-    │   ├── abi3t-migration.po             4.0% translated   7/171
+    ├── howto/  60.80% done
+    │   ├── abi3t-migration.po             4.0% translated   8/171
     │   ├── curses.po                     89.0% translated 106/118
     │   ├── descriptor.po                 79.0% translated 180/226
     │   ├── enum.po                       36.0% translated 112/309
@@ -66,7 +66,7 @@
     │   ├── sorting.po                    53.0% translated   48/90
     │   └── unicode.po                    19.0% translated  28/143
     ├── installing/  100.00% done
-    ├── library/  52.49% done
+    ├── library/  52.51% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              89.0% translated 142/158
     │   ├── argparse.po                   94.0% translated 397/421
@@ -93,7 +93,7 @@
     │   ├── binascii.po                   21.0% translated   19/89
     │   ├── bisect.po                     88.0% translated   32/36
     │   ├── calendar.po                   84.0% translated 104/123
-    │   ├── codecs.po                     43.0% translated 248/568
+    │   ├── codecs.po                     44.0% translated 250/568
     │   ├── collections.po                95.0% translated 235/247
     │   ├── compression.zstd.po           96.0% translated 168/175
     │   ├── concurrent.futures.po         14.0% translated  18/121

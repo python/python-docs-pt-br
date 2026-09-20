@@ -250,7 +250,7 @@ msgstr ""
 
 #: ../../extending/first-extension-module.rst:119
 msgid "Running your build tool"
-msgstr ""
+msgstr "Executando sua ferramenta de construção"
 
 #: ../../extending/first-extension-module.rst:121
 msgid ""
@@ -259,6 +259,11 @@ msgid ""
 "your build tool works, so that you can make and test incremental changes as "
 "you follow the rest of the text."
 msgstr ""
+"Com apenas as diretivas de inclusões (includes) implementadas, sua extensão "
+"não fará nada. Ainda assim, é um bom momento para compilá-la e tentar "
+"importá-la. Isso garantirá que sua ferramenta de construção esteja "
+"funcionando, permitindo que você faça e teste alterações incrementais à "
+"medida que acompanha o restante do texto."
 
 #: ../../extending/first-extension-module.rst:126
 msgid ""
@@ -267,14 +272,21 @@ msgid ""
 "use `meson-python`_. (If you want to use another one, see :ref:`first-"
 "extension-other-tools`.)"
 msgstr ""
+"O próprio CPython não inclui uma ferramenta para construir módulos de "
+"extensão; recomenda-se utilizar um projeto de terceiros para essa "
+"finalidade. Neste tutorial, utilizaremos o `meson-python`_. (Caso queira "
+"utilizar outra ferramenta, consulte :ref:`first-extension-other-tools`.)"
 
 #: ../../extending/first-extension-module.rst:135
 msgid "``meson-python`` requires defining a \"project\" using two extra files."
 msgstr ""
+"O ``meson-python`` requer a definição de um \"projeto\" utilizando dois "
+"arquivos extras."
 
 #: ../../extending/first-extension-module.rst:137
 msgid "First, add ``pyproject.toml`` with these contents:"
 msgstr ""
+"Primeiro, adicione um arquivo ``pyproject.toml`` com o seguinte conteúdo:"
 
 #: ../../extending/first-extension-module.rst:139
 msgid ""
@@ -288,10 +300,19 @@ msgid ""
 "name = 'sampleproject'\n"
 "version = '0'"
 msgstr ""
+"[build-system]\n"
+"build-backend = 'mesonpy'\n"
+"requires = ['meson-python']\n"
+"\n"
+"[project]\n"
+"# Placeholders de informações de projeto\n"
+"# (altere isso antes de distribuir o módulo)\n"
+"name = 'projetoexemplo'\n"
+"version = '0'"
 
 #: ../../extending/first-extension-module.rst:151
 msgid "Then, create ``meson.build`` containing the following:"
-msgstr ""
+msgstr "Então, cria ``meson.build`` contendo o seguinte:"
 
 #: ../../extending/first-extension-module.rst:153
 msgid ""
@@ -305,28 +326,42 @@ msgid ""
 "   install: true,\n"
 ")"
 msgstr ""
+"project('projetoexemplo', 'c')\n"
+"\n"
+"py = import('python').find_installation(pure: false)\n"
+"\n"
+"py.extension_module(\n"
+"   'spam',          # nome do módulo Python importável\n"
+"   'spammodule.c',  # o arquivo-fonte C\n"
+"   install: true,\n"
+")"
 
 #: ../../extending/first-extension-module.rst:167
 msgid ""
 "See the `meson-python documentation <meson-python_>`_ for details on "
 "configuration."
 msgstr ""
+"Consulte a `documentação do meson-python <meson-python_>`_ para detalhes "
+"sobre a configuração."
 
 #: ../../extending/first-extension-module.rst:170
 msgid ""
 "Now, build install the *project in the current directory* (``.``) via "
 "``pip``:"
 msgstr ""
+"Agora, construa e instale o *projeto no diretório atual* (``.``) via ``pip``:"
 
 #: ../../extending/first-extension-module.rst:172
 msgid "python -m pip -v install ."
-msgstr ""
+msgstr "python -m pip -v install ."
 
 #: ../../extending/first-extension-module.rst:176
 msgid ""
 "The ``-v`` (``--verbose``) option causes ``pip`` to show the output from the "
 "compiler, which is often useful during development."
 msgstr ""
+"A opção ``-v`` (``--verbose``) faz com que o ``pip`` mostre a saída do "
+"compilador, o que é frequentemente útil durante o desenvolvimento."
 
 #: ../../extending/first-extension-module.rst:181
 msgid ""
@@ -334,18 +369,27 @@ msgid ""
 "in a :ref:`virtual environment <venv-def>`. (Or, if you prefer another tool "
 "that can build and install ``pyproject.toml``-based projects, use that.)"
 msgstr ""
+"Se você não tiver o ``pip`` instalado, execute ``python -m ensurepip``, de "
+"preferência em um :ref:`ambiente virtual <venv-def>`. (Ou, se preferir outra "
+"ferramenta capaz de construir e instalar projetos baseados em ``pyproject."
+"toml``, utilize-a.)"
 
 #: ../../extending/first-extension-module.rst:189
 msgid ""
 "Note that you will need to run this command again every time you change your "
 "extension. Unlike Python, C has an explicit compilation step."
 msgstr ""
+"Observe que precisará de executar este comando novamente sempre que alterar "
+"a sua extensão. Ao contrário do Python, o C tem um passo de compilação "
+"explícito."
 
 #: ../../extending/first-extension-module.rst:193
 msgid ""
 "When your extension is compiled and installed, start Python and try to "
 "import it. This should fail with the following exception:"
 msgstr ""
+"Quando a sua extensão estiver compilada e instalada, inicie o Python e tente "
+"importá-la. Isto deverá falhar com a seguinte exceção:"
 
 #: ../../extending/first-extension-module.rst:197
 msgid ""
@@ -355,10 +399,15 @@ msgid ""
 "ImportError: dynamic module does not define module export function "
 "(PyModExport_spam or PyInit_spam)"
 msgstr ""
+">>> import spam\n"
+"Traceback (most recent call last):\n"
+"   ...\n"
+"ImportError: dynamic module does not define module export function "
+"(PyModExport_spam or PyInit_spam)"
 
 #: ../../extending/first-extension-module.rst:206
 msgid "Module export hook"
-msgstr ""
+msgstr "Gancho de exportação de módulo"
 
 #: ../../extending/first-extension-module.rst:208
 msgid ""
@@ -366,10 +415,14 @@ msgid ""
 "Python is looking for a \"module export function\", also known as a :ref:"
 "`module export hook <extension-export-hook>`. Let's define one."
 msgstr ""
+"A exceção que você recebeu ao tentar importar o módulo indicava que o Python "
+"está procurando uma \"função de exportação de módulo\", também conhecida "
+"como :ref:`gancho de exportação de módulo <extension-export-hook>`. Vamos "
+"definir uma."
 
 #: ../../extending/first-extension-module.rst:213
 msgid "First, add a prototype below the ``#include`` lines:"
-msgstr ""
+msgstr "Primeiro, adicione um protótipo embaixo das linhas ``#include``:"
 
 #: ../../extending/first-extension-module.rst:215
 msgid ""
@@ -377,6 +430,9 @@ msgid ""
 "PyMODEXPORT_FUNC PyModExport_spam(void);\n"
 "\n"
 msgstr ""
+"\n"
+"PyMODEXPORT_FUNC PyModExport_spam(void);\n"
+"\n"
 
 #: ../../extending/first-extension-module.rst:220
 msgid ""
@@ -384,6 +440,9 @@ msgid ""
 "warnings without it. It's generally better to add the prototype than to "
 "disable the warning."
 msgstr ""
+"O protótipo não é estritamente necessário, mas alguns compiladores modernos "
+"emitem avisos se ele não estiver presente. Geralmente, é melhor adicionar o "
+"protótipo do que desativar o aviso."
 
 #: ../../extending/first-extension-module.rst:224
 msgid ""
@@ -391,12 +450,17 @@ msgid ""
 "and adds any special linkage declarations needed to make the function "
 "visible and usable when CPython loads it."
 msgstr ""
+"A macro :c:macro:`PyMODEXPORT_FUNC` declara o tipo de retorno da função e "
+"adiciona quaisquer declarações de vinculação especiais necessárias para "
+"tornar a função visível e utilizável quando o CPython a carrega."
 
 #: ../../extending/first-extension-module.rst:228
 msgid ""
 "After the prototype, add the function itself. For now, make it return "
 "``NULL``:"
 msgstr ""
+"Após o protótipo, adicione a função em si. Por enquanto, faça com que ela "
+"retorne ``NULL``:"
 
 #: ../../extending/first-extension-module.rst:231
 msgid ""
@@ -406,12 +470,19 @@ msgid ""
 "   return NULL;\n"
 "}"
 msgstr ""
+"PyMODEXPORT_FUNC\n"
+"PyModExport_spam(void)\n"
+"{\n"
+"   return NULL;\n"
+"}"
 
 #: ../../extending/first-extension-module.rst:239
 msgid ""
 "Compile and load the module again. You should get a different error this "
 "time."
 msgstr ""
+"Compile e carregue o módulo novamente. Você deverá receber um erro diferente "
+"desta vez."
 
 #: ../../extending/first-extension-module.rst:242
 msgid ""
@@ -421,6 +492,11 @@ msgid ""
 "SystemError: module export hook for module 'spam' failed without setting an "
 "exception"
 msgstr ""
+">>> import spam\n"
+"Traceback (most recent call last):\n"
+"   ...\n"
+"SystemError: module export hook for module 'spam' failed without setting an "
+"exception"
 
 #: ../../extending/first-extension-module.rst:249
 msgid ""
@@ -428,16 +504,23 @@ msgid ""
 "CPython complains about it. That's good -- it means that CPython found the "
 "function! Let's now make it do something useful."
 msgstr ""
+"Simplesmente retornar ``NULL`` *não* é o comportamento correto para um "
+"gancho de exportação, e o CPython reclama disso. Isso é bom — significa que "
+"o CPython encontrou a função! Agora, vamos fazer com que ela realize alguma "
+"tarefa útil."
 
 #: ../../extending/first-extension-module.rst:256
 msgid "The slot table"
-msgstr ""
+msgstr "A tabela de slots"
 
 #: ../../extending/first-extension-module.rst:258
 msgid ""
 "Rather than ``NULL``, the export hook should return the information needed "
 "to create a module. Let's start with the basics: the name and docstring."
 msgstr ""
+"Em vez de ``NULL``, o gancho de exportação deve retornar as informações "
+"necessárias para criar um módulo. Vamos começar pelo básico: o nome e a "
+"docstring."
 
 #: ../../extending/first-extension-module.rst:262
 msgid ""
@@ -445,6 +528,9 @@ msgid ""
 "which are essentially key-value pairs. Define this array just before your "
 "export hook:"
 msgstr ""
+"As informações devem ser definidas em um vetor de entradas :c:type:`PySlot`, "
+"que são essencialmente pares chave-valor. Defina esse array logo antes do "
+"seu gancho de exportação:"
 
 #: ../../extending/first-extension-module.rst:266
 msgid ""
@@ -458,6 +544,15 @@ msgid ""
 "   PySlot_END\n"
 "};"
 msgstr ""
+"PyABIInfo_VAR(abi_info);\n"
+"\n"
+"static PySlot spam_slots[] = {\n"
+"   PySlot_STATIC_DATA(Py_mod_abi, &abi_info),\n"
+"   PySlot_STATIC_DATA(Py_mod_name, \"spam\"),\n"
+"   PySlot_STATIC_DATA(Py_mod_doc, \"Um módulo maravilhoso com um exemplo de "
+"função\"),\n"
+"   PySlot_END\n"
+"};"
 
 #: ../../extending/first-extension-module.rst:277
 msgid ""
@@ -465,6 +560,9 @@ msgid ""
 "``&abi_info``, ``\"spam\"``, and the docstring) is a pointer to constant, "
 "statically allocated data."
 msgstr ""
+"A macro :c:macro:`PySlot_STATIC_DATA` é usada quando o valor do slot (aqui: "
+"``&abi_info``, ``\"spam\"`` e a docstring) é um ponteiro para dados "
+"constantes alocados estaticamente."
 
 #: ../../extending/first-extension-module.rst:281
 msgid ""
@@ -472,18 +570,26 @@ msgid ""
 "a bit of boilerplate that helps prevent extensions compiled for a different "
 "version of Python from crashing the interpreter."
 msgstr ""
+"A macro ``PyABIInfo_VAR(abi_info);`` e o slot :c:data:`Py_mod_abi` "
+"constituem um código padrão que ajuda a evitar que extensões compiladas para "
+"uma versão diferente do Python causem a falha do interpretador."
 
 #: ../../extending/first-extension-module.rst:285
 msgid ""
 "For both :c:data:`Py_mod_name` and :c:data:`Py_mod_doc`, the values are C "
 "strings -- that is, NUL-terminated, UTF-8 encoded byte arrays."
 msgstr ""
+"Para ambos :c:data:`Py_mod_name` e :c:data:`Py_mod_doc`, os valores são "
+"strings C — isto é, vetores de bytes terminados em NUL e codificados em "
+"UTF-8."
 
 #: ../../extending/first-extension-module.rst:288
 msgid ""
 "Note ``PySlot_END`` sentinel entry at the end. This marks the end of the "
 "array. If you forget it, you'll trigger undefined behavior."
 msgstr ""
+"Observe a entrada sentinela ``PySlot_END`` ao final. Ela marca o fim do "
+"vetor. Se você esquecê-la, provocará um comportamento indefinido."
 
 #: ../../extending/first-extension-module.rst:292
 msgid ""
