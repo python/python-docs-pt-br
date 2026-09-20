@@ -1,5 +1,5 @@
-1 directory  67.16% done
-└── 3.12/  67.16% done
+1 directory  67.17% done
+└── 3.12/  67.17% done
     ├── c-api/  54.24% done
     │   ├── exceptions.po                 68.0% translated 251/366
     │   ├── frame.po                      80.0% translated   29/36
@@ -37,7 +37,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  61.16% done
+    ├── library/  61.18% done
     │   ├── 2to3.po                       91.0% translated 121/132
     │   ├── array.po                      95.0% translated   80/84
     │   ├── ast.po                        83.0% translated 255/306
@@ -57,7 +57,7 @@
     │   ├── binascii.po                   56.0% translated   23/41
     │   ├── cgi.po                        23.0% translated  30/126
     │   ├── chunk.po                      35.0% translated   14/39
-    │   ├── codecs.po                     46.0% translated 250/533
+    │   ├── codecs.po                     47.0% translated 252/533
     │   ├── concurrent.futures.po         14.0% translated   14/98
     │   ├── contextlib.po                 32.0% translated  56/172
     │   ├── crypt.po                      16.0% translated    6/36
