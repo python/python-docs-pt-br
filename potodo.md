@@ -1,5 +1,5 @@
-1 directory  61.19% done
-└── 3.10/  61.19% done
+1 directory  61.20% done
+└── 3.10/  61.20% done
     ├── c-api/  53.01% done
     │   ├── allocation.po                 88.0% translated     8/9
     │   ├── arg.po                        98.0% translated 193/195
@@ -144,7 +144,7 @@
     │   ├── importlib.metadata.po         67.0% translated   36/53
     │   ├── importlib.po                  65.0% translated 227/346
     │   ├── inspect.po                    36.0% translated 125/338
-    │   ├── io.po                         16.0% translated  41/245
+    │   ├── io.po                         17.0% translated  43/245
     │   ├── ipaddress.po                  98.0% translated 155/158
     │   ├── itertools.po                  83.0% translated 128/153
     │   ├── logging.config.po             88.0% translated 118/133
