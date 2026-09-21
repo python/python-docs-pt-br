@@ -1,5 +1,5 @@
-1 directory  65.34% done
-└── 3.11/  65.34% done
+1 directory  65.35% done
+└── 3.11/  65.35% done
     ├── c-api/  55.05% done
     │   ├── exceptions.po                 69.0% translated 240/347
     │   ├── float.po                      97.0% translated   34/35
@@ -54,7 +54,7 @@
     ├── install/  71.32% done
     │   └── index.po                      73.0% translated 166/226
     ├── installing/  100.00% done
-    ├── library/  59.01% done
+    ├── library/  59.03% done
     │   ├── _thread.po                    96.0% translated   49/51
     │   ├── abc.po                        97.0% translated   48/49
     │   ├── argparse.po                   91.0% translated 305/335
@@ -83,7 +83,7 @@
     │   ├── chunk.po                      35.0% translated   14/39
     │   ├── cmath.po                      96.0% translated   54/56
     │   ├── code.po                       96.0% translated   30/31
-    │   ├── codecs.po                     46.0% translated 250/533
+    │   ├── codecs.po                     47.0% translated 252/533
     │   ├── concurrent.futures.po         16.0% translated   15/90
     │   ├── configparser.po               95.0% translated 178/186
     │   ├── contextlib.po                 32.0% translated  42/130
