@@ -1,5 +1,5 @@
-1 directory  61.20% done
-└── 3.10/  61.20% done
+1 directory  61.21% done
+└── 3.10/  61.21% done
     ├── c-api/  53.01% done
     │   ├── allocation.po                 88.0% translated     8/9
     │   ├── arg.po                        98.0% translated 193/195
@@ -56,7 +56,7 @@
     ├── install/  72.62% done
     │   └── index.po                      74.0% translated 168/226
     ├── installing/  100.00% done
-    ├── library/  56.30% done
+    ├── library/  56.32% done
     │   ├── _thread.po                    95.0% translated   39/41
     │   ├── argparse.po                   88.0% translated 256/290
     │   ├── array.po                      98.0% translated   81/82
@@ -83,7 +83,7 @@
     │   ├── cmath.po                      94.0% translated   51/54
     │   ├── cmd.po                        73.0% translated   31/42
     │   ├── code.po                       93.0% translated   29/31
-    │   ├── codecs.po                     46.0% translated 237/511
+    │   ├── codecs.po                     46.0% translated 239/511
     │   ├── codeop.po                     92.0% translated   13/14
     │   ├── collections.abc.po            95.0% translated 114/119
     │   ├── collections.po                99.0% translated 210/211
