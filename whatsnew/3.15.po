@@ -74,6 +74,15 @@ msgid ""
 "<whatsnew315-unpacking-in-comprehensions>`, and a :ref:`stable ABI for free-"
 "threaded builds <whatsnew315-abi3t>`."
 msgstr ""
+"O Python 3.15 será a versão estável mais recente da linguagem de programação "
+"Python, trazendo uma combinação de alterações na linguagem, na implementação "
+"e na biblioteca padrão. As principais mudanças incluem :ref:`importações "
+"preguiçosas <whatsnew315-lazy-imports>` (lazy imports), os tipos embutidos :"
+"ref:`frozendict <whatsnew315-frozendict>` e :ref:`sentinela <whatsnew315-"
+"sentinel>`, :ref:`UTF-8 como codificação padrão <whatsnew315-utf8-"
+"default>`, :ref:`desempacotamento em compreensões <whatsnew315-unpacking-in-"
+"comprehensions>` e uma :ref:`ABI estável para construção com threads livres "
+"<whatsnew315-abi3t>` (free-threaded)."
 
 #: ../../whatsnew/3.15.rst:76
 msgid ""
@@ -83,6 +92,12 @@ msgid ""
 "more-color>` in command-line output, as well as the usual deprecations and "
 "removals, and improvements in user-friendliness and correctness."
 msgstr ""
+"As alterações na biblioteca incluem um novo :ref:`pacote de perfilamento "
+"<whatsnew315-profiling-package>` com o :ref:`Tachyon <whatsnew315-sampling-"
+"profiler>` — uma ferramenta de perfilamento baseada em amostragem "
+"estatística de alta frequência —, :ref:`mais cores <whatsnew315-more-color>` "
+"na saída da linha de comando, bem como as habituais descontinuações e "
+"remoções, além de melhorias na usabilidade e na correção."
 
 #: ../../whatsnew/3.15.rst:84
 msgid ""
@@ -94,12 +109,22 @@ msgid ""
 "particular new feature; but note that PEPs usually are not kept up-to-date "
 "once a feature has been fully implemented."
 msgstr ""
+"Este artigo não tenta fornecer uma especificação completa de todos os novos "
+"recursos, mas fornece uma visão geral conveniente. Para detalhes completos, "
+"consulte a documentação, como :ref:`Referência da Biblioteca <library-"
+"index>` e :ref:`Referência da Linguagem <reference-index>`. Para entender a "
+"implementação completa e a justificativa do design para uma mudança, "
+"consulte a PEP para um novo recurso específico; mas observe que as PEPs "
+"geralmente não são mantidas atualizadas depois que um recurso é totalmente "
+"implementado."
 
 #: ../../whatsnew/3.15.rst:94
 msgid ""
 "See `Porting to Python 3.15`_ for guidance on upgrading from earlier "
 "versions of Python."
 msgstr ""
+"Consulte `Portando para o Python 3.15`_ para obter orientações sobre a "
+"atualização a partir de versões anteriores do Python."
 
 #: ../../whatsnew/3.15.rst:101
 msgid "Interpreter improvements:"
@@ -154,6 +179,8 @@ msgid ""
 ":ref:`The experimental JIT compiler has been significantly upgraded "
 "<whatsnew315-jit>`"
 msgstr ""
+":ref:`O compilador JIT experimental foi melhorado de forma significativa "
+"<whatsnew315-jit>`"
 
 #: ../../whatsnew/3.15.rst:115
 msgid ":ref:`Improved error messages <whatsnew315-improved-error-messages>`"
@@ -177,6 +204,8 @@ msgid ""
 ":pep:`799`: :ref:`Tachyon: High-frequency statistical sampling profiler "
 "<whatsnew315-sampling-profiler>`"
 msgstr ""
+":pep:`799`: :ref:`Tachyon: Perfilador de amostragem estatística de alta "
+"frequência <whatsnew315-sampling-profiler>`"
 
 #: ../../whatsnew/3.15.rst:123
 msgid ":ref:`More color <whatsnew315-more-color>`"
@@ -237,7 +266,7 @@ msgstr ""
 
 #: ../../whatsnew/3.15.rst:141
 msgid "Build changes:"
-msgstr ""
+msgstr "Alterações na construção:"
 
 #: ../../whatsnew/3.15.rst:143
 msgid ""
@@ -622,6 +651,8 @@ msgid ""
 "(Contributed by Jelle Zijlstra in :gh:`148829`; PEP 661 written by Tal "
 "Einat.)"
 msgstr ""
+"(Contribuição de Jelle Zijlstra em :gh:`148829`; PEP 661 escrita por Tal "
+"Einat.)"
 
 #: ../../whatsnew/3.15.rst:322
 msgid ":pep:`661` for further details."
@@ -675,7 +706,7 @@ msgstr ":pep:`799` para mais detalhes."
 
 #: ../../whatsnew/3.15.rst:348
 msgid "Tachyon: High-frequency statistical sampling profiler"
-msgstr ""
+msgstr "Tachyon: Perfilador de amostragem estatística de alta frequência"
 
 #: ../../whatsnew/3.15.rst:350
 msgid "Tachyon profiler logo"
@@ -1390,6 +1421,24 @@ msgid ""
 "container = Container(circle)\n"
 "print(container.area)"
 msgstr ""
+"from dataclasses import dataclass\n"
+"from math import pi\n"
+"\n"
+"@dataclass\n"
+"class Circle:\n"
+"   radius: float\n"
+"\n"
+"   @property\n"
+"   def area(self) -> float:\n"
+"      return pi * self.radius**2\n"
+"\n"
+"class Container:\n"
+"   def __init__(self, inner: Circle) -> None:\n"
+"      self.inner = inner\n"
+"\n"
+"circle = Circle(radius=4.0)\n"
+"container = Container(circle)\n"
+"print(container.area)"
 
 #: ../../whatsnew/3.15.rst:655
 msgid "Running this code now produces a clearer suggestion:"
@@ -1404,6 +1453,12 @@ msgid ""
 "AttributeError: 'Container' object has no attribute 'area'. Did you mean '."
 "inner.area' instead of '.area'?"
 msgstr ""
+"Traceback (most recent call last):\n"
+"  File \"example.py\", line 18, in <module>\n"
+"    print(container.area)\n"
+"          ^^^^^^^^^^^^^^\n"
+"AttributeError: 'Container' object has no attribute 'area'. Did you mean '."
+"inner.area' instead of '.area'?"
 
 #: ../../whatsnew/3.15.rst:665
 msgid ""
@@ -1960,6 +2015,11 @@ msgid ""
 "standard library. Use :attr:`__spec__.cached <importlib.machinery.ModuleSpec."
 "cached>` instead. (Contributed by Brett Cannon in :gh:`97879`.)"
 msgstr ""
+"O atributo ``__cached__`` em módulos, que estava descontinuado desde a "
+"versão 3.13, não é mais definido nem levado em consideração pelo sistema de "
+"importação ou pela biblioteca padrão. Em vez disso, utilize :attr:`__spec__."
+"cached <importlib.machinery.ModuleSpec.cached>`. (Contribuição de Brett "
+"Cannon em :gh:`97879`.)"
 
 #: ../../whatsnew/3.15.rst:944
 msgid ""
@@ -2424,6 +2484,8 @@ msgid ""
 "Annotations for generated ``__init__`` methods no longer include internal "
 "type names. (Contributed by David Ellis in :gh:`137530`.)"
 msgstr ""
+"Anotações para métodos ``__init__`` gerados não mais incluem nomes de tipos "
+"internos. (Contribuição de David Ellis em :gh:`137530`.)"
 
 #: ../../whatsnew/3.15.rst:1195
 msgid "dbm"
@@ -2537,6 +2599,12 @@ msgid ""
 "now used in Python 3.14.5 and later and Python 3.15. (Contributed by Sergey "
 "Miryanov in :gh:`148726`.)"
 msgstr ""
+"As versões 3.14.0 a 3.14.4 do Python incluíam um novo coletor de lixo "
+"incremental. No entanto, devido a diversos `relatos <https://github.com/"
+"python/cpython/issues/142516>`__ de pressão significativa sobre a memória em "
+"ambientes de produção, houve um retorno ao GC geracional da versão 3.13. "
+"Esse é o GC utilizado atualmente no Python 3.14.5 e versões posteriores, "
+"inclusive Python 3.15. (Contribuição de Sergey Miryanov em :gh:`148726`.)"
 
 #: ../../whatsnew/3.15.rst:1262
 msgid "hashlib"
@@ -2624,6 +2692,10 @@ msgid ""
 "`python -m http.server` command-line interface to support custom headers in "
 "HTTP responses. (Contributed by Anton I. Sipos in :gh:`135057`.)"
 msgstr ""
+"Adiciona uma opção :option:`-H/--header <http.server --header>` à interface "
+"de linha de comando :program:`python -m http.server` para dar suporte a "
+"cabeçalhos personalizados em respostas HTTP. (Contribuição de Anton I. Sipos "
+"em :gh:`135057`.)"
 
 #: ../../whatsnew/3.15.rst:1311
 msgid "importlib.metadata"
@@ -2673,6 +2745,13 @@ msgid ""
 "yield a deeply nested immutable Python structure representing the JSON data. "
 "(Contributed by Joao S. O. Bueno in :gh:`146440`.)"
 msgstr ""
+"Adiciona o parâmetro *array_hook* às funções :func:`~json.load` e :func:"
+"`~json.loads`: permite uma função de retorno para tipos de array literal em "
+"JSON para personalizar listas Python no objeto decodificado resultante. "
+"Passar um :class:`frozendict` combinado para o parâmetro *object_pairs_hook* "
+"e uma :class:`tuple` para *array_hook* vai produzir uma estrutura Python "
+"imutável profundamente aninhada representando os dados JSON. (Contribuição "
+"de Joao S. O. Bueno em :gh:`146440`.)"
 
 #: ../../whatsnew/3.15.rst:1344
 msgid "locale"
@@ -2999,6 +3078,8 @@ msgid ""
 "SQL keyword completion on :kbd:`Tab`. (Contributed by Long Tan in :gh:"
 "`133393`.)"
 msgstr ""
+"Conclusão de palavras reservadas SQL com a tecla :kbd:`Tab`. (Contribuição "
+"de Long Tan em :gh:`133393`.)"
 
 #: ../../whatsnew/3.15.rst:1519
 msgid ""
@@ -3015,6 +3096,8 @@ msgid ""
 "Table, index, trigger, view, column, function, and schema completion on :kbd:"
 "`Tab`. (Contributed by Long Tan in :gh:`136101`.)"
 msgstr ""
+"Conclusão de tabela, índice, gatilho, visão, coluna, função e esquema com a "
+"tecla :kbd:`Tab`. (Contribuição de Long Tan em :gh:`136101`.)"
 
 #: ../../whatsnew/3.15.rst:1529
 msgid "ssl"
@@ -3518,6 +3601,10 @@ msgid ""
 "f_locals` attribute, as described in :pep:`667`. (Contributed by Peter "
 "Bierma in :gh:`136492`.)"
 msgstr ""
+"Expõe o tipo de proxy write-through de :func:`locals` como :class:`types."
+"FrameLocalsProxyType`. Isso representa o tipo do atributo :attr:`frame."
+"f_locals`, conforme descrito na :pep:`667`. (Contribuição de Peter Bierma "
+"em :gh:`136492`.)"
 
 #: ../../whatsnew/3.15.rst:1779 ../../whatsnew/3.15.rst:2251
 msgid "typing"
@@ -3640,6 +3727,8 @@ msgid ""
 "The Unicode database has been updated to Unicode 17.0.0. (Contributed by "
 "Benjamin Peterson in :gh:`138706`.)"
 msgstr ""
+"O banco de dados Unicode foi atualizado para Unicode 17.0.0. (Contribuição "
+"de Benjamin Peterson em :gh:`138706`)."
 
 #: ../../whatsnew/3.15.rst:1841
 msgid ""
@@ -3978,7 +4067,7 @@ msgstr ""
 
 #: ../../whatsnew/3.15.rst:2022
 msgid "Upgraded experimental JIT compiler"
-msgstr ""
+msgstr "Compilador JIT experimental atualizado"
 
 #: ../../whatsnew/3.15.rst:2024
 msgid ""
@@ -4226,6 +4315,10 @@ msgid ""
 "Python 3.12, and is scheduled for removal in Python 3.17. (Contributed by "
 "Alex Waygood in :gh:`118803`.)"
 msgstr ""
+"A classe :class:`collections.abc.ByteString` foi removida de ``collections."
+"abc.__all__``. :class:`!collections.abc.ByteString` está descontinuado desde "
+"o Python 3.12 e está agendado para remoção no Python 3.17. (Contribuição de "
+"Alex Waygood em :gh:`118803`.)"
 
 #: ../../whatsnew/3.15.rst:2152
 msgid ""
@@ -4383,6 +4476,10 @@ msgid ""
 "`!typing.ByteString` has been deprecated since Python 3.9, and is scheduled "
 "for removal in Python 3.17. (Contributed by Alex Waygood in :gh:`118803`.)"
 msgstr ""
+"A classe :class:`typing.ByteString` foi removida de ``typing.__all__``. :"
+"class:`!typing.ByteString` está descontinuada desde o Python 3.9 e está "
+"agendada para remoção no Python 3.17. (Contribuição de Alex Waygood em :gh:"
+"`118803`.)"
 
 #: ../../whatsnew/3.15.rst:2258
 msgid ""
@@ -4536,6 +4633,12 @@ msgid ""
 "if it was merely imported or accessed from the :mod:`!collections.abc` "
 "module. (Contributed by Alex Waygood in :gh:`118803`.)"
 msgstr ""
+"``DeprecationWarning``\\ s já eram emitidas se :class:`collections.abc."
+"ByteString` fosse herdada ou usada como o segundo argumento para :func:"
+"`isinstance` ou :func:`issubclass`, mas avisos não eram emitidos "
+"anteriormente se ela fosse meramente importada ou acessada a partir do "
+"módulo :mod:`!collections.abc`. (Contribuição de Alex Waygood em :gh:"
+"`118803`.)"
 
 #: ../../whatsnew/3.15.rst:2339
 #: ../../deprecations/pending-removal-in-3.19.rst:10
@@ -4602,6 +4705,10 @@ msgid ""
 "its value does *not* explicitly close the current file. (Contributed by "
 "Bénédikt Tran in :gh:`142307`.)"
 msgstr ""
+"A alteração de :attr:`IMAP4.file <imaplib.IMAP4.file>` agora está "
+"descontinuado e programado para remoção no Python 3.19. Esta propriedade "
+"agora não é utilizada e alterar seu valor *não* fecha explicitamente o "
+"arquivo atual. (Contribuição de Bénédikt Tran em :gh:`142307`.)"
 
 #: ../../whatsnew/3.15.rst:2372
 #: ../../deprecations/pending-removal-in-3.17.rst:40
@@ -4720,6 +4827,11 @@ msgid ""
 "if it was merely imported or accessed from the :mod:`!typing` module. "
 "(Contributed by Alex Waygood in :gh:`118803`.)"
 msgstr ""
+"``DeprecationWarning``\\ s já eram emitidas se :class:`typing.ByteString` "
+"fosse herdada ou usada como o segundo argumento para :func:`isinstance` ou :"
+"func:`issubclass`, mas avisos não eram emitidos anteriormente se ela fosse "
+"meramente importada ou acessada a partir do módulo :mod:`!typing`. "
+"(Contribuição de Alex Waygood em :gh:`118803`.)"
 
 #: ../../whatsnew/3.15.rst:2428
 #: ../../deprecations/pending-removal-in-3.20.rst:59
@@ -4757,7 +4869,7 @@ msgstr ""
 
 #: ../../whatsnew/3.15.rst:2442
 msgid "``__version__``:"
-msgstr ""
+msgstr "``__version__``:"
 
 #: ../../whatsnew/3.15.rst:2444
 #: ../../deprecations/pending-removal-in-3.20.rst:11
@@ -6054,6 +6166,8 @@ msgid ""
 ":c:type:`PyCriticalSection` and related functions are added to the Stable "
 "ABI. (Contributed by Petr Viktorin in :gh:`149225`.)"
 msgstr ""
+":c:type:`PyCriticalSection` e funções relacionadas foram adicionadas à ABI "
+"Estável. (Contribuição de Petr Viktorin em :gh:`149225`.)"
 
 #: ../../whatsnew/3.15.rst:2555
 msgid ""
@@ -6173,6 +6287,8 @@ msgstr ""
 #: ../../whatsnew/3.15.rst:2605
 msgid "The following functions are :term:`soft deprecated`:"
 msgstr ""
+"As seguintes funções estão :term:`suavemente descontinuadas <soft "
+"deprecated>`:"
 
 #: ../../whatsnew/3.15.rst:2607
 msgid ":c:func:`PyType_FromSpec`"
@@ -6493,6 +6609,12 @@ msgid ""
 "`PyObject_CallMethod` or :c:func:`PyObject_GetAttr`. (Contributed by Victor "
 "Stinner in :gh:`141049`.)"
 msgstr ""
+":c:func:`!_PyObject_CallMethodId`, :c:func:`!_PyObject_GetAttrId` e :c:func:"
+"`!_PyUnicode_FromId` foram descontinuadas desde o Python 3.15 e serão "
+"removidas no Python 3.20. Em vez delas, use :c:func:"
+"`PyUnicode_InternFromString()` and armazene em cache o resultado no estado "
+"do módulo e chame :c:func:`PyObject_CallMethod` ou :c:func:"
+"`PyObject_GetAttr`. (Contribuição de Victor Stinner em :gh:`141049`.)"
 
 #: ../../whatsnew/3.15.rst:2753
 msgid ""
@@ -6525,6 +6647,9 @@ msgid ""
 ":c:member:`~PyConfig.bytes_warning` is deprecated since Python 3.15 and will "
 "be removed in Python 3.17. (Contributed by Nikita Sobolev in :gh:`136355`.)"
 msgstr ""
+":c:member:`~PyConfig.bytes_warning` está descontinuado desde o Python 3.15 e "
+"será removido no Python 3.17. (Contribuição de Nikita Sobolev em :gh:"
+"`136355`.)"
 
 #: ../../whatsnew/3.15.rst:2769
 msgid ""
@@ -6595,6 +6720,9 @@ msgid ""
 "Python 3.15 and will be removed in Python 3.20. (Contributed by Sergey B "
 "Kirpichev in :gh:`141004`.)"
 msgstr ""
+":c:macro:`!Py_MATH_El` e :c:macro:`!Py_MATH_PIl` estão descontinuadas desde "
+"o Python 3.15 e serão removidas no Python 3.20. (Contribuição de Sergey B "
+"Kirpichev em :gh:`141004`.)"
 
 #: ../../whatsnew/3.15.rst:2800
 msgid "Build changes"
@@ -6638,6 +6766,15 @@ msgid ""
 "environment variable to ``1``. (Contributed by Pablo Galindo Salgado in :gh:"
 "`144319`.)"
 msgstr ""
+"A nova opção de configuração :option:`--with-pymalloc-hugepages` habilita "
+"suporte a páginas gigantes (huge pages) para arenas do :ref:`pymalloc "
+"<pymalloc>`. Quando habilitado, o tamanho da arena aumenta para 2 MiB e a "
+"alocação usa ``MAP_HUGETLB`` (Linux) ou ``MEM_LARGE_PAGES`` (Windows) com "
+"fallback automático para páginas regulares. No Windows, use ``build.bat --"
+"pymalloc-hugepages``. Em tempo de execução, páginas gigantes devem ser "
+"explicitamente habilitadas definindo a variável de ambiente :envvar:"
+"`PYTHON_PYMALLOC_HUGEPAGES` para ``1``. (Contribuição de Pablo Galindo "
+"Salgado em :gh:`144319`.)"
 
 #: ../../whatsnew/3.15.rst:2822
 msgid ""
@@ -6782,6 +6919,9 @@ msgid ""
 "the underlying syscall, instead of raising a :exc:`SystemError`. "
 "(Contributed by An Long in :gh:`138205`.)"
 msgstr ""
+":meth:`mmap.mmap.resize` foi removido em plataformas que não oferecem "
+"suporte à chamada de sistema subjacente, em vez de levantar :exc:"
+"`SystemError`. (Contribuição de An Long em :gh:`138205`.)"
 
 #: ../../whatsnew/3.15.rst:2885
 msgid ""
