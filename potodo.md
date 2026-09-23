@@ -1,5 +1,5 @@
-1 directory  56.66% done
-└── 3.15/  56.66% done
+1 directory  56.67% done
+└── 3.15/  56.67% done
     ├── builtins/  98.47% done
     │   └── threadsafety.po               65.0% translated  80/122
     ├── c-api/  46.30% done
@@ -66,7 +66,7 @@
     │   ├── sorting.po                    53.0% translated   48/90
     │   └── unicode.po                    19.0% translated  28/143
     ├── installing/  100.00% done
-    ├── library/  52.42% done
+    ├── library/  52.44% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              89.0% translated 142/158
     │   ├── argparse.po                   94.0% translated 397/421
@@ -140,7 +140,7 @@
     │   ├── http.server.po                11.0% translated  16/135
     │   ├── idle.po                       67.0% translated 201/297
     │   ├── imaplib.po                    10.0% translated  14/135
-    │   ├── importlib.metadata.po         70.0% translated 105/149
+    │   ├── importlib.metadata.po         71.0% translated 106/149
     │   ├── importlib.po                  65.0% translated 186/283
     │   ├── importlib.resources.po        94.0% translated   51/54
     │   ├── inspect.po                    34.0% translated 151/433
@@ -195,7 +195,7 @@
     │   ├── tempfile.po                    9.0% translated    8/88
     │   ├── test.po                       30.0% translated 104/341
     │   ├── threading.po                  13.0% translated  42/308
-    │   ├── timeit.po                     90.0% translated   64/71
+    │   ├── timeit.po                     91.0% translated   65/71
     │   ├── tkinter.dnd.po                45.0% translated    9/20
     │   ├── tkinter.font.po               67.0% translated   25/37
     │   ├── tkinter.messagebox.po         93.0% translated   40/43
@@ -221,14 +221,14 @@
     │   ├── xml.dom.minidom.po            13.0% translated    8/60
     │   ├── xml.dom.po                    17.0% translated  52/302
     │   ├── xml.etree.elementtree.po      25.0% translated  70/277
-    │   ├── xml.po                        81.0% translated   26/32
+    │   ├── xml.po                        84.0% translated   27/32
     │   ├── xml.sax.handler.po            19.0% translated  20/104
     │   ├── xml.sax.po                     9.0% translated    3/32
     │   ├── xml.sax.reader.po              2.0% translated    2/75
     │   ├── xmlrpc.client.po              46.0% translated  53/113
     │   ├── xmlrpc.server.po              87.0% translated   50/57
     │   ├── zipfile.po                    97.0% translated 210/216
-    │   ├── zipimport.po                  92.0% translated   35/38
+    │   ├── zipimport.po                  97.0% translated   37/38
     │   ├── zlib.po                       92.0% translated  95/103
     │   └── zoneinfo.po                   44.0% translated   37/84
     ├── reference/  86.94% done
@@ -256,4 +256,4 @@
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  25.0% translated 3865/15391
+        └── changelog.po                  25.0% translated 3865/15393
