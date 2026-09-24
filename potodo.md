@@ -1,7 +1,6 @@
 1 directory  58.57% done
 └── 3.14/  58.57% done
-    ├── builtins/  98.34% done
-    │   ├── stdtypes.po                   99.0% translated 1582/1583
+    ├── builtins/  98.45% done
     │   └── threadsafety.po               65.0% translated  80/122
     ├── c-api/  52.61% done
     │   ├── bytes.po                      93.0% translated   73/78
@@ -236,4 +235,4 @@
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  26.0% translated 3767/14484
+        └── changelog.po                  26.0% translated 3768/14484
