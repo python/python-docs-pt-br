@@ -241,7 +241,7 @@
     ├── tutorial/  100.00% done
     ├── using/  93.84% done
     │   └── windows.po                    90.0% translated 530/584
-    └── whatsnew/  48.60% done
+    └── whatsnew/  48.61% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 300/452
@@ -256,4 +256,4 @@
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  25.0% translated 3865/15393
+        └── changelog.po                  25.0% translated 3867/15393
