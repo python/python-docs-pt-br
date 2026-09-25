@@ -1,6 +1,7 @@
-1 directory  58.57% done
-└── 3.14/  58.57% done
-    ├── builtins/  98.45% done
+1 directory  58.51% done
+└── 3.14/  58.51% done
+    ├── builtins/  98.27% done
+    │   ├── functions.po                  99.0% translated 520/522
     │   └── threadsafety.po               65.0% translated  80/122
     ├── c-api/  52.61% done
     │   ├── bytes.po                      93.0% translated   73/78
@@ -44,22 +45,22 @@
     │   └── newtypes.po                    6.0% translated   8/117
     ├── faq/  94.14% done
     │   └── programming.po                90.0% translated 459/506
-    ├── howto/  64.19% done
+    ├── howto/  63.67% done
     │   ├── curses.po                     90.0% translated 110/122
     │   ├── descriptor.po                 80.0% translated 185/230
     │   ├── enum.po                       36.0% translated 113/309
     │   ├── free-threading-extensions.po  98.0% translated 104/106
-    │   ├── free-threading-python.po      59.0% translated   40/67
+    │   ├── free-threading-python.po      58.0% translated   39/67
     │   ├── functional.po                 62.0% translated 158/252
     │   ├── instrumentation.po            78.0% translated   78/99
     │   ├── logging-cookbook.po            9.0% translated  41/435
     │   ├── regex.po                      92.0% translated 311/337
-    │   ├── remote_debugging.po           88.0% translated 129/146
+    │   ├── remote_debugging.po           77.0% translated 119/154
     │   ├── sockets.po                    55.0% translated   35/63
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  54.84% done
+    ├── library/  54.80% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              89.0% translated 142/158
     │   ├── argparse.po                   98.0% translated 403/409
@@ -86,6 +87,7 @@
     │   ├── binascii.po                   55.0% translated   21/38
     │   ├── bisect.po                     88.0% translated   32/36
     │   ├── calendar.po                   90.0% translated 106/117
+    │   ├── code.po                       96.0% translated   32/33
     │   ├── codecs.po                     44.0% translated 250/566
     │   ├── collections.po                97.0% translated 239/244
     │   ├── compression.zstd.po           97.0% translated 169/174
@@ -189,6 +191,7 @@
     │   ├── trace.po                      90.0% translated   39/43
     │   ├── traceback.po                   8.0% translated  10/118
     │   ├── tracemalloc.po                13.0% translated  21/156
+    │   ├── turtle.po                     98.0% translated 676/684
     │   ├── typing.po                     95.0% translated 792/833
     │   ├── unicodedata.po                60.0% translated   26/43
     │   ├── unittest.mock-examples.po     10.0% translated  19/182
@@ -220,7 +223,7 @@
     ├── tutorial/  100.00% done
     ├── using/  94.21% done
     │   └── windows.po                    91.0% translated 534/583
-    └── whatsnew/  48.29% done
+    └── whatsnew/  48.26% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 301/452
@@ -235,4 +238,4 @@
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  26.0% translated 3768/14484
+        └── changelog.po                  26.0% translated 3770/14500
