@@ -1,6 +1,7 @@
-1 directory  58.53% done
-└── 3.13/  58.53% done
-    ├── builtins/  99.75% done
+1 directory  58.50% done
+└── 3.13/  58.50% done
+    ├── builtins/  99.55% done
+    │   ├── functions.po                  99.0% translated 513/515
     │   └── stdtypes.po                   99.0% translated 1444/1446
     ├── c-api/  53.79% done
     │   ├── bytes.po                      97.0% translated   69/71
@@ -53,7 +54,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  56.14% done
+    ├── library/  56.10% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── argparse.po                   98.0% translated 382/387
     │   ├── array.po                      90.0% translated   80/88
@@ -75,6 +76,7 @@
     │   ├── binascii.po                   60.0% translated   23/38
     │   ├── bisect.po                     94.0% translated   34/36
     │   ├── calendar.po                   93.0% translated 108/116
+    │   ├── code.po                       96.0% translated   32/33
     │   ├── codecs.po                     44.0% translated 250/561
     │   ├── collections.po                98.0% translated 240/244
     │   ├── concurrent.futures.po         13.0% translated  14/103
@@ -167,6 +169,7 @@
     │   ├── trace.po                      97.0% translated   42/43
     │   ├── traceback.po                   7.0% translated   9/116
     │   ├── tracemalloc.po                13.0% translated  21/156
+    │   ├── turtle.po                     98.0% translated 653/661
     │   ├── typing.po                     95.0% translated 776/810
     │   ├── unicodedata.po                55.0% translated   24/43
     │   ├── unittest.mock-examples.po     10.0% translated  19/182
@@ -198,7 +201,7 @@
     ├── using/  99.20% done
     │   ├── mac.po                        98.0% translated   95/96
     │   └── windows.po                    99.0% translated 387/389
-    └── whatsnew/  45.56% done
+    └── whatsnew/  45.52% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 301/452
@@ -215,4 +218,4 @@
         ├── 3.6.po                        43.0% translated 234/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  22.0% translated 2930/13195
+        └── changelog.po                  22.0% translated 2931/13210
