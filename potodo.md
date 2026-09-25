@@ -1,5 +1,5 @@
-1 directory  56.67% done
-└── 3.15/  56.67% done
+1 directory  56.61% done
+└── 3.15/  56.61% done
     ├── builtins/  98.47% done
     │   └── threadsafety.po               65.0% translated  80/122
     ├── c-api/  46.30% done
@@ -49,7 +49,7 @@
     │   └── newtypes.po                    6.0% translated   8/118
     ├── faq/  94.05% done
     │   └── programming.po                90.0% translated 458/506
-    ├── howto/  60.80% done
+    ├── howto/  60.36% done
     │   ├── abi3t-migration.po             4.0% translated   8/171
     │   ├── curses.po                     89.0% translated 106/118
     │   ├── descriptor.po                 79.0% translated 180/226
@@ -61,17 +61,17 @@
     │   ├── logging-cookbook.po            9.0% translated  39/433
     │   ├── perf_profiling.po             74.0% translated   40/54
     │   ├── regex.po                      84.0% translated 284/335
-    │   ├── remote_debugging.po           88.0% translated 129/146
+    │   ├── remote_debugging.po           77.0% translated 119/154
     │   ├── sockets.po                    54.0% translated   33/61
     │   ├── sorting.po                    53.0% translated   48/90
     │   └── unicode.po                    19.0% translated  28/143
     ├── installing/  100.00% done
-    ├── library/  52.44% done
+    ├── library/  52.39% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              89.0% translated 142/158
     │   ├── argparse.po                   94.0% translated 397/421
     │   ├── array.po                      81.0% translated  83/102
-    │   ├── ast.po                        78.0% translated 271/346
+    │   ├── ast.po                        78.0% translated 270/346
     │   ├── asyncio-dev.po                61.0% translated   52/84
     │   ├── asyncio-eventloop.po          71.0% translated 303/426
     │   ├── asyncio-future.po             25.0% translated   17/66
@@ -145,6 +145,7 @@
     │   ├── importlib.resources.po        94.0% translated   51/54
     │   ├── inspect.po                    34.0% translated 151/433
     │   ├── io.po                         21.0% translated  63/287
+    │   ├── ipaddress.po                  99.0% translated 167/168
     │   ├── itertools.po                  74.0% translated 149/200
     │   ├── logging.handlers.po           63.0% translated 174/276
     │   ├── logging.po                    28.0% translated 106/375
@@ -159,6 +160,7 @@
     │   ├── optparse.po                   79.0% translated 425/532
     │   ├── os.path.po                    83.0% translated  94/113
     │   ├── os.po                         88.0% translated 1001/1135
+    │   ├── pathlib.po                    99.0% translated 440/444
     │   ├── pickle.po                     97.0% translated 244/251
     │   ├── poplib.po                     37.0% translated   20/53
     │   ├── pprint.po                     88.0% translated   48/54
@@ -205,6 +207,7 @@
     │   ├── trace.po                      90.0% translated   39/43
     │   ├── traceback.po                   8.0% translated  10/118
     │   ├── tracemalloc.po                13.0% translated  21/156
+    │   ├── turtle.po                     98.0% translated 676/684
     │   ├── typing.po                     90.0% translated 780/861
     │   ├── unicodedata.po                22.0% translated  22/100
     │   ├── unittest.mock-examples.po     10.0% translated  19/182
@@ -241,7 +244,7 @@
     ├── tutorial/  100.00% done
     ├── using/  93.84% done
     │   └── windows.po                    90.0% translated 530/584
-    └── whatsnew/  48.61% done
+    └── whatsnew/  48.59% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 300/452
@@ -256,4 +259,4 @@
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  25.0% translated 3867/15393
+        └── changelog.po                  25.0% translated 3867/15403
