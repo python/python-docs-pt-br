@@ -157,7 +157,7 @@
     │   ├── symtable.po                    9.0% translated    6/65
     │   ├── sys.po                        99.0% translated 441/443
     │   ├── tarfile.po                    54.0% translated 190/347
-    │   ├── tempfile.po                    9.0% translated    8/88
+    │   ├── tempfile.po                   10.0% translated    9/88
     │   ├── test.po                       35.0% translated 118/330
     │   ├── threading.po                  14.0% translated  39/274
     │   ├── time.po                       96.0% translated 270/280
@@ -201,7 +201,7 @@
     ├── using/  99.20% done
     │   ├── mac.po                        98.0% translated   95/96
     │   └── windows.po                    99.0% translated 387/389
-    └── whatsnew/  45.52% done
+    └── whatsnew/  45.54% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 301/452
@@ -218,4 +218,4 @@
         ├── 3.6.po                        43.0% translated 234/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  22.0% translated 2931/13210
+        └── changelog.po                  22.0% translated 2935/13210
