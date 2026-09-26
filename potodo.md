@@ -1,5 +1,5 @@
-1 directory  58.51% done
-└── 3.14/  58.51% done
+1 directory  58.52% done
+└── 3.14/  58.52% done
     ├── builtins/  98.27% done
     │   ├── functions.po                  99.0% translated 520/522
     │   └── threadsafety.po               65.0% translated  80/122
@@ -178,7 +178,7 @@
     │   ├── symtable.po                    8.0% translated    6/73
     │   ├── sys.po                        98.0% translated 472/478
     │   ├── tarfile.po                    55.0% translated 201/365
-    │   ├── tempfile.po                    9.0% translated    8/88
+    │   ├── tempfile.po                   10.0% translated    9/88
     │   ├── test.po                       30.0% translated 104/339
     │   ├── threading.po                  14.0% translated  40/284
     │   ├── time.po                       96.0% translated 270/280
@@ -223,7 +223,7 @@
     ├── tutorial/  100.00% done
     ├── using/  94.21% done
     │   └── windows.po                    91.0% translated 534/583
-    └── whatsnew/  48.26% done
+    └── whatsnew/  48.29% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 301/452
@@ -238,4 +238,4 @@
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  26.0% translated 3770/14500
+        └── changelog.po                  26.0% translated 3776/14500
