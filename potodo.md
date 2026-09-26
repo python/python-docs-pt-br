@@ -1,5 +1,5 @@
-1 directory  56.61% done
-└── 3.15/  56.61% done
+1 directory  56.63% done
+└── 3.15/  56.63% done
     ├── builtins/  98.47% done
     │   └── threadsafety.po               65.0% translated  80/122
     ├── c-api/  46.30% done
@@ -49,8 +49,8 @@
     │   └── newtypes.po                    6.0% translated   8/118
     ├── faq/  94.05% done
     │   └── programming.po                90.0% translated 458/506
-    ├── howto/  60.36% done
-    │   ├── abi3t-migration.po             4.0% translated   8/171
+    ├── howto/  60.37% done
+    │   ├── abi3t-migration.po             9.0% translated  16/171
     │   ├── curses.po                     89.0% translated 106/118
     │   ├── descriptor.po                 79.0% translated 180/226
     │   ├── enum.po                       36.0% translated 112/309
@@ -194,7 +194,7 @@
     │   ├── sys.po                        91.0% translated 468/513
     │   ├── sys_path_init.po              88.0% translated   24/27
     │   ├── tarfile.po                    54.0% translated 200/367
-    │   ├── tempfile.po                    9.0% translated    8/88
+    │   ├── tempfile.po                   10.0% translated    9/88
     │   ├── test.po                       30.0% translated 104/341
     │   ├── threading.po                  13.0% translated  42/308
     │   ├── timeit.po                     91.0% translated   65/71
@@ -244,7 +244,7 @@
     ├── tutorial/  100.00% done
     ├── using/  93.84% done
     │   └── windows.po                    90.0% translated 530/584
-    └── whatsnew/  48.59% done
+    └── whatsnew/  48.63% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 300/452
@@ -259,4 +259,4 @@
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  25.0% translated 3867/15403
+        └── changelog.po                  25.0% translated 3877/15403
