@@ -1,5 +1,5 @@
-1 directory  67.17% done
-└── 3.12/  67.17% done
+1 directory  67.18% done
+└── 3.12/  67.18% done
     ├── c-api/  54.24% done
     │   ├── exceptions.po                 68.0% translated 251/366
     │   ├── frame.po                      80.0% translated   29/36
@@ -37,7 +37,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  61.18% done
+    ├── library/  61.20% done
     │   ├── 2to3.po                       91.0% translated 121/132
     │   ├── array.po                      95.0% translated   80/84
     │   ├── ast.po                        83.0% translated 255/306
@@ -90,7 +90,7 @@
     │   ├── http.cookies.po               14.0% translated    7/49
     │   ├── http.po                       96.0% translated 237/246
     │   ├── http.server.po                14.0% translated  16/113
-    │   ├── idle.po                       67.0% translated 197/293
+    │   ├── idle.po                       67.0% translated 199/293
     │   ├── imaplib.po                    11.0% translated  14/117
     │   ├── imghdr.po                     47.0% translated   20/42
     │   ├── importlib.po                  78.0% translated 240/304
@@ -132,7 +132,7 @@
     │   ├── sys.po                        97.0% translated 420/431
     │   ├── tarfile.po                    55.0% translated 188/339
     │   ├── telnetlib.po                  18.0% translated   10/53
-    │   ├── tempfile.po                    9.0% translated    8/87
+    │   ├── tempfile.po                   10.0% translated    9/87
     │   ├── test.po                       36.0% translated 118/320
     │   ├── threading.po                  15.0% translated  38/239
     │   ├── tkinter.tix.po                 6.0% translated    5/75
