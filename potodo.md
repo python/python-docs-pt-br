@@ -1,5 +1,5 @@
-1 directory  56.91% done
-└── 3.15/  56.91% done
+1 directory  56.92% done
+└── 3.15/  56.92% done
     ├── builtins/  100.00% done
     ├── c-api/  46.30% done
     │   ├── bytes.po                      60.0% translated  73/121
@@ -99,7 +99,7 @@
     │   ├── contextlib.po                 25.0% translated  47/181
     │   ├── contextvars.po                84.0% translated   56/66
     │   ├── csv.po                        90.0% translated 120/133
-    │   ├── ctypes.po                     50.0% translated 342/677
+    │   ├── ctypes.po                     50.0% translated 343/677
     │   ├── curses.ascii.po               92.0% translated   64/69
     │   ├── curses.panel.po               76.0% translated   19/25
     │   ├── curses.po                     14.0% translated  76/510
@@ -229,17 +229,14 @@
     │   ├── zipimport.po                  97.0% translated   37/38
     │   ├── zlib.po                       92.0% translated  95/103
     │   └── zoneinfo.po                   44.0% translated   37/84
-    ├── reference/  88.52% done
-    │   ├── compound_stmts.po             98.0% translated 494/499
+    ├── reference/  89.27% done
     │   ├── datamodel.po                  94.0% translated 867/914
-    │   ├── expressions.po                71.0% translated 480/674
-    │   ├── import.po                     99.0% translated 202/203
-    │   ├── lexical_analysis.po           99.0% translated 474/477
+    │   ├── expressions.po                72.0% translated 486/674
     │   └── simple_stmts.po               90.0% translated 282/310
     ├── tutorial/  100.00% done
     ├── using/  93.84% done
     │   └── windows.po                    90.0% translated 530/584
-    └── whatsnew/  48.63% done
+    └── whatsnew/  48.61% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 300/452
@@ -247,6 +244,7 @@
         ├── 3.0.po                        90.0% translated 191/212
         ├── 3.1.po                        86.0% translated 114/132
         ├── 3.13.po                       98.0% translated 977/991
+        ├── 3.15.po                       99.0% translated 818/819
         ├── 3.2.po                        11.0% translated  66/576
         ├── 3.3.po                        19.0% translated 134/682
         ├── 3.4.po                        94.0% translated 491/517
@@ -254,4 +252,4 @@
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  25.0% translated 3877/15403
+        └── changelog.po                  25.0% translated 3877/15407

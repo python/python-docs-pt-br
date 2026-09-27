@@ -6,15 +6,16 @@
 # Translators:
 # python-doc bot, 2025
 # Rafael Fontenelle <rffontenelle@gmail.com>, 2026
+# João Moraes, 2026
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-19 16:52+0000\n"
+"POT-Creation-Date: 2026-09-27 17:59+0000\n"
 "PO-Revision-Date: 2025-09-16 00:02+0000\n"
-"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2026\n"
+"Last-Translator: João Moraes, 2026\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -752,6 +753,29 @@ msgid ""
 "    raise\n"
 "return sys.modules[spec.name]"
 msgstr ""
+"module = None\n"
+"if spec.loader is not None and hasattr(spec.loader, 'create_module'):\n"
+"    # Assume-se que 'exec_module' também estará definido no carregador..\n"
+"    module = spec.loader.create_module(spec)\n"
+"if module is None:\n"
+"    module = ModuleType(spec.name)\n"
+"# Os atributos de módulo relacionados à importação são definidos aqui:\n"
+"_init_module_attrs(spec, module)\n"
+"\n"
+"if spec.loader is None:\n"
+"    # Não suportado\n"
+"    raise ImportError\n"
+"\n"
+"sys.modules[spec.name] = module\n"
+"try:\n"
+"    spec.loader.exec_module(module)\n"
+"except BaseException:\n"
+"    try:\n"
+"        del sys.modules[spec.name]\n"
+"    except KeyError:\n"
+"        pass\n"
+"    raise\n"
+"return sys.modules[spec.name]"
 
 #: ../../reference/import.rst:386
 msgid "Note the following details:"
