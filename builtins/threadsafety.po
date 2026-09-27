@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-13 17:08+0000\n"
+"POT-Creation-Date: 2026-09-25 18:08+0000\n"
 "PO-Revision-Date: 2026-09-13 17:09+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2026\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -805,54 +805,61 @@ msgid ""
 "`set.difference` can take multiple iterables as arguments. They all iterate "
 "through all the passed iterables and do the following:"
 msgstr ""
+":meth:`set.update`, :meth:`set.union`, :meth:`set.intersection` e :meth:`set."
+"difference` podem receber múltiplos iteráveis ​​como argumentos. Todos eles "
+"iteram sobre todos os iteráveis ​​fornecidos e realizam o seguinte:"
 
 #: ../../builtins/threadsafety.rst:410
 msgid ":meth:`set.update` and :meth:`set.union` lock both objects only when"
 msgstr ""
+":meth:`set.update` e :meth:`set.union` travam ambos objetos somente quando"
 
 #: ../../builtins/threadsafety.rst:411
 msgid ""
 "the other operand is a :class:`set`, :class:`frozenset`, or :class:`dict`."
 msgstr ""
+"o outro operando é um :class:`set`, :class:`frozenset`, ou :class:`dict`."
 
 #: ../../builtins/threadsafety.rst:412
 msgid ":meth:`set.intersection` and :meth:`set.difference` always try to lock"
-msgstr ""
+msgstr ":meth:`set.intersection` e :meth:`set.difference` sempre tentam travar"
 
 #: ../../builtins/threadsafety.rst:413
 msgid "all objects."
-msgstr ""
+msgstr "todos os objetos."
 
 #: ../../builtins/threadsafety.rst:415
 msgid ":meth:`set.symmetric_difference` tries to lock both objects."
-msgstr ""
+msgstr ":meth:`set.symmetric_difference` tenta travar ambos objetos."
 
 #: ../../builtins/threadsafety.rst:417
 msgid ""
 "The update variants of the above methods also have some differences between "
 "them:"
 msgstr ""
+"As variantes de atualização dos métodos acima também apresentam algumas "
+"diferenças entre si:"
 
 #: ../../builtins/threadsafety.rst:420
 msgid ":meth:`set.difference_update` and :meth:`set.intersection_update` try"
-msgstr ""
+msgstr ":meth:`set.difference_update` e :meth:`set.intersection_update` tentam"
 
 #: ../../builtins/threadsafety.rst:421
 msgid "to lock all objects one-by-one."
-msgstr ""
+msgstr "travar todos os objetos um por um."
 
 #: ../../builtins/threadsafety.rst:422
 msgid ""
 ":meth:`set.symmetric_difference_update` only locks the arguments if it is"
-msgstr ""
+msgstr ":meth:`set.symmetric_difference_update` só trava os argumentos se for"
 
 #: ../../builtins/threadsafety.rst:423
 msgid "of type :class:`set`, :class:`frozenset`, or :class:`dict`."
-msgstr ""
+msgstr "do tipo :class:`set`, :class:`frozenset` ou :class:`dict`."
 
 #: ../../builtins/threadsafety.rst:425
 msgid "The following methods always try to lock both objects:"
-msgstr ""
+msgstr "Os métodos a seguir sempre tentam travar ambos objetos:"
 
 #: ../../builtins/threadsafety.rst:427
 msgid ""
@@ -860,6 +867,9 @@ msgid ""
 "s.issubset(other)            # both locked\n"
 "s.issuperset(other)          # both locked"
 msgstr ""
+"s.isdisjoint(outro)          # ambos travados\n"
+"s.issubset(outro)            # ambos travados\n"
+"s.issuperset(outro)          # ambos travados"
 
 #: ../../builtins/threadsafety.rst:437
 msgid ""
@@ -871,16 +881,26 @@ msgid ""
 "for elem in s:\n"
 "      process(elem)  # another thread may modify s"
 msgstr ""
+"# NÃO é atômico: verifica-e-então-age\n"
+"if elem in s:\n"
+"      s.remove(elem)\n"
+"\n"
+"# NÃO é seguro para thread: iteração enquanto modifica\n"
+"for elem in s:\n"
+"      process(elem)  # outra thread pode modificar s"
 
 #: ../../builtins/threadsafety.rst:448
 msgid ""
 "Consider external synchronization when sharing :class:`set` instances across "
 "threads.  See :ref:`freethreading-python-howto` for more information."
 msgstr ""
+"Considere a sincronização externa ao compartilhar instâncias de :class:`set` "
+"entre threads. Consulte :ref:`freethreading-python-howto` para mais "
+"informações."
 
 #: ../../builtins/threadsafety.rst:455
 msgid "Thread safety for bytearray objects"
-msgstr ""
+msgstr "Segurança para thread para objetos bytearray"
 
 #: ../../builtins/threadsafety.rst:459
 msgid ""
@@ -888,6 +908,10 @@ msgid ""
 "resizing but does not hold the per-object lock. These operations may observe "
 "intermediate states from concurrent modifications:"
 msgstr ""
+"A concatenação e as comparações utilizam o protocolo de buffer, o qual "
+"impede o redimensionamento, mas não mantém a trava por objeto. Essas "
+"operações podem observar estados intermediários resultantes de modificações "
+"concorrentes:"
 
 #: ../../builtins/threadsafety.rst:463
 msgid ""
@@ -895,23 +919,32 @@ msgid ""
 "ba == other   # may observe concurrent writes\n"
 "ba < other    # may observe concurrent writes"
 msgstr ""
+"ba + outro    # pode observar escritas simultâneas\n"
+"ba == outro   # pode observar escritas simultâneas\n"
+"ba < outro    # pode observar escritas simultâneas"
 
 #: ../../builtins/threadsafety.rst:472
 msgid ""
 "Reading a single element or slice is safe to call from multiple threads:"
 msgstr ""
+"A leitura de um único elemento ou de uma fatia é segura para ser realizada a "
+"partir de múltiplas threads:"
 
 #: ../../builtins/threadsafety.rst:474
 msgid ""
 "ba[i]        # bytearray.__getitem__\n"
 "ba[i:j]      # slice"
 msgstr ""
+"ba[i]        # bytearray.__getitem__\n"
+"ba[i:j]      # fatia"
 
 #: ../../builtins/threadsafety.rst:480
 msgid ""
 "The following operations are safe to call from multiple threads and will not "
 "corrupt the bytearray:"
 msgstr ""
+"As seguintes operações são seguras para serem chamadas a partir de múltiplas "
+"threads e não corromperão o bytearray:"
 
 #: ../../builtins/threadsafety.rst:483
 msgid ""
@@ -926,35 +959,51 @@ msgid ""
 "ba.reverse()      # reverse in place\n"
 "ba.clear()        # remove all bytes"
 msgstr ""
+"ba[i] = x         # escreve um único byte\n"
+"ba[i:j] = valores # escreve uma fatia\n"
+"ba.append(x)      # junta um único byte ao final\n"
+"ba.extend(outro)  # estende com iterável\n"
+"ba.insert(i, x)   # insere um único byte\n"
+"ba.pop()          # remove e retorna o último byte\n"
+"ba.pop(i)         # remove e retorna o byte no índice\n"
+"ba.remove(x)      # remove a primeira ocorrência\n"
+"ba.reverse()      # inverte no local\n"
+"ba.clear()        # remove todos os bytes"
 
 #: ../../builtins/threadsafety.rst:497
 msgid ""
 "Slice assignment locks both objects when *values* is a :class:`bytearray`:"
 msgstr ""
+"A atribuição de fatia TRAVA ambos objetos quando *valores* é um :class:"
+"`bytearray`:"
 
 #: ../../builtins/threadsafety.rst:499
 msgid "ba[i:j] = other_bytearray  # both locked"
-msgstr ""
+msgstr "ba[i:j] = other_bytearray  # ambos travados"
 
 #: ../../builtins/threadsafety.rst:504
 msgid ""
 "The following operations return new objects and hold the per-object lock for "
 "the duration:"
 msgstr ""
+"As operações a seguir retornam novos objetos e mantêm a trava por objeto "
+"durante a execução:"
 
 #: ../../builtins/threadsafety.rst:507
 msgid ""
 "ba.copy()     # returns a shallow copy\n"
 "ba * n        # repeat into new bytearray"
 msgstr ""
+"ba.copy()     # retorna uma cópia rasa\n"
+"ba * n        # repete em um novo bytearray"
 
 #: ../../builtins/threadsafety.rst:513
 msgid "The membership test holds the lock for its duration:"
-msgstr ""
+msgstr "O teste de pertinência mantém a trava durante a sua execução:"
 
 #: ../../builtins/threadsafety.rst:515
 msgid "x in ba       # bytearray.__contains__"
-msgstr ""
+msgstr "x in ba       # bytearray.__contains__"
 
 #: ../../builtins/threadsafety.rst:520
 msgid ""
@@ -962,6 +1011,9 @@ msgid ""
 "`~bytearray.replace`, :meth:`~bytearray.split`, :meth:`~bytearray.decode`, "
 "etc.) hold the per-object lock for their duration."
 msgstr ""
+"Todos os outros métodos de bytearray (como :meth:`~bytearray.find`, :meth:"
+"`~bytearray.replace`, :meth:`~bytearray.split`, :meth:`~bytearray.decode`, "
+"etc.) mantêm a trava específica do objeto durante sua execução."
 
 #: ../../builtins/threadsafety.rst:528
 msgid ""
@@ -973,12 +1025,21 @@ msgid ""
 "for byte in ba:\n"
 "    process(byte)  # another thread may modify ba"
 msgstr ""
+"# NÃO é atômico: verifica-e-então-age\n"
+"if x in ba:\n"
+"    ba.remove(x)\n"
+"\n"
+"# NÃO é seguro para thread: iteração enquanto modifica\n"
+"for byte in ba:\n"
+"    process(byte)  # outra thread por modificar ba"
 
 #: ../../builtins/threadsafety.rst:539
 msgid ""
 "To safely iterate over a bytearray that may be modified by another thread, "
 "iterate over a copy:"
 msgstr ""
+"Para iterar com segurança sobre um bytearray que possa ser modificado por "
+"outra thread, itere sobre uma cópia:"
 
 #: ../../builtins/threadsafety.rst:542
 msgid ""
@@ -986,16 +1047,22 @@ msgid ""
 "for byte in ba.copy():\n"
 "    process(byte)"
 msgstr ""
+"# Faz uma cópia para iterar com segurança\n"
+"for byte in ba.copy():\n"
+"    process(byte)"
 
 #: ../../builtins/threadsafety.rst:549
 msgid ""
 "Consider external synchronization when sharing :class:`bytearray` instances "
 "across threads.  See :ref:`freethreading-python-howto` for more information."
 msgstr ""
+"Considere a sincronização externa ao compartilhar instâncias de :class:"
+"`bytearray` entre threads. Consulte :ref:`freethreading-python-howto` para "
+"obter mais informações."
 
 #: ../../builtins/threadsafety.rst:556
 msgid "Thread safety for memoryview objects"
-msgstr ""
+msgstr "Segurança para thread para objetos memoryview"
 
 #: ../../builtins/threadsafety.rst:558
 msgid ""
@@ -1003,6 +1070,9 @@ msgid ""
 "underlying object without copying. Thread safety depends on both the "
 "memoryview itself and the underlying buffer exporter."
 msgstr ""
+"Objetos :class:`memoryview` fornecem acesso aos dados internos de um objeto "
+"subjacente sem realizar cópias. A segurança para thread depende tanto do "
+"próprio memoryview quanto do exportador de buffer subjacente."
 
 #: ../../builtins/threadsafety.rst:562
 msgid ""
@@ -1013,6 +1083,13 @@ msgid ""
 "lifetime of the memoryview, so concurrent reads are safe as long as the "
 "memoryview has not been released."
 msgstr ""
+"A implementação do memoryview utiliza operações atômicas para rastrear suas "
+"próprias exportações na :term:`construção com threads livres` (*free-"
+"threaded build*). A criação e a liberação de um memoryview são seguras para "
+"thread. O acesso a atributos (por exemplo, :attr:`~memoryview.shape`, :attr:"
+"`~memoryview.format`) lê campos que são imutáveis ​​durante todo o ciclo de "
+"vida do memoryview; portanto, leituras concorrentes são seguras, desde que o "
+"memoryview não tenha sido liberado."
 
 #: ../../builtins/threadsafety.rst:569
 msgid ""
@@ -1020,12 +1097,17 @@ msgid ""
 "underlying object. Concurrent access to this data is only safe if the "
 "underlying object supports it:"
 msgstr ""
+"No entanto, os dados reais acessados ​​por meio do memoryview pertencem ao "
+"objeto subjacente. O acesso concorrente a esses dados só é seguro se o "
+"objeto subjacente o oferecer suporte a isso:"
 
 #: ../../builtins/threadsafety.rst:573
 msgid ""
 "For immutable objects like :class:`bytes`, concurrent reads through multiple "
 "memoryviews are safe."
 msgstr ""
+"Para objetos imutáveis ​​como :class:`bytes`, leituras concorrentes por meio "
+"de múltiplos memoryviews são seguras."
 
 #: ../../builtins/threadsafety.rst:576
 msgid ""
@@ -1035,6 +1117,11 @@ msgid ""
 "of mutable objects do not prevent data races if the underlying object is "
 "modified from another thread."
 msgstr ""
+"Para objetos mutáveis ​​como :class:`bytearray`, a leitura e a escrita na "
+"mesma região de memória a partir de múltiplas threads, sem sincronização "
+"externa, não são seguras e podem resultar em corrupção de dados. Observe que "
+"mesmo *memoryviews* somente leitura de objetos mutáveis ​​não impedem "
+"condições de corrida se o objeto subjacente for modificado por outra thread."
 
 #: ../../builtins/threadsafety.rst:583
 msgid ""
@@ -1044,6 +1131,11 @@ msgid ""
 "# Thread 1: view[0:500] = b'x' * 500\n"
 "# Thread 2: view[0:500] = b'y' * 500"
 msgstr ""
+"# NÃO é seguro: escritas concorrentes ao mesmo buffer\n"
+"data = bytearray(1000)\n"
+"view = memoryview(data)\n"
+"# Thread 1: view[0:500] = b'x' * 500\n"
+"# Thread 2: view[0:500] = b'y' * 500"
 
 #: ../../builtins/threadsafety.rst:592
 msgid ""
@@ -1056,6 +1148,14 @@ msgid ""
 "with lock:\n"
 "    view[0:500] = b'x' * 500"
 msgstr ""
+"# Seguro: usa uma trava para acesso concorrente\n"
+"import threading\n"
+"lock = threading.Lock()\n"
+"data = bytearray(1000)\n"
+"view = memoryview(data)\n"
+"\n"
+"with lock:\n"
+"    view[0:500] = b'x' * 500"
 
 #: ../../builtins/threadsafety.rst:604
 msgid ""
@@ -1063,3 +1163,7 @@ msgid ""
 "`bytearray.resize`) while a memoryview is exported raises :exc:"
 "`BufferError`. This is enforced regardless of threading."
 msgstr ""
+"Redimensionar ou realocar o objeto subjacente (como ao chamar :meth:"
+"`bytearray.resize`) enquanto um memoryview está exportado levanta uma "
+"exceção :exc:`BufferError`. Essa regra é aplicada independentemente do uso "
+"de threads."
