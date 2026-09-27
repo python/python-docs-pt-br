@@ -1,5 +1,5 @@
-1 directory  61.21% done
-└── 3.10/  61.21% done
+1 directory  61.22% done
+└── 3.10/  61.22% done
     ├── c-api/  53.01% done
     │   ├── allocation.po                 88.0% translated     8/9
     │   ├── arg.po                        98.0% translated 193/195
@@ -56,7 +56,7 @@
     ├── install/  72.62% done
     │   └── index.po                      74.0% translated 168/226
     ├── installing/  100.00% done
-    ├── library/  56.32% done
+    ├── library/  56.34% done
     │   ├── _thread.po                    95.0% translated   39/41
     │   ├── argparse.po                   88.0% translated 256/290
     │   ├── array.po                      98.0% translated   81/82
@@ -137,7 +137,7 @@
     │   ├── http.cookiejar.po              5.0% translated   9/154
     │   ├── http.cookies.po               30.0% translated   17/56
     │   ├── http.server.po                 8.0% translated    8/92
-    │   ├── idle.po                       65.0% translated 184/281
+    │   ├── idle.po                       66.0% translated 186/281
     │   ├── imaplib.po                     8.0% translated   9/107
     │   ├── imghdr.po                     48.0% translated   20/41
     │   ├── imp.po                        11.0% translated    8/68
