@@ -1,5 +1,5 @@
-1 directory  56.92% done
-└── 3.15/  56.92% done
+1 directory  56.94% done
+└── 3.15/  56.94% done
     ├── builtins/  100.00% done
     ├── c-api/  46.30% done
     │   ├── bytes.po                      60.0% translated  73/121
@@ -226,7 +226,6 @@
     │   ├── xmlrpc.client.po              46.0% translated  53/113
     │   ├── xmlrpc.server.po              87.0% translated   50/57
     │   ├── zipfile.po                    97.0% translated 210/216
-    │   ├── zipimport.po                  97.0% translated   37/38
     │   ├── zlib.po                       92.0% translated  95/103
     │   └── zoneinfo.po                   44.0% translated   37/84
     ├── reference/  89.27% done
@@ -236,7 +235,7 @@
     ├── tutorial/  100.00% done
     ├── using/  93.84% done
     │   └── windows.po                    90.0% translated 530/584
-    └── whatsnew/  48.61% done
+    └── whatsnew/  48.64% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 300/452
@@ -244,7 +243,6 @@
         ├── 3.0.po                        90.0% translated 191/212
         ├── 3.1.po                        86.0% translated 114/132
         ├── 3.13.po                       98.0% translated 977/991
-        ├── 3.15.po                       99.0% translated 818/819
         ├── 3.2.po                        11.0% translated  66/576
         ├── 3.3.po                        19.0% translated 134/682
         ├── 3.4.po                        94.0% translated 491/517
@@ -252,4 +250,4 @@
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  25.0% translated 3877/15407
+        └── changelog.po                  25.0% translated 3881/15407
