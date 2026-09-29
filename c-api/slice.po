@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-08 19:31+0000\n"
+"POT-Creation-Date: 2026-09-29 20:02+0000\n"
 "PO-Revision-Date: 2026-05-08 17:16+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2026\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -88,7 +88,7 @@ msgstr ""
 msgid "You probably do not want to use this function."
 msgstr "Você provavelmente não deseja usar esta função."
 
-#: ../../c-api/slice.rst:44 ../../c-api/slice.rst:75
+#: ../../c-api/slice.rst:44 ../../c-api/slice.rst:76
 msgid ""
 "The parameter type for the *slice* parameter was ``PySliceObject*`` before."
 msgstr ""
@@ -100,21 +100,16 @@ msgid ""
 "stop, and step indices from the slice object *slice* assuming a sequence of "
 "length *length*, and store the length of the slice in *slicelength*.  Out of "
 "bounds indices are clipped in a manner consistent with the handling of "
-"normal slices."
+"normal slices. *length* must not be negative."
 msgstr ""
-"Substituição utilizável para :c:func:`PySlice_GetIndices`. Recupera os "
-"índices de início, parada e intermediário do objeto fatia *slice* presumindo "
-"uma sequência de comprimento *length* e armazena o comprimento da fatia em "
-"*slicelength*. Índices fora dos limites são cortados de maneira consistente "
-"com o tratamento de fatias normais."
 
-#: ../../c-api/slice.rst:57
+#: ../../c-api/slice.rst:58
 msgid "Return ``0`` on success and ``-1`` on error with an exception set."
 msgstr ""
 "Retorna ``0`` em caso de sucesso e ``-1`` em caso de erro com uma exceção "
 "definida."
 
-#: ../../c-api/slice.rst:60
+#: ../../c-api/slice.rst:61
 msgid ""
 "This function is considered not safe for resizable sequences. Its invocation "
 "should be replaced by a combination of :c:func:`PySlice_Unpack` and :c:func:"
@@ -124,7 +119,7 @@ msgstr ""
 "invocação deve ser substituída por uma combinação de :c:func:"
 "`PySlice_Unpack` e :c:func:`PySlice_AdjustIndices` sendo ::"
 
-#: ../../c-api/slice.rst:64
+#: ../../c-api/slice.rst:65
 msgid ""
 "if (PySlice_GetIndicesEx(slice, length, &start, &stop, &step, &slicelength) "
 "< 0) {\n"
@@ -136,11 +131,11 @@ msgstr ""
 "    // retorna erro\n"
 "}"
 
-#: ../../c-api/slice.rst:68
+#: ../../c-api/slice.rst:69
 msgid "is replaced by ::"
 msgstr "substituído por ::"
 
-#: ../../c-api/slice.rst:70
+#: ../../c-api/slice.rst:71
 msgid ""
 "if (PySlice_Unpack(slice, &start, &stop, &step) < 0) {\n"
 "    // return error\n"
@@ -152,7 +147,7 @@ msgstr ""
 "}\n"
 "slicelength = PySlice_AdjustIndices(length, &start, &stop, step);"
 
-#: ../../c-api/slice.rst:79
+#: ../../c-api/slice.rst:80
 msgid ""
 "If ``Py_LIMITED_API`` is not set or set to the value between ``0x03050400`` "
 "and ``0x03060000`` (not including) or ``0x03060100`` or higher :c:func:`!"
@@ -166,7 +161,7 @@ msgstr ""
 "usando :c:func:`!PySlice_Unpack` e :c:func:`!PySlice_AdjustIndices`. Os "
 "argumentos *start*, *stop* e *step* são avaliados mais de uma vez."
 
-#: ../../c-api/slice.rst:86
+#: ../../c-api/slice.rst:87
 msgid ""
 "If ``Py_LIMITED_API`` is set to the value less than ``0x03050400`` or "
 "between ``0x03060000`` and ``0x03060100`` (not including) :c:func:`!"
@@ -176,7 +171,7 @@ msgstr ""
 "``0x03050400`` ou entre ``0x03060000`` e ``0x03060100`` (não incluso), :c:"
 "func:`!PySlice_GetIndicesEx` é uma função descontinuada."
 
-#: ../../c-api/slice.rst:94
+#: ../../c-api/slice.rst:95
 msgid ""
 "Extract the start, stop and step data members from a slice object as C "
 "integers.  Silently reduce values larger than ``PY_SSIZE_T_MAX`` to "
@@ -191,13 +186,13 @@ msgstr ""
 "``PY_SSIZE_T_MIN``, e silenciosamente aumenta os valores de intermediário "
 "menores que ``-PY_SSIZE_T_MAX`` para ``-PY_SSIZE_T_MAX``."
 
-#: ../../c-api/slice.rst:100
+#: ../../c-api/slice.rst:101
 msgid "Return ``-1`` with an exception set on error, ``0`` on success."
 msgstr ""
 "Retorna ``-1`` com uma exceção definida em caso de erro, ``0`` em caso de "
 "sucesso."
 
-#: ../../c-api/slice.rst:107
+#: ../../c-api/slice.rst:108
 msgid ""
 "Adjust start/end slice indices assuming a sequence of the specified length. "
 "Out of bounds indices are clipped in a manner consistent with the handling "
@@ -207,7 +202,13 @@ msgstr ""
 "comprimento especificado. Índices fora dos limites são cortados de maneira "
 "consistente com o tratamento de fatias normais."
 
-#: ../../c-api/slice.rst:111
+#: ../../c-api/slice.rst:112
+msgid ""
+"*length* must not be negative. *step* must not be zero and must not be less "
+"than ``-PY_SSIZE_T_MAX``, as guaranteed by :c:func:`PySlice_Unpack`."
+msgstr ""
+
+#: ../../c-api/slice.rst:116
 msgid ""
 "Return the length of the slice.  Always successful.  Doesn't call Python "
 "code."
@@ -215,11 +216,11 @@ msgstr ""
 "Retorna o comprimento da fatia. Sempre bem-sucedido. Não chama o código "
 "Python."
 
-#: ../../c-api/slice.rst:118
+#: ../../c-api/slice.rst:123
 msgid "Ellipsis Object"
 msgstr "Objeto Ellipsis"
 
-#: ../../c-api/slice.rst:123
+#: ../../c-api/slice.rst:128
 msgid ""
 "The type of Python :const:`Ellipsis` object.  Same as :class:`types."
 "EllipsisType` in the Python layer."
@@ -227,7 +228,7 @@ msgstr ""
 "O tipo do objeto Python :const:`Ellipsis`. O mesmo que :class:`types."
 "EllipsisType` na camada Python."
 
-#: ../../c-api/slice.rst:129
+#: ../../c-api/slice.rst:134
 msgid ""
 "The Python ``Ellipsis`` object.  This object has no methods.  Like :c:data:"
 "`Py_None`, it is an :term:`immortal` singleton object."
@@ -235,6 +236,6 @@ msgstr ""
 "O objeto Python ``Ellipsis``. Este objeto não tem métodos. Como :c:data:"
 "`Py_None`, é um objeto singleton :term:`imortal`."
 
-#: ../../c-api/slice.rst:132
+#: ../../c-api/slice.rst:137
 msgid ":c:data:`Py_Ellipsis` is immortal."
 msgstr ":c:data:`Py_Ellipsis` é imortal."
