@@ -1,9 +1,9 @@
-1 directory  58.54% done
-└── 3.13/  58.54% done
+1 directory  58.49% done
+└── 3.13/  58.49% done
     ├── builtins/  99.55% done
     │   ├── functions.po                  99.0% translated 513/515
     │   └── stdtypes.po                   99.0% translated 1444/1446
-    ├── c-api/  53.79% done
+    ├── c-api/  53.73% done
     │   ├── bytes.po                      97.0% translated   69/71
     │   ├── conversion.po                 89.0% translated   49/55
     │   ├── descriptor.po                 42.0% translated   14/33
@@ -24,6 +24,7 @@
     │   ├── object.po                     34.0% translated  42/122
     │   ├── perfmaps.po                   50.0% translated   12/24
     │   ├── refcounting.po                29.0% translated   14/48
+    │   ├── slice.po                      92.0% translated   24/26
     │   ├── structures.po                 38.0% translated  76/196
     │   ├── sys.po                        97.0% translated   77/79
     │   ├── tuple.po                      93.0% translated   43/46
@@ -54,7 +55,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  56.12% done
+    ├── library/  56.03% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── argparse.po                   98.0% translated 382/387
     │   ├── array.po                      90.0% translated   80/88
@@ -82,7 +83,7 @@
     │   ├── contextlib.po                 27.0% translated  47/172
     │   ├── contextvars.po                93.0% translated   55/59
     │   ├── csv.po                        96.0% translated 128/133
-    │   ├── ctypes.po                     54.0% translated 300/551
+    │   ├── ctypes.po                     54.0% translated 300/552
     │   ├── curses.ascii.po               94.0% translated   65/69
     │   ├── curses.panel.po               76.0% translated   19/25
     │   ├── curses.po                     13.0% translated  70/504
@@ -167,7 +168,7 @@
     │   ├── trace.po                      97.0% translated   42/43
     │   ├── traceback.po                   7.0% translated   9/116
     │   ├── tracemalloc.po                13.0% translated  21/156
-    │   ├── turtle.po                     99.0% translated 660/661
+    │   ├── turtle.po                     95.0% translated 542/567
     │   ├── typing.po                     95.0% translated 776/810
     │   ├── unicodedata.po                55.0% translated   24/43
     │   ├── unittest.mock-examples.po     10.0% translated  19/182
@@ -197,7 +198,8 @@
     │   ├── expressions.po                99.0% translated 536/537
     │   └── simple_stmts.po               98.0% translated 287/291
     ├── tutorial/  100.00% done
-    ├── using/  99.20% done
+    ├── using/  98.88% done
+    │   ├── configure.po                  99.0% translated 406/407
     │   ├── mac.po                        98.0% translated   95/96
     │   └── windows.po                    99.0% translated 387/389
     └── whatsnew/  45.53% done
@@ -217,4 +219,4 @@
         ├── 3.6.po                        43.0% translated 234/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  22.0% translated 2937/13218
+        └── changelog.po                  22.0% translated 2937/13219
