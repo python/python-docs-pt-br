@@ -1,5 +1,5 @@
-1 directory  58.49% done
-└── 3.13/  58.49% done
+1 directory  58.54% done
+└── 3.13/  58.54% done
     ├── builtins/  99.55% done
     │   ├── functions.po                  99.0% translated 513/515
     │   └── stdtypes.po                   99.0% translated 1444/1446
@@ -55,7 +55,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  56.03% done
+    ├── library/  56.11% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── argparse.po                   98.0% translated 382/387
     │   ├── array.po                      90.0% translated   80/88
@@ -168,7 +168,7 @@
     │   ├── trace.po                      97.0% translated   42/43
     │   ├── traceback.po                   7.0% translated   9/116
     │   ├── tracemalloc.po                13.0% translated  21/156
-    │   ├── turtle.po                     95.0% translated 542/567
+    │   ├── turtle.po                     99.0% translated 566/567
     │   ├── typing.po                     95.0% translated 776/810
     │   ├── unicodedata.po                55.0% translated   24/43
     │   ├── unittest.mock-examples.po     10.0% translated  19/182
@@ -202,7 +202,7 @@
     │   ├── configure.po                  99.0% translated 406/407
     │   ├── mac.po                        98.0% translated   95/96
     │   └── windows.po                    99.0% translated 387/389
-    └── whatsnew/  45.53% done
+    └── whatsnew/  45.57% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 301/452
@@ -219,4 +219,4 @@
         ├── 3.6.po                        43.0% translated 234/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  22.0% translated 2937/13219
+        └── changelog.po                  22.0% translated 2946/13219
