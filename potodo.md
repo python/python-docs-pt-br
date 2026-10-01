@@ -1,5 +1,5 @@
-1 directory  56.93% done
-└── 3.15/  56.93% done
+1 directory  56.92% done
+└── 3.15/  56.92% done
     ├── builtins/  100.00% done
     ├── c-api/  46.30% done
     │   ├── bytes.po                      60.0% translated  73/121
@@ -65,20 +65,20 @@
     │   ├── sorting.po                    53.0% translated   48/90
     │   └── unicode.po                    19.0% translated  28/143
     ├── installing/  100.00% done
-    ├── library/  52.80% done
+    ├── library/  52.79% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              89.0% translated 142/158
     │   ├── argparse.po                   94.0% translated 397/421
     │   ├── array.po                      81.0% translated  83/102
     │   ├── asyncio-dev.po                61.0% translated   52/84
-    │   ├── asyncio-eventloop.po          71.0% translated 303/426
+    │   ├── asyncio-eventloop.po          70.0% translated 303/427
     │   ├── asyncio-future.po             25.0% translated   17/66
     │   ├── asyncio-graph.po              90.0% translated   29/32
     │   ├── asyncio-platforms.po          22.0% translated    6/27
     │   ├── asyncio-policy.po             16.0% translated    6/36
     │   ├── asyncio-protocol.po           13.0% translated  26/194
     │   ├── asyncio-runner.po              9.0% translated    4/41
-    │   ├── asyncio-stream.po             67.0% translated  71/105
+    │   ├── asyncio-stream.po             66.0% translated  71/106
     │   ├── asyncio-subprocess.po         96.0% translated   77/80
     │   ├── asyncio-sync.po               12.0% translated  12/100
     │   ├── asyncio-task.po               58.0% translated 167/285
@@ -182,7 +182,7 @@
     │   ├── smtplib.po                    27.0% translated  36/131
     │   ├── socket.po                     14.0% translated  55/391
     │   ├── sqlite3.po                    24.0% translated 117/481
-    │   ├── ssl.po                        10.0% translated  61/566
+    │   ├── ssl.po                        10.0% translated  61/569
     │   ├── string.po                     98.0% translated 220/224
     │   ├── struct.po                     46.0% translated  96/206
     │   ├── subprocess.po                 45.0% translated 147/320
@@ -235,7 +235,7 @@
     ├── tutorial/  100.00% done
     ├── using/  93.86% done
     │   └── windows.po                    90.0% translated 530/584
-    └── whatsnew/  48.67% done
+    └── whatsnew/  48.64% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 300/452
@@ -250,4 +250,4 @@
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  25.0% translated 3894/15420
+        └── changelog.po                  25.0% translated 3894/15432
