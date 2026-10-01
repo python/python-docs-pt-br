@@ -1,5 +1,5 @@
-1 directory  67.18% done
-└── 3.12/  67.18% done
+1 directory  67.17% done
+└── 3.12/  67.17% done
     ├── c-api/  54.24% done
     │   ├── exceptions.po                 68.0% translated 251/366
     │   ├── frame.po                      80.0% translated   29/36
@@ -37,18 +37,18 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  61.20% done
+    ├── library/  61.18% done
     │   ├── 2to3.po                       91.0% translated 121/132
     │   ├── array.po                      95.0% translated   80/84
     │   ├── ast.po                        83.0% translated 255/306
     │   ├── asyncio-dev.po                89.0% translated   49/55
-    │   ├── asyncio-eventloop.po          80.0% translated 314/390
+    │   ├── asyncio-eventloop.po          80.0% translated 314/391
     │   ├── asyncio-future.po             26.0% translated   17/64
     │   ├── asyncio-platforms.po          23.0% translated    6/26
     │   ├── asyncio-policy.po             14.0% translated   10/68
     │   ├── asyncio-protocol.po           13.0% translated  26/193
     │   ├── asyncio-runner.po             13.0% translated    5/37
-    │   ├── asyncio-stream.po             72.0% translated   71/98
+    │   ├── asyncio-stream.po             71.0% translated   71/99
     │   ├── asyncio-sync.po               12.0% translated   12/99
     │   ├── asyncio-task.po               68.0% translated 174/254
     │   ├── audioop.po                     9.0% translated    5/53
@@ -124,7 +124,7 @@
     │   ├── sndhdr.po                     31.0% translated   12/38
     │   ├── socket.po                     15.0% translated  56/362
     │   ├── sqlite3.po                    24.0% translated 115/469
-    │   ├── ssl.po                        11.0% translated  61/520
+    │   ├── ssl.po                        11.0% translated  61/523
     │   ├── statistics.po                 95.0% translated 229/241
     │   ├── struct.po                     49.0% translated  96/194
     │   ├── subprocess.po                 46.0% translated 150/322
