@@ -1,5 +1,5 @@
-1 directory  61.22% done
-└── 3.10/  61.22% done
+1 directory  61.21% done
+└── 3.10/  61.21% done
     ├── c-api/  53.01% done
     │   ├── allocation.po                 88.0% translated     8/9
     │   ├── arg.po                        98.0% translated 193/195
@@ -56,14 +56,14 @@
     ├── install/  72.62% done
     │   └── index.po                      74.0% translated 168/226
     ├── installing/  100.00% done
-    ├── library/  56.34% done
+    ├── library/  56.32% done
     │   ├── _thread.po                    95.0% translated   39/41
     │   ├── argparse.po                   88.0% translated 256/290
     │   ├── array.po                      98.0% translated   81/82
     │   ├── ast.po                        94.0% translated 200/212
     │   ├── asynchat.po                   12.0% translated    4/33
     │   ├── asyncio-dev.po                83.0% translated   35/42
-    │   ├── asyncio-eventloop.po          95.0% translated 344/360
+    │   ├── asyncio-eventloop.po          95.0% translated 344/361
     │   ├── asyncio-future.po             27.0% translated   17/61
     │   ├── asyncio-platforms.po          24.0% translated    6/25
     │   ├── asyncio-policy.po             14.0% translated   10/67
@@ -189,7 +189,7 @@
     │   ├── socket.po                     18.0% translated  60/324
     │   ├── socketserver.po               85.0% translated   67/78
     │   ├── sqlite3.po                    26.0% translated  76/287
-    │   ├── ssl.po                        12.0% translated  64/493
+    │   ├── ssl.po                        12.0% translated  64/496
     │   ├── stat.po                       96.0% translated   78/81
     │   ├── statistics.po                 98.0% translated 169/172
     │   ├── stdtypes.po                   99.0% translated 1022/1026
@@ -199,7 +199,7 @@
     │   ├── symtable.po                    6.0% translated    3/44
     │   ├── sys.po                        86.0% translated 358/412
     │   ├── sysconfig.po                  92.0% translated   75/81
-    │   ├── tarfile.po                    53.0% translated 162/301
+    │   ├── tarfile.po                    53.0% translated 162/303
     │   ├── telnetlib.po                  14.0% translated    7/47
     │   ├── tempfile.po                   12.0% translated    8/64
     │   ├── test.po                       39.0% translated 117/295
@@ -220,7 +220,7 @@
     │   ├── unittest.mock.po              29.0% translated 110/373
     │   ├── unittest.po                   62.0% translated 316/506
     │   ├── urllib.parse.po               62.0% translated  96/154
-    │   ├── urllib.request.po             16.0% translated  45/275
+    │   ├── urllib.request.po             16.0% translated  45/276
     │   ├── urllib.robotparser.po         92.0% translated   13/14
     │   ├── uuid.po                       88.0% translated   52/59
     │   ├── venv.po                       97.0% translated  99/102
