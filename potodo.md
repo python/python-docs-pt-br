@@ -1,5 +1,5 @@
-1 directory  58.53% done
-└── 3.13/  58.53% done
+1 directory  58.56% done
+└── 3.13/  58.56% done
     ├── builtins/  99.55% done
     │   ├── functions.po                  99.0% translated 513/515
     │   └── stdtypes.po                   99.0% translated 1444/1446
@@ -55,7 +55,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  56.10% done
+    ├── library/  56.16% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── argparse.po                   98.0% translated 382/387
     │   ├── array.po                      90.0% translated   80/88
@@ -136,8 +136,7 @@
     │   ├── profile.po                    18.0% translated  34/181
     │   ├── pyexpat.po                    12.0% translated  22/173
     │   ├── queue.po                      24.0% translated   14/58
-    │   ├── random.po                     98.0% translated 136/138
-    │   ├── re.po                         98.0% translated 436/441
+    │   ├── re.po                         99.0% translated 437/441
     │   ├── secrets.po                    79.0% translated   31/39
     │   ├── select.po                     35.0% translated  73/206
     │   ├── selectors.po                  22.0% translated   13/58
@@ -150,7 +149,6 @@
     │   ├── socket.po                     14.0% translated  54/367
     │   ├── sqlite3.po                    24.0% translated 116/481
     │   ├── ssl.po                        11.0% translated  61/548
-    │   ├── string.po                     98.0% translated 217/221
     │   ├── struct.po                     47.0% translated  93/195
     │   ├── subprocess.po                 45.0% translated 149/330
     │   ├── symtable.po                    9.0% translated    6/65
