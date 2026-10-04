@@ -1,13 +1,13 @@
-1 directory  58.63% done
-└── 3.14/  58.63% done
+1 directory  58.65% done
+└── 3.14/  58.65% done
     ├── builtins/  99.82% done
     │   └── functions.po                  99.0% translated 520/522
-    ├── c-api/  52.56% done
+    ├── c-api/  52.54% done
     │   ├── bytes.po                      93.0% translated   73/78
     │   ├── conversion.po                 89.0% translated   49/55
     │   ├── descriptor.po                 42.0% translated   14/33
     │   ├── dict.po                       93.0% translated 102/109
-    │   ├── exceptions.po                 66.0% translated 183/274
+    │   ├── exceptions.po                 66.0% translated 183/276
     │   ├── file.po                       74.0% translated   23/31
     │   ├── float.po                      93.0% translated   54/58
     │   ├── frame.po                      58.0% translated   35/60
@@ -60,7 +60,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  54.83% done
+    ├── library/  54.89% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              89.0% translated 142/158
     │   ├── argparse.po                   98.0% translated 403/409
@@ -155,8 +155,7 @@
     │   ├── profile.po                    17.0% translated  32/181
     │   ├── pyexpat.po                    11.0% translated  20/174
     │   ├── queue.po                      25.0% translated   15/58
-    │   ├── random.po                     97.0% translated 134/138
-    │   ├── re.po                         98.0% translated 438/444
+    │   ├── re.po                         99.0% translated 440/444
     │   ├── runpy.po                      92.0% translated   37/40
     │   ├── secrets.po                    64.0% translated   25/39
     │   ├── select.po                     34.0% translated  72/209
@@ -170,7 +169,6 @@
     │   ├── socket.po                     14.0% translated  54/385
     │   ├── sqlite3.po                    24.0% translated 116/480
     │   ├── ssl.po                        11.0% translated  61/550
-    │   ├── string.po                     98.0% translated 220/224
     │   ├── struct.po                     47.0% translated  98/205
     │   ├── subprocess.po                 46.0% translated 146/314
     │   ├── symtable.po                    8.0% translated    6/73
@@ -219,7 +217,7 @@
     ├── tutorial/  100.00% done
     ├── using/  94.23% done
     │   └── windows.po                    91.0% translated 534/583
-    └── whatsnew/  48.34% done
+    └── whatsnew/  48.33% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 301/452
@@ -234,4 +232,4 @@
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  26.0% translated 3795/14523
+        └── changelog.po                  26.0% translated 3795/14526
