@@ -1,5 +1,5 @@
-1 directory  57.02% done
-└── 3.15/  57.02% done
+1 directory  57.01% done
+└── 3.15/  57.01% done
     ├── builtins/  100.00% done
     ├── c-api/  46.28% done
     │   ├── bytes.po                      60.0% translated  73/121
@@ -48,8 +48,8 @@
     │   └── newtypes.po                    6.0% translated   8/118
     ├── faq/  94.05% done
     │   └── programming.po                90.0% translated 458/506
-    ├── howto/  60.47% done
-    │   ├── abi3t-migration.po             9.0% translated  16/171
+    ├── howto/  60.40% done
+    │   ├── abi3t-migration.po             8.0% translated  16/179
     │   ├── curses.po                     89.0% translated 106/118
     │   ├── descriptor.po                 79.0% translated 180/226
     │   ├── enum.po                       36.0% translated 112/309
@@ -232,7 +232,7 @@
     ├── tutorial/  100.00% done
     ├── using/  93.86% done
     │   └── windows.po                    90.0% translated 530/584
-    └── whatsnew/  48.71% done
+    └── whatsnew/  48.69% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 300/452
@@ -240,6 +240,7 @@
         ├── 3.0.po                        90.0% translated 191/212
         ├── 3.1.po                        86.0% translated 114/132
         ├── 3.13.po                       98.0% translated 977/991
+        ├── 3.15.po                       99.0% translated 817/819
         ├── 3.2.po                        11.0% translated  66/576
         ├── 3.3.po                        19.0% translated 134/682
         ├── 3.4.po                        94.0% translated 491/517
