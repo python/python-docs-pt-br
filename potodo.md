@@ -210,9 +210,9 @@
     │   ├── xmlrpc.server.po              87.0% translated   50/57
     │   ├── zipfile.po                    97.0% translated 210/216
     │   └── zoneinfo.po                   44.0% translated   37/84
-    ├── reference/  93.92% done
+    ├── reference/  93.95% done
     │   ├── datamodel.po                  96.0% translated 880/914
-    │   ├── expressions.po                86.0% translated 512/595
+    │   ├── expressions.po                86.0% translated 513/595
     │   └── simple_stmts.po               96.0% translated 281/291
     ├── tutorial/  100.00% done
     ├── using/  94.12% done
