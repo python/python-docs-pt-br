@@ -1,5 +1,5 @@
-1 directory  58.57% done
-└── 3.13/  58.57% done
+1 directory  58.61% done
+└── 3.13/  58.61% done
     ├── builtins/  99.55% done
     │   ├── functions.po                  99.0% translated 513/515
     │   └── stdtypes.po                   99.0% translated 1444/1446
@@ -200,7 +200,7 @@
     │   ├── configure.po                  99.0% translated 406/407
     │   ├── mac.po                        98.0% translated   95/96
     │   └── windows.po                    99.0% translated 387/389
-    └── whatsnew/  45.59% done
+    └── whatsnew/  45.74% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 301/452
@@ -217,4 +217,4 @@
         ├── 3.6.po                        43.0% translated 234/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  22.0% translated 2954/13237
+        └── changelog.po                  22.0% translated 2980/13237
