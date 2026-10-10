@@ -495,7 +495,7 @@ msgid ""
 msgstr ""
 ":gh:`158446`: Corrige uma falha ou saída incorreta que poderia ocorrer ao "
 "formatar um :class:`float` ou :class:`complex` com uma precisão próxima ao "
-"``INT_MAX`` ​​da plataforma. A função :c:func:`PyOS_double_to_string` agora "
+"``INT_MAX`` da plataforma. A função :c:func:`PyOS_double_to_string` agora "
 "levanta uma :exc:`ValueError` para qualquer precisão dessa magnitude, "
 "independentemente do tipo de apresentação ou do valor, assim como os "
 "analisadores de string de formato já faziam para precisões acima de "
@@ -4953,17 +4953,19 @@ msgstr ""
 
 #: ../NEWS:2018
 msgid "Python 3.15.0 beta 2"
-msgstr ""
+msgstr "Python 3.15.0 beta 2"
 
 #: ../NEWS:2020
 msgid "*Release date: 2026-06-02*"
-msgstr ""
+msgstr "*Data de lançamento: 2026-06-02*"
 
 #: ../NEWS:2025
 msgid ""
 ":gh:`149698`: Update bundled `libexpat <https://libexpat.github.io/>`_ to "
 "version 2.8.1 for the fix for :cve:`2026-45186`."
 msgstr ""
+":gh:`149698`: Atualiza o `libexpat <https://libexpat.github.io/>`_ "
+"empacotado para a versão 2.8.1 para a correção da :cve:`2026-45186`."
 
 #: ../NEWS:2028
 msgid ""
@@ -4975,6 +4977,13 @@ msgid ""
 "source :class:`ftplib.FTP` instance to ``True``.  Thanks to Qi Deng at "
 "Aurascape AI for the report."
 msgstr ""
+":gh:`87451`: A função não documentada ``ftpcp`` do módulo :mod:`ftplib` não "
+"confia mais no valor do endereço IPv4 retornado do servidor de origem em "
+"resposta ao comando ``PASV`` por padrão, concluindo a correção para "
+"CVE-2021-4189. Como acontece com :class:`ftplib.FTP`, o comportamento "
+"anterior pode ser reativado definindo o atributo "
+"``trust_server_pasv_ipv4_address`` na instância :class:`ftplib.FTP` de "
+"origem como ``True``. Agradecimentos a Qi Deng na Aurascape AI pelo relato."
 
 #: ../NEWS:2036
 msgid ""
@@ -4982,6 +4991,10 @@ msgid ""
 "the audit (:pep:`578`) when creating the output file. The writer and the "
 "reader now accept any path-like object. Patch by Maurycy Pawłowski-Wieroński."
 msgstr ""
+":gh:`149474`: Corrige o escritor binário em :mod:`profiling.sampling` não "
+"disparando a auditoria (:pep:`578`) ao criar o arquivo de saída. O escritor "
+"e o leitor agora aceitam qualquer objeto caminho ou similar. Patch por "
+"Maurycy Pawłowski-Wieroński."
 
 #: ../NEWS:2041
 msgid ""
@@ -4992,6 +5005,11 @@ msgid ""
 "This closes several path-traversal bypasses of the ``data`` extraction "
 "filter."
 msgstr ""
+":gh:`149486`: :func:`tarfile.data_filter` agora valida alvos de link usando "
+"o mesmo valor normalizado que é gravado no disco, remove separadores finais "
+"do nome do membro ao resolver o diretório de um link simbólico e rejeita "
+"membros de link que substituiriam o próprio diretório de destino. Isso fecha "
+"vários desvios de travessia de caminho do filtro de extração ``data``."
 
 #: ../NEWS:2048
 msgid ""
@@ -5002,6 +5020,12 @@ msgid ""
 "in non-canonical order. Replaced with a linear-time counting sort for long "
 "runs."
 msgstr ""
+":gh:`149079`: Corrige uma potencial negação de serviço em :func:`unicodedata."
+"normalize`. A etapa de ordenação canônica da normalização Unicode usava uma "
+"ordenação por inserção de tempo quadrático para reordenar caracteres "
+"combinantes, que poderia ser explorada com uma entrada manipulada contendo "
+"muitos caracteres combinantes em ordem não-canônica. Substituída por uma "
+"ordenação por contagem de tempo linear para sequências longas."
 
 #: ../NEWS:2055
 msgid ""
@@ -5009,12 +5033,17 @@ msgid ""
 "`xml.parsers.expat` and :mod:`xml.etree.ElementTree` when Python is compiled "
 "with libExpat 2.8.0 or later."
 msgstr ""
+":gh:`149018`: Proteção melhorada contra ataques de inundação de hash XML "
+"(XML hash-flooding) em :mod:`xml.parsers.expat` e :mod:`xml.etree."
+"ElementTree` quando o Python é compilado com libExpat 2.8.0 ou posterior."
 
 #: ../NEWS:2062
 msgid ""
 ":gh:`150374`: Fix double release of the import lock on lazy import "
 "reification errors."
 msgstr ""
+":gh:`150374`: Corrige a liberação dupla da trava de importação em erros de "
+"reificação de importação preguiçosa."
 
 #: ../NEWS:2065
 msgid ""
@@ -5022,6 +5051,9 @@ msgid ""
 "trampoline profiling is enabled and the child returns through trampoline "
 "frames inherited from the parent process."
 msgstr ""
+":gh:`149156`: Corrige uma falha intermitente após :func:`os.fork` quando o "
+"perfilamento de trampolim do perf está ativado e o filho retorna através de "
+"quadros de trampolim herdados do processo pai."
 
 #: ../NEWS:2069
 msgid ""
@@ -5030,6 +5062,10 @@ msgid ""
 "that decode ``\\N{...}`` escapes or use the ``namereplace`` codec error "
 "handler."
 msgstr ""
+":gh:`149449`: Corrige uma falha de uso-após-liberação quando o módulo :mod:"
+"`unicodedata` era removido do :data:`sys.modules` e coletado pelo GC entre "
+"chamadas que decodificam escapes ``\\N{...}`` ou usam o tratador de erros do "
+"codec ``namereplace``."
 
 #: ../NEWS:2074
 msgid ""
@@ -5037,10 +5073,15 @@ msgid ""
 "loop methods now call ``file.seek(offset)`` if *file* has a ``seek()`` "
 "method, even if *offset* is ``0`` (default value)."
 msgstr ""
+":gh:`150107`: :mod:`asyncio`: métodos de laço de eventos ``sendfile()`` e "
+"``sock_sendfile()`` agora chamam ``file.seek(offset)`` se *file* tiver um "
+"método ``seek()``, mesmo se *offset* for ``0`` (valor padrão)."
 
 #: ../NEWS:2078
 msgid ":gh:`150146`: Fix a crash on a complex type variable substitution."
 msgstr ""
+":gh:`150146`: Corrige uma falha em uma substituição de variável de tipo "
+"complexa."
 
 #: ../NEWS:2080
 msgid ""
@@ -5048,74 +5089,100 @@ msgid ""
 "Mapping[..., ...]]`` used to fail due to missing ``NULL`` check on "
 "``_unpack_args`` C function call."
 msgstr ""
+"``from typing import TypeVar; memoryview[TypeVar(\"\")][*typing."
+"Mapping[..., ...]]`` costumava falhar devido à verificação ``NULL`` ausente "
+"na chamada de função C ``_unpack_args``."
 
 #: ../NEWS:2084
 msgid ""
 ":gh:`148587`: :py:attr:`sys.lazy_modules` is now a set instead of a dict as "
 "initially spelled out in PEP 810."
 msgstr ""
+":gh:`148587`: :py:attr:`sys.lazy_modules` é agora um conjunto em vez de um "
+"dicionário, como originalmente especificado no PEP 810."
 
 #: ../NEWS:2087
 msgid ""
 ":gh:`150042`: Fix refleak in queue.SimpleQueue.put if memory allocation "
 "fails."
 msgstr ""
+":gh:`150042`: Corrige vazamento de referência em queue.SimpleQueue.put se a "
+"alocação de memória falhar."
 
 #: ../NEWS:2090
 msgid ":gh:`149590`: Fix crash when faulthandler is imported more than once."
 msgstr ""
+":gh:`149590`: Corrige falha quando o faulthandler é importado mais de uma "
+"vez."
 
 #: ../NEWS:2092
 msgid ""
 ":gh:`149816`: Fix a race condition in ``_PyBytes_FromList`` in free-"
 "threading mode."
 msgstr ""
+":gh:`149816`: Corrige uma condição de corrida em ``_PyBytes_FromList`` no "
+"modo threads livres."
 
 #: ../NEWS:2095
 msgid ""
 ":gh:`149816`: Fix a race condition in :class:`memoryview` with free-"
 "threading."
 msgstr ""
+":gh:`149816`: Corrige uma condição de corrida no :class:`memoryview` com "
+"free-threading."
 
 #: ../NEWS:2098
 msgid ""
 ":gh:`149807`: Fix ``hash(frozendict)``: compute the hash of each ``(key, "
 "value)`` pair correctly. Patch by Victor Stinner."
 msgstr ""
+":gh:`149807`: Corrige ``hash(frozendict)``: calcula o hash de cada par "
+"``(chave, valor)`` corretamente. Patch por Victor Stinner."
 
 #: ../NEWS:2101
 msgid ""
 ":gh:`149738`: :mod:`sqlite3`: Disallow removing ``row_factory`` and "
 "``text_factory`` attributes of a connection to prevent a crash on a query."
 msgstr ""
+":gh:`149738`: :mod:`sqlite3`: Proíbe a remoção dos atributos ``row_factory`` "
+"e ``text_factory`` de uma conexão para evitar uma falha em uma consulta."
 
 #: ../NEWS:2104
 msgid ""
 ":gh:`139808`: Add branch protections for AArch64 (BTI/PAC) in assembly code "
 "used by :option:`-X perf_jit <-X>` (Linux perf profiler integration)."
 msgstr ""
+":gh:`139808`: Adiciona proteções de ramificação para AArch64 (BTI/PAC) em "
+"código assembly usado por :option:`-X perf_jit <-X>` (integração com o "
+"perfilador perf do Linux)."
 
 #: ../NEWS:2107
 msgid ":gh:`149676`: Fix ``frozendict | frozendict`` hash."
-msgstr ""
+msgstr ":gh:`149676`: Corrige o hash de ``frozendict | frozendict``."
 
 #: ../NEWS:2109
 msgid ""
 ":gh:`148829`: :class:`sentinel` objects now support a ``repr=`` argument and "
 "their :attr:`~sentinel.__module__` attribute is writable."
 msgstr ""
+":gh:`148829`: Objetos :class:`sentinel` agora oferecem suporte a um "
+"argumento ``repr=`` e seu atributo :attr:`~sentinel.__module__` é gravável."
 
 #: ../NEWS:2112
 msgid ""
 ":gh:`149642`: Allow imports inside ``exec()`` calls within functions under "
 "``PYTHON_LAZY_IMPORTS=all``."
 msgstr ""
+":gh:`149642`: Permite importações dentro de chamadas ``exec()`` dentro de "
+"funções sob ``PYTHON_LAZY_IMPORTS=all``."
 
 #: ../NEWS:2115
 msgid ""
 ":gh:`144957`: Fix lazy ``from`` imports of module attributes provided by "
 "module-level ``__getattr__``."
 msgstr ""
+":gh:`144957`: Corrige importações preguiçosas no formato ``from`` de "
+"atributos do módulo fornecidos por ``__getattr__`` em nível de módulo."
 
 #: ../NEWS:2118
 msgid ""
@@ -5123,16 +5190,21 @@ msgid ""
 "``LOAD_SPECIAL`` guard deoptimized after inserting the synthetic ``NULL`` "
 "stack entry."
 msgstr ""
+":gh:`149459`: Corrige uma falha no otimizador JIT quando uma proteção "
+"``LOAD_SPECIAL`` especializada desotimizou após inserir a entrada sintética "
+"de pilha ``NULL``."
 
 #: ../NEWS:2122
 msgid ""
 ":gh:`148450`: Fix ``abc.register()`` so it invalidates type version tags for "
 "registered classes."
 msgstr ""
+":gh:`148450`: Corrige ``abc.register()`` para que ele invalide tags de "
+"versão de tipo para classes registradas."
 
 #: ../NEWS:2128
 msgid ":gh:`150685`: Update bundled pip to 26.1.2"
-msgstr ""
+msgstr ":gh:`150685`: Atualiza pip empacotado para 26.1.2"
 
 #: ../NEWS:2130
 msgid ""
@@ -5146,6 +5218,16 @@ msgid ""
 "the ``process_startup_files()`` function added earlier in the 3.15 cycle "
 "have been removed; use :class:`!site.StartupState` instead."
 msgstr ""
+":gh:`150228`: A nova classe :class:`site.StartupState` permite que os "
+"chamadores processem em lote arquivos de configuração de inicialização da :"
+"pep:`829` em múltiplos diretórios de site antes que qualquer código de "
+"inicialização execute, com os métodos públicos :meth:`~site.StartupState."
+"addsitedir`, :meth:`~site.StartupState.addusersitepackages`, :meth:`~site."
+"StartupState.addsitepackages` e :meth:`~site.StartupState.process`. A "
+"assinatura de :func:`site.addsitedir` permanece inalterada a partir do "
+"Python 3.14. O argumento :data:`!defer_processing_start_files` e a função "
+"``process_startup_files()`` adicionados anteriormente no ciclo 3.15 foram "
+"removidos; use :class:`!site.StartupState` em seu lugar."
 
 #: ../NEWS:2142
 msgid ""
@@ -5153,12 +5235,18 @@ msgid ""
 "initialization when the system is out of memory on platforms without a "
 "reentrant ``gethostbyname``."
 msgstr ""
+":gh:`150406`: Corrige uma possível falha ocorrendo durante a inicialização "
+"do módulo :mod:`socket` quando o sistema está sem memória em plataformas sem "
+"um ``gethostbyname`` reentrante."
 
 #: ../NEWS:2146
 msgid ""
 ":gh:`150372`: :mod:`readline`: Fix a potential crash during tab completion "
 "caused by an out-of-memory error during module initialization."
 msgstr ""
+":gh:`150372`: :mod:`readline`: Corrige uma potencial falha durante o "
+"autocompletar com Tab causada por um erro de memória esgotada durante a "
+"inicialização do módulo."
 
 #: ../NEWS:2149
 msgid ""
@@ -5166,6 +5254,9 @@ msgid ""
 "by name objects without a ``__module__`` attribute while :data:`sys.modules` "
 "is concurrently being modified."
 msgstr ""
+":gh:`150157`: Corrige uma falha em construções com threads livres que ocorre "
+"ao serializar por nome objetos sem um atributo ``__module__`` enquanto :data:"
+"`sys.modules` está sendo modificado concorrentemente."
 
 #: ../NEWS:2153
 msgid ""
@@ -5173,6 +5264,10 @@ msgid ""
 "where concurrent calls could lose increments to ``call_count`` and other "
 "attributes due to a missing lock in ``_increment_mock_call``."
 msgstr ""
+":gh:`150175`: Corrige condição de corrida em :class:`unittest.mock."
+"ThreadingMock` onde chamadas concorrentes podiam perder incrementos em "
+"``call_count`` e outros atributos devido à falta de uma trava em "
+"``_increment_mock_call``."
 
 #: ../NEWS:2157
 msgid ""
@@ -5182,16 +5277,23 @@ msgid ""
 "directory was rewritten: they were decoded as cp437 and then re-stored as "
 "UTF-8."
 msgstr ""
+":gh:`84353`: Preserva nomes de arquivos codificados em não-UTF-8 ao anexar a "
+"um :class:`zipfile.ZipFile`. Anteriormente, nomes não-ASCII armazenados em "
+"uma codificação legada (sem o bit de flag UTF-8 definido) podiam ser "
+"corrompidos quando o diretório central era reescrito: eles eram "
+"decodificados como cp437 e então re-armazenados como UTF-8."
 
 #: ../NEWS:2163
 msgid ""
 ":gh:`149189`: Revert the changes to :mod:`pprint` defaults. Patch by Hugo "
 "van Kemenade."
 msgstr ""
+":gh:`149189`: Reverte as alterações nos padrões do :mod:`pprint`. Patch por "
+"Hugo van Kemenade."
 
 #: ../NEWS:2166
 msgid ":gh:`149995`: Update various docstrings in :mod:`typing`."
-msgstr ""
+msgstr ":gh:`149995`: Atualiza várias docstrings no :mod:`typing`."
 
 #: ../NEWS:2168
 msgid ""
@@ -5199,6 +5301,9 @@ msgid ""
 "\"gb2312\" and \"big5\" instead of non-standard names \"eucgb2312_cn\" and "
 "\"big5_tw\"."
 msgstr ""
+":gh:`88726`: O pacote :mod:`email` agora usa nomes de conjuntos de "
+"caracteres MIME padrão \"gb2312\" e \"big5\" em vez de nomes não padrão "
+"\"eucgb2312_cn\" e \"big5_tw\"."
 
 #: ../NEWS:2172
 msgid ""
@@ -5206,18 +5311,25 @@ msgid ""
 "Element.itertext`: it no longer emits text for comments and processing "
 "instructions."
 msgstr ""
+":gh:`149571`: Corrige a implementação C de :meth:`xml.etree.ElementTree."
+"Element.itertext`: ela não emite mais texto para comentários e instruções de "
+"processamento."
 
 #: ../NEWS:2176
 msgid ""
 ":gh:`149921`: Fix reference leaks in error paths of the :mod:`!"
 "_interpchannels` and :mod:`!_interpqueues` extension modules."
 msgstr ""
+":gh:`149921`: Corrige vazamentos de referência em caminhos de erro dos "
+"módulos de extensão :mod:`!_interpchannels` e :mod:`!_interpqueues`."
 
 #: ../NEWS:2179
 msgid ""
 ":gh:`142349`: Add :keyword:`lazy` to the list of support topic by :func:"
 "`help`."
 msgstr ""
+":gh:`142349`: Adiciona :keyword:`lazy` à lista de tópicos suportados por :"
+"func:`help`."
 
 #: ../NEWS:2182
 msgid ""
@@ -5226,12 +5338,19 @@ msgid ""
 "`site.main` seeded ``known_paths`` with entries inherited from the parent "
 "process, causing ``addsitedir`` to skip ``.pth`` processing."
 msgstr ""
+":gh:`149819`: Corrige regressão em :func:`site.addsitedir` onde arquivos ``."
+"pth`` não eram mais processados em subprocessos Python. Isso aconteceu "
+"porque :func:`site.main` semeou ``known_paths`` com entradas herdadas do "
+"processo pai, fazendo com que o ``addsitedir`` pulasse o processamento do ``."
+"pth``."
 
 #: ../NEWS:2187
 msgid ""
 ":gh:`149816`: Fix a race condition in ``_random.Random.__init__`` method in "
 "free-threading mode."
 msgstr ""
+":gh:`149816`: Corrige uma condição de corrida no método ``_random.Random."
+"__init__`` no modo threads livres."
 
 #: ../NEWS:2190
 msgid ""
@@ -5239,6 +5358,9 @@ msgid ""
 "before number (like IBM00858, CP00858, IBM01140, CP01140) for corresponding "
 "codecs."
 msgstr ""
+":gh:`149801`: Adiciona nomes registrados na IANA e aliases com zeros à "
+"esquerda antes do número (como IBM00858, CP00858, IBM01140, CP01140) para os "
+"codecs correspondentes."
 
 #: ../NEWS:2194
 msgid ""
@@ -5247,12 +5369,18 @@ msgid ""
 "collect. Improves sample rate 3x, error rate and missed rate drop by 70%. "
 "Patch by Maurycy Pawłowski-Wieroński."
 msgstr ""
+":gh:`149718`: Agrupa quadros de pilha idênticos consecutivos no Tachyon, de "
+"modo que os coletor de agregação (pstats, collapsed, flamegraph, gecko) "
+"recebam uma única coleta. Melhora a taxa de amostragem em 3x, a taxa de "
+"erros e a taxa de falhas caem 70%. Patch por Maurycy Pawłowski-Wieroński."
 
 #: ../NEWS:2199
 msgid ""
 ":gh:`149701`: Fix bad return code from Lib/venv/bin/activate if hashing is "
 "disabled"
 msgstr ""
+":gh:`149701`: Corrige código de retorno ruim do Lib/venv/bin/activate se o "
+"hashing estiver desativado"
 
 #: ../NEWS:2202
 msgid ""
@@ -5263,6 +5391,12 @@ msgid ""
 "iteration`` during site initialization, breaking tools such as ``uv run --"
 "with``."
 msgstr ""
+":gh:`149504`: Corrige :func:`site.addsitedir` para permitir chamadas "
+"reentrantes de dentro de arquivos de inicialização. Anteriormente, um "
+"arquivo ``.pth`` contendo uma linha ``import`` que chamava :func:`site."
+"addsitedir` (ou um ponto de entrada ``.start`` fazendo o mesmo) podia falhar "
+"com ``RuntimeError: dictionary changed size during iteration`` durante a "
+"inicialização do site, quebrando ferramentas como ``uv run --with``."
 
 #: ../NEWS:2209
 msgid ""
@@ -5271,16 +5405,23 @@ msgid ""
 "predicted remote reads, and reusing cached profiler result objects. Patch by "
 "Pablo Galindo and Maurycy Pawłowski-Wieroński."
 msgstr ""
+":gh:`149584`: Corrige sobretaxa excessiva no perfilador Tachyon ao "
+"inspecionar um processo remoto, evitando varreduras repetidas do cache de "
+"página remoto, agrupando leituras remotas previstas e reutilizando objetos "
+"de resultado do perfilador armazenados em cache. Patch por Pablo Galindo e "
+"Maurycy Pawłowski-Wieroński."
 
 #: ../NEWS:2214
 msgid ":gh:`139489`: Add :func:`xml.is_valid_text` to ``xml.__all__``."
-msgstr ""
+msgstr ":gh:`139489`: Adiciona :func:`xml.is_valid_text` ao ``xml.__all__``."
 
 #: ../NEWS:2216
 msgid ""
 ":gh:`149614`: Fix a regression that broke the ability to deepcopy :class:"
 "`argparse.ArgumentParser` instances."
 msgstr ""
+":gh:`149614`: Corrige uma regressão que quebrou a capacidade de realizar "
+"cópia profunda (deepcopy) em instâncias de :class:`argparse.ArgumentParser`."
 
 #: ../NEWS:2219
 msgid ""
@@ -5289,18 +5430,26 @@ msgid ""
 "would fail to present any options for the entire object.  Autocompletion now "
 "works as expected for these objects."
 msgstr ""
+":gh:`112821`: No REPL, o autocompletar podia executar código arbitrário no "
+"getter de um descritor. Se esse getter levantasse uma exceção, o "
+"autocompletar falharia em apresentar qualquer opção para todo o objeto. O "
+"autocompletar agora funciona como esperado para esses objetos."
 
 #: ../NEWS:2224
 msgid ""
 ":gh:`149534`: Fix merging of :class:`collections.defaultdict` and :class:"
 "`frozendict`."
 msgstr ""
+":gh:`149534`: Corrige a fusão de :class:`collections.defaultdict` e :class:"
+"`frozendict`."
 
 #: ../NEWS:2227
 msgid ""
 ":gh:`149388`: Make :class:`!asyncio.windows_utils.PipeHandle` closing "
 "idempotent."
 msgstr ""
+":gh:`149388`: Torna idempotente o fechamento de :class:`!asyncio."
+"windows_utils.PipeHandle`."
 
 #: ../NEWS:2230
 msgid ""
@@ -5310,18 +5459,28 @@ msgid ""
 "escaped. The \"plaintext\" element no longer have the closing tag. Add "
 "support of empty attributes (with value ``None``)."
 msgstr ""
+":gh:`149489`: Corrige a serialização do :mod:`~xml.etree.ElementTree` para "
+"HTML. O conteúdo de comentários, instruções de processamento e elementos "
+"\"xmp\", \"iframe\", \"noembed\", \"noframes\" e \"plaintext\" não é mais "
+"escapado. O elemento \"plaintext\" não tem mais a tag de fechamento. "
+"Adiciona suporte a atributos vazios (com valor ``None``)."
 
 #: ../NEWS:2236
 msgid ""
 ":gh:`149056`: Fix :func:`json.load` not forwarding the *array_hook* argument "
 "to :func:`json.loads`. Patch by Thomas Kowalski."
 msgstr ""
+":gh:`149056`: Corrige :func:`json.load` não repassando o argumento "
+"*array_hook* para :func:`json.loads`. Patch por Thomas Kowalski."
 
 #: ../NEWS:2239
 msgid ""
 ":gh:`149046`: :mod:`io`: Fix :class:`io.StringIO` serialization: no longer "
 "call ``str(obj)`` on :class:`str` subclasses. Patch by Thomas Kowalski."
 msgstr ""
+":gh:`149046`: :mod:`io`: Corrige a serialização de :class:`io.StringIO`: não "
+"chama mais ``str(obj)`` em subclasses de :class:`str`. Patch por Thomas "
+"Kowalski."
 
 #: ../NEWS:2242
 msgid ""
@@ -5330,12 +5489,19 @@ msgid ""
 "exceeds the parser's :attr:`buffer size <xml.parsers.expat.xmlparser."
 "buffer_size>`."
 msgstr ""
+":gh:`148441`: :mod:`xml.parsers.expat`: evita uma falha em :meth:`~xml."
+"parsers.expat.xmlparser.CharacterDataHandler` quando o tamanho dos dados de "
+"caracteres excede o :attr:`tamanho do buffer <xml.parsers.expat.xmlparser."
+"buffer_size>` do analisador."
 
 #: ../NEWS:2247
 msgid ""
 ":gh:`146452`: Fix segfault in :mod:`pickle` when pickling a dictionary "
 "concurrently mutated by another thread in the free-threaded build."
 msgstr ""
+":gh:`146452`: Corrige falha de segmentação (segfault) no :mod:`pickle` ao "
+"serializar um dicionário alterado concorrentemente por outra thread na "
+"construção com threads livres."
 
 #: ../NEWS:2250
 msgid ""
@@ -5344,12 +5510,20 @@ msgid ""
 "intermediate directories when creating parent directories. This allows one "
 "to match the behavior from Python 3.6 and earlier for :func:`os.makedirs`."
 msgstr ""
+":gh:`86533`: A função :func:`os.makedirs` e o método :meth:`pathlib.Path."
+"mkdir` agora têm um parâmetro *parent_mode* para especificar o modo dos "
+"diretórios intermediários ao criar diretórios pais. Isso permite "
+"corresponder ao comportamento do Python 3.6 e anterior para :func:`os."
+"makedirs`."
 
 #: ../NEWS:2255
 msgid ""
 ":gh:`134261`: zip: On reproducible builds, ZipFile uses UTC instead of the "
 "local time when writing file datetimes to avoid underflows."
 msgstr ""
+":gh:`134261`: zip: Em construções reproduzíveis, o ZipFile usa UTC em vez da "
+"hora local ao escrever marcas de data/hora nos arquivos para evitar estouro "
+"negativo (underflow)."
 
 #: ../NEWS:2258
 msgid ""
@@ -5359,6 +5533,12 @@ msgid ""
 "06:28:15 UTC, February 7, 2106, or explicitly passed *mtime* argument is "
 "outside the range ``0`` to ``2**32-1``."
 msgstr ""
+":gh:`133998`: Corrige a exceção :exc:`struct.error` ao criar um arquivo com :"
+"class:`gzip.GzipFile` ou comprimir dados com :func:`gzip.compress` se o "
+"horário do sistema estiver fora do intervalo de 00:00:00 UTC de 1º de "
+"janeiro de 1970 a 06:28:15 UTC de 7 de fevereiro de 2106, ou se o argumento "
+"*mtime* passado explicitamente estiver fora do intervalo de ``0`` a "
+"``2**32-1``."
 
 #: ../NEWS:2264
 msgid ""
@@ -5368,24 +5548,36 @@ msgid ""
 "now ignored, per section 6.2 (and consistent with existing parsing of "
 "unstructured headers like *Subject*)."
 msgstr ""
+":gh:`128110`: Corrige erro na análise de cabeçalhos de endereço do :mod:"
+"`email` que podia resultar em espaços irrelevantes no texto decodificado ao "
+"usar uma política de e-mail moderna. Espaços entre pares de palavras "
+"codificadas adjacentes da :rfc:`2047` agora são ignorados, conforme a seção "
+"6.2 (e consistente com a análise existente de cabeçalhos não estruturados "
+"como *Subject*)."
 
 #: ../NEWS:2270
 msgid ""
 ":gh:`107398`: Fix :mod:`tarfile` stream mode exception when process the file "
 "with the gzip extra field."
 msgstr ""
+":gh:`107398`: Corrige exceção no modo de fluxo do :mod:`tarfile` ao "
+"processar o arquivo com o campo extra do gzip."
 
 #: ../NEWS:2273
 msgid ""
 ":gh:`121109`: Fix :mod:`tarfile` performance issue when reading archives in "
 "streaming mode (e.g. ``r|*``)."
 msgstr ""
+":gh:`121109`: Corrige problema de desempenho do :mod:`tarfile` ao ler "
+"arquivos no modo de fluxo (ex: ``r|*``)."
 
 #: ../NEWS:2276
 msgid ""
 ":issue:`45509`: Gzip headers are now checked for corrupted NAME, COMMENT and "
 "HCRC fields."
 msgstr ""
+":issue:`45509`: Os cabeçalhos do Gzip agora são verificados para campos "
+"NAME, COMMENT e HCRC corrompidos."
 
 #: ../NEWS:2282
 msgid ""
@@ -5395,18 +5587,28 @@ msgid ""
 "live TUI loop exits even when the profiler collects enough samples to enter "
 "the post-finished input loop."
 msgstr ""
+":gh:`150387`: Corrige travamento em ``test.test_profiling."
+"test_sampling_profiler.test_live_collector_ui.TestLiveModeErrors."
+"test_run_failed_script_live`` em buildbots lentos. O teste agora sempre "
+"enfileira uma tecla ``q`` final para que o loop da TUI ao vivo saia mesmo "
+"quando o perfilador coleta amostras suficientes para entrar no laço de "
+"entrada pós-finalizado."
 
 #: ../NEWS:2288
 msgid ""
 ":gh:`149776`: Fix test_socket on Linux kernel 7.1 and newer: skip UDP Lite "
 "tests if it's not supported. Patch by Victor Stinner."
 msgstr ""
+":gh:`149776`: Corrige test_socket no kernel do Linux 7.1 e mais recente: "
+"pula testes de UDP Lite se não for suportado. Patch por Victor Stinner."
 
 #: ../NEWS:2294
 msgid ""
 ":gh:`148294`: Corrected the use of ``AC_PATH_TOOL`` in ``configure.ac`` to "
 "allow a C++ compiler to be found on :envvar:`!PATH`."
 msgstr ""
+":gh:`148294`: Corrigido o uso de ``AC_PATH_TOOL`` em ``configure.ac`` para "
+"permitir que um compilador C++ seja encontrado no :envvar:`!PATH`."
 
 #: ../NEWS:2297
 msgid ""
@@ -5414,16 +5616,21 @@ msgid ""
 "thread stack size of at least 1 MiB instead of musl default which is 128 "
 "kiB. Patch by Victor Stinner."
 msgstr ""
+":gh:`148260`: No Linux, quando o Python está vinculado à biblioteca C musl, "
+"usa um tamanho de pilha de thread de pelo menos 1 MiB em vez do padrão da "
+"musl, que é 128 kiB. Patch por Victor Stinner."
 
 #: ../NEWS:2304
 msgid ""
 ":gh:`149786`: Fixes virtual environment launchers on Windows free-threaded "
 "builds."
 msgstr ""
+":gh:`149786`: Corrige inicializadores de ambiente virtual em construções com "
+"threads livres do Windows."
 
 #: ../NEWS:2307
 msgid ":gh:`124111`: Updated Windows builds to use Tcl/Tk 9.0.3."
-msgstr ""
+msgstr ":gh:`124111`: Atualiza construções do Windows para usar Tcl/Tk 9.0.3."
 
 #: ../NEWS:2309
 msgid ""
@@ -5432,10 +5639,16 @@ msgid ""
 "other distributions from python.org and all preset configurations in the "
 "``PC\\layout`` script will include one."
 msgstr ""
+":gh:`138489`: As distribuições do Windows agora incluem um arquivo :file:"
+"`build-details.json` (veja :pep:`739`). O instalador legado não o instala, "
+"mas todas as outras distribuições do python.org e todas as configurações "
+"predefinidas no script ``PC\\layout`` incluirão um."
 
 #: ../NEWS:2314
 msgid ":gh:`149029`: Update Windows installer to ship with SQLite 3.53.1."
 msgstr ""
+":gh:`149029`: Atualiza o instalador do Windows para ser fornecido com o "
+"SQLite 3.53.1."
 
 #: ../NEWS:2319
 msgid ""
@@ -5443,23 +5656,34 @@ msgid ""
 "use_system_logger``, messages are now tagged as public. This allows the "
 "macOS 26 system logger to view messages without special configuration."
 msgstr ""
+":gh:`150644`: Quando o registro do sistema (system logging) está ativado "
+"(com ``config.use_system_logger``), as mensagens agora são marcadas como "
+"públicas. Isso permite que o registrador do sistema do macOS 26 veja as "
+"mensagens sem configuração especial."
 
 #: ../NEWS:2324
 msgid ""
 ":gh:`149029`: Update macOS installer to ship with SQLite version 3.53.1."
 msgstr ""
+":gh:`149029`: Atualização do instalador do macOS para ser fornecido com o "
+"SQLite versão 3.53.1."
 
 #: ../NEWS:2329
 msgid ""
 ":gh:`150258`: Update the tooltip on the Tachyon flame graph to show both "
 "absolute and relative percentages."
 msgstr ""
+":gh:`150258`: Atualiza a dica de ferramenta no gráfico de chama do Tachyon "
+"para mostrar porcentagens absolutas e relativas."
 
 #: ../NEWS:2335
 msgid ""
 ":gh:`149725`: Add :c:func:`PySentinel_CheckExact` for exact :class:"
 "`sentinel` type tests to accompany the existing :c:func:`PySentinel_Check`."
 msgstr ""
+":gh:`149725`: Adiciona :c:func:`PySentinel_CheckExact` para testes exatos de "
+"tipo de :class:`sentinel` para acompanhar o :c:func:`PySentinel_Check` "
+"existente."
 
 #: ../NEWS:2338
 msgid ""
@@ -5467,6 +5691,9 @@ msgid ""
 "`PyDict_ClearWatcher`, :c:func:`PyDict_Watch`, and :c:func:`PyDict_Unwatch` "
 "thread-safe on the :term:`free threaded <free threading>` build."
 msgstr ""
+":gh:`145235`: Tornou :c:func:`PyDict_AddWatcher`, :c:func:"
+"`PyDict_ClearWatcher`, :c:func:`PyDict_Watch` e :c:func:`PyDict_Unwatch` "
+"seguros para threads na compilação :term:`threads livres <free threading>`."
 
 #: ../NEWS:2345
 msgid "Python 3.15.0 beta 1"

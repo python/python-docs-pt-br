@@ -1,5 +1,5 @@
-1 directory  56.99% done
-└── 3.15/  56.99% done
+1 directory  57.14% done
+└── 3.15/  57.14% done
     ├── builtins/  100.00% done
     ├── c-api/  46.23% done
     │   ├── bytes.po                      60.0% translated  73/121
@@ -226,14 +226,14 @@
     │   ├── zipfile.po                    97.0% translated 210/216
     │   ├── zlib.po                       92.0% translated  95/103
     │   └── zoneinfo.po                   44.0% translated   37/84
-    ├── reference/  89.33% done
-    │   ├── datamodel.po                  94.0% translated 867/915
-    │   ├── expressions.po                72.0% translated 489/674
+    ├── reference/  90.76% done
+    │   ├── datamodel.po                  95.0% translated 875/915
+    │   ├── expressions.po                77.0% translated 523/674
     │   └── simple_stmts.po               90.0% translated 282/310
     ├── tutorial/  100.00% done
     ├── using/  93.86% done
     │   └── windows.po                    90.0% translated 530/584
-    └── whatsnew/  48.74% done
+    └── whatsnew/  49.04% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 300/452
@@ -250,4 +250,4 @@
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  25.0% translated 3943/15469
+        └── changelog.po                  25.0% translated 4021/15469
