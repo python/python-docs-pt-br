@@ -1,8 +1,8 @@
-1 directory  58.74% done
-└── 3.14/  58.74% done
+1 directory  58.71% done
+└── 3.14/  58.71% done
     ├── builtins/  99.82% done
     │   └── functions.po                  99.0% translated 520/522
-    ├── c-api/  52.54% done
+    ├── c-api/  52.49% done
     │   ├── bytes.po                      93.0% translated   73/78
     │   ├── conversion.po                 89.0% translated   49/55
     │   ├── descriptor.po                 42.0% translated   14/33
@@ -19,6 +19,7 @@
     │   ├── intro.po                      70.0% translated 152/217
     │   ├── list.po                       81.0% translated   31/38
     │   ├── long.po                       25.0% translated  46/179
+    │   ├── marshal.po                    89.0% translated   17/19
     │   ├── memory.po                     26.0% translated  59/219
     │   ├── module.po                     36.0% translated  49/135
     │   ├── object.po                     29.0% translated  44/147
@@ -60,7 +61,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  54.81% done
+    ├── library/  54.79% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              90.0% translated 143/158
     │   ├── argparse.po                   98.0% translated 403/409
@@ -92,7 +93,7 @@
     │   ├── collections.po                97.0% translated 239/244
     │   ├── compression.zstd.po           97.0% translated 169/174
     │   ├── concurrent.futures.po         14.0% translated  18/121
-    │   ├── concurrent.interpreters.po    56.0% translated   49/87
+    │   ├── concurrent.interpreters.po    52.0% translated   51/97
     │   ├── contextlib.po                 27.0% translated  47/172
     │   ├── contextvars.po                86.0% translated   57/66
     │   ├── csv.po                        94.0% translated 126/133
@@ -145,7 +146,7 @@
     │   ├── mailbox.po                     7.0% translated  22/307
     │   ├── marshal.po                    60.0% translated   34/56
     │   ├── mmap.po                       35.0% translated   23/65
-    │   ├── multiprocessing.po            51.0% translated 317/620
+    │   ├── multiprocessing.po            50.0% translated 316/621
     │   ├── operator.po                   91.0% translated 173/189
     │   ├── optparse.po                   79.0% translated 423/532
     │   ├── os.path.po                    85.0% translated  96/112
@@ -219,7 +220,7 @@
     ├── using/  94.12% done
     │   ├── configure.po                  99.0% translated 468/469
     │   └── windows.po                    91.0% translated 534/583
-    └── whatsnew/  48.62% done
+    └── whatsnew/  48.59% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 301/452
@@ -234,4 +235,4 @@
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  26.0% translated 3865/14544
+        └── changelog.po                  26.0% translated 3865/14556
