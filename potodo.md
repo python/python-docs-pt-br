@@ -1,8 +1,9 @@
-1 directory  56.92% done
-└── 3.15/  56.92% done
-    ├── builtins/  99.83% done
-    │   └── functions.po                  99.0% translated 538/540
-    ├── c-api/  46.13% done
+1 directory  56.82% done
+└── 3.15/  56.82% done
+    ├── builtins/  97.35% done
+    │   ├── functions.po                  99.0% translated 538/540
+    │   └── stdtypes.po                   97.0% translated 1614/1659
+    ├── c-api/  46.09% done
     │   ├── bytes.po                      54.0% translated  73/135
     │   ├── complex.po                    83.0% translated   31/37
     │   ├── conversion.po                 87.0% translated   48/55
@@ -21,6 +22,7 @@
     │   ├── intro.po                      60.0% translated 145/240
     │   ├── list.po                       81.0% translated   31/38
     │   ├── long.po                       25.0% translated  46/179
+    │   ├── marshal.po                    89.0% translated   17/19
     │   ├── memory.po                     26.0% translated  59/219
     │   ├── module.po                     13.0% translated  31/225
     │   ├── object.po                     27.0% translated  44/161
@@ -67,7 +69,7 @@
     │   ├── sorting.po                    53.0% translated   48/90
     │   └── unicode.po                    19.0% translated  28/143
     ├── installing/  100.00% done
-    ├── library/  52.66% done
+    ├── library/  52.63% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              89.0% translated 142/158
     │   ├── argparse.po                   94.0% translated 397/421
@@ -98,7 +100,7 @@
     │   ├── collections.po                95.0% translated 235/247
     │   ├── compression.zstd.po           96.0% translated 168/175
     │   ├── concurrent.futures.po         14.0% translated  18/121
-    │   ├── concurrent.interpreters.po    56.0% translated   49/87
+    │   ├── concurrent.interpreters.po    52.0% translated   51/97
     │   ├── contextlib.po                 25.0% translated  47/181
     │   ├── contextvars.po                84.0% translated   56/66
     │   ├── csv.po                        90.0% translated 120/133
@@ -154,7 +156,7 @@
     │   ├── marshal.po                    58.0% translated   35/60
     │   ├── math_integer.po               73.0% translated   11/15
     │   ├── mmap.po                       28.0% translated   22/78
-    │   ├── multiprocessing.po            50.0% translated 316/622
+    │   ├── multiprocessing.po            50.0% translated 315/623
     │   ├── operator.po                   91.0% translated 173/189
     │   ├── optparse.po                   79.0% translated 423/532
     │   ├── os.path.po                    83.0% translated  94/113
@@ -231,15 +233,15 @@
     │   ├── zipfile.po                    97.0% translated 210/216
     │   ├── zlib.po                       92.0% translated  95/103
     │   └── zoneinfo.po                   44.0% translated   37/84
-    ├── reference/  90.76% done
+    ├── reference/  90.62% done
     │   ├── datamodel.po                  95.0% translated 875/915
-    │   ├── expressions.po                77.0% translated 523/674
+    │   ├── expressions.po                76.0% translated 500/651
     │   └── simple_stmts.po               90.0% translated 282/310
     ├── tutorial/  100.00% done
     ├── using/  93.76% done
     │   ├── configure.po                  99.0% translated 495/496
     │   └── windows.po                    90.0% translated 530/584
-    └── whatsnew/  48.77% done
+    └── whatsnew/  48.71% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 300/452
@@ -256,4 +258,4 @@
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  25.0% translated 4021/15582
+        └── changelog.po                  25.0% translated 4021/15606

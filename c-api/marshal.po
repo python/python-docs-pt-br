@@ -10,9 +10,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.14\n"
+"Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-05 14:15+0000\n"
+"POT-Creation-Date: 2026-10-13 19:59+0000\n"
 "PO-Revision-Date: 2025-09-16 00:00+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2025\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -70,7 +70,7 @@ msgstr ""
 "independentemente do tamanho do tipo nativo :c:expr:`long`. *version* indica "
 "o formato do arquivo."
 
-#: ../../c-api/marshal.rst:29 ../../c-api/marshal.rst:37
+#: ../../c-api/marshal.rst:29 ../../c-api/marshal.rst:43
 msgid ""
 "This function can fail, in which case it sets the error indicator. Use :c:"
 "func:`PyErr_Occurred` to check for that."
@@ -80,13 +80,31 @@ msgstr ""
 
 #: ../../c-api/marshal.rst:34
 msgid ""
+"In Python 3.15 and earlier, this function does not set the error indicator "
+"if writing to *file* fails. The same caveat applies as for :c:func:"
+"`PyMarshal_WriteObjectToFile`."
+msgstr ""
+
+#: ../../c-api/marshal.rst:40
+msgid ""
 "Marshal a Python object, *value*, to *file*. *version* indicates the file "
 "format."
 msgstr ""
 "Aplica *marshalling* em um objeto Python, *value*, para *file*. *version* "
 "indica o formato do arquivo."
 
-#: ../../c-api/marshal.rst:42
+#: ../../c-api/marshal.rst:48
+msgid ""
+"In Python 3.15 and earlier, this function can write only part of the data to "
+"*file* and return without setting the error indicator, for example if "
+"*value* contains an object which cannot be marshalled or if writing to "
+"*file* fails (see :gh:`155907`). Code which has to support these versions "
+"cannot rely on :c:func:`PyErr_Occurred` alone to know that all the data was "
+"written. It can use :c:func:`PyMarshal_WriteObjectToString` and write the "
+"result itself, or validate what was written."
+msgstr ""
+
+#: ../../c-api/marshal.rst:59
 msgid ""
 "Return a bytes object containing the marshalled representation of *value*. "
 "*version* indicates the file format."
@@ -94,13 +112,13 @@ msgstr ""
 "Retorna um objeto de bytes que contém a representação pós-*marshalling* de "
 "*value*. *version* indica o formato do arquivo."
 
-#: ../../c-api/marshal.rst:46
+#: ../../c-api/marshal.rst:63
 msgid "The following functions allow marshalled values to be read back in."
 msgstr ""
 "As seguintes funções permitem que os valores pós-*marshalling* sejam lidos "
 "novamente."
 
-#: ../../c-api/marshal.rst:51
+#: ../../c-api/marshal.rst:68
 msgid ""
 "Return a C :c:expr:`long` from the data stream in a :c:expr:`FILE*` opened "
 "for reading.  Only a 32-bit value can be read in using this function, "
@@ -110,7 +128,7 @@ msgstr ""
 "para leitura. Somente um valor de 32 bits pode ser lido usando essa função, "
 "independentemente do tamanho nativo de :c:expr:`long`."
 
-#: ../../c-api/marshal.rst:55 ../../c-api/marshal.rst:65
+#: ../../c-api/marshal.rst:72 ../../c-api/marshal.rst:82
 msgid ""
 "On error, sets the appropriate exception (:exc:`EOFError`) and returns "
 "``-1``."
@@ -118,7 +136,7 @@ msgstr ""
 "Em caso de erro, define a exceção apropriada (:exc:`EOFError`) e retorna "
 "``-1``."
 
-#: ../../c-api/marshal.rst:61
+#: ../../c-api/marshal.rst:78
 msgid ""
 "Return a C :c:expr:`short` from the data stream in a :c:expr:`FILE*` opened "
 "for reading.  Only a 16-bit value can be read in using this function, "
@@ -128,7 +146,7 @@ msgstr ""
 "para leitura. Somente um valor de 16 bits pode ser lido usando essa função, "
 "independentemente do tamanho nativo de :c:expr:`short`."
 
-#: ../../c-api/marshal.rst:71
+#: ../../c-api/marshal.rst:88
 msgid ""
 "Return a Python object from the data stream in a :c:expr:`FILE*` opened for "
 "reading."
@@ -136,8 +154,8 @@ msgstr ""
 "Retorna um objeto Python do fluxo de dados em um :c:expr:`FILE*` aberto para "
 "leitura."
 
-#: ../../c-api/marshal.rst:74 ../../c-api/marshal.rst:88
-#: ../../c-api/marshal.rst:97
+#: ../../c-api/marshal.rst:91 ../../c-api/marshal.rst:105
+#: ../../c-api/marshal.rst:114
 msgid ""
 "On error, sets the appropriate exception (:exc:`EOFError`, :exc:`ValueError` "
 "or :exc:`TypeError`) and returns ``NULL``."
@@ -145,7 +163,7 @@ msgstr ""
 "Em caso de erro, define a exceção apropriada (:exc:`EOFError`, :exc:"
 "`ValueError` ou :exc:`TypeError`) e retorna ``NULL``."
 
-#: ../../c-api/marshal.rst:80
+#: ../../c-api/marshal.rst:97
 msgid ""
 "Return a Python object from the data stream in a :c:expr:`FILE*` opened for "
 "reading.  Unlike :c:func:`PyMarshal_ReadObjectFromFile`, this function "
@@ -163,7 +181,7 @@ msgstr ""
 "byte por vez do arquivo. Use essa variante apenas se tiver certeza de que "
 "não estará lendo mais nada do arquivo."
 
-#: ../../c-api/marshal.rst:94
+#: ../../c-api/marshal.rst:111
 msgid ""
 "Return a Python object from the data stream in a byte buffer containing "
 "*len* bytes pointed to by *data*."
