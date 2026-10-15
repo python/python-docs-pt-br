@@ -1,9 +1,9 @@
-1 directory  56.82% done
-└── 3.15/  56.82% done
+1 directory  56.81% done
+└── 3.15/  56.81% done
     ├── builtins/  97.35% done
     │   ├── functions.po                  99.0% translated 538/540
     │   └── stdtypes.po                   97.0% translated 1614/1659
-    ├── c-api/  46.09% done
+    ├── c-api/  46.08% done
     │   ├── bytes.po                      54.0% translated  73/135
     │   ├── complex.po                    83.0% translated   31/37
     │   ├── conversion.po                 87.0% translated   48/55
@@ -16,7 +16,7 @@
     │   ├── frame.po                      58.0% translated   35/60
     │   ├── gcsupport.po                  16.0% translated  18/107
     │   ├── gen.po                        66.0% translated   12/18
-    │   ├── import.po                     55.0% translated   44/80
+    │   ├── import.po                     54.0% translated   44/81
     │   ├── init_config.po                54.0% translated 359/660
     │   ├── interp-lifecycle.po           75.0% translated 164/217
     │   ├── intro.po                      60.0% translated 145/240
@@ -71,7 +71,7 @@
     ├── installing/  100.00% done
     ├── library/  52.63% done
     │   ├── abc.po                        78.0% translated   47/60
-    │   ├── annotationlib.po              89.0% translated 142/158
+    │   ├── annotationlib.po              90.0% translated 143/158
     │   ├── argparse.po                   94.0% translated 397/421
     │   ├── array.po                      81.0% translated  83/102
     │   ├── asyncio-dev.po                61.0% translated   52/84
@@ -160,7 +160,7 @@
     │   ├── operator.po                   91.0% translated 173/189
     │   ├── optparse.po                   79.0% translated 423/532
     │   ├── os.path.po                    83.0% translated  94/113
-    │   ├── os.po                         87.0% translated 995/1135
+    │   ├── os.po                         87.0% translated 995/1136
     │   ├── pickle.po                     97.0% translated 244/251
     │   ├── poplib.po                     37.0% translated   20/53
     │   ├── pprint.po                     88.0% translated   48/54
@@ -238,10 +238,11 @@
     │   ├── expressions.po                76.0% translated 500/651
     │   └── simple_stmts.po               90.0% translated 282/310
     ├── tutorial/  100.00% done
-    ├── using/  93.76% done
+    ├── using/  93.61% done
+    │   ├── cmdline.po                    99.0% translated 282/284
     │   ├── configure.po                  99.0% translated 495/496
     │   └── windows.po                    90.0% translated 530/584
-    └── whatsnew/  48.71% done
+    └── whatsnew/  48.69% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 300/452
@@ -258,4 +259,4 @@
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  25.0% translated 4021/15606
+        └── changelog.po                  25.0% translated 4021/15616
