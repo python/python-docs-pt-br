@@ -1,5 +1,5 @@
-1 directory  58.68% done
-└── 3.13/  58.68% done
+1 directory  58.69% done
+└── 3.13/  58.69% done
     ├── builtins/  99.55% done
     │   ├── functions.po                  99.0% translated 513/515
     │   └── stdtypes.po                   99.0% translated 1444/1446
@@ -55,7 +55,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  56.23% done
+    ├── library/  56.26% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── argparse.po                   98.0% translated 382/387
     │   ├── array.po                      90.0% translated   80/88
@@ -115,7 +115,7 @@
     │   ├── http.cookiejar.po              4.0% translated   7/159
     │   ├── http.cookies.po               14.0% translated    7/49
     │   ├── http.server.po                12.0% translated  16/128
-    │   ├── idle.po                       73.0% translated 219/297
+    │   ├── idle.po                       78.0% translated 234/297
     │   ├── imaplib.po                    11.0% translated  14/124
     │   ├── importlib.po                  76.0% translated 241/313
     │   ├── importlib.resources.po        98.0% translated   52/53
