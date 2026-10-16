@@ -1,5 +1,5 @@
-1 directory  56.81% done
-└── 3.15/  56.81% done
+1 directory  56.83% done
+└── 3.15/  56.83% done
     ├── builtins/  97.35% done
     │   ├── functions.po                  99.0% translated 538/540
     │   └── stdtypes.po                   97.0% translated 1614/1659
@@ -69,7 +69,7 @@
     │   ├── sorting.po                    53.0% translated   48/90
     │   └── unicode.po                    19.0% translated  28/143
     ├── installing/  100.00% done
-    ├── library/  52.63% done
+    ├── library/  52.66% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              90.0% translated 143/158
     │   ├── argparse.po                   94.0% translated 397/421
@@ -141,7 +141,7 @@
     │   ├── http.cookiejar.po              4.0% translated   7/159
     │   ├── http.cookies.po               12.0% translated    7/54
     │   ├── http.server.po                11.0% translated  16/135
-    │   ├── idle.po                       74.0% translated 220/297
+    │   ├── idle.po                       79.0% translated 235/297
     │   ├── imaplib.po                    10.0% translated  14/138
     │   ├── importlib.metadata.po         71.0% translated 106/149
     │   ├── importlib.po                  65.0% translated 186/283
@@ -242,7 +242,7 @@
     │   ├── cmdline.po                    99.0% translated 282/284
     │   ├── configure.po                  99.0% translated 495/496
     │   └── windows.po                    90.0% translated 530/584
-    └── whatsnew/  48.69% done
+    └── whatsnew/  48.70% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 300/452
@@ -250,7 +250,6 @@
         ├── 3.0.po                        90.0% translated 191/212
         ├── 3.1.po                        86.0% translated 114/132
         ├── 3.13.po                       98.0% translated 977/991
-        ├── 3.14.po                       99.0% translated 1110/1111
         ├── 3.15.po                       99.0% translated 813/819
         ├── 3.2.po                        11.0% translated  66/576
         ├── 3.3.po                        19.0% translated 134/682
