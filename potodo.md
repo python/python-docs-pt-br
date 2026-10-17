@@ -2,7 +2,7 @@
 └── 3.14/  58.71% done
     ├── builtins/  99.82% done
     │   └── functions.po                  99.0% translated 520/522
-    ├── c-api/  52.49% done
+    ├── c-api/  52.42% done
     │   ├── bytes.po                      93.0% translated   73/78
     │   ├── conversion.po                 89.0% translated   49/55
     │   ├── descriptor.po                 42.0% translated   14/33
@@ -36,7 +36,7 @@
     │   ├── tuple.po                      93.0% translated   44/47
     │   ├── type.po                       18.0% translated  25/137
     │   ├── typeobj.po                    32.0% translated 249/764
-    │   ├── unicode.po                    19.0% translated  81/414
+    │   ├── unicode.po                    19.0% translated  80/421
     │   └── veryhigh.po                   72.0% translated   62/86
     ├── deprecations/  100.00% done
     ├── distributing/  100.00% done
@@ -61,7 +61,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  54.81% done
+    ├── library/  54.83% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              90.0% translated 143/158
     │   ├── argparse.po                   98.0% translated 403/409
@@ -87,7 +87,6 @@
     │   ├── bdb.po                        96.0% translated 115/119
     │   ├── binascii.po                   55.0% translated   21/38
     │   ├── bisect.po                     88.0% translated   32/36
-    │   ├── calendar.po                   90.0% translated 106/117
     │   ├── code.po                       96.0% translated   32/33
     │   ├── codecs.po                     44.0% translated 250/566
     │   ├── collections.po                97.0% translated 239/244
@@ -125,7 +124,7 @@
     │   ├── functools.po                  19.0% translated  25/126
     │   ├── gc.po                         94.0% translated   63/67
     │   ├── glob.po                       93.0% translated   43/46
-    │   ├── gzip.po                       95.0% translated   68/71
+    │   ├── gzip.po                       94.0% translated   67/71
     │   ├── hashlib.po                    53.0% translated  91/170
     │   ├── heapq.po                      67.0% translated   49/73
     │   ├── html.parser.po                92.0% translated   59/64
@@ -150,7 +149,7 @@
     │   ├── operator.po                   91.0% translated 173/189
     │   ├── optparse.po                   79.0% translated 423/532
     │   ├── os.path.po                    85.0% translated  96/112
-    │   ├── os.po                         93.0% translated 1006/1076
+    │   ├── os.po                         95.0% translated 1023/1076
     │   ├── pickle.po                     97.0% translated 244/251
     │   ├── poplib.po                     37.0% translated   20/53
     │   ├── profile.po                    17.0% translated  32/181
@@ -182,7 +181,7 @@
     │   ├── tkinter.dnd.po                45.0% translated    9/20
     │   ├── tkinter.font.po               67.0% translated   25/37
     │   ├── tkinter.messagebox.po         93.0% translated   40/43
-    │   ├── tkinter.po                    19.0% translated 247/1236
+    │   ├── tkinter.po                    19.0% translated 241/1242
     │   ├── tkinter.ttk.po                24.0% translated 118/476
     │   ├── tokenize.po                   94.0% translated   49/52
     │   ├── trace.po                      90.0% translated   39/43
@@ -207,7 +206,6 @@
     │   ├── xml.sax.handler.po            16.0% translated  19/114
     │   ├── xml.sax.po                     5.0% translated    2/34
     │   ├── xml.sax.reader.po              2.0% translated    2/76
-    │   ├── xml.sax.utils.po              88.0% translated   15/17
     │   ├── xmlrpc.client.po              46.0% translated  53/113
     │   ├── xmlrpc.server.po              87.0% translated   50/57
     │   ├── zipfile.po                    97.0% translated 210/216
@@ -217,11 +215,9 @@
     │   ├── expressions.po                90.0% translated 536/595
     │   └── simple_stmts.po               96.0% translated 281/291
     ├── tutorial/  100.00% done
-    ├── using/  93.97% done
-    │   ├── cmdline.po                    99.0% translated 268/270
-    │   ├── configure.po                  99.0% translated 468/469
-    │   └── windows.po                    91.0% translated 534/583
-    └── whatsnew/  48.57% done
+    ├── using/  94.00% done
+    │   └── windows.po                    91.0% translated 533/583
+    └── whatsnew/  48.55% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 301/452
@@ -236,4 +232,4 @@
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  26.0% translated 3865/14564
+        └── changelog.po                  26.0% translated 3866/14578

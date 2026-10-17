@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-15 18:55+0000\n"
+"POT-Creation-Date: 2026-10-17 17:36+0000\n"
 "PO-Revision-Date: 2026-05-08 17:18+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2026\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -74,6 +74,9 @@ msgid ""
 "through the :mod:`!os` module, but using them is of course a threat to "
 "portability."
 msgstr ""
+"Extensões específicas a um sistema operacional também estão disponíveis "
+"através do módulo :mod:`!os`, mas usá-las é, naturalmente, uma ameaça à "
+"portabilidade."
 
 #: ../../library/os.rst:31
 msgid ""
@@ -100,6 +103,13 @@ msgid ""
 "getpid` are emulated or stubs. WebAssembly platforms also lack support for "
 "signals (e.g. :func:`~os.kill`, :func:`~os.wait`)."
 msgstr ""
+"Nas plataformas WebAssembly, Android e iOS, grandes partes do módulo :mod:`!"
+"os` não estão disponíveis ou se comportam de maneira diferente. APIs "
+"relacionadas a processos (por exemplo, :func:`~os.fork`, :func:`~os.execve`) "
+"e recursos (por exemplo, :func:`~os.nice`) não estão disponíveis. Outros "
+"como :func:`~os.getuid` e :func:`~os.getpid` são emulados ou esboços. As "
+"plataformas WebAssembly também não possuem suporte para sinais (por "
+"exemplo, :func:`~os.kill`, :func:`~os.wait`)."
 
 #: ../../library/os.rst:47
 msgid ""
@@ -496,6 +506,11 @@ msgid ""
 "`os.environ`, except for changes made by modifying :data:`os.environ` "
 "directly."
 msgstr ""
+"Este mapeamento é capturado na primeira vez que o módulo :mod:`!os` é "
+"importado, normalmente durante a inicialização do Python, como parte do "
+"processamento do arquivo :file:`site.py`. Mudanças no ambiente feitas após "
+"esse momento não são refletidas em :data:`os.environ`, exceto pelas mudanças "
+"feitas modificando :data:`os.environ` diretamente."
 
 #: ../../library/os.rst:196
 msgid ""
@@ -610,6 +625,10 @@ msgid ""
 "environ` or :data:`os.environb`, or calling :func:`os.getenv` while "
 "reloading, may return an empty result."
 msgstr ""
+"Esta função não é segura para thread. Chamá-la enquanto o ambiente está "
+"sendo modificado em outra thread é um comportamento indefinido. Ler de :data:"
+"`os.environ` ou :data:`os.environb`, ou chamar :func:`os.getenv` durante o "
+"recarregamento, pode retornar um resultado vazio."
 
 #: ../../library/os.rst:272
 msgid "These functions are described in :ref:`os-file-dir`."
@@ -1177,6 +1196,8 @@ msgid ""
 "Returns information identifying the current operating system. The return "
 "value is a :class:`uname_result`."
 msgstr ""
+"Retorna informações identificando o sistema operacional atual. O valor "
+"retornado é um :class:`uname_result`."
 
 #: ../../library/os.rst:796
 msgid ""
@@ -1185,10 +1206,14 @@ msgid ""
 "uname` can be used to get the user-facing operating system name and release "
 "on iOS and Android."
 msgstr ""
+"No macOS, iOS e Android, retorna o nome e a versão do *kernel* (ou seja, "
+"``'Darwin'`` no macOS e iOS; ``'Linux'`` no Android). :func:`platform.uname` "
+"pode ser usada para obter o nome e a versão do sistema operacional voltado "
+"para o usuário no iOS e Android."
 
 #: ../../library/os.rst:802
 msgid ":data:`sys.platform` which has finer granularity."
-msgstr ""
+msgstr ":data:`sys.platform`, que tem melhor granularidade."
 
 #: ../../library/os.rst:809 ../../library/os.rst:5252
 msgid ""
@@ -1203,6 +1228,8 @@ msgid ""
 "Name and information about the system returned by :func:`os.uname`. These "
 "attributes correspond to the members described in :manpage:`uname(2)`."
 msgstr ""
+"Nome e informações sobre o sistema retornado por :func:`os.uname`. Estes "
+"atributos correspondem aos membros descritos em :manpage:`uname(2)`."
 
 #: ../../library/os.rst:819
 msgid ""
@@ -1211,10 +1238,14 @@ msgid ""
 "nodename`, :attr:`~uname_result.release`, :attr:`~uname_result.version`, "
 "and :attr:`~uname_result.machine` in that order."
 msgstr ""
+"Para retrocompatibilidade, esse objeto também é iterável, comportando-se "
+"como uma tupla de 5 elementos contendo :attr:`~uname_result.sysname`, :attr:"
+"`~uname_result.nodename`, :attr:`~uname_result.release`, :attr:"
+"`~uname_result.version` e :attr:`~uname_result.machine` nessa ordem."
 
 #: ../../library/os.rst:827
 msgid "Operating system name."
-msgstr ""
+msgstr "Nome do sistema operacional."
 
 #: ../../library/os.rst:831
 msgid ""
@@ -1223,18 +1254,22 @@ msgid ""
 "the hostname is :func:`socket.gethostname` or even ``socket."
 "gethostbyaddr(socket.gethostname())``."
 msgstr ""
+"Nome da máquina ou rede. Alguns sistemas truncam :attr:`~uname_result."
+"nodename` para 8 caracteres ou para o componente principal; uma maneira "
+"melhor de obter o nome do host é :func:`socket.gethostname` ou até mesmo "
+"``socket.gethostbyaddr(socket.gethostname())``."
 
 #: ../../library/os.rst:838
 msgid "Operating system release."
-msgstr ""
+msgstr "Lançamento do sistema operacional."
 
 #: ../../library/os.rst:842
 msgid "Operating system version."
-msgstr ""
+msgstr "Versão do sistema operacional."
 
 #: ../../library/os.rst:846
 msgid "Hardware identifier."
-msgstr ""
+msgstr "Identificador do hardware."
 
 #: ../../library/os.rst:853
 msgid ""
@@ -1654,6 +1689,9 @@ msgid ""
 "file descriptor *fd* in a :class:`statvfs_result`, like :func:`statvfs`. As "
 "of Python 3.3, this is equivalent to ``os.statvfs(fd)``."
 msgstr ""
+"Retorna informações sobre o sistema de arquivos que contém o arquivo "
+"associado com descritor de arquivo *fd* em um :class:`statvfs_result`, como :"
+"func:`statvfs`. A partir do Python 3.3, isso equivale a ``os.statvfs(fd)``."
 
 #: ../../library/os.rst:1136
 msgid ""
@@ -1918,6 +1956,11 @@ msgid ""
 "are defined in the :mod:`!os` module.  In particular, on Windows adding :"
 "const:`O_BINARY` is needed to open files in binary mode."
 msgstr ""
+"Para ler uma descrição dos valores de sinalizadores e modos, veja a "
+"documentação de C; constantes de sinalizador (como :const:`O_RDONLY` e :"
+"const:`O_WRONLY`) são definidas no módulo :mod:`!os`. Em particular, no "
+"Windows é necessário adicionar :const:`O_BINARY` para abrir arquivos em modo "
+"binário."
 
 #: ../../library/os.rst:1310
 msgid ""
@@ -1942,6 +1985,11 @@ msgid ""
 "meth:`~io.BufferedIOBase.read` and :meth:`~io.BufferedIOBase.write` methods. "
 "To wrap a file descriptor in a file object, use :func:`fdopen`."
 msgstr ""
+"Esta função é destinada a E/S de baixo nível. Para uso normal, use a função "
+"embutida :func:`open`, que retorna um :term:`objeto arquivo <file object>` "
+"com os métodos :meth:`~io.BufferedIOBase.read` e :meth:`~io.BufferedIOBase."
+"write`. Para envolver um descritor de arquivo em um objeto arquivo, use :"
+"func:`fdopen`."
 
 #: ../../library/os.rst:1325 ../../library/os.rst:2507
 #: ../../library/os.rst:2547 ../../library/os.rst:2618
