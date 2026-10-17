@@ -1,5 +1,5 @@
-1 directory  58.69% done
-└── 3.13/  58.69% done
+1 directory  58.72% done
+└── 3.13/  58.72% done
     ├── builtins/  99.55% done
     │   ├── functions.po                  99.0% translated 513/515
     │   └── stdtypes.po                   99.0% translated 1444/1446
@@ -55,7 +55,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  56.26% done
+    ├── library/  56.32% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── argparse.po                   98.0% translated 382/387
     │   ├── array.po                      90.0% translated   80/88
@@ -75,7 +75,6 @@
     │   ├── bdb.po                        98.0% translated 110/112
     │   ├── binascii.po                   60.0% translated   23/38
     │   ├── bisect.po                     94.0% translated   34/36
-    │   ├── calendar.po                   93.0% translated 108/116
     │   ├── code.po                       96.0% translated   32/33
     │   ├── codecs.po                     44.0% translated 250/561
     │   ├── collections.po                98.0% translated 240/244
@@ -130,7 +129,7 @@
     │   ├── multiprocessing.po            54.0% translated 330/610
     │   ├── operator.po                   92.0% translated 170/183
     │   ├── os.path.po                    86.0% translated  97/112
-    │   ├── os.po                         94.0% translated 1000/1058
+    │   ├── os.po                         95.0% translated 1012/1058
     │   ├── pickle.po                     99.0% translated 242/243
     │   ├── poplib.po                     41.0% translated   22/53
     │   ├── profile.po                    18.0% translated  34/181
@@ -184,7 +183,6 @@
     │   ├── xml.sax.handler.po            16.0% translated  19/114
     │   ├── xml.sax.po                     5.0% translated    2/34
     │   ├── xml.sax.reader.po              2.0% translated    2/76
-    │   ├── xml.sax.utils.po              88.0% translated   15/17
     │   ├── xmlrpc.client.po              48.0% translated  55/113
     │   ├── xmlrpc.server.po              91.0% translated   52/57
     │   ├── zipfile.po                    99.0% translated 208/210
