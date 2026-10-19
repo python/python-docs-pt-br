@@ -69,7 +69,7 @@
     │   ├── sorting.po                    53.0% translated   48/90
     │   └── unicode.po                    19.0% translated  28/143
     ├── installing/  100.00% done
-    ├── library/  52.82% done
+    ├── library/  52.83% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              90.0% translated 143/158
     │   ├── argparse.po                   94.0% translated 397/421
@@ -129,7 +129,7 @@
     │   ├── fcntl.po                      89.0% translated   49/55
     │   ├── ftplib.po                     12.0% translated   12/98
     │   ├── functools.po                  19.0% translated  25/128
-    │   ├── gc.po                         83.0% translated   60/72
+    │   ├── gc.po                         82.0% translated   60/73
     │   ├── getpass.po                    60.0% translated   15/25
     │   ├── glob.po                       91.0% translated   42/46
     │   ├── gzip.po                       93.0% translated   67/72
@@ -140,7 +140,7 @@
     │   ├── http.cookiejar.po              4.0% translated   7/159
     │   ├── http.cookies.po               12.0% translated    7/54
     │   ├── http.server.po                11.0% translated  16/135
-    │   ├── idle.po                       81.0% translated 242/297
+    │   ├── idle.po                       82.0% translated 245/297
     │   ├── imaplib.po                    10.0% translated  14/138
     │   ├── importlib.metadata.po         71.0% translated 106/149
     │   ├── importlib.po                  65.0% translated 186/283
@@ -151,7 +151,7 @@
     │   ├── logging.handlers.po           63.0% translated 174/276
     │   ├── logging.po                    28.0% translated 106/375
     │   ├── lzma.po                       77.0% translated  99/128
-    │   ├── mailbox.po                     7.0% translated  23/309
+    │   ├── mailbox.po                     7.0% translated  23/310
     │   ├── marshal.po                    58.0% translated   35/60
     │   ├── math_integer.po               73.0% translated   11/15
     │   ├── mmap.po                       28.0% translated   22/78
@@ -203,7 +203,7 @@
     │   ├── tkinter.ttk.po                24.0% translated 118/476
     │   ├── tokenize.po                   90.0% translated   48/53
     │   ├── trace.po                      90.0% translated   39/43
-    │   ├── traceback.po                   8.0% translated  10/118
+    │   ├── traceback.po                   7.0% translated   9/117
     │   ├── tracemalloc.po                13.0% translated  21/156
     │   ├── turtle.po                     91.0% translated 526/573
     │   ├── typing.po                     90.0% translated 780/861
@@ -229,16 +229,17 @@
     │   ├── xmlrpc.client.po              46.0% translated  53/113
     │   ├── xmlrpc.server.po              87.0% translated   50/57
     │   ├── zipfile.po                    97.0% translated 210/216
+    │   ├── zipimport.po                  97.0% translated   37/38
     │   ├── zlib.po                       92.0% translated  95/103
     │   └── zoneinfo.po                   44.0% translated   37/84
-    ├── reference/  90.62% done
-    │   ├── datamodel.po                  95.0% translated 875/915
+    ├── reference/  90.60% done
+    │   ├── datamodel.po                  95.0% translated 874/915
     │   ├── expressions.po                76.0% translated 500/651
     │   └── simple_stmts.po               90.0% translated 282/310
     ├── tutorial/  100.00% done
     ├── using/  93.64% done
     │   └── windows.po                    90.0% translated 529/584
-    └── whatsnew/  48.68% done
+    └── whatsnew/  48.67% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 300/452
@@ -254,4 +255,4 @@
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  25.0% translated 4021/15626
+        └── changelog.po                  25.0% translated 4021/15632
