@@ -1,5 +1,5 @@
-1 directory  67.19% done
-└── 3.12/  67.19% done
+1 directory  67.27% done
+└── 3.12/  67.27% done
     ├── c-api/  54.24% done
     │   ├── exceptions.po                 68.0% translated 251/366
     │   ├── frame.po                      80.0% translated   29/36
@@ -161,7 +161,7 @@
     │   └── zoneinfo.po                   50.0% translated   42/83
     ├── reference/  100.00% done
     ├── tutorial/  100.00% done
-    ├── using/  99.75% done
+    ├── using/  99.80% done
     │   └── windows.po                    99.0% translated 377/378
     └── whatsnew/  74.17% done
         ├── 2.3.po                        84.0% translated 327/387
