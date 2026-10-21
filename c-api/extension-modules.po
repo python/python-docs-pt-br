@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-25 16:18+0000\n"
+"POT-Creation-Date: 2026-10-21 18:18+0000\n"
 "PO-Revision-Date: 2025-09-16 00:00+0000\n"
 "Last-Translator: python-doc bot, 2026\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -500,33 +500,50 @@ msgstr ""
 "initialization>` nas seguintes maneiras:"
 
 #: ../../c-api/extension-modules.rst:316
-msgid "Single-phase modules are, or rather *contain*, “singletons”."
-msgstr "Módulos monofásicos são, ou melhor, *contêm*, “singletons”."
-
-#: ../../c-api/extension-modules.rst:318
 msgid ""
-"When the module is first initialized, Python saves the contents of the "
+"Single-phase modules with :c:member:`PyModuleDef.m_size` set to -1 are, or "
+"rather *contain*, “singletons”."
+msgstr ""
+
+#: ../../c-api/extension-modules.rst:319
+msgid ""
+"When such a module is first initialized, Python saves the contents of the "
 "module's ``__dict__`` (that is, typically, the module's functions and types)."
 msgstr ""
-"Quando o módulo é inicializado pela primeira vez, o Python salva o conteúdo "
-"do ``__dict__`` do módulo (ou seja, normalmente, as funções e os tipos do "
-"módulo)."
 
-#: ../../c-api/extension-modules.rst:322
+#: ../../c-api/extension-modules.rst:323
 msgid ""
 "For subsequent imports, Python does not call the initialization function "
 "again. Instead, it creates a new module object with a new ``__dict__``, and "
-"copies the saved contents to it. For example, given a single-phase module "
+"copies the saved contents to it. Modules are matched to the saved contents "
+"by a (*module_name*, *file_name*) tuple where:"
+msgstr ""
+
+#: ../../c-api/extension-modules.rst:330
+msgid ""
+"*module_name* is the module's full dotted name, taken from :py:attr:"
+"`ModuleSpec.name <importlib.machinery.ModuleSpec.name>` (or the equivalent "
+"argument of the importing function). Note that names that the initialization "
+"function uses to create the module (for example, :c:member:`PyModuleDef."
+"m_name`) are not taken into account."
+msgstr ""
+
+#: ../../c-api/extension-modules.rst:335
+msgid ""
+"*file_name* is the extension's file name. It is unset for modules not loaded "
+"from a file, such as built-ins and modules added with :c:func:"
+"`PyImport_CreateModuleFromInitfunc` or :c:func:`PyImport_AppendInittab`."
+msgstr ""
+
+#: ../../c-api/extension-modules.rst:340
+msgid ""
+"As part of the first initialization, Python also adds the module to :data:"
+"`sys.modules` under its name. For example, given a single-phase module "
 "``_testsinglephase`` [#testsinglephase]_ that defines a function ``sum`` and "
 "an exception class ``error``:"
 msgstr ""
-"Para importações subsequentes, o Python não chama a função de inicialização "
-"novamente. Em vez disso, ele cria um novo objeto de módulo com um novo "
-"``__dict__`` e copia o conteúdo salvo para ele. Por exemplo, dado um módulo "
-"monofásico ``_testsinglephase`` [#testsinglephase]_ que define uma função "
-"``sum`` e uma classe de exceção ``error``:"
 
-#: ../../c-api/extension-modules.rst:330
+#: ../../c-api/extension-modules.rst:346
 msgid ""
 ">>> import sys\n"
 ">>> import _testsinglephase as one\n"
@@ -554,14 +571,34 @@ msgstr ""
 ">>> one.error is two.error\n"
 "True"
 
-#: ../../c-api/extension-modules.rst:345
+#: ../../c-api/extension-modules.rst:361
 msgid ""
 "The exact behavior should be considered a CPython implementation detail."
 msgstr ""
 "O comportamento exato deve ser considerado um detalhe da implementação do "
 "CPython."
 
-#: ../../c-api/extension-modules.rst:347
+#: ../../c-api/extension-modules.rst:363
+msgid ""
+"For single-phase modules with non-negative :c:member:`PyModuleDef.m_size`, "
+"Python may cache a pointer to the initialization function under the "
+"(*module_name*, *file_name*) key as for ``m_size == -1``."
+msgstr ""
+
+#: ../../c-api/extension-modules.rst:367
+msgid ""
+"Subsequent imports that specify a different initialization function (for "
+"example, using :c:func:`PyImport_CreateModuleFromInitfunc`) may call either "
+"the cached function or the provided \"new\" one."
+msgstr ""
+
+#: ../../c-api/extension-modules.rst:371
+msgid ""
+"The exact behavior should again be considered a CPython implementation "
+"detail."
+msgstr ""
+
+#: ../../c-api/extension-modules.rst:373
 msgid ""
 "To work around the fact that ``PyInit_modulename`` does not take a *spec* "
 "argument, some state of the import machinery is saved and applied to the "
@@ -575,7 +612,7 @@ msgstr ""
 "Especificamente, quando um submódulo é importado, esse mecanismo adiciona o "
 "nome do pacote pai ao nome do módulo."
 
-#: ../../c-api/extension-modules.rst:353
+#: ../../c-api/extension-modules.rst:379
 msgid ""
 "A single-phase ``PyInit_modulename`` function should create “its” module "
 "object as soon as possible, before any other module objects can be created."
@@ -584,12 +621,12 @@ msgstr ""
 "módulo o mais rápido possível, antes que qualquer outro objeto de módulo "
 "possa ser criado."
 
-#: ../../c-api/extension-modules.rst:356
+#: ../../c-api/extension-modules.rst:382
 msgid "Non-ASCII module names (``PyInitU_modulename``) are not supported."
 msgstr ""
 "Nomes de módulos não ASCII (``PyInitU_modulename``) não são suportados."
 
-#: ../../c-api/extension-modules.rst:358
+#: ../../c-api/extension-modules.rst:384
 msgid ""
 "Single-phase modules support module lookup functions like :c:func:"
 "`PyState_FindModule`."
@@ -597,11 +634,11 @@ msgstr ""
 "Módulos monofásicos oferecem suporte a funções de pesquisa de módulos como :"
 "c:func:`PyState_FindModule`."
 
-#: ../../c-api/extension-modules.rst:361
+#: ../../c-api/extension-modules.rst:387
 msgid "The module's :c:member:`PyModuleDef.m_slots` must be NULL."
 msgstr ""
 
-#: ../../c-api/extension-modules.rst:363
+#: ../../c-api/extension-modules.rst:389
 msgid ""
 "``_testsinglephase`` is an internal module used in CPython's self-test "
 "suite; your installation may or may not include it."
