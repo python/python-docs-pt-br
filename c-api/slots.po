@@ -3,13 +3,17 @@
 # This file is distributed under the same license as the Python package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# Translators:
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2026
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-21 18:18+0000\n"
+"POT-Creation-Date: 2026-10-23 18:01+0000\n"
 "PO-Revision-Date: 2026-05-08 18:36+0000\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2026\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +25,7 @@ msgstr ""
 
 #: ../../c-api/slots.rst:6
 msgid "Definition slots"
-msgstr ""
+msgstr "Slots de definição"
 
 #: ../../c-api/slots.rst:8
 msgid ""
@@ -32,22 +36,33 @@ msgid ""
 "CPython -- and other Python C API implementations -- to update the "
 "structures without breaking backwards compatibility."
 msgstr ""
+"Para definir :ref:`objetos de módulo <moduleobjects>` e :ref:`classes "
+"<creating-heap-types>` usando a API C, você pode usar um vetor de *slots* -- "
+"essencialmente, pares de chave-valor que descrevem características do objeto "
+"a ser criado. Isso desacopla os dados das estruturas usadas em tempo de "
+"execução, permitindo que o CPython -- e outras implementações da API C do "
+"Python -- atualizem as estruturas sem quebrar a retrocompatibilidade."
 
 #: ../../c-api/slots.rst:16
 msgid ""
 "This section documents slots in general. For object-specific behavior and "
 "slot values, see documentation for functions that apply slots:"
 msgstr ""
+"Esta seção documenta os slots em geral. Para comportamento específico de "
+"objetos e valores de slots, consulte a documentação das funções que aplicam "
+"slots:"
 
 #: ../../c-api/slots.rst:20
 msgid ":c:func:`PyType_FromSlots` for types;"
-msgstr ""
+msgstr ":c:func:`PyType_FromSlots` para tipos;"
 
 #: ../../c-api/slots.rst:21
 msgid ""
 ":c:func:`PyModule_FromSlotsAndSpec` and :ref:`extension-export-hook` for "
 "modules."
 msgstr ""
+":c:func:`PyModule_FromSlotsAndSpec` e :ref:`extension-export-hook` para "
+"módulos."
 
 #: ../../c-api/slots.rst:24
 msgid ""
@@ -57,12 +72,20 @@ msgid ""
 "and any data it points to (recursively), except data explicitly marked with :"
 "c:macro:`PySlot_STATIC`."
 msgstr ""
+"Quando os slots são passados para uma função que os aplica, a função não "
+"modificará o vetor de slots, nem quaisquer dados para os quais ela aponte "
+"(recursivamente). Depois que a função terminar, o chamador tem permissão "
+"para modificar ou desalocar o vetor e quaisquer dados para os quais ela "
+"aponte (recursivamente), exceto dados marcados explicitamente com :c:macro:"
+"`PySlot_STATIC`."
 
 #: ../../c-api/slots.rst:30
 msgid ""
 "Except when documented otherwise, multiple slots with the same ID (:c:member:"
 "`~PySlot.sl_id`) may not occur in a single slots array."
 msgstr ""
+"Exceto quando documentado de outra forma, vários slots com o mesmo ID (:c:"
+"member:`~PySlot.sl_id`) não podem ocorrer em um único vetor de slots."
 
 #: ../../c-api/slots.rst:35
 msgid ""
@@ -71,14 +94,19 @@ msgid ""
 "`PyModuleDef` with :c:type:`PyModuleDef_Slot` for modules. The earlier API "
 "is :term:`soft deprecated`; there are no plans to remove it."
 msgstr ""
+"As matrizes de slots generalizam uma forma anterior de definir objetos: "
+"usando :c:type:`PyType_Spec` com :c:type:`PyType_Slot` para tipos, e :c:type:"
+"`PyModuleDef` com :c:type:`PyModuleDef_Slot` para módulos. A API anterior "
+"está :term:`suavemente descontinuada <soft deprecated>`; não há planos para "
+"removê-la."
 
 #: ../../c-api/slots.rst:40
 msgid "Entries of the slots array use the following structure:"
-msgstr ""
+msgstr "As entradas do vetor de slots utilizam a seguinte estrutura:"
 
 #: ../../c-api/slots.rst:44
 msgid "An entry in a slots array. Defined as:"
-msgstr ""
+msgstr "Uma entrada em um vetor de slots. Definida como:"
 
 #: ../../c-api/slots.rst:46
 msgid ""
@@ -97,29 +125,48 @@ msgid ""
 "    };\n"
 "} PySlot;"
 msgstr ""
+"typedef struct {\n"
+"    uint16_t sl_id;\n"
+"    uint16_t sl_flags;\n"
+"    union {\n"
+"        uint32_t sl_reserved;  // deve ser 0\n"
+"    };\n"
+"    union {\n"
+"        void *sl_ptr;\n"
+"        void (*sl_func)(void);\n"
+"        Py_ssize_t sl_size;\n"
+"        int64_t sl_int64;\n"
+"        uint64_t sl_uint64;\n"
+"    };\n"
+"} PySlot;"
 
 #: ../../c-api/slots.rst:65
 msgid "A slot ID, chosen from:"
-msgstr ""
+msgstr "Um ID de slot, escolhido entre:"
 
 #: ../../c-api/slots.rst:67
 msgid "``Py_slot_*`` values documented in :ref:`pyslot-common-ids` below;"
-msgstr ""
+msgstr "Valores ``Py_slot_*`` documentados em :ref:`pyslot-common-ids` abaixo;"
 
 #: ../../c-api/slots.rst:68
 msgid ""
 "``Py_mod_*`` values for modules, as documented in :ref:`c_module_slots`;"
 msgstr ""
+"Valores ``Py_mod_*`` para módulos, conforme documentado em :ref:"
+"`c_module_slots`;"
 
 #: ../../c-api/slots.rst:69
 msgid "Values for types, as documented in :ref:`pyslot_type_slot_ids`."
 msgstr ""
+"Valores para tipos, conforme documentado em :ref:`pyslot_type_slot_ids`."
 
 #: ../../c-api/slots.rst:71
 msgid ""
 "A :c:member:`!sl_id` of zero (:c:macro:`Py_slot_end`) marks the end of a "
 "slots array."
 msgstr ""
+"Um :c:member:`!sl_id` igual a zero (:c:macro:`Py_slot_end`) marca o fim de "
+"um vetor de slots."
 
 #: ../../c-api/slots.rst:80
 msgid ""
@@ -127,26 +174,36 @@ msgid ""
 "member to use depends on which data type is required by the slot ID: data "
 "pointer, function pointer, size, signed or unsigned integer, respectively."
 msgstr ""
+"Os dados para o slot. Esses membros fazem parte de uma união anônima; o "
+"membro a ser usado depende de qual tipo de dado é exigido pelo ID do slot: "
+"ponteiro de dados, ponteiro de função, tamanho, inteiro com sinal ou sem "
+"sinal, respectivamente."
 
 #: ../../c-api/slots.rst:86
 msgid ""
 "Except when documented otherwise for a specific slot ID, pointers (that is :"
 "c:member:`!sl_ptr` and :c:member:`!sl_func`) may not be NULL."
 msgstr ""
+"Exceto quando documentado de outra forma para um ID de slot específico, "
+"ponteiros (ou seja, :c:member:`!sl_ptr` e :c:member:`!sl_func`) não podem "
+"ser NULL."
 
 #: ../../c-api/slots.rst:91
 msgid "Zero or more of the following flags, OR-ed together:"
 msgstr ""
+"Zero ou mais dos seguintes sinalizadores, combinados com OU bit a bit (OR):"
 
 #: ../../c-api/slots.rst:97
 msgid ""
 "All data the slot points to is statically allocated and constant. Thus, the "
 "interpreter does not need to copy the information."
 msgstr ""
+"Todos os dados para os quais o slot aponta são alocados estaticamente e "
+"constantes. Portanto, o interpretador não precisa copiar a informação."
 
 #: ../../c-api/slots.rst:100
 msgid "This flag is implied for function pointers."
-msgstr ""
+msgstr "Este sinalizador é implícito para ponteiros de função."
 
 #: ../../c-api/slots.rst:102
 msgid ""
@@ -157,24 +214,37 @@ msgid ""
 "structures, then the entire array, as well as the name and doc strings in "
 "its elements, must be static and constant."
 msgstr ""
+"O sinalizador se aplica mesmo aos dados para os quais o slot aponta "
+"\"indiretamente\", exceto para slots aninhados via :c:macro:"
+"`Py_slot_subslots` que podem ter seus próprios sinalizadores :c:macro:`!"
+"PySlot_STATIC`. Por exemplo, se aplicado a um slot :c:macro:`Py_tp_members` "
+"que aponta para um vetor de estruturas :c:type:`PyMemberDef`, então toda o "
+"vetor, bem como o nome e as strings de documentação (doc strings) em seus "
+"elementos, devem ser estáticos e constantes."
 
 #: ../../c-api/slots.rst:112
 msgid ""
 "The data is stored in ``sl_ptr``; CPython will cast it to the appropriate "
 "type."
 msgstr ""
+"Os dados são armazenados em ``sl_ptr``; o CPython fará o *cast* (conversão "
+"explícita) para o tipo apropriado."
 
 #: ../../c-api/slots.rst:115
 msgid ""
 "This flag can simplify porting from the older :c:type:`PyType_Slot` and :c:"
 "type:`PyModuleDef_Slot` structures."
 msgstr ""
+"Este sinalizador pode simplificar a portabilidade a partir das estruturas "
+"mais antigas :c:type:`PyType_Slot` e :c:type:`PyModuleDef_Slot`."
 
 #: ../../c-api/slots.rst:120
 msgid ""
 "If the slot ID is unknown, the interpreter should ignore the slot, rather "
 "than fail."
 msgstr ""
+"Se o ID do slot for desconhecido, o interpretador deve ignorar o slot, em "
+"vez de falhar."
 
 #: ../../c-api/slots.rst:123
 msgid ""
@@ -182,28 +252,38 @@ msgid ""
 "corresponding slot may be marked :c:macro:`!PySlot_OPTIONAL` so that Python "
 "3.15 ignores it."
 msgstr ""
+"Por exemplo, se o Python 3.16 adicionar um novo recurso com um novo ID de "
+"slot, o slot correspondente poderá ser marcado como :c:macro:`!"
+"PySlot_OPTIONAL` para que o Python 3.15 o ignore."
 
 #: ../../c-api/slots.rst:127
 msgid ""
 "Note that the \"optionality\" only applies to unknown slot IDs. This flag "
 "does not make Python skip invalid values of known slots."
 msgstr ""
+"Observe que a \"opcionalidade\" aplica-se apenas a IDs de slot "
+"desconhecidos. Este sinalizador não faz com que o Python ignore valores "
+"inválidos de slots conhecidos."
 
 #: ../../c-api/slots.rst:134
 msgid "Convenience macros"
-msgstr ""
+msgstr "Macros de conveniência"
 
 #: ../../c-api/slots.rst:143
 msgid ""
 "Convenience macros to define :c:type:`!PySlot` structures with :c:member:"
 "`~PySlot.sl_id` and a particular union member set."
 msgstr ""
+"Macros de conveniência para definir estruturas :c:type:`!PySlot` com :c:"
+"member:`~PySlot.sl_id` e um membro de união específico definido."
 
 #: ../../c-api/slots.rst:146
 msgid ""
 ":c:macro:`!PySlot_STATIC_DATA` sets the :c:macro:`PySlot_STATIC` flag; "
 "others set no flags."
 msgstr ""
+":c:macro:`!PySlot_STATIC_DATA` define o sinalizador :c:macro:"
+"`PySlot_STATIC`; as demais não definem nenhum sinalizador."
 
 #: ../../c-api/slots.rst:149
 msgid ""
@@ -211,11 +291,15 @@ msgid ""
 "that C++ added in the 2020 version of the standard. If your code needs to be "
 "compatible with C++11 or older, use :c:macro:`PySlot_PTR` instead."
 msgstr ""
+"Observe que essas macros usam *inicializadores designados* (*designated "
+"initializers*), um recurso da linguagem C que o C++ adicionou na versão de "
+"2020 do padrão. Se o seu código precisar ser compatível com C++11 ou "
+"anterior, use :c:macro:`PySlot_PTR` em vez disso."
 
 #: ../../c-api/slots.rst:154 ../../c-api/slots.rst:180
 #: ../../c-api/slots.rst:194
 msgid "Defined as::"
-msgstr ""
+msgstr "Definido como::"
 
 #: ../../c-api/slots.rst:156
 msgid ""
@@ -237,14 +321,31 @@ msgid ""
 "#define PySlot_STATIC_DATA(NAME, VALUE) \\\n"
 "   {.sl_id=NAME, .sl_flags=PySlot_STATIC, .sl_ptr=(VALUE)}"
 msgstr ""
+"#define PySlot_DATA(NAME, VALUE) \\\n"
+"   {.sl_id=NAME, .sl_ptr=(void*)(VALUE)}\n"
+"\n"
+"#define PySlot_FUNC(NAME, VALUE) \\\n"
+"   {.sl_id=NAME, .sl_func=(VALUE)}\n"
+"\n"
+"#define PySlot_SIZE(NAME, VALUE) \\\n"
+"   {.sl_id=NAME, .sl_size=(VALUE)}\n"
+"\n"
+"#define PySlot_INT64(NAME, VALUE) \\\n"
+"   {.sl_id=NAME, .sl_int64=(VALUE)}\n"
+"\n"
+"#define PySlot_UINT64(NAME, VALUE) \\\n"
+"   {.sl_id=NAME, .sl_uint64=(VALUE)}\n"
+"\n"
+"#define PySlot_STATIC_DATA(NAME, VALUE) \\\n"
+"   {.sl_id=NAME, .sl_flags=PySlot_STATIC, .sl_ptr=(VALUE)}"
 
 #: ../../c-api/slots.rst:178
 msgid "Convenience macro to mark the end of a :c:type:`!PySlot` array."
-msgstr ""
+msgstr "Macro de conveniência para marcar o fim de um vetor :c:type:`!PySlot`."
 
 #: ../../c-api/slots.rst:182
 msgid "#define PySlot_END {0}"
-msgstr ""
+msgstr "#define PySlot_END {0}"
 
 #: ../../c-api/slots.rst:189
 msgid ""
@@ -253,6 +354,10 @@ msgid ""
 "macros set the :c:macro:`PySlot_INTPTR` flag and cast the value to "
 "``(void*)``."
 msgstr ""
+"Macros de conveniência para uso em código compatível com C++11. Esta versão "
+"do C++ não permite definir membros de união arbitrários em literais; em vez "
+"disso, estas macros definem o sinalizador :c:macro:`PySlot_INTPTR` e fazem o "
+"*cast* do valor para ``(void*)``."
 
 #: ../../c-api/slots.rst:196
 msgid ""
@@ -262,22 +367,29 @@ msgid ""
 "#define PySlot_PTR_STATIC(NAME, VALUE) \\\n"
 "   {NAME, PySlot_INTPTR|Py_SLOT_STATIC, {0}, {(void*)(VALUE)}}"
 msgstr ""
+"#define PySlot_PTR(NAME, VALUE) \\\n"
+"   {NAME, PySlot_INTPTR, {0}, {(void*)(VALUE)}}\n"
+"\n"
+"#define PySlot_PTR_STATIC(NAME, VALUE) \\\n"
+"   {NAME, PySlot_INTPTR|Py_SLOT_STATIC, {0}, {(void*)(VALUE)}}"
 
 #: ../../c-api/slots.rst:207
 msgid "Common slot IDs"
-msgstr ""
+msgstr "IDs de slot comuns"
 
 #: ../../c-api/slots.rst:209
 msgid "The following slot IDs may be used in both type and module definitions."
 msgstr ""
+"Os seguintes IDs de slot podem ser usados tanto em definições de tipo quanto "
+"de módulo."
 
 #: ../../c-api/slots.rst:213
 msgid "Marks the end of a slots array. Defined as zero."
-msgstr ""
+msgstr "Marca o fim de um vetor de slots. Definido como zero."
 
 #: ../../c-api/slots.rst:220
 msgid "Nested slots array."
-msgstr ""
+msgstr "Vetor de slots aninhados."
 
 #: ../../c-api/slots.rst:222
 msgid ""
@@ -286,21 +398,32 @@ msgid ""
 "zero-ID terminator) will be treated as if they were inserted if the current "
 "slot array, at the point :c:macro:`!Py_slot_subslots` appears."
 msgstr ""
+"O valor (:c:member:`~PySlot.sl_ptr`) deve apontar para um vetor de "
+"estruturas :c:type:`PySlot`. Os slots no vetor (até o terminador de ID zero, "
+"exclusivo) serão tratados como se tivessem sido inseridos no vetor de slots "
+"atual, no ponto em que :c:macro:`!Py_slot_subslots` aparecer."
 
 #: ../../c-api/slots.rst:228
 msgid ""
 "Slot nesting depth is limited to 5 levels. This restriction may be lifted in "
 "the future."
 msgstr ""
+"A profundidade de aninhamento de slots é limitada a 5 níveis. Esta restrição "
+"poderá ser removida no futuro."
 
 #: ../../c-api/slots.rst:235
 msgid ""
 "Reserved; will always be treated as an unknown slot ID. Defined as "
 "``UINT16_MAX`` (``0xFFFF``)."
 msgstr ""
+"Reservado; será sempre tratado como um ID de slot desconhecido. Definido "
+"como ``UINT16_MAX`` (``0xFFFF``)."
 
 #: ../../c-api/slots.rst:238
 msgid ""
 "When used with the :c:macro:`PySlot_OPTIONAL` flag, defines a slot with no "
 "effect. Without the flag, processing a slot with this ID will fail."
 msgstr ""
+"Quando usado com o sinalizador :c:macro:`PySlot_OPTIONAL`, define um slot "
+"sem nenhum efeito. Sem o sinalizador, o processamento de um slot com este ID "
+"falhará."
