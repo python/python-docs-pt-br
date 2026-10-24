@@ -5,6 +5,7 @@
 #
 # Translators:
 # Juliano Naves <julianofischer@gmail.com>, 2026
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2026
 #
 #, fuzzy
 msgid ""
@@ -13,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-23 18:01+0000\n"
 "PO-Revision-Date: 2026-10-23 18:03+0000\n"
-"Last-Translator: Juliano Naves <julianofischer@gmail.com>, 2026\n"
+"Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2026\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
 "teams/5390/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +26,7 @@ msgstr ""
 
 #: ../../c-api/pyexpat.rst:4
 msgid "Expat C API"
-msgstr "API C Expat"
+msgstr "API C do Expat"
 
 #: ../../c-api/pyexpat.rst:6
 msgid ""
@@ -34,11 +35,11 @@ msgid ""
 "Expat library as Python. The interface is declared in :file:`pyexpat.h`, "
 "which must be included after Expat's :file:`expat.h` header."
 msgstr ""
-"O módulo ` :mod:`xml.parsers.expat` `  expõe funções selecionadas do Expat "
-"função por meio de sua cápsula ` ``expat_CAPI`` ` . Isso permite que os "
-"módulos de extensão utilizem a mesma biblioteca Expat que o Python. A  "
-"interface é declarada em :file:`pyexpat.h`, que deve ser incluída após o "
-"Expat :file:`expat.h`."
+"O módulo :mod:`xml.parsers.expat` expõe funções selecionadas do Expat por "
+"meio de sua cápsula ``expat_CAPI``. Isso permite que os módulos de extensão "
+"utilizem a mesma biblioteca Expat que o Python. A interface é declarada em :"
+"file:`pyexpat.h`, que deve ser incluída após o cabeçalho :file:`expat.h` do "
+"Expat."
 
 #: ../../c-api/pyexpat.rst:13
 msgid ""
@@ -57,6 +58,10 @@ msgid ""
 "compares equal to this string using ``strcmp()`` and  its ``size`` member is "
 "at least :c:expr:`sizeof(struct PyExpat_CAPI)`."
 msgstr ""
+"A string que identifica o layout de :c:struct:`PyExpat_CAPI`. Antes de "
+"utilizar os ponteiros de função presentes na estrutura, verifique se o seu "
+"membro ``magic`` é igual a esta string (usando ``strcmp()``) e se o seu "
+"membro ``size`` é, no mínimo, :c:expr:`sizeof(struct PyExpat_CAPI)`."
 
 #: ../../c-api/pyexpat.rst:28
 msgid ""
@@ -64,22 +69,29 @@ msgid ""
 "owns this structure: treat it as read-only and do not free it. Keep a strong "
 "reference to the capsule while using the table."
 msgstr ""
+"Tabela de ponteiros de função exportada por :mod:`xml.parsers.expat`. A "
+"cápsula detém esta estrutura: trate-a como somente leitura e não a libere. "
+"Mantenha uma referência forte à cápsula enquanto estiver utilizando a tabela."
 
 #: ../../c-api/pyexpat.rst:32
 msgid ""
 "Check the compatibility fields as described under :c:macro:"
 "`PyExpat_CAPI_MAGIC` before using the function pointers."
 msgstr ""
+"Verifique os campos de compatibilidade, conforme descrito em :c:macro:"
+"`PyExpat_CAPI_MAGIC`, antes de utilizar os ponteiros de função."
 
 #: ../../c-api/pyexpat.rst:37
 msgid "Interface identifier, set to :c:macro:`PyExpat_CAPI_MAGIC`."
-msgstr ""
+msgstr "Identificador da interface, define para :c:macro:`PyExpat_CAPI_MAGIC`."
 
 #: ../../c-api/pyexpat.rst:41
 msgid ""
 "Size of the structure in bytes, set to ``sizeof(struct PyExpat_CAPI)`` by "
 "the :mod:`xml.parsers.expat` module that created the capsule."
 msgstr ""
+"Tamanho da estrutura em bytes, definido como ``sizeof(struct PyExpat_CAPI)`` "
+"pelo módulo :mod:`xml.parsers.expat` que criou a cápsula."
 
 #: ../../c-api/pyexpat.rst:48
 msgid ""
@@ -96,6 +108,10 @@ msgid ""
 "exception on failure. The caller must check for a Python exception after "
 "parsing."
 msgstr ""
+"Ponteiro para `XML_SetUnknownEncodingHandler <https://libexpat.github.io/doc/"
+"api/latest/#XML_SetUnknownEncodingHandler>`_. O manipulador pode definir uma "
+"exceção Python em caso de falha. O chamador deve verificar se ocorreu uma "
+"exceção Python após a análise."
 
 #: ../../c-api/pyexpat.rst:60
 msgid ""
@@ -104,12 +120,20 @@ msgid ""
 "*info*. The *encodingHandlerData* argument is unused. Calling this handler "
 "requires an :term:`attached thread state`."
 msgstr ""
+"Manipulador de codificação desconhecida do Python para o Expat, utilizado "
+"com ``XML_SetUnknownEncodingHandler``. Ele emprega o registro de codecs do "
+"Python para preencher *info*. O argumento *encodingHandlerData* não é "
+"utilizado. A chamada deste manipulador requer um :term:`estado de thread "
+"anexado`."
 
 #: ../../c-api/pyexpat.rst:66
 msgid ""
 "Pointers to the corresponding Expat functions, or ``NULL`` if not available "
 "in the Expat version used by :mod:`xml.parsers.expat`, are listed below."
 msgstr ""
+"Abaixo, estão listados os ponteiros para as funções correspondentes da Expat "
+"ou ``NULL``, caso não estejam disponíveis na versão da Expat utilizada pelo :"
+"mod:`xml.parsers.expat`."
 
 #: ../../c-api/pyexpat.rst:70
 msgid ""
@@ -118,6 +142,11 @@ msgid ""
 "libexpat.github.io/doc/api/latest/>`_ for their behavior and the minimum "
 "Expat version they appear in."
 msgstr ""
+"Os nomes dos membros não incluem o prefixo ``XML_``; por exemplo, "
+"``SetHashSalt`` corresponde à função ``XML_SetHashSalt`` da Expat. Consulte "
+"a `referência da API da Expat <https://libexpat.github.io/doc/api/latest/>`_ "
+"para obter detalhes sobre o comportamento desses membros e a versão mínima "
+"da Expat em que eles estão presentes."
 
 #: ../../c-api/pyexpat.rst:99
 msgid ""

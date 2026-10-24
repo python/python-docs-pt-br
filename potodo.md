@@ -1,9 +1,9 @@
-1 directory  56.57% done
-└── 3.15/  56.57% done
+1 directory  56.66% done
+└── 3.15/  56.66% done
     ├── builtins/  97.49% done
     │   ├── functions.po                  99.0% translated 539/540
     │   └── stdtypes.po                   97.0% translated 1614/1659
-    ├── c-api/  45.83% done
+    ├── c-api/  46.11% done
     │   ├── bytes.po                      54.0% translated  73/135
     │   ├── code.po                       96.0% translated   80/83
     │   ├── complex.po                    83.0% translated   31/37
@@ -18,7 +18,6 @@
     │   ├── function.po                   97.0% translated   44/45
     │   ├── gcsupport.po                  16.0% translated  18/107
     │   ├── gen.po                        66.0% translated   12/18
-    │   ├── hash.po                       88.0% translated   38/43
     │   ├── import.po                     50.0% translated   43/85
     │   ├── init_config.po                54.0% translated 359/661
     │   ├── interp-lifecycle.po           73.0% translated 164/223
@@ -28,11 +27,9 @@
     │   ├── marshal.po                    89.0% translated   17/19
     │   ├── memory.po                     26.0% translated  59/219
     │   ├── module.po                     13.0% translated  31/225
-    │   ├── monitoring.po                 96.0% translated   55/57
     │   ├── object.po                     27.0% translated  44/161
     │   ├── perfmaps.po                   45.0% translated   11/24
     │   ├── profiling.po                   2.0% translated    1/49
-    │   ├── pyexpat.po                    35.0% translated    5/14
     │   ├── refcounting.po                30.0% translated   15/50
     │   ├── set.po                        80.0% translated   28/35
     │   ├── slice.po                      92.0% translated   24/26
@@ -46,8 +43,7 @@
     │   ├── type.po                       11.0% translated  24/203
     │   ├── typeobj.po                    33.0% translated 249/754
     │   ├── unicode.po                    18.0% translated  80/425
-    │   ├── veryhigh.po                   65.0% translated   60/91
-    │   └── weakref.po                    90.0% translated   19/21
+    │   └── veryhigh.po                   65.0% translated   60/91
     ├── deprecations/  100.00% done
     ├── distributing/  100.00% done
     ├── extending/  44.85% done
@@ -74,10 +70,9 @@
     │   ├── sorting.po                    53.0% translated   48/90
     │   └── unicode.po                    19.0% translated  28/143
     ├── installing/  100.00% done
-    ├── library/  52.48% done
+    ├── library/  52.64% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              90.0% translated 143/158
-    │   ├── argparse.po                   93.0% translated 396/423
     │   ├── array.po                      81.0% translated  83/102
     │   ├── asyncio-dev.po                61.0% translated   52/84
     │   ├── asyncio-eventloop.po          71.0% translated 304/427
@@ -99,7 +94,6 @@
     │   ├── bdb.po                        95.0% translated 111/116
     │   ├── binascii.po                   21.0% translated   19/89
     │   ├── bisect.po                     88.0% translated   32/36
-    │   ├── cmd.po                        98.0% translated   50/51
     │   ├── code.po                       96.0% translated   32/33
     │   ├── codecs.po                     44.0% translated 250/568
     │   ├── collections.po                95.0% translated 235/247
@@ -139,7 +133,6 @@
     │   ├── gc.po                         82.0% translated   60/73
     │   ├── getpass.po                    60.0% translated   15/25
     │   ├── glob.po                       91.0% translated   42/46
-    │   ├── gzip.po                       91.0% translated   66/72
     │   ├── hashlib.po                    52.0% translated  90/172
     │   ├── heapq.po                      64.0% translated   47/73
     │   ├── html.parser.po                92.0% translated   59/64
@@ -198,7 +191,7 @@
     │   ├── symtable.po                    9.0% translated    7/76
     │   ├── sys.po                        91.0% translated 468/513
     │   ├── sys_path_init.po              88.0% translated   24/27
-    │   ├── tarfile.po                    54.0% translated 200/368
+    │   ├── tarfile.po                    54.0% translated 201/368
     │   ├── tempfile.po                   10.0% translated    9/90
     │   ├── test.po                       30.0% translated 104/345
     │   ├── threading.po                  13.0% translated  42/308
@@ -245,9 +238,7 @@
     │   ├── expressions.po                76.0% translated 500/651
     │   └── simple_stmts.po               90.0% translated 282/310
     ├── tutorial/  100.00% done
-    ├── using/  88.98% done
-    │   ├── ios.po                        98.0% translated   90/91
-    │   ├── mac.po                        98.0% translated   95/96
+    ├── using/  89.21% done
     │   └── windows.po                    84.0% translated 497/591
     └── whatsnew/  48.47% done
         ├── 2.3.po                        83.0% translated 325/387
