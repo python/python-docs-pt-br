@@ -1,5 +1,5 @@
-1 directory  65.45% done
-└── 3.11/  65.45% done
+1 directory  65.48% done
+└── 3.11/  65.48% done
     ├── c-api/  55.05% done
     │   ├── exceptions.po                 69.0% translated 240/347
     │   ├── float.po                      97.0% translated   34/35
@@ -54,7 +54,7 @@
     ├── install/  71.32% done
     │   └── index.po                      73.0% translated 166/226
     ├── installing/  100.00% done
-    ├── library/  59.20% done
+    ├── library/  59.26% done
     │   ├── _thread.po                    96.0% translated   49/51
     │   ├── abc.po                        97.0% translated   48/49
     │   ├── argparse.po                   91.0% translated 305/335
@@ -175,6 +175,7 @@
     │   ├── shlex.po                       5.0% translated    4/75
     │   ├── shutil.po                     98.0% translated 163/166
     │   ├── signal.po                     97.0% translated 134/137
+    │   ├── site.po                       96.0% translated   52/54
     │   ├── smtpd.po                      15.0% translated   12/78
     │   ├── smtplib.po                    27.0% translated  31/114
     │   ├── sndhdr.po                     32.0% translated   12/37
