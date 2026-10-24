@@ -1,12 +1,11 @@
-1 directory  58.59% done
-└── 3.14/  58.59% done
-    ├── builtins/  99.97% done
-    │   └── functions.po                  99.0% translated 521/522
-    ├── c-api/  51.64% done
+1 directory  58.43% done
+└── 3.14/  58.43% done
+    ├── builtins/  100.00% done
+    ├── c-api/  51.84% done
     │   ├── bytes.po                      93.0% translated   73/78
-    │   ├── code.po                       98.0% translated   82/83
+    │   ├── code.po                       96.0% translated   80/83
     │   ├── conversion.po                 84.0% translated   49/58
-    │   ├── descriptor.po                 42.0% translated   14/33
+    │   ├── descriptor.po                 35.0% translated   13/37
     │   ├── dict.po                       92.0% translated 102/110
     │   ├── exceptions.po                 66.0% translated 183/277
     │   ├── file.po                       63.0% translated   23/36
@@ -15,7 +14,6 @@
     │   ├── function.po                   97.0% translated   43/44
     │   ├── gcsupport.po                  26.0% translated   18/68
     │   ├── gen.po                        66.0% translated   12/18
-    │   ├── hash.po                       88.0% translated   38/43
     │   ├── import.po                     74.0% translated   50/67
     │   ├── init_config.po                56.0% translated 360/640
     │   ├── interp-lifecycle.po           86.0% translated 180/208
@@ -25,11 +23,9 @@
     │   ├── marshal.po                    89.0% translated   17/19
     │   ├── memory.po                     26.0% translated  59/219
     │   ├── module.po                     36.0% translated  49/135
-    │   ├── monitoring.po                 96.0% translated   55/57
     │   ├── object.po                     29.0% translated  44/147
     │   ├── perfmaps.po                   50.0% translated   12/24
     │   ├── profiling.po                   2.0% translated    1/49
-    │   ├── pyexpat.po                    35.0% translated    5/14
     │   ├── refcounting.po                30.0% translated   15/50
     │   ├── set.po                        80.0% translated   28/35
     │   ├── slice.po                      92.0% translated   24/26
@@ -42,8 +38,7 @@
     │   ├── type.po                       18.0% translated  25/137
     │   ├── typeobj.po                    32.0% translated 249/764
     │   ├── unicode.po                    19.0% translated  80/421
-    │   ├── veryhigh.po                   65.0% translated   60/91
-    │   └── weakref.po                    92.0% translated   23/25
+    │   └── veryhigh.po                   65.0% translated   60/91
     ├── deprecations/  100.00% done
     ├── distributing/  100.00% done
     ├── extending/  45.05% done
@@ -67,10 +62,9 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  54.76% done
+    ├── library/  54.62% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              90.0% translated 143/158
-    │   ├── argparse.po                   98.0% translated 403/409
     │   ├── array.po                      89.0% translated   80/89
     │   ├── ast.po                        99.0% translated 337/339
     │   ├── asyncio-dev.po                61.0% translated   52/84
@@ -97,7 +91,7 @@
     │   ├── codecs.po                     44.0% translated 250/566
     │   ├── collections.po                97.0% translated 239/244
     │   ├── compression.zstd.po           97.0% translated 169/174
-    │   ├── concurrent.futures.po         14.0% translated  18/121
+    │   ├── concurrent.futures.po         13.0% translated  17/124
     │   ├── concurrent.interpreters.po    52.0% translated   51/97
     │   ├── contextlib.po                 27.0% translated  47/172
     │   ├── contextvars.po                86.0% translated   57/66
@@ -107,11 +101,11 @@
     │   ├── curses.panel.po               76.0% translated   19/25
     │   ├── curses.po                     14.0% translated  76/510
     │   ├── dataclasses.po                43.0% translated  70/162
-    │   ├── datetime.po                   87.0% translated 576/660
+    │   ├── datetime.po                   86.0% translated 568/654
     │   ├── dbm.po                        84.0% translated  91/108
     │   ├── dialog.po                     54.0% translated   37/68
     │   ├── difflib.po                    10.0% translated  15/150
-    │   ├── dis.po                        56.0% translated 233/414
+    │   ├── dis.po                        56.0% translated 233/415
     │   ├── doctest.po                    24.0% translated  94/379
     │   ├── email.compat32-message.po      4.0% translated   5/115
     │   ├── email.contentmanager.po       21.0% translated    9/42
@@ -122,6 +116,7 @@
     │   ├── email.parser.po                6.0% translated    3/48
     │   ├── email.po                      78.0% translated   18/23
     │   ├── email.policy.po               10.0% translated  11/108
+    │   ├── email.utils.po                61.0% translated   22/36
     │   ├── enum.po                       46.0% translated 120/257
     │   ├── errno.po                      71.0% translated 115/161
     │   ├── faulthandler.po                7.0% translated    4/53
@@ -130,7 +125,6 @@
     │   ├── functools.po                  19.0% translated  25/126
     │   ├── gc.po                         92.0% translated   63/68
     │   ├── glob.po                       93.0% translated   43/46
-    │   ├── gzip.po                       94.0% translated   67/71
     │   ├── hashlib.po                    53.0% translated  91/170
     │   ├── heapq.po                      67.0% translated   49/73
     │   ├── html.parser.po                92.0% translated   59/64
@@ -150,7 +144,7 @@
     │   ├── lzma.po                       77.0% translated  99/128
     │   ├── mailbox.po                     7.0% translated  22/308
     │   ├── marshal.po                    60.0% translated   34/56
-    │   ├── mmap.po                       35.0% translated   23/65
+    │   ├── mmap.po                       26.0% translated   19/71
     │   ├── multiprocessing.po            50.0% translated 316/621
     │   ├── operator.po                   91.0% translated 173/189
     │   ├── optparse.po                   79.0% translated 423/532
@@ -169,20 +163,20 @@
     │   ├── selectors.po                  22.0% translated   13/58
     │   ├── shelve.po                     27.0% translated   11/40
     │   ├── shlex.po                       3.0% translated    3/77
-    │   ├── shutil.po                     96.0% translated 187/194
+    │   ├── shutil.po                     95.0% translated 187/195
     │   ├── signal.po                     95.0% translated 136/143
     │   ├── site.po                       82.0% translated   52/63
     │   ├── smtplib.po                    29.0% translated  36/124
     │   ├── socket.po                     14.0% translated  54/385
     │   ├── sqlite3.po                    24.0% translated 116/480
-    │   ├── ssl.po                        11.0% translated  61/550
+    │   ├── ssl.po                        10.0% translated  61/557
     │   ├── struct.po                     47.0% translated  98/205
     │   ├── subprocess.po                 46.0% translated 146/314
     │   ├── symtable.po                    8.0% translated    6/73
     │   ├── sys.po                        98.0% translated 472/478
-    │   ├── tarfile.po                    55.0% translated 201/365
+    │   ├── tarfile.po                    54.0% translated 201/366
     │   ├── tempfile.po                   10.0% translated    9/90
-    │   ├── test.po                       30.0% translated 104/339
+    │   ├── test.po                       30.0% translated 104/341
     │   ├── threading.po                  14.0% translated  40/284
     │   ├── time.po                       96.0% translated 270/280
     │   ├── tkinter.dnd.po                45.0% translated    9/20
@@ -190,7 +184,7 @@
     │   ├── tkinter.messagebox.po         93.0% translated   40/43
     │   ├── tkinter.po                    19.0% translated 241/1242
     │   ├── tkinter.ttk.po                24.0% translated 118/476
-    │   ├── tokenize.po                   94.0% translated   49/52
+    │   ├── tokenize.po                   70.0% translated   43/61
     │   ├── trace.po                      90.0% translated   39/43
     │   ├── traceback.po                   7.0% translated   9/117
     │   ├── tracemalloc.po                13.0% translated  21/156
@@ -222,10 +216,9 @@
     │   ├── expressions.po                90.0% translated 536/595
     │   └── simple_stmts.po               96.0% translated 281/291
     ├── tutorial/  100.00% done
-    ├── using/  93.98% done
-    │   ├── configure.po                  99.0% translated 468/469
-    │   └── windows.po                    91.0% translated 533/583
-    └── whatsnew/  48.45% done
+    ├── using/  89.41% done
+    │   └── windows.po                    84.0% translated 501/590
+    └── whatsnew/  48.36% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 301/452
@@ -240,4 +233,4 @@
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  26.0% translated 3866/14636
+        └── changelog.po                  26.0% translated 3866/14678
