@@ -1,7 +1,6 @@
-1 directory  58.77% done
-└── 3.13/  58.77% done
-    ├── builtins/  99.71% done
-    │   ├── functions.po                  99.0% translated 514/515
+1 directory  58.79% done
+└── 3.13/  58.79% done
+    ├── builtins/  99.75% done
     │   └── stdtypes.po                   99.0% translated 1444/1446
     ├── c-api/  53.73% done
     │   ├── bytes.po                      97.0% translated   69/71
@@ -55,9 +54,8 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  56.45% done
+    ├── library/  56.49% done
     │   ├── abc.po                        78.0% translated   47/60
-    │   ├── argparse.po                   98.0% translated 382/387
     │   ├── array.po                      90.0% translated   80/88
     │   ├── asyncio-dev.po                59.0% translated   50/84
     │   ├── asyncio-eventloop.po          70.0% translated 300/423
