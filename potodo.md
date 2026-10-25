@@ -1,5 +1,5 @@
-1 directory  58.79% done
-└── 3.13/  58.79% done
+1 directory  58.81% done
+└── 3.13/  58.81% done
     ├── builtins/  99.75% done
     │   └── stdtypes.po                   99.0% translated 1444/1446
     ├── c-api/  53.73% done
@@ -54,7 +54,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  56.49% done
+    ├── library/  56.55% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── array.po                      90.0% translated   80/88
     │   ├── asyncio-dev.po                59.0% translated   50/84
@@ -112,7 +112,7 @@
     │   ├── http.cookiejar.po              4.0% translated   7/159
     │   ├── http.cookies.po               14.0% translated    7/49
     │   ├── http.server.po                12.0% translated  16/128
-    │   ├── idle.po                       85.0% translated 253/297
+    │   ├── idle.po                       88.0% translated 263/297
     │   ├── imaplib.po                    11.0% translated  14/124
     │   ├── importlib.po                  76.0% translated 241/313
     │   ├── importlib.resources.po        98.0% translated   52/53
@@ -150,8 +150,8 @@
     │   ├── subprocess.po                 45.0% translated 149/330
     │   ├── symtable.po                    9.0% translated    6/65
     │   ├── sys.po                        99.0% translated 441/443
-    │   ├── tarfile.po                    54.0% translated 190/347
-    │   ├── tempfile.po                   10.0% translated    9/88
+    │   ├── tarfile.po                    54.0% translated 190/348
+    │   ├── tempfile.po                   10.0% translated    9/90
     │   ├── test.po                       35.0% translated 118/330
     │   ├── threading.po                  14.0% translated  39/274
     │   ├── time.po                       96.0% translated 270/280
@@ -192,11 +192,11 @@
     │   ├── expressions.po                99.0% translated 536/537
     │   └── simple_stmts.po               98.0% translated 287/291
     ├── tutorial/  100.00% done
-    ├── using/  98.88% done
+    ├── using/  98.56% done
     │   ├── configure.po                  99.0% translated 406/407
-    │   ├── mac.po                        98.0% translated   95/96
+    │   ├── mac.po                        97.0% translated   94/96
     │   └── windows.po                    99.0% translated 387/389
-    └── whatsnew/  45.88% done
+    └── whatsnew/  45.86% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 301/452
@@ -205,7 +205,7 @@
         ├── 3.1.po                        86.0% translated 114/132
         ├── 3.11.po                       99.0% translated 775/776
         ├── 3.12.po                       99.0% translated 834/835
-        ├── 3.13.po                       99.0% translated 892/894
+        ├── 3.13.po                       99.0% translated 892/896
         ├── 3.2.po                        11.0% translated  66/576
         ├── 3.3.po                        19.0% translated 134/682
         ├── 3.4.po                        95.0% translated 492/517
@@ -213,4 +213,4 @@
         ├── 3.6.po                        43.0% translated 234/544
         ├── 3.7.po                        43.0% translated 249/568
         ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  22.0% translated 3011/13240
+        └── changelog.po                  22.0% translated 3014/13250
