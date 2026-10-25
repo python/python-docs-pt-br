@@ -1,5 +1,5 @@
-1 directory  67.30% done
-└── 3.12/  67.30% done
+1 directory  67.33% done
+└── 3.12/  67.33% done
     ├── c-api/  54.24% done
     │   ├── exceptions.po                 68.0% translated 251/366
     │   ├── frame.po                      80.0% translated   29/36
@@ -37,7 +37,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  61.41% done
+    ├── library/  61.48% done
     │   ├── 2to3.po                       91.0% translated 121/132
     │   ├── array.po                      95.0% translated   80/84
     │   ├── ast.po                        83.0% translated 255/306
@@ -90,7 +90,7 @@
     │   ├── http.cookies.po               14.0% translated    7/49
     │   ├── http.po                       96.0% translated 237/246
     │   ├── http.server.po                14.0% translated  16/113
-    │   ├── idle.po                       85.0% translated 250/293
+    │   ├── idle.po                       88.0% translated 260/293
     │   ├── imaplib.po                    11.0% translated  14/117
     │   ├── imghdr.po                     47.0% translated   20/42
     │   ├── importlib.po                  78.0% translated 240/304
@@ -130,9 +130,9 @@
     │   ├── subprocess.po                 46.0% translated 150/322
     │   ├── symtable.po                    8.0% translated    4/50
     │   ├── sys.po                        97.0% translated 420/431
-    │   ├── tarfile.po                    55.0% translated 188/339
+    │   ├── tarfile.po                    55.0% translated 188/340
     │   ├── telnetlib.po                  18.0% translated   10/53
-    │   ├── tempfile.po                   10.0% translated    9/87
+    │   ├── tempfile.po                   10.0% translated    9/89
     │   ├── test.po                       36.0% translated 118/320
     │   ├── threading.po                  15.0% translated  38/239
     │   ├── tkinter.tix.po                 6.0% translated    5/75
@@ -163,13 +163,14 @@
     ├── tutorial/  100.00% done
     ├── using/  99.80% done
     │   └── windows.po                    99.0% translated 377/378
-    └── whatsnew/  74.17% done
+    └── whatsnew/  74.14% done
         ├── 2.3.po                        84.0% translated 327/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 385/452
         ├── 2.6.po                        86.0% translated 540/626
         ├── 3.0.po                        90.0% translated 192/212
         ├── 3.1.po                        86.0% translated 114/132
+        ├── 3.12.po                       99.0% translated 842/844
         ├── 3.2.po                        11.0% translated  66/576
         ├── 3.3.po                        20.0% translated 137/682
         ├── 3.5.po                        22.0% translated 129/578
