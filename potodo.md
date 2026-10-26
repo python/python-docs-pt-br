@@ -202,7 +202,7 @@
     │   ├── tkinter.dnd.po                45.0% translated    9/20
     │   ├── tkinter.font.po               67.0% translated   25/37
     │   ├── tkinter.messagebox.po         93.0% translated   40/43
-    │   ├── tkinter.po                    19.0% translated 241/1254
+    │   ├── tkinter.po                    19.0% translated 242/1254
     │   ├── tkinter.ttk.po                24.0% translated 118/476
     │   ├── tokenize.po                   67.0% translated   42/62
     │   ├── trace.po                      90.0% translated   39/43
