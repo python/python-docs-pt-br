@@ -1,8 +1,6 @@
-1 directory  56.63% done
-└── 3.15/  56.63% done
-    ├── builtins/  97.32% done
-    │   ├── functions.po                  99.0% translated 539/541
-    │   └── stdtypes.po                   97.0% translated 1614/1659
+1 directory  56.70% done
+└── 3.15/  56.70% done
+    ├── builtins/  100.00% done
     ├── c-api/  46.09% done
     │   ├── bytes.po                      54.0% translated  73/135
     │   ├── code.po                       96.0% translated   80/83

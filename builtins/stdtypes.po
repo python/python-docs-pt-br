@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-13 19:59+0000\n"
+"POT-Creation-Date: 2026-10-25 17:19+0000\n"
 "PO-Revision-Date: 2026-09-13 17:09+0000\n"
 "Last-Translator: Rafael Fontenelle <rffontenelle@gmail.com>, 2026\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/python-doc/"
@@ -1699,7 +1699,7 @@ msgstr ""
 
 #: ../../builtins/stdtypes.rst:899
 msgid "Iteration-related types"
-msgstr ""
+msgstr "Tipos relacionados a iteração"
 
 #: ../../builtins/stdtypes.rst:907
 msgid ""
@@ -1715,7 +1715,7 @@ msgstr ""
 
 #: ../../builtins/stdtypes.rst:913
 msgid "Iterables"
-msgstr ""
+msgstr "Iteráveis"
 
 #: ../../builtins/stdtypes.rst:915
 msgid ""
@@ -1806,7 +1806,7 @@ msgstr ""
 
 #: ../../builtins/stdtypes.rst:968
 msgid "Generator types"
-msgstr ""
+msgstr "Tipos geradores"
 
 #: ../../builtins/stdtypes.rst:970
 msgid ""
@@ -1815,12 +1815,18 @@ msgid ""
 "<generator iterator>` -- provide a convenient way to implement the iterator "
 "protocol."
 msgstr ""
+"Os :term:`geradores <generator>` do Python -- ou, mais precisamente, :term:"
+"`funções geradoras <generator function>` e :term:`iteradores geradores "
+"<generator iterator>` — oferecem uma maneira conveniente de implementar o "
+"protocolo de iterador."
 
 #: ../../builtins/stdtypes.rst:975
 msgid ""
 "A function that contains one or more :ref:`yield expressions <yieldexpr>` is "
 "a :term:`generator function`. For example::"
 msgstr ""
+"Uma função que contém uma ou mais :ref:`expressões yield <yieldexpr>` é uma :"
+"term:`função geradora`. Por exemplo::"
 
 #: ../../builtins/stdtypes.rst:979
 msgid ""
@@ -1830,6 +1836,11 @@ msgid ""
 "...     yield 2\n"
 "...     yield 3"
 msgstr ""
+">>> def contar_até_três():\n"
+"...     yield 0\n"
+"...     yield 1\n"
+"...     yield 2\n"
+"...     yield 3"
 
 #: ../../builtins/stdtypes.rst:985
 msgid ""
@@ -1838,18 +1849,27 @@ msgid ""
 "calling a generator function returns a :ref:`generator iterator <generator-"
 "methods>`::"
 msgstr ""
+"Funções geradoras comportam-se como :ref:`funções comuns definidas pelo "
+"usuário <user-defined-funcs>` (por exemplo, têm os mesmos atributos), exceto "
+"pelo fato de que a chamada de uma função geradora retorna um :ref:`iterador "
+"gerador <generator-methods>`::"
 
 #: ../../builtins/stdtypes.rst:990
 msgid ""
 ">>> count_to_three()\n"
 "<generator object count_to_three at 0x7f33a2305000>"
 msgstr ""
+">>> contar_até_três()\n"
+"<generator object count_to_three at 0x7f33a2305000>"
 
 #: ../../builtins/stdtypes.rst:993
 msgid ""
 "Iterating a generator iterator executes code of the underlying generator "
 "function, producing each :keyword:`yield`\\ed value in turn::"
 msgstr ""
+"Iterar sobre um iterador gerador executa o código da função geradora "
+"subjacente, produzindo, sucessivamente, cada valor produzido por meio de :"
+"keyword:`yield`::"
 
 #: ../../builtins/stdtypes.rst:996
 msgid ""
@@ -1863,12 +1883,23 @@ msgid ""
 ">>> list(count_to_three())\n"
 "[0, 1, 2, 3]"
 msgstr ""
+">>> for número in contar_até_três():\n"
+"...     print(número)\n"
+"0\n"
+"1\n"
+"2\n"
+"3\n"
+"\n"
+">>> list(contar_até_três())\n"
+"[0, 1, 2, 3]"
 
 #: ../../builtins/stdtypes.rst:1006
 msgid ""
 "One common use for generator functions is implementing the :meth:`~object."
 "__iter__` method of custom iterable objects. For example::"
 msgstr ""
+"Um uso comum para funções geradoras é a implementação do método `~object."
+"__iter__` de objetos iteráveis ​​personalizados. Por exemplo:"
 
 #: ../../builtins/stdtypes.rst:1010
 msgid ""
@@ -1880,10 +1911,17 @@ msgid ""
 ">>> list(CardDeck())\n"
 "['three of clubs', 'ace of hearts']"
 msgstr ""
+">>> class CardDeck:\n"
+"...     def __iter__(self):\n"
+"...         yield 'três de paus'\n"
+"...         yield 'ás de copas'\n"
+"\n"
+">>> list(CardDeck())\n"
+"['três de paus', 'ás de copas']"
 
 #: ../../builtins/stdtypes.rst:1023
 msgid "Generator iterators"
-msgstr ""
+msgstr "Iteradores geradores"
 
 #: ../../builtins/stdtypes.rst:1025
 msgid ""
@@ -1891,6 +1929,9 @@ msgid ""
 "iterators>`. Iterating them drives execution of the underlying generator "
 "function."
 msgstr ""
+"Iteradores geradores implementam o :ref:`protocolo iterador <stdtypes-"
+"iterators>`. Iterar sobre eles impulsiona a execução da função geradora "
+"subjacente."
 
 #: ../../builtins/stdtypes.rst:1033
 msgid ""
@@ -1905,24 +1946,41 @@ msgid ""
 "raises a :exc:`StopIteration` exception, signalling that iteration has "
 "completed."
 msgstr ""
+"Inicia a execução de uma função geradora ou a retoma na :ref:`expressão "
+"yield <yieldexpr>` onde a função se encontra suspensa no momento. Quando uma "
+"função geradora é retomada por meio do método :meth:`~generator.__next__`, a "
+"expressão yield atual é sempre avaliada como :const:`None`. A execução "
+"prossegue, então, até a próxima expressão yield, na qual o gerador é "
+"novamente suspenso, e o valor da expressão que segue a palavra reservada :"
+"keyword:`yield` é retornado o chamador de :meth:`~generator.__next__`. Se o "
+"gerador for encerrado sem produzir outro valor, o método :meth:`~generator."
+"__next__` levanta uma exceção :exc:`StopIteration`, sinalizando que a "
+"iteração foi concluída."
 
 #: ../../builtins/stdtypes.rst:1045
 msgid ""
 "This method is normally called implicitly, for example by a :keyword:`for` "
 "loop, or by the built-in :func:`next` function."
 msgstr ""
+"Este método é normalmente chamado implicitamente, por exemplo, por um laço :"
+"keyword:`for`, ou pela função embutida :func:`next`."
 
 #: ../../builtins/stdtypes.rst:1048
 msgid ""
 "Generator iterators have a few more methods than generic iterators, which "
 "can be used to control the execution of the underlying generator function:"
 msgstr ""
+"Iteradores geradores têm alguns métodos a mais do que iteradores genéricos, "
+"os quais podem ser usados ​​para controlar a execução da função geradora "
+"subjacente:"
 
 #: ../../builtins/stdtypes.rst:1053
 msgid ""
 "\"Sends\" a value into the generator function: the *value* argument becomes "
 "the result of the current yield expression."
 msgstr ""
+"Envia um valor para a função geradora: o argumento *value* torna-se o "
+"resultado da expressão yield atual."
 
 #: ../../builtins/stdtypes.rst:1056
 msgid ""
@@ -1930,6 +1988,9 @@ msgid ""
 "the underlying function and either returns the next yielded value or raises :"
 "exc:`StopIteration`."
 msgstr ""
+"Caso contrário, este método comporta-se como :meth:`~generator.__next__`: "
+"ele retoma a função subjacente e, ou retorna o próximo valor produzido, ou "
+"levanta :exc:`StopIteration`."
 
 #: ../../builtins/stdtypes.rst:1060
 msgid ""
@@ -1937,11 +1998,15 @@ msgid ""
 "const:`None` as the argument, because there is no current yield expression "
 "that could receive the value."
 msgstr ""
+"Quando :meth:`send` é chamado para iniciar o gerador, ele deve ser chamado "
+"com :const:`None` como argumento, pois não existe uma expressão yield atual "
+"que possa receber o valor."
 
 #: ../../builtins/stdtypes.rst:1068
 msgid ""
 "Raises an exception at the point where the generator is currently suspended."
 msgstr ""
+"Levanta uma exceção no ponto em que o gerador está atualmente suspenso."
 
 #: ../../builtins/stdtypes.rst:1070
 msgid ""
@@ -1951,6 +2016,11 @@ msgid ""
 "exception, or raises a different exception, then that exception propagates "
 "to the caller."
 msgstr ""
+"Caso contrário, este método comporta-se como :meth:`~generator.__next__`: "
+"ele retoma a função subjacente e, ou retorna o próximo valor produzido, ou "
+"levanta :exc:`StopIteration`. Se a função geradora não capturar a exceção "
+"passada, ou se levantar uma exceção diferente, então essa exceção é "
+"propagada para o chamador."
 
 #: ../../builtins/stdtypes.rst:1076
 msgid ""
@@ -1959,12 +2029,19 @@ msgid ""
 "will raise :exc:`StopIteration`) and the thrown exception is propagated to :"
 "meth:`throw`'s caller."
 msgstr ""
+"Quando :meth:`throw` é chamado para iniciar o gerador, o gerador é encerrado "
+"imediatamente (ou seja, chamadas subsequentes a :meth:`~generator.__next__` "
+"levantarão a exceção :exc:`StopIteration`) e a exceção levantada é propagada "
+"para o chamador de :meth:`throw`."
 
 #: ../../builtins/stdtypes.rst:1081 ../../builtins/stdtypes.rst:1202
 msgid ""
 "In typical use, this is called with a single argument, an exception "
 "instance, similar to the way the :keyword:`raise` keyword is used."
 msgstr ""
+"Em uso típico, isso é chamado com uma único argumento, uma instância de "
+"exceção, semelhante à forma como a palavra reservada :keyword:`raise` é "
+"usada."
 
 #: ../../builtins/stdtypes.rst:1084
 msgid ""
@@ -1999,6 +2076,8 @@ msgid ""
 "function is currently suspended (equivalent to calling "
 "``throw(GeneratorExit)``)."
 msgstr ""
+"Levanta uma exceção :exc:`GeneratorExit` no ponto em que a função geradora "
+"está atualmente suspensa (equivalente a chamar ``throw(GeneratorExit)``)."
 
 #: ../../builtins/stdtypes.rst:1105
 msgid ""
@@ -2009,18 +2088,29 @@ msgid ""
 "propagated to the caller. If a generator returns a value upon being closed, "
 "that value is returned by :meth:`close`."
 msgstr ""
+"Se a função geradora já tiver sido encerrada (devido a uma exceção ou a um "
+"retorno normal), ou se ela levantar uma exceção :exc:`GeneratorExit` (por "
+"não capturar essa exceção), o método :meth:`close` retorna :const:`None`. Se "
+"o gerador produzir um valor (por meio de um yield), uma exceção :exc:"
+"`RuntimeError` é levantada. Se o gerador levantar qualquer outra exceção, "
+"ela será propagada para o chamador. Se um gerador retornar um valor ao ser "
+"encerrado, esse valor será retornado pelo método :meth:`close`."
 
 #: ../../builtins/stdtypes.rst:1113
 msgid ""
 "When a generator iterator is garbage collected before it has exited, :meth:"
 "`~generator.close` is called automatically."
 msgstr ""
+"Quando um iterador gerador é coletado pelo coletor de lixo antes de ter sido "
+"finalizado, o método :meth:`~generator.close` é chamado automaticamente."
 
 #: ../../builtins/stdtypes.rst:1118
 msgid ""
 "If a generator returns a value upon being closed, the value is returned by :"
 "meth:`close`. Previously, it returned ``None``."
 msgstr ""
+"Se um gerador retornar um valor ao ser fechado, o valor é retornado por :"
+"meth:`close`. Anteriormente, ele retornava ``None``."
 
 #: ../../builtins/stdtypes.rst:1123
 msgid ""
@@ -2029,10 +2119,14 @@ msgid ""
 "one of these methods is already executing raises a :exc:`ValueError` "
 "exception."
 msgstr ""
+"Chamar qualquer um dos métodos de gerador (:meth:`~generator.__next__`, :"
+"meth:`~generator.send`, :meth:`~generator.throw`, :meth:`~generator.close`) "
+"enquanto um desses métodos já está em execução levanta em uma exceção :exc:"
+"`ValueError`."
 
 #: ../../builtins/stdtypes.rst:1133
 msgid "Asynchronous generator iterators"
-msgstr ""
+msgstr "Iteradores geradores assíncronos"
 
 #: ../../builtins/stdtypes.rst:1135
 msgid ""
@@ -2040,6 +2134,8 @@ msgid ""
 "which are used to control the execution of an asynchronous generator "
 "function."
 msgstr ""
+"Esta subseção descreve os métodos de um iterador gerador assíncrono, que são "
+"usados para controlar a execução de uma função geradora assíncrona."
 
 #: ../../builtins/stdtypes.rst:1144
 msgid ""
@@ -2055,12 +2151,25 @@ msgid ""
 "awaitable instead raises a :exc:`StopAsyncIteration` exception, signalling "
 "that the asynchronous iteration has completed."
 msgstr ""
+"Retorna um objeto :term:`aguardável` que, quando executado, começa a "
+"executar a função geradora assíncrona ou retoma-a na última :ref:`expressão "
+"yield <yieldexpr>` na qual a função está atualmente suspensa. Quando uma "
+"função geradora assíncrona é retomada com o método :meth:`~agen.__anext__`, "
+"a expressão yield atual sempre avalia para :const:`None` no objeto "
+"aguardável retornado, que, quando executado, continuará para a próxima "
+"expressão yield. O valor da expressão após a palavra reservada :keyword:"
+"`yield` é o valor da exceção :exc:`StopIteration` levantada pela corrotina "
+"em conclusão. Se o gerador assíncrono sair sem produzir outro valor, o "
+"objeto aguardável em vez disso levanta uma exceção :exc:"
+"`StopAsyncIteration`, sinalizando que a iteração assíncrona foi concluída."
 
 #: ../../builtins/stdtypes.rst:1157
 msgid ""
 "This method is normally called implicitly by an :keyword:`async for` loop, "
 "or by the built-in :func:`anext` function."
 msgstr ""
+"Este método é normalmente chamado de forma implícita por um laço :keyword:"
+"`async for` ou pela função embutida :func:`anext`."
 
 #: ../../builtins/stdtypes.rst:1161
 msgid ""
@@ -2068,6 +2177,9 @@ msgid ""
 "asynchronous iterators, which can be used to control the execution of the "
 "underlying generator function:"
 msgstr ""
+"Iteradores geradores assíncronos têm alguns métodos a mais do que iteradores "
+"assíncronos genéricos, os quais podem ser usados ​​para controlar a execução "
+"da função geradora subjacente:"
 
 #: ../../builtins/stdtypes.rst:1168
 msgid ""
@@ -2075,6 +2187,9 @@ msgid ""
 "asynchronous generator function: the *value* argument becomes the result of "
 "the current yield expression."
 msgstr ""
+"Retorna um objeto aguardável que, ao executar, envia um valor para a função "
+"geradora assíncrona subjacente: o argumento *value* torna-se o resultado da "
+"expressão yield atual."
 
 #: ../../builtins/stdtypes.rst:1172
 msgid ""
@@ -2083,6 +2198,10 @@ msgid ""
 "returns the next yielded value as the value of the raised :exc:"
 "`StopIteration`, or raises :exc:`StopAsyncIteration`."
 msgstr ""
+"Caso contrário, este método comporta-se como :meth:`~agen.__anext__`: quando "
+"o objeto aguardável retornado é executado, ele retoma a função subjacente e, "
+"ou retorna o próximo valor produzido (*yielded*) como o valor da exceção :"
+"exc:`StopIteration` levantada, ou levanta :exc:`StopAsyncIteration`."
 
 #: ../../builtins/stdtypes.rst:1177
 msgid ""
@@ -2090,12 +2209,17 @@ msgid ""
 "called with :const:`None` as the argument, because there is no yield "
 "expression that could receive the value."
 msgstr ""
+"Quando :meth:`asend` é chamado para iniciar o gerador assíncrono, ele deve "
+"ser chamado com :const:`None` como argumento, pois não existe uma expressão "
+"yield atual que possa receber o valor."
 
 #: ../../builtins/stdtypes.rst:1186
 msgid ""
 "Returns an awaitable that, when run, raises an exception at the point where "
 "the underlying asynchronous generator function is currently suspended."
 msgstr ""
+"Retorna um aguardável que, ao executar, levanta uma exceção no ponto em que "
+"a função geradora assíncrona subjacente está atualmente suspensa."
 
 #: ../../builtins/stdtypes.rst:1189
 msgid ""
@@ -2107,6 +2231,14 @@ msgid ""
 "different exception, then when the awaitable is run, that exception "
 "propagates to the caller of the awaitable."
 msgstr ""
+"Caso contrário, este método comporta-se como :meth:`~agen.__anext__`: quando "
+"o objeto aguardável retornado é executado, ele retoma a função subjacente "
+"(com uma exceção sendo levantada) e, então, ou retorna o próximo valor "
+"produzido (*yielded*) como o valor da exceção :exc:`StopIteration` "
+"levantada, ou levanta :exc:`StopAsyncIteration`. Se a função subjacente não "
+"capturar a exceção fornecida, ou se levantar uma exceção diferente, então, "
+"no momento da execução do aguardável, essa exceção é propagada para o "
+"chamador do aguardável."
 
 #: ../../builtins/stdtypes.rst:1197
 msgid ""
@@ -2115,6 +2247,10 @@ msgid ""
 "__anext__` will raise :exc:`StopAsyncIteration` when run) and the thrown "
 "exception is propagated to the awaitable's caller."
 msgstr ""
+"Quando :meth:`~agen.athrow` é chamado para iniciar o gerador, o gerador é "
+"encerrado no momento em que o aguardável é executado (ou seja, chamadas "
+"subsequentes a :meth:`~agen.__anext__` levantarão :exc:`StopAsyncIteration`) "
+"e a exceção levantada é propagada para o chamador do aguardável."
 
 #: ../../builtins/stdtypes.rst:1205
 msgid ""
@@ -2122,6 +2258,9 @@ msgid ""
 "exception instance is created from three arguments in the same way as in :"
 "meth:`generator.throw`."
 msgstr ""
+"Para fins de retrocompatibilidade, no entanto, a segunda assinatura é "
+"suportada. Uma instância de exceção é criada a partir de três argumentos, da "
+"mesma forma que em :meth:`generator.throw`."
 
 #: ../../builtins/stdtypes.rst:1221
 msgid ""
@@ -2129,6 +2268,10 @@ msgid ""
 "the underlying asynchronous generator function at the point where it is "
 "currently suspended (equivalent to calling ``athrow(GeneratorExit)``)."
 msgstr ""
+"Retorna um objeto aguardável que, ao ser executado, levantará uma exceção :"
+"exc:`GeneratorExit` na função geradora assíncrona subjacente, no ponto em "
+"que ela se encontra suspensa (equivalente a chamar "
+"``athrow(GeneratorExit)``)."
 
 #: ../../builtins/stdtypes.rst:1225
 msgid ""
@@ -2138,6 +2281,12 @@ msgid ""
 "further awaitables returned by subsequent calls to the asynchronous "
 "generator will raise a :exc:`StopAsyncIteration` exception."
 msgstr ""
+"Se a função geradora assíncrona for encerrada normalmente, já estiver "
+"fechada ou levantar uma exceção :exc:`GeneratorExit` (por não capturar a "
+"exceção), o objeto aguardável retornado levantará uma exceção :exc:"
+"`StopIteration`. Quaisquer outros objetos aguardável retornados por chamadas "
+"subsequentes ao gerador assíncrono levantarão uma exceção :exc:"
+"`StopAsyncIteration`."
 
 #: ../../builtins/stdtypes.rst:1231
 msgid ""
@@ -2145,6 +2294,9 @@ msgid ""
 "raised by the awaitable. If the asynchronous generator raises any other "
 "exception, that exception is propagated to the caller of the awaitable."
 msgstr ""
+"Se o gerador assíncrono produzir um valor, uma :exc:`RuntimeError` é "
+"levantada pelo aguardável. Se o gerador assíncrono levantar qualquer outra "
+"exceção, essa exceção é propagada para o chamador do aguardável."
 
 #: ../../builtins/stdtypes.rst:1236
 msgid ""
@@ -2152,6 +2304,9 @@ msgid ""
 "normal exit, then further calls to :meth:`aclose` will return an awaitable "
 "that does nothing."
 msgstr ""
+"Se o gerador assíncrono já tiver sido encerrado -- seja devido a uma exceção "
+"ou a uma finalização normal --, chamadas subsequentes a :meth:`aclose` "
+"retornarão um objeto aguardável que não realiza nenhuma ação."
 
 #: ../../builtins/stdtypes.rst:1244
 msgid "Sequence Types --- :class:`list`, :class:`tuple`, :class:`range`"
