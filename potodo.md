@@ -1,5 +1,5 @@
-1 directory  65.48% done
-└── 3.11/  65.48% done
+1 directory  65.51% done
+└── 3.11/  65.51% done
     ├── c-api/  55.05% done
     │   ├── exceptions.po                 69.0% translated 240/347
     │   ├── float.po                      97.0% translated   34/35
@@ -54,7 +54,7 @@
     ├── install/  71.32% done
     │   └── index.po                      73.0% translated 166/226
     ├── installing/  100.00% done
-    ├── library/  59.26% done
+    ├── library/  59.33% done
     │   ├── _thread.po                    96.0% translated   49/51
     │   ├── abc.po                        97.0% translated   48/49
     │   ├── argparse.po                   91.0% translated 305/335
@@ -130,7 +130,7 @@
     │   ├── http.cookies.po               17.0% translated    8/47
     │   ├── http.po                       96.0% translated 220/228
     │   ├── http.server.po                14.0% translated  15/105
-    │   ├── idle.po                       83.0% translated 233/279
+    │   ├── idle.po                       86.0% translated 242/279
     │   ├── imaplib.po                    11.0% translated  13/113
     │   ├── imghdr.po                     48.0% translated   20/41
     │   ├── imp.po                        16.0% translated   12/72
@@ -192,7 +192,7 @@
     │   ├── symtable.po                    6.0% translated    3/44
     │   ├── sys.po                        96.0% translated 397/413
     │   ├── sysconfig.po                  99.0% translated 135/136
-    │   ├── tarfile.po                    57.0% translated 185/320
+    │   ├── tarfile.po                    57.0% translated 185/321
     │   ├── telnetlib.po                  19.0% translated   10/51
     │   ├── tempfile.po                   13.0% translated    9/69
     │   ├── test.po                       38.0% translated 115/296
@@ -242,7 +242,7 @@
     │   ├── cmdline.po                    99.0% translated 210/211
     │   ├── configure.po                  93.0% translated 249/265
     │   └── windows.po                    99.0% translated 341/343
-    └── whatsnew/  75.28% done
+    └── whatsnew/  75.25% done
         ├── 2.0.po                        98.0% translated 181/183
         ├── 2.1.po                        99.0% translated 138/139
         ├── 2.2.po                        99.0% translated 190/191
@@ -251,7 +251,7 @@
         ├── 2.5.po                        98.0% translated 382/388
         ├── 2.6.po                        99.0% translated 544/547
         ├── 2.7.po                        99.0% translated 452/453
-        ├── 3.11.po                       98.0% translated 760/772
+        ├── 3.11.po                       98.0% translated 761/775
         ├── 3.2.po                        12.0% translated  65/518
         ├── 3.3.po                        20.0% translated 135/662
         ├── 3.4.po                        99.0% translated 510/511
