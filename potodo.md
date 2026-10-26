@@ -1,7 +1,6 @@
-1 directory  58.41% done
-└── 3.14/  58.41% done
-    ├── builtins/  99.80% done
-    │   └── functions.po                  99.0% translated 521/523
+1 directory  58.42% done
+└── 3.14/  58.42% done
+    ├── builtins/  100.00% done
     ├── c-api/  51.84% done
     │   ├── bytes.po                      93.0% translated   73/78
     │   ├── code.po                       96.0% translated   80/83
@@ -183,7 +182,7 @@
     │   ├── tkinter.dnd.po                45.0% translated    9/20
     │   ├── tkinter.font.po               67.0% translated   25/37
     │   ├── tkinter.messagebox.po         93.0% translated   40/43
-    │   ├── tkinter.po                    19.0% translated 241/1242
+    │   ├── tkinter.po                    19.0% translated 242/1242
     │   ├── tkinter.ttk.po                24.0% translated 118/476
     │   ├── tokenize.po                   70.0% translated   43/61
     │   ├── trace.po                      90.0% translated   39/43
