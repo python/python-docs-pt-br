@@ -1,5 +1,5 @@
-1 directory  67.33% done
-└── 3.12/  67.33% done
+1 directory  67.34% done
+└── 3.12/  67.34% done
     ├── c-api/  54.24% done
     │   ├── exceptions.po                 68.0% translated 251/366
     │   ├── frame.po                      80.0% translated   29/36
@@ -163,14 +163,14 @@
     ├── tutorial/  100.00% done
     ├── using/  99.80% done
     │   └── windows.po                    99.0% translated 377/378
-    └── whatsnew/  74.14% done
+    └── whatsnew/  74.17% done
         ├── 2.3.po                        84.0% translated 327/387
         ├── 2.4.po                        83.0% translated 266/319
         ├── 2.5.po                        85.0% translated 385/452
         ├── 2.6.po                        86.0% translated 540/626
         ├── 3.0.po                        90.0% translated 192/212
         ├── 3.1.po                        86.0% translated 114/132
-        ├── 3.12.po                       99.0% translated 842/844
+        ├── 3.12.po                       99.0% translated 843/844
         ├── 3.2.po                        11.0% translated  66/576
         ├── 3.3.po                        20.0% translated 137/682
         ├── 3.5.po                        22.0% translated 129/578
