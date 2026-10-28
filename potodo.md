@@ -1,8 +1,8 @@
-1 directory  58.81% done
-└── 3.13/  58.81% done
+1 directory  58.84% done
+└── 3.13/  58.84% done
     ├── builtins/  99.75% done
     │   └── stdtypes.po                   99.0% translated 1444/1446
-    ├── c-api/  53.73% done
+    ├── c-api/  53.81% done
     │   ├── bytes.po                      97.0% translated   69/71
     │   ├── conversion.po                 89.0% translated   49/55
     │   ├── descriptor.po                 42.0% translated   14/33
@@ -23,7 +23,6 @@
     │   ├── object.po                     34.0% translated  42/122
     │   ├── perfmaps.po                   50.0% translated   12/24
     │   ├── refcounting.po                29.0% translated   14/48
-    │   ├── slice.po                      92.0% translated   24/26
     │   ├── structures.po                 38.0% translated  76/196
     │   ├── sys.po                        97.0% translated   77/79
     │   ├── tuple.po                      93.0% translated   43/46
@@ -54,7 +53,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  56.55% done
+    ├── library/  56.56% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── array.po                      90.0% translated   80/88
     │   ├── asyncio-dev.po                59.0% translated   50/84
@@ -73,7 +72,6 @@
     │   ├── bdb.po                        98.0% translated 110/112
     │   ├── binascii.po                   60.0% translated   23/38
     │   ├── bisect.po                     94.0% translated   34/36
-    │   ├── code.po                       96.0% translated   32/33
     │   ├── codecs.po                     44.0% translated 250/561
     │   ├── collections.po                98.0% translated 240/244
     │   ├── concurrent.futures.po         13.0% translated  14/103
@@ -158,7 +156,7 @@
     │   ├── tkinter.dnd.po                45.0% translated    9/20
     │   ├── tkinter.font.po               70.0% translated   26/37
     │   ├── tkinter.messagebox.po         93.0% translated   40/43
-    │   ├── tkinter.po                    21.0% translated 260/1234
+    │   ├── tkinter.po                    21.0% translated 263/1234
     │   ├── tkinter.ttk.po                25.0% translated 119/475
     │   ├── trace.po                      97.0% translated   42/43
     │   ├── traceback.po                   7.0% translated   9/116
@@ -196,7 +194,7 @@
     │   ├── configure.po                  99.0% translated 406/407
     │   ├── mac.po                        97.0% translated   94/96
     │   └── windows.po                    99.0% translated 387/389
-    └── whatsnew/  45.86% done
+    └── whatsnew/  45.93% done
         ├── 2.3.po                        83.0% translated 325/387
         ├── 2.4.po                        60.0% translated 194/319
         ├── 2.5.po                        66.0% translated 301/452
@@ -205,12 +203,11 @@
         ├── 3.1.po                        86.0% translated 114/132
         ├── 3.11.po                       99.0% translated 775/776
         ├── 3.12.po                       99.0% translated 834/835
-        ├── 3.13.po                       99.0% translated 892/896
+        ├── 3.13.po                       99.0% translated 893/896
         ├── 3.2.po                        11.0% translated  66/576
         ├── 3.3.po                        19.0% translated 134/682
         ├── 3.4.po                        95.0% translated 492/517
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        43.0% translated 234/544
         ├── 3.7.po                        43.0% translated 249/568
-        ├── 3.8.po                        99.0% translated 508/513
-        └── changelog.po                  22.0% translated 3014/13250
+        └── changelog.po                  22.0% translated 3015/13250
