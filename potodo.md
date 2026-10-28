@@ -1,7 +1,7 @@
-1 directory  56.76% done
-└── 3.15/  56.76% done
+1 directory  56.79% done
+└── 3.15/  56.79% done
     ├── builtins/  100.00% done
-    ├── c-api/  46.08% done
+    ├── c-api/  46.25% done
     │   ├── bytes.po                      54.0% translated  73/135
     │   ├── code.po                       96.0% translated   80/83
     │   ├── complex.po                    83.0% translated   31/37
@@ -13,7 +13,6 @@
     │   ├── file.po                       63.0% translated   23/36
     │   ├── float.po                      74.0% translated   41/55
     │   ├── frame.po                      58.0% translated   35/60
-    │   ├── function.po                   97.0% translated   44/45
     │   ├── gcsupport.po                  16.0% translated  18/107
     │   ├── gen.po                        66.0% translated   12/18
     │   ├── import.po                     50.0% translated   43/86
@@ -22,7 +21,6 @@
     │   ├── intro.po                      59.0% translated 144/244
     │   ├── list.po                       81.0% translated   31/38
     │   ├── long.po                       25.0% translated  46/182
-    │   ├── marshal.po                    89.0% translated   17/19
     │   ├── memory.po                     26.0% translated  59/219
     │   ├── module.po                     13.0% translated  31/225
     │   ├── object.po                     27.0% translated  44/161
@@ -30,7 +28,6 @@
     │   ├── profiling.po                   2.0% translated    1/49
     │   ├── refcounting.po                30.0% translated   15/50
     │   ├── set.po                        80.0% translated   28/35
-    │   ├── slice.po                      92.0% translated   24/26
     │   ├── stable.po                     15.0% translated   15/97
     │   ├── structures.po                 39.0% translated  86/218
     │   ├── subinterpreters.po            17.0% translated   16/90
@@ -68,7 +65,7 @@
     │   ├── sorting.po                    53.0% translated   48/90
     │   └── unicode.po                    19.0% translated  28/143
     ├── installing/  100.00% done
-    ├── library/  52.68% done
+    ├── library/  52.71% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              90.0% translated 143/158
     │   ├── argparse.po                   94.0% translated 400/423
@@ -93,7 +90,6 @@
     │   ├── bdb.po                        95.0% translated 111/116
     │   ├── binascii.po                   21.0% translated   19/89
     │   ├── bisect.po                     88.0% translated   32/36
-    │   ├── code.po                       96.0% translated   32/33
     │   ├── codecs.po                     44.0% translated 250/568
     │   ├── collections.po                95.0% translated 235/247
     │   ├── compression.zstd.po           96.0% translated 168/175
@@ -159,7 +155,6 @@
     │   ├── optparse.po                   79.0% translated 423/532
     │   ├── os.path.po                    83.0% translated  94/113
     │   ├── os.po                         90.0% translated 1024/1136
-    │   ├── pathlib.po                    98.0% translated 442/450
     │   ├── pickle.po                     97.0% translated 244/251
     │   ├── poplib.po                     37.0% translated   20/53
     │   ├── pprint.po                     88.0% translated   48/54
@@ -199,7 +194,7 @@
     │   ├── tkinter.dnd.po                45.0% translated    9/20
     │   ├── tkinter.font.po               57.0% translated   20/35
     │   ├── tkinter.messagebox.po         93.0% translated   40/43
-    │   ├── tkinter.po                    19.0% translated 245/1254
+    │   ├── tkinter.po                    19.0% translated 247/1254
     │   ├── tkinter.ttk.po                24.0% translated 118/476
     │   ├── tokenize.po                   67.0% translated   42/62
     │   ├── trace.po                      90.0% translated   39/43
@@ -229,7 +224,6 @@
     │   ├── xmlrpc.client.po              46.0% translated  53/113
     │   ├── xmlrpc.server.po              87.0% translated   50/57
     │   ├── zipfile.po                    97.0% translated 210/216
-    │   ├── zipimport.po                  97.0% translated   37/38
     │   ├── zlib.po                       92.0% translated  95/103
     │   └── zoneinfo.po                   44.0% translated   37/84
     ├── reference/  90.60% done
