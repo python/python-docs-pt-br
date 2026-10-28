@@ -4123,6 +4123,13 @@ msgid ""
 "source_buf = PyBytes_AsString(source_bytes_object);\n"
 "code = Py_CompileString(source_buf, filename, Py_file_input);"
 msgstr ""
+"io_module = PyImport_ImportModule(\"io\");\n"
+"fileobject = PyObject_CallMethod(io_module, \"open\", \"ss\", filename, "
+"\"rb\");\n"
+"source_bytes_object = PyObject_CallMethod(fileobject, \"read\", \"\");\n"
+"result = PyObject_CallMethod(fileobject, \"close\", \"\");\n"
+"source_buf = PyBytes_AsString(source_bytes_object);\n"
+"code = Py_CompileString(source_buf, filename, Py_file_input);"
 
 #: ../../whatsnew/3.10.rst:1974
 msgid ""
