@@ -1,5 +1,5 @@
-1 directory  58.88% done
-└── 3.13/  58.88% done
+1 directory  58.89% done
+└── 3.13/  58.89% done
     ├── builtins/  99.75% done
     │   └── stdtypes.po                   99.0% translated 1444/1446
     ├── c-api/  53.81% done
@@ -53,7 +53,7 @@
     │   ├── sorting.po                    66.0% translated   50/75
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  56.66% done
+    ├── library/  56.67% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── array.po                      90.0% translated   80/88
     │   ├── asyncio-dev.po                59.0% translated   50/84
@@ -154,7 +154,7 @@
     │   ├── threading.po                  14.0% translated  39/274
     │   ├── tkinter.dnd.po                45.0% translated    9/20
     │   ├── tkinter.messagebox.po         93.0% translated   40/43
-    │   ├── tkinter.po                    21.0% translated 264/1234
+    │   ├── tkinter.po                    21.0% translated 267/1234
     │   ├── tkinter.ttk.po                25.0% translated 119/475
     │   ├── trace.po                      97.0% translated   42/43
     │   ├── traceback.po                   7.0% translated   9/116
