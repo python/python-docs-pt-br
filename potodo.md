@@ -1,5 +1,5 @@
-1 directory  58.38% done
-└── 3.14/  58.38% done
+1 directory  58.37% done
+└── 3.14/  58.37% done
     ├── builtins/  99.30% done
     │   ├── exceptions.po                 99.0% translated 202/203
     │   ├── functions.po                  99.0% translated 519/523
@@ -68,7 +68,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  54.63% done
+    ├── library/  54.65% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              90.0% translated 143/158
     │   ├── array.po                      89.0% translated   80/89
@@ -237,7 +237,7 @@
     ├── using/  89.16% done
     │   ├── mac.po                        98.0% translated   94/95
     │   └── windows.po                    84.0% translated 501/590
-    └── whatsnew/  48.28% done
+    └── whatsnew/  48.25% done
         ├── 2.3.po                        83.0% translated 324/387
         ├── 2.4.po                        60.0% translated 192/318
         ├── 2.5.po                        66.0% translated 301/452
@@ -254,4 +254,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  26.0% translated 3871/14721
+        └── changelog.po                  26.0% translated 3871/14731
