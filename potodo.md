@@ -1,5 +1,5 @@
-1 directory  67.34% done
-└── 3.12/  67.34% done
+1 directory  67.08% done
+└── 3.12/  67.08% done
     ├── c-api/  54.24% done
     │   ├── exceptions.po                 68.0% translated 251/366
     │   ├── frame.po                      80.0% translated   29/36
