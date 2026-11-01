@@ -1,5 +1,5 @@
-1 directory  56.70% done
-└── 3.15/  56.70% done
+1 directory  56.69% done
+└── 3.15/  56.69% done
     ├── builtins/  98.95% done
     │   ├── exceptions.po                 99.0% translated 204/206
     │   ├── functions.po                  99.0% translated 537/541
@@ -76,7 +76,7 @@
     │   ├── sorting.po                    53.0% translated   48/90
     │   └── unicode.po                    19.0% translated  28/143
     ├── installing/  100.00% done
-    ├── library/  52.70% done
+    ├── library/  52.68% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              90.0% translated 143/158
     │   ├── array.po                      81.0% translated  83/102
@@ -171,6 +171,7 @@
     │   ├── multiprocessing.po            50.0% translated 315/623
     │   ├── multiprocessing.shared_memory.po  92.0% translated   52/56
     │   ├── netrc.po                      94.0% translated   18/19
+    │   ├── numbers.po                    85.0% translated   30/35
     │   ├── operator.po                   91.0% translated 173/189
     │   ├── optparse.po                   79.0% translated 423/532
     │   ├── os.path.po                    83.0% translated  94/113
@@ -255,7 +256,7 @@
     ├── tutorial/  100.00% done
     ├── using/  89.21% done
     │   └── windows.po                    84.0% translated 497/591
-    └── whatsnew/  48.48% done
+    └── whatsnew/  48.46% done
         ├── 2.3.po                        83.0% translated 324/387
         ├── 2.4.po                        60.0% translated 192/318
         ├── 2.5.po                        66.0% translated 300/452
@@ -271,4 +272,4 @@
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
         ├── 3.7.po                        43.0% translated 249/568
-        └── changelog.po                  25.0% translated 4025/15789
+        └── changelog.po                  25.0% translated 4025/15796
