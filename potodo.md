@@ -1,5 +1,5 @@
-1 directory  56.55% done
-└── 3.15/  56.55% done
+1 directory  56.41% done
+└── 3.15/  56.41% done
     ├── builtins/  98.86% done
     │   ├── exceptions.po                 99.0% translated 204/206
     │   ├── functions.po                  99.0% translated 537/541
@@ -59,7 +59,7 @@
     │   └── newtypes_tutorial.po          99.0% translated 179/180
     ├── faq/  94.05% done
     │   └── programming.po                90.0% translated 458/506
-    ├── howto/  60.12% done
+    ├── howto/  59.97% done
     │   ├── abi3t-migration.po             8.0% translated  16/179
     │   ├── annotations.po                94.0% translated   49/52
     │   ├── curses.po                     89.0% translated 106/118
@@ -68,8 +68,8 @@
     │   ├── free-threading-extensions.po  87.0% translated  98/112
     │   ├── free-threading-python.po      67.0% translated   45/67
     │   ├── functional.po                 61.0% translated 151/247
-    │   ├── instrumentation.po            77.0% translated   74/96
-    │   ├── isolating-extensions.po       99.0% translated 133/134
+    │   ├── instrumentation.po            75.0% translated   72/96
+    │   ├── isolating-extensions.po       98.0% translated 132/134
     │   ├── logging-cookbook.po            9.0% translated  39/433
     │   ├── mro.po                        99.0% translated 119/120
     │   ├── perf_profiling.po             72.0% translated   39/54
@@ -79,12 +79,13 @@
     │   ├── sorting.po                    53.0% translated   48/90
     │   └── unicode.po                    19.0% translated  28/143
     ├── installing/  100.00% done
-    ├── library/  52.55% done
+    ├── library/  52.35% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              90.0% translated 143/158
+    │   ├── argparse.po                   99.0% translated 421/423
     │   ├── array.po                      81.0% translated  83/102
     │   ├── asyncio-dev.po                61.0% translated   52/84
-    │   ├── asyncio-eventloop.po          70.0% translated 302/428
+    │   ├── asyncio-eventloop.po          70.0% translated 301/428
     │   ├── asyncio-extending.po          88.0% translated   24/27
     │   ├── asyncio-future.po             25.0% translated   17/66
     │   ├── asyncio-graph.po              90.0% translated   29/32
@@ -104,9 +105,12 @@
     │   ├── bdb.po                        95.0% translated 111/116
     │   ├── binascii.po                   21.0% translated   19/89
     │   ├── bisect.po                     88.0% translated   32/36
-    │   ├── calendar.po                   99.0% translated 122/123
+    │   ├── calendar.po                   97.0% translated 120/123
+    │   ├── cgi.po                        75.0% translated     3/4
+    │   ├── cgitb.po                      75.0% translated     3/4
     │   ├── cmd.po                        98.0% translated   50/51
     │   ├── codecs.po                     44.0% translated 250/568
+    │   ├── collections.abc.po            97.0% translated 140/143
     │   ├── collections.po                95.0% translated 235/247
     │   ├── compression.zstd.po           96.0% translated 168/175
     │   ├── concurrent.futures.po         13.0% translated  17/124
@@ -156,7 +160,7 @@
     │   ├── http.cookiejar.po              4.0% translated   7/159
     │   ├── http.cookies.po               12.0% translated    7/54
     │   ├── http.server.po                11.0% translated  16/135
-    │   ├── idle.po                       91.0% translated 272/297
+    │   ├── idle.po                       92.0% translated 276/297
     │   ├── imaplib.po                    10.0% translated  14/138
     │   ├── importlib.metadata.po         71.0% translated 106/149
     │   ├── importlib.po                  65.0% translated 186/283
@@ -178,16 +182,16 @@
     │   ├── netrc.po                      94.0% translated   18/19
     │   ├── numbers.po                    85.0% translated   30/35
     │   ├── operator.po                   91.0% translated 173/189
-    │   ├── optparse.po                   79.0% translated 423/532
+    │   ├── optparse.po                   78.0% translated 420/532
     │   ├── os.path.po                    83.0% translated  94/113
-    │   ├── os.po                         89.0% translated 1019/1136
-    │   ├── pdb.po                        99.0% translated 178/179
+    │   ├── os.po                         89.0% translated 1017/1136
+    │   ├── pdb.po                        98.0% translated 177/179
     │   ├── pickle.po                     97.0% translated 244/251
     │   ├── poplib.po                     37.0% translated   20/53
     │   ├── pprint.po                     88.0% translated   48/54
     │   ├── profile.po                     7.0% translated    6/78
     │   ├── profiling.po                   4.0% translated    4/89
-    │   ├── profiling_sampling.po          0.0% translated   4/466
+    │   ├── profiling_sampling.po          0.0% translated   4/467
     │   ├── profiling_tracing.po           4.0% translated    4/84
     │   ├── pstats.po                     14.0% translated  19/129
     │   ├── pyexpat.po                    11.0% translated  20/178
@@ -205,7 +209,7 @@
     │   ├── signal.po                     91.0% translated 132/145
     │   ├── site.po                       43.0% translated  46/106
     │   ├── smtplib.po                    27.0% translated  36/131
-    │   ├── socket.po                     14.0% translated  55/391
+    │   ├── socket.po                     14.0% translated  55/392
     │   ├── sqlite3.po                    24.0% translated 117/481
     │   ├── ssl.po                        10.0% translated  61/576
     │   ├── struct.po                     46.0% translated  95/206
@@ -231,7 +235,7 @@
     │   ├── trace.po                      90.0% translated   39/43
     │   ├── traceback.po                   7.0% translated   9/117
     │   ├── tracemalloc.po                13.0% translated  21/156
-    │   ├── turtle.po                     82.0% translated 473/574
+    │   ├── turtle.po                     73.0% translated 417/567
     │   ├── typing.po                     90.0% translated 780/861
     │   ├── unicodedata.po                22.0% translated  22/100
     │   ├── unittest.mock-examples.po     10.0% translated  19/182
@@ -264,26 +268,30 @@
     │   ├── expressions.po                76.0% translated 497/651
     │   └── simple_stmts.po               90.0% translated 282/310
     ├── tutorial/  100.00% done
-    ├── using/  89.05% done
-    │   ├── configure.po                  99.0% translated 496/497
+    ├── using/  88.14% done
+    │   ├── configure.po                  95.0% translated 465/489
     │   ├── unix.po                       98.0% translated   62/63
     │   └── windows.po                    84.0% translated 497/591
-    └── whatsnew/  48.36% done
+    └── whatsnew/  48.26% done
         ├── 2.2.po                        99.0% translated 214/215
-        ├── 2.3.po                        83.0% translated 324/387
+        ├── 2.3.po                        83.0% translated 323/387
         ├── 2.4.po                        60.0% translated 192/318
         ├── 2.5.po                        66.0% translated 300/452
         ├── 2.6.po                        64.0% translated 402/626
+        ├── 2.7.po                        99.0% translated 497/498
         ├── 3.0.po                        90.0% translated 191/212
         ├── 3.1.po                        86.0% translated 114/132
         ├── 3.10.po                       99.0% translated 547/550
-        ├── 3.11.po                       99.0% translated 774/776
+        ├── 3.11.po                       99.0% translated 772/776
+        ├── 3.12.po                       99.0% translated 906/909
         ├── 3.13.po                       99.0% translated 987/991
+        ├── 3.15.po                       99.0% translated 821/823
         ├── 3.2.po                        11.0% translated  66/576
         ├── 3.3.po                        19.0% translated 134/682
-        ├── 3.4.po                        94.0% translated 490/517
+        ├── 3.4.po                        94.0% translated 489/517
         ├── 3.5.po                        22.0% translated 128/578
         ├── 3.6.po                        42.0% translated 233/544
-        ├── 3.7.po                        43.0% translated 248/568
-        ├── 3.8.po                        99.0% translated 512/513
-        └── changelog.po                  25.0% translated 4024/15832
+        ├── 3.7.po                        43.0% translated 247/568
+        ├── 3.8.po                        99.0% translated 511/513
+        ├── 3.9.po                        99.0% translated 379/380
+        └── changelog.po                  25.0% translated 4024/15845
