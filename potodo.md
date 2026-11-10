@@ -1,9 +1,9 @@
-1 directory  56.42% done
-└── 3.15/  56.42% done
-    ├── builtins/  98.86% done
+1 directory  56.36% done
+└── 3.15/  56.36% done
+    ├── builtins/  97.96% done
     │   ├── exceptions.po                 99.0% translated 204/206
-    │   ├── functions.po                  99.0% translated 537/541
-    │   └── stdtypes.po                   99.0% translated 1653/1660
+    │   ├── functions.po                  98.0% translated 533/539
+    │   └── stdtypes.po                   99.0% translated 1645/1660
     ├── c-api/  45.92% done
     │   ├── bool.po                       81.0% translated    9/11
     │   ├── buffer.po                     99.0% translated 119/120
@@ -57,8 +57,9 @@
     │   ├── first-extension-module.po     41.0% translated  61/146
     │   ├── newtypes.po                    6.0% translated   8/118
     │   └── newtypes_tutorial.po          99.0% translated 179/180
-    ├── faq/  94.05% done
-    │   └── programming.po                90.0% translated 458/506
+    ├── faq/  93.13% done
+    │   ├── library.po                    97.0% translated 140/143
+    │   └── programming.po                90.0% translated 457/505
     ├── howto/  59.97% done
     │   ├── abi3t-migration.po             8.0% translated  16/179
     │   ├── annotations.po                94.0% translated   49/52
@@ -79,7 +80,7 @@
     │   ├── sorting.po                    53.0% translated   48/90
     │   └── unicode.po                    19.0% translated  28/143
     ├── installing/  100.00% done
-    ├── library/  52.37% done
+    ├── library/  52.38% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              90.0% translated 143/158
     │   ├── argparse.po                   99.0% translated 421/423
@@ -160,7 +161,7 @@
     │   ├── http.cookiejar.po              4.0% translated   7/159
     │   ├── http.cookies.po               12.0% translated    7/54
     │   ├── http.server.po                11.0% translated  16/135
-    │   ├── idle.po                       93.0% translated 279/297
+    │   ├── idle.po                       95.0% translated 283/297
     │   ├── imaplib.po                    10.0% translated  14/138
     │   ├── importlib.metadata.po         71.0% translated 106/149
     │   ├── importlib.po                  65.0% translated 186/283
@@ -272,7 +273,7 @@
     │   ├── configure.po                  95.0% translated 465/489
     │   ├── unix.po                       98.0% translated   62/63
     │   └── windows.po                    84.0% translated 497/591
-    └── whatsnew/  48.26% done
+    └── whatsnew/  48.22% done
         ├── 2.2.po                        99.0% translated 214/215
         ├── 2.3.po                        83.0% translated 323/387
         ├── 2.4.po                        60.0% translated 192/318
@@ -294,4 +295,4 @@
         ├── 3.7.po                        43.0% translated 247/568
         ├── 3.8.po                        99.0% translated 511/513
         ├── 3.9.po                        99.0% translated 379/380
-        └── changelog.po                  25.0% translated 4024/15845
+        └── changelog.po                  25.0% translated 4024/15862
