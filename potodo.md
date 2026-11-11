@@ -1,5 +1,6 @@
-1 directory  58.05% done
-└── 3.14/  58.05% done
+1 directory  58.01% done
+└── 3.14/  58.01% done
+    ├── glossary.po                       99.0% translated 500/503
     ├── builtins/  98.50% done
     │   ├── exceptions.po                 99.0% translated 202/203
     │   ├── functions.po                  99.0% translated 516/521
@@ -72,7 +73,7 @@
     │   ├── sorting.po                    54.0% translated   50/92
     │   └── unicode.po                    20.0% translated  30/145
     ├── installing/  100.00% done
-    ├── library/  54.34% done
+    ├── library/  54.30% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              90.0% translated 143/158
     │   ├── argparse.po                   99.0% translated 410/411
@@ -153,7 +154,7 @@
     │   ├── http.cookiejar.po              4.0% translated   7/159
     │   ├── http.cookies.po               13.0% translated    7/52
     │   ├── http.server.po                11.0% translated  16/141
-    │   ├── idle.po                       95.0% translated 283/297
+    │   ├── idle.po                       96.0% translated 287/297
     │   ├── imaplib.po                    10.0% translated  14/137
     │   ├── importlib.po                  72.0% translated 206/284
     │   ├── importlib.resources.po        98.0% translated   52/53
@@ -200,12 +201,12 @@
     │   ├── struct.po                     47.0% translated  98/205
     │   ├── subprocess.po                 46.0% translated 146/314
     │   ├── symtable.po                    8.0% translated    6/73
-    │   ├── sys.po                        98.0% translated 469/478
+    │   ├── sys.po                        97.0% translated 469/483
     │   ├── syslog.po                     80.0% translated   25/31
     │   ├── tarfile.po                    54.0% translated 201/368
     │   ├── tempfile.po                   10.0% translated    9/90
     │   ├── termios.po                    83.0% translated   25/30
-    │   ├── test.po                       30.0% translated 104/341
+    │   ├── test.po                       27.0% translated 103/372
     │   ├── textwrap.po                   98.0% translated   57/58
     │   ├── threading.po                  14.0% translated  40/284
     │   ├── time.po                       99.0% translated 278/279
@@ -224,7 +225,7 @@
     │   ├── unittest.mock.po              22.0% translated 101/448
     │   ├── unittest.po                   47.0% translated 263/559
     │   ├── urllib.parse.po               56.0% translated  95/169
-    │   ├── urllib.request.po             15.0% translated  47/299
+    │   ├── urllib.request.po             15.0% translated  47/303
     │   ├── uuid.po                       86.0% translated   68/79
     │   ├── venv.po                       99.0% translated 136/137
     │   ├── warnings.po                   46.0% translated  76/162
@@ -248,12 +249,13 @@
     │   ├── expressions.po                89.0% translated 532/595
     │   └── simple_stmts.po               96.0% translated 281/291
     ├── tutorial/  100.00% done
-    ├── using/  88.11% done
+    ├── using/  87.85% done
+    │   ├── cmdline.po                    98.0% translated 264/268
     │   ├── configure.po                  95.0% translated 439/462
     │   ├── mac.po                        98.0% translated   94/95
     │   ├── unix.po                       98.0% translated   62/63
     │   └── windows.po                    84.0% translated 501/590
-    └── whatsnew/  48.04% done
+    └── whatsnew/  48.02% done
         ├── 2.2.po                        99.0% translated 214/215
         ├── 2.3.po                        83.0% translated 323/387
         ├── 2.4.po                        60.0% translated 192/318
@@ -275,4 +277,4 @@
         ├── 3.7.po                        43.0% translated 247/568
         ├── 3.8.po                        99.0% translated 511/513
         ├── 3.9.po                        99.0% translated 379/380
-        └── changelog.po                  26.0% translated 3871/14788
+        └── changelog.po                  26.0% translated 3872/14796
