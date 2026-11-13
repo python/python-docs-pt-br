@@ -90,7 +90,7 @@
     │   ├── http.cookies.po               14.0% translated    7/49
     │   ├── http.po                       96.0% translated 237/246
     │   ├── http.server.po                14.0% translated  16/113
-    │   ├── idle.po                       96.0% translated 283/293
+    │   ├── idle.po                       98.0% translated 290/293
     │   ├── imaplib.po                    11.0% translated  14/117
     │   ├── imghdr.po                     47.0% translated   20/42
     │   ├── importlib.po                  78.0% translated 240/304
