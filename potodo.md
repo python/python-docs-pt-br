@@ -110,7 +110,7 @@
     │   ├── http.cookiejar.po              4.0% translated   7/159
     │   ├── http.cookies.po               14.0% translated    7/49
     │   ├── http.server.po                12.0% translated  16/128
-    │   ├── idle.po                       96.0% translated 286/297
+    │   ├── idle.po                       98.0% translated 293/297
     │   ├── imaplib.po                    11.0% translated  14/124
     │   ├── importlib.po                  76.0% translated 241/313
     │   ├── importlib.resources.po        98.0% translated   52/53
