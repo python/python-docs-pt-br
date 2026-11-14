@@ -54,7 +54,7 @@
     ├── install/  71.32% done
     │   └── index.po                      73.0% translated 166/226
     ├── installing/  100.00% done
-    ├── library/  59.46% done
+    ├── library/  59.47% done
     │   ├── _thread.po                    96.0% translated   49/51
     │   ├── abc.po                        97.0% translated   48/49
     │   ├── argparse.po                   91.0% translated 305/335
@@ -130,7 +130,7 @@
     │   ├── http.cookies.po               17.0% translated    8/47
     │   ├── http.po                       96.0% translated 220/228
     │   ├── http.server.po                14.0% translated  15/105
-    │   ├── idle.po                       94.0% translated 264/279
+    │   ├── idle.po                       97.0% translated 271/279
     │   ├── imaplib.po                    11.0% translated  13/113
     │   ├── imghdr.po                     48.0% translated   20/41
     │   ├── imp.po                        16.0% translated   12/72
