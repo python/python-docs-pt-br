@@ -1,11 +1,11 @@
-1 directory  56.29% done
-└── 3.15/  56.29% done
+1 directory  56.27% done
+└── 3.15/  56.27% done
     ├── glossary.po                       99.0% translated 500/503
     ├── builtins/  97.96% done
     │   ├── exceptions.po                 99.0% translated 204/206
     │   ├── functions.po                  98.0% translated 533/539
     │   └── stdtypes.po                   99.0% translated 1645/1660
-    ├── c-api/  45.92% done
+    ├── c-api/  45.88% done
     │   ├── bool.po                       81.0% translated    9/11
     │   ├── buffer.po                     99.0% translated 119/120
     │   ├── bytes.po                      54.0% translated  73/135
@@ -15,7 +15,7 @@
     │   ├── conversion.po                 82.0% translated   48/58
     │   ├── datetime.po                   98.0% translated   66/67
     │   ├── descriptor.po                 30.0% translated   12/39
-    │   ├── dict.po                       79.0% translated  99/124
+    │   ├── dict.po                       77.0% translated  98/126
     │   ├── exceptions.po                 61.0% translated 187/302
     │   ├── extension-modules.po          37.0% translated   30/80
     │   ├── file.po                       63.0% translated   23/36
@@ -83,7 +83,7 @@
     │   ├── sorting.po                    53.0% translated   48/90
     │   └── unicode.po                    19.0% translated  28/143
     ├── installing/  100.00% done
-    ├── library/  52.32% done
+    ├── library/  52.30% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              90.0% translated 143/158
     │   ├── argparse.po                   97.0% translated 420/432
@@ -132,7 +132,7 @@
     │   ├── dbm.po                        66.0% translated  88/132
     │   ├── dialog.po                     54.0% translated   37/68
     │   ├── difflib.po                    10.0% translated  16/152
-    │   ├── dis.po                        55.0% translated 230/414
+    │   ├── dis.po                        53.0% translated 226/420
     │   ├── doctest.po                    24.0% translated  94/381
     │   ├── email.compat32-message.po      4.0% translated   5/115
     │   ├── email.contentmanager.po       21.0% translated    9/42
@@ -277,7 +277,7 @@
     │   ├── configure.po                  95.0% translated 465/489
     │   ├── unix.po                       98.0% translated   62/63
     │   └── windows.po                    84.0% translated 497/591
-    └── whatsnew/  48.16% done
+    └── whatsnew/  48.13% done
         ├── 2.2.po                        99.0% translated 214/215
         ├── 2.3.po                        83.0% translated 323/387
         ├── 2.4.po                        60.0% translated 192/318
@@ -290,7 +290,7 @@
         ├── 3.11.po                       99.0% translated 772/776
         ├── 3.12.po                       99.0% translated 906/909
         ├── 3.13.po                       99.0% translated 987/991
-        ├── 3.15.po                       99.0% translated 821/823
+        ├── 3.15.po                       99.0% translated 827/831
         ├── 3.2.po                        11.0% translated  66/576
         ├── 3.3.po                        19.0% translated 134/682
         ├── 3.4.po                        94.0% translated 489/517
@@ -299,4 +299,4 @@
         ├── 3.7.po                        43.0% translated 247/568
         ├── 3.8.po                        99.0% translated 511/513
         ├── 3.9.po                        99.0% translated 379/380
-        └── changelog.po                  25.0% translated 4024/15886
+        └── changelog.po                  25.0% translated 4024/15895
