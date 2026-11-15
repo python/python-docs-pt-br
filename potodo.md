@@ -1,18 +1,18 @@
-1 directory  57.98% done
-└── 3.14/  57.98% done
+1 directory  57.97% done
+└── 3.14/  57.97% done
     ├── glossary.po                       99.0% translated 500/503
     ├── builtins/  98.50% done
     │   ├── exceptions.po                 99.0% translated 202/203
     │   ├── functions.po                  99.0% translated 516/521
     │   └── stdtypes.po                   99.0% translated 1572/1584
-    ├── c-api/  51.74% done
+    ├── c-api/  51.70% done
     │   ├── bool.po                       81.0% translated    9/11
     │   ├── bytes.po                      93.0% translated   73/78
     │   ├── code.po                       95.0% translated   79/83
     │   ├── codec.po                      96.0% translated   29/30
     │   ├── conversion.po                 84.0% translated   49/58
     │   ├── descriptor.po                 35.0% translated   13/37
-    │   ├── dict.po                       92.0% translated 102/110
+    │   ├── dict.po                       90.0% translated 101/112
     │   ├── exceptions.po                 66.0% translated 183/277
     │   ├── file.po                       63.0% translated   23/36
     │   ├── float.po                      91.0% translated   53/58
@@ -257,7 +257,7 @@
     │   ├── mac.po                        98.0% translated   94/95
     │   ├── unix.po                       98.0% translated   62/63
     │   └── windows.po                    84.0% translated 501/590
-    └── whatsnew/  47.99% done
+    └── whatsnew/  47.98% done
         ├── 2.2.po                        99.0% translated 214/215
         ├── 2.3.po                        83.0% translated 323/387
         ├── 2.4.po                        60.0% translated 192/318
@@ -279,4 +279,4 @@
         ├── 3.7.po                        43.0% translated 247/568
         ├── 3.8.po                        99.0% translated 511/513
         ├── 3.9.po                        99.0% translated 379/380
-        └── changelog.po                  26.0% translated 3872/14808
+        └── changelog.po                  26.0% translated 3872/14814
