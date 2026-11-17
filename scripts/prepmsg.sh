@@ -16,17 +16,15 @@ URL="${PYDOC_REPO}/actions/runs/${GITHUB_RUN_ID}"
 input="$1"
 output="$2"
 
+if [[ "${GITHUB_JOB}" == "lint" ]]; then
+    exec python3 "$(dirname "$0")/lint_notification.py" "$input" "$output"
+fi
+
 touch aux
 if [[ "${GITHUB_JOB}" == "build" ]]; then
     grep 'cpython/Doc/.*WARNING:' "$input" | \
           sed 's|.*/cpython/Doc/||' | \
           uniq | \
-          sed 's|^|```\n|;s|$|\n```\n|' \
-          > aux
-elif [[ "${GITHUB_JOB}" == "lint" ]]; then
-    grep -P '^.*\.po:\d+:\s+.*\(.*\)$' "$input" | \
-          sed 's|.*/cpython/Doc/||' | \
-          sort -u | \
           sed 's|^|```\n|;s|$|\n```\n|' \
           > aux
 else
