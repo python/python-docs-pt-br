@@ -34,7 +34,7 @@ make -C cpython/Doc venv
 
 # If cpython is set with Sphinx 9 or newer, replace it with maciek's patch
 sphinx_ver=$(cpython/Doc/venv/bin/python -c 'import sphinx; print(sphinx.__version__[0])')
-if [[ $sphinx_ver -eq 9 ]]; then
+if [ ${sphinx_ver} -eq 9 ]; then
   cpython/Doc/venv/bin/pip install git+https://github.com/m-aciek/sphinx.git@copilot/fix-last-four-cases-issue-14162
 fi
 
