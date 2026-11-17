@@ -1,5 +1,5 @@
-1 directory  56.31% done
-└── 3.15/  56.31% done
+1 directory  56.30% done
+└── 3.15/  56.30% done
     ├── builtins/  99.14% done
     │   └── stdtypes.po                   99.0% translated 1645/1660
     ├── c-api/  45.88% done
@@ -185,7 +185,7 @@
     │   ├── operator.po                   91.0% translated 173/189
     │   ├── optparse.po                   78.0% translated 420/532
     │   ├── os.path.po                    83.0% translated  94/113
-    │   ├── os.po                         89.0% translated 1017/1136
+    │   ├── os.po                         89.0% translated 1016/1137
     │   ├── pdb.po                        98.0% translated 177/179
     │   ├── pickle.po                     97.0% translated 244/251
     │   ├── poplib.po                     37.0% translated   20/53
@@ -269,12 +269,13 @@
     │   ├── expressions.po                76.0% translated 497/651
     │   └── simple_stmts.po               90.0% translated 282/310
     ├── tutorial/  100.00% done
-    ├── using/  87.89% done
+    ├── using/  87.86% done
     │   ├── cmdline.po                    98.0% translated 278/282
     │   ├── configure.po                  95.0% translated 465/489
+    │   ├── ios.po                        98.0% translated   90/91
     │   ├── unix.po                       98.0% translated   62/63
     │   └── windows.po                    84.0% translated 497/591
-    └── whatsnew/  48.13% done
+    └── whatsnew/  48.11% done
         ├── 2.2.po                        99.0% translated 214/215
         ├── 2.3.po                        83.0% translated 323/387
         ├── 2.4.po                        60.0% translated 192/318
@@ -296,4 +297,4 @@
         ├── 3.7.po                        43.0% translated 247/568
         ├── 3.8.po                        99.0% translated 511/513
         ├── 3.9.po                        99.0% translated 379/380
-        └── changelog.po                  25.0% translated 4024/15895
+        └── changelog.po                  25.0% translated 4024/15904
