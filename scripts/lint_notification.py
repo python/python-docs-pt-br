@@ -5,7 +5,28 @@ import re
 import subprocess
 import sys
 from pathlib import Path
-from urllib.parse import quote
+
+
+def source_location(po_file, lineno):
+    """Find the source references for the PO entry containing the diagnostic."""
+    try:
+        lines = po_file.read_text(encoding="utf-8").splitlines()
+        index = int(lineno) - 1
+        if not 0 <= index < len(lines):
+            return None
+        start = index
+        while start > 0 and lines[start - 1].strip():
+            start -= 1
+        end = index
+        while end < len(lines) and lines[end].strip():
+            end += 1
+        references = []
+        for line in lines[start:end]:
+            if line.startswith("#: "):
+                references.extend(re.findall(r"(?:^|\s)(.+?:\d+)(?=\s|$)", line[3:]))
+        return ", ".join(dict.fromkeys(references)) or None
+    except (OSError, UnicodeError):
+        return None
 
 
 def main(log, output):
@@ -18,7 +39,7 @@ def main(log, output):
     ).strip()
     header = f"❌ *{version} lint* ([execução {run}]({repo}/actions/runs/{run}))"
     footer = "Mais diagnósticos no log da execução."
-    message = header
+    message = header + f"\n[Revisão das traduções]({repo}/tree/{revision}/)"
     found = False
     for line in sorted(set(log.read_text(encoding="utf-8").splitlines())):
         match = re.fullmatch(r"(.+?\.po):(\d+):\s+(.+\(.*\))", line)
@@ -29,9 +50,9 @@ def main(log, output):
         path = Path(filename)
         if path.is_absolute():
             path = path.relative_to(checkout.resolve())
-        url = f"{repo}/blob/{revision}/{quote(path.as_posix())}#L{lineno}"
-        detail = f"{path}:{lineno}: {diagnostic}".replace("`", "\\`")
-        block = f"\n\n```\n{detail}\n```\n[Abrir linha {lineno}]({url})"
+        location = source_location(checkout / path, lineno) or f"{path}:{lineno}"
+        detail = f"{location}: {diagnostic}".replace("`", "\\`")
+        block = f"\n\n```\n{detail}\n```"
         # Count the unparsed text conservatively, including Markdown and emoji.
         if len((message + block + "\n\n" + footer).encode("utf-16-le")) // 2 > 4096:
             message += "\n\n" + footer
