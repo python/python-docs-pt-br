@@ -1,9 +1,6 @@
-1 directory  57.97% done
-└── 3.14/  57.97% done
-    ├── glossary.po                       99.0% translated 500/503
-    ├── builtins/  98.50% done
-    │   ├── exceptions.po                 99.0% translated 202/203
-    │   ├── functions.po                  99.0% translated 516/521
+1 directory  58.00% done
+└── 3.14/  58.00% done
+    ├── builtins/  99.28% done
     │   └── stdtypes.po                   99.0% translated 1572/1584
     ├── c-api/  51.70% done
     │   ├── bool.po                       81.0% translated    9/11
