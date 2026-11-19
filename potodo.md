@@ -1,5 +1,5 @@
-1 directory  56.31% done
-└── 3.15/  56.31% done
+1 directory  56.27% done
+└── 3.15/  56.27% done
     ├── builtins/  99.14% done
     │   └── stdtypes.po                   99.0% translated 1645/1660
     ├── c-api/  45.88% done
@@ -80,7 +80,7 @@
     │   ├── sorting.po                    53.0% translated   48/90
     │   └── unicode.po                    19.0% translated  28/143
     ├── installing/  100.00% done
-    ├── library/  52.31% done
+    ├── library/  52.35% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              90.0% translated 143/158
     │   ├── argparse.po                   97.0% translated 420/432
@@ -229,7 +229,7 @@
     │   ├── timeit.po                     91.0% translated   65/71
     │   ├── tkinter.dnd.po                45.0% translated    9/20
     │   ├── tkinter.messagebox.po         93.0% translated   40/43
-    │   ├── tkinter.po                    21.0% translated 273/1254
+    │   ├── tkinter.po                    22.0% translated 280/1254
     │   ├── tkinter.ttk.po                24.0% translated 118/476
     │   ├── tokenize.po                   67.0% translated   42/62
     │   ├── tomllib.po                    98.0% translated   68/69
@@ -237,6 +237,7 @@
     │   ├── traceback.po                   7.0% translated   9/117
     │   ├── tracemalloc.po                13.0% translated  21/156
     │   ├── turtle.po                     73.0% translated 417/567
+    │   ├── types.po                      98.0% translated 108/110
     │   ├── typing.po                     90.0% translated 780/861
     │   ├── unicodedata.po                22.0% translated  22/100
     │   ├── unittest.mock-examples.po     10.0% translated  19/182
@@ -269,13 +270,13 @@
     │   ├── expressions.po                76.0% translated 497/651
     │   └── simple_stmts.po               90.0% translated 282/310
     ├── tutorial/  100.00% done
-    ├── using/  87.86% done
+    ├── using/  84.42% done
     │   ├── cmdline.po                    98.0% translated 278/282
     │   ├── configure.po                  95.0% translated 465/489
     │   ├── ios.po                        98.0% translated   90/91
     │   ├── unix.po                       98.0% translated   62/63
-    │   └── windows.po                    84.0% translated 497/591
-    └── whatsnew/  48.11% done
+    │   └── windows.po                    79.0% translated 496/621
+    └── whatsnew/  48.09% done
         ├── 2.2.po                        99.0% translated 214/215
         ├── 2.3.po                        83.0% translated 323/387
         ├── 2.4.po                        60.0% translated 192/318
@@ -297,4 +298,4 @@
         ├── 3.7.po                        43.0% translated 247/568
         ├── 3.8.po                        99.0% translated 511/513
         ├── 3.9.po                        99.0% translated 379/380
-        └── changelog.po                  25.0% translated 4024/15904
+        └── changelog.po                  25.0% translated 4024/15911
