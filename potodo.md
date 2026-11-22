@@ -1,5 +1,5 @@
-1 directory  56.26% done
-└── 3.15/  56.26% done
+1 directory  56.29% done
+└── 3.15/  56.29% done
     ├── builtins/  99.14% done
     │   └── stdtypes.po                   99.0% translated 1645/1660
     ├── c-api/  45.88% done
@@ -81,7 +81,7 @@
     │   ├── sorting.po                    53.0% translated   48/90
     │   └── unicode.po                    19.0% translated  28/143
     ├── installing/  100.00% done
-    ├── library/  52.35% done
+    ├── library/  52.41% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              90.0% translated 143/158
     │   ├── argparse.po                   97.0% translated 420/432
@@ -162,7 +162,6 @@
     │   ├── http.cookiejar.po              4.0% translated   7/159
     │   ├── http.cookies.po               12.0% translated    7/54
     │   ├── http.server.po                11.0% translated  16/135
-    │   ├── idle.po                       98.0% translated 294/297
     │   ├── imaplib.po                    10.0% translated  14/138
     │   ├── importlib.metadata.po         71.0% translated 106/149
     │   ├── importlib.po                  65.0% translated 186/283
@@ -230,7 +229,7 @@
     │   ├── timeit.po                     91.0% translated   65/71
     │   ├── tkinter.dnd.po                45.0% translated    9/20
     │   ├── tkinter.messagebox.po         93.0% translated   40/43
-    │   ├── tkinter.po                    22.0% translated 280/1254
+    │   ├── tkinter.po                    23.0% translated 294/1254
     │   ├── tkinter.ttk.po                24.0% translated 118/476
     │   ├── tokenize.po                   67.0% translated   42/62
     │   ├── tomllib.po                    98.0% translated   68/69
@@ -265,8 +264,7 @@
     │   ├── zipfile.po                    96.0% translated 209/216
     │   ├── zlib.po                       91.0% translated  94/103
     │   └── zoneinfo.po                   44.0% translated   37/84
-    ├── reference/  90.13% done
-    │   ├── compound_stmts.po             99.0% translated 497/499
+    ├── reference/  90.19% done
     │   ├── datamodel.po                  95.0% translated 874/915
     │   ├── expressions.po                76.0% translated 497/651
     │   └── simple_stmts.po               90.0% translated 282/310
