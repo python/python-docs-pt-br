@@ -1,5 +1,5 @@
-1 directory  56.29% done
-└── 3.15/  56.29% done
+1 directory  56.23% done
+└── 3.15/  56.23% done
     ├── builtins/  99.14% done
     │   └── stdtypes.po                   99.0% translated 1645/1660
     ├── c-api/  45.88% done
@@ -60,8 +60,8 @@
     │   ├── extending.po                  95.0% translated   58/61
     │   ├── library.po                    97.0% translated 140/143
     │   └── programming.po                90.0% translated 453/503
-    ├── howto/  59.90% done
-    │   ├── abi3t-migration.po             8.0% translated  16/179
+    ├── howto/  60.09% done
+    │   ├── abi3t-migration.po            19.0% translated  35/179
     │   ├── annotations.po                94.0% translated   49/52
     │   ├── curses.po                     89.0% translated 106/118
     │   ├── descriptor.po                 79.0% translated 180/226
@@ -81,7 +81,7 @@
     │   ├── sorting.po                    53.0% translated   48/90
     │   └── unicode.po                    19.0% translated  28/143
     ├── installing/  100.00% done
-    ├── library/  52.41% done
+    ├── library/  52.25% done
     │   ├── abc.po                        78.0% translated   47/60
     │   ├── annotationlib.po              90.0% translated 143/158
     │   ├── argparse.po                   97.0% translated 420/432
@@ -185,7 +185,7 @@
     │   ├── operator.po                   91.0% translated 173/189
     │   ├── optparse.po                   78.0% translated 420/532
     │   ├── os.path.po                    83.0% translated  94/113
-    │   ├── os.po                         89.0% translated 1016/1137
+    │   ├── os.po                         89.0% translated 1012/1133
     │   ├── pdb.po                        98.0% translated 177/179
     │   ├── pickle.po                     97.0% translated 244/251
     │   ├── poplib.po                     37.0% translated   20/53
@@ -236,7 +236,7 @@
     │   ├── trace.po                      90.0% translated   39/43
     │   ├── traceback.po                   7.0% translated   9/117
     │   ├── tracemalloc.po                13.0% translated  21/156
-    │   ├── turtle.po                     73.0% translated 417/567
+    │   ├── turtle.po                     66.0% translated 374/561
     │   ├── types.po                      98.0% translated 108/110
     │   ├── typing.po                     90.0% translated 780/861
     │   ├── unicodedata.po                22.0% translated  22/100
@@ -247,7 +247,7 @@
     │   ├── urllib.request.po             15.0% translated  47/303
     │   ├── uuid.po                       86.0% translated   68/79
     │   ├── venv.po                       99.0% translated 138/139
-    │   ├── warnings.po                   44.0% translated  74/165
+    │   ├── warnings.po                   45.0% translated  75/166
     │   ├── wave.po                       25.0% translated   19/74
     │   ├── webbrowser.po                 90.0% translated   84/93
     │   ├── winreg.po                     96.0% translated 176/183
@@ -275,7 +275,7 @@
     │   ├── ios.po                        98.0% translated   90/91
     │   ├── unix.po                       98.0% translated   62/63
     │   └── windows.po                    79.0% translated 496/621
-    └── whatsnew/  48.06% done
+    └── whatsnew/  48.05% done
         ├── 2.2.po                        99.0% translated 214/215
         ├── 2.3.po                        83.0% translated 323/387
         ├── 2.4.po                        60.0% translated 192/318
@@ -297,4 +297,4 @@
         ├── 3.7.po                        43.0% translated 247/568
         ├── 3.8.po                        99.0% translated 511/513
         ├── 3.9.po                        99.0% translated 379/380
-        └── changelog.po                  25.0% translated 4024/15923
+        └── changelog.po                  25.0% translated 4024/15930
