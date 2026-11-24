@@ -1,5 +1,5 @@
-1 directory  57.98% done
-└── 3.14/  57.98% done
+1 directory  57.97% done
+└── 3.14/  57.97% done
     ├── builtins/  99.28% done
     │   └── stdtypes.po                   99.0% translated 1572/1584
     ├── c-api/  51.70% done
@@ -228,7 +228,7 @@
     │   ├── urllib.request.po             15.0% translated  47/303
     │   ├── uuid.po                       86.0% translated   68/79
     │   ├── venv.po                       99.0% translated 136/137
-    │   ├── warnings.po                   46.0% translated  76/162
+    │   ├── warnings.po                   47.0% translated  77/163
     │   ├── wave.po                       34.0% translated   21/61
     │   ├── webbrowser.po                 97.0% translated   88/90
     │   ├── wsgiref.po                    51.0% translated  70/135
@@ -255,7 +255,7 @@
     │   ├── mac.po                        98.0% translated   94/95
     │   ├── unix.po                       98.0% translated   62/63
     │   └── windows.po                    80.0% translated 500/620
-    └── whatsnew/  47.91% done
+    └── whatsnew/  47.89% done
         ├── 2.2.po                        99.0% translated 214/215
         ├── 2.3.po                        83.0% translated 323/387
         ├── 2.4.po                        60.0% translated 192/318
@@ -277,4 +277,4 @@
         ├── 3.7.po                        43.0% translated 247/568
         ├── 3.8.po                        99.0% translated 511/513
         ├── 3.9.po                        99.0% translated 379/380
-        └── changelog.po                  26.0% translated 3872/14838
+        └── changelog.po                  26.0% translated 3872/14846
